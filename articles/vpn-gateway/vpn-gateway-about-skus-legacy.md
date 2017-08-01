@@ -41,7 +41,7 @@ This article contains information about the legacy virtual network gateway SKUs.
 
 ## <a name="resize"></a>Resize a gateway (change a gateway SKU)
 
-You can't resize your VPN gateways directly between the old SKUs and the new SKU families. However, you can resize within the same SKU family. For example, if you have a Standard SKU, you can resize to a HighPerformance SKU using the following command:
+You can't resize your VPN gateways between the old SKUs and the new SKU families. For example, you can't go from a Standard SKU to a VpnGw2 SKU. However, you can resize within the same SKU family. For example, if you have a Standard SKU, you can resize to a HighPerformance SKU using the following command:
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
