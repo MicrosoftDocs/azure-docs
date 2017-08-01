@@ -20,7 +20,7 @@ ms.author: cherylmc
 ---
 # Working with virtual network gateway SKUs (legacy SKUs)
 
-This article contains information about the legacy virtual network gateway SKUs. For information on the current SKUs, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
+This article contains information about the legacy (old) virtual network gateway SKUs. The legacy SKUs still work in both deployment models for VPN gateways that have already been created. Classic VPN gateways continue to use the legacy SKUs, both for existing gateways, and for new gateways. When creating new Resource Manager VPN gateways, use the new gateway SKUs. For information about the new SKUs, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 
 ## Gateway SKUs
 
