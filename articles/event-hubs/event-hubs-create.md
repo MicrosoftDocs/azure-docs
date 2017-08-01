@@ -29,8 +29,8 @@ ms.author: sethm
    
     ![](./media/event-hubs-create/create-event-hub1.png)
 1. After making sure the namespace name is available, choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource. 
-1. Click **Create** to create the namespace.You may have to wait a few minutes for the system to fully provision the resources.
-2. In the portal list of namespaces, click the newly-created namespace.
+1. Click **Create** to create the namespace. You may have to wait a few minutes for the system to fully provision the resources.
+2. In the portal list of namespaces, click the newly created namespace.
 2. Click **Shared access policies**, and then click **RootManageSharedAccessKey**.
     
     ![](./media/event-hubs-create/create-event-hub7.png)
@@ -41,7 +41,7 @@ ms.author: sethm
 
 ## Create an event hub
 
-1. In the Event Hubs namespace list, click the newly-created namespace.      
+1. In the Event Hubs namespace list, click the newly created namespace.      
    
     ![](./media/event-hubs-create/create-event-hub2.png) 
 
