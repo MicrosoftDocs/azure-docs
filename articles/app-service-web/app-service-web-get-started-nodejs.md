@@ -25,6 +25,9 @@ ms.custom: mvc
 
 You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]
+
+
 ## Prerequisites
 
 To complete this quickstart:
