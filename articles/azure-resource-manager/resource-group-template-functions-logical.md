@@ -141,8 +141,8 @@ Returns a value based on whether a condition is true or false.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | condition |Yes |boolean |The value to check whether it is true. |
-| trueValue |Yes | string, int, object or array |The value to return when the condition is true. |
-| falseValue |Yes | string, int, object or array |The value to return when the condition is false. |
+| trueValue |Yes | string, int, object, or array |The value to return when the condition is true. |
+| falseValue |Yes | string, int, object, or array |The value to return when the condition is false. |
 
 ### Return value
 
@@ -150,7 +150,7 @@ Returns second parameter when first parameter is **True**; otherwise, returns th
 
 ### Remarks
 
-You can use the **if** function to conditionally set a resource property. The following example is not a full template, but it shows the relevant portions for conditionally setting the availability set.
+You can use this function to conditionally set a resource property. The following example is not a full template, but it shows the relevant portions for conditionally setting the availability set.
 
 ```json
 {
@@ -196,7 +196,7 @@ You can use the **if** function to conditionally set a resource property. The fo
 
 ### Examples
 
-The following example shows how to use the **if** function.
+The following example shows how to use the `if` function.
 
 ```json
 {
