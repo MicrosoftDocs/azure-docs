@@ -1,6 +1,6 @@
 ﻿---
-title: Azure PowerShell: Create an Analysis Services server by using PowerShell | Microsoft Docs
-description: Learn how to create an Azure Analysis Services server  by using PowerShell
+title: Azure PowerShell: Create an Azure Analysis Services server by using PowerShell | Microsoft Docs
+description: Learn how to create an Azure Analysis Services server by using PowerShell
 services: analysis-services
 documentationcenter: ''
 author: minewiskan
@@ -10,25 +10,24 @@ editor: ''
 ms.assetid: 
 ms.service: analysis-services
 ms.custom: mvc, intelligence & analytics
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: PowerShell
+ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/01/2017
 ms.author: owend
+
 ---
 
 # Create an Analysis Services server by using PowerShell
 
 This article describes using PowerShell from the command line to create an Azure Analysis Services server in an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
-This task requires Azure PowerShell module version 4.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. To install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+This task requires Azure PowerShell module version 4.0 or later. To find the version, run ` Get-Module -ListAvailable AzureRM`. To install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
 > [!NOTE]
 > Creating a server might result in a new billable service. To learn more, see [Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
 
 ## Prerequisites
-To get started, you need:
+To complete this quickstart, you need:
 
 * **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
 * **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant and you must have an account in that directory. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
