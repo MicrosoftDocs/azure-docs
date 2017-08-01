@@ -1,6 +1,6 @@
 ---
-title: Prerequisites for Azure VM replication between Azure regions, using Azure Site Recovery | Microsoft Docs'
-description: Summarizes the prerequisites for replicating Azure VMs between Azure regions, using the Azure Site Recovery service
+title: Before you start replication of Azure VMs to another region | Microsoft Docs'
+description: Summarizes the steps you need to take before replicating Azure VMs between Azure regions, using the Azure Site Recovery service
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -18,7 +18,7 @@ ms.author: raynew
 
 ---
 
-# Step 2: Verify the prerequisites for Azure VM replication between Azure regions
+# Step 2: Before you start
 
 After you've reviewed the [architecture](azure-to-azure-walkthrough-architecture.md) for replicating Azure virtual machines (VMs) between Azure regions with Azure Site Recovery(site-recovery-overview.md), use this article to verify prerequisites. 
 
@@ -31,7 +31,7 @@ After you've reviewed the [architecture](azure-to-azure-walkthrough-architecture
 
 
 
-## Support prerequisites
+## Support recommendations
 
 Review the table below.
 
