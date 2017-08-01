@@ -69,7 +69,7 @@ Set up a Recovery Services vault. The vault contains configuration settings, and
 
 Set up the source and target replication VMM locations. Add the VMM servers to the vault, and download the installation files for Site Recovery components. Run Azure Site Recovery Provider setup on the VMM server. Setup installs the Provider on the VMM server, and registers the server in the vault. You install the Microsoft Recovery Services agent on each Hyper-V host.
 
-Go to [Step 6: Setup the source and target settings](vmm-to-vmm-walkthrough-source-target.md).
+Go to [Step 6: Set up the source and target settings](vmm-to-vmm-walkthrough-source-target.md).
 
 ## Step 7: Configure network mapping
 
