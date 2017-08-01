@@ -54,7 +54,7 @@ Go to [Step 4: Plan networking](azure-to-azure-walkthrough-network.md)
 
 You need to set up a Recovery Services vault to orchestrate and manage replication, and specify the source region.
 
-Go to [Step 4: Create a vault and configure the source location](azure-to-azure-walkthrough-vault-source.md)
+Go to [Step 4: Create a vault](azure-to-azure-walkthrough-vault.md)
 
 
 ## Step 5: Enable replication
