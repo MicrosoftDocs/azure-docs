@@ -137,6 +137,7 @@
 ### [Analyze website logs with Hive](hdinsight-hive-analyze-website-log.md)
 ### [Analyze Application Insights telemetry logs](hdinsight-spark-analyze-application-insight-logs.md)
 ## Extend clusters
+### [Use secure enabled storage account](hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)
 ### [Customize clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Customize clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md)
 ### [Connect HDInsight to your on-premises network](connect-on-premises-network.md)
@@ -241,4 +242,5 @@
 ## [Get help on the forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [Microsoft Professional Program for Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Windows tools for HDInsight](hdinsight-hadoop-windows-tools.md)

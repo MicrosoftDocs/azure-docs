@@ -41,15 +41,15 @@ This sidecar example could be expanded to trigger an alert if it received an HTT
   },
   "variables": {
     "container1name": "aci-tutorial-app",
-    "container1image": "microsoft/aci-tutorial-app:v1",
+    "container1image": "microsoft/aci-helloworld:latest",
     "container2name": "aci-tutorial-sidecar",    
     "container2image": "microsoft/aci-tutorial-sidecar"
   },
     "resources": [
       {
         "name": "myContainerGroup",
-        "type": "Microsoft.Container/containerGroups",
-        "apiVersion": "2017-04-01-preview",
+        "type": "Microsoft.ContainerInstance/containerGroups",
+        "apiVersion": "2017-08-01-preview",
         "location": "[resourceGroup().location]",
         "properties": {
           "containers": [
@@ -57,6 +57,12 @@ This sidecar example could be expanded to trigger an alert if it received an HTT
               "name": "[variables('container1name')]",
               "properties": {
                 "image": "[variables('container1image')]",
+                "resources": {
+                  "requests": {
+                    "cpu": 1,
+                    "memoryInGb": 1.5
+                    }
+                },
                 "ports": [
                   {
                     "port": 80
@@ -67,7 +73,13 @@ This sidecar example could be expanded to trigger an alert if it received an HTT
             {
               "name": "[variables('container2name')]",
               "properties": {
-                "image": "[variables('container2image')]"
+                "image": "[variables('container2image')]",
+                "resources": {
+                  "requests": {
+                    "cpu": 1,
+                    "memoryInGb": 1.5
+                    }
+                }
               }
             }
           ],
@@ -87,7 +99,7 @@ This sidecar example could be expanded to trigger an alert if it received an HTT
     "outputs": {
       "containerIPv4Address": {
         "type": "string",
-        "value": "[reference(resourceId('Microsoft.Container/containerGroups/', 'myContainerGroup')).ipAddress.ip]"
+        "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', 'myContainerGroup')).ipAddress.ip]"
       }
     }
   }
@@ -134,7 +146,7 @@ Output:
 ```azurecli
 Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
 ----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
-myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  0 core/0 gb   Linux     westus
+myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
 ```
 
 ## View logs   
@@ -148,9 +160,11 @@ az container logs --name myContainerGroup --container-name aci-tutorial-app --re
 Output:
 
 ```bash
-listening on port 80
-::ffff:10.240.255.105 - - [21/Jul/2017:00:01:46 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
-::ffff:10.240.255.105 - - [21/Jul/2017:00:01:46 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://104.210.39.122/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+istening on port 80
+::1 - - [27/Jul/2017:17:35:29 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [27/Jul/2017:17:35:32 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [27/Jul/2017:17:35:35 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [27/Jul/2017:17:35:38 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 To see the logs for the side-car container, run the same command specifying the second container name.
