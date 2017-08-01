@@ -31,7 +31,7 @@ This task requires Azure PowerShell module version 4.0 or later. Run ` Get-Modul
 To get started, you need:
 
 * **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
-* **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant and you must have an account in that directory. To learn more, see [User authentication](analysis-services-overview.md#secure).
+* **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant and you must have an account in that directory. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 
 ## Import AzureRm.AnalysisServices module
 To create a server in your subscription, you use the [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)  component module. Load the AzureRm.AnalysisServices module into your PowerShell session.
