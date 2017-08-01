@@ -72,13 +72,6 @@ Site Recovery provisions default settings for the target region (based on the so
         
     ![Configure settings](./media/azure-to-azure-walkthrough-enable-replication/settings.png)
 
-Note the following issues:
-
-- The data is replicated continuously:
-    
-
->
-> Ongoing replication frequency is in the order of seconds, and can't be modified. Exact numbers will be available after general availability (GA).
 
 ### Modify settings
 
