@@ -29,6 +29,7 @@ Resource Manager provides several functions for working with arrays and objects.
 * [empty](#empty)
 * [first](#first)
 * [intersection](#intersection)
+* [json](#json)
 * [last](#last)
 * [length](#length)
 * [min](#min)
@@ -608,6 +609,53 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
+
+
+## json
+`json(arg1)`
+
+Returns a JSON object.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| arg1 |Yes |string |The value to convert to JSON. |
+
+
+### Return value
+
+The JSON object from the specified string, or an empty object when **null** is specified.
+
+### Example
+
+The following example shows how to use intersection with arrays and objects:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+    ],
+    "outputs": {
+        "jsonOutput": {
+            "type": "object",
+            "value": "[json('{\"a\": \"b\"}')]"
+        },
+        "nullOutput": {
+            "type": "bool",
+            "value": "[empty(json('null'))]"
+        }
+    }
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| jsonOutput | Object | {"a": "b"} |
+| nullOutput | Boolean | True |
 
 <a id="last" />
 

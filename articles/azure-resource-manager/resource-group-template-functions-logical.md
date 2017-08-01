@@ -23,6 +23,7 @@ Resource Manager provides several functions for making comparisons in your templ
 
 * [and](#and)
 * [bool](#bool)
+* [if](#if)
 * [not](#not)
 * [or](#or)
 
@@ -129,6 +130,99 @@ The output from the preceding example with the default values is:
 | falseString | Bool | False |
 | trueInt | Bool | True |
 | falseInt | Bool | False |
+
+## if
+`if(condition, trueValue, falseValue)`
+
+Returns a value based on whether a condition is true or false.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| condition |Yes |boolean |The value to check whether it is true. |
+| trueValue |Yes | string, int, object or array |The value to return when the condition is true. |
+| falseValue |Yes | string, int, object or array |The value to return when the condition is false. |
+
+### Return value
+
+Returns second parameter when first parameter is **True**; otherwise, returns third parameter.
+
+### Remarks
+
+You can use the **if** function to conditionally set a resource property. The following example is not a full template, but it shows the relevant portions for conditionally setting the availability set.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        ...
+        "availabilitySet": {
+            "type": "string",
+            "allowedValues": [
+                "yes",
+                "no"
+            ]
+        }
+    },
+    "variables": {
+        ...
+        "availabilitySetName": "availabilitySet1",
+        "availabilitySet": {
+            "id": "[resourceId('Microsoft.Compute/availabilitySets',variables('availabilitySetName'))]"
+        }
+    },
+    "resources": [
+        {
+            "condition": "[equals(parameters('availabilitySet'),'yes')]",
+            "type": "Microsoft.Compute/availabilitySets",
+            "name": "[variables('availabilitySetName')]",
+            ...
+        },
+        {
+            "apiVersion": "2016-03-30",
+            "type": "Microsoft.Compute/virtualMachines",
+            "properties": {
+                "availabilitySet": "[if(equals(parameters('availabilitySet'),'yes'), variables('availabilitySet'), json('null'))]",
+                ...
+            }
+        },
+        ...
+    ],
+    ...
+}
+```
+
+### Examples
+
+The following example shows how to use the **if** function.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+    ],
+    "outputs": {
+        "yesOutput": {
+            "type": "string",
+            "value": "[if(equals('a', 'a'), 'yes', 'no')]"
+        },
+        "noOutput": {
+            "type": "string",
+            "value": "[if(equals('a', 'b'), 'yes', 'no')]"
+        }
+    }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| yesOutput | String | yes |
+| noOutput | String | no |
 
 
 ## not

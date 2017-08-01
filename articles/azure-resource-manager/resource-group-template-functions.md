@@ -54,6 +54,7 @@ Resource Manager provides several functions for working with arrays and objects.
 * [empty](resource-group-template-functions-array.md#empty)
 * [first](resource-group-template-functions-array.md#first)
 * [intersection](resource-group-template-functions-array.md#intersection)
+* [json](resource-group-template-functions-array.md#json)
 * [last](resource-group-template-functions-array.md#last)
 * [length](resource-group-template-functions-array.md#length)
 * [min](resource-group-template-functions-array.md#min)
@@ -105,6 +106,7 @@ Resource Manager provides the following functions for working with logical condi
 
 * [and](resource-group-template-functions-logical.md#and)
 * [bool](resource-group-template-functions-logical.md#bool)
+* [if](resource-group-template-functions-logical.md#if)
 * [not](resource-group-template-functions-logical.md#not)
 * [or](resource-group-template-functions-logical.md#or)
 
