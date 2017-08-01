@@ -36,7 +36,7 @@ This sample makes use of the following NuGet Packages:
 ### Cognivite Services
 This sample utilizes the following Cognitive Services APIs:
 * [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) 
-* [Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/).  
+* [Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/)
 
 To attain 30-day trial keys to these APIs, see [this page](https://azure.microsoft.com/en-us/try/cognitive-services/).  For more information about attaining keys for professional use, see [Pricing](https://azure.microsoft.com/en-us/pricing/calculator/).
 
