@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
-ms.author: rambala
+ms.date: 08/01/2017
+ms.author: cherylmc
 
 ---
 # Verifying ExpressRoute connectivity
-ExpressRoute, which extends an on-premises network into the Microsoft cloud over a dedicated private connection that is facilitated by a connectivity provider, involves the following three distinct network zones:
+ExpressRoute, which extends an on-premises network into the Microsoft cloud over a private connection that is facilitated by a connectivity provider, involves the following three distinct network zones:
 
 - 	Customer Network
 -  	Provider Network
@@ -236,10 +236,6 @@ If a peering is not configured, there would be an error message. A sample respon
     		+ CategoryInfo          : CloseError: (:) [Get-AzureRmExpr...itPeeringConfig], InvalidOperationException
     		+ FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
 
->[!IMPORTANT]
->If layer 3 peerings were set by the service provider, setting the ExpressRoute peerings via the portal or PowerShell overwrites the service provider settings. Resetting the provider side peering settings requires the support of the service provider. Only modify the ExpressRoute peerings if it is certain that the service provider is providing layer 2 services only!
->
->
 
 <p/>
 >[!NOTE]

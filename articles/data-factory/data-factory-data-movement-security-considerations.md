@@ -3,7 +3,7 @@ title: Security considerations for data movement in Azure Data Factory  | Micros
 description: 'Learn about securing data movement in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
-author: abnarain
+author: nabhishek
 manager: jhubbard
 editor: monicar
 
@@ -12,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
-ms.author: jingwang
+ms.date: 07/27/2017
+ms.author: abnarain
 
 ---
 
@@ -137,7 +137,7 @@ The following images show the usage of Data Management Gateway for moving data b
 
 ### Firewall configurations and whitelisting IP address of gateway
 
-#### Firewall requirements for on-premise/private network	
+#### Firewall requirements for on-premises/private network	
 In an enterprise, a **corporate firewall** runs on the central router of the organization. And, **Windows firewall** runs as a daemon on the local machine on which the gateway is installed. 
 
 The following table provides **outbound port** and domain requirements for the **corporate firewall**.

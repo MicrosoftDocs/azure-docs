@@ -14,22 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2017
+ms.date: 05/24/2017
 ms.author: curtand
 
-ms.custom: H1Hack27Feb2017
+ms.custom: oldportal;it-pro;H1Hack27Feb2017
 
 ---
 # What is Microsoft Azure Active Directory licensing in the Azure classic portal?
 
 > [!div class="op_single_selector"]
-> * [Azure portal](active-directory-licensing-get-started-azure-portal.md)
-> * [Azure classic portal](active-directory-licensing-what-is.md)
+> * [Get Azure portal instructions](active-directory-licensing-get-started-azure-portal.md)
+> * [Azure classic portal info](active-directory-licensing-what-is.md)
 >
 >
-
 
 Azure Active Directory (Azure AD) is Microsoft's Identity as a Service (IDaaS) solution and platform. Azure AD is offered in a number of functional and technical versions ranging from Azure AD Free, which is available with any Microsoft service such as Office 365, Dynamics, Microsoft Intune and Azure (Azure AD does not generate any consumption charges in this mode), to Azure AD paid versions such as Enterprise Mobility Suite (EMS), Azure AD Premium and Basic, as well as Azure Multi-Factor Authentication (MFA). Like many of Microsoft online services, most Azure AD paid versions are delivered through per-user entitlements as they are in Office 365, Microsoft Intune, and Azure AD. In these cases, the service purchase is represented with one or more subscriptions, and each subscription includes a pre-purchase number of licenses in your tenant. Per-user entitlements are achieved through license assignment, creating a link between the user and the product, enabling the service components for the user, and consuming one of the prepaid licenses.
+
+> [!IMPORTANT]
+> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. For how to assign administrator roles in the Azure AD admin center, see [License yourself and your users in Azure AD](active-directory-licensing-get-started-azure-portal.md).
 
 [Try Azure AD premium now.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 

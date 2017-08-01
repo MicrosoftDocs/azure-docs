@@ -25,7 +25,7 @@ ROBOTS: NOINDEX
 This document provides a walkthrough for using the Pig command to run Pig Latin statements from a Remote Desktop connection to a Windows-based HDInsight cluster. Pig Latin allows you to create MapReduce applications by describing data transformations, rather than map and reduce functions.
 
 > [!IMPORTANT]
-> Remote Desktop is only available on HDInsight clusters that use Windows as the operating system. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Remote Desktop is only available on HDInsight clusters that use Windows as the operating system. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > For HDInsight 3.4 or greater, see [Use Pig with HDInsight and SSH](hdinsight-hadoop-use-pig-ssh.md) for information on interactively running Pig jobs directly on the cluster from a command-line.
 
@@ -47,7 +47,7 @@ Enable Remote Desktop for the HDInsight cluster, then connect to it by following
     You will be presented with a `grunt>` prompt.
 3. Enter the following statement:
 
-        LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LOGS = LOAD 'wasb:///example/data/sample.log';
 
     This command loads the contents of the sample.log file into the LOGS file. You can view the contents of the file by using the following command:
 
@@ -78,7 +78,7 @@ Enable Remote Desktop for the HDInsight cluster, then connect to it by following
     </table>
 6. You can also save the results of a transformation by using the `STORE` statement. For example, the following command saves the `RESULT` to the **/example/data/pigout** directory in the default storage container for your cluster:
 
-        STORE RESULT into 'wasbs:///example/data/pigout'
+        STORE RESULT into 'wasb:///example/data/pigout'
 
    > [!NOTE]
    > The data is stored in the specified directory in files named **part-nnnnn**. If the directory already exists, you will receive an error message.
@@ -94,7 +94,7 @@ You can also use the Pig command to run Pig Latin that is contained in a file.
 1. After exiting the grunt prompt, open **Notepad** and create a new file named **pigbatch.pig** in the **%PIG_HOME%** directory.
 2. Type or paste the following lines into the **pigbatch.pig** file, and then save it:
 
-        LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LOGS = LOAD 'wasb:///example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
         FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
         GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;

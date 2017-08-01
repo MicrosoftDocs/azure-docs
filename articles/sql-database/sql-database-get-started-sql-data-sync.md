@@ -4,7 +4,7 @@ description: This tutorial helps you get started with Azure SQL Data Sync (Previ
 services: sql-database
 documentationcenter: ''
 author: douglaslms
-manager: jhubbard
+manager: craigg
 editor: ''
 
 ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
@@ -182,7 +182,7 @@ After the new sync group members are created and deployed, Step 3, **Configure s
 
     ![Select tables to sync](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
 
-3.  By default, all columns in the table are selected. If you don't want to sync all the columns, disable the checkbox for the columns that you don't want to sync.
+3.  By default, all columns in the table are selected. If you don't want to sync all the columns, disable the checkbox for the columns that you don't want to sync. Be sure to leave the primary key column selected.
 
     ![Select fields to sync](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
 

@@ -17,6 +17,7 @@
 ### Overviews
 #### [Security worlds overview](key-vault-ovw-security-worlds.md)
 #### [Soft-delete overview](key-vault-ovw-soft-delete.md)
+#### [Storage account keys overview](key-vault-ovw-storage-keys.md)
 #### [Throttling overview](key-vault-ovw-throttling.md)
 
 ## Manage
@@ -32,6 +33,7 @@
 ### [Create and manage using CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [PowerShell](/powershell/module/azurerm.keyvault)
 ## [Azure CLI 2](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
@@ -49,8 +51,9 @@
 
 # Resources
 ## [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 ## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

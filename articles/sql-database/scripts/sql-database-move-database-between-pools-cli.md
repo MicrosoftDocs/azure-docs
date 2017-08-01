@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 07/05/2017
 ms.author: janeng
 ---
 
@@ -49,7 +49,7 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | Creates a logical server that hosts a database or elastic pool. |
-| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pools#create) | Creates an elastic pool within the logical server. |
+| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#create) | Creates an elastic pool within the logical server. |
 | [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) | Creates a database in a logical server as a single or a pooled database. |
 | [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#update) | Updates database properties or moves a database into, out of, or between elastic pools. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Deletes a resource group including all nested resources. |

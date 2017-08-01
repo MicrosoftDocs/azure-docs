@@ -118,7 +118,6 @@ Learn more about [custom events](app-insights-api-custom-events-metrics.md#track
 ### Slice and dice events
 
 In the Users, Sessions, and Events tools, you can slice and dice custom events by user, event name, and properties.
-
 ![Users](./media/app-insights-usage-overview/users.png)  
   
 ## Design the telemetry with the app
@@ -165,5 +164,5 @@ All new TelemetryClients automatically add the property value you specify. Indiv
 
 * [Users and sessions](app-insights-usage-segmentation.md)
 * [Retention](app-insights-usage-retention.md)
-* [Coding custom events](app-insights-api-custom-events-metrics.md)s
+* [Coding custom events](app-insights-api-custom-events-metrics.md)
 

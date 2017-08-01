@@ -55,7 +55,7 @@ This article provides an example of how you can use Azure Automation Desired Sta
 * Windows Management Framework (WMF) 5.0 installed on the machines that you want to enable for protection (a requirement for Automation DSC)
 
   > [!NOTE]
-  > If you want to use DSC for Windows machines that have WMF 4.0 installed, see the section [Use DSC in disconnected environments](#Use DSC in disconnected environments).
+  > If you want to use DSC for Windows machines that have WMF 4.0 installed, see the section [Use DSC in disconnected environments](## Use DSC in disconnected environments).
   >
   >
 
@@ -507,4 +507,4 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
 ## Next steps
-After you deploy the Mobility service agents, you can [enable replication](site-recovery-vmware-to-azure.md#enable-replication) for the virtual machines.
+After you deploy the Mobility service agents, you can [enable replication](site-recovery-vmware-to-azure.md) for the virtual machines.

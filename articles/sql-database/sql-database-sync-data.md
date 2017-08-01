@@ -4,7 +4,7 @@ description: This overview introduces Azure SQL Data Sync (Preview).
 services: sql-database
 documentationcenter: ''
 author: douglaslms
-manager: jhubbard
+manager: craigg
 editor: ''
 
 ms.assetid: 
@@ -24,7 +24,7 @@ SQL Data Sync is a service built on Azure SQL Database that lets you synchronize
 
 Data Sync is based around the concept of a Sync Group. A Sync Group is a group of databases that you want to synchronize.
 
-A Sync Group has several properties including the following:
+A Sync Group has the following properties:
 
 -   The **Sync Schema** describes which data is being synchronized.
 
@@ -34,7 +34,7 @@ A Sync Group has several properties including the following:
 
 -   The **Conflict Resolution Policy** is a group level policy, which can be *Hub wins* or *Member wins*.
 
-Data Sync uses a hub and spoke topology to synchronize data. You must define one of the databases in the group as the Hub Database. The rest of the databases are member databases. Sync occurs only between the Hub and individual members.
+Data Sync uses a hub and spoke topology to synchronize data. You define one of the databases in the group as the Hub Database. The rest of the databases are member databases. Sync occurs only between the Hub and individual members.
 -   The **Hub Database** must be an Azure SQL Database.
 -   The **member databases** can be either SQL Databases, on-premises SQL Server databases, or SQL Server instances on Azure virtual machines.
 -   The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
@@ -74,12 +74,12 @@ We don't recommend Data Sync for the following scenarios:
     -   If you select *Hub wins*, the changes in the hub always overwrite changes in the member.
     -   If you select *Member wins*, the changes in the member overwrite changes in the hub. If there's more than one member, the final value depends on which member syncs first.
 
-## Limitations and Considerations
+## Limitations and considerations
 
-### Performance Impact
-Data Sync uses insert, update, and delete triggers to track changes. It creates side tables in the user database. These activities have an impact on your database workload, so assess your service tier and upgrade if needed.
+### Performance impact
+Data Sync uses insert, update, and delete triggers to track changes. It creates side tables in the user database for change tracking. These change tracking activities have an impact on your database workload. Assess your service tier and upgrade if needed.
 
-### Eventual Consistency
+### Eventual consistency
 Since Data Sync is trigger-based, transactional consistency is not guaranteed. Microsoft guarantees that all changes are made eventually and that Data Sync does not cause data loss.
 
 ### Unsupported data types
@@ -96,9 +96,9 @@ Since Data Sync is trigger-based, transactional consistency is not guaranteed. M
 
 -   Each table must have a primary key.
 
--   A table cannot have identity columns that are not the primary key.
+-   A table cannot have an identity column that is not the primary key.
 
--   A database name cannot contain special characters.
+-   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 
 ### Limitations on service and database dimensions
 
@@ -114,7 +114,29 @@ Since Data Sync is trigger-based, transactional consistency is not guaranteed. M
 | Data row size on a table                                        | 24 Mb                  |                             |
 | Minimum sync interval                                           | 5 Minutes              |                             |
 
-## Next Steps
+## Common questions
+
+### How frequently can Data Sync synchronize my data? 
+The minimum frequency is every five minutes.
+
+### Can I use Data Sync to sync between SQL Server on-premises databases only? 
+Not directly. You can sync between SQL Server on-premises databases indirectly, however, by creating a Hub database in Azure, and then adding the on-premises databases to the sync group.
+   
+### Can I use Data Sync to seed data from my production database to an empty database, and then keep them synchronized? 
+Yes. Create the schema manually in the new database by scripting it from the original. After you create the schema, add the tables to a sync group to copy the data and keep it synced.
+
+### Why do I see tables that I did not create?  
+Data Sync creates side tables in your database for change tracking. Don't delete them or Data Sync stops working.
+   
+### I got an error message that said "cannot insert the value NULL into the column \<column\>. Column does not allow nulls." What does this mean, and how can I fix the error? 
+This error message indicates one of the two following issues:
+1.  There may be a table without a primary key. To fix this issue, add a primary key to all the tables you're syncing.
+2.  There may be a WHERE clause in your CREATE INDEX statement. Sync does not handle this condition. To fix this issue, remove the WHERE clause or manually make the changes to all databases. 
+ 
+### How does Data Sync handle circular references? That is, when the same data is synced in multiple sync groups, and keeps changing as a result?
+Data Sync doesn’t handle circular references. Be sure to avoid them. 
+
+## Next steps
 
 For more info about SQL Database and SQL Data Sync, see:
 
@@ -127,5 +149,3 @@ For more info about SQL Database and SQL Data Sync, see:
 -   [SQL Database Overview](sql-database-technical-overview.md)
 
 -   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
-
-

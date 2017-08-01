@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot deploying Linux virtual machine issues in Azure | Microsoft Docs
 description: Troubleshoot deploying Linux virtual machine issues in Azurethe Resource Manager deployment model.
 services: virtual-machines-windows
@@ -26,8 +26,6 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 ## Top issues
 [!INCLUDE [virtual-machines-linux-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
-
-For other VM deployment issues or questions, see [Troubleshoot deploying Linux virtual machine issues in Azure](troubleshoot-deploy-vm.md).
 
 ## The cluster cannot support the requested VM size
 <properties
@@ -87,11 +85,11 @@ Choose a size that is supported on the availability set's cluster. It is recomme
 
 ## What Linux distributions/versions are supported on Azure?
 
-You can find the list at Linux on [Azure-Endorsed Distributions](/linux/endorsed-distros).
+You can find the list at Linux on [Azure-Endorsed Distributions](endorsed-distros.md).
 
 ## Can I add an existing Classic VM to an availability set?
 
-Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](../windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](../windows/classic/configure-availability.md#addmachine).
 
 
 ## Next steps

@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/24/2017
+ms.date: 07/13/2017
 ms.author: markvi
+ms.reviewer: calebb
 
 ---
 # Applications and browsers that use conditional access rules in Azure Active Directory
@@ -36,7 +37,7 @@ The following applications support conditional access for Office 365 and other A
 
 | Target Service| Platform| Application |
 | --- | --- | --- |
-| Any My Apps app service| Android and iOS| Any My Apps app service|
+| Any My Apps app service| Android and iOS| MFA and location policy for apps. Device based policies are not supported. |
 | Azure Remote App service| Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X| Azure Remote app|
 | Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS, and Android| Dynamics CRM app|
 | Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS/Android and MAC OSX| Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, MAC OS X, iOS, Android, WP, and web client|
@@ -118,7 +119,9 @@ By applying the following three rules to the AD FS relying party trust for Micro
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-## Supported browsers
+## Supported browsers for device based policies 
+
+You can only get access for device based policies that check for device compliance and domain join when Azure AD can identify and authenticate the device. While most checks, like location and MFA work on most devices and browsers, device policies require of the OS version and browsers listed below. Access is blocked for users on  unsupported browsers or the operating systems when a device policy is in place. 
 
 | OS                     | Browsers                 | Support     |
 | :--                    | :--                      | :-:         |

@@ -17,6 +17,16 @@
       href: connect-php.md
     - name: Java
       href: connect-java.md
+    - name: .Net
+      href: connect-csharp.md    
+    - name: Python
+      href: connect-python.md
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: Ruby
+      href: connect-ruby.md
+    - name: Go
+      href: connect-go.md
 - name: Tutorials
   items:
   - name: 1 - Design a Database
@@ -101,10 +111,12 @@
   items:
   - name: Azure CLI
     href: /cli/azure/mysql
+  - name: REST API
+    href: /rest/api/mysql
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: MSDN forum

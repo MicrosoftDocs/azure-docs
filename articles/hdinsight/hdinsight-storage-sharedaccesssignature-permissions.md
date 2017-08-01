@@ -39,7 +39,7 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 * A Linux-based HDInsight cluster OR [Azure PowerShell][powershell] - If you have an existing Linux-based cluster, you can use Ambari to add a Shared Access Signature to the cluster. If not, you can use Azure PowerShell to create a cluster and add a Shared Access Signature during cluster creation.
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * The example files from [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). This repository contains the following items:
 
@@ -220,25 +220,25 @@ Once connected to the cluster, use the following steps to verify that you can on
 
 1. From the prompt, type the following. Replace **SASCONTAINER** with the name of the container created for the SAS storage account. Replace **SASACCOUNTNAME** with the name of the storage account used for the SAS:
 
-        hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+        hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
 
     This command lists the contents of the container, which should include the file that was uploaded when the container and SAS was created.
 
 2. Use the following command to verify that you can read the contents of the file. Replace the **SASCONTAINER** and **SASACCOUNTNAME** as in the previous step. Replace **FILENAME** with the name of the file displayed in the previous command:
 
-        hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+        hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
 
     This command lists the contents of the file.
 
 3. Use the following command to download the file to the local file system:
 
-        hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+        hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
 
     This command downloads the file to a local file named **testfile.txt**.
 
 4. Use the following command to upload the local file to a new file named **testupload.txt** on the SAS storage:
 
-        hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+        hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
 
     You receive a message similar to the following text:
 
@@ -246,7 +246,7 @@ Once connected to the cluster, use the following steps to verify that you can on
 
     This error occurs because the storage location is read+list only. Use the following command to put the data on the default storage for the cluster, which is writable:
 
-        hdfs dfs -put testfile.txt wasbs:///testupload.txt
+        hdfs dfs -put testfile.txt wasb:///testupload.txt
 
     This time, the operation should complete successfully.
 

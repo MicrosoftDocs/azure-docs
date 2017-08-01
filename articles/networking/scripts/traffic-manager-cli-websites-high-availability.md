@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
-ms.date: 04/25/2017
+ms.date: 07/07/2017
 ms.author: kumud
 ---
 
@@ -24,9 +24,11 @@ This script creates a resource group, two app service plans, two web apps, a tra
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.sh "Route traffic for high availability")]
+[!code-azurecli-interactive[main](../../../cli_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.sh "Route traffic for high availability")]
 
 
 ## Clean up deployment 
