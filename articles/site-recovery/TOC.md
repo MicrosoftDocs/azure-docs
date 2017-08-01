@@ -70,7 +70,7 @@
 ### [Step 3: Plan networking](vmm-to-vmm-walkthrough-network.md)
 ### [Step 4: Prepare VMM and Hyper-V](vmm-to-vmm-walkthrough-vmm-hyper-v.md)
 ### [Step 5: Create a vault](vmm-to-vmm-walkthrough-create-vault.md)
-### [Step 6: Set up the source and target](vmm-to-azure-walkthrough-source-target.md)
+### [Step 6: Set up the source and target](vmm-to-vmm-walkthrough-source-target.md)
 ### [Step 7: Configure network mapping](vmm-to-vmm-walkthrough-network-mapping.md)
 ### [Step 8: Create a replication policy](vmm-to-vmm-walkthrough-replication.md)
 ### [Step 9: Enable replication](vmm-to-vmm-walkthrough-enable-replication.md)
