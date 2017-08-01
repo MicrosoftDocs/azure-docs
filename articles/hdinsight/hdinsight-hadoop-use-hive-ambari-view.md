@@ -43,7 +43,7 @@ You can Ambari Views from the Azure portal; select your HDInsight cluster and th
 
 From the list of views, select the __Hive View__.
 
-![The Hive view selected](./media/hdinsight-hadoop-use-hive-ambari-view/select-hive-view.png).
+![The Hive view selected](./media/hdinsight-hadoop-use-hive-ambari-view/select-hive-view.png)
 
 > [!NOTE]
 > When accessing Ambari, you are prompted to authenticate to the site. Enter the admin (default `admin`) account name and password you used when creating the cluster.
@@ -135,35 +135,27 @@ If Tez was used to resolve the query, the Directed Acyclic Graph (DAG) is displa
 
 The __Jobs__ tab displays a history of Hive queries.
 
+![Image of the job history](./media/hdinsight-hadoop-use-hive-ambari-view/job-history.png)
+
 ## Database tables
 
 You can use the __Tables__ tab to work with tables within a Hive database.
 
+![Image of the tables tab](./media/hdinsight-hadoop-use-hive-ambari-view/tables.png)
+
 ## Saved queries
 
-1. From the Query Editor, create a worksheet and enter the following query:
+From the Query tab, you can optionally save queries. Once saved, you can reuse the query from the __Saved Queries__ tab.
 
-    ```hiveql
-    SELECT * from errorLogs;
-    ```
-
-    Execute the query to verify that it works. The results are similar to the following example:
-
-        errorlogs.t1     errorlogs.t2     errorlogs.t3     errorlogs.t4     errorlogs.t5     errorlogs.t6     errorlogs.t7
-        2012-02-03     18:35:34     SampleClass0     [ERROR]     incorrect     id     
-        2012-02-03     18:55:54     SampleClass1     [ERROR]     incorrect     id     
-        2012-02-03     19:25:27     SampleClass4     [ERROR]     incorrect     id
-
-2. Use the **Save as** button at the bottom of the editor. Name this query **Errorlogs** and select **OK**. The name of the worksheet changes to **Errorlogs**.
-
-3. Select the **Saved Queries** tab at the top of the Hive View page. **Errorlogs** is now listed as a saved query. It remains in this list until you remove it. Selecting the name opens the query in the Query Editor.
-
+![Image of saved queries tab](./media/hdinsight-hadoop-use-hive-ambari-view/saved-queries.png)
 
 ## User-defined functions
 
 Hive can also be extended through user-defined functions (UDF). A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL.
 
 The UDF tab at the top of the Hive View allows you to declare and save a set of UDFs. These UDFs can be used with the **Query Editor**.
+
+![Image of UDF tab](./media/hdinsight-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
 Once you have added a UDF to the Hive View, an **Insert udfs** button appears at the bottom of the **Query Editor**. Selecting this entry displays a drop-down list of the UDFs defined in the Hive View. Selecting a UDF adds HiveQL statements to your query to enable the UDF.
 
