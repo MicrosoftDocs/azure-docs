@@ -190,6 +190,7 @@ In this scenario, the IP addresses of VMs that fail over are changed. The drawba
     $newrecord.RecordData[0].IPv4Address  =  $IP
     Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
     ```
+    
 ### Example 
 
 Let us look at the scenario where you are planning to use different IPs across the primary and the recovery sites.In this example we have different IP addresses across primary and secondary sites, and there;s a third site from which applications hosted on the primary or recovery site can be accessed.
@@ -198,7 +199,6 @@ Let us look at the scenario where you are planning to use different IPs across t
 - VPN connections/network routes have been configured appropriately so that all three sites can access each other.
 - After failover, apps will be restored in the recovery subnet. In this scenario there's no need to fail over the entire subnet, and no changes are needed to reconfigure VPN or network routes. The failover, and some DNS updates, ensure that applications remain accessible.
 - If DNS is configured to allow dynamic updates, then the VMs will register themselves using the new IP address, when they start after failover.
-- 
 
 **Before failover**
 
