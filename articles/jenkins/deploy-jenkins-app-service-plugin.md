@@ -73,10 +73,8 @@ Before setting up the job in Jenkins, you need an Azure App Service plan and a W
 <li>Create an Azure App Service plan with the **FREE** pricing tier using the  [az appservice plan create](/cli/azure/appservice/plan#create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps.</li>
 <li>Create a Web App. You can either use the [Azure portal](/azure/app-service-web/web-sites-configure) or use the following Az CLI command:</li>
 
-```java
-def resourceGroup = '<myResourceGroup>'
-def webAppName = '<myAppName>'
-
+```azurecli-interactive
+az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
 ```
 
 <li>Make sure you set up the Java runtime configuration that your app needs. The following Azure CLI command configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.</li>
@@ -85,7 +83,7 @@ def webAppName = '<myAppName>'
 ```azurecli-interactive
 az webapp config set \
     --name <myAppName> \
-    --resource-group &lt;myResourceGroup> \
+    --resource-group <myResourceGroup> \
     --java-version 1.8 \
     --java-container Tomcat \
     --java-container-version 8.0
@@ -95,7 +93,7 @@ az webapp config set \
 
 <ol>
 <li>Create a new **freestyle** project in Jenkins Dashboard</li>
-<li>Configure **Source Code Management** to use your local fork of [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) by providing the **Repository URL**. For example: http://github.com/\<yourID\>/javawebappsample.</li>
+<li>Configure **Source Code Management** to use your local fork of [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) by providing the **Repository URL**. For example: http://github.com/&lt;yourID>/javawebappsample.</li>
 <li>Add a Build step to build the project using Maven. Do so by adding an **Execute shell**. For this example, we need an additional step to rename the *.war file in target folder to ROOT.war.</li>
 
 ```bash
@@ -138,7 +136,7 @@ withCredentials([azureServicePrincipal('<mySp>')]) {
 <li>Provide a name for the job and select **Pipeline**. Click **OK**.</li>
 <li>Click the **Pipeline** tab next.</li>
 <li>For **Definition**, select **Pipeline script from SCM**.</li>
-<li>For **SCM**, select **Git**. * Enter the GitHub URL for your forked repo: https:\<your forked repo\>.git</li>
+<li>For **SCM**, select **Git**. Enter the GitHub URL for your forked repo: https:&lt;your forked repo>.git</li>
 <li>Update **Script Path** to "Jenkinsfile_ftp_plugin"</li>
 <li>Click **Save** and run the job</li>
 </ol>
