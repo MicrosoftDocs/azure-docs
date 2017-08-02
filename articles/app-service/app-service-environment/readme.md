@@ -17,7 +17,7 @@ ms.author: ccompy
 ---
 
 # App Service environment documentation
- Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your [web apps][webapps], [mobile apps][mobileapps], [API apps][APIApps], and [Functions][Functions].
+ Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your [web apps][webapps], [mobile apps][mobileapps], [API apps][APIApps], and [functions][Functions].
 
 App Service environments (ASEs) are ideal for application workloads that require:
 
