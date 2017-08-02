@@ -48,13 +48,13 @@ You can use PowerShell scripts to upgrade your Backup vaults to Recovery Service
 
 1. Install or upgrade [Windows Management Framework (WMF) to version 5](https://www.microsoft.com/download/details.aspx?id=50395) or above.
 2. [Install Azure PowerShell MSI](https://github.com/Azure/azure-powershell/releases/download/v3.8.0-April2017/azure-powershell.3.8.0.msi).
-3. Download the [PowerShell script](http://download.microsoft.com/download/1/c/6/1c6ed72e-38f9-4675-9cf9-9b8a06da7cd3/recoveryservicesvaultupgrade.ps1) to upgrade your vaults.
+3. Download the [PowerShell script](https://aka.ms/vaultupgradescript2) to upgrade your vaults.
 
 ### Run the PowerShell script
 
 Use the following script to upgrade your vaults. The following sample script has explanations of the parameters.
 
-RecoveryServicesVaultUpgrade.ps1 **-SubscriptionID** `<subscriptionID>` **-VaultName** `<vaultname>` **-Location** `<location>` **-ResourceType** `BackupVault` **-TargetResourceGroupName** `<rgname>`
+RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **-VaultName** `<vaultname>` **-Location** `<location>` **-ResourceType** `BackupVault` **-TargetResourceGroupName** `<rgname>`
 
 **SubscriptionID** - The subscription ID number of the vault that is being upgraded.<br/>
 **VaultName** - The name of the Backup vault that is being upgraded.<br/>
