@@ -23,7 +23,6 @@ ms.custom: mvc
 
 Watch the video to see this quickstart in action and then follow the steps yourself to publish your first .NET app on Azure.
 
-<p><!--spacing--></p>
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
 ## Prerequisites
