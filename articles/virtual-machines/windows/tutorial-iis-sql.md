@@ -146,94 +146,19 @@ New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfi
 In a previous tutorial on [How to customize a Windows virtual machine](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with the Custom Script Extension for Windows. You can use the same approach to install and configure IIS on your VMs.
 
 
-Create a.ps1 file that contains the following script and save it locally.
-
 ```powershell
-Param (
-    [string]$user,
-    [string]$password,
-    [string]$sqlserver
-)
-
-# firewall
-netsh advfirewall firewall add rule name="http" dir=in action=allow protocol=TCP localport=80
-
-# folders
-New-Item -ItemType Directory c:\temp
-New-Item -ItemType Directory c:\music
-
-# install iis
-Install-WindowsFeature web-server -IncludeManagementTools
-
-# install dot.net core sdk
-Invoke-WebRequest https://go.microsoft.com/fwlink/?linkid=848827 -outfile c:\temp\dotnet-dev-win-x64.1.0.4.exe
-Start-Process c:\temp\dotnet-dev-win-x64.1.0.4.exe -ArgumentList '/quiet' -Wait
-Invoke-WebRequest https://go.microsoft.com/fwlink/?LinkId=817246 -outfile c:\temp\DotNetCore.WindowsHosting.exe
-Start-Process c:\temp\DotNetCore.WindowsHosting.exe -ArgumentList '/quiet' -Wait
-
-# download / config music app
-Invoke-WebRequest  https://github.com/neilpeterson/nepeters-azure-templates/raw/master/dotnet-core-music-vm-sql-db/music-app/music-store-azure-demo-pub.zip -OutFile c:\temp\musicstore.zip
-Expand-Archive C:\temp\musicstore.zip c:\music
-(Get-Content C:\music\config.json) | ForEach-Object { $_ -replace "<replaceserver>", $sqlserver } | Set-Content C:\music\config.json
-(Get-Content C:\music\config.json) | ForEach-Object { $_ -replace "<replaceuser>", $user } | Set-Content C:\music\config.json
-(Get-Content C:\music\config.json) | ForEach-Object { $_ -replace "<replacepass>", $password } | Set-Content C:\music\config.json
-
-# workaround for db creation bug
-Start-Process 'C:\Program Files\dotnet\dotnet.exe' -ArgumentList 'c:\music\MusicStore.dll'
-
-#configure iis
-Remove-WebSite -Name "Default Web Site"
-Set-ItemProperty IIS:\AppPools\DefaultAppPool\ managedRuntimeVersion ""
-New-Website -Name "MusicStore" -Port 80 -PhysicalPath C:\music\ -ApplicationPool DefaultAppPool
-& iisreset
-```
-
-
-Upload the file to your storage account.
-
-```powershell
-$StorageAccountName = "musicstoreiissql"
-$ContainerName = "musicstore"
-$ScriptToUpload = "C:\musicstore\musicstore.ps1"
-$fileName = "musicstore.ps1"
-New-AzureRMStorageAccount –StorageAccountName $StorageAccountName -SkuName "Standard_LRS" -Kind "Storage" -ResourceGroupName $resourceGroup -Location $Location
-$key = Get-AzureRmStorageAccountKey -Name $StorageAccountName -ResourceGroupName $resourceGroup
-$context = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $key[0].Value;
-New-AzureStorageContainer -Name $ContainerName -Context $context -Permission off
-Set-AzureStorageBlobContent -Container $ContainerName -File $ScriptToUpload -Context $context
-$scriptURL = (Get-AzureStorageBlob -Container $ContainerName -Context $context).ICloudBlob.uri.AbsoluteUri
-```
-
-Use [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) to install the Custom Script Extension. The extension runs the script on the VM to configure the VM and the application settings.
-
-```powershell
+$sqlfqdn = ($sqlserver + '.database.windows.net')
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName $resourceGroup `
     -VMName $vmName `
     -Location $location `
-    -FileUri $scriptURL `
-	-argument '$user $password $sqlserver.database.windows.net' `
-    -Run "powershell -ExecutionPolicy Unrestricted -File $filename -user $user -password $password -sqlserver $sqlserver.database.windows.net" `
-    -Name MusicStoreExtension
+    -FileUri https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1  `
+    -Run "configure-music-app.ps1 -user $user -password $password -sqlserver $sqlfqdn" `
+    -Name dotNetcore
 ```
 
+## Test the application
 
-
-
-## Test load balancer
-Obtain the public IP address of your load balancer with [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for *myPublicIP* created earlier:
-
-```powershell
-Get-AzureRmPublicIPAddress `
-  -ResourceGroupName $resourceGroup `
-  -Name myPublicIP | select IpAddress
-```
-
-You can then enter the public IP address in to a web browser. The website is displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
-
-![Running IIS website](./media/tutorial-load-balancer/running-iis-website.png)
-
-To see the load balancer distribute traffic across all three VMs running your app, you can force-refresh your web browser.
-
+Open a browser and type in the public IP address for the VM.
 
 
 
