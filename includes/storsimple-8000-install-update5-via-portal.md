@@ -42,5 +42,3 @@
 
 10. After the job is complete, navigate to the **Device settings > Device updates**. The software version should now be updated.
 
-    ![Update job creation](./media/storsimple-8000-install-update5-via-portal/update9.png)
-
