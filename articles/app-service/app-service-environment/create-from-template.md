@@ -55,7 +55,7 @@ After the *azuredeploy.parameters.json* file is filled in, create the ASE by usi
 
     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
-It takes about an hour for the ASE to create. Then the ASE shows up in the portal in the list of ASEs for the subscription that triggered the deployment.
+It takes about an hour for the ASE to be created. Then the ASE shows up in the portal in the list of ASEs for the subscription that triggered the deployment.
 
 ## Upload and configure the "default" SSL certificate
 An SSL certificate must be associated with the ASE as the "default" SSL certificate that's used to establish SSL connections to apps. If the ASE's default DNS suffix is *internal-contoso.com*, a connection to https://some-random-app.internal-contoso.com requires an SSL certificate that's valid for **.internal-contoso.com*. 
@@ -99,7 +99,7 @@ The parameters in the *azuredeploy.parameters.json* file are listed here:
 * *pfxBlobString*: The based64-encoded string representation of the .pfx file. Use the code snippet shown earlier and copy the string contained in "exportedcert.pfx.b64". Paste it in as the value of the *pfxBlobString* attribute.
 * *password*: The password used to secure the .pfx file.
 * *certificateThumbprint*: The certificate's thumbprint. If you retrieve this value from PowerShell (for example, *$certificate.Thumbprint* from the earlier code snippet), you can use the value as is. If you copy the value from the Windows certificate dialog box, remember to strip out the extraneous spaces. The *certificateThumbprint* should look something like  AF3143EB61D43F6727842115BB7F17BBCECAECAE.
-* *certificateName*: A friendly string identifier of your own choosing used to identity the certificate. The name is used as part of the unique Resource Manager identifier for the *Microsoft.Web/certificates* entity that represents the SSL certificate. The name *must* end with the following suffix: \_yourASENameHere_InternalLoadBalancingASE. This suffix is used by the Azure portal as an indicator that the certificate is used to secure an ILB-enabled ASE.
+* *certificateName*: A friendly string identifier of your own choosing used to identity the certificate. The name is used as part of the unique Resource Manager identifier for the *Microsoft.Web/certificates* entity that represents the SSL certificate. The name *must* end with the following suffix: \_yourASENameHere_InternalLoadBalancingASE. The Azure portal uses this suffix as an indicator that the certificate is used to secure an ILB-enabled ASE.
 
 An abbreviated example of *azuredeploy.parameters.json* is shown here:
 
