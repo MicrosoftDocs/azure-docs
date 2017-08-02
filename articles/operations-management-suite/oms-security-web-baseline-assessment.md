@@ -22,17 +22,17 @@ ms.author: yurid
 This document helps you use OMS Security and Audit web baseline assessment capabilities to access the secure state of your monitored resources.
 
 ## What is web baseline assessment?
-Currently OMS Security provides security baseline assessment for operating systems. It scans the OS settings of your servers every 24 hours and provides a view into potentially vulnerable settings. Read [Baseline Assessment in Operations Management Suite Security and Audit Solution](https://docs.microsoft.com/azure/operations-management-suite/oms-security-baseline) for more information on this.
+Currently OMS Security provides security baseline assessment for operating systems. It scans the OS settings of your servers every 24 hours, and provides a view into potentially vulnerable settings. Read [Baseline Assessment in Operations Management Suite Security and Audit Solution](https://docs.microsoft.com/azure/operations-management-suite/oms-security-baseline) for more information on this.
 
 The goal of the Web Baseline assessment is to find potentially vulnerable web server settings. The three primary sources for the web baseline configurations are: .NET, ASP.NET, and IIS configuration.  Just like the operating system baseline assessment, OMS Security is going to scan your web servers every 24hrs and provide a view into security state of them.  In Internet Information Service (IIS), configurations are highly customizable, which allows various site and application levels to be overridden. The scanner checks the settings at each application/site level in addition to the default root level. This helps you to identify potentially vulnerable settings and quickly remediate, along with our recommendations for those settings.
 
 
 ## Web security baseline assessment
 
-For this preview the feature is going to be accessed using the OMS Search option. Follow the steps below to perform the appropriated query:
+For this preview the feature can be accessed via the OMS Search option, and the OMS Security and Audit Dashboard. Follow the steps below to perform the appropriated query:
 
 1. In the **Microsoft Operations Management Suite** main dashboard, click **Security and Audit** tile.
-2. In the **Security and Audi**t dashboard, you can see the Web Baseline perspective next to the OS baseline perspective.
+2. In the **Security and Audit** dashboard, you can see the Web Baseline perspective next to the OS baseline perspective.
    
     ![OMS Security and Audit Web Security Baseline Assessment](./media/oms-security-web-baseline/oms-security-web-baseline-fig5.png)
 
