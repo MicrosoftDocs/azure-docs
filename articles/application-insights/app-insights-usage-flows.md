@@ -19,9 +19,25 @@ ms.author: cfreeman
 
 Flows TBD
 
-## Scenario TBD
+## How do users navigate from a page on your site?
 
 Scenario TBD
+
+## What do users click on a page on your site?
+
+Scenario TBD
+
+## Where are the places that users churn most from your site?
+
+Scenario TBD
+
+## Are there places where users repeat the same action over and over?
+
+Scenario TBD
+
+## TBD Flows Gotchas
+
+TBD
 
 ## Next steps
 
