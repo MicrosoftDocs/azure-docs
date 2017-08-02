@@ -118,7 +118,7 @@ The Data Lake tools for Visual Studio provide the following templates:
 | Storm Sample |A basic word count topology. |
 
 > [!WARNING]
-> Not all templates will work with Linux-based HDInsight. Nuget packages used by the templates may not be compatible with Mono. Check [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document and use the [.NET Portability Analyzer](hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) to identify potential problems.
+> Not all templates will work with Linux-based HDInsight. Nuget packages used by the templates may not be compatible with Mono. Check the [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document and use the [.NET Portability Analyzer](hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) to identify potential problems.
 
 In the steps in this document, you use the basic Storm Application project type to create a topology.
 
