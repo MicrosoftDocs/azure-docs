@@ -74,15 +74,16 @@ Before setting up the job in Jenkins, you need an Azure App Service plan and a W
 <li>Create a Web App. You can either use the [Azure portal](/azure/app-service-web/web-sites-configure) or use the following Az CLI command:</li>
 
 ```azurecli-interactive
-az webapp create --name &lt;myAppName> --resource-group &lt;myResourceGroup> --plan &lt;myAppServicePlan>
+az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
 
 ```
 <li>Make sure you set up the Java runtime configuration that your app needs. The following Azure CLI command configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.</li>
+
 </ol>
 
 ```azurecli-interactive
 az webapp config set \ 
-    --name &lt;myAppName> \
+    --name <myAppName> \
     --resource-group &lt;myResourceGroup> \ 
     --java-version 1.8 \ 
     --java-container Tomcat \
@@ -99,6 +100,7 @@ az webapp config set \
 ```bash
 mvn clean package
 mv target/*.war target/ROOT.war
+
 ```
 
 <li>Add a post-build action by selecting **Publish an Azure Web App**.</li>
@@ -156,10 +158,11 @@ Before setting up the job in Jenkins, you need an Azure app service on Linux. A 
 <li>Configure **Source Code Management** to use your local fork of [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) by providing the **Repository URL**. For example: http://github.com/\<yourid\>/javawebappsample.
 * Add a Build step to build the project using Maven. Do so by adding an **Execute shell** and add the following line in **Command**:</li>
 
-	```bash
+```bash
 	mvn clean package
 
-	```
+```
+
 <li>Add a post-build action by selecting **Publish an Azure Web App**.</li>
 <li>Supply, **mySp**, the Azure service principal stored in previous step as Azure Credentials</li>
 <li>In **App Configuration** section, choose the resource group and a Linux web app in your subscription. </li> 
@@ -187,12 +190,14 @@ Before setting up the job in Jenkins, you need an Azure app service on Linux. A 
 ```java
 def resourceGroup = '<myResourceGroup>'
 def webAppName = '<myAppName>'
+
 ```
 
 <li>Change line 13 to your container registry server</li>
 
 ```java
 def registryServer = '<registryURL>'
+
 ```
 
 <li>Change line 16 to update credential ID in your Jenkins instance</li>
