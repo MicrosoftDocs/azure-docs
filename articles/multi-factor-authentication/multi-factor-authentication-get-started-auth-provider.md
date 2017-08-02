@@ -35,7 +35,7 @@ If you don't have licenses for Azure Multi-Factor Authentication, you can create
 There are two types of auth providers, and the distinction is around how your Azure subscription is charged. The per-authentication option calculates the number of authentications performed against your tenant in a month. This option is best if you have a number of users authenticating only occasionally, like if you require MFA for a custom application. The per-user option calculates the number of individuals in your tenant who perform two-step verification in a month. This option is best if you have some users with licenses but need to extend MFA to more users beyond your licensing limits.
 
 ## Create a Multi-Factor Auth Provider
-Use the following steps to create an Azure Multi-Factor Auth Provider. Azure Multi-Factor Auth Providers can only be created in the Azure classic portal. If you can't sign in to the Azure classic portal, check to make sure that your Azure AD tenant is [associated with an Azure subscription](./active-directory/active-directory-how-subscriptions-associated-directory.md). 
+Use the following steps to create an Azure Multi-Factor Auth Provider. Azure Multi-Factor Auth Providers can only be created in the Azure classic portal. If you can't sign in to the Azure classic portal, check to make sure that your Azure AD tenant is [associated with an Azure subscription](../active-directory/active-directory-how-subscriptions-associated-directory.md). 
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator.
 2. On the left, select **Active Directory**.
