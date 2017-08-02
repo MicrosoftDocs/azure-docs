@@ -62,7 +62,7 @@ You will need to do the following:
 2. Run this command, substituting the name of your virtual machine for **myVM**.
 
 	```   
-        azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
+        azure vm extension set myResourceGroup myVM VMAccessForLinux Microsoft.OSTCExtensions 1.4 –-private-config-path PrivateConf.json
 	```
 
 ## <a name="sshkeyresetcli"></a>Reset the SSH key
