@@ -1,6 +1,6 @@
 ---
-title: Introduction to Azure App Service Environment
-description: Brief overview of Azure App Service Environment
+title: Introduction to Azure App Service environments
+description: Brief overview of Azure App Service environments
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ---
-# Introduction to the App Service environment #
+# Introduction to App Service environments #
  
 ## Overview ##
 
-Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your [web apps][webapps], [mobile apps][mobileapps], [API apps][APIapps], and [Functions][Functions].
+Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your [web apps][webapps], [mobile apps][mobileapps], [API apps][APIapps], and [functions][Functions].
 
 App Service environments (ASEs) are appropriate for application workloads that require:
 
@@ -34,8 +34,8 @@ ASEs are isolated to running only a single customer's applications and are alway
 All articles and how-to instructions about ASEs are available in the [README for App Service environments][ASEReadme]:
 
 * ASEs enable high-scale app hosting with secure network access. For more information, see the [AzureCon Deep Dive](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) on ASEs.
-* Multiple ASEs can be used to scale horizontally. For more information, see how to set up a [geo-distributed app footprint](https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/).
-* ASEs can be used to configure security architecture, as shown in the AzureCon Deep Dive. To see how the security architecture shown in the AzureCon Deep Dive was configured, see the article on how to implement a [layered security architecture](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-layered-security) with App Service environments.
+* Multiple ASEs can be used to scale horizontally. For more information, see [how to set up a geo-distributed app footprint](https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/).
+* ASEs can be used to configure security architecture, as shown in the AzureCon Deep Dive. To see how the security architecture shown in the AzureCon Deep Dive was configured, see the [article on how to implement a layered security architecture](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-layered-security) with App Service environments.
 * Apps running on ASEs can have their access gated by upstream devices, such as web application firewalls (WAFs). For more information, see [Configure a WAF for App Service environments](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall).
 
 ## Dedicated environment ##
