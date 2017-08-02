@@ -67,7 +67,7 @@ If you are not using PCF Ops Manager, you will need to push the nozzle as an app
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
-Note "SYSTEM_DOMAIN" is your CF domain name. You can retrive it by searching the "SYSTEM_DOMAIN" in your CF deployment manifest file. 
+> Note "SYSTEM_DOMAIN" is your CF domain name. You can retrive it by searching the "SYSTEM_DOMAIN" in your CF deployment manifest file. 
 "CF_User" is the CF admin name. You can retrive the name and password by searching the "scim" section, looking for the name and the "cf_admin_password" in your CF deployment manifest file.
      
 2. Create a CF user and grant required privileges
@@ -107,13 +107,11 @@ LOG_LEVEL                 : Logging level of the nozzle, valid levels: DEBUG, IN
 LOG_EVENT_COUNT           : If true, the total count of events that the nozzle has received and sent will be logged to OMS Log Analytics as CounterEvents
 LOG_EVENT_COUNT_INTERVAL  : The time interval of logging event count to OMS Log Analytics, default is 60s.
 ```
-
 ### Push the app from your dev box
 Make sure you are under the folder "oms-log-analytics-firehose-nozzle", run:
 ```
 cf push
 ```
-
 # Validate the nozzle installation
 ### From Apps Manager (For PCF)
 1. Log in to Ops Manager, make sure the tile is installed successfully. 
@@ -153,7 +151,7 @@ Operators could customize the queries and threshold values as needed. Below are 
 # Scaling the Nozzle
 ### 1. Scaling Nozzle
 We recommend operators to start with at least two instances of the nozzle. The firehose will distribute the workload across all instances of the nozzle. 
-To make sure the nozzle can keep up with the data traffic from the firehose, the operator should setup the **slowConsumerAlert** alert listed in the "Create Alert Rules" section; once alerted, follow the [guidacne for slow nozzle] (https://docs.pivotal.io/pivotalcf/1-11/loggregator/log-ops-guide.html#slow-noz) to determine whether scaling is needed. 
+To make sure the nozzle can keep up with the data traffic from the firehose, the operator should setup the **slowConsumerAlert** alert listed in the "Create Alert Rules" section; once alerted, follow the [guidacne for slow nozzle](https://docs.pivotal.io/pivotalcf/1-11/loggregator/log-ops-guide.html#slow-noz) to determine whether scaling is needed. 
 To scale up the nozzle, use Apps Manager or the CF CLI to increase the instance numbers or memory/disk resources for the nozzle.
 
 ### 2. Scaling Loggregator
