@@ -4,3 +4,4 @@ articles/storage/*            @mmacy
 articles/virtual-machines/*   @iainfoulds @cynthn
 articles/virtual-machines/linux/*   @iainfoulds @cynthn
 articles/virtual-machines/windows/*   @iainfoulds @cynthn
+articles/application-insights/* @SergeyKanzhelev
