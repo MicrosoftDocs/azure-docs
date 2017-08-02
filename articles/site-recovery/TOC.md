@@ -13,7 +13,13 @@
 ## [Watch an introduction](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Get Started
-## [Replicate Azure VMs (preview)](site-recovery-azure-to-azure.md)
+## [Replicate Azure VMs (preview)](azure-to-azure-walkthrough-overview.md)
+### [Step 1: Review the architecture](azure-to-azure-walkthrough-architecture.md)
+### [Step 2: Before you start](azure-to-azure-walkthrough-prerequisites.md)
+### [Step 3: Plan networking](azure-to-azure-walkthrough-network.md)
+### [Step 4: Create a vault](azure-to-azure-walkthrough-vault.md)
+### [Step 5: Enable replication](azure-to-azure-walkthrough-enable-replication.md)
+### [Step 6: Run a test failover](azure-to-azure-walkthrough-test-failover.md)
 ## [Replicate VMware VMs to Azure](vmware-walkthrough-overview.md)
 ### [Step 1: Review the architecture](vmware-walkthrough-architecture.md)
 ### [Step 2: Review prerequisites and limitations](vmware-walkthrough-prerequisites.md)
