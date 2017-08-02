@@ -73,8 +73,9 @@ Before setting up the job in Jenkins, you need an Azure App Service plan and a W
 1. Create an Azure App Service plan with the **FREE** pricing tier using the  [az appservice plan create](/cli/azure/appservice/plan#create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps.
 2. Create a Web App. You can either use the [Azure portal](/azure/app-service-web/web-sites-configure) or use the following Az CLI command:
 ```azurecli-interactive	
-az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>	
+az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
 ```
+
 3. Make sure you set up the Java runtime configuration that your app needs. The following Azure CLI command configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 ```azurecli-interactive
 az webapp config set \
@@ -157,7 +158,8 @@ For **Docker registry URL**, supply in the format of https://&lt;myRegistry>.azu
 ```azurecli-interactive
 	az acr update -n <yourRegistry> --admin-enabled true
 	az acr credential show -n <yourRegistry>
-```    
+```
+
 9. The docker image name and tag in **Advanced** tab are optional. By default, image name is obtained from the image name you configured in Azure portal (in Docker Container setting.) The tag is generated from $BUILD_NUMBER. Make sure you specify the image name in either Azure portal or supply a value for **Docker Image** in **Advanced** tab. For this example, supply "&lt;yourRegistry>.azurecr.io/calculator" for **Docker image** and leave **Docker Image Tag** blank.
 10. Note deployment fails if you use built-in Docker image setting. Make sure you change docker config to use custom image in Docker Container setting in Azure portal. For built-in image, use file upload approach to deploy.
 11. Similar to file upload approach, you can choose a different slot other than production.
