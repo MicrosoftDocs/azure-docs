@@ -145,7 +145,7 @@ Before setting up the job in Jenkins, you need an Azure app service on Linux. A 
 Add a Build step to build the project using Maven. Do so by adding an **Execute shell** and add the following line in **Command**:    
 ```bash
 	mvn clean package
-```
+```    
 3. Add a post-build action by selecting **Publish an Azure Web App**.
 4. Supply, **mySp**, the Azure service principal stored in previous step as Azure Credentials.
 5. In **App Configuration** section, choose the resource group and a Linux web app in your subscription.
@@ -156,7 +156,7 @@ For **Docker registry URL**, supply in the format of https://&lt;myRegistry>.azu
 ```azurecli-interactive
 	az acr update -n <yourRegistry> --admin-enabled true
 	az acr credential show -n <yourRegistry>
-```
+```    
 9. The docker image name and tag in **Advanced** tab are optional. By default, image name is obtained from the image name you configured in Azure portal (in Docker Container setting.) The tag is generated from $BUILD_NUMBER. Make sure you specify the image name in either Azure portal or supply a value for **Docker Image** in **Advanced** tab. For this example, supply "&lt;yourRegistry>.azurecr.io/calculator" for **Docker image** and leave **Docker Image Tag** blank.
 10. Note deployment fails if you use built-in Docker image setting. Make sure you change docker config to use custom image in Docker Container setting in Azure portal. For built-in image, use file upload approach to deploy.
 11. Similar to file upload approach, you can choose a different slot other than production.
@@ -169,14 +169,15 @@ For **Docker registry URL**, supply in the format of https://&lt;myRegistry>.azu
 def resourceGroup = '<myResourceGroup>'
 def webAppName = '<myAppName>'
 ```
+
 2. Change line 13 to your container registry server    
 ```java
 def registryServer = '<registryURL>'
-```
+```    
 3. Change line 16 to update credential ID in your Jenkins instance    
 ```java
 azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'acr', url: "http://$registryServer"]
-```
+```    
 ### Create Jenkins pipeline
 
 1. Open Jenkins in a web browser, click **New Item**.
