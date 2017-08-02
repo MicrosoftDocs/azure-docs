@@ -11,7 +11,7 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: NA
-ms.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: carlrab
 ms.workload: data-management
 ms.topic: article

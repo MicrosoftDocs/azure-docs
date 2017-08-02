@@ -44,7 +44,7 @@ Get the connection information needed to connect to the Azure Database for Postg
 
 ## How to run Python code
 - Using your favorite text editor, create a new file called postgres.py, and save it into a project folder. Copy and paste a code sample shown below into the text file and save it. Make sure to select UTF-8 encoding when saving the file in the Windows OS. 
-- To run the code, launch the command prompt or bash shell. Change directory into your project folder, such as `cd postgresql`. Then, type the python command followed by the file name, such as `python postgresql.py`.
+- To run the code, launch the command prompt or bash shell. Change directory into your project folder, such as `cd postgresql`. Then, type the python command followed by the file name, such as `python postgres.py`.
 
 > [!NOTE]
 > Starting in Python version 3, you may see the error `SyntaxError: Missing parentheses in call to 'print'` when running the code blocks below. If that happens, replace each call to the command `print "string"` with a function call using parenthesis, such as `print("string")`.
