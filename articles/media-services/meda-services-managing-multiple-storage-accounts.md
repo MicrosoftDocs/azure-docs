@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 08/01/2017
 ms.author: juliako
 
 ---
@@ -85,23 +85,23 @@ The following code uses the latest Media Services SDK to perform the following t
                 private static readonly string _singleInputFilePath =
                     Path.GetFullPath(@"../..\supportFiles\multifile\interview2.wmv");
    
-                private static readonly string MediaServicesAccountName = 
-                    ConfigurationManager.AppSettings["MediaServicesAccountName"];
-                private static readonly string MediaServicesAccountKey = 
-                    ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+        
+                // Read values from the App.config file.
+        
+                private static readonly string _AADTenantDomain =
+	            ConfigurationManager.AppSettings["AADTenantDomain"];
+        
+                private static readonly string _RESTAPIEndpoint =
+        	    ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
    
                 private static CloudMediaContext _context;
-                private static MediaServicesCredentials _cachedCredentials = null;
    
                 static void Main(string[] args)
                 {
-   
-                    // Create and cache the Media Services credentials in a static class variable.
-                    _cachedCredentials = new MediaServicesCredentials(
-                                    MediaServicesAccountName,
-                                    MediaServicesAccountKey);
-                    // Used the cached credentials to create CloudMediaContext.
-                    _context = new CloudMediaContext(_cachedCredentials);
+                    var tokenCredentials = new AzureAdTokenCredentials(AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                    var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+                    CloudMediaContext context = new CloudMediaContext(new Uri(RESTAPIEndpoint), tokenProvider);
 
                     // Display the storage accounts associated with 
                     // the specified Media Services account:
@@ -200,7 +200,6 @@ The following code uses the latest Media Services SDK to perform the following t
 
                     return outputAsset;
                 }
-
 
                 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
                 {
