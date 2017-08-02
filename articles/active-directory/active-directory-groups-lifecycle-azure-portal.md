@@ -13,25 +13,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/04/2017
 ms.author: curtand                       
+ms.reviewer: kairaz.contractor
+ms.custom: it-pro
 
 ---
 
-# Set expiration properties for an Office 365 group and send expiration notifications (preview)
+# Configure expiration settings for an Office 365 group (preview)
 
-Now Azure AD administrators and information workers are able to create and administer their own Office 365 groups. As scale increases, it can be useful to set an expiration policy for Office 365 groups. You can use this feature to automatically reclaim resource space and prevent address book pollution with groups that are no longer actively used. 
+Information workers can now create and administer their own Office 365 groups. To keep address lists relevant with actively used groups as scale increases, you can configure expiration settings for Office 365 groups. For example, these settings can ensure that groups that are not renewed are deleted. You can also set up notifications for expiration and deletion.
 
 > [!NOTE]
 > You can set expiration for only Office 365 groups.
 >
-> Setting expiration for O365 groups requires an Azure AD Premium license to be assigned to
+> Setting expiration for O365 groups requires that an Azure AD Premium license is assigned to
 >   - The administrator who configures the expiration settings for the tenant
 >   - All members of the groups selected for this setting
 
 This feature require owners of Office 365 groups to renew their group within a time interval defined by an administrator. A group that is not renewed expires, and is deleted. The group can be restored within 30 days from its deletion.
 
-1. Open the [Azure portal](https://portal.azure.com) with an account that is a global administrator in your Azure AD tenant.
+1. Open the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator in your Azure AD tenant.
 
 2. Open Azure AD, select **Users and groups**.
 
@@ -44,7 +46,7 @@ This feature require owners of Office 365 groups to renew their group within a t
   * Set the group lifetime in days. You could select one of the preset values, or a custom value (should be 31 days or more). 
   * Specify an email address where the renewal and expiration notifications should be sent when a group has no owner. 
   * Select which Office 365 groups expire. You can enable expiration for **All** Office 365 groups, you can select from among the Office 365 groups, or you select **None** to disable expiration for all groups.
-  * When you finish configuring the settings, select **Save**.
+  * Save your settings when you're done by selecting **Save**.
 
 For instructions on how to set up the expiration policy via PowerShell, see URL.
 
@@ -66,7 +68,7 @@ If the group you're restoring contains documents, SharePoint sites, or other per
 
 > [!NOTE]
 > * When deploying the expiration settings, there might be some groups that are older than the expiration window. These groups are not be immediately deleted, but are set to 30 days until expiration. The first renewal notification email is sent out within a day. For example, Group A was created 400 days ago, and the expiration interval is set to 180 days. When you apply expiration settings, Group A has 30 days before it is deleted, unless the owner renews it.
-> * When a Dynamic group is deleted and restored, it is seen as a new group and re-processed. This process may take up to 24 hours.
+> * When a dynamic group is deleted and restored, it is seen as a new group and re-populated according to the rule. This process might take up to 24 hours.
 
 ## Next steps
 These articles provide additional information on Azure AD groups.
