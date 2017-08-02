@@ -103,6 +103,7 @@
 ### [Array and object functions](resource-group-template-functions-array.md)
 ### [Comparison functions](resource-group-template-functions-comparison.md)
 ### [Deployment functions](resource-group-template-functions-deployment.md)
+### [Logical functions](resource-group-template-functions-logical.md)
 ### [Numeric functions](resource-group-template-functions-numeric.md)
 ### [Resource functions](resource-group-template-functions-resource.md)
 ### [String functions](resource-group-template-functions-string.md)

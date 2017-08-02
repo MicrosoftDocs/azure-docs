@@ -204,7 +204,9 @@ terraform apply terraformscripts
 ```
 After some time, the resources, including a virtual machine, appear in the `terraformtest` resource group in the Azure portal.
 
-## Complete the Terraform script
+## Complete Terraform script
+
+For your convenience, below is the complete Terraform script that provisions all of the infrastructure discussed in this article.
 
 ```
 variable "resourcesname" {
@@ -269,9 +271,14 @@ resource "azurerm_network_interface" "helloterraformnic" {
     }
 }
 
+# create a random id
+resource "random_id" "randomId" {
+  byte_length = 4
+}
+
 # create storage account
 resource "azurerm_storage_account" "helloterraformstorage" {
-    name = "helloterraformstorage"
+    name                = "tfstorage${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.helloterraform.name}"
     location = "westus"
     account_type = "Standard_LRS"
