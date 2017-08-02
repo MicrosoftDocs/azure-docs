@@ -12,13 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ---
 
 # Azure Active Directory Pass-through Authentication: Frequently asked questions
 
 In this article, we address frequently asked questions about Azure Active Directory (Azure AD) Pass-through Authentication. Keep checking back for new content.
+
+>[!IMPORTANT]
+>The Pass-through Authentication feature is currently in preview.
 
 ## Which of the Azure AD sign-in methods - Pass-through Authentication, Password Hash Synchronization and Active Directory Federation Services (AD FS) - should I choose?
 
