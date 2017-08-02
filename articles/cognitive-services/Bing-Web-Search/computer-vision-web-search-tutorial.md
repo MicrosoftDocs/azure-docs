@@ -15,7 +15,7 @@ ms.author: t-jolanz
 # Visual Search Mobile App Tutorial
 
 ## Introduction  
-This tutorial explores the [Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/) and [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) endpoints and how they can be used to build a basic visual search application with [Xamarin.Forms](https://developer.xamarin.com/guides/xamarin-forms/).  Overall, this tutorial covers the following topics: 
+This tutorial explores the [Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision/) and [Bing Web Search API](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/) endpoints and how they can be used to build a basic visual search application with [Xamarin.Forms](https://developer.xamarin.com/guides/xamarin-forms/).  Overall, this tutorial covers the following topics: 
 * Setting up your system to develop Xamarin.Forms applications
 * Using the [Xamarin Media Plugin](https://github.com/jamesmontemagno/MediaPlugin) to capture and import image data to a Xamarin.Forms application
 * Formatting images and parsing text from them using the Computer Vision APIs
@@ -35,10 +35,10 @@ This sample makes use of the following NuGet Packages:
 
 ### Cognitive Services
 This sample utilizes the following Cognitive Services APIs:
-* [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) 
-* [Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/)
+* [Bing Web Search API](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/) 
+* [Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision/)
 
-To attain 30-day trial keys to these APIs, see [this page](https://azure.microsoft.com/en-us/try/cognitive-services/).  For more information about attaining keys for professional use, see [Pricing](https://azure.microsoft.com/en-us/pricing/calculator/).
+To attain 30-day trial keys to these APIs, see [this page](https://azure.microsoft.com/try/cognitive-services/).  For more information about attaining keys for professional use, see [Pricing](https://azure.microsoft.com/pricing/calculator/).
 
 ## Environment Setup  
 ### Installing Xamarin 
@@ -56,7 +56,7 @@ Xamarin should come pre-packaged with Visual Studio for Mac.
 
 ## Building and Running the Sample
 ### Step 1: Download the sample
-The sample can be found at [cognitive-services-xamarin-forms-computer-vision-search](https://azure.microsoft.com/en-us/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/). You can download it using Visual Studio or directly from GitHub.
+The sample can be found at [cognitive-services-xamarin-forms-computer-vision-search](https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/). You can download it using Visual Studio or directly from GitHub.
 
 ### Step 2: Install the sample
 In Visual Studio, open `cognitive-services-xamarin-forms-computer-vision-search\VisualSearchApp.sln`.  It may take a few moments to initialize all of the required components.  
@@ -74,25 +74,30 @@ Before running the application, you need to select a target Configuration, Platf
 ![An image showing Visual Studio configured to compile for an Android phone](./media/computer-vision-web-search-tutorial/ConfigurationSelection.PNG)
 
 ### Step 6: Run the app
-1) After the build is complete and your target platform is selected, click the **Start** button in the toolbar or press **F5**.  This deploys your solution to your target platform.  
+1. After the build is complete and your target platform is selected, click the **Start** button in the toolbar or press **F5**.  This deploys your solution to your target platform.  
 
-2) The application should launch and open to the following page (defined in the codebase at `AddKeysPage.xaml` and referenced in this guide as the Add Keys Page).  
+2. The application should launch and open to the following page (defined in the codebase at `AddKeysPage.xaml` and referenced in this guide as the Add Keys Page).  
+
 ![Image of the Add Keys Page](./media/computer-vision-web-search-tutorial/AddKeysPage.png)  
 Here you can input your Computer Vision and Bing Web Search API keys.  The Computer Vision API call requires a reference to the server where the endpoint is hosted, so you will also need to enter this here. If you would like to skip this page in later compilations, you can manually add your keys and location in the `App.xaml.cs` page of the codebase. 
 
-3) Adding a set of working API keys takes you to the following page (defined in the codebase at `OcrSelectPage.xaml` and referenced in this guide as the OCR Select Page).  
+3. Adding a set of working API keys takes you to the following page (defined in the codebase at `OcrSelectPage.xaml` and referenced in this guide as the OCR Select Page).  
+
 ![Image of the OCR Select Page](./media/computer-vision-web-search-tutorial/OcrSelectPage.png)  
 Here you can either import or capture a new photo and then pass that photo to the respective OCR service for processing. 
 
-4) The next screen (defined in the codebase at `OcrResultsPage.xaml` and referenced in this guide as the OCR Results Page) displays the text extracted by the Computer Vision API.  
+4. The next screen (defined in the codebase at `OcrResultsPage.xaml` and referenced in this guide as the OCR Results Page) displays the text extracted by the Computer Vision API.  
+
 ![Image of the OCR Results Page](./media/computer-vision-web-search-tutorial/OcrResultsPage.png)  
 Here you can select a line from the discovered text to find Bing search results for that query, or you can use the navigation bar to return to the OCR Select Page.  The image used in this guide can be found in the sample code repository at `SamplePhotos\TestImage.jpg`.
 
-5) Selecting an item from the OCR Results Page takes you to the following screen (defined in the codebase at `WebResultsPage.xaml` and referenced in this guide as the Web Results Page).   
+5. Selecting an item from the OCR Results Page takes you to the following screen (defined in the codebase at `WebResultsPage.xaml` and referenced in this guide as the Web Results Page).   
+
 ![Image of the Web Results Page](./media/computer-vision-web-search-tutorial/WebResultsPage.png)  
 Here you can see the results of querying the Bing Web Search API using the extracted text and open the linked pages within the application.  As before, you can also use the navigation bar to return to the OCR Results Page. 
 
-6) Finally, selecting an item from the Web Results Page opens a WebView showing the content at that Bing result.  
+6. Finally, selecting an item from the Web Results Page opens a WebView showing the content at that Bing result.  
+
 ![Image of the Web View Page](./media/computer-vision-web-search-tutorial/WebViewPage.png)  
 From here, you can interact with the website as if it were loaded within a standard browser.  You can also use the navigation bar to return to the Web Results Page. 
 
@@ -331,7 +336,7 @@ async Task<JObject> FetchResultFromStatusUri(string statusUri)
 ```
 
 ### Web Results Page
-Finally, we send this data to the Web Results Page, which constructs a [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/) request, sends it to the Cognitive Services endpoint, and then deserializes the JSON response using the Json.NET [DeserializeObject](http://www.newtonsoft.com/json/help/html/DeserializeObject.htm) method.  
+Finally, we send this data to the Web Results Page, which constructs a [Bing Web Search API](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/) request, sends it to the Cognitive Services endpoint, and then deserializes the JSON response using the Json.NET [DeserializeObject](http://www.newtonsoft.com/json/help/html/DeserializeObject.htm) method.  
 
 ```csharp
 async Task<WebResultsList> GetQueryResults()
@@ -363,7 +368,7 @@ async Task<WebResultsList> GetQueryResults()
     //   To learn more about UI strings, check the Web Search API 
     //   reference.
     //
-    // - [API Reference] https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v5-reference
+    // - [API Reference] https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
     string uri = AppConstants.BingWebSearchApiUrl + $"count=20&mkt=en-US&q={queryString}&responseFilter=Webpages&setLang=en";
 
     // Make the HTTP Request
@@ -390,16 +395,16 @@ It's important to acknowledge here that the Web Search API functions best when a
 > * X-Search-ClientIP  
 > * X-Search-Location  
 >
-> These parameters help the API provide optimal results.  You can learn more about these header values in the [Bing Web Search API Reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v5-reference#headers)
+> These parameters help the API provide optimal results.  You can learn more about these header values in the [Bing Web Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#headers)
 
 ## Looking Forward
 This application provides a general framework for a Xamarin.Forms application implementing basic visual search.  However, Microsoft Cognitive Services provides many utilities that could easily be integrated into this application.  For example, you could:
-* Tack on [Bing Entity Search](https://azure.microsoft.com/en-us/services/cognitive-services/bing-entity-search-api/) to augment your web search results
-* Swap in [Bing Custom Search](https://azure.microsoft.com/en-us/services/cognitive-services/bing-custom-search/) in place of Bing Web Search
-* Use the [Bing Image Search](https://azure.microsoft.com/en-us/services/cognitive-services/bing-image-search-api/) image insights capability to learn more about your captured image and find similar images on the web
-* Leverage [Bing Spell Check](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) to further improve the quality of your parsed text
-* Integrate the [Microsoft Translator](https://azure.microsoft.com/en-us/services/cognitive-services/translator-text-api/) to see your extracted text in different languages  
-* Mix and match countless other services from the [Cognitive Services Portal](https://azure.microsoft.com/en-us/services/cognitive-services/) to build your own novel utilities
+* Tack on [Bing Entity Search](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) to augment your web search results
+* Swap in [Bing Custom Search](https://azure.microsoft.com/services/cognitive-services/bing-custom-search/) in place of Bing Web Search
+* Use the [Bing Image Search](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) image insights capability to learn more about your captured image and find similar images on the web
+* Leverage [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/) to further improve the quality of your parsed text
+* Integrate the [Microsoft Translator](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) to see your extracted text in different languages  
+* Mix and match countless other services from the [Cognitive Services Portal](https://azure.microsoft.com/services/cognitive-services/) to build your own novel utilities
 
 ## Related Topics
  * [C# Ranking Tutorial](./csharp-ranking-tutorial.md)
