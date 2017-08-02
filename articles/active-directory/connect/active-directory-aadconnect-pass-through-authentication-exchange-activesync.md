@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ---
 
@@ -33,13 +33,18 @@ This article is for customers who want Exchange ActiveSync support with Azure AD
 
 ```Get-OrganizationConfig | fl per*```
 
-3. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is *true*, your tenant is correctly configured. If the value is *false*, run the following command:
+3. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is **true**, your tenant is correctly configured. If the value is **false**, run the following command:
 
 ```Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true```
 
-4. Ensure that the value of the `PerTenantSwitchToESTSEnabled` setting is set to *true*. If Step 3 fails with the following error, contact Microsoft Support.
+Contact Microsoft Support if Step 3 fails with the following error.
 
 ```TBD```
+
+4. Ensure that the value of the `PerTenantSwitchToESTSEnabled` setting is set to **true**. At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
+
+>[!IMPORTANT]
+>It takes up to an hour for Exchange ActiveSync to start working after you complete all the instructions.
 
 ### Configuration 2: I have Exchange mailboxes and I am switching from AD FS to Pass-through Authentication as my Azure AD sign-in method
 
