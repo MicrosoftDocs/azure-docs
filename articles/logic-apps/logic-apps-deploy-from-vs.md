@@ -187,9 +187,6 @@ As another example you can parameterize the Service Bus send message operation:
 	"type": "ApiConnection",
 		"inputs": {
 			"host": {
-				"api": {
-					"runtimeUrl": "[concat('https://logic-apis-', resourcegroup().location, '.azure-apim.net/apim/servicebus')]"
-				},
 				"connection": {
 					"name": "@parameters('$connections')['servicebus']['connectionId']"
 				}
@@ -206,6 +203,9 @@ As another example you can parameterize the Service Bus send message operation:
 		"runAfter": {}
 	}
 ```
+> [!NOTE] 
+> host.runtimeUrl is optional and can be removed from your template if present.
+> 
 
 
 > [!NOTE] 
