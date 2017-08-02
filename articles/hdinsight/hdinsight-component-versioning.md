@@ -30,10 +30,10 @@ Each HDInsight version is a cloud distribution of a version of Hortonworks Data 
 ## Hadoop components available with different HDInsight versions
 Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice creates a specific version of the HDP distribution and a set of components that are contained within that distribution. As of February 17, 2017, the default cluster version used by Azure HDInsight is 3.5 and is based on HDP 2.5.
 
-The component versions associated with HDInsight cluster versions are listed in the following table: 
+The component versions associated with HDInsight cluster versions are listed in the following table. 
 
 > [!NOTE]
-> The default version for the HDInsight service may change without notice. If you have a version dependency, specify the HDInsight version when you create your clusters with the .NET SDK with Azure PowerShell and Azure CLI.
+> The default version for the HDInsight service might change without notice. If you have a version dependency, specify the HDInsight version when you create your clusters with the .NET SDK with Azure PowerShell and Azure CLI.
 
 | Component | HDInsight 3.6 | HDInsight 3.5 (default) | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- |--- |
@@ -62,7 +62,7 @@ The component versions associated with HDInsight cluster versions are listed in 
 
 The Hadoop ecosystem component versions associated with HDInsight cluster versions can change with updates to HDInsight. To check the Hadoop components and to verify which versions are being used for a cluster, use the Ambari REST API. The **GetComponentInformation** command retrieves information about service components. For details, see the [Ambari documentation][ambari-docs].
 
-For Windows clusters, another way to check the component version is to log in to a cluster using Remote Desktop and examine the contents of the C:\apps\dist\ directory.
+For Windows clusters, another way to check the component version is to log in to a cluster by using Remote Desktop and examine the contents of the C:\apps\dist\ directory.
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or later. For more information, see [Windows retirement on HDInsight](#hdinsight-windows-retirement).
@@ -72,10 +72,10 @@ For Windows clusters, another way to check the component version is to log in to
 See [HDInsight release notes](hdinsight-release-notes.md) for additional release notes on the latest versions of HDInsight.
 
 ## Supported HDInsight versions
-The following table lists the versions of HDInsight that are currently available on the Azure portal. The HDP versions that correspond to each HDInsight version are listed along with the product release dates. When known, the support expiration and retirement dates are also provided.
+The following table lists the versions of HDInsight that are currently available on the Azure portal. The HDP versions that correspond to each HDInsight version are listed along with the product release dates. The support expiration and retirement dates are also provided, when they're known.
 
 > [!NOTE]
-> After support for a version has expired, it may not be available through the Microsoft Azure classic portal. However, cluster versions continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) command and the .NET SDK until the version retirement date.
+> After support for a version has expired, it might not be available through the Microsoft Azure classic portal. However, cluster versions continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) command and the .NET SDK until the version retirement date.
 > 
 > Highly available clusters with two head nodes are deployed by default for HDInsight version 2.1 and later. They are not available for HDInsight version 1.6 clusters.
 
@@ -84,12 +84,12 @@ The following table lists the versions of HDInsight that are currently available
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16 |Yes |April 4, 2017 |Yes | | |
 | HDInsight 3.5 |HDP 2.5 |Ubuntu 16 |Yes |September 30, 2016 |Yes |July 5, 2017 |May 31, 2018 |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Yes |March 29, 2016 |Yes |December 29, 2016 |January 9, 2018 |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012R2 |Yes |December 2, 2015 |Yes |June 27, 2016 |July 31, 2018 |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |Yes |December 2, 2015 |Yes |June 27, 2016 |July 31, 2018 |
 | HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Yes |December 2, 2015 |Yes |June 27, 2016 |July 31, 2017 |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS or Windows Server 2012R2 |Yes |February 18, 2015 |No |March 1, 2016 |April 1, 2017 |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012R2 |Yes |June 24, 2014 |No |May 18, 2015 |June 30, 2016 |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012R2 |Yes |February 11, 2014 |No |September 17, 2014 |June 30, 2015 |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012R2 |Yes |October 28, 2013 |No |May 12, 2014 |May 31, 2015 |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS or Windows Server 2012 R2 |Yes |February 18, 2015 |No |March 1, 2016 |April 1, 2017 |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |Yes |June 24, 2014 |No |May 18, 2015 |June 30, 2016 |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |Yes |February 11, 2014 |No |September 17, 2014 |June 30, 2015 |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |Yes |October 28, 2013 |No |May 12, 2014 |May 31, 2015 |
 | HDInsight 1.6 |HDP 1.1 | |No |October 28, 2013 |No |April 26, 2014 |May 31, 2015 |
 
 ## HDInsight Windows retirement
@@ -103,13 +103,13 @@ Starting with HDInsight version 3.4, Microsoft has released HDInsight only on th
 July 31, 2018, is the retirement date for HDInsight on Windows. If the planned retirement date is different for your region, you will be notified separately. 
 
 ### What is the impact of retiring HDInsight on Windows for existing customers?
-After HDInsight on Windows is retired, you can't create a new HDInsight Windows cluster, or resize an existing HDInsight Windows cluster. Support for HDInsight version 3.3 expired on June 27, 2016. Therefore, there is no support or bug fixes for HDInsight 3.3 or earlier versions. Future releases of HDInsight are available only on the Linux OS. There will be no future releases of HDInsight on Windows."
+After HDInsight on Windows is retired, you can't create a new HDInsight Windows cluster, or resize an existing HDInsight Windows cluster. Support for HDInsight version 3.3 expired on June 27, 2016. Therefore, there is no support or bug fixes for HDInsight 3.3 or earlier versions. Future releases of HDInsight are available only on the Linux OS. There will be no future releases of HDInsight on Windows.
  
-### Which versions of HDInsight on Windows are impacted?
+### Which versions of HDInsight on Windows are affected?
 Azure HDInsight version 3.3 is the last version of HDInsight for Windows. Before HDInsight on Windows is retired, all HDInsight Windows clusters version 3.3 or earlier must be migrated to HDInsight on Linux version 3.5 or later. Migrating your clusters to HDInsight on Linux enables you to retain the ability to create new clusters or resize existing clusters. 
 
 ### What do I need to do?
-Migrate your HDInsight Windows clusters to a supported HDInsight Linux cluster before July 31, 2018. Learn more in this [HDInsight migration document](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux). For details about Azure HDInsight versions, see the list of [supported versions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). 
+Migrate your HDInsight Windows clusters to a supported HDInsight Linux cluster before July 31, 2018. Learn more in the [HDInsight migration document](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux). For details about Azure HDInsight versions, see the list of [supported versions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). 
 
 ### Where do I find the cluster OS type?
 In the Azure portal, go to the HDInsight Cluster overview page and locate **Cluster type** under **Essentials**. The cluster OS types are listed on that page. 
@@ -118,10 +118,10 @@ In the Azure portal, go to the HDInsight Cluster overview page and locate **Clus
 The HDInsight Windows cluster runs as-is, but you cannot create a new HDInsight Windows cluster, or resize an existing HDInsight Windows cluster. 
 
 ### My cluster has a .NET dependency. How do I resolve this dependency on Linux?
-You can resolve your Linux cluster dependency by using the [Mono project](http://www.mono-project.com/). This open source implementation of .NET is available for HDInsight Linux clusters. Learn more in this [HDInsight migration document](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux). 
+You can resolve your Linux cluster dependency by using the [Mono project](http://www.mono-project.com/). This open source implementation of .NET is available for HDInsight Linux clusters. Learn more in the [HDInsight migration document](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux). 
 
 ### I'm a new customer for HDInsight on Windows. How can I create an HDInsight Windows cluster?
-As of July 3, 2017, only existing HDInsight Windows customers can create new HDInsight Windows clusters. New customers are not able to create an HDInsight Windows cluster in the Azure portal by using PowerShell or the SDK. We recommend new customers create a Linux HDInsight cluster. Existing customers can create new HDInsight Windows clusters until the HDInsight on Windows retirement date. 
+As of July 3, 2017, only existing HDInsight Windows customers can create new HDInsight Windows clusters. New customers cannot create an HDInsight Windows cluster in the Azure portal by using PowerShell or the SDK. We recommend that new customers create a Linux HDInsight cluster. Existing customers can create new HDInsight Windows clusters until the HDInsight on Windows retirement date. 
 
 ### Is there a pricing impact associated with moving from HDInsight on Windows to HDInsight on Linux?
 No, the pricing is the same for HDInsight on either OS. 
@@ -134,7 +134,7 @@ No, the pricing is the same for HDInsight on either OS.
 ### Does HDInsight on Linux provide additional functionality beyond what is available in HDInsight on Windows?
 Starting with HDInsight version 3.4, Microsoft has released HDInsight only on the Linux OS. As a result, some of the components within HDInsight are available for Linux only. These include Apache Ranger, Kafka, Interactive Hive, Spark, HDInsight applications, and Azure Data Lake Store as the primary file system. 
 
-## The service level agreement for HDInsight cluster versions
+## Service level agreement for HDInsight cluster versions
 The service level agreement (SLA) is defined in terms of a _support window_. The support window is the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. If the version has a _support expiration date_ that has passed, the HDInsight cluster is outside the support window. For more information about supported versions, see the list of [supported HDInsight cluster versions](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux). The support expiration date for a specified HDInsight version X (after a newer X+1 version is available) is calculated as the later of:  
 
 * Formula 1: Add 180 days to the date when the HDInsight cluster version X was released.
@@ -168,11 +168,11 @@ The section provides links to release notes for the Hortonworks Data Platform di
 Azure HDInsight provides the big data cloud offerings in two categories: _Standard_ and _Premium_. The following table lists features that are available _only_ in HDInsight Premium. Features that are not explicitly described in the table are available in both HDInsight Standard and Premium.
 
 > [!NOTE]
-> The HDInsight Premium offering is currently in Preview and available only for Linux clusters.
+> The HDInsight Premium offering is currently in preview and available only for Linux clusters.
 
 | HDInsight Premium feature | Description |
 | --- | --- |
-| Domain-joined HDInsight clusters |Join HDInsight clusters to Azure Active Directory (Azure AD) domains for enterprise-level security. In HDInsight Premium, you can configure a list of employees from your enterprise who can authenticate through Azure AD to log on to an HDInsight cluster. The enterprise admin can configure role-based access control for Hive security using [Apache Ranger](http://hortonworks.com/apache/ranger/) and restrict data access to use only as much as needed. Finally, the admin can audit data accessed by employees and changes to access control policies, thereby achieving a high degree of governance of their corporate resources. For more information, see [Configure domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md). |
+| Domain-joined HDInsight clusters |Join HDInsight clusters to Azure Active Directory (Azure AD) domains for enterprise-level security. In HDInsight Premium, you can configure a list of employees from your enterprise who can authenticate through Azure AD to log on to an HDInsight cluster. The enterprise admin can configure role-based access control for Hive security by using [Apache Ranger](http://hortonworks.com/apache/ranger/) and restrict data access to use only as much as needed. Finally, the admin can audit data accessed by employees and changes to access control policies, thereby achieving a high degree of governance of their corporate resources. For more information, see [Configure domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md). |
 
 ### Cluster types supported in HDInsight Premium
 The following table lists the cluster types that are supported in HDInsight Premium.
