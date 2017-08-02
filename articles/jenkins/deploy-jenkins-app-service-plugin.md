@@ -79,11 +79,11 @@ az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <m
 3. Make sure you set up the Java runtime configuration that your app needs. The following Azure CLI command configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 ```azurecli-interactive
 az webapp config set \
-    --name <myAppName> \
-    --resource-group <myResourceGroup> \
-    --java-version 1.8 \
-    --java-container Tomcat \
-    --java-container-version 8.0
+--name <myAppName> \
+--resource-group <myResourceGroup> \
+--java-version 1.8 \
+--java-container Tomcat \
+--java-container-version 8.0
 ```
 
 ### Set up the Jenkins job
@@ -156,8 +156,8 @@ mvn clean package
 For **Docker registry URL**, supply in the format of https://&lt;myRegistry>.azurecr.io if you use Azure Container Registry. Leave it blank if you use DockerHub.
 8. For **Registry credentials**, add the credential for the Azure Container Registry. You can get the userid and password by running the following commands in Azure CLI. The first command enables the administrator account.    
 ```azurecli-interactive
-	az acr update -n <yourRegistry> --admin-enabled true
-	az acr credential show -n <yourRegistry>
+az acr update -n <yourRegistry> --admin-enabled true
+az acr credential show -n <yourRegistry>
 ```
 
 9. The docker image name and tag in **Advanced** tab are optional. By default, image name is obtained from the image name you configured in Azure portal (in Docker Container setting.) The tag is generated from $BUILD_NUMBER. Make sure you specify the image name in either Azure portal or supply a value for **Docker Image** in **Advanced** tab. For this example, supply "&lt;yourRegistry>.azurecr.io/calculator" for **Docker image** and leave **Docker Image Tag** blank.
@@ -177,6 +177,7 @@ def webAppName = '<myAppName>'
 ```java
 def registryServer = '<registryURL>'
 ```    
+
 3. Change line 16 to update credential ID in your Jenkins instance    
 ```java
 azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'acr', url: "http://$registryServer"]
