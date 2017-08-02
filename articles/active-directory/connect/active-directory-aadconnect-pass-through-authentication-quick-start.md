@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ---
 
@@ -26,10 +26,10 @@ Azure Active Directory (Azure AD) Pass-through Authentication allows your users 
 ## How to deploy Azure AD Pass-through Authentication
 
 To deploy Pass-through Authentication, you need to follow these instructions:
-1. *Check prerequisites*: Set up your tenant and on-premises environment correctly before you enable the feature.
-2. *Enable the feature*: Turn on Pass-through Authentication on your tenant and install a lightweight on-premises agent to handle password validation requests.
-3. *Test the feature*: Test user sign-in using Pass-through Authentication.
-4. *Ensure high availability*: Install a second standalone agent to provide high availability for sign-in requests.
+1. **Check prerequisites**: Set up your tenant and on-premises environment correctly before you enable the feature.
+2. **Enable the feature**: Turn on Pass-through Authentication on your tenant and install a lightweight on-premises agent to handle password validation requests.
+3. **Test the feature**: Test user sign-in using Pass-through Authentication.
+4. **Ensure high availability**: Install a second standalone agent to provide high availability for sign-in requests.
 
 ## Step 1: Check prerequisites
 
@@ -49,6 +49,10 @@ Ensure that the following prerequisites are in place:
    - Open up your ports: Ensure that the Authentication Agents installed on your servers can make outbound requests to Azure AD over ports **80** (for downloading certificate revocation lists (CRLs) while validating the SSL certificate) and **443** (all outbound communication with our service). If your firewall enforces rules according to originating users, open these ports for traffic coming from Windows services running as a Network Service.
    - Allow Azure AD endpoints: If URL filtering is enabled, ensure that the Authentication Agents can communicate with **login.windows.net**, **login.microsoftonline.com**, **\*.msappproxy.net** and **\*.servicebus.windows.net**.
    - Verify direct IP connections: Ensure that the Authentication Agents on your servers can make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+   
+### For Exchange ActiveSync support
+
+- Review the additional steps listed in [this article](active-directory-aadconnect-pass-through-authentication-exchange-activesync.md) that you may need - in addition to the following steps - to enable Exchange ActiveSync support for Pass-through Authentication.
 
 ## Step 2: Enable the feature
 
