@@ -33,7 +33,7 @@ Azure uses the following terms to describe alerts and their functions:
 Alerts are available across several Azure monitoring services. For information on how and when to use these services, [see this article](./monitoring-overview.md) Here is a breakdown of the alert types available across Azure:
 
 | Service | Alert type | Supported services | Description |
---------------------------------------
+|---|---|---|---|
 | Azure Monitor | [Metric alerts](./insights-alerts-portal.md) | [Supported metrics from Azure Monitor](./monitoring-supported-metrics.md) | Receive a notification when any platform-level metric meets a specific condition (for example, CPU % on a VM is greater than 90 for the past 5 minutes). |
 | Azure Monitor | [Activity Log alerts](./monitoring-activity-log-alerts.md) | All resource manager-based resource types | Receive a notification when any new event in the [Azure Activity Log](./monitoring-overview-activity-logs.md) matches specific conditions (for example, when a "Delete VM" operation occurs in  myProductionResourceGroup or when a new Service Health event with "Active" as the status appears). |
 | Application Insights | [Metric alerts](../application-insights/app-insights-alerts.md) | Any application instrumented to send data to Application Insights | Receive a notification when any application-level metric meets a specific condition (for example, server response time is greater than 2 seconds). |
