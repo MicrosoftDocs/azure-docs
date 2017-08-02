@@ -29,21 +29,16 @@ This article is for customers who want Exchange ActiveSync support with Azure AD
 ### Configuration 1: I have Exchange mailboxes and I am enabling Pass-through Authentication as my Azure AD sign-in method
 
 1. Use [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) to run the following command:
-
 ```Get-OrganizationConfig | fl per*```
 
 2. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is **true**, your tenant is correctly configured - no further action is required. If the value is **false**, run the following command:
-
 ```Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true```
 
 Contact Microsoft Support if this command fails with the following error:
-
 ```TBD```
 
 3. Verify that the value of the `PerTenantSwitchToESTSEnabled` setting is now set to **true**.
-
 4. Enable Pass-through Authentication on your tenant using the instructions in [this article](active-directory-aadconnect-pass-through-authentication-quick-start.md).
-
 5. If you have not already done so, disable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
 
 At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
@@ -54,15 +49,12 @@ At this stage, your tenant is correctly configured for Exchange ActiveSync suppo
 ### Configuration 2: I have Exchange mailboxes and I am switching from AD FS to Pass-through Authentication as my Azure AD sign-in method
 
 1. Use [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) to run the following command:
-
 ```Get-OrganizationConfig | fl per*```
 
 2. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is **true**, skip Step 3. If the value is **false**, run the following command:
-
 ```Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true```
 
 Contact Microsoft Support if this command fails with the following error:
-
 ```TBD```
 
 3. Verify that the value of the `PerTenantSwitchToESTSEnabled` setting is now set to **true**.
@@ -82,15 +74,12 @@ At this stage, your tenant is correctly configured for Exchange ActiveSync suppo
 ### Configuration 3: I already have Pass-through Authentication as my Azure AD sign-in method, and I am now setting up Exchange mailboxes
 
 1. Use [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) to run the following command:
-
 ```Get-OrganizationConfig | fl per*```
 
 2. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is **true**, your tenant is correctly configured - no further action is required. If the value is **false**, run the following command:
-
 ```Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true```
 
 Contact Microsoft Support if this step fails with the following error:
-
 ```TBD```
 
 3. Verify that the value of the `PerTenantSwitchToESTSEnabled` setting is now set to **true**.
