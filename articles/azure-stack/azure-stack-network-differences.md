@@ -5,7 +5,7 @@ services: azure-stack
 keywords: 
 author: ScottNapolitan
 ms.author: victorh
-ms.date: 08/01/2017
+ms.date: 08/02/2017
 ms.topic: article
 ms.service: azure-stack
 
@@ -27,6 +27,7 @@ This article provides an overview of the unique considerations for Networking an
 | |DNS AAAA records|Supported|Not supported|
 | |DNS zones per subscription|100 (default)<br>Can be increased on request.|100|
 | |DNS record sets per zone|5000 (default)<br>Can be increased on request.|5000|
+||Name servers for zone delegation|Azure provides four name servers for each user (tenant) zone that is created.|Azure Stack provides two name servers for each user (tenant) zone that is created.|
 | Virtual network|Virtual network peering|Connect two virtual networks in the same region through the Azure backbone network.|Not yet supported|
 | |IPv6 addresses|You can assign an IPv6 address as part of the [Network Interface Configuration](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Only IPv4 is supported|
 |VPN gateways|Point-to-Site VPN Gateway|Supported|Not yet supported|
