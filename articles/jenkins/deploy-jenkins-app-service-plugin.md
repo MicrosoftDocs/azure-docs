@@ -69,17 +69,13 @@ To deploy your project to Azure Web App, you can upload your build artifacts (fo
 
 Before setting up the job in Jenkins, you need an Azure App Service plan and a Web App for running the Java app.
 
-<ol>
-<li>Create an Azure App Service plan with the **FREE** pricing tier using the  [az appservice plan create](/cli/azure/appservice/plan#create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps.</li>
-<li>Create a Web App. You can either use the [Azure portal](/azure/app-service-web/web-sites-configure) or use the following Az CLI command:</li>
 
-```azurecli-interactive
-az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
+1. Create an Azure App Service plan with the **FREE** pricing tier using the  [az appservice plan create](/cli/azure/appservice/plan#create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps.
+2. Create a Web App. You can either use the [Azure portal](/azure/app-service-web/web-sites-configure) or use the following Az CLI command:
+```azurecli-interactive	
+az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>	
 ```
-
-<li>Make sure you set up the Java runtime configuration that your app needs. The following Azure CLI command configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.</li>
-</ol>
-
+3. Make sure you set up the Java runtime configuration that your app needs. The following Azure CLI command configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 ```azurecli-interactive
 az webapp config set \
     --name <myAppName> \
@@ -91,55 +87,43 @@ az webapp config set \
 
 ### Set up the Jenkins job
 
-<ol>
-<li>Create a new **freestyle** project in Jenkins Dashboard</li>
-<li>Configure **Source Code Management** to use your local fork of [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) by providing the **Repository URL**. For example: http://github.com/&lt;yourID>/javawebappsample.</li>
-<li>Add a Build step to build the project using Maven. Do so by adding an **Execute shell**. For this example, we need an additional step to rename the *.war file in target folder to ROOT.war.</li>
 
+1. Create a new **freestyle** project in Jenkins Dashboard
+2. Configure **Source Code Management** to use your local fork of [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) by providing the **Repository URL**. For example: http://github.com/&lt;yourID>/javawebappsample.
+3. Add a Build step to build the project using Maven. Do so by adding an **Execute shell**. For this example, we need an additional step to rename the *.war file in target folder to ROOT.war.   
 ```bash
 mvn clean package
 mv target/*.war target/ROOT.war
-
 ```
-
-<li>Add a post-build action by selecting **Publish an Azure Web App**.</li>
-<li>Supply, "mySp", the Azure service principal stored in previous step.</li>
-<li>In **App Configuration** section, choose the resource group and web app in your subscription. The plugin automatically detects whether the Web App is Windows or Linux-based. For a Windows-based Web App, the option "Publish Files" is presented.</li>
-<li>Fill in the files you want to deploy (for example, a war package if you're using Java.) Source Directory and Target Directory are optional. The parameters allow you to specify source and target folders when uploading files. Java web app on Azure is run in a Tomcat server. So you upload you war package to webapps folder. For this example, set **Source Directory** to "target" and supply "webapps" for **Target Directory**.</li>
-<li>If you want to deploy to a slot other than production, you can also set **Slot** Name</li>
-<li>Save the project and build it. Your web app is deployed to Azure when build is complete.</li>
-</ol>
+4. Add a post-build action by selecting **Publish an Azure Web App**.
+5. Supply, "mySp", the Azure service principal stored in previous step.
+6. In **App Configuration** section, choose the resource group and web app in your subscription. The plugin automatically detects whether the Web App is Windows or Linux-based. For a Windows-based Web App, the option "Publish Files" is presented.
+7. Fill in the files you want to deploy (for example, a war package if you're using Java.) Source Directory and Target Directory are optional. The parameters allow you to specify source and target folders when uploading files. Java web app on Azure is run in a Tomcat server. So you upload you war package to webapps folder. For this example, set **Source Directory** to "target" and supply "webapps" for **Target Directory**.
+8. If you want to deploy to a slot other than production, you can also set **Slot** Name.
+9. Save the project and build it. Your web app is deployed to Azure when build is complete.
 
 ### Deploy Web App through FTP using Jenkins pipeline
 
 The plugin is pipeline-ready. You can refer to a sample in the GitHub repo.
-<ol>
-<li>In GitHub web UI, open **Jenkinsfile_ftp_plugin** file. Click the pencil icon to edit this file to update the resource group and name of your web app on line 11 and 12 respectively.</li>
 
+1. In GitHub web UI, open **Jenkinsfile_ftp_plugin** file. Click the pencil icon to edit this file to update the resource group and name of your web app on line 11 and 12 respectively.    
 ```java
 def resourceGroup = '<myResourceGroup>'
 def webAppName = '<myAppName>'
-
 ```
-<li>Change line 14 to update credential ID in your Jenkins instance</li>
-
+2. Change line 14 to update credential ID in your Jenkins instance.    
 ```java
 withCredentials([azureServicePrincipal('<mySp>')]) {
-
 ```
-</ol>
 
 ### Create a Jenkins pipeline
-
-<ol>
-<li>Open Jenkins in a web browser, click **New Item**.</li>
-<li>Provide a name for the job and select **Pipeline**. Click **OK**.</li>
-<li>Click the **Pipeline** tab next.</li>
-<li>For **Definition**, select **Pipeline script from SCM**.</li>
-<li>For **SCM**, select **Git**. Enter the GitHub URL for your forked repo: https:&lt;your forked repo>.git</li>
-<li>Update **Script Path** to "Jenkinsfile_ftp_plugin"</li>
-<li>Click **Save** and run the job</li>
-</ol>
+1. Open Jenkins in a web browser, click **New Item**.
+2. Provide a name for the job and select **Pipeline**. Click **OK**.
+3. Click the **Pipeline** tab next.
+4. For **Definition**, select **Pipeline script from SCM**.
+5. For **SCM**, select **Git**. Enter the GitHub URL for your forked repo: https:&lt;your forked repo>.git
+6. Update **Script Path** to "Jenkinsfile_ftp_plugin"
+7. Click **Save** and run the job.
 
 ## Configure Jenkins to deploy Web App on Linux through Docker
 
@@ -154,86 +138,62 @@ Before setting up the job in Jenkins, you need an Azure app service on Linux. A 
 
 ### To deploy using docker:
 
-<ol>
-<li>Create a new freestyle project in Jenkins Dashboard</li>
-<li>Configure **Source Code Management** to use your local fork of [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) by providing the **Repository URL**. For example: http://github.com/&lt;yourid>/javawebappsample.
-Add a Build step to build the project using Maven. Do so by adding an **Execute shell** and add the following line in **Command**:</li>
-
+1. Create a new freestyle project in Jenkins Dashboard.
+2. Configure **Source Code Management** to use your local fork of [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) by providing the **Repository URL**. For example: http://github.com/&lt;yourid>/javawebappsample.
+Add a Build step to build the project using Maven. Do so by adding an **Execute shell** and add the following line in **Command**:    
 ```bash
 	mvn clean package
-
 ```
-
-<li>Add a post-build action by selecting **Publish an Azure Web App**.</li>
-<li>Supply, **mySp**, the Azure service principal stored in previous step as Azure Credentials</li>
-<li>In **App Configuration** section, choose the resource group and a Linux web app in your subscription.</li>
-<li>Choose Publish via Docker.</li>
-<li>Fill in **Dockerfile** path. You can keep the default "/Dockerfile"
-For **Docker registry URL**, supply in the format of https://&lt;myRegistry>.azurecr.io if you use Azure Container Registry. Leave it blank if you use DockerHub.</li>
-<li>For **Registry credentials**, add the credential for the Azure Container Registry. You can get the userid and password by running the following commands in Azure CLI. The first command enables the administrator account.</li>
-
+3. Add a post-build action by selecting **Publish an Azure Web App**.
+4. Supply, **mySp**, the Azure service principal stored in previous step as Azure Credentials.
+5. In **App Configuration** section, choose the resource group and a Linux web app in your subscription.
+6. Choose Publish via Docker.
+7. Fill in **Dockerfile** path. You can keep the default "/Dockerfile"
+For **Docker registry URL**, supply in the format of https://&lt;myRegistry>.azurecr.io if you use Azure Container Registry. Leave it blank if you use DockerHub.
+8. For **Registry credentials**, add the credential for the Azure Container Registry. You can get the userid and password by running the following commands in Azure CLI. The first command enables the administrator account.    
 ```azurecli-interactive
 	az acr update -n <yourRegistry> --admin-enabled true
 	az acr credential show -n <yourRegistry>
-
 ```
-
-<li>The docker image name and tag in **Advanced** tab are optional. By default, image name is obtained from the image name you configured in Azure portal (in Docker Container setting.) The tag is generated from $BUILD_NUMBER. Make sure you specify the image name in either Azure portal or supply a value for **Docker Image** in **Advanced** tab. For this example, supply "&lt;yourRegistry>.azurecr.io/calculator" for **Docker image** and leave **Docker Image Tag** blank.</li>
-<li>Note deployment fails if you use built-in Docker image setting. Make sure you change docker config to use custom image in Docker Container setting in Azure portal. For built-in image, use file upload approach to deploy.</li>
-<li>Similar to file upload approach, you can choose a different slot other than production.</li>
-<li>Save and build the project. You see your container image is pushed to your registry and web app is deployed.</li>
-</ol>
+9. The docker image name and tag in **Advanced** tab are optional. By default, image name is obtained from the image name you configured in Azure portal (in Docker Container setting.) The tag is generated from $BUILD_NUMBER. Make sure you specify the image name in either Azure portal or supply a value for **Docker Image** in **Advanced** tab. For this example, supply "&lt;yourRegistry>.azurecr.io/calculator" for **Docker image** and leave **Docker Image Tag** blank.
+10. Note deployment fails if you use built-in Docker image setting. Make sure you change docker config to use custom image in Docker Container setting in Azure portal. For built-in image, use file upload approach to deploy.
+11. Similar to file upload approach, you can choose a different slot other than production.
+12. Save and build the project. You see your container image is pushed to your registry and web app is deployed.
 
 ### Deploy to Web App on Linux through Docker using Jenkins pipeline
 
-<ol>
-<li>In GitHub web UI, open **Jenkinsfile_container_plugin** file. Click the pencil icon to edit this file to update the resource group and name of your web app on line 11 and 12 respectively.</li>
-
+1. In GitHub web UI, open **Jenkinsfile_container_plugin** file. Click the pencil icon to edit this file to update the resource group and name of your web app on line 11 and 12 respectively.    
 ```java
 def resourceGroup = '<myResourceGroup>'
 def webAppName = '<myAppName>'
-
 ```
-
-<li>Change line 13 to your container registry server</li>
-
+2. Change line 13 to your container registry server    
 ```java
 def registryServer = '<registryURL>'
-
 ```
-
-<li>Change line 16 to update credential ID in your Jenkins instance</li>
-</ol>
-
+3. Change line 16 to update credential ID in your Jenkins instance    
 ```java
 azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'acr', url: "http://$registryServer"]
 ```
-
 ### Create Jenkins pipeline
 
-<ol>
-<li>Open Jenkins in a web browser, click **New Item**.</li>
-<li>Provide a name for the job and select **Pipeline**. Click **OK**.</li>
-<li>Click the **Pipeline** tab next.</li>
-<li>For **Definition**, select **Pipeline script from SCM**.</li>
-<li>For **SCM**, select **Git**.</li>
-<li>Enter the GitHub URL for your forked repo: https:&lt;your forked repo>.git</li>
-<li>Update **Script Path** to "Jenkinsfile_container_plugin"</li>
-<li>Click **Save** and run the job</li>
-</ol>
+1. Open Jenkins in a web browser, click **New Item**.
+2. Provide a name for the job and select **Pipeline**. Click **OK**.
+3. Click the **Pipeline** tab next.
+4. For **Definition**, select **Pipeline script from SCM**.
+5. For **SCM**, select **Git**.
+6. Enter the GitHub URL for your forked repo: https:&lt;your forked repo>.git</li>
+7, Update **Script Path** to "Jenkinsfile_container_plugin"
+8. Click **Save** and run the job.
 
 ## Verify your web app
 
-<ol>
-<li>To verify the WAR file is deployed successfully to your web app. Open a web browser.</li>
-<li>Go to http://&lt;app_name>.azurewebsites.net/api/calculator/ping
-You see:</li>
-
+1. To verify the WAR file is deployed successfully to your web app. Open a web browser.
+2. Go to http://&lt;app_name>.azurewebsites.net/api/calculator/ping
+You see:    
         Welcome to Java Web App!!! This is updated!
         Sun Jun 17 16:39:10 UTC 2017
-
-<li>Go to http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (substitute &lt;x> and &lt;y> with any numbers) to get the sum of x and y</li>
-</ol>
+3. Go to http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (substitute &lt;x> and &lt;y> with any numbers) to get the sum of x and y        
 	![Calculator: add](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ### For App service on Linux
