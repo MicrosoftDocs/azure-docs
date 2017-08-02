@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2017
+ms.date: 08/02/2017
 ms.author: seanmck
 ms.custom: 
 ---
@@ -50,7 +50,40 @@ You can specify the properties of your Azure Container Registry in an Azure Reso
 
 To avoid storing the password to your container registry directly in the template, it is recommended that you store it as a secret in [Azure Key Vault](../key-vault/key-vault-manage-with-cli2.md) and reference it in the template using the [native integration between the Azure Resource Manager and Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
+## Using the Azure Portal
+
+If you maintain container images in the Azure Container Registry, you can easily create a container in Azure Container Instances using the Azure portal.
+
+1. In the Azure portal, navigate to your container registry.
+
+2. Choose Repositories.
+
+    ![The Azure Container Registry menu in the Azure portal][acr-menu]
+
+3. Choose the repository that you want to deploy from.
+
+4. Right-click the tag for the container image you want to deploy.
+
+    ![Context menu for launching container with Azure Container Instances][acr-runinstance-contextmenu]
+
+5. Enter a name for the container and a name for the resource group. You can also change the default values if you wish.
+
+    ![Create menu for Azure Container Instances][acr-create-deeplink]
+
+6. Once the deployment completes, you can navigate to the container group from the notifications pane to find its IP address and other properties.
+
+    ![Details view for Azure Container Instances container group][aci-detailsview]
 
 ## Next steps
 
 Learn how to build containers, push them to a private container registry, and deploy them to Azure Container Instances by [completing the tutorial](container-instances-tutorial-prepare-app.md).
+
+
+<!-- IMAGES -->
+[acr-menu]: ./media/container-instances-using-azure-container-registry/acr-menu.png
+
+[acr-runinstance-contextmenu]: ./media/container-instances-using-azure-container-registry/acr-runinstance-contextmenu.png
+
+[acr-create-deeplink]: ./media/container-instances-using-azure-container-registry/acr-create-deeplink.png
+
+[aci-detailsview]: ./media/container-instances-using-azure-container-registry/aci-detailsview.png
