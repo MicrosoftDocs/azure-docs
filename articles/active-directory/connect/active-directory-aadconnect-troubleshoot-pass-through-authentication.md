@@ -152,4 +152,4 @@ Another way to monitor Authentication Agents is to track specific Performance Mo
 ![Pass-through Authentication Performance Monitor counters](./media/active-directory-aadconnect-pass-through-authentication/pta12.png)
 
 >[!IMPORTANT]
->Pass-through Authentication provides high availablity, and _not_ load balancing. Depending on your configuration, this may mean that _not_ all Authentication Agents will receive equal amounts of traffic. In some cases, an Authentication Agent may not receive any traffic at all.
+>Pass-through Authentication provides high availablity using multiple Authentication Agents, and _not_ load balancing. Depending on your configuration, this means that _not_ all your Authentication Agents will receive roughly _equal_ number of requests. It is possible that a specific Authentication Agent receives no traffic at all.
