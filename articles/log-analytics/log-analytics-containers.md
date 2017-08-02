@@ -79,10 +79,9 @@ Add the Containers solution to your OMS workspace from [Azure marketplace](https
 
 There are a few ways to install and use Docker with OMS:
 
-* On supported Linux operating systems, install and run Docker and then install and configure the OMS Agent for Linux.
-* On CoreOS, you cannot run the OMS Agent for Linux. Instead, you run a containerized version of the OMS Agent for Linux.
-* On Windows Server 2016 and Windows 10, install the Docker Engine and client then connect an agent to gather information and send it to Log Analytics.
-
+* On supported Linux operating systems, install and run Docker and then install and configure the OMS Agent for Linux.  
+* On CoreOS, you cannot run the OMS Agent for Linux. Instead, you run a containerized version of the OMS Agent for Linux.  
+* On Windows Server 2016 and Windows 10, install the Docker Engine and client then connect an agent to gather information and send it to Log Analytics.  
 
 You can review the supported Docker and Linux operating system versions for your container host on [GitHub](https://github.com/Microsoft/OMS-docker).
 
@@ -142,11 +141,11 @@ You can run the OMS Agent as a global service on Docker Swarm. Use the following
 ### Configure an OMS Agent for Red Hat OpenShift
 There are three ways to add the OMS Agent to Red Hat OpenShift to start collecting container monitoring data. 
  
-•	[Install the OMS Agent for Linux](log-analytics-agent-linux.md) directly on each OpenShift node
-•	[Enable Log Analytics VM Extension](log-analytics-azure-vm-extension.md) on each OpenShift node residing in Azure
-•	Install the OMS Agent as a OpenShift daemon-set 
+* [Install the OMS Agent for Linux](log-analytics-agent-linux.md) directly on each OpenShift node  
+* [Enable Log Analytics VM Extension](log-analytics-azure-vm-extension.md) on each OpenShift node residing in Azure  
+* Install the OMS Agent as a OpenShift daemon-set  
 
-Here we cover the steps required to install the OMS Agent as an OpenShift daemon-set.  
+In this section we cover the steps required to install the OMS Agent as an OpenShift daemon-set.  
 
 1. Copy the yaml file [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) from GitHub to your master node and modify the value <WSID> with your OMS Workspace ID and <KEY> with your Primary Key.   
 2. Sign on to the OpenShift master node and copy the yaml file.
