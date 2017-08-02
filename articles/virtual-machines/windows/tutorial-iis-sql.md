@@ -90,6 +90,13 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroup `
 >
 
 
+# create database
+New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
+    -ServerName $servername `
+    -DatabaseName musicstore `
+    -RequestedServiceObjectiveName "S0"
+
+
 ## Create a VM
 
 The following script creates a fully configured VM that you can use for the rest of this tutorial.
@@ -204,10 +211,13 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName $resourceGroup `
     -VMName $vmName `
     -Location $location `
     -FileUri $scriptURL `
-    -Run $fileName `
+	-argument '$user $password $sqlserver.database.windows.net' `
+    -Run "powershell -ExecutionPolicy Unrestricted -File $filename -user $user -password $password -sqlserver $sqlserver.database.windows.net" `
     -Name MusicStoreExtension
-
 ```
+
+
+
 
 ## Test load balancer
 Obtain the public IP address of your load balancer with [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for *myPublicIP* created earlier:
