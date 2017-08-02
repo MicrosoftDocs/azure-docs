@@ -67,9 +67,9 @@ If you are not using PCF Ops Manager, you will need to push the nozzle as an app
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
-> "SYSTEM_DOMAIN" is your CF domain name. You can retrive it by searching the "SYSTEM_DOMAIN" in your CF deployment manifest file. 
-> "CF_User" is the CF admin name. You can retrive the name and password by searching the "scim" section, looking for the name and the "cf_admin_password" in your CF deployment manifest file.
-        
+Note "SYSTEM_DOMAIN" is your CF domain name. You can retrive it by searching the "SYSTEM_DOMAIN" in your CF deployment manifest file. 
+"CF_User" is the CF admin name. You can retrive the name and password by searching the "scim" section, looking for the name and the "cf_admin_password" in your CF deployment manifest file.
+     
 2. Create a CF user and grant required privileges
 * On your Dev box, run following command to create the user:
 ```
@@ -174,7 +174,7 @@ cf delete <App Name> -r
 > Note if you remove the nozzle, the data in OMS portal will not be automatically removed, however it will expire based on your retention policy.
 
 # Support and Feedback
-Azure Analytics Nozzle for Cloud Foundry is open sourced, feel free to send your questions and comments to the [github issue section] (https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues). 
+Azure Log Analytics Nozzl is open sourced, please send your questions and feedback to [github section](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues). 
 To open Azure support request, use the "Virtual Machine running Cloud Foundry" as the service category. 
 
 # Next step:
