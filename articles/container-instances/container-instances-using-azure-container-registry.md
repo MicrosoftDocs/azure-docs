@@ -32,11 +32,11 @@ The Azure CLI includes commands for creating and managing containers in Azure Co
 az container create --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --image-registry-password myRegistryPassword --resource-group myresourcegroup
 ```
 
-The `create` command also supports specifying the `image-registry-login-server` and `image-registry-username`. However, by default, the login server for the Azure Container Registry is simply *registryname*.azurecr.io and the username is *registryname*, so these values are inferred from the image name if not explicitly provided.
+The `create` command also supports specifying the `image-registry-login-server` and `image-registry-username`. However, the login server for the Azure Container Registry is always *registryname*.azurecr.io and the default username is *registryname*, so these values are inferred from the image name if not explicitly provided.
 
 ## Using an Azure Resource Manager template
 
-You can specify the properties of your Azure Container Registry in an Azure Resource Manager template by including the `imageRegistryCredentials` property in the definition of your container group:
+You can specify the properties of your Azure Container Registry in an Azure Resource Manager template by including the `imageRegistryCredentials` property in the container group definition:
 
 ```json
 "imageRegistryCredentials": [
@@ -50,7 +50,7 @@ You can specify the properties of your Azure Container Registry in an Azure Reso
 
 To avoid storing your container registry password directly in the template, we recommend that you store it as a secret in [Azure Key Vault](../key-vault/key-vault-manage-with-cli2.md) and reference it in the template using the [native integration between the Azure Resource Manager and Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
-## Using the Azure Portal
+## Using the Azure portal
 
 If you maintain container images in the Azure Container Registry, you can easily create a container in Azure Container Instances using the Azure portal.
 
@@ -77,7 +77,6 @@ If you maintain container images in the Azure Container Registry, you can easily
 ## Next steps
 
 Learn how to build containers, push them to a private container registry, and deploy them to Azure Container Instances by [completing the tutorial](container-instances-tutorial-prepare-app.md).
-
 
 <!-- IMAGES -->
 [acr-menu]: ./media/container-instances-using-azure-container-registry/acr-menu.png
