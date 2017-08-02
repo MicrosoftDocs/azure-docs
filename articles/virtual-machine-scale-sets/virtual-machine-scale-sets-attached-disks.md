@@ -95,6 +95,16 @@ You can also add a disk by adding a new entry to the _dataDisks_ property in the
     }          
 ]
 ```
+> [!NOTE]
+> When you add disks to an existent scale set, by design, the disk always will be created empty. This scenario also includes new instances created byt the scale set. This behaviour is because the scaleset definition has an empty data disk. This behaviour can be resolved  with either of the two options:
+
+> Copy data from the instance 0 VM to the data disks in the other VMs by running a custom script.
+> Create a managed image with the OS Disk plus Data Disk (with the required data) and create a new scaleset with the image. This way every new VM created will have a data disk that that is provided in the definition of the scaleset. Since this definition will refer to an image with a data disk that has customized data, every virtual machine on the scaleset will automatically come up with these changes.
+
+> The way to create a custom image can be found here: [Create a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource/) 
+
+> The user needs to capture the instance 0 VM which has the required data, and then use that vhd for the image definition.
+
 Then select _PUT_ to apply the changes to your scale set. This example would work as long as you are using a VM size which supports more than two attached data disks.
 
 > [!NOTE]
