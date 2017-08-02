@@ -47,7 +47,7 @@ The following table outlines the Docker orchestration and operating system monit
 
 ### Supported Linux operating system
 
-- Docker 1.11 thru 1.13
+- Docker 1.11 to 1.13
 - Docker CE and EE v17.03
 
 The following x64 Linux distributions are supported as container hosts:
@@ -91,11 +91,11 @@ You can review the supported Docker and Linux operating system versions for your
 - If you have a Kubernetes cluster using the Azure Container Service, learn more at  [Monitor an Azure Container Service cluster with Microsoft Operations Management Suite (OMS)](../container-service/kubernetes/container-service-kubernetes-oms.md).
 - If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
 - If you have a Docker Swarm mode environment, learn more at [Configure an OMS agent for Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
-- If you use containers with Service Fabric, learn more at [Overview of Azure Service Fabric ](../service-fabric/service-fabric-overview.md).
+- If you use containers with Service Fabric, learn more at [Overview of Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - Review the [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) article for additional information about how to install and configure your Docker Engines on computers running Windows.
 
 > [!IMPORTANT]
-> Docker must be running **before** you install the [OMS Agent for Linux](log-analytics-agent-linux.md) on your container hosts. If you've already installed the agent before installing Docker, you'll need to reinstall the OMS Agent for Linux. For more information about Docker, see the [Docker website](https://www.docker.com).
+> Docker must be running **before** you install the [OMS Agent for Linux](log-analytics-agent-linux.md) on your container hosts. If you've already installed the agent before installing Docker, you need to reinstall the OMS Agent for Linux. For more information about Docker, see the [Docker website](https://www.docker.com).
 >
 >
 
@@ -112,7 +112,7 @@ After you've installed Docker, use the following settings for your container hos
 
 ### For all Linux container hosts including CoreOS
 
-Start the OMS container that you want to monitor. Modify and use the following example.
+Start the OMS container that you want to monitor. Modify and use the following example:
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
@@ -120,7 +120,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 
 ### For all Azure Government Linux container hosts including CoreOS
 
-Start the OMS container that you want to monitor. Modify and use the following example.
+Start the OMS container that you want to monitor. Modify and use the following example:
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
@@ -146,10 +146,10 @@ There are three ways to add the OMS Agent to Red Hat OpenShift to start collecti
 •	[Enable Log Analytics VM Extension](log-analytics-azure-vm-extension.md) on each OpenShift node residing in Azure
 •	Install the OMS Agent as a OpenShift daemon-set 
 
-Here we will cover the steps required to install the OMS Agent as an OpenShift daemon-set.  
+Here we cover the steps required to install the OMS Agent as an OpenShift daemon-set.  
 
 1. Copy the yaml file [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) from GitHub to your master node and modify the value <WSID> with your OMS Workspace ID and <KEY> with your Primary Key.   
-2. Sign on to the Openshift master node and copy the yaml file.
+2. Sign on to the OpenShift master node and copy the yaml file.
 3. Run the following commands to create a project for OMS and set the user account.
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -176,10 +176,10 @@ Here we will cover the steps required to install the OMS Agent as an OpenShift d
     No events.  
     ```
 
-If you want to use secrets to secure your Log Analytics Workspace ID and Primary Key when using the OMS Agent daemon-set yaml file, please perform the following steps.
+If you want to use secrets to secure your Log Analytics Workspace ID and Primary Key when using the OMS Agent daemon-set yaml file, perform the following steps.
 
 1. Copy the yaml file [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) and secret generating script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) from GitHub.  This script will generate the secrets yaml file for OMS Workspace ID and Primary Key to secure your secrete information.  
-2. Sign on to the Openshift master node and copy the secret generating script and secret template file. The secret generating script will ask for your OMS Workspace ID <WSID> and Primary Key <KEY> and upon completion, it will create the ocp-secret.yaml file.  
+2. Sign on to the OpenShift master node and copy the secret generating script and secret template file. The secret generating script asks for your OMS Workspace ID <WSID> and Primary Key <KEY> and upon completion, it creates the ocp-secret.yaml file.  
 3. Run the following commands to create a project for OMS and set the user account.
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -259,10 +259,10 @@ For Docker Swarm, once the secret for Workspace ID and Primary Key is created, y
 
 #### Secure secrets for Kubernetes with yaml files
 
-For Kubernetes, you use a script to generate the secrets .yaml file for your Workspace ID and Primary Key. At the [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) page, there are files that you can use with or without your secret information.
+For Kubernetes, you use a script to generate the secrets yaml file for your Workspace ID and Primary Key. At the [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) page, there are files that you can use with or without your secret information.
 
-- The Default OMS Agent DaemonSet which does not have secret information (omsagent.yaml)
-- The OMS Agent DaemonSet yaml file which uses secret information (omsagent-ds-secrets.yaml) with secret generation scripts that generates the secrets yaml (omsagentsecret.yaml) file.
+- The Default OMS Agent DaemonSet does not have secret information (omsagent.yaml)
+- The OMS Agent DaemonSet yaml file uses secret information (omsagent-ds-secrets.yaml) with secret generation scripts to generate the secrets yaml (omsagentsecret.yaml) file.
 
 You can choose to create omsagent DaemonSets with or without secrets.
 
@@ -280,7 +280,7 @@ You can choose to create omsagent DaemonSets with or without secrets.
     1. Copy the script and secret template file and make sure they are on the same directory.
         - Secret generating script - secret-gen.sh
         - secret template - secret-template.yaml
-    2. Run the script, like the following example. The script asks for the OMS Workspace ID and Primary Key and after you enter them, the script creates a secret .yaml file so you can run it.   
+    2. Run the script, like the following example. The script asks for the OMS Workspace ID and Primary Key and after you enter them, the script creates a secret yaml file so you can run it.   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -421,7 +421,7 @@ The following table shows data collection methods and other details about how da
 | --- | --- | --- | --- | --- | --- | --- |
 | Azure |![Yes](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |every 3 minutes |
 
-The following table show examples of data types collected by the Containers solution and the data types that are used in Log Searches and results.
+The following table shows examples of data types collected by the Containers solution and the data types that are used in Log Searches and results.
 
 | Data type | Data type in Log Search | Fields |
 | --- | --- | --- |
