@@ -157,8 +157,16 @@ In this section we cover the steps required to install the OMS Agent as an OpenS
     oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
     oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
-4. To deploy the daemon-set, run the following command: `oc create -f ocp-omsagent.yaml`.  
-5. To verify it is configured and working correctly, type the following command: `oc describe daemonset omsagent` and the output should resemble:
+4. To deploy the daemon-set, run the following: 
+    
+    `oc create -f ocp-omsagent.yaml`
+
+5. To verify it is configured and working correctly, type the following: 
+
+    `oc describe daemonset omsagent`  
+    
+    and the output should resemble:
+
     ```
     [ocpadmin@khm-0 ~]$ oc describe ds oms  
     Name:           oms  
@@ -180,6 +188,7 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
 1. Copy the yaml file [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) and secret generating script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) from GitHub.  This script will generate the secrets yaml file for OMS Workspace ID and Primary Key to secure your secrete information.  
 2. Sign on to the OpenShift master node and copy the secret generating script and secret template file. The secret generating script asks for your OMS Workspace ID <WSID> and Primary Key <KEY> and upon completion, it creates the ocp-secret.yaml file.  
 3. Run the following commands to create a project for OMS and set the user account.
+    
     ```
     oadm new-project omslogging --node-selector='zone=default'  
     oc project omslogging  
@@ -189,12 +198,15 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
     ```
 
 4. Deploy the secret file by running the following:
-    oc create -f ocp-secret.yaml
 
-5. Verify deployment by running the following:  
-    oc describe secret omsagent-secret  
+    `oc create -f ocp-secret.yaml`
 
-   and the  output should resemble:  
+5. Verify deployment by running the following: 
+
+    `oc describe secret omsagent-secret`  
+
+    and the  output should resemble:  
+    
     ```
     [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
     Name:           oms  
@@ -212,24 +224,28 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
     ```
 
 6. Deploy the OMS Agent daemon-set yaml file by running the following: 
-    oc create -f ocp-ds-omsagent.yaml  
+
+    `oc create -f ocp-ds-omsagent.yaml`  
   
 7. Verify deployment by running the following: 
-    oc describe ds oms  
-   and the output should resemble:  
+
+    `oc describe ds oms`
+  
+    and the output should resemble:
+
     ```
     [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
     Name:           omsagent-secret  
     Namespace:      omslogging  
     Labels:         <none>  
     Annotations:    <none>  
-
+    
     Type:   Opaque  
-
-    Data  
-    ====  
-    KEY:    89 bytes  
-    WSID:   37 bytes  
+    
+     Data  
+     ====  
+     KEY:    89 bytes  
+     WSID:   37 bytes  
     ```
 
 ### Secure your secret information for container services
