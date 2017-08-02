@@ -107,13 +107,13 @@ If you create an ASE standalone, it has nothing in it. An empty ASE still incurs
 
 5. Select your VNet and location. You can create a new VNet or select an existing VNet: 
 
-    a. If you select a new VNet, you can specify a name and location. The new VNet has the address range 192.168.250.0/23 and a subnet named default. The subnet is defined as 192.168.250.0/24. You can only select a Resource Manager VNet. The **VIP Type** selection determines if your ASE can be directly accessed from the internet (External) or if it uses an ILB. To learn more about these options, see [Create and use an internal load balancer with an App Service environment][MakeILBASE]. 
+    * If you select a new VNet, you can specify a name and location. The new VNet has the address range 192.168.250.0/23 and a subnet named default. The subnet is defined as 192.168.250.0/24. You can only select a Resource Manager VNet. The **VIP Type** selection determines if your ASE can be directly accessed from the internet (External) or if it uses an ILB. To learn more about these options, see [Create and use an internal load balancer with an App Service environment][MakeILBASE]. 
 
-    * If you select **External** for the **VIP Type**, you can select how many external IP addresses the system is created with for IP-based SSL purposes. 
+      * If you select **External** for the **VIP Type**, you can select how many external IP addresses the system is created with for IP-based SSL purposes. 
     
-    * If you select **Internal** for the **VIP Type**, you must specify the domain that your ASE uses. You can deploy an ASE into a VNet that uses public or private address ranges. To use a VNet with a public address range, you need to create the VNet ahead of time. 
+      * If you select **Internal** for the **VIP Type**, you must specify the domain that your ASE uses. You can deploy an ASE into a VNet that uses public or private address ranges. To use a VNet with a public address range, you need to create the VNet ahead of time. 
     
-    b. If you select an existing VNet, a new subnet is created when the ASE is created. *You can't use a pre-created subnet in the portal. You can create an ASE with an existing subnet if you use a Resource Manager template.* To create an ASE from a template, see [Create an App Service Environment from a template][MakeASEfromTemplate].
+    * If you select an existing VNet, a new subnet is created when the ASE is created. *You can't use a pre-created subnet in the portal. You can create an ASE with an existing subnet if you use a Resource Manager template.* To create an ASE from a template, see [Create an App Service Environment from a template][MakeASEfromTemplate].
 
 ## App Service Environment v1 ##
 
