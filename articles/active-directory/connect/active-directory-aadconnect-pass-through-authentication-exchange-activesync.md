@@ -44,7 +44,7 @@ Contact Microsoft Support if this command fails with the following error:
 
 4. Enable Pass-through Authentication on your tenant using the instructions in [this article](active-directory-aadconnect-pass-through-authentication-quick-start.md).
 
-5. If you have not already done so, disable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard. This is an optional step.
+5. If you have not already done so, disable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
 
 At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
 
@@ -70,12 +70,12 @@ Contact Microsoft Support if this command fails with the following error:
 >[!IMPORTANT]
 >Wait for an hour for the `PerTenantSwitchToESTSEnabled` setting to take effect, and then proceed to Step 4.
 
-4. Enable Pass-through Authentication on your tenant using the instructions in [this article](active-directory-aadconnect-pass-through-authentication-quick-start.md). This also disable AD FS as your sign-in method, if you had previously configured AD FS using Azure AD Connect. If you had configured AD FS _outside_ of Azure AD Connect, use PowerShell to manually convert your Federated domains to Managed domains.
+4. Enable Pass-through Authentication on your tenant using the instructions in [this article](active-directory-aadconnect-pass-through-authentication-quick-start.md). This action also disables AD FS as your sign-in method, if you had configured AD FS using Azure AD Connect. If you had configured AD FS _outside_ of Azure AD Connect, use PowerShell to manually convert your Federated domains to Managed domains.
 
 >[!IMPORTANT]
 >Wait for 12 hours before shutting down your AD FS sign-in infrastructure.
 
-5. If you have not already done so, disable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard. This is an optional step.
+5. If you have not already done so, disable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
 
 At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
 
@@ -98,7 +98,7 @@ Contact Microsoft Support if this step fails with the following error:
 >[!IMPORTANT]
 >It takes up to an hour for Exchange ActiveSync to start working after you complete the preceding steps.
 
-4. If you have not already done so, disable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard. This is an optional step.
+4. If you have not already done so, disable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
 
 At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
 
