@@ -78,6 +78,8 @@
 # Resources
 ## [API versions](search-api-versions.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
+## [FAQ - Frequently Asked Questions](search-faq-frequently-asked-questions.md)
+## [IFAQ -Infrequently Asked Questions](search-faq-uncommon-questions.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/search/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service REST (Preview)](search-api-2015-02-28-preview.md)
