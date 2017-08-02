@@ -34,7 +34,7 @@ Learn how to deploy, manage, and monitor secure web applications on Azure.
 - [Map an existing custom domain to your application](/azure/app-service-web/app-service-web-tutorial-custom-domain)
 - [Bind an existing SSL certificate to your application](/azure/app-service-web/app-service-web-tutorial-custom-SSL)
 
-## Free PluralSight Video Training
+## Free Pluralsight Video Training
 
 - [Developing with .NET](https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02)
 - [Developing with Node.js](https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02)

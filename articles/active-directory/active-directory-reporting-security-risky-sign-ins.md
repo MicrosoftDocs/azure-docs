@@ -12,8 +12,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 08/01/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 
 ---
 # Risky sign-ins report in the Azure Active Directory portal
@@ -31,6 +32,19 @@ The detected risk events are used to calculate:
 In [the Azure portal](https://portal.azure.com), you can find the security reports on the **Azure Active Directory** blade in the **Security** section. 
 
 ![Risky Sign-ins](./media/active-directory-reporting-security-risky-sign-ins/10.png)
+
+
+## What Azure AD license do you need to access a security report?  
+
+All editions of Azure Active Directory provide you with risky sign-ins reports.  
+However, the level of report granularity varies between the editions: 
+
+- In the **Azure Active Directory Free and Basic editions**, you already get a list of risky sign-ins. 
+
+- The **Azure Active Directory Premium 1** edition extends this model by also enabling you to examine some of the underlying risk events that have been detected for each report. 
+
+- The **Azure Active Directory Premium 2** edition provides you with the most detailed information about the underlying risk events and it also enables you to configure security policies that automatically respond to configured risk levels.
+
 
 
 ## Azure Active Directory free and basic edition

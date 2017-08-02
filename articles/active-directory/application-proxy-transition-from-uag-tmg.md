@@ -12,32 +12,51 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 07/27/2017
 ms.author: kgremban
+ms.reviewer: harshja
+ms.custom: it-pro
 ---
-# Upgrade to Azure AD proxies from Microsoft Forefront or Unified Access Gateway
+# Compare remote access solutions
 
-This article describes how to move from the Microsoft Forefront Threat Management Gateway (TMG) and Unified Access Gateway (UAG) solutions to Azure AD Application Proxy.
+Azure Active Directory Application Proxy is one of two remote access solutions that Microsoft offers. The other is Web Application Proxy, the on-premises version. These two solutions replace earlier products that Microsoft offered: Microsoft Forefront Threat Management Gateway (TMG) and Unified Access Gateway (UAG). Use this article to understand how these four solutions compare to each other. For those of you still using the deprecated TMG or UAG solutions, use this article to help plan your migration to one of the Application Proxy. 
 
-For detailed information about the transition from Forefront TMG and UAG to Application Proxy, you can [read a related white paper from Microsoft](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).
 
-## Functionality details for the conversion
+## Feature comparison
 
-|**TMG/UAG functionality**|**Modern solution**|
-|:-----|:-----|
-|Selective HTTP publishing for browser apps|Azure AD Application Proxy|
-|Active Directory Federation Services (AD FS) integration|Azure AD Application Proxy|
-|Rich protocols publishing (for example, Citrix, Lync, RDG)|Azure AD Application Proxy|
-|Portal|Azure AD Access Panel or Office 365 App Launcher for Azure AD Application Proxy|
-|Endpoint health detection|Intune or System Center|
-|SSL tunneling|Windows SSL or VPN|
-|Layer 2/3 firewall|Windows Server|
-|Preauthentication for ActiveSync (HTTP Basic) and RDG|No current solution from Microsoft|
-|Web application firewall|No current solution from Microsoft.|
-|Secure web gateway (forward proxy)|No current solution from Microsoft.|
+Use this table to understand how Threat Management Gateway (TMG), Unified Access Gateway (UAG), Web Application Proxy (WAP), and Azure AD Application Proxy (AP) compare to each other.
+
+| Feature | TMG | UAG | WAP | AP |
+| ------- | --- | --- | --- | --- |
+| Certificate authentication | Yes | Yes | - | - |
+| Selectively publish browser apps | Yes | Yes | Yes | Yes |
+| Preauthentication and single sign-on | Yes | Yes | Yes | Yes | 
+| Layer 2/3 firewall | Yes | Yes | - | - |
+| Forward proxy capabilities | Yes | - | - | - |
+| VPN capabilities | Yes | Yes | - | - |
+| Rich protocol support | - | Yes | Yes, if running over HTTP | Yes, if running over HTTP or through Remote Desktop Gateway |
+| Serves as ADFS proxy server | - | Yes | Yes | - |
+| One portal for application access | - | Yes | - | Yes |
+| Response body link translation | Yes | Yes | - | Yes | 
+| Authentication with headers | - | Yes | - | Yes, with PingAccess | 
+| Cloud-scale security | - | - | - | Yes | 
+| Conditional access | - | Yes | - | Yes |
+| No components in the demilitarized zone (DMZ) | - | - | - | Yes |
+| No inbound connections | - | - | - | Yes |
+
+For most scenarios, we recommend Azure AD Application as the modern solution. Web Application Proxy is only preferred in scenarios that require a proxy server for AD FS, and you can't use custom domains in Azure Active Directory. 
+
+Azure AD Application Proxy offers unique benefits when compared to similar products, including:
+
+- Extending Azure AD to on-premises resources
+   - Cloud-scale security and protection
+   - Features like conditional access and Multi-Factor Authentication are easy to enable
+- No componenet in the demilitarized zone
+- No inbound connections required
+- One access panel that your users can go to for all their applications, including O365, Azure AD integrated SaaS apps, and your on-premises web apps. 
 
 
 ## Next steps
 
-[Blog: Web Application Proxy](https://blogs.technet.microsoft.com/applicationproxyblog/tag/web-application-proxy)<br>
-[Blog: Azure AD Application Proxy](https://blogs.technet.microsoft.com/applicationproxyblog/tag/aad-ap)
+- [Use Azure AD Application to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md)
+- [Transition from Forefront TMG and UAG to Application Proxy](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).

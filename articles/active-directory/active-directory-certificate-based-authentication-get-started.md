@@ -11,8 +11,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/17/2017
+ms.date: 08/02/2017
 ms.author: markvi
+ms.reviewer: nigu
 
 ---
 # Get started with certificate-based authentication in Azure Active Directory

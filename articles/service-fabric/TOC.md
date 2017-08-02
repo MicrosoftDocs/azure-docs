@@ -16,7 +16,9 @@
 ### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
 
 # Samples
-## [PowerShell](service-fabric-powershell-samples.md) 
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
+## [PowerShell](service-fabric-powershell-samples.md)
+## [Azure CLI](samples-cli.md)
 # Concepts
 ## [Understand microservices](service-fabric-overview-microservices.md)
 ## [Big picture](service-fabric-content-roadmap.md)
@@ -110,7 +112,7 @@
 #### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## Monitore and diagnose
+## Monitor and diagnose
 ### [Overview](service-fabric-diagnostics-overview.md)
 ### [Health model](service-fabric-health-introduction.md)
 ### [Diagnostics in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
@@ -130,7 +132,6 @@
 ### Build a container service
 #### [Create a Windows container application](service-fabric-get-started-containers.md)
 #### [Create a Linux container application](service-fabric-get-started-containers-linux.md)
-#### [Deploy Windows container](service-fabric-deploy-container.md)
 #### [Deploy Linux container](service-fabric-deploy-container-linux.md)
 #### [Docker compose (preview)](service-fabric-docker-compose.md)
 #### [Resource governance for containers and services](service-fabric-resource-governance.md)
@@ -290,7 +291,8 @@
 ## Monitor and diagnose
 ### [Monitor and diagnose applications](service-fabric-diagnostics-overview.md)
 ### Generate events
-#### [Generate infrastructure level events](service-fabric-diagnostics-event-generation-infra.md)
+#### [Generate platform level events](service-fabric-diagnostics-event-generation-infra.md)
+##### [Operational channel](service-fabric-diagnostics-event-generation-operational.md)
 ##### [Reliable Services events](service-fabric-reliable-services-diagnostics.md)
 ##### [Reliable Actors events](service-fabric-reliable-actors-diagnostics.md)
 ##### [Performance metrics](service-fabric-diagnostics-event-generation-perf.md)
@@ -317,7 +319,7 @@
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Azure CLI](/cli/azure/sf)
 ## [Java API](/java/api/overview/azure/servicefabric)
-## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
+## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Resources
@@ -326,6 +328,7 @@
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Pricing](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Sample code](http://aka.ms/servicefabricsamples)
 ## [Support options](service-fabric-support.md)
 ## [Service Updates](https://azure.microsoft.com/updates/?product=service-fabric)
