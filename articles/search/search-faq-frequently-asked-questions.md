@@ -20,13 +20,13 @@ ms.author: heidist
 
 ### How is Azure Search different from full text search in my DBMS?
 
-Azure Search is typically a better choice if application requirements include support for multiple data sources, linguistic analysis, tuning, localization, or user-experience features such as typeahead, hit highlighting, and faceted navigation. 
+Azure Search is typically a better choice if application requirements include support for multiple data sources, linguistic analysis, tuning, localization, search results management through [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), or user-experience features such as typeahead, hit highlighting, and faceted navigation. 
 
 ### What is the difference between Azure Search and ElasticSearch?
 
-Azure Search uses ElasticSearch internally for access to Apache Lucene full text search engine and for its extensibility mechanisms.  
+Azure Search uses ElasticSearch internally for access to the Apache Lucene full text search engine, infrastructure support for distributed and scaleable workloads, and for its extensibility mechanisms.  
 
-Customers who choose Azure Search over an ElasticSearch deployment typically do so for these reasons: integration with other Microsoft assets (indexing and linguistic analysis), ease of management, ease of development. Built-in linguistic support for Microsoft's [natural language processors](https://docs.microsoft.com/rest/api/searchservice/language-support) and [built-in indexing](search-indexer-overview.md) of crawlable Azure data sources are key differentiators, as is the ability to slide resourcing levels up or down for fast responses to fluctuations in query or indexing volumes. [Scoring and tuning features](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) provides the means for influencing search rank scores beyond what the search engine alone can provide.
+Customers who choose Azure Search over ElasticSearch typically do so because we've made a key task easier or we have built-in support with other Microsoft assets. Linguistic analysis in Azure Search can leverage Microsoft's [natural language processors](https://docs.microsoft.com/rest/api/searchservice/language-support). We also offer [built-in indexing](search-indexer-overview.md) of crawlable Azure data sources. Scale through workload distribution is a fundamental strenght of ElasticSearch; in Azure Search you can adjust  resources using PowerShell or in the portal using a slider control, for rapid response to fluctuations in query or indexing volumes. [Scoring and tuning features](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) provide the means for influencing search rank scores beyond what the search engine alone can provide.
 
 ### Can I pause Azure Search service and stop billing?
 
@@ -44,7 +44,7 @@ Although you can [get an index definition](https://docs.microsoft.com/rest/api/s
 
 ## Search Ops
 
-## Can I search across multiple indexes?
+### Can I search across multiple indexes?
 
 No, this operation is not supported. Search is always scoped to a single index.
 
@@ -54,9 +54,9 @@ The most common case is not knowing that each query type supports different sear
 
 If you invoke other query types (fuzzy search, proximity search, suggestions, among others), there is no linguistic analysis. Terms are added to the query tree as-is, which the engine uses to look for identical matches based on the exact terms it was given. This often results in fewer matches than you might be expecting.
 
-### Why is the search rank a constant or equal score 1.0 for every hit?
+### Why is the search rank a constant or equal score of 1.0 for every hit?
 
-By default, search results are scored based on the [statistical properties of matching terms](search-lucene-query-architecture#stage-4-scoring), and then returned in order of high to low. However, some query types (wildcard, prefix, regex) always contribute a constant score to the overall document score. This is by design. Azure Search imposes a constant score to allow matches found through query expansion to be included in the results, without affecting the ranking. 
+By default, search results are scored based on the [statistical properties of matching terms](search-lucene-query-architecture.md#stage-4-scoring), and ordered high to low in the result set. However, some query types (wildcard, prefix, regex) always contribute a constant score to the overall document score. This is by design. Azure Search imposes a constant score to allow matches found through query expansion to be included in the results, without affecting the ranking. 
 
 For example, suppose an input of "tour*" in a wildcard search, with matches found on “tours”, “tourettes”, and “tourmaline”. Given the nature of these results, there is no way to reasonably infer which terms are more valuable than others. For this reason, we ignore term frequencies when scoring results in queries of types wildcard, prefix and regex. In a multi-part search request that includes partial and complete terms, results from the partial input are incorporated with a constant score to avoid bias towards potentially unexpected matches.
 
