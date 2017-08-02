@@ -71,6 +71,7 @@ ACU: 210-250
 <br>
 
 ## DS-series
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network performance (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 32 |2 / 500 |
@@ -79,6 +80,7 @@ ACU: 210-250
 | Standard_DS4 |8 |28 |56 |16 |32,000 / 256 (344) |25,600 / 256 |8 / 4000 |
 
 <br>
+
 ## D-series 
 
 ACU: 160
