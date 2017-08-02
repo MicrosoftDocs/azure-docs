@@ -27,7 +27,7 @@ This article provides information about the **most recent** Azure HDInsight rele
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
 
 
-## Notes for <> release of HDInsight
+## Notes for 08/02/2017 release of HDInsight
 
 | Title | Description | Impacted Area  | Cluster Type  | 
 | --- | --- | --- | --- | --- |
