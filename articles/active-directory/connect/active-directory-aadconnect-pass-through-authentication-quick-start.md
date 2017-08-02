@@ -43,12 +43,20 @@ Ensure that the following prerequisites are in place:
 ### In your on-premises environment
 
 1. Identify a server running Windows Server 2012 R2 or later on which to run Azure AD Connect. Add the server to the same AD forest as the users whose passwords need to be validated.
-2. Install the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) on the server identified in Step 2. If you already have Azure AD Connect running, ensure that the version is 1.1.557.0 or later.
+2. Install the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) on the server identified in preceding step. If you already have Azure AD Connect running, ensure that the version is 1.1.557.0 or later.
 3. Identify an additional server running Windows Server 2012 R2 or later on which to run a standalone Authentication Agent. The Authentication Agent version needs to be 1.5.193.0 or later. This server is needed to ensure high availability of sign-in requests. Add the server to the same AD forest as the users whose passwords need to be validated.
 4. If there is a firewall between your servers and Azure AD, you need to configure the following items:
-   - Open up your ports: Ensure that the Authentication Agents installed on your servers can make outbound requests to Azure AD over ports **80** (for downloading certificate revocation lists (CRLs) while validating the SSL certificate) and **443** (all outbound communication with our service). If your firewall enforces rules according to originating users, open these ports for traffic coming from Windows services running as a Network Service.
-   - Allow Azure AD endpoints: If URL filtering is enabled, ensure that the Authentication Agents can communicate with **login.windows.net**, **login.microsoftonline.com**, **\*.msappproxy.net** and **\*.servicebus.windows.net**.
-   - Verify direct IP connections: Ensure that the Authentication Agents on your servers can make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+   - Ensure that Authentication Agents can make **outbound** requests to Azure AD over the following ports:
+   
+   | Port number | How it's used |
+   | --- | --- |
+   | **80** | Downloading certificate revocation lists (CRLs) while validating the SSL certificate |
+   | **443** | All outbound communication with our service |
+   
+   If your firewall enforces rules according to originating users, open these ports for traffic from Windows services that run as  Network Service.
+   - If your firewall or proxy allows DNS whitelisting, whitelist connections to **\*.msappproxy.net** and **\*.servicebus.windows.net**. If not, allow access to [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
+   - Your Authentication Agents need access to **login.windows.net** and **login.microsoftonline.com** for initial registration, so open your firewall for those URLs as well.
+   - For certificate validation, you will need to open the following addresses: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** and **www.microsoft.com:80**. These URLs are consistent with certificate validation across Microsoft products, so if you use other Microsoft products you may already have these open.
    
 ### For Exchange ActiveSync support
 
