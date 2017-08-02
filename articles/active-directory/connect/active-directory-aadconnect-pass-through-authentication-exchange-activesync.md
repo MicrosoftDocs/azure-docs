@@ -33,20 +33,44 @@ This article is for customers who want Exchange ActiveSync support with Azure AD
 
 ```Get-OrganizationConfig | fl per*```
 
-3. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is **true**, your tenant is correctly configured. If the value is **false**, run the following command:
+3. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is **true**, your tenant is correctly configured - no further action is required. If the value is **false**, run the following command:
 
 ```Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true```
 
-Contact Microsoft Support if this step fails with the following error:
+Contact Microsoft Support if this command fails with the following error:
 
 ```TBD```
 
-4. Ensure that the value of the `PerTenantSwitchToESTSEnabled` setting is set to **true**. At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
+4. Verify that the value of the `PerTenantSwitchToESTSEnabled` setting is now set to **true**. If so, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
 
 >[!IMPORTANT]
->It takes up to an hour for Exchange ActiveSync to start working after you complete all the steps.
+>It takes up to an hour for Exchange ActiveSync to start working after you complete the preceding steps.
 
 ### Configuration 2: I have Exchange mailboxes and I am switching from AD FS to Pass-through Authentication as my Azure AD sign-in method
+
+1. Use [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) to run the following command:
+
+```Get-OrganizationConfig | fl per*```
+
+2. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is **true**, skip Step 3. If the value is **false**, run the following command:
+
+```Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true```
+
+Contact Microsoft Support if this command fails with the following error:
+
+```TBD```
+
+3. Verify that the value of the `PerTenantSwitchToESTSEnabled` setting is now set to **true**.
+
+>[!IMPORTANT]
+>Wait for an hour for the `PerTenantSwitchToESTSEnabled` setting to take effect, and then proceed to Step 4.
+
+4. Enable Pass-through Authentication on your tenant using the instructions in [this article](active-directory-aadconnect-pass-through-authentication-quick-start.md).
+
+>[!IMPORTANT]
+>Wait for 12 hours before shutting down your AD FS infrastructure.
+
+At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
 
 ### Configuration 3: I already have Pass-through Authentication as my Azure AD sign-in method, and I am now setting up Exchange mailboxes
 
@@ -54,7 +78,7 @@ Contact Microsoft Support if this step fails with the following error:
 
 ```Get-OrganizationConfig | fl per*```
 
-2. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is **true**, your tenant is correctly configured. If the value is **false**, run the following command:
+2. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is **true**, your tenant is correctly configured - no further action is required. If the value is **false**, run the following command:
 
 ```Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true```
 
@@ -62,10 +86,10 @@ Contact Microsoft Support if this step fails with the following error:
 
 ```TBD```
 
-3. Ensure that the value of the `PerTenantSwitchToESTSEnabled` setting is set to **true**. At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
+3. Verify that the value of the `PerTenantSwitchToESTSEnabled` setting is now set to **true**. If so, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
 
 >[!IMPORTANT]
->It takes up to an hour for Exchange ActiveSync to start working after you complete all the steps.
+>It takes up to an hour for Exchange ActiveSync to start working after you complete the preceding steps.
 
 ## Next steps
 
