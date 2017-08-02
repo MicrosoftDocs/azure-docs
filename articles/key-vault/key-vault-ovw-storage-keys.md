@@ -52,7 +52,8 @@ Developers used to need to do the following practices with a storage account key
 //create storage account using connection string containing account name 
 // and the storage key 
 
-var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));var blobClient = storageAccount.CreateCloudBlobClient();
+var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+var blobClient = storageAccount.CreateCloudBlobClient();
  ```
  
 ### After Azure Key Vault Storage Keys 
