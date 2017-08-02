@@ -158,6 +158,7 @@ ms.custom: H1Hack27Feb2017
 
 
 [ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide]:sap-high-availability-guide.md
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -219,7 +220,7 @@ ms.custom: H1Hack27Feb2017
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:/powershell/azureps-cmdlets-docs
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
@@ -420,22 +421,21 @@ Updated: September 2016
 
 [This guide can be found here](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-### <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planning and implementation
-Title: SAP NetWeaver on Azure Virtual Machines (VMs) – Planning and Implementation Guide
+## <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planning and implementation
+Title: Azure Virtual Machines planning and implementation for SAP NetWeaver
 
 Summary: This document is the guide to start with if you are thinking about running SAP NetWeaver in Azure Virtual Machines. This planning and implementation guide helps you evaluate whether an existing or planned SAP NetWeaver-based system can be deployed to an Azure Virtual Machines environment. It covers multiple SAP NetWeaver deployment scenarios, and includes SAP configurations that are specific to Azure. The paper lists and describes all the necessary configuration information you’ll need on the SAP/Azure side to run a hybrid SAP landscape. Measures you can take to ensure high availability of SAP NetWeaver-based systems on IaaS are also covered.
 
-Updated: November 2016
+Updated: June 2017
 
 [This guide can be found here][planning-guide]
 
-
 ### High Availability configurations of SAP NetWeaver in Azure VMs
-Title: High availability for SAP NetWeaver on Azure VMs 
+Title: Azure Virtual Machines high availability for SAP NetWeaver
 
 Summary: In this document, we cover the steps that you can take to deploy high-availability SAP systems in Azure by using the Azure Resource Manager deployment model. We walk you through these major tasks. In the document, we describe how single-point-of-failure components like Advanced Business Application Programming (ABAP) SAP Central Services (ASCS)/SAP Central Services (SCS) and database management systems (DBMS), and redundant components like SAP Application Server are going to be protected when running in Azure VMs. A step-by-step example of an installation and configuration of a high-availability SAP system in a Windows Server Failover Clustering cluster in Azure is demonstrated and shown in this document.
 
-Updated: December 2016
+Updated: June 2017
 
 [This guide can be found here](high-availability-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -449,20 +449,20 @@ Updated: December 2016
 [This guide can be found here](high-availability-multi-sid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Deployment of SAP NetWeaver in Azure VMs
-Title: SAP NetWeaver on Linux virtual machines (VMs) – Deployment Guide
+Title: Azure Virtual Machines deployment for SAP NetWeaver
 
 Summary: This document provides procedural guidance for deploying SAP NetWeaver software to virtual machines in Azure. This paper focuses on three specific deployment scenarios, with an emphasis on enabling the Azure Monitoring Extensions for SAP, including troubleshooting recommendations for the Azure Monitoring Extensions for SAP. This paper assumes that you’ve read the planning and implementation guide.
 
-Updated: March 2016
+Updated: June 2017
 
 [This guide can be found here][deployment-guide]
 
-### <a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>DBMS deployment guide
-Title: SAP NetWeaver on Linux virtual machines (VMs) – DBMS Deployment Guide
+## <a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>DBMS deployment guide
+Title: Azure Virtual Machines DBMS deployment for SAP NetWeaver
 
 Summary: This paper covers planning and implementation considerations for the DBMS systems that should run in conjunction with SAP. In the first part, general considerations are listed and presented. The following parts of the paper relate to deployments of different DBMS in Azure that are supported by SAP. Different DBMS presented are SQL Server, SAP ASE, and Oracle. In those specific parts, considerations you have to account for when you are running SAP systems on Azure in conjunction with those DBMS are discussed. Subjects like backup and high availability methods that are supported by the different DBMS on Azure are presented for the usage with SAP applications.
 
-Updated: March 2016
+Updated: June 2017
 
 [This guide can be found here][dbms-guide]
 

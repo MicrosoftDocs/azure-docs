@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 08/01/2017
 ms.author: cherylmc
 
 ---
@@ -66,7 +66,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 ### Public peering
 
 * Power BI
-* Dynamics 365 for Operations (formerly known as Dynamics AX Online)
+* Dynamics 365 for Finance and Operations (formerly known as Dynamics AX Online)
 * Most of the Azure services, with the following few exceptions:
   * CDN
   * Visual Studio Team Services Load Testing
@@ -76,7 +76,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 ### Microsoft peering
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
-* Dynamics 365 (formerly known as CRM Online)
+* Dynamics 365 Customer Engagement applications (formerly known as CRM Online)
   * Dynamics 365 for Sales
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
