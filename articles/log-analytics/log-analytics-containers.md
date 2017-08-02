@@ -188,8 +188,13 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
     oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
-4. Deploy the secret file by running the following command: `oc create -f ocp-secret.yaml`.  
-5. Verify deployment by running the following: `oc describe secret omsagent-secret` and the  output should resemble:
+4. Deploy the secret file by running the following:
+    oc create -f ocp-secret.yaml
+
+5. Verify deployment by running the following:  
+    oc describe secret omsagent-secret  
+
+   and the  output should resemble:  
     ```
     [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
     Name:           oms  
@@ -206,8 +211,12 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
     No events.  
     ```
 
-6. Deploy the OMS Agent daemon-set yaml file by running the following command: `oc create -f ocp-ds-omsagent.yaml`.  
-7. Verify deployment by running the following: `oc describe ds oms` and the output should resemble:  
+6. Deploy the OMS Agent daemon-set yaml file by running the following: 
+    oc create -f ocp-ds-omsagent.yaml  
+  
+7. Verify deployment by running the following: 
+    oc describe ds oms  
+   and the output should resemble:  
     ```
     [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
     Name:           omsagent-secret  
