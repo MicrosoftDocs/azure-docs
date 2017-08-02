@@ -160,8 +160,8 @@ Before setting up the job in Jenkins, you need an Azure app service on Linux. A 
 
 ```bash
 mvn clean package
-```
 
+```
 <li>Add a post-build action by selecting **Publish an Azure Web App**.</li>
 <li>Supply, **mySp**, the Azure service principal stored in previous step as Azure Credentials</li>
 <li>In **App Configuration** section, choose the resource group and a Linux web app in your subscription. </li> 
