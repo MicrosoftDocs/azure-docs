@@ -36,7 +36,7 @@ The `create` command also supports specifying the `image-registry-login-server` 
 
 ## Using an Azure Resource Manager template
 
-You can specify the properties of your Azure Container Registry in an Azure Resource Manager template. Simply include the `imageRegistryCredentials` property in the definition of your container group:
+You can specify the properties of your Azure Container Registry in an Azure Resource Manager template by including the `imageRegistryCredentials` property in the definition of your container group:
 
 ```json
 "imageRegistryCredentials": [
@@ -48,7 +48,7 @@ You can specify the properties of your Azure Container Registry in an Azure Reso
 ]
 ```
 
-To avoid storing the password to your container registry directly in the template, it is recommended that you store it as a secret in [Azure Key Vault](../key-vault/key-vault-manage-with-cli2.md) and reference it in the template using the [native integration between the Azure Resource Manager and Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+To avoid storing your container registry password directly in the template, we recommend that you store it as a secret in [Azure Key Vault](../key-vault/key-vault-manage-with-cli2.md) and reference it in the template using the [native integration between the Azure Resource Manager and Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
 ## Using the Azure Portal
 
