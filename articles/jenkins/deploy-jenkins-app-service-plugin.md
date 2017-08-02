@@ -70,7 +70,7 @@ To deploy your project to Azure Web App, you can upload your build artifacts (fo
 Before setting up the job in Jenkins, you need an Azure App Service plan and a Web App for running the Java app.
 
 <ol>
-<li>Create an Azure App Service plan with the **FREE** pricing tier using the  [az appservice plan create](/cli/azure/appservice/plan#create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps.</li>  
+<li>Create an Azure App Service plan with the **FREE** pricing tier using the  [az appservice plan create](/cli/azure/appservice/plan#create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps.</li>
 <li>Create a Web App. You can either use the [Azure portal](/azure/app-service-web/web-sites-configure) or use the following Az CLI command:</li>
 
 ```azurecli-interactive
@@ -152,7 +152,7 @@ Before setting up the job in Jenkins, you need an Azure app service on Linux. A 
 * You can follow the steps [here](/azure/app-service-web/app-service-linux-how-to-create-web-app) to create a Web App on Linux 
 * Azure Container Registry is a managed [Docker registry] (https://docs.docker.com/registry/) service based on the open-source Docker Registry 2.0. Follow the steps [here] (/azure/container-registry/container-registry-get-started-azure-cli) for more guidance on how to do so. You can also use DockerHub.
 
-###To deploy using docker:
+### To deploy using docker:
 <ol>
 <li>Create a new freestyle project in Jenkins Dashboard</li>
 <li>Configure **Source Code Management** to use your local fork of [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) by providing the **Repository URL**. For example: http://github.com/\<yourid\>/javawebappsample.
@@ -188,7 +188,6 @@ mvn clean package
 ```java
 def resourceGroup = '<myResourceGroup>'
 def webAppName = '<myAppName>'
-
 ```
 
 <li>Change line 13 to your container registry server</li>
