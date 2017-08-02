@@ -28,7 +28,7 @@ This article helps you find troubleshooting information about common issues rega
 
 ## Check status of the feature
 
-Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You can see this by going to the **Azure AD Connect** blade on the [Azure portal](https://portal.azure.com/).
+Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You can check status by going to the **Azure AD Connect** blade on the [Azure portal](https://portal.azure.com/).
 
 ![Azure portal - Azure AD Connect blade](./media/active-directory-aadconnect-sso/sso10.png)
 
