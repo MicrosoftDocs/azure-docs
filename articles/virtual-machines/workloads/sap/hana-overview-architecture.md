@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # SAP HANA (Large Instances) overview and architecture on Azure
 
-##Abstract
+## Abstract
 
 SAP HANA on Azure (Large Instance) is a unique solution to Azure. In addition to providing Azure Virtual Machines for the purpose of deploying and running SAP HANA, Azure offers the possibility for you to run and deploy SAP HANA on bare-metal servers that are dedicated to you as a customer. The SAP HANA on Azure (Large Instances) solution builds on non-shared host/server bare-metal hardware that is assigned to you as a customer. The server hardware is embedded in larger stamps that contain compute/server, networking, and storage infrastructure which as a combination is HANA TDI certified. The service offer of SAP HANA on Azure (Large Instances) offers various different server SKUs or sizes starting with units that have 72 CPUs and 768 GB memory to units that have 960 CPUs and 20 TB memory.
 
