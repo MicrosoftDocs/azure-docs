@@ -84,13 +84,10 @@ The following code uses the latest Media Services SDK to perform the following t
                 // Location of the media file that you want to encode. 
                 private static readonly string _singleInputFilePath =
                     Path.GetFullPath(@"../..\supportFiles\multifile\interview2.wmv");
-   
-        
+       
                 // Read values from the App.config file.
-        
                 private static readonly string _AADTenantDomain =
 	            ConfigurationManager.AppSettings["AADTenantDomain"];
-        
                 private static readonly string _RESTAPIEndpoint =
         	    ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
    
