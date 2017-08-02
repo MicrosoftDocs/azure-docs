@@ -137,7 +137,7 @@ To require the use of managed disks, use the following policy:
 
 ## Images for Virtual Machines
 
-For security reasons, you can require that only approved images are deployed in your environment. You can specify either the resource group that contains the approved images, or the specific approved images.
+For security reasons, you can require that only approved custom images are deployed in your environment. You can specify either the resource group that contains the approved images, or the specific approved images.
 
 The following example requires images from an approved resource group:
 
@@ -177,7 +177,7 @@ The following example specifies the approved image IDs:
 
 ## Virtual Machine extensions
 
-You may want to forbid usage of certain types of extensions. For example, an extension may not be compatible with certain custom virtual machine images. Or, for security reasons, you don't want users to reset passwords. The example below shows how to block a specific extension. It uses publisher and type to determine which extension to block.
+You may want to forbid usage of certain types of extensions. For example, an extension may not be compatible with certain custom virtual machine images. The following example shows how to block a specific extension. It uses publisher and type to determine which extension to block.
 
 ```json
 {
@@ -193,7 +193,7 @@ You may want to forbid usage of certain types of extensions. For example, an ext
             },
             {
                 "field": "Microsoft.Compute/virtualMachines/extensions/type",
-                "equals": "VMAccessAgent"
+                "equals": "{extension-type}"
 
       }
         ]
