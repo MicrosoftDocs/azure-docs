@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ---
 
@@ -144,3 +144,12 @@ If audit logging is enabled, additional information can be found in the security
     </Query>
     </QueryList>
 ```
+
+### Performance Monitor counters
+
+Another way to monitor Authentication Agents is to track specific Performance Monitor counters on each server where the Authentication Agent is installed. You can use Global counters (**# PTA authentications**, **#PTA failed authentications** and **#PTA successful authentications**) and Error counters (**# PTA authentication errors**) as shown below:
+
+![Pass-through Authentication Performance Monitor counters](./media/active-directory-aadconnect-pass-through-authentication/pta12.png)
+
+>[!IMPORTANT]
+>Pass-through Authentication provides high availablity, and _not_ load balancing. Depending on your configuration, this may mean that _not_ all Authentication Agents will receive equal amounts of traffic. In some cases, an Authentication Agent may not receive any traffic at all.
