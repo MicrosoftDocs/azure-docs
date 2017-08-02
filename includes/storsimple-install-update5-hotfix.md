@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 08/02/17-->
+<!--author=alkohli last changed: 08/10/17-->
 
 #### To download hotfixes
 
@@ -39,7 +39,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
    
     Supply the password when prompted.
    
-    A sample output for installing the first order updates is shown below. For the first order update, you need to point to the specific file. **You should install the HcsSoftwareUpdate.exe first and then install the CisMdsAgent.exe.**
+    A sample output for installing the first order updates is shown below. For the first order update, you need to point to the specific file. **You should install the _HcsSoftwareUpdate.exe_ first and then install the _CisMdsAgentUpdate.exe_.**
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -95,7 +95,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     > [!IMPORTANT]
     > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the next update.
      
-7. Repeat steps 3-5 to install the Cis/MDS agent downloaded to your _FirstOrderUpdate_ folder.
+7. Repeat steps 3-5 to install the _CisMDSAgentupdate.exe_ agent downloaded to your _FirstOrderUpdate_ folder.
 8. Repeat steps 3-5 to install the second order updates. **For second order updates, multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder.** If an update is already installed, the update logic will detect that and not apply that update.
 
 After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:

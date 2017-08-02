@@ -37,7 +37,7 @@ The following key improvements and bug fixes have been made in Update 5.
 
 * **Azure Active Directory (AAD) integration with StorSimple Device Manager service** – From Update 5 onwards, Azure Active Directory is used to authenticate with the StorSimple Device Manager service. The old authentication mechanism will be deprecated by December 2017. All the users must include the new authentication URLs in their firewall rules. For more information, go to [authentication URLs listed in the networking requirements for your StorSimple device]().
 
-* **New version of StorSimple Snapshot Manager** - A new version of StorSimple Snapshot Manager is released with Update 5. We recommend that you update to this version. This version is compatible with all the StorSimple devices that are running Update 3 or later.
+* **New version of StorSimple Snapshot Manager** - A new version of StorSimple Snapshot Manager is released with Update 5. We recommend that you update to this version. This version is compatible with all the StorSimple devices that are running Update 3 or later. For more information, go to [deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
 
 ## Issues fixed in Update 5

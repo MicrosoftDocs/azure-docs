@@ -73,21 +73,21 @@ You must download and install the following hotfixes in the prescribed order and
 
 | Order | KB | Description | Update type | Install time |Install in folder|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Software update |Regular <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
+| 1. |KB4037264 |Software update<br> Download both _HcsSfotwareUpdate.exe_ and _CisMSDAgent.exe_ |Regular <br></br>Non-disruptive |~ 25 mins |FirstOrderUpdate|
 
-If updating from a device running Update 4, you only need to install the OS cumulative updates as second order updates. 
+If updating from a device running Update 4, you only need to install the OS cumulative updates as second order updates.
 
 | Order | KB | Description | Update type | Install time |Install in folder|
 | --- | --- | --- | --- | --- | --- |
-| 2A. |KB4025336 |OS cumulative updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2A. |KB4025336 |OS cumulative updates package <br> Download Windows Server 2012 R2 version |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
 
 If installing from a device running Update 3 or earlier, install the following in addition to the cumulative updates.
 
 | Order | KB | Description | Update type | Install time |Install in folder|
 | --- | --- | --- | --- | --- | --- |
 | 2B. |KB4011841 <br> KB4011842 |LSI driver and firmware updates <br> USM firmware update (version 3.38) |Regular <br></br>Non-disruptive |~ 3 hrs <br> (includes 2A. + 2B. + 2C.)|SecondOrderUpdate|
-| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS security updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
-| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS updates package |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS security updates package <br> Download Windows Server 2012 R2 version |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
+| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |OS updates package <br> Download Windows Server 2012 R2 version |Regular <br></br>Non-disruptive |- |SecondOrderUpdate|
 
 
 You may also need to install disk firmware updates on top of all the updates shown in the preceding tables. You can verify whether you need the disk firmware updates by running the `Get-HcsFirmwareVersion` cmdlet. If you are running these firmware versions: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, then you do not need to install these updates.
