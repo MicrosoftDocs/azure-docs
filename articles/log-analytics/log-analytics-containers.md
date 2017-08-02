@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
-ms.author: banders
+ms.date: 08/02/2017
+ms.author: magoedte;banders
 
 ---
 # Containers (Preview) solution in Log Analytics
@@ -52,14 +52,15 @@ The following table outlines the Docker orchestration and operating system monit
 
 The following x64 Linux distributions are supported as container hosts:
 
-- Ubuntu 14.04 LTS, 16.04 LTS
+- Ubuntu 14.04 LTS and 16.04 LTS
 - CoreOS(stable)
 - Amazon Linux 2016.09.0
 - openSUSE 13.2
 - openSUSE LEAP 42.2
-- CentOS 7.2, 7.3
+- CentOS 7.2 and 7.3
 - SLES 12
-- RHEL 7.2, 7.3
+- RHEL 7.2 and 7.3
+- OpenShift 3.4 and 3.5
 
 ### Supported Windows operating system
 
@@ -68,7 +69,7 @@ The following x64 Linux distributions are supported as container hosts:
 
 ### Docker versions supported on Windows
 
-- Docker 1.12 – 1.13
+- Docker 1.12 and 1.13
 - Docker 17.03.0 
 
 ## Installing and configuring the solution
@@ -107,7 +108,7 @@ After you've installed Docker, use the following settings for your container hos
 
 ### For all Linux container hosts except CoreOS
 
-- For more information and steps on how to install the OMS Agent for Linux, see  [Connect your Linux Computers to Operations Management Suite (OMS)](log-analytics-agent-linux.md).
+- For more information and steps on how to install the OMS Agent for Linux, see [Connect your Linux Computers to Operations Management Suite (OMS)](log-analytics-agent-linux.md).
 
 ### For all Linux container hosts including CoreOS
 
@@ -125,9 +126,8 @@ Start the OMS container that you want to monitor. Modify and use the following e
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
 ```
 
-
 ### Switching from using an installed Linux agent to one in a container
-If you previously used the directly-installed agent and want to instead use an agent running in a container, you must first remove the OMS Agent for Linux. See [Uninstalling the OMS Agent for Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux).
+If you previously used the directly-installed agent and want to instead use an agent running in a container, you must first remove the OMS Agent for Linux. See [Uninstalling the OMS Agent for Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux) to understand how to successfully uninstall the agent.  
 
 ### Configure an OMS agent for Docker Swarm
 
@@ -137,6 +137,91 @@ You can run the OMS Agent as a global service on Docker Swarm. Use the following
 
     ```
     sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock  -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
+    ```
+
+### Configure an OMS Agent for Red Hat OpenShift
+There are three ways to add the OMS Agent to Red Hat OpenShift to start collecting container monitoring data. 
+ 
+•	[Install the OMS Agent for Linux](log-analytics-agent-linux.md) directly on each OpenShift node
+•	[Enable Log Analytics VM Extension](log-analytics-azure-vm-extension.md) on each OpenShift node residing in Azure
+•	Install the OMS Agent as a OpenShift daemon-set 
+
+Here we will cover the steps required to install the OMS Agent as an OpenShift daemon-set.  
+
+1. Copy the yaml file [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) from GitHub to your master node and modify the value <WSID> with your OMS Workspace ID and <KEY> with your Primary Key.   
+2. Sign on to the Openshift master node and copy the yaml file.
+3. Run the following commands to create a project for OMS and set the user account.
+    ```
+    oadm new-project omslogging --node-selector='zone=default'  
+    oc project omslogging  
+    oc create serviceaccount omsagent  
+    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    ```
+4. To deploy the daemon-set, run the following command: `oc create -f ocp-omsagent.yaml`.  
+5. To verify it is configured and working correctly, type the following command: `oc describe daemonset omsagent` and the output should resemble:
+    ```
+    [ocpadmin@khm-0 ~]$ oc describe ds oms  
+    Name:           oms  
+    Image(s):       microsoft/oms  
+    Selector:       name=omsagent  
+    Node-Selector:  zone=default  
+    Labels:         agentVersion=1.4.0-12  
+                    dockerProviderVersion=10.0.0-25  
+                    name=omsagent  
+    Desired Number of Nodes Scheduled: 3  
+    Current Number of Nodes Scheduled: 3  
+    Number of Nodes Misscheduled: 0  
+    Pods Status:    3 Running / 0 Waiting / 0 Succeeded / 0 Failed  
+    No events.  
+    ```
+
+If you want to use secrets to secure your Log Analytics Workspace ID and Primary Key when using the OMS Agent daemon-set yaml file, please perform the following steps.
+
+1. Copy the yaml file [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) and secret generating script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) from GitHub.  This script will generate the secrets yaml file for OMS Workspace ID and Primary Key to secure your secrete information.  
+2. Sign on to the Openshift master node and copy the secret generating script and secret template file. The secret generating script will ask for your OMS Workspace ID <WSID> and Primary Key <KEY> and upon completion, it will create the ocp-secret.yaml file.  
+3. Run the following commands to create a project for OMS and set the user account.
+    ```
+    oadm new-project omslogging --node-selector='zone=default'  
+    oc project omslogging  
+    oc create serviceaccount omsagent  
+    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    ```
+
+4. Deploy the secret file by running the following command: `oc create -f ocp-secret.yaml`.  
+5. Verify deployment by running the following: `oc describe secret omsagent-secret` and the  output should resemble:
+    ```
+    [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
+    Name:           oms  
+    Image(s):       microsoft/oms  
+    Selector:       name=omsagent  
+    Node-Selector:  zone=default  
+    Labels:         agentVersion=1.4.0-12  
+                    dockerProviderVersion=10.0.0-25  
+                    name=omsagent  
+    Desired Number of Nodes Scheduled: 3  
+    Current Number of Nodes Scheduled: 3  
+    Number of Nodes Misscheduled: 0  
+    Pods Status:    3 Running / 0 Waiting / 0 Succeeded / 0 Failed  
+    No events.  
+    ```
+
+6. Deploy the OMS Agent daemon-set yaml file by running the following command: `oc create -f ocp-ds-omsagent.yaml`.  
+7. Verify deployment by running the following: `oc describe ds oms` and the output should resemble:  
+    ```
+    [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
+    Name:           omsagent-secret  
+    Namespace:      omslogging  
+    Labels:         <none>  
+    Annotations:    <none>  
+
+    Type:   Opaque  
+
+    Data  
+    ====  
+    KEY:    89 bytes  
+    WSID:   37 bytes  
     ```
 
 ### Secure your secret information for container services
@@ -272,6 +357,7 @@ KEY:    88 bytes
 ```
 
 
+
 ## Windows container hosts
 
 ### Preparation before installing Windows agents
@@ -306,7 +392,7 @@ For more information about the Docker daemon configuration used with Windows Con
 
 ### Install Windows agents
 
-To enable Windows and Hyper-V container monitoring, install agents on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md). For virtual machines running in Azure, connect them to Log Analytics using the [virtual machine extension](log-analytics-azure-vm-extension.md).
+To enable Windows and Hyper-V container monitoring, install the Microsoft Monitoring Agent (MMA) on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md). For virtual machines running in Azure, connect them to Log Analytics using the [virtual machine extension](log-analytics-azure-vm-extension.md).
 
 You can monitor Windows containers running on Service Fabric. However, only [virtual machines running in Azure](log-analytics-azure-vm-extension.md) and [computers running Windows in your on-premises environment](log-analytics-windows-agents.md) are currently supported for Service Fabric.
 
