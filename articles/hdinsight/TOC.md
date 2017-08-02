@@ -99,7 +99,6 @@
 #### [Process events with Java topologies](hdinsight-storm-develop-java-event-hub-topology.md)
 #### [Use Power BI with a topology](hdinsight-storm-power-bi-topology.md)
 #### [Analyze real-time sensor data](hdinsight-storm-sensor-data-analysis.md)
-#### [Process vehicle sensor data](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [Correlate events over time](hdinsight-storm-correlation-topology.md)
 #### [Develop topologies using Python](hdinsight-storm-develop-python-topology.md)
 ## Use domain-joined HDInsight (Preview)
