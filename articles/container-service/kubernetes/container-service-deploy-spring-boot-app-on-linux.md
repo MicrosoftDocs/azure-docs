@@ -119,7 +119,7 @@ The following steps walk you through how to use the Azure portal to create an Az
 
 1. Sign in to the [Azure portal].
 
-    After you have signed into your account on the Azure portal, follow the steps in the [Create a private Docker container registry using the Azure portal] article. The steps from that article are summarized here:
+    After you have signed into your account on the Azure portal, follow the steps in the [Create a private Docker container registry using the Azure portal]. The steps from that article are summarized here:
 
 2. Select the menu icon for **+ New**.
 
