@@ -35,10 +35,10 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 
 | Size             | vCPU | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network performance (Mbps) |
 |------------------|-----------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
-| Standard_D2_v3  | 2         | 8           | 16             | 4              | 4,000 / 32 (50)                                                       | 3,200 / 48                                | 2 / moderate                                   |
-| Standard_D4_v3  | 4         | 16          | 32             | 8              | 8,000 / 64 (100)                                                      | 6,400 / 96                                | 2 / moderate                                   |
-| Standard_D8_v3  | 8         | 32          | 64             | 16             | 16,000 / 128 (200)                                                    | 12,800 / 192                              | 4 / high                                       |
-| Standard_D16_v3 | 16        | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / high                                       |
+| Standard_D2_v3  | 2         | 8           | 50             | 4              | 4,000 / 32 (50)                                                       | 3,200 / 48                                | 2 / moderate                                   |
+| Standard_D4_v3  | 4         | 16          | 100             | 8              | 8,000 / 64 (100)                                                      | 6,400 / 96                                | 2 / moderate                                   |
+| Standard_D8_v3  | 8         | 32          | 200             | 16             | 16,000 / 128 (200)                                                    | 12,800 / 192                              | 4 / high                                       |
+| Standard_D16_v3 | 16        | 64          | 400            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / high                                       |
 
 
 ## DSv2-series
