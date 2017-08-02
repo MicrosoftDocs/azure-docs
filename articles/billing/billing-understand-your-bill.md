@@ -28,7 +28,7 @@ For detailed terms and descriptions of your invoice and detailed daily usage fil
 
 For details on the cost management reports, see [Azure portal cost management](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
 
-## <a name="reconcile"></a>How do I make sure that the charges in my invoice are correct?
+## <a name="charges"></a>How do I make sure that the charges in my invoice are correct?
 
 If there is a charge on your invoice that you would like more details
 on, there are a couple of options:
@@ -61,7 +61,7 @@ The **Statement** section of your detailed usage CSV shows the same charge. Both
 
 ![CSV usage charges](./media/billing-understand-your-bill/2.png)
 
-To see breakdown of this charge on a daily basis, go to the **Daily Usage** section of the CSV. Filter for "Scheduler" under *Meter Category* and you can see which days the meter was used and how much was consumed. The *Resource* and *Resource group* information is also listed for comparison. The *Consumed* values should add up to what's shown on the invoice.
+To see a breakdown of this charge on a daily basis, go to the **Daily Usage** section of the CSV. Filter for "Scheduler" under *Meter Category* and you can see which days the meter was used and how much was consumed. The *Resource* and *Resource group* information is also listed for comparison. The *Consumed* values should add up to what's shown on the invoice.
 
 ![Daily Usage section in the CSV](./media/billing-understand-your-bill/3.png)
 
@@ -81,7 +81,7 @@ To continue with the example from above, visit the [Subscriptions page](https://
 
 ![Cost analysis view in Azure portal](./media/billing-understand-your-bill/4.png)
 
-To see daily cost breakdown in **Cost history**, click the row.
+To see the daily cost breakdown in **Cost history**, click the row.
 
 ![Cost history view in Azure portal](./media/billing-understand-your-bill/5.png)
 
