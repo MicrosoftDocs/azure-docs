@@ -18,19 +18,19 @@ ms.author: adegeo
 
 ---
 # Upload an Azure Management API Management Certificate
-Management certificates allow you to authenticate with the classic deployment model provided by Azure. Many programs and tools (such as Visual Studio or the Azure SDK) will use these certificates to automate configuration and deployment of various Azure services.
+Management certificates allow you to authenticate with the classic deployment model provided by Azure. Many programs and tools (such as Visual Studio or the Azure SDK) use these certificates to automate configuration and deployment of various Azure services.
 
 > [!WARNING]
 > Be careful! These types of certificates allow anyone who authenticates with them to manage the subscription they are associated with.
 >
 >
 
-More information about Azure certificates (including creating a self-signed certificate) is [available](cloud-services/cloud-services-certs-create.md#what-are-management-certificates) to you if you need it.
+If you'd like more information about Azure certificates (including creating a self-signed certificate), see [Certificates overview for Azure Cloud Services](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
 You can also use [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) to authenticate client-code for automation purposes.
 
 ## Upload a management certificate
-Once you have a management certificate created, (.cer file with only the public key) you can upload it into the portal. When the certificate is available in the portal, anyone with a matching certificiate (private key) can connect through the Management API and access the resources for the associated subscription.
+Once you have a management certificate created, (.cer file with only the public key) you can upload it into the portal. When the certificate is available in the portal, anyone with a matching certificate (private key) can connect through the Management API and access the resources for the associated subscription.
 
 1. Log in to the [Azure portal](http://portal.azure.com).
 2. Click **More services** at the bottom Azure service list, then select **Subscriptions** in the _General_ service group.
