@@ -59,7 +59,7 @@ You need version 1.1.486.0 or later for Azure AD Connect and 1.5.58.0 or later f
 
 If you have configured [password writeback](../active-directory-passwords-update-your-own-password.md) for a specific user, and if the user signs in using Pass-through Authentication, they can change or reset their passwords. The passwords are written back to on-premises Active Directory as expected.
 
-However, if password writeback is not configured or if the user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Please update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator has to reset their password in your on-premises Active Directory.
+However, if password writeback is not configured for a specific user or if the user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Please update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator has to reset their password in your on-premises Active Directory.
 
 ## How does Pass-through Authentication protect you against brute force password attacks?
 
@@ -67,11 +67,11 @@ Read [this article](active-directory-aadconnect-pass-through-authentication-smar
 
 ## What do Pass-through Authentication Agents communicate over ports 80 and 443?
 
-- The Authentication Agents make HTTPS requests over port 443 for all feature operations such as enabling the feature, processing all user sign-in requests and others.
+- The Authentication Agents make HTTPS requests over port 443 for all feature operations.
 - The Authentication Agents make HTTP requests over port 80 to download SSL certificate revocation lists.
 
      >[!NOTE]
-     >During our recent updates we reduced the number of ports required by Authentication Agents to communicate with Azure AD. If you are running older versions of Azure AD Connect and/or standalone Authentication Agents, you should continue to keep those additional ports (5671, 8080, 9090, 9091, 9350, 9352, 10100-10120) open.
+     >In recent updates we reduced the number of ports required by the feature. If you have older versions of Azure AD Connect or the Authentication Agent, keep these ports also open: 5671, 8080, 9090, 9091, 9350, 9352 and 10100-10120.
 
 ## Can the Pass-through Authentication Agents communicate over an outbound web proxy server?
 
@@ -110,11 +110,12 @@ No, this scenario is _not_ supported.
 
 We recommend that:
 
-- You install two or three Authentication Agents in total. That is sufficient for most customers.
+- You install two or three Authentication Agents in total. This configuration is sufficient for most customers.
 - You install Authentication Agents on your Domain Controllers (or as close to them as possible) to improve sign-in latency.
 - You ensure that servers (where Authentication Agents are installed) are added to the same AD forest as the users whose passwords need to be validated.
 
-Note that there is a system limit of 12 Authentication Agents per tenant.
+>[!NOTE]
+>There is a system limit of 12 Authentication Agents per tenant.
 
 ## How can I disable Pass-through Authentication?
 
