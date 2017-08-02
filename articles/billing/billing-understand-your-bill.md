@@ -67,7 +67,7 @@ To see a breakdown of this charge on a daily basis, go to the **Daily Usage** se
 
 To get the cost per day, multiply the *Consumed* amounts with the *Rate* value from the **Statement** section.
 
-To learn more about the invoice, see [Understand your Azure invoice](billing-understand-your-invoice.md)
+To learn more about the invoice, see [Understand your Azure invoice](billing-understand-your-invoice.md).
 
 To learn about each of the columns in the CSV, see [Understand your Azure detailed usage](billing-understand-your-invoice.md).
 
