@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 04/18/2017
+ms.date: 08/01/2017
 ms.author: larryfr
 
 ---
