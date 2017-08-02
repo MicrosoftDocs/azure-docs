@@ -44,9 +44,11 @@ To attain 30-day trial keys to these APIs, see [this page](https://azure.microso
 ### Installing Xamarin 
 #### Windows   
 With Visual Studio 2017 installed, open the Visual Studio Installer, select the hamburger menu associated with your Visual Studio installation, and select **Modify**.  
+
 ![A picture of the visual studio installer](./media/computer-vision-web-search-tutorial/VisualStudioInstallerPhoto.PNG) 
 
 Now, scroll down to Mobile & Gaming, and make sure that you've enabled **Mobile Development with .NET**.  
+
 ![A picture showing that Xamarin.Forms is installed](./media/computer-vision-web-search-tutorial/XamarinFormsIsEnabled.PNG)
 
 Now, click **Modify** in the bottom right corner of the window, and wait for Xamarin to install.
@@ -71,6 +73,7 @@ Press **Ctrl+Shift+B**, or click **Build** on the ribbon menu, then select **Bui
 
 ### Step 5: Configure your deployment
 Before running the application, you need to select a target Configuration, Platform, and Project.  Xamarin.Forms applications compile to native code for Windows, Android, and iOS.  This guide includes screenshots of the Windows version of the sample.  However, all versions are functionally equivalent.  The deployment settings used in this guide are shown below.  
+
 ![An image showing Visual Studio configured to compile for an Android phone](./media/computer-vision-web-search-tutorial/ConfigurationSelection.PNG)
 
 ### Step 6: Run the app
@@ -82,7 +85,7 @@ Before running the application, you need to select a target Configuration, Platf
 
    Here you can input your Computer Vision and Bing Web Search API keys.  The Computer Vision API call requires a reference to the server where the endpoint is hosted, so you will also need to enter this here. If you would like to skip this page in later compilations, you can manually add your keys and location in the `App.xaml.cs` page of the codebase. 
 
-3. Adding a set of working API keys takes you to the following page (defined in the codebase at `OcrSelectPage.xaml` and referenced in this guide as the OCR Select Page
+3. Adding a set of working API keys takes you to the following page (defined in the codebase at `OcrSelectPage.xaml` and referenced in this guide as the OCR Select Page.
    
    ![Image of the OCR Select Page](./media/computer-vision-web-search-tutorial/OcrSelectPage.png)  
 
@@ -157,11 +160,11 @@ async Task CheckBingSearchKey(object sender = null, EventArgs e = null)
 The OCR Select Page has two important roles.  First, it is where the user determines what kind of OCR they intend to perform with their target photo.  Second, it is where the user captures or imports the image that they wish to process.  This second task is traditionally cumbersome in a cross-platform application as different logic has to be written for photo capture and import per platform.  However with the Xamarin Media Plugin, this can all be done with a few lines of code in the shared codebase.  
 
 The following function provides an example of how to use the Xamarin Media Plugin for photo capture.  In it, we:
-1. Ensure that a camera is available on the current device.
-2. Initialize a new *StoreCameraMediaOptions* object and use it to set where we want to save our captured image.
-3. Take an image, save it to the specified location, and attain a *MediaFile* object containing the image data.
-4. Unpack the *MediaFile* into a byte array.
-5. Return the byte array for further processing.
+1. Ensure that a camera is available on the current device
+2. Initialize a new *StoreCameraMediaOptions* object and use it to set where we want to save our captured image
+3. Take an image, save it to the specified location, and attain a *MediaFile* object containing the image data
+4. Unpack the *MediaFile* into a byte array
+5. Return the byte array for further processing
 
 Here's the function that uses the Xamarin Media Plugin for photo capture.  
 
