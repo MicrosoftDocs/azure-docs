@@ -49,7 +49,7 @@ To complete this tutorial:
 
 In this step, you create a database in your local MySQL server for your use in this tutorial.
 
-### Connect to MySQL server
+### Connect to local MySQL server
 
 In a terminal window, connect to your local MySQL server. You can use this terminal window to run all the commands in this tutorial.
 
@@ -61,7 +61,7 @@ If you're prompted for a password, enter the password for the `root` account. If
 
 If your command runs successfully, then your MySQL server is running. If not, make sure that your local MySQL server is started by following the [MySQL post-installation steps](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
-### Create a database
+### Create a database locally
 
 At the `mysql` prompt, create a database.
 
@@ -77,7 +77,7 @@ quit
 
 <a name="step2"></a>
 
-## Create local PHP app
+## Create a PHP app locally
 In this step, you get a Laravel sample application, configure its database connection, and run it locally. 
 
 ### Clone the sample
@@ -116,7 +116,7 @@ DB_PASSWORD=<root_password>
 
 For information on how Laravel uses the _.env_ file, see [Laravel Environment Configuration](https://laravel.com/docs/5.4/configuration#environment-configuration).
 
-### Run the sample
+### Run the sample locally
 
 Run [Laravel database migrations](https://laravel.com/docs/5.4/migrations) to create the tables the application needs. To see which tables are created in the migrations, look in the _database/migrations_ directory in the Git repository.
 
@@ -239,7 +239,7 @@ In this step, you connect the PHP application to the MySQL database you created 
 
 <a name="devconfig"></a>
 
-### Configure the connection 
+### Configure the database connection
 
 In the repository root, create an _.env.production_ file and copy the following variables into it. Replace the placeholder _&lt;mysql_server_name>_.
 
@@ -284,7 +284,7 @@ To learn how to generate this _certificate.pem_, see [Configure SSL connectivity
 > The path _/ssl/certificate.pem_ points to an existing _certificate.pem_ file in the Git repository. This file is provided for convenience in this tutorial. For best practice, you should not commit your _.pem_ certificates into source control. 
 >
 
-### Test the application
+### Test the application locally
 
 Run Laravel database migrations with _.env.production_ as the environment file to create the tables in your MySQL database in Azure Database for MySQL (Preview). Remember that _.env.production_ has the connection information to your MySQL database in Azure.
 
@@ -473,7 +473,7 @@ Browse to `http://<app_name>.azurewebsites.net` and add a few tasks to the list.
 
 Congratulations, you're running a data-driven PHP app in Azure App Service.
 
-## Update model and redeploy
+## Update model locally and redeploy
 
 In this step, you make a simple change to the `task` data model and the webapp, and then publish the update to Azure.
 
