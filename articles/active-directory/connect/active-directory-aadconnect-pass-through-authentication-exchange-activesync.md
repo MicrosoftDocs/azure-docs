@@ -22,9 +22,9 @@ ms.author: billmath
 
 This article is for customers who want Exchange ActiveSync support with Azure AD Pass-through Authentication. Ensure that you use the instructions specific to your configuration:
 
-- [Configuration 1: I have Exchange mailboxes and I am enabling Pass-through Authentication as my Azure AD sign-in method](configuration-1-i-have-exchange-mailboxes-and-i-am-enabling-pass-through-authentication-as-my-azure-ad-sign-in-method)
-- [Configuration 2: I have Exchange mailboxes and I am switching from AD FS to Pass-through Authentication as my Azure AD sign-in method](configuration-2-i-have-exchange-mailboxes-and-i-am-switching-from-ad-fs-to-pass-through-authentication-as-my-azure-ad-sign-in-method)
-- [Configuration 3: I already have Pass-through Authentication as my Azure AD sign-in method, and I am now setting up Exchange mailboxes](configuration-3-i-already-have-pass-through-authentication-as-my-azure-ad-sign-in-method-and-i-am-now-setting-up-exchange-mailboxes)
+- [Configuration 1: I have Exchange mailboxes and I am enabling Pass-through Authentication as my Azure AD sign-in method](#configuration-1-i-have-exchange-mailboxes-and-i-am-enabling-pass-through-authentication-as-my-azure-ad-sign-in-method)
+- [Configuration 2: I have Exchange mailboxes and I am switching from AD FS to Pass-through Authentication as my Azure AD sign-in method](#configuration-2-i-have-exchange-mailboxes-and-i-am-switching-from-ad-fs-to-pass-through-authentication-as-my-azure-ad-sign-in-method)
+- [Configuration 3: I already have Pass-through Authentication as my Azure AD sign-in method, and I am now setting up Exchange mailboxes](#configuration-3-i-already-have-pass-through-authentication-as-my-azure-ad-sign-in-method-and-i-am-now-setting-up-exchange-mailboxes)
 
 ### Configuration 1: I have Exchange mailboxes and I am enabling Pass-through Authentication as my Azure AD sign-in method
 
@@ -37,7 +37,7 @@ This article is for customers who want Exchange ActiveSync support with Azure AD
 
 ```Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true```
 
-Contact Microsoft Support if Step 3 fails with the following error.
+Contact Microsoft Support if this step fails with the following error:
 
 ```TBD```
 
@@ -49,6 +49,23 @@ Contact Microsoft Support if Step 3 fails with the following error.
 ### Configuration 2: I have Exchange mailboxes and I am switching from AD FS to Pass-through Authentication as my Azure AD sign-in method
 
 ### Configuration 3: I already have Pass-through Authentication as my Azure AD sign-in method, and I am now setting up Exchange mailboxes
+
+1. Use [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) to run the following command:
+
+```Get-OrganizationConfig | fl per*```
+
+2. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is **true**, your tenant is correctly configured. If the value is **false**, run the following command:
+
+```Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true```
+
+Contact Microsoft Support if this step fails with the following error:
+
+```TBD```
+
+3. Ensure that the value of the `PerTenantSwitchToESTSEnabled` setting is set to **true**. At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
+
+>[!IMPORTANT]
+>It takes up to an hour for Exchange ActiveSync to start working after you complete all the instructions.
 
 ## Next steps
 
