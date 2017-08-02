@@ -68,7 +68,7 @@ For outbound access, an ASE depends on multiple external systems. Those system d
 | Use | From | To |
 |-----|------|----|
 | Azure Storage | ASE subnet | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 is only needed for ASEv1.) |
-| SQL Database | ASE subnet | database.windows.net: 1433, 11000-11999, 14000-14999 (For more information, see [Sql Database V12 port usage](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
+| Azure SQL Database | ASE subnet | database.windows.net: 1433, 11000-11999, 14000-14999 (For more information, see [SQL Database V12 port usage](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
 | Azure management | ASE subnet | management.core.windows.net, management.azure.com: 443 
 | SSL certificate verification |  ASE subnet            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
 | Azure Active Directory        | ASE subnet            |  Internet: 443
@@ -88,7 +88,7 @@ If the VNet is configured with a customer DNS on the other side of a VPN, the DN
 
 ## Portal dependencies ##
 
-In addition to the ASE functional dependencies, there are a few extra items related to the portal experience. Some of the capabilities in the Azure portal depend on direct access to _SCM site_. For every app in Azure App Service, there are two URLs. The first URL is to access your app. The second URL is to access the SCM site, which is also called the _Kudu console_. Some of the features that use the SCM site include:
+In addition to the ASE functional dependencies, there are a few extra items related to the portal experience. Some of the capabilities in the Azure portal depend on direct access to _SCM site_. For every app in Azure App Service, there are two URLs. The first URL is to access your app. The second URL is to access the SCM site, which is also called the _Kudu console_. Features that use the SCM site include:
 
 -   Web jobs
 -   Functions
@@ -98,7 +98,7 @@ In addition to the ASE functional dependencies, there are a few extra items rela
 -   Process Explorer
 -   Console
 
-When you use an ILB ASE, the SCM site isn't internet accessible from outside of the VNet. When your app is hosted on an ILB ASE, the capabilities that can't reach the SCM site are grayed out in the Azure portal.
+When you use an ILB ASE, the SCM site isn't internet accessible from outside the VNet. When your app is hosted on an ILB ASE, the capabilities that can't reach the SCM site are grayed out in the Azure portal.
 
 Many of those capabilities that depend upon the SCM site are also available directly in the Kudu console. You can connect to it directly rather than by using the portal. If your app is hosted in an ILB ASE, use your publishing credentials to sign in. The URL to access the SCM site of an app hosted in an ILB ASE has the following format: 
 
@@ -141,7 +141,7 @@ The first two inbound requirements for the ASE to function are shown at the top 
 
 ![Inbound security rules][4]
 
-A default rule enables the IPs in the VNet to talk to the ASE subnet. Another default rule enables the load balancer, AKA the public VIP, to communicate with the ASE. To see the default rules, select **Default rules** next to the **Add** icon. If you put a deny everything else rule after the NSG rules shown, you prevent traffic between the VIP and the ASE. To prevent traffic coming from inside the VNet, add your own rule to allow inbound. Use a source equal to AzureLoadBalancer with a destination of **Any** and a port range of **\***. Because the NSG rule is applied to the ASE subnet, you don't need to be specific in the destination.
+A default rule enables the IPs in the VNet to talk to the ASE subnet. Another default rule enables the load balancer, also known as the public VIP, to communicate with the ASE. To see the default rules, select **Default rules** next to the **Add** icon. If you put a deny everything else rule after the NSG rules shown, you prevent traffic between the VIP and the ASE. To prevent traffic coming from inside the VNet, add your own rule to allow inbound. Use a source equal to AzureLoadBalancer with a destination of **Any** and a port range of **\***. Because the NSG rule is applied to the ASE subnet, you don't need to be specific in the destination.
 
 If you assigned an IP address to your app, make sure you keep the ports open. To see the ports, select **App Service Environment** > **IP addresses**.  
 
