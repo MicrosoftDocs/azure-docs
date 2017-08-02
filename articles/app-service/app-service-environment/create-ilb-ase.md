@@ -60,29 +60,29 @@ To create an ILB ASE:
 
 5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/25`, which has 128 addresses and can handle a maximum-sized ASE. The minimum size you can select is a `/28`. After infrastructure needs, this size can be scaled to a maximum of 11 instances.
 
-	a. Go beyond the default maximum of 100 instances in your App Service plans.
+	* Go beyond the default maximum of 100 instances in your App Service plans.
 
-	b. Scale near 100 but with more rapid front-end scaling.
+	* Scale near 100 but with more rapid front-end scaling.
 
 6. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
 
 7. Enter a domain name. This domain is the one used for apps created in this ASE. There are some restrictions. It can't be:
 
-	a. net	
+	* net	
 
-	b. azurewebsites.net
+	* azurewebsites.net
 
-	c. p.azurewebsites.net
+	* p.azurewebsites.net
 
-	d. &lt;asename&gt;.p.azurewebsites.net
+	* &lt;asename&gt;.p.azurewebsites.net
 
    The custom domain name used for apps and the domain name used by your ASE can't overlap. For an ILB ASE with the domain name _contoso.com_, you can't use custom domain names for your apps like:
 
-	a. www.contoso.com
+	* www.contoso.com
 
-	b. abcd.def.contoso.com
+	* abcd.def.contoso.com
 
-	c. abcd.contoso.com
+	* abcd.contoso.com
 
    If you know the custom domain names for your apps, choose a domain for the ILB ASE that won’t have a conflict with those custom domain names. In this example, you can use something like *contoso-internal.com* for the domain of your ASE because that won't conflict with custom domain names that end in *.contoso.com*.
 
@@ -111,7 +111,7 @@ You create an app in an ILB ASE in the same way that you create an app in an ASE
 
 5. Select or create an App Service plan. If you want to create a new App Service plan, select your ASE as the location. Select the worker pool where you want your App Service plan to be created. When you create the App Service plan, select your ASE as the location and the worker pool. When you specify the name of the app, the domain under your app name is replaced by the domain for your ASE.
 
-6. Select **Create**. If you want the app to appear on your dashboard, select the **Pin to dashboard** checkbox.
+6. Select **Create**. If you want the app to appear on your dashboard, select the **Pin to dashboard** check box.
 
 	![App Service plan creation][2]
 
@@ -179,7 +179,7 @@ To upload your own certificates and test access:
 
 ### Functions and the ILB ASE
 
-When you use Functions on an ILB ASE, you might get an error message that says "We are not able to retrieve your functions right now. Please try again later." This error occurs because the Functions UI leverages the scm site over HTTPS. If you use an HTTP certificate for your ASE that doesn't have a root certificate that's in the browser, you might encounter this situation. In addition, the Internet Explorer\Edge browsers don’t share the *accept-invalid-cert* setting between tabs. So you can do one of two things:
+When you use Azure Functions on an ILB ASE, you might get an error message that says "We are not able to retrieve your functions right now. Please try again later." This error occurs because the Functions UI leverages the scm site over HTTPS. If you use an HTTP certificate for your ASE that doesn't have a root certificate that's in the browser, you might encounter this situation. In addition, the Internet Explorer\Edge browsers don’t share the *accept-invalid-cert* setting between tabs. So you can do one of two things:
 
 - Add the certificate to your trusted certificate store. 
 - Use Chrome. But you need to go to the scm site first and accept the untrusted certificate. Then go to the portal.
@@ -191,7 +191,7 @@ When you use an External VIP, the DNS is managed by Azure. Any app created in yo
 - *.contoso.net
 - *.scm.contoso.net
 
-If your ILB ASE domain is used for multiple things outside of this ASE, you might need to manage DNS on a per-app-name basis. This method is challenging because you need to add each new app name into your DNS when you create it. For this reason, we recommend that you use a dedicated domain.
+If your ILB ASE domain is used for multiple things outside this ASE, you might need to manage DNS on a per-app-name basis. This method is challenging because you need to add each new app name into your DNS when you create it. For this reason, we recommend that you use a dedicated domain.
 
 ## Publish with an ILB ASE ##
 
@@ -209,7 +209,7 @@ The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE 
 
 Azure App Service provides many security measures that protect the system. They also help to determine whether an app was hacked. The best protection for a web application is to couple a hosting platform, such as Azure App Service, with a web application firewall (WAF). Because the ILB ASE has a network-isolated application endpoint, it's appropriate for such a use.
 
-To learn more about how to configure your ILB ASE with a WAF device, see [Configure a web application firewall with your App Service environment][ASEWAF]. This article shows how to use a Barracuda virtual appliance with your ASE. Another option is to use the Azure Application Gateway. The Application Gateway uses the OWASP core rules to secure any applications placed behind it. For more information about the Application Gateway, see [Introduction to the Azure web application firewall][AppGW].
+To learn more about how to configure your ILB ASE with a WAF device, see [Configure a web application firewall with your App Service environment][ASEWAF]. This article shows how to use a Barracuda virtual appliance with your ASE. Another option is to use Azure Application Gateway. Application Gateway uses the OWASP core rules to secure any applications placed behind it. For more information about Application Gateway, see [Introduction to the Azure web application firewall][AppGW].
 
 ## Get started ##
 
