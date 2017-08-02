@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 08/02/2017
 ms.author: tomfitz
 
 ---
@@ -228,7 +228,7 @@ The value can be either a string or a JSON format object.
 
 ## Aliases
 
-You use property aliases to access specific properties for a resource type. 
+You use property aliases to access specific properties for a resource type. Aliases enable you to restrict what values or conditions are permitted for a property on a resource. Each alias maps to paths in different API versions for a given resource type. During policy evaluation, the policy engine gets the property path for that API version.
 
 **Microsoft.Cache/Redis**
 
@@ -260,6 +260,7 @@ You use property aliases to access specific properties for a resource type.
 
 | Alias | Description |
 | ----- | ----------- |
+| Microsoft.Compute/imageId | Set the identifier of the image used to create the virtual machine. |
 | Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
 | Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
 | Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
@@ -284,6 +285,7 @@ You use property aliases to access specific properties for a resource type.
 
 | Alias | Description |
 | ----- | ----------- |
+| Microsoft.Compute/imageId | Set the identifier of the image used to create the virtual machine. |
 | Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
 | Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
 | Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
