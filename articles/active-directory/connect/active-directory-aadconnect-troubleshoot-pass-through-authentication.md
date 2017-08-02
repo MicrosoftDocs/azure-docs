@@ -27,7 +27,7 @@ This article helps you find troubleshooting information about common issues rega
 
 ### Check status of the feature and Authentication Agents
 
-Ensure that the Pass-through Authentication feature is still **Enabled** on your tenant and the status of Authentication Agents shows **Active**, and not **Inactive**. You can see this by going to the **Azure AD Connect** blade on the [Azure portal](https://portal.azure.com/).
+Ensure that the Pass-through Authentication feature is still **Enabled** on your tenant and the status of Authentication Agents shows **Active**, and not **Inactive**. You can check status by going to the **Azure AD Connect** blade on the [Azure portal](https://portal.azure.com/).
 
 ![Azure portal - Azure AD Connect blade](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
 
@@ -147,9 +147,9 @@ If audit logging is enabled, additional information can be found in the security
 
 ### Performance Monitor counters
 
-Another way to monitor Authentication Agents is to track specific Performance Monitor counters on each server where the Authentication Agent is installed. You can use Global counters (**# PTA authentications**, **#PTA failed authentications** and **#PTA successful authentications**) and Error counters (**# PTA authentication errors**) as shown below:
+Another way to monitor Authentication Agents is to track specific Performance Monitor counters on each server where the Authentication Agent is installed. Use the following Global counters (**# PTA authentications**, **#PTA failed authentications** and **#PTA successful authentications**) and Error counters (**# PTA authentication errors**):
 
 ![Pass-through Authentication Performance Monitor counters](./media/active-directory-aadconnect-pass-through-authentication/pta12.png)
 
 >[!IMPORTANT]
->Pass-through Authentication provides high availablity using multiple Authentication Agents, and _not_ load balancing. Depending on your configuration, this means that _not_ all your Authentication Agents will receive roughly _equal_ number of requests. It is possible that a specific Authentication Agent receives no traffic at all.
+>Pass-through Authentication provides high availability using multiple Authentication Agents, and _not_ load balancing. Depending on your configuration, _not_ all your Authentication Agents receive roughly _equal_ number of requests. It is possible that a specific Authentication Agent receives no traffic at all.
