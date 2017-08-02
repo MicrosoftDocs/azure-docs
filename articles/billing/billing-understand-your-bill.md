@@ -45,7 +45,7 @@ Your usage charges are displayed at the meter level. The following terms mean th
  |Billing cycle | Billing Period |
  |Name |Meter Category |
  |Type |Meter Sub-category |
-the  |Resource |Meter Name |
+ |Resource |Meter Name |
  |Region |Meter Region |
  |Consumed |Consumed Quantity |
  |Included |Included Quantity |
