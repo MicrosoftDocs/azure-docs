@@ -52,7 +52,10 @@ Ensure that the following prerequisites are in place:
    
 ### For Exchange ActiveSync support
 
-- Review the additional steps listed in [this article](active-directory-aadconnect-pass-through-authentication-exchange-activesync.md) that you may need - in addition to the following steps - to enable Exchange ActiveSync support for Pass-through Authentication.
+- Ensure that you do the additional steps (i.e., Exchange PowerShell commands) listed in [this article](active-directory-aadconnect-pass-through-authentication-exchange-activesync.md) to enable Exchange ActiveSync support.
+
+>[!IMPORTANT]
+>Most new customers won't need these additional steps. However, existing customers should review [the article](active-directory-aadconnect-pass-through-authentication-exchange-activesync.md) in detail.
 
 ## Step 2: Enable the feature
 
