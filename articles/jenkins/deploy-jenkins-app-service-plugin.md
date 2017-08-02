@@ -158,7 +158,7 @@ Before setting up the job in Jenkins, you need an Azure app service on Linux. A 
 <ol>
 <li>Create a new freestyle project in Jenkins Dashboard</li>
 <li>Configure **Source Code Management** to use your local fork of [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) by providing the **Repository URL**. For example: http://github.com/\<yourid\>/javawebappsample.
-* Add a Build step to build the project using Maven. Do so by adding an **Execute shell** and add the following line in **Command**:</li>
+Add a Build step to build the project using Maven. Do so by adding an **Execute shell** and add the following line in **Command**:</li>
 
 ```bash
 	mvn clean package
@@ -170,7 +170,7 @@ Before setting up the job in Jenkins, you need an Azure app service on Linux. A 
 <li>In **App Configuration** section, choose the resource group and a Linux web app in your subscription.</li>
 <li>Choose Publish via Docker.</li>
 <li>Fill in **Dockerfile** path. You can keep the default "**/Dockerfile"
-* For **Docker registry URL**, supply in the format of https://\<myRegistry\>.azurecr.io if you use Azure Container Registry. Leave it blank if you use DockerHub.</li>
+For **Docker registry URL**, supply in the format of https://\<myRegistry\>.azurecr.io if you use Azure Container Registry. Leave it blank if you use DockerHub.</li>
 <li>For **Registry credentials**, add the credential for the Azure Container Registry. You can get the userid and password by running the following commands in Azure CLI. The first command enables the administrator account.</li>
 
 ```azurecli-interactive
