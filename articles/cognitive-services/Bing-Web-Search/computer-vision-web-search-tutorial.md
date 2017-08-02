@@ -157,11 +157,11 @@ async Task CheckBingSearchKey(object sender = null, EventArgs e = null)
 The OCR Select Page has two important roles.  First, it is where the user determines what kind of OCR they intend to perform with their target photo.  Second, it is where the user captures or imports the image that they wish to process.  This second task is traditionally cumbersome in a cross-platform application as different logic has to be written for photo capture and import per platform.  However with the Xamarin Media Plugin, this can all be done with a few lines of code in the shared codebase.  
 
 The following function provides an example of how to use the Xamarin Media Plugin for photo capture.  In it, we:
-1) Ensure that a camera is available on the current device.
-2) Initialize a new *StoreCameraMediaOptions* object and use it to set where we want to save our captured image.
-3) Take an image, save it to the specified location, and attain a *MediaFile* object containing the image data.
-4) Unpack the *MediaFile* into a byte array.
-5) Return the byte array for further processing.
+1. Ensure that a camera is available on the current device.
+2. Initialize a new *StoreCameraMediaOptions* object and use it to set where we want to save our captured image.
+3. Take an image, save it to the specified location, and attain a *MediaFile* object containing the image data.
+4. Unpack the *MediaFile* into a byte array.
+5. Return the byte array for further processing.
 
 Here's the function that uses the Xamarin Media Plugin for photo capture.  
 
@@ -402,7 +402,11 @@ It's important to acknowledge here that the Web Search API functions best when a
 >
 > These parameters help the API provide optimal results.  You can learn more about these header values in the [Bing Web Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#headers)
 
-## Looking Forward
+## Related Topics
+ * [C# Ranking Tutorial](./csharp-ranking-tutorial.md)
+ * [Computer Vision Tutorial](../Computer-vision/Tutorials/CSharpTutorial.md)
+
+## Next Steps
 This application provides a general framework for a Xamarin.Forms application implementing basic visual search.  However, Microsoft Cognitive Services provides many utilities that could easily be integrated into this application.  For example, you could:
 * Tack on [Bing Entity Search](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) to augment your web search results
 * Swap in [Bing Custom Search](https://azure.microsoft.com/services/cognitive-services/bing-custom-search/) in place of Bing Web Search
@@ -410,7 +414,3 @@ This application provides a general framework for a Xamarin.Forms application im
 * Leverage [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/) to further improve the quality of your parsed text
 * Integrate the [Microsoft Translator](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) to see your extracted text in different languages  
 * Mix and match countless other services from the [Cognitive Services Portal](https://azure.microsoft.com/services/cognitive-services/) to build your own novel utilities
-
-## Related Topics
- * [C# Ranking Tutorial](./csharp-ranking-tutorial.md)
- * [Computer Vision Tutorial](../Computer-vision/Tutorials/CSharpTutorial.md)
