@@ -25,7 +25,7 @@ Security is a top concern when managing databases, and it has always been a prio
 
 In this article, we will discuss a collection of Azure database security best practices. These best practices are derived from our experience with Azure database security and the experiences of customers like yourself.
 
-For each best practice, we’ll explain:
+For each best practice, we explain:
 
 -	What the best practice is
 -	Why you want to enable that best practice
