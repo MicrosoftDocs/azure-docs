@@ -131,10 +131,11 @@ withCredentials([azureServicePrincipal('<mySp>')]) {
 </ol>
 
 ### Create a Jenkins pipeline
+
 <ol>
-<li>Open Jenkins in a web browser, click **New Item**. </li>
+<li>Open Jenkins in a web browser, click **New Item**.</li>
 <li>Provide a name for the job and select **Pipeline**. Click **OK**.</li>
-<li>Click the **Pipeline** tab next.</li> 
+<li>Click the **Pipeline** tab next.</li>
 <li>For **Definition**, select **Pipeline script from SCM**.</li>
 <li>For **SCM**, select **Git**. * Enter the GitHub URL for your forked repo: https:\<your forked repo\>.git</li>
 <li>Update **Script Path** to "Jenkinsfile_ftp_plugin"</li>
@@ -153,6 +154,7 @@ Before setting up the job in Jenkins, you need an Azure app service on Linux. A 
 * Azure Container Registry is a managed [Docker registry] (https://docs.docker.com/registry/) service based on the open-source Docker Registry 2.0. Follow the steps [here] (/azure/container-registry/container-registry-get-started-azure-cli) for more guidance on how to do so. You can also use DockerHub.
 
 ### To deploy using docker:
+
 <ol>
 <li>Create a new freestyle project in Jenkins Dashboard</li>
 <li>Configure **Source Code Management** to use your local fork of [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) by providing the **Repository URL**. For example: http://github.com/\<yourid\>/javawebappsample.
@@ -165,11 +167,11 @@ Before setting up the job in Jenkins, you need an Azure app service on Linux. A 
 
 <li>Add a post-build action by selecting **Publish an Azure Web App**.</li>
 <li>Supply, **mySp**, the Azure service principal stored in previous step as Azure Credentials</li>
-<li>In **App Configuration** section, choose the resource group and a Linux web app in your subscription. </li> 
+<li>In **App Configuration** section, choose the resource group and a Linux web app in your subscription.</li>
 <li>Choose Publish via Docker.</li>
 <li>Fill in **Dockerfile** path. You can keep the default "**/Dockerfile"
 * For **Docker registry URL**, supply in the format of https://\<myRegistry\>.azurecr.io if you use Azure Container Registry. Leave it blank if you use DockerHub.</li>
-<li>For **Registry credentials**, add the credential for the Azure Container Registry. You can get the userid and password by running the following commands in Azure CLI. The first command enables the administrator account.</li> 
+<li>For **Registry credentials**, add the credential for the Azure Container Registry. You can get the userid and password by running the following commands in Azure CLI. The first command enables the administrator account.</li>
 
 ```azurecli-interactive
 	az acr update -n <yourRegistry> --admin-enabled true
@@ -184,6 +186,7 @@ Before setting up the job in Jenkins, you need an Azure app service on Linux. A 
 </ol>
 
 ### Deploy to Web App on Linux through Docker using Jenkins pipeline
+
 <ol>
 <li>In GitHub web UI, open **Jenkinsfile_container_plugin** file. Click the pencil icon to edit this file to update the resource group and name of your web app on line 11 and 12 respectively.</li>
 
@@ -203,16 +206,16 @@ def registryServer = '<registryURL>'
 <li>Change line 16 to update credential ID in your Jenkins instance</li>
 </ol>
 
-	```java
-	azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'acr', url: "http://$registryServer"]
-	```
-
+```java
+azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'acr', url: "http://$registryServer"]
+```
 
 ### Create Jenkins pipeline
+
 <ol>
-<li>Open Jenkins in a web browser, click **New Item**.</li> 
+<li>Open Jenkins in a web browser, click **New Item**.</li>
 <li>Provide a name for the job and select **Pipeline**. Click **OK**.</li>
-<li>Click the **Pipeline** tab next.</li> 
+<li>Click the **Pipeline** tab next.</li>
 <li>For **Definition**, select **Pipeline script from SCM**.</li>
 <li>For **SCM**, select **Git**.</li>
 <li>Enter the GitHub URL for your forked repo: https:\<your forked repo\>.git</li>
@@ -221,20 +224,21 @@ def registryServer = '<registryURL>'
 </ol>
 
 ## Verify your web app
+
 <ol>
 <li>To verify the WAR file is deployed successfully to your web app. Open a web browser.</li>
-<li>Go to http://&lt;app_name>.azurewebsites.net/api/calculator/ping  
+<li>Go to http://&lt;app_name>.azurewebsites.net/api/calculator/ping
 You see:</li>
 
         Welcome to Java Web App!!! This is updated!
         Sun Jun 17 16:39:10 UTC 2017
 
-<li>Go to http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (substitute &lt;x> and &lt;y> with any numbers) to get the sum of x and y
+<li>Go to http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (substitute &lt;x> and &lt;y> with any numbers) to get the sum of x and y</li>
 </ol>
-</li>
 	![Calculator: add](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ### For App service on Linux
+
 * To verify, in Azure CLI, run:
 
     ```
@@ -257,6 +261,7 @@ You see:</li>
     Go to http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (substitute &lt;x> and &lt;y> with any numbers) to get the sum of x and y
     
 ## Next steps
+
 In this tutorial, you use the Azure App Service plugin to deploy to Azure.
 
 You learned how to:
