@@ -99,8 +99,8 @@ select-azurermsubscription -SubscriptionId $SubscriptionId
 
 # Use this section if it is safe to show password in the script.
 # Otherwise, use the PromptForCredential
-# $User = "cloudsa"
-# $PWord = ConvertTo-SecureString -String "Yukon900Yukon900" -AsPlainText -Force
+# $User = "user"
+# $PWord = ConvertTo-SecureString -String "password" -AsPlainText -Force
 # $Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $User, $PWord
 
 $Credential = $Host.ui.PromptForCredential("Need credential", 
