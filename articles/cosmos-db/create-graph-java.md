@@ -22,13 +22,17 @@ ms.author: denlee
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account for Graph API (preview), database, and graph using the Azure portal. You then build and run a console app using the OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) driver.  
+This quickstart walks you through the Azure portal tools available for Azure Cosmos DB and shows you how to quickly create a console app using the OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) driver. The instructions in this tutorial can be followed on any operating system that is capable of running Java. By completing this tutorial you'll be familiar with creating and modifying graph resources in either the UI or programatically, whichever is your preference. 
 
 ## Prerequisites
 
-* Before you can run this sample, you must have the following prerequisites:
-   * JDK 1.7+ (Run `apt-get install default-jdk` if you don't have JDK), and set environment variables like `JAVA_HOME`
-   * Maven (Run `apt-get install maven` if you don't have Maven)
+* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+    * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
+    * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
+* [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a [Maven](http://maven.apache.org/) binary archive
+    * On Ubuntu, you can run `apt-get install maven` to install Maven.
+* [Git](https://www.git-scm.com/)
+    * On Ubuntu, you can run `sudo apt-get install git` to install Git.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,6 +43,11 @@ This quick start demonstrates how to create an Azure Cosmos DB account for Graph
 ## Add a graph
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
+
+<a id="add-sample-data"></a>
+## Add sample data
+
+TODO
 
 ## Clone the sample application
 
