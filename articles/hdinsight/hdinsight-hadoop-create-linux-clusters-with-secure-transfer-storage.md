@@ -22,7 +22,9 @@ ms.author: jgao
 # Create Hadoop cluster with secure transfer storage accounts in Azure HDInsight
 
 The [Secure transfer required](../storage/storage-require-secure-transfer.md) feature enhances the security of your Azure Storage account by enforcing all requests to your account through a secure connection. This feature and the wasbs scheme are only supported by HDInsight cluster version 3.6 or newer. 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+>[!NOTE] 
+> Creating clusters with secure transfer enabled storage account using .NET SDK is not currently supported. The workaround is to set "wasbs" in the property "fs.defaultFS" in core-site configuration as part of ClusterCreateParametersExtended.
 
 ## Prerequisites
 Before you begin this tutorial, you must have:
@@ -32,10 +34,13 @@ Before you begin this tutorial, you must have:
 
 ## Create cluster
 
->[!IMPORTANT] Only HDInsight cluster version 3.6 or newer supports the secure transfer enabled storage accounts.
->
+[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 
 In this section, you create a Hadoop cluster in HDInsight using an [Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). The template is located in a [public container](https://hditutorialdata.blob.core.windows.net/securetransfer/azuredeploy.json). Resource Manager template experience is not required for following this tutorial. For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
+
+>[!IMPORTANT] 
+> Only HDInsight cluster version 3.6 or newer supports the secure transfer enabled storage accounts.
 
 1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal. 
    
@@ -48,63 +53,22 @@ In this section, you create a Hadoop cluster in HDInsight using an [Azure Resour
     - Use short name for the storage account.
     - Both the storage account and the blob container must be created beforehand. 
 
+In the case when you use script action to provide your own configuration files, you must use wasbs in the following settings:
 
-## Configure the defaultFS setting
-
-The following procedure is required only if you use a secure transfer enabled storage account as the default storage account. You must restart all the related services.
-
-**To configure the defaultFS setting**
-
-1. Sign in to the Ambari Web UI.  See [Connectivity](./hdinsight-hadoop-manage-ambari.md#connectivity).
-
-     ![configure secure transfer hdinsight cluster](./media/hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage/hdinsight-hadoop-secure-transfer-configure.png "Configure secure transfer HDInsight cluster")
-
-2. From the left menu, click **HDFS**.
-3. Click the **Configs** tab.
-4. Click the **Advanced** tab.
-5. Expand the **Advanced core-site** section.
-6. Update **fs.defaultFS** to use **wasbs://** instead of **wasb://**.
-7. Click **Save**.
-8. Add a note, and then click **Save**.
-9. Click **OK**.
-10. Click **Proceed Anyway**.
-11. Click **OK**.
-12. Click **Restart**, and then click **Restart All Affected**.
-13. Click **Confirm Restart All**.
-14. Click **OK** to close the dialog.
-
-The following procedure is only required for Spark clusters:
-
-**To configure the default storage account for Spark clusters:**
-
-1. Sign in to the Ambari Web UI.  See [Connectivity](./hdinsight-hadoop-manage-ambari.md#connectivity).
-2. Click **Spark2** from the left menu.
-3. Click the **Configs** tab.
-4. Click **Advanced spark2-defaults** to expand the node.
-5. Update the scheme to **wasb://** for the following fields:
-
-    - spark.eventLog.dir, 
-    - spark.history.fs.logDirectory
-6. Click **Advanced spark2-thrift-sparkconf** to expand the node.
-7. Update the scheme to **wasb://** for the following fields: 
-
-    - spark.eventLog.dir, 
-    - spark.history.fs.logDirectory
-7. Click **Save**.
-8. Add a note, and then click **Save**.
-9. Click **OK**.
-10. Click **Proceed Anyway**.
-11. Click **OK**.
-12. Click **Restart** to restart the affected services.
-
+- fs.defaultFS (core-site)
+- spark.eventLog.dir,
+- spark.history.fs.logDirectory
 
 ## Add additional storage accounts
 
-You can use script action to add additional secure transfer enabled storage accounts to a HDInsight cluster.  For more information, see [Add additional storage accounts to HDInsight](hdinsight-hadoop-add-storage.md).
+There are several options to add additional secure transfer enabled storage accounts:
 
+- Modify the Azure resource manager template in the last section.
+- Create a cluster using the [Azure portal](https://portal.azure.com) and specify linked storage account.
+- Use script action to add additional secure transfer enabled storage accounts to an existing HDInsight cluster.  For more information, see [Add additional storage accounts to HDInsight](hdinsight-hadoop-add-storage.md).
 
 ## Next steps
-In this tutorial, you have learned how to create a HDInsight cluster, and enable secure transfer to the storage accounts.
+In this tutorial, you have learned how to create an HDInsight cluster, and enable secure transfer to the storage accounts.
 
 To learn more about analyzing data with HDInsight, see the following articles:
 
