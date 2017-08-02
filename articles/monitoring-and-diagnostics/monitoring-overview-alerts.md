@@ -38,7 +38,7 @@ Alerts are available across several Azure monitoring services. For information o
 | Azure Monitor | [Activity Log alerts](./monitoring-activity-log-alerts.md) | All resource manager-based resource types | Receive a notification when any new event in the [Azure Activity Log](./monitoring-overview-activity-logs.md) matches specific conditions (for example, when a "Delete VM" operation occurs in  myProductionResourceGroup or when a new Service Health event with "Active" as the status appears). |
 | Application Insights | [Metric alerts](../application-insights/app-insights-alerts.md) | Any application instrumented to send data to Application Insights | Receive a notification when any application-level metric meets a specific condition (for example, server response time is greater than 2 seconds). |
 | Application Insights | [Web test alerts](../application-insights/app-insights-monitor-web-app-availability.md) | Any website instrumented to send data to Application Insights | Receive a notification when availability or responsiveness of a website is below expectations. |
-| Log Analytics | [Log Analytics alerts](./log-analytics-alerts.md) | Any service configured to send data into Log Analytics | Receive a notification when a Log Analytics search query over metric and/or event data meets certain criteria. |
+| Log Analytics | [Log Analytics alerts](../log-analytics/log-analytics-alerts.md) | Any service configured to send data into Log Analytics | Receive a notification when a Log Analytics search query over metric and/or event data meets certain criteria. |
 
 ## Alerts on Azure Monitor data
 There are two types of alerts off of data available from Azure Monitor -- metric alerts and Activity Log alerts.
