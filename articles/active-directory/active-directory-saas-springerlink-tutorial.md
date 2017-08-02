@@ -105,9 +105,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Springer Link Domain and URLs single sign-on information](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url1.png)
 
-    a. In the **Reply URL** textbox, type the URL: `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
-    
-    b. In the **Identifier** textbox, type the URL: `https://fsso.springer.com`    
+    a. In the **Identifier** textbox, type the URL: `https://fsso.springer.com`
+
+    b. In the **Reply URL** textbox, type the URL: `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
 
 4. Check **Show advanced URL settings**. If you wish to configure the application in **SP** initiated mode:
 
