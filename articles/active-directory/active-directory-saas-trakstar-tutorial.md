@@ -34,6 +34,7 @@ To configure Azure AD integration with Trakstar, you need the following items:
 
 - An Azure AD subscription
 - A Trakstar single-sign on enabled subscription
+    - SSO is a paid feature in Trakstar. To enable it for your organization, reach out to [Trakstar Client support team](mailto:support@trakstar.com).
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -108,12 +109,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.trakstar.com/auth/saml/callback?namespace=<NAMESPACE>`
+    a. In the **Sign-on URL** textbox, copy the value found in the **ACS (Consumer) URL** within Trakstar (Settings > Authentication & SSO) in the format: `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.trakstar.com`
+	b. In the **Identifier** textbox, leave the default: `https://app.trakstar.com`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Trakstar Client support team](mailto:integrations@trakstar.com) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Log into Trakstar as an Administrator to get these values.
+	> If you don't see the "Authentication & SSO" tab within Settings, you might not have the feature
  
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -127,7 +129,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_configure.png) 
 
-7. To configure single sign-on on **Trakstar** side, you need to send the downloaded **Certificate (Base64)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Trakstar support team](mailto:integrations@trakstar.com). 
+7. To configure single sign-on on **Trakstar** side, you need to log in as an Administrator and enter the **Certificate (Base64)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL**. 
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -166,7 +168,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Trakstar test user
 
-The objective of this section is to create a user called Britta Simon in Trakstar. Work with [Trakstar support team](mailto:integrations@trakstar.com) to add the users in the Trakstar account. 
+The objective of this section is to create a user called Britta Simon in Trakstar.
 
 
 ### Assigning the Azure AD test user
