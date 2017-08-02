@@ -116,7 +116,7 @@ As with the multitenant App Service, in an ASE you can publish with:
 - FTP.
 - Continuous integration.
 - Drag and drop in the Kudu console.
-- An IDE, such as Visual Studio, Eclipse, or Intellij IDEA.
+- An IDE, such as Visual Studio, Eclipse, or IntelliJ IDEA.
 
 With an External ASE, these publishing options all behave the same. For more information, see [Deployment in Azure App Service][AppDeploy]. 
 
@@ -130,7 +130,7 @@ The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE 
 
 With ASEv2, a new pricing SKU called **Isolated** is used only with ASEv2. All App Service plans that are hosted in ASEv2 are in the Isolated pricing SKU. In addition to the price for your App Service plans, there is a flat fee for ASE itself. This price doesn't change with the size of your ASE. 
 
-The other potential fees are for adjusting the front-end scale ratio or front-end size. You can adjust the scale ratio to add front ends more quickly. However, you pay for any additional cores that aren't automatically added to the system. Likewise, if you select a larger size for the front ends, you pay for any cores that aren't automatically allocated. For example, if you adjust the scale ratio to 10, a front end is added for every 10 instances in your App Service plans. The flat fee covers a scale rate of one front end for every 15 instances. With a scale ratio of 10, you pay a fee for the third front end that's added for the 10 ASP instances. You don't need to pay for it when you reach 15 instances because it was added automatically.
+The other potential fees are for adjusting the front-end scale ratio or front-end size. You can adjust the scale ratio to add front ends more quickly. However, you pay for any additional cores that aren't automatically added to the system. Likewise, if you select a larger size for the front ends, you pay for any cores that aren't automatically allocated. For example, if you adjust the scale ratio to 10, a front end is added for every 10 instances in your App Service plans. The flat fee covers a scale rate of one front end for every 15 instances. With a scale ratio of 10, you pay a fee for the third front end that's added for the 10 App Service plan instances. You don't need to pay for it when you reach 15 instances because it was added automatically.
 
 For more information, see [Azure App Service pricing][Pricing].
 
