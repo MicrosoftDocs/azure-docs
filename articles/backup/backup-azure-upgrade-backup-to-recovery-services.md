@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/01/2017
+ms.date: 08/02/2017
 ms.author: markgal;arunak
 
 ---
@@ -48,16 +48,7 @@ You can use PowerShell scripts to upgrade your Backup vaults to Recovery Service
 
 1. Install or upgrade [Windows Management Framework (WMF) to version 5](https://www.microsoft.com/download/details.aspx?id=50395) or above.
 2. [Install Azure PowerShell MSI](https://github.com/Azure/azure-powershell/releases/download/v3.8.0-April2017/azure-powershell.3.8.0.msi).
-3. Update the PowerShell modules:
-  - For Windows Server:
-    - Install-Module -Name Azure -RequiredVersion 3.8.0
-    - Install-Module -Name AzureRM.RecoveryServices -RequiredVersion 2.8.0
-    - Install-Module -Name AzureRM.Resources -RequiredVersion 3.8.0
-  - For Windows 10
-    - Install-Module -Name Azure -RequiredVersion 3.8.0 -AllowClobber
-    - Install-Module -Name AzureRM.RecoveryServices -RequiredVersion 2.8.0 -AllowClobber
-    - Install-Module -Name AzureRM.Resources -RequiredVersion 3.8.0 -AllowClobber
-4. Download the [PowerShell script](http://download.microsoft.com/download/1/c/6/1c6ed72e-38f9-4675-9cf9-9b8a06da7cd3/recoveryservicesvaultupgrade.ps1) to upgrade your vaults.
+3. Download the [PowerShell script](http://download.microsoft.com/download/1/c/6/1c6ed72e-38f9-4675-9cf9-9b8a06da7cd3/recoveryservicesvaultupgrade.ps1) to upgrade your vaults.
 
 ### Run the PowerShell script
 
@@ -111,7 +102,13 @@ Recovery Services vault supports specifying time zone information in backup poli
 
 ## Enhanced security
 
-When a Backup vault is upgraded to a Recovery Services vault, the security settings for that vault are automatically turned on. When the security settings are on, certain operations such as deleting backups, or changing a passphrase require an [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) PIN. For more information on the enhanced security, see the article [Security features to protect hybrid backups](backup-azure-security-feature.md).
+When a Backup vault is upgraded to a Recovery Services vault, the security settings for that vault are automatically turned on. When the security settings are on, certain operations such as deleting backups, or changing a passphrase require an [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) PIN. For more information on the enhanced security, see the article [Security features to protect hybrid backups](backup-azure-security-feature.md). 
+
+When the enhanced security is turned on, data is retained up to 14 days after billable data has been deleted from the vault. This data retention applies to data backed up for the Azure Backup agent, Azure Backup Server, and System Center Data Protection Manager.
+
+## Gather data on your vault
+
+Once you upgrade to a Recovery Services vault, configure reports for Azure Backup (for IaaS VMs and Microsoft Azure Recovery Services (MARS)), and use Power BI to access the reports.
 
 ## Frequently asked questions
 
