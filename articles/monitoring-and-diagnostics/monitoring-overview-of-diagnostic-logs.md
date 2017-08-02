@@ -22,7 +22,7 @@ ms.author: johnkem; magoedte
 ## What are Azure Resource Diagnostic Logs
 **Azure Resource-Level Diagnostic Logs** are logs emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type. For example, Network Security Group rule counters and Key Vault audits are two categories of resource logs.
 
-Resource-level diagnostic logs differ from the [Activity Log](monitoring-overview-activity-logs.md). The Activity Log provides insight into the operations that were performed on resources in your subscription using resource manager, for example, creating a virtual machine or deleting a logic app. The Activity Log is a subscription-level log. Resource-level diagnostic logs provide insight into operations that were performed within that resource itself, for example, getting a secret from a Key Vault.
+Resource-level diagnostic logs differ from the [Activity Log](monitoring-overview-activity-logs.md). The Activity Log provides insight into the operations that were performed on resources in your subscription using Resource mMnager, for example, creating a virtual machine or deleting a logic app. The Activity Log is a subscription-level log. Resource-level diagnostic logs provide insight into operations that were performed within that resource itself, for example, getting a secret from a Key Vault.
 
 Resource-level diagnostic logs also differ from guest OS-level diagnostic logs. Guest OS diagnostic logs are those collected by an agent running inside of a virtual machine or other supported resource type. Resource-level diagnostic logs require no agent and capture resource-specific data from the Azure platform itself, while guest OS-level diagnostic logs capture data from the operating system and applications running on a virtual machine.
 
@@ -62,7 +62,7 @@ These settings are easily configured via the diagnostics blade for a resource in
 >
 
 ## How to enable collection of resource diagnostic logs
-Collection of resource diagnostic logs can be enabled [as part of creating a resource in a resource manager template](./monitoring-enable-diagnostic-logs-using-template.md) or after a resource is created via the resource’s blade in the portal. You can also enable collection at any point using Azure PowerShell or CLI commands, or using the Azure Monitor REST API.
+Collection of resource diagnostic logs can be enabled [as part of creating a resource in a Resource Manager template](./monitoring-enable-diagnostic-logs-using-template.md) or after a resource is created via the resource’s blade in the portal. You can also enable collection at any point using Azure PowerShell or CLI commands, or using the Azure Monitor REST API.
 
 > [!TIP]
 > These instructions may not apply directly to every resource. See the schema links at the bottom of this page to understand special steps that may apply to certain resource types.
@@ -70,7 +70,7 @@ Collection of resource diagnostic logs can be enabled [as part of creating a res
 >
 
 ### Enable collection of resource diagnostic logs in the portal
-You can enable collection of resource diagnostic logs in the Azure portal after a resource has been created by doing the following:
+You can enable collection of resource diagnostic logs in the Azure portal after a resource has been created by performing the following steps:
 
 1. Go to the blade for the resource and open the **Diagnostics** blade.
 2. Click **On** and pick a Storage Account and/or event hub.
@@ -80,7 +80,7 @@ You can enable collection of resource diagnostic logs in the Azure portal after 
 4. Click **Save**.
 
 ### Enable collection of resource diagnostic logs via PowerShell
-To enable collection of resource diagnostic logs via Azure PowerShell, use the following commands.
+To enable collection of resource diagnostic logs via Azure PowerShell, use the following commands:
 
 To enable storage of diagnostic logs in a storage account, use this command:
 
