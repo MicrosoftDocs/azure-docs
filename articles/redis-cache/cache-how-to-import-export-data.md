@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/31/2017
 ms.author: sdanie
 
 ---
@@ -103,8 +103,8 @@ This section contains frequently asked questions about the Import/Export feature
 * [How does Import/Export work with a custom databases setting?](#how-does-importexport-work-with-a-custom-databases-setting)
 * [How is Import/Export different from Redis persistence?](#how-is-importexport-different-from-redis-persistence)
 * [Can I automate Import/Export using PowerShell, CLI, or other management clients?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
-* [I received a timeout error during my Import/Export operation. What does it mean?](#i-received-a-timeout-error-during-my-importexport-operation.-what-does-it-mean)
-* [I got an error when exporting my data to Azure Blob Storage. What happened?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage.-what-happened)
+* [I received a timeout error during my Import/Export operation. What does it mean?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
+* [I got an error when exporting my data to Azure Blob Storage. What happened?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
 
 ### What pricing tiers can use Import/Export?
 Import/Export is available only in the premium pricing tier.
