@@ -30,8 +30,8 @@ The [Secure transfer required](../storage/storage-require-secure-transfer.md) fe
 Before you begin this tutorial, you must have:
 
 * **Azure subscription**: To create a free one-month trial account, browse to [azure.microsoft.com/free](https://azure.microsoft.com/free).
-* **An Azure Storage account with secure transfer enabled**. For the instructions, see [Create a stroage account](../storage/storage-create-storage-account.md#create-a-storage-account) and [Require secure transfer](../storage/storage-require-secure-transfer.md).
-* **An Blob container on the storage account**. 
+* **An Azure Storage account with secure transfer enabled**. For the instructions, see [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) and [Require secure transfer](../storage/storage-require-secure-transfer.md).
+* **A Blob container on the storage account**. 
 ## Create cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -39,31 +39,30 @@ Before you begin this tutorial, you must have:
 
 In this section, you create a Hadoop cluster in HDInsight using an [Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). The template is located in a [public container](https://hditutorialdata.blob.core.windows.net/securetransfer/azuredeploy-new.json). Resource Manager template experience is not required for following this tutorial. For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
->[!IMPORTANT] 
-> Only HDInsight cluster version 3.6 or newer supports the secure transfer enabled storage accounts.
-
 1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fsecuretransfer%2Fazuredeploy-new.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-2. Follow the instructions to create the cluster. For the instructions, see [Create cluster](./hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). 
+2. Follow the instructions to create the cluster with the following specifications: 
 
-    - Specify HDInsight version 3.6.  The default version is 3.5.  You must use 3.6 or newer.
+    - Specify HDInsight version 3.6.  The default version is 3.5. Version 3.6 or newer is required.
     - Specify a secure transfer enabled storage account.
     - Use short name for the storage account.
     - Both the storage account and the blob container must be created beforehand. 
 
-In the case when you use script action to provide your own configuration files, you must use wasbs in the following settings:
+    For the instructions, see [Create cluster](./hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). 
+
+If you use script action to provide your own configuration files, you must use wasbs in the following settings:
 
 - fs.defaultFS (core-site)
-- spark.eventLog.dir,
+- spark.eventLog.dir 
 - spark.history.fs.logDirectory
 
 ## Add additional storage accounts
 
 There are several options to add additional secure transfer enabled storage accounts:
 
-- Modify the Azure resource manager template in the last section.
+- Modify the Azure Resource Manager template in the last section.
 - Create a cluster using the [Azure portal](https://portal.azure.com) and specify linked storage account.
 - Use script action to add additional secure transfer enabled storage accounts to an existing HDInsight cluster.  For more information, see [Add additional storage accounts to HDInsight](hdinsight-hadoop-add-storage.md).
 
@@ -77,12 +76,12 @@ To learn more about analyzing data with HDInsight, see the following articles:
 * To learn about MapReduce, a way to write programs that process data on Hadoop, see [Use MapReduce with HDInsight][hdinsight-use-mapreduce].
 * To learn about using the HDInsight Tools for Visual Studio to analyze data on HDInsight, see [Get started using Visual Studio Hadoop tools for HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-If you're ready to start working with your own data and need to know more about how HDInsight stores data or how to get data into HDInsight, see the following articles:
+To learn more about how HDInsight stores data or how to get data into HDInsight, see the following articles:
 
 * For information on how HDInsight uses Azure Storage, see [Use Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
 * For information on how to upload data to HDInsight, see [Upload data to HDInsight][hdinsight-upload-data].
 
-If you'd like to learn more about creating or managing an HDInsight cluster, see the following articles:
+To learn more about creating or managing an HDInsight cluster, see the following articles:
 
 * To learn about managing your Linux-based HDInsight cluster, see [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md).
 * To learn more about the options you can select when creating an HDInsight cluster, see [Creating HDInsight on Linux using custom options](hdinsight-hadoop-provision-linux-clusters.md).
