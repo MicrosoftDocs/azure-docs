@@ -104,7 +104,7 @@ client.connect(err => {
     else { queryDatabase(); }
 });
 
-const queryDatabase = () => {
+function queryDatabase() {
   
     const query = `
         DROP TABLE IF EXISTS inventory;
