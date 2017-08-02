@@ -152,35 +152,62 @@ You can use logic app parameters in these kinds of triggers and actions:
 *   Function app
 *   APIM call
 *   API connection runtime URL
+*   API connection path
 
-And you can use these template functions: list below, 
-includes parameters, variables, resourceId, concat, and so on. 
+And you can use template functions such as parameters, variables, resourceId, concat, etc.. 
 For example, here's how you can replace the Azure Function resource ID:
 
 ```
 "parameters":{
 	"functionName": {
-	"type":"string",
-	"minLength":1,
-	"defaultValue":"<FunctionName>"
+		"type":"string",
+		"minLength":1,
+		"defaultValue":"<FunctionName>"
 	}
 },
 ```
 
-And where you'd use parameters:
+And where you would use parameters:
 
 ```
 "MyFunction": {
-		"type": "Function",
-		"inputs": {
+	"type": "Function",
+	"inputs": {
 		"body":{},
 		"function":{
-		"id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
+			"id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
 		}
 	},
 	"runAfter":{}
 }
 ```
+As another example you can parameterize the Service Bus send message operation:
+
+```
+"Send_message": {
+	"type": "ApiConnection",
+		"inputs": {
+			"host": {
+				"api": {
+					"runtimeUrl": "[concat('https://logic-apis-', resourcegroup().location, '.azure-apim.net/apim/servicebus')]"
+				},
+				"connection": {
+					"name": "@parameters('$connections')['servicebus']['connectionId']"
+				}
+			},
+			"method": "post",
+			"path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
+			"body": {
+				"ContentData": "@{base64(triggerBody())}"
+			},
+			"queries": {
+				"systemProperties": "None"
+			}
+		},
+		"runAfter": {}
+	}
+```
+
 
 > [!NOTE] 
 > For the Logic App Designer to work when you use parameters, 
