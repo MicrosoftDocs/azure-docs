@@ -178,6 +178,7 @@ Use one of the following SSH clients from your host computer to connect to your 
 1. Build the sample application by running the following command. Because the Azure IoT SDKs for Python are wrappers on top of the Azure IoT Device C SDK, you will need to compile the C libraries if you want or need to generate the Python libraries from source code.
 
    ```bash
+   sudo chmod u+x setup.sh
    sudo ./setup.sh
    ```
    > [!NOTE] 
