@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ---
 
@@ -38,11 +38,11 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](act
   - No additional components needed on-premises to make this work.
   - Works with any method of cloud authentication - [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md).
   - Can be rolled out to some or all your users using Group Policy.
-  - Register non-Windows 10 devices with Azure AD. This needs version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
+  - Register non-Windows 10 devices with Azure AD without the need for any AD FS infrastructure. This needs you to use version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
 
 ## Feature highlights
 
-- Sign-in username can be either the on-premises default username (`userPrincipalName`) or another attribute configured in Azure AD Connect (`Alternate ID`).
+- Sign-in username can be either the on-premises default username (`userPrincipalName`) or another attribute configured in Azure AD Connect (`Alternate ID`). Both use cases work because Seamless SSO uses the `securityIdentifier` claim in the Kerberos ticket to look up the corresponding user object in Azure AD.
 - Seamless SSO is an opportunistic feature. If it fails for any reason, the user sign-in experience goes back to its regular behavior - i.e, the user needs to enter their password on the sign-in page.
 - If an application forwards a `domain_hint` (OpenID Connect) or `whr` (SAML) parameter - identifying your tenant, or `login_hint` parameter - identifying the user, in its Azure AD sign-in request, users are automatically signed in without them entering usernames or passwords.
 - It can be enabled via Azure AD Connect.
