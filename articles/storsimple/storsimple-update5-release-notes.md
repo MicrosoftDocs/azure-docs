@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/01/2017
+ms.date: 08/10/2017
 ms.author: alkohli
 
 ---
@@ -37,12 +37,7 @@ The following key improvements and bug fixes have been made in Update 5.
 
 * **Azure Active Directory (AAD) integration with StorSimple Device Manager service** – From Update 5 onwards, Azure Active Directory is used to authenticate with the StorSimple Device Manager service. The old authentication mechanism will be deprecated by December 2017. All the users must include the new authentication URLs in their firewall rules. For more information, go to [authentication URLs listed in the networking requirements for your StorSimple device]().
 
-* **Performance enhancements for Support package gathering** – In the earlier release, when gathering Support package using Jarvis would take a long time. The time to gather a Support package has improved in Update 5.
-
-* **Changes to StorSimple Diagnostics tool** – In Update 5, verbose logging is allowed for the performance test using the StorSimple Diagnostics tool. For more information, go to [troubleshoot using StorSimple Diagnostics tool](storsimple-8000-diagnostics.md).
-
-* **StorSimple Snapshot Manager changes** - A new version of StorSimple Snapshot Manager is released with Update 5. This version is compatible if you are running Update 3 or later on your StorSimple device. For more information, go to [Install StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md). 
-
+* **New version of StorSimple Snapshot Manager** - A new version of StorSimple Snapshot Manager is released with Update 5. We recommend that you update to this version. This version is compatible with all the StorSimple devices that are running Update 3 or later.
 
 
 ## Issues fixed in Update 5
@@ -51,9 +46,9 @@ The following table provides a summary of issues that were fixed in Update 5.
 
 | No | Feature | Issue | Applies to physical device | Applies to virtual device |
 | --- | --- | --- | --- | --- |
-| 1 |Diagnostics  |In this release, Performance test for the StorSimple Diagnostics tool allows for the verbose logging. |Yes |Yes |
-| 2 |Windows PowerShell remoting |In the previous release, a user would receive an error while trying to establish a remote connection to the StorSimple Cloud Appliance via Windows PowerShell. This issue was root-caused and fixed in this release. |Yes |No |
-| 3 |Support package |In previous release, there was an issue that resulted in longer times to gather a Support package using Jarvis. This issue is fixed in this release. |Yes |Yes |
+| 1 |Windows PowerShell remoting |In the previous release, a user would receive an error while trying to establish a remote connection to the StorSimple Cloud Appliance via Windows PowerShell. This issue was root-caused and fixed in this release. |No |Yes |
+| 2 |Bandwidth templates |In earlier release, there was an issue with bandwidth templates that resulted in lower bandwidth than what the device was configured for. This issue is resolved in this release. |Yes |Yes |
+| 3 |Failover |In previous release, when a device with a large number of volumes was failed over to another device running Update 4, the process would fail when trying to apply the access control records. This issue is fixed in this release. |Yes |Yes |
 
 
 
