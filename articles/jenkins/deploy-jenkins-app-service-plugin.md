@@ -144,8 +144,9 @@ Before setting up the job in Jenkins, you need an Azure app service on Linux. A 
 2. Configure **Source Code Management** to use your local fork of [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) by providing the **Repository URL**. For example: http://github.com/&lt;yourid>/javawebappsample.
 Add a Build step to build the project using Maven. Do so by adding an **Execute shell** and add the following line in **Command**:    
 ```bash
-	mvn clean package
-```    
+mvn clean package
+```
+
 3. Add a post-build action by selecting **Publish an Azure Web App**.
 4. Supply, **mySp**, the Azure service principal stored in previous step as Azure Credentials.
 5. In **App Configuration** section, choose the resource group and a Linux web app in your subscription.
@@ -178,7 +179,7 @@ def registryServer = '<registryURL>'
 ```java
 azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'acr', url: "http://$registryServer"]
 ```    
-### Create Jenkins pipeline
+### Create Jenkins pipeline    
 
 1. Open Jenkins in a web browser, click **New Item**.
 2. Provide a name for the job and select **Pipeline**. Click **OK**.
