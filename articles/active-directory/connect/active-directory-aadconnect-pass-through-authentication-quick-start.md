@@ -56,14 +56,14 @@ Ensure that the following prerequisites are in place:
    If your firewall enforces rules according to originating users, open these ports for traffic from Windows services that run as  Network Service.
    - If your firewall or proxy allows DNS whitelisting, whitelist connections to **\*.msappproxy.net** and **\*.servicebus.windows.net**. If not, allow access to [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
    - Your Authentication Agents need access to **login.windows.net** and **login.microsoftonline.com** for initial registration, so open your firewall for those URLs as well.
-   - For certificate validation, you will need to open the following addresses: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** and **www.microsoft.com:80**. These URLs are consistent with certificate validation across Microsoft products, so if you use other Microsoft products you may already have these open.
+   - For certificate validation, unblock the following URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** and **www.microsoft.com:80**. These URLs are used for certificate validation with other Microsoft products, so you may already have these URLs unblocked.
    
 ### For Exchange ActiveSync support
 
 - Ensure that you do the additional steps (that is, the Exchange PowerShell commands) listed in [this article](active-directory-aadconnect-pass-through-authentication-exchange-activesync.md) to enable Exchange ActiveSync support.
 
 >[!IMPORTANT]
->Most new customers won't need these additional steps. However, existing customers should review [the article](active-directory-aadconnect-pass-through-authentication-exchange-activesync.md) in detail.
+>Most new customers don't need additional steps. However, existing customers should review [the article](active-directory-aadconnect-pass-through-authentication-exchange-activesync.md) in detail.
 
 ## Step 2: Enable the feature
 
@@ -88,7 +88,7 @@ If you have already installed Azure AD Connect (using the [express installation]
 Follow these instructions to verify that you have enabled Pass-through Authentication correctly:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with the Global Administrator credentials for your tenant.
-2. Select **Azure Active Directory** on the left hand navigation.
+2. Select **Azure Active Directory** on the left-hand navigation.
 3. Select **Azure AD Connect**.
 4. Verify that the **Pass-through Authentication** feature shows as **Enabled**.
 5. Select **Pass-through Authentication**. This blade lists the servers where your Authentication Agents are installed.
@@ -104,7 +104,7 @@ At this stage, users from all managed domains in your tenant can sign in using P
 If you plan to deploy Pass-through Authentication in a production environment, you should install a standalone Authentication Agent. Install this second Authentication Agent on a server _other_ than the one running Azure AD Connect and the first Authentication Agent. This setup provides you high availability of sign-in requests. Follow these instructions to deploy a standalone Authentication Agent:
 
 1. **Download the latest version of the Authentication Agent (versions 1.5.193.0 or later)**: Sign in to the [Azure portal](https://portal.azure.com) with your tenant's Global Administrator credentials.
-2. Select **Azure Active Directory** on the left hand navigation.
+2. Select **Azure Active Directory** on the left-hand navigation.
 3. Select **Azure AD Connect** and then **Pass-through Authentication**. And select **Download agent**.
 4. Click the **Accept terms & download** button.
 5. **Install the latest version of the Authentication Agent**: Run the executable downloaded in Step 4. Provide your tenant's Global Administrator credentials when prompted.
