@@ -111,12 +111,14 @@ The plugin is pipeline-ready. You can refer to a sample in the GitHub repo.
 def resourceGroup = '<myResourceGroup>'
 def webAppName = '<myAppName>'
 ```
+
 2. Change line 14 to update credential ID in your Jenkins instance.    
 ```java
 withCredentials([azureServicePrincipal('<mySp>')]) {
 ```
 
 ### Create a Jenkins pipeline
+
 1. Open Jenkins in a web browser, click **New Item**.
 2. Provide a name for the job and select **Pipeline**. Click **OK**.
 3. Click the **Pipeline** tab next.
