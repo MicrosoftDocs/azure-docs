@@ -44,7 +44,7 @@ Contact Microsoft Support if this step fails with the following error:
 4. Ensure that the value of the `PerTenantSwitchToESTSEnabled` setting is set to **true**. At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
 
 >[!IMPORTANT]
->It takes up to an hour for Exchange ActiveSync to start working after you complete all the instructions.
+>It takes up to an hour for Exchange ActiveSync to start working after you complete all the steps.
 
 ### Configuration 2: I have Exchange mailboxes and I am switching from AD FS to Pass-through Authentication as my Azure AD sign-in method
 
@@ -65,7 +65,7 @@ Contact Microsoft Support if this step fails with the following error:
 3. Ensure that the value of the `PerTenantSwitchToESTSEnabled` setting is set to **true**. At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
 
 >[!IMPORTANT]
->It takes up to an hour for Exchange ActiveSync to start working after you complete all the instructions.
+>It takes up to an hour for Exchange ActiveSync to start working after you complete all the steps.
 
 ## Next steps
 
