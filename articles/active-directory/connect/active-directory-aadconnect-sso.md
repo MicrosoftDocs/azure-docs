@@ -38,7 +38,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](act
   - No additional components needed on-premises to make this work.
   - Works with any method of cloud authentication - [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md).
   - Can be rolled out to some or all your users using Group Policy.
-  - Register non-Windows 10 devices with Azure AD without the need for any AD FS infrastructure. This needs you to use version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
+  - Register non-Windows 10 devices with Azure AD without the need for any AD FS infrastructure. This capability needs you to use version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
 
 ## Feature highlights
 
