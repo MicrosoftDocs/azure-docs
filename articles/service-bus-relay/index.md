@@ -108,8 +108,8 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Samples</h3>
-                        <p><a href="/azure/service-bus-relay/service-bus-relay-samples">Service Bus Relay Samples</a></p>
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/module/azurerm.servicebus">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -120,9 +120,8 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.relay">Microsoft.Azure.Relay</a></p>
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/overview/azure/service-bus-relay">.NET</a></p>
                     </div>
                 </div>
             </div>
@@ -133,8 +132,8 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Other</h3>
-                        <p><a href="service-bus-relay-port-settings.md">Port settings</a></p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/servicebus/">REST API Reference</a></p>
                    </div>
                 </div>
             </div>
