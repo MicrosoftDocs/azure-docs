@@ -57,9 +57,9 @@ Forced tunneling in Azure is configured via virtual network user-defined routes.
 
 ## Configuration overview
 
-The following procedure helps you create a resource group and a VNet. You'll then create a VPN gateway and configure forced tunneling. In this procedure, the virtual network "MultiTier-VNet" has three subnets: *Frontend*, *Midtier*, and *Backend*, with four cross-premises connections: *DefaultSiteHQ*, and three *Branches*.
+The following procedure helps you create a resource group and a VNet. You'll then create a VPN gateway and configure forced tunneling. In this procedure, the virtual network 'MultiTier-VNet' has three subnets: 'Frontend', 'Midtier', and 'Backend', with four cross-premises connections: 'DefaultSiteHQ', and three Branches.
 
-The procedure steps set the *DefaultSiteHQ* as the default site connection for forced tunneling, and configure the Midtier and Backend subnets to use forced tunneling.
+The procedure steps set the 'DefaultSiteHQ' as the default site connection for forced tunneling, and configure the 'Midtier' and 'Backend' subnets to use forced tunneling.
 
 ## Before you begin
 
@@ -74,7 +74,7 @@ Install the latest version of the Azure Resource Manager PowerShell cmdlets. See
 1. Create a resource group.
 
   ```powershell
-  New-AzureRmResourceGroup -Name "ForcedTunneling" -Location "North Europe"
+  New-AzureRmResourceGroup -Name 'ForcedTunneling' -Location 'North Europe'
   ```
 2. Create a virtual network and specify subnets.
 
