@@ -64,7 +64,7 @@ After completion of the wizard, Seamless SSO is enabled on your tenant.
 Follow these instructions to verify that you have enabled Seamless SSO correctly:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with the Global Administrator credentials for your tenant.
-2. Select **Azure Active Directory** on the left hand navigation.
+2. Select **Azure Active Directory** on the left-hand navigation.
 3. Select **Azure AD Connect**.
 4. Verify that the **Seamless Single Sign-On** feature shows as **Enabled**.
 
