@@ -115,9 +115,9 @@ const queryDatabase = () => {
     `;
 
     client.query(query, err => {
-    console.log('Connection established');
+        console.log('Connection established');
 
-    if (err) throw err;
+        if (err) throw err;
         else {
             client.end(err => {
                 if (err) throw err;
