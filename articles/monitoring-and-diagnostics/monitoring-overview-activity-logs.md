@@ -40,16 +40,16 @@ View the following video introducing the Activity Log.
 >
 
 ## Categories in the Activity Log
-The Activity Log contains several categories of data. For full details on the schemata of these categories, [please see this article](monitoring-activity-log-schema.md). These include:
+The Activity Log contains several categories of data. For full details on the schemata of these categories, [see this article](monitoring-activity-log-schema.md). These include:
 * **Administrative** - This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to role-based access control in a subscription.
 * **Service Health** - This category contains the record of any service health incidents that have occurred in Azure. An example of the type of event you would see in this category is "SQL Azure in East US is experiencing downtime." Service health events come in five varieties: Action Required, Assisted Recovery, Incident, Maintenance, Information, or Security, and only appear if you have a resource in the subscription that would be impacted by the event.
 * **Alert** - This category contains the record of all activations of Azure alerts. An example of the type of event you would see in this category is "CPU % on myVM has been over 80 for the past 5 minutes." A variety of Azure systems have an alerting concept -- you can define a rule of some sort and receive a notification when conditions match that rule. Each time a supported Azure alert type 'activates,' or the conditions are met to generate a notification, a record of the activation is also pushed to this category of the Activity Log.
-* **Autoscale** - This category contains the record of any events related to the operation of the autoscale engine based on any autoscale settings you have defined in your subscription. An example of the type of event you would see in this category is "Autoscale scale up action failed." Using autoscale, you can automatically scale out or scale in the number of instances in a supported resource type based on time of day and/or load (metric) data using an autoscale setting. When the conditions are met to scale up or down, the start and succeeded or failed events will be recorded in this category.
-* **Recommendation** - This category contains recommendation events from certain resource types, such as web sites and SQL servers. These events offer recommendations for how to better utilize your resources. You will only receive events of this type if you have resources that emit recommendations.
+* **Autoscale** - This category contains the record of any events related to the operation of the autoscale engine based on any autoscale settings you have defined in your subscription. An example of the type of event you would see in this category is "Autoscale scale up action failed." Using autoscale, you can automatically scale out or scale in the number of instances in a supported resource type based on time of day and/or load (metric) data using an autoscale setting. When the conditions are met to scale up or down, the start and succeeded or failed events are recorded in this category.
+* **Recommendation** - This category contains recommendation events from certain resource types, such as web sites and SQL servers. These events offer recommendations for how to better utilize your resources. You only receive events of this type if you have resources that emit recommendations.
 * **Policy, Security, and Resource Health** - These categories do not contain any events; they are reserved for future use.
 
 ## Event schema per category
-[Please see this article to understand the Activity Log event schema per category.](monitoring-activity-log-schema.md)
+[See this article to understand the Activity Log event schema per category.](monitoring-activity-log-schema.md)
 
 ## What you can do with the Activity Log
 Here are some of the things you can do with the Activity Log:
@@ -64,13 +64,13 @@ Here are some of the things you can do with the Activity Log:
 * [Save it to a **Storage Account** for archival or manual inspection](monitoring-archive-activity-log.md). You can specify the retention time (in days) using the **Log Profile**.
 * Query it via PowerShell Cmdlet, CLI, or REST API.
 
-## Query the Activity Log in the Azure Portal
-Within the Azure Portal you can view your Activity Log in several places:
-* The **Activity Log blade**, which you can access by searching for the Activity Log under "More Services" in the left hand navigation pane.
-* The **Monitor blade**, which appears by default in the left hand navigation pane. The Activity Log is one section of this Azure Monitor blade.
-* Any resource's **resource blade**, for example, the configuration blade for a Virtual Machine. The Activity Log will be one of the sections on most of these resource blades, and clicking on it will automatically filter the events to those related to that specific resource.
+## Query the Activity Log in the Azure portal
+Within the Azure portal you can view your Activity Log in several places:
+* The **Activity Log blade**, which you can access by searching for the Activity Log under "More Services" in the left-hand navigation pane.
+* The **Monitor blade**, which appears by default in the left-hand navigation pane. The Activity Log is one section of this Azure Monitor blade.
+* Any resource's **resource blade**, for example, the configuration blade for a Virtual Machine. The Activity Log is be one of the sections on most of these resource blades, and clicking on it automatically filters the events to those related to that specific resource.
 
-In the Azure Portal, you can filter your Activity Log by these fields:
+In the Azure portal, you can filter your Activity Log by these fields:
 * Timespan - The start and end time for events.
 * Category - The event category as described above.
 * Subscription - One or more Azure subscription names.
@@ -80,13 +80,13 @@ In the Azure Portal, you can filter your Activity Log by these fields:
 * Operation name - The name of an Azure Resource Manager operation, for example, Microsoft.SQL/servers/Write.
 * Severity - The severity level of the event (Informational, Warning, Error, Critical).
 * Event initiated by - The 'caller,' or user who performed the operation.
-* Open search - This is an open text search box that will search for that string across all fields in all events.
+* Open search - This is an open text search box that searches for that string across all fields in all events.
 
-Once you have defined a set of filters, you can save it as a query that will be persisted across sessions if you ever need to perform the same query with those filters applied again in the future. You can also pin a query to your Azure dashboard to always keep an eye on specific events.
+Once you have defined a set of filters, you can save it as a query that is persisted across sessions if you ever need to perform the same query with those filters applied again in the future. You can also pin a query to your Azure dashboard to always keep an eye on specific events.
 
-Clicking "Apply" will run your query and show all matching events. Clicking on any event in the list will show the summary of that event as well as the full raw JSON of that event.
+Clicking "Apply" runs your query and show all matching events. Clicking on any event in the list shows the summary of that event as well as the full raw JSON of that event.
 
-For even more power, you can click the **Log Search** icon, which will display your Activity Log data in the [Log Analytics Activity Log Analytics solution](../log-analytics/log-analytics-activity.md). The Activity Log blade offers a basic filter/browse experience on logs, but Log Analytics enables you to pivot, query, and visualize your data in more powerful ways.
+For even more power, you can click the **Log Search** icon, which displays your Activity Log data in the [Log Analytics Activity Log Analytics solution](../log-analytics/log-analytics-activity.md). The Activity Log blade offers a basic filter/browse experience on logs, but Log Analytics enables you to pivot, query, and visualize your data in more powerful ways.
 
 ## Export the Activity Log with a Log Profile
 A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:
