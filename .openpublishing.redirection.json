@@ -8387,6 +8387,11 @@
             "source_path": "articles/active-directory/secure-email-ems-office365-service-descriptions.md",
             "redirect_url": "https://docs.microsoft.com/microsoft-365-enterprise",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/media-services/media-services-manage-with-powershell.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.media/?view=azurermps-4.2.0",
+            "redirect_document_id": false
         }
     ]
 }
