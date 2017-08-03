@@ -105,7 +105,7 @@ When a key vault is recovered, the result is a new resource with the key vault's
 
 ## Key Vault objects and soft-delete
 
-Let's say you have a key 'ContosoFirstKey' in a key vault named 'ContosoVault' with soft-delete enabled. Here's how you would delete that key.
+For a key, 'ContosoFirstKey', in a key vault named 'ContosoVault' with soft-delete enabled, here's how you would delete that key.
 
 ```azurecli
 az keyvault key delete --name ContosoFirstKey --vault-name ContosoVault
@@ -113,7 +113,7 @@ az keyvault key delete --name ContosoFirstKey --vault-name ContosoVault
 
 With your key vault enabled for soft-delete, a deleted key still appears like it's deleted except, when you explicitly list/retrieve deleted keys. Most operations on a key in the deleted state will fail except for listing a deleted key, recovering it or purging it. 
 
-For example, if you request to list keys in a key vault.
+For example, to request to list deleted keys in a key vault:
 
 ```azurecli
 az keyvault key list-deleted --vault-name ContosoVault
@@ -131,7 +131,7 @@ az keyvault key list-deleted --vault-name ContosoVault
 
 ### Using soft-delete with key vault objects
 
-Just like key vaults, a deleted key or secret will remain in deleted state for up to 90 days unless you recover it or purge it. 
+Just like key vaults, a deleted key, secret or certificate will remain in deleted state for up to 90 days unless you recover it or purge it. 
 
 #### Keys
 
@@ -160,7 +160,9 @@ az keyvault set-policy --name ContosoVault --key-permissions get create delete l
 
 #### Secrets
 
-Here are the commands for deleting, listing, recovering, and purging secrets.
+Like keys, secrets in a key vault are operated on with their own commands.
+
+Following, are the commands for deleting, listing, recovering, and purging secrets.
 
 - Delete a secret named SQLPassword: 
 ```azurecli
@@ -184,9 +186,11 @@ az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
 
 ## Purging and key vaults
 
+
+
 ### Key vault objects
 
-Purging a key or secret will permanently delete the key or secret, it will not be recoverable. The key vault that contained the key or secret will however remain intact as will all other objects in the key vault. 
+Purging a key, secret or certificate will permanently delete it, meaning it will not be recoverable. The key vault that contained the deleted object will however remain intact as will all other objects in the key vault. 
 
 ### Key vaults as containers
 When a key vault is purged, all of its contents, including keys, secrets, and certificates, are permanently deleted. To purge a key vault use the `az keyvault purge` command. You can find the location your subscription's deleted key vaults using the command `az keyvault list-deleted`.
@@ -202,7 +206,7 @@ az keyvault purge --location westus --name ContosoVault
 
 ### Scheduled purge
 
-Listing deleted key vault objects shows when a deleted object is schedled to be purged by Key Vault. The *Scheduled Purge Date* field indicates when a key vault object will be permanently deleted, if no action is taken. By default, the retention period for a deleted key vault object is 90 days.
+Listing your deleted key vault objects shows when they are schedled to be purged by Key Vault. The *Scheduled Purge Date* field indicates when a key vault object will be permanently deleted, if no action is taken. By default, the retention period for a deleted key vault object is 90 days.
 
 ## See also
 
