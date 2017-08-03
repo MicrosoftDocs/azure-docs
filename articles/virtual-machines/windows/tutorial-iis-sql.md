@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/21/2017
+ms.date: 08/1/2017
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -24,43 +24,33 @@ ms.custom: mvc
 In this tutorial, we will build a two-tier demo music store .Net Core application that runs on a Windows Azure VM and connects to an Azure SQL database.
 
 > [!div class="checklist"]
-> * Create a VM
-> * Create an inbound port 80 rule for web traffic 
-> * Configure
+> * Create an Azure SQL server and database
+> * Create a VM 
+> * Configure the VM to run a .NET core sample application
+> * Connect to the application to see it running
 
-## Register the resource providers
+You can also deploy this entire sample (including the fully configured VM) using an example template. For more information, see [Automating application deployments to Windows Virtual Machines](dotnet-core-1-landing.md).
 
-Register the resource providers for your subscription.
-
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
-```
 ## Create a resource group
 
-Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
+Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named *myResourceGroup* in the *West US* location.
 
 ```powershell
 $location = westus
-$resourceGroup = "myResourceGroupSQL"
+$resourceGroup = "myResourceGroup"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 ```
 
+## Azure SQL
 
-
-## SQL
-
-
-Define variables for use in the scripts in this quick start.
+Define variables for creating the SQL server and database. Replace these pre-defined values as with your own.
 
 ```powershell
 # The logical server name: Use a random value or replace with your own value (do not capitalize)
-$sqlserver = "sqlserver7272017"
-# Set an admin login and password for your database
-# The login information for the server
+$sqlserver = "sqlserver"
+# Set an admin login and password 
 $user = "SQLAdmin"
-$password = "082497Reed!!"
+$password = "<password>"
 # The ip address range that you want to allow to access your server - change as appropriate
 $startip = "0.0.0.0"
 $endip = "0.0.0.0"
@@ -68,7 +58,7 @@ $endip = "0.0.0.0"
 ```
 
 
-Create an [Azure SQL Database logical server](sql-database-features.md) using the [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
+Create an [Azure SQL Database logical server](sql-database-features.md) using the [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) command. A logical server contains a group of databases managed as a group. 
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $resourceGroup `
@@ -77,7 +67,7 @@ New-AzureRmSqlServer -ResourceGroupName $resourceGroup `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $user, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 ```
 
-Create an [Azure SQL Database server-level firewall rule](sql-database-firewall-configure.md) using the [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
+Create an [server-level firewall rule](sql-database-firewall-configure.md) using the [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
 
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroup `
@@ -90,19 +80,21 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroup `
 >
 
 
-# create database
+Create an empty database named **musicstore** for the application to store data.
+
+```powershell
 New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -DatabaseName musicstore `
     -RequestedServiceObjectiveName "S0"
-
+```
 
 ## Create a VM
 
-The following script creates a fully configured VM that you can use for the rest of this tutorial.
+The following script creates a fully configured VM named *myVM* that you can use for the rest of this tutorial.
 
 ```
-# Variables for common values
+# Create a variable for the VM name
 $vmName = "myVM"
 
 # Create user object
@@ -131,7 +123,7 @@ $nsgRuleIIS = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupR
 
 # Create a network security group
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
-  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP,$nsgRuleIIS
 
 # Create a virtual network card and associate with public IP address and NSG
 $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
@@ -143,13 +135,14 @@ Set-AzureRmVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | 
 Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
-# Create a virtual machine
+# Create the VM
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
 ## Configure the VM with Custom Script Extension
-In a previous tutorial on [How to customize a Windows virtual machine](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with the Custom Script Extension for Windows. You can use the same approach to install and configure IIS on your VMs.
+In a previous tutorial on [How to customize a Windows virtual machine](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with the Custom Script Extension for Windows. You can use the same approach to install and configure IIS and the .NET sample application on your VM.
 
+We pass the path to a configuration script, stored in GitHub, into [Set-AzureRmVMCustomScriptExtension](/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension) to download and configure the sample application. We also need to provide the full path to the SQL server instance, the user name and password. 
 
 ```powershell
 $sqlfqdn = ($sqlserver + '.database.windows.net')
@@ -163,7 +156,15 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName $resourceGroup `
 
 ## Test the application
 
-Open a browser and type in the public IP address for the VM.
+Get the public IP address from PowerShell.
+
+```powershell
+$pip.IpAddress
+```
+
+Open a browser and type in the public IP address for the VM to see the .NET app in action.
+
+![Default page for the Music Store .NET Core app](./media/tutorial-iis-sql/musicstore.png) 
 
 
 
@@ -172,6 +173,10 @@ Open a browser and type in the public IP address for the VM.
 In this tutorial, you created a two-tier .Net Core sample music store application. You learned how to:
 
 > [!div class="checklist"]
-> * Create a VM
-> * Configure 
+> * Create an Azure SQL server and database
+> * Create a VM 
+> * Configure the VM to run a .NET core sample application
+> * Connect to the application to see it running
+
+You can deploy this entire sample (including the fully configured VM) using an example template. For more information, see [Automating application deployments to Windows Virtual Machines](dotnet-core-1-landing.md).
 
