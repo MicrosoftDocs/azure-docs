@@ -28,7 +28,7 @@ For detailed terms and descriptions of your invoice and detailed daily usage fil
 For details on the cost management reports, see [Azure portal cost management](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
 
 
-## <a name="reconcile"></a>How do I make sure that the charges in my invoice are correct?
+## <a name="charges"></a>How do I make sure that the charges in my invoice are correct?
 If there is a charge on your invoice that you want more details
 on, there are a couple of options.
 
