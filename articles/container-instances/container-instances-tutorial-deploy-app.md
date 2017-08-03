@@ -56,7 +56,7 @@ Within a few seconds, you will receive an initial response from Azure Resource M
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
 ```
 
-When the state changes from *pending* to *Ready* we can proceed.
+When the state changes from *pending*, we can proceed.
 
 The output includes the public IP address that you can use to access the app in the browser. You can show just the ip address by running the following command:
 
