@@ -22,7 +22,7 @@ Azure Batch provides an efficient way to monitor the progress of a job as it run
 
 ## How tasks are counted
 
-The Get Task Counts operation counts tasks by state, as described below. You can find more information about various task states at [Get information about a task][rest_get_task].
+The Get Task Counts operation counts tasks by state, as follows:
 
 - A task is counted as **active** when it is queued and able to run, but is not currently assigned to a compute node. A task is also counted as **active** if it is dependent on a parent task that has not yet completed. For more information on task dependencies, see [Create task dependencies to run tasks that depend on other tasks](batch-task-dependencies.md). 
 - A task is counted as **running** when it has been assigned to a compute node, but has not yet completed. A task is counted as **running** when its state is either `preparing` or `running`, as indicated by the [Get information about a task][rest_get_task] operation.
@@ -32,6 +32,8 @@ The Get Task Counts operation also reports how many tasks have succeeded or fail
 
     - A task is counted as **succeeded** if the result of task execution is `success`.
     - A task is counted as **failed** if the result of task execution is `failure`.
+
+For more information about task states, see [Get information about a task][rest_get_task].
 
 The following .NET code sample shows how to retrieve task counts by state: 
 
@@ -54,21 +56,21 @@ Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
 
 ## Error checking for task counts
 
-The Batch service aggregates task counts using a fast but potentially unreliable pipeline. To correct for any errors in the pipeline, the Batch service checks state counts against the task states as reported by the [List Tasks][rest_list_tasks] operation, so long as there are fewer than 200,000 tasks in the job. If the check encounters errors, Batch corrects the result of the Get Tasks Counts operation based on the value returned by the List Tasks operation.   
+The Batch service aggregates task counts using a fast but potentially unreliable pipeline. To correct for any errors in the pipeline, the Batch service checks state counts against the task states reported by the [List Tasks][rest_list_tasks] operation, so long as there are fewer than 200,000 tasks in the job. If the check encounters errors, Batch corrects the result of the Get Tasks Counts operation based on the value returned by the List Tasks operation.   
 
 The **validationStatus** property indicates whether Batch has performed the error check. If the **validationStatus** property is set to `unvalidated`, then Batch has not been able to check state counts against the task states reported by the List Tasks operation. Batch cannot perform this error check if the job includes more than 200,000 tasks, so the **validationStatus** property may be `unvalidated` in this case.
 
-When a task changes state, the aggregation pipeline processes the change within 5 seconds. The Get Task Counts operation reflects the updated task counts within that 5-second period. However, if the aggregation pipeline misses a change in a task state, then that change is not registered until the next validation pass. During this time, task counts may be slightly inaccurate due to the missed event, but they are corrected on the next validation pass.
+When a task changes state, the aggregation pipeline processes the change within five seconds. The Get Task Counts operation reflects the updated task counts within that 5-second period. However, if the aggregation pipeline misses a change in a task state, then that change is not registered until the next validation pass. During this time, task counts may be slightly inaccurate due to the missed event, but they are corrected on the next validation pass.
 
 ## Best practices for counting a job's tasks
 
-Calling the Get Task Counts operation is the most efficient way to return a simple count of a job's tasks by state. Prior to the introduction of the Get Task Counts operation in Batch service version 2017-06-01.5.1, you needed to [create a list query](batch-efficient-list-queries.md) to tally a job's tasks. Best practices now recommend that you use Get Task Counts for basic aggregate counts. However, if you need to perform a more complex filter or select operation, then create a list query to return the data you want. 
+Calling the Get Task Counts operation is the most efficient way to return a basic count of a job's tasks by state. Prior to the introduction of the Get Task Counts operation in Batch service version 2017-06-01.5.1, you needed to [create a list query](batch-efficient-list-queries.md) to tally a job's tasks. Best practices now recommend that you use Get Task Counts for basic aggregate counts. However, if you need to perform a more complex filter or select operation on a job's tasks, then create a list query. 
 
 
 ## Next steps
 
-* See the [Batch feature overview](batch-api-basics.md) to learn more about Batch service concepts and features. The article discusses the primary Batch resources such as pools, compute nodes, jobs, and tasks, and provides an overview of the service's features that enable large-scale compute workload execution.
-* Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](batch-dotnet-get-started.md) or [Python](batch-python-tutorial.md). These introductory articles guide you through a working application that uses the Batch service to execute a workload on multiple compute nodes, and includes using Azure Storage for workload file staging and retrieval.
+* See the [Batch feature overview](batch-api-basics.md) to learn more about Batch service concepts and features. The article discusses the primary Batch resources such as pools, compute nodes, jobs, and tasks, and provides an overview of the service's features.
+* Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](batch-dotnet-get-started.md) or [Python](batch-python-tutorial.md). These introductory articles guide you through a working application that uses the Batch service to execute a workload on multiple compute nodes.
 
 
 [rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/get-the-task-counts-for-a-job
