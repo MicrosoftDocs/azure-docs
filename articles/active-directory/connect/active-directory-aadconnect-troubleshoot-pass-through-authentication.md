@@ -113,7 +113,7 @@ These are common issues you could face when you try to [configure Exchange Activ
 
 ### Exchange PowerShell issue
 
-If you see the "**A parameter cannot be found that matches parameter name \'PerTenantSwitchToESTSEnabled\'\.**" error when you run the `Set-OrganizationConfig` Exchange PowerShell command, contact Microsoft Support.
+If you see the "**A parameter cannot be found that matches parameter name 'PerTenantSwitchToESTSEnabled'\.**" error when you run the `Set-OrganizationConfig` Exchange PowerShell command, contact Microsoft Support.
 
 ### Exchange ActiveSync not working
 
