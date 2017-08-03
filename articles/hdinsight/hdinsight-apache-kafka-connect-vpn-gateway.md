@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 04/18/2017
+ms.date: 08/01/2017
 ms.author: larryfr
 
 ---
@@ -279,7 +279,7 @@ By default, Zookeeper returns the domain name of the Kafka brokers to clients. T
 
 6. To configure the interface that Kafka listens on, enter `listeners` in the __Filter__ field on the upper right.
 
-7. To configure Kafka to listen on all network interfaces, change the value in the __listeners__ field to `PLAINTEXT://0.0.0.0:92092`.
+7. To configure Kafka to listen on all network interfaces, change the value in the __listeners__ field to `PLAINTEXT://0.0.0.0:9092`.
 
 8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes have been saved.
 

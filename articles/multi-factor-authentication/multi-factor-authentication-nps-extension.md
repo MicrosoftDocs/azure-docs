@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 07/24/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
@@ -158,6 +158,9 @@ Unless you want to use your own certificates (instead of the self-signed certifi
 6. PowerShell shows a success message when the script is finished.  
 
 Repeat these steps on any additional NPS servers that you want to set up for load balancing.
+
+>[!NOTE]
+>If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=<TenantID>,OU=Microsoft NPS Extension**. 
 
 ## Configure your NPS extension
 
