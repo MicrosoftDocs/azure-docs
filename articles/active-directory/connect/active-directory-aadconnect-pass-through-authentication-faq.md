@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 08/03/2017
 ms.author: billmath
 ---
 
@@ -45,7 +45,7 @@ Yes. Pass-through Authentication supports `Alternate ID` as the username when co
 
 ## Does Password Hash Synchronization act as a fallback to Pass-through Authentication?
 
-No, Password Hash Synchronization is not a generic fallback to Pass-through Authentication. It only acts as a fallback for [scenarios that Pass-through Authentication doesn't support today](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). To avoid user sign-in failures, you should configure Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
+No, Password Hash Synchronization is not a generic fallback to Pass-through Authentication. It only acts as a fallback for [scenarios that Pass-through Authentication doesn't support today](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). To avoid user sign-in failures, you should configure Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
 ## Can I install an [Azure AD Application Proxy](../active-directory-application-proxy-get-started.md) connector on the same server as a Pass-through Authentication Agent?
 
@@ -79,7 +79,7 @@ Yes. If WPAD (Web Proxy Auto-Discovery) is enabled in your on-premises environme
 
 ## Can I install two or more Pass-through Authentication Agents on the same server?
 
-No, you can only install one Pass-through Authentication Agent on a single server. If you want to configure Pass-through Authentication for high availability, follow the instructions in this [article](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) instead.
+No, you can only install one Pass-through Authentication Agent on a single server. If you want to configure Pass-through Authentication for high availability, follow the instructions in this [article](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) instead.
 
 ## I already use Active Directory Federation Services (AD FS) for Azure AD sign-in. How do I switch it to Pass-through Authentication?
 
@@ -96,7 +96,7 @@ Yes. Multi-forest environments are supported if there are forest trusts between 
 
 ## Do Pass-through Authentication Agents provide load balancing capability?
 
-No, installing multiple Pass-through Authentication Agents ensures [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability), but not load balancing. One or two of the Authentication Agents may end up handling the bulk of the sign-in requests.
+No, installing multiple Pass-through Authentication Agents ensures [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability), but not load balancing. One or two of the Authentication Agents may end up handling the bulk of the sign-in requests.
 
 Password validation requests that the Authentication Agents need to handle are lightweight. Therefore peak and average load for most customers is easily handled by two or three Authentication Agents in total.
 
