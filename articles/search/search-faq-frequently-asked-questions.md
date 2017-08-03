@@ -24,7 +24,7 @@ Azure Search is typically a better choice if application requirements include su
 
 ### What is the difference between Azure Search and Elasticsearch?
 
-When comparing search technologies, customers frequently ask for specifics on how Azure Search compares with Elasticsearch, given that Azure Search uses Elasticsearch internally. Azure Search chose Elasticsearch as an internal component for efficient access to the Apache Lucene full text search engine, for its infrastructure supporting distributed and scaleable workloads, and for its extensibility mechanisms.  
+When comparing search technologies, customers frequently ask for specifics on how Azure Search compares with Elasticsearch, given that Azure Search uses Elasticsearch internally. Azure Search chose Elasticsearch as an internal component for efficient access to the Apache Lucene full text search engine, for its infrastructure supporting distributed and scalable workloads, and for its extensibility mechanisms.  
 
 Customers who choose Azure Search over Elasticsearch typically do so because we've made a key task easier or we have built-in support for other Microsoft technologies:
 
@@ -47,7 +47,7 @@ Indexes are built and populated from code that you write, and run only on Azure 
 
 ### Can I index from SQL database replicas 
 
-(Applies to [Azure SQL Database indexers](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers)) There are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates based on changed records requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there is no guarantee you will get all of the data.
+(Applies to [Azure SQL Database indexers](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers)) There are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates (based on changed records) requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there is no guarantee you get all of the data.
 
 ## Search Ops
 
@@ -55,21 +55,21 @@ Indexes are built and populated from code that you write, and run only on Azure 
 
 No, this operation is not supported. Search is always scoped to a single index.
 
-### Can I restrict search corpus acceess by user identity?
+### Can I restrict search corpus access by user identity?
 
 Azure Search does not have a role-based security model for per-user data access. Authentication is either full rights or read-only at the service level. Some customers have implemented solutions based on [`$filter` search parameter](https://docs.microsoft.com/rest/api/searchservice/search-documents), but it is a workaround at best. If you want this feature, cast a vote on [User Voice](https://feedback.azure.com/forums/263029-azure-search/category/86074-security).
 
 ### Why are there zero matches on terms I know to be valid?
 
-The most common case is not knowing that each query type supports different search behaviors and levels of linguistic analyses. Full text search, which is the predominant workload, includes a language analysis phase that breaks terms down to root forms. This aspect of query parsing casts a broader net over possible matches, because inputs are converted into multiple forms.
+The most common case is not knowing that each query type supports different search behaviors and levels of linguistic analyses. Full text search, which is the predominant workload, includes a language analysis phase that breaks down terms to root forms. This aspect of query parsing casts a broader net over possible matches, because inputs are converted into multiple forms.
 
 If you invoke [other query types](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (fuzzy search, proximity search, suggestions, among others), there is no linguistic analysis. Terms are added to the query tree as-is, which the engine uses to look for identical matches based on the exact terms it was given. This often results in fewer matches than you might be expecting.
 
 ### Why is the search rank a constant or equal score of 1.0 for every hit?
 
-By default, search results are scored based on the [statistical properties of matching terms](search-lucene-query-architecture.md#stage-4-scoring), and ordered high to low in the result set. However, some query types (wildcard, prefix, regex) always contribute a constant score to the overall document score. This is by design. Azure Search imposes a constant score to allow matches found through query expansion to be included in the results, without affecting the ranking. 
+By default, search results are scored based on the [statistical properties of matching terms](search-lucene-query-architecture.md#stage-4-scoring), and ordered high to low in the result set. However, some query types (wildcard, prefix, regex) always contribute a constant score to the overall document score. This behavior is by design. Azure Search imposes a constant score to allow matches found through query expansion to be included in the results, without affecting the ranking. 
 
-For example, suppose an input of "tour*" in a wildcard search, with matches found on “tours”, “tourettes”, and “tourmaline”. Given the nature of these results, there is no way to reasonably infer which terms are more valuable than others. For this reason, we ignore term frequencies when scoring results in queries of types wildcard, prefix and regex. In a multi-part search request that includes partial and complete terms, results from the partial input are incorporated with a constant score to avoid bias towards potentially unexpected matches.
+For example, suppose an input of "tour*" in a wildcard search, with matches found on “tours”, “tourettes”, and “tourmaline”. Given the nature of these results, there is no way to reasonably infer which terms are more valuable than others. For this reason, we ignore term frequencies when scoring results in queries of types wildcard, prefix, and regex. In a multi-part search request that includes partial and complete terms, results from the partial input are incorporated with a constant score to avoid bias towards potentially unexpected matches.
 
 ## Design patterns
 
