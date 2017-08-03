@@ -125,7 +125,7 @@ This is a simple pattern. You optimize hop 3 by placing the connector near the a
 
 **Scenario:** The app is in an organization's network in the US, with users spread out globally. No ExpressRoute or VPN exists between the Azure datacenter and the corporate network.
 
-**Recommendation:** Follow pattern 2, explained in the previous section. 
+**Recommendation:** Follow pattern 1, explained in the previous section. 
 
 Again, the common pattern is to optimize hop 3, where you place the connector near the app. Hop 3 is not typically expensive, if it is all within the same region. However, hop 1 can be more expensive depending on where the user is, because users across the world must access the Application Proxy instance in the US. It's worth noting that any proxy solution has similar characteristics regarding users being spread out globally.
 

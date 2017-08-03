@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/03/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -33,10 +33,11 @@ To deploy Application Proxy successfully, you need at least one connector, but w
 For more information about the network requirements for the connector server, see [Get started with Application Proxy and install a connector](active-directory-application-proxy-enable.md).
 
 ## Maintenance
-The connectors and the service take care of all the high availability tasks. They can be added or removed dynamically. Each time a new request arrives it is routed to one of the connectors that is currently available. If a connector is temporary not available, it doesn't respond to this traffic.
+The connectors and the service take care of all the high availability tasks. They can be added or removed dynamically. Each time a new request arrives it is routed to one of the connectors that is currently available. If a connector is temporarily not available, it doesn't respond to this traffic.
 
 The connectors are stateless and have no configuration data on the machine. The only data they store is the settings for connecting the service and its authentication certificate. When they connect to the service, they pull all the required configuration data and refresh it every couple of minutes.
-They also poll the server to find out whether there is a newer version of the connector. If one is found, the connectors update themselves.
+
+Connectors also poll the server to find out whether there is a newer version of the connector. If one is found, the connectors update themselves.
 
 You can monitor your connectors from the machine they are running on, using either the event log and performance counters. Or you can view their status from the Application Proxy page of the Azure portal:
 
@@ -58,13 +59,11 @@ You may experience downtime when your connector updates if:
 
 ## Creating connector groups
 
-There are many reasons to create connector groups, including:
+Connector groups enable you to assign specific connectors to serve specific applications. You can group a number of connectors together, and then assign each application to a group. 
 
-* Higher availability
-* Better latency for tenants with applications in multiple regions
-* Organized resources that are easier to manage
+Connector groups make it easier to manage large deployments. They also improve latency for tenants that have applications hosted in different regions, because you can create location-based connector groups to serve only local applications. 
 
-To learn more about the benefits of connector groups, see [Publish applications on separate networks and locations using connector groups](active-directory-application-proxy-connectors-azure-portal.md).
+To learn more about connector groups, see [Publish applications on separate networks and locations using connector groups](active-directory-application-proxy-connectors-azure-portal.md).
 
 ## Security and networking
 
@@ -136,7 +135,7 @@ The connectors have both admin and session logs. The admin logs include key even
 
 To see the logs, go to the Event Viewer, open the **View** menu, and enable **Show analytic and debug logs**. Then, enable them to start collecting events. These logs do not appear in Web Application Proxy in Windows Server 2012 R2, as the connectors are based on a more recent version.
 
-You can examine the state of the service in the Services window. The connector comprises two Windows Services: the actual connector, and the updater. Both of them are required to run all the time.
+You can examine the state of the service in the Services window. The connector comprises two Windows Services: the actual connector, and the updater. Both of them must run all the time.
 
  ![AzureAD Services Local](./media/application-proxy-understand-connectors/aad-connector-services.png)
 
