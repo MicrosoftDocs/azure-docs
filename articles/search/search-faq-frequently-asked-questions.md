@@ -63,14 +63,7 @@ Azure Search does not have a role-based security model for per-user data access.
 
 The most common case is not knowing that each query type supports different search behaviors and levels of linguistic analyses. Full text search, which is the predominant workload, includes a language analysis phase that breaks terms down to root forms. This aspect of query parsing casts a broader net over possible matches, because the tokenized term matches a greater number of variants.
 
-If you invoke [other query types](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (wildcard search, fuzzy search, proximity search, suggestions, among others), there is no linguistic analysis. Terms are added to the query tree as-is, untokenized. The engine uses the term as it was provided, not its root form.
-
-For wildcard search ('starts with', 'ends with', 'contains'), a match might fail if the 
-
-For fuzzy search, a match might fail
- 
-
-rules for a specify query type (ter) which the engine uses to look for matches based on the exact terms it was given. This type of search might rethan you might be expecting.
+If you invoke [other query types](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (wildcard search, fuzzy search, proximity search, suggestions, among others), there is no linguistic analysis. Terms are added to the query tree as-is. 
 
 ### Why is the search rank a constant or equal score of 1.0 for every hit?
 
