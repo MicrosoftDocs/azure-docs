@@ -20,17 +20,17 @@ ms.author: heidist
 
 ### How is Azure Search different from full text search in my DBMS?
 
-Azure Search is typically a better choice if application requirements include support for multiple data sources, [linguistic analysis](https://docs.microsoft.com/rest/api/searchservice/language-support), [custom analysis](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), localization, search result controls through [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), or user-experience features such as typeahead, hit highlighting, and faceted navigation. 
+Azure Search supports multiple data sources, [linguistic analysis for many languages](https://docs.microsoft.com/rest/api/searchservice/language-support), [custom analysis for interesting and unusual data inputs](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), search rank controls through [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), and user-experience features such as typeahead, hit highlighting, and faceted navigation. It also includes other features, such as synonyms and rich query syntax, but those are generally not differentiating features.
 
 ### What is the difference between Azure Search and Elasticsearch?
 
 When comparing search technologies, customers frequently ask for specifics on how Azure Search compares with Elasticsearch, given that Azure Search uses Elasticsearch internally. Azure Search chose Elasticsearch as an internal component for efficient access to the Apache Lucene full text search engine, for its infrastructure supporting distributed and scalable workloads, and for its extensibility mechanisms.  
 
-Customers who choose Azure Search over Elasticsearch typically do so because we've made a key task easier or we have built-in support for other Microsoft technologies:
+Customers who choose Azure Search over Elasticsearch for their search application projects typically do so because we've made a key task easier or they need the built-in support for other Microsoft technologies:
 
-+ Linguistic analysis in Azure Search can leverage Microsoft's [natural language processors](https://docs.microsoft.com/rest/api/searchservice/language-support).  
-+ [Built-in indexers](search-indexer-overview.md) crawl a variety of Azure data sources for initial and incremental indexing.
-+ Distributed workloads at scale is a fundamental strength of Elasticsearch. This task is greatly simplified in Azure Search through PowerShell script or portal slider controls, allowing for a rapid response to fluctuations in query or indexing volumes.  
++ [Natural language processors](https://docs.microsoft.com/rest/api/searchservice/language-support) offer leading edge inguistic analysis.  
++ [Built-in indexers](search-indexer-overview.md) can crawl a variety of Azure data sources for initial and incremental indexing.
++ Distributed workloads at scale is a fundamental strength of Elasticsearch. This task is greatly simplified in Azure Search through [PowerShell script](search-manage-powershell.md) or [portal slider controls](search-manage.md#scale-up-or-down), allowing for a rapid response to fluctuations in query or indexing volumes without having to manage shards directly.  
 + [Scoring and tuning features](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) provide the means for influencing search rank scores beyond what the search engine alone can provide. 
 
 ### Can I pause Azure Search service and stop billing?
@@ -41,13 +41,13 @@ You cannot pause the service. Computational and storage resources are allocated 
 
 ### Backup and restore (or download and move) indexes or index snapshots?
 
-Although you can [get an index definition](https://docs.microsoft.com/rest/api/searchservice/get-index), there is no index extraction, snapshot, or backup-restore feature for downloading a *populated* index running in the cloud to a local system, or moving it to another Azure Search service. 
+Although you can [get an index definition](https://docs.microsoft.com/rest/api/searchservice/get-index) at any time, there is no index extraction, snapshot, or backup-restore feature for downloading a *populated* index running in the cloud to a local system, or moving it to another Azure Search service. 
 
-Indexes are built and populated from code that you write, and run only on Azure Search in the cloud. Typically, customers who want to move an index do so by editing their code to use a new endpoint, and then rerun indexing. If you want the ability to take a snapshot or backup an index, cast a vote on [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
+Indexes are built and populated from code that you write, and run only on Azure Search in the cloud. Typically, customers who want to move an index to another service do so by editing their code to use a new endpoint, and then rerun indexing. If you want the ability to take a snapshot or backup an index, cast a vote on [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
 
-### Can I index from SQL database replicas 
+### Can I index from SQL database replicas (Applies to [Azure SQL Database indexers](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 
-(Applies to [Azure SQL Database indexers](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers)) There are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates (based on changed records) requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there is no guarantee you get all of the data.
+ There are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates (based on changed records) requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there is no guarantee you get all of the data.
 
 ## Search Operations
 
@@ -61,21 +61,28 @@ Azure Search does not have a role-based security model for per-user data access.
 
 ### Why are there zero matches on terms I know to be valid?
 
-The most common case is not knowing that each query type supports different search behaviors and levels of linguistic analyses. Full text search, which is the predominant workload, includes a language analysis phase that breaks down terms to root forms. This aspect of query parsing casts a broader net over possible matches, because inputs are converted into multiple forms.
+The most common case is not knowing that each query type supports different search behaviors and levels of linguistic analyses. Full text search, which is the predominant workload, includes a language analysis phase that breaks terms down to root forms. This aspect of query parsing casts a broader net over possible matches, because the tokenized term matches a greater number of variants.
 
-If you invoke [other query types](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (fuzzy search, proximity search, suggestions, among others), there is no linguistic analysis. Terms are added to the query tree as-is, which the engine uses to look for identical matches based on the exact terms it was given. This often results in fewer matches than you might be expecting.
+If you invoke [other query types](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (wildcard search, fuzzy search, proximity search, suggestions, among others), there is no linguistic analysis. Terms are added to the query tree as-is, untokenized. The engine uses the term as it was provided, not its root form.
+
+For wildcard search ('starts with', 'ends with', 'contains'), a match might fail if the 
+
+For fuzzy search, a match might fail
+ 
+
+rules for a specify query type (ter) which the engine uses to look for matches based on the exact terms it was given. This type of search might rethan you might be expecting.
 
 ### Why is the search rank a constant or equal score of 1.0 for every hit?
 
 By default, search results are scored based on the [statistical properties of matching terms](search-lucene-query-architecture.md#stage-4-scoring), and ordered high to low in the result set. However, some query types (wildcard, prefix, regex) always contribute a constant score to the overall document score. This behavior is by design. Azure Search imposes a constant score to allow matches found through query expansion to be included in the results, without affecting the ranking. 
 
-For example, suppose an input of "tour*" in a wildcard search, with matches found on “tours”, “tourettes”, and “tourmaline”. Given the nature of these results, there is no way to reasonably infer which terms are more valuable than others. For this reason, we ignore term frequencies when scoring results in queries of types wildcard, prefix, and regex. In a multi-part search request that includes partial and complete terms, results from the partial input are incorporated with a constant score to avoid bias towards potentially unexpected matches.
+For example, suppose an input of "tour*" in a wildcard search produces matches on “tours”, “tourettes”, and “tourmaline”. Given the nature of these results, there is no way to reasonably infer which terms are more valuable than others. For this reason, we ignore term frequencies when scoring results in queries of types wildcard, prefix, and regex. Search results based on a partial input are given a constant score to avoid bias towards potentially unexpected matches.
 
 ## Design patterns
 
 ### What is the best approach for implementing localized search?
 
-Most customers choose separate fields over a collection when it comes to supporting different locales (languages) in the same index. Locale-specific fields make it possible to assign an appropriate analyzer. For example, assigning the Microsoft French Analyzer to a field storing French strings. It also simplifies filtering. If you know a query is initiated on a fr-fr page, you could limit search results to this field. Or, create a [scoring profile](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) to give the field more relative weight.
+Most customers choose dedicated fields over a collection when it comes to supporting different locales (languages) in the same index. Locale-specific fields make it possible to assign an appropriate analyzer. For example, assigning the Microsoft French Analyzer to a field  containing French strings. It also simplifies filtering. If you know a query is initiated on a fr-fr page, you could limit search results to this field. Or, create a [scoring profile](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) to give the field more relative weight.
 
 ## Next steps
 
