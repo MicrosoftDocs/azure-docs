@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 08/04/2017
 ms.author: kgremban
 
 ---
@@ -121,14 +121,10 @@ For initial registration, allow access to the following endpoints:
 * login.windows.net
 * login.microsoftonline.com
 
-The underlying Service Bus control channels that the connector service uses also require connectivity to specific IP addresses. Until Service Bus moves to an FQDN instead, there are two options:
+If you can't allow connectivity by FQDN and need to specify IP ranges instead, use these options:
 
 * Allow the connector outbound access to all destinations.
-* Allow the connector outbound access to [Azure datacenter IP ranges](https://www.microsoft.com/en-gb/download/details.aspx?id=41653).
-
->[!NOTE]
->The challenge with using the list of Azure datacenter IP ranges is that it's updated weekly. You will need to put a process in place to ensure that your access rules are updated accordingly.
->
+* Allow the connector outbound access to [Azure datacenter IP ranges](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). The challenge with using the list of Azure datacenter IP ranges is that it's updated weekly. You will need to put a process in place to ensure that your access rules are updated accordingly.
 
 #### Proxy authentication
 
@@ -136,13 +132,10 @@ Proxy authentication is not currently supported. Our current recommendation is t
 
 #### Proxy ports
 
-The connector makes outbound SSL-based connections by using the CONNECT method. This method essentially sets up a tunnel through the outbound proxy. Some proxy servers, by default, allow outbound tunneling to only standard SSL ports such as 443. If this is the case, the proxy server must be configured to allow tunneling to additional ports.
-
-Configure the proxy server to allow tunneling to nonstandard SSL ports 8080, 9090, 9091, and 10100-10120.
+The connector makes outbound SSL-based connections by using the CONNECT method. This method essentially sets up a tunnel through the outbound proxy. Configure the proxy server to allow tunneling to ports 443 and 80.
 
 >[!NOTE]
 >When Service Bus runs over HTTPS, it uses port 443. However, by default, Service Bus attempts direct TCP connections and falls back to HTTPS only if direct connectivity fails.
->
 
 To ensure that the Service Bus traffic is also sent through the outbound proxy server, ensure that the connector cannot directly connect to the Azure services for ports 9350, 9352, and 5671.
 
