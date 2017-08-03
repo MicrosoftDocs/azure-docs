@@ -12,7 +12,7 @@ ms.date: 02/03/2017
 ms.author: sajagtap
 ---
 
-# Text Moderation Reviews #
+# Text Moderation reviews #
 
 ## Select or enter the text to review ##
 
@@ -21,8 +21,6 @@ Click the **Try** TAB and select the "Text" option to bring up the Text Moderati
 ## Get ready to review results ##
 
 The review tool will call the text moderation API and generate text reviews with the detected tags and match scores results within the review tool for your team's attention.
-
-![Ready for text reviews](images/2-Text-Submitted.png)
 
 ## Review text results ##
 

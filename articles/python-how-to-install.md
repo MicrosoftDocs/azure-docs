@@ -96,7 +96,7 @@ Using PTVS is optional, but is recommended as it gives you Python and Web Projec
 
 PTVS also makes it easy to deploy to Microsoft Azure, with support for deployment to [Cloud Services](cloud-services/cloud-services-python-ptvs.md) and [Websites](app-service-web/web-sites-python-ptvs-django-mysql.md).
 
-PTVS works with your existing Visual Studio 2013 or 2015 installation.  For documentation, downloads and discussions, see [Python Tools for Visual Studio].  
+PTVS works with your existing Visual Studio 2013, 2015, or 2017 installation.  For documentation, downloads and discussions, see [Python Tools for Visual Studio].  
 
 ## Python Azure Scenarios for Linux and MacOS
 For Linux or MacOS, main Azure scenarios that are supported:

@@ -46,9 +46,6 @@
   - name: Advisor
     tocHref: /azure/advisor/
     topicHref: /azure/advisor/
-  - name: Logic Apps
-    tocHref: /azure/logic-apps/
-    topicHref: /azure/logic-apps/
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
@@ -106,12 +103,50 @@
   - name: Cognitive Services
     tocHref: /azure/cognitive-services/
     topicHref: /azure/cognitive-services/
+    items: 
+    - name: Bing Custom Search
+      tocHref: /azure/cognitive-services/bing-custom-search/
+      topicHref: /azure/cognitive-services/bing-custom-search/
+    - name: Bing Web Search
+      tocHref: /azure/cognitive-services/bing-web-search/
+      topicHref: /azure/cognitive-services/bing-web-search/
+    - name: Computer Vision
+      tocHref: /azure/cognitive-services/computer-vision/
+      topicHref: /azure/cognitive-services/computer-vision/
+    - name: Custom Speech Service
+      tocHref: /azure/cognitive-services/custom-speech-service/
+      topicHref: /azure/cognitive-services/custom-speech-service/
+    - name: Custom Vision Service
+      tocHref: /azure/cognitive-services/custom-vision-service/
+      topicHref: /azure/cognitive-services/custom-vision-service/
+    - name: Face
+      tocHref: /azure/cognitive-services/face/
+      topicHref: /azure/cognitive-services/face/
+    - name: Language Understanding Intelligent Service (LUIS)
+      tocHref: /azure/cognitive-services/LUIS/
+      topicHref: /azure/cognitive-services/LUIS/
+    - name: Video Indexer
+      tocHref: /azure/cognitive-services/video-indexer/video-indexer-overview
+      topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
+  - name: Container Instances
+    tocHref: /azure/container-instances/
+    topicHref: /azure/container-instances/
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/
+    items: 
+    - name: DC/OS and Swarm
+      tocHref: /azure/container-service/dcos-swarm/
+      topicHref: /azure/container-service/dcos-swarm/
+    - name: Kubernetes
+      tocHref: /azure/container-service/kubernetes/
+      topicHref: /azure/container-service/kubernetes/
+  - name: CosmosDB
+    tocHref: /azure/cosmos-db/
+    topicHref: /azure/cosmos-db/
   - name: Data Catalog
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
@@ -130,9 +165,6 @@
   - name: DNS
     tocHref: /azure/dns/
     topicHref: /azure/dns/
-  - name: DocumentDB
-    tocHref: /azure/documentdb/
-    topicHref: /azure/documentdb/
   - name: Event Hubs
     tocHref: /azure/event-hubs/
     topicHref: /azure/event-hubs/
@@ -160,6 +192,9 @@
   - name: Log Analytics
     tocHref: /azure/log-analytics/
     topicHref: /azure/log-analytics/
+  - name: Logic Apps
+    tocHref: /azure/logic-apps/
+    topicHref: /azure/logic-apps/
   - name: Machine Learning
     tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/
@@ -188,15 +223,24 @@
       - name: User Guide
         tocHref: /azure/multi-factor-authentication/end-user/
         topicHref: /azure/multi-factor-authentication/end-user/
+  - name: MySQL
+    tocHref: /azure/mysql/
+    topicHref: /azure/mysql/
   - name: Network Watcher
     tocHref: /azure/network-watcher/
     topicHref: /azure/network-watcher/
+  - name: Networking
+    tocHref: /azure/networking/
+    topicHref: /azure/networking/networking-overview
   - name: Notification Hubs
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
+  - name: PostgreSQL
+    tocHref: /azure/postgresql/
+    topicHref: /azure/postgresql/
   - name: Power BI Embedded
     tocHref: /azure/power-bi-embedded/
     topicHref: /azure/power-bi-embedded/
@@ -209,9 +253,9 @@
   - name: Resiliency
     tocHref: /azure/resiliency/
     topicHref: /azure/resiliency/
-  - name: Resource Health
-    tocHref: /azure/resource-health/
-    topicHref: /azure/resource-health/
+  - name: Service Health
+    tocHref: /azure/service-health/
+    topicHref: /azure/service-health/
   - name: Scheduler
     tocHref: /azure/scheduler/
     topicHref: /azure/scheduler/
@@ -278,14 +322,14 @@
         tocHref: /azure/virtual-machines/linux/
         topicHref: /azure/virtual-machines/linux/
         items:
-          - name: Classic Deployment
+          - name: Linux classic deployments
             tocHref: /azure/virtual-machines/linux/classic/
             topicHref: /azure/virtual-machines/linux/classic/
       - name: Windows
         tocHref: /azure/virtual-machines/windows/
         topicHref: /azure/virtual-machines/windows/
         items:
-          - name: Classic Deployment
+          - name: Windows classic deployments
             tocHref: /azure/virtual-machines/windows/classic/
             topicHref: /azure/virtual-machines/windows/classic/
   - name: Virtual Network

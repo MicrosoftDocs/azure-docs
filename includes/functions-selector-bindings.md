@@ -1,6 +1,6 @@
 
 > [!div class="op_single_selector"]
-> * [DocumentDB](../articles/azure-functions/functions-bindings-documentdb.md)  
+> * [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)  
 > * [Event Hubs](../articles/azure-functions/functions-bindings-event-hubs.md)  
 > * [HTTP/webhook](../articles/azure-functions/functions-bindings-http-webhook.md)  
 > * [Mobile Apps](../articles/azure-functions/functions-bindings-mobile-apps.md)  

@@ -1,5 +1,5 @@
 ---
-title: Auto scale a cloud service in the portal (classic portal) | Microsoft Docs
+title: Auto scale a cloud service in the portal | Microsoft Docs
 description: Learn how to use the portal to configure auto scale rules for a cloud service web role or worker role in Azure.
 services: cloud-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/18/2017
 ms.author: adegeo
 ---
 
@@ -40,19 +40,16 @@ You should consider the following information before you configure scaling for y
 
 * To enable high availability of your application, you should ensure that it is deployed with two or more role instances. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
-> [!WARNING]
-> Automatic scaling only works with Classic Azure Storage Accounts. It does not work with Azure Resource Manager Storage Accounts.
-
 
 ## Where scale is located
 After you select your cloud service, you should have the cloud service blade visible.
 
 1. On the cloud service blade, on the **Roles and Instances** tile, select the name of the cloud service.   
    **IMPORTANT**: Make sure to click the cloud service role, not the role instance that is below the role.
-   
+
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Select the **scale** tile.
-   
+
     ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## Automatic scale
@@ -74,25 +71,25 @@ After you have configured the profile and rules, select the **Save** icon at the
 The profile sets minimum and maximum instances for the scale, and also when this scale range is active.
 
 * **Always**
-  
+
     Always keep this range of instances available.  
-  
+
     ![Cloud service that always scale](./media/cloud-services-how-to-scale-portal/select-always.png)
 * **Recurrence**
-  
+
     Choose a set of days of the week to scale.
-  
+
     ![Cloud service scale with a recurrence schedule](./media/cloud-services-how-to-scale-portal/select-recurrence.png)
 * **Fixed Date**
-  
+
     A fixed date range to scale the role.
-  
+
     ![CLoud service scale with a fixed date](./media/cloud-services-how-to-scale-portal/select-fixed.png)
 
 After you have configured the profile, select the **OK** button at the bottom of the profile blade.
 
 #### Rule
-Rules are added to a profile and represent a condition that triggers the scale. 
+Rules are added to a profile and represent a condition that triggers the scale.
 
 The rule trigger is based on a metric of the cloud service (CPU usage, disk activity, or network activity) to which you can add a conditional value. Additionally you can have the trigger based on a message queue or the metric of some other Azure resource associated with your subscription.
 
@@ -105,11 +102,10 @@ Navigate to the [scale settings](#where-scale-is-located) and set the **Scale by
 
 ![Cloud services scale settings with profile and rule](./media/cloud-services-how-to-scale-portal/manual-basics.png)
 
-This setting removes automated scaling from the role and then you can set the instance count directly. 
+This setting removes automated scaling from the role and then you can set the instance count directly.
 
 1. The scale (manual or automated) option.
 2. A role instance slider to set the instances to scale to.
 3. Instances of the role to scale to.
 
 After you have configured the scale settings, select the **Save** icon at the top.
-

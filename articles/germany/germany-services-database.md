@@ -19,7 +19,7 @@ ms.author: ralfwi
 
 # Azure Germany database services
 ## SQL Database
-Azure SQL Database V12 is generally available in Azure Germany. For guidance on metadata visibility configuration and protection best practices, see the [Microsoft Security Center for SQL Database Engine](https://msdn.microsoft.com/library/bb510589.aspx) and the [SQL Database global documentation](../sql-database/index.md).
+Azure SQL Database V12 is generally available in Azure Germany. For guidance on metadata visibility configuration and protection best practices, see the [Microsoft Security Center for SQL Database Engine](https://msdn.microsoft.com/library/bb510589.aspx) and the [SQL Database global documentation](../sql-database/index.yml).
 
 ### Variations
 The address for SQL Database in Azure Germany is different from the address in global Azure:
@@ -42,16 +42,10 @@ The URLs for accessing and managing Azure Redis Cache in Azure Germany are diffe
 
 > [!NOTE]
 > All your scripts and code need to account for the appropriate endpoints and environments. For more information, see "To connect to Microsoft Azure Germany" in [Manage Azure Redis Cache with Azure PowerShell](../redis-cache/cache-howto-manage-redis-cache-powershell.md).
-> 
-> 
+>
+>
 
 
 ## Next steps
-For supplemental information and updates, subscribe to the 
+For supplemental information and updates, subscribe to the
 [Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/).
-
-
-
-
-
-

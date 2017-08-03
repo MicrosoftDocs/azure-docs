@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 # Scenario: Trigger a logic app with Azure Functions and Azure Service Bus

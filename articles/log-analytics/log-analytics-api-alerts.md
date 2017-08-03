@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
+ms.date: 05/12/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -66,6 +66,9 @@ Following is a sample response for a schedule.
 ### Creating a schedule
 Use the Put method with a unique schedule ID to create a new schedule.  Note that two schedules cannot have the same ID even if they are associated with different saved searches.  When you create a schedule in the OMS console, a GUID is created for the schedule ID.
 
+> [!NOTE]
+> The name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase.
+
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
@@ -104,6 +107,9 @@ Use the Get method with the action ID to retrieve a particular action for a sche
 
 ### Creating or editing actions
 Use the Put method with an action ID that is unique to the schedule to create a new action.  When you create an action in the OMS console, a GUID is for the action ID.
+
+> [!NOTE]
+> The name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase.
 
 Use the Put method with an existing action ID for the same saved search to modify that schedule.  The body of the request must include the etag of the schedule.
 

@@ -11,18 +11,21 @@ tags: ''
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/10/2017
+ms.date: 06/01/2017
 ms.author: owend
 ---
 # Azure Analysis Services - Adventure Works tutorial
+
+[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+
 This tutorial provides lessons on how to create and deploy a tabular model at the 1400 compatibility level by using [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
-If you're new to Analysis Services and tabular modeling, completing this tutorial is the quickest way to learn how to create a basic tabular model and deploy it to a real Analysis Services server. Once you have all of the prerequisites in-place, it should take about two or three hours to complete.  
+If you're new to Analysis Services and tabular modeling, completing this tutorial is the quickest way to learn how to create and deploy a basic tabular model. Once you have the prerequisites in-place, it should take between two to three hours to complete.  
   
-## What you'll learn   
+## What you learn   
   
 -   How to create a new tabular model project at the **1400 compatibility level** in SSDT.
   
@@ -41,7 +44,7 @@ If you're new to Analysis Services and tabular modeling, completing this tutoria
 -   How to deploy a tabular model to an **Azure Analysis Services** server or an on-premises SQL Server 2017 Analysis Services server.  
   
 ## Prerequisites  
-In order to complete this tutorial, you need the following:  
+To complete this tutorial, you need:  
   
 -   An Azure Analysis Services or SQL Server 2017 Analysis Services instance to deploy your model to. Sign up for a free [Azure Analysis Services trial](https://azure.microsoft.com/services/analysis-services/) and [create a server](../analysis-services-create-server.md). Or, sign up and download [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
 
@@ -56,13 +59,13 @@ In order to complete this tutorial, you need the following:
 -   A client application such as [Power BI Desktop](https://powerbi.microsoft.com/desktop/) or Excel. 
 
 ## Scenario  
-This tutorial is based on Adventure Works Cycles, a fictitious company. Adventure Works is a large, multinational manufacturing company that produces and distributes metal and composite bicycles to commercial markets in North America, Europe, and Asia. With headquarters in Bothell, Washington, the company employs 500 workers. Additionally, Adventure Works employs several regional sales teams throughout its market base. You are tasked with creating a tabular model for sales and marketing users to analyze Internet sales data in the AdventureWorksDW sample database.  
+This tutorial is based on Adventure Works Cycles, a fictitious company. Adventure Works is a large, multinational manufacturing company that produces and distributes metal and composite bicycles to commercial markets in North America, Europe, and Asia. The company employs 500 workers. Additionally, Adventure Works employs several regional sales teams throughout its market base. Your project is to create a tabular model for sales and marketing users to analyze Internet sales data in the AdventureWorksDW database.  
   
-To complete the tutorial, you must complete a number of lessons. Within each lesson are a number of tasks; completing each task in order is necessary for completing the lesson. While in a particular lesson there may be several tasks that accomplish a similar outcome, but how you complete each task is slightly different. This is to show that there is often more than one way to complete a particular task, and to challenge you by using skills you've learned in previous lessons and tasks.  
+To complete the tutorial, you must complete various lessons. In each lesson, there are tasks. Completing each task in order is necessary for completing the lesson. While in a particular lesson there may be several tasks that accomplish a similar outcome, but how you complete each task is slightly different. This method shows there is often more than one way to complete a task, and to challenge you by using skills you've learned in previous lessons and tasks.  
   
-The purpose of the lessons is to guide you through authoring a basic tabular model running by using many of the features included in SSDT. Because each lesson builds upon the previous lesson, you should complete the lessons in order. Once you've completed all of the lessons, you will have authored and deployed the Adventure Works Internet Sales sample tabular model on an Analysis Services server.  
+The purpose of the lessons is to guide you through authoring a basic tabular model running by using many of the features included in SSDT. Because each lesson builds upon the previous lesson, you should complete the lessons in order.
   
-This tutorial does not provide lessons or information about managing an Azure Analysis Services server in Azure portal, managing a server or deployed database by using SQL Server Management Studio (SSMS), or using a reporting client application to connect to a deployed model to browse model data.  
+This tutorial does not provide lessons about managing a server in Azure portal, managing a server or database by using SSMS, or using a client application to browse model data. 
 
 
 ## Lessons  

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 # Create templates for logic apps deployment and release management

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
 
 ---
@@ -30,7 +30,7 @@ To troubleshoot your problem, you need to verify the application configuration i
 
 ## Application not found in directory
 
-*Error: Application with Identifier ‘https://contoso.com’ was not found in the directory*.
+*Error AADSTS70001: Application with Identifier ‘https://contoso.com’ was not found in the directory*.
 
 **Possible cause**
 
@@ -60,9 +60,43 @@ Ensure that the Issuer attribute in the SAML request it’s matching the Identif
 
 After you have updated the Identifier value in Azure AD and it’s matching the value sends by the application in the SAML request, you should be able to sign in to the application.
 
+## The reply address does not match the reply addresses configured for the application. 
+
+*Error AADSTS50011: The reply address ‘https://contoso.com’ does not match the reply addresses configured for the application* 
+
+**Possible cause** 
+
+The AssertionConsumerServiceURL value in the SAML request doesn't match the Reply URL value or pattern configured in Azure AD. The AssertionConsumerServiceURL value in the SAML request is the URL you see in the error. 
+
+**Resolution** 
+
+Ensure that the AssertionConsumerServiceURL value in the SAML request it's matching the Reply URL value configured in Azure AD. 
+ 
+1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.** 
+
+2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu. 
+
+3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item. 
+
+4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu. 
+
+5.  click **All Applications** to view a list of all your applications. 
+
+  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and       set the **Show** option to **All Applications.**
+  
+6.  Select the application you want to configure single sign-on
+
+7.  Once the application loads, click the **Single sign-on** from the application’s left hand navigation menu.
+
+8.  Go to **Domain and URLs** section. Verify or update the value in the Reply URL textbox to match the AssertionConsumerServiceURL value in the SAML request.
+
+  * If you don't see the Reply URL textbox, select the **Show advanced URL settings** checkbox. 
+
+After you have updated the Reply URL value in Azure AD and it’s matching the value sends by the application in the SAML request, you should be able to sign in to the application.
+
 ## User not assigned a role
 
-*Error: The signed in user 'brian@contoso.com' is not assigned to a role for the application*
+*Error AADSTS50105: The signed in user 'brian@contoso.com' is not assigned to a role for the application*
 
 **Possible cause**
 
@@ -108,7 +142,7 @@ After a short period of time, the users you have selected be able to launch thes
 
 ## Not a valid SAML Request
 
-*Error: The request is not a valid Saml2 protocol message.*
+*Error AADSTS75005: The request is not a valid Saml2 protocol message.*
 
 **Possible cause**
 
@@ -132,7 +166,7 @@ They should validate they support the Azure AD SAML implementation for Single Si
 
 ## No resource in requiredResourceAccess list
 
-*Error: The client application has requested access to resource '00000002-0000-0000-c000-000000000000'. This request has failed because the client has not specified this resource in its requiredResourceAccess list*.
+*Error AADSTS65005: The client application has requested access to resource '00000002-0000-0000-c000-000000000000'. This request has failed because the client has not specified this resource in its requiredResourceAccess list*.
 
 **Possible cause**
 
@@ -164,7 +198,7 @@ After reconfiguring the application, you should be able to sign in to the applic
 
 ## Certificate or key not configured
 
-Error: No signing key configured.
+Error AADSTS50003: No signing key configured.
 
 **Possible cause**
 
@@ -197,6 +231,10 @@ To delete and create a new certificate, follow the steps below:
 10. Check **Make new certificate active** to override the active certificate. Then, click **Save** at the top of the blade and accept to activate the rollover certificate.
 
 11. Under the **SAML Signing Certificate** section, click **remove** to remove the **Unused** certificate.
+
+## Problem when customizing the SAML claims sent to an application
+
+To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) for more information.
 
 ## Next steps
 [Azure AD Single Sign-on SAML protocol requirements](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 # Handle content types in logic apps
@@ -64,7 +64,7 @@ so you can generate a JSON schema from a sample payload.
 The `Parse JSON` action lets you parse JSON content into friendly tokens 
 for logic app consumption. Similar to the Request trigger, this action 
 lets you enter or generate a JSON schema for the content you want to parse. 
-This tool makes consuming data from Service Bus, DocumentDB, and so on, much easier.
+This tool makes consuming data from Service Bus, Azure Cosmos DB, and so on, much easier.
 
 ![Parse JSON](./media/logic-apps-content-type/ParseJSON.png)
 

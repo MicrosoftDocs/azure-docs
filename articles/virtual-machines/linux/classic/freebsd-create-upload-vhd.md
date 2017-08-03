@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/29/2016
+ms.date: 05/08/2017
 ms.author: kyliel
 
 ---
@@ -27,8 +27,8 @@ This article shows you how to create and upload a virtual hard disk (VHD) that c
 ## Prerequisites
 This article assumes that you have the following items:
 
-* **An Azure subscription**--If you don't have an account, you can create one in just a couple of minutes. If you have an MSDN subscription, see [Monthly Azure credit for Visual Studio subscribers.](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, learn how to [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).  
-* **Azure PowerShell tools**--The Azure PowerShell module must be installed and configured to use your Azure subscription. To download the module, see [Azure downloads](https://azure.microsoft.com/downloads/). A tutorial that describes how install and configure the module is available here. Use the [Azure Downloads](https://azure.microsoft.com/downloads/) cmdlet to upload the VHD.
+* **An Azure subscription**--If you don't have an account, you can create one in just a couple of minutes. If you have an MSDN subscription, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, learn how to [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).  
+* **Azure PowerShell tools**--The Azure PowerShell module must be installed and configured to use your Azure subscription. To download the module, see [Azure downloads](https://azure.microsoft.com/downloads/). A tutorial that describes how to install and configure the module is available here. Use the [Azure Downloads](https://azure.microsoft.com/downloads/) cmdlet to upload the VHD.
 * **FreeBSD operating system installed in a .vhd file**--A supported   FreeBSD operating system must be installed to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions about how to install and use Hyper-V, see [Install Hyper-V and create a virtual machine](http://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]
@@ -36,7 +36,7 @@ This article assumes that you have the following items:
 >
 >
 
-This task includes the following five steps.
+This task includes the following five steps:
 
 ## Step 1: Prepare the image for upload
 On the virtual machine where you installed the FreeBSD operating system, complete the following procedures:
@@ -47,12 +47,7 @@ On the virtual machine where you installed the FreeBSD operating system, complet
         # service netif restart
 2. Enable SSH.
 
-    SSH is enabled by default after installation from disc. If it isn't enabled for some reason, or if you use FreeBSD VHD directly, type the following:
-
-        # echo 'sshd_enable="YES"' >> /etc/rc.conf
-        # ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
-        # ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
-        # service sshd restart
+    Ensure that the SSH server is installed and configured to start at boot time. By default it is enabled after installation from FreeBSD disc. 
 3. Set up a serial console.
 
         # echo 'console="comconsole vidconsole"' >> /boot/loader.conf
@@ -62,16 +57,16 @@ On the virtual machine where you installed the FreeBSD operating system, complet
     The root account is disabled in Azure. This means you need to utilize sudo from an unprivileged user to run commands with elevated privileges.
 
         # pkg install sudo
-   ;
+   
 5. Prerequisites for Azure Agent.
 
         # pkg install python27  
-        # pkg install Py27-setuptools27   
+        # pkg install Py27-setuptools  
         # ln -s /usr/local/bin/python2.7 /usr/bin/python   
         # pkg install git
 6. Install Azure Agent.
 
-    The latest release of the Azure Agent can always be found on [github](https://github.com/Azure/WALinuxAgent/releases). The version 2.0.10 + officially supports FreeBSD 10 & 10.1, and the version 2.1.4 officially supports FreeBSD 10.2 and later releases.
+    The latest release of the Azure Agent can always be found on [github](https://github.com/Azure/WALinuxAgent/releases). The version 2.0.10 + officially supports FreeBSD 10 & 10.1, and the version 2.1.4 + (including 2.2.x) officially supports FreeBSD 10.2 and later releases.
 
         # git clone https://github.com/Azure/WALinuxAgent.git  
         # cd WALinuxAgent  
@@ -104,12 +99,12 @@ On the virtual machine where you installed the FreeBSD operating system, complet
         # waagent -version
         WALinuxAgent-2.1.4 running on freebsd 10.3
         Python: 2.7.11
-        # service –e | grep waagent
-        /etc/rc.d/waagent
+        # ps auxw | grep waagent
+        root   639   0.0  0.5 104620 17520 u0- I    05:17    0:00.20 python /usr/local/sbin/waagent -daemon (python2.7)
         # cat /var/log/waagent.log
 7. Deprovision the system.
 
-    Deprovision the system to clean it and make it suitable for re-provisioning. The following command also deletes the last provisioned user account and the associated data:
+    Deprovision the system to clean it and make it suitable for reprovisioning. The following command also deletes the last provisioned user account and the associated data:
 
         # echo "y" |  /usr/local/sbin/waagent -deprovision+user  
         # echo  'waagent_enable="YES"' >> /etc/rc.conf
@@ -150,7 +145,7 @@ You need a storage account in Azure to upload a .vhd file so it can be used to c
    >
 
 ## Step 3: Prepare the connection to Azure
-Before you can upload a .vhd file, you need to establish a secure connection between your computer and your Azure subscription. You can use the Azure Active Directory (Azure AD) method or the certificate method to do this.
+Before you can upload a .vhd file, you need to establish a secure connection between your computer and your Azure subscription. You can use the Azure Active Directory (Azure AD) method or the certificate method to do it.
 
 ### Use the Azure AD method to upload a .vhd file
 1. Open the Azure PowerShell console.
@@ -166,7 +161,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 1. Open the Azure PowerShell console.
 2. Type:
     `Get-AzurePublishSettingsFile`.
-3. A browser window opens and prompts you to download a .publishsettings file. This file contains information and a certificate for your Azure subscription.
+3. A browser window opens and prompts you to download the .publishsettings file. This file contains information and a certificate for your Azure subscription.
 
     ![Browser download page](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 4. Save the .publishsettings file.
@@ -179,7 +174,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
    For more information about installing and configuring PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## Step 4: Upload the .vhd file
-When you upload the .vhd file, you can place it anywhere within your Blob storage. Following are some terms you'll use when you upload the file:
+When you upload the .vhd file, you can place it anywhere within your Blob storage. Following are some terms you will use when you upload the file:
 
 * **BlobStorageURL** is the URL for the storage account that you created in Step 2.
 * **YourImagesFolder** is the container within Blob storage where you want to store your images.

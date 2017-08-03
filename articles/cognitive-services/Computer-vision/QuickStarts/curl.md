@@ -13,6 +13,7 @@ ms.author: juliakuz
 ---
 
 # Computer Vision cURL Quick Starts
+
 This article provides information and code samples to help you quickly get started using the Computer Vision API with cURL to accomplish the following tasks:
 * [Analyze an image](#AnalyzeImage) 
 * [Intelligently generate a thumbnail](#GetThumbnail)
@@ -21,7 +22,8 @@ This article provides information and code samples to help you quickly get start
 Learn more about obtaining free Subscription Keys [here](../Vision-API-How-to-Topics/HowToSubscribe.md)
 
 ## Analyze an Image With Computer Vision API Using cURL <a name="AnalyzeImage"> </a>
-With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
+
+With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 * The category defined in this [taxonomy](../Category-Taxonomy.md). 
 * A detailed list of tags related to the image content. 
 * A description of image content in a complete sentence. 
@@ -32,18 +34,23 @@ With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/
 
 ### Analyze an Image curl Example Request
 
-```json
+Change the URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
 
+>[!NOTE]
+>You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
+
+```json
 @ECHO OFF
 
-curl -v -X POST "https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Categories&details={string}&language=en"
+curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Categories&details={string}&language=en"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
 --data-ascii "{body}" 
-
 ```
+
 ### Analyze an Image Response
+
 A successful response is returned in JSON. Following is an example of a successful response: 
 
 ```json
@@ -144,35 +151,48 @@ A successful response is returned in JSON. Following is an example of a successf
     "lineDrawingType": 0
   }
 }
-
 ```
 
 ## Get a Thumbnail with Computer Vision API Using curl <a name="GetThumbnail"> </a>
-Use the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to  crop an image based on its region of interest (ROI) to the height and width you desire, even if the aspect ratio differs from the input image. 
+
+Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to  crop an image based on its region of interest (ROI) to the height and width you desire, even if the aspect ratio differs from the input image. 
 
 ### Get a Thumbnail curl Example Request
 
-```JSON
+Change the URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+
+>[!NOTE]
+>You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
+
+```json
 @ECHO OFF
 
-curl -v -X POST "https://westus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail?width={number}&height={number}&smartCropping=true"
+curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail?width={number}&height={number}&smartCropping=true"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
 --data-ascii "{body}" 
 ```
+
 ### Get a Thumbnail Response
+
 A successful response contains the thumbnail image binary. If the request failed, the response contains an error code and a message to help determine what went wrong.
 
-
 ## Optical Character Recognition (OCR) with Computer Vision API Using curl <a name="OCR"> </a>
-Use the [Optical Character Recognition (OCR) method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect text in an image and extract recognized characters into a machine-usable character stream.
+
+Use the [Optical Character Recognition (OCR) method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect text in an image and extract recognized characters into a machine-usable character stream.
 
 ### OCR curl Example Request
-```JSON
+
+Change the URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+
+>[!NOTE]
+>You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
+
+```json
 @ECHO OFF
 
-curl -v -X POST "https://westus.api.cognitive.microsoft.com/vision/v1.0/ocr?language=unk&detectOrientation =true"
+curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?language=unk&detectOrientation =true"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
@@ -180,7 +200,8 @@ curl -v -X POST "https://westus.api.cognitive.microsoft.com/vision/v1.0/ocr?lang
 ```
 
 ### OCR Example Response
-Upon success, the OCR results returned include text, bounding box for regions, lines and words. 
+
+Upon success, the OCR results returned include text, bounding box for regions, lines, and words. 
 
 ```json
 {
@@ -246,5 +267,4 @@ Upon success, the OCR results returned include text, bounding box for regions, l
     }
   ]
 }
-
 ```

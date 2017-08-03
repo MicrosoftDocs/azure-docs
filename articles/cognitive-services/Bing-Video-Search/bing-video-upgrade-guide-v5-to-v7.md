@@ -13,18 +13,14 @@ ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Video Search API Upgrade Guide
+# Video Search API upgrade guide
 
 > [!NOTE]
-> Version 7 is a Preview release. All aspects of the API and documentation are subject to change. Use only for testing in a non-production environment.
+> V7 is a Preview release. All aspects of the API and documentation are subject to change. Use only for testing in a non-production environment.
 
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Video Search API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
 
-## Subscription Keys
-
-- Your version 5 paid and free trial subscription key will continue working with version 7.
-
-## Breaking Changes
+## Breaking changes
 
 ### Endpoints
 

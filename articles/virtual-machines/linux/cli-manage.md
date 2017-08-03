@@ -1,6 +1,6 @@
 ---
-title: Basic Azure CLI Commands for Linux and Mac | Microsoft Docs
-description: Basic Azure CLI commands to get you started managing your VMs in Azure Resource Manager mode on Linux and Mac
+title: Common Azure CLI 2.0 commands | Microsoft Docs
+description: Learn some of the common Azure CLI 2.0 commands to get you started managing your VMs in Azure Resource Manager mode
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/23/2016
+ms.date: 05/12/2017
 ms.author: rclaus
 
 ---
-# Common Azure CLI commands on Linux and Mac
+# Common Azure CLI 2.0 commands for managing Azure resources
 [!INCLUDE [virtual-machines-common-cli-manage](../../../includes/virtual-machines-common-cli-manage.md)]
 

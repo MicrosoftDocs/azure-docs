@@ -1,5 +1,5 @@
 - name: Face API Documentation
-  href: ../index.md
+  href: index.md
 - name: Overview
   href: Overview.md
 - name: How to
@@ -8,9 +8,12 @@
     href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
   - name: Identify faces in image
     href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
+  - name: Add faces
+    href: Face-API-How-to-Topics/face-how-to-add-faces.md
   - name: Analyze videos in real time
     href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: cURL
     href: QuickStarts/curl.md
@@ -35,7 +38,7 @@
   - name: Python
     href: Tutorials/FaceAPIinPythonTutorial.md
 - name: Reference
-  items: 
+  items:
   - name: Face API reference
     href: APIReference.md
   - name: SDKs
@@ -49,12 +52,14 @@
     - name: Windows
       href: https://github.com/Microsoft/Cognitive-Face-Windows
 - name: Resources
-  items: 
-    - name: Samples
-      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
-    - name: Glossary
-      href: Glossary.md
-    - name: FAQ
-      href: FAQ.md
-    - name: Release notes
-      href: ReleaseNotes.md
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Samples
+    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
+  - name: Glossary
+    href: Glossary.md
+  - name: FAQ
+    href: FAQ.md
+  - name: Release notes
+    href: ReleaseNotes.md

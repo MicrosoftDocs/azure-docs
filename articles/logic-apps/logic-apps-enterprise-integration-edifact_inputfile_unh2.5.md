@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
-ms.author: padmavc
+ms.author: LADocs; padmavc
 
 ---
 # How to handle EDIFACT documents having UNH2.5 segment

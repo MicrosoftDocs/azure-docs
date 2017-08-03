@@ -1,6 +1,6 @@
 ---
 title: Programming guide for Azure Event Hubs | Microsoft Docs
-description: Describes programming with Azure Event Hubs using the Azure .NET SDK.
+description: Write code for Azure Event Hubs using the Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -13,19 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 02/10/2017
+ms.date: 05/17/2017
 ms.author: sethm
 
 ---
 # Event Hubs programming guide
+
 This article discusses some common scenarios in writing code using Azure Event Hubs and the Azure .NET SDK. It assumes a preliminary understanding of Event Hubs. For a conceptual overview of Event Hubs, see the [Event Hubs overview](event-hubs-what-is-event-hubs.md).
 
 ## Event publishers
-You send events to an event hub either using HTTP POST or via an AMQP 1.0 connection. The choice of which to use when depends on the specific scenario being addressed. AMQP 1.0 connections are metered as brokered connections in Service Bus and are more appropriate in scenarios with frequent higher message volumes and lower latency requirements, as they provide a persistent messaging channel.
+
+You send events to an event hub either using HTTP POST or via an AMQP 1.0 connection. The choice of which to use and when depends on the specific scenario being addressed. AMQP 1.0 connections are metered as brokered connections in Service Bus and are more appropriate in scenarios with frequent higher message volumes and lower latency requirements, as they provide a persistent messaging channel.
 
 You create and manage Event Hubs using the [NamespaceManager][] class. When using the .NET managed APIs, the primary constructs for publishing data to Event Hubs are the [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) and [EventData][] classes. [EventHubClient][] provides the AMQP communication channel over which events are sent to the event hub. The [EventData][] class represents an event, and is used to publish messages to an event hub. This class includes the body, some metadata, and header information about the event. Other properties are added to the [EventData][] object as it passes through an event hub.
 
 ## Get started
+
 The .NET classes that support Event Hubs are provided in the Microsoft.ServiceBus.dll assembly. The easiest way to reference the Service Bus API and to configure your application with all of the Service Bus dependencies is to download the [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus). Alternatively, you can use the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. To do so, issue the following command in the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:
 
 ```
@@ -51,7 +54,7 @@ All Event Hubs creation operations, including [CreateEventHubIfNotExists][], req
 The [EventHubDescription](/dotnet/api/microsoft.servicebus.messaging.eventhubdescription) class contains details about an event hub, including the authorization rules, the message retention interval, partition IDs, status, and path. You can use this class to update the metadata on an event hub.
 
 ## Create an Event Hubs client
-The primary class for interacting with Event Hubs is [Microsoft.ServiceBus.Messaging.EventHubClient][]. This class provides both sender and receiver capabilities. You can instantiate this class using the [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) method, as shown in the following example.
+The primary class for interacting with Event Hubs is [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]. This class provides both sender and receiver capabilities. You can instantiate this class using the [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) method, as shown in the following example.
 
 ```csharp
 var client = EventHubClient.Create(description.Path);
@@ -101,6 +104,8 @@ Given these availability considerations, in these scenarios you might choose one
 - Drop (messages aren’t important, drop them)
 - Retry (retry the messages as you see fit)
 - [Dead letter](../service-bus-messaging/service-bus-dead-letter-queues.md) (use a queue or another event hub to dead letter only the messages you couldn’t process)
+
+For more information and a discussion about the trade-offs between availability and consistency, see [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md). 
 
 ## Batch event send operations
 Sending events in batches can dramatically increase throughput. The [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) method takes an **IEnumerable** parameter of type [EventData][] and sends the entire batch as an atomic operation to the event hub.
@@ -179,6 +184,7 @@ To learn more about Event Hubs scenarios, visit these links:
 
 * [Event Hubs API overview](event-hubs-api-overview.md)
 * [What is Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
 * [Event processor host API reference](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 
 [NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager
