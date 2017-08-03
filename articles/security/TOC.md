@@ -3,6 +3,7 @@
 ## [Database security](azure-database-security-overview.md)
 ## [Storage security](security-storage-overview.md)
 ## [Compute security](security-virtual-machines-overview.md)
+## [Operational security](azure-operational-security-overview.md)
 ## [Security management and monitoring](security-management-and-monitoring-overview.md)
 ## [Identity management](security-identity-management-overview.md)
 ## [IoT security](../iot-suite/iot-security-architecture.md#security-in-iot)
@@ -35,6 +36,8 @@
 ### [Best practices for IaaS workloads ](azure-security-iaas.md)
 ### [Microsoft Antimalware](azure-security-antimalware.md)
 ### [Disk encryption for IaaS VMs](azure-security-disk-encryption.md)
+#### [Disk encryption FAQ](azure-security-disk-encryption-faq.md)
+#### [Disk encryption troubleshooting](azure-security-disk-encryption-tsg.md)
 ### [Encrypt an Azure VM](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Security management and monitoring
@@ -53,8 +56,10 @@
 ## PaaS services
 ### [Securing PaaS deployments](security-paas-deployments.md)
 #### [Securing PaaS web and mobile applications using SQL](security-paas-applications-using-sql.md)
-#### [SQL Database best practices](azure-database-security-best-practices.md)
+#### [SQL Database security best practices](azure-database-security-best-practices.md)
+#### [SQL Database security checklist](azure-database-security-checklist.md)
 #### [Securing PaaS web and mobile applications using App Services](security-paas-applications-using-app-services.md)
+####[Operational security checklist](azure-operational-security-checklist.md)
 
 ## Internet of Things
 ### [Secure your IoT deployment](../iot-suite/iot-suite-security-deployment.md)

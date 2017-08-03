@@ -8,6 +8,7 @@
 ## [Batch .NET tutorial](batch-dotnet-get-started.md)
 ## [Batch Python tutorial](batch-python-tutorial.md)
 ## [Batch Node.js tutorial](batch-nodejs-get-started.md)
+## [Batch Rendering service](batch-rendering-service.md)
 # How To
 ## Develop
 ### [Application packages](batch-application-packages.md)
@@ -37,7 +38,6 @@
 #### [Add an application](./scripts/batch-cli-sample-add-application.md)
 #### [Manage pools](./scripts/batch-cli-sample-manage-pool.md)
 #### [Run a job and tasks](./scripts/batch-cli-sample-run-job.md)
-
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
 ## [PowerShell](/powershell/module/azurerm.batch)
