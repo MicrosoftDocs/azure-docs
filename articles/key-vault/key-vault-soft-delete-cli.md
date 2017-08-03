@@ -131,7 +131,7 @@ az keyvault key list-deleted --vault-name ContosoVault
 
 ### Using soft-delete with keys and secrets
 
-Just like vaults, a deleted key or secret will remain in deleted state for up to 90 days unless you recover it or purge it. *Scheduled Purge Date* field indicates when a key will be permanently deleted, if no action is taken.
+Just like key vaults, a deleted key or secret will remain in deleted state for up to 90 days unless you recover it or purge it. 
 
 #### Keys
 
@@ -199,6 +199,10 @@ az keyvault purge --location westus --name ContosoVault
 - To purge a deleted key vault, such that the vault and all its contents are permanently removed, the user needs RBAC permission to perform a *Microsoft.KeyVault/locations/deletedVaults/purge/action* operation. 
 - To list the deleted key, the vault a user needs RBAC permission to perform *Microsoft.KeyVault/deletedVaults/read* permission. 
 - By default only a subscription administrator has these permissions. 
+
+### Scheduled purge
+
+Listing deleted key vault objects shows when a deleted object is schedled to be purged by Key Vault. The *Scheduled Purge Date* field indicates when a key vault object will be permanently deleted, if no action is taken.
 
 ## See also
 
