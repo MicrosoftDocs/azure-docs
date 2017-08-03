@@ -60,7 +60,10 @@ The following x64 Linux distributions are supported as container hosts:
 - CentOS 7.2 and 7.3
 - SLES 12
 - RHEL 7.2 and 7.3
-- Red Hat OpenShift Container Platform versions 3.4 and 3.5
+- Red Hat OpenShift Container Platform (OCP) 3.4 and 3.5
+- ACS Mesosphere DC/OS 1.7.3 to 1.8.8
+- ACS Kubernetes 1.4.5 to 1.6
+- ACS Docker Swarm
 
 ### Supported Windows operating system
 
@@ -83,12 +86,10 @@ There are a few ways to install and use Docker with OMS:
 * On CoreOS, you cannot run the OMS Agent for Linux. Instead, you run a containerized version of the OMS Agent for Linux.  
 * On Windows Server 2016 and Windows 10, install the Docker Engine and client then connect an agent to gather information and send it to Log Analytics.  
 
-You can review the supported Docker and Linux operating system versions for your container host on [GitHub](https://github.com/Microsoft/OMS-docker).
-
 ### Container services
 
-- If you have a Red Hat OpenShift environment, learn more at [Configure an OMS agent for Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
-- If you have a Kubernetes cluster using the Azure Container Service, learn more at  [Monitor an Azure Container Service cluster with Microsoft Operations Management Suite (OMS)](../container-service/kubernetes/container-service-kubernetes-oms.md).
+- If you have a Red Hat OpenShift environment, review [Configure an OMS agent for Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
+- If you have a Kubernetes cluster using the Azure Container Service, review [Monitor an Azure Container Service cluster with Microsoft Operations Management Suite (OMS)](../container-service/kubernetes/container-service-kubernetes-oms.md).
 - If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
 - If you have a Docker Swarm mode environment, learn more at [Configure an OMS agent for Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
 - If you use containers with Service Fabric, learn more at [Overview of Azure Service Fabric](../service-fabric/service-fabric-overview.md).
@@ -249,9 +250,9 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
      WSID:   37 bytes  
     ```
 
-### Secure your secret information for container services
+### Secure your secret information for Docker Swarm and Kubernetes 
 
-You can secure your secret OMS Workspace ID and Primary Keys for Docker Swarm and Kubernetes.
+You can secure your secret OMS Workspace ID and Primary Keys for Docker Swarm and Kubernetes container services.
 
 #### Secure secrets for Docker Swarm
 
@@ -380,8 +381,6 @@ Data
 WSID:   36 bytes
 KEY:    88 bytes
 ```
-
-
 
 ## Windows container hosts
 
