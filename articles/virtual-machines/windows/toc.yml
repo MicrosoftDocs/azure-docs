@@ -52,7 +52,7 @@
 - name: Concepts
   items:
   - name: Azure Resource Manager
-    href: resource-manager.md
+    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Regions and availability
     href: regions-and-availability.md
   - name: VM types and sizes
@@ -60,9 +60,9 @@
   - name: Maintenance and updates
     href: 
   - name: Storage
-    href: azure-vm-storage-overview.md
+    href: 
   - name: Networking
-    href: azure-vm-network-overview.md
+    href: 
   - name: Auto-scale applications
     href: 
   - name: Infrastructure automation
@@ -100,7 +100,7 @@
     - name: Store secrets in Key Vault
       href: 
     - name: Store certificates in Key Vault
-      href: key-vault-store-certificates.md
+      href: 
     - name: Use WinRM
       href: winrm.md
     - name: Use access controls
@@ -163,7 +163,7 @@
     - name: Puppet
       href:
     - name: Terraform
-      href: terraform-install-configure.md
+      href: 
   - name: Run applications
     items:
     - name: SQL Server
