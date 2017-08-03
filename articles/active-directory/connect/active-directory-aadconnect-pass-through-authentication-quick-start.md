@@ -54,23 +54,17 @@ Ensure that the following prerequisites are in place:
    - Your Authentication Agents need access to **login.windows.net** and **login.microsoftonline.com** for initial registration, so open your firewall for those URLs as well.
    - For certificate validation, unblock the following URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** and **www.microsoft.com:80**. These URLs are used for certificate validation with other Microsoft products, so you may already have these URLs unblocked.
    
-### For Exchange ActiveSync support
-
-- Ensure that you do the additional steps (that is, the Exchange PowerShell commands) listed in [this article](active-directory-aadconnect-pass-through-authentication-exchange-activesync.md) to enable Exchange ActiveSync support.
-
->[!IMPORTANT]
->Most new customers don't need additional steps. However, existing customers should review [the article](active-directory-aadconnect-pass-through-authentication-exchange-activesync.md) in detail.
 
 ## Step 2: Enable Exchange ActiveSync support (optional)
 
-If you want to enable Exchange ActiveSync support, you need to follow these instructions:
+Follow these instructions to enable Exchange ActiveSync support:
 
 1. Use [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) to run the following command:
 ```
 Get-OrganizationConfig | fl per*
 ```
 
-2. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is **true**, your tenant is correctly configured for Exchange ActiveSync - no further action is required. If the value is **false**, run the following command:
+2. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is **true**, your tenant is properly configured - this is generally the case for most new customers. If the value is **false**, run the following command:
 ```
 Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 ```
