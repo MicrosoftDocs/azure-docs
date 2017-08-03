@@ -30,6 +30,16 @@
     items:
     - name: JavaScript
       href: https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
+    - name: Windows
+      href: https://github.com/Azure-Samples/Cognitive-Speech-STT-Windows
+    - name: Android
+      href: https://github.com/Azure-Samples/Cognitive-Speech-STT-Android
+    - name: iOS
+      href: https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS
+    - name: REST/C#
+      href: https://github.com/Azure-Samples/SpeechToText-REST
+    - name: WebSockets/C#
+      href: https://github.com/Azure-Samples/Cognitive-Speech-STT-ServiceLibrary
 - name: Resources
   items:
   - name: Azure Roadmap
