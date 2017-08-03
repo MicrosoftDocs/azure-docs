@@ -160,7 +160,7 @@ Unless you want to use your own certificates (instead of the self-signed certifi
 Repeat these steps on any additional NPS servers that you want to set up for load balancing.
 
 >[!NOTE]
->If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=<TenantID>,OU=Microsoft NPS Extension**. 
+>If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
 
 ## Configure your NPS extension
 
