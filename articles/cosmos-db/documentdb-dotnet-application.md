@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/25/2016
+ms.date: 08/03/2017
 ms.author: syamk
 
 ---
@@ -536,7 +536,7 @@ Now that you have the complete application working correctly with Azure Cosmos D
    
     ![Screen shot of the App Service dialog box in Visual Studio](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-app-service.png)
 
-4. To create a new Azure App Service profile, click Create New in the **Publish** dialog box. In the **Create App Service** dialog, enter your Web App name and appropriate subscription, resource group, and App Service plan, then click **Create**.
+4. To create a new Azure App Service profile, click **Create New** in the **Publish** dialog box. In the **Create App Service** dialog, enter your Web App name and appropriate subscription, resource group, and App Service plan, then click **Create**.
 
  ![Screen shot of the Create App Service dialog box in Visual Studio](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
 
