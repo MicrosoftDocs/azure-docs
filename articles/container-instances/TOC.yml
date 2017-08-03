@@ -25,10 +25,14 @@
     href: container-instances-orchestrator-relationship.md
 - name: How-to guides
   items:
-    - name: Multi-container groups
-      href: container-instances-multi-container-group.md
-    - name: Managing state with Azure file shares
-      href: container-instances-mounting-azure-files-volume.md
+  - name: Multi-container groups
+    href: container-instances-multi-container-group.md
+  - name: Managing state with Azure file shares
+    href: container-instances-mounting-azure-files-volume.md
+- name: Reference
+  items:
+  - name: Azure CLI 2.0
+    href: /cli/azure/container
 - name: Resources
   items:
   - name: Azure Roadmap
