@@ -29,7 +29,7 @@ Activity Log alerts are typically created for one of two purposes:
 In either case, the Activity Log alert will only monitor for events in the subscription in which the alert is created.
 
 You can configure an Activity Log alert based on any top-level property in the JSON object for an Activity Log event, however the portal shows the most common options:
-- **Category** - one of Administrative, Service Health, Autoscale, Recommendation. [See this article for information on Activity Log categories](./monitoring-overview-activity-logs.md#categories-in-the-activity-log) and [for more information on service health events click here](monitoring-activity-log-alerts-on-service-notifications.md))
+- **Category** - one of Administrative, Service Health, Autoscale, Recommendation. [See this article for information on Activity Log categories](./monitoring-overview-activity-logs.md#categories-in-the-activity-log) and [learn more about service health events here](./monitoring-activity-log-alerts-on-service-notifications.md).
 - **Resource Group**
 - **Resource**
 - **Resource Type**
@@ -47,7 +47,7 @@ When an Activity Log alert becomes activated, it uses an Action Group to generat
 
 You can learn more about Activity Log Alerts for service health notifications [here](monitoring-activity-log-alerts-on-service-notifications.md)
 
-## Create an alert on an activity log event with a new action group with the Azure Portal
+## Create an alert on an activity log event with a new action group with the Azure portal
 1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** blade.
 
     ![Monitor](./media/monitoring-activity-log-alerts/home-monitor.png)
@@ -68,7 +68,7 @@ You can learn more about Activity Log Alerts for service health notifications [h
 
 7.	Choose the **Resource Group** in which this alert resource will be created. Note that this is not the resource group that will be monitored *by* the alert, but rather the resource group where the *alert resource itself will be deployed.*
 
-8.	Optionally select an **Event Category**, which modifies the set of additional filters shown. For Administrative events, this  includes options to filter by **Resource Group**, **Resource**, **Resource Type**, **Operation Name**, **Level**, **Status** and **Event intiated by** values to identify which events this alert should monitor.
+8.	Optionally select an **Event Category**, which modifies the set of additional filters shown. For Administrative events, this  includes options to filter by **Resource Group**, **Resource**, **Resource Type**, **Operation Name**, **Level**, **Status** and **Event initiated by** values to identify which events this alert should monitor.
 
 >[!NOTE]
 >You must specify at least one of the above criteria in your alert. You may not create an alert that activates every time an event is created in the Activity Logs.
@@ -89,14 +89,14 @@ You can learn more about Activity Log Alerts for service health notifications [h
 
 The alert will take a few minutes to fully propagate, after which time it will become active and trigger when new events match the alert's criteria.
 
-For details on the webhook schema for Activity Log alerts [click here](monitoring-activity-log-alerts-webhook.md)
+[See this document for details on the webhook schema for Activity Log alerts](monitoring-activity-log-alerts-webhook.md).
 
 >[!NOTE]
 >The action group defined in these steps will be reusable, as an existing action group, for all future alert definition.
 >
 >
 
-## Create an alert on an Activity Log event for an existing action group with the Azure Portal
+## Create an alert on an Activity Log event for an existing action group with the Azure portal
 1.	In the [portal](https://portal.azure.com), navigate to the **Monitor** blade.
 
     ![Monitor](./media/monitoring-activity-log-alerts/home-monitor.png)
@@ -115,7 +115,7 @@ For details on the webhook schema for Activity Log alerts [click here](monitorin
     ![Add-Alert-Existing-Action-Group](./media/monitoring-activity-log-alerts/activity-log-alert-existing-action-group.png)
 7.	Choose the **Resource Group** in which this alert resource will be created. Note that this is not the resource group that will be monitored *by* the alert, but rather the resource group where the *alert resource itself will be deployed.*
 
-8.	Optionally select an **Event Category**, which modifies the set of additional filters shown. For Administrative events, this  includes options to filter by **Resource Group**, **Resource**, **Resource Type**, **Operation Name**, **Level**, **Status** and **Event intiated by** values to identify which events this alert should monitor.
+8.	Optionally select an **Event Category**, which modifies the set of additional filters shown. For Administrative events, this  includes options to filter by **Resource Group**, **Resource**, **Resource Type**, **Operation Name**, **Level**, **Status** and **Event initiated by** values to identify which events this alert should monitor.
 
 9.	Choose to **Notify Via** an **Existing action group**. Select an existing Action Group from the list.
 
