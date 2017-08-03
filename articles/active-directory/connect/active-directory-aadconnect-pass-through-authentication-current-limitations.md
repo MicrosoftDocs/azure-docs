@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 08/03/2017
 ms.author: billmath
 ---
 
@@ -28,7 +28,7 @@ The following scenarios are fully supported during preview:
 - User sign-ins into all web browser-based applications.
 - User sign-ins into Office 365 client applications that support [modern authentication](https://aka.ms/modernauthga).
 - Azure AD Join for Windows 10 devices.
-- [Exchange ActiveSync support](active-directory-aadconnect-pass-through-authentication-exchange-activesync.md).
+- Exchange ActiveSync support.
 
 ## Unsupported scenarios
 
