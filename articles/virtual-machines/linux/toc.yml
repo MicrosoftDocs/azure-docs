@@ -193,7 +193,7 @@
     - name: Puppet
       href: 
     - name: Terraform
-      href: ../terraform-install-configure.md
+      href: terraform-install-configure.md
   - name: Run containers
     items:
     - name: Create Docker hosts

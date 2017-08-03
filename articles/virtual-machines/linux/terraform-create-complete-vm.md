@@ -56,7 +56,7 @@ We used the `plan` Terraform command, which looks at the resources defined in th
 
 After you execute the previous command, you should see something like the following screen:
 
-![Terraform plan](linux/media/terraform/tf_plan2.png)
+![Terraform plan](./media/terraform/tf_plan2.png)
 
 If everything looks correct, provision this new resource group in Azure by executing the following: 
 ```
