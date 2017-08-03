@@ -64,8 +64,8 @@ you find **Azure Logic Apps Tools for Visual Studio**.
 
 	* If you browse by resource type, select your Azure subscription, 
 	expand the **Logic Apps** section, and select your logic app. 
-	* If you browse by resource group, select the resource group 
-	that has your logic app.
+	* If you browse by resource group, expand the resource group 
+	that has your logic app, and select your logic app.
 
 	To view commands for your logic app, either right-click your logic app, 
 	or at the bottom of Cloud Explorer, choose from the **Actions** menu.
