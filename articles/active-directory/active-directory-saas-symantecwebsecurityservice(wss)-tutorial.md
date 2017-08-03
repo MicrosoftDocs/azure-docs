@@ -3,7 +3,7 @@ title: 'Tutorial: Azure Active Directory integration with Symantec Web Security 
 description: Learn how to configure single sign-on between Azure Active Directory and Symantec Web Security Service (WSS).
 services: active-directory
 documentationCenter: na
-author: jeevansd
+author: MicrosoftGuyJFlo
 manager: femila
 
 ms.assetid: d6e4d893-1f14-4522-ac20-0c73b18c72a5
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
-ms.author: jeedes
+ms.author: joflore
 
 ---
 # Tutorial: Azure Active Directory integration with Symantec Web Security Service (WSS)
