@@ -24,7 +24,7 @@ Some application developers prefer to skip email verification during the sign-up
 
 By default, sign-up policies have email verification turned on. Use the following steps to turn it off:
 
-1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Click **Sign-up policies** or **Sign-up or sign-in policies** depending on what you configured for sign-up.
 3. Click your policy (for example, "B2C_1_SiUp") to open it. Click **Edit** at the top of the blade.
 4. Click **Page UI Customization**.
