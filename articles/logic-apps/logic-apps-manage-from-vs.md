@@ -80,7 +80,7 @@ to the cloud, and start a new run by choosing **Run Trigger**.
 
 ![Logic App Designer](./media/logic-apps-manage-from-vs/designer.png)
 
-From the designer, you can also **Download** a logic app. Downloading a logic app automatically parameterizes the logic app definition and saves it as an resource manager deployment template, which can be added to your Azure Resource Group project.
+From the designer, you can also **Download** a logic app. Downloading a logic app automatically parameterizes the logic app definition and saves it as a resource manager deployment template, which can be added to your Azure Resource Group project.
 
 ## Browse your logic app run history
 
