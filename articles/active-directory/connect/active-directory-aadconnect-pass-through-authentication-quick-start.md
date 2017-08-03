@@ -12,24 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 08/03/2017
 ms.author: billmath
 ---
 
 # Azure Active Directory Pass-through Authentication: Quick start
+
+## How to deploy Azure AD Pass-through Authentication
 
 Azure Active Directory (Azure AD) Pass-through Authentication allows your users to sign in to both on-premises and cloud-based applications using the same passwords. It signs users in by validating their passwords directly against your on-premises Active Directory.
 
 >[!IMPORTANT]
 >Azure AD Pass-through Authentication is currently in preview. If you have been using this feature through preview, you should ensure that you upgrade preview versions of the Authentication Agents using the instructions provided [here](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
 
-## How to deploy Azure AD Pass-through Authentication
-
-To deploy Pass-through Authentication, you need to follow these instructions:
-1. **Check prerequisites**: Set up your tenant and on-premises environment correctly before you enable the feature.
-2. **Enable the feature**: Turn on Pass-through Authentication on your tenant and install a lightweight on-premises agent to handle password validation requests.
-3. **Test the feature**: Test user sign-in using Pass-through Authentication.
-4. **Ensure high availability**: Install a second standalone agent to provide high availability for sign-in requests.
+You need to follow these instructions to deploy Pass-through Authentication:
 
 ## Step 1: Check prerequisites
 
@@ -65,7 +61,25 @@ Ensure that the following prerequisites are in place:
 >[!IMPORTANT]
 >Most new customers don't need additional steps. However, existing customers should review [the article](active-directory-aadconnect-pass-through-authentication-exchange-activesync.md) in detail.
 
-## Step 2: Enable the feature
+## Step 2: Enable Exchange ActiveSync support (optional)
+
+If you want to enable Exchange ActiveSync support, you need to follow these instructions:
+
+1. Use [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) to run the following command:
+```
+Get-OrganizationConfig | fl per*
+```
+
+2. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is **true**, your tenant is correctly configured for Exchange ActiveSync - no further action is required. If the value is **false**, run the following command:
+```
+Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
+```
+
+3. Verify that the value of the `PerTenantSwitchToESTSEnabled` setting is now set to **true**. Wait an hour before moving to the next step.
+
+If you face any issues during this step, check our [troubleshooting guide](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#exchange-activesync-configuration-issues) for more information.
+
+## Step 3: Enable the feature
 
 Pass-through Authentication can be enabled using [Azure AD Connect](active-directory-aadconnect.md).
 
@@ -81,9 +95,9 @@ If you have already installed Azure AD Connect (using the [express installation]
 ![Azure AD Connect - Change user sign-in](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
 >[!IMPORTANT]
->Pass-through Authentication is a tenant-level feature. Turning it on impacts sign-in for users across _all_ the managed domains in your tenant.
+>Pass-through Authentication is a tenant-level feature. Turning it on impacts sign-in for users across _all_ the managed domains in your tenant. If you are switching from AD FS to Pass-through Authentication, we recommend that you wait at least 12 hours before shutting down your AD FS infrastructure - this wait time is to ensure that users can keep signing in to Exchange ActiveSync during transition.
 
-## Step 3: Test the feature
+## Step 4: Test the feature
 
 Follow these instructions to verify that you have enabled Pass-through Authentication correctly:
 
@@ -99,7 +113,7 @@ Follow these instructions to verify that you have enabled Pass-through Authentic
 
 At this stage, users from all managed domains in your tenant can sign in using Pass-through Authentication. However, users from federated domains continue to sign in using Active Directory Federation Services (AD FS) or another federation provider that you have previously configured. If you convert a domain from federated to managed, all users from that domain automatically start signing in using Pass-through Authentication. Cloud-only users are not impacted by the Pass-through Authentication feature.
 
-## Step 4: Ensure high availability
+## Step 5: Ensure high availability
 
 If you plan to deploy Pass-through Authentication in a production environment, you should install a standalone Authentication Agent. Install this second Authentication Agent on a server _other_ than the one running Azure AD Connect and the first Authentication Agent. This setup provides you high availability of sign-in requests. Follow these instructions to deploy a standalone Authentication Agent:
 
