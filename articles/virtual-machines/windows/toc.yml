@@ -98,7 +98,7 @@
     - name: Create a Key Vault
       href: key-vault-setup.md
     - name: Store secrets in Key Vault
-      href: key-vault-store-secrets.md
+      href: 
     - name: Store certificates in Key Vault
       href: key-vault-store-certificates.md
     - name: Use WinRM
@@ -110,7 +110,7 @@
   - name: Manage VMs
     items:
     - name: VM status + lifecycle
-      href: status-lifecycle.md
+      href: 
     - name: Move a VM
       href: move-vm.md
     - name: Change VM size
@@ -119,9 +119,9 @@
       href: tag.md
       items:
       - name: Manage VMs with tags
-        href: manage-with-tags.md
+        href: 
     - name: Use Desired State Configuration
-      href: use-powershell-dsc.md
+      href: 
     - name: Run scripts on a VM
       href: extensions-customscript.md
     - name: Azure VM agent
@@ -149,7 +149,7 @@
     - name: Autoscale VMs
       href: vertical-scaling-automation.md
     - name: High availability
-      href: manage-availability.md
+      href: 
     - name: Layer-4 load balancer
       href:
     - name: Layer-7 application load balancer
