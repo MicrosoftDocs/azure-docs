@@ -103,7 +103,7 @@ When a key vault is recovered, the result is a new resource with the key vault's
 
 ## Key Vault objects and soft-delete
 
-Now that we have seen the complete life cycle of a key vault with soft-delete enabled, let's turn our attention to keys and secrets in a key vault with soft-delete enabled. I am assuming here that you already know how to create keys and secrets in a key vault. If not, check out [Get started with Azure Key Vault](key-vault-get-started.md).
+Now that we have seen the complete life cycle of a key vault with soft-delete enabled, let's turn our attention to keys and secrets in a key vault with soft-delete enabled. I am assuming here that you already know how to create keys and secrets in a key vault. If not, check out 
 
 Let's say you have a key 'ContosoFirstKey' in your vault 'ContosoVault' with soft-delete enabled. Here's how you would delete that key.
 
@@ -129,11 +129,11 @@ This command will list all deleted keys in 'ContosoVault'.
 az keyvault key list-deleted --vault-name ContosoVault
 ```
 
-## Using soft delete with keys and secrets
+### Using soft-delete with keys and secrets
 
 Just like vaults, a deleted key or secret will remain in deleted state for up to 90 days unless you recover it or purge it. *Scheduled Purge Date* field indicates when a key will be permanently deleted, if no action is taken.
 
-### Keys
+#### Keys
 
 To recover a deleted key:
 
@@ -147,7 +147,7 @@ To permanently delete a key:
 az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-The **recover** and **purge** actions have their own permissions associated in a key vault access policy. For a user or service principal to be able to execute a **recover** or **purge** action they must have the respective permission for that object (key or secret) in the key vault access policy. By default, the **purge** permission is not added to a vault's access policy when the 'all' shortcut is used to grant all permissions to a user. You must explicitly grant **purge** permission. For example, the following command grants user@contoso.com permission to perform several operations on keys in *ContosoVault* including **purge**.
+The **recover** and **purge** actions have their own permissions associated in a key vault access policy. For a user or service principal to be able to execute a **recover** or **purge** action they must have the respective permission for that object (key or secret) in the key vault access policy. By default, the **purge** permission is not added to a key vault's access policy when the 'all' shortcut is used to grant all permissions to a user. You must explicitly grant **purge** permission. For example, the following command grants user@contoso.com permission to perform several operations on keys in *ContosoVault* including **purge**.
 
 #### Set a key vault access policy
 
@@ -155,9 +155,10 @@ The **recover** and **purge** actions have their own permissions associated in a
 az keyvault set-policy --name ContosoVault --key-permissions get create delete list update import backup restore recover purge
 ```
 
-Note that, if you have an existing vault that has just had soft-delete enabled, you may not have **recover** and **purge** permissions.
+>[!NOTE] 
+> If you have an existing key vault that has just had soft-delete enabled, you may not have **recover** and **purge** permissions.
 
-### Secrets
+#### Secrets
 
 Similarly here are related commands for deleting, listing, recovering, and purging secrets respectively.
 
@@ -181,8 +182,13 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
 az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
 ```
 
-## Purging key vaults
+## Purging and key vaults
 
+### Key vault objects
+
+Purging a key or secret will permanently delete the key or secret, it will not be recoverable. The key vault that contained the key or secrete will however remain in tact as will all other objects in the key vault. 
+
+### Key vaults as containers
 When a key vault is purged, all of its contents, including keys, secrets, and certificates, are permanently deleted. To purge a key vault use the `az keyvault purge` command. You can find the location your subscription's deleted key vaults using the command `az keyvault list-deleted`.
 
 ```azurecli
@@ -196,5 +202,6 @@ az keyvault purge --location westus --name ContosoVault
 
 ## See also
 
-For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](key-vault-ovw-soft-delete.md).
+- For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](key-vault-ovw-soft-delete.md).
+- For a general overview of Azure Key Vault usage, see [Get started with Azure Key Vault](key-vault-get-started.md).
 
