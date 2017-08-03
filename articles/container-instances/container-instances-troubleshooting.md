@@ -21,7 +21,7 @@ ms.author: seanmck
 
 # Troubleshoot deployment issues with Azure Container Instances
 
-This article describes how to troubleshoot issues when deploying containers to Azure Container Instances, and describes some of the common issues you may run into.
+This article shows how to troubleshoot issues when deploying containers to Azure Container Instances. It also describes some of the common issues you may run into.
 
 ## Getting diagnostic events
 
@@ -31,7 +31,7 @@ To view logs from your application code within a container, you can use the [az 
 az container show -n mycontainername -g myresourcegroup
 ```
 
-The output will include all of the core properties of your container, along with deployment events, as shown below:
+The output includes the core properties of your container, along with deployment events:
 
 ```bash
 {
@@ -89,7 +89,7 @@ There are a few common issues that account for most errors in deployment.
 
 ### Unable to pull image
 
-If Azure Container Instances is unable to pull your image initially, it will retry for some period before eventually failing. If the image cannot be pulled, you will see events like those shown below:
+If Azure Container Instances is unable to pull your image initially, it retries for some period before eventually failing. If the image cannot be pulled, events like the following are shown:
 
 ```bash
 "events": [
@@ -121,7 +121,7 @@ To resolve, delete the container and retry your deployment, paying close attenti
 
 ### Container continually exits and restarts
 
-Currently, Azure Container Instances only supports long-running services. If your container runs to completion and exits, it will automatically restart and run again. If this is happening, you will events like the ones shown below. Note that the container successfully starts, then quickly restarts. The Container Instances API includes a `retryCount` property that shows how many time a particular container has restarted.
+Currently, Azure Container Instances only supports long-running services. If your container runs to completion and exits, it automatically restarts and runs again. If this happens, events like those following are shown. Note that the container successfully starts, then quickly restarts. The Container Instances API includes a `retryCount` property that shows how many times a particular container has restarted.
 
 ```bash
 "events": [
@@ -185,7 +185,7 @@ Currently, Azure Container Instances only supports long-running services. If you
 ```
 
 > ![NOTE]
-> Most container images for Linux distributions set a shell, such as bash, as the default command. Since a shell on its own is not a long-running service,these containers will immediately exit and fall into a restart loop.
+> Most container images for Linux distributions set a shell, such as bash, as the default command. Since a shell on its own is not a long-running service, these containers immediately exit and fall into a restart loop.
 
 ### Container takes a long time to start
 
@@ -204,6 +204,6 @@ REPOSITORY                             TAG                 IMAGE ID            C
 microsoft/aci-helloworld               latest              7f78509b568e        13 days ago         68.1MB
 ```
 
-The key to keeping image sizes small is ensuring that your final image does not contain anything that is not required at runtime. One way to do this is with [multi-stage builds](https://docs.docker.com/engine/userguide/eng-image/multistage-build/), which make it easy to ensure that the final image contains only the artifacts you need for your application, and not any of the extra content that was required at build time.
+The key to keeping image sizes small is ensuring that your final image does not contain anything that is not required at runtime. One way to do this is with [multi-stage builds](https://docs.docker.com/engine/userguide/eng-image/multistage-build/). Multi-stage builds make it easy to ensure that the final image contains only the artifacts you need for your application, and not any of the extra content that was required at build time.
 
 The other way to reduce the impact of the image pull on your container's startup time is to host the container image using the Azure Container Registry in the same region where you intend to use Azure Container Instances. This shortens the network path that the container image needs to travel, significantly shortening the download time.
