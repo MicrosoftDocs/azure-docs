@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 08/03/2017
 ms.author: arramac
 
 ---
@@ -41,7 +41,7 @@ The following tutorial shows how to build a mobile application by using Xamarin 
 ### Get started
 It's easy to get started with Azure Cosmos DB. Go to the Azure portal, and create a new Azure Cosmos DB account. Click the **Quick start** tab. Download the Xamarin Forms to-do list sample that is already connected to your Azure Cosmos DB account. 
 
-![Azure Cosmos DB Quick start for mobile apps](media/mobile-apps-with-xamarin/documentdb-quickstart.png)
+![Azure Cosmos DB Quick start for mobile apps](media/mobile-apps-with-xamarin/cosmos-db-quickstart.png)
 
 Or if you have an existing Xamarin app, you can add the [Azure Cosmos DB NuGet package](documentdb-sdk-dotnet-core.md). Azure Cosmos DB supports Xamarin.IOS, Xamarin.Android, and Xamarin Forms shared libraries.
 
@@ -91,7 +91,7 @@ Azure Cosmos DB is a managed database as a service. As your user base grows, you
 ### Go planet scale
 As your app gains popularity, you might gain users across the globe. Or maybe you want to be prepared for unforeseen events. Go to the Azure portal, and open your Azure Cosmos DB account. Click the map to make your data continuously replicate to any number of regions across the world. This capability makes your data available wherever your users are. You can also add failover policies to be prepared for contingencies.
 
-![Azure Cosmos DB scale across geographic regions](media/mobile-apps-with-xamarin/documentdb-replicate-globally.png)
+![Azure Cosmos DB scale across geographic regions](media/mobile-apps-with-xamarin/cosmos-db-replicate-globally.png)
 
 Congratulations. You have completed the solution and have a mobile app with Xamarin and Azure Cosmos DB. Follow similar steps to build Cordova apps by using the Azure Cosmos DB JavaScript SDK and native iOS/Android apps by using Azure Cosmos DB REST APIs.
 
