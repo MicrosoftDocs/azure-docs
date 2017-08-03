@@ -21,7 +21,7 @@ ms.author: kgremban
 Claims aware apps perform a redirection to the Security Token Service (STS), which in turn requests credentials from the user in exchange for a token before redirecting the user to the application. There are a few ways to enable Application Proxy to work with these redirects. Use this article to configure your deployment for claims aware apps. 
 
 ## Prerequisites
-Before performing this procedure, make sure that the STS the claims aware app redirects to is available outside of your on-premises network. This redirection can be done by exposing the STS through a proxy or by allowing outside connections. 
+Make sure that the STS that the claims aware app redirects to is available outside of your on-premises network. You can make the STS available by exposing it through a proxy or by allowing outside connections. 
 
 ## Publish your application
 
@@ -35,7 +35,7 @@ You can configure ADFS for claims aware apps in one of two ways. The first is by
 
 ### Option 1: Custom domains
 
-If you are able to [use custom domains](active-directory-application-proxy-custom-domains.md) for your application, and all the URLs for the applications are FQDNs, then you don't need to do any additional configuration. Ensure that your interanl and external URLs are the same for the scenario to work.
+If all the internal URLs for your appliations are fully qualified domain names (FQDNs), then you can configure [custom domains](active-directory-application-proxy-custom-domains.md) for your applications. Use the custom domains to create external URLs that are the same as the internal URLs. With this configuration, the redirects that the STS creates work the same whether your users are on-premises or remote. 
 
 ### Option 2: WS-Federation
 
@@ -50,8 +50,7 @@ If you are able to [use custom domains](active-directory-application-proxy-custo
    ![Add an Endpoint - set Trusted URL value - screenshot](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
 ## Next steps
-* [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
-* [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
+* [Enable single-sign on](application-proxy-sso-overview.md) for applications that aren't claims aware
 * [Enable native client apps to interact with proxy applications](active-directory-application-proxy-native-client.md)
 
 
