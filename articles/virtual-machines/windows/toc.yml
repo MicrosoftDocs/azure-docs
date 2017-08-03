@@ -40,9 +40,9 @@
   - name: 12 - Team Services CI/CD
     href: tutorial-vsts-iis-cicd.md
   - name: 13 - Install IIS web stack
-    href: tutorial-create-iis-stack.md
+    href: 
   - name: 14 - Secure IIS with SSL
-    href: tutorial-create-secure-webserver.md
+    href: 
 - name: Samples
   items:
   - name: PowerShell
@@ -58,23 +58,23 @@
   - name: VM types and sizes
     item: sizes.md
   - name: Maintenance and updates
-    href: maintenance-updates.md
+    href: 
   - name: Storage
     href: azure-vm-storage-overview.md
   - name: Networking
     href: azure-vm-network-overview.md
   - name: Auto-scale applications
-    href: auto-scale-overview.md
+    href: 
   - name: Infrastructure automation
-    href: infrastructure-automation.md
+    href: 
   - name: Containers
     href: containers.md
   - name: Security
-    href: security.md
+    href: 
   - name: Backup and recovery
-    href: backups-recovery.md
+    href: 
   - name: High performance computing
-    href: hpc.md
+    href: 
   - name: Deployment considerations
     items:
     - name: Infrastructure guidelines

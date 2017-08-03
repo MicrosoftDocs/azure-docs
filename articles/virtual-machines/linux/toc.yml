@@ -40,13 +40,13 @@
   - name: 12 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
   - name: 13 - Create LAMP web stack
-    href: tutorial-create-lamp-stack.md
+    href: 
   - name: 14 - Create LEMP web stack
-    href: tutorial-create-lemp-stack.md
+    href: t
   - name: 15 - Create MEAN web stack
-    href: tutorial-create-mean-stack.md
+    href: 
   - name: 16 - Secure web servers with SSL
-    href: tutorial-create-secure-webserver.md
+    href: 
 - name: Samples
   items:
   - name: Azure CLI
@@ -64,23 +64,23 @@
   - name: Endorsed distros
     href: endorsed-distros.md
   - name: Maintenance and updates
-    href: maintenance-updates.md
+    href: 
   - name: Storage
     href: azure-vm-storage-overview.md
   - name: Networking
     href: azure-vm-network-overview.md
   - name: Auto-scale applications
-    href: auto-scale-overview.md
+    href: 
   - name: Infrastructure automation
-    href: infrastructure-automation.md
+    href: 
   - name: Containers
     href: containers.md
   - name: Security and monitoring
-    href: security-monitoring.md
+    href: 
   - name: Backup and recovery
-    href: backup-recovery.md
+    href: 
   - name: High performance computing
-    href: hpc.md
+    href: 
   - name: Deployment considerations
     items:
     - name: Infrastructure guidelines
