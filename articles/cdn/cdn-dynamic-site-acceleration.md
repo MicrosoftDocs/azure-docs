@@ -130,7 +130,7 @@ If you are using ADN with Verizon Premium, you can turn caching back on for spec
 An alternative is to use two CDN endpoints. One with DSA to deliver dynamic assets, and another endpoint with a static optimization type, such as general web delivery, to delivery cacheable assets. In order to accomplish this alternative, you will modify your webpage URLs to link directly to the asset on the CDN endpoint you plan to use. 
 
 For example: 
-*mydynamic.azureedge.net/index.html* is a dynamic page and is loaded from the DSA endpoint.  The html page references multiple static assets such as JavaScript libraries or images that are loaded from the static CDN endpoint, such as *mystatic.azureedge.net/banner.jpg* and *mystatic.azureedge.net/scripts.js*. 
+`mydynamic.azureedge.net/index.html` is a dynamic page and is loaded from the DSA endpoint.  The html page references multiple static assets such as JavaScript libraries or images that are loaded from the static CDN endpoint, such as `mystatic.azureedge.net/banner.jpg` and `mystatic.azureedge.net/scripts.js`. 
 
 You can find an example [here](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller) on how to use controllers in an ASP.NET web application to serve content through a specific CDN URL.
 
