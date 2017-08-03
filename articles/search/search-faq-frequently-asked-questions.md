@@ -37,7 +37,7 @@ Customers who choose Azure Search over Elasticsearch typically do so because we'
 
 You cannot pause the service. Computational and storage resources are allocated for your exclusive use when the service is created. It's not possible to release and reclaim those resources on-demand. 
 
-## Indexing Ops
+## Indexing Operations
 
 ### Backup and restore (or download and move) indexes or index snapshots?
 
@@ -49,7 +49,7 @@ Indexes are built and populated from code that you write, and run only on Azure 
 
 (Applies to [Azure SQL Database indexers](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers)) There are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates (based on changed records) requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there is no guarantee you get all of the data.
 
-## Search Ops
+## Search Operations
 
 ### Can I search across multiple indexes?
 
@@ -75,16 +75,16 @@ For example, suppose an input of "tour*" in a wildcard search, with matches foun
 
 ### What is the best approach for implementing localized search?
 
-Most customers choose separate fields over a collection when it comes to supporting different locales (languages) in the same index. Locale-specific fields make it possible to assign an appropriate analyzer. For example, assigning the Microsoft French Analyzer to a field storing French strings. It also simplifies filtering. If you know a query is initiated on a fr-fr page, you could limit search results to this field, or create a [scoring profile](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) to give more weight to this field as opposed to the others.
+Most customers choose separate fields over a collection when it comes to supporting different locales (languages) in the same index. Locale-specific fields make it possible to assign an appropriate analyzer. For example, assigning the Microsoft French Analyzer to a field storing French strings. It also simplifies filtering. If you know a query is initiated on a fr-fr page, you could limit search results to this field. Or, create a [scoring profile](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) to give the field more relative weight.
 
 ## Next steps
 
-Is your question about a missing feature or functionality? Consider requesting or voting for it on our [User Voice web site](https://feedback.azure.com/forums/263029-azure-search).
+Is your question about a missing feature or functionality? Request the feature on the [User Voice web site](https://feedback.azure.com/forums/263029-azure-search).
 
 ## See also
 
  [StackOverflow: Azure Search](https://stackoverflow.com/questions/tagged/azure-search)   
- [How full text search works in Azure Search](search-lucene-query-architecture.md)
+ [How full text search works in Azure Search](search-lucene-query-architecture.md)  
  [What is Azure Search?](search-what-is-azure-search.md)
 
  
