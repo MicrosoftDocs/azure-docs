@@ -109,7 +109,7 @@ Ensure that you use a cloud-only Global Administrator account when enabling the 
 
 ## Exchange ActiveSync configuration issues
 
-These are common issues you could face when you try to [configure Exchange ActiveSync support for Pass-through Authentication](active-directory-aadconnect-pass-through-authentication-exchange-activesync.md) on your tenant.
+These are the common issues when you configure Exchange ActiveSync support for Pass-through Authentication.
 
 ### Exchange PowerShell issue
 
