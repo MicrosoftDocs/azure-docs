@@ -38,8 +38,26 @@ For more information, see [Azure Government Backup](documentation-government-ser
 Azure Site Recovery is generally available in Azure Government.
 
 For more information, see [Site Recovery commercial documentation](../site-recovery/site-recovery-overview.md).
-://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
 
+### Variations
+The following Site Recovery features are not currently available in Azure Government:
+* Email notification
+
+| Site Recovery | Classic | Resource Manager |
+| --- | --- | --- |
+| VMWare/Physical  | GA | GA |
+| Hyper-V | GA | GA |
+| Site to Site | GA | GA |
+
+>[!NOTE]>Table applies to US Gov Virginia and US Gov Iowa.
+
+The following URLs for Site Recovery are different in Azure Government:
+| Azure Public | Azure Government | Notes |
+| --- | --- | --- |
+| \*.hypervrecoverymanager.windowsazure.com | \*.hypervrecoverymanager.windowsazure.us | Access to the Site Recovery Service |
+| \*.backup.windowsazure.com  | \*.backup.windowsazure.us | Access to Protection Service |
+| \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | For storing the VM Snapshots |
+| http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
 
 ## Monitor
 Azure Monitor is in public preview in Azure Government.
@@ -71,29 +89,6 @@ Services which have metrics and metric alerts available in Azure Goverment are:
 | Classic Virtual Machine | GA | Not Available | Not Available | Coming Soon |
 | Stream Analytics | - | Not Available | - | - |
 | Redis Cache | GA | Available | RP Blade & Dashboards | Available | 
-
-### Variations
-The following Site Recovery features are not currently available in Azure Government:
-
-* Email notification
-
-| Site Recovery | Classic | Resource Manager |
-| --- | --- | --- |
-| VMWare/Physical  | GA | GA |
-| Hyper-V | GA | GA |
-| Site to Site | GA | GA |
-
->[!NOTE]
->Table applies to US Gov Virginia and US Gov Iowa.
-
-The following URLs for Site Recovery are different in Azure Government:
-
-| Azure Public | Azure Government | Notes |
-| --- | --- | --- |
-| \*.hypervrecoverymanager.windowsazure.com | \*.hypervrecoverymanager.windowsazure.us | Access to the Site Recovery Service |
-| \*.backup.windowsazure.com  | \*.backup.windowsazure.us | Access to Protection Service |
-| \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | For storing the VM Snapshots |
-| http
 
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
