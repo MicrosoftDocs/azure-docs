@@ -45,12 +45,12 @@ The following table outlines the Docker orchestration and operating system monit
 | Linux Server<br>(standalone) | | Yes | | Yes | Yes | Yes | Yes | Yes | | Yes |
 
 
-### Supported Linux operating system
+### Docker versions supported on Linux
 
 - Docker 1.11 to 1.13
 - Docker CE and EE v17.06
 
-The following x64 Linux distributions are supported as container hosts:
+### x64 Linux distributions supported as container hosts
 
 - Ubuntu 14.04 LTS and 16.04 LTS
 - CoreOS(stable)
