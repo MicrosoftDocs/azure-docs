@@ -1,6 +1,6 @@
 ---
-title: PowerShell example-Sync between multiple Azure SQL Databases | Microsoft Docs
-description: Azure PowerShell example script to sync between multiple Azure SQL Databases
+title: PowerShell example-Sync between multiple Azure SQL databases | Microsoft Docs
+description: Azure PowerShell example script to sync between multiple Azure SQL databases
 services: sql-database
 documentationcenter: sql-database
 author: douglaslms
@@ -18,9 +18,9 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: douglasl
 ---
-# Use PowerShell to sync between multiple Azure SQL Databases
+# Use PowerShell to sync between multiple Azure SQL databases
  
-This PowerShell example configures Data Sync to sync between multiple Azure SQL Databases.
+This PowerShell example configures Data Sync to sync between multiple Azure SQL databases.
 
 This sample requires the Azure PowerShell module version 4.2 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps).
  
