@@ -7,16 +7,16 @@ manager: timlt
 
 ms.service: batch
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 08/02/2017
 ms.author: tamram
 
 ---
 # Count tasks for a job by state (Preview)
 
-Azure Batch now provides an efficient way to get an aggregate count of a job's tasks. The [Get Task Counts][rest_get_task_counts] operation returns a count of tasks that are in an active, running, or completed task state. It also returns a count of tasks which have succeeded or failed. You can use the Get Task Counts operation to determine how far a job has progressed. With the Get Task Counts operation, you can more easily display progress to a user, or detect unexpected delays or failures.
+Azure Batch provides an efficient way to monitor the progress of a job as it runs its tasks. You can call the [Get Task Counts][rest_get_task_counts] operation to find out how many tasks are in an active, running, or completed state, and how many have succeeded or failed. By counting the number of tasks in each state, you can more easily display the job's progress to a user, or detect unexpected delays or failures that may affect the job.
 
 > [!IMPORTANT]
-> The Get Task Counts API is currently in preview, and is not yet available in Azure Government, Azure China, and Azure Germany. 
+> The Get Task Counts operation is currently in preview, and is not yet available in Azure Government, Azure China, and Azure Germany. 
 >
 >
 
@@ -24,11 +24,11 @@ Azure Batch now provides an efficient way to get an aggregate count of a job's t
 
 The Get Task Counts operation counts tasks by state, as described below. You can find more information about various task states at [Get information about a task][rest_get_task].
 
-- A task is counted as **active** when it is queued and able to run, but is not currently assigned to a compute node.
+- A task is counted as **active** when it is queued and able to run, but is not currently assigned to a compute node. A task is also counted as **active** if it is dependent on a parent task that has not yet completed. For more information on task dependencies, see [Create task dependencies to run tasks that depend on other tasks](batch-task-dependencies.md). 
 - A task is counted as **running** when it has been assigned to a compute node, but has not yet completed. A task is counted as **running** when its state is either `preparing` or `running`, as indicated by the [Get information about a task][rest_get_task] operation.
 - A task is counted as **completed** when it is no longer eligible to run. A task counted as **completed** has typically either finished successfully, or has finished unsuccessfully and has also exhausted its retry limit. 
 
-The Get Task Counts operation also reports how many tasks have succeeded or failed, based on the value of the [executionInfo][rest_get_task] property:
+The Get Task Counts operation also reports how many tasks have succeeded or failed. Batch determines whether a task has succeeded or failed by checking the **result** property of the [executionInfo][https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo] property:
 
     - A task is counted as **succeeded** if the result of task execution is `success`.
     - A task is counted as **failed** if the result of task execution is `failure`.
@@ -54,12 +54,16 @@ Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
 
 ## Error checking for task counts
 
-The Batch service aggregates task counts using a fast but potentially unreliable pipeline. To correct for any errors, the Batch service checks state counts against the task states as reported by the [List Tasks][rest_list_tasks] operation, so long as there are fewer than 200,000 tasks in the job. If the check encounters errors, Batch corrects the result of the Get Tasks Counts operation based on the value returned by the List Tasks operation.   
+The Batch service aggregates task counts using a fast but potentially unreliable pipeline. To correct for any errors in the pipeline, the Batch service checks state counts against the task states as reported by the [List Tasks][rest_list_tasks] operation, so long as there are fewer than 200,000 tasks in the job. If the check encounters errors, Batch corrects the result of the Get Tasks Counts operation based on the value returned by the List Tasks operation.   
 
 The **validationStatus** property indicates whether Batch has performed the error check. If the **validationStatus** property is set to `unvalidated`, then Batch has not been able to check state counts against the task states reported by the List Tasks operation. Batch cannot perform this error check if the job includes more than 200,000 tasks, so the **validationStatus** property may be `unvalidated` in this case.
 
-When a task changes state, the aggregation pipeline processes the change within 5 seconds. The Get Task Counts operation reflects the updated task counts within that 5-second period. However, if the aggregation pipeline misses a change in a task state, then that change is not registered until the next validation pass. During this time, 
-task counts may be slightly inaccurate due to the missed event, but they are corrected on the next validation passs.
+When a task changes state, the aggregation pipeline processes the change within 5 seconds. The Get Task Counts operation reflects the updated task counts within that 5-second period. However, if the aggregation pipeline misses a change in a task state, then that change is not registered until the next validation pass. During this time, task counts may be slightly inaccurate due to the missed event, but they are corrected on the next validation pass.
+
+## Best practices for counting a job's tasks
+
+Calling the Get Task Counts operation is the most efficient way to return a simple count of a job's tasks by state. Prior to the introduction of the Get Task Counts operation in Batch service version 2017-06-01.5.1, you needed to [create a list query](batch-efficient-list-queries.md) to tally a job's tasks. Best practices now recommend that you use Get Task Counts for basic aggregate counts. However, if you need to perform a more complex filter or select operation, then create a list query to return the data you want. 
+
 
 ## Next steps
 
