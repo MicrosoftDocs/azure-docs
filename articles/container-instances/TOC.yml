@@ -25,12 +25,14 @@
     href: container-instances-orchestrator-relationship.md
 - name: How-to guides
   items:
-  - name: Multi-container groups
+  - name: Deploy multi-container groups
     href: container-instances-multi-container-group.md
-  - name: Managing state with Azure file shares
+  - name: Manage state with Azure file shares
     href: container-instances-mounting-azure-files-volume.md
   - name: Deploy from Azure Container Registry
     href: container-instances-using-azure-container-registry.md
+  - name: Troubleshoot deployments to Azure Container Instances
+    href: container-instances-troubleshooting.md
 - name: Reference
   items:
   - name: Azure CLI 2.0
