@@ -77,10 +77,12 @@ To open a currently deployed logic app in the same designer
 that you use in the Azure portal, right-click your logic app, 
 and select **Open with Logic App Editor**. 
 
-In the designer, you can edit your logic app, save your updates 
+In the designer, you can edit your logic app, publish your updates 
 to the cloud, and start a new run by choosing **Run Trigger**.
 
 ![Logic App Designer](./media/logic-apps-manage-from-vs/designer.png)
+
+From the designer you can also **Download** a logic app. Downloading a logic app will automatically parameterize the logic app definition and save it as an ARM deployment template which can be added to your Azure Resource Group project.
 
 ## Browse your logic app run history
 
