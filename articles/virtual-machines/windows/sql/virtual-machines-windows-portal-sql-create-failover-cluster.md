@@ -83,7 +83,7 @@ With these prerequisites in place, you can proceed with building your failover c
 
 1. Log in to the [Azure portal](http://portal.azure.com) with your subscription.
 
-1. [Create an Azure availability set](../create-availability-set.md).
+1. [Create an Azure availability set](../tutorial-availability-sets.md).
 
    The availability set groups virtual machines across fault domains and update domains. The availability set makes sure that your application is not affected by single points of failure, like the network switch or the power unit of a rack of servers.
 
