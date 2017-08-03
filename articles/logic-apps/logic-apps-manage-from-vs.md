@@ -22,10 +22,8 @@ ms.author: LADocs; klam
 
 Although the [Azure portal](https://portal.azure.com/) 
 offers a great way for you to design and manage Azure Logic Apps, 
-you can manage many Azure assets, including logic apps, in Visual Studio 
-when you use Visual Studio Cloud Explorer. 
-You can browse published logic apps, and perform tasks like enable and disable
-your logic apps or edit and view run histories. 
+you can use Visual Studio Cloud Explorer to manage many Azure assets, including logic apps.
+The Visual Studio Cloud Explorer allows you to browse, manage, edit and download published logic apps. Management tasks include enable, disable, and view run history. 
 
 ## Installation steps
 
@@ -65,7 +63,7 @@ you find **Azure Logic Apps Tools for Visual Studio**.
 	select your Azure subscription, 
 	expand the Logic Apps section,
 	then select a Logic App. 
-	You can either right-click a logic app, 
+	You can either right-click a logic app or 
 	choose from the **Actions** menu 
 	at the bottom of Cloud Explorer.
 
@@ -82,7 +80,7 @@ to the cloud, and start a new run by choosing **Run Trigger**.
 
 ![Logic App Designer](./media/logic-apps-manage-from-vs/designer.png)
 
-From the designer you can also **Download** a logic app. Downloading a logic app will automatically parameterize the logic app definition and save it as an ARM deployment template which can be added to your Azure Resource Group project.
+From the designer, you can also **Download** a logic app. Downloading a logic app automatically parameterizes the logic app definition and saves it as an resource manager deployment template, which can be added to your Azure Resource Group project.
 
 ## Browse your logic app run history
 
