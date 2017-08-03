@@ -405,18 +405,6 @@ To add social IDPs to your app, begin by following the detailed instructions in 
 * [Set up Amazon as an IDP](active-directory-b2c-setup-amzn-app.md)
 * [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md)
 
-## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Add Azure AD B2C identity features to your web app
-> * Register your web app in your Azure AD B2C directory
-> * Create a user sign-up/sign-in, profile edit, and password reset policy for your web app
-
 After you add the identity providers to your B2C directory, you need to edit each of your three policies to include the new IDPs). After you save your policies, run the app again. You should see the new IDPs added as sign-in and sign-up options in each of your identity experiences.
 
 You can experiment with your policies and observe the effect on your sample app. Add or remove IDPs, manipulate application claims, or change sign-up attributes. Experiment until you can see how policies, authentication requests, and OWIN tie together.
-
-> [!div class="nextstepaction"]
-> [Edit policies](active-directory-b2c-reference-policies.md)
