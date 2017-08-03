@@ -463,6 +463,7 @@ You can view the status for completed jobs for up to 90 days. Completed jobs wil
 **If I want to import or export more than 10 drives, what should I do?**
 
 One import or export job can reference only 10 drives in a single job for the Import/Export service. If you want to ship more than 10 drives, you can create multiple jobs. Drives that are associated with the same job must be shipped together in the same package.
+Microsoft offers guidance and assistance when data capacity spans multiple disk import jobs. Please contact bulkimport@microsoft.com for more information
 
 **Does the service format the drives before returning them?**
 
