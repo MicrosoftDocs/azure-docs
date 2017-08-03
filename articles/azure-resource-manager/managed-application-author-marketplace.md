@@ -108,7 +108,8 @@ The next step is to add SKUs for your offer.
 
 	![Provide new SKU](./media/managed-application-author-marketplace/newOffer_newsku.png)
 
-
+	Fill out the following fields:
+	
 	a. **Title**: Enter a title for this SKU. This title appears in the gallery for this item.
 
 	b. **Summary**: Enter a short summary for this SKU. This text appears underneath the title.
@@ -194,7 +195,7 @@ Obtain the package **Version**, as shown in the following image:
 This package should contain any other nested templates or scripts that are required to successfully provision this application. The mainTemplate.json, applianceMainTemplate.json, and applianceCreateUIDefinition.json must be present at the root folder.
 
 * **Authorizations**: This property defines who gets access and the level of access to the resources in customers' subscriptions. The publisher can use it to manage the application on behalf of the customer.
-* **PrincipalId**: This property is the Azure Active Directory (Azure AD) identifier of a user, user group, or application that's granted certain permissions (as described by the Role Definition) on the resources in the customer's subscription.
+* **PrincipalId**: This property is the Azure Active Directory (Azure AD) identifier of a user, user group, or application that's granted certain permissions on the resources in the customer's subscription. The Role Definition describes the permissions. 
 * **Role Definition**: This property is a list of all the built-in Role-Based Access Control (RBAC) roles provided by Azure AD. You can select the role that's most appropriate to use to manage the resources on behalf of the customer.
 
 You can add multiple authorizations. We recommend that you create an AD user group and specify its ID in the **PrincipalId**. This way, you can add more users to the user group without the need to update the SKU.

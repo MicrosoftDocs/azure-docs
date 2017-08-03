@@ -28,7 +28,7 @@ For examples of the files, see [Managed application samples](https://github.com/
 
 ## Create a managed application package
 
-The first step is to create the managed application package that contains the main template files. The publisher or ISV creates three files. You must package all three files into a .zip file, and upload it to an accessible location.
+The first step is to create the managed application package that contains the main template files. The publisher or ISV creates three files. Package all three files into a .zip file, and upload it to an accessible location.
 
 * **applianceMainTemplate.json**: This first template file defines the actual resources that are provisioned as part of the managed application. For example, to create a storage account by using a managed application, the applianceMainTemplate.json contains: 
 
@@ -58,9 +58,9 @@ The first step is to create the managed application package that contains the ma
   }
   ```
 
-* **mainTemplate.json**: This second template file contains only the appliance resource, Microsoft.Solutions/appliances. It also contains all the parameters that are needed for the resources in the applianceMainTemplate.json. 
+* **mainTemplate.json**: This second template file contains only the appliance resource, Microsoft.Solutions/appliances. It also contains all the parameters you need for the resources in the applianceMainTemplate.json. 
 
-  Two important properties are needed as input during the creation of the managed application:
+  You need two important properties as input to create the managed application:
 
    * **managedResourceGroupId**: This property is the ID of the resource group where the resources defined in the applianceMainTemplate.json are created. The format of the ID is
   `/subscriptions/{subscriptionId}/resourceGroups/{resoureGroupName}`.
@@ -108,7 +108,7 @@ The first step is to create the managed application package that contains the ma
   }
   ```
 
-* **createUiDefinition.json**: This template file is the third file needed in the package. The Azure portal uses this file to generate the user interface for consumers who create the managed application. You define the parameters for the managed application and how consumers can get the input for each parameter. You can use options like a drop-down list, text box, password box, and other input tools. To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* **createUiDefinition.json**: This template file is the third file you need in the package. The Azure portal uses this file to generate the user interface for consumers who create the managed application. You define the parameters for the managed application and how consumers can get the input for each parameter. You can use options like a drop-down list, text box, password box, and other input tools. To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
 
 After all the needed files are ready, upload the package to an accessible location from where it can be consumed.
 

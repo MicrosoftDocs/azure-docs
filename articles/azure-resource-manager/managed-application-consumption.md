@@ -80,7 +80,7 @@ az managedapp create --name ravtestappliance401 --location "westcentralus"
 az appliance definition show -n ravtestAppDef1 -g ravApplianceRG2
 ```
 
-This command returns the appliance definition. You need the value of the **Id** property:
+This command returns the appliance definition. You need the value of the ID property:
 
 * **managed-rg-id**: The name of the resource group where all the resources defined in the applianceMainTemplate.json are created. This resource group is the managed resource group. It's managed by the publisher. If it doesn't exist, it's created for you.
 * **resource-group**: The resource group where the appliance resource is created. The Microsoft.Solutions/appliance resource lives in this resource group. 
