@@ -46,10 +46,9 @@ You can follow the steps in this article or you can download a sample that conta
 
 ### Set up your project
 
-1. Use Visual Studio to create a new solution that contains the C# Console Application project. 
-3. Use [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) to install and add Azure Media Services .NET SDK Extensions (windowsazure.mediaservices.extensions). Installing this package, also installs Media Services .NET SDK and adds all other required dependencies.
-4. Add other references that are required for this project: System.Configuration.
-6. Add the appSettings section to the .config file and update the values based on your Media Services accounts, the destination storage account and the source asset ID. 
+1. Set up your development environment as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
+2. Add other references that are required for this project: System.Configuration.
+3. Add the appSettings section to the .config file and update the values based on your Media Services accounts, the destination storage account and the source asset ID.  
    
 		<appSettings>
 	          <add key="MediaServicesSourceAccountName" value="name"/>
@@ -119,7 +118,6 @@ The following code uses extension **IAsset.Copy** method to copy all files in th
 	        }
 	    }
 	}
-
 
 ## Copy blobs from a storage account into an AMS account 
 
