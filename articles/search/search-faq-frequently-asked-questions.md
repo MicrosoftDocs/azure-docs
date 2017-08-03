@@ -22,15 +22,15 @@ ms.author: heidist
 
 Azure Search is typically a better choice if application requirements include support for multiple data sources, [linguistic analysis](https://docs.microsoft.com/rest/api/searchservice/language-support), [custom analysis](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), localization, search result controls through [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), or user-experience features such as typeahead, hit highlighting, and faceted navigation. 
 
-### What is the difference between Azure Search and ElasticSearch?
+### What is the difference between Azure Search and Elasticsearch?
 
-Azure Search uses ElasticSearch internally for access to the Apache Lucene full text search engine, infrastructure support for distributed and scaleable workloads, and for its extensibility mechanisms.  
+When comparing search technologies, customers frequently ask for specifics on how Azure Search compares with Elasticsearch, given that Azure Search uses Elasticsearch internally. Azure Search chose Elasticsearch as an internal component for efficient access to the Apache Lucene full text search engine, for its infrastructure supporting distributed and scaleable workloads, and for its extensibility mechanisms.  
 
-Customers who choose Azure Search over ElasticSearch typically do so because we've made a key task easier or we have built-in support for other Microsoft technologies:
+Customers who choose Azure Search over Elasticsearch typically do so because we've made a key task easier or we have built-in support for other Microsoft technologies:
 
 + Linguistic analysis in Azure Search can leverage Microsoft's [natural language processors](https://docs.microsoft.com/rest/api/searchservice/language-support).  
 + [Built-in indexers](search-indexer-overview.md) crawl a variety of Azure data sources for initial and incremental indexing.
-+ Distributed workloads at scale is a fundamental strength of ElasticSearch, greatly simplified in Azure Search through PowerShell script or  portal slider controls for rapid response to fluctuations in query or indexing volumes.  
++ Distributed workloads at scale is a fundamental strength of Elasticsearch. This task is greatly simplified in Azure Search through PowerShell script or portal slider controls, allowing for a rapid response to fluctuations in query or indexing volumes.  
 + [Scoring and tuning features](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) provide the means for influencing search rank scores beyond what the search engine alone can provide. 
 
 ### Can I pause Azure Search service and stop billing?
@@ -85,6 +85,6 @@ Is your question about a missing feature or functionality? Consider requesting o
 
  [StackOverflow: Azure Search](https://stackoverflow.com/questions/tagged/azure-search)   
  [How full text search works in Azure Search](search-lucene-query-architecture.md)
- [What is Azure Search?](search-overview.md)
+ [What is Azure Search?](search-what-is-azure-search.md)
 
  
