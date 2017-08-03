@@ -60,7 +60,7 @@ az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-
 
 ### Verify soft-delete enablement
 
-To verify that a key vault has soft-delete enabled, run *show* command and look for the 'Soft Delete Enabled?' attribute and its setting, true or false.
+To verify that a key vault has soft-delete enabled, run the *show* command and look for the 'Soft Delete Enabled?' attribute and its setting, true or false.
 
 ```azurecli
 az keyvault show --name ContosoVault
@@ -82,26 +82,26 @@ az keyvault delete --name ContosoVault
 With soft-delete enabled:
 
 - When a key vault is deleted, it is removed from its resource group and placed in a reserved namespace that is only associated with the location where it was created. 
-- Objects in a deleted key vault, such as keys, secrets and, certificates, become inaccessible when it is in this state. 
+- Objects in a deleted key vault, such as keys, secrets and, certificates, are inaccessible and remain so while their containing key vault is in the deleted state. 
 - The DNS name for a key vault in a deleted state is still reserved so, a new key vault with same name cannot be created.  
 
-You may view key vaults, associated with your subscription, in the deleted state using the following command.
+You may view deleted state key vaults, associated with your subscription, using the following command.
 
 ```azurecli
 az keyvault list-deleted
 ```
 
-The *Resource ID* in the output refers to the original resource ID of this vault. Since this key vault is now in a deleted state, no resource exists with that resource ID. The *Id* field can be used to identify the resource when recovering, or purging. The *Scheduled Purge Date* field indicates when the vault will be permanently deleted (purged) if no action is taken for this deleted vault.
+The *Resource ID* in the output refers to the original resource ID of this vault. Since this key vault is now in a deleted state, no resource exists with that resource ID. The *Id* field can be used to identify the resource when recovering, or purging. The *Scheduled Purge Date* field indicates when the vault will be permanently deleted (purged) if no action is taken for this deleted vault. The default retention period, used to calculate the *Scheduled Purge Date*, is 90 days.
 
 ## Recovering a key vault
 
-To recover a key vault, you need to specify the key vault name, resource group, and location. Note the location and the resource group of the deleted vault. You'll need it when recovering.
+To recover a key vault, you need to specify the key vault name, resource group, and location. Note the location and the resource group of the deleted key vault as you need these for a key vault recovery process.
 
 ```azurecli
 az keyvault recover --location westus --name ContosoVault
 ```
 
-When a key vault is recovered, the result is a new resource with the key vault's original resource ID. If the resource group where the key vault existed has been removed, a new resource group with same name will need to be created before the key vault can be recovered.
+When a key vault is recovered, the result is a new resource with the key vault's original resource ID. If the resource group where the key vault existed has been removed, a new resource group with same name must be created before the key vault can be recovered.
 
 ## Key Vault objects and soft-delete
 
@@ -111,9 +111,7 @@ For a key, 'ContosoFirstKey', in a key vault named 'ContosoVault' with soft-dele
 az keyvault key delete --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-With your key vault enabled for soft-delete, a deleted key still appears like it's deleted except, when you explicitly list/retrieve deleted keys. Most operations on a key in the deleted state will fail except for listing a deleted key, recovering it or purging it. 
-
-For example, to request to list deleted keys in a key vault:
+With your key vault enabled for soft-delete, a deleted key still appears like it's deleted except, when you explicitly list or retrieve deleted keys. Most operations on a key in the deleted state will fail except for listing a deleted key, recovering it or purging it. For example, to request to list deleted keys in a key vault, use the following command.
 
 ```azurecli
 az keyvault key list-deleted --vault-name ContosoVault
@@ -121,9 +119,7 @@ az keyvault key list-deleted --vault-name ContosoVault
 
 ### Transition state 
 
-When you delete a key in a key vault with soft-delete enabled, it may take a few seconds for the transition to complete. During this transition state, it may appear that the key is not in the active state or the deleted state. 
-
-This command will list all deleted keys in your key vault named 'ContosoVault'.
+When you delete a key in a key vault with soft-delete enabled, it may take a few seconds for the transition to complete. During this transition state, it may appear that the key is not in the active state or the deleted state. This command will list all deleted keys in your key vault named 'ContosoVault'.
 
 ```azure cli
 az keyvault key list-deleted --vault-name ContosoVault
@@ -147,7 +143,8 @@ To permanently delete a key:
 az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-Note that purging a key will permanently delete it, meaning it will not be recoverable.
+>[!NOTE]
+>Purging a key will permanently delete it, meaning it will not be recoverable.
 
 The **recover** and **purge** actions have their own permissions associated in a key vault access policy. For a user or service principal to be able to execute a **recover** or **purge** action they must have the respective permission for that object (key or secret) in the key vault access policy. By default, the **purge** permission is not added to a key vault's access policy when the 'all' shortcut is used to grant all permissions to a user. You must explicitly grant **purge** permission. For example, the following command grants user@contoso.com permission to perform several operations on keys in *ContosoVault* including **purge**.
 
@@ -162,9 +159,7 @@ az keyvault set-policy --name ContosoVault --key-permissions get create delete l
 
 #### Secrets
 
-Like keys, secrets in a key vault are operated on with their own commands.
-
-Following, are the commands for deleting, listing, recovering, and purging secrets.
+Like keys, secrets in a key vault are operated on with their own commands. Following, are the commands for deleting, listing, recovering, and purging secrets.
 
 - Delete a secret named SQLPassword: 
 ```azurecli
@@ -186,7 +181,8 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
 az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
 ```
 
-Note that purging a secret will permanently delete it, meaning it will not be recoverable. 
+>[!NOTE]
+>Purging a secret will permanently delete it, meaning it will not be recoverable.
 
 ## Purging and key vaults
 
@@ -201,7 +197,8 @@ When a key vault is purged, all of its contents, including keys, secrets, and ce
 az keyvault purge --location westus --name ContosoVault
 ```
 
-Note that purging a key vault will permanently delete it, meaning it will not be recoverable.
+>[!NOTE]
+>Purging a key vault will permanently delete it, meaning it will not be recoverable.
 
 ### Purge permissions required
 - To purge a deleted key vault, such that the vault and all its contents are permanently removed, the user needs RBAC permission to perform a *Microsoft.KeyVault/locations/deletedVaults/purge/action* operation. 
@@ -212,7 +209,8 @@ Note that purging a key vault will permanently delete it, meaning it will not be
 
 Listing your deleted key vault objects shows when they are schedled to be purged by Key Vault. The *Scheduled Purge Date* field indicates when a key vault object will be permanently deleted, if no action is taken. By default, the retention period for a deleted key vault object is 90 days.
 
-Note that a purged vault object, triggered by its *Scheduled Purge Date* field, is permanently deleted. It is not recoverable.
+>[!NOTE]
+>A purged vault object, triggered by its *Scheduled Purge Date* field, is permanently deleted. It is not recoverable.
 
 ## See also
 
