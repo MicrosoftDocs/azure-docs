@@ -26,6 +26,8 @@ This article is for customers who want Exchange ActiveSync support with Azure AD
 - [Configuration 2: I have Exchange mailboxes and I am switching from AD FS to Pass-through Authentication as my Azure AD sign-in method](#configuration-2-i-have-exchange-mailboxes-and-i-am-switching-from-ad-fs-to-pass-through-authentication-as-my-azure-ad-sign-in-method)
 - [Configuration 3: I already have Pass-through Authentication as my Azure AD sign-in method, and I am now setting up Exchange mailboxes](#configuration-3-i-already-have-pass-through-authentication-as-my-azure-ad-sign-in-method-and-i-am-now-setting-up-exchange-mailboxes)
 
+If you face issues during set up, read our [troubleshooting guide](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#exchange-activesync-configuration-issues) for next steps.
+
 ### Configuration 1: I have Exchange mailboxes and I am enabling Pass-through Authentication as my Azure AD sign-in method
 
 1. Use [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) to run the following command:
@@ -38,15 +40,11 @@ Get-OrganizationConfig | fl per*
 Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 ```
 
-Contact Microsoft Support if this command fails with the following error: "TBD".
 3. Verify that the value of the `PerTenantSwitchToESTSEnabled` setting is now set to **true**.
 4. Enable Pass-through Authentication on your tenant using the instructions in [this article](active-directory-aadconnect-pass-through-authentication-quick-start.md).
 5. If you have not already done so, disable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
 
-At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
-
->[!IMPORTANT]
->It takes up to an hour for Exchange ActiveSync to start working after you complete the preceding steps.
+At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication. Wait for at least an hour before you test Exchange ActiveSync.
 
 ### Configuration 2: I have Exchange mailboxes and I am switching from AD FS to Pass-through Authentication as my Azure AD sign-in method
 
@@ -60,15 +58,8 @@ Get-OrganizationConfig | fl per*
 Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 ```
 
-Contact Microsoft Support if this command fails with the following error: "TBD".
-3. Verify that the value of the `PerTenantSwitchToESTSEnabled` setting is now set to **true**.
-
->[!IMPORTANT]
->Wait for an hour for the `PerTenantSwitchToESTSEnabled` setting to take effect, and then proceed to the next step.
-4. Enable Pass-through Authentication on your tenant using the instructions in [this article](active-directory-aadconnect-pass-through-authentication-quick-start.md). This action also disables AD FS as your sign-in method, if you had configured AD FS using Azure AD Connect. If you had configured AD FS _outside_ of Azure AD Connect, use PowerShell to manually convert your Federated domains to Managed domains.
-
->[!IMPORTANT]
->Wait for 12 hours before shutting down your AD FS sign-in infrastructure.
+3. Verify that the value of the `PerTenantSwitchToESTSEnabled` setting is now set to **true**. Wait for an hour for the `PerTenantSwitchToESTSEnabled` setting to take effect, and then proceed to the next step.
+4. Enable Pass-through Authentication on your tenant using the instructions in [this article](active-directory-aadconnect-pass-through-authentication-quick-start.md). This action also disables AD FS as your sign-in method, if you had configured AD FS using Azure AD Connect. If you had configured AD FS _outside_ of Azure AD Connect, use PowerShell to manually convert your Federated domains to Managed domains. Wait for at least 12 hours before shutting down your AD FS sign-in infrastructure.
 5. If you have not already done so, disable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
 
 At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
@@ -85,11 +76,7 @@ Get-OrganizationConfig | fl per*
 Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 ```
 
-Contact Microsoft Support if this command fails with the following error: "TBD".
-3. Verify that the value of the `PerTenantSwitchToESTSEnabled` setting is now set to **true**.
-
->[!IMPORTANT]
->It takes up to an hour for Exchange ActiveSync to start working after you complete the preceding steps.
+3. Verify that the value of the `PerTenantSwitchToESTSEnabled` setting is now set to **true**. Wait for at least an hour before you test Exchange ActiveSync.
 4. If you have not already done so, disable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
 
 At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
