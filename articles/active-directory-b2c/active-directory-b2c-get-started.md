@@ -54,21 +54,6 @@ You need to link your Azure AD B2C tenant to your Azure subscription to enable a
 
 You can also access the blade by entering `Azure AD B2C` in **Search resources** at the top of the portal. In the results list, select **Azure AD B2C** to access the B2C settings blade.
 
-## Clean up resources
-
-Other quick starts in this collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. 
-
-> [!WARNING]
-> You cannot create a tenant with the same name after deleting it.
-
-If you do not plan to continue, switch to the Active Directory service and select **Delete directory**.
-
-![Active Directory service highlighting delete directory button](./media/active-directory-b2c-get-started/b2c-delete-directory.png)
-
-Verify all requirements are met for deletion. If a requirement is not met, perform the required actions. Once all the requirements are met, click **Delete**.
-
-![Active Directory delete verification](media/active-directory-b2c-get-started/b2c-delete-directory-verify.png)
-
 ## Next steps
 
 > [!div class="nextstepaction"]
