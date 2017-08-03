@@ -39,13 +39,14 @@ install and configure these Visual Studio tools for Azure Logic Apps.
 
 ## Install Visual Studio tools for Logic Apps
 
-After you install the prerequisites, follow these steps 
-for downloading and installing the Azure Logic Apps Tools 
-for Visual Studio from the Visual Studio Gallery.
+After you install the prerequisites, 
+download and install the Azure Logic Apps Tools 
+for Visual Studio.
 
 1. Open Visual Studio. On the **Tools** menu, 
 select **Extensions and Updates**.
-2. Expand the **Online** category so you can search online.
+2. Expand the **Online** category so you can search online 
+in the Visual Studio Gallery.
 3. Browse or search for **Logic Apps** until 
 you find **Azure Logic Apps Tools for Visual Studio**.
 4. To download and install the extension, click **Download**.
@@ -86,9 +87,9 @@ right-click your logic app, and select **Open with Logic App Editor**.
 ![Logic Apps Designer](./media/logic-apps-manage-from-vs/designer.png)
 
 From the designer, you can also **Download** a logic app. 
-Downloading a logic app automatically parameterizes the 
-logic app definition and saves it as an Azure Resource Manager 
-deployment template, which you can add to your Azure Resource Group project.
+This action automatically parameterizes the logic app definition, 
+and saves the definition as an Azure Resource Manager deployment template. 
+You can add this deployment template to your Azure Resource Group project.
 
 ## Browse your logic app run history
 
