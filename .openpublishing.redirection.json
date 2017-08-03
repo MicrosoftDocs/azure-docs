@@ -8392,6 +8392,16 @@
             "source_path": "articles/media-services/media-services-manage-with-powershell.md",
             "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.media/?view=azurermps-4.2.0",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vpn-gateway/vpn-gateway-site-to-site-create.md",
+            "redirect_url": "azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md",
+            "redirect_url": "azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic",
+            "redirect_document_id": false
         }
     ]
 }
