@@ -92,7 +92,7 @@
 
 ### Usage
 #### [Overview](app-insights-usage-overview.md)
-#### [Sending User ID](app-insights-usage-send-user-id.md)
+#### [Send User Context](app-insights-usage-send-user-id.md)
 #### [Users, Sessions, Events](app-insights-usage-segmentation.md)
 #### [Funnels](usage-funnels.md)
 #### [Retention](app-insights-usage-retention.md)

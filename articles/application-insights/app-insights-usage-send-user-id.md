@@ -1,5 +1,5 @@
 ---
-title: Sending user id to enable usage experiences in Application Insights | Microsoft Docs
+title: Sending user context to enable usage experiences in Application Insights | Microsoft Docs
 description: Track how users move through your service after assigning each of them a unique, persistent id string in Application Insights.
 services: application-insights
 documentationcenter: ''
@@ -15,36 +15,47 @@ ms.date: 08/02/2017
 ms.author: cfreeman
 
 ---
-#  Send user ID to enable usage experiences in Application Insights
+#  Send user context to enable usage experiences in Application Insights
 
 ## Tracking users
 
 Application Insights enables you to monitor and track your users through a set of product usage tools: 
-* [Users](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
+* [Users, Sessions, Events](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
 * [Funnels](https://docs.microsoft.com/azure/application-insights/usage-funnels)
 * [Retention](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention)
 * Cohorts
 * [Workbooks](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 
-Many Application Insight Usage products utilize user ID to identify unique users. Send user ID with every custom event or page view in order to associate the event with a unique user. Product usage tools will not light up until you have sent user ID with your events. 
+In order to track what a user does over time, Application Insights needs an ID for each user or session. Include these IDs in every custom event or page view.
+- Users, Funnels, Retention, and Cohorts: Include user ID.
+- Sessions: Include session ID.
 
-If your app is integrated with the [JavaScript SDK](https://docs.microsoft.com/azure/application-insights/app-insights-javascript#set-up-application-insights-for-your-web-page), user ID is tracked automatically. 
+If your app is integrated with the [JavaScript SDK](https://docs.microsoft.com/azure/application-insights/app-insights-javascript#set-up-application-insights-for-your-web-page), user ID is tracked automatically.
 
-**ASP.NET Apps: Set user ID in an ITelemetryInitializer**
+## Choosing user IDs
 
-Create a telemetry initializer, as described in detail [here](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer), and set the Context.User.Id to an ID that corresponds to the current user. This ID must persist across user sessions so that Application Insights can track the user over time.
+User IDs should persist across user sessions to track how users behave over time. There are various approaches for persisting the ID.
+- An existing concept of users that exists in your service.
+- If the service has access to a browser, it can pass the browser a cookie with an ID in it. The ID will persist for as long as the cookie remains in the user's browser.
+- If necessary, you can use a new ID each session, but the results about users will be limited. For example, you won't be able to see how a user's behavior changes over time.
 
 The ID should be a Guid or another string complex enough to identify each user uniquely. For example, it could be a long random number.
 
-If the ID contains personally identifying information about the user, it is not an appropriate value to send to Application Insights as a user ID.
+If the ID contains personally identifying information about the user, it is not an appropriate value to send to Application Insights as a user ID. You can send such an ID as an [authenticated user ID](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), but it does not fulfill the user ID requirement for usage scenarios.
+
+## ASP.NET Apps: Set user context in an ITelemetryInitializer
+
+Create a telemetry initializer, as described in detail [here](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer), and set the Context.User.Id and the Context.Session.Id.
+
+This example sets the user ID to an identifier that expires after the session. If possible, use a user ID that persists across sessions.
 
 *C#*
 
 ```C#
 
     using System;
+    using System.Web;
     using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.DataContracts;
     using Microsoft.ApplicationInsights.Extensibility;
 
     namespace MvcWebRole.Telemetry
@@ -57,12 +68,27 @@ If the ID contains personally identifying information about the user, it is not 
       {
         public void Initialize(ITelemetry telemetry)
         {
-            telemetry.Context.User.Id = this.GetUserId();
-        }
+            // For a full experience, track each user across sessions. For an incomplete view of user behavior within a session, store user id on the HttpContext Session.
+            // Set the user id if we haven't done so yet.
+            if(HttpContext.Current.Session["UserId"] == null)
+            {
+                HttpContext.Current.Session["UserId"] = Guid.NewGuid();
+            }
 
-        private string GetUserId() {
-            // Find and return the current user's ID.
+            // Set the user id on the Application Insights telemetry item.
+            telemetry.Context.User.Id = (string)HttpContext.Current.Session["UserId"];
+
+            // Set the session id on the Application Insights telemetry item.
+            telemetry.Context.Session.Id = HttpContext.Current.Session.SessionID;
         }
       }
     }
 ```
+
+## Next steps
+- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- If you already send custom events or page views, explore the Usage tools to learn how users use your service.
+    - [Users, Sessions, Events](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
+    - [Funnels](https://docs.microsoft.com/azure/application-insights/usage-funnels)
+    - [Retention](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention)
+    - [Workbooks](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
