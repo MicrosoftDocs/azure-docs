@@ -38,6 +38,39 @@ For more information, see [Azure Government Backup](documentation-government-ser
 Azure Site Recovery is generally available in Azure Government.
 
 For more information, see [Site Recovery commercial documentation](../site-recovery/site-recovery-overview.md).
+://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
+
+
+## Monitor
+Azure Monitor is in public preview in Azure Government.
+
+For more information, see [Monitor commercial documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview).
+
+### Variations
+The following Monitor features are not currently available in Azure Government:
+
+* Action Groups do not support SMS at this time.    
+* Autoscale is available in two regions, Iowa and Virginia; default behavior is to create the autoscale setting in the same regions as the monitored resource. For Texas and Arizona, to create an autoscale setting on resources in these regions, please use ARM/Rest calls to specify the setting should be created in Iowa or Virginia.
+* Metrics are supported in all regions, but only for RPs which are available and onboard to Azure Monitor. An exhaustive list is below.  * Metric Alerts are available in two regions, Iowa and Virginia; default behavior is to create the metric alert in the same regions as the monitored resource. For Texas and Arizona, to create an autoscale setting on resources in these regions, please use ARM/Rest calls to specify the setting should be created in Iowa or Virginia.
+
+Services which have metrics and metric alerts available in Azure Goverment are:
+| Service | Service Status | Metrics Availability | Visible Via | Metric Alerts Availability |
+| --- | --- | --- | --- | --- |
+| App Service  | GA | Available | RP Blade & Dashboards | Available |
+| Azure Backup & Restore | - | Not Available in public cloud | - | - |
+| Azure IoT Hub | GA | Not Available | Not Available | Coming Soon |
+| Azure SQL | GA | Available | Available | Available |
+| Azure Storage (Classic) | GA | Available | Available | Available |
+| Cloud Services | GA | WAD Tables -> OMS | - | OMS Alerts |
+| Document DB | GA | Available | RP Blade & Dashboards | Available |   
+| Event Hub | GA | Available | Azure Monitor & Dashboards | Available |  
+| Storage Account (ARM) | GA | Available | RP Blade & Dashboards | Available |
+| Web App | GA | Available | RP Blade & Dashboards | Available |
+| Service Fabric | GA | WAD Tables -> OMS | - | OMS alerts |  
+| Virtual Machine/VMSS | GA | Available | Azure Monitor & Dashboards | Available |   
+| Classic Virtual Machine | GA | Not Available | Not Available | Coming Soon |
+| Stream Analytics | - | Not Available | - | - |
+| Redis Cache | GA | Available | RP Blade & Dashboards | Available | 
 
 ### Variations
 The following Site Recovery features are not currently available in Azure Government:
@@ -60,22 +93,7 @@ The following URLs for Site Recovery are different in Azure Government:
 | \*.hypervrecoverymanager.windowsazure.com | \*.hypervrecoverymanager.windowsazure.us | Access to the Site Recovery Service |
 | \*.backup.windowsazure.com  | \*.backup.windowsazure.us | Access to Protection Service |
 | \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | For storing the VM Snapshots |
-| http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
-
-
-## Monitor
-Azure Monitor is in public preview in Azure Government.
-
-For more information, see [Monitor commercial documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview).
-
-### Variations
-The following Monitor features are not currently available in Azure Government:
-
-* Metrics and Alerts
-* Diagnostic Logs
-* Autoscale
-* Action Groups
-
+| http
 
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
