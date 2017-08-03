@@ -130,7 +130,7 @@ If you are using a __domain-joined HDInsight cluster__, you must use the `kinit`
 
 For more information, see [Configure domain-joined HDInsight](hdinsight-domain-joined-configure.md).
 
-## Connect to head and edge nodes
+## Connect to nodes
 
 The head nodes and edge node (if there is one) can be accessed over the internet on ports 22 and 23.
 
@@ -151,6 +151,9 @@ The head nodes and edge node (if there is one) can be accessed over the internet
     # Connect to edge node
     ssh sshuser@edgnodename.clustername-ssh.azurehdinsight.net
     ```
+
+> [!IMPORTANT]
+> The previous examples assume that you are using password authentication, or that certificate authentication is occuring automatically. If you use an SSH key-pair for authentication, and the certificate is not used automatically, use the `-i` parameter to specify the private key. For example, `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
 
 Once connected, the prompt changes to indicate the SSH user name and the node you are connected to. For example, when connected to the primary head node as `sshuser`, the prompt is `sshuser@hn0-clustername:~$`.
 
