@@ -147,6 +147,8 @@ To permanently delete a key:
 az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 ```
 
+Note that purging a key will permanently delete it, meaning it will not be recoverable.
+
 The **recover** and **purge** actions have their own permissions associated in a key vault access policy. For a user or service principal to be able to execute a **recover** or **purge** action they must have the respective permission for that object (key or secret) in the key vault access policy. By default, the **purge** permission is not added to a key vault's access policy when the 'all' shortcut is used to grant all permissions to a user. You must explicitly grant **purge** permission. For example, the following command grants user@contoso.com permission to perform several operations on keys in *ContosoVault* including **purge**.
 
 #### Set a key vault access policy
@@ -184,9 +186,9 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
 az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
 ```
 
+Note that purging a secret will permanently delete it, meaning it will not be recoverable. 
+
 ## Purging and key vaults
-
-
 
 ### Key vault objects
 
@@ -199,6 +201,8 @@ When a key vault is purged, all of its contents, including keys, secrets, and ce
 az keyvault purge --location westus --name ContosoVault
 ```
 
+Note that purging a key vault will permanently delete it, meaning it will not be recoverable.
+
 ### Purge permissions required
 - To purge a deleted key vault, such that the vault and all its contents are permanently removed, the user needs RBAC permission to perform a *Microsoft.KeyVault/locations/deletedVaults/purge/action* operation. 
 - To list the deleted key, the vault a user needs RBAC permission to perform *Microsoft.KeyVault/deletedVaults/read* permission. 
@@ -207,6 +211,8 @@ az keyvault purge --location westus --name ContosoVault
 ### Scheduled purge
 
 Listing your deleted key vault objects shows when they are schedled to be purged by Key Vault. The *Scheduled Purge Date* field indicates when a key vault object will be permanently deleted, if no action is taken. By default, the retention period for a deleted key vault object is 90 days.
+
+Note that a purged vault object, triggered by its *Scheduled Purge Date* field, is permanently deleted. It is not recoverable.
 
 ## See also
 
