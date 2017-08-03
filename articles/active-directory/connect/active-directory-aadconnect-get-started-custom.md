@@ -276,7 +276,7 @@ The AD FS service requires a domain service account to authenticate users and lo
 If you selected Group Managed Service Account and this feature has never been used in Active Directory, you are prompted for Enterprise Admin credentials. These credentials are used to initiate the key store and enable the feature in Active Directory.
 
 > [!NOTE]
-> Azure AD Connect performs a check to detect if a duplicate SPN for the AD FS service. If a duplicate SPN is found, you will not be able to proceed further in the wizard till the duplicate SPN is removed.
+> Azure AD Connect performs a check to detect if the AD FS service is already registered as a SPN in the domain.  AD DS will not allow duplicate SPN’s to be registered at once.  If a duplicate SPN is found, you will not be able to proceed further until the SPN is removed.
 
 ![AD FS Service Account](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
 
