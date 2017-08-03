@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 08/03/2017
 ms.author: magoedte;banders
 
 ---
@@ -48,7 +48,7 @@ The following table outlines the Docker orchestration and operating system monit
 ### Supported Linux operating system
 
 - Docker 1.11 to 1.13
-- Docker CE and EE v17.03
+- Docker CE and EE v17.06
 
 The following x64 Linux distributions are supported as container hosts:
 
@@ -60,7 +60,7 @@ The following x64 Linux distributions are supported as container hosts:
 - CentOS 7.2 and 7.3
 - SLES 12
 - RHEL 7.2 and 7.3
-- OpenShift 3.4 and 3.5
+- Red Hat OpenShift Container Platform versions 3.4 and 3.5
 
 ### Supported Windows operating system
 
@@ -87,6 +87,7 @@ You can review the supported Docker and Linux operating system versions for your
 
 ### Container services
 
+- If you have a Red Hat OpenShift environment, learn more at [Configure an OMS agent for Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
 - If you have a Kubernetes cluster using the Azure Container Service, learn more at  [Monitor an Azure Container Service cluster with Microsoft Operations Management Suite (OMS)](../container-service/kubernetes/container-service-kubernetes-oms.md).
 - If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
 - If you have a Docker Swarm mode environment, learn more at [Configure an OMS agent for Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
@@ -147,16 +148,17 @@ There are three ways to add the OMS Agent to Red Hat OpenShift to start collecti
 
 In this section we cover the steps required to install the OMS Agent as an OpenShift daemon-set.  
 
-1. Copy the yaml file [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) from GitHub to your master node and modify the value <WSID> with your OMS Workspace ID and <KEY> with your Primary Key.   
-2. Sign on to the OpenShift master node and copy the yaml file.
-3. Run the following commands to create a project for OMS and set the user account.
+1. Sign on to the OpenShift master node and copy the yaml file [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) from GitHub to your master node and modify the value with your OMS Workspace ID and with your Primary Key.
+2. Run the following commands to create a project for OMS and set the user account.
+
     ```
-    oadm new-project omslogging --node-selector='zone=default'  
+    oadm new-project omslogging --node-selector='zone=default'
     oc project omslogging  
     oc create serviceaccount omsagent  
     oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
     oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
+
 4. To deploy the daemon-set, run the following: 
     
     `oc create -f ocp-omsagent.yaml`
@@ -185,9 +187,8 @@ In this section we cover the steps required to install the OMS Agent as an OpenS
 
 If you want to use secrets to secure your Log Analytics Workspace ID and Primary Key when using the OMS Agent daemon-set yaml file, perform the following steps.
 
-1. Copy the yaml file [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) and secret generating script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) from GitHub.  This script will generate the secrets yaml file for OMS Workspace ID and Primary Key to secure your secrete information.  
-2. Sign on to the OpenShift master node and copy the secret generating script and secret template file. The secret generating script asks for your OMS Workspace ID <WSID> and Primary Key <KEY> and upon completion, it creates the ocp-secret.yaml file.  
-3. Run the following commands to create a project for OMS and set the user account.
+1. Sign on to the OpenShift master node and copy the yaml file [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) and secret generating script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) from GitHub.  This script will generate the secrets yaml file for OMS Workspace ID and Primary Key to secure your secrete information.  
+2. Run the following commands to create a project for OMS and set the user account. The secret generating script asks for your OMS Workspace ID <WSID> and Primary Key <KEY> and upon completion, it creates the ocp-secret.yaml file.  
     
     ```
     oadm new-project omslogging --node-selector='zone=default'  
