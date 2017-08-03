@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 08/03/2017
 ms.author: magoedte;bwren
 
 ---
@@ -56,7 +56,7 @@ To restore your legacy workspace, go to **Settings** in your workspace and then 
 ![Restore legacy](media/log-analytics-log-search-upgrade/restore-legacy-b.png)
 
 ## How do I perform the upgrade?
-You can upgrade your workspace when you see the purple banner at the top of the portal.  Note that you can only perform the upgrade from the OMS portal, although the converted workspace will also be available in the Azure portal after the upgrade is complete.
+You can upgrade your workspace when you see the purple banner at the top of the portal.  
 
 1.	Start the upgrade process by clicking on the purple banner that says **Learn more and upgrade**.<br>![Upgrade 2](media/log-analytics-log-search-upgrade/upgrade-01a.png)<br>
 2.	Read through the additional information about the upgrade on the upgrade information page.<br>![Upgrade 2](media/log-analytics-log-search-upgrade/upgrade-03.png)<br>
