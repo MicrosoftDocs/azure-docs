@@ -29,7 +29,7 @@ As a current Azure CDN user with Verizon standard or premium profile, you are al
 Azure With this new feature, you can now view core analytics and save them into one or more destinations including:
 
  - Azure Storage account
- - Azure Event Hub
+ - Azure Event Hubs
  - [OMS Log Analytics repository](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
  This feature is available for all CDN endpoints belonging to Verizon (Standard & Premium) and Akamai (Standard) CDN Profiles.
