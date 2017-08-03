@@ -10,7 +10,7 @@ manager: mbaldwin
 ms.date: 08/03/2017
 
 ---
-# How to use Key Vault soft-delete using CLI
+# How to use Key Vault soft-delete with CLI
 
 Azure Key Vault's soft delete feature allows recovery of deleted vaults and vault objects. Specifically, soft-delete addresses the following scenarios:
 
