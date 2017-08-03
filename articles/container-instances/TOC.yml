@@ -29,6 +29,8 @@
     href: container-instances-multi-container-group.md
   - name: Managing state with Azure file shares
     href: container-instances-mounting-azure-files-volume.md
+  - name: Deploy from Azure Container Registry
+    href: container-instances-using-azure-container-registry.md
 - name: Reference
   items:
   - name: Azure CLI 2.0
