@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # What are alerts in Microsoft Azure?
-This article describes the various sources of alerts in Microsoft Azure, what the purpose of those alerts is, their benefits, and how to get started with using them. It specifically applies to Azure Monitor, but provides pointers to other services with alerts as well. Alerts offer a method of monitoring in Azure that allow you to configure conditions over data and become notified when the conditions match the latest monitoring data.
+This article describes the various sources of alerts in Microsoft Azure, what are the purposes for those alerts, their benefits, and how to get started with using them. It specifically applies to Azure Monitor, but provides pointers to other services with alerts as well. Alerts offer a method of monitoring in Azure that allow you to configure conditions over data and become notified when the conditions match the latest monitoring data.
 
 ## Taxonomy of Azure Alerts
 Azure uses the following terms to describe alerts and their functions:
@@ -30,12 +30,12 @@ Azure uses the following terms to describe alerts and their functions:
 * **Action** - a specific call sent to a receiver of a notification (for example, emailing an address or posting to a webhook URL). Notifications can usually trigger multiple actions.
 
 ## Alerts in different Azure services
-Alerts are available across several Azure monitoring services. For information on how and when to use these services, [see this article](./monitoring-overview.md) Here is a breakdown of the alert types available across Azure:
+Alerts are available across several Azure monitoring services. For information on how and when to use these services, [see this article](./monitoring-overview.md). Here is a breakdown of the alert types available across Azure:
 
 | Service | Alert type | Supported services | Description |
 |---|---|---|---|
 | Azure Monitor | [Metric alerts](./insights-alerts-portal.md) | [Supported metrics from Azure Monitor](./monitoring-supported-metrics.md) | Receive a notification when any platform-level metric meets a specific condition (for example, CPU % on a VM is greater than 90 for the past 5 minutes). |
-| Azure Monitor | [Activity Log alerts](./monitoring-activity-log-alerts.md) | All resource manager-based resource types | Receive a notification when any new event in the [Azure Activity Log](./monitoring-overview-activity-logs.md) matches specific conditions (for example, when a "Delete VM" operation occurs in  myProductionResourceGroup or when a new Service Health event with "Active" as the status appears). |
+| Azure Monitor | [Activity Log alerts](./monitoring-activity-log-alerts.md) | All resource types available in Azure Resource Manager | Receive a notification when any new event in the [Azure Activity Log](./monitoring-overview-activity-logs.md) matches specific conditions (for example, when a "Delete VM" operation occurs in myProductionResourceGroup or when a new Service Health event with "Active" as the status appears). |
 | Application Insights | [Metric alerts](../application-insights/app-insights-alerts.md) | Any application instrumented to send data to Application Insights | Receive a notification when any application-level metric meets a specific condition (for example, server response time is greater than 2 seconds). |
 | Application Insights | [Web test alerts](../application-insights/app-insights-monitor-web-app-availability.md) | Any website instrumented to send data to Application Insights | Receive a notification when availability or responsiveness of a website is below expectations. |
 | Log Analytics | [Log Analytics alerts](../log-analytics/log-analytics-alerts.md) | Any service configured to send data into Log Analytics | Receive a notification when a Log Analytics search query over metric and/or event data meets certain criteria. |
@@ -51,7 +51,7 @@ For Diagnostic Log data available through Azure Monitor, we suggest routing the 
 ![Alerts explained](./media/monitoring-overview-alerts/Alerts_Overview_Resource_v4.png)
 
 ## How do I receive a notification on an Azure Monitor alert?
-Historically, Azure alerts from different services used their own built-in notification methods. Going forwards, Azure Monitor offers a reusable notification grouping called Action Groups. Action Groups specify a set of receivers for a notification -- any number of email addresses, phone numbers (for SMS), or webhook URLs -- and any time an alert is activated that references the Action Group, all receivers receive that notification. This allows you to reuse a grouping of receivers (for example, your on call engineer list) across many alert objects. Currently, only Activity Log alerts make use of Action Groups, but several other Azure alert types are working on using Action Groups as well.
+Historically, Azure alerts from different services used their own built-in notification methods. Going forward, Azure Monitor offers a reusable notification grouping called Action Groups. Action Groups specify a set of receivers for a notification -- any number of email addresses, phone numbers (for SMS), or webhook URLs -- and any time an alert is activated that references the Action Group, all receivers receive that notification. This allows you to reuse a grouping of receivers (for example, your on call engineer list) across many alert objects. Currently, only Activity Log alerts make use of Action Groups, but several other Azure alert types are working on using Action Groups as well.
 
 Action Groups support notification by posting to a webhook URL in addition to email addresses and SMS numbers. This enables automation and remediation, for example, using:
     - Azure Automation Runbook
