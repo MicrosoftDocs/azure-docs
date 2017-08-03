@@ -1226,6 +1226,11 @@
             "redirect_document_id": false
         },
         {
+           "source_path": "articles/automation/automation-troubleshooting-hrw-runbook-terminates-suspended.md",
+           "redirect_url": "https://docs.microsoft.com/azure/automation/automation-troubleshooting-hybrid-runbook-worker",
+           "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-portal/resource-group-portal.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-portal",
             "redirect_document_id": false
@@ -2456,6 +2461,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/hdinsight/hdinsight-storm-iot-eventhub-documentdb.md",
+            "redirect_url": "https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/documentdb/documentdb-automation-region-management.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/cli-samples",
             "redirect_document_id": false
@@ -3088,11 +3098,6 @@
         {
             "source_path": "articles/mobile-engagement/mobile-engagement-send-personalized-notifications.md",
             "redirect_url": "/azure/mobile-engagement/mobile-engagement-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/operations-management-suite/oms-security-web-baseline.md",
-            "redirect_url": "https://www.microsoft.com/cloud-platform/security-and-compliance",
             "redirect_document_id": false
         },
         {
@@ -8307,8 +8312,7 @@
         {
             "source_path": "articles/active-directory/active-directory-reporting-getting-started.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
-            "redirect_document_id": false
-        },                                    
+            "redirect_document_id": false        },                                    
         {
             "source_path": "articles/active-directory/active-directory-view-access-usage-reports.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
@@ -8338,6 +8342,66 @@
             "source_path": "articles/storage/storage-cannot-delete-storage-account-container-vhd.md",
             "redirect_url": "/azure/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd",
             "redirect_document_id": false
-        }                                               
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-deploy-container.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers",
+            "redirect_document_id": false
+        },
+	{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-azcopy.md",
+            "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-load",
+            "redirect_document_id": false
+        },
+	{
+            "source_path": "articles/application-insights/app-insights-analytics-reference.md",
+            "redirect_url": "https://docs.loganalytics.io/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-quickstart-deploy.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vs-azure-tools-storage-explorer-relnotes-0-8-7.md",
+            "redirect_url": "/azure/vs-azure-tools-storage-explorer-relnotes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/secure-email-introduction.md",
+            "redirect_url": "https://docs.microsoft.com/microsoft-365-enterprise/microsoft-365-policies-configurations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/secure-email-recommended-policies.md",
+            "redirect_url": "https://docs.microsoft.com/microsoft-365-enterprise/secure-email-recommended-policies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/secure-email-deploy-recommended-policies.md",
+            "redirect_url": "https://docs.microsoft.com/microsoft-365-enterprise/secure-email-deploy-recommended-policies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/secure-email-ems-office365-service-descriptions.md",
+            "redirect_url": "https://docs.microsoft.com/microsoft-365-enterprise",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/media-services/media-services-manage-with-powershell.md",
+            "redirect_url": "https://docs.microsoft.com/powershell/module/azurerm.media/?view=azurermps-4.2.0",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vpn-gateway/vpn-gateway-site-to-site-create.md",
+            "redirect_url": "azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md",
+            "redirect_url": "azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic",
+            "redirect_document_id": false
+        }
     ]
 }

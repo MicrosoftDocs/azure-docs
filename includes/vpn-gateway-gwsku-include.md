@@ -14,7 +14,7 @@ Due to the differences in SLAs and feature sets, we recommend the following SKUs
 | **Dev-test or proof of concept**   | Basic                  |
 |                                    |                        |
 
-If you are using the old SKUs, the production SKU recommendations are Standard and HighPerformance SKUs. For information on the old SKUs, see [Gateway SKUs (old)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+If you are using the old SKUs, the production SKU recommendations are Standard and HighPerformance SKUs. For information on the old SKUs, see [Gateway SKUs (legacy SKUs)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
 
 ###  <a name="feature"></a>Gateway SKU feature sets
 
