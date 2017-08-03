@@ -132,7 +132,7 @@ Custom probes do not support wildcard or regex on response data.
 
 **Q. How are rules processed?**
 
-Rules are processed in the order they are configured. It is recommended that multi-site rules are configured before basic rules. By configuring multi-site listeners first, this configuration reduces the chance that traffic is routed to the inappropriate backend. This routing issue can occur as the basic rule would match traffic based on port prior to the multi-site rule being evaluated.
+Rules are processed in the order they are created. It is recommended that multi-site rules are configured before basic rules. By configuring multi-site listeners first, this configuration reduces the chance that traffic is routed to the inappropriate backend. This routing issue can occur as the basic rule would match traffic based on port prior to the multi-site rule being evaluated.
 
 **Q. What does the Host field for custom probes signify?**
 

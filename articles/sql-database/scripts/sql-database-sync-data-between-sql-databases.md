@@ -116,8 +116,8 @@ New-AzureRmSqlSyncGroup   -ResourceGroupName $ResourceGroupName `
                             -DatabaseCredential $Credential
 
 # Use this section if it is safe to show password in the script.
-#$User = "cloudsa"
-#$Password = ConvertTo-SecureString -String "Yukon900Yukon900" -AsPlainText -Force
+#$User = "user"
+#$Password = ConvertTo-SecureString -String "password" -AsPlainText -Force
 #$Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $User, $Password
 
 $Credential = $Host.ui.PromptForCredential("Need credential", 

@@ -23,6 +23,7 @@ ms.author: gwallace
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-create-url-route-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
+> * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
 
 URL Path-based routing enables you to associate routes based on the URL path of Http request. It checks if there is a route to a back-end pool configured for the URL listed in the Application Gateway and sends the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
 
@@ -56,15 +57,15 @@ The second section of the **Add path-based rule** blade is where you define the 
 
 **Basic Settings**
 
-* **Name** - This is a friendly name to the rule that is accessible in the portal.
-* **Listener** - This is the listener that is used for the rule.
+* **Name** - This value is a friendly name to the rule that is accessible in the portal.
+* **Listener** - This value is the listener that is used for the rule.
 * **Default backend pool** - This setting is the setting that defines the back-end to be used for the default rule
 * **Default HTTP settings** - This setting is the setting that defines the HTTP settings to be used for the default rule.
 
 **Path-based rules**
 
-* **Name** - This is a friendly name to path-based rule.
-* **Paths** - This setting defines the path the rule will look for when forwarding traffic
+* **Name** - This value is a friendly name to path-based rule.
+* **Paths** - This setting defines the path the rule looks for when forwarding traffic
 * **Backend Pool** - This setting is the setting that defines the back-end to be used for the rule
 * **HTTP setting** - This setting is the setting that defines the HTTP settings to be used for the rule.
 
@@ -73,15 +74,15 @@ The second section of the **Add path-based rule** blade is where you define the 
 
 ![Add path-based rule blade with information filled out][2]
 
-Adding a path-based rule to an existing application gateway is an easy process through the portal. Once a path-based rule has been created, it can be edited to add additional rules easily. 
+Adding a path-based rule to an existing application gateway is an easy process through the portal. After a path-based rule has been created, it can be edited to add additional rules. 
 
 ![adding additional path-based rules][3]
 
-This configures a path based route. It is important to understand that requests are not re-written, as requests come in application gateway inspects the request and basic on the url pattern sends the request to the appropriate back-end.
+This step configures a path-based route. It is important to understand that requests are not rewritten, as requests come in application gateway inspects the request and basic on the url pattern sends the request to the appropriate back-end.
 
 ## Next steps
 
-To learn how to configure SSL Offloading with Azure Application Gateway see [Configure SSL Offload](application-gateway-ssl-portal.md)
+To learn how to configure SSL Offloading with Azure Application Gateway, see [Configure SSL Offload](application-gateway-ssl-portal.md)
 
 [1]: ./media/application-gateway-create-url-route-portal/figure1.png
 [2]: ./media/application-gateway-create-url-route-portal/figure2.png
