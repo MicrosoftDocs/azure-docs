@@ -94,7 +94,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, out object taskDoc
     taskDocument = new {
         name = name,
         duedate = duedate.ToString(),
-         task = task
+        task = task
     };
 
     if (name != "" && task != "") {
