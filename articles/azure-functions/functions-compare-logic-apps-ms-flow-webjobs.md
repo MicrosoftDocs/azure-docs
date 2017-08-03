@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/08/2016
+ms.date: 08/03/2017
 ms.author: chrande; glenga
 ms.custom: mvc
 ---
@@ -92,15 +92,15 @@ The following table summarizes the differences between Functions and WebJobs:
 | Pricing |Pay-per-use or part of App Service plan |Part of App Service plan |
 | Run-type |triggered, scheduled (by timer trigger) |triggered, continuous, scheduled |
 | Trigger events |[timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage.md) |[Azure Storage](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Azure Service Bus](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
-| In-browser development |x | |
-| Window scripting |experimental |x |
-| PowerShell |experimental |x |
-| C# |x |x |
-| F# |x | |
-| Bash |experimental |x |
-| PHP |experimental |x |
-| Python |experimental |x |
-| JavaScript |x |x |
+| In-browser development |supported | not supported |
+| Window scripting |experimental |supported |
+| PowerShell |experimental |supported |
+| C# |supported |supported |
+| F# |supported |not supported |
+| Bash |experimental |supported |
+| PHP |experimental |supported |
+| Python |experimental |supported |
+| JavaScript |supported |supported |
 
 Whether to use Functions or WebJobs ultimately depends on what you're already doing with App Service. If you have an App Service 
 app for which you want to run code snippets, and you want to manage them together in the same DevOps environment, you 
