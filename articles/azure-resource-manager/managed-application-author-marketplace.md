@@ -18,7 +18,7 @@ ms.author: gauravbh; tomfitz
 
  MSPs, ISVs, and system integrators (SIs) can use Azure managed applications to offer their solutions to all Azure Marketplace customers. Such solutions reduce the maintenance and servicing overhead for customers. Publishers can sell infrastructure and software through the Marketplace. They can attach services and operational support to managed applications. For more information, see [Managed application overview](managed-application-overview.md).
 
-This article explains how an MSP, ISV, or SI can publish an application to the Marketplace and make it broadly available to customers.  
+This article explains how an MSP, ISV, or SI can publish an application to the Marketplace and make it broadly available to customers.
 
 ## Prerequisites for publishing a managed application
 
@@ -193,7 +193,7 @@ Obtain the package **Version**, as shown in the following image:
 
 This package should contain any other nested templates or scripts that are required to successfully provision this application. The mainTemplate.json, applianceMainTemplate.json, and applianceCreateUIDefinition.json must be present at the root folder.
 
-* **Authorizations**: This property defines who gets access and the level of access to the resources in customers' subscriptions. It enables the publisher to manage the application on behalf of the customer.
+* **Authorizations**: This property defines who gets access and the level of access to the resources in customers' subscriptions. The publisher can use it to manage the application on behalf of the customer.
 * **PrincipalId**: This property is the Azure Active Directory (Azure AD) identifier of a user, user group, or application that's granted certain permissions (as described by the Role Definition) on the resources in the customer's subscription.
 * **Role Definition**: This property is a list of all the built-in Role-Based Access Control (RBAC) roles provided by Azure AD. You can select the role that's most appropriate to use to manage the resources on behalf of the customer.
 
