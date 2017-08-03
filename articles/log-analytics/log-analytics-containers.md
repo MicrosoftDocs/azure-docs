@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 08/01/2017
 ms.author: banders
 
 ---
@@ -27,6 +27,49 @@ With the solution, you can see which containers are running on your container ho
 The following diagram shows the relationships between various container hosts and agents with OMS.
 
 ![Containers diagram](./media/log-analytics-containers/containers-diagram.png)
+
+## System requirements
+Before starting, review the following details to verify you meet the prerequisites.
+
+### Container monitoring solution support for Docker Orchestrator and OS platform 
+The following table outlines the Docker orchestration and operating system monitoring support of container inventory, performance, and logs with Log Analytics.   
+
+| | ACS | Linux | Windows | Container<br>Inventory | Image<br>Inventory | Node<br>Inventory | Container<br>Performance | Container<br>Event | Event<br>Log | Container<br>Log | 
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| Kubernetes | Yes | Yes | | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+| Mesosphere<br>DC/OS | Yes | Yes | | Yes | Yes | Yes | Yes| Yes | Yes | Yes | 
+| Docker<br>Swarm | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | | Yes |
+| Service<br>Fabric | | | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+| Red Hat Open<br>Shift | | Yes | | Yes | Yes| Yes | Yes | Yes | | Yes | 
+| Windows Server<br>(standalone) | | | Yes | Yes | Yes | Yes | Yes | Yes | | Yes |
+| Linux Server<br>(standalone) | | Yes | | Yes | Yes | Yes | Yes | Yes | | Yes |
+
+
+### Supported Linux operating system
+
+- Docker 1.11 thru 1.13
+- Docker CE and EE v17.03
+
+The following x64 Linux distributions are supported as container hosts:
+
+- Ubuntu 14.04 LTS, 16.04 LTS
+- CoreOS(stable)
+- Amazon Linux 2016.09.0
+- openSUSE 13.2
+- openSUSE LEAP 42.2
+- CentOS 7.2, 7.3
+- SLES 12
+- RHEL 7.2, 7.3
+
+### Supported Windows operating system
+
+- Windows Server 2016
+- Windows 10 Anniversary Edition (Professional or Enterprise)
+
+### Docker versions supported on Windows
+
+- Docker 1.12 – 1.13
+- Docker 17.03.0 
 
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
@@ -51,7 +94,7 @@ You can review the supported Docker and Linux operating system versions for your
 - Review the [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) article for additional information about how to install and configure your Docker Engines on computers running Windows.
 
 > [!IMPORTANT]
-> Docker must be running **before** you install the [OMS Agent for Linux](log-analytics-linux-agents.md) on your container hosts. If you've already installed the agent before installing Docker, you'll need to reinstall the OMS Agent for Linux. For more information about Docker, see the [Docker website](https://www.docker.com).
+> Docker must be running **before** you install the [OMS Agent for Linux](log-analytics-agent-linux.md) on your container hosts. If you've already installed the agent before installing Docker, you'll need to reinstall the OMS Agent for Linux. For more information about Docker, see the [Docker website](https://www.docker.com).
 >
 >
 
@@ -59,30 +102,12 @@ You need the following settings configured on your container hosts before you ca
 
 ## Linux container hosts
 
-Supported Linux versions:
-
-- Docker 1.11 thru 1.13
-- Docker CE and EE v17.03
-
-
-The following x64 Linux distributions are supported as container hosts:
-
-- Ubuntu 14.04 LTS, 16.04 LTS
-- CoreOS(stable)
-- Amazon Linux 2016.09.0
-- openSUSE 13.2
-- openSUSE LEAP 42.2
-- CentOS 7.2, 7.3
-- SLES 12
-- RHEL 7.2, 7.3
-
-
-After you've installed Docker, use the following settings for your container host to configure the agent for use with Docker. You'll need your [OMS workspace ID and key](log-analytics-linux-agents.md).
+After you've installed Docker, use the following settings for your container host to configure the agent for use with Docker. You'll need your [OMS workspace ID and key](log-analytics-agent-linux.md).
 
 
 ### For all Linux container hosts except CoreOS
 
-- Follow the instructions at  [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md).
+- For more information and steps on how to install the OMS Agent for Linux, see  [Connect your Linux Computers to Operations Management Suite (OMS)](log-analytics-agent-linux.md).
 
 ### For all Linux container hosts including CoreOS
 
@@ -102,7 +127,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 
 ### Switching from using an installed Linux agent to one in a container
-If you previously used the directly-installed agent and want to instead use an agent running in a container, you must first remove OMSAgent. See [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md).
+If you previously used the directly-installed agent and want to instead use an agent running in a container, you must first remove the OMS Agent for Linux. See [Uninstalling the OMS Agent for Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux).
 
 ### Configure an OMS agent for Docker Swarm
 
@@ -248,16 +273,6 @@ KEY:    88 bytes
 
 
 ## Windows container hosts
-
-Supported Windows versions:
-
-- Windows Server 2016
-- Windows 10 Anniversary Edition (Professional or Enterprise)
-
-### Docker versions supported on Windows
-
-- Docker 1.12 – 1.13
-- Docker 17.03.0 [stable]
 
 ### Preparation before installing Windows agents
 
@@ -420,7 +435,10 @@ That shows the list of performance metrics that are collected for an individual 
 ## Example log search queries
 It's often useful to build queries starting with an example or two and then modifying them to fit your environment. As a starting point, you can experiment with the **Notable Queries** blade to help you build more advanced queries.
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ![Containers queries](./media/log-analytics-containers/containers-queries.png)
+
 
 ## Saving log search queries
 Saving queries is a standard feature in Log Analytics. By saving them, you'll have those that you've found useful handy for future use.

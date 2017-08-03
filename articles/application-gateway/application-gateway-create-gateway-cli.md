@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: gwallace
 
 ---
@@ -51,11 +51,8 @@ In this scenario, you learn how to create an application gateway using the Azure
 This scenario will:
 
 * Create a medium application gateway with two instances.
-* Create a virtual network named AdatumAppGatewayVNET with the address space 10.0.0.0/16.
-* Create a subnet called Appgatewaysubnet with the address space 10.0.0.0/28.
-* Configure a certificate for SSL offload.
-
-![Scenario example][scenario]
+* Create a virtual network named AdatumAppGatewayVNET with a reserved CIDR block of 10.0.0.0/16.
+* Create a subnet called Appgatewaysubnet that uses 10.0.0.0/28 as its CIDR block.
 
 > [!NOTE]
 > Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
@@ -140,7 +137,7 @@ az network application-gateway create \
 > [!NOTE]
 > For a list of parameters that can be provided during creation run the following command: `az network application-gateway create --help`.
 
-This example creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. It also configures SSL offload. You can modify these settings to suit your deployment once the provisioning is successful.
+This example creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. You can modify these settings to suit your deployment once the provisioning is successful.
 If you already have your web application defined with the backend pool in the preceding steps, once created, load balancing begins.
 
 ## Get application gateway DNS name
