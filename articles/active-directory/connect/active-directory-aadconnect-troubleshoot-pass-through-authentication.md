@@ -107,6 +107,18 @@ Ensure that the server on which Azure AD Connect is installed can communicate wi
 
 Ensure that you use a cloud-only Global Administrator account when enabling the feature. There is a known issue with multi-factor authentication (MFA)-enabled Global Administrator accounts; turn off MFA temporarily (only to complete the operation) as a workaround.
 
+## Exchange ActiveSync configuration issues
+
+These are common issues you could face when you try to [configure Exchange ActiveSync support for Pass-through Authentication](active-directory-aadconnect-pass-through-authentication-exchange-activesync.md) on your tenant.
+
+### Exchange PowerShell issue
+
+If you see the "TBD" error when you run the `Set-OrganizationConfig` Exchange PowerShell command, contact Microsoft Support.
+
+### Exchange ActiveSync not working
+
+The configuration takes some time to take effect. Test again after some time. If the situation persists, contact Microsoft Support.
+
 ## Collecting Pass-through Authentication Agent logs
 
 Depending on the type of issue you may have, you need to look in different places for Pass-through Authentication Agent logs.
