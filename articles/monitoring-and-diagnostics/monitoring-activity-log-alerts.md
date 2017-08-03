@@ -39,7 +39,7 @@ You can configure an Activity Log alert based on any top-level property in the J
 - **Event initiated by** - Also known as the "caller." The email address or Active Directory identifier of the user who performed the operation.
 
 >[!NOTE]
->You must specify at least two of the above criteria in your alert, with one being the category. You may not create an alert that activates every time an event is created in the Activity Logs.
+>You must specify at least two of the preceding criteria in your alert, with one being the category. You may not create an alert that activates every time an event is created in the Activity Logs.
 >
 >
 
@@ -68,31 +68,31 @@ You can learn more about Activity Log Alerts for service health notifications [h
 
 7.	Choose the **Resource Group** in which this alert resource will be created. Note that this is not the resource group that will be monitored *by* the alert, but rather the resource group where the *alert resource itself will be deployed.*
 
-8.	Optionally select an **Event Category**, which modifies the set of additional filters shown. For Administrative events, this  includes options to filter by **Resource Group**, **Resource**, **Resource Type**, **Operation Name**, **Level**, **Status** and **Event initiated by** values to identify which events this alert should monitor.
+8.	Optionally select an **Event Category**, which modifies the set of additional filters shown. For Administrative events, this  includes options to filter by **Resource Group**, **Resource**, **Resource Type**, **Operation Name**, **Level**, **Status**, and **Event initiated by** values to identify which events this alert should monitor.
 
 >[!NOTE]
->You must specify at least one of the above criteria in your alert. You may not create an alert that activates every time an event is created in the Activity Logs.
+>You must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the Activity Logs.
 >
 >
 
-9.	Create a **New** Action Group by giving it **Name** and **Short Name**; the short name will be referenced in the notifications sent when this alert is activated.
+9.	Create a **New** Action Group by giving it **Name** and **Short Name**; the short name is referenced in the notifications sent when this alert is activated.
 
 10.	Then, define a list of actions by providing the action’s
 
-    a. **Name:** Action’s name, alias or identifier.
+    a. **Name:** Action’s name, alias, or identifier.
 
     b. **Action Type:** Choose the action type: SMS, Email, or Webhook
 
-    c. **Details:** Based on the action type chosen, provide a phone number, email address or webhook URI.
+    c. **Details:** Based on the action type chosen, provide a phone number, email address, or webhook URI.
 
 11.	Select **OK** when done to create the alert.
 
-The alert will take a few minutes to fully propagate, after which time it will become active and trigger when new events match the alert's criteria.
+The alert will take a few minutes to fully propagate, and then become active and trigger when new events match the alert's criteria.
 
 [See this document for details on the webhook schema for Activity Log alerts](monitoring-activity-log-alerts-webhook.md).
 
 >[!NOTE]
->The action group defined in these steps will be reusable, as an existing action group, for all future alert definition.
+>The action group defined in these steps is reusable, as an existing action group, for all future alert definition.
 >
 >
 
@@ -115,13 +115,13 @@ The alert will take a few minutes to fully propagate, after which time it will b
     ![Add-Alert-Existing-Action-Group](./media/monitoring-activity-log-alerts/activity-log-alert-existing-action-group.png)
 7.	Choose the **Resource Group** in which this alert resource will be created. Note that this is not the resource group that will be monitored *by* the alert, but rather the resource group where the *alert resource itself will be deployed.*
 
-8.	Optionally select an **Event Category**, which modifies the set of additional filters shown. For Administrative events, this  includes options to filter by **Resource Group**, **Resource**, **Resource Type**, **Operation Name**, **Level**, **Status** and **Event initiated by** values to identify which events this alert should monitor.
+8.	Optionally select an **Event Category**, which modifies the set of additional filters shown. For Administrative events, this  includes options to filter by **Resource Group**, **Resource**, **Resource Type**, **Operation Name**, **Level**, **Status**, and **Event initiated by** values to identify which events this alert should monitor.
 
 9.	Choose to **Notify Via** an **Existing action group**. Select an existing Action Group from the list.
 
 10.	Select **OK** when done to create the alert.
 
-The alert will take a few minutes to fully propagate, after which time it will become active and trigger when new events match the alert's criteria.
+The alert will take a few minutes to fully propagate, and then become active and trigger when new events match the alert's criteria.
 
 ## Managing your alerts
 
