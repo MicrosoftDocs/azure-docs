@@ -122,7 +122,7 @@ For extended events there are additional DMVs that are common to both Azure SQL 
 
 You can run a simple SQL **SELECT** to obtain a list of the available events, actions, and target.
 
-```tsql
+```sql
 SELECT
         o.object_type,
         p.name         AS [package_name],
