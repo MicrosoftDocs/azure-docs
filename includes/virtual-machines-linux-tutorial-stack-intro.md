@@ -1,6 +1,38 @@
-## Before you begin
+## Create a resource group
 
-To complete the example in this tutorial, you must have an existing Ubuntu Linux virtual machine (the 'L' in the LAMP stack). If needed, this [script sample](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed. 
+Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+
+The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+
+```azurecli-interactive 
+az group create --name myResourceGroup --location eastus
+```
+
+## Create virtual machine
+
+Create a VM with the [az vm create](/cli/azure/vm#create) command. 
+
+The following example creates a VM named *myVM* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
+
+```azurecli-interactive 
+az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
+```
+
+When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAddress`. This address is used to access the VM.
+
+```azurecli-interactive 
+{
+  "fqdns": "",
+  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "location": "eastus",
+  "macAddress": "00-0D-3A-23-9A-49",
+  "powerState": "VM running",
+  "privateIpAddress": "10.0.0.4",
+  "publicIpAddress": "40.68.254.142",
+  "resourceGroup": "myResourceGroup"
+}
+```
+
 
 
 ## Open port 80 for web traffic 
