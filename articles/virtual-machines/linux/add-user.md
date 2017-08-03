@@ -74,7 +74,7 @@ One of the first and most common task with a new server is to add a user account
 Using the command `useradd` we are adding user accounts to the Linux VM.  Running `useradd` modifies `/etc/passwd`, `/etc/shadow`, `/etc/group`, and `/etc/gshadow`.  We are adding a command-line flag to the `useradd` command to also add the new user to the proper sudo group on Linux.  Even thou `useradd` creates an entry into `/etc/passwd` it does not give the new user account a password.  We are creating an initial password for the new user using the simple `passwd` command.  The last step is to modify the sudo rules to allow that user to execute commands with sudo privileges without having to enter a password for every command.  Logging in using the Private key we are assuming that user account is safe from bad actors and are going to allow sudo access without a password.  
 
 ### Adding a single sudo user to an Azure VM
-Log in to the Azure VM using SSH keys.  If you have not setup SSH public key access, complete this article first [Using Public Key Authentication with Azure](http://link.to/article).  
+Log in to the Azure VM using SSH keys.  If you have not setup SSH public key access, complete this article first [Using Public Key Authentication with Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 The `useradd` command completes the following tasks:
 

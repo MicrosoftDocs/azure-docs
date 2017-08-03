@@ -38,7 +38,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create VM
 
-To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](/cli/azure/gropu#create). The following example creates a resource group named *myResourceGroupMonitor* in the *eastus* location.
+To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupMonitor* in the *eastus* location.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupMonitor --location eastus

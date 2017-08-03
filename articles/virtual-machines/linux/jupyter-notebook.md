@@ -232,7 +232,7 @@ environment that includes an advanced editor with IntelliSense, debugging,
 profiling and parallel computing integration.
 
 ## Next steps
-For more information, see the [Python Developer Center](/develop/python/).
+For more information, see the [Python Developer Center](/python/azure).
 
 [portal-vm-linux]: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [repository]: https://github.com/ipython/ipython

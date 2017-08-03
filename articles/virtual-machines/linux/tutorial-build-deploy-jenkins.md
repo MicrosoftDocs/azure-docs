@@ -210,7 +210,7 @@ The **Azure Resource Group Deployment** task is used to create the deployment gr
 
 * **Enable prerequisites**: `Configure with Deployment Group agent`
 
-* **TFS/VSTS endpoint**: Choose **Add** and, in the "Add new Team Foundation Server/Team Services Connection" dialog, select **Token Based Authentication**. Enter a name of the connection and the URL of your team project. Then generate and enter a [Personal Access Token (PAT)]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate.md) to authenticate the connection to your team project.
+* **TFS/VSTS endpoint**: Choose **Add** and, in the "Add new Team Foundation Server/Team Services Connection" dialog, select **Token Based Authentication**. Enter a name of the connection and the URL of your team project. Then generate and enter a [Personal Access Token (PAT)]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) to authenticate the connection to your team project.
 
   ![Create a Personal Access Token](media/tutorial-build-deploy-jenkins/create-a-pat.png)
 
@@ -281,4 +281,4 @@ In this tutorial, you automated the deployment of an app to Azure using Jenkins 
 Follow this link to see pre-built virtual machine script samples.
 
 > [!div class="nextstepaction"]
-> [Linux virtual machine script samples](https://github.com/MicrosoftDocs/azure-docs-pr/pull/cli-samples.md)
+> [Linux virtual machine script samples](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/virtual-machine)
