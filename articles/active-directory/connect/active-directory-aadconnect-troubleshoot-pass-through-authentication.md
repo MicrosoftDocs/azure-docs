@@ -117,7 +117,7 @@ If you see the "TBD" error when you run the `Set-OrganizationConfig` Exchange Po
 
 ### Exchange ActiveSync not working
 
-The configuration takes some time to take effect. Test again after some time. If the situation persists, contact Microsoft Support.
+The configuration takes some time to take effect - the time period depends on your environment. If the situation persists for a long time, contact Microsoft Support.
 
 ## Collecting Pass-through Authentication Agent logs
 
