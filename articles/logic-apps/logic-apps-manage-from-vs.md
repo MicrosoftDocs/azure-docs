@@ -22,13 +22,13 @@ ms.author: LADocs; klam
 
 Although the [Azure portal](https://portal.azure.com/) 
 offers a great way for you to design and manage Azure Logic Apps, 
-you can use Visual Studio Cloud Explorer to manage many Azure assets, 
-including logic apps. The Visual Studio Cloud Explorer lets you browse, 
+you can use Visual Studio Cloud Explorer for managing many Azure assets, 
+including logic apps. Visual Studio Cloud Explorer lets you browse, 
 manage, edit, and download published logic apps. 
 Management tasks include enable, disable, and view run history. 
 
-To install and configure Visual Studio tools for Azure Logic Apps, 
-follow these steps.
+Before you can access and manage your logic apps in Visual Studio, 
+install and configure these Visual Studio tools for Azure Logic Apps. 
 
 ## Prerequisites
 
@@ -39,12 +39,9 @@ follow these steps.
 
 ## Install Visual Studio tools for Logic Apps
 
-After you install the prerequisites, follow these steps to install Azure Logic Apps Tools for Visual Studio from the Visual Studio Gallery.
-
-> [!NOTE]
-> You can also download Azure Logic Apps Tools 
-> for Visual Studio directly from the 
-> [Visual Studio Marketplace](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9).
+After you install the prerequisites, follow these steps 
+for downloading and installing the Azure Logic Apps Tools 
+for Visual Studio from the Visual Studio Gallery.
 
 1. Open Visual Studio. On the **Tools** menu, 
 select **Extensions and Updates**.
@@ -53,6 +50,11 @@ select **Extensions and Updates**.
 you find **Azure Logic Apps Tools for Visual Studio**.
 4. To download and install the extension, click **Download**.
 5. Restart Visual Studio after installation.
+
+> [!NOTE]
+> To download the Azure Logic Apps Tools 
+> for Visual Studio directly, go to the 
+> [Visual Studio Marketplace](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9).
 
 ## Browse for logic apps in Cloud Explorer
 
