@@ -65,9 +65,9 @@ We recommend that you verify the properties of the source server before you run 
 2. In the **Replicated item** pane, you can see a summary of machine information, health status, and the latest available recovery points. Click **Properties** to view more details.
 3. In **Compute and Network**, you can:
     - Modify the Azure VM name. The name must meet [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-    - Specify a post-failover [resource group](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md)
+    - Specify a post-failover [resource group].
     - Specify a target size for the Azure VM
-    - Select an [availability set](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+    - Select an [availability set](../virtual-machines/windows/tutorial-availability-sets.md).
     - Specify whether to use [managed disks](#managed-disk-considerations). Select **Yes**, if you want to attach managed disks to your machine on migration to Azure.
     - View or modify network settings, including the network/subnet in which the Azure VM will be located after failover, and the IP address that will be assigned to it.
 4. In **Disks**, you can see information about the operating system and data disks on the VM.
