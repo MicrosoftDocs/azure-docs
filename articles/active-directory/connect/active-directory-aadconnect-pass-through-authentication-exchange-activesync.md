@@ -28,7 +28,7 @@ This article is for customers who want Exchange ActiveSync support with Azure AD
 
 If you face issues during set up, read our [troubleshooting guide](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#exchange-activesync-configuration-issues) for next steps.
 
-### Configuration 1: I have Exchange mailboxes and I am enabling Pass-through Authentication as my Azure AD sign-in method
+## Configuration 1: I have Exchange mailboxes and I am enabling Pass-through Authentication as my Azure AD sign-in method
 
 1. Use [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) to run the following command:
 ```
@@ -46,7 +46,7 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 
 At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication. Wait at least an hour before you test Exchange ActiveSync.
 
-### Configuration 2: I have Exchange mailboxes and I am switching from AD FS to Pass-through Authentication as my Azure AD sign-in method
+## Configuration 2: I have Exchange mailboxes and I am switching from AD FS to Pass-through Authentication as my Azure AD sign-in method
 
 1. Use [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) to run the following command:
 ```
@@ -64,7 +64,7 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 
 At this stage, your tenant is correctly configured for Exchange ActiveSync support with Pass-through Authentication.
 
-### Configuration 3: I already have Pass-through Authentication as my Azure AD sign-in method, and I am now setting up Exchange mailboxes
+## Configuration 3: I already have Pass-through Authentication as my Azure AD sign-in method, and I am now setting up Exchange mailboxes
 
 1. Use [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) to run the following command:
 ```
