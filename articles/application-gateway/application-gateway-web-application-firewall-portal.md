@@ -106,22 +106,22 @@ This scenario will:
 
    ![blade showing basic settings][2-2]
 
-1. In the **Settings** blade that appears under **Virtual network**, click **Choose a virtual network**. This opens enter the **Choose virtual network** blade.  Click **Create new** to open the **Create virtual network** blade.
+1. In the **Settings** blade that appears under **Virtual network**, click **Choose a virtual network**. This step opens enter the **Choose virtual network** blade.  Click **Create new** to open the **Create virtual network** blade.
 
    ![choose a virtual network][2]
 
-1. On the **Create virtual network blade** enter the following values, then click **OK**. This closes the **Create virtual network** and **Choose virtual network** blades. This populates the **Subnet** field on the **Settings** blade with the subnet chosen.
+1. On the **Create virtual network blade** enter the following values, then click **OK**. This step closes the **Create virtual network** and **Choose virtual network** blades. This populates the **Subnet** field on the **Settings** blade with the subnet chosen.
 
    |**Setting** | **Value** | **Details** |
    |---|---|---|
    |**Name**|AdatumAppGatewayVNET|Name of the application gateway|
-   |**Address Space**|10.0.0.0/16| This is the address space for the virtual network|
+   |**Address Space**|10.0.0.0/16| This value is the address space for the virtual network|
    |**Subnet name**|AppGatewaySubnet|Name of the subnet for the application gateway|
    |**Subnet address range**|10.0.0.0/28 | This subnet allows more additional subnets in the virtual network for backend pool members|
 
-1. On the **Settings** blade under **Frontend IP configuration** choose **Public** as the **IP address type**
+1. On the **Settings** blade under **Frontend IP configuration**, choose **Public** as the **IP address type**
 
-1. On the **Settings** blade under **Public IP address** click **Choose a public IP address**, this opens the **Choose public IP address** blade, click **Create new**.
+1. On the **Settings** blade under **Public IP address**, click **Choose a public IP address**, this step opens the **Choose public IP address** blade, click **Create new**.
 
    ![choose public ip][3]
 
