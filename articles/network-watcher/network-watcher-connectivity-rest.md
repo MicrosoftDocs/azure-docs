@@ -1,6 +1,6 @@
 ---
-title: Check connectivity with Azure Network Watcher - Azure REST API | Microsoft Docs
-description: This page explains how to check connectivity with Network Watcher using Azure REST API
+title: Check connectivity with Azure Network Watcher - Azure portal | Microsoft Docs
+description: This page explains how to check connectivity with Network Watcher in the Azure portal
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 07/11/2017
+ms.date: 08/02/2017
 ms.author: gwallace
 ---
 
-# Check connectivity with Azure Network Watcher using Azure REST API
+# Check connectivity with Azure Network Watcher using the Azure portal
 
 > [!div class="op_single_selector"]
+> - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
