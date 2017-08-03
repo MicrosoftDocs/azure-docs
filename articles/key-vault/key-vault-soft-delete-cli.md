@@ -21,11 +21,11 @@ Azure Key Vault's soft delete feature allows recovery of deleted vaults and vaul
 
 - Azure CLI 2.0 - if you don't have this setup for your environment, see [Manage Key Vault using CLI 2.0](key-vault-manage-with-cli2.md).
 
-For Key Vault specific refernece information for CLI, see [Azure CLI 2.0 Key Vault reference](https://docs.microsoft.com/cli/azure/keyvault).
+For Key Vault specific referenece information for CLI, see [Azure CLI 2.0 Key Vault reference](https://docs.microsoft.com/cli/azure/keyvault).
 
 ## Required permissions
 
-Key Vault operations are seperately managed via role-based access control (RBAC) permissions as follows:
+Key Vault operations are separately managed via role-based access control (RBAC) permissions as follows:
 
 | Operation | Description | User permission |
 |:--|:--|:--|
@@ -44,7 +44,7 @@ To be able to recover a deleted key vault or objects stored in a key vault, you 
 For an existing key vault named ContosoVault, enable soft-delete as follows. 
 
 >[!NOTE]
->Currently you need to use ARM’s resource manipulation to directly write the *enableSoftDelete* property to the Key Vault resource.
+>Currently you need to use ARM’s (Azure Resource Manager) resource manipulation to directly write the *enableSoftDelete* property to the Key Vault resource.
 
 ```azurecli
 az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{print $1}') --set properties.enableSoftDelete=true
@@ -82,14 +82,14 @@ az keyvault delete --name ContosoVault
 With soft-delete enabled:
 
 - When a key vault is deleted, it is removed from its resource group and placed in a reserved namespace that is only associated with the location where it was created. 
-- Objects in a deleted key vault, such as keys and secrets, become inaccessible when its in this state. 
+- Objects in a deleted key vault, such as keys and secrets, become inaccessible when it's in this state. 
 - The DNS name for a key vault in a deleted state is still reserved so, a new vault with same name cannot be created.  
 
 ```azurecli
 az keyvault list-deleted
 ```
 
-The *Resource ID* in the output refers to the original resource ID of this vault. Since this key vault is now in a deleted state, no resource exists with that resource ID. The *Id* field comes can be used to identify the resource when recovering, or purging. The *Scheduled Purge Date* field indicates when the vault will be permanently deleted (purged) if no action is taken for this deleted vault.
+The *Resource ID* in the output refers to the original resource ID of this vault. Since this key vault is now in a deleted state, no resource exists with that resource ID. The *Id* field can be used to identify the resource when recovering, or purging. The *Scheduled Purge Date* field indicates when the vault will be permanently deleted (purged) if no action is taken for this deleted vault.
 
 ## Recovering a key vault
 
@@ -121,7 +121,7 @@ az keyvault key list-deleted --vault-name ContosoVault
 
 ### Transition state 
 
-When you delete a key in a key vault with soft-delete enabled it may take a few seconds for the transition to complete. During this transition state, it may appear that the key is not in the active state or the deleted state. 
+When you delete a key in a key vault with soft-delete enabled, it may take a few seconds for the transition to complete. During this transition state, it may appear that the key is not in the active state or the deleted state. 
 
 This command will list all deleted keys in 'ContosoVault'.
 
@@ -186,7 +186,7 @@ az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
 
 ### Key vault objects
 
-Purging a key or secret will permanently delete the key or secret, it will not be recoverable. The key vault that contained the key or secrete will however remain in tact as will all other objects in the key vault. 
+Purging a key or secret will permanently delete the key or secret, it will not be recoverable. The key vault that contained the key or secret will however remain intact as will all other objects in the key vault. 
 
 ### Key vaults as containers
 When a key vault is purged, all of its contents, including keys, secrets, and certificates, are permanently deleted. To purge a key vault use the `az keyvault purge` command. You can find the location your subscription's deleted key vaults using the command `az keyvault list-deleted`.
