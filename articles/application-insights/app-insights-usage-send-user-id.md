@@ -28,13 +28,15 @@ Application Insights enables you to monitor and track your users through a set o
 
 Many Application Insight Usage products utilize user ID to identify unique users. Send user ID with every custom event or page view in order to associate the event with a unique user. Product usage tools will not light up until you have sent user ID with your events. 
 
-If your app is integrated with the JavaScript SDK, then user ID is tracked automatically. 
+If your app is integrated with the [JavaScript SDK](https://docs.microsoft.com/azure/application-insights/app-insights-javascript#set-up-application-insights-for-your-web-page), user ID is tracked automatically. 
 
-**Set user ID in an ITelemetryInitializer**
+**ASP.NET Apps: Set user ID in an ITelemetryInitializer**
 
-Create a telemetry initializer, as described in more detail [here](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer), and set the Context.User.Id to an ID that corresponds to the current user.
+Create a telemetry initializer, as described in detail [here](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer), and set the Context.User.Id to an ID that corresponds to the current user. This ID must persist across user sessions so that Application Insights can track the user over time.
 
-The ID does not need to be a Guid. If the ID contains personally identifying information about the user, it is not an appropriate value to send to Application Insights as a user ID.
+The ID should be a Guid or another string complex enough to identify each user uniquely. For example, it could be a long random number.
+
+If the ID contains personally identifying information about the user, it is not an appropriate value to send to Application Insights as a user ID.
 
 *C#*
 
@@ -55,7 +57,11 @@ The ID does not need to be a Guid. If the ID contains personally identifying inf
       {
         public void Initialize(ITelemetry telemetry)
         {
-            telemetry.Context.User.Id = Guid.NewGuid();
+            telemetry.Context.User.Id = this.GetUserId();
+        }
+
+        private string GetUserId() {
+            // Find and return the current user's ID.
         }
       }
     }
