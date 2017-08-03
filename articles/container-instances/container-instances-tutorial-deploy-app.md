@@ -41,7 +41,7 @@ az acr show --name <acrName> --query loginServer
 Container registry password:
 
 ```azurecli-interactive
-az acr credential show --name <acrName> --query passwords[0].value
+az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
 To deploy your container image from the container registry with a resource request of 1 CPU core and 1GB of memory, run the following command:
@@ -58,7 +58,7 @@ az container show --name aci-tutorial-app --resource-group myResourceGroup --que
 
 When the state changes from *pending*, we can proceed.
 
-The output includes the public IP address that you can use to access the app in the browser. You can show just the ip address by running the following command:
+The output includes the public IP address that you can use to access the app in the browser. You can show just the IP address by running the following command:
 
 ```bash
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
