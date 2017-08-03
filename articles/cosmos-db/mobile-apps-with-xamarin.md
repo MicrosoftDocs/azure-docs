@@ -97,7 +97,7 @@ Congratulations. You have completed the solution and have a mobile app with Xama
 
 ## Next steps
 * View the source code for [Xamarin and Azure Cosmos DB on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
-* Download the [DocumentDB .NET Core SDK](documentdb-sdk-dotnet-core.md).
+* Download the [Azure Cosmos DB .NET Core SDK](documentdb-sdk-dotnet-core.md).
 * Find more code samples for [.NET applications](documentdb-dotnet-samples.md).
 * Learn about [Azure Cosmos DB rich query capabilities](documentdb-sql-query.md).
 * Learn about [geospatial support in Azure Cosmos DB](geospatial.md).
