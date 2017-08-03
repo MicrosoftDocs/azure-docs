@@ -17,7 +17,7 @@ Azure Key Vault's soft delete feature allows recovery of deleted vaults and vaul
 
 ## Prerequisites
 
-- Azure PowerShell 4.0.0 or later
+- Azure PowerShell 4.0.0 or later - If you don't have this already setup, install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 
 For Key Vault specific refernece information for PowerShell, see [Azure Key Vault PowerShell reference](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
 
@@ -60,7 +60,7 @@ New-AzureRmKeyVault -VaultName "ContosoVault" -ResourceGroupName "ContosoRG" -Lo
 
 ### Verify soft-delete enablement
 
-To verify that a key vault has soft-delete enabled, run the *show* command and look for the 'Soft Delete Enabled?' attribute and its setting, true or false.
+To verify that a key vault has soft-delete enabled, run the *get* command and look for the 'Soft Delete Enabled?' attribute and its setting, true or false.
 
 ```powershell
 Get-AzureRmKeyVault -VaultName "ContosoVault"
