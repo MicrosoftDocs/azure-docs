@@ -49,75 +49,75 @@ You can follow the steps in this article or you can download a sample that conta
 1. Set up your development environment as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
 2. Add other references that are required for this project: System.Configuration.
 3. Add the appSettings section to the .config file and update the values based on your Media Services accounts, the destination storage account and the source asset ID.  
-   
-		<appSettings>
-	          <add key="MediaServicesSourceAccountName" value="name"/>
-	          <add key="MediaServicesSourceAccountKey" value="key"/>
-	          <add key="MediaServicesDestAccountName" value="name"/>
-	          <add key="MediaServicesDestAccountKey" value="key"/>
-	          <add key="DestStorageAccountName" value="name"/>
-	          <add key="DestStorageAccountKey" value="key"/>
-	          <add key="SourceAssetID" value="nb:cid:UUID:assetID"/>       
-		</appSettings>
+
+```   
+<appSettings>
+    <add key="AMSSourceAADTenantDomain" value="AADTenantDomain"/>
+    <add key="AMSSourceRESTAPIEndpoint" value="RESTAPIEndpoint"/>
+    <add key="AMSDestAADTenantDomain" value="AADTenantDomain"/>
+    <add key="AMSDestRESTAPIEndpoint" value="RESTAPIEndpoint"/>
+    <add key="DestStorageAccountName" value="name"/>
+    <add key="DestStorageAccountKey" value="key"/>
+    <add key="SourceAssetID" value="nb:cid:UUID:assetID"/>
+</appSettings>
+```
 
 ### Copy blobs from an asset in one AMS account into an asset in another AMS account
 
 The following code uses extension **IAsset.Copy** method to copy all files in the source asset into the destination asset using a single extension. There is an additional overload with async support.
 
-	using System;
-	using System.Linq;
-	using System.Configuration;
-	using Microsoft.WindowsAzure.MediaServices.Client;
-	using Microsoft.WindowsAzure.Storage.Auth;
-	
-	namespace CopyExistingBlobsIntoAsset
-	{
-	    class Program
-	    {
-	        static string _sourceAaccountName = ConfigurationManager.AppSettings["MediaServicesSourceAccountName"];
-	        static string _sourceAccountKey = ConfigurationManager.AppSettings["MediaServicesSourceAccountKey"];
-	        static string _destAccountName = ConfigurationManager.AppSettings["MediaServicesDestAccountName"];
-	        static string _destAccountKey = ConfigurationManager.AppSettings["MediaServicesDestAccountKey"];
-	        static string _destStorageAccountName = ConfigurationManager.AppSettings["DestStorageAccountName"];
-	        static string _destStorageAccountKey = ConfigurationManager.AppSettings["DestStorageAccountKey"];
-	        static string _sourceAssetID = ConfigurationManager.AppSettings["SourceAssetID"];
-	        
-	
-	        private static CloudMediaContext _sourceContext = null;
-	        private static CloudMediaContext _destContext = null;
-	
-	        static void Main(string[] args)
-	        {
-	            // Create the context for your source Media Services account.
-	
-	            // Use the cached credentials to create CloudMediaContext.
-	            _sourceContext = new CloudMediaContext(new MediaServicesCredentials(
-	                _sourceAaccountName,
-	                _sourceAccountKey));
+```
+using System;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Linq;
+using System.Configuration;
+using Microsoft.WindowsAzure.Storage.Auth;
 
-	            // Create the context for your destination Media Services account.
-	            _destContext = new CloudMediaContext(new MediaServicesCredentials(
-	                _destAccountName,
-	                _destAccountKey));
-	
-	            // Get the credentials of the default Storage account bound to your destination Media Services account.
-	            StorageCredentials destinationStorageCredentials =
-	                new StorageCredentials(_destStorageAccountName, _destStorageAccountKey);
-	
-	            // Get a reference to the source asset in the source context.
-	            IAsset sourceAsset = _sourceContext.Assets.Where(a => a.Id == _sourceAssetID).First();
-	
-	            // Create an empty destination asset in the destination context.
-	            IAsset destinationAsset = _destContext.Assets.Create(sourceAsset.Name, AssetCreationOptions.None);
-	
-	            // Copy the files in the source asset instance into the destination asset instance.
-				// There is an additional overload with async support.
-	            sourceAsset.Copy(destinationAsset, destinationStorageCredentials);
+namespace CopyExistingBlobsIntoAsset
+{
+    class Program
+    {
+        static string _sourceAADTenantDomain = ConfigurationManager.AppSettings["AMSSourceAADTenantDomain"];
+        static string _sourceRESTAPIEndpoint = ConfigurationManager.AppSettings["AMSSourceRESTAPIEndpoint"];
+        static string _destAADTenantDomain = ConfigurationManager.AppSettings["AMSDestAADTenantDomain"];
+        static string _destRESTAPIEndpoint = ConfigurationManager.AppSettings["AMSDestRESTAPIEndpoint"];
+        static string _destStorageAccountName = ConfigurationManager.AppSettings["DestStorageAccountName"];
+        static string _destStorageAccountKey = ConfigurationManager.AppSettings["DestStorageAccountKey"];
+        static string _sourceAssetID = ConfigurationManager.AppSettings["SourceAssetID"];
 
-				
-	        }
-	    }
-	}
+        private static CloudMediaContext _sourceContext = null;
+        private static CloudMediaContext _destContext = null;
+
+        static void Main(string[] args)
+        {
+            var tokenCredentials1 = new AzureAdTokenCredentials(_sourceAADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            var tokenProvider1 = new AzureAdTokenProvider(tokenCredentials1);
+            var tokenCredentials2 = new AzureAdTokenCredentials(_destAADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            var tokenProvider2 = new AzureAdTokenProvider(tokenCredentials2);
+
+            // Create the context for your source Media Services account.
+            _sourceContext = new CloudMediaContext(new Uri(_sourceRESTAPIEndpoint), tokenProvider1);
+
+            // Create the context for your destination Media Services account.
+            _destContext = new CloudMediaContext(new Uri(_destRESTAPIEndpoint), tokenProvider2);
+
+            // Get the credentials of the default Storage account bound to your destination Media Services account.
+            StorageCredentials destinationStorageCredentials =
+                new StorageCredentials(_destStorageAccountName, _destStorageAccountKey);
+
+            // Get a reference to the source asset in the source context.
+            IAsset sourceAsset = _sourceContext.Assets.Where(a => a.Id == _sourceAssetID).First();
+
+            // Create an empty destination asset in the destination context.
+            IAsset destinationAsset = _destContext.Assets.Create(sourceAsset.Name, AssetCreationOptions.None);
+
+            // Copy the files in the source asset instance into the destination asset instance.
+            // There is an additional overload with async support.
+            sourceAsset.Copy(destinationAsset, destinationStorageCredentials);
+        }
+    }
+}
+```
 
 ## Copy blobs from a storage account into an AMS account 
 
