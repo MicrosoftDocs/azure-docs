@@ -234,7 +234,7 @@
       - name: PostgreSQL
         href: postgresql-install.md
       - name: MS SQL on Linux
-        href: ../../sql/linux/
+        href: /sql/linux/sql-server-linux-azure-virtual-machine
   - name: Manage storage
     items:
     - name: Add a disk
