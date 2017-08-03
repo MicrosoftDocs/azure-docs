@@ -143,7 +143,7 @@ Refer to the [Text Analytics Overview](overview.md#supported-languages) for deta
             ]
         }
 
-## Task 3 - Detect topics in a corpus of text
+## Task 3 - Detect topics in a corpus of text  (The topic detection capability will be deprecated August 24, 2017)
 This API returns the top detected topics for a list of submitted text records. A topic is identified with a key phrase, which can be one or more related words. The API is designed to work well for short, human written text such as reviews and user feedback.
 
 This API requires **a minimum of 100 text records** to be submitted, but is designed to detect topics across hundreds to thousands of records. Any non-English records or records with fewer than three words are discarded and therefore are not assigned to topics. For topic detection, the maximum size of a single document that can be submitted is 30 KB, and the total maximum size of submitted input is 30 MB. Topic detection is rate limited to five submissions every five minutes.
