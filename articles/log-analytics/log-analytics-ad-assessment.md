@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/03/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
@@ -48,7 +48,21 @@ Use the following information to install and configure the solutions.
   >
 
 ## Active Directory Assessment data collection details
-Active Directory Assessment collects WMI data, registry data, and performance data using the agents that you have enabled.
+
+Active Directory Assessment collects data from the following sources using the agents that you have enabled:
+
+- Registry collectors
+- LDAP collectors
+- .NET Framework
+- Event log collectors
+- Active Directory Service interfaces (ADSI)
+- Windows PowerShell
+- File data collectors
+- Windows Management Instrumentation (WMI)
+- DCDIAG tool API
+- File Replication Service (NTFRS) API
+- Custom C# code
+
 
 The following table shows data collection methods for agents, whether Operations Manager (SCOM) is required, and how often data is collected by an agent.
 
