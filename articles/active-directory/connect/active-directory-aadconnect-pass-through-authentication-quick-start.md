@@ -64,7 +64,7 @@ Follow these instructions to enable Exchange ActiveSync support:
 Get-OrganizationConfig | fl per*
 ```
 
-2. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is **true**, your tenant is properly configured - this is generally the case for most new customers. If the value is **false**, run the following command:
+2. Check the value of the `PerTenantSwitchToESTSEnabled` setting. If the value is **true**, your tenant is properly configured - this is generally the case for most customers. If the value is **false**, run the following command:
 ```
 Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 ```
