@@ -16,7 +16,7 @@ ms.author: gauravbh; tomfitz
 
 # Azure managed applications overview
 
-Vendors that use Azure can offer solutions to customers around the world. Azure Marketplace is a gallery that consists of hundreds of complex, multiresource templates from first- and third-party vendors. Within minutes, customers can deploy and start using PaaS and SaaS applications. 
+Vendors that use Azure can offer solutions to customers around the world. Azure Marketplace is a gallery that consists of hundreds of complex, multiresource templates from first- and third-party vendors. Within minutes, customers can deploy and start using platform as a service (PaaS) and software as a service (SaaS) applications. 
 
 Although the Marketplace provides a great way for vendors to quickly deploy an offering, the customer is responsible for maintaining and updating the solution. Beyond the virtual machine image billing, vendors can't charge customers for the use of an application. Furthermore, vendors can't prevent customers from modifying critical application resources. Vendors also can't block access to intellectual property that makes up an application. Azure managed applications provide solutions for these concerns. 
 
@@ -41,7 +41,7 @@ For information about consuming a Service Catalog managed application, see [Cons
  
 ### Marketplace
 
-Managed applications are available through the Marketplace in the Azure portal. After these applications are published by the vendor, they're available for everyone inside or outside of an organization to consume. With this approach, MSPs, ISVs, and SIs can offer their solutions to all Azure customers. Customers get the benefit of using these complex solutions without the need to invest in understanding and maintaining the solutions. 
+Managed applications are available through the Marketplace in the Azure portal. After the vendor publishes these applications, they're available for everyone inside or outside of an organization to consume. With this approach, MSPs, ISVs, and SIs can offer their solutions to all Azure customers. Customers get the benefit of using these complex solutions without the need to invest in understanding and maintaining the solutions. 
 
 Currently, publishers can make their offers available as a managed application or as a solution template that's unmanaged. The main components of publishing a managed application include the template files and the UI definition file. The template file describes the resources that are provisioned. The UI definition file describes how the required inputs for provisioning these resources are displayed in the portal. The required files are packaged in a .zip file and uploaded through the publishing portal.
  

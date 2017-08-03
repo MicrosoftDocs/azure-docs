@@ -122,6 +122,8 @@ The next step is to add SKUs for your offer.
 
 	![Package](./media/managed-application-author-marketplace/newOffer_newsku_package.png)
 
+	Fill out the following fields:
+
 	a. **Current Version**: Enter a version for the package you upload. It should be in the format `{number}.{number}.{number}{number}`.
 
 	b. **Select a package file**: This package contains the following files that are compressed into a .zip file:

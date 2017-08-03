@@ -114,7 +114,7 @@ After all the needed files are ready, upload the package to an accessible locati
 
 
 ## Create an Azure Active Directory user group or application
-The second step is to create a user group or application that you want to use to manage the resources on behalf of the customer. This user group or application has permissions on the managed resource group as described by the role. The role can be any built-in Role-Based Access Control (RBAC) role like Owner or Contributor. An individual user also can be given permissions to manage the resources, but typically you assign this permission to use a user group. To create a new active directory user group, use:
+The second step is to create a user group or application that you want to use to manage the resources on behalf of the customer. This user group or application has permissions on the managed resource group as described by the role. The role can be any built-in Role-Based Access Control (RBAC) role like Owner or Contributor. You also can give an individual user permission to manage the resources, but typically you assign this permission to a user group. To create a new Active Directory user group, use:
 
 ```azurecli
 az ad group create --display-name "name" --mail-nickname "nickname"
