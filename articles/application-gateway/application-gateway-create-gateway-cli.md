@@ -66,7 +66,7 @@ only additional application gateways can be added to the subnet.
 
 Open the **Microsoft Azure Command Prompt**, and log in. 
 
-```azurecli
+```azurecli-interactive
 az login -u "username"
 ```
 
@@ -89,7 +89,7 @@ Once the code has been entered you are signed in, close the browser to continue 
 
 Before creating the application gateway, a resource group is created to contain the application gateway. The following shows the command.
 
-```azurecli
+```azurecli-interactive
 az group create --name myresourcegroup --location "eastus"
 ```
 
@@ -97,7 +97,7 @@ az group create --name myresourcegroup --location "eastus"
 
 The IP addresses used for the backend are the IP addresses for your backend server. These values can be either private IPs in the virtual network, public ips, or fully qualified domain names for your backend servers. The following example creates an application gateway with additional configuration settings for http settings, ports, and rules.
 
-```azurecli
+```azurecli-interactive
 az network application-gateway create \
 --name "AdatumAppGateway" \
 --location "eastus" \
@@ -121,7 +121,7 @@ az network application-gateway create \
 
 The preceding example shows many properties that are not required during the creation of an application gateway. The following code example creates an application gateway with the required information.
 
-```azurecli
+```azurecli-interactive
 az network application-gateway create \
 --name "AdatumAppGateway" \
 --location "eastus" \
@@ -145,7 +145,7 @@ If you already have your web application defined with the backend pool in the pr
 Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway, a CNAME record can be used to point to the public endpoint of the application gateway. [Configuring a custom domain name for in Azure](../dns/dns-custom-domain.md). To configure an alias, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
 
 
-```azurecli
+```azurecli-interactive
 az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
 ```
 
@@ -189,7 +189,7 @@ az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
 
 To delete all resources created in this article, complete the following steps:
 
-```azurecli
+```azurecli-interactive
 az group delete --name AdatumAppGatewayRG
 ```
  

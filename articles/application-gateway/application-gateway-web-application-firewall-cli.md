@@ -51,7 +51,7 @@ If you have read [Create an Application Gateway with Azure CLI](application-gate
 
 The follow command changes an existing standard application gateway to a WAF enabled application gateway.
 
-```azurecli
+```azurecli-interactive
 #!/bin/bash
 
 az network application-gateway waf-config set \
@@ -67,7 +67,7 @@ This command updates the application gateway with web application firewall. Visi
 
 The following command creates an Application Gateway with web application firewall.
 
-```azurecli
+```azurecli-interactive
 #!/bin/bash
 
 az network application-gateway create \
@@ -98,7 +98,7 @@ az network application-gateway create \
 
 Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway, a CNAME record can be used to point to the public endpoint of the application gateway. [Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). To do this, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
 
-```azurecli
+```azurecli-interactive
 #!/bin/bash
 
 az network public-ip show \

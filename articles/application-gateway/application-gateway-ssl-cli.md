@@ -46,7 +46,7 @@ For SSL certificates configuration, the protocol in **HttpListener** should chan
 
 ## Configure SSL offload on an existing application gateway
 
-```azurecli
+```azurecli-interactive
 #!/bin/bash
 
 # Create a new front end port to be used for SSL
@@ -105,7 +105,7 @@ az network application-gateway rule create \
 
 The following sample creates an application gateway with SSL offload.  The certificate and certificate password must be updated to a valid private key.
 
-```azurecli
+```azurecli-interactive
 #!/bin/bash
 
 # Creates an application gateway with SSL offload
@@ -137,7 +137,7 @@ az network application-gateway create \
 Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway, a CNAME record can be used to point to the public endpoint of the application gateway. [Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). To configure an alias, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
 
 
-```azurecli
+```azurecli-interactive
 az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
 ```
 

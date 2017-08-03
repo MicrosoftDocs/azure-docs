@@ -33,7 +33,7 @@ The following are examples show how to view rules and rule groups that are confi
 
 ### View rule groups
 
-```azurecli
+```azurecli-interactive
 az network application-gateway waf-config list-rule-sets --type OWASP
 ```
 
@@ -86,7 +86,7 @@ The following a truncated response from the preceding example.
 
 The following example shows how to view rules in a specified rule group.
 
-```azurecli
+```azurecli-interactive
 az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP-REPUTATION"
 ```
 
@@ -125,7 +125,7 @@ The following output is a truncated response from the preceding example.
 
 The following example disables rules `910018` and `910017` on an application gateway.
 
-```azurecli
+```azurecli-interactive
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
 ```
 
