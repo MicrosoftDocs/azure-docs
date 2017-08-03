@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 08/10/17-->
+<!--author=alkohli last changed: 08/03/17-->
 
 #### To download hotfixes
 
@@ -37,9 +37,9 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
    
     We recommend that you use the credential parameter to access shares. Even shares that are open to “everyone” are typically not open to unauthenticated users.
    
-    Supply the password when prompted.
-   
-    A sample output for installing the first order updates is shown below. For the first order update, you need to point to the specific file. **You should install the _HcsSoftwareUpdate.exe_ first and then install the _CisMdsAgentUpdate.exe_.**
+4 . Supply the password when prompted. A sample output for installing the first order updates is shown below. For the first order update, you need to point to the specific file.
+
+>[!NOTE] You should install the _HcsSoftwareUpdate.exe_ first. After this install has completed, then install _CisMdsAgentUpdate.exe_.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -53,10 +53,10 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
         [Y] Yes [N] No [?] Help (default is "Y"): Y
    
         ````
-4. Type **Y** when prompted to confirm the hotfix installation.
-5. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet. The update will first complete on the passive controller. Once the passive controller is updated, there will be a failover and the update will then get applied on the other controller. The update is complete when both the controllers are updated.
+5. Type **Y** when prompted to confirm the hotfix installation.
+6. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet. The update will first complete on the passive controller. Once the passive controller is updated, there will be a failover and the update will then get applied on the other controller. The update is complete when both the controllers are updated.
    
-    The following sample output shows the update in progress. The `RunInprogress` will be `True` when the update is in progress.
+    The following sample output shows the update in progress. The `RunInprogress` is `True` when the update is in progress.
 
     ```
     Controller0>Get-HcsUpdateStatus
@@ -67,7 +67,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     Controller1Events   :
     ```
    
-     The following sample output indicates that the update is finished. The `RunInProgress` will be `False` when the update has completed.
+     The following sample output indicates that the update is finished. The `RunInProgress` is `False` when the update is complete.
    
     ```
     Controller0>Get-HcsUpdateStatus
@@ -81,7 +81,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     > [!NOTE]
     > Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed.
 
-6. After the software update is complete, verify the system software versions. Type:
+7. After the software update is complete, verify the system software versions. Type:
    
     `Get-HcsSystem`
    
@@ -95,24 +95,30 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     > [!IMPORTANT]
     > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the next update.
      
-7. Repeat steps 3-5 to install the _CisMDSAgentupdate.exe_ agent downloaded to your _FirstOrderUpdate_ folder.
-8. Repeat steps 3-5 to install the second order updates. **For second order updates, multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder.** If an update is already installed, the update logic will detect that and not apply that update.
+8. Repeat steps 3-6 to install the _CisMDSAgentupdate.exe_ agent downloaded to your _FirstOrderUpdate_ folder.
+8. Repeat steps 3-6 to install the second order updates. 
 
-After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
+    > [!NOTE] For second order updates, multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder.** If an update is already installed, the update logic will detect that and not apply that update.
 
-   * `CisAgentVersion:  1.0.9687.0`
-   * `MdsAgentVersion: 35.2.2.0`
-   * `Lsisas2Version: 2.0.78.00`
+    After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
+    
+    * `CisAgentVersion:  1.0.9687.0`
+    * `MdsAgentVersion: 35.2.2.0`
+    * `Lsisas2Version: 2.0.78.00`
 
 
 #### To install and verify maintenance mode hotfixes
 Use KB4037263 to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console.
 
-Note that if your disk firmware is already up-to-date, you won't need to install these updates. Run the `Get-HcsUpdateAvailability` cmdlet from the device serial console to check if updates are available and whether the updates are disruptive (maintenance mode) or non-disruptive (regular mode) updates.
+> [!NOTE] If your disk firmware is already up-to-date, you won't need to install these updates. Run the `Get-HcsUpdateAvailability` cmdlet from the device serial console to check if updates are available and whether the updates are disruptive (maintenance mode) or non-disruptive (regular mode) updates.
 
 To install the disk firmware updates, follow the instructions below.
 
-1. Place the device in the maintenance mode. **Note that you should not use Windows PowerShell remoting when connecting to a device in maintenance mode. Instead run this cmdlet on the device controller when connected through the device serial console.** Type:
+1. Place the device in the maintenance mode. 
+
+> [!NOTE] Do not use Windows PowerShell remoting when connecting to a device in maintenance mode. Instead run this cmdlet on the device controller when connected through the device serial console.
+
+To place the controller in maintenance mode, type:
    
     `Enter-HcsMaintenanceMode`
    

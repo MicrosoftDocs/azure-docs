@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/10/2017
+ms.date: 08/03/2017
 ms.author: alkohli
 
 ---
@@ -48,9 +48,7 @@ Verify that your device is running **StorSimple 8000 Series Update 5 (6.3.9600.1
 * Download the maintenance mode updates by using the steps listed in [to download hotfixes](#to-download-hotfixes) to search for and download KB4011837, which installs disk firmware updates (the other updates should already be installed by now). Follow the steps listed in [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes) to install the maintenance mode updates.
 
 ## Install Update 5 as a hotfix
-The recommended method to install Update 5 is via the Azure portal.
 
-Use this procedure if you fail the gateway check when trying to install the updates through the Azure portal. The check fails as you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version prior to Update 1.
 
 The software versions that can be upgraded using the hotfix method are:
 
@@ -60,6 +58,7 @@ The software versions that can be upgraded using the hotfix method are:
 * Update 3, 3.1
 * Update 4
 
+> [!NOTE] The recommended method to install Update 5 is via the Azure portal. Use this procedure if you fail the gateway check when trying to install the updates through the Azure portal. The check fails when you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version earlier than Update 1.
 
 The hotfix method involves the following three steps:
 
