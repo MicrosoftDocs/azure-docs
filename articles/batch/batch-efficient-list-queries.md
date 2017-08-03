@@ -25,9 +25,9 @@ Here you'll learn how to increase your Azure Batch application's performance by 
 Nearly all Batch applications need to perform some type of monitoring or other operation that queries the Batch service, often at regular intervals. For example, to determine whether there are any queued tasks remaining in a job, you must get data on every task in the job. To determine the status of nodes in your pool, you must get data on every node in the pool. This article explains how to execute such queries in the most efficient way.
 
 > [!NOTE]
-> Prior to the introduction of the [Get Task Counts][rest_get_task_counts] operation in Batch service version 2017-06-01.5.1, you needed to create a list query to tally a job's tasks. Best practices now recommend that you use Get Task Counts for counting tasks by state, as Get Task Counts is more efficient than a list query. For more information, see [Count tasks for a job by state (Preview)](batch-get-task-counts.md).
+> The Batch service provides special API support for the common scenario of counting tasks in a job. Instead of using a list query for these, you can call the [Get Task Counts][rest_get_task_counts] operation. Get Task Counts indicates how many tasks are pending, running or complete, and how many tasks have succeeded or failed. Get Task Counts is more efficient than a list query. For more information, see [Count tasks for a job by state (Preview)](batch-get-task-counts.md). 
 >
-> Get Task Counts returns a count of active, running, and completed tasks, and of tasks that have succeeded or failed. However, if you need to perform a more complex filter or select operation, then create a list query to return the data you want, as described in this article.
+> The Get Task Counts operation is not available in Batch service versions earlier than 2017-06-01.5.1. If you are using an older version of the service, then use a list query to count tasks in a job instead.
 >
 > 
 

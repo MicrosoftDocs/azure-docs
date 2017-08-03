@@ -64,8 +64,9 @@ When a task changes state, the aggregation pipeline processes the change within 
 
 ## Best practices for counting a job's tasks
 
-Calling the Get Task Counts operation is the most efficient way to return a basic count of a job's tasks by state. Prior to the introduction of the Get Task Counts operation in Batch service version 2017-06-01.5.1, you needed to [create a list query](batch-efficient-list-queries.md) to tally a job's tasks. Best practices now recommend that you use Get Task Counts for basic aggregate counts. However, if you need to perform a more complex filter or select operation on a job's tasks, then create a list query. 
+Calling the Get Task Counts operation is the most efficient way to return a basic count of a job's tasks by state. If you are using Batch service version 2017-06-01.5.1, we recommend writing or updating your code to use Get Task Counts.
 
+The Get Task Counts operation is not available in Batch service versions earlier than 2017-06-01.5.1. If you are using an older version of the service, then use a list query to count tasks in a job instead. For more information, see [Create queries to list Batch resources efficiently](batch-efficient-list-queries.md).
 
 ## Next steps
 
