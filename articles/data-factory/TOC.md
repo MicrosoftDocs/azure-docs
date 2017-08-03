@@ -29,6 +29,7 @@
 ### [Data Factory Copy Wizard](data-factory-azure-copy-wizard.md)
 #### [Load 1 TB in 15 minutes](data-factory-load-sql-data-warehouse.md)
 ### [Performance and tuning guide](data-factory-copy-activity-performance.md)
+### [Fault tolerance](data-factory-copy-activity-fault-tolerance.md)
 ### [Security considerations](data-factory-data-movement-security-considerations.md)
 ### Connectors
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
@@ -92,6 +93,7 @@
 ### [Troubleshoot issues with using Data Management Gateway](data-factory-troubleshoot-gateway-issues.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory)
 ## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
@@ -103,6 +105,7 @@
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [Pricing](https://azure.microsoft.com/pricing/details/data-factory/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Release notes for Data Management Gateway](data-factory-gateway-release-notes.md)
 ## [Request a feature](https://feedback.azure.com/forums/270578-azure-data-factory)
 ## [Service updates](https://azure.microsoft.com/updates/?product=data-factory)

@@ -62,14 +62,14 @@
 
 ## Manage & monitor
 ### [Manage logic apps with Visual Studio](logic-apps-manage-from-vs.md)
-### [Monitor logic apps](logic-apps-monitor-your-logic-apps.md)
 ### [Manage integration accounts](logic-apps-enterprise-integration-accounts.md)
+### [Monitor logic app status](logic-apps-monitor-your-logic-apps.md)
 ### [Monitor B2B messages](logic-apps-monitor-b2b-message.md)
+#### [Track B2B messages in OMS](logic-apps-track-b2b-messages-omsportal.md)
+#### [Query OMS for B2B messages](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 #### [AS2 tracking schema](logic-apps-track-integration-account-as2-tracking-schemas.md)
 #### [X12 tracking schema](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Custom tracking schema](logic-apps-track-integration-account-custom-tracking-schema.md)
-#### [Track B2B messages in OMS](logic-apps-track-b2b-messages-omsportal.md)
-#### [Query OMS for messages](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 
 ## Examples, scenarios, and walkthroughs
 ### [Overview](logic-apps-examples-and-scenarios.md)
@@ -81,7 +81,6 @@
 ## Pricing & billing
 ### [Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Usage metering](logic-apps-pricing.md)
-
 
 # Serverless
 ## Overview
@@ -141,5 +140,6 @@
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=logic-apps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)

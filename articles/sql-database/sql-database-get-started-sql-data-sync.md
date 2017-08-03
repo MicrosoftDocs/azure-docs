@@ -4,7 +4,7 @@ description: This tutorial helps you get started with Azure SQL Data Sync (Previ
 services: sql-database
 documentationcenter: ''
 author: douglaslms
-manager: jhubbard
+manager: craigg
 editor: ''
 
 ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa

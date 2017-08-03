@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/15/2017
+ms.date: 07/21/2017
 ms.author: mikhegn
 
 ---
@@ -35,7 +35,7 @@ Using this application you learn how to:
 > * Scale-out the application across multiple nodes
 > * Perform a rolling application upgrade
 
-## Getting started
+## Prerequisites
 To complete this quickstart:
 1. [Install Visual Studio 2017](https://www.visualstudio.com/) with the **Azure development** and **ASP.NET and web development** workloads.
 2. [Install Git](https://git-scm.com/)
@@ -44,10 +44,12 @@ To complete this quickstart:
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```
-5. Clone the sample app repository to your local machine. In a terminal window, run the following command:
-    ```
-    git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
-    ```
+
+## Download the sample
+In a command window, run the following command to clone the sample app repository to your local machine.
+```
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
+```
 
 ## Run the application locally
 Right-click the Visual Studio icon in the Start Menu and choose **Run as administrator**. In order to attach the debugger to your services, you need to run Visual Studio as administrator.
@@ -103,7 +105,7 @@ To look at what happens in the code, complete the following steps:
 To stop the debugging session, press **Shift+F5**.
 
 ## Deploy the application to Azure
-To deploy the application to a cluster in Azure, you can either choose to create your own cluster, or use a Party Cluster. To get access to a Party Cluster, browse to this site: http://aka.ms/tryservicefabric and follow the instructions to get access to a cluster. You need a Facebook or GitHub account to get access to a Party Cluster.
+To deploy the application to a cluster in Azure, you can either choose to create your own cluster, or use a Party Cluster. Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric) to get access to a cluster. 
 
 For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
 
