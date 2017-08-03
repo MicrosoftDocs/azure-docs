@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 08/03/2017
 ms.author: v-semcev
 ---
 
@@ -29,7 +29,7 @@ As a current Azure CDN user with Verizon standard or premium profile, you are al
 Azure With this new feature, you can now view core analytics and save them into one or more destinations including:
 
  - Azure Storage account
- - Azure Event hub
+ - Azure Event Hub
  - [OMS Log Analytics repository](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
  This feature is available for all CDN endpoints belonging to Verizon (Standard & Premium) and Akamai (Standard) CDN Profiles.
@@ -137,7 +137,8 @@ To Enable Diagnostic Logs in a Storage Account, use this command:
 To Enable Diagnostics Logs in an OMS workspace, use this command:
 
 ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}27cafca8-b9a4-4264-b399-45d0c9cca1ab/resourcegroups/inzarif-rp-cdn/providers/Microsoft.Cdn/profiles/verizonTest/endpoints/ManlingtestTM" -WorkspaceId "/subscriptions/27cafca8-b9a4-4264-b399-45d0c9cca1ab/resourceGroups/rintest/providers/Microsoft.OperationalInsights/workspaces/rintest1" -Enabled $true -Categories CoreAnalytics 
+    Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
+    .<subscriptionName>" -WorkspaceId "/subscriptions/<workspaceId>.<workspaceName>" -Enabled $true -Categories CoreAnalytics 
 ```
 
 
@@ -211,8 +212,7 @@ You can install management solutions from Azure marketplace by clicking the **Ge
 Follow these steps to add a Management Solution:
 
 1.   If you haven't already done so, sign in to the Azure portal using your Azure subscription and go to your Dashboard.
-
-![Azure Dashboard](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
+    ![Azure Dashboard](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
 
 2. In the **New** blade under **Marketplace**, select **Monitoring + management**.
 
@@ -238,7 +238,7 @@ Follow these steps to add a Management Solution:
 
     ![See all](./media/cdn-diagnostics-log/19_Add-automation.png)
 
-8. You must add an automation account. This may not be a requirement in the future.
+8. The following screen shows the automation account form you must fill out. 
 
     ![See all](./media/cdn-diagnostics-log/20_Automation.png)
 
@@ -293,7 +293,7 @@ Verizon log data is 1 hour delayed, and take up to 2 hours to start appearing af
 
 ## Diagnostic log types for CDN Core Analytics
 
-We currently offer only Core Analytics logs, which contain metrics showing HTTP response statistics and egress statistics as seen from the CDN POPs/edges. Over time, we will add additional types of logs.
+We currently offer only Core Analytics logs, which contain metrics showing HTTP response statistics and egress statistics as seen from the CDN POPs/edges.
 
 ### Core Analytics Metrics Details
 The following table shows a list of metrics available in the Core Analytics logs. Not all metrics are available from all providers, although such differences are minimal. The following table also shows if a given metric is available from a provider. Please note that the metrics are available for only those CDN endpoints that have traffic on them.
