@@ -12,25 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 08/03/2017
 ms.author: billmath
 ---
 
 # Azure Active Directory Seamless Single Sign-On: Quick start
+
+## How to deploy Seamless SSO
 
 Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate desktops connected to your corporate network. It provides your users easy access to your cloud-based applications without needing any additional on-premises components.
 
 >[!IMPORTANT]
 >The Seamless SSO feature is currently in preview.
 
-## How to deploy Seamless SSO
-
 To deploy Seamless SSO, you need to follow these steps:
-1. **Check prerequisites**: Set up your tenant and on-premises environment correctly before you enable the feature.
-2. **Enable the feature**: Turn on Seamless SSO on your tenant using Azure AD Connect.
-3. **Roll out the feature**: Use Group Policy to roll out the feature to some or all your users.
-4. **Test the feature**: Test user sign-in using Seamless SSO.
-5. **Roll over keys**: Frequently roll over computer accounts' Kerberos decryption keys.
 
 ## Step 1: Check prerequisites
 
