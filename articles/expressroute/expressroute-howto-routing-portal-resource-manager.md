@@ -112,7 +112,7 @@ This section helps you create, get, update, and delete the Azure public peering 
 
 You can view the properties of Azure public peering by selecting the peering.
 
-![view putblic peering properties](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
+![view public peering properties](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
 ### To update Azure public peering configuration
 

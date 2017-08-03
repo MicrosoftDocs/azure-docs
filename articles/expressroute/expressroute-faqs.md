@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 08/01/2017
 ms.author: cherylmc
 
 ---
@@ -66,7 +66,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 ### Public peering
 
 * Power BI
-* Dynamics 365 for Operations (formerly known as Dynamics AX Online)
+* Dynamics 365 for Finance and Operations (formerly known as Dynamics AX Online)
 * Most of the Azure services, with the following few exceptions:
   * CDN
   * Visual Studio Team Services Load Testing
@@ -76,7 +76,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 ### Microsoft peering
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
-* Dynamics 365 (formerly known as CRM Online)
+* Dynamics 365 Customer Engagement applications (formerly known as CRM Online)
   * Dynamics 365 for Sales
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
@@ -210,7 +210,7 @@ BGP sessions will be dropped. They will be reset once the prefix count goes belo
 
 ### What is the ExpressRoute BGP hold time? Can it be adjusted?
 
-The hold time is 180. The keep-alive messages are sent every 60 seconds. These are fixed settings on the Microsoft side that cannot be changed.
+The hold time is 180. The keep-alive messages are sent every 60 seconds. These are fixed settings on the Microsoft side that cannot be changed. It is possible for you to configure different timers, and the BGP session parameters will be negotiated accordingly.
 
 ### After I advertise the default route (0.0.0.0/0) to my virtual networks, I can't activate Windows running on my Azure VMs. How to I fix this?
 
