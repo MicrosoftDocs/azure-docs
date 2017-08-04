@@ -110,8 +110,8 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
     * [Create HDInsight using Azure CLI 1.0](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Create HDInsight using an Azure Resource Manager template](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-    > [!IMPORTANT]
-    > Adding HDInsight to a virtual network is an optional configuration step. Be sure to select the virtual network when configuring the cluster.
+  > [!IMPORTANT]
+  > Adding HDInsight to a virtual network is an optional configuration step. Be sure to select the virtual network when configuring the cluster.
 
 ## <a id="multinet"></a>Connecting multiple networks
 
