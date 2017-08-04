@@ -167,9 +167,11 @@ Now go back to the Azure portal to get your connection string information and co
     
 ## Run the app
 
-1. In your terminal window run `mvn package` to install the required Java packages.
+1. In the git terminal window, `cd` to the azure-cosmos-db-documentdb-java-getting-started folder.
 
-2. Run `mvn exec:java -D exec.mainClass=GetStarted.Program` in the terminal window to start your Java application.
+2. In the git terminal window, type `mvn package` to install the required Java packages.
+
+3. In the git terminal window, run `mvn exec:java -D exec.mainClass=GetStarted.Program` in the terminal window to start your Java application.
 
     In the terminal window, you'll receive notification that the FamilyDB database was created, and to press a key to continue. Press a key to create the database, then switch to the Data Explorer and you'll see that it now contains a FamilyDB database. Continue to press keys to create the collection and the documents and then perform a query. When the project completes, the resources are deleted from your account. 
 

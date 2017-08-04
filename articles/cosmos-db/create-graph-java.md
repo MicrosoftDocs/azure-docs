@@ -151,9 +151,11 @@ Let's make a quick review of what's happening in the app. Open the `Program.java
 
 ## Run the console app
 
-1. Run `mvn package` in a terminal to install required Java packages.
+1. In the git terminal window, `cd` to the azure-cosmos-db-graph-java-getting-started folder.
 
-2. Run `mvn exec:java -D exec.mainClass=GetStarted.Program` in a terminal to start your Java application.
+2. In the git terminal window, type `mvn package` to install the required Java packages.
+
+3. In the git terminal window, run `mvn exec:java -D exec.mainClass=GetStarted.Program` in the terminal window to start your Java application.
 
 You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
