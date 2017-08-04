@@ -32,7 +32,7 @@ Before you begin this tutorial, you must have an **Azure subscription**. See [Ge
 Now, you will create a Data Lake Analytics and a Data Lake Store account at the same time.  This step is simple and only takes about 60 seconds to finish.
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
-2. Click **New** >  **Intelligence + analytics** > **Data Lake Analytics**.
+2. Click **New** >  **Data + Analytics** > **Data Lake Analytics**.
 3. Select values for the following items:
    * **Name**: Name your Data Lake Analytics account (Only lower case letters and numbers allowed).
    * **Subscription**: Choose the Azure subscription used for the Analytics account.
