@@ -47,7 +47,7 @@ Azure Analysis Services is available in Developer, Basic, and Standard tiers. Wi
 
 Scale up, scale down, or pause your server. Use the Azure portal or have total control on-the-fly by using PowerShell. You only pay for what you use. To learn more about the different plans and tiers, and use the pricing calculator to determine the right plan for you, see [Azure Analysis Services Pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
 
-### Keep your data close
+## Keep your data close
 Azure Analysis Services servers can be created in the following [Azure regions](https://azure.microsoft.com/regions/):
 
 | Americas | Europe | Asia Pacific |
