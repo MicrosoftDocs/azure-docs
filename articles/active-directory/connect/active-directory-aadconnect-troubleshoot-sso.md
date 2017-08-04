@@ -35,7 +35,7 @@ Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You ca
 
 ![Azure Active Directory admin center - Azure AD Connect blade](./media/active-directory-aadconnect-sso/sso10.png)
 
-## Sign-in failure reasons on the Azure portal
+## Sign-in failure reasons on the Azure Active Directory admin center
 
 A good place to start troubleshooting user sign-in issues with Seamless SSO is to look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
