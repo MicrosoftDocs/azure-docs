@@ -112,7 +112,6 @@ namespace CopyExistingBlobsIntoAsset
             IAsset destinationAsset = _destContext.Assets.Create(sourceAsset.Name, AssetCreationOptions.None);
 
             // Copy the files in the source asset instance into the destination asset instance.
-            // There is an additional overload with async support.
             sourceAsset.Copy(destinationAsset, destinationStorageCredentials);
 
             Console.WriteLine("Done");
