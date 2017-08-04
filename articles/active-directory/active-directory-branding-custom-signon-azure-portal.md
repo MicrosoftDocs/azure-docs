@@ -29,7 +29,7 @@ To avoid confusion, many companies want to apply a consistent look and feel acro
 
 You can customize the following elements on the sign-in page:
 
-&lt;Kelvin to attach image&gt;
+<attach image>
 
 Company branding customizations appear on the Azure AD sign-in page when users access a tenant-specific URL such as
 [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com).
@@ -45,9 +45,8 @@ enter their user ID or select a user tile.
 > * Sign-in page branding doesn’t carry over to the sign-in page for personal Microsoft accounts. If your employees or business guests sign in with a personal Microsoft account, their sign-in page does not reflect the branding of your organization.
 
 ## Customizable elements
+The constraints for each element also appear on the **Users and groups - Company branding** blade.
 
-Description | Constraints | Recommendations
-------- | ------- | ----------
 ### Banner logo	
 
 Description | Constraints | Recommendations
