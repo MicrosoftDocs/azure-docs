@@ -265,7 +265,7 @@ The PowerShell script printed a few named values when it ended. You must edit th
 
 ### Transact-SQL code
 
-```tsql
+```sql
 ---- TODO: First, run the PowerShell portion of this two-part code sample.
 ---- TODO: Second, find every 'TODO' in this Transact-SQL file, and edit each.
 
@@ -461,7 +461,7 @@ GO
 
 If the target fails to attach when you run, you must stop and restart the event session:
 
-```tsql
+```sql
 ALTER EVENT SESSION ... STATE = STOP;
 GO
 ALTER EVENT SESSION ... STATE = START;
