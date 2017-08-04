@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 08/04/2017
 ms.author: helaw
 
 ---
@@ -79,10 +79,7 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
       Set-AzureRmEnvironment AzureStack -GraphAudience https://graph.local.azurestack.external/
     ```
 
-
-
 #### Fabric
-* All Infrastructure Roles display a known health state, however the health state is not accurate for roles outside of Compute controller and Health controller.
 * The compute resource provider displays an unknown state.
 * The BMC IP address & model are not shown in the essential information of a Scale Unit Node.  This behavior is expected in Azure Stack development kit.
 * The restart action on Compute controller infrastructure role (AzS-XRP01 instance) should not be used.

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/04/2017
 ms.author: curtand
 
 ms.reviewer: rodejo
@@ -222,6 +222,22 @@ The cmdlet will return the list of owners for the specified group:
 If you want to remove an owner from a group, use Remove-AzureADGroupOwner:
 
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
+
+## Reserved Aliases 
+When a group is created, certain endpoints allow the end user to specify a mailNickname or alias to be used as part of the email address of the group.   
+Groups with the following highly privileged email aliases can only be created by an Azure AD global administrator. 
+  
+* abuse 
+* admin 
+* administrator 
+* hostmaster 
+* majordomo 
+* postmaster 
+* root 
+* secure 
+* security 
+* ssl-admin 
+* webmaster 
 
 ## Next steps
 You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0).
