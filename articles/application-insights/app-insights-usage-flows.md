@@ -79,13 +79,15 @@ Look for a page view or custom event that is repeated by many users across subse
 
 ## Common Questions
 
-Stuff:
-* When steps appear disconnected (need to increase the Detail level)
-* ABAB thing (first time in session, versus anytime in session)
+### Why do steps appear disconnected?
 
-* (Done) Hiding events manually
-* (Done) Events hidden by Detail level
-* (Done) "Sampling"
+![TBD screenshot of a disconnected Flows](TBD link)
+
+If steps (columns) in a Flows visualization are disconnected, it means none of the paths taken by users between the steps were frequent enough to be shown. To show less frequent events on the visualization so the steps appear connected, adjust the "Detail level" slider in the Edit blade.
+
+## Does the initial event represent the first time the event appears in a session, or any time it appears in a session?
+
+The initial event 
 
 ## Next steps
 
