@@ -27,8 +27,8 @@ The machine that provides your Cloud Shell session is temporary, and it is recyc
 * Azure Files supports only locally redundant storage (LRS) and geo-redundant storage (GRS) storage accounts.
 
 ## User permissions
-Permissions are set as regular users without sudo access. Any installation outside of your $Home will not persist.
-Although certain commands, such as `git clone`, within the `clouddrive` directory do not have proper permissions, your $Home directory does have permissions.
+Permissions are set as regular users without sudo access. Any installation outside of your `$Home` directory will not persist.
+Although certain commands within the `clouddrive` directory, such as `git clone`, do not have proper permissions, your `$Home` directory does have permissions.
 
 ## Browser support
 Cloud Shell supports the latest versions of Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox, and Apple Safari. Safari in private mode is not supported.
@@ -36,7 +36,7 @@ Cloud Shell supports the latest versions of Microsoft Edge, Microsoft Internet E
 ## Copy and paste
 Because Ctrl+C and Ctrl+V do not function as keyboard shortcuts for copy and paste on Windows machines, use Ctrl+Insert and Shift+Insert to copy and paste.
 
-Right-click copy-and-paste options are also available, but this function is subject to browser-specific clipboard access.
+Right-click copy-and-paste options are also available, but the right-click function is subject to browser-specific clipboard access.
 
 ## Editing .bashrc
 Take caution when you edit .bashrc, because doing so can cause unexpected errors in Cloud Shell.
