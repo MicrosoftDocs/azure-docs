@@ -33,7 +33,7 @@ You can also deploy this entire sample (including the fully configured VM) using
 
 ## Create a resource group
 
-Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named *myResourceGroup* in the *West US* location.
+Create an [Azure resource group](../../azure-resource-manager/resource-group-overview.md) using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named *myResourceGroup* in the *West US* location.
 
 ```powershell
 $location = westus
@@ -58,7 +58,7 @@ $endip = "0.0.0.0"
 ```
 
 
-Create an [Azure SQL Database logical server](sql-database-features.md) using the [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) command. A logical server contains a group of databases managed as a group. 
+Create an [Azure SQL Database logical server](../../sql-database/sql-database-features.md) using the [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) command. A logical server contains a group of databases managed as a group. 
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $resourceGroup `
@@ -67,7 +67,7 @@ New-AzureRmSqlServer -ResourceGroupName $resourceGroup `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $user, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 ```
 
-Create a [server-level firewall rule](sql-database-firewall-configure.md) using the [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) command. A server-level firewall rule allows an external application, like SQL Server Management Studio, to connect to a SQL database through firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to fit your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
+Create a [server-level firewall rule](../../sql-database/sql-database-firewall-configure.md) using the [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) command. A server-level firewall rule allows an external application, like SQL Server Management Studio, to connect to a SQL database through firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to fit your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
 
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroup `
