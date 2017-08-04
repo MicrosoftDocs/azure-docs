@@ -67,7 +67,7 @@ The following features are important to cloud-enabled mobile development:
   development ([Apache Cordova]).  Each client SDK is available with an MIT license and is open-source.
 
 ## Azure App Service Features.
-The following platform features are generally useful for mobile production sites.
+The following platform features are useful for mobile production sites.
 
 * **Auto Scaling** - App Service enables you to quickly scale-up or out to handle any incoming customer
   load. Manually select the number and size of VMs or set up auto-scaling to scale your mobile app backend
@@ -87,7 +87,7 @@ The following platform features are generally useful for mobile production sites
 
   Discover more about [hybrid connections], [virtual networks], and [ExpressRoute].
 * **Isolated / Dedicated Environments** - App Service can be run in a fully isolated and dedicated enviroment for securely
-  running Azure App Service apps at high scale.  This is ideal for application workloads requiring very high scale, isolation
+  running Azure App Service apps at high scale.  This is ideal for application workloads requiring high scale, isolation
   or secure network access.
 
   Discover more about [App Service Environments].
