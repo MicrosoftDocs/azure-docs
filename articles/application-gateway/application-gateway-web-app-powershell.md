@@ -19,11 +19,11 @@ ms.author: gwallace
 
 # Configure App Service Web Apps with Application Gateway 
 
-Application gateway allows you to have a Azure Web App or other multi-tenant service as a back end pool member. In this article, to you learn to configure an Azure web app with Application Gateway. The first example shows you how to configure an existing application gateway to use a web app as a back end pool member. The second example shows you how to create a new application gateway with a web app as a back end pool member.
+Application gateway allows you to have an Azure Web App or other multi-tenant service as a back-end pool member. In this article, to you learn to configure an Azure web app with Application Gateway. The first example shows you how to configure an existing application gateway to use a web app as a back-end pool member. The second example shows you how to create a new application gateway with a web app as a back-end pool member.
 
 ## Configure a web app behind an existing application gateway
 
-The following example adds a web app as a back end pool member to an existing application gateway. Both the switch `-PickHostNamefromBackendHttpSettings`on the Probe configuration and `-PickHostNameFromBackendAddress` on the back end http settings must be provided in order for web apps to work.
+The following example adds a web app as a back-end pool member to an existing application gateway. Both the switch `-PickHostNamefromBackendHttpSettings`on the Probe configuration and `-PickHostNameFromBackendAddress` on the back-end http settings must be provided in order for web apps to work.
 
 ```powershell
 # Retrieve an existing application gateway
@@ -122,6 +122,36 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 # Create the application gateway
 $appgw = New-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName -Location EastUs -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -Probes $probeconfig -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+```
+
+## Get application gateway DNS name
+
+Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway, a CNAME record can be used to point to the public endpoint of the application gateway. To create the alias, retrieve the details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. This can be done with Azure DNS or other DNS providers, by creating a CNAME record that points to the [public IP address](../dns/dns-custom-domain.md#public-ip-address). The use of A-records is not recommended since the VIP may change on restart of application gateway.
+
+```powershell
+Get-AzureRmPublicIpAddress -ResourceGroupName ContosoRG -Name publicIP01
+```
+
+```
+Name                     : publicIP01
+ResourceGroupName        : ContosoRG
+Location                 : eastus
+Id                       : /subscriptions/<subscription_id>/resourceGroups/ContosoRG/providers/Microsoft.Network/publicIPAddresses/publicIP01
+Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
+ResourceGuid             : 00000000-0000-0000-0000-000000000000
+ProvisioningState        : Succeeded
+Tags                     : 
+PublicIpAllocationMethod : Dynamic
+IpAddress                : xx.xx.xxx.xx
+PublicIpAddressVersion   : IPv4
+IdleTimeoutInMinutes     : 4
+IpConfiguration          : {
+                                "Id": "/subscriptions/<subscription_id>/resourceGroups/ContosoRG/providers/Microsoft.Network/applicationGateways/ContosoAppGateway/frontendIP
+                            Configurations/frontend1"
+                            }
+DnsSettings              : {
+                                "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
+                            }
 ```
 
 ## Next steps

@@ -56,3 +56,4 @@
 ## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 ## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

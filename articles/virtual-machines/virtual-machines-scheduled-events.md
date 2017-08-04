@@ -65,10 +65,16 @@ When you query the Metadata Service, you must provide the header `Metadata: true
 ### Enabling Scheduled Events
 The first time you make a request for scheduled events, Azure implicitly enables the feature on your Virtual Machine. As a result, you should expect a delayed response in your first call of up to two minutes.
 
-### Testing your logic with user-initiated operations
-To test your logic, you can use the Azure portal, API, CLI, or PowerShell to initiate operations that result in scheduled events. 
-Restarting a virtual machine results in a scheduled event with an event type equal to `Reboot`. Redeploying a virtual machine results in a scheduled event with an event type equal to `Redeploy`.
-In both cases, the user-initiated operation will take longer to complete since scheduled events enable more time for an application to gracefully shut down. 
+### User Initiated Maintenance
+User initiated virtual machine maintenance via the Azure portal, API, CLI, or PowerShell will result in Scheduled Events. This allows you to test the maintenance preparation logic in your application and allows your application to prepare for user initiated maintenance.
+
+Restarting a virtual machine will schedule an event with type `Reboot`. Redeploying a virtual machine will schedule an event with type `Redeploy`.
+
+> [!NOTE] 
+> Currently a maximum of 10 user initiated maintenance operations can be simultaneously scheduled. This limit will be relaxed before Scheduled Events General Availability.
+
+> [!NOTE] 
+> Currently user initiated maintenance resulting in Scheduled Events is not configurable. Configurability is planned for a future release.
 
 ## Using the API
 
