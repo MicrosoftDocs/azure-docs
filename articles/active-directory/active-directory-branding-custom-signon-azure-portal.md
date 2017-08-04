@@ -27,9 +27,7 @@ To avoid confusion, many companies want to apply a consistent look and feel acro
 
 ## Customizing the sign-in page
 
-You can customize the following elements on the sign-in page:
-
-<attach image>
+<!--You can customize the following elements on the sign-in page: <attach image>-->
 
 Company branding customizations appear on the Azure AD sign-in page when users access a tenant-specific URL such as
 [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com).
