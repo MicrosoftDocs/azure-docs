@@ -8,7 +8,7 @@ manager: janders
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
-ms.devlang: csharp
+ms.devlang: C++
 ms.topic: hero-article
 ms.date: 08/03/2017
 ---
