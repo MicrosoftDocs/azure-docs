@@ -86,7 +86,7 @@ If you want two users to have access to the same to-do list, you can add additio
 ### Scale on demand
 Azure Cosmos DB is a managed database as a service. As your user base grows, you don't need to worry about provisioning VMs or increasing cores. All you need to tell Azure Cosmos DB is how many operations per second (throughput) your app needs. You can specify the throughput via the **Scale** tab by using a measure of throughput called Request Units (RUs) per second. For example, a read operation on a 1-KB document requires 1 RU. You can also add alerts to the **Throughput** metric to monitor the traffic growth and programmatically change the throughput as alerts fire.
 
-![Azure Cosmos DB scale throughput on demand](media/mobile-apps-with-xamarin/documentdb-scale.png)
+![Azure Cosmos DB scale throughput on demand](media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.PNG)
 
 ### Go planet scale
 As your app gains popularity, you might gain users across the globe. Or maybe you want to be prepared for unforeseen events. Go to the Azure portal, and open your Azure Cosmos DB account. Click the map to make your data continuously replicate to any number of regions across the world. This capability makes your data available wherever your users are. You can also add failover policies to be prepared for contingencies.
