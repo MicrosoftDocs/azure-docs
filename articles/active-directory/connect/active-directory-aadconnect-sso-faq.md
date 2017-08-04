@@ -12,13 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ---
 
 # Azure Active Directory Seamless Single Sign-On: Frequently asked questions
 
 In this article, we address frequently asked questions about Azure Active Directory Seamless Single Sign-On (Seamless SSO). Keep checking back for new content.
+
+>[!IMPORTANT]
+>The Seamless SSO feature is currently in preview.
 
 ## What sign-in methods do Seamless SSO work with?
 
