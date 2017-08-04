@@ -2,7 +2,7 @@
 
 There are multiple ways to create an application, please select one of them:
 
-### Register your application (Express mode)
+### Option 1: Register your application (Express mode)
 Now you need to register your application in the *Microsoft Application Registration Portal*:
 
 1.	Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=singlePageApp&appTech=javascriptSpa&step=configure)
@@ -10,7 +10,7 @@ Now you need to register your application in the *Microsoft Application Registra
 3.	Make sure the option for *Guided Setup* is checked
 4.	Follow the instructions to obtain the application ID and paste it into your code
 
-### Register your application (Advanced mode)
+### Option 2: Register your application (Advanced mode)
 
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application
 2. Enter a name for your application and your email 
@@ -20,7 +20,7 @@ Now you need to register your application in the *Microsoft Application Registra
 6. Click *Save*
 
 > #### Visual Studio instructions for obtaining redirect URL
-> Please follow the instructions below to obtain your redirect URL:
+> Follow the instructions to obtain your redirect URL:
 > 1.	In *Solution Explorer*, select the project and look at the `Properties` window (if you don’t see a Properties window, press `F4`)
 > 2.	Copy the value from `URL` to the clipboard:<br/> ![Project properties](media/active-directory-singlepageapp-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
 > 3.	Switch back to the *Application Registration Portal* and paste the value as a `Redirect URL` and click 'Save'
@@ -28,13 +28,13 @@ Now you need to register your application in the *Microsoft Application Registra
 <p/>
 
 > #### Setting Redirect URL for Python
-> For Python, you can set the web server port via command line. This guided setup will use the port 8080 for reference but feel free to use any other port available. In any case, follow the instructions below to setup a redirect URL in the application registration information:<br/>
+> For Python, you can set the web server port via command line. This guided setup uses the port 8080 for reference but feel free to use any other port available. In any case, follow the instructions below to set up a redirect URL in the application registration information:<br/>
 > - Switch back to the *Application Registration Portal* and set `http://localhost:8080/` as a `Redirect URL`, or use `http://localhost:[port]/` if you are using a custom TCP port (where *[port]* is the custom TCP port number) and click 'Save'
 
 
 #### Configure your JavaScript SPA
 
-1.	Create a file named `msalconfig.js` containing the application registration information. If you are using Visual Studio, select the project (project root folder), right click and select: `Add` > `New Item` > `JavaScript File`. Name it `msalconfig.js`
+1.	Create a file named `msalconfig.js` containing the application registration information. If you are using Visual Studio, select the project (project root folder), right-click and select: `Add` > `New Item` > `JavaScript File`. Name it `msalconfig.js`
 2.	Add the following code to your `msalconfig.js` file:
 
 ```javascript
