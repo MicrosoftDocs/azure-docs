@@ -139,19 +139,82 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-## Configure the VM with Custom Script Extension
+## Create a script to configure the VM
+
 In a previous tutorial on [How to customize a Windows virtual machine](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with the Custom Script Extension for Windows. You can use the same approach to install and configure IIS and the .NET sample application on your VM.
 
-We pass the path to a configuration script, stored in GitHub, into [Set-AzureRmVMCustomScriptExtension](/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension) to download and configure the sample application. We also need to provide the full path to the SQL server instance, the user name and password. 
+Copy the following script and save it as musicstore.ps1. 
+
+```powershell
+Param (
+    [string]$user ,
+    [string]$password,
+    [string]$sqlserver 
+)
+
+# Open port 80 on the firewall to allow web traffic
+netsh advfirewall firewall add rule name="http" dir=in action=allow protocol=TCP localport=80
+
+# Create folders for the application to use
+New-Item -ItemType Directory c:\temp
+New-Item -ItemType Directory c:\music
+
+# Install IIS on the VM
+Install-WindowsFeature web-server -IncludeManagementTools
+
+# Install the .NET Core SDK on the VM
+Invoke-WebRequest https://go.microsoft.com/fwlink/?linkid=848827 -outfile c:\temp\dotnet-dev-win-x64.1.0.4.exe
+Start-Process c:\temp\dotnet-dev-win-x64.1.0.4.exe -ArgumentList '/quiet' -Wait
+Invoke-WebRequest https://go.microsoft.com/fwlink/?LinkId=817246 -outfile c:\temp\DotNetCore.WindowsHosting.exe
+Start-Process c:\temp\DotNetCore.WindowsHosting.exe -ArgumentList '/quiet' -Wait
+
+# Download the files and configure the app
+Invoke-WebRequest  https://github.com/neilpeterson/nepeters-azure-templates/raw/master/dotnet-core-music-vm-sql-db/music-app/music-store-azure-demo-pub.zip -OutFile c:\temp\musicstore.zip
+Expand-Archive C:\temp\musicstore.zip c:\music
+(Get-Content C:\music\config.json) | ForEach-Object { $_ -replace "<replaceserver>", $sqlserver } | Set-Content C:\music\config.json
+(Get-Content C:\music\config.json) | ForEach-Object { $_ -replace "<replaceuser>", $user } | Set-Content C:\music\config.json
+(Get-Content C:\music\config.json) | ForEach-Object { $_ -replace "<replacepass>", $password } | Set-Content C:\music\config.json
+
+# The following is a workaround for a database creation bug
+Start-Process 'C:\Program Files\dotnet\dotnet.exe' -ArgumentList 'c:\music\MusicStore.dll'
+
+# Configure IIS to work with the application
+Remove-WebSite -Name "Default Web Site"
+Set-ItemProperty IIS:\AppPools\DefaultAppPool\ managedRuntimeVersion ""
+New-Website -Name "MusicStore" -Port 80 -PhysicalPath C:\music\ -ApplicationPool DefaultAppPool
+& iisreset
+```
+
+## Upload the script
+
+Configuration scripts can be stored in either GitHub or in Azure blob storage. In this example, we are going to upload the file *C:\musicstore\musicstore.ps1* to a storage account called *mystorageaccount*, into a container named *mycontainer*. The permissions on the container will be set to **blob** so that the file can be used by the custom script extension.
+
+```powershell
+$StorageAccountName = "mystorageaccount"
+$ContainerName = "mycontainer"
+$ScriptToUpload = "C:\musicstore\musicstore.ps1"
+
+New-AzureRMStorageAccount –StorageAccountName $StorageAccountName -SkuName "Standard_LRS" -Kind "Storage" -ResourceGroupName $resourceGroup -Location $Location
+$key = Get-AzureRmStorageAccountKey -Name $StorageAccountName -ResourceGroupName $resourceGroup
+$context = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $key[0].Value;
+New-AzureStorageContainer -Name $ContainerName -Context $context -Permission blob
+Set-AzureStorageBlobContent -Container $ContainerName -File $ScriptToUpload -Context $context
+$scriptURL = (Get-AzureStorageBlob -Container $ContainerName -Context $context).ICloudBlob.uri.AbsoluteUri
+```
+
+## Configure the VM
+
+
+We pass the path to a configuration script, that you uploaded to blob storage, into [Set-AzureRmVMCustomScriptExtension](/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension) to download and configure the sample application. To configure the .Net application on the VM, we need to provide the full path to the SQL server instance, the user name and password to the script. 
 
 ```powershell
 $sqlfqdn = ($sqlserver + '.database.windows.net')
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName $resourceGroup `
     -VMName $vmName `
     -Location $location `
-    -FileUri https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1  `
-    -Run "configure-music-app.ps1 -user $user -password $password -sqlserver $sqlfqdn" `
-    -Name dotNetcore
+    -FileUri $scriptURL `
+    -Run "musicstore.ps1 -user $user -password $password -sqlserver $sqlfqdn" `
+    -Name MusicStoreExtension
 ```
 
 ## Test the application
