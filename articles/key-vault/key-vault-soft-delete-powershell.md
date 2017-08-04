@@ -42,7 +42,7 @@ To be able to recover a deleted key vault or objects stored in a key vault, you 
 For an existing key vault named ContosoVault, enable soft-delete as follows. 
 
 >[!NOTE]
->Currently you need to use ARM’s (Azure Resource Manager) resource manipulation to directly write the *enableSoftDelete* property to the Key Vault resource.
+>Currently you need to use ARM (Azure Resource Manager) resource manipulation to directly write the *enableSoftDelete* property to the Key Vault resource.
 
 ```powershell
 ($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
@@ -85,7 +85,7 @@ With soft-delete enabled:
 - Objects in a deleted key vault, such as keys, secrets and, certificates, are inaccessible and remain so while their containing key vault is in the deleted state. 
 - The DNS name for a key vault in a deleted state is still reserved so, a new key vault with same name cannot be created.  
 
-You may view deleted state key vaults, associated with your subscription, using the following command.
+You may view deleted state key vaults, associated with your subscription, using the following command:
 
 ```powershell
 PS C:\> Get-AzureRmKeyVault -InRemovedStateVault 
@@ -119,7 +119,9 @@ For a key, 'ContosoFirstKey', in a key vault named 'ContosoVault' with soft-dele
 Remove-AzureKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey
 ```
 
-With your key vault enabled for soft-delete, a deleted key still appears like it's deleted except, when you explicitly list or retrieve deleted keys. Most operations on a key in the deleted state will fail except for listing a deleted key, recovering it or purging it. For example, to request to list deleted keys in a key vault, use the following command.
+With your key vault enabled for soft-delete, a deleted key still appears like it's deleted except, when you explicitly list or retrieve deleted keys. Most operations on a key in the deleted state will fail except for listing a deleted key, recovering it or purging it. 
+
+For example, to request to list deleted keys in a key vault, use the following command:
 
 ```powershell
 Get-AzureKeyVaultKey -VaultName ContosoVault -InRemovedState
@@ -146,7 +148,7 @@ When you delete a key in a key vault with soft-delete enabled, it may take a few
 
 ### Using soft-delete with key vault objects
 
-Just like key vaults, a deleted key, secret or certificate will remain in deleted state for up to 90 days unless you recover it or purge it. 
+Just like key vaults, a deleted key, secret or, certificate will remain in deleted state for up to 90 days unless you recover it or purge it. 
 
 #### Keys
 
@@ -207,10 +209,10 @@ Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPass
 
 ### Key vault objects
 
-Purging a key, secret or certificate will permanently delete it, meaning it will not be recoverable. The key vault that contained the deleted object will however remain intact as will all other objects in the key vault. 
+Purging a key, secret or, certificate will permanently delete it, meaning it will not be recoverable. The key vault that contained the deleted object will however remain intact as will all other objects in the key vault. 
 
 ### Key vaults as containers
-When a key vault is purged, all of its contents, including keys, secrets, and certificates, are permanently deleted. To purge a key vault use the `Remove-AzureRmKeyVault` command with the option `-InRemovedState` and by specifying the location of the deleted key vault with the `-Location location` argument. You can find the location of a deleted vault using the command `Get-AzureRmKeyVault -InRemovedState`.
+When a key vault is purged, all of its contents, including keys, secrets, and certificates, are permanently deleted. To purge a key vault, use the `Remove-AzureRmKeyVault` command with the option `-InRemovedState` and by specifying the location of the deleted key vault with the `-Location location` argument. You can find the location of a deleted vault using the command `Get-AzureRmKeyVault -InRemovedState`.
 
 ```powershell
 Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus

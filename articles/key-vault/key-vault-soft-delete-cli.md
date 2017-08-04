@@ -6,7 +6,7 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 08/03/2017
+ms.date: 08/04/2017
 ---
 # How to use Key Vault soft-delete with CLI
 
@@ -42,7 +42,7 @@ To be able to recover a deleted key vault or objects stored in a key vault, you 
 For an existing key vault named ContosoVault, enable soft-delete as follows. 
 
 >[!NOTE]
->Currently you need to use ARM’s (Azure Resource Manager) resource manipulation to directly write the *enableSoftDelete* property to the Key Vault resource.
+>Currently you need to use ARM (Azure Resource Manager) resource manipulation to directly write the *enableSoftDelete* property to the Key Vault resource.
 
 ```azurecli
 az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{print $1}') --set properties.enableSoftDelete=true
@@ -83,7 +83,7 @@ With soft-delete enabled:
 - Objects in a deleted key vault, such as keys, secrets and, certificates, are inaccessible and remain so while their containing key vault is in the deleted state. 
 - The DNS name for a key vault in a deleted state is still reserved so, a new key vault with same name cannot be created.  
 
-You may view deleted state key vaults, associated with your subscription, using the following command.
+You may view deleted state key vaults, associated with your subscription, using the following command:
 
 ```azurecli
 az keyvault list-deleted
@@ -109,7 +109,9 @@ For a key, 'ContosoFirstKey', in a key vault named 'ContosoVault' with soft-dele
 az keyvault key delete --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-With your key vault enabled for soft-delete, a deleted key still appears like it's deleted except, when you explicitly list or retrieve deleted keys. Most operations on a key in the deleted state will fail except for listing a deleted key, recovering it or purging it. For example, to request to list deleted keys in a key vault, use the following command.
+With your key vault enabled for soft-delete, a deleted key still appears like it's deleted except, when you explicitly list or retrieve deleted keys. Most operations on a key in the deleted state will fail except for listing a deleted key, recovering it or purging it. 
+
+For example, to request to list deleted keys in a key vault, use the following command:
 
 ```azurecli
 az keyvault key list-deleted --vault-name ContosoVault
@@ -125,7 +127,7 @@ az keyvault key list-deleted --vault-name ContosoVault
 
 ### Using soft-delete with key vault objects
 
-Just like key vaults, a deleted key, secret or certificate will remain in deleted state for up to 90 days unless you recover it or purge it. 
+Just like key vaults, a deleted key, secret or, certificate will remain in deleted state for up to 90 days unless you recover it or purge it. 
 
 #### Keys
 
@@ -186,10 +188,10 @@ az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
 
 ### Key vault objects
 
-Purging a key, secret or certificate will permanently delete it, meaning it will not be recoverable. The key vault that contained the deleted object will however remain intact as will all other objects in the key vault. 
+Purging a key, secret or, certificate will permanently delete it, meaning it will not be recoverable. The key vault that contained the deleted object will however remain intact as will all other objects in the key vault. 
 
 ### Key vaults as containers
-When a key vault is purged, all of its contents, including keys, secrets, and certificates, are permanently deleted. To purge a key vault use the `az keyvault purge` command. You can find the location your subscription's deleted key vaults using the command `az keyvault list-deleted`.
+When a key vault is purged, all of its contents, including keys, secrets, and certificates, are permanently deleted. To purge a key vault, use the `az keyvault purge` command. You can find the location your subscription's deleted key vaults using the command `az keyvault list-deleted`.
 
 ```azurecli
 az keyvault purge --location westus --name ContosoVault
