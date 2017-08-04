@@ -34,7 +34,7 @@ The Flows tool starts from an initial page view or event that you specify. Given
 
 ## Start by choosing an initial page view or custom event
 
-![TBD screenshot of Flows...focus on an initial event UI](TBD link)
+![TBD screenshot of Flows...focus on an initial event UI](./media/app-insights-usage-flows/flows-initial-event.png)
 
 To get started answering questions with the Flows tool, choose an initial page view or custom event to serve as the starting point for the visualization:
 1. Click the link in the "What do users do after...?" title, or click the Edit button. 
@@ -87,7 +87,7 @@ If steps (columns) in a Flows visualization are disconnected, it means none of t
 
 ## Does the initial event represent the first time the event appears in a session, or any time it appears in a session?
 
-The initial event 
+The initial event on the visualization only represents the first time a user sent that page view or custom event during a session. If users can send the initial event multiple times in a session, then the "Step 1" column only shows how users behave after the *first* instance of initial event, not all instances.
 
 ## Next steps
 
