@@ -88,7 +88,7 @@ For more information on using SSH with HDInsight, see [Use SSH with HDInsight](h
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 
-    This command displays a list of the words that are contained in the **wasbs://example/data/gutenberg/davinci.txt** file and the number of times each word occurred. The following text is an example of the data that is contained in the file:
+    This command displays a list of the words that are contained in the **wasb://example/data/gutenberg/davinci.txt** file and the number of times each word occurred. The following text is an example of the data that is contained in the file:
 
         wreathed        3
         wreathing       1

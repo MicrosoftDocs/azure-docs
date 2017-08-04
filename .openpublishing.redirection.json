@@ -1226,6 +1226,11 @@
             "redirect_document_id": false
         },
         {
+           "source_path": "articles/automation/automation-troubleshooting-hrw-runbook-terminates-suspended.md",
+           "redirect_url": "https://docs.microsoft.com/azure/automation/automation-troubleshooting-hybrid-runbook-worker",
+           "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-portal/resource-group-portal.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-portal",
             "redirect_document_id": false
@@ -8338,6 +8343,17 @@
             "source_path": "articles/storage/storage-cannot-delete-storage-account-container-vhd.md",
             "redirect_url": "/azure/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd",
             "redirect_document_id": false
-        }                                               
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-deploy-container.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-azcopy.md",
+            "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-load",
+            "redirect_document_id": false
+        }
+
     ]
 }

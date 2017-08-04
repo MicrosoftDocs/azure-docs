@@ -132,7 +132,6 @@
 ### Build a container service
 #### [Create a Windows container application](service-fabric-get-started-containers.md)
 #### [Create a Linux container application](service-fabric-get-started-containers-linux.md)
-#### [Deploy Windows container](service-fabric-deploy-container.md)
 #### [Deploy Linux container](service-fabric-deploy-container-linux.md)
 #### [Docker compose (preview)](service-fabric-docker-compose.md)
 #### [Resource governance for containers and services](service-fabric-resource-governance.md)
