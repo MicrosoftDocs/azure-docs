@@ -16,7 +16,7 @@ Instructions in this guide are based on both Python and Visual Studio 2017, but 
 
 ## Create your project 
 
-> ## Option 1: Visual Studio 
+> ### Option 1: Visual Studio 
 > If you are using Visual Studio and are creating a new project, follow the steps below to create a new Visual Studio solution:
 > 1.	In Visual Studio:  `File` > `New` > `Project`
 > 2.	Under `Visual C#\Web`, select `ASP.NET Web Application (.NET Framework)`
@@ -25,7 +25,7 @@ Instructions in this guide are based on both Python and Visual Studio 2017, but 
 
 <p/><!-- -->
 
-> ## Option 2: Python/ other web servers
+> ### Option 2: Python/ other web servers
 > Make sure you have installed [Python](https://www.python.org/downloads/), then follow the steps below:
 > 1.	Create a folder to host your application.
 
