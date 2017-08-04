@@ -2,12 +2,12 @@
 ## Test your code
 
 > ### Testing with Visual Studio
-> If you are using Visual Studio, press `F5` to run your project. The browser will open and direct you to *http://localhost:{port}* where you’ll see the *Call Microsoft Graph API* button.
+> If you are using Visual Studio, press `F5` to run your project: the browser opens and directs you to *http://localhost:{port}* where you see the *Call Microsoft Graph API* button.
 
 <p/><!-- -->
 
 > ### Testing with Python or another web server
-> If you are not using Visual Studio, make sure your web server is started and it is configured to listen to a TCP port based on the folder containing your *index.html* file. For Python, you can start listening to the port by running the following in the command prompt/ terminal, from the app's folder:
+> If you are not using Visual Studio, make sure your web server is started and it is configured to listen to a TCP port based on the folder containing your *index.html* file. For Python, you can start listening to the port by running the in the command prompt/ terminal, from the app's folder:
 > 
 > ```bash
 > python -m http.server 8080
@@ -16,13 +16,13 @@
 
 ## Test your application
 
-After the browser loads your *index.html*, click the *Call Microsoft Graph API* button. If this is the first time, the browser will redirect you to the Microsoft Azure Active Directory v2 endpoint, where you will be prompted to sign in.
+After the browser loads your *index.html*, click the *Call Microsoft Graph API* button. If this is the first time, the browser redirects you to the Microsoft Azure Active Directory v2 endpoint, where you are  prompted to sign in.
  
 ![Sample screen shot](media/active-directory-singlepageapp-javascriptspa-test/javascriptspascreenshot1.png)
 
 
 ### Consent
-The very first time you sign in to your application, you will be presented with a consent screen similar to below, where you need to accept:
+The very first time you sign in to your application, you are presented with a consent screen similar to the following, where you need to accept:
 
  ![Consent screen](media/active-directory-singlepageapp-javascriptspa-test/javascriptspaconsent.png)
 
@@ -32,7 +32,7 @@ You should see user profile information returned by the Microsoft Graph API call
  
  ![Results](media/active-directory-singlepageapp-javascriptspa-test/javascriptsparesults.png)
 
-You will also see basic information about the token acquired in the *Access Token* and *ID Token Claims* boxes.
+You also see basic information about the token acquired in the *Access Token* and *ID Token Claims* boxes.
 
 <!--start-collapse-->
 ### More information about scopes and delegated permissions
