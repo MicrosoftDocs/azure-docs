@@ -184,7 +184,7 @@ Currently, Azure Container Instances only supports long-running services. If you
   ...
 ```
 
-> ![NOTE]
+> [!NOTE]
 > Most container images for Linux distributions set a shell, such as bash, as the default command. Since a shell on its own is not a long-running service, these containers immediately exit and fall into a restart loop.
 
 ### Container takes a long time to start
