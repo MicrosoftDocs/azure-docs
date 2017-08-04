@@ -38,7 +38,9 @@ On Azure Stack, Virtual Machine Scale Sets do not support auto-scale. You can ad
 
 ## Add the virtual machine scale set
 
-Edit the following PowerShell script for your environment and then run it to add a virtual machine scale set to your Azure Stack Marketplace:
+Edit the following PowerShell script for your environment and then run it to add a virtual machine scale set to your Azure Stack Marketplace. 
+
+``$User`` is the account you use to connect the administrator portal. For example, serviceadmin@contoso.onmicrosoft.com.
 
 ```
 $Arm = "https://adminmanagement.local.azurestack.external"
@@ -48,7 +50,7 @@ Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint $Arm
 
 $Password = ConvertTo-SecureString -AsPlainText -Force "<your Azure Stack administrator password>"
 
-$User = "<your Azure Stack administrator user name>"
+$User = "<your Azure Stack service administrator user name>"
 
 $Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
 
