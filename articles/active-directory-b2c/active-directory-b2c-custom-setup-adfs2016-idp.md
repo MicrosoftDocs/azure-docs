@@ -22,7 +22,7 @@ ms.author: yoelh
 > [!NOTE]
 > **Custom policies are in public preview.**
 >
-> [Custom policies](active-directory-b2c-overview-custom.md) are designed primarily for identity pros who need to address complex scenarios. For most scenarios, we recommend Azure Active Directory B2C [built-in policies](active-directory-b2c-overview-custom,md) because they facilitate easier configuration. The two configuration approaches (built-in and custom) can coexist in the same Azure Active Directory B2C tenant. To learn more, see the [overview of custom policies](active-directory-b2c-overview-custom,md).
+> [Custom policies](active-directory-b2c-overview-custom.md) are designed primarily for identity pros who need to address complex scenarios. For most scenarios, we recommend Azure Active Directory B2C [built-in policies](active-directory-b2c-overview-custom.md) because they facilitate easier configuration. The two configuration approaches (built-in and custom) can coexist in the same Azure Active Directory B2C tenant. To learn more, see the [overview of custom policies](active-directory-b2c-overview-custom,md).
 
 This article shows you how to enable sign-in for users from AD-FS account through the use of [custom policies](active-directory-b2c-overview-custom.md).
 
@@ -81,7 +81,7 @@ Membership in **Administrators**, or equivalent, on the local computer is the mi
 
     ![Relying party trust identifiers](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-7.png)
 
-9.  On the **Choose Access Control Policy** select a policy and click **Next**. For more information about Access Control Policies, see [Access Control Policies in AD FS](access-control-policies-in-ad-fs).
+9.  On the **Choose Access Control Policy** select a policy and click **Next**.
 
     ![Choose Access Control Policy](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-8.png)
 
