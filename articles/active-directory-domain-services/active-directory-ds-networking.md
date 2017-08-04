@@ -71,6 +71,16 @@ The following ports are required for Azure AD Domain Services to service and mai
 | 5986 |Management of your domain |
 | 636 |Secure LDAP (LDAPS) access to your managed domain |
 
+### Sample NSG for virtual networks with Azure AD Domain Services
+The following table illustrates a sample NSG you can configure for a virtual network with an Azure AD Domain Services managed domain. This rule allows inbound traffic from the above specified ports to ensure your managed domain stays patched, updated and can be mnitored by Microsoft. The default 'DenyAll' rule applies to all other inbound traffic from the internet.
+
+Additionally, the NSG also illustrates how to lock down secure LDAP access over the internet. Skip this rule if you have not enabled secure LDAP access to your managed domain over the internet. The NSG contains a set of rules that allow inbound LDAPS access over TCP port 636 only from a specified set of IP addresses. The NSG rule to allow LDAPS access over the internet from specified IP addresses has a higher priority than the DenyAll NSG rule.
+
+![Sample NSG to secure LDAPS access over the internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+
+**More information** - [Create a Network Security Group](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+
+
 ## Network connectivity
 An Azure AD Domain Services managed domain can be enabled only within a single classic virtual network in Azure. Virtual networks created using Azure Resource Manager are not supported.
 
