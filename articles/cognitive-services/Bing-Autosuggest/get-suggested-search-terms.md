@@ -15,9 +15,9 @@ ms.author: scottwhi
 
 # Getting suggested search query terms
 
-Your user experience must provide a search box where the user enters a search query term. To improve the search box experience, you'd call the Autosuggest API to get back a list of suggested queries based on the partial query string the user has entered. You'd then display the suggestions in a drop-down list. The suggested terms are based on suggested queries that other users have searched on and user intent. 
+If you send queries to any of the Bing Search APIs, call the Autosuggest API to improve your search box experience. The Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Display the suggestions in the search box's drop-down list. The suggested terms are based on suggested queries that other users have searched on and user intent.
 
-You'd call this API each time the user types a new character in the search box. The completeness of the query string impacts the relevance of the suggested query terms that the API returns. The more complete the query string, the more relevant the list of suggested query terms are. For example, the suggestions that the API may return for *s* are likely to be less relevant than the queries it returns for *sailing dinghies*. 
+Typically, you'd call this API each time the user types a new character in the search box. The completeness of the query string impacts the relevance of the suggested query terms that the API returns. The more complete the query string, the more relevant the list of suggested query terms are. For example, the suggestions that the API may return for *s* are likely to be less relevant than the queries it returns for *sailing dinghies*. 
 
 The following example shows a request that returns the suggested query strings for *sail*. Remember to URL encode the user's partial query term when you set the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) query parameter. For example, if the user entered *sailing les*, set `q` to *sailing+les* or *sailing%20les*.
   

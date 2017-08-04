@@ -23,12 +23,12 @@ ms.author: cherylmc
 This article shows you how to use PowerShell to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the Resource Manager deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Classic - Azure portal](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Classic - classic portal](vpn-gateway-site-to-site-create.md)
->
+> * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+> * [Azure portal (classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Classic portal (classic)](vpn-gateway-site-to-site-create.md)
+> 
 >
 
 
@@ -40,11 +40,10 @@ A Site-to-Site VPN gateway connection is used to connect your on-premises networ
 
 Verify that you have met the following criteria before beginning your configuration:
 
-* Verify that you want to work with the Resource Manager deployment model. [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-rm-include.md)]
-* A compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
-* An externally facing public IPv4 address for your VPN device. This IP address cannot be located behind a NAT.
+* Make sure you have a compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
+* Verify that you have an externally facing public IPv4 address for your VPN device. This IP address cannot be located behind a NAT.
 * If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to.
-* The latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
+* Install the latest version of the Azure Resource Manager PowerShell cmdlets. PowerShell cmdlets are updated frequently and you will typically need to update your PowerShell cmdlets to get the latest feature functionality. If you don't update your PowerShell cmdlets, the values specified may fail. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information about downloading and installing PowerShell cmdlets.
 
 ### Example values
 
@@ -182,12 +181,12 @@ Use the following values:
 
 * The *-GatewayType* for a Site-to-Site configuration is *Vpn*. The gateway type is always specific to the configuration that you are implementing. For example, other gateway configurations may require -GatewayType ExpressRoute.
 * The *-VpnType* can be *RouteBased* (referred to as a Dynamic Gateway in some documentation), or *PolicyBased* (referred to as a Static Gateway in some documentation). For more information about VPN gateway types, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
-* The *-GatewaySku* can be Basic, Standard, or HighPerformance. There are configuration limitations for certain SKUs. For more information, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+* Select the Gateway SKU that you want to use. There are configuration limitations for certain SKUs. For more information, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku). If you get an error when creating the VPN gateway regarding the -GatewaySku, verify that you have installed the latest version of the PowerShell cmdlets.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
--VpnType RouteBased -GatewaySku Standard
+-VpnType RouteBased -GatewaySku VpnGw1
 ```
 
 ## <a name="ConfigureVPNDevice"></a>7. Configure your VPN device

@@ -14,7 +14,7 @@ ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: gremlin
-ms.topic: hero-article
+ms.topic: article
 ms.date: 06/05/2017
 ms.author: khdang
 
@@ -129,6 +129,7 @@ When you built TinkerPop3 in the previous step, the process also pulled all jar 
 
     ```bash
     # TinkerPop3
+    gremlin-console-3.3.0-SNAPSHOT.jar
     gremlin-core-3.3.0-SNAPSHOT.jar       
     gremlin-groovy-3.3.0-SNAPSHOT.jar     
     gremlin-shaded-3.3.0-SNAPSHOT.jar     

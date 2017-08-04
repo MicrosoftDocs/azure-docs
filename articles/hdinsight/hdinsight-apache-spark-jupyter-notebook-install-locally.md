@@ -1,5 +1,5 @@
 ---
-title: Install Jupyter locally and connect to an Azure HDInsight Spark cluster | Microsoft Docs
+title: Install Jupyter locally & connect to an Azure HDInsight Spark cluster | Microsoft Docs
 description: Learn how to install Jupyter notebook locally on your computer and connect it to an Apache Spark cluster on Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -39,14 +39,14 @@ The prerequisites listed here are not for installing Jupyter. These are for conn
 
 ## Install Jupyter notebook on your computer
 
-You  must install Python before you can install Jupyter notebooks. Both Python and Jupyter are available as part of the [Ananconda distribution](https://www.continuum.io/downloads). When you install Anaconda, you install a distribution of Python. Once Anaconda is installed, you add the Jupyter installation by running appropirate commands.
+You  must install Python before you can install Jupyter notebooks. Both Python and Jupyter are available as part of the [Anaconda distribution](https://www.continuum.io/downloads). When you install Anaconda, you install a distribution of Python. Once Anaconda is installed, you add the Jupyter installation by running appropriate commands.
 
 1. Download the [Anaconda installer](https://www.continuum.io/downloads) for your platform and run the setup. While running the setup wizard, make sure you select the option to add Anaconda to your PATH variable.
 2. Run the following command to install Jupyter.
 
         conda install jupyter
 
-    For more information on installting Jupyter, see [Installing Jupyter using Anaconda](http://jupyter.readthedocs.io/en/latest/install.html).
+    For more information on installing Jupyter, see [Installing Jupyter using Anaconda](http://jupyter.readthedocs.io/en/latest/install.html).
 
 ## Install the kernels and Spark magic
 
@@ -104,7 +104,7 @@ In this section you configure the Spark magic that you installed earlier to conn
             "heartbeat_retry_seconds": 1
 
     >[!TIP]
-    >Heartbeats are sent to ensure that sessions are not leaked. Note that when a computer goes to sleep or is shut down, the hearbeat will not be sent, resulting in the session being cleaned up. For clusters v3.4, if you wish to disable this behavior, you can set the Livy config `livy.server.interactive.heartbeat.timeout` to `0` from the Ambari UI. For clusters v3.5, if you do not set the 3.5 configuration above, the session will not be deleted.
+    >Heartbeats are sent to ensure that sessions are not leaked. When a computer goes to sleep or is shut down, the heartbeat is not sent, resulting in the session being cleaned up. For clusters v3.4, if you wish to disable this behavior, you can set the Livy config `livy.server.interactive.heartbeat.timeout` to `0` from the Ambari UI. For clusters v3.5, if you do not set the 3.5 configuration above, the session will not be deleted.
 
 6. Start Jupyter. Use the following command from the command prompt.
 
@@ -112,7 +112,7 @@ In this section you configure the Spark magic that you installed earlier to conn
 
 7. Verify that you can connect to the cluster using the Jupyter notebook and that you can use the Spark magic available with the kernels. Perform the following steps.
 
-	a. Create a new notebook. From the right hand corner, click **New**. You should see the default kernel **Python2** and the two new kernels that you install, **PySpark** and **Spark**. Click **PySpark**.
+	a. Create a new notebook. From the right-hand corner, click **New**. You should see the default kernel **Python2** and the two new kernels that you install, **PySpark** and **Spark**. Click **PySpark**.
 
 	![Kernels in Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Kernels in Jupyter notebook")
 
@@ -155,7 +155,7 @@ There can be a number of reasons why you might want to install Jupyter on your c
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)

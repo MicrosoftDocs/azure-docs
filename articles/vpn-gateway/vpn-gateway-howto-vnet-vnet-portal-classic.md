@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Create a connection between VNets: classic: Azure portal | Microsoft Docs'
 description: How to connect Azure virtual networks together using PowerShell and the Azure classic portal.
 services: vpn-gateway
@@ -14,18 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 08/02/2017
 ms.author: cherylmc
 
 ---
 # Configure a VNet-to-VNet connection (classic)
 
+[!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
+
 This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. The steps in this article apply to the classic deployment model and the Azure portal. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Classic - Azure portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Azure portal (classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Connect different deployment models - Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connect different deployment models - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
@@ -78,7 +81,16 @@ The following table shows an example of how to define your VNets. Use the ranges
 
 ## <a name="vnetvalues"></a>Step 2 - Create the virtual networks
 
-Create two virtual networks in the [Azure portal](https://portal.azure.com). For the steps to create classic virtual networks, see [Create a classic virtual network](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). If you are using this article as an exercise, you can use the following example values:
+Create two virtual networks in the [Azure portal](https://portal.azure.com). For the steps to create classic virtual networks, see [Create a classic virtual network](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). 
+
+When using the portal to create a classic virtual network, you must navigate to the virtual network blade by using the following steps, otherwise the option to create a classic virtual network does not appear:
+
+1. Click the '+' to open the 'New' blade.
+2. In the 'Search the marketplace' field, type 'Virtual Network'. If you instead, select Networking -> Virtual Network, you will not get the option to create a classic VNet.
+3. Locate 'Virtual Network' from the returned list and click it to open the Virtual Network blade. 
+4. On the virtual network blade, select 'Classic' to create a classic VNet. 
+
+If you are using this article as an exercise, you can use the following example values:
 
 **Values for TestVNet1**
 

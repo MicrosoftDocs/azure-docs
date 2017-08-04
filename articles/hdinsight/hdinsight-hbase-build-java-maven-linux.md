@@ -25,7 +25,7 @@ Learn how to create an [Apache HBase](http://hbase.apache.org/) application in J
 The steps in this document use [Maven](http://maven.apache.org/) to create and build the project. Maven is a software project management and comprehension tool that allows you to build software, documentation, and reports for Java projects.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Requirements
 
@@ -454,7 +454,7 @@ The following steps use Azure PowerShell to upload the JAR to the default storag
     $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
 
     # The JAR
-    $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
+    $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
 
     # The job definition
     $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `

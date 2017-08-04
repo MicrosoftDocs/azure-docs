@@ -1,5 +1,5 @@
 ---
-title: Ports used by HDInsight | Microsoft Docs
+title: Ports used by Hadoop services on HDInsight - Azure | Microsoft Docs
 description: A list of ports used by Hadoop services running on HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -70,6 +70,14 @@ All services publicly exposed on the internet must be authenticated:
 
 > [!NOTE]
 > Some services are only available on specific cluster types. For example, HBase is only available on HBase cluster types.
+
+### Ambari
+
+| Service | Nodes | Port | Path | Protocol | 
+| --- | --- | --- | --- | --- |
+| Ambari web UI | Head nodes | 8080 | / | HTTP |
+| Ambari REST API | Head nodes | 8080 | /api/v1 | HTTP |
+
 
 ### HDFS ports
 

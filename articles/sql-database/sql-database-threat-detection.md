@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 05/01/2017
+ms.date: 06/19/2017
 ms.author: ronmat; ronitr
 
 ---

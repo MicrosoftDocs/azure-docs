@@ -141,7 +141,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Customer success stories]: https://azure.microsoft.com/en-us/case-studies/?service=sql-data-warehouse
+[Customer success stories]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse

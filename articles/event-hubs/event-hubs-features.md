@@ -48,6 +48,10 @@ Event Hubs enables granular control over event publishers through *publisher pol
 
 You don't have to create publisher names ahead of time, but they must match the SAS token used when publishing an event, in order to ensure independent publisher identities. When using publisher policies, the **PartitionKey** value is set to the publisher name. To work properly, these values must match.
 
+## Capture
+
+[Event Hubs Capture](event-hubs-capture-overview.md) enables you to automatically capture the streaming data in Event Hubs and archive it to a Blob storage account of your choice. You can enable Capture from the Azure portal, and specify a minimum size and time window to perform the capture. Using Event Hubs Capture, you specify your own Azure Blob Storage account and container, which is used to store the captured data. Captured data is written in the Apache Avro format.
+
 ## Partitions
 
 Event Hubs provides message streaming through a partitioned consumer pattern in which each consumer only reads a specific subset, or partition, of the message stream. This pattern enables horizontal scale for event processing and provides other stream-focused features that are unavailable in queues and topics.
@@ -86,7 +90,7 @@ Any entity that reads event data from an event hub is an *event consumer*. All E
 
 The publish/subscribe mechanism of Event Hubs is enabled through *consumer groups*. A consumer group is a view (state, position, or offset) of an entire event hub. Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets.
 
-In a stream processing architecture, each downstream application equates to a consumer group. If you want to write event data to long-term storage, then that storage writer application is a consumer group. Complex event processing can then be performed by another, separate consumer group. You can only access partitions through a consumer group. Each partition can only have one active reader **from a given consumer group** at a time. There is always a default consumer group in an event hub, and you can create up to 20 consumer groups for a Standard tier event hub.
+In a stream processing architecture, each downstream application equates to a consumer group. If you want to write event data to long-term storage, then that storage writer application is a consumer group. Complex event processing can then be performed by another, separate consumer group. You can only access partitions through a consumer group. There can be at most 5 concurrent readers on a partition per consumer group; however **it is recommended that there is only one active receiver on a partition per consumer group**. There is always a default consumer group in an event hub, and you can create up to 20 consumer groups for a Standard tier event hub.
 
 The following are examples of the consumer group URI convention:
 

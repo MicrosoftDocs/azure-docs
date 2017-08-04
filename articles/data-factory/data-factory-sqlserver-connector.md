@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2017
+ms.date: 06/09/2017
 ms.author: jingwang
 
 ---
@@ -94,7 +94,7 @@ You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmd
 ```
 **JSON for using Windows Authentication**
 
-If username and password are specified, gateway uses them to impersonate the specified user account to connect to the on-premises SQL Server database. Otherwise, gateway connects to the SQL Server directly with the security context of Gateway (its startup account).
+Data Management Gateway will impersonate the specified user account to connect to the on-premises SQL Server database. 
 
 ```json
 {

@@ -192,9 +192,9 @@ The following steps will walk you through the steps to deploy your Spring Boot w
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 
-* [Running a Spring Boot Application on Linux in the Azure Container Service](../container-service/container-service-deploy-spring-boot-app-on-linux.md)
+* [Running a Spring Boot Application on Linux in the Azure Container Service](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md)
 
-* [Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](../container-service/container-service-deploy-spring-boot-app-on-kubernetes.md)
+* [Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md)
 
 ## Additional Resources
 

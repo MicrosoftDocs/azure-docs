@@ -55,7 +55,7 @@ You can configure and get information about alert rules using
 
 3. Select the **Add alert** command and fill in the fields.
    
-    ![Add Alert](../monitoring-and-diagnostics/media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
+    ![Add Alert](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
 4. **Name** your alert rule, and choose a **Description**, which also shows in notification emails.
 5. Select the **Metric** you want to monitor, then choose a **Condition** and **Threshold** value for the metric. Also chose the **Period** of time that the metric rule must be satisfied before the alert triggers. So for example, if you use the period "PT5M" and your alert looks for CPU above 80%, the alert triggers when the CPU has been consistently above 80% for 5 minutes. Once the first trigger occurs, it again triggers when the CPU stays below 80% for 5 minutes. The CPU measurement occurs every 1 minute.   
 6. Check **Email owners...** if you want administrators and co-administrators to be emailed when the alert fires.
@@ -93,16 +93,16 @@ Once you have created an alert, you can select it and:
 | SQL database | dtu_limit | DTU limit | Average | 5 minutes |
 | SQL database | dtu_used | DTU used | Average | 5 minutes |
 ||||||
-| Elastic pool | cpu_percent | CPU percentage | Average | 5 minutes |
-| Elastic pool | physical_data_read_percent | Data IO percentage | Average | 5 minutes |
-| Elastic pool | log_write_percent | Log IO percentage | Average | 5 minutes |
-| Elastic pool | dtu_consumption_percent | DTU percentage | Average | 5 minutes |
-| Elastic pool | storage_percent | Storage percentage | Average | 5 minutes |
-| Elastic pool | workers_percent | Workers percentage | Average | 5 minutes |
-| Elastic pool | eDTU_limit | eDTU limit | Average | 5 minutes |
-| Elastic pool | storage_limit | Storage limit | Average | 5 minutes |
-| Elastic pool | eDTU_used | eDTU used | Average | 5 minutes |
-| Elastic pool | storage_used | Storage used | Average | 5 minutes |
+| Elastic pool | cpu_percent | CPU percentage | Average | 10 minutes |
+| Elastic pool | physical_data_read_percent | Data IO percentage | Average | 10 minutes |
+| Elastic pool | log_write_percent | Log IO percentage | Average | 10 minutes |
+| Elastic pool | dtu_consumption_percent | DTU percentage | Average | 10 minutes |
+| Elastic pool | storage_percent | Storage percentage | Average | 10 minutes |
+| Elastic pool | workers_percent | Workers percentage | Average | 10 minutes |
+| Elastic pool | eDTU_limit | eDTU limit | Average | 10 minutes |
+| Elastic pool | storage_limit | Storage limit | Average | 10 minutes |
+| Elastic pool | eDTU_used | eDTU used | Average | 10 minutes |
+| Elastic pool | storage_used | Storage used | Average | 10 minutes |
 |||||| 	 	 	 	 
 | SQL data warehouse | cpu_percent | CPU percentage | Average | 10 minutes |
 | SQL data warehouse | physical_data_read_percent | Data IO percentage | Average | 10 minutes |

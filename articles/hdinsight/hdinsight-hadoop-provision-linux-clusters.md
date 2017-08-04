@@ -56,7 +56,7 @@ Follow instructions on the screen to do a basic cluster setup. Details are provi
 * [Location](#location)
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 retirement](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 retirement](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 
 ## Resource group name 
@@ -117,7 +117,7 @@ You don't need to specify the cluster location explicitly: The cluster is in the
 
 ## Storage endpoints for clusters
 
-Although an on-premises installation of Hadoop uses the Hadoop Distributed File System (HDFS) for storage on the cluster, in the cloud you use storage endpoints connected to cluster. HDInsight clusters use either [Azure Data Lake Store](hdinsight-hadoop-use-blob-storage.md#using-azure-data-lake-store-with-hdinsight-clusters) or [blobs in Azure Storage](hdinsight-hadoop-use-blob-storage.md#using-azure-storage-with-hdinsight-clusters). Using Azure Storage or Data Lake Store means you can safely delete the HDInsight clusters used for computation while still retaining your data. 
+Although an on-premises installation of Hadoop uses the Hadoop Distributed File System (HDFS) for storage on the cluster, in the cloud you use storage endpoints connected to cluster. HDInsight clusters use either [Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md) or [blobs in Azure Storage](hdinsight-hadoop-use-blob-storage.md). Using Azure Storage or Data Lake Store means you can safely delete the HDInsight clusters used for computation while still retaining your data. 
 
 > [!WARNING]
 > Using an additional storage account in a different location from the HDInsight cluster is not supported.
@@ -125,6 +125,9 @@ Although an on-premises installation of Hadoop uses the Hadoop Distributed File 
 During configuration, for the default storage endpoint you specify a blob container of an Azure Storage account or a Data Lake Store. The default storage contains application and system logs. Optionally, you can specify additional linked Azure Storage accounts and Data Lake Store accounts that the cluster can access. The HDInsight cluster and the dependent storage accounts must be in the same Azure location.
 
 ![Cluster storage settings: HDFS-compatible storage endpoints](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
+
+[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
 
 ### Optional metastores
 You can create optional Hive or Oozie metastores. However, not all cluster types support metastores, and Azure SQL Data Warehouse isn't compatible with metastores. 

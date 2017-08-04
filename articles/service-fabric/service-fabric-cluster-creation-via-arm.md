@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/22/2017
+ms.date: 06/22/2017
 ms.author: chackdan
 
 ---
@@ -225,7 +225,7 @@ If you have already uploaded your certificates to the key vault, skip this step.
 
 ```powershell
 
-$ResouceGroup = "chackowestuskv"
+$ResourceGroup = "chackowestuskv"
 $VName = "chackokv2"
 $SubID = "6c653126-e4ba-42cd-a1dd-f7bf96ae7a47"
 $locationRegion = "westus"
@@ -233,7 +233,7 @@ $newCertName = "chackotestcertificate1"
 $dnsName = "www.mycluster.westus.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
 $localCertPath = "C:\MyCertificates" # location where you want the .PFX to be stored
 
- Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
+ Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResourceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
 
 ```
 
@@ -675,3 +675,4 @@ FabricClient and FabricGateway perform a mutual authentication. During Azure AD 
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
+

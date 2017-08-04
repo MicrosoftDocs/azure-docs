@@ -12,15 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 07/28/2017
 ms.author: billmath
 ---
 
 # Troubleshoot Azure Active Directory Pass-through Authentication
 
-This article helps you find troubleshooting information about common issues regarding Pass-through Authentication.
+This article helps you find troubleshooting information about common issues regarding Azure AD Pass-through Authentication.
+
+>[!IMPORTANT]
+>If you are facing user sign-in issues with Pass-through Authentication, don't disable the feature or uninstall Pass-through Authentication Agents without having a cloud-only Global Administrator account to fall back on. Learn about [adding a cloud-only Global Administrator account](../active-directory-users-create-azure-portal.md). Doing this step is critical and ensures that you don't get locked out of your tenant.
 
 ## General issues
+
+### Check status of the feature and Authentication Agents
+
+Ensure that the Pass-through Authentication feature is still **Enabled** on your tenant and the status of Authentication Agents shows **Active**, and not **Inactive**. You can see this by going to the **Azure AD Connect** blade on the [Azure portal](https://portal.azure.com/).
+
+![Azure portal - Azure AD Connect blade](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
+
+![Azure portal - Pass-through Authentication blade](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
 
 ### User-facing sign-in error messages
 
@@ -36,11 +47,11 @@ If the user is unable to sign into using Pass-through Authentication, they may s
 
 ### Sign-in failure reasons on the Azure portal
 
-A good place to start troubleshooting user sign-in issues is to look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the Azure portal.
+Start troubleshooting user sign-in issues by looking at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure portal](https://portal.azure.com/).
 
 ![Sign-ins report](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-Navigate to **Azure Active Directory** -> **Sign-ins** on the Azure portal and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
+Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure portal](https://portal.azure.com/) and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
 
 |Sign-in error code|Sign-in failure reason|Resolution
 | --- | --- | ---
@@ -55,10 +66,6 @@ Navigate to **Azure Active Directory** -> **Sign-ins** on the Azure portal and c
 | 80011 | Authentication Agent unable to retrieve decryption key. | If the problem is consistently reproducible, install and register a new Authentication Agent. And uninstall the current one.
 
 ## Authentication Agent installation issues
-
-### An Azure AD Application Proxy connector already exists
-
-A Pass-through Authentication Agent cannot be installed on the same server as an [Azure AD Application Proxy](../../active-directory/active-directory-application-proxy-get-started.md) connector. Install the Pass-through Authentication Agent on a separate server.
 
 ### An unexpected error occurred
 
@@ -106,16 +113,16 @@ Depending on the type of issue you may have, you need to look in different place
 
 ### Authentication Agent event logs
 
-For errors related to the Authentication Agent, open up the Event Viewer application on the server and check under **Application and Service Logs\Microsoft\AadApplicationProxy\agent\Admin**.
+For errors related to the Authentication Agent, open up the Event Viewer application on the server and check under **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
 For detailed analytics, enable the "Session" log. Don't run the Authentication Agent with this log enabled during normal operations; use only for troubleshooting. The log contents are only visible after the log is disabled again.
 
 ### Detailed trace logs
 
-To troubleshoot user sign-in failures, look for trace logs at **C:\Programdata\Microsoft\Microsoft AAD Application Proxy agent\Trace**. These logs include reasons why a specific user sign-in failed using the Pass-through Authentication feature. These errors are also mapped to the sign-in failure reasons shown in the preceding [table](#sign-in-failure-reasons-on-the-Azure-portal). Following is an example log entry:
+To troubleshoot user sign-in failures, look for trace logs at **%programdata%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. These logs include reasons why a specific user sign-in failed using the Pass-through Authentication feature. These errors are also mapped to the sign-in failure reasons shown in the preceding [table](#sign-in-failure-reasons-on-the-Azure-portal). Following is an example log entry:
 
 ```
-	ApplicationProxyagentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
+	AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
 	    ThreadId=5
 	    DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
@@ -133,7 +140,7 @@ If audit logging is enabled, additional information can be found in the security
 ```
     <QueryList>
     <Query Id="0" Path="Security">
-    <Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft AAD App Proxy agent\ApplicationProxyagentService.exe')]]</Select>
+    <Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft Azure AD Connect Authentication Agent\AzureADConnectAuthenticationAgentService.exe')]]</Select>
     </Query>
     </QueryList>
 ```

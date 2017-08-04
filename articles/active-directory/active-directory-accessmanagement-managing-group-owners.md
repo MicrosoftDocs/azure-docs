@@ -13,12 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/25/2017
 ms.author: curtand
+
+ms.custom: oldportal;it-pro;
 
 ---
 # Managing owners for a group
 Once a resource owner has assigned access to a resource to an Azure AD group, the membership of the group is managed by the group owner. The resource owner effectively delegates the permission to assign users to the resource to the owner of the group.
+
+> [!IMPORTANT]
+> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. 
 
 ## Assigning group ownership
 **To add an owner to a group**

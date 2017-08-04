@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 
 ---
@@ -89,7 +89,7 @@ After you complete the prerequisites, select one of the following tools/SDKs to 
 - [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Resource Manager tmplate](data-factory-build-your-first-pipeline-using-arm.md)
+- [Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 Azure portal and Visual Studio provide GUI way of building your data factories. Whereas, PowerShell, Resource Manager Template, and REST API options provides scripting/programming way of building your data factories.

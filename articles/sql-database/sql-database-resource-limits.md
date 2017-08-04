@@ -3,19 +3,19 @@ title: Azure SQL Database Resource Limits | Microsoft Docs
 description: This page describes some common resource limits for Azure SQL Database.
 services: sql-database
 documentationcenter: na
-author: janeng
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
-ms.custom: resources
+ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 05/31/2017
-ms.author: janeng
+ms.date: 07/12/2017
+ms.author: carlrab
 
 ---
 # Azure SQL Database resource limits

@@ -56,8 +56,8 @@
 
 # Reference
 ## .NET
-### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
+### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
 ## [PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Exceptions](service-bus-messaging-exceptions.md)
@@ -66,14 +66,17 @@
 ## [SQLRuleAction syntax](service-bus-messaging-sql-rule-action.md)
 
 # Resources
-## [Pricing details](service-bus-pricing-billing.md)
-## [Samples](service-bus-samples.md)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [MSDN forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Pricing details](service-bus-pricing-billing.md)
+## [Samples](service-bus-samples.md)
+## [ServiceBus360](https://www.servicebus360.com/)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Service updates](https://azure.microsoft.com/updates/?product=service-bus)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 

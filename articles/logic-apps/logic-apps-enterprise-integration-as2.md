@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 06/08/2017
 ms.author: LADocs; mandia
 
 ---
@@ -152,7 +152,7 @@ Configure these properties based on your agreement
 with the partner that exchanges messages with you. 
 For property descriptions, see the table in this section.
 
-	![Set the "Send Settings" properties](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)
+	![Set the "Send Settings" properties](./media/logic-apps-enterprise-integration-agreements/agreement-51.png)
 
 2. To send signed messages to your partner, select **Enable message signing**. 
 For signing the messages, in the **MIC Algorithm** list, 
@@ -177,9 +177,11 @@ And in the **Certificate** list, select an existing
 8. To receive asynchronous MDNs for the sent messages, select **Request asynchronous MDN**. 
 If you select this option, enter the URL for where to send the MDNs.
 
-9. To require non-repudiation of receipt, select **Enable NRR**.
+9. To require non-repudiation of receipt, select **Enable NRR**.  
 
-10. After you're done, 
+10. To specify algorithm format to use in the MIC or signing in the outgoing headers of the AS2 message or MDN, select **SHA2 Algorithm format**.  
+
+11. After you're done, 
 make sure to save your settings by choosing **OK**.
 
 Now your agreement is ready to handle outgoing 
@@ -200,6 +202,7 @@ messages that conform to your selected settings.
 | Request asynchronous MDN |Requires asynchronous MDNs to be sent to this agreement. |
 | URL |Specify the URL where to send the MDNs. |
 | Enable NRR |Requires non-repudiation of receipt (NRR), a communication attribute that provides evidence that the data was received as addressed. |
+| SHA2 Algorithm format |Select algorithm format to use in the MIC or signing in the outgoing headers of the AS2 message or MDN |
 
 ## Find your created agreement
 

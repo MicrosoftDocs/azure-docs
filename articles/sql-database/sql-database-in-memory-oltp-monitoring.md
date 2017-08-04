@@ -9,13 +9,13 @@ editor: ''
 
 ms.assetid: b617308e-692c-4938-8fa2-070034a3ecef
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
-ms.author: ninarn
+ms.date: 12/19/2016
+ms.author: jodebrui
 
 ---
 # Monitor In-Memory OLTP Storage
@@ -29,11 +29,11 @@ Estimating memory requirements for a memory-optimized table works the same way f
 Note that the table and table variable rows, as well as indexes, count toward the max user data size. In addition, ALTER TABLE needs enough room to create a new version of the entire table and its indexes.
 
 ## Monitoring and alerting
-You can monitor in-memory storage use as a percentage of the [storage cap for your performance tier](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) in the Azure [portal](https://portal.azure.com/):
+You can monitor in-memory storage use as a percentage of the [storage cap for your performance tier](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) in the Azure [portal](https://portal.azure.com/): 
 
-* On the Database blade, locate and click on the Monitoring chart.
-* In the Metrics blade that opens, select the metric `In-Memory OLTP Storage percentage`.
-* To add an alert, click "Add alert" in the Metrics blade and select the metric you wish to track.
+* On the Database blade, locate the Resource utilization box and click on Edit.
+* Then select the metric `In-Memory OLTP Storage percentage`.
+* To add an alert, click on the Resource Utilization box to open the Metric blade, then click on Add alert.
 
 Or use the following query to show the in-memory storage utilization:
 

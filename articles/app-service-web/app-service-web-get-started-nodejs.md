@@ -23,7 +23,10 @@ ms.custom: mvc
 
 ![Sample app running in Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
+You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.   
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
+
 
 ## Prerequisites
 
@@ -31,11 +34,12 @@ To complete this quickstart:
 
 * [Install Git](https://git-scm.com/)
 * [Install Node.js and NPM](https://nodejs.org/)
-* [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Download the sample
 
@@ -44,6 +48,8 @@ In a terminal window, run the following command to clone the sample app reposito
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
+
+You use this terminal window to run all the commands in this quickstart.
 
 Change to the directory that contains the sample code.
 
@@ -131,7 +137,7 @@ The Node.js sample code is running in an Azure App Service web app.
 
 ![Sample app running in Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-**Congratulations!** You've deployed your first PHP app to App Service.
+**Congratulations!** You've deployed your first Node.js app to App Service.
 
 ## Update and redeploy the code
 
@@ -154,7 +160,7 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ## Manage your new Azure web app
 
-Go to the [Azure portal](https://portal.azure.com) to manage the web app you created.
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
 
 From the left menu, click **App Services**, and then click the name of your Azure web app.
 

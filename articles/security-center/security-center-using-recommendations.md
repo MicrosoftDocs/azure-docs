@@ -50,7 +50,7 @@ This scenario shows you how to use Security Center to help reduce the chances of
 
 ![Scenario roles][2]
 
-Contoso recently migrated some of their on-premise resources to Azure. Contoso wants to implement and maintain protections that reduce their vulnerability to a security attack of their resources in the cloud.
+Contoso recently migrated some of their on-premises resources to Azure. Contoso wants to implement and maintain protections that reduce their vulnerability to a security attack of their resources in the cloud.
 
 ## Recommended solution
 A solution is to use Security Center to prevent and detect security vulnerabilities. Contoso has access to Security Center via their Azure subscription. The [Free tier](security-center-pricing.md) of Security Center is automatically enabled on all Azure subscriptions and data collection is enabled on all VMs in their subscription.

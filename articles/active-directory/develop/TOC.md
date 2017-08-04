@@ -1,4 +1,5 @@
 # [Overview](active-directory-developers-guide.md)
+## [Why Azure AD](https://azure.microsoft.com/develop/identity/signin/)
 ## [Auth basics](active-directory-authentication-scenarios.md)
 ## [Types of apps](active-directory-authentication-scenarios.md#application-types-and-scenarios)
 # Get Started
@@ -60,8 +61,9 @@
 ### [What happened to my Web API project](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Auth libraries (ADAL)](active-directory-authentication-libraries.md)
-## [Code Samples](active-directory-code-samples.md)
+## [Code samples article](active-directory-code-samples.md)
 ## [Glossary](active-directory-dev-glossary.md)
 ## [Authentication Protocols](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -84,11 +86,11 @@
 ### [v1-v2 comparison](active-directory-v2-compare.md)
 ## Get Started
 ### Mobile & Desktop apps
-#### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+#### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
 #### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
 ### Web apps
-#### [Javascript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+#### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
 #### [ASP.NET Web Server](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS Web app](active-directory-v2-devquickstarts-node-web.md)
 ## Guides
@@ -104,3 +106,6 @@
 #### [Token reference](active-directory-v2-tokens.md)
 #### [Certificate credentials](active-directory-certificate-credentials.md)
 ### [Scopes](active-directory-v2-scopes.md)
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

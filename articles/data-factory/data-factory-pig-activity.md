@@ -32,6 +32,9 @@ ms.author: shlo
 
 The HDInsight Pig activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Pig queries on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-based HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
+> [!NOTE] 
+> If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](data-factory-introduction.md) and do the tutorial: [Build your first data pipeline](data-factory-build-your-first-pipeline.md) before reading this article. 
+
 ## Syntax
 
 ```JSON
@@ -108,7 +111,7 @@ PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampl
 Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/sampleoutpig/' USING PigStorage (',');
 ```
 
-To execute this Pig script in a Data Factory pipeline, do the following:
+To execute this Pig script in a Data Factory pipeline, do the following steps:
 
 1. Create a linked service to register [your own HDInsight compute cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or configure [on-demand HDInsight compute cluster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Let’s call this linked service **HDInsightLinkedService**.
 2. Create a [linked service](data-factory-azure-blob-connector.md) to configure the connection to Azure Blob storage hosting the data. Let’s call this linked service **StorageLinkedService**.

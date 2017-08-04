@@ -32,7 +32,7 @@ Azure Cosmos DB provides the following key capabilities for mobile app developer
 * Limitless scale. Your Azure Cosmos DB collections [grow as your app grows](partition-data.md). You can start with small data size and throughput of hundreds of requests per second. Your collections can grow to petabytes of data and arbitrarily large throughput with hundreds of millions of requests per second.
 * Globally distributed. Mobile app users are on the go, often across the world. Azure Cosmos DB is a [globally distributed database](distribute-data-globally.md). Click the map to make your data accessible to your users.
 * Built-in rich authorization. With Azure Cosmos DB, you can easily implement popular patterns like [per-user data](https://aka.ms/documentdb-xamarin-todouser) or multiuser shared data, without complex custom authorization code.
-* Geospatial queries. Many mobile apps offer geo-contextual experiences today. With first-class support for [geospatial types](geospatial.md), DocumentDB makes creating these experiences easy to accomplish.
+* Geospatial queries. Many mobile apps offer geo-contextual experiences today. With first-class support for [geospatial types](geospatial.md), Azure Cosmos DB makes creating these experiences easy to accomplish.
 * Binary attachments. Your app data often includes binary blobs. Native support for attachments makes it easier to use Azure Cosmos DB as a one-stop shop for your app data.
 
 ## Azure Cosmos DB and Xamarin tutorial

@@ -130,7 +130,7 @@ The VM is now running on Azure and you are ready to log in.  Using passwords to 
 ## Containers
 * [Virtual Machines and Containers in Azure](containers.md)
 * [Azure Container Service introduction](../../container-service/container-service-intro.md)
-* [Deploy an Azure Container Service cluster](../../container-service/container-service-deployment.md)
+* [Deploy an Azure Container Service cluster](../../container-service/dcos-swarm/container-service-deployment.md)
 
 ## Next steps
 You now have an overview of Linux on Azure.  The next step is to dive in and create a few VMs!

@@ -50,7 +50,7 @@ Open the service configuration file (.cscfg) for your cloud deployment in Visual
 </NetworkConfiguration>
 ```
 
-Let's add the values for the network configuration file to show how it will look. In the example, assume you created a subnet called "test_vnet" with a subnet 10.0.0.0/24 called test_subnet and a static IP 10.0.0.4. The load balancer will be named testLB.
+Let's add the values for the network configuration file to show how it will look. In the example, assume you created a VNet called "test_vnet" with a subnet 10.0.0.0/24 called test_subnet and a static IP 10.0.0.4. The load balancer will be named testLB.
 
 ```xml
 <NetworkConfiguration>

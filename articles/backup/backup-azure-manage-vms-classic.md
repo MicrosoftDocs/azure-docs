@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 08/02/2017
 ms.author: trinadhk;markgal;
 ms.custom: H1Hack27Feb2017
 
@@ -30,7 +30,12 @@ This article provides information about common management and monitoring tasks f
 > [!NOTE]
 > Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). See [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md) for details on working with Classic deployment model VMs.
 >
+> [!IMPORTANT]
+>Starting March 2017, you can no longer use the classic portal to create Backup vaults.
 >
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> After October 15, 2017, you can’t use PowerShell to create Backup vaults. **By November 1, 2017**:
+>- All remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+>- You won't be able to access your backup data in the classic portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
 
 ## Manage protected virtual machines
 To manage protected virtual machines:

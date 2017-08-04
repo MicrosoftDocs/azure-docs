@@ -3,7 +3,7 @@ title: What are Mobile Apps
 description: Learn what advantages does App Service bring to your enterprise mobile apps.
 services: app-service\mobile
 documentationcenter: ''
-author: adrianhall
+author: ggailey777
 manager: yochayk
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: glenga
 
 ---
 # <a name="getting-started"> </a>What is Mobile Apps?
@@ -47,7 +47,7 @@ The following features are important to cloud-enabled mobile development:
   Azure Active Directory for enterprise authentication, plus social providers like Facebook, Google, Twitter
   and Microsoft Account.  Azure Mobile Apps provides an OAuth 2.0  service for each provider.  You can also
   integrate the SDK for the identity provider for provider specific functionality.
-  
+
   Discover more about our [authentication features].
 * **Data Access** - Azure Mobile Apps provides a mobile-friendly OData v3 data source linked to SQL Azure or
   an on-premises SQL Server.  This service can be based on Entity Framework, allowing you to easily integrate
@@ -56,11 +56,11 @@ The following features are important to cloud-enabled mobile development:
 * **Offline Sync** - Our Client SDKs make it easy for you to build robust and responsive mobile applications
   that operate with an offline data set that can be automatically synchronized with the backend data, including
   conflict resolution support.
-  
+
   Discover more about our [data features].
 * **Push Notifications** - Our Client SDKS seamlessly integrate with the registration capabilities of Azure
   Notification Hubs, allowing you to send push notifications to millions of users simultaneously.
-  
+
   Discover more about our [push notification features].
 * **Client SDKs** - We provide a complete set of Client SDKs that cover native development ([iOS], [Android] and
   [Windows]), cross-platform development ([Xamarin for iOS and Android], [Xamarin Forms]) and hybrid application
@@ -72,24 +72,24 @@ The following platform features are generally useful for mobile production sites
 * **Auto Scaling** - App Service enables you to quickly scale-up or out to handle any incoming customer
   load. Manually select the number and size of VMs or set up auto-scaling to scale your mobile app backend
   based on load or schedule.
-  
+
   Discover more about [auto scaling].
 * **Staging Environments** - App Service can run multiple versions of your site, allowing you to perform A/B testing, test
   in production as part of a larger DevOps plan and do in-place staging of a new backend.
-  
+
   Discover more about [staging environments].
 * **Continuous Deployment** - App Service can integrate with common SCM systems, allowing you to automatically deploy
   a new version of your backend by pushing to a branch of your SCM system.
-  
+
   Discover more about [deployment options].
 * **Virtual Networking** - App Service can connect to on-premises resources using virtual network, ExpressRoute or hybrid
   connections.
-  
+
   Discover more about [hybrid connections], [virtual networks], and [ExpressRoute].
 * **Isolated / Dedicated Environments** - App Service can be run in a fully isolated and dedicated enviroment for securely
   running Azure App Service apps at high scale.  This is ideal for application workloads requiring very high scale, isolation
   or secure network access.
-  
+
   Discover more about [App Service Environments].
 
 ## Getting Started
@@ -106,8 +106,8 @@ For more information on the Azure App Service platform, see [Azure App Service].
 > Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/mobile/), where
 > you can immediately create a short-lived starter web app in App Service. No credit cards required;
 > no commitments.
-> 
-> 
+>
+>
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md

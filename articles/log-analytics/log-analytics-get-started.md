@@ -50,7 +50,7 @@ The next step is to create a workspace.
    * **Pricing tier**  
        ![quick create](./media/log-analytics-get-started/oms-onboard-quick-create.png)
 3. Click **OK** to see a list of your workspaces.
-4. Select a workspace to see it's details in the Azure portal.       
+4. Select a workspace to see its details in the Azure portal.       
     ![workspace details](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
 ## 3 Add solutions and solution offerings

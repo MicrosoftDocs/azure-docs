@@ -26,7 +26,7 @@ The messaging service provides dependable information delivery as a brokered or 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus-messaging">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -72,9 +72,8 @@ The messaging service provides dependable information delivery as a brokered or 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.servicebus">Microsoft.Azure.Management.ServiceBus</a></p>
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/module/azurerm.servicebus">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -86,8 +85,8 @@ The messaging service provides dependable information delivery as a brokered or 
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="service-bus-powershell-how-to-provision.md">PowerShell</a></p>
-                        <p><a href="/rest/api/servicebus">REST</a></p>
+                        <p><a href="/dotnet/api/overview/azure/service-bus">.NET</a></p>
+                        <p><a href="/java/api/overview/azure/servicebus">Java</a></p>
                     </div>
                 </div>
             </div>
@@ -98,11 +97,8 @@ The messaging service provides dependable information delivery as a brokered or 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Other</h3>
-                        <p><a href="service-bus-messaging-exceptions.md">Exceptions</a></p>
-                        <p><a href="service-bus-quotas.md">Quotas</a></p>
-                        <p><a href="service-bus-messaging-sql-filter.md">SQLFilter syntax</a></p>
-                        <p><a href="service-bus-messaging-sql-rule-action.md">SQLRuleAction syntax</a></p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/servicebus/">REST API Reference</a></p>
                    </div>
                 </div>
             </div>

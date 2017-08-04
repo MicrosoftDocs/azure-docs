@@ -9,9 +9,9 @@ editor: ''
 
 ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
 ms.service: sql-database
-ms.custom: features
+ms.custom: DBs & servers
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/03/2017
