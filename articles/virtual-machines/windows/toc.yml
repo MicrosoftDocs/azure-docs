@@ -39,10 +39,6 @@
     href: tutorial-azure-security.md
   - name: 12 - Team Services CI/CD
     href: tutorial-vsts-iis-cicd.md
-  - name: 13 - Install IIS web stack
-    href: 
-  - name: 14 - Secure IIS with SSL
-    href: 
 - name: Samples
   items:
   - name: PowerShell
@@ -51,33 +47,79 @@
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: Azure Resource Manager
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Regions and availability
     href: regions-and-availability.md
-  - name: VM types and sizes
-    item: sizes.md
-  - name: Maintenance and updates
-    href: 
   - name: Storage
-    href: 
+    href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Networking
-    href: 
-  - name: Auto-scale applications
-    href: 
-  - name: Infrastructure automation
-    href: 
+    href: network-overview.md
+  - name: VM Scale Sets
+    href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Instance Metadata Service 
+    href: ../virtual-machines-instancemetadataservice-overview.md
   - name: Containers
     href: containers.md
-  - name: Security
-    href: 
-  - name: Backup and recovery
-    href: 
-  - name: High performance computing
-    href: 
+  - name: Resource Manager
+    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    items:
+    - name: Deployment models
+      href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Templates for VMs
+      href: template-description.md
+  - name: Azure Windows agent
+    href: agent-user-guide.md
+  - name: Azure Security Center
+    href: ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Disaster recovery
+    href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Planned maintenance
+    href: planned-maintenance.md
+    items:
+    - name: Preserving maintenance
+      href: preserving-maintenance.md
+    - name: Restarting maintenance
+      href: impactful-maintenance.md
+  - name: VM sizes
+    href: sizes.md
+    items:
+    - name: General purpose
+      href: sizes-general.md
+    - name: Compute optimized
+      href: sizes-compute.md
+    - name: Memory optimized
+      href: sizes-memory.md
+    - name: Storage optimized
+      href: sizes-storage.md
+    - name: GPU optimized
+      href: sizes-gpu.md
+      items:
+      - name: GPU drivers
+        href: n-series-driver-setup.md
+    - name: High performance compute
+      href: sizes-hpc.md
+    - name: Azure compute units (ACU)
+      href: acu.md
+    - name: Compute benchmark scores
+      href: compute-benchmark-scores.md
+    - name: Best practices for running a Windows VM
+      href: guidance-compute-single-vm.md
   - name: Deployment considerations
     items:
     - name: Infrastructure guidelines
+      href: infrastructure-virtual-machine-guidelines.md
+    - name: Subscriptions and accounts
+      href: infrastructure-subscription-accounts-guidelines.md
+    - name: Naming
+      href: infrastructure-naming-guidelines.md
+    - name: Resource groups
+      href: infrastructure-resource-groups-guidelines.md
+    - name: Storage
+      href: infrastructure-storage-solutions-guidelines.md
+    - name: Networking
+      href: infrastructure-networking-guidelines.md
+    - name: Availability sets
+      href: infrastructure-availability-sets-guidelines.md
+    - name: Infrastructure example
       href: infrastructure-example.md
 - name: How-to guides
   items:
@@ -87,20 +129,20 @@
       href: 
     - name: Use a template
       href: ps-template.md
-    - name: Copy or clone a VM
-      href:
     - name: Use AHUB licensing
       href: hybrid-use-benefit-licensing.md
     - name: Connect to a VM
       href: connect-logon.md
+    - name: Use C#
+      href: csharp.md
+    - name: Use a template with C#
+      href: csharp-template.md
+    - name: Use Python
+      href: python.md
   - name: Secure VMs
     items:
     - name: Create a Key Vault
       href: key-vault-setup.md
-    - name: Store secrets in Key Vault
-      href: 
-    - name: Store certificates in Key Vault
-      href: 
     - name: Use WinRM
       href: winrm.md
     - name: Use access controls
@@ -108,36 +150,36 @@
     - name: Use policies
       href: policy.md
   - name: Manage VMs
+    href: ps-common-ref.md
     items:
-    - name: VM status + lifecycle
-      href: 
     - name: Move a VM
       href: move-vm.md
     - name: Change VM size
       href: resize-vm.md
     - name: Tag a VM
       href: tag.md
-      items:
-      - name: Manage VMs with tags
-        href: 
-    - name: Use Desired State Configuration
-      href: 
     - name: Run scripts on a VM
       href: extensions-customscript.md
     - name: Azure VM agent
       href: agent-user-guide.md
     - name: Change temp drive letter
       href: change-drive-letter.md
+    - name: Change availability set
+      href: change-availability-set.md
+    - name: Download template
+      href: download-template.md
   - name: Use Images
     items:
     - name: Find and use images
       href: cli-ps-findimage.md
-    - name: Create custom image
-      href:
-    - name: Upload custom image
-      href:
     - name: Capture VM to image
-      href: capture-image.md
+      href: capture-image-resource.md
+    - name: Prepare VM for upload
+      href: prepare-for-upload-vhd-image.md
+    - name: Use generalized image
+      href: create-vm-generalized-managed.md
+    - name: Use specialized image
+      href: create-vm-specialized.md
     - name: Build with Packer
       href: build-image-with-packer.md
     - name: Use Windows client images
@@ -149,57 +191,68 @@
     - name: Autoscale VMs
       href: vertical-scaling-automation.md
     - name: High availability
-      href: 
-    - name: Layer-4 load balancer
-      href:
-    - name: Layer-7 application load balancer
-      href:
+      href: manage-availability.md
   - name: Use automation tools
     items:
-    - name: Ansible
-      href:
     - name: Chef
       href: chef-automation.md
-    - name: Puppet
-      href:
-    - name: Terraform
-      href: 
   - name: Run applications
     items:
     - name: SQL Server
       href: /sql/virtual-machines-windows-sql-server-iaas-overview.md
-    - name: Cloud Foundry
-      href:
+    - name: MongoDB
+      href: install-mongodb.md
     - name: SAP on Azure
       href: ../workloads/sap/get-started.md
     - name: High Performance Computing (HPC)
       href: hpcpack-cluster-options.md
+      items:
+      - name: HPC Pack 2016 cluster
+        href: hpcpack-2016-cluster.md
+      - name: HPC Pack 2016 Azure Active Directory integration
+        href: hpcpack-cluster-active-directory.md
+      - name: HPC Pack 2012 R2 head node
+        href: hpcpack-cluster-headnode.md
+      - name: Submit on-prem jobs to HPC Pack 2012 R2
+        href: hpcpack-cluster-submit-jobs.md
+      - name: Excel on HPC Pack
+        href: excel-cluster-hpcpack.md
+    - name: MATLAB cluster
+      href: matlab-mdcs-cluster.md
   - name: Monitor VMs
     href:
   - name: Manage storage
     items:
     - name: Add a disk
       href: attach-disk-ps.md
+    - name: Detach a disk
+      href: detach-disk.md 
     - name: Resize a disk
       href: expand-os-disk.md
     - name: Encrypt a disk
       href: encrypt-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
-    - name: Convert VM to Managed Disks
-      href: convert-unmanaged-to-managed-disks.md
-    - name: Optimize performance
-      href:
-    - name: Copy files to a VM
-      href:
+    - name: Migrate to Managed Disks
+      href: migrate-to-managed-disks.md
+      items: 
+      - name: Unmanaged VM to Managed Disks
+        href: convert-unmanaged-to-managed-disks.md
+      - name: Single Classic VM to Resource Manager
+        href: migrate-single-classic-to-resource-manager.md
     - name: Connect File storage
       href: mount-azure-file-storage.md
   - name: Manage networking
+    href: ps-common-network-ref.md
     items:
     - name: Create virtual network
       href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Open ports to a VM
-      href: nsg-quickstart-powershell.md
+      items:
+      - name: Azure portal
+        href: nsg-quickstart-portal.md
+      - name: Azure PowerShell
+        href: nsg-quickstart-powershell.md
     - name: Assign public IP address
       href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Use multiple NICs
@@ -208,11 +261,37 @@
       href: portal-create-fqdn.md
     - name: DNS resolution
       href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+- name: Use VM extensions
+    items:
+    - name: VM extensions overview
+      href: extensions-features.md
+    - name: Custom Script extension
+      href: extensions-customscript.md
+    - name: OMS agent extension
+      href: extensions-oms.md
+    - name: PowerShell DSC extension
+      href: extensions-dsc-overview.md
       items:
-      - name: Use internal DNS
-        href: 
-  - name: Use VM extensions
-    href: extensions-features.md
+      - name: PowerShell DSC extension Credential Handling
+        href: extensions-dsc-credentials.md
+      - name: DSC and VMSS with templates
+        href: extensions-dsc-template.md
+    - name: Azure Log Collector extension
+      href: log-collector-extension.md
+    - name: Azure diagnostics extension
+      href: ps-extensions-diagnostics.md
+    - name: Extensions in templates
+      href: extensions-authoring-templates.md
+    - name: Exporting VM extensions
+      href: extensions-export-templates.md
+    - name: Configuration samples
+      href: extensions-configuration-samples.md
+    - name: Troubleshoot extensions
+      href: extensions-troubleshoot.md
+    - name: Monitoring and Diagnostics Extension
+      href: extensions-diagnostics-template.md
+    - name: Network Watcher Agent
+      href: extensions-nwa.md
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs to Azure overview
@@ -250,6 +329,8 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Reset RDP password
       href: reset-rdp.md
+    - name: Reset local password without Azure agent
+      href: reset-local-password-without-agent.md
     - name: Reset NIC
       href: reset-network-interface.md
     - name: Boot diagnostics 
@@ -276,6 +357,8 @@
         href: troubleshoot-recovery-disks.md
       - name: Azure portal
         href: troubleshoot-recovery-disks-portal.md
+    - name: Use PerfInsights
+      href: how-to-use-perfInsights.md
 - name: Reference
   items:
   - name: Azure CLI

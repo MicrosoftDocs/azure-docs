@@ -6,7 +6,7 @@ documentationcenter: ''
 author: KylieLiang
 manager: timlt
 editor: ''
-tags: azure-service-management
+tags: azure-resource-manager
 
 ms.assetid: 32b87a5f-d024-4da0-8bf0-77e233d1422b
 ms.service: virtual-machines-linux
@@ -43,22 +43,22 @@ Deploying a FreeBSD virtual machine is a straightforward process using an image 
 First you need to install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) though following command on a FreeBSD machine.
 
 ```bash 
-    curl -L https://aka.ms/InstallAzureCli | bash
+curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
 If bash is not installed on your FreeBSD machine, run following command before the installation. 
 
-```
-    sudo pkg install bash
+```bash
+sudo pkg install bash
 ```
 
 If python is not installed on your FreeBSD machine, run following commands before the installation. 
 
-```
-    sudo pkg install python35
-    cd /usr/local/bin 
-    sudo rm /usr/local/bin/python 
-    sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
+```bash
+sudo pkg install python35
+cd /usr/local/bin 
+sudo rm /usr/local/bin/python 
+sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
 During the installation, you are asked `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`. If you answer `y` and enter `/etc/rc.conf` as `a path to an rc file to update`, you may meet the problem `ERROR: [Errno 13] Permission denied`. To resolve this problem, you should grant the write right to current user against the file `etc/rc.conf`.
@@ -66,14 +66,19 @@ During the installation, you are asked `Modify profile to update your $PATH and 
 Now you can log in Azure and create your FreeBSD VM. Below is an example to create a FreeBSD 11.0 VM. You can also add the parameter `--public-ip-address-dns-name` with a globally unique DNS name for a newly created Public IP. 
 
 ```azurecli
-    az login 
-    az group create -n myResourceGroup -l westus az vm create -n myFreeBSD11 -g myResourceGroup --image MicrosoftOSTC:FreeBSD:11.0:latest --admin-username azureuser --ssh-key-value /etc/ssh/ssh_host_rsa_key.pub 
+az login 
+az group create --name myResourceGroup --location eastus
+az vm create --name myFreeBSD11 \
+    --resource-group myResourceGroup \
+    --image MicrosoftOSTC:FreeBSD:11.0:latest \
+    --admin-username azureuser \
+    --generate-ssh-keys
 ```
 
 Then you can log in to your FreeBSD VM through the ip address that printed in the output of above deployment. 
 
 ```bash
-    ssh azureuser@xx.xx.xx.xx -i /etc/ssh/ssh_host_rsa_key
+ssh azureuser@xx.xx.xx.xx -i /etc/ssh/ssh_host_rsa_key
 ```   
 
 ## VM extensions for FreeBSD
@@ -114,7 +119,7 @@ The user account that is specified during virtual machine instance deployment on
 After you're logged in through this user account, you can run commands as root by using the command syntax.
 
 ```
-    $ sudo <COMMAND>
+$ sudo <COMMAND>
 ```
 
 You can optionally obtain a root shell by using `sudo -s`.
