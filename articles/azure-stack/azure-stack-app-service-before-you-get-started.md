@@ -37,10 +37,6 @@ To deploy a resource provider, you must run the PowerShell Integrated Scripting 
 
 2.	Turn off **Internet Explorer Enhanced Security Configuration** for both admins and users.
 
-3.	Sign in to the Azure Stack development kit machine as an administrator, and then open **Server Manager**.
-
-4.	Turn off **Internet Explorer Enhanced Security Configuration** for both admins and users.
-
 ## Enable cookies
 
 1.	Select **Start** > **All apps** > **Windows accessories**. Right-click **Internet Explorer** > **More** > **Run as an administrator**.
