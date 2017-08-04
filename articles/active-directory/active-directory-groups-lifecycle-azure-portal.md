@@ -1,6 +1,6 @@
 ﻿---
-title: Preview Office 365 group expiration and send expiration notifications - Azure Active Directory | Microsoft Docs
-description: How to set expiration dates and send expiration notifications (preview) for a group in Azure Active Directory
+title: Preview Office 365 groups expiration in Azure Active Directory | Microsoft Docs
+description: How to set up expiration for Office 365 groups in Azure Active Directory (preview)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -22,7 +22,7 @@ ms.custom: it-pro
 
 # Configure expiration settings for an Office 365 group (preview)
 
-Information workers can now create and administer their own Office 365 groups. To keep address lists relevant with actively used groups as scale increases, you can configure expiration settings for Office 365 groups. For example, these settings can ensure that groups that are not renewed are deleted. You can also set up notifications for expiration and deletion.
+Information workers can now create and administer their own Office 365 groups. To keep address lists relevant with actively used groups as scale increases, you can configure expiration settings for Office 365 groups. For example, these settings can ensure that groups that are not renewed are deleted. 
 
 > [!NOTE]
 > You can set expiration for only Office 365 groups.
@@ -48,7 +48,7 @@ This feature require owners of Office 365 groups to renew their group within a t
   * Select which Office 365 groups expire. You can enable expiration for **All** Office 365 groups, you can select from among the Office 365 groups, or you select **None** to disable expiration for all groups.
   * Save your settings when you're done by selecting **Save**.
 
-For instructions on how to set up the expiration policy via PowerShell, see URL.
+For instructions on how to configure expiration for Office 365 groups via PowerShell, see <insert URL here>.
 
 Email notifications such as this one are sent to the Office 365 group owners 30 days, 15 days, and 1 day prior to expiration of the group.
 
