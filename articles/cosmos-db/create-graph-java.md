@@ -106,20 +106,20 @@ Now let's clone a Graph API (preview) app from github, set the connection string
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the `Program.java` file and you find that these lines of code. 
+Let's make a quick review of what's happening in the app. Open the `Program.java` file from the \src\GetStarted folder and find these lines of code. 
 
 * The Gremlin `Client` is initialized from the configuration in `src/remote.yaml`.
 
     ```java
-    Cluster cluster = Cluster.build(new File("src/remote.yaml")).create();
-    
-    Client client = cluster.connect();
+    cluster = Cluster.build(new File("src/remote.yaml")).create();
+    ...
+    client = cluster.connect();
     ```
 
 * A series of Gremlin steps are executed using the `client.submit` method.
 
     ```java
-    ResultSet results = client.submit("g.V()");
+    ResultSet results = client.submit(gremlin);
 
     CompletableFuture<List<Result>> completableFutureResults = results.all();
     List<Result> resultList = completableFutureResults.get();
