@@ -244,16 +244,6 @@ namespace CopyExistingBlobsIntoAsset
 
                 ICloudBlob destinationBlob = destAssetContainer.GetBlockBlobReference(assetFile.Name);
 
-                // Call the CopyBlobHelpers.CopyBlobAsync extension method to copy blobs.
-                //using (Task task =
-                //    CopyBlobHelpers.CopyBlobAsync((CloudBlockBlob)sourceBlob,
-                //        (CloudBlockBlob)destinationBlob,
-                //        new BlobRequestOptions(),
-                //        CancellationToken.None))
-                //{
-                //    task.Wait();
-                //}
-
                 CopyBlob(sourceBlob as ICloudBlob, destAssetContainer);
 
                 assetFile.ContentFileSize = (sourceBlob as ICloudBlob).Properties.Length;
