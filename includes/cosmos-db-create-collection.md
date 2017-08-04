@@ -1,4 +1,4 @@
-You can now use the Data Explorer tool in the Azure portal to create a database and collection, and add data. 
+You can now use the Data Explorer tool in the Azure portal to create a database and collection. 
 
 1. In the Azure portal, in the left navigation menu, click **Data Explorer (Preview)**. 
 

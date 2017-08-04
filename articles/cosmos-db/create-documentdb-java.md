@@ -22,7 +22,7 @@ ms.author: mimig
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart walks you through the Azure portal tools available for Azure Cosmos DB and shows you how to quickly create a console app with the [DocumentDB Java API](documentdb-sdk-java.md). The instructions in this tutorial can be followed on any operating system that is capable of running Java. By completing this tutorial you'll be familiar with creating and modifying document database resources in either the UI or programatically, whichever is your preference.
+This quickstart creates a document database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using the [DocumentDB Java API](documentdb-sdk-java.md). The instructions in this quickstart can be followed on any operating system that is capable of running Java. By completing this quickstart you'll be familiar with creating and modifying document database resources in either the UI or programatically, whichever is your preference.
 
 ## Prerequisites
 
@@ -37,6 +37,8 @@ This quickstart walks you through the Azure portal tools available for Azure Cos
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create a database account
+
+Before you can create a graph database, you need to create a SQL (DocumentDB) database account with Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
