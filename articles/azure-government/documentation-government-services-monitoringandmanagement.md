@@ -52,6 +52,7 @@ The following Site Recovery features are not currently available in Azure Govern
 >[!NOTE]>Table applies to US Gov Virginia and US Gov Iowa.
 
 The following URLs for Site Recovery are different in Azure Government:
+
 | Azure Public | Azure Government | Notes |
 | --- | --- | --- |
 | \*.hypervrecoverymanager.windowsazure.com | \*.hypervrecoverymanager.windowsazure.us | Access to the Site Recovery Service |
@@ -69,9 +70,11 @@ The following Monitor features are not currently available in Azure Government:
 
 * Action Groups do not support SMS at this time.    
 * Autoscale is available in two regions, Iowa and Virginia; default behavior is to create the autoscale setting in the same regions as the monitored resource. For Texas and Arizona, to create an autoscale setting on resources in these regions, please use ARM/Rest calls to specify the setting should be created in Iowa or Virginia.
-* Metrics are supported in all regions, but only for RPs which are available and onboard to Azure Monitor. An exhaustive list is below.  * Metric Alerts are available in two regions, Iowa and Virginia; default behavior is to create the metric alert in the same regions as the monitored resource. For Texas and Arizona, to create an autoscale setting on resources in these regions, please use ARM/Rest calls to specify the setting should be created in Iowa or Virginia.
+* Metrics are supported in all regions, but only for RPs which are available and onboard to Azure Monitor. An exhaustive list is below.
+* Metric Alerts are available in two regions, Iowa and Virginia; default behavior is to create the metric alert in the same regions as the monitored resource. For Texas and Arizona, to create an autoscale setting on resources in these regions, please use ARM/Rest calls to specify the setting should be created in Iowa or Virginia.
 
 Services which have metrics and metric alerts available in Azure Goverment are:
+
 | Service | Service Status | Metrics Availability | Visible Via | Metric Alerts Availability |
 | --- | --- | --- | --- | --- |
 | App Service  | GA | Available | RP Blade & Dashboards | Available |
