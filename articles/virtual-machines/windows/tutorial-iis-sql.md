@@ -29,7 +29,7 @@ In this tutorial, we will build a two-tier demo music store .Net Core applicatio
 > * Configure the VM to run a .NET core sample application
 > * Connect to the application to see it running
 
-You can also deploy this entire sample (including the fully configured VM) using an example template. For more information, see [Automating application deployments to Windows Virtual Machines](dotnet-core-1-landing.md).
+You can also deploy this entire sample (including the fully configured VM) using an example template. For more information, see [Deploy Two Tier Application on Windows and Azure SQL DB](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-vm-sql-db/README.MD).
 
 ## Create a resource group
 
@@ -241,5 +241,5 @@ In this tutorial, you created a two-tier .Net Core sample music store applicatio
 > * Configure the VM to run a .NET core sample application
 > * Connect to the application to see it running
 
-You can deploy this entire sample (including the fully configured VM) using an example template. For more information, see [Automating application deployments to Windows Virtual Machines](dotnet-core-1-landing.md).
+You can deploy this entire sample (including the fully configured VM) using an example template. For more information, see [Deploy Two Tier Application on Windows and Azure SQL DB](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-vm-sql-db/README.MD).
 
