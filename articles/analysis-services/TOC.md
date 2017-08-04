@@ -1,10 +1,10 @@
 # Overview
 ## [What is Azure Analysis Services?](analysis-services-overview.md)
-## [Supported data sources](analysis-services-datasource.md)
 
 # Quickstarts
 ## [Create a server - portal](analysis-services-create-server.md)
-## [Deploy a model - SSDT](analysis-services-deploy.md)
+## [Create a server - PowerShell](analysis-services-create-powershell.md)
+## [Deploy a model - Visual Studio](analysis-services-deploy.md)
 
 # Tutorials
 ## Create and deploy a model
@@ -27,6 +27,7 @@
 ### [Supplemental lesson - Ragged hierarchies](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
 # Concepts
+## [Supported data sources](analysis-services-datasource.md)
 ## [Authentication and user permissions](analysis-services-manage-users.md)
 ## [High availability](analysis-services-bcdr.md)
 
