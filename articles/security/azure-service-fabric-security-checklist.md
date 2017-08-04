@@ -18,7 +18,7 @@ ms.date: 08/04/2017
 ms.author: tomsh
 
 ---
-# Azure service fabric security checklist
+# Azure Service Fabric security checklist
 This article provides an easy to use checklist that will help you secure your Azure Service Fabric environment.
 
 ## Introduction
