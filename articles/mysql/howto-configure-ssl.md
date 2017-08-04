@@ -3,7 +3,7 @@ title: Configure SSL connectivity to securely connect to Azure Database for MySQ
 description: Instructions for how to properly configure Azure Database for MySQL and associated applications to correctly use SSL connections
 services: mysql
 author: seanli1988
-ms.author: seanli1988
+ms.author: seanli
 editor: jasonwhowell
 manager: jhubbard
 ms.service: mysql-database
@@ -14,8 +14,8 @@ ms.date: 07/28/2017
 Azure Database for MySQL supports connecting your Azure Database for MySQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
 
 ## Step 1: Obtain SSL Certificate
-Download the certificate needed to comminicate over SSL with your Azure Database for MySQL server from [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and save the certificate file to your local drive (with this tutorial, we used c:\ssl).
-Internet Explorer and Edge users: please rename the certificate to **BaltimoreCyberTrustRoot.crt.pem** after the download.
+Download the certificate needed to communicate over SSL with your Azure Database for MySQL server from [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and save the certificate file to your local drive (with this tutorial, we used c:\ssl).
+[!IMPORTANT] **For Microsoft Internet Explorer and Microsoft Edge:** After the download has completed, rename the certificate to BaltimoreCyberTrustRoot.crt.pem.
 
 ## Step 2: Bind SSL
 ### Connecting to server using the MySQL Workbench over SSL
