@@ -110,7 +110,7 @@ At this stage, users from all managed domains in your tenant can sign in using P
 
 If you plan to deploy Pass-through Authentication in a production environment, you should install a standalone Authentication Agent. Install this second Authentication Agent on a server _other_ than the one running Azure AD Connect and the first Authentication Agent. This setup provides you high availability of sign-in requests. Follow these instructions to deploy a standalone Authentication Agent:
 
-1. **Download the latest version of the Authentication Agent (versions 1.5.193.0 or later)**: Sign in to the [Azure Active Directory admin center](https://portal.azure.com) with your tenant's Global Administrator credentials.
+1. **Download the latest version of the Authentication Agent (versions 1.5.193.0 or later)**: Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with your tenant's Global Administrator credentials.
 2. Select **Azure Active Directory** on the left-hand navigation.
 3. Select **Azure AD Connect** and then **Pass-through Authentication**. And select **Download agent**.
 4. Click the **Accept terms & download** button.
