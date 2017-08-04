@@ -51,7 +51,7 @@ If you are not already authenticated, you are required to authenticate with your
 
 In order for a custom Docker image to support SSH communication between the container and the client in the Azure portal, perform the following steps for your Docker image. 
 
-These steps are are shown in the Azure App Service repository as an example [here](https://github.com/Azure-App-Service/node/tree/master/4.4.7-1).
+These steps are are shown in the Azure App Service repository as an example [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
 1. Include the `openssh-server` installation in [`RUN` instruction](https://docs.docker.com/engine/reference/builder/#run) in the Dockerfile for your image and set the password for the root account to `"Docker!"`. 
 
@@ -69,7 +69,7 @@ These steps are are shown in the Azure App Service repository as an example [her
 	  && echo "root:Docker!" | chpasswd
 	``` 
 
-2. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on our sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3-1/sshd_config).
+2. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on our sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3/sshd_config).
 
 	> [!NOTE] 
 	> The *sshd_config* file must include the following or the connection fails: 
