@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 04/29/2017
+ms.date: 08/04/2017
 ms.author: joroja
 ---
 # Azure Active Directory B2C: Creating and using custom attributes in a custom profile edit policy.
