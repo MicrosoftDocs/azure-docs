@@ -32,7 +32,7 @@ When you use basic settings and select only a subscription, Cloud Shell creates 
 
 ![The Subscription setting](media/basic-storage.png)
 
-The file share mounts as `clouddrive` in your `$Home` directory. The file share is also used to store a 5-GB image that's created for you and that automatically updates and persists your `$Home` directory. This is a one-time action, and the file share automatically mounts in subsequent sessions.
+The file share mounts as `clouddrive` in your `$Home` directory. The file share is also used to store a 5-GB image that's created for you and that automatically updates and persists your `$Home` directory. This is a one-time action, and the file share mounts automatically in subsequent sessions.
 
 ### Use existing resources
 
@@ -104,7 +104,7 @@ To view more details, run `clouddrive unmount -h`, as shown here:
 > [!WARNING]
 > Although running this command will not delete any resources, manually deleting a resource group, storage account, or file share that's mapped to Cloud Shell will erase your `$Home` directory disk image and any files in your file share. This action cannot be undone.
 
-## List clouddrive
+## List `clouddrive` file shares
 To discover which file share is mounted as `clouddrive`, run the following `df` command. 
 
 The file path to clouddrive will show your storage account name and file share in the URL. For example, `//storageaccountname.file.core.windows.net/filesharename`
