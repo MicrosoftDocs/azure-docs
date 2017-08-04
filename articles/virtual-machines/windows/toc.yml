@@ -75,8 +75,6 @@
   - name: Planned maintenance
     href: planned-maintenance.md
     items:
-    - name: Preserving maintenance
-      href: preserving-maintenance.md
     - name: Restarting maintenance
       href: impactful-maintenance.md
   - name: VM sizes
@@ -101,8 +99,6 @@
       href: acu.md
     - name: Compute benchmark scores
       href: compute-benchmark-scores.md
-    - name: Best practices for running a Windows VM
-      href: guidance-compute-single-vm.md
   - name: Deployment considerations
     items:
     - name: Infrastructure example
@@ -266,12 +262,8 @@
       href: log-collector-extension.md
     - name: Azure diagnostics extension
       href: ps-extensions-diagnostics.md
-    - name: Extensions in templates
-      href: extensions-authoring-templates.md
     - name: Exporting VM extensions
       href: extensions-export-templates.md
-    - name: Configuration samples
-      href: extensions-configuration-samples.md
     - name: Troubleshoot extensions
       href: extensions-troubleshoot.md
     - name: Monitoring and Diagnostics Extension
