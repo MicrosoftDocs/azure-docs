@@ -246,7 +246,7 @@ In Visual Studio, create a new view to add the sign-in button and display user i
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Sign-In with Microsoft Guide</title>
+    <title>Sign-In with Microsoft Guided Setup (Work and School Accounts)</title>
 </head>
 <body>
 @if (!Request.IsAuthenticated)
@@ -261,7 +261,7 @@ In Visual Studio, create a new view to add the sign-in button and display user i
 }
 else
 {
-    <span><br/>Hello @System.Security.Claims.ClaimsPrincipal.Current.FindFirst("name").Value;</span>
+    <span><br/>Hello @((User.Identity as System.Security.Claims.ClaimsIdentity)?.FindFirst("name")?.Value)</span>
     <br /><br />
     @Html.ActionLink("See Your Claims", "Index", "Claims")
     <br /><br />
