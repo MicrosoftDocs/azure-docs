@@ -52,6 +52,7 @@ information being scanned.
   ![Test Drive Job Step 6](images/test-drive-job-5.png)
   
 7.	Go to the Content Moderator Dashboard, and click **Review > Image**. The image you just scanned displays, ready for human review.
+
   ![Test Drive Job Step 7](images/test-drive-job-6.png)
 
 ## Next steps ##
