@@ -134,7 +134,7 @@ az vm extension set \
 ```
 
 ### Restart SSH
-To restarts the SSH daemon and reset the SSH configuration on the VM to default values, create a file named `reset_sshd.json` and add the following content:
+To restart the SSH daemon and reset the SSH configuration to default values, create a file named `reset_sshd.json`. Add the following content:
 
 ```json
 {
