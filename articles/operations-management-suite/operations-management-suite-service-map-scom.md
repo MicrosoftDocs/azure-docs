@@ -120,6 +120,7 @@ A rule, _Microsoft.SystemCenter.ServiceMapImport.Rule_, is created to periodical
 The current design presents the following issues and limitations:
 * You can only connect to a single Operations Management Suite workspace.
 * Although you can add servers to the Service Map Servers Group manually through the **Authoring** pane, the maps for those servers are not synced immediately.  They will be synced from Service Map during the next sync cycle.
+* If you make any changes to the Distributed Application Diagrams created by the management pack, those changes will likely be overwritten on the next sync with Service Map.
 
 ## Create a service principal
 For official Azure documentation about creating a service principal, see:
