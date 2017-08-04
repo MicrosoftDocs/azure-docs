@@ -202,7 +202,7 @@ Similar to how we created an **Item Index** view, we will now create a new view 
    * In the **Model class** box, select ***Item (todo.Models)***.
    * In the layout page box, type ***~/Views/Shared/_Layout.cshtml***.
    * Click **Add**.
-
+   
 #### <a name="_Toc395888515"></a>Add an Edit Item view
 And finally, add one last view for editing an **Item** in the same way as before.
 
