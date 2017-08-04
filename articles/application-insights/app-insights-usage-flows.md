@@ -17,6 +17,8 @@ ms.author: cfreeman
 
 # Analyze user navigation patterns with Flows in Application Insights
 
+![Application Insights Flows tool](./media/app-insights-usage-flows/flows.png)
+
 The Flows tool visualizes how users navigate between the pages and features of your site. It's great for answering questions like:
 * How do users navigate away from a page on your site?
 * What do users click on a page on your site?
@@ -25,7 +27,7 @@ The Flows tool visualizes how users navigate between the pages and features of y
 
 The Flows tool starts from an initial page view or event that you specify. Given this page view or custom event, Flows shows the page views and custom events that users sent immediately afterwards during a session, two steps afterwards, and so forth. Lines of varying thickness show how many times each path was followed by users. Special "Session Ended" nodes show how many users sent no page views or custom events after the preceding node, highlighting where users probably left your site.
 
-![TBD screenshot of Flows overall](TBD link)
+
 
 > [!NOTE]
 > Your Application Insights resource must contain page views or custom events to use the Flows tool. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](app-insights-javascript.md).
@@ -34,7 +36,7 @@ The Flows tool starts from an initial page view or event that you specify. Given
 
 ## Start by choosing an initial page view or custom event
 
-![TBD screenshot of Flows...focus on an initial event UI](./media/app-insights-usage-flows/flows-initial-event.png)
+![Choose an initial event for Flows](./media/app-insights-usage-flows/flows-initial-event.png)
 
 To get started answering questions with the Flows tool, choose an initial page view or custom event to serve as the starting point for the visualization:
 1. Click the link in the "What do users do after...?" title, or click the Edit button. 
@@ -85,7 +87,7 @@ Look for a page view or custom event that is repeated by many users across subse
 
 If steps (columns) in a Flows visualization are disconnected, it means none of the paths taken by users between the steps were frequent enough to be shown. To show less frequent events on the visualization so the steps appear connected, adjust the "Detail level" slider in the Edit blade.
 
-## Does the initial event represent the first time the event appears in a session, or any time it appears in a session?
+### Does the initial event represent the first time the event appears in a session, or any time it appears in a session?
 
 The initial event on the visualization only represents the first time a user sent that page view or custom event during a session. If users can send the initial event multiple times in a session, then the "Step 1" column only shows how users behave after the *first* instance of initial event, not all instances.
 
