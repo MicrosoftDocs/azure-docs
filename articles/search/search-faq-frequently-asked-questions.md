@@ -1,5 +1,5 @@
 ---
-title: Frequently Asked Questions (FAQ) about Azure Search | Microsoft Docs
+title: Frequently asked questions (FAQ) about Azure Search | Microsoft Docs
 description: Get answers to common questions about Microsoft Azure Search Service
 services: search
 author: HeidiSteen
@@ -12,7 +12,7 @@ ms.date: 08/03/2017
 ms.author: heidist
 ---
 
-# Azure Search - Frequently Asked Questions (FAQ)
+# Azure Search - frequently asked questions (FAQ)
  
  Find answers to commonly asked questions about concepts, code, and scenarios related to Azure Search.
 

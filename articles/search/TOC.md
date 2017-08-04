@@ -33,7 +33,7 @@
 ### [Upgrade the REST API](search-api-migration.md)
 ### [Model complex data types](search-howto-complex-data-types.md)
 ### [Handle concurrent updates](search-howto-concurrency.md)
-### [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=search)
+### [Code samples](https://azure.microsoft.com/resources/samples/?service=search)
 
 ## Manage
 ### Administer Azure Search
@@ -93,7 +93,7 @@
 ### [Job listings app](http://aka.ms/azjobsdemo)
 ## Partner & community
 ### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [MSDN Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
+### [MSDN Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [blog: Model relational data](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [[blog: Multilevel faceting](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
