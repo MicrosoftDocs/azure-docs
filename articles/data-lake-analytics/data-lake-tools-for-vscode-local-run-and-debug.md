@@ -1,3 +1,4 @@
+
 ---
 title: Azure Data Lake tools: U-SQL local run and local debug with Visual Studio code | Microsoft Docs
 description: Learn how to use the Azure Data Lake tools for Visual Studio code to local run and local debug.
@@ -21,7 +22,8 @@ ms.author: jejiang
 
 # U-SQL local run and local debug with Visual Studio code
 
-## Prerequisites-Make sure you have the prerequisites in place before starting these procedures:
+## Prerequisites
+Make sure you have the prerequisites in place before starting these procedures:
 - Azure Data Lake tool for Visual Studio Code. For instructions, see [Use the Azure Data Lake tools for Visual Studio code](data-lake-analytics-data-lake-tools-for-vscode.md).
 - C# for Visual Studio code (if you want to perform a U-SQL local debug).
 
@@ -40,6 +42,7 @@ ms.author: jejiang
 2. Locate the dependency packages from the path shown in the **Output** pane, and then install **BuildTools** and **Win10SDK 10240**. For example:  
 `C:\Users\xxx\.vscode\extensions\usqlextpublisher.usql-vscode-ext-x.x.x\LocalRunDependency
 `  
+
   ![LocateDependency](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/LocateDependencyPath.png)
 
 - To install **BuildTools**, follow the wizard instructions.   
