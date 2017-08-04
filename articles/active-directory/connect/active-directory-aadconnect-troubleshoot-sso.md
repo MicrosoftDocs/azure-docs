@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ---
 
@@ -25,6 +25,9 @@ This article helps you find troubleshooting information about common issues rega
 - If you are synchronizing 30 or more AD forests, you can't enable Seamless SSO using Azure AD Connect. As a workaround, you can [manually enable](#manual-reset-of-azure-ad-seamless-sso) the feature on your tenant.
 - Adding Azure AD service URLs (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) to the "Trusted sites" zone instead of the "Local intranet" zone **blocks users from signing in**.
 - Seamless SSO doesn't work in private browsing mode on Firefox and Edge. And also on Internet Explorer when Enhanced Protection mode is turned on.
+
+>[!IMPORTANT]
+>We recently rolled back support for Edge to investigate customer-reported issues.
 
 ## Check status of the feature
 
