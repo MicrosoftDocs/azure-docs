@@ -35,8 +35,10 @@ The simplest way to access a testing console is from the Credentials window.
 information being scanned.
   ![Test Drive Job Step 3](images/test-drive-job-2.png)
 4.	Click **Send**. A JobID is created. Copy this to use in the next steps.
+
   ![Test Drive Job Step 4](images/test-drive-job-3.png)
 5.	Click **Get**, then open the API by clicking the button matching your region.
+
   ![Test Drive Job Step 5](images/test-drive-job-4.png)
 6.	Fill in **teamName** and the **JobID** you just created. Enter your subscription key and click Send. The results of the scan are returned.
   ![Test Drive Job Step 6](images/test-drive-job-5.png)
