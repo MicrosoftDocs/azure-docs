@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Build an app with Java and the DocumentDB API | Microsoft Docs'
+title: Create an Azure Cosmos DB document database with Java | Microsoft Docs | Microsoft Docs'
 description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB DocumentDB API
 services: cosmos-db
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 08/02/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Build a DocumentDB API app with Java and the Azure portal
+# Azure Cosmos DB: Create a document database using Java and the Azure portal
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
