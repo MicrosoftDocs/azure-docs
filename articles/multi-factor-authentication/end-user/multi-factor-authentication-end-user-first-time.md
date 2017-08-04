@@ -25,7 +25,7 @@ This article helps you set up your **work or school account**. If you want to en
 
 ## Set up your account
 
-When your IT department requires you to start using two-step verification, a screen saying **Your admin has required that you set up this account for additional security verification**:
+When your IT department requires you to start using two-step verification, a screen saying **Your admin has required that you set up this account for additional security verification** appears:
 
 ![Setup](./media/multi-factor-authentication-end-user-first-time/first.png)
 
@@ -72,7 +72,7 @@ Using this method requires that you install an authenticator app on your phone o
 If you want to add an account to the mobile app manually, instead of using the QR reader, follow these steps.
 
 1. Select the **Enter account manually** button.  
-2. Enter the code and the URL that is provided on the same page that shows you the barcode. This info goes in the **Code** and **URL** boxes on the mobile app.
+2. Enter the code and the URL that are provided on the same page that shows you the barcode. This info goes in the **Code** and **URL** boxes on the mobile app.
 
     ![Setup](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
 3. When the activation has finished, select **Contact me**. This step sends either a notification or a verification code to your phone. Select **Verify**.
