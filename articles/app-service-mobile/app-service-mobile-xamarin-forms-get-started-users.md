@@ -3,8 +3,8 @@ title: Get Started with authentication for Mobile Apps in Xamarin Forms app | Mi
 description: Learn how to use Mobile Apps to authenticate users of your Xamarin Forms app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
-author: dhei
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: ''
 
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: glenga
 
 ---
 # Add authentication to your Xamarin Forms app

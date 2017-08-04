@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Process EDIFACT Invoices Using Azure BizTalk Services | Microsoft Docs
+title: 'Tutorial: Process EDIFACT Invoices Using Azure BizTalk Services | Microsoft Docs'
 description: How to create and configure the Box Connector or API app and use it in a logic app in Azure App Service
 services: biztalk-services
 documentationcenter: .net,nodejs,java

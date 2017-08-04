@@ -3,8 +3,8 @@ title: Create a Universal Windows Platform (UWP) that uses on Mobile Apps | Micr
 description: Follow this tutorial to get started with using Azure mobile app backends for Universal Windows Platform (UWP) app development in C#, Visual Basic, or JavaScript.
 services: app-service\mobile
 documentationcenter: windows
-author: dhei
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: ''
 
 ms.assetid: 47124296-2908-4d92-85e0-05c4aa6db916
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: glenga
 
 ---
 # Create a Windows app
@@ -36,11 +36,6 @@ To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * [Visual Studio Community 2015] or a later version.
-
-> [!NOTE]
-> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/mobile/). There, you can immediately create a short-lived starter mobile app in App Service—no credit card required, and no commitments.
->
->
 
 ## Create a new Azure Mobile App backend
 Follow these steps to create a new Mobile App backend.

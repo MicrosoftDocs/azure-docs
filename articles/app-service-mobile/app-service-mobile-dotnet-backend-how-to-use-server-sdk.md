@@ -4,8 +4,8 @@ description: Learn how to work with the .NET backend server SDK for Azure App Se
 keywords: app service, azure app service, mobile app, mobile service, scale, scalable, app deployment, azure app deployment
 services: app-service\mobile
 documentationcenter: ''
-author: dhei
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: ''
 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: glenga
 
 ---
 # Work with the .NET backend server SDK for Azure Mobile Apps

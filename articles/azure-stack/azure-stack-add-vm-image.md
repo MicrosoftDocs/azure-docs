@@ -65,8 +65,16 @@ You can use the steps described in this article either from the Azure Stack Deve
       -ADFS 
       -EnvironmentName AzureStackAdmin 
     ```
+    
+6. Sign in to your Azure Stack environment by using the following cmdlet:
 
-6. Add the VM image by invoking the `Add-AzsVMImage` cmdlet. In the Add-AzsVMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. See the [Parameters](#parameters) section for information about the allowed parameters. These parameters are used by Azure Resource Manager templates to reference the VM image. Following is an example invocation of the script:
+   ```PowerShell
+   Login-AzureRmAccount `
+   -EnvironmentName "AzureStackAdmin" `
+   -TenantId $TenantID 
+   ```
+
+7. Add the VM image by invoking the `Add-AzsVMImage` cmdlet. In the Add-AzsVMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. See the [Parameters](#parameters) section for information about the allowed parameters. These parameters are used by Azure Resource Manager templates to reference the VM image. Following is an example invocation of the script:
      
      ```powershell
      Add-AzsVMImage `

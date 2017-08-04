@@ -3,8 +3,8 @@ title: Get Started with Mobile Apps by using Xamarin.Forms
 description: Follow this tutorial to get started using Azure Mobile Apps for Xamarin.Forms development
 services: app-service\mobile
 documentationcenter: xamarin
-author: dhei
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: ''
 
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: glenga
 
 ---
 # Create a Xamarin.Forms app
@@ -31,11 +31,6 @@ To complete this tutorial, you need the following:
 * An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free Mobile Apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions.
 * A Mac with Xcode v7.0 or later and Xamarin Studio Community installed. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) and [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
-
-> [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/mobile/), where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
->
->
 
 ## Create a new Azure Mobile App backend
 Follow these steps to create a new Mobile App backend.

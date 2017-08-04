@@ -127,17 +127,16 @@
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## Monitor and troubleshoot
+### [Disaster recovery guidance](storage-disaster-recovery-guidance.md)
+### [Backup and DR for IAAS disks](storage-backup-and-disaster-recovery-for-azure-iaas-disks.md)
 ### [Troubleshoot Storage Explorer](storage-explorer-troubleshooting.md)
 ### Metrics and logging
 #### [Storage Analytics](storage-analytics.md)
 #### [Enable and view metrics](storage-enable-and-view-metrics.md)
 #### [Monitor, diagnose, and troubleshoot](storage-monitoring-diagnosing-troubleshooting.md)
 #### [Troubleshooting tutorial](storage-e2e-troubleshooting.md)
-### Troubleshoot disk deletion errors
-#### [In a Resource Manager deployment](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
-#### [In a classic deployment](storage-cannot-delete-storage-account-container-vhd.md)
+### [Troubleshoot disk deletion errors](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 ### [Troubleshoot File storage](storage-troubleshoot-file-connection-problems.md)
-### [Disaster recovery guidance](storage-disaster-recovery-guidance.md)
 ## Transfer Data
 ### [Move data to and from Storage](storage-moving-data.md)
 ### [AzCopy on Windows](storage-use-azcopy.md)
@@ -180,6 +179,7 @@
 #### [Backing up drive manifests](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnostics and error recovery for Import/Export jobs](storage-import-export-diagnostics-and-error-recovery.md)
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=storage)
 ## [PowerShell](/powershell/module/azure.storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
@@ -207,10 +207,11 @@
 ### [Troubleshooting tutorial](storage-e2e-troubleshooting-classic-portal.md)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=storage)
 ## [Azure Storage client tools](storage-explorers.md)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=storage)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=storage)
@@ -219,6 +220,7 @@
 ### [Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Manage blobs with Storage Explorer (Preview)](../vs-azure-tools-storage-explorer-blobs.md)
 ### [Using Storage Explorer (Preview) with Azure file storage](../vs-azure-tools-storage-explorer-files.md)
+### [Storage Explorer (Preview) release notes](../vs-azure-tools-storage-explorer-relnotes.md)
 
 ## NuGet packages
 ### [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

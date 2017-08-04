@@ -3,8 +3,8 @@ title: How to work with the Node.js backend server SDK for Mobile Apps | Microso
 description: Learn how to work with the Node.js backend server SDK for Azure App Service Mobile Apps.
 services: app-service\mobile
 documentationcenter: ''
-author: dhei
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: ''
 
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: glenga
 
 ---
 # How to use the Azure Mobile Apps Node.js SDK

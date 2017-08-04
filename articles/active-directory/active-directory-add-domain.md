@@ -13,8 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/24/2017
 ms.author: curtand
+
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
 
 ---
 # Add a custom domain name to Azure Active Directory
@@ -30,10 +33,10 @@ You've got one or more domain names that your organization uses to do business, 
 2. Add a DNS entry for the domain name at the domain name registrar
 3. Verify the custom domain name in Azure AD
 
-> [!NOTE]
-> If you plan to configure your custom domain name to be used with Active Directory Federation Services (AD FS) or a different security token service (STS) on your corporate network, follow the instructions in [Add and configure a domain for federation with Azure Active Directory](active-directory-add-domain-federated.md). This is useful if you plan to synchronize users from your corporate directory to Azure AD, and [password hash sync](active-directory-aadconnectsync-implement-password-synchronization.md) does not meet your requirements.
-> 
-> 
+> [!IMPORTANT]
+> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. For how to add your company domain name in the Azure AD admin center, see [Assigning administrator roles in Azure Active Directory](active-directory-domains-add-azure-portal.md).
+
+If you plan to configure your custom domain name to be used with Active Directory Federation Services (AD FS) or a different security token service (STS) on your corporate network, follow the instructions in [Add and configure a domain for federation with Azure Active Directory](active-directory-add-domain-federated.md). This is useful if you plan to synchronize users from your corporate directory to Azure AD, and [password hash sync](active-directory-aadconnectsync-implement-password-synchronization.md) does not meet your requirements.
 
 ## Add a custom domain name to your directory
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) with a user account that is a global administrator of your Azure AD directory.

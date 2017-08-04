@@ -33,7 +33,7 @@ This article walks you through an example that reports health from the service c
 ## Prerequisites
 You must have the following installed:
 
-* Visual Studio 2015
+* Visual Studio 2015 or Visual Studio 2017
 * Service Fabric SDK
 
 ## To create a local secure dev cluster

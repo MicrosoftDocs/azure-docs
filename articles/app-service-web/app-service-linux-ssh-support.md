@@ -87,7 +87,7 @@ These steps are are shown in the Azure App Service repository as an example [her
 	EXPOSE 2222 80
 	```
 
-4. Make sure to start the ssh service. The example [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3-1/init_container.sh) uses a shell script in */bin* directory.
+4. Make sure to start the ssh service. The example [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) uses a shell script in */bin* directory.
 
 	```bash
 	#!/bin/bash

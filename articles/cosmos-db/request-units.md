@@ -187,7 +187,7 @@ Using the tool is simple:
 > 
 
 ### Use the Azure Cosmos DB request charge response header
-Every response from the Azure Cosmos DB service includes a custom header (`x-ms-request-charge`) that contains the request units consumed for the request. This header is also accessible through the  DocumentDB SDKs. In the .NET SDK, RequestCharge is a property of the ResourceResponse object.  For queries, the Azure Cosmos DB Query Explorer in the Azure portal provides request charge information for executed queries.
+Every response from the Azure Cosmos DB service includes a custom header (`x-ms-request-charge`) that contains the request units consumed for the request. This header is also accessible through the Azure Cosmos DB SDKs. In the .NET SDK, RequestCharge is a property of the ResourceResponse object.  For queries, the Azure Cosmos DB Query Explorer in the Azure portal provides request charge information for executed queries.
 
 ![Examining RU charges in the Query Explorer][1]
 

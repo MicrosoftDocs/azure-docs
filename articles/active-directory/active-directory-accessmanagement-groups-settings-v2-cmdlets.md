@@ -14,8 +14,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: curtand;rodejo
+ms.date: 05/25/2017
+ms.author: curtand
+
+ms.reviewer: rodejo
 
 ---
 # Azure Active Directory version 2 cmdlets for group management
