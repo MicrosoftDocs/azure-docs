@@ -27,7 +27,18 @@ Before you can test-drive the API from the online console, you will need a few v
 
 ![Content Moderator credentials in the review tool](Review-Tool-User-Guide/images/credentials-2-reviewtool.png)
 
+The simplest way to access a testing console is from the Credentials window.
+1.	From the Credentials window, click **API Reference**.
+2.	Click the button that most closely describes your location, under Open API testing console. The **Job – Create** API opens.
+  ![Test Drive Job Step 2](/images/test-drive-job-1.png)
+3.	Fill in the required values, and edit the Request Body to specify the location of the 
+information being scanned.
+4.	Click **Send**. A JobID is created. Copy this to use in the next steps.
+5.	Click **Get**, then open the API by clicking the button matching your region.
+6.	Fill in **teamName** and the **JobID** you just created. Enter your subscription key and click Send. The results of the scan are returned.
+7.	Go to the Content Moderator Dashboard, and click **Review > Image**. The image you just scanned displays, ready for human review. 
 
 ## Next steps ##
+
 
 To learn how to use connectors to define custom workflows, see the [workflows](workflows.md) article.
