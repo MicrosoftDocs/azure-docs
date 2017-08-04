@@ -44,11 +44,11 @@ Edit the following PowerShell script for your environment and then run it to add
 $Arm = "https://adminmanagement.local.azurestack.external"
 $Location = "local"
 
-Add-AzsEnvironment -Name AzureStackAdmin -ArmEndpoint $Arm
+Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint $Arm
 
-$Password = ConvertTo-SecureString -AsPlainText -Force "<your AzureStack admin user password>"
+$Password = ConvertTo-SecureString -AsPlainText -Force "<your Azure Stack administrator password>"
 
-$User = "<your AzureStack admin user name>"
+$User = "<your Azure Stack administrator user name>"
 
 $Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
 
