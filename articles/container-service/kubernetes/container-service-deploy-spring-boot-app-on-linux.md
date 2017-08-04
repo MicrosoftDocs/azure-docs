@@ -115,7 +115,7 @@ The following steps help you create a simple Spring Boot web application and tes
 The following steps walk you through how to use the Azure portal to create an Azure container registry.
 
 > [!NOTE]
-> If you want to use the Azure CLI instead of the Azure portal, follow the steps in [Create a private Docker container registry using the Azure CLI 2.0](~/container-registry/container-registry-get-started-azure-cli.md).
+> If you want to use the Azure CLI instead of the Azure portal, follow the steps in [Create a private Docker container registry using the Azure CLI 2.0][1].
 
 1. Sign in to the [Azure portal].
 
@@ -271,9 +271,10 @@ The following steps walk you through how to use the Azure portal to create an Az
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 
-* [Deploy a Spring Boot Application to Azure App Service](~/app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
+- [Deploy a Spring Boot Application to Azure App Service][2]
 
-* [Running a Spring Boot Application on a Kubernetes Cluster in Azure Container Service](container-service-deploy-spring-boot-app-on-kubernetes.md)
+
+- [Running a Spring Boot Application on a Kubernetes Cluster in Azure Container Service](container-service-deploy-spring-boot-app-on-kubernetes.md)
 
 ## Additional resources
 
@@ -319,5 +320,10 @@ For additional examples that show how to use custom Docker images with Azure, se
 [LX01]: ./media/container-service-deploy-spring-boot-app-on-linux/LX01.png
 [LX02]: ./media/container-service-deploy-spring-boot-app-on-linux/LX02.png
 [LX03]: ./media/container-service-deploy-spring-boot-app-on-linux/LX03.png
+
+<!--Reference links in article-->
+[1]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli/
+[2]: https://docs.microsoft.com/azure/app-service/app-service-deploy-spring-boot-web-app-on-azure/
+
 
 ---
