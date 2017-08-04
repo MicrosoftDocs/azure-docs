@@ -1,24 +1,25 @@
-# Overview
-# Get Started
-## Quick Start
-## Installation
-## Beginner Tutorials
-### Classifying Iris
-### AZ ML CLI Tutorial
-### Bike Share Forecast
-# How To
-## Set Up and Configure Environment
-## Acquire and Understand Data
-## Develop and Manage Models
-## Use AZ ML CLI
-## Operationalize Models
-## End-to-end Sample Projects
-### Example 1
-### Example 2
-### Example 3
-### ADS Tutorial 1
-### ADS Tutorial 2
-### ADS Tutorial 3
-# Reference
-# Related
-# Resources
+- name: Machine Learning Workbench Documentation
+- name: Overview
+- name: Get Started
+  - name: Quick Start
+  - name: Installation
+  - name: Beginner Tutorials
+    - name: Classifying Iris
+    - name: AZ ML CLI Tutorial
+    - name: Bike Share Forecast
+- name: How To
+  - name: Set Up and Configure Environment
+  - name: Acquire and Understand Data
+  - name: Develop and Manage Models
+  - name: Use AZ ML CLI
+  - name: Operationalize Models
+  - name: End-to-end Sample Projects
+    - name: Example 1
+    - name: Example 2
+    - name: Example 3
+    - name: ADS Tutorial 1
+    - name: ADS Tutorial 2
+    - name: ADS Tutorial 3
+- name: Reference
+- name: Related
+- name: Resources

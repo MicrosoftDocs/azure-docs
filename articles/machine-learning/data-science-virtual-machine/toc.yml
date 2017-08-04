@@ -1,0 +1,35 @@
+- name: Data Science VM Documentation
+- Overview
+- Get Started
+- How To
+  - Set up tools and utilities
+    - Set up a virtual machine
+      - name: DS VM overview
+        href: data-science-virtual-machine-overview.md
+      - name: How to use the DS VM
+        href: data-science-vm-do-ten-things.md
+      - name: Provision the DS VM
+        href: data-science-provision-vm.md
+      - name: Set up Azure VM
+        href: data-science-setup-virtual-machine.md
+      - name: Set up SQL VM
+        href: data-science-setup-sql-server-virtual-machine.md
+      - name: Provision Linux VM
+        href: data-science-linux-dsvm-intro.md
+      - name: Use Linux VM
+        href: data-science-linux-dsvm-walkthrough.md
+- Reference
+- Related
+- Resources
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Blog
+    href: http://blogs.technet.com/b/machinelearning/
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-machine-learning
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
+  - name: Get help from live chat
+    href: live-chat.md
