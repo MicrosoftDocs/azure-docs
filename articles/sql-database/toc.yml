@@ -396,6 +396,6 @@
     href: https://azure.microsoft.com/updates/?service=sql-database
   - name: Azure application architecture guidance
     href: /azure/architecture/guide/
-  - name: Customer implementations
-    href: sql-database-customer-implementations.md
+  - name: Customer stories
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
   
