@@ -91,7 +91,7 @@ Azure Cosmos DB is a managed database as a service. As your user base grows, you
 ### Go planet scale
 As your app gains popularity, you might gain users across the globe. Or maybe you want to be prepared for unforeseen events. Go to the Azure portal, and open your Azure Cosmos DB account. Click the map to make your data continuously replicate to any number of regions across the world. This capability makes your data available wherever your users are. You can also add failover policies to be prepared for contingencies.
 
-![Azure Cosmos DB scale across geographic regions](media/mobile-apps-with-xamarin/cosmos-db-replicate-globally.png)
+![Azure Cosmos DB scale across geographic regions](media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png)
 
 Congratulations. You have completed the solution and have a mobile app with Xamarin and Azure Cosmos DB. Follow similar steps to build Cordova apps by using the Azure Cosmos DB JavaScript SDK and native iOS/Android apps by using Azure Cosmos DB REST APIs.
 
