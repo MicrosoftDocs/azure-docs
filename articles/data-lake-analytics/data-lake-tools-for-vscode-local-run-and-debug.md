@@ -21,8 +21,7 @@ ms.author: jejiang
 
 # U-SQL local run and local debug with Visual Studio code
 
-## Prerequisites
-Make sure you have the prerequisites in place before starting these procedures:
+## Prerequisites-Make sure you have the prerequisites in place before starting these procedures:
 - Azure Data Lake tool for Visual Studio Code. For instructions, see [Use the Azure Data Lake tools for Visual Studio code](data-lake-analytics-data-lake-tools-for-vscode.md).
 - C# for Visual Studio code (if you want to perform a U-SQL local debug).
 
@@ -64,7 +63,7 @@ For the first-time user, you are prompted to download the **ADL: Download Localr
 2. Click **Accept** to accept the EULA for the first time. 
 
    ![Accept the EULA ](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/AcceptEULA.png)   
-3. The **cmd console** opens. For first time users, you need to enter **3**, and then input the local folder path for your data input and output. For other options, you can simply use the default values. 
+3. The **cmd console** opens. For first time users, you need to enter **3**, and then input the local folder path for your data input and output. For other options, you can use the default values. 
 
    ![Data Lake tools for Visual Studio Code local run cmd](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-cmd.png)
 4. Press **CTRL+SHIFT+P** to open the **Tool** window, enter **ADL: Submit Job**, and then select **Local** to submit the job to your local account.
