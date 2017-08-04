@@ -22,7 +22,7 @@ ms.author: denlee
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart walks you through the Azure portal tools available for Azure Cosmos DB and shows you how to quickly create a console app using the OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) driver. The instructions in this tutorial can be followed on any operating system that is capable of running Java. By completing this tutorial you'll be familiar with creating and modifying graph resources in either the UI or programatically, whichever is your preference. 
+This quickstart walks you through the Azure portal tools available for Azure Cosmos DB. This quickstart also shows you how to quickly create a console app using the OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) driver. The instructions in this quickstart can be followed on any operating system that is capable of running Java. By completing this quickstart you'll be familiar with creating and modifying graph resources in either the UI or programmatically, whichever is your preference. 
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ You can now add data to your new graph using Data Explorer.
 
     key|value|Notes
     ----|----|----
-    userid | ashley1986 |Because we created a partitioned graph, the partition key (`userid` in this tutorial) must be one of the properties set on a new vertex. If you do not set the a key to the partition key value, the Vertex will not save.
+    userid | ashley1986 |Because we created a partitioned graph, the partition key (`userid` in this tutorial) must be one of the properties set on a new vertex. If you do not set a key to the partition key value, the vertex does not save.
     gender|female| 
     tech | java | 
     id|ashley|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
@@ -71,14 +71,14 @@ You can now add data to your new graph using Data Explorer.
 
     key|value|Notes
     ----|----|----
-    userid | rakesh1979 |Because we created a partitioned graph, the partition key (`userid` in this tutorial) must be one of the properties set on a new vertex. If you do not set the a key to the partition key value, the Vertex will not save.
+    userid | rakesh1979 |Because we created a partitioned graph, the partition key (`userid` in this tutorial) must be one of the properties set on a new vertex. If you do not set a key to the partition key value, the vertex does not save.
     gender|male| 
     school|MIT| 
     id|rakesh|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
 
-5. Click **Apply Filter** with the default `g.V()` filter. All of the users now show in the **Results** list. As you add more data you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph, but you can change that to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format.
+5. Click **Apply Filter** with the default `g.V()` filter. All of the users now show in the **Results** list. As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph, but you can change that to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format.
 
-6. Now we'll connect the users. Ensure **ashley** in selected in the **Results** list, then click the edit button next to **Targets** on lower far right. You may need to widen your window to see the **Properties** area.
+6. Now we connect the users. Ensure **ashley** in selected in the **Results** list, then click the edit button next to **Targets** on lower far right. You may need to widen your window to see the **Properties** area.
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
@@ -136,10 +136,10 @@ Let's make a quick review of what's happening in the app. Open the `Program.java
 
     Setting|Suggested value|Description
     ---|---|---
-    Hosts|[***.graphs.azure.com]|See screenshot below. This is the Gremlin URI value on the Overview page of the Azure portal, in square brackets, with the trailing :443/ removed.<br><br>This value can also be retrieved from the Keys tab, using the URI value by removing https://, changing documents to graphs, and removing the trailing :443/.
+    Hosts|[***.graphs.azure.com]|See the screenshot following this table. This value is the Gremlin URI value on the Overview page of the Azure portal, in square brackets, with the trailing :443/ removed.<br><br>This value can also be retrieved from the Keys tab, using the URI value by removing https://, changing documents to graphs, and removing the trailing :443/.
     Port|443|Set to 443.
     Username|*Your username*|The resource of the form `/dbs/<db>/colls/<coll>` where `<db>` is your database name and `<coll>` is your collection name.
-    Password|*Your primary master key*|See second screenshot below. This is your primary key, which you can retrieve from the Keys page of the Azure portal, in the Primary Key box. Use the copy button on the left side of the box to copy the value.
+    Password|*Your primary master key*|See the second screenshot following this table. This value is your primary key, which you can retrieve from the Keys page of the Azure portal, in the Primary Key box. Use the copy button on the left side of the box to copy the value.
     ConnectionPool|{enableSsl: true}|Your connection pool setting for SSL.
     Serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Set to this value and delete any `\n` line breaks when pasting in the value.
 
