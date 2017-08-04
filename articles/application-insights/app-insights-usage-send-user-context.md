@@ -1,5 +1,5 @@
 ---
-title: Sending user context to enable usage experiences in Application Insights | Microsoft Docs
+title: Sending user context to enable usage experiences in Azure Application Insights | Microsoft Docs
 description: Track how users move through your service after assigning each of them a unique, persistent ID string in Application Insights.
 services: application-insights
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.date: 08/02/2017
 ms.author: cfreeman
 
 ---
-#  Send user context to enable usage experiences in Application Insights
+#  Sending user context to enable usage experiences in Azure Application Insights
 
 ## Tracking users
 
@@ -35,7 +35,7 @@ If your app is integrated with the [JavaScript SDK](https://docs.microsoft.com/a
 ## Choosing user IDs
 
 User IDs should persist across user sessions to track how users behave over time. There are various approaches for persisting the ID.
-- An existing concept of users that exists in your service.
+- A definition of a user that you already have in your service.
 - If the service has access to a browser, it can pass the browser a cookie with an ID in it. The ID will persist for as long as the cookie remains in the user's browser.
 - If necessary, you can use a new ID each session, but the results about users will be limited. For example, you won't be able to see how a user's behavior changes over time.
 
