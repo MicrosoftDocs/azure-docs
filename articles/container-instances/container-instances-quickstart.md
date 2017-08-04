@@ -30,6 +30,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+If you are prompted by Azure Cloud Shell that you currently have no storage mounted, select a subscription to create the storage account on and confirm pushing **Create storage** button.
+
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.12 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Create a resource group
@@ -46,13 +48,13 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a container
 
-You can create a container by providing a name, a Docker image, and an Azure resource group. You can optionally expose the container to the internet with a public IP address. In this case, we'll use a container that hosts a very simple web app written in [Node.js](http://nodejs.org).
+You can create a container by providing a name, a Docker image, and an Azure resource group using the `create` command. You can optionally expose the container to the internet with a public IP address. In this case, we'll use a container that hosts a very simple web app written in [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 
 ```
 
-Within a few seconds, you should get a response to your request. Initially, the container will be in a **Creating** state, but it should start within a few seconds. You can check the status using the `show` command:
+Within a few seconds, you should get a response to your request. Initially, the container will be in a **Creating** provisioning state, but it should start within a few seconds. You can check the status using the `show` command:
 
 ```azurecli-interactive
 az container show --name mycontainer --resource-group myResourceGroup
@@ -72,7 +74,8 @@ At the bottom of the output, you will see the container's provisioning state and
       ]
     },
     "osType": "Linux",
-    "provisioningState": "Succeeded"
+    "provisioningState": "Succeeded",
+    "state": "Running"
 ...
 ```
 
@@ -98,7 +101,7 @@ listening on port 80
 
 ## Delete the container
 
-When you are done with the container, you can remove it using the `delete` command:
+When you are done with the container, you can remove it using the `delete` command (and confirming this operation with **y** when being prompted by the console):
 
 ```azurecli-interactive
 az container delete --name mycontainer --resource-group myResourceGroup
