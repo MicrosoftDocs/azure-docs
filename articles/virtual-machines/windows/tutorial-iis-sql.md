@@ -1,6 +1,6 @@
 ---
 title: Create a Windows VM running a .Net Core app with IIS and SQL Azure | Microsoft Docs
-description: Tutorial - create a two-tier .Net Core app that will run on a VM using IIS and SQL.
+description: Tutorial - create a two-tier .Net Core app that runs on a VM using IIS and SQL.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Tutorial IIS SQL .Net Core 
 
-In this tutorial, we will build a two-tier demo music store .Net Core application that runs on a Windows Azure VM and connects to an Azure SQL database.
+In this tutorial, we deploy a two-tier music store .Net Core application. The application runs on a Windows Azure VM running IIS and connects to an Azure SQL database.
 
 > [!div class="checklist"]
 > * Create an Azure SQL server and database
@@ -67,17 +67,13 @@ New-AzureRmSqlServer -ResourceGroupName $resourceGroup `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $user, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 ```
 
-Create an [server-level firewall rule](sql-database-firewall-configure.md) using the [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
+Create a [server-level firewall rule](sql-database-firewall-configure.md) using the [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) command. A server-level firewall rule allows an external application, like SQL Server Management Studio, to connect to a SQL database through firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to fit your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
 
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroup `
     -ServerName $sqlserver `
     -FirewallRuleName "AllowSome" -StartIpAddress $startip -EndIpAddress $endip
 ```
-
-> [!NOTE]
-> SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 1433.
->
 
 
 Create an empty database named **musicstore** for the application to store data.
@@ -187,7 +183,7 @@ New-Website -Name "MusicStore" -Port 80 -PhysicalPath C:\music\ -ApplicationPool
 
 ## Upload the script
 
-Configuration scripts can be stored in either GitHub or in Azure blob storage. In this example, we are going to upload the file *C:\musicstore\musicstore.ps1* to a storage account called *mystorageaccount*, into a container named *mycontainer*. The permissions on the container will be set to **blob** so that the file can be used by the custom script extension.
+Configuration scripts can be stored in either GitHub or in Azure blob storage. In this example, we are going to upload the file *C:\musicstore\musicstore.ps1* to a storage account called *mystorageaccount*, into a container named *mycontainer*. The permissions on the container are set to **blob** so that the file can be used by the custom script extension.
 
 ```powershell
 $StorageAccountName = "mystorageaccount"
@@ -205,7 +201,7 @@ $scriptURL = (Get-AzureStorageBlob -Container $ContainerName -Context $context).
 ## Configure the VM
 
 
-We pass the path to a configuration script, that you uploaded to blob storage, into [Set-AzureRmVMCustomScriptExtension](/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension) to download and configure the sample application. To configure the .Net application on the VM, we need to provide the full path to the SQL server instance, the user name and password to the script. 
+We pass the path to a configuration script, that you uploaded to blob storage, into [Set-AzureRmVMCustomScriptExtension](/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension) to download and configure the sample application. To configure the .Net application on the VM, we need to provide the full path to the SQL server instance, the user name, and password to the script. 
 
 ```powershell
 $sqlfqdn = ($sqlserver + '.database.windows.net')
