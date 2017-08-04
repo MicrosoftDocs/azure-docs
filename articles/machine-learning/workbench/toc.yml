@@ -1,19 +1,23 @@
 - name: Machine Learning Workbench Documentation
 - name: Overview
 - name: Get Started
+  items:
   - name: Quick Start
   - name: Installation
   - name: Beginner Tutorials
+    items:
     - name: Classifying Iris
     - name: AZ ML CLI Tutorial
     - name: Bike Share Forecast
 - name: How To
+  items:
   - name: Set Up and Configure Environment
   - name: Acquire and Understand Data
   - name: Develop and Manage Models
   - name: Use AZ ML CLI
   - name: Operationalize Models
   - name: End-to-end Sample Projects
+    items:
     - name: Example 1
     - name: Example 2
     - name: Example 3

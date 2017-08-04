@@ -58,6 +58,7 @@
   - name: R quick start
     href: machine-learning-r-quickstart.md
 - name: How To
+  items:
   - name: Set up tools and utilities
     items:
     - name: Set up environments
@@ -101,6 +102,7 @@
     - name: Identify your scenario
       href: machine-learning-data-science-plan-sample-scenarios.md
   - name: Acquire and understand data
+    items:
     - name: Load data into storage
       items:
       - name: Overview
@@ -186,6 +188,7 @@
         - name: Use Scala and Spark
           href: machine-learning-data-science-process-scala-walkthrough.md
   - name: Develop models
+    items:
     - name: Engineer and select features
       items:
       - name: Overview
@@ -323,6 +326,7 @@
   - name: Web service error codes
     href: machine-learning-web-service-error-codes.md
 - name: Related
+  items:
   - name: Cortana Intelligence Gallery
     items:
     - name: Overview
@@ -352,6 +356,7 @@
     - name: Cortana Intelligence solution evaluation tool
       href: cortana-intelligence-appsource-evaluation-tool.md
   - name: Cortana Analytics
+    items:
     - name: APIs
       items:
       - name: Anomaly detection
