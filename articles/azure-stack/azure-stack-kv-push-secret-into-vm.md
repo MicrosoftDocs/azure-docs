@@ -41,6 +41,8 @@ The following steps describe the process to push a certificate onto the virtual 
 3. Upload the certificate into the key vault.
 4. Deploy a template to create a virtual machine and push the certificate onto it.
 
+**Create a secret in the key vault**
+
 The following script creates a certificate in the .pfx format, creates a key vault, and stores the certificate in the key vault as a secret. You must use the `-EnabledForDeployment` parameter when you're creating the key vault. This parameter makes sure that the key vault can be referenced from Azure Resource Manager templates.
 
 ```powershell
