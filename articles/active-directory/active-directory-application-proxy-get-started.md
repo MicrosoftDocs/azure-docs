@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/04/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -66,8 +66,9 @@ The external endpoint is how your users reach your applications while outside of
 1. The user accesses the application through the Application Proxy service and is directed to the Azure AD sign-in page to authenticate.
 2. After a successful sign-in, a token is generated and sent to the client device.
 3. The client sends the token to the Application Proxy service, which retrieves the user principal name (UPN) and security principal name (SPN) from the token, then directs the request to the Application Proxy connector.
-4. If you have configured single sign-on, the connector performs any additional authentication required on behalf of the user. 
-5. The response is sent through Application Proxy service and connector to the user.
+4. If you have configured single sign-on, the connector performs any additional authentication required on behalf of the user.
+5. The connector sends the request to the on-premises application.  
+6. The response is sent through Application Proxy service and connector to the user.
 
 ### Single sign-on
 Azure AD Application Proxy provides single sign-on (SSO) to applications that use Integrated Windows Authentication (IWA), or claims-aware applications. If your application uses IWA, Application Proxy impersonates the user using Kerberos Constrained Delegation to provide SSO. If you have a claims-aware application that trusts Azure Active Directory, SSO works because the user was already authenticated by Azure AD.
