@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2017
+ms.date: 08/03/2017
 ms.author: cherylmc
 
 ---
@@ -91,7 +91,7 @@ If you don't already have a virtual network, create one. Screenshots are provide
 
   ![Creating virtual network tile](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
 10. Once your virtual network has been created, you see **Created** listed under **Status** on the networks page in the Azure classic portal.
-11. Add a DNS server (optional). After you create your virtual network, you can add the IP address of a DNS server for name resolution. The DNS server you specify should be one that can resolve the names for the resources in your VNet.<br>To add a DNS server, open the settings for your virtual network, click DNS servers, and add the IP address of the DNS server that you want to use. The client configuration package that you generate in a later step contains the IP addresses of the DNS servers that you specify in this setting. If you need to update the list of DNS servers in the future, you can generate and install new VPN client configuration packages that reflect the updated list.
+11. Add a DNS server (optional). After you create your virtual network, you can add the IP address of a DNS server for name resolution. The DNS server IP address that you specify should be the address of a DNS server that can resolve the names for the resources in your VNet.<br>To add a DNS server, open the settings for your virtual network, click DNS servers, and add the IP address of the DNS server that you want to use.
 
 ### <a name="gateway"></a>Part 2: Create gateway subnet and a dynamic routing gateway
 
@@ -157,7 +157,7 @@ After the gateway has been created, you can upload the .cer file (which contains
 
 ## <a name="vpnclientconfig"></a>Section 4 - Configure the client
 
-To connect to a VNet using a Point-to-Site VPN, each client must install a package to configure the native Windows VPN client. The configuration package configures the native Windows VPN client with the settings necessary to connect to the virtual network and, if you specified a DNS server for your VNet, it contains the DNS server IP address the client will use for name resolution. If you change the specified DNS server later, after generating the client configuration package, be sure to generate a new client configuration package to install on your client computers.
+To connect to a VNet using a Point-to-Site VPN, each client must install a package to configure the native Windows VPN client. The configuration package configures the native Windows VPN client with the settings necessary to connect to the virtual network.
 
 You can use the same VPN client configuration package on each client computer, as long as the version matches the architecture for the client. For the list of client operating systems that are supported, see the [Point-to-Site connections FAQ](#faq) at the end of this article.
 

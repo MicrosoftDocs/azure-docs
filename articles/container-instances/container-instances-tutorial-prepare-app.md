@@ -1,6 +1,6 @@
 ---
-title: Create a multi-container group with Azure Container Instances | Azure Docs
-description: Create a multi-container group and deploy it to Azure Container Instances from the Azure Container Registry
+title: Azure Container Instances tutorial - Prepare your app | Azure Docs
+description: Prepare an app for deployment to Azure Container Instances
 services: container-instances
 documentationcenter: ''
 author: seanmck
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/20/2017
+ms.date: 08/01/2017
 ms.author: seanmck
 ms.custom: 
 ---

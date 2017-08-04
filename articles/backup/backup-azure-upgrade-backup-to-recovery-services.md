@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/01/2017
+ms.date: 08/03/2017
 ms.author: markgal;arunak
 
 ---
@@ -22,7 +22,7 @@ This article explains how to upgrade a Backup vault to a Recovery Services vault
 - All features of a Backup vault are retained in a Recovery Services vault.
 - Recovery Services vaults have more features than Backup vaults, including: better security, integrated monitoring, faster restores and item-level restores.
 - Manage backup items from an improved, simplified portal.
-- New features will only apply to Recovery Services vaults.
+- New features only apply to Recovery Services vaults.
 
 ## Impact to operations during upgrade
 
@@ -48,22 +48,13 @@ You can use PowerShell scripts to upgrade your Backup vaults to Recovery Service
 
 1. Install or upgrade [Windows Management Framework (WMF) to version 5](https://www.microsoft.com/download/details.aspx?id=50395) or above.
 2. [Install Azure PowerShell MSI](https://github.com/Azure/azure-powershell/releases/download/v3.8.0-April2017/azure-powershell.3.8.0.msi).
-3. Update the PowerShell modules:
-  - For Windows Server:
-    - Install-Module -Name Azure -RequiredVersion 3.8.0
-    - Install-Module -Name AzureRM.RecoveryServices -RequiredVersion 2.8.0
-    - Install-Module -Name AzureRM.Resources -RequiredVersion 3.8.0
-  - For Windows 10
-    - Install-Module -Name Azure -RequiredVersion 3.8.0 -AllowClobber
-    - Install-Module -Name AzureRM.RecoveryServices -RequiredVersion 2.8.0 -AllowClobber
-    - Install-Module -Name AzureRM.Resources -RequiredVersion 3.8.0 -AllowClobber
-4. Download the [PowerShell script](http://download.microsoft.com/download/1/c/6/1c6ed72e-38f9-4675-9cf9-9b8a06da7cd3/recoveryservicesvaultupgrade.ps1) to upgrade your vaults.
+3. Download the [PowerShell script](https://aka.ms/vaultupgradescript2) to upgrade your vaults.
 
 ### Run the PowerShell script
 
 Use the following script to upgrade your vaults. The following sample script has explanations of the parameters.
 
-RecoveryServicesVaultUpgrade.ps1 **-SubscriptionID** `<subscriptionID>` **-VaultName** `<vaultname>` **-Location** `<location>` **-ResourceType** `BackupVault` **-TargetResourceGroupName** `<rgname>`
+RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **-VaultName** `<vaultname>` **-Location** `<location>` **-ResourceType** `BackupVault` **-TargetResourceGroupName** `<rgname>`
 
 **SubscriptionID** - The subscription ID number of the vault that is being upgraded.<br/>
 **VaultName** - The name of the Backup vault that is being upgraded.<br/>
@@ -106,18 +97,31 @@ The second screen shows the help links available to help you get started using t
 
 ![help links in the Quick Start blade](./media/backup-azure-upgrade-backup-to-recovery-services/quick-start-w-help-links.png)
 
+## Post-upgrade steps
+Recovery Services vault supports specifying time zone information in backup policy. After vault is successfully upgraded, go to Backup policies from vault settings menu and update the time zone information for each of the policies configured in the vault. This screen already shows the backup schedule time specified as per local time zone used when you created policy. 
+
+## Enhanced security
+
+When a Backup vault is upgraded to a Recovery Services vault, the security settings for that vault are automatically turned on. When the security settings are on, certain operations such as deleting backups, or changing a passphrase require an [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) PIN. For more information on the enhanced security, see the article [Security features to protect hybrid backups](backup-azure-security-feature.md). 
+
+When the enhanced security is turned on, data is retained up to 14 days after the recovery point information has been deleted from the vault. Customers are billed for storage of this security data. Security data retention applies to recovery points taken for the Azure Backup agent, Azure Backup Server, and System Center Data Protection Manager. 
+
+## Gather data on your vault
+
+Once you upgrade to a Recovery Services vault, configure reports for Azure Backup (for IaaS VMs and Microsoft Azure Recovery Services (MARS)), and use Power BI to access the reports. For additional information on gathering data, see the article, [Configure Azure Backup reports](backup-azure-configure-reports.md).
+
 ## Frequently asked questions
 
 **Does the upgrade plan affect my ongoing backups?**</br>
 No. Your ongoing backups continue uninterrupted during and after upgrade.
 
 **If I don’t plan on upgrading soon, what happens to my vaults?**</br>
-Since all new features apply only to Recovery Services vaults, we urge you to upgrade your vaults. Eventually Microsoft will deprecate the classic portal. Starting September 1, 2017, Microsoft will begin auto-upgrading backup vaults to Recovery Services vaults. By November 1, 2017, Microsoft will complete the upgrade process. Your vault can be automatically upgraded any time during September or October. Microsoft recommends you upgrade your vault as soon as possible.
+Since all new features apply only to Recovery Services vaults, we urge you to upgrade your vaults. Microsoft will eventually deprecate the classic portal. Starting September 1, 2017, Microsoft will begin auto-upgrading backup vaults to Recovery Services vaults. By November 1, 2017, Microsoft will complete the upgrade process. Your vault can be automatically upgraded any time during September or October. Microsoft recommends you upgrade your vault as soon as possible.
 
 **What does this upgrade mean for my existing tooling?**</br>
-You should update your tooling to the Resource Manager deployment model. Recovery Services vaults were created for use in the Resource Manager deployment model. Planning for the Resource Manager deployment model, and accounting for the difference in your vaults is important. 
+Update your tooling to the Resource Manager deployment model. Recovery Services vaults were created for use in the Resource Manager deployment model. Planning for the Resource Manager deployment model, and accounting for the difference in your vaults is important. 
 
-**During the upgrade, how much downtime will there be?**</br>
+**During the upgrade, is there much downtime?**</br>
 It depends on the number of resources that are being upgraded. For smaller deployments (a few tens of protected instances), the whole upgrade should take less than 20 minutes. For larger deployments, it should take a max of an hour.
 
 **Can I roll back after upgrading?**</br>
@@ -143,7 +147,7 @@ If you do not need to store the backups of this machine anymore, then please unr
 Monitoring for on-premises backups (MARS agent, DPM and Azure Backup Server) is a new feature that you get when you upgrade your Backup vault to Recovery Services vault. The monitoring information takes up to 12 hours to sync with the service.
 
 **How do I report an issue?**</br>
-If any portion of the vault upgrade fails, note the OperationId listed in the error. Microsoft Support will proactively work to resolve the issue. You can reach out to Support or email us at rsvaultupgrade@service.microsoft.com with your Subscription Id, vault name and OperationId. We will attempt to resolve the issue as quickly as possible. Do not retry the operation unless explicitly instructed to do so by Microsoft.
+If any portion of the vault upgrade fails, note the OperationId listed in the error. Microsoft Support will proactively work to resolve the issue. You can reach out to Support or email us at rsvaultupgrade@service.microsoft.com with your Subscription ID, vault name and OperationId. We will attempt to resolve the issue as quickly as possible. Do not retry the operation unless explicitly instructed to do so by Microsoft.
 
 
 ## Next steps
