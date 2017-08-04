@@ -48,11 +48,11 @@ After you save the script, exit to the console/command line, and type the follow
 ```
 terraform init
 ```
-to initialize Terraform provider for Azure. Then type the following:
+ to initialize the Terraform provider for Azure. Then change the directory to **terraformscripts**, and issue the following command:
 ```
-terraform plan terraformscripts
+terraform plan
 ```
-We assume that `terraformscripts` is the folder where the script was saved. We used the `plan` Terraform command, which looks at the resources defined in the scripts. It compares them to the state information saved by Terraform and then outputs the planned execution _without_ actually creating resources in Azure. 
+We used the `plan` Terraform command, which looks at the resources defined in the scripts. It compares them to the state information saved by Terraform and then outputs the planned execution _without_ actually creating resources in Azure. 
 
 After you execute the previous command, you should see something like the following screen:
 
@@ -60,7 +60,7 @@ After you execute the previous command, you should see something like the follow
 
 If everything looks correct, provision this new resource group in Azure by executing the following: 
 ```
-terraform apply terraformscripts
+terraform apply
 ```
 In the Azure portal, you should see the new empty resource group called `terraformtest`. In the following section, you add a virtual machine and all the supporting infrastructure for that virtual machine to the resource group.
 
@@ -200,7 +200,7 @@ Finally, the previous snippet creates a virtual machine that utilizes all the re
 ### Execute the script
 With the full script saved, exit to the console/command line and type the following:
 ```
-terraform apply terraformscripts
+terraform apply
 ```
 After some time, the resources, including a virtual machine, appear in the `terraformtest` resource group in the Azure portal.
 
