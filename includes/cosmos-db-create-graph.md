@@ -1,4 +1,4 @@
-You can now use the Data Explorer tool in the Azure portal to create a graph container and add data. 
+You can now use the Data Explorer tool in the Azure portal to create a graph database. 
 
 1. In the Azure portal, in the left navigation menu, click **Data Explorer (Preview)**. 
 2. In the **Data Explorer (Preview)** blade, click **New Graph**, then fill in the page using the following information.
