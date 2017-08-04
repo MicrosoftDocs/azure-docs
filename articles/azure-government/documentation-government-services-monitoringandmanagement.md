@@ -22,7 +22,6 @@ This article outlines the monitoring and management services variations and cons
 
 ## Automation
 Automation is generally available in Azure Government.
-
 For more information, see [Automation public documentation](../automation/automation-intro.md).
 
 ## Backup
