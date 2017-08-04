@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/05/2017
 ms.author: jeedes
 
 ---
@@ -106,9 +106,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Merchlogix Domain and URLs single sign-on information](./media/active-directory-saas-merchlogix-tutorial/tutorial_merchlogix_url.png)
 
-    a. In the **Sign-on URL** textbox, type the URL: `https://wholefoods.merchlogix.com/login.php?saml=true`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<domain>/login.php?saml=true`
 
-	b. In the **Identifier** textbox, type the URL: `https://wholefoods.merchlogix.com/simplesaml/module.php/saml/sp/metadata.php/login-windows-net`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<domain>/simplesaml/module.php/saml/sp/metadata.php/login-windows-net`
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
