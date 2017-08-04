@@ -64,7 +64,7 @@ You can follow the steps in this article or you can download a sample that conta
 
 ### Copy blobs from an asset in one AMS account into an asset in another AMS account
 
-The following code uses extension **IAsset.Copy** method to copy all files in the source asset into the destination asset using a single extension. There is an additional overload with async support.
+The following code uses extension **IAsset.Copy** method to copy all files in the source asset into the destination asset using a single extension.
 
 ```
 using System;
