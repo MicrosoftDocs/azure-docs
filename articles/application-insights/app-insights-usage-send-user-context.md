@@ -1,6 +1,6 @@
 ---
 title: Sending user context to enable usage experiences in Application Insights | Microsoft Docs
-description: Track how users move through your service after assigning each of them a unique, persistent id string in Application Insights.
+description: Track how users move through your service after assigning each of them a unique, persistent ID string in Application Insights.
 services: application-insights
 documentationcenter: ''
 author: abgreg
@@ -68,9 +68,10 @@ This example sets the user ID to an identifier that expires after the session. I
       {
         public void Initialize(ITelemetry telemetry)
         {
-            // For a full experience, track each user across sessions. For an incomplete view of user behavior within a session, store user id on the HttpContext Session.
-            // Set the user id if we haven't done so yet.
-            if(HttpContext.Current.Session["UserId"] == null)
+            // For a full experience, track each user across sessions. For an incomplete view of user 
+            // behavior within a session, store user ID on the HttpContext Session.
+            // Set the user ID if we haven't done so yet.
+            if (HttpContext.Current.Session["UserId"] == null)
             {
                 HttpContext.Current.Session["UserId"] = Guid.NewGuid();
             }
