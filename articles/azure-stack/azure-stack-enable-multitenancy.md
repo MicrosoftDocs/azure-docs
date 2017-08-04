@@ -47,7 +47,7 @@ In this section, you configure Azure Stack to allow sign-ins from Fabrikam Azure
 Next, onboard the Guest Directory Tenant (Fabrikam) to Azure Stack.  This step configures Azure Resource Manager to accept users and service principals from the guest directory tenant.
 
 ````PowerShell
-$adminARMEndpoint = https://adminmanagement.local.azurestack.external
+$adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
 ## Replace the value below with the Azure Stack directory
 $azureStackDirectoryTenant = "contoso.onmicrosoft.com"

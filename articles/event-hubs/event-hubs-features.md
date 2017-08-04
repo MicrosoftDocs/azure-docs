@@ -117,7 +117,7 @@ If a reader disconnects from a partition, when it reconnects it begins reading a
 
 ### Common consumer tasks
 
-All Event Hubs consumers connect via an AMQP 1.0 session and state-aware bidirectional communication channel. Each partition has an AMQP 1.0 session that facilitates the transport of events segregated by partition.
+All Event Hubs consumers connect via an AMQP 1.0 session, a state-aware bidirectional communication channel. Each partition has an AMQP 1.0 session that facilitates the transport of events segregated by partition.
 
 #### Connect to a partition
 

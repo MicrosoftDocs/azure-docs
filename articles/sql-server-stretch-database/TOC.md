@@ -26,5 +26,6 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=sql-server-stretch-database)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database)
