@@ -59,7 +59,7 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **Q:** Can I use **web deploy** to deploy my web app?
 
-**A:** Yes, you need to set an app setting called `UseWebDeployScm` to `false`.
+**A:** Yes, you need to set an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` to `false`.
 
 ## Language support
 
