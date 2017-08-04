@@ -26,8 +26,17 @@
   items: 
   - name: REST API Documentation
     href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
+<<<<<<< HEAD
   - name: .NET SDK Documentation
     href: https://github.com/adgroc/Cognitive-TextAnalytics-Windows
+=======
+  - name: Windows SDK
+    href: https://github.com/Microsoft/Cognitive-TextAnalytics-Windows
+  - name: Android SDK
+    href: https://github.com/Microsoft/Cognitive-TextAnalytics-Android
+  - name: .Net Standard SDK
+    href: https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet
+>>>>>>> 6cd5272180e4e0f3d56f915d3431ad343fe7da04
 - name: Resources
   items:
   - name: Data usage and retention

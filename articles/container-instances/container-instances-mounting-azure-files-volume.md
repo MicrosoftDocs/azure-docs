@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 08/01/2017
 ms.author: seanmck
 ---
 
@@ -108,28 +108,29 @@ To define the volumes you want to make available for mounting, add a `volumes` a
     "properties": {
       "containers": [{
         "name": "hellofiles",
-        "image": "seanmckenna/aci-hellofiles",
-        "resources": {
-          "request": {
-            "cpu": 1,
-            "memoryInGb": 1.5
-          }
-        },
-        "volumeMounts": [{
-          "name": "myvolume",
-          "mountPath": "/aci/logs/"
-        }]
+        "properties": {
+          "image": "seanmckenna/aci-hellofiles",
+          "resources": {
+            "request": {
+              "cpu": 1,
+              "memoryInGb": 1.5
+            }
+          },
+          "volumeMounts": [{
+            "name": "myvolume",
+            "mountPath": "/aci/logs/"
+          }]
+        }  
       }],
       "osType": "Linux",
       "volumes": [{
-          "name": "myvolume",
-          "azureFile": {
-              "shareName": "acishare",
-              "storageAccountName": "[parameters('storageaccountname')]",
-              "storageAccountKey": "[parameters('storageaccountkey')]"
-          }
+        "name": "myvolume",
+        "azureFile": {
+            "shareName": "acishare",
+            "storageAccountName": "[parameters('storageaccountname')]",
+            "storageAccountKey": "[parameters('storageaccountkey')]"
         }
-      ]
+      }]
     }
   }]
 }
