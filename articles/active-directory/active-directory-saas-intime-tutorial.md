@@ -198,7 +198,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the InTime tile in the Access Panel, you should get the login page of your InTime application. Click the **Login** button, then a series of IdPs will be displayed on a list of buttons. click **Azure AD (MS Gallery Cert)** to login into your InTime application. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+When you click the InTime tile in the Access Panel, you should get the login page of your InTime application. Click the **Login** button, then a series of IdPs will be displayed on a list of buttons. click **IDP name** given by [InTime support team](mailto:hdollard@intimesoft.com) to login into your InTime application. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
