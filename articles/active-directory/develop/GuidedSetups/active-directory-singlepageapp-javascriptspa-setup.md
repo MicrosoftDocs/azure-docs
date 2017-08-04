@@ -14,8 +14,9 @@ A local web server such as [Python http.server](https://www.python.org/downloads
 
 Instructions in this guide are based on both Python and Visual Studio 2017, but feel free to use any other development environment or Web Server.
 
+## Create your project 
 
-> ## Create your project (Visual Studio only)
+> ## Option 1: Visual Studio 
 > If you are using Visual Studio and are creating a new project, follow the steps below to create a new Visual Studio solution:
 > 1.	In Visual Studio:  `File` > `New` > `Project`
 > 2.	Under `Visual C#\Web`, select `ASP.NET Web Application (.NET Framework)`
@@ -24,8 +25,8 @@ Instructions in this guide are based on both Python and Visual Studio 2017, but 
 
 <p/><!-- -->
 
-> ## Create your project (Python/ other web servers)
-> Make sure you have installed Python, then follow the steps below:
+> ## Option 2: Python/ other web servers
+> Make sure you have installed [Python](https://www.python.org/downloads/), then follow the steps below:
 > 1.	Create a folder to host your application.
 
 
@@ -59,11 +60,11 @@ Instructions in this guide are based on both Python and Visual Studio 2017, but 
 
     <!-- This app uses cdn to reference msal.js (recommended). 
          You can also download it from: https://github.com/AzureAD/microsoft-authentication-library-for-js -->
-    <script src="//secure.aadcdn.microsoftonline-p.com/lib/0.1.1/js/msal.min.js"></script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.1.1/js/msal.min.js"></script>
 
     <!-- The 'bluebird' and 'fetch' references below are required if you need to run this application on Internet Explorer -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
 
     <script type="text/javascript" src="msalconfig.js"></script>
     <script type="text/javascript" src="app.js"></script>
