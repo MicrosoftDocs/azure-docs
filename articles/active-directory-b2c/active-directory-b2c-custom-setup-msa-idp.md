@@ -22,12 +22,12 @@ ms.author: yoelh
 > [!NOTE]
 > **Custom policies are in public preview.**
 >
-> [Custom policies](active-directory-b2c-overview-custom#custom-policies) are designed primarily for identity pros who need to address complex scenarios. For most scenarios, we recommend Azure Active Directory B2C [built-in policies](active-directory-b2c-overview-custom) because they facilitate easier configuration. The two configuration approaches (built-in and custom) can coexist in the same Azure Active Directory B2C tenant. To learn more, see the [overview of custom policies](active-directory-b2c-overview-custom).
+> [Custom policies](active-directory-b2c-overview-custom.md) are designed primarily for identity pros who need to address complex scenarios. For most scenarios, we recommend Azure Active Directory B2C [built-in policies](active-directory-b2c-overview-custom.md) because they facilitate easier configuration. The two configuration approaches (built-in and custom) can coexist in the same Azure Active Directory B2C tenant. To learn more, see the [overview of custom policies](active-directory-b2c-overview-custom.md).
 
-This article shows you how to enable sign-in for users from Microsoft account (MSA) through the use of [custom policies](active-directory-b2c-overview-custom).
+This article shows you how to enable sign-in for users from Microsoft account (MSA) through the use of [custom policies](active-directory-b2c-overview-custom.md).
 
 ## Prerequisites
-Complete the steps in the [Getting started with custom policies](active-directory-b2c-get-started-custom) article.
+Complete the steps in the [Getting started with custom policies](active-directory-b2c-get-started-custom.md) article.
 
 These steps include:
 
@@ -96,7 +96,8 @@ You can define Microsoft Account as a claims provider by adding Microsoft Accoun
 
 1.  Open the extension policy file (TrustFrameworkExtensions.xml) from your working directory. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
 2.  Find the `<ClaimsProviders>` section
-3.  Add following XML snippet under the `ClaimsProviders` element:  
+3.  Add following XML snippet under the `ClaimsProviders` element:
+
 ```xml
 <ClaimsProvider>
     <Domain>live.com</Domain>
@@ -136,6 +137,7 @@ You can define Microsoft Account as a claims provider by adding Microsoft Accoun
     </TechnicalProfiles>
 </ClaimsProvider>
 ```
+
 4.  Replace `client_id` value with your Microsoft Account application client Id
 
 5.  Save the file.
@@ -146,7 +148,7 @@ At this point, the identity provider has been set up, but it’s not available i
 
 > [!NOTE]
 >
->If you previously copied the `<UserJourneys>` element from base file of your policy to the extension file `TrustFrameworkExtensions.xml`, you can skip to the following section [Display the "button"](#).
+>If you previously copied the `<UserJourneys>` element from base file of your policy to the extension file `TrustFrameworkExtensions.xml`, you can skip to this section.
 
 1.  Open the base file of your policy (for example, TrustFrameworkBase.xml).
 2.  Find the `<UserJourneys>` element and copy the entire content of `<UserJourneys>` node.
@@ -159,24 +161,28 @@ The `<ClaimsProviderSelection>` element is analogous to an identity provider but
 1.  Find the `<UserJourney>` node that includes `Id="SignUpOrSignIn"` in the user journey that you copied.
 2.  Locate the `<OrchestrationStep>` node that includes `Order="1"`
 3.  Add this element:
+
 ```xml
 <ClaimsProviderSelection TargetClaimsExchangeId="MSAExchange" />
 ```
+
 ### Link the button to an action
 Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with Microsoft Account to receive a token. Link the button to an action by linking the technical profile for your Microsoft Account claims provider:
 
 1.  Find the `<OrchestrationStep>` that includes `Order="2"` in the `<UserJourney>` node.
 2.  Add this element:
+
 ```xml
 <ClaimsExchange Id="MSAExchange" TechnicalProfileReferenceId="MSA-OIDC" />
 ```
+
 > [!NOTE]
 >
 >   * Ensure the `Id` has the same value as that of `TargetClaimsExchangeId` in the preceding section
 >   * Ensure `TechnicalProfileReferenceId` ID is set to the technical profile you created earlier (MSA-OIDC).
 
 ## Upload the policy to your tenant
-1.  In the [Azure portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context), and open the **Azure AD B2C** blade.
+1.  In the [Azure portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and open the **Azure AD B2C** blade.
 2.  Select **Identity Experience Framework**.
 3.  Open the **All Policies** blade.
 4.  Select **Upload Policy**.
@@ -189,7 +195,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 
 > [!NOTE]
 >
->**Run now** requires at least one application to be preregistered on the tenant. To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started) article or the [Application registration](active-directory-b2c-app-registration) article.
+>**Run now** requires at least one application to be preregistered on the tenant. To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started.md) article or the [Application registration](active-directory-b2c-app-registration.md) article.
 
 2.  Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded. Select **Run now**.
 3.  You should be able to sign in using Microsoft account.
@@ -202,15 +208,19 @@ You may want to add the Microsoft Account identity provider also to your user `P
 2.  Find the `<UserJourney>` node that includes `Id="ProfileEdit"` in the user journey that you copied.
 3.  Locate the `<OrchestrationStep>` node that includes `Order="1"`
 4.  Add this element:
+
 ```xml
 <ClaimsProviderSelection TargetClaimsExchangeId="MSAExchange" />
 ```
+
 ### Link the button to an action
 1.  Find the `<OrchestrationStep>` that includes `Order="2"` in the `<UserJourney>` node.
 2.  Add th is element:
+
 ```xml
 <ClaimsExchange Id="MSAExchange" TechnicalProfileReferenceId="MSA-OIDC" />
 ```
+
 ### Test the custom Profile-Edit policy by using Run Now
 1.  Open **Azure AD B2C Settings** and go to **Identity Experience Framework**.
 2.  Open **B2C_1A_ProfileEdit**, the relying party (RP) custom policy that you uploaded. Select **Run now**.

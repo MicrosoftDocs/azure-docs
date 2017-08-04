@@ -22,13 +22,13 @@ ms.author: yoelh
 > [!NOTE]
 > **Custom policies are in public preview.**
 >
-> [Custom policies](active-directory-b2c-overview-custom#custom-policies) are designed primarily for identity pros who need to address complex scenarios. For most scenarios, we recommend Azure Active Directory B2C [built-in policies](active-directory-b2c-overview-custom) because they facilitate easier configuration. The two configuration approaches (built-in and custom) can coexist in the same Azure Active Directory B2C tenant. To learn more, see the [overview of custom policies](active-directory-b2c-overview-custom).
+> [Custom policies](active-directory-b2c-overview-custom#custom-policies.md) are designed primarily for identity pros who need to address complex scenarios. For most scenarios, we recommend Azure Active Directory B2C [built-in policies](active-directory-b2c-overview-custom.md) because they facilitate easier configuration. The two configuration approaches (built-in and custom) can coexist in the same Azure Active Directory B2C tenant. To learn more, see the [overview of custom policies](active-directory-b2c-overview-custom.md).
 
-This guide shows you how to enable sign-in for users from Google+ account through the use of [custom policies](active-directory-b2c-overview-custom).
+This guide shows you how to enable sign-in for users from Google+ account through the use of [custom policies](active-directory-b2c-overview-custom.md).
 
 ## Prerequisites
 
-Complete the steps in the [Getting started with custom policies](active-directory-b2c-get-started-custom) article.
+Complete the steps in the [Getting started with custom policies](active-directory-b2c-get-started-custom.md) article.
 
 These steps include:
 
@@ -112,6 +112,7 @@ Define Google+ account as a claims provider by adding Google+ account to the `<C
 1.  Open the extension policy file (TrustFrameworkExtensions.xml) from your working directory. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
 2.  Find the `<ClaimsProviders>` section
 3.  Add following XML snippet under the `ClaimsProviders` element:  
+
 ```xml
 <ClaimsProvider>
     <Domain>google.com</Domain>
@@ -162,6 +163,7 @@ Define Google+ account as a claims provider by adding Google+ account to the `<C
     </TechnicalProfiles>
 </ClaimsProvider>
 ```
+
 4.  Replace `client_id` value with your Google+ account application client ID
 
 5.  Save the file.
@@ -172,7 +174,7 @@ The identity provider has been set up.  However, it is not available in any of t
 
 >[!NOTE]
 >
->If you copied the `<UserJourneys>` element from base file of your policy to the extension file (TrustFrameworkExtensions.xml), you can skip to the following section [Display the "button"](#).
+>If you copied the `<UserJourneys>` element from base file of your policy to the extension file (TrustFrameworkExtensions.xml), you can skip to this section.
 
 1.  Open the base file of your policy (for example, TrustFrameworkBase.xml).
 2.  Find the `<UserJourneys>` element and copy the entire content of `<UserJourneys>` node.
@@ -185,6 +187,7 @@ The `<ClaimsProviderSelection>` element is analogous to an identity provider but
 1.  Find the `<UserJourney>` node that includes `Id="SignUpOrSignIn"` in the user journey that you copied.
 2.  Locate the `<OrchestrationStep>` node that includes `Order="1"`
 3.  Add this element:
+
 ```xml
 <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
 ```
@@ -194,16 +197,18 @@ Now that you have a button in place, you need to link it to an action. The actio
 
 1.  Find the `<OrchestrationStep>` that includes `Order="2"` in the `<UserJourney>` node.
 2.  Add this element:
+
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
 ```
+
 >[!NOTE]
 >
 > * Ensure the `Id` has the same value as that of `TargetClaimsExchangeId` in the preceding section
 > * Ensure `TechnicalProfileReferenceId` ID is set to the technical profile you created earlier (Google-OAUTH).
 
 ## Upload the policy to your tenant
-1.  In the [Azure portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context), and open the **Azure AD B2C** blade.
+1.  In the [Azure portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and open the **Azure AD B2C** blade.
 2.  Select **Identity Experience Framework**.
 3.  Open the **All Policies** blade.
 4.  Select **Upload Policy**.
@@ -216,7 +221,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 >[!NOTE]
 >
 >    **Run now** requires at least one application to be preregistered on the tenant. 
->    To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started) article or the [Application registration](active-directory-b2c-app-registration) article.
+>    To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started.md) article or the [Application registration](active-directory-b2c-app-registration.md) article.
 
 
 2.  Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded. Select **Run now**.
@@ -230,6 +235,7 @@ You may want to add the Google+ account identity provider also to your user `Pro
 2.  Find the `<UserJourney>` node that includes `Id="ProfileEdit"` in the user journey that you copied.
 3.  Locate the `<OrchestrationStep>` node that includes `Order="1"`
 4.  Add this element:
+
 ```xml
 <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
 ```
@@ -237,9 +243,11 @@ You may want to add the Google+ account identity provider also to your user `Pro
 ### Link the button to an action
 1.  Find the `<OrchestrationStep>` that includes `Order="2"` in the `<UserJourney>` node.
 2.  Add this element:
+
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
 ```
+
 ### Test the custom Profile-Edit policy by using Run Now
 
 1.  Open **Azure AD B2C Settings** and go to **Identity Experience Framework**.

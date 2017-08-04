@@ -22,13 +22,13 @@ ms.author: yoelh
 > [!NOTE]
 > **Custom policies are in public preview.**
 >
-> [Custom policies](active-directory-b2c-overview-custom#custom-policies) are designed primarily for identity pros who need to address complex scenarios. For most scenarios, we recommend Azure Active Directory B2C [built-in policies](active-directory-b2c-overview-custom) because they facilitate easier configuration. The two configuration approaches (built-in and custom) can coexist in the same Azure Active Directory B2C tenant. To learn more, see the [overview of custom policies](active-directory-b2c-overview-custom).
+> [Custom policies](active-directory-b2c-overview-custom.md) are designed primarily for identity pros who need to address complex scenarios. For most scenarios, we recommend Azure Active Directory B2C [built-in policies](active-directory-b2c-overview-custom,md) because they facilitate easier configuration. The two configuration approaches (built-in and custom) can coexist in the same Azure Active Directory B2C tenant. To learn more, see the [overview of custom policies](active-directory-b2c-overview-custom,md).
 
-This article shows you how to enable sign-in for users from AD-FS account through the use of [custom policies](active-directory-b2c-overview-custom).
+This article shows you how to enable sign-in for users from AD-FS account through the use of [custom policies](active-directory-b2c-overview-custom.md).
 
 ## Prerequisites
 
-Complete the steps in the [Getting started with custom policies](active-directory-b2c-get-started-custom) article.
+Complete the steps in the [Getting started with custom policies](active-directory-b2c-get-started-custom.md) article.
 
 These steps include:
 
@@ -72,9 +72,7 @@ Membership in **Administrators**, or equivalent, on the local computer is the mi
     For the **Relying party SAML 2.0 SSO service URL**, paste the `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. Replace {tenant} with your tenant's name (for example, contosob2c.onmicrosoft.com). and replace the {policy with your extensions policy name (for example, B2C_1A_TrustFrameworkExtensions)
 
 > [!IMPORTANT]
->
 >The policy name  is the one that signup_or_signin policy inherits from that is, `B2C_1A_TrustFrameworkExtensions`.
->
 >For example the URL could be: https://login.microsoftonline.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**
 
 ![Relying party SAML 2.0 SSO service URL](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-6.png)
@@ -147,6 +145,7 @@ You can define AD-FS as a claims provider by adding it to the `<ClaimsProvider>`
 1.  Open the extension policy file (TrustFrameworkExtensions.xml) from your working directory. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
 2.  Find the `<ClaimsProviders>` section
 3.  Add following XML snippet under the `ClaimsProviders` element:  
+
 ```xml
 <ClaimsProvider>
     <Domain>contoso.com</Domain>
@@ -185,6 +184,7 @@ You can define AD-FS as a claims provider by adding it to the `<ClaimsProvider>`
     </TechnicalProfiles>
 </ClaimsProvider>
 ```
+
 4.  Replace `identityProvider` default value with your DNS (Arbitrary value that indicates your domain)
 
 5.  Save the file.
@@ -193,7 +193,7 @@ You can define AD-FS as a claims provider by adding it to the `<ClaimsProvider>`
 At this point, the identity provider has been set up.  However, it is not available in any of the sign-up/sign-in screens. Now you need to add the AD-FS account identity provider to your user `SignUpOrSignIn` user journey. To make it available, we create a duplicate of an existing template user journey.  Then, we modify it so it includes the AD-FS identity provider:
 
 > [!NOTE]
->If you previously copied the `<UserJourneys>` element from base file of your policy to the extension file (TrustFrameworkExtensions.xml) you can skip to the following section [Display the "button"](#).
+>If you previously copied the `<UserJourneys>` element from base file of your policy to the extension file (TrustFrameworkExtensions.xml) you can skip this section.
 
 1.  Open the base file of your policy (for example, TrustFrameworkBase.xml).
 2.  Find the `<UserJourneys>` element and copy the entire content of `<UserJourneys>` node.
@@ -206,6 +206,7 @@ The `<ClaimsProviderSelection>` element is analogous to an identity provider but
 1.  Find the `<UserJourney>` node that includes `Id="SignUpOrSignIn"` in the user journey that you copied.
 2.  Locate the `<OrchestrationStep>` node that includes `Order="1"`
 3.  Add this element:
+
 ```xml
 <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
 ```
@@ -215,15 +216,17 @@ Now that you have a button in place, you need to link it to an action. The actio
 
 1.  Find the `<OrchestrationStep>` that includes `Order="2"` in the `<UserJourney>` node.
 2.  Add this element:
+
 ```xml
 <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
 ```
+
 > [!NOTE]
 > * Ensure the `Id` has the same value as that of `TargetClaimsExchangeId` in the preceding section.
 > * Ensure `TechnicalProfileReferenceId` is set to the technical profile you created earlier (Contoso-SAML2).
 
 ## Upload the policy to your tenant
-1.  In the [Azure portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context), and open the **Azure AD B2C** blade.
+1.  In the [Azure portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and open the **Azure AD B2C** blade.
 2.  Select **Identity Experience Framework**.
 3.  Open the **All Policies** blade.
 4.  Select **Upload Policy**.
@@ -243,15 +246,19 @@ You may want to add the AD-FS account identity provider also to your user `Profi
 2.  Find the `<UserJourney>` node that includes `Id="ProfileEdit"` in the user journey that you copied.
 3.  Locate the `<OrchestrationStep>` node that includes `Order="1"`
 4.  Add this element:
+
 ```xml
 <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
 ```
+
 ### Link the button to an action
 1.  Find the `<OrchestrationStep>` that includes `Order="2"` in the `<UserJourney>` node.
 2.  Add this element:
+
 ```xml
 <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
 ```
+
 ### Test the custom Profile-Edit policy by using Run Now
 1.  Open **Azure AD B2C Settings** and go to **Identity Experience Framework**.
 2.  Open **B2C_1A_ProfileEdit**, the relying party (RP) custom policy that you uploaded. Select **Run now**.
