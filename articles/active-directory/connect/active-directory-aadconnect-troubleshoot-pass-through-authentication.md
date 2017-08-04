@@ -49,7 +49,7 @@ If the user is unable to sign into using Pass-through Authentication, they may s
 
 Start troubleshooting user sign-in issues by looking at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
-![Sign-ins report](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
+![Azure Active Directory admin center - Sign-ins report](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
 Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Directory admin center](https://aad.portal.azure.com/) and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
 
