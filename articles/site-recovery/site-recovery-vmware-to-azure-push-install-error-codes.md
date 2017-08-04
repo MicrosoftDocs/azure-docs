@@ -3,7 +3,7 @@ title: Azure Site Recovery troubleshooting from VMware to Azure | Microsoft Docs
 description: Troubleshooting errors when replicating Azure virtual machines
 services: site-recovery
 documentationcenter: ''
-author: v-bllydi
+author: asgang
 manager: srinathv
 editor: ''
 
