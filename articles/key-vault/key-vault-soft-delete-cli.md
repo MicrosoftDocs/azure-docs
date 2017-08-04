@@ -21,7 +21,7 @@ Azure Key Vault's soft delete feature allows recovery of deleted vaults and vaul
 
 - Azure CLI 2.0 - If you don't have this setup for your environment, see [Manage Key Vault using CLI 2.0](key-vault-manage-with-cli2.md).
 
-For Key Vault specific referenece information for CLI, see [Azure CLI 2.0 Key Vault reference](https://docs.microsoft.com/cli/azure/keyvault).
+For Key Vault specific reference information for CLI, see [Azure CLI 2.0 Key Vault reference](https://docs.microsoft.com/cli/azure/keyvault).
 
 ## Required permissions
 
@@ -123,7 +123,7 @@ az keyvault key list-deleted --vault-name ContosoVault
 
 When you delete a key in a key vault with soft-delete enabled, it may take a few seconds for the transition to complete. During this transition state, it may appear that the key is not in the active state or the deleted state. This command will list all deleted keys in your key vault named 'ContosoVault'.
 
-```azure cli
+```azurecli
 az keyvault key list-deleted --vault-name ContosoVault
 ```
 
