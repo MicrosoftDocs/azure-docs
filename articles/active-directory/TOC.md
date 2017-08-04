@@ -24,10 +24,6 @@
 # How to
 ## Plan and design
 ### [Understand Azure AD architecture](active-directory-architecture.md)
-### [Recommended security policies and configurations](secure-email-introduction.md)
-#### [Secure email recommended policies](secure-email-recommended-policies.md)
-##### [Deploy recommended secure email policies](secure-email-deploy-recommended-policies.md)
-#### [EMS and Office 365 services overview](secure-email-ems-office365-service-descriptions.md)
 ### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Claims mapping in Azure Active Directory](active-directory-claims-mapping.md)
 #### Determine requirements
