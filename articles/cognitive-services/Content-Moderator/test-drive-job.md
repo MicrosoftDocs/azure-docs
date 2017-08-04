@@ -30,7 +30,7 @@ Before you can test-drive the API from the online console, you will need a few v
 The simplest way to access a testing console is from the Credentials window.
 1.	From the Credentials window, click **API Reference**.
 2.	Click the button that most closely describes your location, under Open API testing console. The **Job – Create** API opens.
-  ![Test Drive Job Step 2](/images/test-drive-job-1.png)
+  ![Test Drive Job Step 2](images/test-drive-job-1.png)
 3.	Fill in the required values, and edit the Request Body to specify the location of the 
 information being scanned.
 4.	Click **Send**. A JobID is created. Copy this to use in the next steps.
