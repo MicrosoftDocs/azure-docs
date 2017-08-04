@@ -227,7 +227,7 @@
       href: /rest/api/storageservices/Authentication-for-the-Azure-Storage-Services
     - name: Shared access signatures (SAS)
       href: storage-dotnet-shared-access-signature-part-1.md
-    - name: Tutorial: Encrypt and decrypt blobs using Azure Key Vault
+    - name: Tutorial - Encrypt and decrypt blobs using Azure Key Vault
       href: storage-encrypt-decrypt-blobs-key-vault.md
     - name: Require secure transfer
       href: storage-require-secure-transfer.md
