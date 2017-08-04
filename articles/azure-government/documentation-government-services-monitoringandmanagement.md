@@ -49,8 +49,6 @@ The following Site Recovery features are not currently available in Azure Govern
 | Hyper-V | GA | GA |
 | Site to Site | GA | GA |
 
->[!NOTE]>Table applies to US Gov Virginia and US Gov Iowa.
-
 The following URLs for Site Recovery are different in Azure Government:
 
 | Azure Public | Azure Government | Notes |
@@ -68,10 +66,26 @@ For more information, see [Monitor commercial documentation](https://docs.micros
 ### Variations
 The following Monitor features are not currently available in Azure Government:
 
-* Action Groups do not support SMS at this time but will in a coming update.    
-* Autoscale is available in two regions, Iowa and Virginia; default behavior is to create the autoscale setting in the same regions as the monitored resource. For Texas and Arizona, to create an autoscale setting on resources in these regions, please use ARM/Rest calls to specify the setting should be created in Iowa or Virginia.
-* Metric Alerts are available in two regions, Iowa and Virginia; default behavior is to create the metric alert in the same regions as the monitored resource. For Texas and Arizona, to create an autoscale setting on resources in these regions, please use ARM/Rest calls to specify the setting should be created in Iowa or Virginia.
+#### Action Groups 
+Action Groups do not support SMS at this time but will in a coming update.    
 
+##### Autoscale
+Autoscale via the UI is not currently available. This feature is coming soon. If you are interested in implementing autoscale on your resources, please use ARM/Rest calls to specify the settings. 
+
+For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-powershell-samples#create-and-manage-autoscale-settings).
+
+#### Metric Alerts 
+Creating Metric Alerts for resources outside of USGov Virginia and USGov Iowa in the portal will fail. A fix for this issue is in progress. In the meantime, please use ARM/Rest calls to specify the settings. You will need to set the "Location" of the metric alert to USGov Virginia or USGov Iowa. The resource targetted by the alert can exist in any region. An example of the setting is below:
+
+```PowerShell
+$actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com 
+$actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken 
+Add-AzureRmMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup myrg1 -TargetResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.ClassicCompute/virtualMachines/my_vm1 -MetricName "Percentage CPU" -Operator GreaterThan -Threshold 1 -WindowSize 00:05:00 -TimeAggregationOperator Average -Actions $actionEmail, $actionWebhook -Description "alert on CPU > 1%" 
+```
+
+For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-powershell-samples#create-alert-rules).
+
+#### Metrics
 Metrics are supported in all regions, but only for services which are available in Azure Government; a few exceptions are below:
 
 * Coming Soon: Azure IoT Hub
@@ -99,7 +113,7 @@ The following Log Analytics features and solutions are not currently available i
 * Features that are in preview in public Azure, including:
   * Export of data to Power BI
 * Azure metrics and Azure diagnostics
-* Operations Management Suite mobile applications
+* Operations Management Suite mobile application
 
 The URLs for Log Analytics are different in Azure Government:
 
