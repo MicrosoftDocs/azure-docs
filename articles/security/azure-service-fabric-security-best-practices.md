@@ -1,7 +1,7 @@
 ---
 
-title: Azure service fabric security best practices| Microsoft Docs
-description: This article provides a set of best practices for Azure service fabric security.
+title: Azure Service Fabric security best practices| Microsoft Docs
+description: This article provides a set of best practices for Azure Service Fabric security.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -30,13 +30,13 @@ For each best practice, we explain:
 -	What might be the result if you fail to enable the best practice
 -	How you can learn to enable the best practice
 
-We currently have the following Azure service fabric security best practices:
+We currently have the following Azure Service Fabric security best practices:
 
 -	Use Azure Resource Manager(ARM) template and Service Fabric Azure PowerShell Module to create secure cluster
 -	Use X.509 certificates
 -	Configure security policies
 -	Reliable Actors security configuration
--	Configure SSL for azure service fabric
+-	Configure SSL for Azure Service Fabric
 -	Network Isolation/Security with Azure Service Fabric
 -	Set up a key vault for security
 -	Assign users to roles
@@ -71,13 +71,13 @@ Clusters running on Azure or standalone clusters running on Windows can use eith
 
 To configure the standalone Windows cluster, see [configure settings for standalone windows cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest).
 
-Use ARM templates and Service Fabric Azure PowerShell Module to create secure cluster.
+Use Azure Resource Manager templates and Service Fabric Azure PowerShell Module to create secure cluster.
 A step-by-step guide walks you through setting up a secure Azure Service Fabric cluster in Azure by using Azure Resource Manager is available [here](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm).
 
-Use the ARM template to customize your cluster
+Use the Azure Resource Manager template to customize your cluster
 -	Setup-managed storage for VM VHDs
 
-Use the ARM template to drive changes to your Resource Group
+Use the Azure Resource Manager template to drive changes to your Resource Group
 -	Easy configuration management
 -	Auditing
 
