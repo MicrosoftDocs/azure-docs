@@ -63,7 +63,7 @@ Description | Constraints | Recommendations
 ------- | ------- | ----------
 This appears at the bottom of the sign-in form and can be used to communicate additional information such as the phone number to your help desk, or a legal statement. | Unicode text up to 256 characters<br>Plain text only (no links or HTML tags)	
 
-## Sign-in page image	
+### Sign-in page image	
 Description | Constraints | Recommendations
 ------- | ------- | ----------
 This appears in the background of the sign-in page, is anchored to the center of the viewable space, and will scale and crop to fill the browser window.	<br>On narrow screens such as mobile phones, this image is not shown.<br>A black mask with 0.55 opacity will be applied over this image by our code when the page is loaded. | JPG or PNG<br>Image dimensions: 1920x1080 px<br>File size: &gt; 300 KB | <br>Use images where there isn't a strong subject focus. The opaque sign-in form appears over the center of this image and can cover any part of the image depending on the size of the browser window.<br>Keep the file size as small as possible to ensure quick load times. 
@@ -73,7 +73,7 @@ Description | Constraints | Recommendations
 ------- | ------- | ----------
 This color is used in place of the background image on low-bandwidth connections. |	RGB color in hexadecimal (example: #FFFFFF | We suggest using the primary color of the banner logo or your organization color.
 
-###Show option to remain signed in
+### Show option to remain signed in
 Description | Constraints | Recommendations
 ------- | ------- | ----------
 Azure AD sign in gives the user the option to remain signed in when they close and re-open their browser. Use this to hide that option.<br>Set this to “No” to hide this option from your users. | &nbsp; | This does not affect session lifetime.<br>Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you set this to be hidden, your users may see additional and unexpected prompts to sign-in.
