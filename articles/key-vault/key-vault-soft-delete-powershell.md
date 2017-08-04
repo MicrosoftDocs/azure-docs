@@ -2,11 +2,14 @@
 ms.assetid: 
 title: Azure Key Vault - How to use soft-delete with PowerShell
 description: Use case examples of soft-delete with PowerShell code snips
-ms.service: key-vault
+services: key-vault
 author: BrucePerlerMS
-ms.author: bruceper
 manager: mbaldwin
-ms.date: 08/03/2017
+ms.service: key-vault
+ms.topic: article
+ms.workload: identity
+ms.date: 08/04/2017
+ms.author: bruceper
 ---
 # How to use Key Vault soft-delete with PowerShell
 
@@ -42,7 +45,7 @@ To be able to recover a deleted key vault or objects stored in a key vault, you 
 For an existing key vault named ContosoVault, enable soft-delete as follows. 
 
 >[!NOTE]
->Currently you need to use ARM (Azure Resource Manager) resource manipulation to directly write the *enableSoftDelete* property to the Key Vault resource.
+>Currently you need to use Azure Resource Manager resource manipulation to directly write the *enableSoftDelete* property to the Key Vault resource.
 
 ```powershell
 ($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
@@ -233,7 +236,7 @@ Listing your deleted key vault objects shows when they are schedled to be purged
 >[!NOTE]
 >A purged vault object, triggered by its *Scheduled Purge Date* field, is permanently deleted. It is not recoverable.
 
-## See also
+## Other resources
 
 - For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](key-vault-ovw-soft-delete.md).
 - For a general overview of Azure Key Vault usage, see [Get started with Azure Key Vault](key-vault-get-started.md).
