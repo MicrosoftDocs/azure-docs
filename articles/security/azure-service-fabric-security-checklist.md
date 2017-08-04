@@ -18,6 +18,11 @@ Use the following checklist to help you make sure that you haven’t overlooked 
 |Cluster Certificate | <ul><li>This certificate is required to secure the communication between the nodes on a cluster.</li><li>	Set the thumbprint of the primary certificate in the Thumbprint section and that of the secondary in the ThumbprintSecondary variables.</li></ul>|
 |ServerCertificate| <ul><li>This certificate is presented to the client when it tries to connect to this cluster. You can use two different server certificates, a primary and a secondary for upgrade.</li></ul>|
 |ClientCertificateThumbprints| <ul><li>This is a set of certificates that you want to install on the authenticated clients. </li></ul>|
-|ClientCertificateCommonNames| <ul><li>•	Set the common name of the first client certificate for the CertificateCommonName. The CertificateIssuerThumbprint is the thumbprint for the issuer of this certificate. </li></ul>|
-|ReverseProxyCertificate| <ul><li>•	This is an optional certificate that can be specified if you want to secure your Reverse Proxy. </li></ul>|
-|Key Vault| <ul><li>•	Used to manage certificates for Service Fabric clusters in Azure.  </li></ul>|
+|ClientCertificateCommonNames| <ul><li>Set the common name of the first client certificate for the CertificateCommonName. The CertificateIssuerThumbprint is the thumbprint for the issuer of this certificate. </li></ul>|
+|ReverseProxyCertificate| <ul><li>This is an optional certificate that can be specified if you want to secure your Reverse Proxy. </li></ul>|
+|Key Vault| <ul><li>Used to manage certificates for Service Fabric clusters in Azure.  </li></ul>|
+
+## Next steps
+- [Service Fabric Cluster upgrade process and expectations from you](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-upgrade)
+- [Managing your Service Fabric applications in Visual Studio](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-manage-application-in-visual-studio).
+- [Service Fabric Health model introduction](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-health-introduction).
