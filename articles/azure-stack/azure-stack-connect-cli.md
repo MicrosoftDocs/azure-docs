@@ -82,7 +82,7 @@ Use the following steps to connect to Azure Stack:
 
    ```azurecli
    az cloud register \ 
-     -n AzurestackAdmin \ 
+     -n AzureStackAdmin \ 
      --endpoint-resource-manager "https://adminmanagement.local.azurestack.external" \ 
      --suffix-storage-endpoint "local.azurestack.external" \ 
      --suffix-keyvault-dns ".adminvault.local.azurestack.external"
@@ -92,7 +92,7 @@ Use the following steps to connect to Azure Stack:
 
    ```azurecli
    az cloud register \ 
-     -n AzurestackUser \ 
+     -n AzureStackUser \ 
      --endpoint-resource-manager "https://management.local.azurestack.external" \ 
      --suffix-storage-endpoint "local.azurestack.external" \ 
      --suffix-keyvault-dns ".vault.local.azurestack.external"

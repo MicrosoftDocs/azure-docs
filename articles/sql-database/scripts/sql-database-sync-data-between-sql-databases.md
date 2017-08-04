@@ -40,21 +40,21 @@ using namespace System.Collections.Generic
 
 # Hub database info
 # Subscription id for hub database
-$SubscriptionId = "44fefc06-f7c7-4326-9471-1852e148b8bb"
+$SubscriptionId = "subscription_guid"
 # Resrouce group name for hub database
-$ResourceGroupName = "xiwudefault-vm"
+$ResourceGroupName = "ResourceGroup"
 # Server name for hub database
-$ServerName = "xiwumigration"
+$ServerName = "Server"
 # Database name for hub database
 $DatabaseName = "AdventureWorks"
 
 # Sync database info
 # Resource group name for sync database
-$SyncDatabaseResourceGroupName = "xiwudefault-vm"
+$SyncDatabaseResourceGroupName = "ResourceGroup"
 # Server name for sync database
-$SyncDatabaseServerName = "xiwumigration"
+$SyncDatabaseServerName = "Server"
 # Sync database name
-$SyncDatabaseName = "xiwutest"
+$SyncDatabaseName = "SyncDatabase"
 
 # Sync group info
 # Sync group name
@@ -68,9 +68,9 @@ $IntervalInSeconds = 300
 # Member name
 $SyncMemberName = "member"
 # Member server name
-$MemberServerName = "xiwumigrationwu2.database.windows.net"
+$MemberServerName = "MemberServer"
 # Member database name
-$MemberDatabaseName = "xiwutest1"
+$MemberDatabaseName = "SyncDatabase1"
 # Member database type. Value can be AzureSqlDatabase or SqlServerDatabase
 $MemberDatabaseType = "AzureSqlDatabase"
 # Sync direction. Value can be Bidirectional, Onewaymembertohub, Onewayhubtomember
@@ -94,8 +94,8 @@ select-azurermsubscription -SubscriptionId $SubscriptionId
 
 # Use this section if it is safe to show password in the script.
 # Otherwise, use the PromptForCredential
-# $User = "cloudsa"
-# $PWord = ConvertTo-SecureString -String "Yukon900Yukon900" -AsPlainText -Force
+# $User = "username"
+# $PWord = ConvertTo-SecureString -String "Password" -AsPlainText -Force
 # $Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $User, $PWord
 
 $Credential = $Host.ui.PromptForCredential("Need credential", 
@@ -116,7 +116,7 @@ New-AzureRmSqlSyncGroup   -ResourceGroupName $ResourceGroupName `
                             -DatabaseCredential $Credential
 
 # Use this section if it is safe to show password in the script.
-#$User = "user"
+#$User = "username"
 #$Password = ConvertTo-SecureString -String "password" -AsPlainText -Force
 #$Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $User, $Password
 
@@ -256,7 +256,7 @@ Update-AzureRmSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
                             -Name $SyncGroupName `
                             -Schema $TempFile
 
-$SyncLogStartTime = Get-Date
+$SyngStartTime = Get-Date
 
 # Trigger sync manually
 Write-Host "Trigger sync manually"
