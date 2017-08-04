@@ -75,9 +75,7 @@ Keep in mind that "Session Ended" nodes are based only on telemetry collected by
 
 ![TBD screenshot of Flows...with a really obvious repetition](TBD link)
 
-Scenario TBD:
-1. Choose a page view or event
-2. Watch for the same event to occur in subsequent columns, especially if they're thickly connected
+Look for a page view or custom event that is repeated by many users across subsequent steps in the visualzation. This usually means that users are performing repetitive actions on your site. If you find repetition, think about changing the design of your site or adding new functionality to reduce repetition. For example, adding bulk edit functionality if you find users performing repetitive actions on each row of a table element.
 
 ## Common Questions
 
