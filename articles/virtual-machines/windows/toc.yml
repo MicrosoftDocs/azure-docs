@@ -105,20 +105,6 @@
       href: guidance-compute-single-vm.md
   - name: Deployment considerations
     items:
-    - name: Infrastructure guidelines
-      href: infrastructure-virtual-machine-guidelines.md
-    - name: Subscriptions and accounts
-      href: infrastructure-subscription-accounts-guidelines.md
-    - name: Naming
-      href: infrastructure-naming-guidelines.md
-    - name: Resource groups
-      href: infrastructure-resource-groups-guidelines.md
-    - name: Storage
-      href: infrastructure-storage-solutions-guidelines.md
-    - name: Networking
-      href: infrastructure-networking-guidelines.md
-    - name: Availability sets
-      href: infrastructure-availability-sets-guidelines.md
     - name: Infrastructure example
       href: infrastructure-example.md
 - name: How-to guides

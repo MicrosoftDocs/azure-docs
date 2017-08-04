@@ -101,7 +101,7 @@ The resources in this table are used by the VM and need to exist or be created w
 | [Virtual network](../../virtual-network/virtual-networks-overview.md) |Yes |The VM must be a member of a virtual network. |
 | [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |No |The VM can have a public IP address assigned to it to remotely access it. |
 | [Network interface](../../virtual-network/virtual-network-network-interface.md) |Yes |The VM needs the network interface to communicate in the network. |
-| [Data disks](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |The VM can include data disks to expand storage capabilities. |
+| [Data disks](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |The VM can include data disks to expand storage capabilities. |
 
 ## How do I create my first VM?
 You have several choices for creating your VM. The choice that you make depends on the environment you are in. 
@@ -145,5 +145,3 @@ A [Recovery Services vault](../../backup/backup-introduction-to-azure-backup.md)
 ## Next steps
 * If your intent is to work with Linux VMs, look at [Azure and Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Learn more about the guidelines around setting up your infrastructure in the [Example Azure infrastructure walkthrough](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Make sure you follow the [Best Practices for running a Windows VM on Azure](guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

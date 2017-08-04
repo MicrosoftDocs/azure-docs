@@ -126,7 +126,7 @@ If you would like to customize the virtual machine you would like to create from
 
 After restore operation is completed, you can:
 * [Use template to customize the restored VM](#use-templates-to-customize-restore-vm)
-* [Use the restored disks to attach to an existing virtual machine](../virtual-machines/windows/attach-disk-portal.md)
+* [Use the restored disks to attach to an existing virtual machine](../virtual-machines/windows/attach-managed-disk-portal.md)
 * [Create a new virtual machine using PowerShell from restored disks.](./backup-azure-vms-automation.md#restore-an-azure-vm)
 
 On the **Restore configuration** blade, click **OK** to finalize the restore configuration. On the **Restore** blade, click **Restore** to trigger the restore operation.
