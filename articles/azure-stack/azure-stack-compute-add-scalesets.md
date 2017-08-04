@@ -28,7 +28,7 @@ On Azure Stack, Virtual Machine Scale Sets do not support auto-scale. You can ad
 
    After you install the Azure Stack tools, make sure you import the following PowerShell module (path relative to the .\ComputeAdmin folder in the AzureStack-Tools-master folder):
 
-   ```Import-Module .\AzureStack.ComputeAdmin.psm1```
+        Import-Module .\AzureStack.ComputeAdmin.psm1
 
 * **Operating system image**
 
@@ -65,7 +65,7 @@ Add-AzsVMSSGalleryItem -Location $Location
 
 To remove a virtual machine scale set gallery item, run the following PowerShell command:
 
-```Remove-AzsVMSSGalleryItem```
+    Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
 > The gallery item may not be removed immediately. You may need to refresh the portal several times before it is removed from the Marketplace.
