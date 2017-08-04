@@ -74,7 +74,7 @@ We will now walk through how to create a new ASP.NET MVC application from the gr
    
       The **New ASP.NET Web Application** dialog box appears.
    
-      ![Screen shot of the New ASP.NET Web Application dialog box with the MVC application template highlighted](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-MVC.png)
+    ![Screen shot of the New ASP.NET Web Application dialog box with the MVC application template highlighted](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-MVC.png)
 5. In the templates pane, select **MVC**.
 
 6. Click **OK** and let Visual Studio do its thing around scaffolding the empty ASP.NET MVC template. 
@@ -90,14 +90,14 @@ this solution, let's get to the real purpose of this tutorial, adding Azure Cosm
 
 1. The Azure Cosmos DB .NET SDK is packaged and distributed as a NuGet package. To get the NuGet package in Visual Studio, use the NuGet package manager in Visual Studio by right-clicking on the project in **Solution Explorer** and then clicking **Manage NuGet Packages**.
    
-      ![Screen shot of the right-click options for the web application project in Solution Explorer, with Manage NuGet Packages highlighted.](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
+    ![Screen shot of the right-click options for the web application project in Solution Explorer, with Manage NuGet Packages highlighted.](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
    
     The **Manage NuGet Packages** dialog box appears.
 2. In the NuGet **Browse** box, type ***Azure DocumentDB***. (The package name has not been updated to Azure Cosmos DB.)
    
     From the results, install the **Microsoft.Azure.DocumentDB by Microsoft** package. This will download and install the Azure Cosmos DB package as well as all dependencies, such as Newtonsoft.Json. Click **OK** in the **Preview** window, and **I Accept** in the **License Acceptance** window to complete the install.
    
-      ![Sreen shot of the Manage NuGet Packages window, with the Microsoft Azure DocumentDB Client Library highlighted](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
+    ![Sreen shot of the Manage NuGet Packages window, with the Microsoft Azure DocumentDB Client Library highlighted](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
       Alternatively you can use the Package Manager Console to install the package. To do so, on the **Tools** menu, click **NuGet Package Manager**, and then click **Package Manager Console**. At the prompt, type the following.
    
@@ -105,7 +105,7 @@ this solution, let's get to the real purpose of this tutorial, adding Azure Cosm
         
 3. Once the package is installed, your Visual Studio solution should resemble the following with two new references added, Microsoft.Azure.Documents.Client and Newtonsoft.Json.
    
-      ![Sreen shot of the two references added to the JSON data project in Solution Explorer](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-added-references.png)
+    ![Sreen shot of the two references added to the JSON data project in Solution Explorer](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-added-references.png)
 
 ## <a name="_Toc395637763"></a>Step 4: Set up the ASP.NET MVC application
 Now let's add the models, views, and controllers to this MVC application:
@@ -537,7 +537,7 @@ Now that you have the complete application working correctly with Azure Cosmos D
 
 4. To create a new Azure App Service profile, click **Create New** in the **Publish** dialog box. In the **Create App Service** dialog, enter your Web App name and appropriate subscription, resource group, and App Service plan, then click **Create**.
 
-![Create App Service dialog box in Visual Studio](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
+    ![Create App Service dialog box in Visual Studio](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
 
 In a few seconds, Visual Studio will finish publishing your web application and launch a browser where you can see your handiwork running in Azure!
 
