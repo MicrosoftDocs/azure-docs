@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/14/2017
+ms.date: 08/04/2017
 ms.author: denlee
 
 ---
@@ -47,7 +47,50 @@ This quickstart walks you through the Azure portal tools available for Azure Cos
 <a id="add-sample-data"></a>
 ## Add sample data
 
-TODO
+You can now add data to your new graph using Data Explorer.
+
+1. In Data Explorer, the new graph appears in the Graphs pane. Expand the **sample-database** database, expand the **sample-graph** graph, click **Graph**, and then click **Apply Filter**. 
+
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
+  
+2. Click the **New Vertex** button to add data to your graph.
+
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
+
+3. Enter a label of *ashley* then enter the following keys and values:
+
+
+    key|value|Notes
+    ----|----|----
+    userid | ashley1986 |Because we created a partitioned graph, the partition key (`userid` in this tutorial) must be one of the properties set on a new vertex. If you do not set the a key to the partition key value, the Vertex will not save.
+    gender|female| 
+    tech | java | 
+    id|ashley|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
+
+4. Click **New Vertex** again and add an additional new user. Enter a label of *rakesh* then enter the following keys and values:
+
+    key|value|Notes
+    ----|----|----
+    userid | rakesh1979 |Because we created a partitioned graph, the partition key (`userid` in this tutorial) must be one of the properties set on a new vertex. If you do not set the a key to the partition key value, the Vertex will not save.
+    gender|male| 
+    school|MIT| 
+    id|rakesh|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
+
+5. Click **Apply Filter** with the default `g.V()` filter. All of the users now show in the **Results** list. As you add more data you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph, but you can change that to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format.
+
+6. Now we'll connect the users. Ensure **ashley** in selected in the **Results** list, then click the edit button next to **Targets** on lower far right. You may need to widen your window to see the **Properties** area.
+
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
+
+7. In the **Target** box type *rakesh*, and in the **Edge label** box type *knows*, and then click the check box.
+
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
+
+    Now select **rakesh** from the results list and you'll see that ashley and rakesh are connected. You can move the vertices around on the graph viewer and zoom in and out. 
+
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
+
+    You can also use Data Explorer to create stored procedures, UDFs, and triggers to perform server-side business logic as well as scale throughput. Data Explorer exposes all of the built-in programmatic data access available in the APIs, but provides easy access to your data in the Azure portal.
 
 ## Clone the sample application
 
