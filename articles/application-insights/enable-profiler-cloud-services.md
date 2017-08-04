@@ -52,7 +52,7 @@ New-AzureRmResourceGroup -Name "Replace_With_Resource_Group_Name" -Location "Rep
    ![Location of the key](./media/enable-profiler-compute/copyaikey.png)
 
 3. Replace the template value.
-![Value replaced in the template](./media/enable-profiler-compute/copyaikeytotemplate.png)
+   ![Value replaced in the template](./media/enable-profiler-compute/copyaikeytotemplate.png)
 
 ## Create an Azure VM to host the web application
 1. Create a secure string to save the password.
@@ -129,12 +129,12 @@ Follow these steps so we can collect some sample data to be displayed in Applica
 ## Work with an existing template
 
 1. Locate the Azure Diagnostics resource declaration in your deployment template.
-   * Create one if you don't have it yet (check how it's done in the full example).
-   * You can update the template from the Azure Resource website (https://resources.azure.com).
-2. Modify publisher from "Microsoft.Azure.Diagnostics" to "AIP.Diagnostics.Test".
-3. Use typeHandlerVersion as "0.0".
-4. Make sure to have autoUpgradeMinorVersion set to true.
-5. Add the new ApplicationInsightsProfiler sink instance in WadCfg settings object, as shown in the following example.
+   * Create one if you don't have it yet. (Check how it's done in the full example).
+   * You can update the template from the [Azure Resource Explorer website](https://resources.azure.com).
+2. Change the publisher from `Microsoft.Azure.Diagnostics` to `AIP.Diagnostics.Test`.
+3. For `typeHandlerVersion`, use `0.0`.
+4. Make sure that `autoUpgradeMinorVersion` is set to `true`.
+5. Add the new `ApplicationInsightsProfiler` sink instance in the `WadCfg` settings object, as shown in the following example.
 
 ```
 "resources": [
@@ -171,19 +171,19 @@ Follow these steps so we can collect some sample data to be displayed in Applica
 ```
 
 ## Enable the profiler on virtual machine scale sets
-Download the [WindowsVirtualMachineScaleSet.json](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachineScaleSet.json) template to see how to enable the profiler. Apply the same changes in a VM template to virtual machine scale set diagnostics extension resource.
-Make sure each instance in the scale set has access to internet, so the Profiler Agent can send the collected samples to Application Insights to be analyzed and displayed.
+To see how to enable the profiler, download the [WindowsVirtualMachineScaleSet.json](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachineScaleSet.json) template. Apply the same changes in a VM template to the diagnostics extension resource for the virtual machine scale set.
+
+Make sure that each instance in the scale set has access to the internet, so the Profiler Agent can send the collected samples to Application Insights for display and analysis.
 
 ## Enable the profiler on Service Fabric applications
-Currently, enabling the profiler on Service Fabric applications requires the following:
-1. Provision the Service Fabric Cluster have the WAD extension that installs the Profiler Agent
-2. Install Application Insights SDK in the project and configure AI Key
-3. Add application code to instrument telemetry
+1. Provision the Service Fabric cluster to have the Azure Diagnostics extension that installs the Profiler Agent.
+2. Install the Application Insights SDK in the project and configure the Application Insights key.
+3. Add application code to instrument telemetry.
 
-## Provision the Service Fabric cluster to have the WAD extension that installs the Profiler Agent
+### Provision the Service Fabric cluster to have the Azure Diagnostics extension that installs the Profiler Agent
 A Service Fabric cluster can be secure or non-secure. You may set one Gateway cluster to be non-secure so it doesn't require a certificate for access. Clusters that host business logic and data should be secure. You can enable the profiler on both secure and non-secure Service Fabric clusters. This walkthrough uses a non-secure cluster as an example to explain what changes are required to enable the profiler. You can provision a secure cluster in the same way.
 
-Download the [ServiceFabricCluster.json](https://github.com/CFreemanwa/samples/blob/master/ServiceFabricCluster.json). Same as for VMs and virtual machine scale set, replace the Application Insights Key with your AI Key:
+Download [ServiceFabricCluster.json](https://github.com/CFreemanwa/samples/blob/master/ServiceFabricCluster.json). Just as for VMs and virtual machine scale sets, replace `Application_Insights_Key` with your Application Insights key:
 
 ```
 "publisher": "AIP.Diagnostics.Test",
@@ -207,11 +207,11 @@ New-AzureRmResourceGroupDeployment -Name [Choose_An_Arbitrary_Name] -ResourceGro
 
 ```
 
-## Install the Application Insights SDK in the project and configure the Application Insights key
+### Install the Application Insights SDK in the project and configure the Application Insights key
 Install Application Insights SDK from NuGet Package. Make sure you install a stable version 2.3 or later. [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)
 Please refer to [Using Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md) for configuring the Application Insights in your projects.
 
-## Add application code to the instrument telemetry
+### Add application code to instrument telemetry
 For any piece of code you want to instrument, add a using statement around it. In the following  example, the RunAsync method below is doing some work, and the telemetryClient class captures the telemetry once it starts. The event needs a unique name across the application.
 
 ```
