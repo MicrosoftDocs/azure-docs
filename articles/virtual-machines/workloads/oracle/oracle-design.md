@@ -1,5 +1,5 @@
 ﻿---
-title: Design and implement an Oracle database on Azure | Microsoft Docs
+title: Design and implement of Oracle database on Azure | Microsoft Docs
 description: Design and implement Oracle database in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -18,59 +18,59 @@ ms.author: rclaus
 ---
 
 
-# Design and implement an Oracle database on Azure
+# Design and implement of Oracle database on Azure
 
 ## Assumptions
 
-- You're planning to migrate on Oracle database from on-premises to Azure
-- You have an understanding of the various metrics that are found Oracle AWR reports
-- You have a baseline understanding application performance and platform utilization
+- Planning on mirgrate Oracle database from on-premises to Azure
+- Understanding of various metrics of Oracle AWR reports
+- Having a baseline for application performance and platform utilization
 
 ## Goals
 
-- Understand how to optimize your Oracle deployment on Azure
-- Explore performance tuning options for an Oracle database in an Azure environment
+- Understanding to optimize your Oracle deployment on Azure
+- Explore performance tuning options for Oracle database in Azure environment
 
 ### On-premises vs on Azure
 
-Here are some important things to keep in mind when you're migrating on-premises applications to Azure. Unlike on-premises implementations of an Oracle database, resources such as virtual machines, disks, and virtual networks in Azure are shared among other clients. In addition, resources can be throttled based on the requirements. Instead of focusing on avoiding failing (MTBF), the focus in Azure is more on surviving the failure (MTTR).
+Here are some important considerations when migrate on-prem applications to Azure. Unlike on-premises, resources (VM, disks, VNet etc.) in Azure is share among other clients. In addition, resource can be throttle based on the requirements. Instead of focusing on avoiding failing (MTBF), Azure is more toward surviving the failure (MTTR).
 
-The following table lists some of the differences between on-premises and Azure implementations of an Oracle database.
+Following table listed some of the difference.
 
 > 
-> |  | **On-premises implementation** | **Azure implementation** |
+> |  | **on-premises** | **Azure** |
 > | --- | --- | --- |
 > | **Networking** |LAN/WAN  |SDN - Software defined networking|
-> | **Security group** |IP/Port restrictions tools |[Network Security Group (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
-> | **Resilience** |MTBF (Mean time between failure) |MTTR (Mean Time To Recover)|
+> | **Security Group** |IP/Port restrictions tools |[Network Security Group (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
+> | **Resilience** |MTBF (Mean Time Between Failure) |MTTR (Mean Time To Recover)|
 > | **Planned maintenance** |Patching/Upgrades|[Availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (patching/upgrades managed by Azure) |
 > | **Resource** |Dedicated  |Shared with other clients|
 > | **Regions** |Data centers |[Region pairs](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
-> | **Storage** |SAN/Physical disks |[Azure-managed storage](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **Scale** |Vertical scale |Horizontal scale|
+> | **Storage** |SAN/Physical Disks |[Azure-managed storage](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+> | **Scale** |vertical scale |horizontal scale|
 
 
 ### Requirements
 
 - Determine the database size and growth rate
-- Determine the IOPS requirements, which can be estimated based on an Oracle AWR report or reports from other network monitoring tools.
+- Determine the IOPS requirements, could be estimated based on Oracle AWR report or others network monitoring tools
 
-## Configuration options
+## Configuration Options
 
-There are four potential areas that can be tuned to improved performance in Azure environment.
+There are four potential areas that can be tune to improved performance in Azure environment.
 
-- Virtual machine size
+- Virtual Machine size
 - Network throughput
 - Disk types and configurations
 - Disk cache settings
 
-### Generate an AWR report
+### Generate AWR report
 
-If you have an existing Oracle database and are planning to migrate to Azure. You can run the Oracle AWR report to get the metrics (IOPS, Mbps GiBs etc.), and then choose the VM based on the metrics you collected. You can also contact your infrastructure team to get similar information.
+If you have existing Oracle database and planning to migrate to Azure. You can run the Oracle AWR report to get the metrics (IOPS, Mbps GiBs etc.) and then choose the VM based on the metrics you collected. Or you can contact your infrastructure team to get similar information.
 
-You might consider running your AWR report during tregular and peak workloads, so you can compare the difference. Based on these reports, you can size the VMs based either on  the average workload or at maximum workloads.
+You may consider running your AWR report during the time of regular and peak workloads, so you can compare the difference. Based on these reports, you could size the VMs based on either the average workload or at maximum workloads.
 
-Following is an example of how to generate an AWR report:
+Following is an example of how to generate an AWR report.
 
 ```bash
 $ sqlplus / as sysdba
@@ -80,41 +80,41 @@ SQL> @?/rdbms/admin/awrrpt.sql
 
 ### Key metrics
 
-Following are metrics that can be obtained from the AWR report:
+The followings are the metrics that can be obtained from the AWR report.
 
-- Total number of cores
+- Total number of Core
 - CPU clock speed
 - Total memory in GB
 - CPU utilization
 - Peak data transfer rate
-- Rate of IO changes (read/write)
+- Rate of IO changes (Read/Write)
 - Redo log rate (MBPs)
 - Network throughput
 - Network latency rate (low/high)
 - Database size in GB
-- Bytes received via SQL*Net from/to client
+- bytes received via SQL*Net from/to client
 
-### Virtual machine size
+### Virtual Machine size
 
-#### 1. Initial estimate of VM size is based on CPU/Memory/IO usage from the AWR report
+#### 1. Initial estimate of VM size is based on CPU/Memory/IO usage from the AWR report.
 
-One thing you might look at is the top five timed foreground events that indicate where the system bottlenecks are.
+One thing you may look at is the top five timed foreground events that, indicated where the system bottlenecks are.
 
-For example, in the diagram below, the log file sync is on the top. This shows the number of waits that's necessary before the LGWR writes the log buffer to the redo log file. These results indicate that better performing storage or disks are required. The number of CPU (cores) and memory are also shown in the diagram.
+For example: Diagram below, the log file sync is on the top, which is the number of waits for the LGWR to write the log buffer to the redo log file. This indicated a better perform storage/disks are required. In addition, the number of CPU (cores) and memory are also shown in the diagram.
 
 ![Screenshot of the AWR report page](./media/oracle-design/cpu_memory_info.png)
 
-The following diagram shows the total IO of read and write. There are 59 GB read and 247.3 GB write during the time of the report.
+Diagram below shows the total IO of read and write. There are 59 GB read and 247.3 GB write during the time of the report.
 
 ![Screenshot of the AWR report page](./media/oracle-design/io_info.png)
 
 #### 2. Estimate the VM size
 
-Based on the information that you collected from the AWR report, you estimate the size VM you need to meet your requirements. You can find a list of available VMs is listed in  [the virtual machines sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes-memory).
+Based on the information you collected from the AWR report, the next step is chosen a VM with similar size that meets your requirements. A list of available VMs is listed in this link [the Virtual machines sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes-memory).
 
 #### 3. Fine-tune the VM sizing with similar VM series based on the ACU
 
-After you have chosen the VMs, pay attention to the ACU for the VMs. You may choose a similar VM based on the ACU value, that could better suit your requirements. For more information, see [the Azure compute unit](https://docs.microsoft.com/azure/virtual-machines/windows/acu).
+Once you have chosen the VMs, pay attention to the ACU for the VMs. You may choose a similar VM based on the ACU value, that could better suit your requirements. For more information, see [the Azure compute unit](https://docs.microsoft.com/azure/virtual-machines/windows/acu).
 
 ![Screenshot of the ACU units page](./media/oracle-design/acu_units.png)
 
