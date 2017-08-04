@@ -19,7 +19,7 @@ ms.author: tomsh
 
 ---
 # Azure Service Fabric security checklist
-This article provides an easy to use checklist that will help you secure your Azure Service Fabric environment.
+This article provides an easy-to-use checklist that will help you secure your Azure Service Fabric environment.
 
 ## Introduction
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric also addresses the significant challenges in developing and managing cloud applications. Developers and administrators can avoid complex infrastructure problems and focus on implementing mission-critical, demanding workloads that are scalable, reliable, and manageable.
