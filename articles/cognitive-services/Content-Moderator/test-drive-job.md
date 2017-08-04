@@ -28,7 +28,7 @@ Before you can test-drive the API from the online console, you will need a few v
 ![Content Moderator credentials in the review tool](Review-Tool-User-Guide/images/credentials-2-reviewtool.png)
 
 The simplest way to access a testing console is from the Credentials window.
-1.	From the Credentials window, click **API Reference**.
+1.	From the Credentials window, click **[API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5)**.
 
 2.	Click the button that most closely describes your location, under Open API testing console. The **Job – Create** API opens.
 
