@@ -188,7 +188,7 @@ Now, let's create the **V** in MVC, the views:
    * In the **Model class** box, select ***Item (todo.Models)***.
    * In the layout page box, type ***~/Views/Shared/_Layout.cshtml***.
      
-     ![Screen shot showing the Add View dialog box](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
+   ![Screen shot showing the Add View dialog box](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
 3. Once all these values are set, click **Add** and let Visual Studio create a new template view. Once it is done, it will open the cshtml file  that was created. We can close that file in Visual Studio as we will come back to it later.
 
 #### <a name="AddNewIndexView"></a>Add a New Item view
