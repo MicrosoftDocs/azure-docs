@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ---
 
@@ -31,12 +31,12 @@ This article is for customers using Azure AD Pass-through Authentication through
 
 Follow these steps to check where your Authentication Agents are installed:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with the Global Administrator credentials for your tenant.
+1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with the Global Administrator credentials for your tenant.
 2. Select **Azure Active Directory** on the left-hand navigation.
 3. Select **Azure AD Connect**. 
 4. Select **Pass-through Authentication**. This blade lists the servers where your Authentication Agents are installed.
 
-![Azure portal - Pass-through Authentication blade](./media/active-directory-aadconnect-pass-through-authentication/pta8.png)
+![Azure Active Directory admin center - Pass-through Authentication blade](./media/active-directory-aadconnect-pass-through-authentication/pta8.png)
 
 ### Step 2: Check the versions of your Authentication Agents
 
@@ -65,6 +65,9 @@ You need upgrade Azure AD Connect before upgrading the Authentication Agent on t
 4. **Install the latest version of the Authentication Agent**: Run the executable downloaded in Step 3. Provide your tenant's Global Administrator credentials when prompted.
 5. **Verify that the latest version has been installed**: As shown before, go to **Control Panel -> Programs -> Programs and Features** and verify that there is an entry for "**Microsoft Azure AD Connect Authentication Agent**".
 
+>[!NOTE]
+>If you check the Pass-through Authentication blade on the [Azure Active Directory admin center](https://aad.portal.azure.com) after  completing the preceding steps, you'll see two Authentication Agent entries per server - one entry showing the Authentication Agent as **Active** and the other as **Inactive**. This is _expected_. The **Inactive** entry is automatically dropped after a few days.
+
 ## Upgrading the Authentication Agent on other servers
 
 Follow these steps to upgrade Authentication Agents on other servers (where Azure AD Connect is not installed):
@@ -73,6 +76,9 @@ Follow these steps to upgrade Authentication Agents on other servers (where Azur
 2. **Download the latest version of the Authentication Agent (versions 1.5.193.0 or later)**: Sign in to the [Azure portal](https://portal.azure.com) with your tenant's Global Administrator credentials. Select **Azure Active Directory -> Azure AD Connect -> Pass-through Authentication -> Download agent**. Accept the terms of service and download the latest version.
 3. **Install the latest version of the Authentication Agent**: Run the executable downloaded in Step 2. Provide your tenant's Global Administrator credentials when prompted.
 4. **Verify that the latest version has been installed**: As shown before, go to **Control Panel -> Programs -> Programs and Features** and verify that there is an entry called **Microsoft Azure AD Connect Authentication Agent**.
+
+>[!NOTE]
+>If you check the Pass-through Authentication blade on the [Azure Active Directory admin center](https://aad.portal.azure.com) after  completing the preceding steps, you'll see two Authentication Agent entries per server - one entry showing the Authentication Agent as **Active** and the other as **Inactive**. This is _expected_. The **Inactive** entry is automatically dropped after a few days.
 
 ## Next steps
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
