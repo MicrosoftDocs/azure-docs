@@ -49,21 +49,6 @@ This article explains how to create and populate a new group in Azure Active Dir
 
    ![Create group confirmation](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
 
-## Reserved Aliases 
-When a group is created, certain endpoints allow the end user to specify a mailNickname or alias to be used as part of the email address of the group.   
-Groups with the following highly privileged email aliases can only be created by an Azure AD global administrator. 
-  
-* abuse 
-* admin 
-* administrator 
-* hostmaster 
-* majordomo 
-* postmaster 
-* root 
-* secure 
-* security 
-* ssl-admin 
-* webmaster 
 
 ## Next steps
 These articles provide additional information on Azure Active Directory.
