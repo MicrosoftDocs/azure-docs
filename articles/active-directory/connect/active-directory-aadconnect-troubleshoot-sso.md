@@ -31,17 +31,17 @@ This article helps you find troubleshooting information about common issues rega
 
 ## Check status of the feature
 
-Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You can check status by going to the **Azure AD Connect** blade on the [Azure portal](https://portal.azure.com/).
+Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You can check status by going to the **Azure AD Connect** blade on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
-![Azure portal - Azure AD Connect blade](./media/active-directory-aadconnect-sso/sso10.png)
+![Azure Active Directory admin center - Azure AD Connect blade](./media/active-directory-aadconnect-sso/sso10.png)
 
 ## Sign-in failure reasons on the Azure portal
 
-A good place to start troubleshooting user sign-in issues with Seamless SSO is to look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure portal](https://portal.azure.com/).
+A good place to start troubleshooting user sign-in issues with Seamless SSO is to look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
-![Sign-ins report](./media/active-directory-aadconnect-sso/sso9.png)
+![Azure Active Directory admin center - Sign-ins report](./media/active-directory-aadconnect-sso/sso9.png)
 
-Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure portal](https://portal.azure.com/) and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
+Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Directory admin center](https://aad.portal.azure.com/) and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
 
 |Sign-in error code|Sign-in failure reason|Resolution
 | --- | --- | ---
