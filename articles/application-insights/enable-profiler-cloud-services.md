@@ -30,8 +30,8 @@ To collect information for processing and display on the Azure portal, you must 
 
 * A deployment Resource Manager template that installs the profiler agents on the VMs ([WindowsVirtualMachine.json](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachine.json)) or scale sets ([WindowsVirtualMachineScaleSet.json](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachineScaleSet.json)).
 
-
 * An Application Insights instance enabled for profiling. For instructions, see [Enable the profile](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler).
+
 * .NET Framework 4.6.1 or later installed on the target Azure Cloud Services resource.
 
 ## Create a resource group in your Azure subscription
@@ -42,7 +42,7 @@ New-AzureRmResourceGroup -Name "Replace_With_Resource_Group_Name" -Location "Rep
 ```
 
 ## Create an Application Insights resource in the resource group
-On the Application Insights blade, enter the information for your resource, as shown in this example: 
+On the **Application Insights** blade, enter the information for your resource, as shown in this example: 
 
 ![Application Insights blade](./media/enable-profiler-compute/createai.png)
 
@@ -50,9 +50,11 @@ On the Application Insights blade, enter the information for your resource, as s
 1. If you haven't downloaded the template yet, download it from [GitHub](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachine.json).
 
 2. Find the Application Insights key.
+   
    ![Location of the key](./media/enable-profiler-compute/copyaikey.png)
 
 3. Replace the template value.
+   
    ![Value replaced in the template](./media/enable-profiler-compute/copyaikeytotemplate.png)
 
 ## Create an Azure VM to host the web application
@@ -107,15 +109,18 @@ There are several ways to publish an application to an Azure VM. One way is to u
 
 ## Enable the profiler
 1. Go to your Application Insights **Performance** blade and select **Configure**.
+   
    ![Configure icon](./media/enable-profiler-compute/enableprofiler1.png)
  
 2. Select **Enable Profiler**.
+   
    ![Enable Profiler icon](./media/enable-profiler-compute/enableprofiler2.png)
 
 ## Add a performance test to your application
 Follow these steps so we can collect some sample data to be displayed in Application Insights Profiler:
 
 1. Browse to the Application Insights resource that you created earlier. 
+
 2. Go to the **Availability** blade and add a performance test that sends web requests to your application URL. 
 
    ![Add performance test](./media/enable-profiler-compute/AvailabilityTest.png)
@@ -123,6 +128,7 @@ Follow these steps so we can collect some sample data to be displayed in Applica
 ## View your performance data
 
 1. Wait 10-15 minutes for the profiler to collect and analyze the data. 
+
 2. Go to the **Performance** blade in your Application Insights resource and view how your application is performing when it's under load.
 
    ![Viewing performance](./media/enable-profiler-compute/aiperformance.png)
@@ -136,7 +142,7 @@ Follow these steps so we can collect some sample data to be displayed in Applica
 
 1. Locate the Azure Diagnostics resource declaration in your deployment template.
    
-   If you don't have a declaration, you can create one that resembles the declration in the following example. You can update the template from the [Azure Resource Explorer website](https://resources.azure.com).
+   If you don't have a declaration, you can create one that resembles the declaration in the following example. You can update the template from the [Azure Resource Explorer website](https://resources.azure.com).
 
 2. Change the publisher from `Microsoft.Azure.Diagnostics` to `AIP.Diagnostics.Test`.
 
@@ -183,7 +189,7 @@ Follow these steps so we can collect some sample data to be displayed in Applica
 ## Enable the profiler on virtual machine scale sets
 To see how to enable the profiler, download the [WindowsVirtualMachineScaleSet.json](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachineScaleSet.json) template. Apply the same changes in a VM template to the diagnostics extension resource for the virtual machine scale set.
 
-Make sure that each instance in the scale set has access to the internet, so the Profiler Agent can send the collected samples to Application Insights for display and analysis.
+Make sure that each instance in the scale set has access to the internet. The Profiler Agent can then send the collected samples to Application Insights for display and analysis.
 
 ## Enable the profiler on Service Fabric applications
 1. Provision the Service Fabric cluster to have the Azure Diagnostics extension that installs the Profiler Agent.
@@ -195,7 +201,7 @@ Make sure that each instance in the scale set has access to the internet, so the
 ### Provision the Service Fabric cluster to have the Azure Diagnostics extension that installs the Profiler Agent
 A Service Fabric cluster can be secure or non-secure. You can set one gateway cluster to be non-secure so it doesn't require a certificate for access. Clusters that host business logic and data should be secure. You can enable the profiler on both secure and non-secure Service Fabric clusters. This walkthrough uses a non-secure cluster as an example to explain what changes are required to enable the profiler. You can provision a secure cluster in the same way.
 
-1. Download [ServiceFabricCluster.json](https://github.com/CFreemanwa/samples/blob/master/ServiceFabricCluster.json). Just as for VMs and virtual machine scale sets, replace `Application_Insights_Key` with your Application Insights key:
+1. Download [ServiceFabricCluster.json](https://github.com/CFreemanwa/samples/blob/master/ServiceFabricCluster.json). As you did for VMs and virtual machine scale sets, replace `Application_Insights_Key` with your Application Insights key:
 
    ```
    "publisher": "AIP.Diagnostics.Test",
