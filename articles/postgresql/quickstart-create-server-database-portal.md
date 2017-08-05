@@ -110,7 +110,7 @@ There are a number of applications you can use to connect to your Azure Database
     psql --host=<yourserver> --port=<port> --username=<server admin login> --dbname=<database name>
     ```
 
-    For example, the following command connects to an  example server 
+    For example, the following command connects to an example server:
 
     ```bash
     psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
@@ -118,10 +118,10 @@ There are a number of applications you can use to connect to your Azure Database
 
     psql parameter |Suggested value|Description
     ---|---|---
-    host | *server name* | Specify the server name value that was used when you created the Azure Database for PostgreSQL earlier. Our example server shown is mypgserver-20170401.postgres.database.azure.com. Use the fully qualified domain name (\*.postgres.database.azure.com) as shown in the example. Follow the previous section to get the connection information if you do not remember your server name. 
-    port | **5432** | Always use port 5432 when connecting to Azure Database for PostgreSQL. 
-    username | *server admin login name* |Type in the  server admin login username supplied when you created the Azure Database for PostgreSQL earlier. Follow the previous section to get the connection information if you do not remember the username.  The format is *username@servername*.
-    dbname | **postgres** | Use the default system generated database name *postgres* for the first connection. Later you create your own database.
+    --host | *server name* | Specify the server name value that was used when you created the Azure Database for PostgreSQL earlier. Our example server shown is mypgserver-20170401.postgres.database.azure.com. Use the fully qualified domain name (\*.postgres.database.azure.com) as shown in the example. Follow the previous section to get the connection information if you do not remember your server name. 
+    --port | **5432** | Always use port 5432 when connecting to Azure Database for PostgreSQL. 
+    --username | *server admin login name* |Type in the  server admin login username supplied when you created the Azure Database for PostgreSQL earlier. Follow the previous section to get the connection information if you do not remember the username.  The format is *username@servername*.
+    --dbname | **postgres** | Use the default system generated database name *postgres* for the first connection. Later you create your own database.
 
     After running the psql command, with your own parameter values, you will be prompted to type the server admin password. This is the same password that you provided when you created the server. 
 
