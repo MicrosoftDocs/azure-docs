@@ -46,5 +46,63 @@ You can enable the "Secure transfer required" setting both when you create a sto
 
   ![screenshot](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
+## Enable "Secure transfer required" programmatically
+
+The setting name is _supportsHttpsTrafficOnly_ in storage account properties. You can enable "Secure transfer required" setting with REST API, tools or libraries:
+
+* **REST API** (Version: 2016-12-01): [release package](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts)
+* **PowerShell** (Version: 4.1.0): [release package](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0)
+* **CLI** (Version: 2.0.11): [release package](https://pypi.python.org/pypi/azure-cli-storage/2.0.11)
+* **NodeJS** (Version: 1.1.0): [release package](https://www.npmjs.com/package/azure-arm-storage/)
+* **.NET SDK** (Version: 6.3.0): [release package](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview)
+* **Python SDK** (Version: 1.1.0): [release package](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0)
+* **Ruby SDK** (Version: 0.11.0): [release package](https://rubygems.org/gems/azure_mgmt_storage)
+
+### Enable "Secure transfer required" setting with REST API
+
+To simplify testing with REST API, you can use [ArmClient](https://github.com/projectkudu/ARMClient) to call from command line.
+
+ You can use below command line to check the setting with the REST API:
+
+```
+# Login Azure and proceed with your credentials
+> armclient login
+
+> armclient GET  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01
+```
+
+In the response, you can find _supportsHttpsTrafficOnly_ setting. Sample:
+
+```Json
+{
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
+  "kind": "Storage",
+  ...
+  "properties": {
+    ...
+    "supportsHttpsTrafficOnly": false
+  },
+  "type": "Microsoft.Storage/storageAccounts"
+}
+```
+
+You can use below command line to enable the setting with the REST API:
+
+```
+# Login Azure and proceed with your credentials
+> armclient login
+
+> armclient PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01 < Input.json
+```
+Sample of Input.json:
+```Json
+{
+  "location": "westus",
+  "properties": {
+    "supportsHttpsTrafficOnly": true
+  }
+}
+```
+
 ## Next steps
 Azure Storage provides a comprehensive set of security capabilities, which together enable developers to build secure applications. For more details, visit the [Storage Security Guide](storage-security-guide.md).
