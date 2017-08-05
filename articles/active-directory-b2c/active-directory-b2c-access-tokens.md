@@ -21,7 +21,7 @@ ms.author: parakhj
 
 An access token (denoted as **access\_token**) is a form of security token that a client can use to access resources that are secured by an [authorization server](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), such as a web API. Access tokens are represented as [JWTs](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) and contain information about the intended resource server and the granted permissions to the server. When calling the resource server, the access token must be present in the HTTP request.
 
-This article discusses how to configure a client application and web api, and obtain an **access\_token**.
+This article discusses how to configure a client application and web api in order to obtain an **access\_token**.
 
 > [!NOTE]
 > **Web API chains (On-Behalf-Of) is not supported by Azure AD B2C.**
@@ -47,11 +47,11 @@ Before requesting an access token, you first need to register a web API and publ
 
 ### Publishing scopes
 
-Scopes, which are analogous to permissions, are necessary when you're calling an API. Some examples of scopes are "read" or "write". Suppose you want your web or native app to "read" from an API. Your app would call Azure AD B2C and request an access token with the scope "read". The acquired **access_token** will give the app the access to "read" from the intended API. In order for Azure AD B2C to emit such an access token, the app needs to be granted permission to "read" from the specific API. To do this, your API first needs to publish the "read" scope.
+Scopes, which are analogous to permissions, are necessary when your app is calling an API. Some examples of scopes are "read" or "write". Suppose you want your web or native app to "read" from an API. Your app would call Azure AD B2C and request an access token that gives access to the scope "read". In order for Azure AD B2C to emit such an access token, the app needs to be granted permission to "read" from the specific API. To do this, your API first needs to publish the "read" scope.
 
 1. Within the Azure AD B2C **Applications** blade, open the web api application.
 1. Click on **Published scopes**. This is where you define the permissions (scopes) that can be granted to other applications.
-1. Add **Scope values** as necessary (for example, "read"). By default, the "user_impersonation" scope will be defined. This can be removed if you wish.
+1. Add **Scope Values** as necessary (for example, "read"). By default, the "user_impersonation" scope will be defined. This can be removed if you wish.
 1. Click **Save**.
 
 > [!IMPORTANT]
