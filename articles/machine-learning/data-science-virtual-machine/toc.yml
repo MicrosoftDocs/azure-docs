@@ -1,9 +1,12 @@
 - name: Data Science VM Documentation
-- Overview
-- Get Started
-- How To
-  - Set up tools and utilities
-    - Set up a virtual machine
+- name: Overview
+- name: Get Started
+- name: How To
+  items:
+  - name: Set up tools and utilities
+    items:
+    - name: Set up a virtual machine
+      items:
       - name: DS VM overview
         href: data-science-virtual-machine-overview.md
       - name: How to use the DS VM
@@ -18,9 +21,10 @@
         href: data-science-linux-dsvm-intro.md
       - name: Use Linux VM
         href: data-science-linux-dsvm-walkthrough.md
-- Reference
-- Related
-- Resources
+- name: Reference
+- name: Related
+- name: Resources
+  items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
