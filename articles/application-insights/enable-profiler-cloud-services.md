@@ -81,6 +81,7 @@ To install Web Deploy on a VM manually via WebPI, see [Installing and Configurin
 [Create, configure, and deploy a web application to an Azure VM](https://azure.microsoft.com/en-us/resources/templates/201-web-app-vm-dsc/).
 
 If you are deploying an ASP.NET MVC application, go to Server Manager, select **Add Roles and Features** > **Web Server (IIS)** > **Web Server** > **Application Development**, and enable ASP.NET 4.5 on your server.
+
 ![Add ASP.NET](./media/enable-profiler-compute/addaspnet45.png)
 
 ## Install the Azure Application Insights SDK for your project
