@@ -38,7 +38,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
     Server name |*mypgserver-20170401*|Choose a unique name that identifies your Azure Database for PostgreSQL server. The domain name *postgres.database.azure.com* is appended to the server name you provide for  applications to connect to. The server name can contain only lowercase letters, numbers, and the hyphen (-) character, and it must contain from 3 through 63 characters.
     Subscription|*Your subscription*|The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the appropriate subscription in which the resource is billed for.
     Resource Group|*myresourcegroup*| You may make a new resource group name, or use an existing one from your subscription.
-    Server admin login name |*Choose the latest version*| Choose the latest version unless you have specific requirements.
+    Server admin login |*mylogin*| Make your own login account that to be used when connecting to the server. The admin login name cannot be 'azure_superuser', 'azure_pg_admin', 'admin', 'administrator', 'root', 'guest', or 'public', and cannot start with 'pg_'.
     Password |*Your choice* | Create a new password for the server admin account. Must contain from 8 to 128 characters. Your password must contain characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, etc.).
     Location|*The region closest to your users*| Choose the location that's closest to your users.
     PostgreSQL Version|*Choose the latest version*| Choose the latest version unless you have specific requirements.
@@ -121,7 +121,7 @@ There are a number of applications you can use to connect to your Azure Database
     host | *server name* | Specify the server name value that was used when you created the Azure Database for PostgreSQL earlier. Our example server shown is mypgserver-20170401.postgres.database.azure.com. Use the fully qualified domain name (\*.postgres.database.azure.com) as shown in the example. Follow the previous section to get the connection information if you do not remember your server name. 
     port | **5432** | Always use port 5432 when connecting to Azure Database for PostgreSQL. 
     username | *server admin login name* |Type in the  server admin login username supplied when you created the Azure Database for PostgreSQL earlier. Follow the previous section to get the connection information if you do not remember the username.  The format is *username@servername*.
-    dbname | **postgres** | Use the default system generated database name *postgres* for the first connection. Later  you will create your own database.
+    dbname | **postgres** | Use the default system generated database name *postgres* for the first connection. Later you create your own database.
 
     After running the psql command, with your own parameter values, you will be prompted to type the server admin password. This is the same password that you provided when you created the server. 
 
@@ -139,9 +139,9 @@ There are a number of applications you can use to connect to your Azure Database
     \c mypgsqldb
     ```
 
-6.  Type \q and then press ENTER to quit psql.
+6.  Type \q and then press ENTER to quit psql. You can close the Azure Cloud Shell.
 
-Now you have connected to the Azure Database for PostgreSQL and created a blank user database. You can close the Azure Cloud Shell, and continue to the next section to connect using another common tool pgAdmin.
+Now you have connected to the Azure Database for PostgreSQL and created a blank user database. Continue to the next section to connect using another common tool pgAdmin.
 
 ## Connect to PostgreSQL database using pgAdmin
 
