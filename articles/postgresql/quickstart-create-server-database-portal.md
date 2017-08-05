@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 07/12/2017
+ms.date: 08/04/2017
 ---
 
 # Create an Azure Database for PostgreSQL in the Azure portal
@@ -32,12 +32,20 @@ Follow these steps to create an Azure Database for PostgreSQL server:
  ![Azure Database for PostgreSQL - Create the database](./media/quickstart-create-database-portal/1-create-database.png)
 
 3.	Fill out the new server details form with the following information, as shown on the preceding image:
-    - Server name: **mypgserver-20170401** (choose a globally unique server name, since this name maps to the DNS name)
-    - Subscription: If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for.
-    - Resource group: **myresourcegroup**
     - Server admin login and password of your choice
     - Location: choose a location nearest you.
     - PostgreSQL Version: choose the latest version.
+    - 
+    Setting|Suggested value|Description
+    ---|---|---
+    Server name |*mypgserver-20170401*|Choose a unique name that identifies your Azure Database for PostgreSQL server. The domain name *postgres.database.azure.com* is appended to the server name you provide for your client connections to use. The server name can contain only lowercase letters, numbers, and the hyphen (-) character, and it must contain from 3 through 63 characters.
+    Subscription|*Your subscription*|The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the appropriate subscription in which the resource is billed for.
+    Resource Group|**myresourcegroup**| You may make a new resource group name, or use an existing one from your subscription.
+
+    Server admin login name |*Choose the latest version*| Choose the latest version unless you have specific requirements.
+    Password |* | Create a new password for the admin 
+    Location|*The region closest to your users*| Choose the location that's closest to your users.
+    PostgreSQL Version|*Choose the latest version*| Choose the latest version unless you have specific requirements.
 
   > [!IMPORTANT]
   > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
