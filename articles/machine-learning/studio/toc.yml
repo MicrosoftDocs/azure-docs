@@ -1,5 +1,5 @@
 - name: Machine Learning Studio Documentation
-  href: ../index.md
+  href: what-is-machine-learning.md
 - name: Overview
   items:
   - name: What's Machine Learning?
