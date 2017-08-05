@@ -36,23 +36,23 @@ The simplest way to access a testing console is from the Credentials window.
   
 3.	Fill in the required values, and edit the Request Body to specify the content (for example, image location), metadata, and other information associated with the content.
 
-  ![Test Drive Review Step 3](images/test-drive-review-1.png)
+  ![Test Drive Review Step 3](images/test-drive-review-1.PNG)
   
 4.	Click **Send**. A Review ID is created. Copy this to use in the next steps.
 
-  ![Test Drive Review Step 4](images/test-drive-review-2.png)
+  ![Test Drive Review Step 4](images/test-drive-review-2.PNG)
   
 5.	Click **Get**, then open the API by clicking the button matching your region.
 
-  ![Test Drive Review Step 5](images/test-drive-review-3.png)
+  ![Test Drive Review Step 5](images/test-drive-review-3.PNG)
   
 6.	Fill in **teamName** and the **Review ID** you just created. Enter your subscription key and click Send. The results of the scan are returned.
 
-  ![Test Drive Review Step 6](images/test-drive-review-4.png)
+  ![Test Drive Review Step 6](images/test-drive-review-4.PNG)
   
 7.	Go to the Content Moderator Dashboard, and click **Review > Image**. The image you just scanned displays, ready for human review.
 
-  ![Test Drive Review Step 7](images/test-drive-review-5.png)
+  ![Test Drive Review Step 7](images/test-drive-review-5.PNG)
 
 ## Next steps ##
 
