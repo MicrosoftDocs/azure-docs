@@ -42,20 +42,17 @@ Follow these steps to create an Azure Database for PostgreSQL server:
     Password |*Your choice* | Create a new password for the server admin account. Must contain from 8 to 128 characters. Your password must contain characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, etc.).
     Location|*The region closest to your users*| Choose the location that's closest to your users.
     PostgreSQL Version|*Choose the latest version*| Choose the latest version unless you have specific requirements.
-    Pricing Tier | **Basic**, **50 Compute Units** **50 GB** | Click **Pricing tier** to specify the service tier and performance level for your new database. Choose Basic tier in the tab at the top. Click the left end of the Compute Units slider to adjust the value to the least amount available for this quickstart. See screenshot below. 
+    Pricing Tier | **Basic**, **50 Compute Units** **50 GB** | Click **Pricing tier** to specify the service tier and performance level for your new database. Choose Basic tier in the tab at the top. Click the left end of the Compute Units slider to adjust the value to the least amount available for this quickstart. Click **Ok** to save the pricing tier selection. See the following screenshot.
+    | Pin to dashboard | Check | Check the **Pin to dashboard** option to allow easy tracking of your server on the front dashboard page of your Azure portal.
 
   > [!IMPORTANT]
   > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
 
     ![Azure Database for PostgreSQL - pick the pricing tier](./media/quickstart-create-database-portal/2-service-tier.png)
 
-5.	Click **Ok**.
-6.	Click **Create** to provision the server. Provisioning takes a few minutes.
+4.	Click **Create** to provision the server. Provisioning takes a few minutes, up to 20 minutes maximum.
 
-  > [!TIP]
-  > Check the **Pin to dashboard** option to allow easy tracking of your deployments.
-
-7.	On the toolbar, click **Notifications** to monitor the deployment process.
+5.	On the toolbar, click **Notifications** to monitor the deployment process.
  ![Azure Database for PostgreSQL - See notifications](./media/quickstart-create-database-portal/3-notifications.png)
    
   By default, **postgres** database gets created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database meant for use by users, utilities, and third-party applications. 
@@ -64,20 +61,27 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 
 The Azure Database for PostgreSQL service creates a firewall at the server-level. This firewall prevents external applications and tools from connecting to the server and any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. 
 
-1.	After the deployment completes, click **All Resources** from the left-hand menu and type in the name **mypgserver-20170401** to search for your newly created server. Click the server name listed in the search result. The **Overview** page for your server opens and provides options for further configuration.
+1.	Locate your server after the deployment completes. If needed you can search for it. For example, click **All Resources** from the left-hand menu and type in the server name (such as the example mypgserver-20170401) to search for your newly created server. Click on your server name listed in the search result. The Overview page for your server opens and provides options for further configuration.
  
- ![Azure Database for PostgreSQL - Search for server ](./media/quickstart-create-database-portal/4-locate.png)
+    ![Azure Database for PostgreSQL - Search for server ](./media/quickstart-create-database-portal/4-locate.png)
 
-2.	In the server blade, select **Connection Security**. 
-3.	Click in the text box under **Rule Name,** and add a new firewall rule to whitelist the IP range for connectivity. For this quick start, let's allow all IPs by typing in **Rule Name = AllowAllIps**, **Start IP = 0.0.0.0** and **End IP = 255.255.255.255** and then click **Save**. You can set a firewall rule that covers an IP range to be able to connect from your network.
+2.	On the server page, select **Connection Security**. 
+    ![Azure Database for PostgreSQL - Create Firewall Rule](./media/quickstart-create-database-portal/5-firewall-2.png)
 
- ![Azure Database for PostgreSQL - Create Firewall Rule](./media/quickstart-create-database-portal/5-firewall-2.png)
+3.	Under the **Firewall Rules** heading, click in the blank text box in the **Rule Name** column to begin creating the firewall rule. 
 
-4.	Click **Save** and then click the **X** to close the **Connections Security** page.
+    For this quick start, let's allow all IP addresses into the server by filling in the text box in each column with the following values:
 
-  > [!NOTE]
-  > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 5432.
+    Rule Name | Start IP | End IP 
+    ---|---|---
+    AllowAllIps |  0.0.0.0 | 255.255.255.255
+
+4. On the upper toolbar of the Connection Security page, click **Save**. Then click the **X** to close the Connection Security page.
+
+    > [!NOTE]
+    > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 5432.
   >
+
 
 ## Get the connection information
 
