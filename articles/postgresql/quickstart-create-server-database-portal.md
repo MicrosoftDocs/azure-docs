@@ -32,26 +32,23 @@ Follow these steps to create an Azure Database for PostgreSQL server:
  ![Azure Database for PostgreSQL - Create the database](./media/quickstart-create-database-portal/1-create-database.png)
 
 3.	Fill out the new server details form with the following information, as shown on the preceding image:
-    - Server admin login and password of your choice
-    - Location: choose a location nearest you.
-    - PostgreSQL Version: choose the latest version.
-    - 
+
     Setting|Suggested value|Description
     ---|---|---
-    Server name |*mypgserver-20170401*|Choose a unique name that identifies your Azure Database for PostgreSQL server. The domain name *postgres.database.azure.com* is appended to the server name you provide for your client connections to use. The server name can contain only lowercase letters, numbers, and the hyphen (-) character, and it must contain from 3 through 63 characters.
+    Server name |*mypgserver-20170401*|Choose a unique name that identifies your Azure Database for PostgreSQL server. The domain name *postgres.database.azure.com* is appended to the server name you provide for  applications to connect to. The server name can contain only lowercase letters, numbers, and the hyphen (-) character, and it must contain from 3 through 63 characters.
     Subscription|*Your subscription*|The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the appropriate subscription in which the resource is billed for.
-    Resource Group|**myresourcegroup**| You may make a new resource group name, or use an existing one from your subscription.
-
+    Resource Group|*myresourcegroup*| You may make a new resource group name, or use an existing one from your subscription.
     Server admin login name |*Choose the latest version*| Choose the latest version unless you have specific requirements.
-    Password |* | Create a new password for the admin 
+    Password |*Your choice* | Create a new password for the server admin account. Must contain from 8 to 128 characters. Your password must contain characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, etc.).
     Location|*The region closest to your users*| Choose the location that's closest to your users.
     PostgreSQL Version|*Choose the latest version*| Choose the latest version unless you have specific requirements.
+    Pricing Tier | **Basic**, **50 Compute Units** **50 GB** | Click **Pricing tier** to specify the service tier and performance level for your new database. Choose Basic tier in the tab at the top. Click the left end of the Compute Units slider to adjust the value to the least amount available for this quickstart. See screenshot below. 
 
   > [!IMPORTANT]
   > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
 
-4.	Click **Pricing tier** to specify the service tier and performance level for your new database. For this quick start, select **Basic** Tier, **50 Compute Units** and **50 GB** of included storage.
- ![Azure Database for PostgreSQL - pick the service tier](./media/quickstart-create-database-portal/2-service-tier.png)
+    ![Azure Database for PostgreSQL - pick the pricing tier](./media/quickstart-create-database-portal/2-service-tier.png)
+
 5.	Click **Ok**.
 6.	Click **Create** to provision the server. Provisioning takes a few minutes.
 
