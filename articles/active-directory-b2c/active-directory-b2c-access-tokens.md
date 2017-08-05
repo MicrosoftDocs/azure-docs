@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 07/16/2017
 ms.author: parakhj
 
 ---
@@ -21,26 +21,49 @@ ms.author: parakhj
 
 An access token (denoted as **access\_token**) is a form of security token that a client can use to access resources that are secured by an [authorization server](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), such as a web API. Access tokens are represented as [JWTs](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) and contain information about the intended resource server and the granted permissions to the server. When calling the resource server, the access token must be present in the HTTP request.
 
-This article discusses how to configure a client application and have it make a request to acquire an **access\_token** from the `authorize` and `token` endpoints.
+This article discusses how to configure a client application and web api, and obtain an **access\_token**.
 
 > [!NOTE]
 > **Web API chains (On-Behalf-Of) is not supported by Azure AD B2C.**
 >
-> Many architectures include a Web API that needs to call another downstream Web API, both secured by Azure AD B2C. This scenario is common in native clients that have a Web API back end, which in turn calls a Microsoft online service such as the Azure AD Graph API.
+> Many architectures include a web API that needs to call another downstream web API, both secured by Azure AD B2C. This scenario is common in native clients that have a web API back end, which in turn calls a Microsoft online service such as the Azure AD Graph API.
 >
-> This chained Web API scenario can be supported by using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the On-Behalf-Of flow. However, the On-Behalf-Of flow is not currently implemented in the Azure AD B2C.
+> This chained web API scenario can be supported by using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the On-Behalf-Of flow. However, the On-Behalf-Of flow is not currently implemented in Azure AD B2C.
 
-## Prerequisite
+## Register a web api and publish permissions
 
-Before requesting an access token, you first need to register a web API and publish permissions that can be granted to the client application. Get started by following the steps under the [Register a web API](active-directory-b2c-app-registration.md#register-a-web-api) section.
+Before requesting an access token, you first need to register a web API and publish permissions that can be granted to the client application.
 
-## Granting permissions to a web API
+### Register a web api
 
-In order for a client application to get specific permissions to an API, the client application needs to be granted those permissions via the Azure portal. To grant permissions to a client application:
+1. On the B2C features blade on the Azure portal, click **Applications**.
+1. Click **+Add** at the top of the blade.
+1. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso API".
+1. Toggle the **Include web app / web API** switch to **Yes**.
+1. Enter an arbitrary value for the **Reply URLs**. For example, enter `https://localhost:44316/`. The value does not matter since an API should not be receiving the token directly from Azure AD B2C.
+1. Enter an **App ID URI**. This is the identifier used for your web API. For example, enter 'notes' in the box. The **App ID URI** would then be `https://{tenantName}.onmicrosoft.com/notes`.
+1. Click **Create** to register your application.
+1. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
+
+### Publishing scopes
+
+Scopes, which are analogous to permissions, are necessary when you're calling an API. Some examples of scopes are "read" or "write". Suppose you want your web or native app to "read" from an API. Your app would call Azure AD B2C and request an access token with the scope "read". The acquired **access_token** will give the app the access to "read" from the intended API. In order for Azure AD B2C to emit such an access token, the app needs to be granted permission to "read" from the specific API. To do this, your API first needs to publish the "read" scope.
+
+1. Within the Azure AD B2C **Applications** blade, open the web api application.
+1. Click on **Published scopes**. This is where you define the permissions (scopes) that can be granted to other applications.
+1. Add **Scope values** as necessary (for example, "read"). By default, the "user_impersonation" scope will be defined. This can be removed if you wish.
+1. Click **Save**.
+
+> [!IMPORTANT]
+> The **Scope Name** is the description of the **Scope Value**. When using the scope, make sure to use the **Scope Value**.
+
+## Grant a native or web app permissions to a web API
+
+Once an API is configured to publish scopes, the client application needs to be granted those scopes via the Azure portal.
 
 1. Navigate to the **Applications** menu in the B2C features blade.
 1. Register a client application ([web app](active-directory-b2c-app-registration.md#register-a-web-application) or [native client](active-directory-b2c-app-registration.md#register-a-mobilenative-application)) if you don’t have one already.
-1. On your application's Settings blade, select **Api access**.
+1. Click on **Api access**.
 1. Click on **Add**.
 1. Select your web API and the scopes (permissions) you would like to grant.
 1. Click **OK**.
@@ -50,7 +73,7 @@ In order for a client application to get specific permissions to an API, the cli
 
 ## Requesting a token
 
-To get an access token for a resource application, the client application needs to specify the permissions wanted in the **scope** parameter of the request. For example, to acquire the “read” permission for the resource application that has the App ID URI of `https://contoso.onmicrosoft.com/notes`, the scope would be `https://contoso.onmicrosoft.com/notes/read`. Below is an example of an authorization code request to the `authorize` endpoint.
+When requesting an access token, the client application needs to specify the desired permissions in the **scope** parameter of the request. For example, to specify the **Scope Value** “read” for the API that has the **App ID URI** of `https://contoso.onmicrosoft.com/notes`, the scope would be `https://contoso.onmicrosoft.com/notes/read`. Below is an example of an authorization code request to the `authorize` endpoint.
 
 > [!NOTE]
 > At this point, custom domains are not supported along with access tokens. You must use your yourtenantId.onmicrosoft.com domain in the request URL.

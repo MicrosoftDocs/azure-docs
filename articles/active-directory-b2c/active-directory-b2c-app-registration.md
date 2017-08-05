@@ -62,10 +62,10 @@ You can also access the blade by clicking **More services** and then searching *
 
 1. On the B2C features blade on the Azure portal, click **Applications**.
 1. Click **+Add** at the top of the blade.
-1. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso B2C api".
+1. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso API".
 1. Toggle the **Include web app / web API** switch to **Yes**.
-1. Enter [a proper](#choosing-a-web-app/api-reply-url) value for the **Reply URLs**, which are endpoints where Azure AD B2C will return any tokens that your application requests. For example, enter `https://localhost:44316/`.
-1. Enter an **App ID URI**. This is the identifier used for your web API. For example, enter 'notes'. It will generate the full identifier URI underneath.
+1. Enter an arbitrary value for the **Reply URLs**. For example, enter `https://localhost:44316/`. The value does not matter since an API should not be receiving the token directly from Azure AD B2C.
+1. Enter an **App ID URI**. This is the identifier used for your web API. For example, enter 'notes' in the box. The **App ID URI** would then be `https://{tenantName}.onmicrosoft.com/notes`.
 1. Click **Create** to register your application.
 1. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
 1. Click on **Published scopes**. This is where you define the permissions (scopes) that can be granted to other applications.
