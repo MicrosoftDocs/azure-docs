@@ -123,8 +123,6 @@ CREATE DATABASE mypgsqldb;
 \c mypgsqldb
 ```
 
-Now you have connected to the Azure Database for PostgreSQL and created a blank user database. Continue to the next section to connect using another common tool pgAdmin.
-
 ## Connect to PostgreSQL database using pgAdmin
 
 To connect to Azure PostgreSQL server using the GUI tool _pgAdmin_
