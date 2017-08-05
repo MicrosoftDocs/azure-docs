@@ -26,9 +26,9 @@ ms.custom: H1Hack27Feb2017; it-pro
 
 Customers utilize Azure AD's Application Proxy for more and more scenarios and applications. So we've made App Proxy even more flexible by enabling more topologies. You can create Application Proxy connector groups so that you can assign specific connectors to serve specific applications. This capability gives you more control and ways to optimize your Application Proxy deployment. 
 
-Each Application Proxy connector is assigned to a connector group. All the connectors that belong to the same connector group act as a separate unit for high-availability and load balancing. All connectors belong to a connector group. If you don't create groups, then all your connectors are in a default group. You admin can create new groups and assign connectors to them in the Azure portal. 
+Each Application Proxy connector is assigned to a connector group. All the connectors that belong to the same connector group act as a separate unit for high-availability and load balancing. All connectors belong to a connector group. If you don't create groups, then all your connectors are in a default group. Your admin can create new groups and assign connectors to them in the Azure portal. 
 
-All applications are assigned to a connector group. If you don't create groups, then all your applications are assigned to a default group. But if you organize your connectors into groups, you can set each application to work with a specific connector group. In this case, only the connectors in that group will serve the application upon request. This feature is useful if your applications are hosted in different locations. You can create connector groups based on location, so that applications are always served by connectors that are physically close to them.
+All applications are assigned to a connector group. If you don't create groups, then all your applications are assigned to a default group. But if you organize your connectors into groups, you can set each application to work with a specific connector group. In this case, only the connectors in that group serve the application upon request. This feature is useful if your applications are hosted in different locations. You can create connector groups based on location, so that applications are always served by connectors that are physically close to them.
 
 >[!TIP] 
 >If you have a large Application Proxy deployment, don't assign any applications to the default connector group. That way, new connectors don't receive any live traffic until you assign them to an active connector group. This configuration also enables you to put connectors in an idle mode by moving them back to the default group, so that you can perform maintenance without impacting your users.
@@ -43,7 +43,7 @@ Use these steps to create as many connector groups as you want.
 1. Select **Azure Active Directory** > **Enterprise applications** > **Application proxy**.
 2. Select **New connector group**. The New Connector Group blade appears.
 
-   ![Select new connector group](./media/active-directory-application-proxy-connectors-azure-portal/add-group.png)
+   ![Select new connector group](./media/active-directory-application-proxy-connectors-azure-portal/new-group.png)
 
 3. Give your new connector group a name, then use the dropdown menu to select which connectors belong in this group.
 4. Select **Save**.
@@ -65,9 +65,9 @@ Many organizations have a number of interconnected datacenters. In this case, yo
 
 ### Applications installed on isolated networks
 
-Applications can be hosted in networks that are not part of the main corporate network. You can use connector groups to install dedicated connectors on isolated networks to also isolate applications to the network. This usually happens when a third party vendor maintains a specific application for your organization. 
+Applications can be hosted in networks that are not part of the main corporate network. You can use connector groups to install dedicated connectors on isolated networks to also isolate applications to the network. This usually happens when a third-party vendor maintains a specific application for your organization. 
 
-Connector groups allow you to install dedicated connectors for those networks that publish only specific applications, making it easier and more secure to outsource application management to third party vendors.
+Connector groups allow you to install dedicated connectors for those networks that publish only specific applications, making it easier and more secure to outsource application management to third-party vendors.
 
 ### Applications installed on IaaS 
 
@@ -83,9 +83,9 @@ This can become an issue as many organizations use multiple cloud vendors, as th
 
 ### Multi-forest – different connector groups for each forest
 
-Most customers who have deployed Application Proxy are using its single-sign-on (SSO) capabilities by performing Kerberos Constrained Delegation (KCD). To acheive this, the connector’s machines need to be joined to a domain that can delegate the users toward the application. KCD supports cross-forest capabilities. But for companies who have distinct multi-forest environments with no trust between them, a single connector cannot be used for all forests. 
+Most customers who have deployed Application Proxy are using its single-sign-on (SSO) capabilities by performing Kerberos Constrained Delegation (KCD). To achieve this, the connector’s machines need to be joined to a domain that can delegate the users toward the application. KCD supports cross-forest capabilities. But for companies who have distinct multi-forest environments with no trust between them, a single connector cannot be used for all forests. 
 
-In this case, specific connectors can be deployed per forest, and set to serve applications that were published to serve only the users of that specific forest. Each connector group represents a different forest. While the tenant and most of the experience will be unified for all forests, users can be assigned to their forest applications using Azure AD groups.
+In this case, specific connectors can be deployed per forest, and set to serve applications that were published to serve only the users of that specific forest. Each connector group represents a different forest. While the tenant and most of the experience is unified for all forests, users can be assigned to their forest applications using Azure AD groups.
  
 ### Disaster Recovery sites
 
@@ -100,7 +100,7 @@ There are many different ways to implement a model in which a single service pro
 
 ## Sample configurations
 
-Some examples that you can implement, include the followiong connector groups.
+Some examples that you can implement, include the following connector groups.
  
 ### Default configuration – no use for connector groups
 
