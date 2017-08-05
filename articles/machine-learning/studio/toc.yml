@@ -223,7 +223,7 @@
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Net- name: Neural Networks Language
+  - name: Net# Neural Networks Language
     href: azure-ml-netsharp-reference-guide.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/machine-learning/
