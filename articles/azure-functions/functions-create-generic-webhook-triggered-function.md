@@ -66,7 +66,7 @@ Next, you create a webhook endpoint in an activity log alert in Azure Monitor.
 
     ![Create an activity log alert](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
 
-
+    
     | Setting      |  Suggested value   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Activity log alert name** | resource-group-create-alert | Name of the activity log alert. |
@@ -81,8 +81,6 @@ Next, you create a webhook endpoint in an activity log alert in Azure Monitor.
     | **Action group** | New | Create a new action group, which defines the action takes when an alert is raised. |
     | **Action group name** | function-webhook | A name to identify the action group.  | 
     | **Short name** | funcwebhook | A short name for the action group. |  
-
-
 
 
 3. In **Actions**, add an action using the settings as specified in the table: 
