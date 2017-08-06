@@ -30,15 +30,15 @@ Before you can test-drive the API from the online console, you will need the **O
 
 3.  Enter your subscription key in the **Ocp-Apim-Subscription-Key** field.
 
-  ![Try Image Moderation API Step 2](images/test-image-api-1.png)
+  ![Try Image Moderation API Step 2](images/test-image-api-1.PNG)
 
 4.  Use the default sample image included in the **Request Body** field. 
 
-   ![Try Image Moderation API Step 2](images/test-image-api-2.png)
+   ![Try Image Moderation API Step 3](images/test-image-api-2.PNG)
 
 5.  This is the image on that URL:
 
-  ![Try Image Moderation API Sample Image](images/sample-image.png)
+  ![Try Image Moderation API Sample Image](images/sample-image.PNG)
 
 5. Click "**Send**".
 
@@ -46,7 +46,7 @@ Before you can test-drive the API from the online console, you will need the **O
 - The Adult and racy match boolean values
 - The Adult and Racy match confidence scores
 
-  ![Try Image Moderation API Step 3](images/test-image-api-3.png)
+  ![Try Image Moderation API Step 3](images/test-image-api-3.PNG)
 
 ## Text detection via OCR capability
 
@@ -64,7 +64,7 @@ Before you can test-drive the API from the online console, you will need the **O
 
 5. Click **Send**. You will see the extracted text in the JSON as shown below:
 
-  ![Try Image Moderation API OCR](images/test-image-ocr.png)
+  ![Try Image Moderation API OCR](images/test-image-ocr.PNG)
 
 ## Next steps ##
 
