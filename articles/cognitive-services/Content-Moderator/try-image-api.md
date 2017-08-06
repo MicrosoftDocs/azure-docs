@@ -38,7 +38,7 @@ Before you can test-drive the API from the online console, you will need the **O
 
 5.  This is the image on that URL:
 
-  ![Try Image Moderation API Sample Image](images/sample-image.png)
+  ![Try Image Moderation API Sample Image](images/sample-image.JPG)
 
 5. Click "**Send**".
 
@@ -64,7 +64,7 @@ Before you can test-drive the API from the online console, you will need the **O
 
 5. Click **Send**. You will see the extracted text in the JSON as shown below:
 
-  ![Try Image Moderation API OCR](images/try-image-ocr.png)
+  ![Try Image Moderation API OCR](images/try-image-ocr.PNG)
 
 ## Next steps ##
 
