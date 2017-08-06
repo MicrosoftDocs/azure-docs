@@ -20,7 +20,7 @@ ms.author: glenga
 ---
 # Create a function triggered by a generic webhook
 
-Learn how to execute code when a resource group is created in your subscription. In this topic, you create a function that is triggered by an HTTP webhook request from an activity log alert in Azure Monitor. The webhook request contains a JSON payload with data about the activity that triggered the alert.  
+Learn how to execute code when a resource group is created     in your subscription. In this topic, you create a function that is triggered by an HTTP webhook request from an alert in Azure Monitor. The request contains a JSON payload with data about the activity that triggered the alert.  
 
 ![Generic webhook triggered function in the Azure portal](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
 
@@ -42,7 +42,7 @@ Next, you create a function in the new function app.
 
 ## <a name="create-function"></a>Create a generic webhook triggered function
 
-1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **Custom function**. This displays the complete set of function templates.
+1. Expand your function app and click the **+** button next to **Functions**. If this function is the first one in your function app, select **Custom function**. This displays the complete set of function templates.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
 
@@ -71,7 +71,7 @@ Next, you create a webhook endpoint in an activity log alert in Azure Monitor.
     | ------------ |  ------- | -------------------------------------------------- |
     | **Activity log alert name** | resource-group-create-alert | Name of the activity log alert. |
     | **Subscription** | Your subscription | The subscription you are using for this tutorial. | 
-    |  **Resource Group** | myResourceGroup | The resource group the alert and action group is deployed to. Using the same resource group as your function app makes it easier to clean-up after you complete the tutorial. |
+    |  **Resource Group** | myResourceGroup | The resource group the alert and action group is deployed to. Using the same resource group as your function app makes it easier to clean up after you complete the tutorial. |
     | **Event category** | Administrative | This category includes changes made to Azure resources.  |
     |  **Resource type** | Resource groups | Filters alerts to only resource groups activities. |
     |  **Resource Group** <br/>and **Resource** | All | Monitor all resource groups. |
@@ -153,7 +153,7 @@ Now you can test the function by creating a new resource group in your subscript
 
     ![Add a test application setting.](./media/functions-create-generic-webhook-triggered-function/function-view-logs.png)
 
-3. (Optional) Go back and delete the resource group that you just created. Because of the filtering in the alert, the delete operation does not trigger the function. 
+3. (Optional) Go back and delete the resource group that you created. Because of the filtering in the alert, the delete operation does not trigger the function. 
 
 ## Clean up resources
 
