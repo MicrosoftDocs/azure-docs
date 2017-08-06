@@ -15,7 +15,7 @@ ms.author: sajagtap
 # Try the Text Moderation API #
 
 ## About the Text Moderation API ##
-Use the [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) to initiate scan-and-review moderation workflows with text content. The moderation job scans your content for profanity, comparing it against custom and/or shared blacklists.
+Use the [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) to scan-your text content. The job scans your content for profanity, comparing it against custom and/or shared blacklists.
 
 ## Try with the API console ##
 Before you can test-drive the API from the online console, you will need the **Ocp-Apim-Subscription-Key**. This is found under the Settings tab, as shown below.
