@@ -12,7 +12,7 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Try the Image Moderation API #
+# Try Image Moderation API #
 
 ## About the Image Moderation API ##
 Use the [Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) to initiate scan-and-review moderation workflows with text content. The moderation job scans your content for profanity, comparing it against custom and/or shared blacklists.
@@ -38,7 +38,7 @@ Before you can test-drive the API from the online console, you will need the **O
 
 5.  This is the image on that URL:
 
-  ![Try Image Moderation API Sample Image](images/sample-image.PNG)
+  ![Try Image Moderation API Sample Image](images/sample-image.png)
 
 5. Click "**Send**".
 
@@ -64,7 +64,7 @@ Before you can test-drive the API from the online console, you will need the **O
 
 5. Click **Send**. You will see the extracted text in the JSON as shown below:
 
-  ![Try Image Moderation API OCR](images/try-image-ocr.PNG)
+  ![Try Image Moderation API OCR](images/try-image-ocr.png)
 
 ## Next steps ##
 
