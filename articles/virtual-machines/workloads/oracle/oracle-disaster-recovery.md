@@ -35,7 +35,7 @@ A customer has an Oracle database set up on the primary site. A DR site is in a 
 
 Here is a summary of the Azure setup.
 
-- Two sites (a primary site and a and DR site)
+- Two sites (a primary site and a DR site)
 - Two virtual networks
 - Two Oracle databases with Data Guard (primary and standby)
 - Two Oracle databases with Golden Gate or Data Guard (primary site only)
@@ -43,7 +43,7 @@ Here is a summary of the Azure setup.
 - An *availability set,* which is used for database and application service on the primary site
 - One jumpbox on each site, which restricts access to the private network and only allows sign-in by an administrator
 - A jumpbox, application service, database, and VPN gateway on separate subnets
-- NSG is enforced on application and database subnets
+- NSG enforced on application and database subnets
 
 ![Screenshot of the DR topology page](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
@@ -65,9 +65,9 @@ Following is a summary of the Azure setup:
 - One application service on the DR site
 - One jumpbox is used, which restricts access to the private network and only allows sign-in by an administrator
 - A jumpbox, application service, database, and VPN gateway on separate subnets
-- NSG is enforced on application and database subnets
+- NSG enforced on application and database subnets
 - An NSG policy/rule to allow inbound TCP port 1521 (or a user-defined port)
-- An NSG policy/rule to restrict only the IP address/addresses on-premises (DB or application) to access the virtual network.
+- An NSG policy/rule to restrict only the IP address/addresses on-premises (DB or application) to access the virtual network
 
 ![Screenshot of the DR topology page](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
@@ -89,7 +89,7 @@ Following is a summary of the Azure setup:
 
 ![Screenshot of the DR topology page](./media/oracle-disaster-recovery/oracle_topology_03.png)
 
-## Additional readings:
+## Additional reading
 
 - [Design and implement Oracle database on Azure](oracle-design.md)
 - [Configure Oracle Data Guard](configure-oracle-dataguard.md)
