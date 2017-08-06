@@ -32,4 +32,4 @@ Before you can test-drive the API from the online console, you will need the **O
 
 ## Next steps ##
 
-To learn how to use the text moderation API, see the [Try text moderation API](try-text-api.md) article.
+To learn how to use the text moderation API, see the [Try Text Moderation API](try-text-api.md) article.
