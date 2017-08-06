@@ -44,4 +44,4 @@ Before you can test-drive the API from the online console, you will need the **O
 
 ## Next steps ##
 
-To learn how to use the image moderation API, see the [Try image moderation](try-image-api.md) article.
+To learn how to use the image moderation API, see the [Try Image Moderation API](try-image-api.md) article.
