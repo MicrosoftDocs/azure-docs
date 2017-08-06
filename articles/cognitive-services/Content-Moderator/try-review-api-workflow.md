@@ -59,4 +59,4 @@ The simplest way to access a testing console is from the Credentials window.
 
 ## Next steps ##
 
-To learn how to use workflows with moderation jobs, see the [Moderation Jobs](test-drive-job.md) article.
+To learn how to use workflows with **Jobs**, see the [Try Moderation Jobs](try-review-api-job.md) article.
