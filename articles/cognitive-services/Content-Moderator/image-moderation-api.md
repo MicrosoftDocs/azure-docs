@@ -19,7 +19,6 @@ Use Content Moderator’s Image Moderation API [(see API reference)](api-referen
 ## Evaluating for adult and racy content ##
 
 The Image Moderation API’s **Evaluate** operation returns a confidence score (between 0 and 1) and Boolean data (true or false) to predict whether the image contains potential adult or racy content. When you call the API with your image (file or URL), the returned information includes this information:
-
 - The adult or racy confidence score (between 0 and 1).
 - A Boolean value (true or false) based on default thresholds.
 
@@ -61,6 +60,6 @@ If a match is found, the operation returns the identifier and the moderation tag
 As mentioned previously, if the images are already tagged, you would match repeated content against pre-approved or pre-rejected images, without having to go through the moderation-and-review workflow.
 The Content Moderator provides a complete [Image List Management API](try-image-list-api.md) with operations for creating and deleting lists, and for adding and removing images from those lists.
 
-## Next Steps ##
+## Next steps ##
 
 Test drive the Image Moderation API by using the [Try Image Moderation API](try-image-api.md) article.
