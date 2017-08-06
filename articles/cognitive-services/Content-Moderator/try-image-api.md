@@ -38,7 +38,7 @@ Before you can test-drive the API from the online console, you will need the **O
 
 5.  This is the image on that URL:
 
-  ![Try Image Moderation API Sample Image](images/sample-image.JPG)
+  ![Try Image Moderation API Sample Image](images/sample-image.jpg) 
 
 5. Click "**Send**".
 
