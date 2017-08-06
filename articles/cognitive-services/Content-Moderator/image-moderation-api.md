@@ -1,5 +1,5 @@
 ---
-title: Image Moderation API for Azure Content Moderator | Microsoft Docs
+title: Image Moderation API in Azure Content Moderator | Microsoft Docs
 description: Use the Image Moderation API to moderate inappropriate images
 services: cognitive-services
 author: sanjeev3
@@ -12,7 +12,7 @@ ms.date: 08/06/2017
 ms.author: sajagtap
 ---
 
-# Image Moderation API #
+# Image Moderation API Overview #
 
 Use Content Moderator’s Image Moderation API [(see API reference)](api-reference.md "Content Moderator API Reference") to moderate images for adult and racy content. Scan images for text content and extract that text, and detect faces. You can match images against custom and shared lists, and block frequently-posted offensive content.
 
