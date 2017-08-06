@@ -53,13 +53,13 @@ A customer has an on-premises Oracle database setup (primary site). A DR site is
 
 There are two approaches for this setup.
 
-### 1. Direct connections between on-Premises and Azure, requiring open TCP ports on the firewall. This approach is not recommended because it exposes the TCP ports to the outside world.
+### 1. Direct connections between on-premises and Azure, requiring open TCP ports on the firewall. This approach is not recommended because it exposes the TCP ports to the outside world.
 
 ### Topology
 
 Following is a summary of the Azure setup:
 
-- One site (DR site)
+- One DR site 
 - One virtual network
 - One Oracle database with Data Guard (active)
 - One application service on the DR site
@@ -67,7 +67,7 @@ Following is a summary of the Azure setup:
 - A jumpbox, application service, database, and VPN gateway on separate subnets
 - NSG is enforced on application and database subnets
 - An NSG policy/rule to allow inbound TCP port 1521 (or a user-defined port)
-- An NSG policy/rule to restrict only IP address/addresses on-premises access (DB or application) to the virtual network.
+- An NSG policy/rule to restrict only the IP address/addresses on-premises (DB or application) to access the virtual network.
 
 ![Screenshot of the DR topology page](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
@@ -78,7 +78,7 @@ Following is a summary of the Azure setup:
 
 Following is a summary of the Azure setup:
 
-- One site (DR)
+- One DR site 
 - One virtual network 
 - One Oracle database with Data Guard (active)
 - One application service on the DR site
