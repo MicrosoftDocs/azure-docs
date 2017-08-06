@@ -1,5 +1,5 @@
 ---
-title: Try Image API in Azure Content Moderator | Microsoft Docs
+title: Try the Image API in Azure Content Moderator | Microsoft Docs
 description: Try Image API from the online console
 services: cognitive-services
 author: sanjeev3
@@ -12,7 +12,7 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Try Image Moderation API #
+# Try the Image Moderation API #
 
 ## About the Image Moderation API ##
 Use the [Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) to initiate scan-and-review moderation workflows with text content. The moderation job scans your content for profanity, comparing it against custom and/or shared blacklists.
@@ -26,10 +26,46 @@ Before you can test-drive the API from the online console, you will need the **O
 
   ![Try Image Moderation API Step 1](images/test-drive-region.png)
 
-2.  You will land on the **Image - Evaluate** API reference.
+2.  You will land on the **Image - Evaluate** API console.
 
- TBD
+3.  Enter your subscription key in the **Ocp-Apim-Subscription-Key** field.
+
+  ![Try Image Moderation API Step 2](images/test-image-api-1.png)
+
+4.  Use the default sample image included in the **Request Body** field. 
+
+   ![Try Image Moderation API Step 2](images/test-image-api-2.png)
+
+5.  This is the image on that URL:
+
+  ![Try Image Moderation API Sample Image](images/sample-image.png)
+
+5. Click "**Send**".
+
+6. You see a response back from the API that includes this information:
+- The Adult and racy match boolean values
+- The Adult and Racy match confidence scores
+
+  ![Try Image Moderation API Step 3](images/test-image-api-3.png)
+
+## Text detection via OCR capability
+
+1. Click the "**OCR**" option on the left hand side menu. You land on the [OCR reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66b) page.
+
+2. Click the button that most closely describes your location, under **Open API testing console**.
+
+  ![Try Image Moderation API Step 1](images/test-drive-region.png)
+
+  You land on the [OCR test console](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66b).
+
+3. Enter your subscription key in the **Ocp-Apim-Subscription-Key** field.
+
+4.  Use the default sample image included in the **Request Body** field. This is the same image as above.
+
+5. Click **Send**. You will see the extracted text in the JSON as shown below:
+
+  ![Try Image Moderation API OCR](images/test-image-ocr.png)
 
 ## Next steps ##
 
-To learn how to use the text moderation API, see the [Try Text Moderation API](try-text-api.md) article.
+To learn how to use the text moderation API, see the [Try text moderation](try-text-api.md) article.
