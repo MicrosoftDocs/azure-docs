@@ -77,3 +77,59 @@ Before you can test-drive the API from the online console, you will need the **O
   ![Try Terms List Management API Step 4](images/try-terms-list-create-4.png)
  
 10.	Add a few more terms. Now that you have created a custom list of terms, try [scanning some text](try-text-api.md) against it. 
+
+## Deleting terms and lists ##
+
+Deleting a term or a list is straightforward. The API supports these operations:
+
+- Delete a term. **(Term > Delete)**
+- Delete all the terms in a list without deleting the list. **(Term > Delete All Terms)**
+- Delete the list and all of its contents. **(Term Lists > Delete)**
+
+This example deletes a single term.
+
+1.	On the left, click **Term > Delete**. Click the button that most closely describes your location, under Open API testing console. 
+
+  ![Try Terms List Management API Region](images/test-drive-region.png)
+ 
+  The **Term – Delete API** console opens.
+ 
+2.	Enter the **listId** for the list you are concerned with. This is the number **(122)** that was returned with the **Get Details** API for **MyList**, in the section above. Enter the term and choose a language.
+ 
+  ![Try Terms List Management API Delete Step 1](images/try-terms-list-delete-1.png)
+
+3.	Enter your **subscription key** and click **Send**.
+
+4.	Verify the term has been deleted by using the **Term > Get All Terms** API.
+
+  ![Try Terms List Management API Delete Step 1](images/try-terms-list-delete-1.png)
+ 
+## Changing a list’s information ##
+
+You can edit a list’s name and description, and add metadata items.
+
+1.	On the left, click **Term Lists > Update** Details. Click the button that most closely describes your location, under **Open API testing console**. The **Term Lists – Update Details** API console opens.
+
+  ![Try Terms List Management API Region](images/test-drive-region.png)
+ 
+2.	Enter the **listId** and your **subscription key**.
+
+3.	Make your edits in the **Request Body** field, and click **Send**.
+
+  ![Try Terms List Management API Change Step 1](images/try-terms-list-change-1.png)
+ 
+## Refresh Search Index ##
+
+After you have made changes to a list, its index must be refreshed before subsequent scans will “see” the changes. This is similar to how a search engine on your desktop (if enabled) or a web search engine continually refreshes its index to include new files or pages.
+
+1.	On the left, click **Term Lists > Refresh** Search Index. Click the button that most closely describes your location, under **Open API testing console**. The **Term Lists – Refresh Search Index** API console opens.
+
+  ![Try Terms List Management API Region](images/test-drive-region.png)
+
+2.	Enter the **listId** and your **subscription key**, and click **Send**.
+
+![Try Terms List Management API Refresh Index Step 1](images/try-terms-list-refresh-1.png)
+
+## Next steps ##
+
+To learn how to use the image list management API, see the [Try Image List Management](try-image-list-api.md) article.
