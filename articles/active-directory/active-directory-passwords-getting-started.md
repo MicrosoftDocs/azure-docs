@@ -14,12 +14,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
 
 ---
-# Quick Start: Azure AD self-service password reset
+# Quickstart: Azure AD self-service password reset
+
+> [!IMPORTANT]
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 
 ## Rapidly deploy self-service password reset
 
@@ -73,6 +76,12 @@ To enable on-premises identity synchronization to Azure AD, you need to install 
 Disabling self-service password reset is as simple as opening your Azure AD tenant and going to **Password Reset > Properties** > choose **Nobody** under **Self Service Password Reset Enabled**
 
 ## Next steps
+
+In this quick start, you’ve learned how to configure self-service password reset for your users. To continue to the Azure portal to complete these steps follow the link below to the portal.
+
+> [!div class="nextstepaction"]
+> [Azure AD self-service password reset](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 The following links provide additional information regarding password reset using Azure AD
 
 * [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
