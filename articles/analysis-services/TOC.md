@@ -1,5 +1,9 @@
 # Overview
 ## [What is Azure Analysis Services?](analysis-services-overview.md)
+## [Supported data sources](analysis-services-datasource.md)
+## [Authentication and user permissions](analysis-services-manage-users.md)
+## [Compatibility level](analysis-services-compat-level.md)
+## [High availability](analysis-services-bcdr.md)
 
 # Tutorials
 ## Create and deploy a model
@@ -21,12 +25,6 @@
 ### [Supplemental lesson - Dynamic security](tutorials/aas-supplemental-lesson-dynamic-security.md)
 ### [Supplemental lesson - Ragged hierarchies](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
-# Concepts
-## [Supported data sources](analysis-services-datasource.md)
-## [Authentication and user permissions](analysis-services-manage-users.md)
-## [High availability](analysis-services-bcdr.md)
-## [Compatibility level](analysis-services-compat-level.md)
-
 # How-to 
 ## Server management
 ### [Create a server in Azure portal](analysis-services-create-server.md)
@@ -40,7 +38,7 @@
 ### [Create a model in Azure portal (preview)](analysis-services-create-model-portal.md)
 ### [Get client libraries](analysis-services-data-providers.md)
 ### [Backup and restore](analysis-services-backup.md)
-## Connect with clients
+## Client connections
 ### [Connect with Excel](analysis-services-connect-excel.md)
 ### [Connect with Power BI](analysis-services-connect-pbi.md)
 ### [Create an .odc file](analysis-services-odc.md)
