@@ -72,7 +72,11 @@ Action Groups do not support SMS at this time but will in a coming update.
 Activity Log Alerts are generally available in Azure Government with no differences from commercial Azure.
 
 #### Autoscale
-Autoscale via the portal is not currently available. This feature is coming soon. If you are interested in implementing autoscale on your resources, please use PowerShell/ARM/Rest calls to specify the settings. 
+<aside class="warning">
+Autoscale via the portal is not currently available. This feature is coming soon. 
+</aside>
+
+If you are interested in implementing autoscale on your resources, please use PowerShell/ARM/Rest calls to specify the settings. 
 
 For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-powershell-samples#create-and-manage-autoscale-settings).
 
@@ -88,7 +92,11 @@ Metrics are supported in all regions, but only for services which are available 
 The same methods for viewing the metrics that are used in commercial Azure are used in Azure Government. 
 
 #### Metric Alerts 
-Creating Metric Alerts for resources outside of USGov Virginia and USGov Iowa in the portal will fail. A fix for this issue is in progress. In the meantime, please use PowerShell/ARM/Rest calls to specify the settings. You will need to set the "Location" of the metric alert to USGov Virginia or USGov Iowa. The resource targetted by the alert can exist in any region. An example of the setting is below:
+<aside class="warning">
+Creating Metric Alerts for resources outside of USGov Virginia and USGov Iowa in the portal will fail. A fix for this issue is in progress. 
+</aside>
+
+In the meantime, please use PowerShell/ARM/Rest calls to specify the settings. You will need to set the "Location" of the metric alert to USGov Virginia or USGov Iowa. The resource targetted by the alert can exist in any region. An example of the setting is below:
 
 ```PowerShell
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com 
