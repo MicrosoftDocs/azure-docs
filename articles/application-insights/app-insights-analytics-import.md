@@ -55,19 +55,13 @@ You need:
 
  * We recommend you create a dedicated storage account for your blobs. If your blobs are shared with other processes, it takes longer for our processes to read your blobs.
 
-2. While this feature is in preview, you must ask for access.
-
- * From your Application Insights resource in the [Azure portal](https://portal.azure.com), open Analytics. 
- * At the bottom of the schema pane, click the 'Contact us' link under **Other Data Sources.** 
- * If you see 'Add data source', then you already have access.
-
 
 ## Define your schema
 
 Before you can import data, you must define a *data source,* which specifies the schema of your data.
 You can have up to 50 data sources in a single Application Insights resource
 
-1. Start the data source wizard.
+1. Start the data source wizard. Use "Add new data source" button. Alternatively - click on settings button in right upper corner and choose "Data Sources" in dropdown menu.
 
     ![Add new data source](./media/app-insights-analytics-import/add-new-data-source.png)
 
