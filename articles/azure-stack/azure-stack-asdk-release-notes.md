@@ -45,7 +45,7 @@ Starting with the [20170627.1](azure-stack-updates.md#determine-the-current-vers
 * When selecting an infrastructure role instance,  you see an error showing a reference error. Use the browser’s refresh functionality to refresh the Admin Portal.
 * The "move" button is disabled on the Resource Group blade.  This is expected behavior, because moving resource groups between subscriptions is not currently supported.
 * You will receive repeated notifications for syndicated marketplace items that have completed downloading.
-* You are not able to view permissions to your subscription using the Azure Stack portals.  As a work around, you can verify permissions using Powershell.
+* You are not able to view permissions to your subscription using the Azure Stack portals.  As a work-around, you can verify permissions using Powershell.
 * You must add `-TenantID` as a flag when exporting a completed deployment as an automation script from the portal.
 
 #### Services
