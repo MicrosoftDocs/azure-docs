@@ -62,7 +62,7 @@ Scopes, which are analogous to permissions, are necessary when your app is calli
 Once an API is configured to publish scopes, the client application needs to be granted those scopes via the Azure portal.
 
 1. Navigate to the **Applications** menu in the B2C features blade.
-1. Register a client application ([web app](active-directory-b2c-app-registration.md#register-a-web-application) or [native client](active-directory-b2c-app-registration.md#register-a-mobilenative-application)) if you don’t have one already.
+1. Register a client application ([web app](active-directory-b2c-app-registration.md#register-a-web-app) or [native client](active-directory-b2c-app-registration.md#register-a-mobile-or-native-app)) if you don’t have one already.
 1. Click on **Api access**.
 1. Click on **Add**.
 1. Select your web API and the scopes (permissions) you would like to grant.
