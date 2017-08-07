@@ -22,7 +22,9 @@ ms.custom: H1Hack27Feb2017
 
 # Deploy Kubernetes cluster for Linux containers
 
-In this quick start, a Kubernetes cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
+In this quick start, a Kubernetes cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet. 
+
+The sample application is written in Python but Kubernetes can be used to deply any application written in any language.
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
