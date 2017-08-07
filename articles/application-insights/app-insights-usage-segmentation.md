@@ -66,4 +66,5 @@ The Insights sidebar shows large clusters of users that share common properties.
 * [Usage overview](app-insights-usage-overview.md)
 * [Retention](app-insights-usage-retention.md)
 * [Coding custom events](app-insights-api-custom-events-metrics.md)s
+* [Flows](app-insights-usage-flows.md)
 

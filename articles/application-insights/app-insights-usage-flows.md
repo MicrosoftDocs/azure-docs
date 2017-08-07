@@ -67,15 +67,11 @@ If your initial event is a custom event, the first column shows what users did j
 
 ## Where are the places that users churn most from your site?
 
-![TBD screenshot of Flows...with some really obvious churn](TBD link)
-
 Watch for "Session Ended" nodes that appear high-up in a column in the visualization, especially early in a flow. This means many users probably churned from your site after following the preceding path of pages and UI interactions. Sometimes churn is expected - after completing a purchase on an eCommerce site, for example - but usually churn is a sign of design problems, poor performance, or other issues with your site that can be improved.
 
 Keep in mind that "Session Ended" nodes are based only on telemetry collected by this Application Insights resource. If Application Insights doesn't receive telemetry for certain user interactions, users could still have interacted with your site in those ways after the Flows tool says the session ended.
 
 ## Are there places where users repeat the same action over and over?
-
-![TBD screenshot of Flows...with a really obvious repetition](TBD link)
 
 Look for a page view or custom event that is repeated by many users across subsequent steps in the visualzation. This usually means that users are performing repetitive actions on your site. If you find repetition, think about changing the design of your site or adding new functionality to reduce repetition. For example, adding bulk edit functionality if you find users performing repetitive actions on each row of a table element.
 

@@ -169,4 +169,5 @@ All new TelemetryClients automatically add the property value you specify. Indiv
 * [Users and sessions](app-insights-usage-segmentation.md)
 * [Retention](app-insights-usage-retention.md)
 * [Coding custom events](app-insights-api-custom-events-metrics.md)
+* [Flows](app-insights-usage-flows.md)
 
