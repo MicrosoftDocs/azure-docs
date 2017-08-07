@@ -60,7 +60,7 @@ The following URLs for Site Recovery are different in Azure Government:
 ## Monitor
 Azure Monitor is generally available in Azure Government.
 
-For more information, see [Monitor commercial documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview).
+For more information, see [Monitor commercial documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview).
 
 ### Variations
 The following sections detail differences and workarounds for features of Azure Monitor in Azure Government:
@@ -103,7 +103,7 @@ $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com
 Add-AzureRmMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup myrg1 -TargetResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.ClassicCompute/virtualMachines/my_vm1 -MetricName "Percentage CPU" -Operator GreaterThan -Threshold 1 -WindowSize 00:05:00 -TimeAggregationOperator Average -Actions $actionEmail, $actionWebhook -Description "alert on CPU > 1%" 
 ```
 
-For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-powershell-samples#create-alert-rules).
+For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples#create-alert-rules).
 
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
@@ -161,5 +161,6 @@ The following Log Analytics features behave differently in Azure Government:
 For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).
 
 ## Next steps
-For supplemental information and updates, subscribe to the
-<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+* Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
+* Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)
+* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government) 
