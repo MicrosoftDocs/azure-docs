@@ -1,27 +1,55 @@
 ---
 title: Microsoft Azure IoT Suite overview | Microsoft Docs
-description: Overview of how Azure IoT Suite delivers internet of things preconfigured solutions to collect, analyze, and store data, provide visualizations, and integrate with other systems.
+description: IoT Suite is a collection of customizable preconfigured solutions you can deploy to Azure, such as remote monitoring and predictive maintenance.
 services: ''
 suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
 
 ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
 ms.service: iot-suite
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 
 ---
-# Overview of Azure IoT Suite
 
-The Azure internet of things (IoT) services offer a broad range of capabilities. These enterprise grade services enable you to:
+<!-- Differences between IoT Central and PCS
+* Architecture
+* Infrastructure
+* Development
+* Decision criteria for choosing IoT and PCS
+
+Compare IoT solution options, replaces existing "What is IoT Suite?" article.-->
+
+# What is Azure IoT Suite?
+
+Azure IoT Suite is a collection of preconfigured IoT solutions that you can deploy to your Azure subscription. Each *preconfigured solution* is a base implementation of a common IoT solution pattern such as remote monitoring or predictive maintenance. You can customize and extend these solutions to meet your specific requirements. You can also use these solutions as examples or templates when you develop new IoT solutions.
+
+## Compare IoT Suite, IoT Central, and IoT Hub
+
+You can use IoT Suite, IoT Central, or IoT Hub to build your IoT solution. The following table summarizes the key differences between these services to help you choose the correct one to meet your requirements:
+
+|   | IoT Suite | IoT Central | IoT Hub |
+| - | --------- | ----------- | ------- |
+| Service type | PaaS | SaaS | IaaS |
+
+<!-- Extend table with info from Cory and Hector -->
+
+Both IoT Suite and IoT Central use IoT Hub for core IoT services such as telemetry and device management.
+
+## Use preconfigured solutions
+
+IoT Suite preconfigured solutions enable you to quickly get started with and to explore the common IoT scenarios, such as:
+
+* Remote monitoring
+* Predictive maintenance
+* Connected factory
+
+You can deploy these solutions to your Azure subscription and then run complete, end-to-end IoT scenarios.
+
+The preconfigured solutions implement a number of core IoT capabilities. These enterprise grade solutions deliver services such as:
 
 * Collect data from devices
 * Analyze data streams in-motion
@@ -30,45 +58,13 @@ The Azure internet of things (IoT) services offer a broad range of capabilities.
 * Integrate with back-office systems
 * Manage your devices
 
-To deliver these capabilities, Azure IoT Suite packages together multiple Azure services with custom extensions as *preconfigured solutions*. These preconfigured solutions are base implementations of common IoT solution patterns that help to reduce the time you take to deliver your IoT solutions. Using the [IoT software development kits][lnk-sdks], you can customize and extend these solutions to meet your own requirements. You can also use these solutions as examples or templates when you are developing new IoT solutions.
+To deliver these capabilities, Azure IoT Suite packages together multiple Azure services with custom code as preconfigured solutions.
 
+<!-- Do we have anything more up to date? -->
 The following video provides an introduction to Azure IoT Suite:
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON309/player]
-> 
-> 
-
-## Azure IoT services in Azure IoT Suite
-The preconfigured solutions typically use the following services:
-
-* Core to Azure IoT Suite is the [Azure IoT Hub][lnk-iot-hub] service. This service provides the device-to-cloud and cloud-to-device messaging capabilities and acts as the gateway to the cloud and the other key IoT Suite services. The service enables you to receive messages from your devices at scale, and send commands to your devices. The service also enables you to [manage your devices][lnk-device-management]. For example, you can configure, reboot, or perform a factory reset on one or more devices connected to the hub.
-* [Azure Stream Analytics][lnk-asa] provides in-motion data analysis. IoT Suite uses this service to process incoming telemetry, perform aggregation, and detect events. The preconfigured solutions also use stream analytics to process informational messages that contain data such as metadata or command responses from devices. The solutions use Stream Analytics to process the messages from your devices and deliver those messages to other services.
-* [Azure Storage][lnk-azure-storage] and [Azure Cosmos DB][lnk-document-db] provide the data storage capabilities. The preconfigured solutions use blob storage to store telemetry and to make it available for analysis. The solutions use Cosmos DB to store device metadata and enable the device management capabilities of the solutions.
-* [Azure Web Apps][lnk-web-apps] and [Microsoft Power BI][lnk-power-bi] provide the data visualization capabilities. The flexibility of Power BI enables you to quickly build your own interactive dashboards that use IoT Suite data.
-
-For an overview of the architecture of a typical IoT solution, see [Microsoft Azure and the Internet of Things (IoT)][iot-suite-what-is-azure-iot].
-
-## Preconfigured solutions
-
-IoT Suite includes preconfigured solutions that enable you to quickly get started with and to explore the common IoT scenarios, such as:
-
-* Remote monitoring
-* Predictive maintenance
-* Connected factory
-
-You can deploy these solutions to your Azure subscription and then run a complete, end-to-end IoT scenario.
 
 ## Next steps
 
-Now that you have an overview of what IoT Suite can do and what are its main components, you can learn more about the preconfigured solutions in IoT Suite. For more information, see [What are the Azure IoT preconfigured solutions?][lnk-what-are-preconfig]
-
-[lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
-[lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
-[lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-azure-storage]: https://azure.microsoft.com/documentation/services/storage/
-[lnk-document-db]: https://azure.microsoft.com/documentation/services/documentdb/
-[lnk-power-bi]: https://powerbi.microsoft.com/
-[lnk-web-apps]: https://azure.microsoft.com/documentation/services/app-service/web/
-[iot-suite-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
-[lnk-what-are-preconfig]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-device-management]: ../iot-hub/iot-hub-device-management-overview.md
+Now that you have an overview of IoT Suite, the suggested next step is to learn more about the IoT Suite preconfigured solutions, see [What are the Azure IoT preconfigured solutions?](iot-suite-what-are-preconfigured-solutions.md)
