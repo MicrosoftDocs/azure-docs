@@ -35,9 +35,9 @@ ms.author: rclaus
 
 Following are some important things to keep in mind when migrating on-premises applications to Azure. 
 
-One important difference is that in an Azure implementation, resources such as VMs, disks, NS virtual networks are shared among other clients. In addition, resources can be throttled based on the requirements. Instead of focusing on avoiding failing (MTBF), Azure is more focused on surviving the failure (MTTR).
+One important difference is that in an Azure implementation, resources such as VMs, disks, and virtual networks are shared among other clients. In addition, resources can be throttled based on the requirements. Instead of focusing on avoiding failing (MTBF), Azure is more focused on surviving the failure (MTTR).
 
-The following table lists some of the differencse between an on-premises implementation and an Azure implmentation of an Oracle database.
+The following table lists some of the differences between an on-premises implementation and an Azure implementation of an Oracle database.
 
 > 
 > |  | **On-premises implementation** | **Azure implementation** |
@@ -68,7 +68,7 @@ There are four potential areas that can be tuned to improve performance in an Az
 
 ### Generate an AWR report
 
-If you have existing an Oracle database and are planning to migrate to Azure, you have several options. You can run the Oracle AWR report to get the metrics (IOPS, Mbps, GiBs, and so on), and then choose the VM based on the metrics that you collected. Or you can contact your infrastructure team to get similar information.
+If you have an existing an Oracle database and are planning to migrate to Azure, you have several options. You can run the Oracle AWR report to get the metrics (IOPS, Mbps, GiBs, and so on).Then choose the VM based on the metrics that you collected. Or you can contact your infrastructure team to get similar information.
 
 You might consider running your AWR report during both regular and peak workloads, so you can compare. Based on these reports, you can size the VMs based on either the average workload or the maximum workload.
 
@@ -112,9 +112,9 @@ The following diagram shows the total I/O of read and write. There were 59 GB re
 
 #### 2. Choose a VM
 
-Based on the information that you you collected from the AWR report, the next step is to choose a VM of a similar size that meets your requirements. You can find a list of available VMs in the article [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes-memory).
+Based on the information that you collected from the AWR report, the next step is to choose a VM of a similar size that meets your requirements. You can find a list of available VMs in the article [Memory optimized](https://docs.microsoft.com/azure/virtual-machinFine tune es/virtual-machines-windows-sizes-memory).
 
-#### 3. Fine tune the VM sizing with a similar VM series based on the ACU
+#### 3. Fine-tune the VM sizing with a similar VM series based on the ACU
 
 After you've chosen the VM, pay attention to the ACU for the VM. You might choose a different VM based on the ACU value that better suits your requirements. For more information, see [Azure compute unit](https://docs.microsoft.com/azure/virtual-machines/windows/acu).
 
@@ -133,7 +133,7 @@ The total network throughput is estimated based on the following information:
 
 ![Screenshot of the SQL*Net throughput](./media/oracle-design/sqlnet_info.png)
 
-Based on your network bandwidth requirements, there are various gateway types, such as basic, VpnGw, and ExpressRoute that are available for you to choose from. For more information, see the [VPN gateway pricing page](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h).
+Based on your network bandwidth requirements, there are various gateway types for you to choose from. These include basic, VpnGw, and ExpressRoute  . For more information, see the [VPN gateway pricing page](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h).
 
 **Recommendations**
 
@@ -144,7 +144,7 @@ Based on your network bandwidth requirements, there are various gateway types, s
 
 - *Default OS disks*: These disk types offer persistent data and caching. They are optimized for OS access at startup, and aren't designed for either transactional or data warehouse (analytical) workloads.
 
-- *Unmanaged disks*: With these disk types, you manage the storage accounts that you use to store the virtual hard disk (VHD) files that correspond to your VM disks. VHD files are stored as page blobs in Azure storage accounts.
+- *Unmanaged disks*: With these disk types, you manage the storage accounts that  store the virtual hard disk (VHD) files that correspond to your VM disks. VHD files are stored as page blobs in Azure storage accounts.
 
 - *Managed disks*: Azure manages the storage accounts that you use for your VM disks. You specify the disk type (premium or standard) and the size of the disk that you need. Azure creates and manages the disk for you.
 
@@ -157,7 +157,7 @@ Keep in mind that not all available disks are shown in the drop-down menu. After
 
 For more information, see [High-performance Premium Storage and managed disks for VMs](https://docs.microsoft.com/azure/storage/storage-premium-storage).
 
-After you configure your storage on a VM, you might want to load test the disks before creating a database. Knowing the IO rate in terms of both latency and throughput can help you determine if the VMs support the expected throughput with latency targets.
+After you configure your storage on a VM, you might want to load test the disks before creating a database. Knowing the I/O rate in terms of both latency and throughput can help you determine if the VMs support the expected throughput with latency targets.
 
 There are a number of tools for application load testing, such as Oracle Orion, Sysbench, Fio, and so on.
 
@@ -169,10 +169,10 @@ The IOPS rate can be obtained from the AWR report. It's determined by the redo l
 
 ![Screenshot of the AWR report page](./media/oracle-design/awr_report.png)
 
-For example, the redo size is 12200000 bytes per second, which is equal to 11.63 MBPs.
-The IOPS is 12200000 / 2358 = 5174.
+For example, the redo size is 12,200,000 bytes per second, which is equal to 11.63 MBPs.
+The IOPS is 12,200,000 / 2358 = 5174.
 
-After you have a clear picture of the I/O requirements, you can chose a combination of drives that are best suited to meet those requirements.
+After you have a clear picture of the I/O requirements, you can choose a combination of drives that are best suited to meet those requirements.
 
 **Recommendations**
 
@@ -205,7 +205,7 @@ For more information, see [Premium Storage for Linux VMs](https://docs.microsoft
 - For SYSTEM, TEMP, and UNDO use **None** for caching.
 - For DATA, use **None** for caching, but if your database is read-only or read-intensive, use **Read-only** caching.
 
-After your data disk setting is saved, the host cache setting cannot change unless you unmount the drive at the OS level and then remount it after you've made the change.
+After your data disk setting is saved, you can't change the host cache setting unless you unmount the drive at the OS level and then remount it after you've made the change.
 
 
 ## Security
@@ -222,7 +222,7 @@ After you have set up and configured your Azure environment, the next step is to
 - *Private network* (subnets): We recommend that you have the application service and database on separate subnets, so better control can be set by NSG policy.
 
 
-## Additional reading:
+## Additional reading
 
 - [Configure Oracle ASM](configure-oracle-asm.md)
 - [Configure Oracle Data Guard](configure-oracle-dataguard.md)
