@@ -31,7 +31,7 @@
     - name: Term list API
       href: try-term-list-api.md
   - name: Use the review tool
-    items
+    items:
     - name: Human in the loop
       href: Review-Tool-User-Guide/human-in-the-loop.md
     - name: Use settings
