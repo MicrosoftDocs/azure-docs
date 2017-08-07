@@ -103,7 +103,7 @@ Let's make a quick review of what's happening in the app. Open the `Program.java
 
 1. Open the src/remote.yaml file. 
 
-3. Fill in your *host*, *username*, *password* and configurations in the src/remote.yaml file, the rest of the settings do not need to be changed:
+3. Fill in your *hosts*, *username*, *password* values in the src/remote.yaml file. The rest of the settings do not need to be changed.
 
     Setting|Suggested value|Description
     ---|---|---
@@ -114,7 +114,7 @@ Let's make a quick review of what's happening in the app. Open the `Program.java
     For the Hosts value, copy the **Gremlin URI** value from the **Overview** page. If it's empty, see the instructions in the Hosts row in the preceding table about creating the Gremlin URI from the Keys blade.
 ![View and copy the Gremlin URI value on the Overview page in the Azure portal](./media/create-graph-java/gremlin-uri.png)
 
-    For the Password value, copy the **Primary key** from the **Keys** page:
+    For the Password value, copy the **Primary key** from the **Keys** blade:
 ![View and copy your primary key in the Azure portal, Keys page](./media/create-graph-java/keys.png)
 
 ## Run the console app
@@ -125,10 +125,12 @@ Let's make a quick review of what's happening in the app. Open the `Program.java
 
 3. In the git terminal window, run `mvn exec:java -D exec.mainClass=GetStarted.Program` in the terminal window to start your Java application.
 
+The terminal window displays the vertices being added to the graph. Once the program completes, switch back to the Azure portal in your internet browser. 
+
 <a id="add-sample-data"></a>
 ## Review and add sample data
 
-You can now go back to Data Explorer and see the data added to the graph, and add additional data points.
+You can now go back to Data Explorer and see the vertices added to the graph, and add additional data points.
 
 1. In Data Explorer, expand the **sample-database**/**sample-graph**, click **Graph**, and then click **Apply Filter**. 
 
