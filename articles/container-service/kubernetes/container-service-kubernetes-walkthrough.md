@@ -107,7 +107,7 @@ A Kubernetes manifest file defines a desired state for the cluster, including th
 >
 > [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 >
-> Instructions for creating your own container images for use with Kubernetes can be found [here](./container-service-tutorial-kubernetes-prepare-app.md)
+> Instructions for creating container images for Kubernetes are [here](./container-service-tutorial-kubernetes-prepare-app.md)
 
 
 Create a file named `azure-vote.yaml` and copy into it the following YAML. If you are working in Azure Cloud Shell, this file can be created using vi or Nano as if working on a virtual or physical system.
