@@ -22,27 +22,27 @@ ms.author: rclaus
 
 ## Assumptions
 
-- You're planning on migrating an Oracle database from on-premises to Azure.
+- You're planning to migrate an Oracle database from on-premises to Azure.
 - You have an understanding of the various metrics in Oracle AWR reports.
 - You have a baseline understanding of application performance and platform utilization.
 
 ## Goals
 
-- Understand how to optimize your Oracle deployment on Azure.
+- Understand how to optimize your Oracle deployment in Azure.
 - Explore performance tuning options for an Oracle database in an Azure environment.
 
 ## The differences between an on-premises and Azure implementation 
 
 Following are some important things to keep in mind when migrating on-premises applications to Azure. 
 
-One important difference is that in an Azure implementation, resources such as VMs, disks, virtual networks are shared among other clients. In addition, resources can be throttled based on the requirements. Instead of focusing on avoiding failing (MTBF), Azure is more focused on surviving the failure (MTTR).
+One important difference is that in an Azure implementation, resources such as VMs, disks, NS virtual networks are shared among other clients. In addition, resources can be throttled based on the requirements. Instead of focusing on avoiding failing (MTBF), Azure is more focused on surviving the failure (MTTR).
 
 The following table lists some of the differencse between an on-premises implementation and an Azure implmentation of an Oracle database.
 
 > 
 > |  | **On-premises implementation** | **Azure implementation** |
 > | --- | --- | --- |
-> | **Networking** |LAN/WAN  |SDN - Software defined networking|
+> | **Networking** |LAN/WAN  |SDN--Software defined networking|
 > | **Security group** |IP/Port restrictions tools |[Network security group (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
 > | **Resilience** |MTBF (mean time between failure) |MTTR (mean time to recover)|
 > | **Planned maintenance** |Patching/Upgrades|[Availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (patching/upgrades managed by Azure) |
@@ -59,7 +59,7 @@ The following table lists some of the differencse between an on-premises impleme
 
 ## Configuration options
 
-There are four potential areas that can be tuned to improvee performance in an Azure environment.
+There are four potential areas that can be tuned to improve performance in an Azure environment.
 
 - Virtual machine size
 - Network throughput
@@ -89,7 +89,7 @@ Following are the metrics that you can obtain from the AWR report:
 - Total memory in GB
 - CPU utilization
 - Peak data transfer rate
-- Rate of IO changes (read/write)
+- Rate of I/O changes (read/write)
 - Redo log rate (MBPs)
 - Network throughput
 - Network latency rate (low/high)
@@ -98,15 +98,15 @@ Following are the metrics that you can obtain from the AWR report:
 
 ### Virtual machine size
 
-#### 1. Estimate VM size based on CPU/Memory/IO usage from the AWR report
+#### 1. Estimate VM size based on CPU, memory, and I/O usage from the AWR report
 
 One thing you might look at is the top five timed foreground events that indicate where the system bottlenecks are.
 
-For example, in the following diagram, the log file sync is at the top. It indicates the number of waits that are required before the LGWR writes the log buffer to the redo log file. These results indicate that better peforming storage or disks are required. In addition, the diagram also shows the number of CPU (cores) and the amount of memory.
+For example, in the following diagram, the log file sync is at the top. It indicates the number of waits that are required before the LGWR writes the log buffer to the redo log file. These results indicate that better performing storage or disks are required. In addition, the diagram also shows the number of CPU (cores) and the amount of memory.
 
 ![Screenshot of the AWR report page](./media/oracle-design/cpu_memory_info.png)
 
-The following diagream shows the total IO of read and write. There were 59 GB read and 247.3 GB written during the time of the report.
+The following diagream shows the total I/O of read and write. There were 59 GB read and 247.3 GB written during the time of the report.
 
 ![Screenshot of the AWR report page](./media/oracle-design/io_info.png)
 
@@ -116,7 +116,7 @@ Based on the information that you you collected from the AWR report, the next st
 
 #### 3. Fine tune the VM sizing with a similar VM series based on the ACU
 
-After you have chosen the VM, pay attention to the ACU for the VM. You might choose a different VM based on the ACU value that better suits your requirements. For more information, see [Azure compute unit](https://docs.microsoft.com/azure/virtual-machines/windows/acu).
+After you've chosen the VM, pay attention to the ACU for the VM. You might choose a different VM based on the ACU value that better suits your requirements. For more information, see [Azure compute unit](https://docs.microsoft.com/azure/virtual-machines/windows/acu).
 
 ![Screenshot of the ACU units page](./media/oracle-design/acu_units.png)
 
@@ -151,7 +151,7 @@ Based on your network bandwidth requirements, there are various gateway types, s
 - *Premium storage disks*: These disk types are best suited for production workloads. Premium storage supports VM disks that can be attached to specific size-series VMs, such as DS, DSv2, GS, and F series VMs. The premium disk comes with different sizes, and you can choose between  disks ranging from 32 GB to 4096 GB. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM.
 
 When you create a new managed disk from the portal, you can choose the **Account type** for the type of disk you want to use. 
-Keep in mind that not all available disks are shown in the drop-down box. After you choose a particular VM size, the menu shows only the available premium storage SKUs that are based on that VM size.
+Keep in mind that not all available disks are shown in the drop-down menu. After you choose a particular VM size, the menu shows only the available premium storage SKUs that are based on that VM size.
 
 ![Screenshot of the managed disk page](./media/oracle-design/premium_disk01.png)
 
@@ -163,24 +163,23 @@ There are a number of tools for application load testing, such as Oracle Orion, 
 
 Run the load test again after you've deployed Oracle database. Start your regular and peak workloads, and the results show you the baseline of your environment.
 
-It might be more important to size the storage based on the IOPS rate rather than the storage size. For example, if the required IOPS is 5000, but you only need 200 GB, you might may still get the P30 class premium disk even though it comes with more than 200 GB of storage.
+It might be more important to size the storage based on the IOPS rate rather than the storage size. For example, if the required IOPS is 5000, but you only need 200 GB, you might still get the P30 class premium disk even though it comes with more than 200 GB of storage.
 
 The IOPS rate can be obtained from the AWR report. It's determined by the redo log, physical reads, and writes rate.
 
 ![Screenshot of the AWR report page](./media/oracle-design/awr_report.png)
 
-For example: 
-The redo size is 12200000 bytes per second, which is equal to 11.63 MBPs.
+For example, the redo size is 12200000 bytes per second, which is equal to 11.63 MBPs.
 The IOPS is 12200000 / 2358 = 5174.
 
-After you have a clear picture of IO requirements, you can chose a combination of drives that are best suited to meet those requirements.
+After you have a clear picture of the I/O requirements, you can chose a combination of drives that are best suited to meet those requirements.
 
 **Recommendations**
 
-- For data tablespace, spread I/O workload across a number of disks by using managed storage or Oracle ASM.
+- For data tablespace, spread the I/O workload across a number of disks by using managed storage or Oracle ASM.
 - As the I/O block size increases for read- and write-intensive operations, add more data disks.
 - Increase the block size for large sequential processes.
-- Use data compression to reduce IO (for both data and indexes).
+- Use data compression to reduce I/O (for both data and indexes).
 - Separate redo logs, system, and temps, and undo TS on separate data disks.
 - Don't put any application files on default OS disks (/dev/sda). These disks aren't optimized for fast VM boot times, and might not provide good performance for your application.
 
@@ -188,25 +187,25 @@ After you have a clear picture of IO requirements, you can chose a combination o
 
 There are three options for host caching:
 
-- *Read-only*: All requests are cached for future reads. All writes are persisted directly to Windows Azure Storage Blobs.
+- *Read-only*: All requests are cached for future reads. All writes are persisted directly to Azure Blob storage.
 
 - *Read-write*: This is a “read-ahead” algorithm. The reads and writes are cached for future reads. Non-write-through writes are persisted to the local cache first. For SQL Server, writes are persisted to WA storage because it uses write-through. It also provides the lowest disk latency for light workloads.
 
-- *None* (disabled): By using this option, you can bypass the cache. All the data are transferred to disk and persisted to Azure Storage. This method gives you the highest I/O rate for I/O intensive workloads. You also need to take “transaction cost” into consideration.
+- *None* (disabled): By using this option, you can bypass the cache. All the data is transferred to disk and persisted to Azure Storage. This method gives you the highest I/O rate for I/O intensive workloads. You also need to take “transaction cost” into consideration.
 
 **Recommendations**
 
-To maximize the throughput, we recommend that you  start with **None** for host caching. For premium storage, keep in mind that you must disable the "barriers" when you mount the file system with the **ReadOnly** or **None** options. Update the /etc/fstab file with the UUID to the disks.
+To maximize the throughput, we recommend that you  start with **None** for host caching. For Premium Storage, keep in mind that you must disable the "barriers" when you mount the file system with the **ReadOnly** or **None** options. Update the /etc/fstab file with the UUID to the disks.
 
 For more information, see [Premium Storage for Linux VMs](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms).
 
 ![Screenshot of the managed disk page](./media/oracle-design/premium_disk02.png)
 
 - For OS disks, use default **Read/Write** caching.
-- For SYSTEM, TEMP and UNDO use **None** for caching.
-- For DATA, use **None**for caching, but if your database is read-only or read-intensive, use **Read-only** caching.
+- For SYSTEM, TEMP, and UNDO use **None** for caching.
+- For DATA, use **None** for caching, but if your database is read-only or read-intensive, use **Read-only** caching.
 
-After your data disk setting is saved, the host (AFAIK) cache setting cannot change unless you unmount the drive at the OS level and then remount it after you've made the change.
+After your data disk setting is saved, the host cache setting cannot change unless you unmount the drive at the OS level and then remount it after you've made the change.
 
 
 ## Security
@@ -218,12 +217,12 @@ After you have set up and configured your Azure environment, the next step is to
 - *Jumpbox*: For more secure access, administrators should not directly connect to the application service or database. A jumpbox is used as a media between the administrator machine and Azure resources.
 ![Screenshot of the Jumpbox topology page](./media/oracle-design/jumpbox.png)
 
-The administrator machine should offer IP-restricted access to the jumpbox only. The jumpbox then have access to the application and database.
+    The administrator machine should offer IP-restricted access to the jumpbox only. The jumpbox should have access to the application and database.
 
-- *Private network* (subnets): We recommended that you have the application service and database on separate subnets. So better control can be set by NSG policy.
+- *Private network* (subnets): We recommended that you have the application service and database on separate subnets, so better control can be set by NSG policy.
 
 
-## Additional readings:
+## Additional reading:
 
 - [Configure Oracle ASM](configure-oracle-asm.md)
 - [Configure Oracle Data Guard](configure-oracle-dataguard.md)
