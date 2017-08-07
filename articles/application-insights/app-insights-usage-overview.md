@@ -36,11 +36,15 @@ The best experience is obtained by installing Application Insights both in your 
 
     Publish your app to monitor your app's performance and find out what your users are doing with your app.
 
+## Include user and session ID in your telemetry
+To track users over time, Application Insights requires a way to identify them. The Events tool is the only Usage tool that does not require a user ID or a session ID.
+
+Start sending these IDs [here](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
 ## Explore usage demographics and statistics
 Find out when people use your app, what pages they're most interested in, where your users are located, what browsers and operating systems they use. 
 
-The Users and Sessions reports filter your data by pages or custom events, and segment them by properties such as location, environment,and page. You can also add your own filters.
+The Users and Sessions reports filter your data by pages or custom events, and segment them by properties such as location, environment, and page. You can also add your own filters.
 
 ![Users](./media/app-insights-usage-overview/users.png)  
 
@@ -111,7 +115,7 @@ Or in the server side of the web app:
     tc.TrackEvent("CompletedPurchase");
 ```
 
-You can attach property values to these events, so that you can filter or split the events when you inspect them in the portal. In addition, a standard set of properties is attached to each event, such as anonymous user id, which allows you to trace the sequence of activities of an individual user.
+You can attach property values to these events, so that you can filter or split the events when you inspect them in the portal. In addition, a standard set of properties is attached to each event, such as anonymous user ID, which allows you to trace the sequence of activities of an individual user.
 
 Learn more about [custom events](app-insights-api-custom-events-metrics.md#trackevent) and [properties](app-insights-api-custom-events-metrics.md#properties).
 
