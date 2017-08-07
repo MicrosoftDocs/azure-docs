@@ -138,7 +138,7 @@ Finally, create the virtual machine with PowerShell:
 
 ## Example PowerShell script
 
-The following script provides and example of a complete script that creates a **SQL Server 2016 RTM Enterprise on Windows Server 2012 R2** virtual machine. If you use this script, you must customize the initial variables based on the previous steps in this topic.
+The following script provides an example of a complete script that creates a **SQL Server 2016 RTM Enterprise on Windows Server 2012 R2** virtual machine. If you use this script, you must customize the initial variables based on the previous steps in this topic.
 
 ```powershell
 # Customize these variables based on your settings and requirements:
@@ -175,7 +175,7 @@ New-AzureVM –ServiceName $svcname -VMs $vm1
 
 ## Connect with remote desktop
 
-1. Create the .RDP files in the current user's document folder to launch these virtual machines to complete setup:
+1. Create the RDP files in the current user's document folder to launch these virtual machines to complete setup:
 
    ```powershell
    $documentspath = [environment]::getfolderpath("mydocuments")
@@ -191,7 +191,7 @@ New-AzureVM –ServiceName $svcname -VMs $vm1
 
 ## Complete the configuration of the SQL Server Machine for remote access
 
-After logging onto the machine with remote desktop, configure SQL Server based on the instructions in [Steps for configuring SQL Server connectivity in an Azure VM](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
+After logging on to the machine with remote desktop, configure SQL Server based on the instructions in [Steps for configuring SQL Server connectivity in an Azure VM](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
 ## Next steps
 
