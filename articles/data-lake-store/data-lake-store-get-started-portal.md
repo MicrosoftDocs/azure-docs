@@ -30,7 +30,7 @@ ms.author: nitinme
 >
 > 
 
-Learn how to use the Azure portal to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information, see [Overview of Azure Data Lake Store](data-lake-store-overview.md).
+Learn how to use the Azure portal to create an Azure Data Lake Store account and perform basic operations such as create folders, upload, and download data files, delete your account, etc. For more information, see [Overview of Azure Data Lake Store](data-lake-store-overview.md).
 
 The following two videos contain the same information as described in this article:
 
@@ -46,7 +46,7 @@ Before you begin this tutorial, you must have the following items:
 
 1. Sign on to the new [Azure portal](https://portal.azure.com).
 2. Click **NEW**, click **Data + Storage**, and then click **Azure Data Lake Store**. Read the information in the **Azure Data Lake Store** blade, and then click **Create** in the bottom left corner of the blade.
-3. In the **New Data Lake Store** blade, provide the values as shown in the screen capture below:
+3. In the **New Data Lake Store** blade, provide the values as shown in the following screenshot:
    
     ![Create a new Azure Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Create a new Azure Data Lake account")
    
@@ -58,7 +58,7 @@ Before you begin this tutorial, you must have the following items:
      
      * **Do not enable encryption**.
      * **Use keys managed by Azure Data Lake**.  if you want Azure Data Lake Store to manage your encryption keys.
-     * **Choose keys from Azure Key Vault**. You can select an exsiting Azure Key Vault or create a new Key Vault. To use the keys from a Key Vault, you must assign permissions for the Azure Data Lake Store account to access the Azure Key Vault. For the instructions, see [Assign permissions to Azure Key Vault](#assign-permissions-to-azure-key-vault).
+     * **Choose keys from Azure Key Vault**. You can select an existing Azure Key Vault or create a new Key Vault. To use the keys from a Key Vault, you must assign permissions for the Azure Data Lake Store account to access the Azure Key Vault. For the instructions, see [Assign permissions to Azure Key Vault](#assign-permissions-to-azure-key-vault).
        
         ![Data Lake Store encryption](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Store encryption")
        
@@ -68,9 +68,9 @@ Before you begin this tutorial, you must have the following items:
 
 4. Click **Create**. If you chose to pin the account to the dashboard, you are taken back to the dashboard and you can see the progress of your Data Lake Store account provisioning. Once the Data Lake Store account is provisioned, the account blade shows up.
 
-You can also create a Data Lake Store account using Azure Resouce Manager templates. These templates are accessible from [Azure QuickStart Tempaltes](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
+You can also create a Data Lake Store account using Azure Resource Manager templates. These templates are accessible from [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
 
-- Without data encrption: [Deploy Azure Data Lake Store account with no data encryption](https://azure.microsoft.com/en-us/resources/templates/101-data-lake-store-no-encryption/).
+- Without data encryption: [Deploy Azure Data Lake Store account with no data encryption](https://azure.microsoft.com/en-us/resources/templates/101-data-lake-store-no-encryption/).
 - With data encryption using Data Lake Store: [Deploy Data Lake Store account with encryption(Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
 - With data encryption using Azure Key Vault: [Deploy Data Lake Store account with encryption(Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
 
@@ -88,7 +88,7 @@ If you used keys from an Azure Key Vault to configure encryption on the Data Lak
 ## <a name="createfolder"></a>Create folders in Azure Data Lake Store account
 You can create folders under your Data Lake Store account to manage and store data.
 
-1. Open the Data Lake Store account that you just created. From the left pane, click **Browse**, click **Data Lake Store**, and then from the Data Lake Store blade, click the account name under which you want to create folders. If you pinned the account to the startboard, click that account tile.
+1. Open the Data Lake Store account that you created. From the left pane, click **Browse**, click **Data Lake Store**, and then from the Data Lake Store blade, click the account name under which you want to create folders. If you pinned the account to the startboard, click that account tile.
 2. In your Data Lake Store account blade, click **Data Explorer**.
    
     ![Create folders in Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Create folders in Data Lake Store account")
@@ -96,19 +96,19 @@ You can create folders under your Data Lake Store account to manage and store da
    
     ![Create folders in Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Create folders in Data Lake Store account")
    
-    The newly created folder will be listed in the **Data Explorer** blade. You can create nested folders upto any level.
+    The newly created folder is listed in the **Data Explorer** blade. You can create nested folders upto any level.
    
     ![Create folders in Data Lake account](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in Data Lake account")
 
 ## <a name="uploaddata"></a>Upload data to Azure Data Lake Store account
-You can upload your data to an Azure Data Lake Store account directly at the root level or to a folder that you created within the account. In the screen capture below, follow the steps to upload a file to a sub-folder from the **Data Explorer** blade. In this screen capture, the file is uploaded to a sub-folder shown in the breadcrumbs (marked in a red box).
+You can upload your data to an Azure Data Lake Store account directly at the root level or to a folder that you created within the account. In the following screenshot, follow the steps to upload a file to a subfolder from the **Data Explorer** blade. In this screen capture, the file is uploaded to a subfolder shown in the breadcrumbs (marked in a red box).
 
 If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 ![Upload data](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
 
 ## <a name="properties"></a>Properties and actions available on the stored data
-Click the newly added file to open the **Properties** blade. The properties associated with the file and the actions you can perform on the file are available in this blade. You can also copy the full path to file in your Azure Data Lake Store account, highlighted in the red box in the screen capture below.
+Click the newly added file to open the **Properties** blade. The properties associated with the file and the actions you can perform on the file are available in this blade. You can also copy the full path to file in your Azure Data Lake Store account, highlighted in the red box in the following screenshot:
 
 ![Properties on the data](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Properties on the data")
 
