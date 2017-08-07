@@ -57,4 +57,4 @@ information being scanned.
 
 ## Next steps ##
 
-To learn how to create reviews with no scanning, see the [Review operation](test-drive-review.md) article.
+To learn how to create reviews with no scanning, see the [Review operation](try-review-api-review.md) article.
