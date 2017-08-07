@@ -56,4 +56,4 @@ The simplest way to access a testing console is from the Credentials window.
 
 ## Next steps ##
 
-To learn how to define workflows, see the [Moderation workflows](test-drive-workflow.md) article.
+To learn how to define workflows, see the [Moderation workflows](try-review-api-workflow.md) article.
