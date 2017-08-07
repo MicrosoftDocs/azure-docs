@@ -20,14 +20,14 @@ ms.author: manayar
 # Protect a multi-tier SAP NetWeaver application deployment using Azure Site Recovery
 
 ## Overview
-Most large and medium sized SAP deployments have some form of Disaster Recovery solution.  The importance of robust and testable Disaster Recovery solutions has increased as more core business processes are moved to applications such as SAP.  Azure Site Recovery has been tested and integrated with SAP applications and exceeds the capabilities of most on-premises Disaster Recovery solutions and does so at a lower TCO than competing solutions.
+Most large and medium-sized SAP deployments have some form of Disaster Recovery solution.  The importance of robust and testable Disaster Recovery solutions has increased as more core business processes are moved to applications such as SAP.  Azure Site Recovery has been tested and integrated with SAP applications, and exceeds the capabilities of most on-premises Disaster Recovery solutions, at a lower total cost of ownership (TCO) than competing solutions.
 With Azure Site Recovery you can:
-* Enable protection of SAP NetWeaver and non-NetWeaver Production applications running on-premises, by replicating components to Azure
-* Enable protection of SAP NetWeaver and non-NetWeaver Production applications running Azure, by replicating components to another Azure datacenter
-* Simplify cloud migration, by using Site Recovery to migrate your SAP deployment to Azure
-* Simplify SAP project upgrades, testing and prototyping, by creating a production clones on-demand for testing SAP applications.
+* Enable protection of SAP NetWeaver and non-NetWeaver Production applications running on-premises, by replicating components to Azure.
+* Enable protection of SAP NetWeaver and non-NetWeaver Production applications running Azure, by replicating components to another Azure datacenter.
+* Simplify cloud migration, by using Site Recovery to migrate your SAP deployment to Azure.
+* Simplify SAP project upgrades, testing, and prototyping, by creating a production clone on-demand for testing SAP applications.
 
-This article describes how to protect SAP NetWeaver application deployments using [Azure Site Recovery](site-recovery-overview.md). This article will cover the best practices for protecting a three-tier SAP NetWeaver deployment on Azure by replicating to another Azure datacenter using Azure Site Recovery, the supported scenarios and configurations, and how to perform failovers, both test failovers (disaster recovery drills) and actual failovers.
+This article describes how to protect SAP NetWeaver application deployments using [Azure Site Recovery](site-recovery-overview.md). This article covers the best practices for protecting a three-tier SAP NetWeaver deployment on Azure by replicating to another Azure datacenter using Azure Site Recovery, the supported scenarios and configurations, and how to perform failovers, both test failovers (disaster recovery drills) and actual failovers.
 
 
 ## Prerequisites
@@ -50,46 +50,47 @@ This document uses the first case - Azure-to-Azure DR - to demonstrate Azure Sit
 
 ### Required Foundation Services
 This documentation scenario all been deployed with the following foundation services deployed:
-* ExpressRoute or Site-to-Site VPN
+* ExpressRoute or Site-to-Site Virtual Private Network (VPN)
 * At least one Active Directory Domain Controller and DNS server running in Azure
-It is strongly recommended to ensure the infrastructure above is established prior to deploying Azure Site Recovery
+
+It is recommended that the infrastructure above is established prior to deploying Azure Site Recovery.
 
 
 ## Typical SAP Application Deployment
 Large SAP customers usually deploy between 6 to 20 individual SAP applications.  Most of these applications are based on the SAP NetWeaver ABAP or Java engines.  Supporting these core NetWeaver applications are many smaller specific non-NetWeaver SAP standalone engines and typically some non-SAP applications.  
 
-It is critical to inventory all the SAP applications running in a landscape and to determine the deployment mode (either 2-tier or 3-tier), versions, patches, sizes, churn rates and disk persistence requirements.
+It is critical to inventory all the SAP applications running in a landscape and to determine the deployment mode (either 2-tier or 3-tier), versions, patches, sizes, churn rates, and disk persistence requirements.
 
 ![Deployment Pattern](./media/site-recovery-sap/sap-typical-deployment.png)
 
-The SAP Database persistence layer should be protected via the native DBMS tools such as SQL Server AlwaysOn, Oracle DataGuard or HANA System Replication. The client layer is also not protected by Azure Site Recovery, but it is important to consider topics that impact this layer such as DNS Propagation delay, security and remote access to the DR datacenter.
+The SAP Database persistence layer should be protected via the native DBMS tools such as SQL Server AlwaysOn, Oracle DataGuard, or HANA System Replication. The client layer is also not protected by Azure Site Recovery, but it is important to consider topics that impact this layer such as DNS Propagation delay, security and remote access to the DR datacenter.
 
 Azure Site Recovery is the recommended solution for the application layer, including (A)SCS. Other applications such as non-NetWeaver SAP applications and non-SAP applications form part of the overall SAP deployment environment and should also be protected with Azure Site Recovery.
 
 ## Replicate virtual machines
 Follow [this guidance](azure-to-azure-walkthrough-enable-replication.md) to start replicating all the SAP application virtual machines to the Azure DR datacenter.
 
-If you are using a static IP then specify the IP that you want the virtual machine to take in the Network interface cards section in Compute and Network settings.
+If you are using a static IP, you can specify the IP that you want the virtual machine to take in the Network interface cards section in Compute and Network settings.
 
 ![Target IP](./media/site-recovery-sap/sap-static-ip.png)
 
 
 ## Creating a recovery plan
-A recovery plan allows sequencing the failover of various tiers in a multi-tier application, hence, maintaining application consistency. Follow the below steps while creating a recovery plan for a multi-tier web application.  [Learn more about creating a recovery plan](./site-recovery-create-recovery-plans.md).
+A recovery plan allows sequencing the failover of various tiers in a multi-tier application, hence, maintaining application consistency. Follow the steps described [here](site-recovery-create-recovery-plans.md) while creating a recovery plan for a multi-tier web application.
 
 ### Adding scripts to the recovery plan
-You may need to do some operations on the Azure virtual machines post failover/Test failover to make IIS web farm function correctly. You can automate the post failover operation like updating DNS entry, changing site binding, change  in connection string  by adding corresponding scripts in the recovery plan as below. [Learn more about add script recovery plan](./site-recovery-create-recovery-plans.md#add-scripts).
+You may need to do some operations on the Azure virtual machines post failover/test failover for your applications to function correctly. You can automate the post failover operation such as updating DNS entry, and changing bindings and connections, by adding corresponding scripts in the recovery plan as described in [this article](site-recovery-create-recovery-plans.md#add-scripts).
 
 ### DNS Update
-If the DNS is configured for dynamic DNS update then virtual machines usually update the DNS with the new IP once they start. If you want to add an explicit step to update DNS with the new IPs of the virtual machines then add this [script to update IP in DNS](https://aka.ms/asr-dns-update) as a post action on recovery plan groups.  
+If the DNS is configured for dynamic DNS update, then virtual machines usually update the DNS with the new IP once they start. If you want to add an explicit step to update DNS with the new IPs of the virtual machines then add this [script to update IP in DNS](https://aka.ms/asr-dns-update) as a post action on recovery plan groups.  
 
 ## Example Azure-to-Azure Deployment
 In the diagram below the Azure Site Recovery Azure-to-Azure DR scenario is depicted:
-* The Primary Datacenter is in Singapore (Azure South-East Asia) and the DR datacenter is Hong Kong (Azure East Asia).  In this scenario local High Availability is provided by having two VMs running SQL Server AlwaysOn in Synchronous mode in Singapore
-* The File Share ASCS can be used to provide HA for the SAP single points of failure (this does not require a cluster shared disk and SIOS is not required)
-* DR protection for the DBMS layer is achieved using Asynchronous replication
-* This scenario shows “symmetrical DR” – a term used to describe a DR solution that is an exact replica of production, therefore the DR SQL Server solution has local High Availability.  The use of symmetrical DR is not mandatory for the Database layer, and many customers leverage the flexibility of cloud deployments to build a local High Availability Node quickly after a DR event
-* The diagram depicts the SAP NetWeaver ASCS and Application server layer replicated by Azure Site Recovery
+* The Primary Datacenter is in Singapore (Azure South-East Asia) and the DR datacenter is Hong Kong (Azure East Asia).  In this scenario, local High Availability is provided by having two VMs running SQL Server AlwaysOn in Synchronous mode in Singapore.
+* The File Share ASCS can be used to provide HA for the SAP single points of failure. File Share ASCS does not require a cluster shared disk, and applications such as SIOS are not required.
+* DR protection for the DBMS layer is achieved using Asynchronous replication.
+* This scenario shows “symmetrical DR” – a term used to describe a DR solution that is an exact replica of production, therefore the DR SQL Server solution has local High Availability. The use of symmetrical DR is not mandatory for the Database layer, and many customers leverage the flexibility of cloud deployments to build a local High Availability Node quickly after a DR event.
+* The diagram depicts the SAP NetWeaver ASCS and Application server layer replicated by Azure Site Recovery.
 
 ![Replication Scenario](./media/site-recovery-sap/sap-replication-scenario.png)
 
@@ -101,7 +102,7 @@ Follow [this guidance](azure-to-azure-walkthrough-test-failover.md) to do a test
 3.	Click on 'Test Failover'.
 4.	Select recovery point and Azure virtual network to start the test failover process.
 5.	Once the secondary environment is up, you can perform your validations.
-6.	Once the validations are complete, click on ‘Cleanup test failover’ and the test failover environment will be cleaned.
+6.	Once the validations are complete, click on ‘Cleanup test failover’ and to clean the failover environment.
 
 ## Doing a failover
 Follow [this guidance](site-recovery-failover.md) when you are doing a failover.
