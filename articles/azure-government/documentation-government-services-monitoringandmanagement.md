@@ -87,7 +87,6 @@ Diagnostic Logs are generally available in Azure Government with no differences 
 Metrics are supported in all regions, but only for services which are available in Azure Government; a few exceptions are below:
 
 * Coming Soon: Azure IoT Hub
-* Coming Soon: Classic Virtual Machines
 
 The same methods for viewing the metrics that are used in commercial Azure are used in Azure Government. 
 
