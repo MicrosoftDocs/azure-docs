@@ -103,13 +103,13 @@ Let's make a quick review of what's happening in the app. Open the `Program.java
 
 1. Open the src/remote.yaml file. 
 
-3. Fill in your *hosts*, *username*, *password* values in the src/remote.yaml file. The rest of the settings do not need to be changed.
+3. Fill in your *hosts*, *username*, and *password* values in the src/remote.yaml file. The rest of the settings do not need to be changed.
 
     Setting|Suggested value|Description
     ---|---|---
     Hosts|[***.graphs.azure.com]|See the screenshot following this table. This value is the Gremlin URI value on the Overview page of the Azure portal, in square brackets, with the trailing :443/ removed.<br><br>This value can also be retrieved from the Keys tab, using the URI value by removing https://, changing documents to graphs, and removing the trailing :443/.
     Username|/dbs/sample-database/colls/sample-graph|The resource of the form `/dbs/<db>/colls/<coll>` where `<db>` is your existing database name and `<coll>` is your existing collection name.
-    Password|*Your primary master key*|See the second screenshot following this table. This value is your primary key, which you can retrieve from the Keys page of the Azure portal, in the Primary Key box. Use the copy button on the right side of the box to copy the value.
+    Password|*Your primary master key*|See the second screenshot following this table. This value is your primary key, which you can retrieve from the Keys page of the Azure portal, in the Primary Key box. Copy the value using the copy button on the right side of the box.
 
     For the Hosts value, copy the **Gremlin URI** value from the **Overview** page. If it's empty, see the instructions in the Hosts row in the preceding table about creating the Gremlin URI from the Keys blade.
 ![View and copy the Gremlin URI value on the Overview page in the Azure portal](./media/create-graph-java/gremlin-uri.png)
@@ -174,7 +174,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
    ![Add a connection between ashley and rakesh in Data Explorer](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
-8. Now select **rakesh** from the results list and you'll see that ashley and rakesh are connected. 
+8. Now select **rakesh** from the results list and see that ashley and rakesh are connected. 
 
    ![Two vertices connected in Data Explorer](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
