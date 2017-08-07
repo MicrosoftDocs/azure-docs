@@ -60,5 +60,5 @@ Or in ASP.NET server code:
 
 * [Usage overview](app-insights-usage-overview.md)
 * [Users and sessions](app-insights-usage-segmentation.md)
-* [Coding custom events](app-insights-api-custom-events-metrics.md)s
+* [Coding custom events](app-insights-api-custom-events-metrics.md)
 
