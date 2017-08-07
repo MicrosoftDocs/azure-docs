@@ -23,23 +23,16 @@ The retention blade in [Azure Application Insights](app-insights-overview.md) he
 
 If you don't yet see data in the retention blade in the Application Insights portal, [learn how to get started with the usage tools](app-insights-usage-overview.md).
 
-## The retention tool
+## The Retention tool
 
 ![Retention tool](./media/app-insights-usage-retention/retention.png)
 
-a. The Overview page is always there. In addition, you can save named reports with different parameter settings. Save to Shared to make the report visible to other users who have access to the resource.
-
-b. By default, the chart counts all users who used any of the custom events or page views received from your app. Select one, or a subset, to focus on a particular user activity. 
-
-c. Add one or more filters on properties. For example, you could focus on users in a particular country or region. Click **Update** after setting the filters.
-
-d. **Restore defaults** always clears the custom filter and the events filters.
-
-e. The summary chart shows totals across the selected time period.
-
-f. The grid shows the number of users who have returned to repeat the selected actions within a particular period. Each row represents a cohort of users who performed one of the selected actions in the time period shown. Each cell in the row shows how many of that cohort returned at least once in a later period. Some users may return in more than one period.
-
-Everyone who used the app during the time range of the chart is represented in exactly one row of the chart. Each user is counted in the period when they first performed the selected action within the chart's time range. There will therefore tend to be a larger number in the first row.
+1. The toolbar allows users to create new retention reports, open existing retention reports, save current retention report or save as, revert changes made to saved reports, refresh data on the report, share report via email or direct link, and access the documentation page. 
+2. By default, retention shows all users who did anything then came back and did anything else over a period. You can select different combination of events to narrow the focus on specific user activities.
+3. Add one or more filters on properties. For example, you can focus on users in a particular country or region. Click **Update** after setting the filters. 
+4. The overall retention chart shows a summary of user retention across the selected time period. 
+5. The grid shows the number of users retained according to the query builder in #2. Each row represents a cohort of users who performed any event in the time period shown. Each cell in the row shows how many of that cohort returned at least once in a later period. Some users may return in more than one period. 
+6. The insights cards show top 5 initiating events, and top 5 returned events to give users a better understanding of their retention report. 
 
 
 ## Use business events to track retention
