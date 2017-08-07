@@ -139,6 +139,8 @@
         href: azure-stack-marketplace-publisher.md
       - name: Add a custom virtual machine image
         href: azure-stack-add-vm-image.md
+      - name: Add virtual machine scale sets
+        href: azure-stack-compute-add-scalesets.md
       - name: Deploy Linux virtual machines
         href: azure-stack-linux.md
     - name: Usage and billing
