@@ -92,7 +92,7 @@ The following Python code downloads 10,000 tweets from Twitter and save them to 
    nano gettweets.py
    ```
 
-5. Use the following text as the contents of the **gettweets.py** file. Replace the placeholder information for **consumer\_secret**, **consumer\_key**, **access/\_token**, and **access\_token\_secret** with the information from your Twitter application.
+5. Use the following text as the contents of the **gettweets.py** file:
 
    ```python
    #!/usr/bin/python
@@ -148,6 +148,14 @@ The following Python code downloads 10,000 tweets from Twitter and save them to 
    twitterStream.filter(track=["azure","cloud","hdinsight"])
    ```
 
+    > [!IMPORTANT]
+    > Replace the placeholder text for the following items with the information from your twitter application:
+    >
+    > * `consumer_secret`
+    > * `consumer_key`
+    > * `access_token`
+    > * `access_token_secret`
+
 6. Use **Ctrl + X**, then **Y** to save the file.
 
 7. Use the following command to run the file and download tweets:
@@ -156,7 +164,7 @@ The following Python code downloads 10,000 tweets from Twitter and save them to 
     python gettweets.py
     ```
 
-    A progress indicator should appear, and count up to 100% as the tweets are downloaded and saved to file.
+    A progress indicator appears. It counts up to 100% as the tweets are downloaded.
 
    > [!NOTE]
    > If it is taking a long time for the progress bar to advance, you should change the filter to track trending topics. When there are many tweets about the topic in your filter, you can quickly get the 10000 tweets needed.
