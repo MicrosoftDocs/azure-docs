@@ -144,7 +144,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
-3. Enter a label of *person* then enter the following keys and values to create the first vertex in the graph. Notice that you can create unique properties for each person in your graph. Only the id key is required.
+4. Enter a label of *person* then enter the following keys and values to create the first vertex in the graph. Notice that you can create unique properties for each person in your graph. Only the id key is required.
 
     key|value|Notes
     ----|----|----
@@ -155,7 +155,9 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
     > [!NOTE]
     > In this quickstart we create a non-partitioned collection. However, if you create a partitioned collection by specifying a partition key during the collection creation, then you need to include the partition key as a key in each new vertex. 
 
-4. Click **New Vertex** again and add an additional new user. Enter a label of *person* then enter the following keys and values:
+5. Click **OK**. You may need to expand your screen to see **OK** on the bottom of the screen.
+
+6. Click **New Vertex** again and add an additional new user. Enter a label of *person* then enter the following keys and values:
 
     key|value|Notes
     ----|----|----
@@ -163,18 +165,19 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
     gender|male| 
     school|MIT| 
 
+7. Click **OK**. 
 
-5. Click **Apply Filter** with the default `g.V()` filter. All of the users now show in the **Results** list. As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph, but you can change that to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format.
+8. Click **Apply Filter** with the default `g.V()` filter. All of the users now show in the **Results** list. As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph, but you can change that to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format.
 
-6. Now we can connect rakesh and ashley. Ensure **ashley** in selected in the **Results** list, then click the edit button next to **Targets** on lower right side. You may need to widen your window to see the **Properties** area.
+9. Now we can connect rakesh and ashley. Ensure **ashley** in selected in the **Results** list, then click the edit button next to **Targets** on lower right side. You may need to widen your window to see the **Properties** area.
 
    ![Change the target of a vertex in a graph](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
-7. In the **Target** box type *rakesh*, and in the **Edge label** box type *knows*, and then click the check box.
+10. In the **Target** box type *rakesh*, and in the **Edge label** box type *knows*, and then click the check box.
 
    ![Add a connection between ashley and rakesh in Data Explorer](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
-8. Now select **rakesh** from the results list and see that ashley and rakesh are connected. 
+11. Now select **rakesh** from the results list and see that ashley and rakesh are connected. 
 
    ![Two vertices connected in Data Explorer](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
