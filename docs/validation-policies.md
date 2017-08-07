@@ -207,7 +207,9 @@ This document describes the criteria that are used to validate that Office Add-i
 |13.3|Your custom visual must support Power BI Desktop, Power BI Online, Power BI mobile apps, and Power BI Windows universal apps. It must be compatible with Windows 10 and all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, Firefox, and Safari (Mac OS). |
 |13.4|Your custom visual must support the core functions of Power BI including, but not limited to:<br/><br/>Pinning to dashboard<br/>Filtering<br/>Focus mode<br/>Formatting<br/>Various data types|
 
-## 14. Microsoft Teams apps<a name="bk_14"> </a>
+## 14. Microsoft Teams apps
+<a name="bk_14"> </a>
+
 |Policy number|Description|
 |:-----|:-----|
 |14.1|Your Microsoft Teams app must be free.|
@@ -227,6 +229,8 @@ This document describes the criteria that are used to validate that Office Add-i
 |14.12|Your Microsoft Teams app name may not include "app", "plug-in", or derivatives.|
 |14.13|The UI (buttons, links, text fields) of your Microsoft Teams app must be intuitive and obvious in their purpose. Users must not be required to read support content to perform basic operations.|
 |14.14|Microsoft's review and publication of your Microsoft Teams app to the Microsoft Teams gallery is not an endorsement of your Microsoft Teams app.|
+|14.15|Microsoft Teams apps can fail validation for issues related to [Microsoft Teams app design guidelines](http://aka.ms/microsoftteamsdesignguidelines) or issues that impede the customer experience within Microsoft Teams. To pass validation, Microsoft Teams apps must meet the following requirements:<br/><ul><li>A tab experience must provide value beyond simply hosting an existing website.</li><li>Content in a channel tab must be contextually the same for all members of the channel and not scoped for individual use.</li><li>Content in a tab should not have excessive chrome or layered navigation.</li><li>A configurable tab should not allow users to navigate outside the core experience within the same tab.</li><li>The configuration screen of a configurable tab must clearly explain the value of the experience and how to configure it.</li><li>Tab configuration must happen in the configuration screen.</li><li>Bots must be responsive and fail gracefully.</li></ul>|
+|14.16|Microsoft Teams apps must focus on the Microsoft Teams experience and should not include names, icons, or imagery of other similar chat-based collaboration platforms or services unless the apps provide specific interoperability.|
 
 
 ## Conclusion
@@ -248,6 +252,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.2|August 4, 2017|Added policies 14.15 and 14.16.|
 |2.2|July 21, 2017|Added policy 7.19.|
 |2.2|July 7, 2017|Removed policy 14.4. Updated policies 14.5, 14.6, 14.8, and 14.9.|
 |2.2|May 4, 2017|Added section 14 for Microsoft Teams apps.|
