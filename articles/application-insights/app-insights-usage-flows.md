@@ -83,7 +83,7 @@ Look for a page view or custom event that is repeated by many users across subse
 
 ### Why do steps appear disconnected?
 
-![TBD screenshot of a disconnected Flows](TBD link)
+![Flows with disconnected steps](./media/app-insights-usage-flows/flows-disconnected.png)
 
 If steps (columns) in a Flows visualization are disconnected, it means none of the paths taken by users between the steps were frequent enough to be shown. To show less frequent events on the visualization so the steps appear connected, adjust the "Detail level" slider in the Edit blade.
 
