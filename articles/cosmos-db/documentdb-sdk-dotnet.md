@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 08/06/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -48,6 +48,10 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+
+### <a name="1.16.0"/>1.16.0
+*	Fixed an issue that required recompiling of the application due to the introduction of JsonSerializerSettings as an optional parameter in DocumentClient constructor.
+* Marked the DocumentClient constructor obsolete that required JsonSerializerSettings as the last parameter to allow for default values of ConnectionPolicy and ConsistencyLevel parameters when passing in JsonSerializerSettings parameter.
 
 ### <a name="1.15.0"/>1.15.0
 *	Added support for specifying custom JsonSerializerSettings while instantiating [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
@@ -243,6 +247,7 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.16.0](#1.16.0) |August 02, 2017 |--- |
 | [1.15.0](#1.15.0) |June 30, 2017 |--- |
 | [1.14.1](#1.14.1) |May 23, 2017 |--- |
 | [1.14.0](#1.14.0) |May 10, 2017 |--- |
