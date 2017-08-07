@@ -25,12 +25,12 @@ With the Azure Network Watcher troubleshoot feature, you are able to diagnose an
 
 ## Scenario
 
-You want to configure a site-to-site connection between Azure and on-premises using Cisco ASA as the on-premises VPN Gateway. To achieve this scenario, you would require the following setup:
+You want to configure a site-to-site connection between Azure and on-premises using FortiGate as the on-premises VPN Gateway. To achieve this scenario, you would require the following setup:
 
 1. Virtual Network Gateway - The VPN Gateway on Azure
-1. Local Network Gateway - The [on-premises (CISCO ASA) VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) representation in Azure cloud
-1. Site-to-site connection (policy based) - [Connection between the VPN Gateway and the on-premises CISCO ASA](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#createconnection)
-1. [Configuring CISCO ASA](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA)
+1. Local Network Gateway - The [on-premises (FortiGate) VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) representation in Azure cloud
+1. Site-to-site connection (policy based) - [Connection between the VPN Gateway and the on-premises router](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#createconnection)
+1. [Configuring FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Detailed step by step guidance for configuring a Site-to-Site configuration can be found by visiting: [Create a VNet with a Site-to-Site connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
@@ -47,7 +47,7 @@ One of the critical configuration steps is configuring the IPsec communication p
 | Hashing Algorithm |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Phase 1 Security Association (SA) Lifetime (Time) |28,800 seconds |10,800 seconds |
 
-As a user, you would be required to configure your Cisco ASA, a sample configuration can be found on [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Among other configurations, you would also need to specify the hashing algorithm. Cisco ASA supports more [encryption and hashing algorithms](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) than Azure VPN Gateway. Unknowingly you configured your Cisco ASA to use SHA-512 as the hashing algorithm. As this algorithm is not a supported algorithm for policy-based connections, your VPN connection does work.
+As a user, you would be required to configure your FortiGate, a sample configuration can be found on [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Unknowingly you configured your FortiGate to use SHA-512 as the hashing algorithm. As this algorithm is not a supported algorithm for policy-based connections, your VPN connection does work.
 
 These issues are hard to troubleshoot and root causes are often non-intuitive. In this case you can open a support ticket to get help on resolving the issue. But with Azure Network Watcher troubleshoot API, you can identify these issues on your own.
 
