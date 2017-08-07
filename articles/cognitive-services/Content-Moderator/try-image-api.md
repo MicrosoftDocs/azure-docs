@@ -55,7 +55,7 @@ Before you can test-drive the API from the online console, you will need the **O
 
 3. Specify the image you wish to scan. You can submit the image itself as binary bit data, or specify a publicly accessible URL to an image. This example links to an image used in a CNN story.
 
-  ![Try Image Moderation API Face Sample Image](images/try-image-api-face-image.png)
+  ![Try Image Moderation API Face Sample Image](images/try-image-api-face-image.JPG)
   ![Try Image Moderation API Face Sample Request](images/try-image-api-face-request.png)
 
 4. Click **Send**. The API found two faces, and returns their coordinates within the image.
