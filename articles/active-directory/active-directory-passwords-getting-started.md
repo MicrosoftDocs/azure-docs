@@ -80,7 +80,7 @@ Disabling self-service password reset is as simple as opening your Azure AD tena
 In this quickstart, you’ve learned how to configure self-service password reset for your users. To continue to the Azure portal to complete these steps follow the link below to the portal.
 
 > [!div class="nextstepaction"]
-> [Azure AD self-service password reset](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+> [Enable self-service password reset](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
 
 The following links provide additional information regarding password reset using Azure AD
 
