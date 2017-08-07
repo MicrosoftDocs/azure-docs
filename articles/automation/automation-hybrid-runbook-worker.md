@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
-ms.author: bwren
+ms.date: 08/05/2017
+ms.author: magoedte;bwren
 ---
 
 # Automate resources in your data center or cloud with Hybrid Runbook Worker
-Runbooks in Azure Automation cannot access resources in other clouds or in your on-premises environment since they run in the Azure cloud.  The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks against the machine directly and outside itself against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers.  
+Runbooks in Azure Automation cannot access resources in other clouds or in your on-premises environment since they run in the Azure cloud.  The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks on the computer directly and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers.  
 
 This functionality is illustrated in the following image:<br>  
 
@@ -43,9 +43,9 @@ You can use the following criteria to determine whether Azure Automation with Hy
 * SMA is included with System Center; and therefore, requires a System Center 2012 R2 license. Azure Automation is based on a tiered subscription model.
 * Azure Automation has advanced features such as graphical runbooks that are not available in SMA.
 
-## Installing Hybrid Runbook Worker
+## Installing the Windows Hybrid Runbook Worker 
 
-To install and configure a Hybrid Runbook Worker, there are two methods available.  The recommended method is using an Automation runbook to completely automate the process required to configure a Windows computer.  The second method is following a step-by-step procedure to manually install and configure the role.  
+To install and configure a Windows Hybrid Runbook Worker, there are two methods available.  The recommended method is using an Automation runbook to completely automate the process required to configure a Windows computer.  The second method is following a step-by-step procedure to manually install and configure the role.  
 
 > [!NOTE]
 > To manage the configuration of your servers supporting the Hybrid Runbook Worker role with Desired State Configuration (DSC), you need to add them as DSC nodes.  For more information about onboarding them for management with DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).           
@@ -56,7 +56,7 @@ Review the following information regarding the [hardware and software requiremen
  
 ### Automated deployment
 
-Perform the following steps to automate the installation and configuration of the Hybrid Worker role.  
+Perform the following steps to automate the installation and configuration of the Windows Hybrid Worker role.  
 
 1. Download the *New-OnPremiseHybridWorker.ps1* script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript) directly from the computer running the Hybrid Runbook Worker role or from another computer in your environment and copy it to the worker.  
 
@@ -130,6 +130,20 @@ Use the **-Verbose** switch with **Add-HybridRunbookWorker** to receive detailed
 Runbooks can use any of the activities and cmdlets defined in the modules installed in your Azure Automation environment.  These modules are not automatically deployed to on-premises computers though, so you must install them manually.  The exception is the Azure module, which is installed by default providing access to cmdlets for all Azure services and activities for Azure Automation.
 
 Since the primary purpose of the Hybrid Runbook Worker feature is to manage local resources, you most likely need to install the modules that support these resources.  You can refer to [Installing Modules](http://msdn.microsoft.com/library/dd878350.aspx) for information on installing Windows PowerShell modules.  Modules that are installed must be in a location referenced by PSModulePath environment variable so that they are automatically imported by the Hybrid worker.  For further information, see [Modifying the PSModulePath Installation Path](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx). 
+
+## Installing Linux Hybrid Runbook Worker
+To install and configure a Hybrid Runbook Worker on Linux is very straight forward procedure to manually install and configure the role.  It requires enabling the **Automation Hybrid Worker** solution in your OMS workspace and then running a set of commands to register the computer as a worker and add it to a new or existing group. 
+
+1.	Enable the “Automation Hybrid Worker” solution in OMS. This can be done by either:
+
+   1. From the Solutions Gallery in the [OMS portal](https://mms.microsoft.com) enable the **Automation Hybrid Worker** solution
+   2. Run the following cmdlet:
+
+        ```$null = Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
+        ```
+2.	Run the following command with the proper parameters (endpoint and key can be taken from the portal from the automation account linked to the workspace used in the steps above):
+sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <automationsharedkey> --groupname <hybridgroupname> -e <automationendpoint>
+
 
 ## Removing Hybrid Runbook Worker 
 You can remove one or more Hybrid Runbook Workers from a group or you can remove the group, depending on your requirements.  To remove a Hybrid Runbook Worker from an on-premises computer, perform the following steps.
