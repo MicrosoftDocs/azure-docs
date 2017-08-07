@@ -106,7 +106,7 @@ For example, in the following diagram, the log file sync is at the top. It indic
 
 ![Screenshot of the AWR report page](./media/oracle-design/cpu_memory_info.png)
 
-The following diagream shows the total I/O of read and write. There were 59 GB read and 247.3 GB written during the time of the report.
+The following diagram shows the total I/O of read and write. There were 59 GB read and 247.3 GB written during the time of the report.
 
 ![Screenshot of the AWR report page](./media/oracle-design/io_info.png)
 
@@ -146,7 +146,7 @@ Based on your network bandwidth requirements, there are various gateway types, s
 
 - *Unmanaged disks*: With these disk types, you manage the storage accounts that you use to store the virtual hard disk (VHD) files that correspond to your VM disks. VHD files are stored as page blobs in Azure storage accounts.
 
-- *Managed disk*s: Azure manages the storage accounts that you use for your VM disks. You specify the disk type (premium or standard) and the size of the disk that you need. Azure creates and manages the disk for you.
+- *Managed disks*: Azure manages the storage accounts that you use for your VM disks. You specify the disk type (premium or standard) and the size of the disk that you need. Azure creates and manages the disk for you.
 
 - *Premium storage disks*: These disk types are best suited for production workloads. Premium storage supports VM disks that can be attached to specific size-series VMs, such as DS, DSv2, GS, and F series VMs. The premium disk comes with different sizes, and you can choose between  disks ranging from 32 GB to 4096 GB. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM.
 
@@ -212,14 +212,14 @@ After your data disk setting is saved, the host cache setting cannot change unle
 
 After you have set up and configured your Azure environment, the next step is to secure your network. Here are some recommendations:
 
-- *NSG policy*: NSG can be defined by a subnet or NIC.  It's simpler to control access at the subnet level both for security and force routing for things like application firewalls.
+- *NSG policy*: NSG can be defined by a subnet or NIC. It's simpler to control access at the subnet level both for security and force routing for things like application firewalls.
 
 - *Jumpbox*: For more secure access, administrators should not directly connect to the application service or database. A jumpbox is used as a media between the administrator machine and Azure resources.
 ![Screenshot of the Jumpbox topology page](./media/oracle-design/jumpbox.png)
 
     The administrator machine should offer IP-restricted access to the jumpbox only. The jumpbox should have access to the application and database.
 
-- *Private network* (subnets): We recommended that you have the application service and database on separate subnets, so better control can be set by NSG policy.
+- *Private network* (subnets): We recommend that you have the application service and database on separate subnets, so better control can be set by NSG policy.
 
 
 ## Additional reading:
