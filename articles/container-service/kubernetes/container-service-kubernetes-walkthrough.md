@@ -101,7 +101,14 @@ k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 
 ## Run the application
 
-A Kubernetes manifest file defines a desired state for the cluster, including things like what container images should be running. For this example, a manifest is used to create all object needed to run the Azure Vote application. 
+A Kubernetes manifest file defines a desired state for the cluster, including things like what container images should be running. For this example, a manifest is used to create all objects needed to run the Azure Vote application. 
+
+> In this quick start, pre-created container images have been used. The related application code, Dockerfile, and Kubernetes manifest file are available on GitHub.
+>
+> [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
+>
+> Instructions for creating your own container images for use with Kubernetes can be found [here](./container-service-tutorial-kubernetes-prepare-app.md)
+
 
 Create a file named `azure-vote.yaml` and copy into it the following YAML. If you are working in Azure Cloud Shell, this file can be created using vi or Nano as if working on a virtual or physical system.
 
@@ -208,12 +215,6 @@ When the cluster is no longer needed, you can use the [az group delete](/cli/azu
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes --no-wait
 ```
-
-## Get the code
-
-In this quick start, pre-created container images have been used to create a Kubernetes deployment. The related application code, Dockerfile, and Kubernetes manifest file are available on GitHub.
-
-[https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## Next steps
 
