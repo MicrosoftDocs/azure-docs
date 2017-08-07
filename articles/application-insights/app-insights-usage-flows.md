@@ -59,7 +59,7 @@ If you want to see more steps in the visualization, use the "Number of steps" sl
 
 ## After visiting a page or feature, where do users go and what do they click?
 
-![TBD screenshot of Flows...maybe just reduce to 2-3 columns](TBD link)
+![Use Flows to understand where users click](./media/app-insights-usage-flows/flows-one-step.png)
 
 If your initial event is a page view, the first column ("Step 1") of the visualization is a quick way to understand what users did immediately after visiting the page. Try opening your site in a window next to the Flows visualization. Compare your expectations of how users interact with the page to the list of events in the "Step 1" column. Often, a UI element on the page that seems insignificant to your team can be among the most-used on the page. It can be a great starting point for design improvements to your site.
 
