@@ -28,7 +28,6 @@ The following table shows a list of available images within the Azure Government
 | --- | --- | --- |
 | a10networks | a10-vthunder-adc | vthunder_410_byol |
 | a10networks | a10-vthunder-adc | vthunder_byol |
-| ACEPublishing | f5-big-ip | f5-bigip-virtual-edition-best-byol |
 | akumina | akumina-interchange | akam101 |
 | alertlogic | alert-logic-tm | 20215000100-tmpbyol |
 | altamira-corporation | lumify | lumify |
@@ -338,8 +337,6 @@ The following table shows a list of available images within the Azure Government
 | MicrosoftWindowsServer | WindowsServer-HUB | 2016-Datacenter-HUB |
 | MicrosoftWindowsServerRemoteDesktop | WindowsServer | RDSH-Office365P |
 | MicrosoftWindowsServerRemoteDesktop | WindowsServer | Remote-Desktop-Session-Host |
-| netapp | netapp-oncommand-cloud-manager | occm-byol |
-| netapp | netapp-ontap-cloud | ontap_cloud_byol |
 | OpenLogic | CentOS | 6.7 |
 | OpenLogic | CentOS | 6.8 |
 | OpenLogic | CentOS | 6.9 |
@@ -396,7 +393,6 @@ The following table shows a list of available images within the Azure Government
 | talon | talon-fast | talon-azure-byol |
 | tenable | tenable-nessus-byol | serv-nes-byol-azure |
 | veritas | netbackup-8-0 | netbackup_8-standard |
-| vidizmo | c962d038-826e-4c7f-90d9-a2d7ebb50d0c | vidizmo-appdb-single |
 | vidizmo | enterprisetube-video-streaming-premium-portal | vidizmo-enterprisetube-premium-100 |
 | winmagic_securedoc_cloudvm | seccuredoc_cloudvm_5 | winmagic_securedoc_cloudvm_byol |
 
