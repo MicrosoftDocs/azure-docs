@@ -229,7 +229,8 @@ client.connect(err => {
 });
 
 function queryDatabase() {
-    const query = 'UPDATE inventory SET quantity= 1000 WHERE name=\'banana\';';
+    const query = `UPDATE inventory 
+                   SET quantity= 1000 WHERE name='banana';`;
 
     client
         .query(query)
