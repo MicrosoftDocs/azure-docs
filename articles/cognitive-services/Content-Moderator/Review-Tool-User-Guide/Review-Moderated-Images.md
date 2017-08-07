@@ -20,7 +20,7 @@ After you have signed up for Content Moderation and obtained a subscription key,
 2.	Click the Try tab, and upload some images to review.
 3.	Click the Review tab and select Image.
 
-  ![Review Images Option](Review-Tool-User-Guide/images/review-images-1.png)
+  ![Review Images Option](images/review-images-1.png)
 
   The images display with any labels that have been assigned by the review tool.
 
