@@ -153,7 +153,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
     tech | java | 
 
     > [!NOTE]
-    > In this quickstart we create a non-partitioned collection. However, if you create a partitioned collection by specifying a partition key during the collection created, then you need to include the partition key as a key in each new vertex. 
+    > In this quickstart we create a non-partitioned collection. However, if you create a partitioned collection by specifying a partition key during the collection creation, then you need to include the partition key as a key in each new vertex. 
 
 4. Click **New Vertex** again and add an additional new user. Enter a label of *person* then enter the following keys and values:
 
