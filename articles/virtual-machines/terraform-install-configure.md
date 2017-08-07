@@ -121,7 +121,7 @@ export ARM_CLIENT_SECRET=your_password
 export ARM_TENANT_ID=your_tenant_id
 ```
 
-Additionally, if you use Terraform with Azure in China or either Azure Government or Azure Germany, you need to set the environment variable appropriately.
+Additionally, if you use Terraform with Azure in China or either Azure Government or Azure Germany, you need to set the ENVIRONMENT variable appropriately.
 
 ## Next steps
 You have now installed Terraform and configured Azure credentials so that you can start deploying infrastructure into your Azure subscription. Next, learn how to [create infrastructure with Terraform](terraform-create-complete-vm.md).

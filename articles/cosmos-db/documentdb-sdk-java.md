@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB: DocumentDB Java API, SDK & Resources | Microsoft Docs
+title: 'Azure Cosmos DB: DocumentDB Java API, SDK & Resources | Microsoft Docs'
 description: Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB DocumentDB Java SDK.
 services: cosmos-db
 documentationcenter: java
