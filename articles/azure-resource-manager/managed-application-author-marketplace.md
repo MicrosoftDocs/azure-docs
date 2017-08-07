@@ -14,15 +14,15 @@ ms.date: 07/09/2017
 ms.author: gauravbh; tomfitz
 ---
 
-# Azure Managed Applications in Marketplace
+# Azure managed applications in the Marketplace
 
-As discussed in the [Managed Application overview](managed-application-overview.md) article, managed applications in Azure marketplace enables MSPs, ISVs, and System Integrators (SIs) to offer their solutions to all Azure customers. Such solutions reduce the maintenance and servicing overhead for customers. Publishers can sell infrastructure and software through the marketplace, and attach services and operational support to them. 
+As discussed in the [Managed Application overview](managed-application-overview.md) article, managed applications in the Microsoft Azure Marketplace enable MSPs, ISVs, and System Integrators (SIs) to offer their solutions to all Azure customers. Such solutions reduce the maintenance and servicing overhead for customers. Publishers can sell infrastructure and software through the Marketplace, and attach services and operational support to them. 
 
-This article explains how an MSP, ISV, or SI can publish an application to the Azure Marketplace and make it broadly available to the customers.  
+This article explains how an MSP, ISV, or SI can publish an application to the Marketplace and make it broadly available to the customers.  
 
-## Pre-requisites for publishing a Managed Application
+## Pre-requisites for publishing a managed application
 
-Prerequisites to listing on Azure Marketplace
+Prerequisites to listing on the Marketplace
 
 * Technical
 
@@ -32,8 +32,8 @@ Prerequisites to listing on Azure Marketplace
 
 * Non-technical (business requirements)
 
-    *   Your company (or its subsidiary) must be located in a sell from country supported by the Azure Marketplace.
-    *   Your product must be licensed in a way that is compatible with billing models supported by the Azure Marketplace.
+    *   Your company (or its subsidiary) must be located in a sell from country supported by the Marketplace.
+    *   Your product must be licensed in a way that is compatible with billing models supported by the Marketplace.
     *   You are responsible for making technical support available to customers in a commercially reasonable manner. The support can be free, paid, or through community support.
     *   You are responsible for licensing your software and any third-party software dependencies.
     *   You must provide content that meets criteria for your offering to be listed on Azure Marketplace and in the Azure portal
@@ -46,13 +46,13 @@ After you have met the pre-requisites, you are ready to start authoring your man
 
 ### Offer
 
-An Azure Application offer corresponds to a class of product offering from a publisher. If you have a new type of solution/application that you would like to make available in Azure Marketplace, you can set it up as a new offer. An offer is a collection of SKUs. Every offer appears as its own entity in Azure Marketplace.
+The offer for a managed application corresponds to a class of product offering from a publisher. If you have a new type of solution/application that you would like to make available in the Marketplace, you can set it up as a new offer. An offer is a collection of SKUs. Every offer appears as its own entity in the Marketplace.
 
 ### SKU
 
 A SKU is the smallest purchasable unit of an offer. While within the same product class (offer), SKUs allow you to differentiate between different features supported, whether the offer is managed or unmanaged and billing models supported.
 
-A SKU shows up under the parent offer in Azure Marketplace. It shows up as its own purchasable entity in Azure portal.
+A SKU shows up under the parent offer in the Marketplace. It shows up as its own purchasable entity in the Azure portal.
 
 ### Set up offer
 
@@ -82,7 +82,7 @@ The offer settings form is a basic form to specify the offer settings. The diffe
 
 * Offer ID - This field is a unique identifier for the offer within a publisher profile. This ID is visible in product URLs, Resource Manager templates, and billing reports. It can only be composed of lowercase alphanumeric characters or dashes (-). The ID cannot end in a dash and can have a maximum of 50 characters. This field is locked once an offer goes live.
 * Publisher ID - This field dropdown allows you to choose the publisher profile you want to publish this offer under. This field is locked once an offer goes live.
-* Name - This field is the display name for your offer. It is the name that shows up in Azure Marketplace and in Azure portal. It can have a maximum of 50 characters. Guidance here is to include a recognizable brand name for your product. Don't include your company name here unless that is how it is marketed. If you are marketing this offer at your own website, ensure that the name is exactly how it shows up in your website.
+* Name - This field is the display name for your offer. It is the name that shows up in the Marketplace and in the portal. It can have a maximum of 50 characters. Guidance here is to include a recognizable brand name for your product. Don't include your company name here unless that is how it is marketed. If you are marketing this offer at your own website, ensure that the name is exactly how it shows up in your website.
 
 Select **Save** to save your progress. The next step is to add SKUs for your offer.
 
@@ -121,7 +121,7 @@ The package section has the following fields that need to be filled out
 
 The mainTemplate includes the following properties:
 
-*  kind - Use **Marketplace** for Marketplace Managed application scenario
+*  kind - Use **Marketplace** for managed applications in the Marketplace
 *  ManagedResourceGroupId - The resource group in the customer's subscription where all the resources defined in the applianceMainTemplate.json are deployed.
 *  PublisherPackageId - The string that uniquely identifies the package. Provide the value in the format of `{publisherId}.{OfferId}.{SKUID}.{PackageVersion}`.
   The publisherId and OfferId could be obtained from the publishing portal.
@@ -196,7 +196,7 @@ For more information about RBAC, see [Get started with Role-Based Access Control
 
 ## Marketplace form
 
-The marketplace form within an Azure application offer asks for fields that show up on [Azure Marketplace](https://azuremarketplace.microsoft.com) and on [Azure portal](https://portal.azure.com/).
+The Marketplace form asks for fields that show up on the [Azure Marketplace](https://azuremarketplace.microsoft.com) and on the [Azure portal](https://portal.azure.com/).
 
 ### Preview subscription IDs
 
@@ -204,29 +204,29 @@ Enter here a list of Azure Subscription IDs that you would like to have access t
 
 ### Suggested categories
 
-Select up to five categories from the provided list that your offer can be best associated with. The selected categories are used to map your offer to the product categories available in [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Azure portal](https://portal.azure.com/).
+Select up to five categories from the provided list that your offer can be best associated with. The selected categories are used to map your offer to the product categories available in the [Azure Marketplace](https://azuremarketplace.microsoft.com) and the [portal](https://portal.azure.com/).
 
 #### Azure Marketplace
 
-In the summary of your application, the following fields are displayed:
+In the summary of your managed application, the following fields are displayed:
 
 ![marketplace summary](./media/managed-application-author-marketplace/publishvm10.png)
 
-In the overview for your application, the following fields are displayed:
+In the overview for your managed application, the following fields are displayed:
 
 ![marketplace overview](./media/managed-application-author-marketplace/publishvm11.png)
 
-In the plans and pricing for your application, the following fields are displayed:
+In the plans and pricing for your managed application, the following fields are displayed:
 
 ![marketplace plans](./media/managed-application-author-marketplace/publishvm15.png)
 
 #### Azure portal
 
-In the summary of your application, the following fields are displayed:
+In the summary of your managed application, the following fields are displayed:
 
 ![portal summary](./media/managed-application-author-marketplace/publishvm12.png)
 
-In the overview for your application, the following fields are displayed:
+In the overview for your managed application, the following fields are displayed:
 
 ![portal overview](./media/managed-application-author-marketplace/publishvm13.png)
 
@@ -235,14 +235,14 @@ In the overview for your application, the following fields are displayed:
 Use the following guidelines for all the logos uploaded in the Cloud Partner Portal:
 
 *   The Azure design has a simple color palette. Keep the number of primary and secondary colors on your logo low.
-*   The theme colors of the Azure portal are white and black. Hence avoid using these colors as the background color of your logos. Use some color that would make your logos prominent in the Azure portal. We recommend simple primary colors. **If you are using transparent background, then make sure that the logos/text are not white or black or blue.**
+*   The theme colors of the portal are white and black. Hence avoid using these colors as the background color of your logos. Use some color that would make your logos prominent in the portal. We recommend simple primary colors. **If you are using transparent background, then make sure that the logos/text are not white or black or blue.**
 *   Do not use a gradient background on the logo.
 *   Avoid placing text, even your company or brand name, on the logo. The look and feel of your logo should be 'flat' and should avoid gradients.
 *   Make sure the logo is not stretched.
 
 #### Hero logo
 
-The Hero logo is optional. The publisher can choose not to upload a Hero logo. However once uploaded the hero icon cannot be deleted. At that time, the partner must follow the Azure Marketplace guidelines for Hero icons.
+The Hero logo is optional. The publisher can choose not to upload a Hero logo. However once uploaded the hero icon cannot be deleted. At that time, the partner must follow the Marketplace guidelines for Hero icons.
 
 ##### Guidelines for the hero logo icon
 
@@ -258,3 +258,10 @@ The next form to fill out is the support form. This form asks for support contac
 ## How to publish an offer
 
 After completing all sections, select **Publish** to start the process of making your offer available to customers.
+
+## Next steps
+
+* For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
+* For information about consuming a managed application from the Marketplace, see [Consume Azure managed applications in the Marketplace](managed-application-consume-marketplace.md).
+* For information about publishing a Service Catalog managed application, see [Create and publish Service Catalog managed application](managed-application-publishing.md).
+* For information about consuming Service Catalog managed application, see [Consume a Service Catalog managed application](managed-application-consumption.md).

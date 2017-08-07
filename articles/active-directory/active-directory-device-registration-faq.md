@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: jairoc
 
 ---
 # Azure Active Directory automatic device registration FAQ

@@ -1,6 +1,6 @@
 ---
 title: Getting started with Azure Active Directory Premium
-description: A topic that explains how to sign up for Azure Active Directory Premium edition through the Volume Licensing web site.
+description: Explains how to sign up for Azure Active Directory Premium edition through the Volume Licensing web site.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -12,11 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
+
+ms.custom: oldportal;it-pro;
 
 ---
 # Getting started with Azure Active Directory Premium
+This article shows you how to get started with an Azure Active Directory Premium you have purchased through the Volume Licensing program. If you are not yet familiar with the different editions of Azure Active Directory, see [Azure Active Directory editions](active-directory-editions.md).  
+
+> [!IMPORTANT]
+> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. 
+
 To sign up for Active Directory Premium, you have several options: 
 
 **Azure or Office 365** - As an Azure or Office 365 subscriber, you can buy Active Directory Premium online. 
@@ -25,8 +32,6 @@ For detailed steps, see [How to Purchase Azure Active Directory Premium - Existi
 **Enterprise Mobility + Security** - Enterprise Mobility + Security (formerly Enterprise Mobility Suite) is a cost effective way for organizations to use the following services together under one licensing plan: Active Directory Premium, Azure Rights Management, Microsoft Intune. For more information, see the [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) web site. To get e free 30-day trial, click [here](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
 
 **Microsoft Volume Licensing** - Azure Active Directory Premium is available through a [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 or more licenses) or the [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 licenses) program.
-
-This topic shows you how to get started with an Azure Active Directory Premium you have purchased through the Volume Licensing program. If you are not yet familiar with the different editions of Azure Active Directory, see [Azure Active Directory editions](active-directory-editions.md).  
 
 > [!NOTE]
 > Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).

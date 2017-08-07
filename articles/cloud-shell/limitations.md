@@ -8,12 +8,12 @@ manager: timlt
 tags: azure-resource-manager
  
 ms.assetid: 
-ms.service: 
+ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 07/10/2017
 ms.author: juluk
 ---
 
@@ -21,7 +21,7 @@ ms.author: juluk
 Azure Cloud Shell has the following known limitations.
 
 ## System state and persistence
-The machine providing your Cloud Shell session is temporary and is recycled after your session is inactive for 10 minutes. Cloud Shell requires a file share to be mounted. As a result your subscription must be able to provision storage resources to access Cloud Shell.
+The machine providing your Cloud Shell session is temporary and is recycled after your session is inactive for 20 minutes. Cloud Shell requires a file share to be mounted. As a result your subscription must be able to provision storage resources to access Cloud Shell.
 * With mounted storage only modifications within your `$Home` directory or `clouddrive` directory are persisted
   * File shares can only be mounted from within your [assigned region](persisting-shell-storage.md#pre-requisites-for-manual-mounting)
   * Azure Files only supports LRS and GRS storage accounts
@@ -39,6 +39,9 @@ Right-click copy paste options are also available, however this is subject to br
 
 ## Editing .bashrc
 Take caution when editing .bashrc as it can cause unexpected errors for Cloud Shell.
+
+## .bash_history
+Your history of bash commands may be inconcsistent due to Cloud Shell session disruption or concurrent sessions.
 
 ## Usage limits
 Cloud Shell is intended for interactive use cases, as a result any long-running non-interactive sessions are ended without warning.

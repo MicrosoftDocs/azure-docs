@@ -39,8 +39,12 @@
     href: tutorial-azure-security.md
   - name: 12 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
+  - name: 13 - Set up CI/CD with Team Services
+    href: tutorial-build-deploy-jenkins.md
 - name: Samples
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=virtual-machines
   - name: Azure CLI
     href: cli-samples.md
   - name: PowerShell
@@ -353,6 +357,8 @@
         href: classic/hpcpack-cluster-namd.md
     - name: SAP on Azure
       href: ../workloads/sap/get-started.md
+    - name: Oracle on Azure
+      href: ../workloads/oracle/oracle-considerations.md
   - name: Docker on VMs
     items:
     - name: Create Docker hosts with the Azure Docker VM extension
@@ -379,6 +385,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
+    - name: Supportability of adding Azure VM to an existing availability set
+      href: ../virtual-machines-availability-set-supportability.md
     - name: Reset Linux VM password
       href: virtual-machines-linux-reset-password.md
     - name: Understand a system reboot
@@ -398,6 +406,8 @@
       href: troubleshoot-deploy-vm.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
+    - name: Device names are changed
+      href: troubleshoot-device-names-problems.md
     - name: Redeploy VM to a new Azure node
       href: redeploy-to-new-node.md
     - name: Common error messages

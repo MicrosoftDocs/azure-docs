@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
+ms.reviewer: nigu
 
 ---
 # Get started with Azure Active Directory Identity Protection and Microsoft Graph

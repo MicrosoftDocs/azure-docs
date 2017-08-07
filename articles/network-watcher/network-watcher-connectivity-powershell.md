@@ -36,9 +36,9 @@ This article takes you through some connectivity check scenarios.
 
 This article assumes you have the following resources:
 
-* An instance of Network Watcher in the region you want to test connectivity.
+* An instance of Network Watcher in the region you want to check connectivity.
 
-* Virtual machines to test connectivity with.
+* Virtual machines to check connectivity with.
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
@@ -230,7 +230,7 @@ Hops             : [
 
 ## Check website latency
 
-The following example tests the connectivity to a website.
+The following example checks the connectivity to a website.
 
 ### Example
 

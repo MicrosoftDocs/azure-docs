@@ -22,7 +22,7 @@
 ### [Configure alerts in Azure portal](insights-alerts-portal.md)
 ### [Configure alerts with CLI](insights-alerts-command-line-interface.md)
 ### [Configure alerts with PowerShell](insights-alerts-powershell.md)
-### [Have metric alert call a webhook](insights-webhooks-alerts.md)
+### [Have a metric alert call a webhook](insights-webhooks-alerts.md)
 ### [Create a metric alert with a Resource Manager template](monitoring-enable-alerts-using-template.md)
 ## Use autoscale
 ### [Best Practices](insights-autoscale-best-practices.md)
@@ -50,7 +50,7 @@
 ## Manage diagnostic logs
 ### [Archive](monitoring-archive-diagnostic-logs.md)
 ### [Stream to Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-### [Enable Diagnostic Settings using Resource Manager templates](monitoring-enable-diagnostic-logs-using-template.md)
+### [Enable Diagnostic settings using Resource Manager templates](monitoring-enable-diagnostic-logs-using-template.md)
 ## Use the REST API
 ### [Walkthrough using REST API](monitoring-rest-api-walkthrough.md)
 ## Use Azure Diagnostics extension
@@ -59,8 +59,10 @@
 ### [Troubleshooting](azure-diagnostics-troubleshooting.md)
 
 # Reference
-## [List of supported metrics](monitoring-supported-metrics.md)
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=monitor)
 ## [Sources of monitoring data](monitoring-data-sources.md)
+## [List of supported metrics](monitoring-supported-metrics.md)
+## [Activity Log event schema](monitoring-activity-log-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
@@ -71,6 +73,8 @@
 
 # Resources
 ## [Azure CLI 1.0 samples](insights-cli-samples.md)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [PowerShell samples](insights-powershell-samples.md)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=monitor)
+## [Quickstart templates](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

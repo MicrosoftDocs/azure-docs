@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/06/2017
+ms.date: 07/13/2017
 ms.author: markvi
+ms.reviewer: calebb
 
 ---
 # Applications and browsers that use conditional access rules in Azure Active Directory
@@ -71,7 +72,6 @@ You can disable legacy protocols for SharePoint access by using the Set-SPOTenan
 Exchange offers two main categories of protocols. Review the following options, and then select the policy that is right for your organization.
 
 * **Exchange ActiveSync**. By default, conditional access policies for multi-factor authentication and location are not enforced for Exchange ActiveSync. You need to protect access to these services either by configuring Exchange ActiveSync policy directly, or by blocking Exchange ActiveSync by using Active Directory Federation Services (AD FS) rules.
-
 * **Legacy protocols**. You can block legacy protocols with AD FS. This blocks access to older Office clients, such as Office 2013 without modern authentication enabled, and earlier versions of Office.
 
 ### Use AD FS to block legacy protocol
@@ -119,9 +119,9 @@ By applying the following three rules to the AD FS relying party trust for Micro
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-## Supported browsers for device based policies
+## Supported browsers for device based policies 
 
-Access can only be granted for device based policies, that check for device compliance and domain join, when Azure AD can identify and authenticate the device. While most checks, like location and MFA work on most devices and browsers, device policies require of the OS version and browsers listed below. A user on an unsupported browser or OS will have their access blocked when a policy is in device policy is in place.
+You can only get access for device based policies that check for device compliance and domain join when Azure AD can identify and authenticate the device. While most checks, like location and MFA work on most devices and browsers, device policies require of the OS version and browsers listed below. Access is blocked for users on  unsupported browsers or the operating systems when a device policy is in place. 
 
 | OS                     | Browsers                 | Support     |
 | :--                    | :--                      | :-:         |

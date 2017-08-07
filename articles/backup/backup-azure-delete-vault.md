@@ -1,5 +1,5 @@
 ---
-title: ' Delete a Backup vault in Azure | Microsoft Docs '
+title: ' Delete a Recovery Services vault in Azure | Microsoft Docs '
 description: How to delete an Azure Backup and Recovery Services vault. A backup vault can be called an Azure cloud vault, or Azure recovery vault. Troubleshooting problems when you can't delete a backup vault in the classic portal or Azure portal.
 services: service-name
 documentationcenter: dev-center-name
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/14/2017
+ms.date: 07/21/2017
 ms.author: markgal;trinadhk
 
 ---
-# Delete an Azure Backup vault
+# Delete a Recovery Services vault
 The Azure Backup service has two types of vaults - the Backup vault and the Recovery Services vault. The Backup vault came first. Then the Recovery Services vault came along to support the expanded Resource Manager deployments. Because of the expanded capabilities and the information dependencies that must be stored in the vault, deleting a Backup or Recovery Services vault can be confusing. This article explains how to delete the vaults in the classic portal and the Azure portal.  
 
 | **Deployment Type** | **Portal** | **Vault name** |
