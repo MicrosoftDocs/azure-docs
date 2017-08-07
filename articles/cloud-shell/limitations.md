@@ -18,16 +18,16 @@ ms.author: juluk
 ---
 
 # Limitations of Azure Cloud Shell
-Azure Cloud Shell has the following known limitations:
+Azure Cloud Shell has the following known limitations.
 
 ## System state and persistence
 The machine that provides your Cloud Shell session is temporary, and it is recycled after your session is inactive for 20 minutes. Cloud Shell requires a file share to be mounted. As a result, your subscription must be able to set up storage resources to access Cloud Shell. Other considerations include:
 * With mounted storage, only modifications within your `$Home` directory or `clouddrive` directory are persisted.
 * File shares can be mounted only from within your [assigned region](persisting-shell-storage.md#pre-requisites-for-manual-mounting).
-* Azure Files supports only locally redundant storage (LRS) and geo-redundant storage (GRS) storage accounts.
+* Azure Files supports only locally redundant storage and geo-redundant storage accounts.
 
 ## User permissions
-Permissions are set as regular users without sudo access. Any installation outside of your `$Home` directory will not persist.
+Permissions are set as regular users without sudo access. Any installation outside your `$Home` directory will not persist.
 Although certain commands within the `clouddrive` directory, such as `git clone`, do not have proper permissions, your `$Home` directory does have permissions.
 
 ## Browser support
