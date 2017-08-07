@@ -134,7 +134,9 @@ The following steps walk you through how to use the Azure portal to create an Az
 5. When the **Create container registry** blade is displayed:
 
    a. Enter your **Registry name** and **Resource group**.  
+   
    b. Select **Enable** for the **Admin user**.
+   
    c. Select **Create**.
 
    ![Configure Azure container registry settings][AR03]
