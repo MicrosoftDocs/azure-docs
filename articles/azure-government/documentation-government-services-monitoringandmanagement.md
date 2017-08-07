@@ -63,15 +63,29 @@ Azure Monitor is generally available in Azure Government.
 For more information, see [Monitor commercial documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview).
 
 ### Variations
-The following Monitor features are not currently available in Azure Government:
+The following sections detail differences and workarounds for features of Azure Monitor in Azure Government:
 
 #### Action Groups 
 Action Groups do not support SMS at this time but will in a coming update.    
+
+#### Activity Log Alerts
+Activity Log Alerts are generally available in Azure Government with no differences from commercial Azure.
 
 #### Autoscale
 Autoscale via the portal is not currently available. This feature is coming soon. If you are interested in implementing autoscale on your resources, please use PowerShell/ARM/Rest calls to specify the settings. 
 
 For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-powershell-samples#create-and-manage-autoscale-settings).
+
+#### Diagnostic Logs
+Diagnostic Logs are generally available in Azure Government with no differences from commercial Azure.
+
+#### Metrics
+Metrics are supported in all regions, but only for services which are available in Azure Government; a few exceptions are below:
+
+* Coming Soon: Azure IoT Hub
+* Coming Soon: Classic Virtual Machines
+
+The same methods for viewing the metrics that are used in commercial Azure are used in Azure Government. 
 
 #### Metric Alerts 
 Creating Metric Alerts for resources outside of USGov Virginia and USGov Iowa in the portal will fail. A fix for this issue is in progress. In the meantime, please use PowerShell/ARM/Rest calls to specify the settings. You will need to set the "Location" of the metric alert to USGov Virginia or USGov Iowa. The resource targetted by the alert can exist in any region. An example of the setting is below:
@@ -83,14 +97,6 @@ Add-AzureRmMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -Resource
 ```
 
 For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-powershell-samples#create-alert-rules).
-
-#### Metrics
-Metrics are supported in all regions, but only for services which are available in Azure Government; a few exceptions are below:
-
-* Coming Soon: Azure IoT Hub
-* Coming Soon: Classic Virtual Machines
-
-The same methods for viewing the metrics that are used in commercial Azure are used in Azure Government. 
 
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
