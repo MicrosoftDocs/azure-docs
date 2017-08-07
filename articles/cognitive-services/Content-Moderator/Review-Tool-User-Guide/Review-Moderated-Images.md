@@ -28,15 +28,15 @@ After you have signed up for Content Moderation and obtained a subscription key,
 
 4.	Move the “Reviews to display” slider (1) to adjust the number of images displayed on the screen. Click on the tagged or untagged buttons (2) to sort the images accordingly. Click on a tag (3) to toggle it on or off.
 
-  ![Browse Image Reviews](Review-Tool-User-Guide/images/review-images-2.png)
+  ![Browse Image Reviews](images/review-images-2.png)
  
 5.	To see more information about an image, click on the ellipsis on a thumbnail, followed by the **View details** option. To assign the image to a subteam, select the **Move to** option.
  
-  ![View details and Move to subteam option](Review-Tool-User-Guide/images/review-images-3.png)
+  ![View details and Move to subteam option](images/review-images-3.png)
 
 6. Browse the image moderation information on the details page.
 
-  ![View Image Details](Review-Tool-User-Guide/images/review-images-4.png)
+  ![View Image Details](images/review-images-4.png)
  
 7.	Once you have reviewed and updated the tag assignments as needed, click **Next** to submit your reviews.
 
