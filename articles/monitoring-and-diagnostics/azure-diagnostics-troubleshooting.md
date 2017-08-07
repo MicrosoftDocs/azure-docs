@@ -52,12 +52,12 @@ Here are the paths to some important logs and artifacts. We keep referring to th
 | **Log collection utility path** | C:\WindowsAzure\Packages |
 | **MonAgentHost log file** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
-## Metric data doesn't show in Azure Portal
-Azure Diagnostics provides a bunch of metric data which can be displayed in Azure Portal. If you have problems with seeing these data in Portal, check the diagnostics storage account -> WADMetrics\* table to see if the corresponding metric records are there. Here, the PartitionKey of the table is the resource id of Virtual Machine or VM Scale Set, and the RowKey is the metric name i.e. performance counter name.
+## Metric data doesn't show in Azure portal
+Azure Diagnostics provides a bunch of metric data, which can be displayed in Azure Portal. If you have problems with seeing these data in portal, check the diagnostics storage account -> WADMetrics\* table to see if the corresponding metric records are there. Here, the PartitionKey of the table is the resource ID of virtual machine or virtual machine scale set, and the RowKey is the metric name i.e. performance counter name.
 
-If the resource id is incorrect, check Diagnostics Configuration -> Metrics -> ResourceId to see if the resource id is set correctly.
+If the resource ID is incorrect, check Diagnostics Configuration -> Metrics -> ResourceId to see if the resource ID is set correctly.
 
-If no data for specific metrics, check Diagnostics Configuration -> PerformanceCounter to see if the performance counter is included. We enable following counters by default.
+If there's no data for the specific metric, check Diagnostics Configuration -> PerformanceCounter to see if the metric(performance counter) is included. We enable following counters by default.
 - \Processor(_Total)\% Processor Time
 - \Memory\Available Bytes
 - \ASP.NET Applications(__Total__)\Requests/Sec
@@ -96,7 +96,7 @@ If you find a **negative** exit code, refer to the [exit code table](#azure-diag
 Determine if no data is showing up or only some of the data is not showing up.
 
 ### Diagnostics Infrastructure Logs
-Diagnostics Infrastructure Logs is where azure diagnostics logs any errors that it runs into. Make sure you have enabled ([how to?](#how-to-check-diagnostics-extension-configuration)) capturing of Diagnsotics Infrastructure logs in your configuration and quickly look for any relevant errors that show up in the `DiagnosticInfrastructureLogsTable` table in your configured storage account.
+Diagnostics Infrastructure Logs is where azure diagnostics logs any errors that it runs into. Make sure you have enabled ([how to?](#how-to-check-diagnostics-extension-configuration)) capturing of Diagnostics Infrastructure logs in your configuration and quickly look for any relevant errors that show up in the `DiagnosticInfrastructureLogsTable` table in your configured storage account.
 
 ### No data is showing up
 The most common cause of event data entirely missing is incorrectly defined storage account information.
@@ -229,14 +229,14 @@ The plugin returns the following exit codes:
 | -112 |General error |
 
 ### Local Log Extraction
-The mointoring agent collects logs and artifacts as `.tsf` files. `.tsf` file is not readable but you can convert it into a `.csv` as follows: 
+The monitoring agent collects logs and artifacts as `.tsf` files. `.tsf` file is not readable but you can convert it into a `.csv` as follows: 
 
 ```
 <Azure diagnostics extension package>\Monitor\x64\table2csv.exe <relevantLogFile>.tsf
 ```
 A new file called `<relevantLogFile>.csv` will be created in the same path as the corresponding `.tsf` file.
 
-**NOTE**: You only need to run this utility against the main tsf file (e.g., PerformanceCountersTable.tsf). Tha accompanying files (e.g., PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002.tsf etc.) will automatically be processed.
+**NOTE**: You only need to run this utility against the main tsf file (e.g., PerformanceCountersTable.tsf). The accompanying files (e.g., PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002.tsf etc.) will automatically be processed.
 
 ### More About Trace Logs Missing
 
@@ -264,7 +264,7 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 **2. Performance Counters data available in storage but not showing in portal**
 
 Virtual machines portal experience shows certain performance counters by default. If you don't see them and you know the data is getting generated because it is available in storage. Check:
-- If the data in storage has english counter names. If the counter names are not in english, portal metric chart will not be able to recognize it.
+- If the data in storage has counter names in English. If the counter names are not in English, portal metric chart will not be able to recognize it.
 - If you are using wild cards (\*) in your performance counter names, the portal will not be able to correlate the configured and collected counter.
 
-**Mitigation**: Change the machine's language to english for system accounts. Control Panel -> Region -> Administrative -> Copy Settings -> uncheck "Welcome screen and system accounts" so that the custom language is not applied to system account. Also make sure you do not use wild cards if you want portal to be your primary consumption experience.
+**Mitigation**: Change the machine's language to English for system accounts. Control Panel -> Region -> Administrative -> Copy Settings -> uncheck "Welcome screen and system accounts" so that the custom language is not applied to system account. Also make sure you do not use wild cards if you want portal to be your primary consumption experience.
