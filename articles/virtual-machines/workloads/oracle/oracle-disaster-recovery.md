@@ -91,7 +91,7 @@ Here is a summary of the Azure setup.
 ## Additional readings:
 
 - [Design and implement Oracle database on Azure](oracle-design.md)
-- [Configure Oracle Data Guard](configuring-oracle-dataguard.md)
+- [Configure Oracle Data Guard](configure-oracle-dataguard.md)
 - [Configure Oracle Golden Gate](configure-oracle-golden-gate.md)
 - [Oracle Backup and Recovery](oracle-backup-recovery.md)
 

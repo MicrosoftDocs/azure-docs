@@ -2,17 +2,17 @@
 title: Azure Instance Metadata Service Overview | Microsoft Docs
 description: RESTful interface to get information about VM's compute, network and upcoming maintenance events.
 services: virtual-machines-windows, virtual-machines-linux,virtual-machines-scale-sets, cloud-services
-documentationcenter: ''
+documentationcenter: virtual-machines
 author: harijay
 manager: timlt
 editor: ''
-tags: ''
+tags: azure-resource-manager
 
-ms.service: azure-instancemetadataservice
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: harijay
 ---

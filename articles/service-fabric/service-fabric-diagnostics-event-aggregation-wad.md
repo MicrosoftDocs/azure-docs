@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 07/17/2017
 ms.author: dekapur
 
 ---
@@ -40,7 +40,7 @@ These tools are used to perform some of the operations in this document:
 
 ## Log and event sources
 
-### Service Fabric infrastructure events
+### Service Fabric platform events
 As discussed in [this article](service-fabric-diagnostics-event-generation-infra.md), Service Fabric sets you up with a few out-of-the-box logging channels, of which the following channels are easily configured with WAD to send monitoring and diagnostics data to a storage table or elsewhere:
   * Operational events: higher-level operations that the Service Fabric platform performs. Examples include creation of applications and services, node state changes, and upgrade information. These are emitted as Event Tracing for Windows (ETW) logs
   * [Reliable Actors programming model events](service-fabric-reliable-actors-diagnostics.md)

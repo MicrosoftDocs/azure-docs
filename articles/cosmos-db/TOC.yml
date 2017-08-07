@@ -137,6 +137,8 @@
         href: documentdb-resources.md
       - name: SQL queries
         href: documentdb-sql-query.md
+      - name: SQL query performance
+        href: documentdb-sql-query-metrics.md        
       - name: SQL playground
         href: https://www.documentdb.com/sql/demo
       - name: Partitioning
@@ -281,14 +283,20 @@
       href: powerbi-visualize.md
     - name: Leverage the ODBC driver for data visualization
       href: odbc-driver.md
+    - name: Use Spring Boot Starter with DocumentDB APIs
+      href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Reference
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db
   - name: DocumentDB APIs
     items:
     - name: Java
       href: documentdb-sdk-java.md
     - name: .NET
       href: documentdb-sdk-dotnet.md
+    - name: .NET Change feed
+      href: documentdb-sdk-dotnet-changefeed.md
     - name: .NET Core
       href: documentdb-sdk-dotnet-core.md
     - name: Node.js

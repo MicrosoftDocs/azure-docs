@@ -165,7 +165,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     g. Paste **Single Sign-On Service URL** into the **Identity Provider Login URL** textbox. 
 
-    h. SFDC does not support SAML logout.  As a workaround, paste 'https://login.windows.net/common/wsfederation?wa=wsignout1.0' it into the **Identity Provider Logout URL** textbox.
+    h. SFDC does not support SAML logout.  As a workaround, paste 'https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0' it into the **Identity Provider Logout URL** textbox.
 
     i. As **Service Provider Initiated Request Binding**, select **HTTP POST**. 
 

@@ -39,7 +39,7 @@ For a quick overview, watch the following video about how to fail over from Azur
 ## Prerequisites
 When you prepare to reprotect virtual machines, take or consider the following prerequisite actions:
 
-* If a vCenter server manages the virtual machines that you want to fail back to, make sure that you have the [required permissions](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access) for discovery of virtual machines on vCenter servers.
+* If a vCenter server manages the virtual machines that you want to fail back to, make sure that you have the [required permissions](site-recovery-vmware-to-azure-classic.md) for discovery of virtual machines on vCenter servers.
 
   > [!WARNING]
   > If snapshots are present on the on-premises master target or the virtual machine, reprotection fails. You can delete the snapshots on the master target before you proceed to reprotect. The snapshots on the virtual machine are automatically merged during a reprotect job.
@@ -105,7 +105,7 @@ An on-premises master target server is required to receive data from the process
 
 For information about installing a master target server, see:
 
-* [How to install Windows master target server](site-recovery-vmware-to-azure.md#run-site-recovery-unified-setup)
+* [How to install Windows master target server](site-recovery-vmware-to-azure.md)
 * [How to install Linux master target server](site-recovery-how-to-install-linux-master-target.md)
 
 
@@ -206,7 +206,7 @@ The failback will shut down the virtual machine in Azure and boot the on-premise
 
 * If you used a template to create your virtual machines, ensure that each virtual machine has its own UUID for the disks. If the on-premises virtual machine's UUID clashes with that of the master target because both were created from the same template, reprotection fails. Deploy another master target that has not been created from the same template.
 
-* If you perform a read-only user vCenter discovery and protect virtual machines, protection succeeds, and failover works. During reprotection, failover fails because the datastores cannot be discovered. A symptom is that the datastores aren't listed during reprotection. To resolve this problem, you can update the vCenter credential with an appropriate account that has permissions, and retry the job. For more information, see [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+* If you perform a read-only user vCenter discovery and protect virtual machines, protection succeeds, and failover works. During reprotection, failover fails because the datastores cannot be discovered. A symptom is that the datastores aren't listed during reprotection. To resolve this problem, you can update the vCenter credential with an appropriate account that has permissions, and retry the job. For more information, see [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 
 * When you fail back a Linux virtual machine and run it on-premises, you can see that the Network Manager package has been uninstalled from the machine. This uninstallation happens because the Network Manager package is removed when the virtual machine is recovered in Azure.
 

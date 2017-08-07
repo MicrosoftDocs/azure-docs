@@ -19,9 +19,7 @@ ms.author: scottwhi
 > Preview release of the Entity Search API. All aspects of the API and documentation are subject to change. 
 
 
-The Entity Search API lets you send a search query to Bing and get back search results that include entities and places. Place results include restaurants, hotel, or other local businesses. For places, the query can specify the name of the local business or it can ask for a list (for example, restaurants near me).
-
-Entity results include persons, places, or things. Place in this context is tourist attractions, states, countries, etc. The API returns entities if Bing is confident that only one entity satisfies the request. For example, if the request specifies a movie, the response includes the entity if Bing is confident that only one movie satisfies the request. But if the request specifies the title of a movie franchise, the response will not include an entity because it's ambiguous as to which version you want. 
+The Entity Search API lets you send a search query to Bing and get back search results that include entities and places. Place results include restaurants, hotel, or other local businesses. For places, the query can specify the name of the local business or it can ask for a list (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is tourist attractions, states, countries, etc.  
 
 
 ## Search query term
@@ -52,7 +50,7 @@ For an example request, see [Making your first request](./quick-start.md).
 
 The response contains a [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse) object. If Bing finds an entity or place that's relevant, the object includes the `entities` field, `places` field, or both. If Bing does not find relevant entities, the response object will not include the fields.
 
-The `entities` field is an [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) object that contains a list of [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) objects (see the `value` field). Because Bing returns only dominant entities, the list will contain only one entity. A dominant entity is an entity that Bing believes is the only entity that satisfies the request (there is no ambiguity as to which entity satisfies the request). 
+The `entities` field is an [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) object that contains a list of [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) objects (see the `value` field). The list may contain a single dominant entity, multiple disambiguation entities or both. A dominant entity is an entity that Bing believes is the only entity that satisfies the request (there is no ambiguity as to which entity satisfies the request). If multiple entities could satisfy the request, the list will contain more than one disambiguation entity. For example, if the request uses the generic title of a movie franchise, the list would likely contain disambiguation entities. But, if the request specifies a specific title from the franchise, the list would likely contain a siingle dominant entity.
 
 Entities include persons such as Adam Levine, places such as Mount Rainier or Pike Place Market, and things such as banana, goldendoodle, book, or movie title. The [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) field contains hints that identify the entity's type. For example, if it's a person, movie, animal, or attraction. For a list of possible types, see [Entity Types](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
 
@@ -62,6 +60,92 @@ Entities include persons such as Adam Levine, places such as Mount Rainier or Pi
                 "entityTypeHints" : ["Attraction"],
                 "entityTypeDisplayHint" : "Mountain"
             },
+```
+
+The following shows a response that includes a dominant and disambiguation entities.
+
+```
+{
+    "_type" : "SearchResponse",
+    "queryContext" : {
+        "originalQuery" : "pike place market"
+    },
+    "entities" : {
+        "value" : [{
+            "contractualRules" : [{
+                "_type" : "ContractualRules\/LicenseAttribution",
+                "targetPropertyName" : "description",
+                "mustBeCloseToContent" : true,
+                "license" : {
+                    "name" : "CC-BY-SA",
+                    "url" : "http:\/\/creativecommons.org\/licenses\/by-sa\/3.0\/"
+                },
+                "licenseNotice" : "Text under CC-BY-SA license"
+            },
+            {
+                "_type" : "ContractualRules\/LinkAttribution",
+                "targetPropertyName" : "description",
+                "mustBeCloseToContent" : true,
+                "text" : "en.wikipedia.org",
+                "url" : "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Market"
+            },
+            {
+                "_type" : "ContractualRules\/MediaAttribution",
+                "targetPropertyName" : "image",
+                "mustBeCloseToContent" : true,
+                "url" : "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Market"
+            }],
+            "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Pike%20Place%20Market...",
+            "name" : "Pike Place Market",
+            "url" : "http:\/\/www.pikeplacemarket.org\/",
+            "image" : {
+                "name" : "Pike Place Market",
+                "thumbnailUrl" : "https:\/\/www.bing.com\/th?id=A4ae343983daa4...",
+                "provider" : [{
+                    "_type" : "Organization",
+                    "url" : "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Market"
+                }],
+                "hostPageUrl" : "http:\/\/upload.wikimedia.org\/wikipedia\/commons\/7\/72\/Pike_Place...",
+                "width" : 110,
+                "height" : 110
+            },
+            "description" : "Pike Place Market is a public market overlooking the Elliott...",
+            "entityPresentationInfo" : {
+                "entityScenario" : "DominantEntity",
+                "entityTypeHints" : ["Attraction"]
+            },
+            "bingId" : "38b9431e-cf91-93be-0584-c42a3ecbfdc7"
+        },
+        {
+            "contractualRules" : [{
+                "_type" : "ContractualRules\/MediaAttribution",
+                "targetPropertyName" : "image",
+                "mustBeCloseToContent" : true,
+                "url" : "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Fish_Market"
+            }],
+            "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Pike%20Place%20Fish%20Market...",
+            "name" : "Pike Place Fish Market",
+            "url" : "http:\/\/pikeplacefish.com\/",
+            "image" : {
+                "name" : "Pike Place Fish Market",
+                "thumbnailUrl" : "https:\/\/www.bing.com\/th?id=A91bdc5a1b648a695a39...",
+                "provider" : [{
+                    "_type" : "Organization",
+                    "url" : "http:\/\/en.wikipedia.org\/wiki\/Pike_Place_Fish_Market"
+                }],
+                "hostPageUrl" : "http:\/\/upload.wikimedia.org\/wikipedia\/en\/7\/7a...",
+                "width" : 50,
+                "height" : 50
+            },
+            "description" : "The Pike Place Fish Market, founded in 1930, is an open air fish market...",
+            "entityPresentationInfo" : {
+                "entityScenario" : "DisambiguationItem",
+                "entityTypeHints" : ["Organization"]
+            },
+            "bingId" : "29d4b681-227a-3924-7bb1-8a54e8666b8c"
+        }]
+    }
+}
 ```
 
 The entity includes a `name`, `description`, and `image` field. When you display these fields in your user experience, you must attribute them. The `contractualRules` field contains a list of attributions that you must apply. The contractual rule identifies the field that the attribution applies to. For information about applying attribution, see [Attribution](#data-attribution).

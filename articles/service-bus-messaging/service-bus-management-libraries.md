@@ -44,9 +44,8 @@ These tutorials provide you with an `AppId` (Client ID), `TenantId`, and `Client
 The pattern to manipulate any Service Bus resource follows a common protocol:
 
 1. Obtain a token from Azure Active Directory using the **Microsoft.IdentityModel.Clients.ActiveDirectory** library.
-
    ```csharp
-   var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+   var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
    var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
    ```

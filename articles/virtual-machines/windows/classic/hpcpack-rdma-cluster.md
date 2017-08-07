@@ -19,7 +19,7 @@ ms.author: danlep
 
 ---
 # Set up a Windows RDMA cluster with HPC Pack to run MPI applications
-Set up a Windows RDMA cluster in Azure with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) and [H-series or compute-intensive A-series instances](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to run parallel Message Passing Interface (MPI) applications. When you set up RDMA-capable, Windows Server-based nodes in an HPC Pack cluster, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
+Set up a Windows RDMA cluster in Azure with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) and [High performance compute VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to run parallel Message Passing Interface (MPI) applications. When you set up RDMA-capable, Windows Server-based nodes in an HPC Pack cluster, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 
 If you want to run MPI workloads on Linux VMs that access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](../../linux/classic/rdma-cluster.md).
 
@@ -31,7 +31,7 @@ This article introduces two scenarios and links to detailed guidance to set up a
 * Scenario 1. Deploy compute-intensive worker role instances (PaaS)
 * Scenario 2. Deploy compute nodes in compute-intensive VMs (IaaS)
 
-For general prerequisites to use compute-intensive instances with Windows, see [About H-series and compute-intensive A-series VMs](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For general prerequisites to use compute-intensive instances with Windows, see [High performance compute VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Scenario 1: Deploy compute-intensive worker role instances (PaaS)
 From an existing HPC Pack cluster, add extra compute resources in Azure worker role instances (Azure nodes) running in a cloud
@@ -107,7 +107,7 @@ automate the deployment of an HPC Pack 2012 R2 cluster in Azure.
    * **Windows Server operating system**: To support RDMA connectivity, specify a Windows Server 2012 R2 or Windows Server 2012 operating system for the compute node VMs.
    * **Cloud services**: We recommend deploying your head node in one cloud service and your compute nodes in a different cloud service.
    * **Head node size**: For this scenario, consider a size of at least A4 (Extra Large) for the head node.
-   * **HpcVmDrivers extension**: The deployment script installs the Azure VM Agent and the HpcVmDrivers extension automatically when you deploy size A8 or A9 compute nodes with a Windows Server operating system. HpcVmDrivers installs drivers on the compute node VMs so they can connect to the RDMA network. On RDMA-capable H-series VMs, you must manually install the HpcVmDrivers extension. See [About H-series and compute-intensive A-series VMs](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#access-to-the-rdma-network).
+   * **HpcVmDrivers extension**: The deployment script installs the Azure VM Agent and the HpcVmDrivers extension automatically when you deploy size A8 or A9 compute nodes with a Windows Server operating system. HpcVmDrivers installs drivers on the compute node VMs so they can connect to the RDMA network. On RDMA-capable H-series VMs, you must manually install the HpcVmDrivers extension. See [High performance compute VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
    * **Cluster network configuration**: The deployment script automatically sets up the HPC Pack cluster in Topology 5 (all nodes on the Enterprise network). This topology is required for all HPC Pack cluster deployments in VMs. Do not change the cluster network topology later.
 2. **Bring the compute nodes online to run jobs**
    

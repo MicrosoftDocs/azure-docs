@@ -4,7 +4,7 @@ description: Learn how to setup and connect Sparkfun ESP8266 Thing Dev to Azure 
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: ''
 
