@@ -8,7 +8,7 @@ manager: rsrikan
 ms.service: cognitive-services
 ms.technology: qnamaker
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 08/08/2017
 ms.author: pchoudh
 ---
 
