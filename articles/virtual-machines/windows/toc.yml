@@ -219,6 +219,8 @@
       href: expand-os-disk.md
     - name: Expand data disk
       href: expand-data-disks.md
+    - name: Convert disk storage
+      href: convert-disk-storage.md
     - name: Use a file share
       href: mount-azure-file-storage.md
     - name: Use D as data disk
