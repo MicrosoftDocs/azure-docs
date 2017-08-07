@@ -13,16 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
-ms.author: curtand                       
+ms.date: 08/09/2017
+ms.author: curtand                   
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
 
 ---
 
-# Configure expiration settings for an Office 365 group (preview)
+# Configure Office 365 groups expiration (preview)
 
-Information workers can now create and administer their own Office 365 groups. To keep address lists relevant with actively used groups as scale increases, you can configure expiration settings for Office 365 groups. For example, these settings can ensure that groups that are not renewed are deleted. 
+You can now manage the lifecycle of Office 365 groups by setting expiration for any Office 365 groups that you select. Once this expiration is set, owners of those groups are asked to renew their groups if they still need the groups. Any Office 365 group that is not renewed will be deleted. Any Office 365 group that was deleted can be restored within 30 days by the group owners or the administrator.  
+
 
 > [!NOTE]
 > You can set expiration for only Office 365 groups.
@@ -48,7 +49,7 @@ This feature require owners of Office 365 groups to renew their group within a t
   * Select which Office 365 groups expire. You can enable expiration for **All** Office 365 groups, you can select from among the Office 365 groups, or you select **None** to disable expiration for all groups.
   * Save your settings when you're done by selecting **Save**.
 
-For instructions on how to configure expiration for Office 365 groups via PowerShell, see <insert URL here>.
+For instructions on how to download and install the Microsoft PowerShell module to configure expiration for Office 365 groups via PowerShell, see [Azure Active Directory V2 PowerShell Module - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
 Email notifications such as this one are sent to the Office 365 group owners 30 days, 15 days, and 1 day prior to expiration of the group.
 
