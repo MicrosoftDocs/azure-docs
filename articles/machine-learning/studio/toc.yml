@@ -1,6 +1,7 @@
 - name: Machine Learning Studio Documentation
   href: what-is-machine-learning.md
 - name: Overview
+  expanded: true
   items:
   - name: What's Machine Learning?
     href: what-is-machine-learning.md
