@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 08/07/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -292,7 +292,7 @@ These commands store the data in a location that all nodes in the cluster can ac
 3. Use the following command to run the HiveQL contained in the file:
 
    ```bash
-   beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin -i twitter.hql
+   beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
    ```
 
     This command runs the the **twitter.hql** file. Once the query completes, you see a `jdbc:hive2//localhost:10001/>` prompt.
