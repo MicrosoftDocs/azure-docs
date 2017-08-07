@@ -351,11 +351,11 @@ You see the **保存成功！** (**Successfully saved!**) message.
             import com.baidu.android.pushservice.PushManager;
 
 ## Send notifications to your app
-You can quickly test receiving notifications in your app by sending notifications in the [Azure portal](https://portal.azure.com/) using the **Send** button on the notification hub, as shown in the following screen.
+You can quickly test receiving notifications in your app by sending notifications in the [Azure portal](https://portal.azure.com/) using the **Send** button on the notification hub, as shown in the following screen:
 
 ![](./media/notification-hubs-baidu-get-started/notification-hub-test-send-baidu.png)
 
-Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET using a compatible library. If a library is not available for your back-end you can use the REST API directly to send notification messages .
+Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET using a compatible library. If a library is not available for your back-end, you can use the REST API directly to send notification messages .
 
 In this tutorial, we keep it simple and just demonstrate testing your client app by sending notifications using the .NET SDK for notification hubs in a console application instead of a backend service. We recommend the [Use Notification Hubs to push notifications to users](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) tutorial as the next step for sending notifications from an ASP.NET backend. However, the following approaches can be used for sending notifications:
 
@@ -397,11 +397,11 @@ In this section, we show sending a notification using a .NET console app.
 ## Test your app
 To test this app with an actual phone, just connect the phone to your computer by using a USB cable. This action loads your app onto the attached phone.
 
-To test this app with the emulator, on the Eclipse top toolbar, click **Run**, and then select your app: it starts the emulator, loads and runs the app.
+To test this app with the emulator, on the Eclipse top toolbar, click **Run**, and then select your app: it starts the emulator, loads, and runs the app.
 
 The app retrieves the 'userId' and 'channelId' from the Baidu Push notification service and registers with the notification hub.
 
-To send a test notification you can use the debug tab of the Azure Classic Portal. If you built the .NET console application for Visual Studio, just press the F5 key in Visual Studio to run the application. The application sends a notification that will appear in the top notification area of your device or emulator.
+To send a test notification, you can use the debug tab of the Azure Classic Portal. If you built the .NET console application for Visual Studio, just press the F5 key in Visual Studio to run the application. The application sends a notification that appears in the top notification area of your device or emulator.
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-baidu-get-started/BaiduRegistration.png
