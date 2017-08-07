@@ -1,5 +1,5 @@
 ---
-title: 'Quick Start: Azure AD SSPR | Microsoft Docs'
+title: 'Quickstart: Azure AD SSPR | Microsoft Docs'
 description: Rapidly deploy Azure AD self-service password reset
 services: active-directory
 keywords: 
@@ -77,7 +77,7 @@ Disabling self-service password reset is as simple as opening your Azure AD tena
 
 ## Next steps
 
-In this quick start, you’ve learned how to configure self-service password reset for your users. To continue to the Azure portal to complete these steps follow the link below to the portal.
+In this quickstart, you’ve learned how to configure self-service password reset for your users. To continue to the Azure portal to complete these steps follow the link below to the portal.
 
 > [!div class="nextstepaction"]
 > [Azure AD self-service password reset](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
