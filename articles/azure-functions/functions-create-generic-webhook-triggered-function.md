@@ -146,11 +146,11 @@ Now you can test the function by creating a new resource group in your subscript
     
     ![Create a resource group.](./media/functions-create-generic-webhook-triggered-function/functions-create-resource-group.png)
 
-2. Go back to your function and expand the **Logs** window. After the resource group is created, the alert is raised, and the function executes. The name of the new resource group is written to the logs.  
+2. Go back to your function and expand the **Logs** window. After the resource group is created, the activity log alert triggers the webhook and the function executes. You see the name of the new resource group written to the logs.  
 
     ![Add a test application setting.](./media/functions-create-generic-webhook-triggered-function/function-view-logs.png)
 
-3. (Optional) Go back and delete the resource group that you created. Because of the filtering in the alert, the delete operation does not trigger the function. 
+3. (Optional) Go back and delete the resource group that you created. Note that this activity doesn't trigger the function. This is because delete operations are filtered out by the alert. 
 
 ## Clean up resources
 
