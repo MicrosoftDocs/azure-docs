@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/03/2017
 ms.author: sngun
 
 ---
@@ -76,7 +76,12 @@ Use the following steps to connect to Azure Stack:
     Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate" 
    ```
 
-2. Register your Azure Stack environment by running the following command:
+2. Register your Azure Stack environment by running the az cloud register command. 
+   
+   In order to create virtual machines by using CLI, the cloud administrator should set up a publicly accessible endpoint that contains virtual machine image aliases and register this endpoint with the cloud. The `endpoint-vm-image-alias-doc` parameter in the `az cloud register` command is used for this purpose. Cloud administrators must download the image to the Azure Stack marketplace before they add it to image aliases endpoint.
+   
+   For example, Azure contains uses following URI: 
+    https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. The cloud administrator should set up a similar endpoint for Azure Stack with the images that are available in the Azure Stack marketplace.
 
    a. To register the **cloud administrative** environment, use:
 
@@ -85,7 +90,8 @@ Use the following steps to connect to Azure Stack:
      -n AzureStackAdmin \ 
      --endpoint-resource-manager "https://adminmanagement.local.azurestack.external" \ 
      --suffix-storage-endpoint "local.azurestack.external" \ 
-     --suffix-keyvault-dns ".adminvault.local.azurestack.external"
+     --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
+     --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
    ```
 
    b. To register the **user** environment, use:

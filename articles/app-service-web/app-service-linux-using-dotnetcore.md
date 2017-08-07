@@ -43,7 +43,7 @@ To complete this tutorial:
 Start a new terminal session. Create a directory named `hellodotnetcore`, and change the current directory to it. Then type the following: 
 
 ```
-dotnew new web
+dotnet new web
 ``` 
 
   This command creates three files (*hellodotnetcore.csproj*, *Program.cs*, and *Startup.cs*) and one empty folder (*wwwroot/*) under the current directory. The content of `.csproj` file should look like the following: 
