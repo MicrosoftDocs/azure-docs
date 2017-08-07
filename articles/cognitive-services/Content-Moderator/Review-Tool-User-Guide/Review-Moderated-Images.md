@@ -12,7 +12,7 @@ ms.date: 08/06/2017
 ms.author: sajagtap
 ---
 
-# Review moderated images #
+# Review moderated images
 
 After you have signed up for Content Moderation and obtained a subscription key, you can try out the image review features.
 
@@ -24,7 +24,8 @@ After you have signed up for Content Moderation and obtained a subscription key,
 
   The images display with any labels that have been assigned by the review tool.
 
-  Note: *Images are not available to other reviewers in your team while you are reviewing them.*
+  [!NOTE] 
+  Images are not available to other reviewers in your team while you are reviewing them.
 
 4.	Move the “Reviews to display” slider (1) to adjust the number of images displayed on the screen. Click on the tagged or untagged buttons (2) to sort the images accordingly. Click on a tag (3) to toggle it on or off.
 
