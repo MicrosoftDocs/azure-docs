@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/04/2017
+ms.date: 08/07/2017
 ms.author: denlee
 
 ---
@@ -44,54 +44,23 @@ Before you can create a graph database, you need to create a Gremlin (Graph) dat
 
 ## Add a graph
 
-[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
+You can now use the Data Explorer tool in the Azure portal to create a graph database. 
 
-<a id="add-sample-data"></a>
-## Add sample data
+1. In the Azure portal, in the left navigation menu, click **Data Explorer (Preview)**. 
+2. In the **Data Explorer (Preview)** blade, click **New Graph**, then fill in the page using the following information.
 
-You can now add data to your new graph database using Data Explorer.
+    ![Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer.png)
 
-1. In Data Explorer, the new graph appears in the Graphs pane. Expand the **sample-database**/**sample-graph**, click **Graph**, and then click **Apply Filter**. 
+    Setting|Suggested value|Description
+    ---|---|---
+    Database id|sample-database|The ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
+    Graph id|sample-graph|The ID for your new graph. Graph names have the same character requirements as database ids.
+    Storage Capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
+    Throughput|400 RUs|Leave the default value. You can scale up the throughput later if you want to reduce latency.
+    RU/m|Off|Leave the default value. If you need to handle spiky workloads later, you can turn on the [RU/m](../articles/cosmos-db/request-units-per-minute.md) feature at that time.
+    Partition key|Leave blank|For the purpose of this quickstart, leave the partition key blank.
 
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
-  
-2. Click the **New Vertex** button to add data to your graph.
-
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
-
-3. Enter a label of *ashley* then enter the following keys and values to create your first vertex in the graph:
-
-    key|value|Notes
-    ----|----|----
-    userid | ashley1986 |Because we created a partitioned graph, the partition key (userid in this tutorial) must be one of the properties set on a new vertex. If you do not set a key to the partition key value, the vertex does not save.
-    gender|female| 
-    tech | java | 
-    id|ashley|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
-
-4. Click **New Vertex** again and add an additional new user. Enter a label of *rakesh* then enter the following keys and values:
-
-    key|value|Notes
-    ----|----|----
-    userid | rakesh1979 |Because we created a partitioned graph, the partition key (userid in this tutorial) must be one of the properties set on a new vertex. If you do not set a key to the partition key value, the vertex does not save.
-    gender|male| 
-    school|MIT| 
-    id|rakesh|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
-
-5. Click **Apply Filter** with the default `g.V()` filter. All of the users now show in the **Results** list. As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph, but you can change that to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format.
-
-6. Now we connect the users. Ensure **ashley** in selected in the **Results** list, then click the edit button next to **Targets** on lower right side. You may need to widen your window to see the **Properties** area.
-
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
-
-7. In the **Target** box type *rakesh*, and in the **Edge label** box type *knows*, and then click the check box.
-
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
-
-8. Now select **rakesh** from the results list and you'll see that ashley and rakesh are connected. You can move the vertices around on the graph viewer and zoom in and out. 
-
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
-
-    You can also use Data Explorer to create stored procedures, UDFs, and triggers to perform server-side business logic as well as scale throughput. Data Explorer exposes all of the built-in programmatic data access available in the APIs, but provides easy access to your data in the Azure portal.
+3. Once the form is filled out, click **OK**.
 
 ## Clone the sample application
 
@@ -134,18 +103,15 @@ Let's make a quick review of what's happening in the app. Open the `Program.java
 
 1. Open the src/remote.yaml file. 
 
-3. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations in the src/remote.yaml file:
+3. Fill in your *host*, *username*, *password* and configurations in the src/remote.yaml file, the rest of the settings do not need to be changed:
 
     Setting|Suggested value|Description
     ---|---|---
     Hosts|[***.graphs.azure.com]|See the screenshot following this table. This value is the Gremlin URI value on the Overview page of the Azure portal, in square brackets, with the trailing :443/ removed.<br><br>This value can also be retrieved from the Keys tab, using the URI value by removing https://, changing documents to graphs, and removing the trailing :443/.
-    Port|443|Set to 443.
-    Username|*Your username*|The resource of the form `/dbs/<db>/colls/<coll>` where `<db>` is your database name and `<coll>` is your collection name.
-    Password|*Your primary master key*|See the second screenshot following this table. This value is your primary key, which you can retrieve from the Keys page of the Azure portal, in the Primary Key box. Use the copy button on the left side of the box to copy the value.
-    ConnectionPool|{enableSsl: true}|Your connection pool setting for SSL.
-    Serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Set to this value and delete any `\n` line breaks when pasting in the value.
+    Username|/dbs/sample-database/colls/sample-graph|The resource of the form `/dbs/<db>/colls/<coll>` where `<db>` is your existing database name and `<coll>` is your existing collection name.
+    Password|*Your primary master key*|See the second screenshot following this table. This value is your primary key, which you can retrieve from the Keys page of the Azure portal, in the Primary Key box. Use the copy button on the right side of the box to copy the value.
 
-    For the Hosts value, copy the **Gremlin URI** value from the **Overview** page. If it's empty, see the instructions in the Hosts row above about creating the Gremlin URI from the Keys blade.
+    For the Hosts value, copy the **Gremlin URI** value from the **Overview** page. If it's empty, see the instructions in the Hosts row in the preceding table about creating the Gremlin URI from the Keys blade.
 ![View and copy the Gremlin URI value on the Overview page in the Azure portal](./media/create-graph-java/gremlin-uri.png)
 
     For the Password value, copy the **Primary key** from the **Keys** page:
@@ -159,7 +125,60 @@ Let's make a quick review of what's happening in the app. Open the `Program.java
 
 3. In the git terminal window, run `mvn exec:java -D exec.mainClass=GetStarted.Program` in the terminal window to start your Java application.
 
-You can now go back to Data Explorer and see query, modify, and work with this new data. 
+<a id="add-sample-data"></a>
+## Review and add sample data
+
+You can now go back to Data Explorer and see the data added to the graph, and add additional data points.
+
+1. In Data Explorer, expand the **sample-database**/**sample-graph**, click **Graph**, and then click **Apply Filter**. 
+
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
+
+2. In the **Results** list, notice the new users added to the graph. Select **ben** and notice that he's connected to robin. You can move the vertices around on the graph explorer, zoom in and out, and expand the size of the graph explorer surface. 
+
+   ![New vertices in the graph in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
+
+3. Let's add a few new users to the graph using the Data Explorer. Click the **New Vertex** button to add data to your graph.
+
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
+
+3. Enter a label of *person* then enter the following keys and values to create the first vertex in the graph. Notice that you can create unique properties for each person in your graph. Only the id key is required.
+
+    key|value|Notes
+    ----|----|----
+    id|ashley|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
+    gender|female| 
+    tech | java | 
+
+    > [!NOTE]
+    > In this quickstart we create a non-partitioned collection. However, if you create a partitioned collection by specifying a partition key during the collection created, then you need to include the partition key as a key in each new vertex. 
+
+4. Click **New Vertex** again and add an additional new user. Enter a label of *person* then enter the following keys and values:
+
+    key|value|Notes
+    ----|----|----
+    id|rakesh|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
+    gender|male| 
+    school|MIT| 
+
+
+5. Click **Apply Filter** with the default `g.V()` filter. All of the users now show in the **Results** list. As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph, but you can change that to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format.
+
+6. Now we can connect rakesh and ashley. Ensure **ashley** in selected in the **Results** list, then click the edit button next to **Targets** on lower right side. You may need to widen your window to see the **Properties** area.
+
+   ![Change the target of a vertex in a graph](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
+
+7. In the **Target** box type *rakesh*, and in the **Edge label** box type *knows*, and then click the check box.
+
+   ![Add a connection between ashley and rakesh in Data Explorer](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
+
+8. Now select **rakesh** from the results list and you'll see that ashley and rakesh are connected. 
+
+   ![Two vertices connected in Data Explorer](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
+
+    You can also use Data Explorer to create stored procedures, UDFs, and triggers to perform server-side business logic as well as scale throughput. Data Explorer exposes all of the built-in programmatic data access available in the APIs, but provides easy access to your data in the Azure portal.
+
+
 
 ## Review SLAs in the Azure portal
 
