@@ -1,5 +1,5 @@
 ---
-title: Configure SSL Policy and end to end SSL with Application Gateway | Microsoft Docs
+title: Configure end to end SSL with Application Gateway | Microsoft Docs
 description: This article describes how to configure end to end SSL with Application Gateway using Azure Resource Manager PowerShell
 services: application-gateway
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 07/19/2017
 ms.author: gwallace
 
 ---
-# Configure SSL Policy and end to end SSL with Application Gateway using PowerShell
+# Configure end to end SSL with Application Gateway using PowerShell
 
 ## Overview
 
@@ -90,7 +90,7 @@ $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPr
 ```
 
 > [!NOTE]
-> Subnets configured for application gateway should be properly sized. An application gateway can be configured for up to 10 instances. Each instance takes 1 IP address from the subnet. Too small of a subnet can adversely affect scaling out an application gateway.
+> Subnets configured for application gateway should be properly sized. An application gateway can be configured for up to 10 instances. Each instance takes one IP address from the subnet. Too small of a subnet can adversely affect scaling out an application gateway.
 > 
 > 
 
@@ -129,11 +129,11 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 ```
 
 > [!IMPORTANT]
-> Application Gateway does not support the use of a public IP address created with a domain label defined. Only a public IP address with a dynamically created domain label is supported. If you require a friendly dns name for the application gateway, it is recommended to use a cname record as an alias.
+> Application Gateway does not support the use of a public IP address created with a domain label defined. Only a public IP address with a dynamically created domain label is supported. If you require a friendly dns name for the application gateway, it is recommended to use a CNAME record as an alias.
 
 ## Create an application gateway configuration object
 
-You must set up all configuration items before creating the application gateway. The following steps create the configuration items that are needed for an application gateway resource.
+All configuration items are set before creating the application gateway. The following steps create the configuration items that are needed for an application gateway resource.
 
 ### Step 1
 
@@ -145,7 +145,7 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subn
 
 ### Step 2
 
-Create a front-end IP configuration, this setting maps a private or public ip address to the front-end of the application gateway. The following step associates the public IP address in the preceding step with the front-end IP configuration.
+Create a front-end IP configuration, this setting maps a private or public ip address to the front end of the application gateway. The following step associates the public IP address in the preceding step with the front-end IP configuration.
 
 ```powershell
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
@@ -194,7 +194,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol
 Upload the certificate to be used on the ssl enabled backend pool resources.
 
 > [!NOTE]
-> The default probe gets the public key from the **default** SSL binding on the back-end's IP address and compares the public key value it receives to the public key value you provide here. The retrieved public key may not necessarily be the intended site to which traffic will flow **if** you are using host headers and SNI on the back-end. If in doubt, visit https://127.0.0.1/ on the back-ends to confirm which certificate is used for the **default** SSL binding. Use the public key from that request in this section. If you are using host-headers and SNI on HTTPS bindings and you do not receive a response and certificate from a manual browser request to https://127.0.0.1/ on the back-ends, you must set up a default SSL binding on the back-ends. If you do not do so, probes will fail and the back-end will be not be whitelisted.
+> The default probe gets the public key from the **default** SSL binding on the back-end's IP address and compares the public key value it receives to the public key value you provide here. The retrieved public key may not necessarily be the intended site to which traffic flows **if** you are using host headers and SNI on the back-end. If in doubt, visit https://127.0.0.1/ on the back-ends to confirm which certificate is used for the **default** SSL binding. Use the public key from that request in this section. If you are using host-headers and SNI on HTTPS bindings and you do not receive a response and certificate from a manual browser request to https://127.0.0.1/ on the back-ends, you must set up a default SSL binding on the back-ends. If you do not do so, probes fail and the back-end is not whitelisted.
 
 ```powershell
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
@@ -240,7 +240,7 @@ The following values are a list of protocol versions that can be defined.
 * **TLSv1_1**
 * **TLSv1_2**
 
-Sets the minimum protocol version to **TLSv1_2** and enables **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256** , **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** , and **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** only.
+Sets the minimum protocol version to **TLSv1_2** and enables **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, and **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** only.
 
 ```powershell
 $sslPolicy = New-AzureRmApplicationGatewaySslPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
@@ -268,7 +268,7 @@ $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName Ad
 
 ### Step 2
 
-Define an SSL policy. In the following example, TLSv1.0 and TLSv1.1 are disabled and the cipher suites **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256** , **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** , and **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** are the only ones allowed.
+Define an SSL policy. In the following example, TLSv1.0 and TLSv1.1 are disabled and the cipher suites **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, and **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** are the only ones allowed.
 
 ```powershell
 Set-AzureRmApplicationGatewaySslPolicy -MinProtocolVersion -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
@@ -285,7 +285,7 @@ $gw | Set-AzureRmApplicationGateway
 
 ## Get application gateway DNS name
 
-Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway a CNAME record can be used to point to the public endpoint of the application gateway. [Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). To do this, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
+Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway, a CNAME record can be used to point to the public endpoint of the application gateway. [Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). To do this, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01

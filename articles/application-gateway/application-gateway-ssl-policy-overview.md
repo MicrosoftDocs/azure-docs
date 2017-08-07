@@ -99,4 +99,4 @@ Available Cipher Suites:
 
 ## Next steps
 
-[Configure SSL policy on an application gateway](application gateway configure ssl policy powershell.md)
+[Configure SSL policy on an application gateway](application-gateway-configure-ssl-policy-powershell.md)
