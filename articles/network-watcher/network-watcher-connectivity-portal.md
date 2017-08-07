@@ -16,7 +16,7 @@ ms.date: 08/03/2017
 ms.author: gwallace
 ---
 
-# Check connectivity with Azure Network Watcher using Azure CLI 2.0
+# Check connectivity with Azure Network Watcher using the Azure portal
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
