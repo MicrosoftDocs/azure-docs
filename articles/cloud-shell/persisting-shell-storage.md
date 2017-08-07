@@ -36,7 +36,7 @@ The file share mounts as `clouddrive` in your `$Home` directory. The file share 
 
 ### Use existing resources
 
-By using the advanced option, you can associate existing resources. When the storage setup prompt appears, select **Show advanced settings** to view additional options. Existing file shares receive a 5-GB user image to persist your `$Home` directory. The drop-down menus are filtered for your assigned Cloud Shell region and the locally redundant storage (LRS) and geo-redundant storage (GRS) accounts.
+By using the advanced option, you can associate existing resources. When the storage setup prompt appears, select **Show advanced settings** to view additional options. Existing file shares receive a 5-GB user image to persist your `$Home` directory. The drop-down menus are filtered for your assigned Cloud Shell region and the locally redundant storage and geo-redundant storage accounts.
 
 ![The Resource group setting](media/advanced-storage.png)
 
@@ -62,7 +62,7 @@ With Cloud Shell, you can run a command called `clouddrive`, which enables you t
 You can update the file share that's associated with Cloud Shell by using the `clouddrive mount` command.
 
 If you mount an existing file share, the storage accounts must be:
-* LRS or GRS to support file shares.
+* Locally redundant storage or geo-redundant storage to support file shares.
 * Located in your assigned region. When you are onboarding, the region you are assigned to is listed in the resource group name `cloud-shell-storage-<region>`.
 
 ### Supported storage regions
