@@ -32,16 +32,15 @@ ms.author: nitinme
 
 Learn how to use the Azure portal to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information, see [Overview of Azure Data Lake Store](data-lake-store-overview.md).
 
+The following two videos contain the same information as described in this article:
+
+* [Create a Data Lake Store account](https://mix.office.com/watch/1k1cycy4l4gen)
+* [Manage data in Data Lake Store using the Data Explorer](https://mix.office.com/watch/icletrxrh6pc)
+
 ## Prerequisites
 Before you begin this tutorial, you must have the following items:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-
-## Do you learn faster with videos?
-Watch the following videos to get started with Data Lake Store.
-
-* [Create a Data Lake Store account](https://mix.office.com/watch/1k1cycy4l4gen)
-* [Manage data in Data Lake Store using the Data Explorer](https://mix.office.com/watch/icletrxrh6pc)
 
 ## Create an Azure Data Lake Store account
 1. Sign on to the new [Azure portal](https://portal.azure.com).
@@ -64,7 +63,7 @@ Watch the following videos to get started with Data Lake Store.
        
         Click **OK** in the **Encryption Settings** blade.
 
-        For more information, see [Encryption of data in Azure Data Lake Store](../data-lake-store-encryption.md).
+        For more information, see [Encryption of data in Azure Data Lake Store](./data-lake-store-encryption.md).
 
 4. Click **Create**. If you chose to pin the account to the dashboard, you are taken back to the dashboard and you can see the progress of your Data Lake Store account provisioning. Once the Data Lake Store account is provisioned, the account blade shows up.
 
