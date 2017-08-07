@@ -5,25 +5,22 @@
 ## [Compatibility level](analysis-services-compat-level.md)
 ## [High availability](analysis-services-bcdr.md)
 
-
+# Get started
+## [Create a server in Azure portal](analysis-services-create-server.md)
+## [Create a server with PowerShell](analysis-services-create-powershell.md)
+## [Deploy a model from Visual Studio](analysis-services-deploy.md)
+## [Create a model in Azure portal (preview)](analysis-services-create-model-portal.md)
 
 # How-to 
-## Server management
-### [Create a server in Azure portal](analysis-services-create-server.md)
-### [Create a server with PowerShell](analysis-services-create-powershell.md)
-### [Manage a server](analysis-services-manage.md)
-### [Manage database users](analysis-services-database-users.md)
-### [Manage server administrators](analysis-services-server-admins.md)
-### [Install On-premises data gateway](analysis-services-gateway.md)
-## Data modeling
-### [Deploy a model from Visual Studio](analysis-services-deploy.md)
-### [Create a model in Azure portal (preview)](analysis-services-create-model-portal.md)
-### [Get client libraries](analysis-services-data-providers.md)
-### [Backup and restore](analysis-services-backup.md)
-## Client connections
-### [Connect with Excel](analysis-services-connect-excel.md)
-### [Connect with Power BI](analysis-services-connect-pbi.md)
-### [Create an .odc file](analysis-services-odc.md)
+## [Manage a server](analysis-services-manage.md)
+## [Manage database users](analysis-services-database-users.md)
+## [Manage server administrators](analysis-services-server-admins.md)
+## [Install On-premises data gateway](analysis-services-gateway.md)
+## [Get client libraries](analysis-services-data-providers.md)
+## [Backup and restore](analysis-services-backup.md)
+## [Connect with Excel](analysis-services-connect-excel.md)
+## [Connect with Power BI](analysis-services-connect-pbi.md)
+## [Create an .odc file](analysis-services-odc.md)
 ## Tutorials
 ### [Adventure Works tutorial](tutorials/aas-adventure-works-tutorial.md)
 ### [Lesson 1: Create a new tabular model project](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
