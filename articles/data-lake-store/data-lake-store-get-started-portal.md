@@ -43,6 +43,7 @@ Before you begin this tutorial, you must have the following items:
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Create an Azure Data Lake Store account
+
 1. Sign on to the new [Azure portal](https://portal.azure.com).
 2. Click **NEW**, click **Data + Storage**, and then click **Azure Data Lake Store**. Read the information in the **Azure Data Lake Store** blade, and then click **Create** in the bottom left corner of the blade.
 3. In the **New Data Lake Store** blade, provide the values as shown in the screen capture below:
@@ -66,6 +67,12 @@ Before you begin this tutorial, you must have the following items:
         For more information, see [Encryption of data in Azure Data Lake Store](./data-lake-store-encryption.md).
 
 4. Click **Create**. If you chose to pin the account to the dashboard, you are taken back to the dashboard and you can see the progress of your Data Lake Store account provisioning. Once the Data Lake Store account is provisioned, the account blade shows up.
+
+You can also create a Data Lake Store account using Azure Resouce Manager templates. These templates are accessible from [Azure QuickStart Tempaltes](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
+
+- Without data encrption: [Deploy Azure Data Lake Store account with no data encryption](https://azure.microsoft.com/en-us/resources/templates/101-data-lake-store-no-encryption/).
+- With data encryption using Data Lake Store: [Deploy Data Lake Store account with encryption(Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
+- With data encryption using Azure Key Vault: [Deploy Data Lake Store account with encryption(Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
 
 ### <a name="assign-permissions-to-azure-key-vault"></a>Assign permissions to Azure Key Vault
 If you used keys from an Azure Key Vault to configure encryption on the Data Lake Store account, you must configure access between the Data Lake Store account and the Azure Key Vault account. Perform the following steps to do so.
