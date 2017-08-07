@@ -24,7 +24,7 @@ ms.custom: H1Hack27Feb2017,hdinsightactive
 Learn how to use Apache Hive to process Twitter data. The result is a list of Twitter users who sent the most tweets that contain a certain word.
 
 > [!IMPORTANT]
-> The steps in this document were tested on HDInsight 3.5.
+> The steps in this document were tested on HDInsight 3.6.
 >
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 

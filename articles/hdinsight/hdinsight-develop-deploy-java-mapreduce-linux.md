@@ -23,6 +23,9 @@ ms.author: larryfr
 
 Learn how to use Apache Maven to create a Java-based MapReduce application, then run it with Hadoop on Azure HDInsight.
 
+> [!NOTE]
+> This example was most recently tested on HDInsight 3.6.
+
 ## <a name="prerequisites"></a>Prerequisites
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 or later (or an equivalent, such as OpenJDK).
