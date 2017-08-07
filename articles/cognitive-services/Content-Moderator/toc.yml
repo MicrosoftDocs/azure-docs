@@ -29,7 +29,7 @@
     - name: Text API
       href: try-text-api.md
     - name: Term list API
-      href: try-term-list-api.md
+      href: try-terms-list-api.md
   - name: Use the review tool
     items:
     - name: Human in the loop
