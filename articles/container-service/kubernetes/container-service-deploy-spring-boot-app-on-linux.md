@@ -21,9 +21,9 @@ ms.author: asirveda;robmcm
 
 # Deploy a Spring Boot application on Linux in Azure Container Service
 
-The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that's built on top of Java is [Spring Boot], which provides a simplified approach for creating standalone Java applications.
+The [Spring Framework] is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that's built on top of Java is [Spring Boot], which provides a simplified approach for creating standalone Java applications.
 
-**[Docker]** is an open-source solution that helps developers automate the deployment, scaling, and management of applications that are running in containers.
+[Docker] is an open-source solution that helps developers automate the deployment, scaling, and management of applications that are running in containers.
 
 This tutorial walks you through how to use Docker to develop and deploy a Spring Boot application to a Linux host in the [Azure Container Service].
 
@@ -119,7 +119,7 @@ The following steps walk you through how to use the Azure portal to create an Az
 
 1. Sign in to the [Azure portal].
 
-    After you have signed into your account on the Azure portal, follow the steps in the [Create a private Docker container registry using the Azure portal]. The steps from that article are summarized here:
+    After you have signed in to your account on the Azure portal, follow the steps in the [Create a private Docker container registry using the Azure portal]. The steps from that article are summarized here:
 
 2. Select the menu icon for **+ New**.
 
@@ -132,9 +132,10 @@ The following steps walk you through how to use the Azure portal to create an Az
    ![Create a new Azure container registry][AR02]
 
 5. When the **Create container registry** blade is displayed:
-    a. Enter your **Registry name** and **Resource group**.  
-    b. Select **Enable** for the **Admin user**.
-    c. Select **Create**.
+
+   a. Enter your **Registry name** and **Resource group**.  
+   b. Select **Enable** for the **Admin user**.
+   c. Select **Create**.
 
    ![Configure Azure container registry settings][AR03]
 
@@ -250,9 +251,9 @@ The following steps walk you through how to use the Azure portal to create an Az
 1. Click **Create**.
 
 > [!NOTE]
-> Azure automatically maps Internet requests to the embedded Tomcat server that's  running on  standard ports 80 or 8080. However, if you configured your embedded Tomcat server to run on a custom port, you need to add an environment variable to your web app that defines the port for your embedded Tomcat server. To do so, take the following steps:
+> Azure automatically maps internet requests to the embedded Tomcat server that's  running on  standard ports 80 or 8080. However, if you configured your embedded Tomcat server to run on a custom port, you need to add an environment variable to your web app that defines the port for your embedded Tomcat server. To do so, take the following steps:
 >
->1. Sign into the [Azure portal].
+>1. Sign in to the [Azure portal].
 
 >2. Select the icon for **App Services**. (See item #1 in the following image.)
 
