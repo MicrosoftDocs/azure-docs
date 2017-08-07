@@ -52,6 +52,34 @@ Here are the paths to some important logs and artifacts. We keep referring to th
 | **Log collection utility path** | C:\WindowsAzure\Packages |
 | **MonAgentHost log file** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
+## Metric data doesn't show in Azure Portal
+Azure Diagnostics provides a bunch of metric data which can be displayed in Azure Portal. If you have problems with seeing these data in Portal, check the diagnostics storage account -> WADMetrics\* table to see if the corresponding metric records are there. Here, the PartitionKey of the table is the resource id of Virtual Machine or VM Scale Set, and the RowKey is the metric name i.e. performance counter name.
+
+If the resource id is incorrect, check Diagnostics Configuration -> Metrics -> ResourceId to see if the resource id is set correctly.
+
+If no data for specific metrics, check Diagnostics Configuration -> PerformanceCounter to see if the performance counter is included. We enable following counters by default.
+- \Processor(_Total)\% Processor Time
+- \Memory\Available Bytes
+- \ASP.NET Applications(__Total__)\Requests/Sec
+- \ASP.NET Applications(__Total__)\Errors Total/Sec
+- \ASP.NET\Requests Queued
+- \ASP.NET\Requests Rejected
+- \Processor(w3wp)\% Processor Time
+- \Process(w3wp)\Private Bytes
+- \Process(WaIISHost)\% Processor Time
+- \Process(WaIISHost)\Private Bytes
+- \Process(WaWorkerHost)\% Processor Time
+- \Process(WaWorkerHost)\Private Bytes
+- \Memory\Page Faults/sec
+- \.NET CLR Memory(_Global_)\% Time in GC
+- \LogicalDisk(C:)\Disk Write Bytes/sec
+- \LogicalDisk(C:)\Disk Read Bytes/sec
+- \LogicalDisk(D:)\Disk Write Bytes/sec
+- \LogicalDisk(D:)\Disk Read Bytes/sec
+
+If the configuration is set correctly but you still cannot see the metric data, follow guideline below for the further investigation.
+
+
 ## Azure Diagnostics is not Starting
 Look at **DiagnosticsPluginLauncher.log** and **DiagnosticsPlugin.log** files from the location of the log files provided above for information on why diagnostics failed to start. 
 
