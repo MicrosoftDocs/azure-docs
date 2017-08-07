@@ -195,8 +195,8 @@ The output looks something like:
   - the root deployment domain that you have configured to map to the Kubernetes ingress external IP address (here, `squillace.io`)
 
   Call `draft init` and the configuration process prompts you for the values above. The process looks something like the following the first time you run it.
-    ```
-    draft init
+ ```bash
+    $ draft init
     Creating pack ruby...
     Creating pack node...
     Creating pack gradle...

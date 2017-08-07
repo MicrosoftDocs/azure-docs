@@ -12,7 +12,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/20/2017
+ms.date: 07/25/2017
 ms.author: curtand
 
 ms.reviewer: jeffsta
@@ -37,7 +37,7 @@ Azure AD provides the core directory and identity management capabilities behind
 * Microsoft Dynamics CRM Online
 * Microsoft Intune
 
-You will get an Azure AD directory when you sign up for any of these Microsoft cloud services. You can create additional directories as needed. For example, you might maintain your first directory as a production directory and then create another directory for testing or staging.
+You get an Azure AD directory when you sign up for any of these Microsoft cloud services. You can create additional directories as needed. For example, you might maintain your first directory as a production directory and then create another directory for testing or staging.
 
 > [!NOTE]
 > After you sign up for your first service, we recommend that you use the same administrator account associated with your organization when you sign up for other Microsoft cloud services.
@@ -62,7 +62,7 @@ If you don’t yet have a subscription to a Microsoft cloud service, use one of 
 
 * [Microsoft Azure](https://account.windowsazure.com/organization)
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
-* [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
+* [Microsoft Intune](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0%20)
 
 ### Manage an Azure-provisioned Default directory
 Today, a directory is automatically created when you sign up for Azure and your subscription is associated with that directory. But if you originally signed up for Azure before October 2013, a directory was not automatically created. In that case, Azure may have “backfilled” for your account by provisioning a Default directory for it. Your subscription was then associated with that Default directory.

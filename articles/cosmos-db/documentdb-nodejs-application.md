@@ -85,7 +85,7 @@ The **package.json** file is one of the files created in the root of the project
 1. Back in the terminal, install the **async** module via npm.
    
         npm install async --save
-2. Install the **documentdb** module via npm. This is the module where all the DocumentDB magic happens.
+2. Install the **documentdb** module via npm. This is the module where all the Azure Cosmos DB magic happens.
    
         npm install documentdb --save
 3. A quick check of the **package.json** file of the application should show the additional modules. This file will tell Azure which packages to download and install when running your application. It should resemble the example below.
@@ -387,8 +387,8 @@ That takes care of all the initial setup and configuration, now let’s get down
    
         var config = {}
    
-        config.host = process.env.HOST || "[the URI value from the DocumentDB Keys blade on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the DocumentDB Keys blade on http://portal.azure.com]";
+        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
+        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
         config.databaseId = "ToDoList";
         config.collectionId = "Items";
    

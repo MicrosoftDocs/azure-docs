@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/11/2017
+ms.date: 08/04/2017
 ms.author: larryfr
 
 ---
@@ -49,7 +49,10 @@ The following are the questions that you must answer when planning to install HD
 
 ## <a id="existingvnet"></a>Add HDInsight to an existing virtual network
 
-Use the steps in this section to discover how to add HDInsight to an existing Azure Virtual Network.
+Use the steps in this section to discover how to add a new HDInsight to an existing Azure Virtual Network.
+
+> [!NOTE]
+> You cannot add an existing HDInsight cluster into a virtual network.
 
 1. Are you using a classic or Resource Manager deployment model for the virtual network?
 
@@ -99,6 +102,16 @@ Use the steps in this section to discover how to add HDInsight to an existing Az
         ```
 
         For more information, see the [Troubleshoot routes](../virtual-network/virtual-network-routes-troubleshoot-portal.md) document.
+
+4. Create an HDInsight cluster and select the Azure Virtual Network during configuration. Use the steps in the following documents to understand the cluster creation process:
+
+    * [Create HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md)
+    * [Create HDInsight using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+    * [Create HDInsight using Azure CLI 1.0](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+    * [Create HDInsight using an Azure Resource Manager template](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+
+  > [!IMPORTANT]
+  > Adding HDInsight to a virtual network is an optional configuration step. Be sure to select the virtual network when configuring the cluster.
 
 ## <a id="multinet"></a>Connecting multiple networks
 

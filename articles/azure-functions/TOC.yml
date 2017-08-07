@@ -39,6 +39,8 @@
     href: functions-create-serverless-api.md
 - name: Samples
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=functions
   - name: Azure CLI
     href: functions-cli-samples.md
 - name: Concepts
@@ -130,9 +132,11 @@
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/functions/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: MSDN forum

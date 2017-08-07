@@ -64,7 +64,7 @@ You can use the [Azure portal](#portal), the Azure [command-line interface](#cli
      - **Subscription**: Select your subscription
      - **Virtual network**:  Click **Choose a virtual network**, then click **myVnet2**.
      - **Allow virtual network access:** Ensure that **Enabled** is selected.
-    No other settings are used in this tutorial. To learn about all peering settings, read [Manage virtual network peerings](virtual-network-manage-peering.md#create-peering).
+    No other settings are used in this tutorial. To learn about all peering settings, read [Manage virtual network peerings](virtual-network-manage-peering.md#create-a-peering).
 10. After clicking **OK** in the previous step, the **Add peering** blade closes and you see the **myVnet1 - Peerings** blade again. After a few seconds, the peering you created appears in the blade. **Initiated** is listed in the **PEERING STATUS** column for the **myVnet1ToMyVnet2** peering you created. You've peered Vnet1 to Vnet2, but now you must peer myVnet2 to myVnet1. The peering must be created in both directions to enable resources in the virtual networks to communicate with each other.
 11. Complete steps 5-10 again for myVnet2.  Name the peering *myVnet2ToMyVnet1*.
 12. A few seconds after clicking **OK** to create the peering for MyVnet2, the **myVnet2ToMyVnet1** peering you just created is listed with **Connected** in the **PEERING STATUS** column.
@@ -267,6 +267,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -force
 
 ## Next steps
 
-- Thoroughly familiarize yourself with important [virtual network peering constraints and behaviors](virtual-network-manage-peering.md#about-peering) before creating a virtual network peering for production use.
-- Learn about all [virtual network peering settings](virtual-network-manage-peering.md#create-peering).
+- Thoroughly familiarize yourself with important [virtual network peering constraints and behaviors](virtual-network-manage-peering.md#requirements-and-constraints) before creating a virtual network peering for production use.
+- Learn about all [virtual network peering settings](virtual-network-manage-peering.md#create-a-peering).
 - Learn how to [create a hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) with virtual network peering.

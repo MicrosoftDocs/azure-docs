@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/27/2017
 ms.author: abnarain
 
 ---
@@ -32,6 +32,14 @@ You must install Data Management Gateway on your on-premises machine to enable m
 The following walkthrough shows you how to create a data factory with a pipeline that moves data from an on-premises **SQL Server** database to an Azure blob storage. As part of the walkthrough, you install and configure the Data Management Gateway on your machine.
 
 ## Walkthrough: copy on-premises data to cloud
+
+## Prerequisites for the tutorial
+Before you begin this walkthrough, you must have the following prerequisites:
+
+* **Azure subscription**.  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) article for details.
+* **Azure Storage Account**. You use the blob storage as a **destination/sink** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
+* **SQL Server**. You use an on-premises SQL Server database as a **source** data store in this tutorial. 
+
 ## Create data factory
 In this step, you use the Azure portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**.
 
