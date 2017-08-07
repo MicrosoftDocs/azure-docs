@@ -46,7 +46,7 @@ Make sure you have the prerequisites in place before starting these procedures:
 
 - To install **BuildTools**, follow the wizard instructions.   
 
-  ![Instal lBuildTools](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallBuildTools.png)
+  ![Install BuildTools](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallBuildTools.png)
 
 - To install **Win10SDK 10240**, follow the wizard instructions.  
 
@@ -65,7 +65,7 @@ For the first-time user, you are prompted to download the ADL: Download Localrun
 2. Select **Accept** to accept the EULA for the first time. 
 
    ![Accept the EULA](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/AcceptEULA.png)   
-3. The cmd console opens. For first time users, you need to enter **3**, and then locate the local folder path for your data input and output. For other options, you can simply use the default values. 
+3. The cmd console opens. For first-time users, you need to enter **3**, and then locate the local folder path for your data input and output. For other options, you can use the default values. 
 
    ![Data Lake Tools for Visual Studio Code local run cmd](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-cmd.png)
 4. Select Ctrl+Shift+P to open the command palette, enter **ADL: Submit Job**, and then select **Local** to submit the job to your local account.
@@ -80,7 +80,7 @@ For the first-time user, you are prompted to download the ADL: Download Localrun
 ## Start a local debug for the U-SQL job  
 For the first-time user, you are prompted to download the ADL: Download Localrun Dependency packages if they are not already installed.
   
-1. Select Ctrl+Shift+P to open the command palette, and then enter **ADL:Start Local Run Service**. The cmd console opens. Make sure that the **DataRoot** is set.
+1. Select Ctrl+Shift+P to open the command palette, and then enter **ADL: Start Local Run Service**. The cmd console opens. Make sure that the **DataRoot** is set.
 3. Set a breakpoint in your C# code-behind.
 4. Back in the script editor, select Ctrl+Shift+P to open the command console, and then enter **Local Debug** to start your local debug service.
 
