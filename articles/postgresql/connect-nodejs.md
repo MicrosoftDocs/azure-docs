@@ -290,7 +290,10 @@ function queryDatabase() {
 
     client
         .query(query)
-        .then(() => console.log('Delete completed succesfully!'))
+        .then(() => {
+            console.log('Delete completed succesfully!');
+            client.end(console.log('Closed client connection'));
+        })
         .catch(err => console.log(err))
         .then(() => {
             console.log('Finished execution, exiting now');
