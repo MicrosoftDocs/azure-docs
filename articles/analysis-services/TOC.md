@@ -1,11 +1,6 @@
 # Overview
 ## [What is Azure Analysis Services?](analysis-services-overview.md)
 
-# Quickstarts
-## [Create a server - portal](analysis-services-create-server.md)
-## [Create a server - PowerShell](analysis-services-create-powershell.md)
-## [Deploy a model - Visual Studio](analysis-services-deploy.md)
-
 # Tutorials
 ## Create and deploy a model
 ### [Adventure Works tutorial](tutorials/aas-adventure-works-tutorial.md)
@@ -30,18 +25,25 @@
 ## [Supported data sources](analysis-services-datasource.md)
 ## [Authentication and user permissions](analysis-services-manage-users.md)
 ## [High availability](analysis-services-bcdr.md)
+## [Compatibility level](analysis-services-compat-level.md)
 
 # How-to 
-## [Create a model in Azure portal (preview)](analysis-services-create-model-portal.md)
-## [Manage a server](analysis-services-manage.md)
-## [Manage database users](analysis-services-database-users.md)
-## [Manage server administrators](analysis-services-server-admins.md)
-## [Install On-premises data gateway](analysis-services-gateway.md)
-## [Connect with Excel](analysis-services-connect-excel.md)
-## [Connect with Power BI](analysis-services-connect-pbi.md)
-## [Get client libraries](analysis-services-data-providers.md)
-## [Backup and restore](analysis-services-backup.md)
-## [Create an .odc file](analysis-services-odc.md)
+## Server management
+### [Create a server in Azure portal](analysis-services-create-server.md)
+### [Create a server with PowerShell](analysis-services-create-powershell.md)
+### [Manage a server](analysis-services-manage.md)
+### [Manage database users](analysis-services-database-users.md)
+### [Manage server administrators](analysis-services-server-admins.md)
+### [Install On-premises data gateway](analysis-services-gateway.md)
+## Data modeling
+### [Deploy a model from Visual Studio](analysis-services-deploy.md)
+### [Create a model in Azure portal (preview)](analysis-services-create-model-portal.md)
+### [Get client libraries](analysis-services-data-providers.md)
+### [Backup and restore](analysis-services-backup.md)
+## Connect with clients
+### [Connect with Excel](analysis-services-connect-excel.md)
+### [Connect with Power BI](analysis-services-connect-pbi.md)
+### [Create an .odc file](analysis-services-odc.md)
 
 # Reference
 ## [PowerShell](analysis-services-powershell.md)
