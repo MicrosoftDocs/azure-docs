@@ -19,7 +19,6 @@ ms.author: manayar
 ---
 # Protect a multi-tier SAP NetWeaver application deployment using Azure Site Recovery
 
-## Overview
 Most large and medium-sized SAP deployments have some form of Disaster Recovery solution.  The importance of robust and testable Disaster Recovery solutions has increased as more core business processes are moved to applications such as SAP.  Azure Site Recovery has been tested and integrated with SAP applications, and exceeds the capabilities of most on-premises Disaster Recovery solutions, at a lower total cost of ownership (TCO) than competing solutions.
 With Azure Site Recovery you can:
 * Enable protection of SAP NetWeaver and non-NetWeaver Production applications running on-premises, by replicating components to Azure.
@@ -40,7 +39,7 @@ Before you start, make sure you understand the following:
 5. How to [replicate a domain controller](site-recovery-active-directory.md)
 6. How to [replicate SQL Server](site-recovery-sql.md)
 
-## Supported Scenarios
+## Supported scenarios
 With Azure Site Recovery you can implement a disaster recovery solution for the following scenarios:
 * SAP systems running in one Azure datacenter replicating to another Azure datacenter (Azure-to-Azure DR), as architected [here](https://aka.ms/asr-a2a-architecture).
 * SAP systems running on VMWare (or Physical) servers on-premises replicating to a DR site in an Azure datacenter (VMware-to-Azure DR), which requires some additional components as architected [here](https://aka.ms/asr-v2a-architecture).
@@ -48,7 +47,7 @@ With Azure Site Recovery you can implement a disaster recovery solution for the 
 
 This document uses the first case - Azure-to-Azure DR - to demonstrate Azure Site Recovery's SAP disaster recovery capabilities. As Azure Site Recovery replication is application agnostic, the process described is expected to hold for other scenarios as well.
 
-### Required Foundation Services
+### Required foundation services
 This documentation scenario all been deployed with the following foundation services deployed:
 * ExpressRoute or Site-to-Site Virtual Private Network (VPN)
 * At least one Active Directory Domain Controller and DNS server running in Azure
@@ -56,7 +55,7 @@ This documentation scenario all been deployed with the following foundation serv
 It is recommended that the infrastructure above is established prior to deploying Azure Site Recovery.
 
 
-## Typical SAP Application Deployment
+## Typical SAP application deployment
 Large SAP customers usually deploy between 6 to 20 individual SAP applications.  Most of these applications are based on the SAP NetWeaver ABAP or Java engines.  Supporting these core NetWeaver applications are many smaller specific non-NetWeaver SAP standalone engines and typically some non-SAP applications.  
 
 It is critical to inventory all the SAP applications running in a landscape and to determine the deployment mode (either 2-tier or 3-tier), versions, patches, sizes, churn rates, and disk persistence requirements.
@@ -81,10 +80,10 @@ A recovery plan allows sequencing the failover of various tiers in a multi-tier 
 ### Adding scripts to the recovery plan
 You may need to do some operations on the Azure virtual machines post failover/test failover for your applications to function correctly. You can automate the post failover operation such as updating DNS entry, and changing bindings and connections, by adding corresponding scripts in the recovery plan as described in [this article](site-recovery-create-recovery-plans.md#add-scripts).
 
-### DNS Update
+### DNS update
 If the DNS is configured for dynamic DNS update, then virtual machines usually update the DNS with the new IP once they start. If you want to add an explicit step to update DNS with the new IPs of the virtual machines then add this [script to update IP in DNS](https://aka.ms/asr-dns-update) as a post action on recovery plan groups.  
 
-## Example Azure-to-Azure Deployment
+## Example Azure-to-Azure deployment
 In the diagram below the Azure Site Recovery Azure-to-Azure DR scenario is depicted:
 * The Primary Datacenter is in Singapore (Azure South-East Asia) and the DR datacenter is Hong Kong (Azure East Asia).  In this scenario, local High Availability is provided by having two VMs running SQL Server AlwaysOn in Synchronous mode in Singapore.
 * The File Share ASCS can be used to provide HA for the SAP single points of failure. File Share ASCS does not require a cluster shared disk, and applications such as SIOS are not required.
