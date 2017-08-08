@@ -32,19 +32,42 @@ The default time window is 5 minutes. The minimum value is 1, the maximum 15. Th
 
 ## Capture data to an Azure Data Lake Store account
 
-To capture data to Azure Data Lake Store, click the **On** button in the **Create Event Hub** portal blade. Then select **Azure Data Lake Store** from the **Archive Provider** box. In **Select Data Lake Store**, specify a Data Lake Store account, and enter the path to the data file in the **Data Lake Path** field.   
+To capture data to Azure Data Lake Store, do the following:
 
-![][3]
+1. Create a Data Lake Store account, following the instructions in [Get started with Azure Data Lake Store using the Azure portal](../data-lake-store/data-lake-store-get-started-portal.md). 
+2. Create a folder under this account, following the instructions in the [Create folders in Azure Data Lake Store account](../data-lake-store/data-lake-store-get-started-portal.md#createfolder) section.
+3. In the Data Lake Store account blade, click **Data Explorer**.
+4. Click **Access**.
+5. Click **Add**.
+6. In the **Search by name or email** box type **Microsoft.EventHubs** and then select this option. 
+7. The **Permissions** tab appears. Set the permissions as shown in the following figure:
 
-## Add Capture to an existing event hub
+    ![][6]
 
-You can configure Capture on existing event hubs that are in Event Hubs namespaces. The feature is not available to older **Messaging** or **Mixed** type namespaces. To enable Capture on an existing event hub, or to change your Capture settings, click the namespace to load the **Essentials** blade, then click the event hub for which you want to enable or change the Capture setting. Finally, click the **Properties** section of the open blade, as shown in the following figures:
+8. Click **OK**.
+9. Now, create a folder in the root folder by browsing to the target folder and clicking on the folder name.
+10. Click **Access**.
+11. Click **Add**.
+12. In the **Search by name or email** box type **Microsoft.EventHubs** and then select this option.
+13. The **Permissions** tab appears again. Set the permissions as shown in the following figure:
 
-### Configure Capture to Blob Storage
+    ![][5]
+
+14. Create an event hub, clicking the **On** button under **Capture** in the **Create Event Hub** portal blade.
+15. In the **Create Event Hub** portal blade, select **Azure Data Lake Store** from the **Archive Provider** box.
+16. In **Select Data Lake Store**, specify a Data Lake Store account, and enter the path to the data file in the **Data Lake Path** field.
+
+    ![][3]
+
+## Add or configure Capture on an existing event hub
+
+You can configure Capture on existing event hubs that are in Event Hubs namespaces. The feature is not available to older **Messaging** or **Mixed** type namespaces. To enable Capture on an existing event hub, or to change your Capture settings, click the namespace to load the **Essentials** blade, then click the event hub for which you want to enable or change the Capture setting. Finally, click the **Properties** section of the open blade and then edit the Capture settings, as shown in the following figures:
+
+### Blob Storage
 
 ![][2]
 
-### Configure Capture to Data Lake Store
+### Data Lake Store
 
 ![][4]
 
@@ -52,6 +75,8 @@ You can configure Capture on existing event hubs that are in Event Hubs namespac
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png
 [3]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture3.png
 [4]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture4.png
+[5]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture5.png
+[6]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture6.png
 
 ## Next steps
 
