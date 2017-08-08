@@ -27,17 +27,16 @@ You can create logic apps that receive items as a batch
 by using the **Batch** trigger. You can also create logic apps 
 that send items to a batch by using the **Batch** action.
 
-This topic shows how to create logic apps that can 
-perform these batching tasks:
+This topic shows how you can build a batching solution by performing these tasks: 
 
-* Receive items that are sent to a batch.
-* Send output from an action to a batch.
-* Partition batches.
+* Create a logic app that can receive data sent to a batch.
+* Create a logic app that sends data to a batch.
+* Set up a partition for a batch so you can create batches 
+based on a unique key, for example, a customer number. 
 
 ## Requirements
 
-To create and run logic apps, 
-you need these items:
+To create and run logic apps, you need these items:
 
 * An Azure subscription. If you don't have a subscription, you can 
 [start with a free Azure account](https://azure.microsoft.com/free/). 
@@ -170,6 +169,11 @@ but receiver logic apps don't need to know anything about the senders.
 3. Set the batch properties.
 
    1. For **Batch Name**: "TestBatch"
+
+      > [!IMPORTANT]
+      > Make sure that you don't change the batch name, 
+      > which must match the batch name defined by the receiver logic app.
+      > Changing the batch name causes the sender logic app to fail.
 
    2. In the **Message Content** box, 
    when the dynamic content list appears, choose **Expression**.
