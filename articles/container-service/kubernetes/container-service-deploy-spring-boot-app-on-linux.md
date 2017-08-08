@@ -1,13 +1,14 @@
 ---
+
 title: Deploy a Spring Boot Web App on Linux in Azure Container Service | Microsoft Docs
-description: This tutorial walks you though the steps to deploy a Spring Boot application as a Linux web app on Microsoft Azure.
+description: This tutorial walks you through the steps to deploy a Spring Boot application as a Linux web app on Microsoft Azure.
 services: ''
 documentationcenter: java
 author: rmcmurray
 manager: erikre
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -18,20 +19,20 @@ ms.author: asirveda;robmcm
 
 ---
 
-# Deploy a Spring Boot application on Linux in the Azure Container Service
+# Deploy a Spring Boot application on Linux in Azure Container Service
 
-The **[Spring Framework]** is an open-source solution which helps Java developers create enterprise-level applications. One of the more-popular projects which is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications.
+The [Spring Framework] is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that's built on top of Java is [Spring Boot], which provides a simplified approach for creating standalone Java applications.
 
-**[Docker]** is open-source solutions which helps developers automate the deployment, scaling, and management of their applications which are running in containers.
+[Docker] is an open-source solution that helps developers automate the deployment, scaling, and management of applications that are running in containers.
 
-This tutorial walks you through using Docker to develop and deploy a Spring Boot application to a Linux host in the [Azure Container Service (ACS)].
+This tutorial walks you through how to use Docker to develop and deploy a Spring Boot application to a Linux host in the [Azure Container Service].
 
 ## Prerequisites
 
-In order to complete the steps in this tutorial, you need to have the following:
+To complete the steps in this tutorial, you need the following:
 
-* An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
-* The [Azure Command-Line Interface (CLI)].
+* An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
+* The [Azure command-line interface (CLI)].
 * An up-to-date [Java Developer Kit (JDK)].
 * Apache's [Maven] build tool (Version 3).
 * A [Git] client.
@@ -39,14 +40,14 @@ In order to complete the steps in this tutorial, you need to have the following:
 
 > [!NOTE]
 >
-> Due to the virtualization requirements of this tutorial, you cannot follow the steps in this article on a virtual machine; you must use a physical computer with virtualization features enabled.
+> Because of the virtualization requirements of this tutorial, you cannot follow the steps in this article on a virtual machine. Instead you must use a physical computer with virtualization features enabled.
 >
 
-## Create the Spring Boot on Docker Getting Started web app
+## Create the Spring Boot on the Docker Getting Started web app
 
-The following steps walk you through the steps that are required to create a simple Spring Boot web application and test it locally.
+The following steps help you create a simple Spring Boot web application and test it locally.
 
-1. Open a command-prompt and create a local directory to hold your application, and change to that directory; for example:
+1. Open a command prompt. Then create a local directory to hold your application and change to that directory; for example:
    ```
    md C:\SpringBoot
    cd C:\SpringBoot
@@ -57,92 +58,98 @@ The following steps walk you through the steps that are required to create a sim
    cd /users/robert/SpringBoot
    ```
 
-1. Clone the [Spring Boot on Docker Getting Started] sample project into the directory you created; for example:
+2. Clone the [Spring Boot on Docker Getting Started] sample project into the directory you created; for example:
    ```
    git clone https://github.com/spring-guides/gs-spring-boot-docker.git
    ```
 
-1. Change directory to the completed project; for example:
+3. Change directory to the completed project; for example:
    ```
    cd gs-spring-boot-docker/complete
    ```
 
-1. Optional Step: If you want to run the embedded Tomcat server to run on port 80 instead of the default port of 8080, (for example if you are going to be testing your Spring Boot project locally), you can configure the port by using the following steps:
+4. **Optional step**: If you want to run the embedded Tomcat server on port 80 instead of default 8080 (for example, if you're going to be testing your Spring Boot project locally), configure the port by using the following steps:
 
    a. Change directory to the resources directory; for example:
    ```
    cd src/main/resources
    ```
 
-   b. Open the *application.yml* file in a text editor.
+   b. Open the **application.yml** file in a text editor.
 
-   c. Modify the **server:** setting so that the server will run on port 80; for example:
+   c. Modify the **server:** setting so that the server runs on port 80; for example:
    ```
    server:
       port: 80
    ```
 
-   d. Save and close the *application.yml* file.
+   d. Save and close the **application.yml** file.
 
    e. Change directory back to the root folder for the completed project; for example:
    ```
    cd ../../..
    ```
 
-1. Build the JAR file using Maven; for example:
+5. Build the JAR file by using Maven; for example:
    ```
    mvn package
    ```
 
-1. Once the web app has been created, change directory to the `target` directory where the JAR file is located and start the web app; for example:
+6. After the web app has been created, go to the `target` directory where the JAR file is located, and then start the web app; for example:
    ```
    cd target
    java -jar gs-spring-boot-docker-0.1.0.jar
    ```
 
-1. Test the web app by browsing to it locally using a web browser. For example, if you have curl available and you configured the Tomcat server to run on port 80:
+7. Test the web app by browsing to it locally with a web browser. For example, you can use the following command if curl is available and you've configured the Tomcat server to run on port 80:
    ```
    curl http://localhost
    ```
 
-1. You should see the following message displayed: **Hello Docker World!**
+8. You should see the following message displayed: **Hello Docker World!**
 
-   ![Browse Sample App Locally][SB01]
+   ![Browse sample app locally][SB01]
 
-## Create an Azure Container Registry to use as a Private Docker Registry
+## Create an Azure container registry to use as a Private Docker registry
 
-The following steps walk you through using the Azure portal to create an Azure Container Registry.
+The following steps walk you through how to use the Azure portal to create an Azure container registry.
 
 > [!NOTE]
->
-> If you want to use the Azure CLI instead of the Azure portal, follow the steps in [Create a private Docker container registry using the Azure CLI 2.0](../../container-registry/container-registry-get-started-azure-cli.md).
->
+> If you want to use the Azure CLI instead of the Azure portal, follow the steps in [Create a private Docker container registry using the Azure CLI 2.0][1].
 
-1. Browse to the [Azure portal] and log in.
+1. Sign in to the [Azure portal].
 
-   Once you have logged into your account on the Azure portal, you can follow the steps in the [Create a private Docker container registry using the Azure portal] article, which are paraphrased in the following steps for the sake of expediency.
+    After you have signed in to your account on the Azure portal, follow the steps in the [Create a private Docker container registry using the Azure portal]. The steps from that article are summarized here:
 
-1. Click the menu icon for **+ New**, then click **Containers**, and then click **Azure Container Registry**.
+2. Select the menu icon for **+ New**.
+
+3. Select **Containers**, and then select **Azure Container Registry**.
+
+   ![Create a new Azure container registry][AR01]
+
+4. When the information page for the Azure  container registry template is displayed, click **Create**.
+
+   ![Create a new Azure container registry][AR02]
+
+5. When the **Create container registry** blade is displayed:
+
+   a. Enter your **Registry name** and **Resource group**.  
    
-   ![Create a new Azure Container Registry][AR01]
+   b. Select **Enable** for the **Admin user**.
+   
+   c. Select **Create**.
 
-1. When the information page for the Azure Container Registry template is displayed, click **Create**. 
+   ![Configure Azure container registry settings][AR03]
 
-   ![Create a new Azure Container Registry][AR02]
+6. After your container registry has been created, go to it in the Azure portal. Then select **Access Keys**. Take note of the user name and password for the next steps.
 
-1. When the **Create container registry** blade is displayed, enter your **Registry name** and **Resource group**, choose **Enable** for the **Admin user**, and then click **Create**.
-
-   ![Configure Azure Container Registry settings][AR03]
-
-1. Once your container registry has been created, navigate to your container registry in the Azure portal, and then click **Access Keys**. Take note of the username and password for the next steps.
-
-   ![Azure Container Registry access keys][AR04]
+   ![Azure container registry access keys][AR04]
 
 ## Configure Maven to use your Azure Container Registry access keys
 
-1. Navigate to the configuration directory for your Maven installation and open the *settings.xml* file with a text editor.
+1. Go to the configuration directory for your Maven installation. Then open the **settings.xml** file with a text editor.
 
-1. Add your Azure Container Registry access settings from the previous section of this tutorial to the `<servers>` collection in the *settings.xml* file; for example:
+2. Add your Azure Container Registry access settings from the previous section of this tutorial to the `<servers>` collection in the **settings.xml** file; for example:
 
    ```xml
    <servers>
@@ -154,9 +161,9 @@ The following steps walk you through using the Azure portal to create an Azure C
    </servers>
    ```
 
-1. Navigate to the completed project directory for your Spring Boot application, (e.g. "*C:\SpringBoot\gs-spring-boot-docker\complete*" or "*/users/robert/SpringBoot/gs-spring-boot-docker/complete*"), and open the *pom.xml* file with a text editor.
+3. Go to the completed project directory for your Spring Boot application (for example, **C:\SpringBoot\gs-spring-boot-docker\complete** or **/users/robert/SpringBoot/gs-spring-boot-docker/complete**). Then open the **pom.xml** file with a text editor.
 
-1. Update the `<properties>` collection in the *pom.xml* file with the login server value for your Azure Container Registry from the previous section of this tutorial; for example:
+1. Update the `<properties>` collection in the **pom.xml** file. Use the login server value for your Azure container registry from the previous section of this tutorial; for example:
 
    ```xml
    <properties>
@@ -165,7 +172,7 @@ The following steps walk you through using the Azure portal to create an Azure C
    </properties>
    ```
 
-1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` contains the login server address and registry name for your Azure Container Registry from the previous section of this tutorial. For example:
+1. Update the `<plugins>` collection in the **pom.xml** file so that the `<plugin>` contains the login server address and registry name for your Azure  container registry from the previous section of this tutorial. For example:
 
    ```xml
    <plugin>
@@ -188,21 +195,21 @@ The following steps walk you through using the Azure portal to create an Azure C
    </plugin>
    ```
 
-1. Navigate to the completed project directory for your Spring Boot application and run the following command to rebuild the application and push the container to your Azure Container Registry:
+1. Go to the completed project directory for your Spring Boot application. Then run the following command to rebuild the application and push the container to your Azure container registry:
 
    ```
-   mvn package docker:build -DpushImage 
+   mvn package docker:build -DpushImage
    ```
 
 > [!NOTE]
 >
-> When you are pushing your Docker container to Azure, you may receive an error message that is similar to one of the following even though your Docker container was created successfully:
+> When you are pushing your Docker container to Azure, you might receive an error message that is similar to one of the following, even though you created your Docker container successfully:
 >
 > * `[ERROR] Failed to execute goal com.spotify:docker-maven-plugin:0.4.11:build (default-cli) on project gs-spring-boot-docker: Exception caught: no basic auth credentials`
 >
 > * `[ERROR] Failed to execute goal com.spotify:docker-maven-plugin:0.4.11:build (default-cli) on project gs-spring-boot-docker: Exception caught: Incomplete Docker registry authorization credentials. Please provide all of username, password, and email or none.`
 >
-> If this happens, you may need to log into Azure from the Docker command line; for example:
+> If this happens, you might need to sign in to Azure from the Docker command line; for example:
 >
 > `docker login -u wingtiptoysregistry -p "AbCdEfGhIjKlMnOpQrStUvWxYz" wingtiptoysregistry.azurecr.io`
 >
@@ -211,54 +218,55 @@ The following steps walk you through using the Azure portal to create an Azure C
 > `docker push wingtiptoysregistry.azurecr.io/gs-spring-boot-docker`
 >
 
-## Create a web app on Linux on Azure App Service using your container image
+## Create a web app on Linux on Azure App Service by using your container image
 
-1. Browse to the [Azure portal] and log in.
+1. Sign in to the [Azure portal].
 
-1. Click the menu icon for **+ New**, then click **Web + Mobile**, and then click **Web App on Linux**.
-   
+1. Click the menu icon for **+ New**, then click **Web + Mobile**.
+
+2.  Click **Web App on Linux**.
+
    ![Create a new web app in the Azure portal][LX01]
 
-1. When the **Web App on Linux** blade is displayed, enter the following information:
+3. When the **Web App on Linux** blade is displayed, take the following steps:
 
-   a. Enter a unique name for the **App name**; for example: "*wingtiptoyslinux*."
+   a. Enter a unique name for the **App name**; for example: *wingtiptoyslinux*.
 
    b. Choose your **Subscription** from the drop-down list.
 
-   c. Choose an existing **Resource Group**, or specify a name to create a new resource group.
+   c. To create a new resource group, choose an existing **Resource Group**, or specify a name.
 
-   d. Click **Configure container** and enter the following information:
+   d. Click **Configure container**, and then enter the following information:
 
       * Choose **Private registry**.
 
-      * **Image and optional tag**: Specify your container name from earlier; for example: "*wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest*"
+      * **Image and optional tag**: Specify your container name from earlier; for example: "*wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest*.
 
-      * **Server URL**: Specify your registry URL from earlier; for example: "*https://wingtiptoysregistry.azurecr.io*"
+      * **Server URL**: Specify your registry URL from earlier; for example: *https://wingtiptoysregistry.azurecr.io*.
 
-      * **Login username** and **Password**: Specify your login credentials from your **Access Keys** which you used in previous steps.
-   
-   e. Once you have entered all of the above information, click **OK**.
+      * **Login username** and **Password**: Specify your sign-in credentials from your **Access Keys**, which you used in previous steps.
+
+   e. After you've entered all of the previous information, select **OK**.
 
    ![Configure web app settings][LX02]
 
 1. Click **Create**.
 
 > [!NOTE]
+> Azure automatically maps internet requests to the embedded Tomcat server that's  running on  standard ports 80 or 8080. However, if you configured your embedded Tomcat server to run on a custom port, you need to add an environment variable to your web app that defines the port for your embedded Tomcat server. To do so, take the following steps:
 >
-> Azure will automatically map Internet requests to embedded Tomcat server which is running on the standard ports of 80 or 8080. However, if you configured your embedded Tomcat server to run on a custom port, you will need to add an environment variable to your web app which defines the port for your embedded Tomcat server. To do so, use the following steps:
->
-> 1. Browse to the [Azure portal] and log in.
-> 
-> 2. Click the icon for **App Services**. (See item #1 in the image below.)
->
-> 3. Select your web app from the list. (Item #2 in the image below.)
->
-> 4. Click **Application Settings**. (Item #3 in the image below.)
->
-> 5. In the **App settings** section, add a new environment variable named **PORT** and enter your custom port number for the value. (Item #4 in the image below.)
->
-> 6. Click **Save**. (Item #5 in the image below.)
->
+>1. Sign in to the [Azure portal].
+
+>2. Select the icon for **App Services**. (See item #1 in the following image.)
+
+>3. Select your web app from the list. (See item #2 in the following image.)
+
+>4. Click **Application Settings**. (See item #3 in the following image.)
+
+>5. In the **App settings** section, add a new environment variable named **PORT**. Then enter your custom port number for the value. (See item #4 in the following image.)
+
+>6. Select **Save**. (See item #5 in the following image.)
+
 > ![Saving a custom port number in the Azure portal][LX03]
 >
 
@@ -266,26 +274,27 @@ The following steps walk you through using the Azure portal to create an Azure C
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 
-* [Deploy a Spring Boot Application to the Azure App Service](../../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
+- [Deploy a Spring Boot Application to Azure App Service][2]
 
-* [Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](container-service-deploy-spring-boot-app-on-kubernetes.md)
+
+- [Running a Spring Boot Application on a Kubernetes Cluster in Azure Container Service](container-service-deploy-spring-boot-app-on-kubernetes.md)
 
 ## Additional resources
 
 For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
 
-For further details about the Spring Boot on Docker sample project, see [Spring Boot on Docker Getting Started].
+For more information about the Spring Boot on Docker sample project, see [Spring Boot on Docker getting started].
 
-For help with getting started with your own Spring Boot applications, see the **Spring Initializr** at https://start.spring.io/.
+For help with getting started with your own Spring Boot applications, see the [Spring Initializr](https://start.spring.io/).
 
-For more information about getting started with creating a simple Spring Boot application, see the Spring Initializr at https://start.spring.io/.
+For more information about getting started with creating a simple Spring Boot application, see the [Spring Initializr](https://start.spring.io/).
 
-For additional examples for how to use custom Docker images with Azure, see [Using a custom Docker image for Azure Web App on Linux].
+For additional examples that show how to use custom Docker images with Azure, see [Using a custom Docker image for Azure Web App on Linux].
 
 <!-- URL List -->
 
-[Azure Command-Line Interface (CLI)]: /cli/azure/overview
-[Azure Container Service (ACS)]: https://azure.microsoft.com/services/container-service/
+[Azure command-line interface (CLI)]: /cli/azure/overview
+[Azure Container Service]: https://azure.microsoft.com/services/container-service/
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Azure portal]: https://portal.azure.com/
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
@@ -314,3 +323,10 @@ For additional examples for how to use custom Docker images with Azure, see [Usi
 [LX01]: ./media/container-service-deploy-spring-boot-app-on-linux/LX01.png
 [LX02]: ./media/container-service-deploy-spring-boot-app-on-linux/LX02.png
 [LX03]: ./media/container-service-deploy-spring-boot-app-on-linux/LX03.png
+
+<!--Reference links in article-->
+[1]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli/
+[2]: https://docs.microsoft.com/azure/app-service/app-service-deploy-spring-boot-web-app-on-azure/
+
+
+---
