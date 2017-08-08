@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/08/2017
 ms.author: juliako;
 
 ---
@@ -16,7 +16,7 @@ ms.author: juliako;
 
 Video Indexer consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft in one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platform. You can use the API to upload your files, get detailed video insights, get URLs of insight and player widgets in order to embed them into your application, and other tasks.
 
-This article shows how the developers can take advantage of the Video Indexer API. To read a more detailed overview of the Video Indexer service, see the [overview](video-indexer-overview.md) article.
+This article shows how the developers can take advantage of the [Video Indexer API](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4). To read a more detailed overview of the Video Indexer service, see the [overview](video-indexer-overview.md) article.
 
 ## Subscribe to the API
 
