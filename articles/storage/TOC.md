@@ -32,7 +32,7 @@
 ### [F#](/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage)
 ### [Java](storage-java-how-to-use-table-storage.md)
 ### [Node.js](storage-nodejs-how-to-use-table-storage.md)
-### [C++](storage-c-plus-plus-how-to-use-tables.md)
+### [C++](../cosmos-db/table-storage-how-to-use-c-plus.md)
 ### [PHP](storage-php-how-to-use-table-storage.md)
 ### [Python](storage-python-how-to-use-table-storage.md)
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
