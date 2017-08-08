@@ -62,10 +62,10 @@ The Insights sidebar shows large clusters of users that share common properties.
 
 
 ## Next steps
-
-* [Usage overview](app-insights-usage-overview.md)
-* [Funnels](usage-funnels.md)
-* [Retention](app-insights-usage-retention.md)
-* [Workbooks](app-insights-usage-workbooks.md)
-* [Add user context](app-insights-usage-send-user-context.md)
+- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- If you already send custom events or page views, explore the Usage tools to learn how users use your service.
+    - [Funnels](usage-funnels.md)
+    - [Retention](app-insights-usage-retention.md)
+    - [Workbooks](app-insights-usage-workbooks.md)
+    - [Add user context](app-insights-usage-send-user-context.md)
 
