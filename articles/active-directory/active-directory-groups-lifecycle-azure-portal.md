@@ -32,7 +32,7 @@ You can now manage the lifecycle of Office 365 groups by setting expiration for 
 >   - The administrator who configures the expiration settings for the tenant
 >   - All members of the groups selected for this setting
 
-This feature require owners of Office 365 groups to renew their group within a time interval defined by an administrator. A group that is not renewed expires, and is deleted. The group can be restored within 30 days from its deletion.
+## Set Office 365 groups expiration
 
 1. Open the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator in your Azure AD tenant.
 
