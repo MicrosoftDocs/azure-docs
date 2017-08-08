@@ -469,5 +469,5 @@ The following steps illustrate how to delete a blob:
 ## Next steps
 View more feature guides to learn about additional options for storing data in Azure.
 
-  * [Get started with Azure table storage and Visual Studio Connected Services (ASP.NET)](./../storage/vs-storage-aspnet-getting-started-tables.md)
+  * [Get started with Azure table storage and Visual Studio Connected Services (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
   * [Get started with Azure queue storage and Visual Studio Connected Services (ASP.NET)](vs-storage-aspnet-getting-started-queues.md)

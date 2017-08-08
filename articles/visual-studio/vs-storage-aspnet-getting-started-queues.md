@@ -575,4 +575,4 @@ This section illustrates how to delete a queue.
 View more feature guides to learn about additional options for storing data in Azure.
 
   * [Get started with Azure blob storage and Visual Studio Connected Services (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
-  * [Get started with Azure table storage and Visual Studio Connected Services (ASP.NET)](./../storage/vs-storage-aspnet-getting-started-tables.md)
+  * [Get started with Azure table storage and Visual Studio Connected Services (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
