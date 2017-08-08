@@ -32,7 +32,9 @@ The default time window is 5 minutes. The minimum value is 1, the maximum 15. Th
 
 ## Capture data to an Azure Data Lake Store account
 
-To capture data to Azure Data Lake Store, do the following:
+To capture data to Azure Data Lake Store, you create a Data Lake Store account, and an event hub:
+
+### Create Data Lake Store account and folders
 
 1. Create a Data Lake Store account, following the instructions in [Get started with Azure Data Lake Store using the Azure portal](../data-lake-store/data-lake-store-get-started-portal.md). 
 2. Create a folder under this account, following the instructions in the [Create folders in Azure Data Lake Store account](../data-lake-store/data-lake-store-get-started-portal.md#createfolder) section.
@@ -53,9 +55,11 @@ To capture data to Azure Data Lake Store, do the following:
 
     ![][5]
 
-14. Create an event hub, clicking the **On** button under **Capture** in the **Create Event Hub** portal blade.
-15. In the **Create Event Hub** portal blade, select **Azure Data Lake Store** from the **Archive Provider** box.
-16. In **Select Data Lake Store**, specify a Data Lake Store account, and enter the path to the data file in the **Data Lake Path** field.
+### Create an event hub
+
+1. Create an event hub, clicking the **On** button under **Capture** in the **Create Event Hub** portal blade.
+2. In the **Create Event Hub** portal blade, select **Azure Data Lake Store** from the **Archive Provider** box.
+3. In **Select Data Lake Store**, specify the Data Lake Store account you created previously, and in the **Data Lake Path** field, enter the path to the data file you created.
 
     ![][3]
 
