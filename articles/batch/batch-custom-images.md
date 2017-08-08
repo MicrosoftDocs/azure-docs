@@ -15,7 +15,7 @@ ms.author: tamram
 
 When you create a pool in Azure Batch, you specify a virtual machine (VM) image that provides the operating system configuration for each compute node in the pool. You can create a pool either by using an Azure Marketplace image, or by providing a custom image that you have prepared. When you provide a custom image, you have control over how the operating system is configured at the time that each compute node is provisioned. Your custom image can also include applications and reference data that are available on the compute node as soon as it is provisioned.
 
-Using a custom image can save you time in getting your pool's compute nodes up and ready to run your Batch workload. While you can always use an Azure Marketplace image and install software on each compute node after it has been provisioned, this approach may be less efficient than using a custom image. If you need to install large applications, copy significant amounts of data, or reboot the VM during the setup process, then consider using a custom image that is configured for your needs.  
+Using a custom image can save you time in getting your pool's compute nodes ready to run your Batch workload. While you can always use an Azure Marketplace image and install software on each compute node after it has been provisioned, this approach may be less efficient than using a custom image. If you need to install large applications, copy significant amounts of data, or reboot the VM during the setup process, then consider using a custom image that is configured for your needs.  
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ Using a custom image can save you time in getting your pool's compute nodes up a
     - The specified storage accounts need to be in the same region as the Batch account.
     - Only standard general-purpose storage accounts are currently supported. Azure Premium storage will be supported in the future.
     - You can specify one storage account with multiple custom VHD blobs or multiple storage accounts each having a single blob. We recommend you to use multiple storage accounts to get a better performance.
-    - One unique custom image VHD blob can support up to 40 Linux VM instances or 20 Windows VM instances. You will need to create copies of the VHD blob to create pools with more VMs. For example, a pool with 200 Windows VMs needs 10 unique VHD blobs specified for the **osDisk** property.
+    - One unique custom image VHD blob can support up to 40 Linux VM instances or 20 Windows VM instances. You can to create copies of the VHD blob to create pools with more VMs. For example, a pool with 200 Windows VMs needs 10 unique VHD blobs specified for the **osDisk** property.
     
 ## Prepare a custom image
 
@@ -54,7 +54,7 @@ To create a pool from a custom image using the Azure portal:
 
 1. Navigate to your Batch account in the Azure portal.
 2. On the **Settings** blade, select the **Pools** menu item.
-3. On the **Pools** blade, select the **Add** command; the **Add pool** blade will be displayed.
+3. On the **Pools** blade, select the **Add** command; the **Add pool** blade is displayed.
 4. Select **Custom Image (Linux/Windows)** from the **Image Type** dropdown. The portal displays the **Custom Image** picker. Choose one or more VHDs from the same container and click the **Select** button. 
    Support for selecting VHDs from different storage accounts and different containers will be available in a future release.
 5. Select the correct **Publisher/Offer/Sku** for your custom VHDs, select the desired **Caching** mode, then fill in all the other parameters for the pool.
