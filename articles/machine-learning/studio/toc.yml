@@ -1,18 +1,15 @@
 - name: Machine Learning Studio Documentation
-  href: what-is-machine-learning.md
+  href: what-is-ml-studio.md
 - name: Overview
   expanded: true
   items:
   - name: What's Machine Learning?
     href: what-is-machine-learning.md
   - name: Machine Learning Studio
-    items:
-    - name: What's the Studio?
-      href: what-is-ml-studio.md
-    - name: Studio capabilities
-      href: studio-overview-diagram.md
-    - name: Infographic: ML basics
-      href: basics-infographic-with-algorithm-examples.md
+  - name: ML Studio capabilities
+    href: studio-overview-diagram.md
+  - name: ML Studio basics (infographic)
+    href: basics-infographic-with-algorithm-examples.md
   - name: Frequently asked questions
     href: faq.md
   - name: What's new?
@@ -25,29 +22,29 @@
     items:
     - name: Create a predictive solution
       href: walkthrough-develop-predictive-solution.md
-    - name: 1: Create a workspace
+    - name: 1 - Create a workspace
       href: walkthrough-1-create-ml-workspace.md
-    - name: 2: Upload data
+    - name: 2 - Upload data
       href: walkthrough-2-upload-data.md
-    - name: 3: Create experiment
+    - name: 3 - Create experiment
       href: walkthrough-3-create-new-experiment.md
-    - name: 4: Train and evaluate
+    - name: 4 - Train and evaluate
       href: walkthrough-4-train-and-evaluate-models.md
-    - name: 5: Deploy web service
+    - name: 5 - Deploy web service
       href: walkthrough-5-publish-web-service.md
-    - name: 6: Access web service
+    - name: 6 - Access web service
       href: walkthrough-6-access-web-service.md
   - name: Data Science for Beginners
     items:
-    - name: 1: Five questions
+    - name: 1 - Five questions
       href: data-science-for-beginners-the-5-questions-data-science-answers.md
-    - name: 2: Is your data ready?
+    - name: 2 - Is your data ready?
       href: data-science-for-beginners-is-your-data-ready-for-data-science.md
-    - name: 3: Ask the right question
+    - name: 3 - Ask the right question
       href: data-science-for-beginners-ask-a-question-you-can-answer-with-data.md
-    - name: 4: Predict an answer
+    - name: 4 - Predict an answer
       href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
-    - name: 5: Copy other people's work
+    - name: 5 - Copy other people's work
       href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
   - name: R quick start
     href: r-quickstart.md
