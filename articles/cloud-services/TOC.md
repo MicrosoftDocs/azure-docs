@@ -18,7 +18,7 @@
 ### [Build a Node.js web application using Express](cloud-services-nodejs-develop-deploy-express-app.md)
 ### Storage and Visual Studio
 #### [Blob storage and connected services](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Queue storage and connected services](../storage/vs-storage-cloud-services-getting-started-queues.md)
+#### [Queue storage and connected services](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
 #### [Table storage and connected services](../storage/vs-storage-cloud-services-getting-started-tables.md)
 ### Configure packages for continuous build and deploy
 #### [TFS and Team Build](cloud-services-dotnet-continuous-delivery.md)
