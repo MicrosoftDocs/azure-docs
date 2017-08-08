@@ -133,6 +133,8 @@ The second event indicates that the request failed while forwarding to service, 
     ```
     When collecting all the events, you see a train of events showing every resolve and forward attempt.
     The last event in the series shows the request processing has failed with a timeout, along with the number of successful resolve attempts.
+    
+    > [!NOTE]
     > It is recommended to keep the  verbose channel event collection disabled by default and enable it for troubleshooting on a need basis.
 
     ```
@@ -177,6 +179,7 @@ The second event indicates that the request failed while forwarding to service, 
     }
     ```
 
+> [!NOTE]
 > Events related to websocket request processing are not currently logged. This will be added in the next release.
 
 ## Next steps
