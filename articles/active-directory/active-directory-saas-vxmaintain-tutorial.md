@@ -20,10 +20,10 @@ ms.author: jeedes
 
 In this tutorial, you learn how to integrate vxMaintain with Azure Active Directory (Azure AD).
 
-Integrating vxMaintain with Azure AD provides you with the following benefits. You can:
+This integration provides several important benefits. You can:
 
 - Control in Azure AD who has access to vxMaintain.
-- Enable your users to automatically sign in to vxMaintain with single sign-on (SSO) with their Azure AD accounts.
+- Enable your users to automatically sign in to vxMaintain with single sign-on (SSO) by using their Azure AD accounts.
 - Manage your accounts in one central location: the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
@@ -52,11 +52,11 @@ The scenario that this tutorial outlines consists of two main building blocks:
 * Configuring and testing Azure AD single sign-on
 
 ## Add vxMaintain from the gallery
-To configure the integration of vxMaintain into Azure AD, you need to add vxMaintain from the gallery to your list of managed SaaS apps.
+To configure the integration of vxMaintain with Azure AD, you need to add vxMaintain from the gallery to your list of managed SaaS apps.
 
 To add vxMaintain from the gallery, do the following:
 
-1. In the [Azure portal](https://portal.azure.com), in the left navigation pane, select the **Azure Active Directory** button. 
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select the **Azure Active Directory** button. 
 
 	![The Azure Active Directory button][1]
 
@@ -64,7 +64,7 @@ To add vxMaintain from the gallery, do the following:
 
 	![The "Enterprise applications" pane][2]
 	
-3. To add an application, at the top of the **All applications** dialog box, select the **New application** button.
+3. To add an application, in the **All applications** dialog box, select **New application**.
 
 	![The "New application" button][3]
 
@@ -72,14 +72,14 @@ To add vxMaintain from the gallery, do the following:
 
 	![The "Single Sign-on Mode" drop-down list](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_search.png)
 
-5. In the results list, select **vxMaintain**, and then select the **Add** button to add the application.
+5. In the results list, select **vxMaintain**, and then select **Add**.
 
-	![Select vxMaintain in the results list](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
+	![The vxMaintain link](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
 
 ##  Configure and test Azure AD single sign-on
-In this section, you configure and test Azure AD SSO with vxMaintain, based on a test user called "Britta Simon."
+In this section, you configure and test Azure AD SSO by using vxMaintain, based on a test user called "Britta Simon."
 
-For SSO to work, Azure AD needs to know the vxMaintain counterpart to the Azure AD user. In other words, you must establish a link relationship between the Azure AD user and the related user in vxMaintain.
+For SSO to work, Azure AD needs to know the vxMaintain counterpart to the Azure AD user. That is, you must establish a link relationship between the Azure AD user and the corresponding vxMaintain user.
 
 To establish the link relationship, assign the vxMaintain **user name** value as the Azure AD **Username** value.
 
@@ -93,7 +93,7 @@ In this section, you can both enable Azure AD SSO in the Azure portal and config
 
 	![The "Single sign-on" command][4]
 
-2. To enable SSO, in the **Single sign-on** dialog box, in the **Single Sign-on Mode** drop-down list, select **SAML-based Sign-on**.
+2. To enable SSO, in the **Single Sign-on Mode** drop-down list, select **SAML-based Sign-on**.
  
 	![The "SAML-based Sign-on" command](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_samlbase.png)
 
@@ -148,7 +148,7 @@ In this section, you create test user Britta Simon in the Azure portal by doing 
 
     a. In the **Name** box, type **BrittaSimon**.
 
-    b. In the **User name** box, type user Britta Simon's email address**.
+    b. In the **User name** box, type the email address of test user Britta Simon.
 
 	c. Select the **Show Password** check box, and then note the value that was generated in the **Password** box.
 
@@ -164,7 +164,7 @@ In this section, you enable test user Britta Simon to use Azure SSO by granting 
 
 ![Test user in the Display Name list][200] 
 
-1. In the Azure portal **Applications** view, go to the **Directory** view > **Enterprise applications** > **All applications**.
+1. In the Azure portal **Applications** view, go to **Directory** view > **Enterprise applications** > **All applications**.
 
 	![The "All applications" link][201] 
 
@@ -184,7 +184,7 @@ In this section, you enable test user Britta Simon to use Azure SSO by granting 
 
 7. In the **Add Assignment** dialog box, select **Assign**.
 	
-### Test single sign-on
+### Test your Azure AD single sign-on
 
 In this section, you test your Azure AD SSO configuration by using the Access Panel.
 
