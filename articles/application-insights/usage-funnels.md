@@ -41,7 +41,6 @@ The following illustration demonstrates the data the Funnels blade generates. Fr
 ## Next steps
   * [Usage overview](app-insights-usage-overview.md)
   * [Users, Sessions, and Events](app-insights-usage-segmentation.md)
-  * [Funnels](usage-funnels.md)
   * [Retention](app-insights-usage-retention.md)
   * [Workbooks](app-insights-usage-workbooks.md)
   * [Add user context](app-insights-usage-send-user-context.md)
