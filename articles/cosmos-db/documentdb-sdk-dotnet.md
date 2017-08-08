@@ -50,7 +50,7 @@ ms.custom: H1Hack27Feb2017
 ## Release notes
 
 ### <a name="1.16.0"/>1.16.0
-*	Fixed an issue that required recompiling of the application due to the introduction of JsonSerializerSettings as an optional parameter in DocumentClient constructor.
+*	Fixed an issue that required recompiling of the application due to the introduction of JsonSerializerSettings as an optional parameter in the DocumentClient constructor.
 * Marked the DocumentClient constructor obsolete that required JsonSerializerSettings as the last parameter to allow for default values of ConnectionPolicy and ConsistencyLevel parameters when passing in JsonSerializerSettings parameter.
 
 ### <a name="1.15.0"/>1.15.0
