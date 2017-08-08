@@ -67,7 +67,7 @@
 ##### [DNS service](service-fabric-dnsservice.md)
 ##### [Reverse proxy](service-fabric-reverseproxy.md)
 ##### [Configure reverse proxy for secure communication](service-fabric-reverseproxy-configure-secure-communication.md)
-##### [Reverse proxy Diagnostics](service-fabric-reverseproxy-diagnostics.md)
+##### [Reverse proxy diagnostics](service-fabric-reverse-proxy-diagnostics.md)
 ### [Scalability of applications](service-fabric-concepts-scalability.md)
 ### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
