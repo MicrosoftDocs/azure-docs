@@ -12,12 +12,11 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Try the Text Moderation API #
+# Try the Text Moderation API
 
-## About the Text Moderation API ##
 Use the [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) to scan-your text content. The operation scans your content for profanity, comparing it against custom and/or shared blacklists.
 
-## Try with the API console ##
+## Try with the API console
 Before you can test-drive the API from the online console, you will need the **Ocp-Apim-Subscription-Key**. This is found under the Settings tab, as shown below.
 
 ![Content Moderator credentials in the review tool](Review-Tool-User-Guide/images/credentials-2-reviewtool.png)
@@ -42,6 +41,6 @@ Before you can test-drive the API from the online console, you will need the **O
 
   ![Test Drive Text Moderation API Step 1](images/test-drive-text-api-3.png)
 
-## Next steps ##
+## Next steps
 
 To learn how to use the image moderation API, see the [Try Image Moderation API](try-image-api.md) article.
