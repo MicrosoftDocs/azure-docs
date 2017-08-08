@@ -79,56 +79,11 @@ Once you click **Check**, the connectivity between the virtual machines on the p
 
 ![Check connectivity results for a virtual machine][1]
 
-## Check website latency
+## Check remote endpoint connectivity
 
-To verify the latency, choose the **Specify manually** radio button in the **Destination** section, input the url and the port and click **Check**
+To check the connectivity and latency to a remote endpoint, choose the **Specify manually** radio button in the **Destination** section, input the url and the port and click **Check**.  This is used for remote endpoints like websites and storage endpoints.
 
 ![Check connectivity results for a web site][2]
-
-## Check connectivity to a storage endpoint
-
-The following example checks the connectivity from a virtual machine to a blog storage account.
-
-### Example
-
-```azurecli
-az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://contosoexamplesa.blob.core.windows.net/
-```
-
-### Response
-
-The following json is the example response from running the previous cmdlet. As the check is successful, the `connectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
-
-```json
-{
-  "avgLatencyInMs": 1,
-  "connectionStatus": "Reachable",
-  "hops": [
-    {
-      "address": "10.1.1.4",
-      "id": "5136acff-bf26-4c93-9966-4edb7dd40353",
-      "issues": [],
-      "nextHopIds": [
-        "f8d958b7-3636-4d63-9441-602c1eb2fd56"
-      ],
-      "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/networkInterfaces/appNic0/ipConfigurations/ipconfig1",
-      "type": "Source"
-    },
-    {
-      "address": "1.2.3.4",
-      "id": "f8d958b7-3636-4d63-9441-602c1eb2fd56",
-      "issues": [],
-      "nextHopIds": [],
-      "resourceId": "Internet",
-      "type": "Internet"
-    }
-  ],
-  "maxLatencyInMs": 7,
-  "minLatencyInMs": 0,
-  "probesFailed": 0,
-  "probesSent": 100
-}
-```
 
 ## Next steps
 
