@@ -1,0 +1,63 @@
+- name: Overview
+  items:
+  - name: Introduction
+#    href: storage-files-introduction.md
+    href: ../storage-files-introduction.md
+  - name: Choose Blobs, Files, or Data Disks
+    href: ../storage-decide-blobs-files-disks.md
+  - name: FAQ
+#    href: storage-files-faq.md
+    href: ../storage-files-faq.md
+- name: Get started
+  items:
+  - name: Create a storage account
+    href: ../storage-create-storage-account.md
+  - name: Create a file share
+#    href: storage-file-how-to-create-file-share.md
+    href: ../storage-file-how-to-create-file-share.md
+  - name: Manage with the portal
+#    href: storage-file-how-to-use-files-portal.md
+    href: ../storage-file-how-to-use-files-portal.md
+  - name: Mount on Windows
+#    href: storage-file-how-to-use-files-windows.md
+    href: ../storage-file-how-to-use-files-windows.md
+  - name: Mount on Linux
+#    href: storage-how-to-use-files-linux.md
+    href: ../storage-how-to-use-files-linux.md
+  - name: Mount on Mac
+#    href: storage-file-how-to-use-files-mac.md
+    href: ../storage-file-how-to-use-files-mac.md
+- name: How To  
+  items:
+# figure out diff between this one and the one above, probably get rid of this one
+  - name: Overview
+    href: /rest/api/storageservices/File-Service-Concepts
+  - name: Developing with Azure File storage
+    items:
+    - name: .NET
+#      href: storage-dotnet-how-to-use-files.md
+      href: ../storage-dotnet-how-to-use-files.md
+    - name: Java
+#      href: storage-java-how-to-use-file-storage.md
+      href: ../storage-java-how-to-use-file-storage.md
+    - name: C++
+#      href: storage-c-plus-plus-how-to-use-files.md
+      href: ../storage-c-plus-plus-how-to-use-files.md
+    - name: Python
+#      href: storage-python-how-to-use-file-storage.md
+      href: ../storage-python-how-to-use-file-storage.md
+    - name: PowerShell
+#      href: storage-file-how-to-use-files-powershell.md
+      href: //storage-file-how-to-use-files-powershell.md
+  - name: Troubleshoot Azure Files - Windows
+#    href: storage-troubleshoot-windows-file-connection-problems.md
+    href: ../storage-troubleshoot-windows-file-connection-problems.md
+  - name: Troubleshoot Azure Files - Linux
+#    href: storage-troubleshoot-linux-file-connection-problems.md
+    href: ../storage-troubleshoot-linux-file-connection-problems.md
+  - name: Samples
+    href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
+
+#try this as an include file 
+- name: Common
+  href: ../general/toc.yml
