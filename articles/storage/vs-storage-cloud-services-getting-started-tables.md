@@ -29,7 +29,7 @@ To get started, you first need to create a table in your storage account. We'll 
 
 **NOTE:** Some of the APIs that perform calls out to Azure storage are asynchronous. See [Asynchronous programming with Async and Await](http://msdn.microsoft.com/library/hh191443.aspx) for more information. The code below assumes async programming methods are being used.
 
-* See [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md) for more information on programmatically manipulating tables.
+* See [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md) for more information on programmatically manipulating tables.
 * See [Storage documentation](https://azure.microsoft.com/documentation/services/storage/) for general information about Azure Storage.
 * See [Cloud Services documentation](https://azure.microsoft.com/documentation/services/cloud-services/) for general information about Azure cloud services.
 * See [ASP.NET](http://www.asp.net) for more information about programming ASP.NET applications.

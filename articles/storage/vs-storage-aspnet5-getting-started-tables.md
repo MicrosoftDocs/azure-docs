@@ -27,7 +27,7 @@ The Azure Table storage service enables you to store large amounts of structured
 
 The **Add Connected Services** operation installs the appropriate NuGet packages to access Azure storage in your project and adds the connection string for the storage account to your project configuration files.
 
-For more general information about using Azure Table storage, see [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md).
+For more general information about using Azure Table storage, see [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md).
 
 To get started, you first need to create a table in your storage account. We'll show you how to create an Azure table in code. We'll also show you how to perform basic table and entity operations, such as adding, modifying, reading and reading table entities. The samples are written in C\# code and use the Azure Storage Client Library for .NET.
 

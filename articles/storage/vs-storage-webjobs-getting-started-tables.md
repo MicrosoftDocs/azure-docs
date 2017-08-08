@@ -23,7 +23,7 @@ ms.author: tarcher
 ## Overview
 This article provides C# code samples that show show how to use the Azure WebJobs SDK version 1.x with the Azure table storage service. The code samples use the [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) version 1.x.
 
-The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md#create-a-table) for more information.
+The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) for more information.
 
 Some of the code snippets show the **Table** attribute used in functions that are called manually, that is, not by using one of the trigger attributes.
 
@@ -137,7 +137,7 @@ The following code sample uses a **CloudTable** object to add a single entity to
             tableBinding.Execute(insertOperation);
         }
 
-For more information about how to use the **CloudTable** object, see [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md).
+For more information about how to use the **CloudTable** object, see [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md).
 
 ## Related topics covered by the queues how-to article
 For information about how to handle table processing triggered by a queue message, or for WebJobs SDK scenarios not specific to table processing, see [Getting started with Azure Queue storage and Visual Studio connected services (WebJob Projects)](vs-storage-webjobs-getting-started-queues.md).

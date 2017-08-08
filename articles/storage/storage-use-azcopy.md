@@ -886,7 +886,7 @@ For more information about Azure Storage and AzCopy, refer to the following reso
 * [Introduction to Azure Storage](storage-introduction.md)
 * [How to use Blob storage from .NET](storage-dotnet-how-to-use-blobs.md)
 * [How to use File storage from .NET](storage-dotnet-how-to-use-files.md)
-* [How to use Table storage from .NET](storage-dotnet-how-to-use-tables.md)
+* [How to use Table storage from .NET](../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [How to create, manage, or delete a storage account](storage-create-storage-account.md)
 * [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md)
 

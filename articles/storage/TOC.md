@@ -28,7 +28,7 @@
 ### [Ruby](storage-ruby-how-to-use-queue-storage.md)
 
 ## Table Storage
-### [.NET](storage-dotnet-how-to-use-tables.md)
+### [.NET](../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [F#](/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage)
 ### [Java](storage-java-how-to-use-table-storage.md)
 ### [Node.js](storage-nodejs-how-to-use-table-storage.md)

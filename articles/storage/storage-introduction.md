@@ -230,7 +230,7 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### For .NET developers
 * [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
-* [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md)
+* [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Get started with Azure Queue storage using .NET](storage-dotnet-how-to-use-queues.md)
 * [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
 
