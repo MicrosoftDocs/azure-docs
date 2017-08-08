@@ -60,12 +60,12 @@ This section of the tutorial models an API development workflow in which you cre
 
 Change directory to the *start* folder, then run `yo swaggerize`. Swaggerize creates a Node.js project for your API from the Swagger definition in *api.json*.
 
-    ```bash
-    cd start
-    yo swaggerize --apiPath api.json --framework express
-    ```
+```bash
+cd start
+yo swaggerize --apiPath api.json --framework express
+```
 
-     When Swaggerize asks for a project name, use *ContactList*.
+When Swaggerize asks for a project name, use *ContactList*.
    
    ```bash
    Swaggerize Generator
