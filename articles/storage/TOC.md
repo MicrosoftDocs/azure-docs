@@ -73,7 +73,7 @@
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=queue)
 ## Use tables
 ### [Overview](https://msdn.microsoft.com/library/dd179463.aspx)
-### [Table design guide](storage-table-design-guide.md)
+### [Table design guide](../cosmos-db/table-storage-design-guide.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Use files
 ### [Overview](/rest/api/storageservices/File-Service-Concepts)
