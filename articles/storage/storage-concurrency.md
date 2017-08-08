@@ -19,7 +19,7 @@ ms.author: jasontang501
 ---
 # Managing Concurrency in Microsoft Azure Storage
 ## Overview
-Modern Internet based applications usually have multiple users viewing and updating data simultaneously. This requires application developers to think carefully about how to provide a predictable experience to their end users, particularly for scenarios where multiple users can update the same data. There are three main data concurrency strategies developers will typically consider:  
+Modern Internet based applications usually have multiple users viewing and updating data simultaneously. This requires application developers to think carefully about how to provide a predictable experience to their end users, particularly for scenarios where multiple users can update the same data. There are three main data concurrency strategies that developers typically consider:  
 
 1. Optimistic concurrency – An application performing an update will as part of its update verify if the data has changed since the application last read that data. For example, if two users viewing a wiki page make an update to the same page then the wiki platform must ensure that the second update does not overwrite the first update – and that both users understand whether their update was successful or not. This strategy is most often used in web applications.
 2. Pessimistic concurrency – An application looking to perform an update will take a lock on an object preventing other users from updating the data until the lock is released. For example, in a master/slave data replication scenario where only the master will perform updates the master will typically hold an exclusive lock for an extended period of time on the data to ensure no one else can update it.
@@ -36,7 +36,7 @@ In addition to selecting an appropriate concurrency strategy developers should a
 You can opt to use either optimistic or pessimistic concurrency models to manage access to blobs and containers in the blob service. If you do not explicitly specify a strategy last writes wins is the default.  
 
 ### Optimistic concurrency for blobs and containers
-The Storage service assigns an identifier to every object stored. This identifier is updated every time an update operation is performed on an object. The identifier is returned to the client as part of an HTTP GET response using the ETag (entity tag) header that is defined within the HTTP protocol. A user performing an update on such an object can send in the original ETag along with a conditional header to ensure that an update will only occur if a certain condition has been met – in this case the condition is an "If-Match" header which requires the Storage Service to ensure the value of the ETag specified in the update request is the same as that stored in the Storage Service.  
+The Storage service assigns an identifier to every object stored. This identifier is updated every time an update operation is performed on an object. The identifier is returned to the client as part of an HTTP GET response using the ETag (entity tag) header that is defined within the HTTP protocol. A user performing an update on such an object can send in the original ETag along with a conditional header to ensure that an update will only occur if a certain condition has been met – in this case the condition is an "If-Match" header, which requires the Storage Service to ensure the value of the ETag specified in the update request is the same as that stored in the Storage Service.  
 
 The outline of this process is as follows:  
 
@@ -46,7 +46,7 @@ The outline of this process is as follows:
 4. If the current ETag value of the blob is a different version than the ETag in the **If-Match** conditional header in the request, the service returns a 412 error to the client. This indicates to the client that another process has updated the blob since the client retrieved it.
 5. If the current ETag value of the blob is the same version as the ETag in the **If-Match** conditional header in the request, the service performs the requested operation and updates the current ETag value of the blob to show that it has created a new version.  
 
-The following C# snippet (using the Client Storage Library 4.2.0) shows a simple example of how to construct an **If-Match AccessCondition** based on the ETag value that is accessed from the properties of a blob that was previously either retrieved or inserted. It then uses the **AccessCondition** object when it updating the blob: the **AccessCondition** object adds the **If-Match** header to the request. If another process has updated the blob, the blob service returns an HTTP 412 (Precondition Failed) status message. You can download the full sample here: [Managing Concurrency using Azure Storage](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
+The following C# snippet (using the Client Storage Library 4.2.0) shows a simple example of how to construct an **If-Match AccessCondition** based on the ETag value that is accessed from the properties of a blob that was previously either retrieved or inserted. It then uses the **AccessCondition** object when it updates the blob: the **AccessCondition** object adds the **If-Match** header to the request. If another process has updated the blob, the blob service returns an HTTP 412 (Precondition Failed) status message. You can download the full sample here: [Managing Concurrency using Azure Storage](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
 
 ```csharp
 // Retrieve the ETag from the newly created blob
@@ -81,7 +81,7 @@ catch (StorageException ex)
 }  
 ```
 
-The Storage Service also includes support for additional conditional headers such as **If-Modified-Since**, **If-Unmodified-Since** and **If-None-Match** as well as combinations thereof. For more information see [Specifying Conditional Headers for Blob Service Operations](http://msdn.microsoft.com/library/azure/dd179371.aspx) on MSDN.  
+The Storage Service also includes support for additional conditional headers such as **If-Modified-Since**, **If-Unmodified-Since** and **If-None-Match** as well as combinations thereof. For more information, see [Specifying Conditional Headers for Blob Service Operations](http://msdn.microsoft.com/library/azure/dd179371.aspx) on MSDN.  
 
 The following table summarizes the container operations that accept conditional headers such as **If-Match** in the request and that return an ETag value in the response.  
 
@@ -123,11 +123,11 @@ The following table summarizes the blob operations that accept conditional heade
 (*) Lease Blob does not change the ETag on a blob.  
 
 ### Pessimistic concurrency for blobs
-To lock a blob for exclusive use, you can acquire a [lease](http://msdn.microsoft.com/library/azure/ee691972.aspx) on it. When you acquire a lease, you specify for how long you need the lease: this can be for between 15 to 60 seconds or infinite which amounts to an exclusive lock. You can renew a finite lease to extend it, and you can release any lease when you are finished with it. The blob service automatically releases finite leases when they expire.  
+To lock a blob for exclusive use, you can acquire a [lease](http://msdn.microsoft.com/library/azure/ee691972.aspx) on it. When you acquire a lease, you specify for how long you need the lease: this can be for between 15 to 60 seconds or infinite, which amounts to an exclusive lock. You can renew a finite lease to extend it, and you can release any lease when you are finished with it. The blob service automatically releases finite leases when they expire.  
 
 Leases enable different synchronization strategies to be supported, including exclusive write / shared read, exclusive write / exclusive read and shared write / exclusive read. Where a lease exists the storage service enforces exclusive writes (put, set and delete operations) however ensuring exclusivity for read operations requires the developer to ensure that all client applications use a lease ID and that only one client at a time has a valid lease ID. Read operations that do not include a lease ID result in shared reads.  
 
-The following C# snippet shows an example of acquiring an exclusive lease for 30 seconds on a blob, updating the content of the blob, and then releasing the lease. If there is already a valid lease on the blob when you try to acquire a new lease, the blob service returns an "HTTP (409) Conflict" status result. The snippet below uses an **AccessCondition** object to encapsulate the lease information when it makes a request to update the blob in the storage service.  You can download the full sample here: [Managing Concurrency using Azure Storage](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+The following C# snippet shows an example of acquiring an exclusive lease for 30 seconds on a blob, updating the content of the blob, and then releasing the lease. If there is already a valid lease on the blob when you try to acquire a new lease, the blob service returns an "HTTP (409) Conflict" status result. The following snippet uses an **AccessCondition** object to encapsulate the lease information when it makes a request to update the blob in the storage service.  You can download the full sample here: [Managing Concurrency using Azure Storage](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -156,7 +156,7 @@ catch (StorageException ex)
 }  
 ```
 
-If you attempt a write operation on a leased blob without passing the lease ID, the request fails with a 412 error. Note that if the lease expires before calling the **UploadText** method but you still pass the lease ID, the request also fails with a **412** error. For more information about managing lease expiry times and lease ids, see the [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx) REST documentation.  
+If you attempt a write operation on a leased blob without passing the lease ID, the request fails with a 412 error. Note that if the lease expires before calling the **UploadText** method but you still pass the lease ID, the request also fails with a **412** error. For more information about managing lease expiry times and lease IDs, see the [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx) REST documentation.  
 
 The following blob operations can use leases to manage pessimistic concurrency:  
 
@@ -190,7 +190,7 @@ The following container operations can use leases to manage pessimistic concurre
 * Set Container ACL
 * Lease Container  
 
-For more information see:  
+For more information, see:  
 
 * [Specifying Conditional Headers for Blob Service Operations](http://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [Lease Container](http://msdn.microsoft.com/library/azure/jj159103.aspx)
@@ -250,7 +250,7 @@ Note that the **Insert or Replace Entity** and **Insert or Merge Entity** operat
 
 In general developers using tables should rely on optimistic concurrency when developing scalable applications. If pessimistic locking is needed, one approach developers can take when accessing Tables is to assign a designated blob for each table and try to take a lease on the blob before operating on the table. This approach does require the application to ensure all data access paths obtain the lease prior to operating on the table. You should also note that the minimum lease time is 15 seconds which requires careful consideration for scalability.  
 
-For more information see:  
+For more information, see:  
 
 * [Operations on Entities](http://msdn.microsoft.com/library/azure/dd179375.aspx)  
 
@@ -259,7 +259,7 @@ One scenario in which concurrency is a concern in the queueing service is where 
 
 The queue service does not have support for either optimistic or pessimistic concurrency and for this reason clients processing messages retrieved from a queue should ensure messages are processed in an idempotent manner. A last writer wins strategy is used for update operations such as SetQueueServiceProperties, SetQueueMetaData, SetQueueACL and UpdateMessage.  
 
-For more information see:  
+For more information, see:  
 
 * [Queue Service REST API](http://msdn.microsoft.com/library/azure/dd179363.aspx)
 * [Get Messages](http://msdn.microsoft.com/library/azure/dd179474.aspx)  
@@ -267,9 +267,9 @@ For more information see:
 ## Managing Concurrency in the File Service
 The file service can be accessed using two different protocol endpoints – SMB and REST. The REST service does not have support for either optimistic locking or pessimistic locking and all updates will follow a last writer wins strategy. SMB clients that mount file shares can leverage file system locking mechanisms to manage access to shared files – including the ability to perform pessimistic locking. When an SMB client opens a file, it specifies both the file access and share mode. Setting a File Access option of "Write" or "Read/Write" along with a File Share mode of "None" will result in the file being locked by an SMB client until the file is closed. If REST operation is attempted on a file where an SMB client has the file locked the REST service will return status code 409 (Conflict) with error code SharingViolation.  
 
-When an SMB client opens a file for delete, it marks the file as pending delete until all other SMB client open handles on that file are closed. While a file is marked as pending delete, any REST operation on that file will return status code 409 (Conflict) with error code SMBDeletePending. Status code 404 (Not Found) is not returned since it is possible for the SMB client to remove the pending deletion flag prior to closing the file. In other words, status code 404 (Not Found) is only expected when the file has been removed. Note that while a file is in a SMB pending delete state, it will not be included in the List Files results.Also note that the REST Delete File and REST Delete Directory operations are committed atomically and do not result in pending delete state.  
+When an SMB client opens a file for delete, it marks the file as pending delete until all other SMB client open handles on that file are closed. While a file is marked as pending delete, any REST operation on that file will return status code 409 (Conflict) with error code SMBDeletePending. Status code 404 (Not Found) is not returned since it is possible for the SMB client to remove the pending deletion flag prior to closing the file. In other words, status code 404 (Not Found) is only expected when the file has been removed. Note that while a file is in an SMB pending delete state, it will not be included in the List Files results. Also, note that the REST Delete File and REST Delete Directory operations are committed atomically and do not result in a pending delete state.  
 
-For more information see:  
+For more information, see:  
 
 * [Managing File Locks](http://msdn.microsoft.com/library/azure/dn194265.aspx)  
 
@@ -285,5 +285,5 @@ For more information on Azure Storage see:
 * [Microsoft Azure Storage Home Page](https://azure.microsoft.com/services/storage/)
 * [Introduction to Azure Storage](storage-introduction.md)
 * Storage Getting Started for [Blob](storage-dotnet-how-to-use-blobs.md), [Table](../cosmos-db/table-storage-how-to-use-dotnet.md),  [Queues](storage-dotnet-how-to-use-queues.md), and [Files](storage-dotnet-how-to-use-files.md)
-* Storage Architecture – [Azure Storage : A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* Storage Architecture – [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
