@@ -21,12 +21,12 @@ ms.custom: mvc
 
 # Create a MongoDB, Express, AngularJS, and Node.js (MEAN) stack on a Linux VM in Azure
 
-This tutorial shows you how to implement a MongoDB, Express, AngularJS, and Node.js (MEAN) stack on a Linux VM in Azure. The MEAN stack that you create enables adding, deleting and listing books in a database. You learn how to:
+This tutorial shows you how to implement a MongoDB, Express, AngularJS, and Node.js (MEAN) stack on a Linux VM in Azure. The MEAN stack that you create enables adding, deleting, and listing books in a database. You learn how to:
 
 > [!div class="checklist"]
 > * Create a Linux VM
 > * Install Node.js
-> * Install MongoDB and setup the server
+> * Install MongoDB and set up the server
 > * Install Express and set up routes to the server
 > * Access the routes with AngularJS
 > * Run the application
@@ -40,14 +40,14 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command and create a Linux VM with the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example uses the Azure CLI to create a resource group named *myResourceGroup* in the *eastus* location and a VM named *myVM* with SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the --ssh-key-value option.
+The following example uses the Azure CLI to create a resource group named *myResourceGroup* in the *eastus* location. A VM is created named *myVM* with SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the --ssh-key-value option.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAddress`. This address is used to access the VM.
+When the VM has been created, the Azure CLI shows information similar to the following example: 
 
 ```azurecli-interactive
 {
@@ -61,6 +61,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
   "resourceGroup": "myResourceGroup"
 }
 ```
+Take note of the `publicIpAddress`. This address is used to access the VM.
 
 Use the following command to create an SSH session with the VM. Make sure to use the correct public IP address. In our example above our IP address was 40.68.254.142.
 
@@ -81,7 +82,7 @@ npm install npm@latest -g
 ```
 
 ## Install MongoDB and setup the server
-[MongoDB](http://www.mongodb.com) stores data in flexible, JSON-like documents, meaning fields can vary from document to document and data structure can be changed over time. For our example application, we are adding book records to MongoDB that contain book name, isbn number, author, and number of pages. 
+[MongoDB](http://www.mongodb.com) stores data in flexible, JSON-like documents. Fields in a database can vary from document to document and data structure can be changed over time. For our example application, we are adding book records to MongoDB that contain book name, isbn number, author, and number of pages. 
 
 1. Install and start the MongoDB server.
 
@@ -187,7 +188,7 @@ npm install npm@latest -g
 
 ## Access the routes with AngularJS
 
-[AngularJS](https://angularjs.org) provides a web framework for creating dynamic views in your web applications. In this tutorial we use AngularJS to connect our web page with Express and perform actions on our book database.
+[AngularJS](https://angularjs.org) provides a web framework for creating dynamic views in your web applications. In this tutorial, we use AngularJS to connect our web page with Express and perform actions on our book database.
 
 1. In the *Books* folder, create a folder named *public* and add a file named *script.js* with the controller configuration defined.
 
@@ -285,7 +286,7 @@ npm install npm@latest -g
     node server.js
     ```
 
-2. Open a web browser to http://localhost:3300. You should see something like the following:
+2. Open a web browser to http://localhost:3300. You should see something like the following page:
 
     ![Book record](media/tutorial-mean/meanstack-init.png)
 
@@ -293,11 +294,11 @@ npm install npm@latest -g
 
     ![Add book record](media/tutorial-mean/meanstack-add.png)
 
-4. After refreshing the page, you should see something like this:
+4. After refreshing the page, you should see something like this page:
 
     ![List book records](media/tutorial-mean/meanstack-list.png)
 
-5. You could the click Delete and remove the book record from the database.
+5. You could click **Delete** and remove the book record from the database.
 
 ## Next steps
 
@@ -306,7 +307,7 @@ In this tutorial, you created a web application that keeps track of book records
 > [!div class="checklist"]
 > * Create a Linux VM
 > * Install Node.js
-> * Install MongoDB and setup the server
+> * Install MongoDB and set up the server
 > * Install Express and set up routes to the server
 > * Access the routes with AngularJS
 > * Run the application
