@@ -170,11 +170,12 @@ Receiver logic apps don't need to know anything about the senders.
 
 3. Set the batch properties.
 
-   * **Batch Name**: "TestBatch"
+   * **Batch Name**: The batch name defined by the receiver logic app, 
+   which is "TestBatch" in this example.
 
      > [!IMPORTANT]
      > Make sure that you don't change the batch name, 
-     > which must match the batch name defined by the receiver logic app.
+     > which must match the batch name that's specified by the receiver logic app.
      > Changing the batch name causes the sender logic app to fail.
 
    * In the **Message Content** box, 
