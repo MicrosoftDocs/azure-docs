@@ -7,13 +7,13 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 07/07/2017
+ms.date: 08/07/2017
 ms.author: babanisa
 ---
 
 # What is Event Grid?
 
-Azure Grid Event provides reliable distribution of events for all services in Azure and third-party services. It is an eventing backplane that enables event-based programming with publisher/subscriber semantics. Publishers push events to Event Grid, which pushes them to subscribers with WebHooks, queues, and Event Hubs as endpoints. Event Grid takes care of the proper routing, filtering, and multicasting of the events to destinations.
+Azure Event Grid provides reliable distribution of events for all services in Azure and third-party services. It is an eventing backplane that enables event-based programming with publisher/subscriber semantics. Publishers push events to Event Grid, which pushes them to subscribers with WebHooks, queues, and Event Hubs as endpoints. Event Grid takes care of the proper routing, filtering, and multicasting of the events to destinations.
 
 The following image shows a conceptual view of Event Grid's functional place within Azure. 
 
@@ -51,69 +51,9 @@ When you create an event subscription, all events that match your subscription f
 Event Grid has three main benefits for customers and services in Azure: 
 
 1. Elimination of polling – By providing all services with push-push capabilities, Event Grid eliminates the need for long polling to detect changes. Services and customers no longer need to balance the cost of continuous polling with the latency of widely spaced polling. 
-2. Latency – Event Grid aims to deliver events with subsecond latency meaning services and user applications can immediately react to events. 
+2. Latency – Event Grid aims to deliver events with subsecond latency. Services and user applications can immediately react to events. 
 3. Universal backplane – As the preferred method of connecting services within Azure, services no longer need to build customer one-off connections between each other. Once an Azure service is connected as a publisher to Event Grid, and other services can consume events from it. Similarly, when an Azure service is connected as a subscriber, it may now consume events from any other Azure service. 
 
-### Scenarios
-
-* Serverless 
-
-  Event Grid enables Azure serverless offerings such as Azure Functions. In this context, serverless is a reactive code execution environment that needs to be triggered. Event Grid allows multiple functions to be triggered from a single event, multiple event sources to trigger the same function, or 1:1 scenarios. You can accomplish these scenarios at low cost (no continuous polling) and low latency (no long polling). 
-
-* Office 365
-
-  Event Grid enables reactive programming and integration of applications across the wider Microsoft Cloud. For example, Office 365 and Flow can instantly integrate with Azure services. Conversely, Azure services can integrate with Office 365 and Flow. This integration increases the number of event handlers and producers. Event Grid also allows faster integration between Office 365 applications while providing robust scalability. 
-
-* Azure Active Directory cache invalidation
-
-  Event Grid enables Azure Active Directory to instantaneously propagate changes in user state. When a change occurs in the directory, services caching user credentials are able to purge or update specific caches in an event-based manner. 
-
-* Azure Fabric Controller
-
-  Event Grid enables Azure Fabric Controller to generate and route events about hardware systems in the physical datacenter. It can act as both an alerting and heartbeat service. 
-
-* First party change notifications
-
-  All Azure services can raise events for specific activities. For example, a Service Bus Queue is able to notify Azure Automation when a new message is in a cold queue. Resource Manager is able to trigger Azure Data Factory when a new Storage Account has been created. Service Fabric is able to notify Power BI when a new microservice has started up. 
-
-* Generic HTTP/WebHook
-
-  Event producers and consumers do not need to be Azure or Microsoft services. By using Event Grid, you can configure a change in a stock ticker to trigger an Azure Function, or the creation of a new storage blob to trigger an AWS Lambda, or the upload of photos to Flicker to post a message to a Slack channel. 
-
-  Any third-party service can onboard to Event Grid as a publisher or consumer of events. 
-
-## Which services are available on Event Grid?
-
-For the preview release, the following services support Event Grid: 
-* Azure Storage 
-* Azure Functions 
-* Azure Automation 
-* Azure Active Directory 
-* Fabric Controller 
-* API Management 
-* LogicApps 
-* Flow 
-* IoT Hub 
-* Azure Log Analytics/OMS 
-* Resource Manager 
-* Virtual Machine Scale Sets 
-* Azure Monitoring 
-* Service Bus 
-* Event Hubs 
-* Azure Data Lake Store 
-* Azure Data Factory 
-* DocumentDB 
-
-## What is Event Grid's target performance?
-
-For preview, Event Grid does not have a Service Level Agreement (SLA) or any guarantees on performance or reliability. However, we have several benchmarks that we aim to achieve and maintain during the preview:
-
-* Subsecond end-to-end latency in the 99th percentile 
-* 99.99% availability 
-* 10,000,000 events per second per region 
-* 100,000,000 subscriptions per region 
-* 50-ms publisher latency for batches of 1 MB 
-* 24-hour retry with exponential back off for events not delivered 
 
 ## How do I use Event Grid?
 
@@ -147,5 +87,4 @@ You can programmatically perform management operations with Event Grid REST API.
 
 ## Next steps
 
-* To learn about creating an Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
-* To learn about the data for events, see [Event Grid event schema](event-schema.md).
+* To create your first Event Grid publisher and subscriber, see [Create and route custom events](custom-event-quickstart.md).
