@@ -110,7 +110,7 @@ Managed Disks also support creating a managed custom image. You can create an im
 
 For information on creating images, please check out the following articles:
 * [How to capture a managed image of a generalized VM in Azure](capture-image-resource.md)
-* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../virtual-machines/linux/capture-image.md)
+* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../linux/capture-image.md)
 
 ## Images versus snapshots
 
@@ -138,8 +138,8 @@ Azure Disk Encryption allows you to encrypt the OS and Data disks used by an Iaa
 For more information about Managed Disks, please refer to the following articles.
 
 ### Get started with Managed Disks
-virtual-machines/virtual-machines-windows-ps-creat
-* [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
+
+* [Create a VM using Resource Manager and PowerShell](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)
 
 * [Create a Linux VM using the Azure CLI 2.0](quick-create-cli.md)
 
