@@ -75,6 +75,8 @@
   - name: Planned maintenance
     href: planned-maintenance.md
     items:
+    - name: Preserving maintenance
+      href: maintenance-in-place.md
     - name: Restarting maintenance
       href: impactful-maintenance.md
   - name: VM sizes
@@ -107,33 +109,34 @@
   items:
   - name: Create VMs
     items:
-    - name: Use PowerShell
-      href:
-    - name: Use a template
-      href: ps-template.md
-    - name: Use AHUB licensing
-      href: hybrid-use-benefit-licensing.md
-    - name: Connect to a VM
-      href: connect-logon.md
     - name: Use C#
       href: csharp.md
     - name: Use a template with C#
       href: csharp-template.md
     - name: Use Python
       href: python.md
+    - name: Use a template
+      href: ps-template.md
+    - name: Connect to a VM
+      href: connect-logon.md
+    - name: Use AHUB licensing
+      href: hybrid-use-benefit-licensing.md
   - name: Secure VMs
     items:
-    - name: Create a Key Vault
-      href: key-vault-setup.md
+    - name: Encrypt
+      href: encrypt-disks.md
     - name: Use WinRM
       href: winrm.md
     - name: Use access controls
       href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Use policies
       href: policy.md
+    - name: Create a Key Vault
+      href: key-vault-setup.md
   - name: Manage VMs
-    href: ps-common-ref.md
     items:
+    - name: Common PowerShell tasks
+      href: ps-common-ref.md
     - name: Move a VM
       href: move-vm.md
     - name: Change VM size
@@ -142,27 +145,27 @@
       href: tag.md
     - name: Run scripts on a VM
       href: extensions-customscript.md
-    - name: Azure VM agent
-      href: agent-user-guide.md
     - name: Change temp drive letter
       href: change-drive-letter.md
     - name: Change availability set
       href: change-availability-set.md
     - name: Download template
       href: download-template.md
+    - name: Azure VM agent
+      href: agent-user-guide.md
   - name: Use Images
     items:
     - name: Find and use images
       href: cli-ps-findimage.md
-    - name: Capture VM to image
-      href: capture-image-resource.md
     - name: Prepare VM for upload
       href: prepare-for-upload-vhd-image.md
     - name: Use generalized image
       href: create-vm-generalized-managed.md
     - name: Use specialized image
       href: create-vm-specialized.md
-    - name: Build with Packer
+    - name: Capture VM to image
+      href: capture-image-resource.md
+    - name: Build image with Packer
       href: build-image-with-packer.md
     - name: Use Windows client images
       href: client-images.md
@@ -186,6 +189,8 @@
       href: install-mongodb.md
     - name: SAP on Azure
       href: ../workloads/sap/get-started.md
+    - name: MATLAB cluster
+      href: matlab-mdcs-cluster.md
     - name: High Performance Computing (HPC)
       href: hpcpack-cluster-options.md
       items:
@@ -199,22 +204,22 @@
         href: hpcpack-cluster-submit-jobs.md
       - name: Excel on HPC Pack
         href: excel-cluster-hpcpack.md
-    - name: MATLAB cluster
-      href: matlab-mdcs-cluster.md
-  - name: Monitor VMs
-    href:
   - name: Manage storage
     items:
     - name: Add a disk
-      href: attach-disk-ps.md
+      items:
+      - name: Azure Powershell
+        href: attach-disk-ps.md
+      - name: Azure portal
+        href: attach-managed-disk-portal.md
     - name: Detach a disk
       href: detach-disk.md
     - name: Resize a disk
       href: expand-os-disk.md
-    - name: Encrypt a disk
-      href: encrypt-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
+    - name: Use File storage
+      href: mount-azure-file-storage.md
     - name: Migrate to Managed Disks
       href: migrate-to-managed-disks.md
       items:
@@ -222,8 +227,6 @@
         href: convert-unmanaged-to-managed-disks.md
       - name: Single Classic VM to Resource Manager
         href: migrate-single-classic-to-resource-manager.md
-    - name: Connect File storage
-      href: mount-azure-file-storage.md
   - name: Manage networking
     href: ps-common-network-ref.md
     items:
@@ -296,8 +299,6 @@
         href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
-    - name: Understand a system reboot
-      href: understand-vm-reboot.md
     - name: Remote Desktop connections
       href: troubleshoot-rdp-connection.md
       items:
@@ -309,6 +310,8 @@
       href: reset-rdp.md
     - name: Reset local password without Azure agent
       href: reset-local-password-without-agent.md
+    - name: Understand a system reboot
+      href: understand-vm-reboot.md
     - name: Reset NIC
       href: reset-network-interface.md
     - name: Boot diagnostics
@@ -329,7 +332,7 @@
       href: redeploy-to-new-node.md
     - name: Common error messages
       href: error-messages.md
-    - name: Attach virtual hard disk to troubleshooting VM
+    - name: VM recovery access
       items:
       - name: Azure PowerShell
         href: troubleshoot-recovery-disks.md
