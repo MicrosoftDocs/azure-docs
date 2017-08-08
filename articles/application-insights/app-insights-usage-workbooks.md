@@ -115,6 +115,7 @@ To pin a link to a workbook to an Azure Dashboard:
 
 * [Usage overview](app-insights-usage-overview.md)
 * [Users, Sessions, and Events](app-insights-usage-segmentation.md)
+* [Funnels](usage-funnels.md)
 * [Retention](app-insights-usage-retention.md)
-* [Adding custom events to your app](app-insights-api-custom-events-metrics.md)
-
+* [Coding custom events](app-insights-api-custom-events-metrics.md)
+* [Add user context](app-insights-usage-send-user-context.md)
