@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 05/09/2017
+ms.date: 08/07/2017
 ms.author: barclayn
 ms.custom: azlog
 
@@ -24,7 +24,7 @@ ms.custom: azlog
 Azure Active directory audit events help you identify privileged actions that occurred in Azure Active Directory. You can see the types of events that you can track by reviewing [Azure Active Directory audit report events](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md)
 
 >[!NOTE]
-You should review the [Get started](security-azure-log-integration-get-started.md) article and complete all steps up to step 3 of the **Post installation and validation** section before attempting the steps in this article.
+You should review the [Get started](security-azure-log-integration-get-started.md) article and complete the steps there before attempting the steps in this article.
 
 ## Steps to integrate Azure Active directory audit logs
 
@@ -53,7 +53,8 @@ See below for a video going over the steps covered in this article.
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Azure-AD-Integration/player]
 
 
-Point the standard SIEM file forwarder connector to the appropriate folder to pipe the data to the SIEM instance. You may need some field mappings based on the SIEM product you are using.
+>[!NOTE]
+You will need to contact your SIEM vendor for specific instructions on bringing the information in the JSON files into your SIEM.
 
 Community assistance is available through the [Azure Log Integration MSDN Forum](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). This forum provides the AzLog community the ability support each other with questions, answers, tips, and tricks on how to get the most out of Azure Log Integration. In addition, the Azure Log Integration team monitors this forum and will help whenever we can.
 

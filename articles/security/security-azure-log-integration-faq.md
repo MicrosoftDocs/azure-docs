@@ -12,14 +12,14 @@ ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/26/2017
+ms.workload8: na
+ms.date: 08/07/2017
 ms.author: TomSh
 ms.custom: azlog
 
 ---
 # Azure log integration frequently asked questions (FAQ)
-This FAQ answers questions about Azure log integration, a service that enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events associated with your applications.
+This FAQ answers questions about Azure log integration, a Windows operating system service that enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events associated with your applications.
 
 ## Is the Azure Log Integration software free?
 Yes. There is no charge for the Azure Log Integration software.
@@ -28,18 +28,18 @@ Yes. There is no charge for the Azure Log Integration software.
 
 It is currently available in Azure commercial and Azure Government and not available in China, or Germany.
 
-## How can I see the storage accounts from which Azure Log integration is pulling Azure VM logs from?
+## How can I see the storage accounts from which Azure Log integration is pulling Azure VM logs?
 Run the command **azlog source list**.
 
 ## How can I tell which subscription the Azure Log integration logs are from?
 
-In the case of Audit logs that are placed in the AzureResourcemanagerJson directories the subscription ID is in the log file name. This is also true for logs in the AzureSecurityCenterJson folder. For example:
+In the case of Audit logs that are placed in the **AzureResourcemanagerJson** directories the subscription ID is in the log file name. This is also true for logs in the **AzureSecurityCenterJson** folder. For example:
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
 Azure Active Directory audit logs include the tenant ID as part of the name.
 
-Diagnostic logs read from an Event Hub do not include the subscription ID as part of the name but instead include the friendly name specified as part of the creation of the Event Hub source. 
+Diagnostic logs that are read from an Event Hub do not include the subscription ID as part of the name. Instead, they include the friendly name specified as part of the creation of the Event Hub source. 
 
 ## How can I update the proxy configuration?
 If your proxy setting does not allow Azure storage access directly, open the **AZLOG.EXE.CONFIG** file in **c:\Program Files\Microsoft Azure Log Integration**. Update the file to include the **defaultProxy** section with the proxy address of your organization. After update is done, stop and start the service using commands **net stop azlog** and **net start azlog**.
