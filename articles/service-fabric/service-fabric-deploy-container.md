@@ -1,9 +1,9 @@
 ---
 title: Service Fabric and deploying containers | Microsoft Docs
-description: Service Fabric and the use of containers to deploy microservice applications. This article describes the capabilities that Service Fabric provides for containers and how to deploy a Windows container image into a cluster.
+description: Service Fabric and the use of containers to deploy microservice applications. This article describes the capabilities that Service Fabric provides for containers and how to deploy a Windows or Linux container image into a cluster.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: subramar
 manager: timlt
 editor: ''
 
@@ -13,18 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/16/2017
-ms.author: msfussell
+ms.date: 8/8/2017
+ms.author: subramar 
 
 ---
-# Deploy a Windows container to Service Fabric
-> [!div class="op_single_selector"]
-> * [Deploy Windows Container](service-fabric-deploy-container.md)
-> * [Deploy Docker Container](service-fabric-deploy-container-linux.md)
-> 
-> 
+# Deploy a container to Service Fabric
 
-This article walks you through the process of building containerized services in Windows containers.
+This article walks you through the process of building containerized services for Windows and Linux.
 
 Service Fabric has several capabilities that help you with building applications that are composed of microservices running inside containers. 
 
@@ -45,7 +40,7 @@ When you package a container, you can choose to use either a Visual Studio proje
 > [!TIP]
 > The easiest way to package an existing container image into a service is to use Visual Studio.
 
-## Use Visual Studio to package an existing container image
+### Use Visual Studio to package an existing container image
 Visual Studio provides a Service Fabric service template to help you deploy a container to a Service Fabric cluster.
 
 1. Choose **File** > **New Project**, and create a Service Fabric application.
@@ -65,7 +60,7 @@ Visual Studio provides a Service Fabric service template to help you deploy a co
 
 For an example, checkout the [Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
-## Creating a Windows Server 2016 cluster
+### Creating a Windows Server 2016 cluster
 To deploy your containerized application, you need to create a cluster running Windows Server 2016 with container support enabled. 
 Your cluster may be running locally, or deployed via Azure Resource Manager in Azure. 
 
@@ -79,6 +74,68 @@ See the article [Create a Service Fabric cluster by using Azure Resource Manager
 ```
 You can also use the [Five Node Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)
 to create a cluster. Alternatively read a community [blog post](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) on using Service Fabric and Windows containers.
+
+<a id="manually"></a>
+
+
+## Packaging a Linux Docker container with yeoman
+When packaging a container on Linux, you can choose either to use a yeoman template or [create the application package manually](#manually).
+
+A Service Fabric application can contain one or more containers, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create an application with a single Docker container called *SimpleContainerApp*. You can add more services later by editing the generated manifest files.
+
+### Install Docker on your development box
+
+Run the following commands to install docker on your Linux development box (if you are using the vagrant image on OSX, docker is already installed):
+
+```bash
+    sudo apt-get install wget
+    wget -qO- https://get.docker.io/ | sh
+```
+
+### Create the application
+1. In a terminal, type `yo azuresfcontainer`.
+2. Name your application - for example, mycontainerap
+3. Provide the URL for the container image from a DockerHub repo. The image parameter takes the form [repo]/[image name]
+4. If the image does not have a workload entry-point defined, then you need to explicitly specify input commands with a comma-delimited set of commands to run inside the container, which will keep the container running after startup.
+
+![Service Fabric Yeoman generator for containers][sf-yeoman]
+
+### Deploy the application the Xplat CLI
+
+Once the application is built, you can deploy it to the local cluster using the Azure CLI.
+
+1. Connect to the local Service Fabric cluster.
+
+    ```bash
+    azure servicefabric cluster connect
+    ```
+
+2. Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+
+    ```bash
+    ./install.sh
+    ```
+
+3. Open a browser and navigate to Service Fabric Explorer at http://localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X).
+4. Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
+5. Use the uninstall script provided in the template to delete the application instance and unregister the application type.
+
+    ```bash
+    ./uninstall.sh
+    ```
+
+### Deploy the application Azure CLI 2.0
+
+See the reference doc on managing an [application life cycle using the Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
+
+For an example application, [checkout the Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+
+### Adding more services to an existing application
+
+To add another container service to an application already created using `yo`, perform the following steps:
+
+1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
+2. Run `yo azuresfcontainer:AddService`
 
 <a id="manually"></a>
 
@@ -243,7 +300,6 @@ Windows supports two isolation modes for containers - process and Hyper-V.  With
    <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
 ```
 
-
 ## Complete examples for application and service manifest
 
 An example application manifest follows:
@@ -301,6 +357,60 @@ An example service manifest (specified in the preceding application manifest) fo
         </Resources>
     </ServiceManifest>
 ```
+
+## Start docker daemon on cluster with customer parameters 
+
+Custom parameters can be specified when the Service Fabric runtime launches the docker daemon on the cluster nodes. The parameters are specified in the cluster manifest under the hosting section as shown in the following snippet:
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+            "DockerParams": "-H fd:// -H unix:///var/run/docker.sock",
+	      ...
+          }
+        ]
+}
+```
+
+## Configure time interval before container is force terminated
+
+Instead of removing a container service immediately when the service is removed, you can configure a time interval for the runtime to wait before the container is removed. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.   For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified in the cluster manifest under the **Hosting** section as shown in the following snippet (the time interval is set to 10 seconds by default): 
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+            "ContainerDeactivationTimeout": "10",
+	      ...
+          }
+        ]
+}
+```
+Since this is a dynamic configuration, a config only upgrade on the cluster updates the timeout. 
+
+
+## Configure the runtime to remove unused container images
+
+You can configure the Service Fabric cluster to remove unused container images from the node if no services are using that image on the node. This allows disk space to be recaptured if too many container images are present on the node.  To enable this feature, update the **Hosting** section in the cluster manifest as shown in the following snippet: 
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+	      “PruneCustomerImages”: “True”,
+            "DNDImages": "…”,
+	      ...
+          }
+        ]
+} 
+```
+
+For images that shouldn’t ever be deleted, specify them as do not delete, but adding them under the “DNDImages” parameter as shown above. 
+
 
 ## Next steps
 Now that you have deployed a containerized service, learn how to manage its lifecycle by reading [Service Fabric application lifecycle](service-fabric-application-lifecycle.md).

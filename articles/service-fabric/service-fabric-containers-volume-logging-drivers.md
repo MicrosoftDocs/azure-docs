@@ -53,7 +53,7 @@ Service Fabric supports specifying [Docker volume plugins](https://docs.docker.c
 </ApplicationManifest>
 ```
 
-In the preceding example, the `Source` tag for the `Volume` refers to the source folder. The source folder could be a folder in the VM that hosts the containers or a persistent remote store. The `Destination` tag is the location that the `Source` is mapped within the running container. 
+In the preceding example, the `Source` tag for the `Volume` refers to the source folder. The source folder could be a folder in the VM that hosts the containers or a persistent remote store. The `Destination` tag is the location that the `Source` is mapped to within the running container. 
 
 When specifying a volume plugin, Service Fabric automatically creates the volume using the parameters specified. The `Source` tag is the name of the volume, and the `Driver` tag specifies the volume driver plugin. Options can be specified using the `DriverOption` tag as shown in the following snippet:
 
