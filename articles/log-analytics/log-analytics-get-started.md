@@ -98,7 +98,7 @@ Next, create a simple virtual machine in Azure. After you create a VM, onboard t
 
 Previously, you enabled the Activity Log Analytics solution and the Security & Compliance and Automation & Control service offerings. Next, we start looking at data collected by solutions and results in log searches.
 
-To start, look at data that is displayed from within solutions. Then, look at some log searches that are accessed from log searches. Log searches allow you to combine and correlate any machine data from multiple sources within your environment. For more information, see [Log searches in Log Analytics](log-analytics-log-searches.md) or if you converted your workspace to the new query language, see [understanding log searches in Log Analytics](log-analytics-log-search-new.md). Lastly, take act on data that we find using the OMS portal, which is outside of the Azure portal.
+To start, look at data that is displayed from within solutions. Then, look at some log searches that are accessed from log searches. Log searches allow you to combine and correlate any machine data from multiple sources within your environment. For more information, see [Log searches in Log Analytics](log-analytics-log-searches.md) or if you converted your workspace to the new query language, see [understanding log searches in Log Analytics](log-analytics-log-search-new.md). 
 
 ### To view Antimalware data
 
