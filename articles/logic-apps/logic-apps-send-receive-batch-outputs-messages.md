@@ -22,7 +22,7 @@ ms.author: LADocs; estfan; jonfan
 
 To reduce the number of messages between logic apps, 
 you can group messages and outputs from actions 
-so that logic apps can process these items in batches. 
+so your logic apps can process these items in batches. 
 You can create logic apps that receive items as a batch 
 by using the **Batch** trigger. You can also create logic apps 
 that send items to a batch by using the **Batch** action.
@@ -30,9 +30,9 @@ that send items to a batch by using the **Batch** action.
 This topic shows how you can build a batching solution by performing these tasks: 
 
 * Create a logic app that can receive data sent to a batch.
-* Create a logic app that sends data to a batch.
-* Set up a partition for a batch so you can create batches 
-based on a unique key, for example, a customer number. 
+* Create a logic app that sends data to a batch. 
+In the sender, you can specify a partition for the target batch 
+to create batches based on a unique key, for example, a customer number. 
 
 ## Requirements
 
@@ -51,12 +51,13 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 ## Create logic apps that receives data as a batch
 
 Before you can send items to a batch, you must first create a "batch receiver" 
-logic app by using the **Batch** trigger. In the batch receiver logic app, 
-you define the batch name, release criteria, and other settings. That way, 
-when you later create logic apps that send data to a batch, 
-you can select this "batch receiver" logic app. Also, 
-sender logic apps need to know the batch where they can send data. 
-The receiver logic apps don't need to know anything about the senders.
+logic app by using the **Batch** trigger. In the receiver logic app, 
+you define the batch name, release criteria, and other settings. 
+That way, when you later create logic apps that send items to a batch, 
+you can select this receiver logic app. 
+
+Sender logic apps must know where to send these items. 
+Receiver logic apps don't need to know anything about the senders.
 
 1. In the [Azure portal](https://portal.azure.com), 
 create a logic app with this name: "BatchReceiver" 
@@ -77,23 +78,22 @@ and specify criteria for releasing the batch, for example:
    ![Provide Batch trigger details](./media/logic-apps-send-receive-batch-outputs-messages/receive-batch-trigger-details.png)
 
 4. Add another action that sends an email when the batch trigger fires. 
-So, each time the batch has five items, the logic app sends an email.
+Each time the batch has five items, the logic app sends an email.
 
    1. Under the batch trigger, choose **+ New Step** > **Add an action**.
 
    2. In the search box, enter "email" as your filter.
-
-   3. Based on your email provider, select an email connector. 
+   Based on your email provider, select an email connector.
    
       For example, if you have a work or school account, 
       select the Office 365 Outlook connector. 
       If you have a Gmail account, select the Gmail connector.
 
-   4. Select this action for your connector: **{*email provider*} - Send an email**
+   3. Select this action for your connector: **{*email provider*} - Send an email**
 
       ![Select "Send an email" action for your email provider](./media/logic-apps-send-receive-batch-outputs-messages/add-send-email-action.png)
 
-5. If you didn't already set up a connection for your email provider, 
+5. If you didn't previously create a connection for your email provider, 
 provide your email credentials for authentication when prompted. 
 Learn more about [authenticating your email credentials](../logic-apps/logic-apps-create-a-logic-app.md).
 
@@ -115,6 +115,8 @@ Learn more about [authenticating your email credentials](../logic-apps/logic-app
 
    3. In the **Body** box, select **Message Id**.
 
+      ![For "Body", select "Message Id"](./media/logic-apps-send-receive-batch-outputs-messages/send-email-action-details-for-each.png)
+
       > [!NOTE]
       > Because the input for the send email action is an array, 
       > the designer automatically adds a **For each** loop 
@@ -123,18 +125,16 @@ Learn more about [authenticating your email credentials](../logic-apps/logic-app
       > With the batch trigger set to five items, you get five emails 
       > each time the trigger fires.
 
-      ![For "Body", select "Message Id"](./media/logic-apps-send-receive-batch-outputs-messages/send-email-action-details-for-each.png)
-
-7.  Now that you created a logic app that can receive messages as a batch, 
+7.  Now that you created a logic app that receives items as a batch, 
 save your logic app.
 
     ![Save your logic app](./media/logic-apps-send-receive-batch-outputs-messages/save-batch-receiver-logic-app.png)
 
 ## Create logic apps that send data to a batch
 
-Now create one or more logic apps that send data to the batch. 
-Sender logic apps need to know they send the data, 
-but receiver logic apps don't need to know anything about the senders.
+Now create one or more logic apps that send items to the batch. 
+Sender logic apps must know where to send these items. 
+Receiver logic apps don't need to know anything about the senders.
 
 1. Create another logic app with this name: "BatchSender"
 
@@ -202,7 +202,7 @@ but receiver logic apps don't need to know anything about the senders.
 
    ![Save your sender logic app](./media/logic-apps-send-receive-batch-outputs-messages/send-batch-receiver-details-finished.png)
 
-## Test your logic app batching solution
+## Test your logic apps
 
 To test your batching solution, 
 leave your logic apps running for a few minutes. 
@@ -219,7 +219,7 @@ your BatchReceiver logic app fires and sends mail for each message.
 > [!IMPORTANT]
 > When you're done testing, make sure that you disable the 
 > BatchSender logic app to stop sending messages 
-> to the batch and overloading your inbox.
+> and avoid overloading your inbox.
 
 ## Next steps
 
