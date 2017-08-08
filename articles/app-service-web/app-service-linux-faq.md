@@ -51,7 +51,7 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **Q:** My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration/deployment of custom containers?
 
-**A:** To set up continuous integration/deployment for DockerHub images by check the following article [Docker Hub Continuous Deployment with Web App on Linux](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
+**A:** To set up continuous integration/deployment for Azure Container Registry or DockerHub images by check the following article [Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
 
 **Q:** Do you support staging environments?
 
@@ -59,7 +59,7 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **Q:** Can I use **web deploy** to deploy my web app?
 
-**A:** Yes, you need to set an app setting called `UseWebDeployScm` to `false`.
+**A:** Yes, you need to set an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` to `false`.
 
 ## Language support
 
@@ -99,7 +99,7 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **Q:** My custom container listens to a port other than port 80. How can I configure my app to route the requests to that port?
 
-**A:** We have auto port detection, also you can specify an application setting called **PORT**, and give it the value of the expected port number.
+**A:** We have auto port detection, also you can specify an application setting called **WEBSITES_PORT**, and give it the value of the expected port number. Previously the platform was using `PORT` app setting, we are planning to deprecate the use this app setting and move to using `WEBSITES_PORT` exclusively.
 
 **Q:** Do I need to implement HTTPS in my custom container.
 
@@ -126,4 +126,4 @@ If you have a question, comment on the article and we'll answer it as soon as po
 * [Creating web apps in Azure Web App on Linux](app-service-linux-how-to-create-web-app.md)
 * [SSH support for Azure Web App on Linux](./app-service-linux-ssh-support.md)
 * [Set up staging environments in Azure App Service](./web-sites-staged-publishing.md)
-* [Docker Hub Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md)
+* [Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md)

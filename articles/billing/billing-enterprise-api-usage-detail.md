@@ -80,7 +80,7 @@ Common header properties that need to be added are specified [here](billing-ente
 			"unitOfMeasure": "string",
 			"resourceGroup": "string"
 			}
-		]
+		],
 		"nextLink": "string"
 	}
 
