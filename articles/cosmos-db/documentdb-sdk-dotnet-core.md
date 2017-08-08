@@ -56,7 +56,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 ### <a name="1.4.0"/>1.4.0
 
-*	Added support for specifying custom JsonSerializerSettings while instantiating DocumentClient.
+*	Added support for specifying custom JsonSerializerSettings while instantiating a [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet) instance.
 
 ### <a name="1.3.2"/>1.3.2
 
