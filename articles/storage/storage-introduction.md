@@ -242,7 +242,7 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### For Node.js developers
 * [How to use Blob storage from Node.js](storage-nodejs-how-to-use-blob-storage.md)
-* [How to use Table storage from Node.js](storage-nodejs-how-to-use-table-storage.md)
+* [How to use Table storage from Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md)
 * [How to use Queue storage from Node.js](storage-nodejs-how-to-use-queues.md)
 
 ### For PHP developers

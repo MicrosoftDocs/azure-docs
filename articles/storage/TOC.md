@@ -31,7 +31,7 @@
 ### [.NET](../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [F#](/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage)
 ### [Java](../cosmos-db/table-storage-how-to-use-java.md)
-### [Node.js](storage-nodejs-how-to-use-table-storage.md)
+### [Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md)
 ### [C++](../cosmos-db/table-storage-how-to-use-c-plus.md)
 ### [PHP](storage-php-how-to-use-table-storage.md)
 ### [Python](storage-python-how-to-use-table-storage.md)

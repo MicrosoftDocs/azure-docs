@@ -168,7 +168,7 @@ The following Azure Table storage tutorials are applicable to Azure Stack. Note 
 
 * [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [How to use Table storage from Java](../cosmos-db/table-storage-how-to-use-java.md)
-* [How to use Azure Table storage from Node.js](../storage/storage-nodejs-how-to-use-table-storage.md)
+* [How to use Azure Table storage from Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md)
 * [How to use Table storage from C++](../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [How to use Table storage from PHP](../storage/storage-php-how-to-use-table-storage.md)
 * [How to use Table storage in Python](../storage/storage-python-how-to-use-table-storage.md)
