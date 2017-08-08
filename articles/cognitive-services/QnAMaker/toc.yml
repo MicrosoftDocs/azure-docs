@@ -21,7 +21,7 @@
     href: Guides/UpdateKB.md
   - name: Publish a knowledge base
     href: Guides/PublishKB.md
-  - name: Active learning
+  - name: Active Learning
     href: Guides/active-learning-qnamaker.md
   - name: Authentication
     href: SubscriptionKeys.md
