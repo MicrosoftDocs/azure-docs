@@ -99,10 +99,10 @@ Learn more about [authenticating your email credentials](../logic-apps/logic-app
 
 6. Set the properties for the action you just added.
 
-   1. For the **To** box, enter the recipient's email address. 
+   * In the **To** box, enter the recipient's email address. 
    For testing purposes, you can use your own email address.
 
-   2. In the **Subject** box, select **Partition Name** when 
+   * In the **Subject** box, select **Partition Name** when 
    the **Dynamic content** list appears.
 
       ![From the "Dynamic content" list, select "Partition Name"](./media/logic-apps-send-receive-batch-outputs-messages/send-email-action-details.png)
@@ -113,7 +113,7 @@ Learn more about [authenticating your email credentials](../logic-apps/logic-app
       This capability lets you use a single batch with multiple subsets and 
       define each subset with the name that you provide.
 
-   3. For the **Body** box, select **Message Id**.
+   3. In the **Body** box, select **Message Id**.
 
       > [!NOTE]
       > Because the input for the send email action is an array, 
@@ -168,14 +168,14 @@ but receiver logic apps don't need to know anything about the senders.
 
 3. Set the batch properties.
 
-   1. For **Batch Name**: "TestBatch"
+   * **Batch Name**: "TestBatch"
 
-      > [!IMPORTANT]
-      > Make sure that you don't change the batch name, 
-      > which must match the batch name defined by the receiver logic app.
-      > Changing the batch name causes the sender logic app to fail.
+     > [!IMPORTANT]
+     > Make sure that you don't change the batch name, 
+     > which must match the batch name defined by the receiver logic app.
+     > Changing the batch name causes the sender logic app to fail.
 
-   2. In the **Message Content** box, 
+   * In the **Message Content** box, 
    when the dynamic content list appears, choose **Expression**.
    Enter the expression **utcnow()**, and choose **OK**. 
 
@@ -191,12 +191,12 @@ but receiver logic apps don't need to know anything about the senders.
 
    2. Enter this expression: **rand(1,6)**
 
+      ![Set up partition for your destination batch](./media/logic-apps-send-receive-batch-outputs-messages/send-batch-receiver-partition-advanced-options.png)
+
       > [!NOTE] 
       > This **rand** function expression generates a number between one and five. 
       > So you are dividing this batch into five numbered partitions, 
       > which this expression dynamically sets.
-
-      ![Set up partition for your destination batch](./media/logic-apps-send-receive-batch-outputs-messages/send-batch-receiver-partition-advanced-options.png)
 
 5. Save your logic app. Your sender logic app looks like this example:
 
