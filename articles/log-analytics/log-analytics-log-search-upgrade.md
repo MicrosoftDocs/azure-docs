@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 08/08/2017
 ms.author: magoedte;bwren
 
 ---
@@ -37,6 +37,7 @@ We understand that there’s pain in any transition, and we aren’t just changi
 - **Smart Analytics.**  The new language has advanced algorithms to evaluate patterns in datasets and compare different sets of data.
 - **Advanced Analytics portal.**  The Advanced Analytics portal offers analysis features not available in the Log Analytics portal including multiline editing of queries, additional visualizations, and advanced diagnostics.
 - **Consistency with other applications.**  The new language and the Advanced Analytics Portal are already used for analytics in Application Insights.  Implementing it for Log Analytics provides consistency across Azure services.
+- **Better integration with Power BI.** Queries in the new language can be exported to Power BI Desktop, so you can utilize its rich data transformation capabilities.
 - **Much more.** Refer to the [Azure Log Analytics Query Language](https://docs.loganalytics.io/index.html) site for complete details and tutorials on the new language.
 
 
@@ -56,7 +57,7 @@ To restore your legacy workspace, go to **Settings** in your workspace and then 
 ![Restore legacy](media/log-analytics-log-search-upgrade/restore-legacy-b.png)
 
 ## How do I perform the upgrade?
-You can upgrade your workspace when you see the purple banner at the top of the portal.  Note that you can only perform the upgrade from the OMS portal, although the converted workspace will also be available in the Azure portal after the upgrade is complete.
+You can upgrade your workspace when you see the purple banner at the top of the portal.  
 
 1.	Start the upgrade process by clicking on the purple banner that says **Learn more and upgrade**.<br>![Upgrade 2](media/log-analytics-log-search-upgrade/upgrade-01a.png)<br>
 2.	Read through the additional information about the upgrade on the upgrade information page.<br>![Upgrade 2](media/log-analytics-log-search-upgrade/upgrade-03.png)<br>

@@ -2821,6 +2821,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/hdinsight/hdinsight-storm-twitter-trending.md",
+            "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-example-topology",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/documentdb/documentdb-sdk-dotnet-core.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-core",
             "redirect_document_id": false
