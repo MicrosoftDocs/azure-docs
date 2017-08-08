@@ -1,6 +1,6 @@
 ---
-title: How to use Service Bus topics with Java | Microsoft Docs
-description: Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications.
+title: How to use Azure Service Bus topics with Java | Microsoft Docs
+description: Use Service Bus topics and subscriptions in Azure.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 06/28/2017
 ms.author: sethm
 
 ---
@@ -51,7 +51,7 @@ applications.
 
 ## Create a service namespace
 To begin using Service Bus topics and subscriptions in Azure,
-you must first create a service namespace. A namespace provides
+you must first create a namespace, which provides
 a scoping container for addressing Service Bus resources within your
 application.
 
@@ -64,7 +64,7 @@ Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before
 
 ![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
-Add the following import statements to the top of the Java file:
+Add the following `import` statements to the top of the Java file:
 
 ```java
 import com.microsoft.windowsazure.services.servicebus.*;
@@ -225,7 +225,7 @@ service.sendTopicMessage("TestTopic", message);
 
 Service Bus topics support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages
-held in a topic but there is a cap on the total size of the messages
+held in a topic but there is a limit on the total size of the messages
 held by a topic. This topic size is defined at creation time, with an
 upper limit of 5 GB.
 

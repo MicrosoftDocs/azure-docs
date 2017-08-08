@@ -4,7 +4,7 @@ description: Conceptual reference and overview of the Authentication / Authoriza
 services: app-service\mobile
 documentationcenter: ''
 author: mattchenderson
-manager: erikre
+manager: syntaxc4
 editor: ''
 
 ms.assetid: a46dbf70-867d-48f6-8885-7f5207ad102e

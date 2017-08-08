@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 02/01/2017
+ms.date: 05/22/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Azure Batch diagnostic logging
+# Log events for diagnostic evaluation and monitoring of Batch solutions
+
 As with many Azure services, the Batch service emits log events for certain resources during the lifetime of the resource. You can enable Azure Batch diagnostic logs to record events for resources like pools and tasks, and then use the logs for diagnostic evaluation and monitoring. Events like pool create, pool delete, task start, task complete, and others are included in Batch diagnostic logs.
 
 > [!NOTE]
@@ -39,7 +41,7 @@ As with many Azure services, the Batch service emits log events for certain reso
 ## Enable diagnostic logging
 Diagnostic logging is not enabled by default for your Batch account. You must explicitly enable diagnostic logging for each Batch account you want to monitor:
 
-[How to enable collection of Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)
+[How to enable collection of Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)
 
 We recommend that you read the full [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) article to gain an understanding of not only how to enable logging, but the log categories supported by the various Azure services. For example, Azure Batch currently supports one log category: **Service Logs**.
 
@@ -59,7 +61,7 @@ Azure Batch Service Logs contain events emitted by the Azure Batch service durin
         "subnetId": " "
     },
     "resizeTimeout": "300000",
-    "targetDedicated": 2,
+    "targetDedicatedComputeNodes": 2,
     "maxTasksPerNode": 1,
     "vmFillType": "Spread",
     "enableAutoscale": false,

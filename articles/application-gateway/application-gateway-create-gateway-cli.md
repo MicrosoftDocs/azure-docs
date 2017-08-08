@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Application Gateway - Azure CLI | Microsoft Docs
-description: Learn how to create an Application Gateway by using the Azure CLI in Resource Manager
+title: Create an Azure Application Gateway - Azure CLI 2.0 | Microsoft Docs
+description: Learn how to create an Application Gateway by using the Azure CLI 2.0 in Resource Manager
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -10,30 +10,36 @@ tags: azure-resource-manager
 
 ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 07/31/2017
 ms.author: gwallace
 
 ---
-# Create an application gateway by using the Azure CLI
+# Create an application gateway by using the Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI](application-gateway-create-gateway-cli.md)
-> 
-> 
+> * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
+> * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
 
-Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application gateway has the following application delivery features: HTTP load balancing, cookie-based session affinity, and Secure Sockets Layer (SSL) offload, custom health probes, and support for multi-site.
+Application Gateway is a dedicated virtual appliance that provides application delivery controller (ADC) as a service, offering various layer 7 load balancing capabilities for your application.
 
-## Prerequisite: Install the Azure CLI
+## CLI versions to complete the task
 
-To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](../xplat-cli-install.md) and you need to [log on to Azure](../xplat-cli-connect.md). 
+You can complete the task using one of the following CLI versions:
+
+* [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md) - our CLI for the classic and resource management deployment models.
+* [Azure CLI 2.0](application-gateway-create-gateway-cli.md) - our next generation CLI for the resource management deployment model
+
+## Prerequisite: Install the Azure CLI 2.0
+
+To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 > [!NOTE]
 > If you don't have an Azure account, you need one. Go sign up for a [free trial here](../active-directory/sign-up-organization.md).
@@ -47,9 +53,6 @@ This scenario will:
 * Create a medium application gateway with two instances.
 * Create a virtual network named AdatumAppGatewayVNET with a reserved CIDR block of 10.0.0.0/16.
 * Create a subnet called Appgatewaysubnet that uses 10.0.0.0/28 as its CIDR block.
-* Configure a certificate for SSL offload.
-
-![Scenario example][scenario]
 
 > [!NOTE]
 > Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
@@ -57,15 +60,18 @@ This scenario will:
 ## Before you begin
 
 Azure Application Gateway requires its own subnet. When creating a virtual network, ensure that you leave enough address space to have multiple subnets. Once you deploy an application gateway to a subnet,
-only additional application gateways are able to be added to the subnet.
+only additional application gateways can be added to the subnet.
 
 ## Log in to Azure
 
 Open the **Microsoft Azure Command Prompt**, and log in. 
 
-```azurecli
-azure login
+```azurecli-interactive
+az login -u "username"
 ```
+
+> [!NOTE]
+> You can also use `az login` without the switch for device login that requires entering a code at aka.ms/devicelogin.
 
 Once you type the preceding example, a code is provided. Navigate to https://aka.ms/devicelogin in a browser to continue the login process.
 
@@ -79,51 +85,114 @@ Once the code has been entered you are signed in, close the browser to continue 
 
 ![successfully signed in][3]
 
-## Switch to Resource Manager Mode
-
-```azurecli
-azure config mode arm
-```
-
 ## Create the resource group
 
 Before creating the application gateway, a resource group is created to contain the application gateway. The following shows the command.
 
-```azurecli
-azure group create -n AdatumAppGatewayRG -l eastus
-```
-
-## Create a virtual network
-
-Once the resource group is created, a virtual network is created for the application gateway.  In the following example, the address space was as 10.0.0.0/16 as defined in the preceding scenario notes.
-
-```azurecli
-azure network vnet create -n AdatumAppGatewayVNET -a 10.0.0.0/16 -g AdatumAppGatewayRG -l eastus
-```
-
-## Create a subnet
-
-After the virtual network is created, a subnet is added for the application gateway.  If you plan to use application gateway with a web app hosted in the same virtual network as the application gateway, be sure to leave enough room for another subnet.
-
-```azurecli
-azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v AdatumAppGatewayVNET -a 10.0.0.0/28 
+```azurecli-interactive
+az group create --name myresourcegroup --location "eastus"
 ```
 
 ## Create the application gateway
 
-Once the virtual network and subnet are created, the pre-requisites for the application gateway are complete. Additionally a previously exported .pfx certificate and the password for the certificate are required for the following step:
-The IP addresses used for the backend are the IP addresses for your backend server. These values can be either private IPs in the virtual network, public ips, or fully qualified domain names for your backend servers.
+The IP addresses used for the backend are the IP addresses for your backend server. These values can be either private IPs in the virtual network, public ips, or fully qualified domain names for your backend servers. The following example creates an application gateway with additional configuration settings for http settings, ports, and rules.
 
-```azurecli
-azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
+```azurecli-interactive
+az network application-gateway create \
+--name "AdatumAppGateway" \
+--location "eastus" \
+--resource-group "myresourcegroup" \
+--vnet-name "AdatumAppGatewayVNET" \
+--vnet-address-prefix "10.0.0.0/16" \
+--subnet "Appgatewaysubnet" \
+--subnet-address-prefix "10.0.0.0/28" \
+--servers 10.0.0.4 10.0.0.5 \
+--capacity 2 \
+--sku Standard_Small \
+--http-settings-cookie-based-affinity Enabled \
+--http-settings-protocol Http \
+--frontend-port 80 \
+--routing-rule-type Basic \
+--http-settings-port 80 \
+--public-ip-address "pip2" \
+--public-ip-address-allocation "dynamic" \
+
 ```
 
-> [!NOTE]
-> For a list of parameters that can be provided during creation run the following command: **azure network application-gateway create --help**.
+The preceding example shows many properties that are not required during the creation of an application gateway. The following code example creates an application gateway with the required information.
 
-This example creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. It also configures SSL offload. You can modify these settings to suit your deployment once the provisioning is successful.
+```azurecli-interactive
+az network application-gateway create \
+--name "AdatumAppGateway" \
+--location "eastus" \
+--resource-group "myresourcegroup" \
+--vnet-name "AdatumAppGatewayVNET" \
+--vnet-address-prefix "10.0.0.0/16" \
+--subnet "Appgatewaysubnet \
+--subnet-address-prefix "10.0.0.0/28" \
+--servers "10.0.0.5"  \
+--public-ip-address pip
+```
+ 
+> [!NOTE]
+> For a list of parameters that can be provided during creation run the following command: `az network application-gateway create --help`.
+
+This example creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. You can modify these settings to suit your deployment once the provisioning is successful.
 If you already have your web application defined with the backend pool in the preceding steps, once created, load balancing begins.
 
+## Get application gateway DNS name
+
+Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway, a CNAME record can be used to point to the public endpoint of the application gateway. [Configuring a custom domain name for in Azure](../dns/dns-custom-domain.md). To configure an alias, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
+
+
+```azurecli-interactive
+az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
+```
+
+```
+{
+  "dnsSettings": {
+    "domainNameLabel": null,
+    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
+    "reverseFqdn": null
+  },
+  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
+  "idleTimeoutInMinutes": 4,
+  "ipAddress": "40.121.167.250",
+  "ipConfiguration": {
+    "etag": null,
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
+    "name": null,
+    "privateIpAddress": null,
+    "privateIpAllocationMethod": null,
+    "provisioningState": null,
+    "publicIpAddress": null,
+    "resourceGroup": "AdatumAppGatewayRG",
+    "subnet": null
+  },
+  "location": "eastus",
+  "name": "pip2",
+  "provisioningState": "Succeeded",
+  "publicIpAddressVersion": "IPv4",
+  "publicIpAllocationMethod": "Dynamic",
+  "resourceGroup": "AdatumAppGatewayRG",
+  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
+  "tags": {
+    "cli[2] owner[administrator]": ""
+  },
+  "type": "Microsoft.Network/publicIPAddresses"
+}
+```
+
+## Delete all resources
+
+To delete all resources created in this article, complete the following steps:
+
+```azurecli-interactive
+az group delete --name AdatumAppGatewayRG
+```
+ 
 ## Next steps
 
 Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)

@@ -13,12 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 07/24/2017
 ms.author: curtand
+
+ms.reviewer: jeffsta
+ms.custom: oldportal;it-pro;
 
 ---
 # How Azure subscriptions are associated with Azure Active Directory
 This article covers information about signing in to Microsoft Azure and related issues, such as the relationship between an Azure subscription and Azure Active Directory (Azure AD).
+
+> [!IMPORTANT]
+> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article.
 
 ## Accounts that you can use to sign in
 Let’s start with the accounts that you can use to sign in. There are two types: a Microsoft account (formerly known as Microsoft Live ID) and a work or school account, which is an account stored in Azure AD.
@@ -36,8 +42,8 @@ For example, here a user with a Microsoft account signs in to the Azure classic 
 
 > [!NOTE]
 > To sign in to the Azure classic portal, msmith@hotmail.com must have a subscription to Azure. The account must be either a Service administrator or a co-administrator of the subscription.
-> 
-> 
+>
+>
 
 ![][1]
 
@@ -101,8 +107,8 @@ To manage both of the directories in the Azure classic portal, complete these st
 
 > [!NOTE]
 > These steps can only be completed while a user is signed in with a Microsoft account. If the user is signed in with a work or school account, the option **Use existing directory** is not available because a work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and which is owned by the work or school).
-> 
-> 
+>
+>
 
 1. Sign in to the Azure classic portal using your Microsoft account.
 2. Click **New** > **App services** > **Active Directory** > **Directory** > **Custom Create**.
@@ -113,10 +119,9 @@ To manage both of the directories in the Azure classic portal, complete these st
 7. Sign back in to the Azure classic portal using your Microsoft account. Both directories will appear in the Active Directory extension.
 
 ## Next Steps
-* To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
+* To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing/billing-add-change-azure-subscription-administrator.md)
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
-* For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md)
-* [Sign up for Azure as an organization](sign-up-organization.md)
+* For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png

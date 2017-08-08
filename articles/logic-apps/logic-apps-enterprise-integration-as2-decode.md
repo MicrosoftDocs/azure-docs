@@ -1,6 +1,6 @@
 ---
-title: Decode AS2 messages in Azure logic apps | Microsoft Docs
-description: How to use the AS2 decoder included with the Enterprise Integration Pack and Logic apps
+title: Decode AS2 messages - Azure Logic Apps | Microsoft Docs
+description: How to use the AS2 decoder in the Enterprise Integration Pack for Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -14,44 +14,70 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
-ms.author: padmavc
+ms.author: LADocs; padmavc
 
 ---
-# Get started with decoding AS2 message in your logic apps
-Connect to Decode AS2 Message to establish security and reliability while transmitting messages. It provides digital signing, decryption, and acknowledgements via Message Disposition Notifications (MDN).
+# Decode AS2 messages for Azure Logic Apps with the Enterprise Integration Pack 
 
-## Prereqs
+To establish security and reliability while transmitting messages, use the Decode AS2 message connector. 
+This connector provides digital signing, decryption, and acknowledgements through Message Disposition Notifications (MDN).
+
+## Before you start
+
+Here's the items you need:
+
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An Integration Account is required to use Decode AS2 message connector. See details on [how to create an Integration Account](logic-apps-enterprise-integration-create-integration-account.md), [partners](logic-apps-enterprise-integration-partners.md) and an [AS2 agreement](../logic-apps/logic-apps-enterprise-integration-as2.md)
+* An [integration account](logic-apps-enterprise-integration-create-integration-account.md) 
+that's already defined and associated with your Azure subscription. 
+You must have an integration account to use the Decode AS2 message connector.
+* At least two [partners](logic-apps-enterprise-integration-partners.md) 
+that are already defined in your integration account
+* An [AS2 agreement](logic-apps-enterprise-integration-as2.md) 
+that's already defined in your integration account
 
 ## Decode AS2 messages
-1. [Create a Logic App](../logic-apps/logic-apps-create-a-logic-app.md).
-2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list, and then enter “AS2” in the search box.  Select AS2 – Decode AS2 Message:
+
+1. [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+
+2. The Decode AS2 message connector doesn't have triggers, 
+so you must add a trigger for starting your logic app, like a Request trigger. 
+In the Logic App Designer, add a trigger, and then add an action to your logic app.
+
+3.	In the search box, enter "AS2" for your filter. 
+Select **AS2 - Decode AS2 message**.
    
-    ![Search AS2](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage1.png)
-3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details:
+    ![Search for "AS2"](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage1.png)
+
+4. If you didn't previously create any connections to your integration account, 
+you're prompted to create that connection now. Name your connection, 
+and select the integration account that you want to connect.
    
     ![Create integration connection](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage2.png)
-4. Enter the Integration Account details.  Properties with an asterisk are required:
-   
-   | Property | Details |
-   | --- | --- |
-   | Connection Name * |Enter any name for your connection |
-   | Integration Account * |Enter the Integration Account name. Be sure your Integration Account and Logic app are in the same Azure location |
-   
-      Once complete, your connection details look similar to the following
-   
-      ![integration connection](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
-5. Select **Create**.
-6. Notice the connection has been created.  Now, proceed with the other steps in your Logic App:
+
+	Properties with an asterisk are required.
+
+	| Property | Details |
+	| --- | --- |
+	| Connection Name * |Enter any name for your connection. |
+	| Integration Account * |Enter a name for your integration account. Make sure that your integration account and logic app are in the same Azure location. |
+
+5.	When you're done, your connection details should look similar to this example. 
+To finish creating your connection, choose **Create**.
+
+	![integration connection details](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
+
+6. After your connection is created, as shown in this example, 
+select **Body** and **Headers** from the Request outputs.
    
     ![integration connection created](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage4.png) 
-7. Select Body and Headers from Request outputs:
-   
-    ![provide mandatory fields](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
+
+	For example:
+
+	![Select Body and Headers from Request outputs](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
 ## AS2 decoder details
-The Decode AS2 connector does the following: 
+
+The Decode AS2 connector performs these tasks: 
 
 * Processes AS2/HTTP headers
 * Verifies the signature (if configured)
@@ -65,8 +91,13 @@ The Decode AS2 connector does the following:
 * Generates a synchronous or asynchronous MDN (based on agreement configurations)
 * Sets the correlation tokens and properties on the MDN
 
-## Try it yourself
-Try it out. Use the [AS2 logic app template and scenario](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/) to deploy a fully operational logic app.
+## Try this sample
+
+To try deploying a fully operational logic app and sample AS2 scenario, 
+see the [AS2 logic app template and scenario](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
+
+## View the swagger
+See the [swagger details](/connectors/as2/). 
 
 ## Next steps
 [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md) 

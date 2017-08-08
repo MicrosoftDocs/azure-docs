@@ -1,10 +1,10 @@
 ---
-title: Offer SQL Services on Azure Stack | Microsoft Docs
+title: Using SQL databases on Azure Stack | Microsoft Docs
 description: Learn how you can deploy SQL databases as a service on Azure Stack and the quick steps to deploy the SQL Server resource provider adapter
 services: azure-stack
 documentationCenter: ''
 author: JeffGoldner
-manager: darmour
+manager: bradleyb
 editor: ''
 
 ms.service: azure-stack
@@ -12,154 +12,223 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/23/2017
+ms.date: 07/10/2017
 ms.author: JeffGo
 
 ---
 
-# Use SQL databases on Azure Stack
+# Use SQL databases on Microsoft Azure Stack
 
-> [!NOTE]
-> The following information only applies to Azure Stack TP2 deployments. There have been many changes since the TP1 release, so read this page carefully. Deployment now uses a single script.
->
 
-Use the SQL Server resource provider adapter to expose SQL databases as a service of Azure Stack. After you install the resource provider and connect it to a SQL Server instance, you and your users can create databases for cloud-native apps, websites that are based on SQL, and workloads that are based on SQL without having to provision a virtual machine (VM) that hosts SQL Server each time.
+Use the SQL Server resource provider adapter to expose SQL databases as a service of Azure Stack. After you install the resource provider and connect it to one or more SQL Server instances, you and your users can create databases for cloud-native apps, websites that are based on SQL, and workloads that are based on SQL without having to provision a virtual machine (VM) that hosts SQL Server each time.
 
-## SQL Server resource provider adapter architecture
-The resource provider does not offer all the database management capabilities of Azure SQL Database. For example, elastic database pools and the ability to dial database performance up and down automatically aren't available. However, the resource provider does support the same create, read, update, and delete (CRUD) operations that available in Azure SQL Database.
+The resource provider does not support all the database management capabilities of [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). For example, elastic database pools and the ability to scale database performance aren't supported. The API is not compatible with SQL DB.
+
+
+## SQL Server Resource Provider Adapter architecture
+The resource provider is not based on, nor does it offer all the database management capabilities of Azure SQL Database. For example, elastic database pools and the ability to dial database performance up and down automatically aren't available. However, the resource provider does support similar create, read, update, and delete (CRUD) operations.
 
 The resource provider is made up of three components:
 
-- **The SQL resource provider adapter VM**, which encompasses the resource provider process and the servers that host SQL Server.
+- **The SQL resource provider adapter VM**, which is a Windows virtual machine running the provider services.
 - **The resource provider itself**, which processes provisioning requests and exposes database resources.
-- **Servers that host SQL Server**, which provide capacity for databases.
+- **Servers that host SQL Server**, which provide capacity for databases, called Hosting Servers. 
 
-The following conceptual diagram shows these components and the steps that you go through when you deploy the resource provider, set up a server that hosts SQL Server, and then create a database.
+This release no longer creates a SQL instance. You must create one (or more) and/or provide access to external SQL instances. There are a number of options available to you including templates in the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) and Marketplace items. 
 
-![Azure Stack SQL resource provider adapter simple architecture](./media/azure-stack-sql-rp-deploy/sqlrparch.png)
+>[!NOTE]
+If you have downloaded any SQL Marketplace items, make sure you also download the SQL IaaS Extension or these will not deploy.
 
-To deploy the SQL provider on a system that does not have internet access, you can copy the file [SQL 2014 SP1 Enterprise Evaluation ISO](http://care.dlservice.microsoft.com/dl/download/2/F/8/2F8F7165-BB21-4D1E-B5D8-3BD3CE73C77D/SQLServer2014SP1-FullSlipstream-x64-ENU.iso) to a local file share and provide that share name when prompted (see below).
-> [!NOTE]
-> The deployment script will perform retries, if necessary, to accommodate less reliable network connections or if an operation exceeds a timeout.
->
 
-## Steps to deploy the resource provider
+## Deploy the resource provider
 
-1. [Download the SQL Server RP installer executable file] (https://aka.ms/azurestacksqlrptp2) to the Console VM and extract the files. You can optionally download to another machine and copy the file to the Azure Stack console VM.
+1. If you have not already done so, register your development kit and download the Windows Server 2016 EVAL image downloadable through Marketplace Management. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). The .NET 3.5 runtime is no longer required.
 
-2. Open an elevated PowerShell console and change to the directory where you extracted the files.
+2. [Download the SQL resource provider binaries file](https://aka.ms/azurestacksqlrp) and extract it on the development kit host.
 
-3. Run the DeploySqlProvider.ps1 script.
+3. Sign in to the development kit host and extract the SQL RP installer file to a temporary directory.
 
-The script does all of the following:
+4. The Azure Stack root certificate is retrieved and a self-signed certificate is created as part of this process. 
+
+    __Optional:__ If you need to provide your own, prepare the certificates and copy to a local directory if you wish to customize the certificates (passed to the installation script). You need the following certificates:
+
+    a. A wildcard certificate for *.dbadapter.\<region\>.\<external fqdn\>. This certificate must be trusted, such as would be issued by a certificate authority (that is, the chain of trust must exist without requiring intermediate certificates.) (A single site certificate can be used with the explicit VM name you provide during install.)
+
+    b. The root certificate used by the Azure Resource Manager for your instance of Azure Stack. If it is not found, the root certificate will be retrieved.
+
+
+5. Open a **new** elevated PowerShell console and change to the directory where you extracted the files. Use a new window to avoid problems that may arise from incorrect PowerShell modules already loaded on the system.
+
+6. If you have installed any versions of the AzureRm or AzureStack PowerShell modules other than 1.2.9 or 1.2.10, you will be prompted to remove them or the install will not proceed. This includes versions 1.3 or greater.
+
+7. Run the DeploySqlProvider.ps1 script with the parameters listed below.
+
+The script performs these steps:
 
 * If necessary, download a compatible version of Azure PowerShell.
-* Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
-* Download an evaluation build of SQL Server SP1 from the internet or from a local file share.
-* Upload the certificate and all other artifacts to a storage account on your Azure Stack.
-* Publish gallery package so that you can deploy SQL database through the gallery.
-* Deploy a VM using the default Windows Server 2012 R2 image that comes with Azure Stack.
+* Upload the certificates and other artifacts to a storage account on your Azure Stack.
+* Publish gallery packages so that you can deploy SQL databases through the gallery.
+* Deploy a VM using the Windows Server 2016 image created in step 1 and install the resource provider.
 * Register a local DNS record that maps to your resource provider VM.
-* Register your resource provider with the local Azure Resource Manager.
-* Connect the resource provider to the SQL server instance on the RP VM
+* Register your resource provider with the local Azure Resource Manager (Tenant and Admin).
 
-Use “sa” for username and the password that you used when you deployed the resource provider VM.
+> [!NOTE]
+> If the installation takes more than 90 minutes, it may fail and you see a failure message on the screen and in the log file, but the deployment is retried from the failing step. Systems that do not meet the recommended memory and core specifications may not be able to deploy the SQL RP.
+>
 
-Either specify at least the required parameters on the command line, or, if you run without any parameters, you will be prompted to enter them. 
-
-Here's an example you can run from the PowerShell prompt:
+Here's an example you can run from the PowerShell prompt (but change the account information and portal endpoints as needed):
 
 ```
+# Install the AzureRM.Bootstrapper module
+Install-Module -Name AzureRm.BootStrapper -Force
+
+# Installs and imports the API Version Profile required by Azure Stack into the current PowerShell session.
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.10 -Force
+
+# Download the Azure Stack Tools from GitHub and set the environment
+cd c:\
+Invoke-Webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip
+Expand-Archive master.zip -DestinationPath . -Force
+
+# This endpoint may be different for your installation
+Import-Module C:\AzureStack-Tools-master\Connect\AzureStack.Connect.psm1
+Add-AzureRmEnvironment -Name AzureStackAdmin -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
+
+# For AAD, use the following
+$tenantID = Get-AzsDirectoryTenantID -AADTenantName "<your directory name>" -EnvironmentName AzureStackAdmin
+
+# For ADFS, replace the previous line with
+# $tenantID = Get-AzsDirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin
+
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 
-$AADAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$AADAdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydomain.onmicrosoft.com", $AADAdminPass)
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydomain.onmicrosoft.com", $AdminPass)
 
-.\DeploySQLProvider.ps1 -AadTenantDirectoryName "mydomain.onmicrosoft.com" -AzCredential $AADAdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "System.Sql" -VmName "SystemSqlRP"
+# change this as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files 
+# and adjust the endpoints
+<extracted file directory>\DeploySQLProvider.ps1 -DirectoryTenantID $tenantID -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "SqlRPRG" -VmName "SqlVM" -ArmEndpoint "https://adminmanagement.local.azurestack.external" -TenantArmEndpoint "https://management.local.azurestack.external" -DefaultSSLCertificatePassword $PfxPass
  ```
 
-### Parameters
+### DeploySqlProvider.ps1 parameters
+You can specify these parameters in the command line. If you do not, or any parameter validation fails, you are prompted to provide the required ones.
 
 | Parameter Name | Description | Comment or Default Value |
 | --- | --- | --- |
-| **AadTenantDirectoryName** | The Azure Active Directory Name | _required_ |
-| **AzCredential** | Azure Stack Service Admin account credential (use the same account as you used for deploying Azure Stack) | _required_ |
-| **VMLocalCredential** | This is used for the local administrator account of the SQL resource provider VM; this password will also be used for the SQL **sa** account | _required_ |
-| **ResourceGroupName** | Resource Group for the items created by this script | Microsoft-SQL-RP1 |
-| **VmName** | Name of the VM holding the resource provider | sqlrp |
-| **DependencyFilesLocalPath** | Path to a local share containing the SQL ISO if you did an offline deployment. You can download [SQL 2014 SP1 Enterprise Evaluation ISO](http://care.dlservice.microsoft.com/dl/download/2/F/8/2F8F7165-BB21-4D1E-B5D8-3BD3CE73C77D/SQLServer2014SP1-FullSlipstream-x64-ENU.iso) from the Microsoft Download Center. | _leave blank to download from the internet_ |
-| **MaxRetryCount** | Each operation will be retried if there is a failure | 2 |
-| **RetryDuration** | Timeout between retries, in seconds | 120 |
-| **CleanupMode** | Cleanup the resource provider | No |
+| **DirectoryTenantID** | The Azure or ADFS Directory ID (guid). | _required_ |
+| **AzCredential** | Provide the credentials for the Azure Stack Service Admin account. You must use the same credentials as you used for deploying Azure Stack). | _required_ |
+| **VMLocalCredential** | Define the credentials for the local administrator account of the SQL resource provider VM. This password is also used for the SQL **sa** account. | _required_ |
+| **ResourceGroupName** | Define a name for a Resource Group in which items created by this script will be stored. For example, *SqlRPRG*. |  _required_ |
+| **VmName** | Define the name of the virtual machine on which to install the resource provider. For example, *SqlVM*. |  _required_ |
+| **DependencyFilesLocalPath** | Your certificate files must be placed in this directory as well. | _optional_ |
+| **DefaultSSLCertificatePassword** | The password for the .pfx certificate | _required_ |
+| **MaxRetryCount** | Define how many times you want to retry each operation if there is a failure.| 2 |
+| **RetryDuration** | Define the timeout between retries, in seconds. | 120 |
+| **Uninstall** | Remove the resource provider and all associated resources (see notes below) | No |
 | **DebugMode** | Prevents automatic cleanup on failure | No |
 
 
-
-This should get your SQL Server resource provider up and running in about 45 minutes (depending on your hardware and download speed). Make sure you reopen your browser before proceeding with the following steps.
-
-> [!NOTE]
-> If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file, but the deployment will be retried from the failing step. Systems that do not meet the minimum required memory and core specifications may not be able to deploy the SQL RP.
->
-
 ## Verify the deployment using the Azure Stack Portal
 
-1. On the Console VM desktop, click **Microsoft Azure Stack Portal** and sign in to the portal as the service admin.
-
-2. Verify that the deployment succeeded. Click **Resource Groups** &gt; click the resource group you used (default is **Microsoft-SQL-RP1**), and then make sure that the essentials part of the blade (upper half) reads **_date_ (Succeeded)**.
-
-      ![Verify Deployment of the SQL RP](./media/azure-stack-sql-rp-deploy/5.png)
-
-3. Verify that the registration succeeded. Click **Resource providers**, and then look for **SQL Resource Provider**:
-
-      ![Verify the SQL RP was registered](./media/azure-stack-sql-rp-deploy/6.png)
+> [!NOTE]
+>  After the installation script completes, you will need to refresh the portal to see the admin blade.
 
 
-## Provide capacity by connecting it to a hosting SQL server
+1. On the Console VM desktop, click **Microsoft Azure Stack Portal** and sign in to the portal as the service administrator.
 
-1. Sign in to the Azure Stack POC portal as a service admin
+2. Verify that the deployment succeeded. Click **Resource Groups** &gt; click the resource group you used and then make sure that the essentials part of the blade (upper half) reads **_date_ (Succeeded)**.
 
-2. Click **Resource Providers** &gt; **SQL Resource Provider** &gt; **SQL Hosting Servers** &gt; **+Add**.
+      ![Verify Deployment of the SQL RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+
+
+## Provide capacity by connecting to a hosting SQL server
+
+1. Sign in to the Azure Stack admin portal as a service admin
+
+2. Create a SQL virtual machine, unless you have one already available. Marketplace Management offers some options for deploying SQL VMs.
+
+3. Click **Resource Providers** &gt; **SQLAdapter** &gt; **Hosting Servers** &gt; **+Add**.
 
 	The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
 
-	![Hosting Servers](./media/azure-stack-sql-rp-deploy/7.png)
+	![Hosting Servers](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.PNG)
 
-3. Fill the form with the connection details of your SQL Server instance. By default, a preconfigured SQL Server called “SQLRP” with the administrator username “sa” and the password you called out in the "LocalCredential" parameter is running on the VM.
+4. Fill the form with the connection details of your SQL Server instance.
 
-## Create your first SQL Database to test your deployment
+	![New Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.PNG)
 
-1. Sign in to the Azure Stack POC portal as service admin.
+    > [!NOTE]
+    > As long as the SQL instance can be accessed by the tenant and admin Azure Resource Manager, it can be placed under control of the resource provider. The SQL instance __must__ be allocated exclusively to the RP.
 
-2. Click **+ New** &gt;**Data + Storage"** &gt; **SQL Server Database (preview)** &gt; **Add**
-	![Add a database](./media/azure-stack-sql-rp-deploy/8.png)
+5. As you add servers, you must assign them to a new or existing SKU to differentiate service offerings. For example, you could have a SQL Enterprise instance providing database capacity and automatic backup, reserve high-performance servers for individual departments, etc. The SKU name should reflect the properties so that tenants can place their databases appropriately and all hosting servers in a SKU should have the same capabilities.
 
-3. Fill in the form with database details, including a **Server Name**, **Server Admin Login**, and **Password** for a new *virtual server* in the **New Server** blade.
+	An example:
 
-	![Virtual database server](./media/azure-stack-sql-rp-deploy/9.png)
+	![SKUs](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
-	The virtual server is an artificial construct. It doesn’t map to the SQL Server itself but instead manifests through the username inside the connection string, which the resource provider generates at the end of this process. **Note the password you input separately for the virtual server**. The portal will never show the password.
+>[!NOTE]
+SKUs can take up to an hour to be visible in the portal. You cannot create a database until the SKU is created.
 
-4. You're asked to pick a pricing tier for your database.
 
-	![Pick a pricing tier](./media/azure-stack-sql-rp-deploy/10.png)
+## Create your first SQL database to test your deployment
 
-	Tiers are not implemented in this version, but their consumption is tracked by the Azure Resource Manager as a way to showcase the differentiation you can create in quota enforcement etc.
+1. Sign in to the Azure Stack admin portal as service admin.
+
+2. Click **+ New** &gt;**Data + Storage"** &gt; **SQL Server Database (preview)** &gt; **Add**.
+
+3. Fill in the form with database details, including a **Database Name**, **Maximum Size**, and change the other parameters as necessary. You are asked to pick a SKU for your database. As hosting servers are added, they are assigned a SKU and databases are created in that pool of hosting servers that make up the SKU.
+
+	![New database](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+
+
+4. Fill in the Login Settings: **Database login**, and **Password**. This is a SQL Authentication credential that is created for your access to this database only. The login user name must be globally unique. Either create a new login setting or select an existing one. You can reuse login settings for other databases using the same SKU.
+
+    ![Create a new database login](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+
 
 5. Submit the form and wait for the deployment to complete.
 
-6. In the resulting blade, notice the “Connection string” field. You can use that string in any application that requires SQL Server access (for example, a web app) in your Azure Stack.
+    In the resulting blade, notice the “Connection string” field. You can use that string in any application that requires SQL Server access (for example, a web app) in your Azure Stack.
 
-	![Retrieve the connection string](./media/azure-stack-sql-rp-deploy/11.png)
+    ![Retrieve the connection string](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
 
-## Add Capacity
+## Add capacity
 
-[Add Capacity by adding additional SQL hosts](#markdown-header-provide-capacity-to-your-sql-resource-provider-by-connecting-it-to-a-hosting-SQL-server)
-		in the Azure Stack portal. If you wish to use another instance of SQL instead of the one installed on the provider VM, click **Resource Providers** &gt; **SQL Resource Provider** &gt; **SQL Hosting Servers** &gt; **+Add**.
+Add capacity by adding additional SQL hosts in the Azure Stack portal and associate them with an appropriate SKU. If you wish to use another instance of SQL instead of the one installed on the provider VM, click **Resource Providers** &gt; **SQLAdapter** &gt; **SQL Hosting Servers** &gt; **+Add**.
+
+## Making SQL databases available to tenants
+
+Create plans and offers to make SQL databases available for tenants. You must create a plan, add the Microsoft.SqlAdapter service to the plan, and add an existing Quota, or create a new one. If you create a quota, you can specify the capacity to allow the tenant.
+	![Create plans and offers to include databases](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
+
+## Tenant usage of the Resource Provider
+
+Self-service databases are provided through the tenant portal experience.
+
+## Removing the SQL Adapter Resource Provider
+
+In order to remove the resource provider, it is essential to first remove any dependencies.
+
+1. Ensure you have the original deployment package that you downloaded for this version of the Resource Provider.
+
+2. All tenant databases must be deleted from the resource provider (this will not delete the data). This should be performed by the tenants themselves.
+
+3. Administrator must delete the hosting servers from the SQL Adapter
+
+4. Administrator must delete any plans that reference the SQL Adapter.
+
+5. Administrator must delete any SKUs and quotas associated to the SQL Adapter.
+
+6. Rerun the deployment script with the -Uninstall parameter, Azure Resource Manager endpoints, DirectoryTenantID, and credentials for the service administrator account.
+
+
 
 ## Next steps
 
-Create plans and offers to make SQL databases available for tenants. You will need to create a plan, add the Microsoft.Sql service to the plan, add an existing Tier Quota, or create a new one. If you create a quota, you can specify the capacity to allow the tenant.
-	![Create plans and offers to include databases](./media/azure-stack-sql-rp-deploy/12.png)
 
 Try other [PaaS services](azure-stack-tools-paas-services.md) like the [MySQL Server resource provider](azure-stack-mysql-resource-provider-deploy.md) and the [App Services resource provider](azure-stack-app-service-overview.md).

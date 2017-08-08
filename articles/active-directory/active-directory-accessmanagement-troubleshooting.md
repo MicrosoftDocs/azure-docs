@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 05/08/2017
 ms.author: curtand
 
 ---
@@ -24,10 +24,10 @@ ms.author: curtand
 
 **I don’t see membership changes instantly when I add or change a rule, why not?**<br/>Dedicated membership evaluation is done periodically in an asynchronous background process. How long the process takes is determined by the number of users in your directory and the size of the group created as a result of the rule. Typically, directories with small numbers of users will see the group membership changes in less than a few minutes. Directories with a large number of users can take 30 minutes or longer to populate.
 
+### Next steps
 These articles provide additional information on Azure Active Directory.
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 * [What is Azure Active Directory?](active-directory-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-

@@ -1,0 +1,8 @@
+You can use either a root certificate that was generated using an enterprise solution (recommended), or you can generate a self-signed certificate. If you use a self-signed certificate, use the steps in the [Create a self-signed root certificate for Point-to-Site connections](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#rootcert) article. These steps use specific settings necessary to generate a P2S-compatible certificate.
+
+After creating the root certificate, you export the public certificate data (not the private key) as a Base-64 encoded X.509 .cer file. You then upload the public certificate data from the root certificate to Azure.
+
+* **Enterprise certificate:** If you are using an enterprise solution, you can use your existing certificate chain. Obtain the .cer file for the root certificate that you want to use.
+* **Self-signed root certificate:** If you are not using an enterprise certificate solution, you need to create a self-signed root certificate. The root certificate must contain specific values in order to work with a Point-to-Site connection. See the following articles for instructions:
+  * To create a self-signed root certificate, see [Create a self-signed root certificate](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#rootcert).
+  * To export the public key (.cer file), see [Export the public key](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer).

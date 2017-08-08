@@ -1,8 +1,8 @@
 ---
-title: Azure Monitor CLI quick start samples. | Microsoft Docs
-description: Sample CLI commands for Azure Monitor features. Azure Monitor is a Microsoft Azure service which allows you to send alert notifications, call web URLs based on values of configured telemetry data, and autoScale Cloud Services, Virtual Machines, and Web Apps.
+title: Azure Monitor CLI 1.0 quick start samples. | Microsoft Docs
+description: Sample CLI 1.0 commands for Azure Monitor features. Azure Monitor is a Microsoft Azure service which allows you to send alert notifications, call web URLs based on values of configured telemetry data, and autoScale Cloud Services, Virtual Machines, and Web Apps.
 author: kamathashwin
-manager: carolz
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -17,7 +17,7 @@ ms.date: 09/08/2016
 ms.author: ashwink
 
 ---
-# Azure Monitor  Cross-platform CLI quick start samples
+# Azure Monitor  Cross-platform CLI 1.0 quick start samples
 This article shows you sample command-line interface (CLI) commands to help you access Azure Monitor features. Azure Monitor allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.
 
 > [!NOTE]
@@ -26,7 +26,7 @@ This article shows you sample command-line interface (CLI) commands to help you 
 > 
 
 ## Prerequisites
-If you haven't already installed the Azure CLI, see [Install the Azure CLI](../xplat-cli-install.md). If you're unfamiliar with Azure CLI, you can read more about it at [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
+If you haven't already installed the Azure CLI, see [Install the Azure CLI](../cli-install-nodejs.md). If you're unfamiliar with Azure CLI, you can read more about it at [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
 In Windows, install npm from the [Node.js website](https://nodejs.org/). After you complete the installation, using CMD.exe with Run As Administrator privileges, execute the following from the folder where npm is installed:
 

@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2017
+ms.date: 07/22/2017
 ms.author: eugenesh
 ---
 
 # Indexing Documents in Azure Blob Storage with Azure Search
-This article shows how to use Azure Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in Azure Blob storage. First, it explains the basics of setting up and configuring a blob indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter. 
+This article shows how to use Azure Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in Azure Blob storage. First, it explains the basics of setting up and configuring a blob indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
 
 ## Supported document formats
 The blob indexer can extract text from the following document formats:
@@ -29,12 +29,13 @@ The blob indexer can extract text from the following document formats:
 * XML
 * ZIP
 * EML
-* Plain text files  
-* JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md) preview feature)
+* RTF
+* Plain text files (see also [Indexing plain text](#IndexingPlainText))
+* JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md))
 * CSV (see [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview feature)
 
 > [!IMPORTANT]
-> Support for CSV and JSON files is currently in preview. These formats are available only using version **2015-02-28-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+> Support for CSV and JSON arrays is currently in preview. These formats are available only using version **2016-09-01-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
 >
 >
 
@@ -50,7 +51,7 @@ You can set up an Azure Blob Storage indexer using:
 >
 >
 
-Here, we demonstrate the flow using the REST API. 
+Here, we demonstrate the flow using the REST API.
 
 ### Step 1: Create a data source
 A data source specifies which data to index, credentials needed to access the data, and policies to efficiently identify changes in the data (new, modified, or deleted rows). A data source can be used by multiple indexers in the same search service.
@@ -80,11 +81,13 @@ For more on the Create Datasource API, see [Create Datasource](https://docs.micr
 <a name="Credentials"></a>
 #### How to specify credentials ####
 
-You can provide the credentials for the blob container in one of these ways: 
+You can provide the credentials for the blob container in one of these ways:
 
 - **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. You can get the connection string from the Azure portal by navigating to the storage account blade > Settings > Keys (for Classic storage accounts) or Settings > Access keys (for Azure Resource Manager storage accounts).
-- **Storage account shared access signature** (SAS) connection string: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. The SAS should have the list and read permissions on containers and objects (blobs in this case).
--  **Container shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. The SAS should have the list and read permissions on the container.
+- **Storage account shared access signature** (SAS) connection string: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`
+ The SAS should have the list and read permissions on containers and objects (blobs in this case).
+-  **Container shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`
+ The SAS should have the list and read permissions on the container.
 
 For more info on storage shared access signatures, see [Using Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -111,7 +114,7 @@ Here's how to create an index with a searchable `content` field to store the tex
 For more on creating indexes, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
 ### Step 3: Create an indexer
-An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh. 
+An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh.
 
 Once the index and data source have been created, you're ready to create the indexer:
 
@@ -132,14 +135,18 @@ For more details on the Create Indexer API, check out [Create Indexer](https://d
 
 ## How Azure Search indexes blobs
 
-Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer can index storage metadata only (useful when you only care about the metadata and don't need to index the content of blobs), storage and content metadata, or both metadata and textual content. By default, the indexer extracts both metadata and content. 
+Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer can index storage metadata only (useful when you only care about the metadata and don't need to index the content of blobs), storage and content metadata, or both metadata and textual content. By default, the indexer extracts both metadata and content.
 
 > [!NOTE]
-> By default, blobs with structured content such as JSON, CSV, or XML are indexed as a single chunk of text. If you want to index JSON and CSV blobs in a structured way, see [Indexing JSON blobs](search-howto-index-json-blobs.md) and [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview features. We currently don't support parsing XML content; if you have this need, add a suggestion on our [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
-> 
+> By default, blobs with structured content such as JSON or CSV are indexed as a single chunk of text. If you want to index JSON and CSV blobs in a structured way, see [Indexing JSON blobs](search-howto-index-json-blobs.md) and [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview features.
+>
 > A compound or embedded document (such as a ZIP archive or a Word document with embedded Outlook email containing attachments) is also indexed as a single document.
 
-* The entire textual content of the document is extracted into a string field named `content`.
+* The textual content of the document is extracted into a string field named `content`.
+
+> [!NOTE]
+> Azure Search limits how much text it extracts depending on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, and 4 million for Standard, Standard S2 and Standard S3 tiers. A warning is included in the indexer status response for truncated documents.  
+
 * User-specified metadata properties present on the blob, if any, are extracted verbatim.
 * Standard blob metadata properties are extracted into the following fields:
 
@@ -233,7 +240,7 @@ If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters 
 
 ### Dealing with unsupported content types
 
-By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You can of course use the `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index blobs without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to `false`: 
+By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You can of course use the `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index blobs without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to `false`:
 
 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
     Content-Type: application/json
@@ -242,27 +249,27 @@ By default, the blob indexer stops as soon as it encounters a blob with an unsup
     {
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
-    } 
+    }
 
 ### Ignoring parsing errors
 
-Azure Search document extraction logic isn't perfect and will sometimes fail to parse documents of a supported content type, such as .DOCX or .PDF. If you do not want to interrupt the indexing in such cases, set the `maxFailedItems` and `maxFailedItemsPerBatch` configuration parameters to some reasonable values. For example: 
+Azure Search document extraction logic isn't perfect and will sometimes fail to parse documents of a supported content type, such as .DOCX or .PDF. If you do not want to interrupt the indexing in such cases, set the `maxFailedItems` and `maxFailedItemsPerBatch` configuration parameters to some reasonable values. For example:
 
 	{
 	  ... other parts of indexer definition
 	  "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-	} 
+	}
 
 <a name="PartsOfBlobToIndex"></a>
 ## Controlling which parts of the blob are indexed
 
-You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values: 
+You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values:
 
 * `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/storage-properties-metadata.md) are indexed.
 * `allMetadata` - specifies that storage metadata and the [content-type specific metadata](#ContentSpecificMetadata) extracted from the blob content are indexed.
 * `contentAndMetadata` - specifies that all metadata and textual content extracted from the blob are indexed. This is the default value.
 
-For example, to index only the storage metadata, use: 
+For example, to index only the storage metadata, use:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
     Content-Type: application/json
@@ -296,7 +303,7 @@ To support deleting documents, use a "soft delete" approach. If you delete the b
 
 For example, the following policy considers a blob to be deleted if it has a metadata property `IsDeleted` with the value `true`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -314,10 +321,10 @@ For example, the following policy considers a blob to be deleted if it has a met
 
 ## Indexing large datasets
 
-Indexing blobs can be a time-consuming process. In cases where you have millions of blobs to index, you can speed up indexing by partitioning your data and using multiple indexers to process the data in parallel. Here's how you can set this up: 
+Indexing blobs can be a time-consuming process. In cases where you have millions of blobs to index, you can speed up indexing by partitioning your data and using multiple indexers to process the data in parallel. Here's how you can set this up:
 
-- Partition your data into multiple blob containers or virtual folders 
-- Set up several Azure Search data sources, one per container or folder. To point to a blob folder, use the `query` parameter: 
+- Partition your data into multiple blob containers or virtual folders
+- Set up several Azure Search data sources, one per container or folder. To point to a blob folder, use the `query` parameter:
 
 	```
 	{
@@ -329,6 +336,36 @@ Indexing blobs can be a time-consuming process. In cases where you have millions
 	```
 
 - Create a corresponding indexer for each data source. All the indexers can point to the same target search index.  
+
+- One search unit in your service can run one indexer at any given time. Creating multiple indexers as described above is only useful if they actually run in parallel. To run multiple indexers in parallel, scale out your search service by creating an appropriate number of partitions and replicas. For example, if your search service has 6 search units (for example, 2 partitions x 3 replicas), then 6 indexers can run simultaneously, resulting in a six-fold increase in the indexing throughput. To learn more about scaling and capacity planning, see [Scale resource levels for query and indexing workloads in Azure Search](search-capacity-planning.md).
+
+## Indexing documents along with related data
+
+You may want to "assemble" documents from multiple sources in your index. For example, you may want to merge text from blobs with other metadata stored in Cosmos DB. You can even use the push indexing API together with various indexers to  build up search documents from multiple parts. 
+
+For this to work, all indexers and other components need to agree on the document key. For a detailed walk-through, see this external article: [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+
+<a name="IndexingPlainText"></a>
+## Indexing plain text 
+
+If all your blobs contain plain text in the same encoding, you can significantly improve indexing performance by using **text parsing mode**. To use text parsing mode, set the `parsingMode` configuration property to `text`:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text" } }
+    }
+
+By default, the `UTF-8` encoding is assumed. To specify a different encoding, use the `encoding` configuration property: 
+
+	{
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
+    }
+
 
 <a name="ContentSpecificMetadata"></a>
 ## Content type-specific metadata properties
@@ -349,7 +386,9 @@ The following table summarizes processing done for each document format, and des
 | XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |Strip XML markup and extract text |
 | JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Extract text<br/>NOTE: If you need to extract multiple document fields from a JSON blob, see [Indexing JSON blobs](search-howto-index-json-blobs.md) for details |
 | EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Extract text, including attachments |
-| Plain text (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | |
+| RTF (application/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Extract text|
+| Plain text (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Extract text|
+
 
 ## Help us make Azure Search better
 If you have feature requests or ideas for improvements, let us know on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).

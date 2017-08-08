@@ -1,4 +1,7 @@
 ## Provision the solution
+
+If you haven't already provisioned the remote monitoring preconfigured solution in your account:
+
 1. Log on to [azureiotsuite.com][lnk-azureiotsuite] using your Azure account credentials, and click **+** to create a solution.
 2. Click **Select** on the **Remote monitoring** tile.
 3. Enter a **Solution name** for your remote monitoring preconfigured solution.

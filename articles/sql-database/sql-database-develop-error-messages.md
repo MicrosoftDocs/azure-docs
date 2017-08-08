@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -134,9 +134,9 @@ The following errors are related to creating and using Elastics Pools.
 
 Related topics:
 
-* [Create an elastic pool (C#)](sql-database-elastic-pool-create-csharp.md) 
+* [Create an elastic pool (C#)](sql-database-elastic-pool-manage-csharp.md) 
 * [Manage an elastic pool (C#)](sql-database-elastic-pool-manage-csharp.md). 
-* [Create an elastic pool (PowerShell)](sql-database-elastic-pool-create-powershell.md) 
+* [Create an elastic pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md) 
 * [Monitor and manage an elastic pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 
 ## General errors

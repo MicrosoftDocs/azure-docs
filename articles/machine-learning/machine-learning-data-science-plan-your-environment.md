@@ -1,4 +1,4 @@
----
+﻿---
 title: Identify scenarios and plan your analytics process - Azure | Microsoft Docs
 description: Plan for advanced analytics by considering a series of key questions.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 
 ---
@@ -43,7 +43,7 @@ The logistic questions concern the location of the **data source**, the **target
    
    * [Load data into storage environments for analytics](machine-learning-data-science-ingest-data.md)
    * [Import your training data into Azure Machine Learning Studio from various data sources](machine-learning-data-science-import-data.md).
-4. **Does the data need to be moved on a regular schedule or modified during migration?** Consider using Azure Data Factory (ADF) when data needs to be continually migrated, particularly if a hybrid scenario that accesses both on-premise and cloud resources is involved, or when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. For further information, see [Move data from an on-premise SQL server to SQL Azure with Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md)
+4. **Does the data need to be moved on a regular schedule or modified during migration?** Consider using Azure Data Factory (ADF) when data needs to be continually migrated, particularly if a hybrid scenario that accesses both on-premises and cloud resources is involved, or when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. For further information, see [Move data from an on-premises SQL server to SQL Azure with Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md)
 5. **How much of the data is to be moved to Azure?** Datasets that are very large may exceed the storage capacity of certain environments. For an example, see the discussion of size limits for Machine Learning Studio in the next section. In such cases a sample of the data may be used during the analysis. For details of how to down-sample a dataset in various Azure environments, see [Sample data in the Team Data Science Process](machine-learning-data-science-sample-data.md).
 
 ## Data characteristics questions: type, format and size
@@ -91,7 +91,7 @@ There are lots of options here depending on what languages and development envir
    * SQL
 2. **What tools should you use for data analysis?**
    
-   * [Microsoft Azure Powershell](/powershell/azureps-cmdlets-docs) - a script language used to administer your Azure resources in a script language.
+   * [Microsoft Azure Powershell](/powershell/azure/overview) - a script language used to administer your Azure resources in a script language.
    * [Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md)
    * [Revolution Analytics](http://www.revolutionanalytics.com/revolution-r-open)
    * [RStudio](http://www.rstudio.com)

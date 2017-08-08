@@ -1,6 +1,6 @@
----
+﻿---
 title: Get started with PowerShell for Azure Batch | Microsoft Docs
-description: Get a quick introduction to the Azure PowerShell cmdlets you can use to manage the Azure Batch service
+description: A quick introduction to the Azure PowerShell cmdlets you can use to manage Batch resources.
 services: batch
 documentationcenter: ''
 author: tamram
@@ -13,21 +13,23 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Get started with Azure Batch PowerShell cmdlets
+# Manage Batch resources with PowerShell cmdlets
+
 With the Azure Batch PowerShell cmdlets, you can perform and script many of the same tasks you carry out with the Batch APIs, the Azure portal, and the Azure Command-Line Interface (CLI). This is a quick introduction to the cmdlets you can use to manage your Batch accounts and work with your Batch resources such as pools, jobs, and tasks.
 
-For a complete list of Batch cmdlets and detailed cmdlet syntax, see the [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+For a complete list of Batch cmdlets and detailed cmdlet syntax, see the [Azure Batch cmdlet reference](/powershell/module/azurerm.batch/#batch).
 
 This article is based on cmdlets in Azure PowerShell version 3.0.0. We recommend that you update your Azure PowerShell frequently to take advantage of service updates and enhancements.
 
 ## Prerequisites
 Perform the following operations to use Azure PowerShell to manage your Batch resources.
 
-* [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Install and configure Azure PowerShell](/powershell/azure/overview)
 * Run the **Login-AzureRmAccount** cmdlet to connect to your subscription (the Azure Batch cmdlets ship in the Azure Resource Manager module):
   
     `Login-AzureRmAccount`
@@ -37,7 +39,7 @@ Perform the following operations to use Azure PowerShell to manage your Batch re
 
 ## Manage Batch accounts and keys
 ### Create a Batch account
-**New-AzureRmBatchAccount** creates a Batch account in a specified resource group. If you don't already have a resource group, create one by running the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx) cmdlet. Specify one of the Azure regions in the **Location** parameter, such as "Central US". For example:
+**New-AzureRmBatchAccount** creates a Batch account in a specified resource group. If you don't already have a resource group, create one by running the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet. Specify one of the Azure regions in the **Location** parameter, such as "Central US". For example:
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
@@ -94,7 +96,7 @@ Use cmdlets such as **New-AzureBatchPool**, **New-AzureBatchJob**, and **New-Azu
 When using many of these cmdlets, in addition to passing a BatchContext object, you need to create or pass objects that contain detailed resource settings, as shown in the following example. See the detailed help for each cmdlet for additional examples.
 
 ### Create a Batch pool
-When creating or updating a Batch pool, you select a cloud service configuration or a virtual machine configuration for the operating system on the compute nodes (see [Batch feature overview](batch-api-basics.md#pool)). Your choice determines whether your compute nodes are imaged with one of the [Azure Guest OS releases](../cloud-services/cloud-services-guestos-update-matrix.md#releases) or with one of the supported Linux or Windows VM images in the Azure Marketplace.
+When creating or updating a Batch pool, you select either the cloud service configuration or the virtual machine configuration for the operating system on the compute nodes (see [Batch feature overview](batch-api-basics.md#pool)). If you specify the cloud service configuration, your compute nodes are imaged with one of the [Azure Guest OS releases](../cloud-services/cloud-services-guestos-update-matrix.md#releases). If you specify the virtual machine configuration, you can either specify one of the supported Linux or Windows VM images listed in the [Azure Virtual Machines Marketplace][vm_marketplace], or provide a custom image that you have prepared.
 
 When you run **New-AzureBatchPool**, pass the operating system settings in a PSCloudServiceConfiguration or PSVirtualMachineConfiguration object. For example, the following cmdlet creates a new Batch pool with size Small compute nodes in the cloud service configuration, imaged with the latest operating system version of family 3 (Windows Server 2012). Here, the **CloudServiceConfiguration** parameter specifies the *$configuration* variable as the PSCloudServiceConfiguration object. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
 
@@ -195,7 +197,7 @@ Now create the pool, and specify the package reference object as the argument to
 
     New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 
-You can find more information on application packages in [Application deployment with Azure Batch application packages](batch-application-packages.md).
+You can find more information on application packages in [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md).
 
 > [!IMPORTANT]
 > You must [link an Azure Storage account](#linked-storage-account-autostorage) to your Batch account to use application packages.
@@ -231,6 +233,7 @@ You've now updated the pool's properties in the Batch service. To actually deplo
 > 
 
 ## Next steps
-* For detailed cmdlet syntax and examples, see [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
-* For more information about applications and application packages in Batch, see [Application deployment with Azure Batch application packages](batch-application-packages.md).
+* For detailed cmdlet syntax and examples, see [Azure Batch cmdlet reference](/powershell/module/azurerm.batch/#batch).
+* For more information about applications and application packages in Batch, see [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md).
 
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/

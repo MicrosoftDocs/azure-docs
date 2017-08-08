@@ -1,8 +1,8 @@
 ---
-title: Best practices for autoscaling | Microsoft Docs
-description: Learn principles to effectively autoscale Virtual Machines, Virtual Machine Scale Sets, and Cloud Services.
-author: kamathashwin
-manager: carmonm
+title: Best practices for autoscale | Microsoft Docs
+description: Autoscale patterns in Azure for Web Apps, Virtual Machine Scale sets, and Cloud Services 
+author: anirudhcavale
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2016
-ms.author: ashwink
+ms.date: 07/07/2017
+ms.author: ancav
 
 ---
-# Best practices Autoscaling Virtual
-This article teaches best practices to autoscale in Azure. It relates to Virtual Machines, Virtual Machine Scale Sets and Cloud Services.  Other Azure services used different scaling methods.
+# Best practices for Autoscale
+This article teaches best practices to autoscale in Azure. Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), and [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). Other Azure services use different scaling methods.
 
 ## Autoscale concepts
 * A resource can have only *one* autoscale setting
@@ -114,7 +114,7 @@ In addition, there is a recurring profile set for Monday. It is set for minimum 
 
 Similarly, when autoscale switches back to the default profile, it first checks if the minimum and maximum conditions are met. If the number of instances at the time is 12, it scales in to 10, the maximum allowed for the default profile.
 
-![autoscale settings](./media/insights-autoscale-best-practices/insights-autoscale-best-practices.png)
+![autoscale settings](./media/insights-autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### Considerations for scaling when multiple rules are configured in a profile
 There are cases where you may have to set multiple rules in a profile. The following set of autoscale rules are used by services use when multiple rules are set.
@@ -146,3 +146,9 @@ Autoscale notifies the administrators and contributors of the resource by email 
 * Metrics are not available for autoscale service to make a scale decision.
 * Metrics are available (recovery) again to make a scale decision.
   In addition to the conditions above, you can configure email or webhook notifications to get notified for successful scale actions.
+  
+You can also use an Activity Log alert to monitor the health of the autoscale engine. Here are examples to [create an Activity Log Alert to monitor all autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) or to [create an Activity Log Alert to monitor all failed autoscale scale in/scale out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+
+## Next Steps
+- [Create an Activity Log Alert to monitor all autoscale engine operations on your subscription.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Create an Activity Log Alert to monitor all failed autoscale scale in/scale out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)

@@ -14,7 +14,7 @@ The Blob service contains the following components:
 
 ![Blob architecture](./media/storage-blob-concepts-include/blob1.png)
 
-* **Storage Account:** All access to Azure Storage is done through a storage account. This storage account can be a **General-purpose storage account** or a **Blob storage account** which is specialized for storing objects/blobs. For more information about storage accounts, see [Azure storage account](../articles/storage/storage-create-storage-account.md).
+* **Storage Account:** All access to Azure Storage is done through a storage account. This storage account can be a **General-purpose storage account** or a **Blob storage account** which is specialized for storing objects/blobs. See [About Azure storage accounts](../articles/storage/storage-create-storage-account.md) for more information.
 * **Container:** A container provides a grouping of a set of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs. Note that the container name must be lowercase.
 * **Blob:** A file of any type and size. Azure Storage offers three types of blobs: block blobs, page blobs, and append blobs.
   
@@ -22,5 +22,5 @@ The Blob service contains the following components:
   
     *Page blobs* can be up to 1 TB in size, and are more efficient for frequent read/write operations. Azure Virtual Machines use page blobs as OS and data disks.
   
-    For details about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx).
+    For details about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 

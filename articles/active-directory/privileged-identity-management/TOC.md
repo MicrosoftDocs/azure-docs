@@ -2,6 +2,7 @@
 ## [Secure privileged access](active-directory-securing-privileged-access.md)
 ## [What is Azure AD PIM?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Roles](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Privileged Identity Management Approval workflows](azure-ad-pim-approval-workflow.md)
 
 # Get started
 ## [Subscription requirements](subscription-requirements.md)
@@ -22,6 +23,12 @@
 ### [Require MFA](../active-directory-privileged-identity-management-how-to-require-mfa.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ### [Use the audit log](../active-directory-privileged-identity-management-how-to-use-audit-log.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 
+# Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # Related
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Role-Based Access Control](../role-based-access-control-what-is.md)
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

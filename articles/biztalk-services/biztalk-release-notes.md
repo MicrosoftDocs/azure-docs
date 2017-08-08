@@ -18,6 +18,9 @@ ms.author: deonhe
 
 ---
 # Release Notes for Azure BizTalk Services
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 The release notes for the Microsoft Azure BizTalk Services contain the known issues in this release.
 
 ## What’s new in the November update of BizTalk Services
@@ -132,7 +135,7 @@ When using user-defined datatypes, copy the files (.dll) to drive:\Program Files
 > 
 
 ### Restarting the BizTalk Adapter Service Web Site
-Installing the **BizTalk Adapter Service Runtime*** creates the **BizTalk Adapter Service** web site in IIS that contains the **BAService** application. **BAService** application internally uses relay binding to extend the reach of on-premise service endpoint to the cloud. For a service hosted on-premises, the corresponding relay endpoint will be registered on the Service Bus only when the on-premises service starts.  
+Installing the **BizTalk Adapter Service Runtime*** creates the **BizTalk Adapter Service** web site in IIS that contains the **BAService** application. **BAService** application internally uses relay binding to extend the reach of on-premises service endpoint to the cloud. For a service hosted on-premises, the corresponding relay endpoint will be registered on the Service Bus only when the on-premises service starts.  
 
 If you stop and start an application, the configuration for auto-starting an application is not honored. So when **BAService** is stopped, you must always restart the **BizTalk Adapter Service** web site instead. Do not start or stop the **BAService** application.
 

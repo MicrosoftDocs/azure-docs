@@ -3,7 +3,7 @@ title: Filter Azure Application Insights telemetry in your Java web app | Micros
 description: Reduce telemetry traffic by filtering out the events you don't need to monitor.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Filter telemetry in your Java web app
@@ -27,7 +27,7 @@ The out-of-the-box filters include:
 * Fast responses - that is, requests to which your app responded to quickly
 * Specific event names
 
-> [!NOTE] 
+> [!NOTE]
 > Filters skew the metrics of your app. For example, you might decide that, in order to diagnose slow responses, you will set a filter to discard fast response times. But you must be aware that the average response times reported by Application Insights will then be slower than the true speed, and the count of requests will be smaller than the real count.
 > If this is a concern, use [Sampling](app-insights-sampling.md) instead.
 
@@ -64,7 +64,7 @@ In ApplicationInsights.xml, add a `TelemetryProcessors` section like this exampl
 
            <!-- Exclude telemetry from availability tests and bots -->
            <Processor type="SyntheticSourceFilter">
-                <!-- Optional: specify which synthetic sources, 
+                <!-- Optional: specify which synthetic sources,
                      comma-separated
                      - default is all synthetics -->
                 <Add name="NotNeededSources" value="Application Insights Availability Monitoring,BingPreview"
@@ -113,7 +113,7 @@ In ApplicationInsights.xml, add a `TelemetryProcessors` section like this exampl
            </Processor>
 ```
 
-* `DurationThresholdInMS` - Duration refers to the time taken to load the page. If this is set, pages that loaded faster than this time are not reported. 
+* `DurationThresholdInMS` - Duration refers to the time taken to load the page. If this is set, pages that loaded faster than this time are not reported.
 * `NotNeededNames` - Comma-separated list of page names.
 * `NotNeededUrls` - Comma-separated list of URL fragments. For example, `"home"` filters out all pages that have "home" in the URL.
 
@@ -158,7 +158,7 @@ Filter out telemetry for specific synthetic sources:
 
 ### Telemetry Event filter
 
-Filters custom events (logged using [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event)).
+Filters custom events (logged using [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -174,7 +174,7 @@ Filters custom events (logged using [TrackEvent()](app-insights-api-custom-event
 
 ### Trace Telemetry filter
 
-Filters log traces (logged using [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) or a [logging framework collector](app-insights-java-trace-logs.md)).
+Filters log traces (logged using [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) or a [logging framework collector](app-insights-java-trace-logs.md)).
 
 ```XML
 
@@ -210,7 +210,7 @@ In your code, create a class that implements `TelemetryProcessor`:
        private final String successful;
 
        /* Initializers for the parameters, named "setParameterName" */
-       public void setNotNeeded(String successful) 
+       public void setNotNeeded(String successful)
        {
 	      this.successful = successful;
        }
@@ -261,4 +261,3 @@ In ApplicationInsights.xml:
 ## Next steps
 
 * [Sampling](app-insights-sampling.md) - Consider sampling as an alternative that does not skew your metrics.
-

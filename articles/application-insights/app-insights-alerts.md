@@ -1,10 +1,10 @@
 ---
-title: Set Alerts in Application Insights | Microsoft Docs
+title: Set Alerts in Azure Application Insights | Microsoft Docs
 description: Get notified about slow response times, exceptions, and other performance or usage changes in your web app.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
 ms.service: application-insights
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
-ms.author: awills
+ms.date: 03/14/2017
+ms.author: cfreeman
 
 ---
 # Set Alerts in Application Insights
@@ -23,7 +23,7 @@ Application Insights monitors your live app on a [wide variety of platforms][pla
 
 There are three kinds of alerts:
 
-* **Metric alerts** tell you when any metric crosses a threshold value for some period - such as response times, exception counts, CPU usage, or page views. 
+* **Metric alerts** tell you when a metric crosses a threshold value for some period - such as response times, exception counts, CPU usage, or page views. 
 * [**Web tests**][availability] tell you when your site is unavailable on the internet, or responding slowly. [Learn more][availability].
 * [**Proactive diagnostics**](app-insights-proactive-diagnostics.md) are configured automatically to notify you about unusual performance patterns.
 
@@ -90,6 +90,10 @@ Don't forget that [proactive failure rate diagnostics](app-insights-proactive-fa
 ## Automation
 * [Use PowerShell to automate setting up alerts](app-insights-powershell-alerts.md)
 * [Use webhooks to automate responding to alerts](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## See also
 * [Availability web tests](app-insights-monitor-web-app-availability.md)

@@ -4,7 +4,7 @@ description: Learn how to use the Azure App Service deployment credentials.
 services: app-service
 documentationcenter: ''
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.service: app-service
@@ -18,7 +18,7 @@ ms.author: dariagrigoriu
 ---
 # Configure deployment credentials for Azure App Service
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) supports two types of credentials for [local Git deployment](app-service-deploy-local-git.md) 
-and [FTP/S deployment](app-service-deploy-ftp.md).
+and [FTP/S deployment](app-service-deploy-ftp.md). These are not the same as your Azure Active Directory credentials.
 
 * **User-level credentials**: one set of credentials for the entire Azure account. It can be used to deploy to App Service for any app, in any subscription, that the Azure account has permission to access. These are the default
 credentials set that you configure in **App Services** > **&lt;app_name>** > **Deployment credentials**. This is also the default set that's surfaced in the portal GUI (such as the **Overview** and **Properties**
@@ -31,6 +31,11 @@ of your app's [resource blade](../azure-resource-manager/resource-group-portal.m
 
 * **App-level credentials**: one set of credentials for each app. It can be used to deploy to that app only. The credentials
 for each app is generated automatically at app creation, and is found in the app's publish profile. You cannot manually configure the credentials, but you can reset them for an app anytime.
+
+    > [!NOTE]
+    > In order to give someone access to these credentials via Role Based Access Control (RBAC), you need to make them contributor or higher on the Web App. Readers are not allowed to publish, and hence can't access those credentials.
+    >
+    >
 
 ## <a name="userscope"></a>Set and reset user-level credentials
 

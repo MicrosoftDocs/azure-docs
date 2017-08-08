@@ -1,4 +1,4 @@
----
+﻿---
 title: Replicate Hyper-V VMs in VMM to a secondary site with PowerShell (Azure Resource Manager) | Microsoft Docs
 description: Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of Hyper-V VMs in VMM clouds to a secondary VMM site using PowerShell (Resource Manager)
 services: site-recovery
@@ -9,11 +9,11 @@ editor: raynew
 
 ms.assetid: 9d38e9c3-217c-4e44-830c-575e9a4141f2
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 06/05/2017
 ms.author: sutalasi
 
 ---
@@ -51,7 +51,7 @@ Here's what you'll need in the primary and secondary on-premises sites to deploy
 
 | **Prerequisites** | **Details** |
 | --- | --- |
-| **VMM** |We recommend you deploy a VMM server in the primary site and a VMM server in the secondary site.<br/><br/> You can also [replicate between clouds on a single VMM server](site-recovery-single-vmm.md). To do this you'll need at least two clouds configured on the VMM server.<br/><br/> VMM servers should be running at least System Center 2012 SP1 with the latest updates.<br/><br/> Each VMM server must have at one or more clouds configured and all clouds must have the Hyper-V Capacity profile set. <br/><br/>Clouds must contain one or more VMM host groups.<br/><br/>Learn more about setting up VMM clouds in [Configuring the VMM cloud fabric](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric), and [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).<br/><br/> VMM servers should have internet access. |
+| **VMM** |We recommend you deploy a VMM server in the primary site and a VMM server in the secondary site.<br/><br/> You can also [replicate between clouds on a single VMM server](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment). To do this you'll need at least two clouds configured on the VMM server.<br/><br/> VMM servers should be running at least System Center 2012 SP1 with the latest updates.<br/><br/> Each VMM server must have at one or more clouds configured and all clouds must have the Hyper-V Capacity profile set. <br/><br/>Clouds must contain one or more VMM host groups.<br/><br/>Learn more about setting up VMM clouds in [Configuring the VMM cloud fabric](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric), and [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).<br/><br/> VMM servers should have internet access. |
 | **Hyper-V** |Hyper-V servers must be running at least Windows Server 2012 with the Hyper-V role and have the latest updates installed.<br/><br/> A Hyper-V server should contain one or more VMs.<br/><br/>  Hyper-V host servers should be located in host groups in the primary and secondary VMM clouds.<br/><br/> If you're running Hyper-V in a cluster on Windows Server 2012 R2 you should install [update 2961977](https://support.microsoft.com/kb/2961977)<br/><br/> If you're running Hyper-V in a cluster on Windows Server 2012 note that cluster broker isn't created automatically if you have a static IP address-based cluster. You'll need to configure the cluster broker manually. [Read more](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
 | **Provider** |During Site Recovery deployment you install the Azure Site Recovery Provider on VMM servers. The Provider communicates with Site Recovery over HTTPS 443 to orchestrate replication. Data replication occurs between the primary and secondary Hyper-V servers over the LAN or a VPN connection.<br/><br/> The Provider running on the VMM server needs access to these URLs: *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net; *.backup.windowsazure.com; *.blob.core.windows.net; *.store.core.windows.net.<br/><br/> In addition allow firewall communication from the VMM servers to the [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and allow the HTTPS (443) protocol. |
 
@@ -71,12 +71,12 @@ Learn more about configuring VMM networks in the below articles
 * [How to configure logical networks in VMM](http://go.microsoft.com/fwlink/p/?LinkId=386307)
 * [How to configure VM networks and gateways in VMM](http://go.microsoft.com/fwlink/p/?LinkId=386308)
 
-[Learn more](site-recovery-network-mapping.md) about how network mapping works.
+[Learn more](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) about how network mapping works.
 
 ### PowerShell prerequisites
-Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see the [Guide to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](https://msdn.microsoft.com/library/dn850420.aspx).
+Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see the [Guide to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](/powershell/azure/overview).
 
-To learn about tips that can help you use the cmdlets, such as how parameter values, inputs, and outputs are typically handled in Azure PowerShell, see the [Guide to get Started with Azure Cmdlets](https://msdn.microsoft.com/library/azure/jj554332.aspx).
+To learn about tips that can help you use the cmdlets, such as how parameter values, inputs, and outputs are typically handled in Azure PowerShell, see the [Guide to get Started with Azure Cmdlets](/powershell/azure/get-started-azureps).
 
 ## Step 1: Set the subscription
 1. From Azure powershell, login to your Azure account: using the following cmdlets
@@ -315,4 +315,4 @@ Use the following commands to monitor the activity. Note that you have to wait i
 
 
 ## Next steps
-[Read more](https://msdn.microsoft.com/library/azure/mt637930.aspx) about Azure Site Recovery with Azure Resource Manager PowerShell cmdlets.
+[Read more](/powershell/module/azurerm.recoveryservices.backup/#recovery) about Azure Site Recovery with Azure Resource Manager PowerShell cmdlets.

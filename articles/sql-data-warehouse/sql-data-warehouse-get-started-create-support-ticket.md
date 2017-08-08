@@ -3,7 +3,7 @@ title: How to create a support ticket for SQL Data Warehouse | Microsoft Docs
 description: How to create a support ticket in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: manage
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: kevin;barbkess
 
 ---
 # How to create a support ticket for SQL Data Warehouse
@@ -79,7 +80,7 @@ Additionally, you can connect with the SQL Data Warehouse community on [Stack Ov
 <!--Image references--> 
 
 <!--Article references--> 
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[DWU]: ./sql-data-warehouse-overview-what-is.md
 
 <!--MSDN references--> 
 

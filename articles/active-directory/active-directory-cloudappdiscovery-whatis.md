@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: nigu
 
 ---
 # Finding unmanaged cloud applications with Cloud App Discovery

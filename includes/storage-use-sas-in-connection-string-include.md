@@ -1,4 +1,4 @@
-If you possess a shared access signature (SAS) URL that grants you access to resources in a storage account, you can use the SAS in a connection string. Because the SAS includes on the URI the information required to authenticate the request, the SAS URI provides the protocol, the service endpoint, and the necessary credentials to access the resource.
+If you possess a shared access signature (SAS) URL that grants you access to resources in a storage account, you can use the SAS in a connection string. Because the SAS contains the information required to authenticate the request, a connection string with a SAS provides the protocol, the service endpoint, and the necessary credentials to access the resource.
 
 To create a connection string that includes a shared access signature, specify the string in the following format:
 
@@ -23,13 +23,15 @@ Each service endpoint is optional, although the connection string must contain a
 Here's an example of a connection string that includes a service SAS for Blob storage:
 
 ```
-BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+BlobEndpoint=https://storagesample.blob.core.windows.net;
+SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 ```
 
 And here's an example of the same connection string with encoding of special characters:
 
 ```
-BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+BlobEndpoint=https://storagesample.blob.core.windows.net;
+SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 ```
 
 ### Account SAS example

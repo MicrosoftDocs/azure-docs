@@ -1,7 +1,7 @@
 ## How to create a VNet using the Azure CLI
 You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, follow the steps below.
 
-1. If you have never used the Azure CLI, see [Install and Configure the Azure CLI](../articles/xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used the Azure CLI, see [Install and Configure the Azure CLI](../articles/cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
    
         azure config mode arm

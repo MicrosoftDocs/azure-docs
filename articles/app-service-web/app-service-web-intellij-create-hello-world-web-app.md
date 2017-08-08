@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm;asirveda
 
 ---
@@ -66,7 +66,7 @@ Before you publish your application, you first need to configure your module set
 2. When the Project Structure dialog box appears:
 
    a. Click **Artifacts** in the list of **Project Settings**.
-   b. Change the artifact name in the **Name** box so that it contains whitespace or special characters; this is necessary since the name will be used in the Uniform Resource Identifier (URI).
+   b. Change the artifact name in the **Name** box so that it doesn't contain whitespace or special characters; this is necessary since the name will be used in the Uniform Resource Identifier (URI).
    c. Change the **Type** to **Web Application: Archive**.
    d. Click **OK** to close the Project Structure dialog box.
 
@@ -80,7 +80,7 @@ When you have configured your module settings, you can publish your application 
 2. If you have not already signed into Azure from IntelliJ, you will be prompted to sign into your Azure account. (If you have multiple Azure accounts, some of the prompts during the sign in process may be shown more than once, even if they appear to be the same. When this happens, continue to follow the sign in instructions.)
    
     ![Azure Log In Dialog][07]
-3. After you have successfully signed into your Azure account, the **Manage Subscriptions** dialog box will display a list of subscriptions that are associated with your credentials. (If there are multiple subscriptions listed and you want to work with only a specific subset of them, you may optionally uncheck the subscriptions you do want to use.) When you have selected your subscriptions, click **Close**.
+3. After you have successfully signed into your Azure account, the **Manage Subscriptions** dialog box will display a list of subscriptions that are associated with your credentials. (If there are multiple subscriptions listed and you want to work with only a specific subset of them, you may optionally uncheck the subscriptions you don't want to use.) When you have selected your subscriptions, click **Close**.
    
     ![Manage Subscriptions][08]
 4. When the **Deploy to Azure Web App Container** dialog box appears, it will display any Web App containers that you have previously created; if you have not created any containers, the list will be empty.

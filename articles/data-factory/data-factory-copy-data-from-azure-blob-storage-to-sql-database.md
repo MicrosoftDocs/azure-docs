@@ -1,5 +1,5 @@
 ---
-title: Copy data from Blob Storage to SQL Database | Microsoft Docs
+title: Copy data from Blob Storage to SQL Database - Azure | Microsoft Docs
 description: This tutorial shows you how to use Copy Activity in an Azure Data Factory pipeline to copy data from Blob storage to SQL database.
 keywords: blob sql, blob storage, data copy
 services: data-factory
@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 06/19/2017
 ms.author: spelluru
 
 ---
-# Copy data from Blob Storage to SQL Database using Data Factory
+# Tutorial: Copy data from Blob Storage to SQL Database using Data Factory
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
@@ -28,8 +28,6 @@ ms.author: spelluru
 > * [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
->
->
 
 In this tutorial, you create a data factory with a pipeline to copy data from Blob storage to SQL database.
 
@@ -41,7 +39,7 @@ The Copy Activity performs the data movement in Azure Data Factory. It is powere
 >
 
 ## Prerequisites for the tutorial
-Before you begin this tutorial, you must have the following:
+Before you begin this tutorial, you must have the following prerequisites:
 
 * **Azure subscription**.  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) article for details.
 * **Azure Storage Account**. You use the blob storage as a **source** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
@@ -83,13 +81,13 @@ Ensure that **Allow access to Azure services** setting turned **ON** for your Az
 ## Prepare Blob Storage and SQL Database
 Now, prepare your Azure blob storage and Azure SQL database for the tutorial by performing the following steps:  
 
-1. Launch Notepad, paste the following text, and save it as **emp.txt** to **C:\ADFGetStarted** folder on your hard drive.
+1. Launch Notepad. Copy the following text and save it as **emp.txt** to **C:\ADFGetStarted** folder on your hard drive.
 
 	```
     John, Doe
     Jane, Doe
 	```
-2. Use tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) to create the **adftutorial** container and to upload the **emp.txt** file to the container.
+2. Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adftutorial** container and to upload the **emp.txt** file to the container.
 
     ![Azure Storage Explorer. Copy data from Blob storage to SQL database](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Use the following SQL script to create the **emp** table in your Azure SQL Database.  
@@ -110,6 +108,7 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 
     If your client is not allowed to access the Azure SQL server, you need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See [this article](../sql-database/sql-database-configure-firewall-settings.md) for steps to configure the firewall for your Azure SQL server.
 
+## Create a data factory
 You have completed the prerequisites. You can create a data factory using one of the following ways. Click one of the options in the drop-down list at the top or the following links to perform the tutorial.     
 
 * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
@@ -119,3 +118,8 @@ You have completed the prerequisites. You can create a data factory using one of
 * [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+
+> [!NOTE]
+> The data pipeline in this tutorial copies data from a source data store to a destination data store. It does not transform input data to produce output data. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
+> 
+> You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. See [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) for detailed information. 

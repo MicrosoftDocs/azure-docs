@@ -14,9 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 05/23/2017
 ms.author: kgremban
-
+ms.custom: end-user
 ---
 # Manage your settings for two-step verification
 This article answers questions about how to update settings for two-step verification or multi-factor authentication. If you are having issues signing in to your account, refer to [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) for troubleshooting help.
@@ -27,7 +27,7 @@ Depending on how your company set up Azure Multi-Factor Authentication, there ar
 If your IT admin sent out a specific URL or steps to manage two-step verification, follow those instructions. Otherwise, the following instructions should work for everybody else. If you follow these steps but don't see the same options, that means that your work or school customized their own portal. Ask your admin for the link to your Azure Multi-Factor Authentication portal.
 
 1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com)  
-2. At the top, select **profile**.  
+2. Select your account name in the top right, then select **profile**.  
 3. Select **Additional security verification**.  
 
     ![Myapps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
@@ -52,6 +52,13 @@ It is important to configure a secondary authentication phone number.  Because y
 1. On the Additional security verification page, check the box next to **Alternate authentication phone.**  
 2. Enter your secondary phone number in the text box.  
 3. Select **Save** and your changes are finished.  
+
+## Require two-step verification again on a device you've marked as trusted
+
+Depending on your organization settings, you may have a checkbox that says "Don't ask again for **X** days" when you perform two-step verification on your browser. If you check this box and then lose your device or think that your account is compromised, you should restore two-step verification to all your devices. 
+
+1. On the Additional security verification page, select **Restore multi-factor authentication on previously trusted devices**.
+2. The next time you sign in on any device, you'll be prompted to perform two-step verification. 
 
 ## How do I clean up Microsoft Authenticator from my old device and move to a new one?
 When you uninstall the app from your device or reset the device, it does not remove the activation on the back end. For more information, see [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).

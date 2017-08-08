@@ -18,7 +18,7 @@ ms.author: heidist
 
 ---
 # Configure a connection from an Azure Search indexer to SQL Server on an Azure VM
-As noted in [Connecting Azure SQL Database to Azure Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#frequently-asked-questions), creating indexers against **SQL Server on Azure VMs** (or **SQL Azure VMs** for short) is supported by Azure Search, but there are a few security-related prerequisites to take care of first. 
+As noted in [Connecting Azure SQL Database to Azure Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), creating indexers against **SQL Server on Azure VMs** (or **SQL Azure VMs** for short) is supported by Azure Search, but there are a few security-related prerequisites to take care of first. 
 
 **Task Duration:** About 30 minutes, assuming you already installed a certificate on the VM.
 
@@ -48,7 +48,7 @@ Azure Search requires an encrypted channel for all indexer requests over a publi
 After you set up the encrypted connection required by Azure Search, there are additional configuration steps intrinsic to SQL Server on Azure VMs. If you haven't done so already , the next step is to finish configuration using either one of these articles:
 
 * For a **Resource Manager** VM, see [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
-* For a **Classic** VM, see [Connect to a SQL Server Virtual Machine on Azure Classic](../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md).
+* For a **Classic** VM, see [Connect to a SQL Server Virtual Machine on Azure Classic](../virtual-machines/windows/classic/sql-connect.md).
 
 In particular, review the section in each article for "connecting over the internet".
 

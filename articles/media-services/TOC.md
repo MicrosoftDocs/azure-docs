@@ -1,14 +1,18 @@
 # [Overview](media-services-overview.md)
-## [Concepts ](media-services-concepts.md)
+## [Scenarios and availability](scenarios-and-availability.md)
+## [Concepts](media-services-concepts.md)
 
 # Get started
 ## [Create and manage account](media-services-portal-create-account.md)
 ## [Set up your dev environment](media-services-set-up-computer.md)
-###[.NET](media-services-dotnet-how-to-use.md)
-###[REST](media-services-rest-how-to-use.md)  
-## Connect programmatically
-### [.NET](media-services-dotnet-connect-programmatically.md)
-### [REST](media-services-rest-connect-programmatically.md)
+### [.NET](media-services-dotnet-how-to-use.md)
+### [REST](media-services-rest-how-to-use.md)  
+## [Use AAD auth to access API](media-services-use-aad-auth-to-access-ams-api.md)
+### [Use portal to manage AAD auth](media-services-portal-get-started-with-aad.md)
+### [Access API with .NET](media-services-dotnet-get-started-with-aad.md)
+### [Access API with REST](media-services-rest-connect-with-aad.md)
+### [Use CLI to create and configure AAD app](media-services-cli-create-and-configure-aad-app.md)
+### [Use PowerShell to create and configure AAD app](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Deliver video on demand
 ### [Portal](media-services-portal-vod-get-started.md)
@@ -21,16 +25,18 @@
 
 # How To
 ## Manage
-### Manage accounts
+### Accounts
 #### [PowerShell](media-services-manage-with-powershell.md)
 #### [REST](/rest/api/media/mediaservice)
-### Manage entities
+### Entities
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### [Manage streaming endpoints](media-services-streaming-endpoints-overview.md)
+### [Streaming endpoints](media-services-streaming-endpoints-overview.md)
 #### [Portal](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
-### [Update Media Services after rolling storage access keys](media-services-roll-storage-access-keys.md)
+### Storage
+#### [Update Media Services after rolling storage access keys](media-services-roll-storage-access-keys.md)
+#### [Manage assets across multiple storage accounts](meda-services-managing-multiple-storage-accounts.md)
 ### [Quotas and limitations](media-services-quotas-and-limitations.md)
 
 ## Upload content
@@ -39,13 +45,23 @@
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Upload large files with Aspera](media-services-upload-files-with-aspera.md)
+### [Upload files with StorSimple](media-services-upload-files-from-storsimple.md)
 ### [Copy existing blobs](media-services-copying-existing-blob.md)
 
 ## [Encode content](media-services-encode-asset.md)
 ### [Compare encoders](media-services-compare-encoders.md)
-### [Error codes](media-services-encoding-error-codes.md)
+### [Manage speed and concurrency of your encoding](media-services-manage-encoding-speed.md)
 ### Media Encoder Standard (MES)
 #### [Media Encoder Standard Formats and Codecs](media-services-media-encoder-standard-formats.md)
+#### [Use MES to auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md)
+#### Encode with Media Encoder Standard
+##### [Portal](media-services-portal-encode.md)
+##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+##### [REST](media-services-rest-encode-asset.md)
+#### [Advanced encoding with MES](media-services-advanced-encoding-with-mes.md)
+##### [Customize Media Encoder Standard presets](media-services-custom-mes-presets-with-dotnet.md)
+##### [How to generate thumbnails using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+##### [Crop videos with Media Encoder Standard](media-services-crop-video.md)
 #### MES Schemas
 ##### [Media Encoder Standard schema](media-services-mes-schema.md)
 ##### [Input metadata](media-services-input-metadata-schema.md)
@@ -76,13 +92,6 @@
 ##### [H264 Single Bitrate 720p for Android](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
 ##### [H264 Single Bitrate High Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
 ##### [H264 Single Bitrate Low Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
-#### Encode with Media Encoder Standard
-##### [Portal](media-services-portal-encode.md)
-##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
-##### [REST](media-services-rest-encode-asset.md)
-#### [Advanced encoding with MES](media-services-advanced-encoding-with-mes.md)
-##### [How to generate thumbnails using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-##### [Crop videos with Media Encoder Standard](media-services-crop-video.md)
 ### Media Encoder Premium Workflow
 #### [Media Encoder Premium Workflow Formats and Codecs](media-services-premium-workflow-encoder-formats.md)
 #### Encode with Media Encoder Premium Workflow
@@ -90,14 +99,16 @@
 ##### [Media Encoder Premium Workflow tutorials](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [Create Advanced Encoding Workflows with Workflow Designer](media-services-workflow-designer.md)
 ##### [Premium workflow with multiple input](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
+### [Create a task that generates fMP4 chunks](media-services-generate-fmp4-chunks.md)
 ### Media processors
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
+### [Error codes](media-services-encoding-error-codes.md)
 ### Deprecated
 #### [Static packaging and encryption](media-services-static-packaging.md)
 
 ## [Stream live](media-services-manage-channels-overview.md)
-### [On-premise encoders](media-services-live-streaming-with-onprem-encoders.md)
+### [on-premises encoders](media-services-live-streaming-with-onprem-encoders.md)
 #### [Portal](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 #### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
@@ -115,19 +126,20 @@
 ## [Protect](media-services-content-protection-overview.md)
 ### [Configure content protection in the portal](media-services-portal-protect-content.md)
 ### [Configure AES-128 clear key for your stream](media-services-protect-with-aes128.md)
-### [Encrypting your Content with Storage Encryption using AMS REST API](media-services-rest-storage-encryption.md)
-### [Media Services PlayReady License Template Overview](media-services-playready-license-template-overview.md)
+### [Use REST to encrypt your content with storage encryption](media-services-rest-storage-encryption.md)
+### [Media Services PlayReady license template overview](media-services-playready-license-template-overview.md)
 ### [Widevine license template overview](media-services-widevine-license-template-overview.md)
 ### [DRM license delivery](media-services-deliver-keys-and-licenses.md)
-### [Using partners to deliver Widevine licenses to Azure Media Services](media-services-licenses-partner-integration.md)
+### [Using partners to deliver Widevine licenses to Media Services](media-services-licenses-partner-integration.md)
+#### [Using Axinom to deliver Widevine licenses to Media Services  ](media-services-axinom-integration.md)
+#### [Using castLabs to deliver Widevine licenses to Media Services](media-services-castlabs-integration.md)
 ### [Using PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-drm.md)
-### [Use Azure Media Services to Stream your HLS content Protected with Apple FairPlay ](media-services-protect-hls-with-fairplay.md)
-### [CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
-
-### Asset delivery
-#### Configure asset delivery policies
-##### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
-##### [REST](media-services-rest-configure-asset-delivery-policy.md)
+### [Stream your HLS content protected with Apple FairPlay ](media-services-protect-hls-with-fairplay.md)
+### [Hybrid design of DRM subsystem](hybrid-design-drm-sybsystem.md)
+### [CENC with Multi-DRM and Access Control](media-services-cenc-with-multidrm-access-control.md)
+### Configure asset delivery policies
+#### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
+#### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### Create ContentKeys
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
@@ -140,6 +152,7 @@
 ### [Analyze media using the portal](media-services-portal-analyze.md)
 ### [Process with Indexer 2](media-services-process-content-with-indexer2.md)
 ### [Process with Indexer](media-services-index-content.md)
+#### [Task preset](indexer-task-preset.md)
 ### [Process with Hyperlapse](media-services-hyperlapse-content.md)
 ### [Process with Face Detector](media-services-face-and-emotion-detection.md)
 ### [Process with Motion Detector](media-services-motion-detection.md)
@@ -165,6 +178,7 @@
 ### [Filters and dynamic manifests overview](media-services-dynamic-manifest-overview.md)
 #### [Create filters with .NET](media-services-dotnet-dynamic-manifest.md)
 #### [Create filters with REST](media-services-rest-dynamic-manifest.md)
+### [CDN Caching Policy in Media Services Extension](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Publish content
 #### [Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
@@ -180,20 +194,19 @@
 #### [HTML5 Application with DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 #### [Adobe Open Source Media Framework players](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Insert ads on the client side](media-services-inserting-ads-on-client-side.md)
+### [Licensing Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
 
 ## Integrate
-### [CDN Caching Policy in Media Services Extension](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
-### [Licensing Microsoft†" Smooth Streaming Client Porting Kit](media-services-sspk.md)
-### [Manage assets across multiple Storage accounts](meda-services-managing-multiple-storage-accounts.md)
-### [Using Axinom to deliver Widevine licenses to Azure Media Services  ](media-services-axinom-integration.md)
-### [Using castLabs to deliver Widevine licenses to Azure Media Services](media-services-castlabs-integration.md)
+### [Use Azure Functions with Media Services](media-services-dotnet-how-to-use-azure-functions.md)
+### [Azure Functions with Media Services examples](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 ## Monitor
 ### Check job progress
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portal](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [Queue storage to monitor job notifications](media-services-dotnet-check-job-progress-with-queues.md)
+### [Monitor job notifications with queue storage](media-services-dotnet-check-job-progress-with-queues.md)
+### [Monitor job notifications with webhooks](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## Troubleshoot
 ### [Frequently asked questions](media-services-frequently-asked-questions.md)
@@ -202,13 +215,16 @@
 ### [Retry logic](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Reference
-## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
-## [PowerShell (Service Management)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
+## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
+## [PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media)
+## [REST](/rest/api/media/mediaservice)  
 
 # Resources
-## [Release notes](media-services-release-notes.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services Community](media-services-community.md)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
+## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Release notes](media-services-release-notes.md)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=media-services)

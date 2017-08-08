@@ -1,53 +1,49 @@
 ---
-title: Azure Stream Analytics JavaScript User-Defined Functions | Microsoft Docs
-description: IoT sensor tags and data streams with stream analytics and real-time data processing
-keywords: iot solution, get started with iot, tools
+title: Azure Stream Analytics JavaScript user-defined functions | Microsoft Docs
+description: Perform advanced query mechanics with JavaScript user-defined functions
+keywords: javascript, user defined functions, udf
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
 
-ms.assetid: 
+ms.assetid:
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/01/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 ---
 
-# Azure Stream Analytics JavaScript User-Defined Functions
-Azure Stream Analytics supports User-Defined Functions (UDFs) written in JavaScript. With the rich set of String, RegExp, Math, Array, and Date methods that JavaScript provides, complex data transformations with Stream Analytics jobs become easier to create.
+# Azure Stream Analytics JavaScript user-defined functions
+Azure Stream Analytics supports user-defined functions written in JavaScript. With the rich set of **String**, **RegExp**, **Math**, **Array**, and **Date** methods that JavaScript provides, complex data transformations with Stream Analytics jobs become easier to create.
 
-## Overview
-JavaScript UDFs support stateless, compute-only scalar functions which do not require external connectivity. The return value of a function can only be a scalar (single) value. Once added to a job the function can be used at any place in the query like a built-in scalar function.
+## JavaScript user-defined functions
+JavaScript user-defined functions support stateless, compute-only scalar functions that do not require external connectivity. The return value of a function can only be a scalar (single) value. After you add a JavaScript user-defined function to a job, you can use the function anywhere in the query, like a built-in scalar function.
 
-Here are some example scenarios where you will find JavaScript UDFs useful:
-* Parsing and manipulating string with regular expression functions, for example, Regexp_Replace() and Regexp_Extract()
-* Decoding and encoding data, for example, binary to hex conversion
-* Mathematic computations with JavaScript Math functions
-* Array operations like sorting, joining, find, and fill
+Here are some scenarios where you might find JavaScript user-defined functions useful:
+* Parsing and manipulating strings that have regular expression functions, for example, **Regexp_Replace()** and **Regexp_Extract()**
+* Decoding and encoding data, for example, binary-to-hex conversion
+* Performing mathematic computations with JavaScript **Math** functions
+* Performing array operations like sort, join, find, and fill
 
-Below are things that you cannot do with a JavaScript UDF in Stream Analytics:
-* Calling out external REST endpoints, for example, reverse IP lookup or pulling reference data from an external source
-* Custom event format serialization or deserialization on inputs/outputs
-* Custom aggregates
+Here are some things that you cannot do with a JavaScript user-defined function in Stream Analytics:
+* Call out external REST endpoints, for example, performing reverse IP lookup or pulling reference data from an external source
+* Perform custom event format serialization or deserialization on inputs/outputs
+* Create custom aggregates
 
-Although they are not blocked in the functions definition, you should avoid using functions like Date.GetDate(), or Math.random(). These functions **do not** return the same result every time you call them and Azure Stream Analytics service does not keep a journal of function invocations and returned results. Therefore if a function returns different result on the same event(s), repeatability will not be guaranteed when a job is restarted by you or by the Stream Analytics service.
+Although functions like **Date.GetDate()** or **Math.random()** are not blocked in the functions definition, you should avoid using them. These functions **do not** return the same result every time you call them, and the Azure Stream Analytics service does not keep a journal of function invocations and returned results. If a function returns different result on the same events, repeatability is not guaranteed when a job is restarted by you or by the Stream Analytics service.
 
-## Adding a JavaScript UDF from Azure portal
-To create a simple JavaScript User-Defined Function under an existing Stream Analytics job follow these steps.
+## Add a JavaScript user-defined function in the Azure portal
+To create a simple JavaScript user-defined function under an existing Stream Analytics job, do these steps:
 
-1.	Open the Azure portal.
-
-2.	Locate your Stream Analytics job, then click on functions link under **JOB TOPOLOGY**.
- 
-3.	You will see an empty list of existing functions, click on the **Add** icon to add a new UDF.
-
-4.	On the **New Function** blade, select JavaScript as the Function Type and you will see a default function template appear in the editor.
- 
-5.	Put in _hex2Int_ as the UDF alias and change the function implementation as below
+1.	In the Azure portal, find your Stream Analytics job.
+2.  Under **JOB TOPOLOGY**, select your function. An empty list of functions appears.
+3.	To create a new user-defined function, select **Add**.
+4.	On the **New Function** blade, for **Function Type**, select **JavaScript**. A default function template appears in the editor.
+5.	For the **UDF alias**, enter **hex2Int**, and change the function implementation as follows:
 
     ```
     // Convert Hex value to integer.
@@ -56,18 +52,16 @@ To create a simple JavaScript User-Defined Function under an existing Stream Ana
     }
     ```
 
-6.	Click the **Save** button, your function will appear on the function list. 
+6.	Select **Save**. Your function appears in the list of functions.
+7.	Select the new **hex2Int** function, and check the function definition. All functions have a **UDF** prefix added to the function alias. You need to *include the prefix* when you call the function in your Stream Analytics query. In this case, you call **UDF.hex2Int**.
 
-7.	Click on the new function **hex2Int** and you can check the function definition. Note that all functions will have added a prefix “UDF” in front of the function alias. You will need to call the function **with the prefix** in your Stream Analytics query, in this case **UDF.hex2Int**.
- 
-## Calling JavaScript UDF in a query
+## Call a JavaScript user-defined function in a query
 
-1. Open the query editor by clicking **Query** under **JOB TOPOLOGY**. 
-
-2.	Edit your query and call the UDF you just added as below:
+1. In the query editor, under **JOB TOPOLOGY**, select **Query**.
+2.	Edit your query, and then call the user-defined function, like this:
 
     ```
-    SELECT 
+    SELECT
         time,
         UDF.hex2Int(offset) AS IntOffset
     INTO
@@ -76,24 +70,21 @@ To create a simple JavaScript User-Defined Function under an existing Stream Ana
         InputStream
     ```
 
-3.	Right click on the job input to upload sample data file.
- 
-4.	Click on **Test** to test your query.
+3.	To upload the sample data file, right-click the job input.
+4.	To test your query, select **Test**.
 
 
-## Supported JavaScript Objects
-Azure Stream Analytics JavaScript UDF supports standard built-in objects of JavaScript language. For the list of objects, please refer to the document on [Global Objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
+## Supported JavaScript objects
+Azure Stream Analytics JavaScript user-defined functions support standard, built-in JavaScript objects. For a list of these objects, see [Global Objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
 
-### Stream Analytics and JavaScript Type Conversion
+### Stream Analytics and JavaScript type conversion
 
-There are differences between types supported in Stream Analytics query language and JavaScript. The following table lists the conversion mappings between the two.
+There are differences in the types that the Stream Analytics query language and JavaScript support. This table lists the conversion mappings between the two:
 
-
----
 Stream Analytics | JavaScript
 --- | ---
-bigint | Number (note that JavaScript can only represent integer up to 2^53 precisely)
-DateTime | Date (note that JavaScript only support milliseconds) 
+bigint | Number (JavaScript can only represent integers up to precisely 2^53)
+DateTime | Date (JavaScript only supports milliseconds)
 double | Number
 nvarchar(MAX) | String
 Record | Object
@@ -101,29 +92,29 @@ Array | Array
 NULL | Null
 
 
-JavaScript to ASA conversions are listed as well.
+Here are JavaScript-to-Stream Analytics conversions:
 
----
+
 JavaScript | Stream Analytics
 --- | ---
-Number | Bigint if number is round and between long.MinValue and long.MaxValue, double otherwise
+Number | Bigint (if the number is round and between long.MinValue and long.MaxValue; otherwise, it's double)
 Date | DateTime
 String | nvarchar(MAX)
 Object | Record
 Array | Array
 Null, Undefined | NULL
-any other type, e.g. Function, Error, etc. | Not supported – runtime error
+Any other type (for example, a function or error) | Not supported (results in runtime error)
 
 ## Troubleshooting
-JavaScript runtime errors will be considered fatal and surfaced through the Activity log. To retrieve the log from Azure portal, go to your job and click on **Activity log**.
- 
+JavaScript runtime errors are considered fatal, and are surfaced through the Activity log. To retrieve the log, in the Azure portal, go to your job and select **Activity log**.
 
-## Other JavaScript UDF usage patterns
 
-### Writing nested JSON to output
-Writing a JSON string to output is a common task when you have follow-up processing step which takes Stream Analytics job output as input and it requires a JSON format. Below example calls JSON.stringify() function to pack all name/value pairs of the input and write them as a single string value in output. 
+## Other JavaScript user-defined function patterns
 
-### JavaScript UDF definition:
+### Write nested JSON to output
+If you have a follow-up processing step that uses a Stream Analytics job output as input, and it requires a JSON format, you can write a JSON string to output. The next example calls the **JSON.stringify()** function to pack all name/value pairs of the input, and then write them as a single string value in output.
+
+**JavaScript user-defined function definition:**
 
 ```
 function main(x) {
@@ -133,7 +124,7 @@ return JSON.stringify(x);
 
 **Sample query:**
 ```
-SELECT 
+SELECT
     DataString,
     DataValue,
     HexValue,
@@ -145,11 +136,11 @@ FROM
 ```
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For additional help, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

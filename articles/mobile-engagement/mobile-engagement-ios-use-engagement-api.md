@@ -4,7 +4,7 @@ description: Latest iOS SDK - How to Use the Engagement API on iOS
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 1fb4509e-3804-46c1-949f-1cf727f91f9f

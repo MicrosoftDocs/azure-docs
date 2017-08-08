@@ -4,27 +4,28 @@ description: Analyze, visualize, and explore trends in your Application Insights
 services: application-insights
 documentationcenter: .net
 author: numberbycolors
-manager: douge
+manager: carmonm
 
 ms.assetid: 3150c6fc-2691-44f6-a290-fc5cd68e692a
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/25/2016
-ms.author: daviste
+ms.topic: article
+ms.date: 03/17/2017
+ms.author: cfreeman
 
 ---
 # Analyzing Trends in Visual Studio
-The Application Insights Trends tool visualizes how your application's important telemetry events change over time, helping you quickly identify problems and anomalies. By linking you to more detailed diagnostic information, Trends can help you improve your app's performance, track down the causes of exceptions, and uncover insights from your custom events.
+The Application Insights Trends tool visualizes how your web application's important telemetry events change over time, helping you quickly identify problems and anomalies. By linking you to more detailed diagnostic information, Trends can help you improve your app's performance, track down the causes of exceptions, and uncover insights from your custom events.
 
 ![Example Trends window](./media/app-insights-visual-studio-trends/app-insights-trends-hero-750.png)
 
-> [!NOTE]
-> Application Insights Trends is available in Visual Studio 2015 Update 3 and later, or with the [Developer Analytics Tools extension](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) version 5.209 and later.
-> 
-> 
+## Configure your web app for Application Insights
+
+If you haven't done this already, [configure your web app for Application Insights](app-insights-overview.md). This allows it to send telemetry to the Application Insights portal. The Trends tool reads the telemetry from there.
+
+Application Insights Trends is available in Visual Studio 2015 Update 3 and later.
 
 ## Open Application Insights Trends
 To open the Application Insights Trends window:

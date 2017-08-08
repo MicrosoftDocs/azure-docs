@@ -12,20 +12,26 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.topic: article
+ms.date: 07/26/2017
 ms.author: curtand
 
+ms.reviewer: jeffsta
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
 ---
-# Add new users  or users with Microsoft accounts to Azure Active Directory
+# Add new users or users with Microsoft accounts to Azure Active Directory
 Add users to populate your directory. This article explains how to add new users in your organization, and how to add users who have Microsoft accounts. For more information about adding users from other directories in Azure Active Directory or adding users from partner companies, see [Add users from other directories or partner companies in Azure Active Directory](active-directory-create-users-external.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
+
+> [!IMPORTANT]
+> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. For how to add a user in the Azure AD admin center, see [Add new users to Azure Active Directory](active-directory-users-create-azure-portal.md).
 
 ## Add a user
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) with an account that's a global admin for the directory.
 2. Select **Active Directory**, and then select the name of your organization directory.
 3. Select the **Users** tab, and then, in the command bar, select **Add User**.
 4. On the **Tell us about this user** page, under **Type of user**, select either:
-   
+
    * **New user in your organization** – adds a new user account in your directory.
    * **User with an existing Microsoft account** – adds an existing Microsoft consumer account to your directory (for example, an Outlook account)
 5. Depending on **Type of user**, enter a user name (for new user) or an email address (for a user with a Microsoft account).
@@ -34,11 +40,11 @@ Add users to populate your directory. This article explains how to add new users
 
 > [!IMPORTANT]
 > If your organization uses more than one domain, you should know about the following issues when you add a user account:
-> 
+>
 > * TO add user accounts with the same user principal name (UPN) across domains, **first** add, for example, geoffgrisso@contoso.onmicrosoft.com, **followed by** geoffgrisso@contoso.com.
 > * **Don't** add geoffgrisso@contoso.com before you add geoffgrisso@contoso.onmicrosoft.com. This order is important, and can be cumbersome to undo.
-> 
-> 
+>
+>
 
 ## Change user information
 You can change any user attribute except for the object ID.

@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 02/04/2017
 ms.author: juliako
 
 ---
@@ -27,9 +27,9 @@ By default streaming-endpoints apply 3 day cache headers for on-demand streaming
 Azure Media Services provides [integrated CDN](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) for streaming-endpoints. Cache-control headers applies in the same way as streaming endpoints to CDN enabled streaming endpoints. Azure CDN uses streaming endpoint configured cache values to define the life time of the internally cached objects and also uses this value to set the delivery cache headers. When using CDN enabled streaming endpoints it is not recommended to set small cache values. Setting small values will decrease the performance and reduce the benefit of CDN. It is not allowed to set cache headers smaller than 600 seconds for CDN enabled streaming endpoints.
 
 > [!IMPORTANT]
-> Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon**.  If you wish to use **Azure CDN from Akamai** for Azure Media Services, you must [configure the endpoint manually](cdn-create-new-endpoint.md).  For more information about Azure CDN features, see the [CDN overview](cdn-overview.md).
+>Azure Media Services has complete integration with Azure CDN. With a single click you can integrate all the available Azure CDN providers (Akamai and Verizon) to your streaming endpoint including CDN Standard and Premium products. For more information, see this [announcement](https://azure.microsoft.com/blog/standardstreamingendpoint/).
 > 
-> 
+> Data charges from streaming endpoint to CDN only gets disabled if the CDN is enabled over streaming endpoint APIs or using Azure management portal's streaming endpoint section. Manual integration or directly creating a CDN endpoint using CDN APIs or portal section will not disable the data charges.
 
 ## Configuring cache headers with Azure Media Services
 You can use Azure Management portal or Azure Media Services APIs to configure cache header values.

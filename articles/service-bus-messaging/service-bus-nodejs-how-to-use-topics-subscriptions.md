@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/27/2017
 ms.author: sethm
 
 ---
@@ -69,9 +69,9 @@ var azure = require('azure');
 ### Set up a Service Bus connection
 The Azure module reads the environment variables AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY for information required to connect to Service Bus. If these environment variables are not set, you must specify the account information when calling **createServiceBusService**.
 
-For an example of setting the environment variables in a configuration file for an Azure Cloud Service, see [Node.js Cloud Service with Storage][Node.js Cloud Service with Storage].
+For an example of setting the environment variables for an Azure Cloud Service, see [Node.js Cloud Service with Storage][Node.js Cloud Service with Storage].
 
-For an example of setting the environment variables in the [Azure classic portal][Azure classic portal] for an Azure Website, see [Node.js Web Application with Storage][Node.js Web Application with Storage].
+For an example of setting the environment variables for an Azure Website, see [Node.js Web Application with Storage][Node.js Web Application with Storage].
 
 ## Create a topic
 The **ServiceBusService** object enables you to work with topics. The
@@ -385,7 +385,7 @@ to be received again.
 In the event that the application crashes after processing the message
 but before the **deleteMessage** method is called, then the message will
 be redelivered to the application when it restarts. This is often called
-**At Least Once Processing**, that is, each message will be processed at
+*At Least Once Processing*, that is, each message will be processed at
 least once but in certain situations the same message may be
 redelivered. If the scenario cannot tolerate duplicate processing, then
 application developers should add additional logic to their application
@@ -395,7 +395,7 @@ delivery attempts.
 
 ## Delete topics and subscriptions
 Topics and subscriptions are persistent, and must be explicitly deleted
-either through the [Azure classic portal][Azure classic portal] or programmatically.
+either through the [Azure portal][Azure portal] or programmatically.
 The following example demonstrates how to delete the topic named `MyTopic`:
 
 ```javascript
@@ -427,11 +427,11 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 * Visit the [Azure SDK for Node][Azure SDK for Node] repository on GitHub.
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
-[Azure classic portal]: https://manage.windowsazure.com
-[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[Azure portal]: https://portal.azure.com
+[SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter
+[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Create and deploy a Node.js application to an Azure Web Site]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Create and deploy a Node.js application to an Azure Web Site]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Node.js Web Application with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md

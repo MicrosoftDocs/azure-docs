@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/27/2017
 ms.author: sethm
 
 ---
@@ -86,15 +86,11 @@ Ready to learn more? Visit the following links:
 
 * [Using Service Bus from .NET with AMQP]
 * [Using Service Bus from Java with AMQP]
-* [Using Service Bus from Python with AMQP]
-* [Using Service Bus from PHP with AMQP]
 * [Installing Apache Qpid Proton-C on an Azure Linux VM]
 * [AMQP in Service Bus for Windows Server]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Using Service Bus from .NET with AMQP]: service-bus-amqp-dotnet.md
 [Using Service Bus from Java with AMQP]: service-bus-amqp-java.md
-[Using Service Bus from Python with AMQP]: service-bus-amqp-python.md
-[Using Service Bus from PHP with AMQP]: service-bus-amqp-php.md
 [Installing Apache Qpid Proton-C on an Azure Linux VM]: service-bus-amqp-apache.md
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx

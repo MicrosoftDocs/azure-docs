@@ -1,5 +1,5 @@
 ---
-title: Run Hive queries using HDInsight .NET SDK | Microsoft Docs
+title: Run Hive queries using HDInsight .NET SDK - Azure | Microsoft Docs
 description: Learn how to submit Hadoop jobs to Azure HDInsight Hadoop using HDInsight .NET SDK.
 editor: cgronlun
 manager: jhubbard
@@ -10,11 +10,12 @@ author: mumian
 
 ms.assetid: 4e291890-f8b4-426c-b5e8-d4fd512ff042
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/03/2017
 ms.author: jgao
 
 ---
@@ -32,7 +33,7 @@ Learn how to submit Hive queries using HDInsight .NET SDK.
 Before you begin this article, you must have the following items:
 
 * **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
-* **Visual Studio 2012/2013/2015**.
+* **Visual Studio 2013/2015/2017**.
 
 ## Submit Hive queries using HDInsight .NET SDK
 The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. 
@@ -84,7 +85,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
    
                 private static void SubmitHiveJob()
                 {
-                    Dictionary<string, string> defines = new Dictionary<string, string> { { "hive.execution.engine", "ravi" }, { "hive.exec.reducers.max", "1" } };
+                    Dictionary<string, string> defines = new Dictionary<string, string> { { "hive.execution.engine", "tez" }, { "hive.exec.reducers.max", "1" } };
                     List<string> args = new List<string> { { "argA" }, { "argB" } };
                     var parameters = new HiveJobSubmissionParameters
                     {
@@ -144,7 +145,7 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 * [Use Sqoop with HDInsight](hdinsight-use-sqoop-mac-linux.md)
 * [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
 

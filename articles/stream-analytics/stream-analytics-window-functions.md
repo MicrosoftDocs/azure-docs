@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 
 ---
@@ -39,11 +39,11 @@ Sliding window functions, unlike Tumbling or Hopping windows, produce an output 
 ![Stream Analytics Window functions sliding intro](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
 ## Getting help with Window functions
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

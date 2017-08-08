@@ -108,18 +108,24 @@ The load balancer can be managed through Resource Manager-based templates, APIs,
 
     For each new outbound connection that a virtual machine initiates, an outbound port is also allocated by the load balancer. The external host sees traffic with a virtual IP (VIP)-allocated port. For scenarios that require a large number of outbound connections, it is recommended to use [instance-level public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) addresses so that the VMs have a dedicated outbound IP address for SNAT. This reduces the risk of port exhaustion.
 
-    The maximum number of ports that can be used by the VIP or an instance-level public IP (PIP) is 64,000. This is a TCP standard limitation.
+    Please see [outbound connections](load-balancer-outbound-connections.md) article for more details on this topic.
 
 ### Support for multiple load-balanced IP addresses for virtual machines
 You can assign more than one load-balanced public IP address to a set of virtual machines. With this ability, you can host multiple SSL websites and/or multiple SQL Server AlwaysOn Availability Group listeners on the same set of virtual machines. For more information, see [Multiple VIPs per cloud service](load-balancer-multivip.md).
 
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
+## Limitations
+
+Load Balancer backend pools can contain any VM SKU except Basic tier.
+
 ## Next steps
 
-[Internet-facing load balancer overview](load-balancer-internet-overview.md)
+- Learn more about [Internet-facing load balancer](load-balancer-internet-overview.md)
 
-[Internal load balancer overview](load-balancer-internal-overview.md)
+- Learn more about [Internal load balancer overview](load-balancer-internal-overview.md)
 
-[Get started creating an Internet-facing load balancer](load-balancer-get-started-internet-arm-ps.md)
+- Create an [Internet-facing load balancer](load-balancer-get-started-internet-portal.md)
+
+- Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure
 

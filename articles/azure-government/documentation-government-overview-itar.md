@@ -30,7 +30,5 @@ Entities with questions about eligibility for Azure Government should consult th
 ## Next steps
 <a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/itar"> Microsoft Trust Center - ITAR web page </a>
 
-<a href="http://download.microsoft.com/download/5/1/6/516B50FE-4FF6-4DF6-B61B-90432D07DDF3/Using_Azure_Government_with_ITAR_June_2016.pdf"> Using Azure Government with ITAR Controlled Data </a>
-
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
 

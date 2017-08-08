@@ -62,8 +62,8 @@ Learn more:
 
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](azure-security-antimalware.md)
-* [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
-* [How to install and configure Symantec Endpoint Protection on a Windows VM](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
+* [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](../virtual-machines/windows/classic/install-trend.md)
+* [How to install and configure Symantec Endpoint Protection on a Windows VM](../virtual-machines/windows/classic/install-symantec.md)
 * [New Antimalware Options for Protecting Azure Virtual Machines – McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## Multi-Factor Authentication

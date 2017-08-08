@@ -1,5 +1,5 @@
----
-title: Replicate Hyper-V VMs in VMM with Azure Site Recovery and PowerShell (Resource Manager) | Microsoft Docs
+﻿---
+title: Replicate Hyper-V virtual machines in VMM clouds using Azure Site Recovery and PowerShell (Resource Manager) | Microsoft Docs
 description: Replicate Hyper-V virtual machines in VMM clouds using Azure Site Recovery and PowerShell
 services: site-recovery
 documentationcenter: ''
@@ -9,11 +9,11 @@ editor: raynew
 
 ms.assetid: 6ac509ad-5024-43d8-b621-d8fec019b9a9
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 19/01/2017
+ms.date: 06/05/2017
 ms.author: rajanaki
 
 ---
@@ -55,7 +55,7 @@ Make sure you have these prerequisites in place:
 * You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. If you don't have one, start with a [free account](https://azure.microsoft.com/free). In addition, you can read about the [Azure Site Recovery Manager pricing](https://azure.microsoft.com/pricing/details/site-recovery/).
 * You'll need a CSP subscription if you are trying out the replication to a CSP subscription scenario. Learn more about the CSP program in [how to enroll in the CSP program](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
 * You'll need an Azure v2 storage (Resource Manager) account to store data replicated to Azure. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery service, and be associated with the same subscription or the CSP subscription. To learn more about setting up Azure storage, see the [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md) for reference.
-* You'll need to make sure that virtual machines you want to protect comply with the [Azure virtual machine prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* You'll need to make sure that virtual machines you want to protect comply with the [Azure virtual machine prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 > [!NOTE]
 > Currently, only VM level operations are possible through Powershell. Support for recovery plan level operations will be made soon.  For now, you are limited to performing fail-overs only at a ‘protected VM’ granularity and not at a Recovery Plan level.
@@ -99,9 +99,9 @@ Learn more about network mapping in
 * [How to configure and monitor virtual networks in Azure](https://azure.microsoft.com/documentation/services/virtual-network/)
 
 ### PowerShell prerequisites
-Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see the [Guide to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](https://msdn.microsoft.com/library/dn850420.aspx).
+Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see the [Guide to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](/powershell/azure/overview).
 
-To learn about tips that can help you use the cmdlets, such as how parameter values, inputs, and outputs are typically handled in Azure PowerShell, see the [Guide to get Started with Azure Cmdlets](https://msdn.microsoft.com/library/azure/jj554332.aspx).
+To learn about tips that can help you use the cmdlets, such as how parameter values, inputs, and outputs are typically handled in Azure PowerShell, see the [Guide to get Started with Azure Cmdlets](/powershell/azure/get-started-azureps).
 
 ## Step 1: Set the subscription
 1. From Azure powershell, login to your Azure account: using the following cmdlets
@@ -129,7 +129,7 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 ## Step 3: Set the Recovery Services Vault context
 
 Set the vault context by running the below command.
-   
+
        Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
 ## Step 4: Install the Azure Site Recovery Provider
@@ -163,7 +163,7 @@ Set the vault context by running the below command.
 ## Step 5: Create an Azure storage account
 
 If you don't have an Azure storage account, create a geo-replication enabled account in the same geo as the vault by running the following command:
-   
+
         $StorageAccountName = "teststorageacc1"    #StorageAccountname
         $StorageAccountGeo  = "Southeast Asia"     
         $ResourceGroupName =  “myRG”             #ResourceGroupName
@@ -241,7 +241,7 @@ After the servers, clouds and networks are configured correctly, you can enable 
 
  Note the following:
 
-* Virtual machines must meet Azure requirements. Check these in [Prerequisites and Support](site-recovery-best-practices.md) in the planning guide.
+* Virtual machines must meet Azure requirements. Check these in [Prerequisites and Support](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) in the planning guide.
 * To enable protection, the operating system and operating system disk properties must be set for the virtual machine. When you create a virtual machine in VMM using a virtual machine template you can set the property. You can also set these properties for existing virtual machines on the **General** and **Hardware Configuration** tabs of the virtual machine properties. If you don't set these properties in VMM you'll be able to configure them in the Azure Site Recovery portal.
 
 1. To enable protection, run the following command to get the protection container:
@@ -304,4 +304,4 @@ Use the following commands to monitor the activity. Note that you have to wait i
 
 
 ## Next steps
-[Read more](https://msdn.microsoft.com/library/azure/mt637930.aspx) about Azure Site Recovery with Azure Resource Manager PowerShell cmdlets.
+[Read more](/powershell/module/azurerm.recoveryservices.backup/#recovery) about Azure Site Recovery with Azure Resource Manager PowerShell cmdlets.

@@ -13,8 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 07/21/2017
 ms.author: priyamo
+ms.custom: aaddev
+ms.reviewer: dastrock
 
 ---
 # How Azure Active Directory uses the SAML protocol
@@ -34,4 +36,3 @@ Azure Active Directory exposes tenant-specific and common (tenant-independent) s
   `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`.In this endpoint address, **common** appears, instead of a tenant domain name or ID.
 
 For information about the Federation Metadata documents that Azure AD publishes, see [Federation Metadata](active-directory-federation-metadata.md).
-

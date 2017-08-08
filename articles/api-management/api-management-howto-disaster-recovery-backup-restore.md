@@ -26,7 +26,7 @@ This guide shows how to authenticate Azure Resource Manager requests, and how to
 > [!NOTE]
 > The process for backing up and restoring an API Management service instance for disaster recovery can also be used for replicating API Management service instances for scenarios such as staging.
 >
-> Note that each backup expires after 7 days. If you attempt to restore a backup after the 7 day expiration period has expired, the restore will fail with a `Cannot restore: backup expired` message.
+> Note that each backup expires after 30 days. If you attempt to restore a backup after the 30 day expiration period has expired, the restore will fail with a `Cannot restore: backup expired` message.
 >
 >
 
@@ -45,7 +45,7 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 The first step is to create an Azure Active Directory application. Log into the [Azure Classic Portal](http://manage.windowsazure.com/) using the subscription that contains your API Management service instance and navigate to the **Applications** tab for your default Azure Active Directory.
 
 > [!NOTE]
-> If the Azure Active Directory default directory is not visible to your account, contact the administrator of the Azure subscription to grant the required permissions to your account. For information on locating your default directory, see "Locate your default directory in the Azure classic portal" in [Creating a Work or School identity in Azure Active Directory to use with Windows VMs](../virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> If the Azure Active Directory default directory is not visible to your account, contact the administrator of the Azure subscription to grant the required permissions to your account. For information on locating your default directory, see "Locate your default directory in the Azure classic portal" in [Creating a Work or School identity in Azure Active Directory to use with Windows VMs](../virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
 
@@ -77,7 +77,7 @@ namespace GetTokenResourceManagerRequests
     {
         static void Main(string[] args)
         {
-            var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+            var authenticationContext = new AuthenticationContext("https://login.microsoftonline.com/{tenant id}");
             var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
 
             if (result == null) {
@@ -145,7 +145,7 @@ Please note the following constraints when making a backup request.
 
 * **Container** specified in the request body **must exist**.
 * While backup is in progress you **should not attempt any service management operations** such as SKU upgrade or downgrade, domain name change, etc.
-* Restore of a **backup is guaranteed only for 7 days** since the moment of its creation.
+* Restore of a **backup is guaranteed only for 30 days** since the moment of its creation.
 * **Usage data** used for creating analytics reports **is not included** in the backup. Use [Azure API Management REST API][Azure API Management REST API] to periodically retrieve analytics reports for safekeeping.
 * The frequency with which you perform service backups will affect your recovery point objective. To minimize it we advise implementing regular backups as well as performing on-demand backups after making important changes to your API Management service.
 * **Changes** made to the service configuration (e.g. APIs, policies, developer portal appearance) while backup operation is in process **might not be included in the backup and therefore will be lost**.

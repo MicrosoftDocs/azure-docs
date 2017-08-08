@@ -1,6 +1,6 @@
 ---
-title: Data Science Virtual machines in Azure | Microsoft Docs
-description: Set up a Data Science Virtual Machine
+title: Provision Azure Data Science Virtual Machines as IPython Notebook Servers | Microsoft Docs
+description: Set up a Data Science Virtual Machine as an IPython Notebook Server with supporting tools.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
-ms.author: xibingao;bradsev
+ms.date: 07/21/2017
+ms.author: bradsev
 
 ---
-# Data Science Virtual machines in Azure
+# Provision Azure Data Science Virtual Machines as IPython Notebook Servers
 Instructions are provided here that describe how to set up an Azure VM and an Azure VM with SQL Service as IPython Notebook servers. The Windows virtual machine is configured with supporting tools such as IPython Notebook, Azure Storage Explorer, and AzCopy, as well as other utilities that are useful for data science projects. Azure Storage Explorer and AzCopy, for example, provide convenient ways to upload data to Azure storage from your local machine or to download it to your local machine from storage. 
 
 This menu links to topics that describe how to set up the various data science environments used by the [Team Data Science Process (TDSP)](data-science-process-overview.md).

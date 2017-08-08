@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 2/24/2017
 ms.author: marsma
 
 ---
@@ -134,7 +134,7 @@ append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob'
 Now that you've learned the basics of Blob storage, follow these links
 to learn more.
 
-* [Python Developer Center](/develop/python/)
+* [Python Developer Center](https://azure.microsoft.com/develop/python/)
 * [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)
 * [Azure Storage Team Blog]
 * [Microsoft Azure Storage SDK for Python]

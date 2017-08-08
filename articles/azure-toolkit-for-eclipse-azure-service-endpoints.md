@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 
 ---
@@ -28,14 +28,23 @@ The following shows the **Service Endpoints** dialog.
 In the **Service Endpoints** dialog, take one of the following actions:
 
 * If you want to use the global Azure platform, from the **Active Set** dropdown list, select **windowsazure.com** and click **OK**.
+
 * If you want to use Azure operated by 21Vianet in China, from the **Active Set** dropdown list, select **windowsazure.cn (China)** and click **OK**.
+
 * If you want to use a private Azure platform:
+
   1. Click **Edit**.
+
   2. A dialog box opens, informing you that the **Service Endpoints** dialog will be closed, and the preference sets file will be opened. Click **OK**.
+
   3. In the preferencesets.xml file, create a new `preferenceset` element. For this new element, create `name`, `blob`, `management`, `portalURL` and `publishsettings` attributes, and add values for them that correspond to your private Azure platform. You can use the values provided for the existing `preferenceset` elements as templates. **Note**: The value used for the `blob` attribute must contain the text "blob" in the URL.
+
   4. Save and close preferencesets.xml.
+
   5. Reopen the **Service Endpoints** dialog.
+
   6. From the **Active Set** dropdown list, select the active set that you created and click **OK**.
+
   7. Once you've created your private Azure platform `preferenceset` element, you can change the values assigned to it by clicking the **Edit** button in the **Services Endpoint** dialog. You can also create multiple private Azure platform `preferenceset` elements, if you desire.
 
 ## See Also

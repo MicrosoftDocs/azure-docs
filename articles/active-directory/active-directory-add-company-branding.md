@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/30/2016
+ms.date: 05/23/2017
 ms.author: curtand
 
 ---
@@ -28,8 +28,8 @@ This topic explains how you can customize the sign-in page and the access panel 
 > [!NOTE]
 > * Company branding is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory, or are an Office 365 user. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 > * Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
+>
+>
 
 ## Customizing the sign-in page
 Typically, if you need browser-based access to your cloud apps and services that your organization subscribes to, you use the sign-in page.
@@ -43,8 +43,8 @@ When you visit a service with non-tenant specific URLs (e.g.: https://mail.offic
 > [!NOTE]
 > * Your domain name must appear as “Active” in the **Active Directory** > **Directory** > **Domains** section of the Azure classic portal where you have configured branding.
 > * Sign-in page branding doesn’t carry over to the consumer sign in page of Microsoft. If you sign in with a personal Microsoft account, you may see a branded list of user tiles rendered by Azure AD, but the branding of your organization does not apply to the Microsoft account sign-in page.
-> 
-> 
+>
+>
 
 If you want to show your company brand, colors and other customizable elements on this page, see the following images to understand the difference between the two experiences.
 
@@ -88,8 +88,8 @@ You can customize the following elements on the sign-in page:
 
 > [!NOTE]
 > All elements are optional. For example, if you specify a Banner Logo but no Large Illustration, the sign-in page shows your logo and the illustration for the destination site (that is, the Office 365 California highway image).
-> 
-> 
+>
+>
 
 On your sign-in page, the **Keep me signed in** checkbox allows a user to remain signed in when they close and re-open their browser. It does not effect session lifetime. You can hide the checkbox on the Azure Active Directory sign-in page.
 
@@ -97,12 +97,12 @@ Whether the checkbox is displayed depends on the setting of **Hide KMSI**.
 
 ![][9]
 
-To hide the checkbox, configure this setting to **Hidden**. 
+To hide the checkbox, configure this setting to **Hidden**.
 
 > [!NOTE]
 > Some features of SharePoint Online and Office 2010 depend on users being able to check this box. If you configure this setting to hidden, your users may see additional and unexpected prompts to sign-in.
-> 
-> 
+>
+>
 
 You can also localize all elements on this page. Once you’ve configured a “default” set of customization elements, you can configure more versions for different locales. You can also mix and match various elements. For example, you can:
 
@@ -130,6 +130,10 @@ If your language preference is German, you get the default Banner Logo but the G
 
 While you could technically configure a different set for each language supported by Azure AD, we recommend that you keep the number of variations low, for maintenance and performance reasons.
 
+> [!IMPORTANT]
+> Yammer does not show the Azure AD branded sign-in page until after the user signs in. The user sees the generic Office 365 sign-in page first, and then the branded page after that.   
+ 
+ 
 **To add company branding to your directory, perform the following steps:**
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator of the directory you want to customize.
@@ -145,7 +149,7 @@ It can take up to an hour for new change you made to the sign-in page branding t
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator of the directory you want to customize.
 2. Select the directory you want to customize.
-3. In the toolbar on the top, click **Configure**.
+fs3. In the toolbar on the top, click **Configure**.
 4. Click **Customize Branding**.
 5. Click **Add branding for a specific language**.
 6. Select the language you want to customize the logo for, and then click **Next**.
@@ -160,15 +164,15 @@ It can take up to an hour for new change you made to the sign-in page branding t
 4. Click **Customize Branding**.
 5. On the Customize Branding page, select **Edit Existing Branding Settings** and then go to the next page.
 6. Depending on which elements you want to remove, do one or more of the following:
-   
+
     a. Under **Banner Logo**, select **Remove uploaded logo**.
-   
+
     b. Under **Tile Logo**, select **Remove uploaded logo**.
-   
+
     c. Remove the text from all textboxes.
-   
+
     d. Click **Next**.
-   
+
     e. Remove the text from all textboxes.
 7. Click **Save** to remove the elements.
 8. If necessary, click **Customize Branding** again and repeat these steps for all language-specific branding that needs to be removed.
@@ -204,7 +208,7 @@ Some customizable elements in Azure AD have multiple use cases. You can configur
 | Sign-in Page Illustration |The illustration is a large image that is displayed on the sign-in page to the left of the sign-in page form. |<p>JPG or PNG</p><p>1420x1200</p><p>500 KB</p> |<p>1420x1200 pixels</p><p>Important: Keep it as small as possible, ideally under 200 KB. If this image is too large, the performance of the Sign-in page is impacted when the image isn’t cached</p><p>This image is often cropped, to accommodate different screen ratios. Keep the primary visual elements in the top left corner (top right for RTL languages), because resizing occurs from the bottom/right corner, going towards the top / left, as the browser window shrinks.</p> |
 | Sign-in Page Background Color |The sign-in page background color is used in the area to the left of the sign-in page form. |Must be an RGB color in hexadecimal form (example: #FFFFFF) |<p>The background color may be shown in place of the large Illustration on low-bandwidth connections</p><p>We suggest picking the primary color of the Banner Logo</p> |
 
-## Next Steps
+## Next steps
 * [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [View your access and usage reports](active-directory-view-access-usage-reports.md)
 

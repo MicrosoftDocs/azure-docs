@@ -1,5 +1,5 @@
 ---
-title: Configure Hive policies in Domain-joined HDInsight | Microsoft Docs
+title: Configure Hive policies in Domain-joined HDInsight - Azure | Microsoft Docs
 description: Learn ....
 services: hdinsight
 documentationcenter: ''
@@ -10,8 +10,9 @@ tags: azure-portal
 
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
@@ -136,7 +137,7 @@ To test the second policy (read-hivesampletable-devicemake) you created in the l
 ## Next steps
 * For configuring a Domain-joined HDInsight cluster, see [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md).
 * For managing a Domain-joined HDInsight clusters, see [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md).
-* For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * For Connecting Hive using Hive JDBC, see [Connect to Hive on Azure HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md)
 * For connecting Excel to Hadoop using Hive ODBC, see [Connect Excel to Hadoop with the Microsoft Hive ODBC drive](hdinsight-connect-excel-hive-odbc-driver.md)
 * For connecting Excel to Hadoop using Power Query, see [Connect Excel to Hadoop by using Power Query](hdinsight-connect-excel-power-query.md)

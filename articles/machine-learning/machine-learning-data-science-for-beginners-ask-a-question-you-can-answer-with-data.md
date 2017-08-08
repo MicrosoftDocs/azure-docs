@@ -1,7 +1,7 @@
 ---
-title: Ask a question you can answer with data - formulate questions | Microsoft Docs
-description: Learn how to formulate a data science question in Data Science for Beginners video 3. Includes a comparison of classification and regression questions.
-keywords: data science questions,formulate questions,regression questions,classification questions,sharp question
+title: Ask a question data can answer - data science problems - Azure Machine Learning | Microsoft Docs
+description: Learn how to formulate a sharp data science question in Data Science for Beginners video 3. Includes a comparison of classification and regression questions.
+keywords: data science problems,data science questions,formulate questions,regression questions,classification questions,sharp question
 services: machine-learning
 documentationcenter: na
 author: cjgronlund
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 07/13/2017
 ms.author: cgronlun;garye
 
 ---
 # Ask a question you can answer with data
 ## Video 3: Data Science for Beginners series
-Learn how to formulate a data science question in Data Science for Beginners video 3. This video includes a comparison of questions for classification and regression algorithms.
+Learn how to formulate a data science problem into a question in Data Science for Beginners video 3. This video includes a comparison of questions for classification and regression algorithms.
 
 To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
-> 
-> 
+>
+>
 
 ## Other videos in this series
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
@@ -62,7 +63,7 @@ If our question is "What will my stock's sale price be next week?" then we have 
 
 If our question is "Which car in my fleet is going to fail first?" then we have to make sure our data includes information about previous failures.
 
-![Target data - examples of your answer. Formulate a data science question.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-target-data.png)
+![Target data - examples of your answer. Formulate a data science question.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/target-data.png)
 
 These examples of answers are called a target. A target is what we are trying to predict about future data points, whether it's a category or a number.
 
@@ -79,7 +80,7 @@ To see how we can transform these, let's look at the question, "Which news story
 
 But, this question may be easier to answer if you reword it as "How interesting is each story on this list to this reader?" Now you can give each article a numerical score, and then it's easy to identify the highest-scoring article. This is a rephrasing of the classification question into a regression question or How much?
 
-![Reformulate your question. Classification question vs. regression question.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-classification-question-vs-regression-question.png)
+![Reformulate your question. Classification question vs. regression question.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
 
 How you ask a question is a clue to which algorithm can give you an answer.
 
@@ -94,4 +95,3 @@ Be sure to check out the other videos in "Data Science for Beginners" from Micro
 ## Next steps
 * [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
 * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
-

@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 5243d31e-3241-4cb0-9470-ad488ff28572
 ms.service: sql-database
-ms.custom: app development case study
+ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -65,11 +65,11 @@ With Azure SQL Database and other Azure services, Umbraco customers can self-pro
    Umbraco monitors database activity using dashboards within the Azure portal, along with custom email alerts.
 4. Disaster recovery
    
-   Azure provides two disaster-recovery (DR) options: Active Geo-Replication and Geo-Restore. The DR option that a company should select depends on its [business-continuity objectives](sql-database-business-continuity.md).
+   Azure provides two disaster-recovery (DR) options: active geo-replication and geo-restore. The DR option that a company should select depends on its [business-continuity objectives](sql-database-business-continuity.md).
    
-   Active Geo-Replication provides the fastest level of response in the event of downtime. Using Active Geo-Replication, you can create up to four readable secondaries on servers in different regions, and you can then initiate failover to any of the secondaries in the event of a failure.
+   active geo-replication provides the fastest level of response in the event of downtime. Using active geo-replication, you can create up to four readable secondaries on servers in different regions, and you can then initiate failover to any of the secondaries in the event of a failure.
    
-   Umbraco doesn’t require Geo-Replication, but it does take advantage of Azure Geo-Restore to help ensure minimum downtime in the event of an outage. Geo-Restore relies on database backups in geo-redundant Azure storage. That allows users to restore from a backup copy when there is an outage in the primary region.
+   Umbraco doesn’t require geo-replication, but it does take advantage of Azure geo-restore to help ensure minimum downtime in the event of an outage. geo-restore relies on database backups in geo-redundant Azure storage. That allows users to restore from a backup copy when there is an outage in the primary region.
 5. De-provision
    
    When a project environment is deleted, any associated databases (development, staging, or live) are removed during Azure Service Bus queue cleanup. This automated process restores the unused databases to Umbraco’s elastic database-availability pool, making them available for future provisioning while maintaining maximum utilization.

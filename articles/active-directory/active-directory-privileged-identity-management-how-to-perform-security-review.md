@@ -3,7 +3,7 @@ title: How to perform an access review | Microsoft Docs
 description: Learn how to perform a review with the Azure Privileged Identity Management application.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: billmath
 manager: femila
 editor: ''
 
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2016
-ms.author: kgremban
-
+ms.date: 06/06/2017
+ms.author: billmath
+ms.custom: pim
 ---
 # How to perform an access review in Azure AD Privileged Identity Management
 Azure Active Directory (AD) Privileged Identity Management simplifies how enterprises manage privileged access to resources in Azure AD and other Microsoft online services like Office 365 or Microsoft Intune.  

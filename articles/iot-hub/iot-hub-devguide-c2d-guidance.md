@@ -13,28 +13,28 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2016
+ms.date: 05/25/2017
 ms.author: elioda
 
 ---
 # Cloud-to-device communications guidance
 IoT Hub provides three options for device apps to expose functionality to a back-end app:
 
-* [Direct methods][lnk-methods], for communications that require immediate confirmation of their result, usually interactive control of the device, e.g. turn on a fan;
-* [Twin's desired properties][lnk-twins], for long-running commands intended to put the device into a certain desired state. For example, set the telemetry send interval to 30 minutes;
-* [Cloud-to-device (C2D) messages][lnk-c2d], for one-way notifications to the device app.
+* [Direct methods][lnk-methods] for communications that require immediate confirmation of the result. Direct methods are often used for interactive control of devices such as turning on a fan.
+* [Twin's desired properties][lnk-twins] for long-running commands intended to put the device into a certain desired state. For example, set the telemetry send interval to 30 minutes.
+* [Cloud-to-device messages][lnk-c2d] for one-way notifications to the device app.
 
 Here is a detailed comparison of the various cloud-to-device communication options.
 
-|  | Direct methods | Twin's desired properties | C2D messages |
+|  | Direct methods | Twin's desired properties | Cloud-to-device messages |
 | ---- | ------- | ---------- | ---- |
-| Scenario | Commands that require immediate confirmation, e.g. turn on a fan. | Long-running commands intended to put the device into a certain desired state. For example, set the telemetry send interval to 30 minutes. | One-way notifications to the device app. |
+| Scenario | Commands that require immediate confirmation, such as turning on a fan. | Long-running commands intended to put the device into a certain desired state. For example, set the telemetry send interval to 30 minutes. | One-way notifications to the device app. |
 | Data flow | Two-way. The device app can respond to the method right away. The solution back end receives the outcome contextually to the request. | One-way. The device app receives a notification with the property change. | One-way. The device app receives the message
-| Durability | Disconnected devices are not contacted. Back end is notified that the device is not connected. | Property values are preserved in the device twin. Device will read it at next reconnection. Property values are retrievable with the [IoT Hub query language][lnk-query]. | Messages can retained by IoT Hub for up to 48 hours. |
+| Durability | Disconnected devices are not contacted. The solution back end is notified that the device is not connected. | Property values are preserved in the device twin. Device will read it at next reconnection. Property values are retrievable with the [IoT Hub query language][lnk-query]. | Messages can be retained by IoT Hub for up to 48 hours. |
 | Targets | Single device using **deviceId**, or multiple devices using [jobs][lnk-jobs]. | Single device using **deviceId**, or multiple devices using [jobs][lnk-jobs]. | Single device by **deviceId**. |
-| Size | Up to 8KB requests and 8KB responses. | Maximum desired properties size is 8KB. | Up to 256KB messages. |
-| Frequency | High. Refer to [IoT Hub limits][lnk-quotas] for more information. | Medium. Refer to [IoT Hub limits][lnk-quotas] for more information. | Low. Refer to [IoT Hub limits][lnk-quotas] for more information. |
-| Protocol | Available on MQTT and AMQP. | Currently available only when using MQTT. | Available on all protocol. Device has to poll when using HTTP. |
+| Size | Up to 8KB requests and 8KB responses. | Maximum desired properties size is 8KB. | Up to 64KB messages. |
+| Frequency | High. For more information, see [IoT Hub limits][lnk-quotas]. | Medium. For more information, see [IoT Hub limits][lnk-quotas]. | Low. For more information, see [IoT Hub limits][lnk-quotas]. |
+| Protocol | Currently available only when using MQTT. | Currently available only when using MQTT. | Available on all protocols. Device must poll when using HTTP. |
 
 Learn how to use direct methods, desired properties, and cloud-to-device messages in the following tutorials:
 
@@ -46,7 +46,7 @@ Learn how to use direct methods, desired properties, and cloud-to-device message
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-jobs]: iot-hub-devguide-jobs.md
-[lnk-c2d]: iot-hub-devguide-messaging.md#cloud-to-device-messages
+[lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md

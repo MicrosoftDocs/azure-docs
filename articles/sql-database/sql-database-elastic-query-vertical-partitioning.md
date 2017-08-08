@@ -8,13 +8,14 @@ author: torsteng
 
 ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
+
 
 ---
 # Query across cloud databases with different schemas (preview)
@@ -177,9 +178,13 @@ You can use regular SQL Server connection strings to connect your BI and data in
 * Elastic query works best for queries where most of the computation can be done on the remote databases. You typically get the best query performance with selective filter predicates that can be evaluated on the remote databases or joins that can be performed completely on the remote database. Other query patterns may need to load large amounts of data from the remote database and may perform poorly. 
 
 ## Next steps
-To query horizontally partitioned databases (also known as sharded databases), see [Queries across sharded cloud databases (horizontally partitioned)](sql-database-elastic-query-horizontal-partitioning.md).
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+* For an overview of elastic query, see [Elastic query overview](sql-database-elastic-query-overview.md).
+* For a vertical partitioning tutorial, see [Getting started with cross-database query (vertical partitioning)](sql-database-elastic-query-getting-started-vertical.md).
+* For a horizontal partitioning (sharding) tutorial, see [Getting started with elastic query for horizontal partitioning (sharding)](sql-database-elastic-query-getting-started.md).
+* For syntax and sample queries for horizontally partitioned data, see [Querying horizontally partitioned data)](sql-database-elastic-query-horizontal-partitioning.md)
+* See [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) for a stored procedure that executes a Transact-SQL statement on a single remote Azure SQL Database or set of databases serving as shards in a horizontal partitioning scheme.
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-vertical-partitioning/verticalpartitioning.png

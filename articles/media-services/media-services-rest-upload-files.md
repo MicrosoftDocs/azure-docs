@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 07/31/2017
 ms.author: juliako
 
 ---
@@ -50,7 +50,7 @@ AMS also enables you to upload assets in bulk. For more information, see [this](
 > 
 > When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 > 
-> After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect-programmatically.md). 
+> After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI. For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
 > 
 > 
 
@@ -86,7 +86,6 @@ The following example shows how to create an asset.
     Host: media.windows.net
 
     {"Name":"BigBuckBunny.mp4"}
-
 
 **HTTP Response**
 
@@ -146,7 +145,6 @@ After you upload your digital media file into a blob container, you will use the
        "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1"
     }
 
-
 **HTTP Response**
 
     HTTP/1.1 201 Created
@@ -181,8 +179,11 @@ After you upload your digital media file into a blob container, you will use the
        "ContentChecksum":null
     }
 
-
 ### Creating the AccessPolicy with write permission.
+
+>[!NOTE]
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+
 Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you will receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
 The following example shows how to create an AccessPolicy:
@@ -261,7 +262,6 @@ The following example shows how to create a SAS URL Locator, as defined by the T
        "Type":1
     }
 
-
 **HTTP Response**
 
 If successful, the following response is returned:
@@ -302,7 +302,7 @@ Once you have the AccessPolicy and Locator set, the actual file is uploaded to a
 > 
 > 
 
-For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
+For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### Update the AssetFile
 Now that you've uploaded your file, update the FileAsset size (and other) information. For example:
@@ -342,7 +342,6 @@ If successful, the following is returned:
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
     x-ms-version: 2.11
     Host: media.windows.net
-
 
 **HTTP Response**
 
@@ -504,11 +503,13 @@ The ContentKey is associated to one or more assets by sending a HTTP POST reques
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
 
+## Next steps
 
+You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
 
-## Next step
-Review Media Services learning paths.
+You can also use Azure Functions to trigger an encoding job based on a file arriving in the configured container. For more information, see [this sample](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
 
+## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback

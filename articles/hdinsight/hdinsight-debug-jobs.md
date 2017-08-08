@@ -1,5 +1,5 @@
 ---
-title: 'Debug Hadoop in HDInsight: View logs and interpret error messages | Microsoft Docs'
+title: 'Debug Hadoop in HDInsight: View logs and interpret error messages - Azure | Microsoft Docs'
 description: Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover.
 services: hdinsight
 tags: azure-portal
@@ -10,11 +10,12 @@ documentationcenter: ''
 
 ms.assetid: 7e6ceb0e-8be8-4911-bc80-20714030a3ad
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 
 ---
@@ -113,7 +114,7 @@ For more information about application logs, see [Simplifying user-logs manageme
 
 ## View cluster health and job logs
 ### Access Hadoop UI
-From the Azure Portal, click an HDInsight cluster name to open the cluster blade. From the cluster blade, click **Dashboard**.
+From the Azure portal, click an HDInsight cluster name to open the cluster blade. From the cluster blade, click **Dashboard**.
 
 ![Launch cluster dashboard](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
 
@@ -122,7 +123,7 @@ When prompted, enter the cluster administrator credentials. In the Query Console
 ![Start Hadoop UI](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
 
 ### Access the Yarn UI
-From the Azure Portal, click an HDInsight cluster name to open the cluster blade. From the cluster blade, click **Dashboard**. When prompted, enter the cluster administrator credentials. In the Query Console that opens, click **YARN UI**.
+From the Azure portal, click an HDInsight cluster name to open the cluster blade. From the cluster blade, click **Dashboard**. When prompted, enter the cluster administrator credentials. In the Query Console that opens, click **YARN UI**.
 
 You can use the YARN UI to do the following:
 
@@ -133,12 +134,12 @@ You can use the YARN UI to do the following:
 * **Monitor job status**. From the left pane, expand **Cluster**, and then click **Applications** to list all the jobs in the cluster. If you want to look at jobs in a specific state (such as new, submitted, running, etc.), click the appropriate link under **Applications**. You can further click the job name to find out more about the job such including the output, logs, etc.
 
 ### Access the HBase UI
-From the Azure Portal, click an HDInsight HBase cluster name to open the cluster blade. From the cluster blade, click **Dashboard**. When prompted, enter the cluster administrator credentials. In the Query Console that opens, click **HBase UI**.
+From the Azure portal, click an HDInsight HBase cluster name to open the cluster blade. From the cluster blade, click **Dashboard**. When prompted, enter the cluster administrator credentials. In the Query Console that opens, click **HBase UI**.
 
 ## HDInsight error codes
 The error messages itemized in this section are provided to help the users of Hadoop in Azure HDInsight understand possible error conditions that they can encounter when administering the service using Azure PowerShell and to advise them on the steps which can be taken to recover from the error.
 
-Some of these error messages could also be seen in the Azure Portal when it is used to manage HDInsight clusters. But other error messages you might encounter there are less granular due to the constraints on the remedial actions possible in this context. Other error messages are provided in the contexts where the mitigation is obvious. 
+Some of these error messages could also be seen in the Azure portal when it is used to manage HDInsight clusters. But other error messages you might encounter there are less granular due to the constraints on the remedial actions possible in this context. Other error messages are provided in the contexts where the mitigation is obvious. 
 
 ### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
 * **Description**: Please provide Azure SQL database details for at least one component in order to use custom settings for Hive and Oozie metastores.
@@ -266,7 +267,7 @@ Some of these error messages could also be seen in the Azure Portal when it is u
 
 ### <a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode
 * **Description**: Invalid cluster configuration. Found more than one head node configuration.  
-* **Mitigation**: Edit the configuration so that onloy one head node is specified.
+* **Mitigation**: Edit the configuration so that only one head node is specified.
 
 ### <a id="OperationTimedOutRetryRequest"></a>OperationTimedOutRetryRequest
 * **Description**: The operation could not be completed within the permitted time or the maximum retry attempts possible. Please retry request.  

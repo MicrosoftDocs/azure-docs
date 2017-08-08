@@ -4,17 +4,17 @@ description: how to use cross database database queries
 services: sql-database
 documentationcenter: ''
 manager: jhubbard
-author: SilviaDoomra
+author: ddove
 
 ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: SilviaDoomra
+ms.author: ddove
 
 ---
 # Report across scaled-out cloud databases (preview)
@@ -34,7 +34,7 @@ Here you will create a shard map manager along with several shards, followed by 
 
     ![command prompt][1]
 2. In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat the action four times. This inserts sample data rows in your shards.
-3. The [Azure Portal](https://portal.azure.com) should show three new databases in your v12 server:
+3. The [Azure portal](https://portal.azure.com) should show three new databases in your server:
 
    ![Visual Studio confirmation][2]
 
@@ -43,12 +43,14 @@ Here you will create a shard map manager along with several shards, followed by 
    In the next section, we create a sample database endpoint that supports richer querying of the data across shards.
 
 ## Create an elastic query database
-1. Open the [Azure Portal](https://portal.azure.com) and log in.
+1. Open the [Azure portal](https://portal.azure.com) and log in.
 2. Create a new Azure SQL database in the same server as your shard setup. Name the database "ElasticDBQuery."
 
     ![Azure portal and pricing tier][3]
 
-    Note: you can use an existing database. If you can do so, it must not be one of the shards that you would like to execute your queries on. This database will be used for creating the metadata objects for an elastic database query.
+    > [!NOTE]
+    > you can use an existing database. If you can do so, it must not be one of the shards that you would like to execute your queries on. This database will be used for creating the metadata objects for an elastic database query.
+    >
 
 ## Create database objects
 ### Database-scoped master key and credentials
@@ -116,7 +118,6 @@ You will notice that the query aggregates results from all the shards and gives 
 
 All the rows from **Customers** table, stored in different shards populate the Excel sheet.
 
-## Next steps
 You can now use Excel’s powerful data visualization functions. You can use the connection string with your server name, database name and credentials to connect your BI and data integration tools to the elastic query database. Make sure that SQL Server is supported as a data source for your tool. You can refer to the elastic query database and external tables just like any other SQL Server database and SQL Server tables that you would connect to with your tool.
 
 ### Cost
@@ -124,7 +125,14 @@ There is no additional charge for using the Elastic Database Query feature.
 
 For pricing information see [SQL Database Pricing Details](https://azure.microsoft.com/pricing/details/sql-database/).
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## Next steps
+
+* For an overview of elastic query, see [Elastic query overview](sql-database-elastic-query-overview.md).
+* For a vertical partitioning tutorial, see [Getting started with cross-database query (vertical partitioning)](sql-database-elastic-query-getting-started-vertical.md).
+* For syntax and sample queries for vertically partitioned data, see [Querying vertically partitioned data)](sql-database-elastic-query-vertical-partitioning.md)
+* For syntax and sample queries for horizontally partitioned data, see [Querying horizontally partitioned data)](sql-database-elastic-query-horizontal-partitioning.md)
+* See [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) for a stored procedure that executes a Transact-SQL statement on a single remote Azure SQL Database or set of databases serving as shards in a horizontal partitioning scheme.
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-getting-started/cmd-prompt.png

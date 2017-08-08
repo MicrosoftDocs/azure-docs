@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
 
 ---
@@ -45,7 +45,7 @@ When deciding which deployment model to use for your resources, there are three 
 2. The service supports Resource Manager but provides two types - one for Resource Manager and one for classic. This scenario applies only to virtual machines, storage accounts, and virtual networks.
 3. The service does not support Resource Manager.
 
-To discover whether a service supports Resource Manager, see [Resource Manager supported providers](resource-manager-supported-services.md).
+To discover whether a service supports Resource Manager, see [Resource providers and types](resource-manager-supported-services.md).
 
 If the service you wish to use does not support Resource Manager, you must continue using classic deployment.
 
@@ -185,9 +185,9 @@ To learn about connecting virtual networks from different deployment models, see
 ## Migrate from classic to Resource Manager
 If you are ready to migrate your resources from classic deployment to Resource Manager deployment, see:
 
-1. [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-3. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md)
+1. [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
+2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+3. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../virtual-machines/windows/migration-classic-resource-manager-ps.md)
 4. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
 ## Frequently Asked Questions
@@ -209,7 +209,7 @@ All the automation and scripts that you've built continue to work for the existi
 
 **Where can I find examples of Azure Resource Manager templates?**
 
-A comprehensive set of starter templates can be found on [Azure Resource Manager QuickStart Templates](https://azure.microsoft.com/documentation/templates/).
+A comprehensive set of starter templates can be found on [Azure Resource Manager Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
 
 ## Next steps
 * To walk through the creation of template that defines a virtual machine, storage account, and virtual network, see [Resource Manager template walkthrough](resource-manager-template-walkthrough.md).

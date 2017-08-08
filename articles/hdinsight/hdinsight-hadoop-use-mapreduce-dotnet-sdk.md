@@ -1,5 +1,5 @@
 ---
-title: Submit MapReduce jobs using HDInsight .NET SDK | Microsoft Docs
+title: Submit MapReduce jobs using HDInsight .NET SDK - Azure | Microsoft Docs
 description: Learn how to submit MapReduce jobs to Azure HDInsight Hadoop using HDInsight .NET SDK.
 editor: cgronlun
 manager: jhubbard
@@ -10,11 +10,12 @@ author: mumian
 
 ms.assetid: c85e44b0-85fd-4185-ad1c-c34a9fe5ef44
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 03/03/2017
 ms.author: jgao
 
 ---
@@ -32,7 +33,7 @@ Learn how to submit MapReduce jobs using HDInsight .NET SDK. HDInsight clusters 
 Before you begin this article, you must have the following:
 
 * **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
-* **Visual Studio 2012/2013/2015**.
+* **Visual Studio 2013/2015/2017**.
 
 ## Submit MapReduce jobs using HDInsight .NET SDK
 The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. 
@@ -64,7 +65,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
                 private const string ExistingClusterUsername = "<Cluster Username>";
                 private const string ExistingClusterPassword = "<Cluster User Password>";
    
-                private const string DefaultStorageAccountName = "<Default Storage Account Name>";
+                private const string DefaultStorageAccountName = "<Default Storage Account Name>"; //<StorageAccountName>.blob.core.windows.net
                 private const string DefaultStorageAccountKey = "<Default Storage Account Key>";
                 private const string DefaultStorageContainerName = "<Default Blob Container Name>";
    
@@ -93,7 +94,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
                     };
    
                     System.Console.WriteLine("Submitting the MR job to the cluster...");
-                    var jobResponse = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
+                    var jobResponse = _hdiJobManagementClient.JobManagement.SubmitMapReduceJob(paras);
                     var jobId = jobResponse.JobSubmissionJsonResponse.Id;
                     System.Console.WriteLine("Response status code is " + jobResponse.StatusCode);
                     System.Console.WriteLine("JobId is " + jobId);
@@ -127,12 +128,16 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
         }
 4. Press **F5** to run the application.
 
+To run the job again, you must change the job output folder name, in the sample, it is "/example/data/davinciwordcount".
+
+When the job completes successfully, the output is blank. To see the result of the MapReduce job, use the Azure portal to explore the default storage container in the Blob storage.  The file name is "part-r-00000".
+
 ## Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
 
-* For creating a cluster and submitting a Hive job, see [Get started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+* For submitting a Hive job, see [Run Hive queries using HDInsight .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md).
 * For creating HDInsight clusters, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-* For managing HDInsight clusters, see [Manage Hadoop clusters in HDInsight](hdinsight-administer-use-management-portal.md).
+* For managing HDInsight clusters, see [Manage Hadoop clusters in HDInsight](hdinsight-administer-use-portal-linux.md).
 * For learning the HDInsight .NET SDK, see [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx).
 * For non-interactive authenticate to Azure, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 

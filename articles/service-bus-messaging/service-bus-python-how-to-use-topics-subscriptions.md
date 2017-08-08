@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/27/2017
 ms.author: sethm
 
 ---
@@ -68,7 +68,7 @@ Subscriptions to topics are also created with the **ServiceBusService** object. 
 > 
 
 ### Create a subscription with the default (MatchAll) filter
-The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named 'AllMessages' and uses the default **MatchAll**
+The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named `AllMessages` and uses the default **MatchAll**
 filter.
 
 ```python
@@ -155,7 +155,7 @@ Service Bus provides functionality to help you gracefully recover from errors in
 
 There is also a timeout associated with a message locked within the subscription, and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus unlocks the message automatically and makes it available to be received again.
 
-In the event that the application crashes after processing the message but before the **delete** method is called, then the message will be redelivered to the application when it restarts. This is often called **At Least Once Processing**, that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the **MessageId** property of the message, which will remain constant across delivery attempts.
+In the event that the application crashes after processing the message but before the **delete** method is called, then the message will be redelivered to the application when it restarts. This is often called *At Least Once Processing*, that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the **MessageId** property of the message, which will remain constant across delivery attempts.
 
 ## Delete topics and subscriptions
 Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure portal][Azure portal] or programmatically. The following example shows how to delete the topic named `mytopic`:
@@ -179,5 +179,5 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 [Azure portal]: https://portal.azure.com
 [Python Azure package]: https://pypi.python.org/pypi/azure  
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
 [Service Bus quotas]: service-bus-quotas.md 

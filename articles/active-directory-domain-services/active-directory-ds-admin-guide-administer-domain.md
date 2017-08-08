@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 
 ---
@@ -62,28 +62,28 @@ You can [install Remote Server Administration Tools (RSAT)](http://social.techne
 Perform the following steps to install the Active Directory Administration tools on the domain joined virtual machine. See Technet for more [information on installing and using Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx).
 
 1. Navigate to **Virtual Machines** node in the Azure classic portal. Select the virtual machine you created in Task 1 and click **Connect** on the command bar at the bottom of the window.
-   
+
     ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 2. The classic portal prompts you to open or save a file with a '.rdp' extension, which is used to connect to the virtual machine. Click to open the file when it has finished downloading.
 3. At the login prompt, use the credentials of a user belonging to the 'AAD DC Administrators' group. For example, we use 'bob@domainservicespreview.onmicrosoft.com' in our case.
 4. From the Start screen, open **Server Manager**. Click **Add Roles and Features** in the central pane of the Server Manager window.
-   
+
     ![Launch Server Manager on virtual machine](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
 5. On the **Before You Begin** page of the **Add Roles and Features Wizard**, click **Next**.
-   
+
     ![Before You Begin page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
 6. On the **Installation Type** page, leave the **Role-based or feature-based installation** option checked and click **Next**.
-   
+
     ![Installation Type page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-type.png)
 7. On the **Server Selection** page, select the current virtual machine from the server pool, and click **Next**.
-   
+
     ![Server Selection page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
 8. On the **Server Roles** page, click **Next**. We skip this page since we are not installing any roles on the server.
 9. On the **Features** page, click to expand the **Remote Server Administration Tools** node and then click to expand the **Role Administration Tools** node. Select **AD DS and AD LDS Tools** feature from the list of role administration tools.
-   
+
     ![Features page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-ad-tools.png)
 10. On the **Confirmation** page, click **Install** to install the AD and AD LDS tools feature on the virtual machine. When feature installation completes successfully, click **Close** to exit the **Add Roles and Features** wizard.
-    
+
     ![Confirmation page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-confirmation.png)
 
 ## Task 3 - Connect to and explore the managed domain
@@ -91,23 +91,23 @@ Now that the AD Administrative Tools are installed on the domain joined virtual 
 
 > [!NOTE]
 > You need to be a member of the 'AAD DC Administrators' group, to administer the managed domain.
-> 
-> 
+>
+>
 
 1. From the Start screen, click **Administrative Tools**. You should see the AD administrative tools installed on the virtual machine.
-   
+
     ![Administrative Tools installed on server](./media/active-directory-domain-services-admin-guide/install-rsat-admin-tools-installed.png)
 2. Click **Active Directory Administrative Center**.
-   
+
     ![Active Directory Administrative Center](./media/active-directory-domain-services-admin-guide/adac-overview.png)
 3. To explore the domain, click the domain name in the left pane (for example, 'contoso100.com'). Notice two containers called 'AADDC Computers' and 'AADDC Users' respectively.
-   
+
     ![ADAC - view domain](./media/active-directory-domain-services-admin-guide/adac-domain-view.png)
 4. Click the container called **AADDC Users** to see all users and groups belonging to the managed domain. You should see user accounts and groups from your Azure AD tenant show up in this container. Notice in this example, a user account for the user called 'bob' and a group called 'AAD DC Administrators' are available in this container.
-   
+
     ![ADAC - domain users](./media/active-directory-domain-services-admin-guide/adac-aaddc-users.png)
 5. Click the container called **AADDC Computers** to see the computers joined to this managed domain. You should see an entry for the current virtual machine, which is joined to the domain. Computer accounts for all computers that are joined to the Azure AD Domain Services managed domain are stored in this 'AADDC Computers' container.
-   
+
     ![ADAC - domain joined computers](./media/active-directory-domain-services-admin-guide/adac-aaddc-computers.png)
 
 <br>
@@ -116,4 +116,3 @@ Now that the AD Administrative Tools are installed on the domain joined virtual 
 * [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
 * [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Deploy Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx)
-

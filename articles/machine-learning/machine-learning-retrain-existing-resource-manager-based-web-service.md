@@ -23,6 +23,9 @@ This document describes the retraining process for the following scenario:
 * You have a training experiment and a predictive experiment that you have deployed as an operationalized web service.
 * You have new data that you want your predictive web service to use to perform its scoring.
 
+> [!NOTE] 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
+
 Starting with your existing web service and experiments, you need to follow these steps:
 
 1. Update the model.
@@ -57,7 +60,7 @@ For this example, we're using C# to create the retraining application. You can a
 
 To call the retraining APIs:
 
-1. Create a C# console application in Visual Studio (**New** > **Project** > **Windows Desktop** > **Console Application**).
+1. Create a C# console application in Visual Studio: **New** > **Project** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
 2. Sign in to the Machine Learning Web Services portal.
 3. Click the web service that you're working with.
 4. Click **Consume**.

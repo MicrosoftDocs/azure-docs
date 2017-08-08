@@ -4,7 +4,7 @@ description: This is the Azure AD Connect Health page that will discuss how to m
 services: active-directory
 documentationcenter: ''
 author: arluca
-manager: samueld
+manager: femila
 editor: curtand
 
 ms.assetid: 19e3cf15-f150-46a3-a10c-2990702cd700
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
-ms.author: arluca
+ms.date: 07/18/2017
+ms.author: billmath
 
 ---
 # Using Azure AD Connect Health with AD DS

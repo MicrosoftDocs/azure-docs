@@ -19,7 +19,7 @@ ms.author: guscatal;elizapo
 ---
 # Get the same Office 365 experience on any device with Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 

@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 08/02/2017
 ms.author: markvi
+ms.reviewer: jairoc
 
 ---
 # Set device-based conditional access policy for Azure Active Directory-connected applications

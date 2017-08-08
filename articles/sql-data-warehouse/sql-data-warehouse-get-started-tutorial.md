@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 
@@ -124,29 +125,29 @@ In this step, you create a user account to access your data warehouse. We also s
 
 - SQL Data Warehouse uses pre-defined database roles, called resource classes, to allocate different amounts of memory, CPU resources, and concurrency slots to users. Each user can belong to a small, medium, large, or extra-large resource class. The user's resource class determines the resources the user has to run queries and load operations.
 
-- For optimize data compression, the user usually needs load with large or extra large resource allocations. Read more about resource classes [here](./sql-data-warehouse-develop-concurrency.md#resource-classes):
+- For optimal data compression, the user may need to load with large or extra large resource allocations. Read more about resource classes [here](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
 ### Create an account that can control a database
 
 Since you are currently logged in as the server admin you have permissions to create logins and users.
 
-2. Using SSMS or another query client, open a new query for **master**.
+1. Using SSMS or another query client, open a new query for **master**.
 
     ![New Query on Master](./media/sql-data-warehouse-get-started-tutorial/query-on-server.png)
 
     ![New Query on Master1](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
 
-2. In the query window, run this T-SQL command to create a login named XLRCLOGIN and user named Loading User. This login can connect to the logical SQL server.
+2. In the query window, run this T-SQL command to create a login named MedRCLogin and user named LoadingUser. This login can connect to the logical SQL server.
 
     ```sql
-    CREATE LOGIN XLRCLOGIN WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
+    CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
+    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. Now querying the *SQL Data Warehouse database*, create a database user based on the login you created to access and perform operations on the database.
 
     ```sql
-    CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
+    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 4. Give the database user control permissions to the database called NYT. 
@@ -158,13 +159,16 @@ Since you are currently logged in as the server admin you have permissions to cr
     > If your database name has hyphens in it, be sure to wrap it in brackets! 
     >
 
-### Give the user extra large resource allocations
+### Give the user medium resource allocations
 
-1. Run this T-SQL command to make it a member of the extra large resource class, which is called xlargerc. 
+1. Run this T-SQL command to make it a member of the medium resource class, which is called mediumrc. 
 
     ```sql
-    EXEC sp_addrolemember 'xlargerc', 'LoadingUser';
+    EXEC sp_addrolemember 'mediumrc', 'LoadingUser';
     ```
+    > [!NOTE]
+    > Click [here](sql-data-warehouse-develop-concurrency.md#resource-classes) to learn more about concurrency and resource classes! 
+    >
 
 2. Connect to the logical server with the new credentials
 
@@ -222,7 +226,8 @@ You are now ready to load data into your data warehouse. This step shows you how
     WITH ( 
         FORMAT_TYPE = DELIMITEDTEXT,
         FORMAT_OPTIONS ( FIELD_TERMINATOR = '|',
-            STRING_DELIMITER = ''DATE_FORMAT = '',
+            STRING_DELIMITER = '',
+	    DATE_FORMAT = '',
             USE_TYPE_DEFAULT = False
         ),
         DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
@@ -351,7 +356,7 @@ You are now ready to load data into your data warehouse. This step shows you how
         LOCATION = 'Time',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value
+        REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
@@ -402,14 +407,14 @@ You are now ready to load data into your data warehouse. This step shows you how
     )
     WITH
     (
-        LOCATION = 'Weather2013'
+        LOCATION = 'Weather2013',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
-    ```
+```
 
 ### Import the data from Azure blob storage.
 
@@ -500,7 +505,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
         s.request_id,
         r.status,
         count(distinct input_name) as nbr_files,
-        sum(s.bytes_processed)/1024/1024 as gb_processed
+        sum(s.bytes_processed)/1024/1024/1024 as gb_processed
     FROM 
         sys.dm_pdw_exec_requests r
         INNER JOIN sys.dm_pdw_dms_external_work s
@@ -570,6 +575,9 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
 
 7. Run the query again! You should notice a significant difference. 
 
+    > [!NOTE]
+    > Because the query returns a lot of data, the bandwidth availability of the machine running SSMS may be a performance bottleneck. This can result in you not seeing any performance improvements!
+
 > [!NOTE]
 > Since SQL Data Warehouse uses massively parallel processing. Queries that scan or perform analytic functions on millions of rows experience the true power of
 > Azure SQL Data Warehouse.
@@ -603,7 +611,7 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
         tr.[TaxAmount],
         tr.[TipAmount],
         tr.[TollsAmount],
-        tr.[TotalAmount],
+        tr.[TotalAmount]
     FROM [dbo].[Trip] as tr
         JOIN dbo.[Date] as dt
         ON  tr.DateID = dt.DateID

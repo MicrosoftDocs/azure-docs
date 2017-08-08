@@ -1,7 +1,19 @@
 ---
-layout: LandingPage
+title: Azure HDInsight Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn Hadoop on HDInsight. Documentation shows you how to use Hadoop, Spark, HBase, R-Server, and more to process, analyze, and gain insights from big data.
+services: hdinsight
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: hdinsight
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
+
 #Azure HDInsight Documentation
 
 Learn how to use Hadoop in the cloud on HDInsight to analyze streaming or historical data. Tutorials and other documentation show you how to create clusters, process and analyze big data, and develop solutions with Hadoop, Spark, HBase, R-Server, Storm, and other technologies in the Hadoop ecosystem.
@@ -140,7 +152,7 @@ Learn how to use Hadoop in the cloud on HDInsight to analyze streaming or histor
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt271028.aspx">.NET (Hadoop)</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight">.NET (Hadoop)</a></p>
                         <p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p>
                         <p><a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library">.NET (Avro)</a></p>
                     </div>

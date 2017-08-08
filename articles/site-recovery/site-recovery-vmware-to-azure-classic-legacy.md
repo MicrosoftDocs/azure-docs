@@ -1,4 +1,4 @@
----
+﻿---
 title: Replicate VMware VMs and physical servers to Azure (classic legacy) | Microsoft Docs
 description: Describes how to replicate on-premises VMs and Windows/Linux physical servers to Azure using Azure Site Recovery in a legacy deployment in the classic portal.
 services: site-recovery
@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: f980fb52-8ec2-4dd9-85e2-8e52e449f1ba
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -55,12 +55,12 @@ Before you start:
 
 Migrate as follows:
 
-1. Read about [enhanced deployment in the classic portal](site-recovery-vmware-to-azure-classic.md#enhanced-deployment). Review the enhanced [architecture](site-recovery-vmware-to-azure-classic.md#scenario-architecture), and [prerequisites](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment).
+1. Read about [enhanced deployment in the classic portal](site-recovery-vmware-to-azure-classic.md). Review the enhanced [architecture](site-recovery-vmware-to-azure-classic.md), and [prerequisites](site-recovery-vmware-to-azure-classic.md).
 2. Uninstall the Mobility service from machines you're currently replicating. A new version of the service will be installed on the machines when you add them to the new protection group.
-3. Download a [vault registration key](site-recovery-vmware-to-azure-classic.md#step-4-download-a-vault-registration-key) and [run the unified setup wizard](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server) to install the configuration server, process server, and master target server components. Read more about [capacity planning](site-recovery-vmware-to-azure-classic.md#capacity-planning).
-4. [Set up credentials](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server) that Site Recovery can use to access VMware server to automatically discover VMware VMs. Learn about [required permissions](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-5. Add [vCenter servers or vSphere hosts](site-recovery-vmware-to-azure-classic.md#step-7-add-vcenter-servers-and-esxi-hosts). It can take 15 minutes for more for servers to appear in the Site Recovery portal.
-6. Create a [new protection group](site-recovery-vmware-to-azure-classic.md#step-8-create-a-protection-group). It can take up to 15 minutes for the portal to refresh so that the virtual machines are discovered and appear. If you don't want to wait you can highlight the management server name (don't click it) > **Refresh**.
+3. Download a [vault registration key](site-recovery-vmware-to-azure-classic.md) and [run the unified setup wizard](site-recovery-vmware-to-azure-classic.md) to install the configuration server, process server, and master target server components. Read more about [capacity planning](site-recovery-vmware-to-azure-classic.md).
+4. [Set up credentials](site-recovery-vmware-to-azure-classic.md) that Site Recovery can use to access VMware server to automatically discover VMware VMs. Learn about [required permissions](site-recovery-vmware-to-azure-classic.md).
+5. Add [vCenter servers or vSphere hosts](site-recovery-vmware-to-azure-classic.md). It can take 15 minutes for more for servers to appear in the Site Recovery portal.
+6. Create a [new protection group](site-recovery-vmware-to-azure-classic.md). It can take up to 15 minutes for the portal to refresh so that the virtual machines are discovered and appear. If you don't want to wait you can highlight the management server name (don't click it) > **Refresh**.
 7. Under the new protection group click **Migrate Machines**.
 
     ![Add account](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration1.png)
@@ -198,7 +198,7 @@ Note that:
 | **Azure storage** |You'll need an Azure storage account to store replicated data<br/><br/> Either the account should be a [Standard Geo-redundant Storage Account](../storage/storage-redundancy.md#geo-redundant-storage) or [Premium Storage Account](../storage/storage-premium-storage.md).<br/><br/> It must in the same region as the Azure Site Recovery service, and be associated with the same subscription. We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.<br/><br/> To learn more read [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md) | |
 | **Azure virtual network** |You'll need an Azure virtual network on which the configuration server and master target server will be deployed. It should be in the same subscription and region as the Azure Site Recovery vault. If you wish to replicate data over an ExpressRoute or VPN connection the Azure virtual network must be connected to your on-premises network over an ExpressRoute connection or a Site-to-Site VPN. | |
 | **Azure resources** |Make sure you have enough Azure resources to deploy all components. Read more in [Azure Subscription Limits](../azure-subscription-service-limits.md). | |
-| **Azure virtual machines** |Virtual machines you want to protect should conform with [Azure prerequisites](site-recovery-best-practices.md).<br/><br/> **Disk count**—A maximum of 31 disks can be supported on a single protected server<br/><br/> **Disk sizes**—Individual disk capacity shouldn't be more than 1023 GB<br/><br/> **Clustering**—Clustered servers aren't supported<br/><br/> **Boot**—Unified Extensible Firmware Interface(UEFI)/Extensible Firmware Interface(EFI) boot isn't supported<br/><br/> **Volumes**—Bitlocker encrypted volumes aren't supported<br/><br/> **Server names**—Names should contain between 1 and 63 characters (letters, numbers and hyphens). The name must start with a letter or number and end with a letter or number. After a machine is protected you can modify the Azure name. | |
+| **Azure virtual machines** |Virtual machines you want to protect should conform with [Azure prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).<br/><br/> **Disk count**—A maximum of 31 disks can be supported on a single protected server<br/><br/> **Disk sizes**—Individual disk capacity shouldn't be more than 1023 GB<br/><br/> **Clustering**—Clustered servers aren't supported<br/><br/> **Boot**—Unified Extensible Firmware Interface(UEFI)/Extensible Firmware Interface(EFI) boot isn't supported<br/><br/> **Volumes**—Bitlocker encrypted volumes aren't supported<br/><br/> **Server names**—Names should contain between 1 and 63 characters (letters, numbers and hyphens). The name must start with a letter or number and end with a letter or number. After a machine is protected you can modify the Azure name. | |
 | **Configuration server** |Standard A3 virtual machine based on an Azure Site Recovery Windows Server 2012 R2 gallery image will be created in your subscription for the configuration server. It's created as the first instance in a new cloud service. If you select Public Internet as the connectivity type for the configuration server the cloud service will be created with a reserved public IP address.<br/><br/> The installation path should be in English characters only. | |
 | **Master target server** |Azure virtual machine, standard A4, D14 or DS4.<br/><br/> The installation path  should be in English characters only. For example the path should be **/usr/local/ASR** for a master target server running Linux. | |
 | **Process server** |You can deploy the process server on physical or virtual machine running Windows Server 2012 R2 with the latest updates. Install on C:/.<br/><br/> We recommend you place the server on the same network and subnet as the machines you want to protect.<br/><br/> Install VMware vSphere CLI 5.5.0 on the process server. The VMware vSphere CLI component is required on the process server in order to discover virtual machines managed by a vCenter server or virtual machines running on an ESXi host.<br/><br/> The installation path should be in English characters only.<br/><br/> ReFS File System is not supported. | |

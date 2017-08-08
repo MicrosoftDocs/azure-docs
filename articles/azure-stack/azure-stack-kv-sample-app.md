@@ -3,8 +3,8 @@ title: Allow application to retrieve Azure Stack Key Vault secrets  | Microsoft 
 description: Use a sample app to work with Azure Stack Key Vault
 services: azure-stack
 documentationcenter: ''
-author: rlfmendes
-manager: natmack
+author: SnehaGunda
+manager: byronr
 editor: ''
 
 ms.assetid: 3748b719-e269-4b48-8d7d-d75a84b0e1e5
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2016
-ms.author: ricardom
+ms.date: 07/04/2017
+ms.author: sngun
 
 ---
 # Run the sample application for Key Vault
+
 In this guide, you'll use a sample application to retrieve secrets and passwords from Key Vault.
 
 ## Download the samples and prepare

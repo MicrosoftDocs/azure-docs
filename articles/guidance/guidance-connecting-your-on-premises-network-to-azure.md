@@ -4,12 +4,12 @@ description: Explains and compares the different methods available for connectin
 services: ''
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: ''
 
 ms.assetid: 294d39ad-40e0-476a-a362-57911b1172b7
-ms.service: guidance
+ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

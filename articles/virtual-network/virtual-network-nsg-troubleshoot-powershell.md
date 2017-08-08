@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot Network Security Groups - PowerShell | Microsoft Docs
 description: Learn how to troubleshoot Network Security Groups in the Azure Resource Manager deployment model using Azure PowerShell.
 services: virtual-network
@@ -41,7 +41,7 @@ While this example uses TCP port 3389, the following steps can be used to determ
 ## Detailed Troubleshooting Steps
 Complete the following steps to troubleshoot NSGs for a VM:
 
-1. Start an Azure PowerShell session and login to Azure. If you're not familiar with using Azure PowerShell, read the [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article.
+1. Start an Azure PowerShell session and login to Azure. If you're not familiar with using Azure PowerShell, read the [How to install and configure Azure PowerShell](/powershell/azure/overview) article.
 2. Enter the following command to return all NSG rules applied to a NIC named *VM1-NIC1* in the resource group *RG1*:
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

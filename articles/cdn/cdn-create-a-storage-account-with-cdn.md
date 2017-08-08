@@ -39,10 +39,11 @@ administrator or a co-administrator for the associated subscription.
 
 1. Sign in to the [Azure Portal](https://portal.azure.com).
 2. In the upper left corner, select **New**. In the **New** Dialog, select **Data  + Storage**, then click **Storage account**.
-   
-   The **Create storage account** blade appears.
-   
-   ![Create Storage Account][create-new-storage-account]
+	
+	The **Create storage account** blade appears.   
+
+	![Create Storage Account][create-new-storage-account]  
+
 3. In the **Name** field, type a subdomain name. This entry can contain 3-24 lowercase letters and numbers.
    
     This value becomes the host name within the URI that is used to
@@ -64,49 +65,42 @@ administrator or a co-administrator for the associated subscription.
 7. Select a location for your storage account.
 8. Click **Create**. The process of creating the storage account might take several minutes to complete.
 
-## Step 2: Create a new CDN profile
-A CDN profile is a collection of CDN endpoints.  Each profile contains one or more CDN endpoints.  You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria.
+## Step 2: Enable CDN for the storage account
 
-> [!TIP]
-> If you already have a CDN profile that you want to use for this tutorial, proceed to [Step 3](#step-3-create-a-new-cdn-endpoint).
+With the newest integration, you can now enable CDN for your storage account without leaving your storage portal extension. 
+
+1. Select the storage account, search "CDN" or scroll down from the left navigation menu, then click "Azure CDN".
+	
+	The **Azure CDN** blade appears.
+
+	![cdn enable navigation][cdn-enable-navigation]
+	
+2. Create a new endpoint by entering the required information
+	- **CDN Profile**: You can create a new or use an existing profile.
+	- **Pricing tier**: You only need to select a pricing tier if you create a new CDN profile.
+	- **CDN endpoint name**: Enter an endpoint name per your choice.
+
+	> [!TIP]
+   	> The created CDN endpoint uses the hostname of your storage account as origin by default.
+
+	![cdn new endpoint creation][cdn-new-endpoint-creation]
+
+3. After creation, the new endpoint will show up in the endpoint list above.
+
+	![cdn storage new endpoint][cdn-storage-new-endpoint]
+
+> [!NOTE]
+> You can also go to Azure CDN extension to enable CDN.[Tutorial](#Tutorial-cdn-create-profile).
 > 
 > 
 
-[!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
+[!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]  
 
-## Step 3: Create a new CDN endpoint
-**To create a new CDN endpoint for your storage account**
+## Step 3: Enable additional CDN features
 
-1. In the [Azure Management Portal](https://portal.azure.com), navigate to your CDN profile.  You may have pinned it to the dashboard in the previous step.  If you not, you can find it by clicking **Browse**, then **CDN profiles**, and clicking on the profile you plan to add your endpoint to.
-   
-    The CDN profile blade appears.
-   
-    ![CDN profile][cdn-profile-settings]
-2. Click the **Add Endpoint** button.
-   
-    ![Add endpoint button][cdn-new-endpoint-button]
-   
-    The **Add an endpoint** blade appears.
-   
-    ![Add endpoint blade][cdn-add-endpoint]
-3. Enter a **Name** for this CDN endpoint.  This name will be used to access your cached resources at the domain `<endpointname>.azureedge.net`.
-4. In the **Origin type** dropdown, select *Storage*.  
-5. In the **Origin hostname** dropdown, select your storage account.
-6. Leave the defaults for **Origin path**, **Origin host header**, and **Protocol/Origin port**.  You must specify at least one protocol (HTTP or HTTPS).
-   
-   > [!NOTE]
-   > This configuration enables all of your publicly visible containers in your storage account for caching in the CDN.  If you want to limit the scope to a single container, use **Origin path**.  Note the container must have its visibility set to public.
-   > 
-   > 
-7. Click the **Add** button to create the new endpoint.
-8. Once the endpoint is created, it appears in a list of endpoints for the profile. The list view shows the URL to use to access cached content, as well as the origin domain.
-   
-    ![CDN endpoint][cdn-endpoint-success]
-   
-   > [!NOTE]
-   > The endpoint will not immediately be available for use.  It can take up to 90 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 404 until the content is available via the CDN.
-   > 
-   > 
+From storage account "Azure CDN" blade, click the CDN endpoint from the list to open CDN configuration blade. You can enable additional CDN features for your delivery, such as compression, query string, geo filtering. You can also add custom domain mapping to your CDN endpoint and enable custom domain HTTPS.
+	
+![cdn storage cdn configuration][cdn-storage-cdn-configuration]
 
 ## Step 4: Access CDN content
 To access cached content on the CDN, use the CDN URL provided in the portal. The address for a cached blob will be similar to the following:
@@ -114,7 +108,7 @@ To access cached content on the CDN, use the CDN URL provided in the portal. The
 http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 
 > [!NOTE]
-> Once you enable CDN access to a storage account or hosted service, all publicly available objects are eligible for CDN edge caching. If you modify an object that is currently cached in the CDN, the new content will not be available via the CDN until the CDN refreshes its content when the cached content time-to-live period expires.
+> Once you enable CDN access to a storage account, all publicly available objects are eligible for CDN edge caching. If you modify an object that is currently cached in the CDN, the new content will not be available via the CDN until the CDN refreshes its content when the cached content time-to-live period expires.
 > 
 > 
 
@@ -130,10 +124,9 @@ An object already cached in the CDN will remain cached until the time-to-live pe
 
 ## Additional resources
 * [How to Map CDN Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
+* [Enable HTTPS for your custom domain](cdn-custom-ssl.md)
 
 [create-new-storage-account]: ./media/cdn-create-a-storage-account-with-cdn/CDN_CreateNewStorageAcct.png
-
-[cdn-profile-settings]: ./media/cdn-create-a-storage-account-with-cdn/cdn-profile-settings.png
-[cdn-new-endpoint-button]: ./media/cdn-create-a-storage-account-with-cdn/cdn-new-endpoint-button.png
-[cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
-[cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
+[cdn-enable-navigation]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-creation.png
+[cdn-storage-new-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png
+[cdn-storage-cdn-configuration]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png 

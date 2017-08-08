@@ -3,6 +3,7 @@
 ## [What is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
 ## [Data warehouse workload](sql-data-warehouse-overview-workload.md)
 ## [Distributed data](sql-data-warehouse-distributed-data.md)
+## [Frequently asked questions](sql-data-warehouse-overview-faq.md)
 
 # Get Started
 
@@ -10,6 +11,7 @@
 ## [Best practices](sql-data-warehouse-best-practices.md)
 ## [Manage](sql-data-warehouse-overview-manage.md)
 ## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)
+
 
 # How To
 
@@ -24,11 +26,11 @@
 ## Connect
 
 ### [Overview](sql-data-warehouse-connect-overview.md)
-### [Connection strings](sql-data-warehouse-connection-strings.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Install Visual Studio](sql-data-warehouse-install-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [Connection strings](sql-data-warehouse-connection-strings.md)
 
 ## Create
 ### [Azure portal](sql-data-warehouse-get-started-provision.md)
@@ -46,7 +48,9 @@
 #### [Data types](sql-data-warehouse-tables-data-types.md)
 #### [Distributed tables](sql-data-warehouse-tables-distribute.md)
 #### [Indexes](sql-data-warehouse-tables-index.md)
+#### [Identity](sql-data-warehouse-tables-identity.md)
 #### [Partitions](sql-data-warehouse-tables-partition.md)
+#### [Replicated tables](design-guidance-for-replicated-tables.md)
 #### [Statistics](sql-data-warehouse-tables-statistics.md)
 #### [Temporary](sql-data-warehouse-tables-temporary.md)
 
@@ -78,18 +82,22 @@
 
 ## Load
 
-### [Overview](sql-data-warehouse-overview-load.md)
-### [Sample data](sql-data-warehouse-load-sample-databases.md)
-### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
-### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [BCP from SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
-### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-### [PolyBase guidance](sql-data-warehouse-load-polybase-guide.md)
-### [PolyBase from blob storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [PolyBase from SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-### [RedGate](sql-data-warehouse-load-with-redgate.md)
-### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+### Concepts
+#### [Overview](sql-data-warehouse-overview-load.md)
+#### [PolyBase guidance](sql-data-warehouse-load-polybase-guide.md)
+
+### Tutorials
+#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+
+### How-to guides
+#### [Sample data](sql-data-warehouse-load-sample-databases.md)
+#### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
+#### [BCP](sql-data-warehouse-load-with-bcp.md)
+#### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
+#### [PolyBase from blob storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+#### [PolyBase from SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+#### [RedGate](sql-data-warehouse-load-with-redgate.md)
+#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
 ## Migrate
 
@@ -100,7 +108,7 @@
 ### [Migrate data](sql-data-warehouse-migrate-data.md)
 ### [Migrate to premium storage](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## Pause and scale
+## Manage compute
 
 ### [Overview](sql-data-warehouse-manage-compute-overview.md)
 ### [Azure portal](sql-data-warehouse-manage-compute-portal.md)
@@ -112,9 +120,8 @@
 
 ### [Overview](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Queries](sql-data-warehouse-manage-monitor.md)
+### [Monitor](sql-data-warehouse-manage-monitor.md)
 ### [Workload](sql-data-warehouse-develop-concurrency.md)
-### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
 
 ## Security
 
@@ -126,6 +133,9 @@
 ### [Encryption with T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Threat detection](sql-data-warehouse-security-threat-detection.md)
 
+## Troubleshoot
+### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
+
 # Reference
 
 ## [Capacity limits](sql-data-warehouse-service-capacity-limits.md)
@@ -135,10 +145,12 @@
 ## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
-## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
-## [Service updates](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Service updates](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partners

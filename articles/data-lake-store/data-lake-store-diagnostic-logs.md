@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2016
+ms.date: 05/10/2017
 ms.author: nitinme
 
 ---
@@ -28,17 +28,26 @@ Organizations can enable diagnostic logging for their Azure Data Lake Store acco
 
 ## Enable diagnostic logging for your Data Lake Store account
 1. Sign on to the new [Azure Portal](https://portal.azure.com).
-2. Open your Data Lake Store account, and from your Data Lake Store account blade, click **Settings**, and then click **Diagnostic Settings**.
+2. Open your Data Lake Store account, and from your Data Lake Store account blade, click **Settings**, and then click **Diagnostic logs**.
+3. In the **Diagnostics logs** blade, click **Turn on diagnostics**.
+
+	![Enable diagnostic logging](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Enable diagnostic logs")
+
 3. In the **Diagnostic** blade, make the following changes to configure diagnostic logging.
    
     ![Enable diagnostic logging](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
    
    * Set **Status** to **On** to enable diagnostic logging.
-   * You can choose to store/process the data in two different ways.
-     * Select the option to **Export to Event Hub** to stream log data to an Azure Event Hub. Most likely you will use this option if you have a downstream processing pipeline to analyze incoming logs at real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
-     * Select the option to **Export to Storage Account** to store logs to an Azure Storage account. You use this option if you want to archive the data that will be batch-processed at a later date. If you select this option you must provide an Azure Storage account to save the logs to.
+   * You can choose to store/process the data in different ways.
+     
+		* Select the option to **Archive to a storage account** to store logs to an Azure Storage account. You use this option if you want to archive the data that will be batch-processed at a later date. If you select this option you must provide an Azure Storage account to save the logs to.
+		
+		* Select the option to **Stream to an event hub** to stream log data to an Azure Event Hub. Most likely you will use this option if you have a downstream processing pipeline to analyze incoming logs at real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
+
+		* Select the option to **Send to Log Analytics** to use the Azure Log Analytics service to analyze the generated log data. If you select this option, you must provide the details for the Operations Management Suite workspace that you would use the perform log analysis.
+     
    * Specify whether you want to get audit logs or request logs or both.
-   * Specify the number of days for which the data must be retained.
+   * Specify the number of days for which the data must be retained. Retention is only applicable if you are using Azure storage account to archive log data.
    * Click **Save**.
 
 Once you have enabled diagnostic settings, you can watch the logs in the **Diagnostic Logs** tab.

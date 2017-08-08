@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/14/2016
+ms.date: 07/09/2017
 ms.author: magoedte;bwren
 
 ---
@@ -50,7 +50,7 @@ The following are a list of variable types available in Automation:
 
 ## Cmdlets and workflow activities
 
-The cmdlets in the following table are used to create and manage Automation variables with Windows PowerShell. They ship as part of the [Azure PowerShell module](/powershell/azureps-cmdlets-docs) which is available for use in Automation runbooks and DSC configuration.
+The cmdlets in the following table are used to create and manage Automation variables with Windows PowerShell. They ship as part of the [Azure PowerShell module](../powershell-install-configure.md) which is available for use in Automation runbooks and DSC configuration.
 
 |Cmdlets|Description|
 |:---|:---|
@@ -73,19 +73,9 @@ The workflow activities in the following table are used to access Automation var
 
 ### To create a new variable with the Azure portal
 
-1. From your automation account, click **Assets** at the top of the window.
-1. At the bottom of the window, click **Add Setting**.
-1. Click **Add Variable**.
-1. Complete the wizard and click the checkbox to save the new variable.
-
-
-### To create a new variable with the Azure portal
-
-1. From your automation account, click the **Assets** part to open the **Assets** blade.
-1. Click the **Variables** part to open the **Variables** blade.
-1. Click **Add a variable** at the top of the blade.
-1. Complete the form and click **Create** to save the new variable.
-
+1. From your Automation account, click the **Assets** tile and then on the **Assets** blade, select **Variables**.
+2. On the **Variables** tile, select **Add a variable**.
+3. Complete the options on the **New Variable** blade and click **Create** save the new variable.
 
 ### To create a new variable with Windows PowerShell
 
@@ -122,8 +112,8 @@ Use the **Set-AutomationVariable** activity to set the value of an Automation va
 
 The following sample commands show how to set and retrieve a variable in a textual runbook. In this sample, it is assumed that variables of type integer named *NumberOfIterations* and *NumberOfRunnings* and a variable of type string named *SampleMessage* have already been created.
 
-	$NumberOfIterations = Get-AutomationVariable -Name 'NumberOfIterations'
-	$NumberOfRunnings = Get-AutomationVariable -Name 'NumberOfRunnings'
+	$NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
+	$NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
 	$SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
 	
 	Write-Output "Runbook has been run $NumberOfRunnings times."
@@ -131,7 +121,7 @@ The following sample commands show how to set and retrieve a variable in a textu
 	for ($i = 1; $i -le $NumberOfIterations; $i++) {
 	   Write-Output "$i`: $SampleMessage"
 	}
-	Set-AutomationVariable –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
+	Set-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 
 #### Setting and retrieving a complex object in a variable
 

@@ -13,13 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 06/05/2017
 ms.author: mihauss
 
 ---
 # Azure Blob Storage: Hot and cool storage tiers
 ## Overview
-Azure Storage now offers two storage tiers for Blob object storage so that you can store your data most cost-effectively depending on how you use it. The Azure **hot storage tier** is optimized for storing data that is accessed frequently. The Azure **cool storage tier** is optimized for storing data that is infrequently accessed and long-lived. Data in the cool storage tier can tolerate slightly lower availability, but still requires high durability and similar time-to-access and throughput characteristics as hot data. For cool data a slightly lower availability SLA and higher access costs are acceptable trade-offs for much lower storage costs.
+Azure Storage offers two storage tiers for Blob object storage so that you can store your data most cost-effectively depending on how you use it. The Azure **hot storage tier** is optimized for storing data that is accessed frequently. The Azure **cool storage tier** is optimized for storing data that is infrequently accessed and long-lived. Data in the cool storage tier can tolerate slightly lower availability, but still requires high durability and similar time-to-access and throughput characteristics as hot data. For cool data a slightly lower availability SLA and higher access costs are acceptable trade-offs for much lower storage costs.
 
 Today, data stored in the cloud is growing at an exponential pace. To manage costs for your expanding storage needs, it's helpful to organize your data based on attributes like frequency-of-access and planned retention period. Data stored in the cloud can be different in terms of how it is generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime. Some data is accessed frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored.
 
@@ -205,7 +205,7 @@ For more details, please see [About Storage Analytics Metrics](https://msdn.micr
 > 
 
 To monitor the storage consumption for the Blob storage service, you will need to enable the capacity metrics.
-With this enabled, capacity data is recorded daily for a storage account’s Blob service, and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
+With this enabled, capacity data is recorded daily for a storage account's Blob service, and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
 
 To monitor the data access pattern for the Blob storage service, you will need to enable the hourly transaction metrics at an API level.
 With this enabled, per API transactions are aggregated every hour, and recorded as a table entry that is written to the *$MetricsHourPrimaryTransactionsBlob* table within the same storage account. The *$MetricsHourSecondaryTransactionsBlob* table records the transactions to the secondary endpoint in case of RA-GRS storage accounts.
@@ -264,7 +264,8 @@ The cost of geo-replication data transfer for Blob storage accounts can also be 
 
 ### Migrating existing data
 A Blob storage account is specialized for storing only block and append blobs. Existing general-purpose storage accounts, which allow you to store tables, queues, files and disks, as well as blobs, cannot be converted to Blob storage accounts. To use the storage tiers, you will need to create new Blob storage accounts and migrate your existing data into the newly created accounts.
-You can use the following methods to migrate existing data into Blob storage accounts from on-premise storage devices, from third-party cloud storage providers, or from your existing general-purpose storage accounts in Azure:
+
+You can use the following methods to migrate existing data into Blob storage accounts from on-premises storage devices, from third-party cloud storage providers, or from your existing general-purpose storage accounts in Azure:
 
 #### AzCopy
 AzCopy is a Windows command-line utility designed for high-performance copying of data to and from Azure Storage. You can use AzCopy to copy data into your Blob storage account from your existing general-purpose storage accounts, or to upload data from your on-premises storage devices into your Blob storage account.

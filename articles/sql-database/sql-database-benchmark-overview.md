@@ -9,13 +9,13 @@ editor: monicar
 
 ms.assetid: e26f8a66-2c12-49d7-8297-45b4d48a5c01
 ms.service: sql-database
-ms.custom: overview
+ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/21/2016
-ms.author: carlrab; janeng
+ms.author: janeng
 
 ---
 # Azure SQL Database benchmark overview
