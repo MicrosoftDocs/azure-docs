@@ -18,7 +18,7 @@ ms.date: 08/07/2017
 ms.author: ramankum
 ---
 
-# How to convert managed disks from standard to premium, and vice versa
+# Convert managed disks storage from standard to premium, and vice versa
 
 Managed disks offers two storage options: [Premium](storage-premium-storage.md) (SSD-based) and [Standard](storage-standard-storage.md) (HDD-based). It allows you to easily switch between the two options with minimal downtime based on your performance needs. This capability is not available for unmanaged disks. But you can easily [convert to managed disks](convert-unmanaged-to-managed-disks.md) to easily switch between the two options.
 
@@ -30,7 +30,7 @@ This article shows you how to convert managed disks from standard to premium, an
 * If you are using unmanaged disks, first [convert to managed disks](convert-unmanaged-to-managed-disks.md) to use this article to switch between the two storage options 
 
 
-## Convert all the disks of a VM from standard to premium, and vice versa
+## Convert all the managed disks of a VM from standard to premium, and vice versa
 
 In the following example, we show how to switch all the disks of a VM from standard to premium storage. To use premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage. This example also switches to a size that supports premium storage.
 
@@ -63,7 +63,7 @@ foreach ($disk in $vmDisks)
 
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
-## Convert a single disk of a VM from standard to premium, and vice versa
+## Convert a managed disk storage from standard to premium, and vice versa
 
 For your dev/test workload, you may want to have mixture of standard and premium disks to reduce your cost. You can accomplish it by upgrading to premium storage, only the disks that require better performance. In the following example, we show how to switch a single disk of a VM from standard to premium storage, and vice versa. To use premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage. This example also switches to a size that supports premium storage.
 
