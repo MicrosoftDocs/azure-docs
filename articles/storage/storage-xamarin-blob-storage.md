@@ -241,7 +241,7 @@ Once you run your app, it will create the container `mycontainer` in your Storag
 In this tutorial, you learned how to create a cross-platform application in Xamarin that uses Azure Storage, specifically focusing on one scenario in Blob Storage. However, you can do a lot more with not only Blob Storage, but also with Table, File, and Queue Storage. Please check out the following articles to learn more:
 
 * [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
-* [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md)
+* [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Get started with Azure Queue storage using .NET](storage-dotnet-how-to-use-queues.md)
 * [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
 
