@@ -5,8 +5,8 @@
   - name: Choose Blobs, Files, or Data Disks
     href: storage-decide-blobs-files-disks.md
 - name: Blobs
-  href: ./blobs/storage-introduction.md
+  href: ./blobs/introduction-to-blobs.md
 - name: Files 
-  href: ./files/storage-introduction.md
+  href: ./files/files-storage-introduction.md
 - name: Queues
-  href: ./queues/files-storage-introduction.md 
+  href: ./queues/introduction-to-queues.md 

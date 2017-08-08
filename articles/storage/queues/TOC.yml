@@ -1,7 +1,7 @@
 - name: Overview
   items:
-  - name: Introduction
-    href: ../storage-introduction.md
+  - name: Introduction to Queues
+    href: storage-introduction-to-queues.md
 
 - name: Get Started
   items:
