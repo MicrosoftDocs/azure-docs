@@ -50,22 +50,19 @@ To complete this tutorial, you'll need:
 Set up Jenkins to receive GitHub webhooks when new commits are pushed to a repo in your account.
 
 1. Select **Manage Jenkins**, then **Configure System**. In the **GitHub** section, make sure **Manage hooks** is selected and then select **Manage additional GitHub actions** and choose **Convert login and password to token**.
-2. Select the **From login and password** radio button and enter your GitHub username and password. Select **Create token credentials** to create a new [GitHub Personal Access Token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
+2. Select the **From login and password** radio button and enter your GitHub username and password. Select **Create token credentials** to create a new [GitHub Personal Access Token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
    ![Create GitHub PAT from login and password](media/jenkins-java-quickstart/create_github_credentials.png)
-3.  Select the newly created token from the **Credentials** drop down in the GitHub Servers configuration. Select **Test connection** to verify that the authentication is working.
+3.  Select the newly created token from the **Credentials** drop down in the GitHub Servers configuration. Select **Test connection** to verify that the authentication is working.   
    ![Verify connection to GitHub once PAT is configured](media/jenkins-java-quickstart/verify_github_connection.png)
 
 > [!NOTE]
 > If your GitHub account has two-factor authentication enabled, you'll need to create the GitHub PAT manually and configure Jenkins to use it. Review the [Jenkins GitHub plugin](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) documentation for full details.
 
-## Fork the GitHub repo
-
-
 ## Fork the sample repo and create a Jenkins job 
 
 1. Open the [Spring Boot sample application repo](https://github.com/spring-guides/gs-spring-boot-docker) and fork it to your own GitHub account by selecting **Fork** in the top right-hand corner.   
     ![Fork from GitHub](media/jenkins-java-quickstart/fork_github_repo.png)
-1. In the Jenkins web console, select **New Item**, then enter a name **DeployToAzure** and select **Freestyle project**, then select **OK**.   
+1. In the Jenkins web console, select **New Item**, give it a name  **DeployToAzure**, select **Freestyle project**, then select **OK**.   
     ![New Jenkins Freestyle Project](media/jenkins-java-quickstart/jenkins_freestyle.png)
 2. Under the **General** section, select **GitHub** project and enter your forked repo URL, such as https://github.com/raisa/gs-spring-boot-docker
 3. Under the **Source code management**  section, select **Git**, enter your forked repo `.git` URL, such as https://github.com/raisa/gs-spring-boot-docker.git
@@ -95,7 +92,8 @@ Set up Jenkins to receive GitHub webhooks when new commits are pushed to a repo 
     ```azurecli-interactive
     az acr create --name jenkinsregistry --resource-group myResourceGroupJenkins --sku Basic --admin-enabled
     ```
-3. Configure the web app to run from Docker images pushed to the container registry and specify that the app running in the container listens for requests on port 8080.
+3. Configure the web app to run Docker images pushed to the container registry and specify that the app running in the container listens for requests on port 8080.   
+
     ```azurecli-interactive
     az webapp config container set -c jenkinsregistry/webapp --resource-group myResourceGroupJenkins --name deployToAzure
     az webapp config appsettings set --resource-group myResourceGroupJenkins --name deployToAzure --settings PORT=8080
@@ -105,9 +103,9 @@ Set up Jenkins to receive GitHub webhooks when new commits are pushed to a repo 
 
 1. In the Jenkins web console, select the **DeployToAzure** job you created earlier and then select **Configure** on the left hand of the page.
 2. Scroll down to **Post-build Actions**, then select **Add post-build action** and choose **Publish an Azure Web App**.
-3. Under **Azure Profile Configuration**, select **Add** next to **Azure Credentials**, then choose **Jenkins**.
+3. Under **Azure Profile Configuration**, select **Add** next to **Azure Credentials** and choose **Jenkins**.
 4. In the **Add Credentials** page, select **Microsoft Azure Service Principal** from the **Kind** drop-down.
-5. Create an Active Directory Service principal to allow Jenkins to push to the container registry update the Docker image used by App Service.
+5. Create an Active Directory Service principal from the Azure CLI or Cloud Shell.
     
     ```azurecli-interactive
     az ad sp create-for-rbac --name jenkins_sp --password secure_password
@@ -138,6 +136,7 @@ Set up Jenkins to receive GitHub webhooks when new commits are pushed to a repo 
 12. Select **Add** next to **Registry Credentials**. 
 13. Enter the admin username for the Azure Container registry you created for **Username**.
 14. Enter the password for the Azure Container registry in the **Password** field. You can get your username and password from the Azure portal or through the following CLI command:
+
     ```azurecli-interactive
     az acr credential show -n jenkinsregistry
     ```
@@ -155,7 +154,7 @@ Set up Jenkins to receive GitHub webhooks when new commits are pushed to a repo 
 
 ## Push changes and redeploy
 
-1. From your Github fork, browse to `complete/src/main/java/Hello/Application.java`. Select the **Edit this file** link from the GitHub UI.
+1. From your Github fork, browse on the web to  `complete/src/main/java/Hello/Application.java`. Select the **Edit this file** link from the right-hand side of the GitHub interface.
 2. Make the following change to the `home()` method and commit the change to the repo's master branch.
     ```java
     return "Hello Docker World on Azure";
