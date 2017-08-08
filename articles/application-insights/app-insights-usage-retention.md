@@ -60,5 +60,8 @@ Or in ASP.NET server code:
 
 * [Usage overview](app-insights-usage-overview.md)
 * [Users and sessions](app-insights-usage-segmentation.md)
+* [Funnels](usage-funnels.md)
+* [Workbooks](app-insights-usage-workbooks.md)
 * [Coding custom events](app-insights-api-custom-events-metrics.md)
+* [Add user context](app-insights-usage-send-user-context.md)
 
