@@ -157,7 +157,7 @@ In this section, you can enable Azure AD SSO in the Azure portal and configure S
 	![The "Save" button](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 > [!TIP]
-> As you set up the app, you can read a concise version of the preceding instructions in the [Azure portal](https://portal.azure.com). After you add the app from the **Active Directory** > **Enterprise applications** section, select the **Single sign-on** tab, and then access the embedded documentation from the **Configuration** section. 
+> As you set up the app, you can read a concise version of the preceding instructions in the [Azure portal](https://portal.azure.com). After you add the app from the **Active Directory** > **Enterprise applications** section, select the **Single sign-on** tab. Then access the embedded documentation from the **Configuration** section. 
 
 To learn more about the embedded documentation feature, see [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
@@ -230,7 +230,7 @@ Provision a user account by doing the following:
 	
 	d. Select **OK**.
 
-5. On the **Single sign-on** tab, in the **SAML 2.0 Identifiers** section, select **Add New** .
+5. On the **Single sign-on** tab, in the **SAML 2.0 Identifiers** section, select **Add New**.
 
 	![The "Add New" button](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "User")
 
