@@ -58,7 +58,7 @@ A new Log Analytics query language has been released and in order to take advant
 
 For further information to understand the benefits, considerations, and process to upgrade, see [Upgrading Azure Log Analytics to new log search](log-analytics-log-search-upgrade.md).  
 
-## 3 Add solutions and solution offerings
+## 4 Add solutions and solution offerings
 
 Next, add management solutions and solution offerings. Management solutions are a collection of logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area. A solution offering is a bundle of management solutions.
 
@@ -94,7 +94,7 @@ Next, create a simple virtual machine in Azure. After you create a VM, onboard t
 
 - Follow the directions at [Connect Azure virtual machines to Log Analytics](log-analytics-azure-vm-extension.md) to connect the VM to Log Analytics using the Azure portal.
 
-## 5 View and act on data
+## 6 View and act on data
 
 Previously, you enabled the Activity Log Analytics solution and the Security & Compliance and Automation & Control service offerings. Next, we start looking at data collected by solutions and results in log searches.
 
