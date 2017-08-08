@@ -17,7 +17,7 @@ ms.date: 08/08/2017
 ms.author: yurid
 
 ---
-# Set security policies in Azure Security Center
+# Alerts Validation in Azure Security Center
 This document helps you learn how to verify if your system is proper configured for Azure Security Center alerts.
 
 ## What are security alerts?
