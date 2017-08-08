@@ -18,7 +18,7 @@ After you have created custom acoustic models or language models, you can deploy
 ## Create the endpoint
 To create a new custom endpoint, select **Deployments** on the **Custom Speech** menu at the top of the page. This action takes you to the **Deployments** page, which contains a table of current custom endpoints. If you have not yet created any endpoints, the table is empty. The current locale is reflected in the table title. 
 
-To create a deployment for a different language, select **Change Locale**. For additional information about supported languages, see [Supported locales in Custom Speech Service](cognitive-services-custom-speech-change-locale.md).
+To create a deployment for a different language, select **Change Locale**. For more information about supported languages, see [Supported locales in Custom Speech Service](cognitive-services-custom-speech-change-locale.md).
 
 To create a new endpoint, select **Create New**. In the **Create Deployment** pane, enter information in the **Name** and **Description** boxes of your custom deployment.
 
@@ -36,7 +36,7 @@ The following table shows how scale units map to available concurrent requests:
 
 You can also select whether content logging is switched on or off. That is, you're selecting whether the endpoint traffic is stored for Microsoft internal use.
 
-In addition, Microsoft provides a rough estimate of costs so that that you are aware of the impact on the costs of scale units and content logging. This estimate is a rough estimate and might differ from your actual costs.
+In addition, Microsoft provides a rough estimate of costs so that you are aware of the impact on the costs of scale units and content logging. This estimate is a rough estimate and might differ from your actual costs.
 
 > [!NOTE]
 > These settings are not available with F0 (free tier) subscriptions.
