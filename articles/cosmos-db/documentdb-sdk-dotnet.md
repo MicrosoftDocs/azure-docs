@@ -50,7 +50,7 @@ ms.custom: H1Hack27Feb2017
 ## Release notes
 
 ### <a name="1.16.1"/>1.16.1
-* Fixed an issue in JsonSerializable class that may cause stack overflow exception.
+* Fixed an issue in the JsonSerializable class that may cause a stack overflow exception.
 
 ### <a name="1.16.0"/>1.16.0
 *	Fixed an issue that required recompiling of the application due to the introduction of JsonSerializerSettings as an optional parameter in the DocumentClient constructor.
