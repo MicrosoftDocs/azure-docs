@@ -19,7 +19,7 @@
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 #### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
-## [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md)
+## [Get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
 
 # How to
@@ -79,6 +79,7 @@
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 #### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
+### [Set up Office 365 groups expiration](active-directory-groups-lifecycle-azure-portal.md)
 ### [View all groups](active-directory-groups-view-azure-portal.md)
 ### [Enable dedicated groups](active-directory-accessmanagement-dedicated-groups.md)
 ### [Add group access to SaaS apps](active-directory-accessmanagement-group-saasapps.md)
