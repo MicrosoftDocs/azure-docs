@@ -154,7 +154,7 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
 ## Deploy the app from GitHub
 
 1. From the Jenkins project, select **Build Now** to deploy the sample app to Azure.
-2. Once the build completes, your app will be running in Azure at http://deployToAzure.azurewebsites.net.
+2. Once the build completes, your app is live on Azure at it's publishing URL , for example http://deployToAzure.azurewebsites.net.   
    ![View your deployed app on Azure](media/jenkins-java-quickstart/hello_docker_world_unedited.png)
 
 ## Push changes and redeploy
@@ -164,7 +164,7 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
     ```java
     return "Hello Docker World on Azure";
     ```
-3. A new build will start in Jenkins, triggered by the new commit on the `master` branch of the repo. Once it completes, reload your app on Azure.   
+3. A new build starts in Jenkins, triggered by the new commit on the `master` branch of the repo. Once it completes, reload your app on Azure.     
       ![View your deployed app on Azure](media/jenkins-java-quickstart/hello_docker_world.png)
   
 
