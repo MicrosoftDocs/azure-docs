@@ -12,15 +12,15 @@ ms.date: 08/06/2017
 ms.author: sajagtap
 ---
 
-# Text Moderation API Overview #
+# Text Moderation API overview
 
 Content Moderator’s Text Moderation API does more than screen text: it also matches against custom and shared lists that are specific to your business and users, and search for PII (personally identifiable information). In addition, it can auto-correct text before screening it, which helps catch deliberately misspelled words. After content is processed, results are sent, along with relevant information, either to the Review Tool or to a specified system. You use this information to make decisions about content: take it down, send to a human judge, etc.
 
-## Language detection ##
+## Language detection
 
 The first step is determining the language of the content to be moderated. The Text - Detect Language function returns language codes for the predominant language of the submitted text.
 
-## Screening text ##
+## Screening text
 
 The Text - Screen function does it all – scans the incoming text (maximum 1024 characters) for profanity, autocorrects text, and extracts Personally Identifiable Information (PII), all while matching against custom lists of terms.
 
@@ -33,11 +33,11 @@ The response includes this information:
 - Original text
 - Language
 
-## Profanity terms ##
+## Profanity terms
 
 If any terms are detected, those terms are included in the response, along with their starting index (location) within the original text.
 
-## PII ##
+## PII
 
 The PII feature detects the potential presence of this information:
 
@@ -45,7 +45,7 @@ The PII feature detects the potential presence of this information:
 - Phone
 - Mailing Address
 
-## Auto-correction ##
+## Auto-correction
 
 Suppose the input text is (the ‘lzay’ is intentional):
 
@@ -55,12 +55,12 @@ If you ask for auto-correction, the response contains the corrected version of t
 
 	“The quick brown fox jumps over the lazy dog."
 
-## Creating and managing your custom lists of terms ##
+## Creating and managing your custom lists of terms
 
 While the default, global list of terms works great for most cases, you may want to screen against terms that are specific to your business needs. For example, you may want to filter out any competitive brand names from posts by users. Your threshold of permitted text content may be different from the default list.
 
 The Content Moderator provides a complete [Term List API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) with operations for creating and deleting lists of terms, and for adding and removing text terms from those lists.
 
-## Next steps ##
+## Next steps
 
 Test drive the Text Moderation API by using the [Try Text Moderation API](try-text-api.md) article.
