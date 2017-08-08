@@ -12,12 +12,11 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Try Workflow Operations #
+# Try workflow operations
 
-## About the Workflow Operations ##
 Use the Review API's [Workflow operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) to create or update or get workflow details by using the Review API. You can define simple or complex and even nested expressions for your workflows by using this API. These workflows appear within the review tool for your team and are used by the Review API's Job operations.
 
-## Try with the API console ##
+## Try with the API console
 Before you can test-drive the API from the online console, you will need a few values.
 
 - **team**: The team name you created when you set up your review tool account. 
@@ -57,6 +56,6 @@ The simplest way to access a testing console is from the Credentials window.
 
   ![Test Drive Review Step 7](images/test-drive-workflow-6.PNG)
 
-## Next steps ##
+## Next steps
 
 To learn how to use workflows with **Jobs**, see the [Try Moderation Jobs](try-review-api-job.md) article.
