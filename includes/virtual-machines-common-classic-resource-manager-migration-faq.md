@@ -36,10 +36,10 @@ During migration, the resources transform from classic to Resource Manager. So w
 
 Classic VM recovery points in a backup vault don't automatically migrate to a Recovery Services vault when you move the VM from classic to Resource Manager mode. Follow these steps to transfer your VM backups:
 
-1. In the Backup vault, go to the **Protected Items** tab and select the VM. Click [Stop Protection](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
+1. In the Backup vault, go to the **Protected Items** tab and select the VM. Click [Stop Protection](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
 2. Delete the backup/snapshot extension from the VM.
 3. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure the storage and network information corresponding to the virtual machine is also migrated to Resource Manager mode.
-4. Create a Recovery Services vault and configure backup on the migrated virtual machine using **Backup** action on top of vault dashboard. For detailed information on backing up a VM to a Recovery Services vault, see the article, [Protect Azure VMs with a Recovery Services vault](backup-azure-vms-first-look-arm.md).
+4. Create a Recovery Services vault and configure backup on the migrated virtual machine using **Backup** action on top of vault dashboard. For detailed information on backing up a VM to a Recovery Services vault, see the article, [Protect Azure VMs with a Recovery Services vault](../articles/backup/backup-azure-vms-first-look-arm.md).
 
 ## Can I validate my subscription or resources to see if they're capable of migration? 
 
