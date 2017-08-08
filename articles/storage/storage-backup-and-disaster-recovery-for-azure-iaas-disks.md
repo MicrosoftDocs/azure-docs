@@ -94,11 +94,11 @@ You have an application that computes, maintains, and serves critical commercial
 
 ## Disaster Recovery Solution: Azure Backup Service
 
-[Azure Backup Service](https://azure.microsoft.com/services/backup/) is can be used for Backup and DR, and it works with [Managed Disks](storage-managed-disks-overview.md) as well as [Unmanaged Disks](storage-about-disks-and-vhds-windows.md#unmanaged-disks). You can create a backup job with time-based backups, easy VM restoration and backup retention policies. 
+[Azure Backup Service](https://azure.microsoft.com/services/backup/) is can be used for Backup and DR, and it works with [Managed Disks](../virtual-machines/windows/managed-disks-overview.md) as well as [Unmanaged Disks](../virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). You can create a backup job with time-based backups, easy VM restoration and backup retention policies. 
 
-If you use [Premium Storage disks](storage-premium-storage.md), [Managed Disks](storage-managed-disks-overview.md), or other disk types with the [locally redundant storage (LRS)](storage-redundancy.md#locally-redundant-storage) option, it is especially important to leverage periodic DR backups. Azure Backup stores the data in your Recovery Services vault for long term retention. Choose the [Geo-redundant storage (GRS)](storage-redundancy.md#geo-redundant-storage) option for the Backup Recovery Services vault. That will ensure backups are replicated to a different Azure region for safeguarding from regional disasters.
+If you use [Premium Storage disks](storage-premium-storage.md), [Managed Disks](../virtual-machines/windows/managed-disks-overview.md), or other disk types with the [locally redundant storage (LRS)](storage-redundancy.md#locally-redundant-storage) option, it is especially important to leverage periodic DR backups. Azure Backup stores the data in your Recovery Services vault for long term retention. Choose the [Geo-redundant storage (GRS)](storage-redundancy.md#geo-redundant-storage) option for the Backup Recovery Services vault. That will ensure backups are replicated to a different Azure region for safeguarding from regional disasters.
 
-For [Unmanaged Disks](storage-about-disks-and-vhds-windows.md#unmanaged-disks), you can use the LRS storage type for IaaS disks, but ensure that Azure Backup is enabled with the GRS option for the Recovery Services Vault.
+For [Unmanaged Disks](../virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks), you can use the LRS storage type for IaaS disks, but ensure that Azure Backup is enabled with the GRS option for the Recovery Services Vault.
 
 **If you use the [GRS](storage-redundancy.md#geo-redundant-storage)/[RA-GRS](storage-redundancy.md#read-access-geo-redundant-storage) option for your Unmanaged Disks, you still need consistent snapshots for Backup and DR.** You must use either [Azure Backup Service](https://azure.microsoft.com/services/backup/) or [consistent snapshots](#alternative-solution-consistent-snapshots).
 
@@ -168,7 +168,7 @@ You can also use PowerShell for [restoring a VM](../backup/backup-azure-vms-auto
 
 ## Alternative Solution: Consistent Snapshots
 
-If you are unable to use the Azure Backup Service, you can implement your own backup mechanism using snapshots. It is complicated to create consistent snapshots for all disks used by a VM and then replicate those snapshots to another region. For this reason, Azure considers leveraging the Backup Service a better option than building a custom solution. If you use RA-GRS/GRS storage for disks, snapshots are automatically replicated to a secondary data center. If you use LRS storage for disks, you will need to replicate the data yourself. For more information, see [Back up Azure unmanaged VM disks with incremental snapshots](storage-incremental-snapshots.md).
+If you are unable to use the Azure Backup Service, you can implement your own backup mechanism using snapshots. It is complicated to create consistent snapshots for all disks used by a VM and then replicate those snapshots to another region. For this reason, Azure considers leveraging the Backup Service a better option than building a custom solution. If you use RA-GRS/GRS storage for disks, snapshots are automatically replicated to a secondary data center. If you use LRS storage for disks, you will need to replicate the data yourself. For more information, see [Back up Azure unmanaged VM disks with incremental snapshots](../virtual-machines/windows/incremental-snapshots.md).
 
 A snapshot is a representation of an object at a specific point in time. A snapshot will incur billing for the incremental size of the data it holds. For more information, see [Create a blob snapshot](storage-blob-snapshots.md).
 
@@ -213,7 +213,7 @@ If you are using GRS or RA-GRS for your disks, then the snapshots are replicated
 
 If you are using LRS, you must copy the snapshots to a different storage account immediately after creating the snapshot. The copy target could be an LRS storage account in a different region, resulting in the copy being in a remote region. You can also copy the snapshot to an RA-GRS storage account in the same region. In this case, the snapshot will be lazily replicated to the remote secondary region. Your backup is protected from disasters at the primary site once the copying and replication is complete.
 
-To copy your incremental snapshots for DR efficiently, review the instructions in [Back up Azure unmanaged VM disks with incremental snapshots](storage-incremental-snapshots.md).
+To copy your incremental snapshots for DR efficiently, review the instructions in [Back up Azure unmanaged VM disks with incremental snapshots](../virtual-machines/windows/incremental-snapshots.md).
 
 ![][2]
 

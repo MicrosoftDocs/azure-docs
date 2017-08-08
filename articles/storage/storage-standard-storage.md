@@ -30,7 +30,7 @@ There are two ways to create standard disks for Azure VMs:
 **Unmanaged disks**: 
 This is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. Unmanaged disks can be attached to any Azure VM size, including the VMs that primarily use Premium Storage, such as the DSv2 and GS series. Azure VMs support attaching several standard disks, allowing up to 256 TB of storage per VM.
 
-[**Azure Managed Disks**](storage-managed-disks-overview.md):
+[**Azure Managed Disks**](../virtual-machines/windows/managed-disks-overview.md):
 This feature manages the storage accounts used for the VM disks for you. You specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. You don't have to worry about placing the disks across multiple storage accounts in order to ensure you stay within the scalability limits for the storage accounts -- Azure handles that for you.
 
 Even though both types of disks are available, we recommend using Managed Disks to take advantage of their many features.
@@ -96,7 +96,7 @@ To the Storage service, the VHD file is a page blob. You can take snapshots of p
 
 ### Unmanaged disks
 
-You can create [incremental snapshots](storage-incremental-snapshots.md) for unmanaged standard disks in the same way you use snapshots with Standard Storage. We recommend that you create snapshots and then copy those snapshots to a geo-redundant standard storage account if your source disk is in a locally-redundant storage account. For more information, see [Azure Storage Redundancy Options](storage-redundancy.md).
+You can create [incremental snapshots](../virtual-machines/windows/incremental-snapshots.md) for unmanaged standard disks in the same way you use snapshots with Standard Storage. We recommend that you create snapshots and then copy those snapshots to a geo-redundant standard storage account if your source disk is in a locally-redundant storage account. For more information, see [Azure Storage Redundancy Options](storage-redundancy.md).
 
 If a disk is attached to a VM, certain API operations are not permitted on the disks. For example, you cannot perform a [Copy Blob](/rest/api/storageservices/Copy-Blob) operation on that blob as long as the disk is attached to a VM. Instead, first create a snapshot of that blob by using the [Snapshot
 Blob](/rest/api/storageservices/Snapshot-Blob) REST API method, and then perform the [Copy
@@ -150,7 +150,7 @@ You can also use the Azure Backup service with Managed Disks to create a backup 
 
 * [Create a storage account](storage-create-storage-account.md)
 
-* [Managed Disks Overview](storage-managed-disks-overview.md)
+* [Managed Disks Overview](../virtual-machines/windows/managed-disks-overview.md)
 
 * [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 

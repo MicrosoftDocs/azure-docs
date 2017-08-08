@@ -56,7 +56,7 @@
 ### [Add a managed disk to a Linux VM](../virtual-machines/linux/add-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
-### [Using managed disks in Resource Manager templates](storage-using-managed-disks-template-deployments.md)
+### [Using managed disks in Resource Manager templates](../virtual-machines/windows/using-managed-disks-template-deployments.md)
 
 # How To
 ## [Create a storage account](storage-create-storage-account.md)
@@ -81,12 +81,12 @@
 ### [Troubleshoot Azure Files - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Use disks
-### [Disks and VHDs for Windows VMs](storage-about-disks-and-vhds-windows.md)
-### [Disks and VHDs for Linux VMs](storage-about-disks-and-vhds-linux.md)
-### [Azure Managed Disks Overview](storage-managed-disks-overview.md)
+### [Disks and VHDs for Windows VMs](../virtual-machines/windows/about-disks-and-vhds.md)
+### [Disks and VHDs for Linux VMs](../virtual-machines/linux/about-disks-and-vhds.md)
+### [Azure Managed Disks Overview](../virtual-machines/windows/managed-disks-overview.md)
 ### [Migrate Azure VMs to Azure Managed Disks](../virtual-machines/windows/migrate-to-managed-disks.md)
 ### [Migrate from AWS and other platforms to Managed Disks](../virtual-machines/windows/on-prem-to-azure.md)
-### [Frequently Asked Questions about Azure IaaS VM Disks](storage-faq-for-disks.md)
+### [Frequently Asked Questions about Azure IaaS VM Disks](../virtual-machines/windows/faq-for-disks.md)
 ### Premium Storage
 #### [High-performance Premium Storage for VM Disks](storage-premium-storage.md)
 #### [Migrating to Premium Storage using Azure Site Recovery](storage-migrate-to-premium-storage-using-azure-site-recovery.md)
@@ -95,7 +95,7 @@
 #### [Cost-effective Standard Storage and unmanaged and managed VM Disks](storage-standard-storage.md)
 ### Using unmanaged disks
 #### [Migrate to Premium Storage](storage-migration-to-premium-storage.md)
-#### [Back up unmanaged VM disks with incremental snapshots](storage-incremental-snapshots.md)
+#### [Back up unmanaged VM disks with incremental snapshots](../virtual-machines/windows/incremental-snapshots.md)
 ## Plan and design
 ### [Replication](storage-redundancy.md)
 ### [Scalability and performance targets](storage-scalability-targets.md)
