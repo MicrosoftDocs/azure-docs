@@ -12,7 +12,7 @@ ms.date: 07/08/2017
 ms.author: panosper
 ---
 
-# Creating a custom speech-to-text endpoint
+# Create a custom speech-to-text endpoint
 After you have created custom acoustic models or language models, you can deploy them in a custom speech-to-text endpoint. 
 
 ## Create an endpoint
