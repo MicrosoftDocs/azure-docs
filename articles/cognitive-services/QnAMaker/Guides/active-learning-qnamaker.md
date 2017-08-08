@@ -27,6 +27,7 @@ The new [QnAMakerDialog](https://github.com/Microsoft/BotBuilder-CognitiveServic
 * Once the user selects the right question that matches intent, show the answer for that corresponding question.
 * This selection also triggers a feedback into the QnAMaker service via the  [Train API](https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58edd31c3d9e041ffcef000f), described below.
 ![Active Learning Example](../Images/activeLearningExample.png)
+
 ## Train API ##
 The [Train API](https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58edd31c3d9e041ffcef000f) is used to register feedback from users.
 
