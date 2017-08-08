@@ -76,7 +76,7 @@ To add Cezanne HR software from the gallery, do the following:
 
 	![The results list](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_addfromgallery.png)
 
-##  Configure and test Azure AD single sign-on
+## Configure and test Azure AD single sign-on
 In this section, you configure and test Azure AD SSO with Cezanne HR software based on a test user called "Britta Simon."
 
 For SSO to work, Azure AD needs to know the Cezanne HR software counterpart to the Azure AD user. In other words, you must establish a link relationship between an Azure AD user and the related user in the Cezanne HR software.
@@ -106,7 +106,7 @@ In this section, you can enable Azure AD SSO in the Azure portal and configure S
 	b. In the **Reply URL** box, type a URL that has the following syntax: `https://w3.cezanneondemand.com:443/<tenantid>`    
 	 
 	> [!NOTE] 
-	> These preceding values are not real. Update them with the actual reply URL and the sign-on URL. To obtain the values, contact the [Cezanne HR software client support team](mailto:info@cezannehr.com).
+	> The preceding values are not real. Update them with the actual reply URL and the sign-on URL. To obtain the values, contact the [Cezanne HR software client support team](mailto:info@cezannehr.com).
 
 4. Under **SAML Signing Certificate**, select **Certificate (Base64)**, and then save the certificate file on your computer.
 
@@ -124,9 +124,9 @@ In this section, you can enable Azure AD SSO in the Azure portal and configure S
 
 8. In the left pane, select **System Setup**. Select **Security Settings** > **Single Sign-On Configuration**.
 
-	![The "System Setup" tab](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
+	![The "Single Sign-On Configuration" link](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-9. In the **Allow users to log in using the following Single Sign-On (SSO) Services** pane, select the **SAML 2.0** check box and select the **Advanced Configuration** option.
+9. In the **Allow users to log in using the following Single Sign-On (SSO) services** pane, select the **SAML 2.0** check box and select the **Advanced Configuration** option.
 
 	![Single sign-on services options](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
@@ -136,28 +136,28 @@ In this section, you can enable Azure AD SSO in the Azure portal and configure S
 
 11. Under **SAML 2.0 Identity Providers**, do the following:
 
-   ![The "SAML 2.0 Identity Providers" section](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
+	![The "SAML 2.0 Identity Providers" section](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
 	
-a. In the **Display Name** box, enter the name of your identity provider.
+	a. In the **Display Name** box, enter the name of your identity provider.
 
-b. In the **Entity Identifier** box, paste the **SAML Entity ID** that you copied from the Azure portal. 
+	b. In the **Entity Identifier** box, paste the **SAML Entity ID** that you copied from the Azure portal. 
 
-c. In the **SAML Binding** list box, select **POST**.
+	c. In the **SAML Binding** list box, select **POST**.
 
-d. In the **Security Token Service Endpoint** box, paste the **SAML Single Sign-on Service** URL that you copied from the Azure portal. 
+	d. In the **Security Token Service Endpoint** box, paste the **SAML Single Sign-On Service** URL that you copied from the Azure portal. 
 	
-e. In the **User ID Attribute Name** box, enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+	e. In the **User ID Attribute Name** box, enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 	
-f. To upload the downloaded certificate from Azure AD, select **Upload**.
+	f. To upload the downloaded certificate from Azure AD, select the **Upload** button.
 	
-g. Select **OK**. 
+	g. Select **OK**. 
 
 12. Select **Save**.
 
 	![The "Save" button](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 > [!TIP]
-> As you set up the app, you can read a concise version of the preceding instructions in the [Azure portal](https://portal.azure.com). After you add the app from the **Active Directory** > **Enterprise Applications** section, select the **Single Sign-On** tab, and then access the embedded documentation from the **Configuration** section. 
+> As you set up the app, you can read a concise version of the preceding instructions in the [Azure portal](https://portal.azure.com). After you add the app from the **Active Directory** > **Enterprise applications** section, select the **Single sign-on** tab, and then access the embedded documentation from the **Configuration** section. 
 
 To learn more about the embedded documentation feature, see [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
@@ -173,7 +173,7 @@ To create a test user in Azure AD, do the following:
 
 	![The "Azure Active Directory" button](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_01.png) 
 
-2. To display the list of users, go to **Users and groups** > **All users**.
+2. To display the list of users, select **Users and groups** > **All users**.
 	
 	![The "All users" link](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_02.png) 
 	The **All users** dialog box opens.
@@ -206,7 +206,7 @@ Provision a user account by doing the following:
 
     ![The "Add New User" link](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "New User")
 
-3.  Under **PERSON DETAILS**, do the following:
+3.  Under **Person Details**, do the following:
 
     ![The "Person Details" section](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "New User")
 	
@@ -222,7 +222,7 @@ Provision a user account by doing the following:
 
     ![The "Account Information" section](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "New User")
 	
-	a. In the **Username** box, type the user's email, for example, Brittasimon@contoso.com.
+	a. In the **Username** box, type the user's email address, for example, Brittasimon@contoso.com.
 	
 	b. In the **Password** box, type the user's password.
  	
@@ -230,7 +230,7 @@ Provision a user account by doing the following:
 	
 	d. Select **OK**.
 
-5. Go to the **Single Sing-on** tab, and in the **SAML 2.0 Identifiers** section, select **Add New** .
+5. On the **Single sign-on** tab, in the **SAML 2.0 Identifiers** section, select **Add New** .
 
 	![The "Add New" button](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "User")
 
@@ -276,7 +276,7 @@ In this section, you test your Azure AD SSO configuration by using the Access Pa
 
 When you select the Cezanne HR software tile in the Access Panel, you sign on automatically to your Cezanne HR software application.
 
-## Additional resources
+## Next steps
 
 * [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and SSO with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
