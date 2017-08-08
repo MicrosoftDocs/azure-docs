@@ -721,4 +721,4 @@ This section illustrates how to delete an entity from a table.
 View more feature guides to learn about additional options for storing data in Azure.
 
   * [Get started with Azure blob storage and Visual Studio Connected Services (ASP.NET)](../visual-studio/vs-storage-aspnet-getting-started-blobs.md)
-  * [Get started with Azure queue storage and Visual Studio Connected Services (ASP.NET)](./vs-storage-aspnet-getting-started-queues.md)
+  * [Get started with Azure queue storage and Visual Studio Connected Services (ASP.NET)](../visual-studio/vs-storage-aspnet-getting-started-queues.md)
