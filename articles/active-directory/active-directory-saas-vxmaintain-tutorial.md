@@ -148,7 +148,7 @@ In this section, you create test user Britta Simon in the Azure portal by doing 
 
     a. In the **Name** box, type **BrittaSimon**.
 
-    b. In the **User name** box, type user Britta Simon's **email address**.
+    b. In the **User name** box, type user Britta Simon's email address**.
 
 	c. Select the **Show Password** check box, and then note the value that was generated in the **Password** box.
 
@@ -156,41 +156,40 @@ In this section, you create test user Britta Simon in the Azure portal by doing 
  
 ### Create a vxMaintain test user
 
-In this section, you create test user Britta Simon in vxMaintain. Work with [vxMaintain support team](http://www.verisae.com/contact-us) to add the users in the vxMaintain platform. Users must be created and activated before you use SSO.
+In this section, you create test user Britta Simon in vxMaintain. To add users in the vxMaintain platform, work with the [vxMaintain support team](http://www.verisae.com/contact-us). Before you use SSO, create and activate the users.
 
 ### Assign the Azure AD test user
 
-In this section, you enable test user Britta Simon to use Azure SSO by granting access to vxMaintain, by doing the following:
+In this section, you enable test user Britta Simon to use Azure SSO by granting access to vxMaintain. To do so, do the following:
 
-![Assign User][200] 
+![Test user in the Display Name list][200] 
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then select **All applications**.
+1. In the Azure portal **Applications** view, go to the **Directory** view > **Enterprise applications** > **All applications**.
 
-	![Assign User][201] 
+	![The "All applications" link][201] 
 
-2. In the applications list, select **vxMaintain**.
+2. In the **Applications** list, select **vxMaintain**.
 
-	![Configure single sign-on](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_app.png) 
+	![The vxMaintain link](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_app.png) 
 
-3. In the menu on the left, select **Users and groups**.
+3. In the left pane, select **Users and groups**.
 
-	![Assign User][202] 
+	![The "Users and groups" link][202] 
 
-4. Select **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+4. Select **Add** and then, in the **Add Assignment** pane, select **Users and groups**.
 
-	![Assign User][203]
+	![The "Users and groups" link][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+5. In the **Users and groups** dialog box, in the **Users** list, select **Britta Simon**, and then select the **Select** button.
 
-6. Select **Select** button on **Users and groups** dialog.
-
-7. Select **Assign** button on **Add Assignment** dialog.
+7. In the **Add Assignment** dialog box, select **Assign**.
 	
 ### Test single sign-on
 
-In this section, you test your Azure AD SSO configuration using the Access Panel.
+In this section, you test your Azure AD SSO configuration by using the Access Panel.
 
-When you select the vxMaintain tile in the Access Panel, you should get automatically signed-on to your vxMaintain application.
+Selecting the **vxMaintain** tile in the Access Panel should sign you in to your vxMaintain application automatically.
+
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Next steps
