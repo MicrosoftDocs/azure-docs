@@ -32,11 +32,9 @@
       href: ../storage-ruby-how-to-use-queue-storage.md
 - name: How To
   items:
-  - name: Concepts
-    href: https://msdn.microsoft.com/library/dd179353.aspx
   - name: Samples
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=queue
 
-#try this as an include file 
+#include file for the articles that apply to >1 service
 - name: Common
-  href: ../general/toc.yml
+  href: ../toc.yml
