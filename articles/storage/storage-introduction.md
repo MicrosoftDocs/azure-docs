@@ -236,7 +236,7 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### For Java/Android developers
 * [How to use Blob storage from Java](storage-java-how-to-use-blob-storage.md)
-* [How to use Table storage from Java](storage-java-how-to-use-table-storage.md)
+* [How to use Table storage from Java](../cosmos-db/table-storage-how-to-use-java.md)
 * [How to use Queue storage from Java](storage-java-how-to-use-queue-storage.md)
 * [How to use File storage from Java](storage-java-how-to-use-file-storage.md)
 
