@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 07/19/2017
+ms.date: 08/08/2017
 ms.author: kavyako
 
 ---
@@ -23,7 +23,7 @@ The events are available in two channels, one with only error events related to 
 
 Refer to [Collect reverse proxy events](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events) to enable collecting events from these channels in local and Azure Service Fabric clusters.
 
-## Troubleshooting guide
+## Troubleshoot using diagnostics logs
 Here are some examples on how to interpret the common failure logs that one can encounter:
 
 1. Reverse proxy returns response status code 504 (Timeout).
@@ -66,7 +66,7 @@ The second event indicates that the request failed while forwarding to service, 
     {
       "Timestamp": "2017-07-20T16:00:01.3173605-07:00",
       ...
-      "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Error while forwarding request to service: response status code = 504, description = Reverse Proxy Timeout, phase = FinishSendRequest, internal error = ERROR_WINHTTP_TIMEOUT ",
+      "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Error while forwarding request to service: response status code = 504, description = Reverse proxy Timeout, phase = FinishSendRequest, internal error = ERROR_WINHTTP_TIMEOUT ",
       ...
       "Payload": {
         "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
@@ -78,7 +78,7 @@ The second event indicates that the request failed while forwarding to service, 
     }
     ```
 
-2. Reverse Proxy returns response status code 404 (Not Found). 
+2. Reverse proxy returns response status code 404 (Not Found). 
     
     Here is an example event where reverse proxy returns 404 since it failed to find the matching service endpoint.
     The payload  entries of interest here are:
@@ -133,6 +133,8 @@ The second event indicates that the request failed while forwarding to service, 
     ```
     When collecting all the events, you see a train of events showing every resolve and forward attempt.
     The last event in the series shows the request processing has failed with a timeout, along with the number of successful resolve attempts.
+    > It is recommended to keep the  verbose channel event collection disabled by default and enable it for troubleshooting on a need basis.
+
     ```
     {
       ...
@@ -181,5 +183,4 @@ The second event indicates that the request failed while forwarding to service, 
 * [Event aggregation and collection using Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) for enabling log collection in Azure clusters.
 * To view Service Fabric events in Visual Studio, see [Monitor and diagnose locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 * Refer to [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) for Azure Resource Manager template samples to configure secure reverse proxy with the different service certificate validation options.
-* For any details about the reverse proxy, see [Service Fabric reverse proxy](service-fabric-reverseproxy.md).
-
+* Read [Service Fabric reverse proxy](service-fabric-reverseproxy.md) to learn more.
