@@ -247,7 +247,7 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### For PHP developers
 * [How to use Blob storage from PHP](storage-php-how-to-use-blobs.md)
-* [How to use Table storage from PHP](storage-php-how-to-use-table-storage.md)
+* [How to use Table storage from PHP](../cosmos-db/table-storage-how-to-use-php.md)
 * [How to use Queue storage from PHP](storage-php-how-to-use-queues.md)
 
 ### For Ruby developers

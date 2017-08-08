@@ -33,7 +33,7 @@
 ### [Java](../cosmos-db/table-storage-how-to-use-java.md)
 ### [Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md)
 ### [C++](../cosmos-db/table-storage-how-to-use-c-plus.md)
-### [PHP](storage-php-how-to-use-table-storage.md)
+### [PHP](../cosmos-db/table-storage-how-to-use-php.md)
 ### [Python](storage-python-how-to-use-table-storage.md)
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 

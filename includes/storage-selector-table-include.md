@@ -3,7 +3,7 @@
 > * [Node.js](../articles/cosmos-db/table-storage-how-to-use-nodejs.md)
 > * [Java](../articles/cosmos-db/table-storage-how-to-use-java.md)
 > * [C++](../articles/cosmos-db/table-storage-how-to-use-c-plus.md)
-> * [PHP](../articles/storage/storage-php-how-to-use-table-storage.md)
+> * [PHP](../articles/cosmos-db/table-storage-how-to-use-php.md)
 > * [Ruby](../articles/storage/storage-ruby-how-to-use-table-storage.md)
 > * [Python](../articles/storage/storage-python-how-to-use-table-storage.md)
 > 
