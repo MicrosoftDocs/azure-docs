@@ -33,15 +33,15 @@ After Security Center agent is installed on your computer, follow the steps belo
 
     ![Alert Validation](./media/security-center-alert-validation/security-center-alert-validation-fig1.png)
 
-When reviewing this alert, make sure the field Arguments Auditing Enabled appears as true. If it shows false, you will need to enable command line arguments auditing. You can enable this option using the command line below:
+When reviewing this alert, make sure the field Arguments Auditing Enabled appears as true. If it shows false, you need to enable command-line arguments auditing. You can enable this option using the command line the follows:
 
 *reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"*
 
 
 ## See also
-This article introduced you to the alerts validation process. Now that you're familiar with these validation, try the following steps:
+This article introduced you to the alerts validation process. Now that you're familiar with this validation, try the following articles:
 
-* [Managing and responding to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how manage alerts, and respond to security incidents in Security Center.
+* [Managing and responding to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts, and respond to security incidents in Security Center.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
 * [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Learn about the different types of security alerts.
 * [Azure Security Center Troubleshooting Guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Learn how to troubleshoot common issues in Security Center. 
