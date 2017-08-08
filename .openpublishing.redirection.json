@@ -8241,6 +8241,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cloud-services/cloud-services-faq.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-application-and-service-availability-faq",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cloud-services/cloud-services-continuous-delivery-use-vso.md",
             "redirect_url": "/azure/cloud-services/cloud-services-dotnet-continuous-delivery",
             "redirect_document_id": false
