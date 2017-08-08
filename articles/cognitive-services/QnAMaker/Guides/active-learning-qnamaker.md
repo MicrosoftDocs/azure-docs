@@ -51,5 +51,5 @@ To safeguard against fraud feedback, the system requires that similar feedback h
 
 The active learning process kicks in after every 50 feedbacks sent to the service via the [Train API](https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58edd31c3d9e041ffcef000f).
 
-In both the above cases, the learnt QnAs and the alterations need to be published explicitly by the developer, to impact the production endpoint. This gives you a change to review the active learning changes before impacting your users.
+In both the above cases, the learnt QnAs and the alterations need to be published explicitly by the developer, to impact the production endpoint. This step gives you a change to review the active learning changes before impacting your users.
 
