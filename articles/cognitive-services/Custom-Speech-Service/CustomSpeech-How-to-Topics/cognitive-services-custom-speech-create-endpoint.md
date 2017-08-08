@@ -15,7 +15,7 @@ ms.author: panosper
 # Creating a custom speech-to-text endpoint
 After you have created custom acoustic models or language models, you can deploy them in a custom speech-to-text endpoint. 
 
-## Create the endpoint
+## Create an endpoint
 To create a new custom endpoint, select **Deployments** on the **Custom Speech** menu at the top of the page. This action takes you to the **Deployments** page, which contains a table of current custom endpoints. If you have not yet created any endpoints, the table is empty. The current locale is reflected in the table title. 
 
 To create a deployment for a different language, select **Change Locale**. For more information about supported languages, see [Supported locales in Custom Speech Service](cognitive-services-custom-speech-change-locale.md).
