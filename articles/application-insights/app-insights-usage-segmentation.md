@@ -65,7 +65,7 @@ The Insights sidebar shows large clusters of users that share common properties.
 
 * [Usage overview](app-insights-usage-overview.md)
 * [Funnels](usage-funnels.md)
-* [Segmentation](app-insights-usage-retention.md)
+* [Retention](app-insights-usage-retention.md)
 * [Workbooks](app-insights-usage-workbooks.md)
 * [Coding custom events](app-insights-api-custom-events-metrics.md)
 * [Add user context](app-insights-usage-send-user-context.md)
