@@ -226,7 +226,7 @@ For Azure Service Fabric clusters, modify the resource manager template to inclu
 > It is recommended to judiciously enable collecting events from this channel as this collects all traffic through the reverse proxy and can quickly consume storage capacity.
 
 For Azure Service Fabric clusters, the events from all the nodes are collected and aggregated in the SystemEventTable.
-For detailed troubleshooting of the reverse proxy events, refer the [reverse proxy diagnostics guide](service-fabric-reverseproxy-diagnostics.md).
+For detailed troubleshooting of the reverse proxy events, refer the [reverse proxy diagnostics guide](service-fabric-reverse-proxy-diagnostics.md).
 
 ## Collect from new EventSource channels
 
