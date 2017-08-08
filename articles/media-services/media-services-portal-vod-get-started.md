@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/07/2017
 ms.author: juliako
 
 ---
@@ -151,6 +151,7 @@ Click the desired video and then click the **Play** button.
 
 Some considerations apply:
 
+* To begin streaming, start running the **default** streaming endpoint.
 * Make sure the video has been published.
 * This **Media player** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, click to copy the URL and use another player. For example, [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
