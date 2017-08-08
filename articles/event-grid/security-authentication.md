@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 08/07/2017
 ms.author: babanisa
 ---
 
@@ -23,39 +23,27 @@ WebHook authentication is not available in the preview release.
 
 ## Event subscription
 
-To subscribe to an event, you must have the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the required resource. The required resource differs based on whether you are subscribing to a system or user topic. Both types are described in this section.
+To subscribe to an event, you must have the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the required resource. The required resource differs based on whether you are subscribing to a system event or topic. Both types are described in this section.
 
-### System topics (Azure service publishers)
+### System event (Azure service publishers)
 
-For system topics, you need permission on the resource publishing the event. The format of the resource is:
+For system events, you need permission on the resource publishing the event. The format of the resource is:
+`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
-```
-/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}
-```
+For example, to subscribe to an event on a storage account named **myacct**, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:
+`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
 
-For example, to subscribe to a topic on a storage account named **myacct**, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:
+### Topics
 
-```
-/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct
-```
+For topics, you need permission on the Event Grid topic. The format of the resource is:
+`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
-### User topics
+For example, to subscribe to a topic named **mytopic**, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:
+`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
-For user topics, you need permission on the Event Grid topic. The format of the resource is:
+## Topic publishing
 
-```
-/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}
-```
-
-For example, to subscribe to a user topic named mytopic, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:
-
-```
-/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic
-```
-
-## User topic publishing
-
-User topics use either Shared Access Signature (SAS) or key authentication. We recommend SAS, but key authentication provides simple programming, and is compatible with many existing webhook publishers. 
+Topics use either Shared Access Signature (SAS) or key authentication. We recommend SAS, but key authentication provides simple programming, and is compatible with many existing webhook publishers. 
 
 You include the authentication value in the HTTP header. For SAS, use **aeg-sas-token** for the header value. For key authentication, use **aeg-sas-key** for the header value.
 
@@ -109,5 +97,4 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## Next steps
 
-* For an introduction to Event Grid, see [What is Event Grid?](overview.md)
-* To learn about creating an Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
+* For an introduction to Event Grid, see [About Event Grid?](overview.md)
