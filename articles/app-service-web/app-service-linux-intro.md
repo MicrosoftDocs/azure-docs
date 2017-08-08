@@ -65,8 +65,8 @@ For Kudu, some of the basic functionality:
 
 For devops:
 
-* Staging environments
-* DockerHub CI/CD
+* Deployment Slots
+* ACR and DockerHub CI/CD
 
 ## Limitations
 The Azure portal shows only features that currently work for Web App on Linux and hides the rest. As we enable more features, they will be visible on the portal.
@@ -79,6 +79,7 @@ This public preview is currently only available in the following regions:
 * West Europe 
 * Southeast Asia
 * Australia East
+* Japan East
 
 Web Apps on Linux is only supported in the Dedicated app service plans and does not have a Free or Shared tier. Also, App Service plans for regular and Linux web apps are mutually exclusive, so you cannot create a Linux web app in a non-Linux app service plan.
 
