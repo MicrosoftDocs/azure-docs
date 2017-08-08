@@ -5,8 +5,8 @@
   - name: Choose Blobs, Files, or Data Disks
     href: storage-decide-blobs-files-disks.md
 - name: Blobs
-  href: ./blobs/TOC.yml
+  href: ./blobs/storage-introduction.md
 - name: Files 
-  href: ./files/TOC.yml
+  href: ./files/storage-introduction.md
 - name: Queues
-  href: ./queues/TOC.yml
+  href: ./queues/files-storage-introduction.md 
