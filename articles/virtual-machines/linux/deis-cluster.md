@@ -24,7 +24,7 @@ This article walks you through provisioning a [Deis](http://deis.com/) cluster o
 
 The following diagram shows the architecture of the deployed system. A system administrator manages the cluster using Deis tools such as **deis** and **deisctl**. Connections are established through an Azure load balancer, which forwards the connections to one of the member nodes on the cluster. The clients access deployed applications through the load balancer as well. In this case, the load balancer forwards the traffic to a Deis router mesh, which further routs traffic to corresponding Docker containers hosted on the cluster.
 
-  ![Architecture diagram of deployed Desis cluster](./media/deis-cluster/architecture-overview.png)
+  ![Architecture diagram of deployed Deis cluster](./media/deis-cluster/architecture-overview.png)
 
 In order to run through the following steps, you'll need:
 
@@ -152,7 +152,7 @@ You can use `deisctl list` to verify if all services are running:
     deis-store-volume.service       9c79bbdd.../10.0.0.5    loaded  active          running
     deis-store-volume.service       ebe3005e.../10.0.0.6    loaded  active          running
 
-Congratulations! Now you've got a running Deis clsuter on Azure! Next, let's deploy a sample Go application to see the cluster in action.
+Congratulations! Now you've got a running Deis cluster on Azure! Next, let's deploy a sample Go application to see the cluster in action.
 
 ## Deploy and scale a Hello World application
 The following steps show how to deploy a "Hello World" Go application to the cluster. The steps are based on [Deis documentation](http://docs.deis.io/en/latest/using_deis/using-dockerfiles/#using-dockerfiles).

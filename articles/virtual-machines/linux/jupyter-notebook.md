@@ -31,7 +31,7 @@ scalable computational resources with all the power of Python and its many
 libraries.  Since the installation is handled by the service, users can access these
 resources without the need for administration and configuration by the user.
 
-If the notebook service does not work for your scenario please continue to read this article which will will show you how to deploy the Jupyter Notebook on Microsoft Azure, using Linux virtual machines (VMs).
+If the notebook service does not work for your scenario, please continue to read this article, which will show you how to deploy the Jupyter Notebook on Microsoft Azure, using Linux virtual machines (VMs).
 
 [!INCLUDE [create-account-and-vms-note](../../../includes/create-account-and-vms-note.md)]
 
@@ -56,7 +56,7 @@ To run the Jupyter Notebook on our VM, we must first install Jupyter and
 its dependencies. Connect to your linux vm using ssh and the username/password pair you chose when you created the vm. In this tutorial we will use PuTTY and connect from Windows.
 
 ### Installing Jupyter on Ubuntu
-Install Anaconda, a popular data science python distribution, using one of the links provided from [Continuum Analytics](https://www.continuum.io/downloads).  As of the writing of this document, the below links are the most up to date versions.
+Install Anaconda, a popular data science python distribution, using one of the links provided from [Continuum Analytics](https://www.continuum.io/downloads).  As of the writing of this document, the below links are the most up-to-date versions.
 
 #### Anaconda Installs for Linux
 <table>
@@ -103,7 +103,7 @@ As an example, this is how you can install Anaconda on Ubuntu
 ![Screenshot](./media/jupyter-notebook/anaconda-install.png)
 
 ### Configuring Jupyter and using SSL
-After installing we need to take a moment to setup the configuration files for Jupyter. If you experience troubles with configuring Jupyter it may be helpful to look at the [Jupyter Documentation for Running a Notebook Server](http://jupyter-notebook.readthedocs.org/en/latest/public_server.html).
+After installing we need to take a moment to set up the configuration files for Jupyter. If you experience troubles with configuring Jupyter it may be helpful to look at the [Jupyter Documentation for Running a Notebook Server](http://jupyter-notebook.readthedocs.org/en/latest/public_server.html).
 
 Next we `cd` to the profile directory to create our SSL certificate and edit
 the profiles configuration file.
@@ -167,7 +167,7 @@ You should now be able to access your Jupyter Notebook at the address
 
 When you first access your notebook, the login page asks for your password. And
 once you log in, you will see the "Jupyter Notebook Dashboard", which is the
-ontrol center for all notebook operations.  From this page you can create
+control center for all notebook operations.  From this page you can create
 new notebooks and open existing ones.
 
 ![Screenshot](./media/jupyter-notebook/jupyter-tree-view.png)
