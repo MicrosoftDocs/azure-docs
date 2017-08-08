@@ -8704,7 +8704,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/virtual-machines/windows/hero-role .md",
+            "source_path": "articles/virtual-machines/windows/hero-role.md",
             "redirect_url": "articles/virtual-machines/windows/quick-create-portal",
             "redirect_document_id": false
         },
@@ -8744,7 +8744,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/virtual-machines/windows/load-balance .md",
+            "source_path": "articles/virtual-machines/windows/load-balance.md",
             "redirect_url": "articles/virtual-machines/windows/tutorial-load-balancer",
             "redirect_document_id": false
         },
