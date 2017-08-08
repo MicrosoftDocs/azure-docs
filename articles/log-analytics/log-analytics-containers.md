@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/08/2017
 ms.author: magoedte;banders
 
 ---
@@ -104,8 +104,7 @@ You need the following settings configured on your container hosts before you ca
 
 ## Linux container hosts
 
-After you've installed Docker, use the following settings for your container host to configure the agent for use with Docker. You'll need your [OMS workspace ID and key](log-analytics-agent-linux.md).
-
+After you've installed Docker, use the following settings for your container host to configure the agent for use with Docker. You'll need your OMS workspace ID and key, which you can find by switching to the [OMS classic portal](https://mms.microsoft.com).  On the **Overview** page, from the top menu select **Settings**, and then navigate to **Connected Sources\Windows Servers**.  On the right of **Workspace ID**, click the copy icon and paste the ID into Notepad and do the same for the **Primary Key**.  
 
 ### For all Linux container hosts except CoreOS
 
@@ -132,7 +131,7 @@ If you previously used the directly-installed agent and want to instead use an a
 
 ### Configure an OMS agent for Docker Swarm
 
-You can run the OMS Agent as a global service on Docker Swarm. Use the following information to create an OMS Agent service. You need to insert your Workspace ID and Primary Key.
+You can run the OMS Agent as a global service on Docker Swarm. Use the following information to create an OMS Agent service. You need to insert your OMS Workspace ID and Primary Key.
 
 - Run the following on the master node.
 
@@ -186,7 +185,7 @@ In this section we cover the steps required to install the OMS Agent as an OpenS
     No events.  
     ```
 
-If you want to use secrets to secure your Log Analytics Workspace ID and Primary Key when using the OMS Agent daemon-set yaml file, perform the following steps.
+If you want to use secrets to secure your OMS Workspace ID and Primary Key when using the OMS Agent daemon-set yaml file, perform the following steps.
 
 1. Sign on to the OpenShift master node and copy the yaml file [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) and secret generating script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) from GitHub.  This script will generate the secrets yaml file for OMS Workspace ID and Primary Key to secure your secrete information.  
 2. Run the following commands to create a project for OMS and set the user account. The secret generating script asks for your OMS Workspace ID <WSID> and Primary Key <KEY> and upon completion, it creates the ocp-secret.yaml file.  
