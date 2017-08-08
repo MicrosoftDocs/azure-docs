@@ -61,7 +61,7 @@ If your proxy setting does not allow Azure storage access directly, open the **A
       </system.diagnostics>   
 
 ## How can I see the subscription information in Windows events?
-Append the **subscriptionid** to the friendly name while adding the source.
+Append the **subscription id** to the friendly name while adding the source.
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
 The event XML has the metadata as shown below, including the subscription id.
@@ -69,7 +69,7 @@ The event XML has the metadata as shown below, including the subscription id.
 ![Event XML][1]
 
 ## Error messages
-### When running command **azlog createazureid**, why do I get the following error?
+### When running command ```azlog createazureid```, why do I get the following error?
 Error:
 
   *Failed to create AAD Application - Tenant 72f988bf-86f1-41af-91ab-2d7cd011db37 - Reason = 'Forbidden' - Message = 'Insufficient privileges to complete the operation.'*
