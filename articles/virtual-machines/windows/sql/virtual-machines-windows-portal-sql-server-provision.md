@@ -6,19 +6,14 @@ documentationcenter: na
 author: rothja
 manager: jhubbard
 tags: azure-resource-manager
-
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
-
 ms.workload: infrastructure-services
 ms.date: 08/08/2017
 ms.author: jroth
-experimental: true
-experimental_id: a641df96-f27d-40
-
 ---
 # Provision a SQL Server virtual machine in the Azure Portal
 > [!div class="op_single_selector"]
