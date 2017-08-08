@@ -165,8 +165,8 @@ In the web app initializer such as Global.asax.cs:
 All new TelemetryClients automatically add the property value you specify. Individual telemetry events can override the default values.
 
 ## Next steps
-
-* [Users and sessions](app-insights-usage-segmentation.md)
-* [Retention](app-insights-usage-retention.md)
-* [Coding custom events](app-insights-api-custom-events-metrics.md)
-
+   - [Users, Sessions, Events](app-insights-usage-segmentation.md)
+   - [Funnels](usage-funnels.md)
+   - [Retention](app-insights-usage-retention.md)
+   - [Workbooks](app-insights-usage-workbooks.md)
+   - [Add user context](app-insights-usage-send-user-context.md)
