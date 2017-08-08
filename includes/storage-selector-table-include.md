@@ -4,7 +4,7 @@
 > * [Java](../articles/cosmos-db/table-storage-how-to-use-java.md)
 > * [C++](../articles/cosmos-db/table-storage-how-to-use-c-plus.md)
 > * [PHP](../articles/cosmos-db/table-storage-how-to-use-php.md)
-> * [Ruby](../articles/storage/storage-ruby-how-to-use-table-storage.md)
+> * [Ruby](../articles/cosmos-db/table-storage-how-to-use-ruby.md)
 > * [Python](../articles/cosmos-db/table-storage-how-to-use-python.md)
 > 
 > 

@@ -252,7 +252,7 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### For Ruby developers
 * [How to use Blob storage from Ruby](storage-ruby-how-to-use-blob-storage.md)
-* [How to use Table storage from Ruby](storage-ruby-how-to-use-table-storage.md)
+* [How to use Table storage from Ruby](../cosmos-db/table-storage-how-to-use-ruby.md)
 * [How to use Queue storage from Ruby](storage-ruby-how-to-use-queue-storage.md)
 
 ### For Python developers
