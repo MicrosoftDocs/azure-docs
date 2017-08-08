@@ -118,6 +118,6 @@ To pin a link to a workbook to an Azure Dashboard:
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Users, Sessions, Events](app-insights-usage-segmentation.md)
     - [Funnels](usage-funnels.md)
-    - [Retention](app-insights-usage-retention.md))
+    - [Retention](app-insights-usage-retention.md)
     - [Workbooks](app-insights-usage-workbooks.md)
     - [Add user context](app-insights-usage-send-user-context.md)
