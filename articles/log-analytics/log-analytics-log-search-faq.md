@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/08/2017
 ms.author: bwren
 
 ---
@@ -48,7 +48,6 @@ No problem.  We create a snapshot of your workspace before upgrade, so you can r
 You can use the language converter tool in the log search page to convert each one.  There is no method to automatically convert multiple searches without upgrading the workspace.
 
 
-
 ## Alerts
 
 ### I have a lot of alert rules. Do I need to create them again in the new language after I upgrade?  
@@ -59,7 +58,10 @@ No, your alert rules are automatically converted to the new search language duri
 ### Does anything change with PowerBI integration?
 Yes.  Once your workspace has been upgraded then the process for exporting Log Analytics data to Power BI will no longer work.  Any existing schedules that you created before upgrading will become disabled.  After upgrade, Azure Log Analytics uses the same platform as Application Insights, and you use the same process to export Log Analytics queries to Power BI as [the process to export Application Insights queries to Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
 
+## Dashboards
 
+### Can I still use dashboards?
+You can continue to use dashboards that you created before your workspace was upgraded, but you cannot edit those dashboards or create new ones.  You can continue to create and edit views with [View Designer](log-analytics-view-designer.md). 
 
 ## Next steps
 
