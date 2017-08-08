@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 08/08/2017
 ms.author: seanmck
 ms.custom: 
 ---
@@ -45,7 +45,7 @@ Container groups share an IP address and a port namespace on that IP address. To
 
 ### Storage
 
-You can specify external volumes to mount within a container group. You can map those volumes into to specific paths within the individual containers in a group.
+You can specify external volumes to mount within a container group. You can map those volumes into specific paths within the individual containers in a group.
 
 ## Common scenarios
 
