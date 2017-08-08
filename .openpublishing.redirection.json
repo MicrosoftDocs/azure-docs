@@ -8798,9 +8798,8 @@
             "redirect_url": "articles/virtual-machines/windows/extensions-configuration-samples",
             "redirect_document_id": false
         },
-PS C:\Users\iainfou\OneDrive - Microsoft\Content Dev> python .\redirects.py
         {
-            "source_path": "ï»¿articles/virtual-machines/linux/add-user.md",
+            "source_path": "articles/virtual-machines/linux/add-user.md",
             "redirect_url": "articles/virtual-machines/linux/index",
             "redirect_document_id": false
         },
