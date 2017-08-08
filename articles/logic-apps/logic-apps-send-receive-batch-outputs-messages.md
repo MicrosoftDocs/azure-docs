@@ -113,17 +113,17 @@ Learn more about [authenticating your email credentials](../logic-apps/logic-app
       This capability lets you use a single batch with multiple subsets and 
       define each subset with the name that you provide.
 
-   3. In the **Body** box, select **Message Id**.
+   * In the **Body** box, select **Message Id**.
 
-      ![For "Body", select "Message Id"](./media/logic-apps-send-receive-batch-outputs-messages/send-email-action-details-for-each.png)
+     ![For "Body", select "Message Id"](./media/logic-apps-send-receive-batch-outputs-messages/send-email-action-details-for-each.png)
 
-      > [!NOTE]
-      > Because the input for the send email action is an array, 
-      > the designer automatically adds a **For each** loop 
-      > around the **Send an email** action. 
-      > This loop performs the inner action on each item in the batch. 
-      > With the batch trigger set to five items, you get five emails 
-      > each time the trigger fires.
+     > [!NOTE]
+     > Because the input for the send email action is an array, 
+     > the designer automatically adds a **For each** loop 
+     > around the **Send an email** action. 
+     > This loop performs the inner action on each item in the batch. 
+     > With the batch trigger set to five items, you get five emails 
+     > each time the trigger fires.
 
 7.  Now that you created a logic app that receives items as a batch, 
 save your logic app.
@@ -179,10 +179,10 @@ Receiver logic apps don't need to know anything about the senders.
    when the dynamic content list appears, choose **Expression**.
    Enter the expression **utcnow()**, and choose **OK**. 
 
-      This expression sets the current date and time for the 
-      message content that you send to the batch.
+     This expression sets the current date and time for the 
+     message content that you send to the batch.
 
-      ![In "Message Content", choose "Expression". Enter "utcnow()".](./media/logic-apps-send-receive-batch-outputs-messages/send-batch-receiver-details.png)
+     ![In "Message Content", choose "Expression". Enter "utcnow()".](./media/logic-apps-send-receive-batch-outputs-messages/send-batch-receiver-details.png)
 
 4. Now set up a partition for the batch. Choose **Show advanced options**.
 
