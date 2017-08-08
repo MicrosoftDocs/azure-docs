@@ -13,17 +13,23 @@ ms.author: routlaw
 ms.custom: Jenkins
 ---
 
-# Deploy your Java apps to Azure with Jenkins
+# Create a Java app deployment pipeline to Azure with Jenkins
 
-This quickstart walks through setting up a Jenkins continuous integration and deployment (CI/CD) pipeline to deploy a [Spring Boot](https://spring.pivotal.io) Java app hosted in a GitHub repo to [App Service Web App on Linux](/azure/app-service-web/app-service-linux-intro). 
+This tutorial walks you through setting up a Jenkins continuous integration and deployment (CI/CD) pipeline to deploy a [Spring Boot](https://spring.pivotal.io) Java app hosted in a GitHub repo to [App Service Web App on Linux](/azure/app-service-web/app-service-linux-intro). You will:
 
-![Hello World Docker](media/jenkins-java-quickstart/hello_docker_world.png)
+> [!div class="checklist"]
+> * Install Jenkins plug-ins needed to deploy to Azure.
+> * Define a Jenkins job to automatically build a sample GitHub repo when it's updated.
+> * Create Azure App Service for Linux and configure it to run Docker images.
+> * Configure the Azure App Service Jenkins plug-in
+> * Deploy the sample app to Azure
+> * Verify GitHub commits trigger a new Jenkins build and 
 
-## Prerequisites
+## Before you bbegin
 
 To complete this quickstart, you'll need:
 
-* [Jenkins](https://jenkins.io/). If you don't have a Jenkins configuration, create one now in [an Azure virtual machine](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd#create-jenkins-instance). The Jenkins deployment must have a JDK configured.
+* [Jenkins](https://jenkins.io/). If you don't have a Jenkins system, create one now in [an Azure virtual machine](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd#create-jenkins-instance).
 * A [GitHub](https://github.com) account.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -37,7 +43,17 @@ To complete this quickstart, you'll need:
     b. [GitHub Branch Source Plugin](https://plugins.jenkins.io/github-branch-source)
 4. Select **Download now and install after restart** to enable the plugins in your Jenkins configuration.
 
-## Fork the GitHub repo 
+## Configure GitHub integration
+
+Set up Jenkins to receive GitHub webhooks when new commits are pushed to a repo in your account.
+
+1. Select **Manage Jenkins**, then **Configure System**. In the **GitHub** section, make sure **Manage hooks** is selected and then select **Manage additional GitHub actions** and choose **Convert login and password to token**.
+2. Select the **From login and password** radio button and enter your GitHub username and password. Select **Create token credentials** to create a new [GitHub Personal Access Token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/). Once created, select the newly created token from the **Credentials** drop down in the GitHub Servers configuration.
+
+> [!NOTE]
+> If your GitHub account has two-factor authentication enabled, you'll need to create the GitHub PAT manually. Review the [Jenkins GitHub plugin](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) documentation for full details.
+
+## Fork the GitHub repo
 
 1. Open the [Spring Boot sample application repo](https://github.com/spring-guides/gs-spring-boot-docker) and fork it to your own GitHub account by selecting **Fork** in the top right-hand corner.   
     ![Fork from GitHub](media/jenkins-java-quickstart/fork_github_repo.png)
@@ -57,11 +73,11 @@ To complete this quickstart, you'll need:
     ./mvnw package
     ```
 
-7. Select **Save**. You can test your build now by selecting **Build Now** from the project page.
+6. Select **Save**. You can test your build now by selecting **Build Now** from the project page.
 
 ## Configure Azure App Service 
 
-1. Using the Azure CLI or Cloud Shell, create a new Web App on Linux.
+1. Using the Azure CLI or Cloud Shell, create a new [Web App on Linux](/azure/app-service-web/app-service-linux-intro). In this tutorial, the web app name is `deployToAzure`, but since app names must be unique, you need to use a name of your own choosing.
    
     ```azurecli-interactive
     az group create --name myResourceGroupJenkins --location westus
@@ -69,7 +85,7 @@ To complete this quickstart, you'll need:
     az webapp create --name deployToAzure --resource-group myResourceGroupJenkins --plan myLinuxAppServicePlan
     ```
 
-2. Create an Azure Container Registry to store the Docker images built by Jenkins and configure the web app to use the private registry.
+2. Create an [Azure Container Registry](/azure/container-registry/container-registry-intro) to store the Docker images built by Jenkins and configure the web app to use the private registry. In this tutorial, the container registry name is `jenkinsregistry`, but since registry names are you unique, you need to use a name of your own choosing.
 
     ```azurecli-interactive
     az acr create --name jenkinsregistry --resource-group myResourceGroupJenkins --sku Basic --admin-enabled
@@ -114,19 +130,20 @@ To complete this quickstart, you'll need:
 9. Select the **Publish via Docker** radio button.
 10. Enter `complete/Dockerfile` for **Dockerfile path**.
 11. Enter `https://jenkinsregistry.azurecr.io` in the registry URL field.
-12. Select **Add** next to **Registry Credentials**.
+12. Select **Add** next to **Registry Credentials**. 
 13. Enter the admin username for the Azure Container registry you created for **Username**.
 14. Enter the password for the Azure Container registry in the **Password** field. You can get your username and password from the Azure portal or through the following CLI command:
     ```azurecli-interactive
     az acr credential show -n jenkinsregistry
     ```
 15. Select **Add** to save the credential.
-16. Select the newly created credential from the **Registry credentials** drop-down in the **App Configuration** panel for the **Publish an Azure Web App**.
+16. Select the newly created credential from the **Registry credentials** drop-down in the **App Configuration** panel for the **Publish an Azure Web App**. The post-build action configuration should look like the following image:   
+    ![Post build action configuration for Azure App Service Deploy](media/jenkins-java-quickstart/appservice_plugin_configuration.png)
 17. Select **Save** to save the job configuration.
 
 ## Deploy the app from GitHub
 
-1. From the Jenkins project, select **Build Now** to deplo the sample app to Azure.
+1. From the Jenkins project, select **Build Now** to deploy the sample app to Azure.
 2. Once the build completes, your app will be staged in Azure and available through the its URL of http://deployToAzure.azurewebsites.net.
 
 ## Push changes and redeploy
