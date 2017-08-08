@@ -1,7 +1,7 @@
 - name: Overview
   items:
   - name: Introduction
-    href: ../storage-introduction.md
+    href: storage-blobs-introduction.md
   - name: Choose Blobs, Files, or Data Disks
     href: ../storage-decide-blobs-files-disks.md
 - name: Get Started

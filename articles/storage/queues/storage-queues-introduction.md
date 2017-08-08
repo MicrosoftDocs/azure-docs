@@ -31,7 +31,7 @@ Common uses of Queue storage include:
 ## Queue Service Concepts
 The Queue service contains the following components:
 
-![Queue1](./media/storage-introduction-to-queues/queue1.png)
+![Queue1](./media/storage-queues-introduction/queue1.png)
 
 * **URL format:** Queues are addressable using the following URL format:   
     http://`<storage account>`.queue.core.windows.net/`<queue>` 
