@@ -12,9 +12,8 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Try Term Lists with the Text Moderation API #
+# Try term lists with the Text Moderation API
 
-## About the Terms list management API ##
 The default global list of terms is usually sufficient, but you may need to screen against terms that are specific to your business. For example, you may want to tag competitors’ names for further review. The [Terms List API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) allows you to create custom lists of terms for use with the Text Moderation API. The **Text - Screen** operation scans your text for profanity, comparing it against custom and/or shared blacklists.
 
 You can also create lists of images to be used with the List Moderation API. This tutorial focuses on lists of terms.
@@ -28,12 +27,12 @@ The Terms List management API include these operations:
 - Edit list information.
 - Refresh the index so that changes are found during a scan.
 
-## Try with the API console ##
+## Try with the API console
 Before you can test-drive the API from the online console, you will need the **Ocp-Apim-Subscription-Key**. This is found under the Settings tab, as shown below.
 
 ![Content Moderator credentials in the review tool](Review-Tool-User-Guide/images/credentials-2-reviewtool.png)
 
-## Creating a term list ##
+## Creating a term list
 1.	Navigate to the [Term list management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) page.
 
 2.	You land on the **Term Lists > Create** operation. 
@@ -78,7 +77,7 @@ Before you can test-drive the API from the online console, you will need the **O
  
 10.	Add a few more terms. Now that you have created a custom list of terms, try [scanning some text](try-text-api.md) against it. 
 
-## Deleting terms and lists ##
+## Deleting terms and lists
 
 Deleting a term or a list is straightforward. The API supports these operations:
 
@@ -104,7 +103,7 @@ This example deletes a single term.
 
   ![Try Term List Management API Delete Step 1](images/try-terms-list-delete-1.png)
  
-## Changing a list’s information ##
+## Changing a list’s information
 
 You can edit a list’s name and description, and add metadata items.
 
@@ -118,7 +117,7 @@ You can edit a list’s name and description, and add metadata items.
 
   ![Try Term List Management API Change Step 1](images/try-terms-list-change-1.png)
  
-## Refresh Search Index ##
+## Refresh Search Index
 
 After you have made changes to a list, its index must be refreshed before subsequent scans will “see” the changes. This is similar to how a search engine on your desktop (if enabled) or a web search engine continually refreshes its index to include new files or pages.
 
@@ -130,6 +129,6 @@ After you have made changes to a list, its index must be refreshed before subseq
 
 ![Try Term List Management API Refresh Index Step 1](images/try-terms-list-refresh-1.png)
 
-## Next steps ##
+## Next steps
 
 To learn how to use the image list management API, see the [Try Image List Management](try-image-list-api.md) article.
