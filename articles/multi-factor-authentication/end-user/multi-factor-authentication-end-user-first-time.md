@@ -25,7 +25,7 @@ This article helps you set up your **work or school account**. If you want to en
 
 ## Set up your account
 
-When your IT department requires you to start using two-step verification, you'll see a screen that says **Your admin has required that you set up this account for additional secuirty verification**:
+When your IT department requires you to start using two-step verification, a screen saying **Your admin has required that you set up this account for additional security verification** appears:
 
 ![Setup](./media/multi-factor-authentication-end-user-first-time/first.png)
 
@@ -64,7 +64,7 @@ Using this method requires that you install an authenticator app on your phone o
 
 8. After PIN entry is complete, select **Close**. At this point, your verification should be successful.
 9. We recommend that you enter your mobile phone number in case you lose access to your mobile app. Specify your country from the drop-down list, and enter your mobile phone number in the box next to the country name. Select **Next**.
-10. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
+10. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This action is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of these steps.
 11. If you are using these apps, copy the app password provided and paste it into your application instead of your regular password. You can use the same app password for multiple apps. For more info, [help with app passwords].
 12. Click **Done**.
 
@@ -84,7 +84,7 @@ If you want to add an account to the mobile app manually, instead of using the Q
 2. Choose your country from the drop-down list, and enter your mobile phone number.
 3. Select the method you would prefer to use with your mobile phone - text or call.
 4. Select **Contact me** to verify your phone number. Depending on the mode you selected, we send you a text or call you. Follow the instructions provided on the screen, then select **Verify**.
-5. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
+5. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This action is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
 6. If you are using these apps, copy the app password provided and paste it into your application instead of your regular password. You can use the same app password for multiple apps. For more info, [help with app passwords].
 7. Click **Done**.
 
@@ -94,7 +94,7 @@ If you want to add an account to the mobile app manually, instead of using the Q
     ![Setup](./media/multi-factor-authentication-end-user-first-time/office.png)  
 2. The phone number box is automatically filled with your company contact information. If the number is wrong or missing, ask your admin to make changes.
 3. Select **Contact me** to verify your phone number, and we will call your number. Follow the instructions provided on the screen, then select **Verify**.
-4. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
+4. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This action is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
 5. If you are using these apps, copy the app password provided and paste it into your application instead of your regular password. You can use the same app password for multiple apps. For more info, see [What are App Passwords](multi-factor-authentication-end-user-app-passwords.md).
 6. Click **Done**.
 
@@ -102,3 +102,4 @@ If you want to add an account to the mobile app manually, instead of using the Q
 * Change your preferred options and [manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md)
 * Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for native device apps that don't support two-step verification.
 * Check out the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) for fast, secure authentication even when you don't have cell service.
+
