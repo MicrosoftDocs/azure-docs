@@ -24,7 +24,7 @@ ms.custom: it-pro
 
 If you are having issues with self-service password reset, the items that follow may help you to get things working quickly.
 
-## Troubleshoot self-service password reset errors that a user may see.
+## Troubleshoot self-service password reset errors that a user may see
 
 | Error | Details | Technical details |
 | --- | --- | --- |
