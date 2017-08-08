@@ -412,7 +412,7 @@ Azure Table storage is a service that stores structured NoSQL data in the cloud.
 
 You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. You can store any number of entities in a table. A storage account can contain any number of tables, up to the capacity limit of the storage account.
 
-For more information, see [Get started with Azure Table storage](../../storage/storage-dotnet-how-to-use-tables.md).
+For more information, see [Get started with Azure Table storage](../../cosmos-db/table-storage-how-to-use-dotnet.md).
 
 **Queue storage**
 

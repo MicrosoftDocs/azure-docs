@@ -28,14 +28,14 @@
 ### [Ruby](storage-ruby-how-to-use-queue-storage.md)
 
 ## Table Storage
-### [.NET](storage-dotnet-how-to-use-tables.md)
+### [.NET](../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [F#](/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage)
-### [Java](storage-java-how-to-use-table-storage.md)
-### [Node.js](storage-nodejs-how-to-use-table-storage.md)
-### [C++](storage-c-plus-plus-how-to-use-tables.md)
-### [PHP](storage-php-how-to-use-table-storage.md)
-### [Python](storage-python-how-to-use-table-storage.md)
-### [Ruby](storage-ruby-how-to-use-table-storage.md)
+### [Java](../cosmos-db/table-storage-how-to-use-java.md)
+### [Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md)
+### [C++](../cosmos-db/table-storage-how-to-use-c-plus.md)
+### [PHP](../cosmos-db/table-storage-how-to-use-php.md)
+### [Python](../cosmos-db/table-storage-how-to-use-python.md)
+### [Ruby](../cosmos-db/table-storage-how-to-use-ruby.md)
 
 ## [File Storage](storage-files-introduction.md)
 ### [Portal](storage-file-how-to-use-files-portal.md)
@@ -73,7 +73,7 @@
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=queue)
 ## Use tables
 ### [Overview](https://msdn.microsoft.com/library/dd179463.aspx)
-### [Table design guide](storage-table-design-guide.md)
+### [Table design guide](../cosmos-db/table-storage-design-guide.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Use files
 ### [Overview](/rest/api/storageservices/File-Service-Concepts)
