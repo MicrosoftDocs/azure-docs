@@ -79,8 +79,8 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroup `
 Create an empty database named **musicstore** for the application to store data.
 
 ```powershell
-New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
-    -ServerName $servername `
+New-AzureRmSqlDatabase  -ResourceGroupName $resourceGroup `
+    -ServerName $sqlServer `
     -DatabaseName musicstore `
     -RequestedServiceObjectiveName "S0"
 ```
@@ -141,6 +141,9 @@ When the VM has been created, you can get the IP address by typing: '$pip.IpAddr
 Remote into the VM using the IP address. Open a PowerShell prompt inside the VM and run the following cmdlets to install IIS and the .NET Core SDK.
 
 ```powershell
+# Create a folder to hold downloaded files 
+New-Item -ItemType Directory c:\temp
+
 # Install IIS and the IIS management tools on the VM
 Install-WindowsFeature web-server -IncludeManagementTools
 
