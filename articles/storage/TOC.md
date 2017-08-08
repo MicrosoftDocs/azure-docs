@@ -34,7 +34,7 @@
 ### [Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md)
 ### [C++](../cosmos-db/table-storage-how-to-use-c-plus.md)
 ### [PHP](../cosmos-db/table-storage-how-to-use-php.md)
-### [Python](storage-python-how-to-use-table-storage.md)
+### [Python](../cosmos-db/table-storage-how-to-use-python.md)
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
 ## [File Storage](storage-files-introduction.md)

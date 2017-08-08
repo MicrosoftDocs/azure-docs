@@ -257,6 +257,6 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### For Python developers
 * [How to use Blob storage from Python](storage-python-how-to-use-blob-storage.md)
-* [How to use Table storage from Python](storage-python-how-to-use-table-storage.md)
+* [How to use Table storage from Python](../cosmos-db/table-storage-how-to-use-python.md)
 * [How to use Queue storage from Python](storage-python-how-to-use-queue-storage.md)
 * [How to use File storage from Python](storage-python-how-to-use-file-storage.md)

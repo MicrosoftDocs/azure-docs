@@ -5,7 +5,7 @@
 > * [C++](../articles/cosmos-db/table-storage-how-to-use-c-plus.md)
 > * [PHP](../articles/cosmos-db/table-storage-how-to-use-php.md)
 > * [Ruby](../articles/storage/storage-ruby-how-to-use-table-storage.md)
-> * [Python](../articles/storage/storage-python-how-to-use-table-storage.md)
+> * [Python](../articles/cosmos-db/table-storage-how-to-use-python.md)
 > 
 > 
 
