@@ -56,7 +56,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 ### <a name="1.4.1"/>1.4.1
 
-*	Fixed an issue in JsonSerializable class that may cause stack overflow exception in some of the cases.
+*	Fixed an issue in the JsonSerializable class that may cause a stack overflow exception.
 
 ### <a name="1.4.0"/>1.4.0
 
