@@ -22,9 +22,9 @@ ms.author: LADocs; estfan; jonfan
 
 To reduce the number of messages between logic apps, 
 you can group messages and outputs from actions 
-and process these items as batches in Azure Logic Apps. 
+so that logic apps can process these items in batches. 
 You can create logic apps that receive items as a batch 
-by using the Batch trigger. And you can create logic apps 
+by using the **Batch** trigger. You can also create logic apps 
 that send items to a batch by using the **Batch** action.
 
 This topic shows how to create logic apps that can 
@@ -56,8 +56,8 @@ logic app by using the **Batch** trigger. In the batch receiver logic app,
 you define the batch name, release criteria, and other settings. That way, 
 when you later create logic apps that send data to a batch, 
 you can select this "batch receiver" logic app. Also, 
-batch sender logic apps need to know where to send the batched messages. 
-The batch receiver doesn't need to know anything about the batch senders.
+sender logic apps need to know the batch where they can send data. 
+The receiver logic apps don't need to know anything about the senders.
 
 1. In the [Azure portal](https://portal.azure.com), 
 create a logic app with this name: "BatchReceiver" 
