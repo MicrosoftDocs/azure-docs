@@ -21,11 +21,11 @@ ms.author: owend
 # Install on-premises data gateway
 The on-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services server in the cloud.
 
-The latest version of the gateway supports tabular 1400 models connected to on-premises data sources by using Get Data and M queries in SSDT. 
+In addition to multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. 
 
-To learn more about supported data sources, see [Data sources supported in Azure Analysis Services](analysis-services-datasource.md).
+A gateway is installed on a computer in your network. 
 
-A gateway is installed on a computer in your network. One gateway must be installed for each Azure Analysis Services server you have in your Azure subscription. For example, if you have two servers in your Azure subscription that connect to on-premises data sources, a gateway must be installed on two separate computers in your network.
+While it may seems seamless as you step through the Wizard, setup is actually a two-part process. You first install the gateway, then you configure it.
 
 ## Prerequisites
 **Minimum Requirements:**
@@ -45,7 +45,7 @@ A gateway is installed on a computer in your network. One gateway must be instal
 * Only one gateway can be installed on a single computer.
 * Install the gateway on a computer that remains on and does not go to sleep. If the computer is not on, your Azure Analysis Services server cannot connect to your on-premises data sources to refresh data.
 * Do not install the gateway on a computer wirelessly connected to your network. Performance can be diminished.
-* To change the server name for a gateway that has already been configured, you need to reinstall and configure a new gateway.
+* To change the server name or region for a gateway that has already been configured, you need to reinstall and configure a new gateway.
 * In some cases, tabular models connecting to data sources using native providers such as SQL Server Native Client (SQLNCLI11) may return an error. To learn more, see [Datasource connections](analysis-services-datasource.md).
 
 
@@ -53,15 +53,22 @@ A gateway is installed on a computer in your network. One gateway must be instal
  [Download the gateway](https://aka.ms/azureasgateway)
 
 ## Install and configure
-1. Run setup.
-2. Choose an installation location and accept the license terms.
-3. Sign in to Azure.
-4. Specify your Azure Analysis Server name, and then click **Configure**. You can only specify one server per gateway.
+![Install location and license terms](media/analysis-services-gateway/aas-gateway-installer-accept.png)
 
-    ![sign in to azure](./media/analysis-services-gateway/aas-gateway-configure-server.png)
+![Choose type of gateway](media/analysis-services-gateway/aas-gateway-installer-shared.png)
+
+![Enter account to sign in](media/analysis-services-gateway/aas-gateway-installer-account.png)
+
+![Register](media/analysis-services-gateway/aas-gateway-register-new.png)
+
+![Register](media/analysis-services-gateway/aas-gateway-register-name.png)
+
+![Register](media/analysis-services-gateway/aas-gateway-register-region.png)
+
+
 
 ## How it works
-The gateway runs as a Windows service, **On-premises data gateway**, on a computer in your organization's network. The gateway you install for use with Azure Analysis Services is based on the same gateway used for other services like Power BI, but with some differences in how it's configured.
+The gateway runs as a Windows service, **On-premises data gateway**, on a computer in your organization's network. The gateway you install can be used with Azure Analysis Services, and other services like Power BI, Power Apps, Azure Logic Apps, and Microsoft Flow.
 
 ![How it works](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
@@ -116,7 +123,7 @@ You can force the gateway to communicate with Azure Service Bus by using HTTPS i
 
 
 ## Troubleshooting
-Under the hood, the on-premises data gateway used for connecting Azure Analysis Services to your on-premises data sources is the same gateway used with Power BI.
+Under the hood, the on-premises data gateway used for connecting Azure Analysis Services to your on-premises data sources is the same gateway used with Power BI, Power Apps, Logic Apps, and Flow.
 
 If you’re having trouble when installing and configuring a gateway, be sure to see [Troubleshooting the Power BI Gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem-tshoot/). If you think you are having an issue with your firewall, see the firewall or proxy sections.
 
