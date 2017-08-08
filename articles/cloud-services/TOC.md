@@ -19,7 +19,7 @@
 ### Storage and Visual Studio
 #### [Blob storage and connected services](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
 #### [Queue storage and connected services](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
-#### [Table storage and connected services](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Table storage and connected services](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### Configure packages for continuous build and deploy
 #### [TFS and Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configure traffic rules for a role](cloud-services-enable-communication-role-instances.md)
