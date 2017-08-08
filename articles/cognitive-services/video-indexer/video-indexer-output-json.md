@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 08/08/2017
 ms.author: juliako;
 
 ---
@@ -309,5 +309,6 @@ For information about how to embed widgets in your application, see [Embed Video
 
 ## See also
 
+[Video Indexer API](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4)
 [Video Indexer overview](video-indexer-overview.md)
 
