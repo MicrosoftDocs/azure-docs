@@ -26,8 +26,8 @@ This article shows you how to convert managed disks from standard to premium, an
 
 ## Before you begin
 
-* The conversion requires a restart of the VM, so schedule the migration of your VMs during a pre-existing maintenance window. 
-* If you are using unmanaged disks, first [convert to managed disks](convert-unmanaged-to-managed-disks.md) to use this article to switch between the two storage options 
+* The conversion requires a restart of the VM, so schedule the migration of your disks storage during a pre-existing maintenance window. 
+* If you are using unmanaged disks, first [convert to managed disks](convert-unmanaged-to-managed-disks.md) to use this article to switch between the two storage options. 
 
 
 ## Convert all the managed disks of a VM from standard to premium, and vice versa
