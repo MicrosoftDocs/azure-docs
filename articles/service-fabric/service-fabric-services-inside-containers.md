@@ -35,7 +35,7 @@ Follow these steps in order to successfully containerize and deploy a service fa
 
 1. Open your Service Fabric application in *Visual Studio*
 
-2. Add class at [TODO: Insert git hub link here] to your project. The code in this class is a helper to correctly load the Service Fabric runtime binaries inside your application when running inside a container
+2. Add class [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) to your project. The code in this class is a helper to correctly load the Service Fabric runtime binaries inside your application when running inside a container
 
 3. For each code package, you would like to containerize, initialize the loader at the program entry point. You could add the following code snippet to your program entry point file assuming it is in *Program.cs*
 
@@ -48,7 +48,7 @@ Follow these steps in order to successfully containerize and deploy a service fa
 
 4. Build and [package](service-fabric-package-apps.md#Package-App) your project
 
-5. For every code package you need to containerize, run the powershell script at [TODO: Insert path to CreateDockerPackage.ps1]. The usage is as follows
+5. For every code package you need to containerize, run the powershell script [CreateDockerPackage.ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1). The usage is as follows
   ```powershell
     $codePackagePath = 'Path to the code package to containerize.'
     $dockerPackageOutputDirectoryPath = 'Output path for the generated docker folder.'
@@ -88,4 +88,4 @@ Follow these steps in order to successfully containerize and deploy a service fa
 ```
 9. Next [deploy](service-fabric-deploy-remove-applications.md) the edited application package to this cluster.
 
-You should now have a containerized "Enlightened" Service Fabric application running your cluster.
+You should now have a containerized Service Fabric application running your cluster.
