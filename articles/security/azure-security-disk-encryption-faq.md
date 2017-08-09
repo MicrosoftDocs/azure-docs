@@ -89,6 +89,15 @@ A: Use the latest version of Azure PowerShell SDK version to configure Azure Dis
 Q: Can I apply Azure disk encryption on my custom Linux image?
 A: You cannot apply Azure disk encryption on your custom Linux image. We support only the gallery Linux images for the supported distros called out above. We do not support custom Linux images currently
 
+Q: What is the recommended Azure disk encryption workflow for Linux? 
+A: The following workflow is recommended to have the best results on Linux:
+* Start from the unmodified stock gallery image corresponding to the desired OS distro and version 
+* Back up any mounted drives that will be encrypted.  This permits recovery in case of failure, for example if the VM is rebooted before encryption has completed. 
+* Encrypt (can take multiple hours or even days depending on vm characteristics and size of any attached data disks) 
+* Customize, and add software to the image as needed. 
+
+If this workflow is not possible, relying on server side encryption (SSE) at the platform storage account layer may be an alternative to full disk encryption using dm-crypt. 
+
 Q: Can I apply updates to a Linux Red Hat VM using Yum update?
 A: Yes, you can perform update and or patch a Red Hat Linnux VM following guidance documented [here](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/)
 
