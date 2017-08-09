@@ -88,7 +88,7 @@ You can wait for the trigger to run this action, or you can run the flow immedia
 
 When the flow runs, the recipients you have specified in the email list receive an email message that looks like the following:
 
-![Sample email](./media/app-insights-automate-with-flow/flow9.png)
+![Sample email](media/log-analytics-flow-tutorial/flow07.png)
 
 
 ## Next steps
