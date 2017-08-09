@@ -20,7 +20,7 @@ ms.author: bwren;dairwin
 
 # Service Map integration with System Center Operations Manager
   > [!NOTE]
-  > Because this feature is in private preview, it should not be used on production systems.
+  > This feature is in public preview.
   > 
   
 Operations Management Suite Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. Service Map allows you to view your servers the way you think of them, as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture, with no configuration required besides the installation of an agent. For more information, see the [Service Map documentation](operations-management-suite-service-map.md).
