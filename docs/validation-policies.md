@@ -1,4 +1,3 @@
-
 # Validation policies for apps and add-ins submitted to the Office Store (version 2.0)
 This document describes the criteria that are used to validate that Office Add-ins, SharePoint Add-ins, Microsoft Teams apps, and Power BI custom visuals are eligible to be listed in the Office Store.
  
@@ -253,7 +252,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
-|2.3|August 9,2017|Added policy 10.8.2
+|2.3|August 9,2017|Updated policy 10.8 to apply to Office for Android, and added policy 10.8.2.|
 |2.2|August 4, 2017|Added policies 14.15 and 14.16.|
 |2.2|July 21, 2017|Added policy 7.19.|
 |2.2|July 7, 2017|Removed policy 14.4. Updated policies 14.5, 14.6, 14.8, and 14.9.|
