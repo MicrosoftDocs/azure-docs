@@ -73,7 +73,7 @@ Activity Log Alerts are generally available in Azure Government with no differen
 
 #### Autoscale
 <aside class="warning">
-Autoscale via the portal is not currently available. This feature is coming soon. Additionally, Autoscale for resources outside of USGov Virginia and USGov Iowa in the portal will fail. A fix for this issue is in progress. 
+Autoscale via the portal is not currently available. This feature is coming soon.  
 </aside>
 
 In the meantime, please use PowerShell/ARM/Rest calls to specify the settings. You will need to set the "Location" of the Autoscale to USGov Virginia or USGov Iowa. The resource targetted by Autoscale can exist in any region. An example of the setting is below:
