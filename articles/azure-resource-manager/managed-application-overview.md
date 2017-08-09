@@ -18,7 +18,7 @@ ms.author: gauravbh; tomfitz
 
 Vendors that use Azure can offer solutions to customers around the world. Azure Marketplace is a gallery that consists of hundreds of complex, multiresource templates from first- and third-party vendors. Within minutes, customers can deploy and start using platform as a service (PaaS) and software as a service (SaaS) applications. 
 
-Although the Marketplace provides a great way for vendors to quickly deploy an offering, the customer is responsible for maintaining and updating the solution. Beyond the virtual machine image billing, vendors can't charge customers for the use of an application. Furthermore, vendors can't prevent customers from modifying critical application resources. Vendors also can't block access to intellectual property that makes up an application. Azure managed applications provide solutions for these concerns. 
+Although the Marketplace provides a great way for customers to quickly deploy an offering, the customer is responsible for maintaining and updating the solution. Beyond the virtual machine image billing, vendors can't charge customers for the use of an application. Furthermore, vendors can't prevent customers from modifying critical application resources. Vendors also can't block access to intellectual property that makes up an application. Azure managed applications provide solutions for these concerns. 
 
 A managed application is similar to a solution template in the Marketplace, with one key difference. In a managed application, the resources are provisioned to a resource group that's managed by the vendor. The resource group is present in the customer's subscription, but an identity in the vendor's tenant has access to the resource group.
 
