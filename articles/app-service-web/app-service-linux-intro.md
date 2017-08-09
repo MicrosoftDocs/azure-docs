@@ -53,19 +53,19 @@ Customers can deploy their applications by using:
 
 For application scaling:
 
-* Customers can scale web apps up and down by changing the tier in their App Service plan
+* Customers can scale web apps up and down by changing the tier of their App Service plan
 * Customers can scale out applications and run multiple app instances within the confines of their SKU
 
 For Kudu, some of the basic functionality:
 
 * Environments
 * Deployments
-* Basic consoles
+* Basic console
 * SSH
 
 For devops:
 
-* Deployment Slots
+* Staging environments
 * ACR and DockerHub CI/CD
 
 ## Limitations
@@ -76,10 +76,13 @@ Some features, such as virtual network integration, Azure Active Directory/third
 This public preview is currently only available in the following regions:
 
 * West US
-* West Europe 
+* East US
+* West Europe
+* North Europe
 * Southeast Asia
 * Australia East
 * Japan East
+* Brazil South
 
 Web Apps on Linux is only supported in the Dedicated app service plans and does not have a Free or Shared tier. Also, App Service plans for regular and Linux web apps are mutually exclusive, so you cannot create a Linux web app in a non-Linux app service plan.
 
