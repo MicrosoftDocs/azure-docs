@@ -22,7 +22,7 @@ ms.author: robmcm;yungez;kevinzha
 
 ## Overview
 
-The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects which is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications. To help developers get started with Spring Boot, several sample Spring Boot packages are available at <https://github.com/spring-guides/>. In addition to choosing from the list of basic Spring Boot projects, the **[Spring Initializr]** helps developers get started with creating custom Spring Boot applications.
+The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications. To help developers get started with Spring Boot, several sample Spring Boot packages are available at <https://github.com/spring-guides/>. In addition to choosing from the list of basic Spring Boot projects, the **[Spring Initializr]** helps developers get started with creating custom Spring Boot applications.
 
 Azure Cosmos DB is a globally-distributed database service that allows developers to work with data using a variety of standard APIs, such as DocumentDB, MongoDB, Graph, and Table APIs. Microsoft's Spring Boot Starter enables developers to use Spring Boot applications that easily integrate with Azure Cosmos DB by using DocumentDB APIs.
 
@@ -48,7 +48,7 @@ The following prerequisites are required in order to follow the steps in this ar
 
    ![Azure portal][AZ02]
 
-1. On the **Azure Cosmos DB** blade, enter the following information:
+1. On the **Azure Cosmos DB** page, enter the following information:
 
    * Enter a unique **ID**, which you will use as the URI for your database. For example: *wingtiptoysdata.documents.azure.com*.
    * Choose **SQL (Document DB)** for the API.
@@ -60,11 +60,11 @@ The following prerequisites are required in order to follow the steps in this ar
 
    ![Azure portal][AZ03]
 
-1. When your database has been created, it is listed on your Azure **Dashboard**, as well as under the **All Resources** and **Azure Cosmos DB** blades. You can click on your database on any of those locations to open the properties blade for your cache.
+1. When your database has been created, it is listed on your Azure **Dashboard**, as well as under the **All Resources** and **Azure Cosmos DB** pages. You can click on your database on any of those locations to open the properties page for your cache.
 
    ![Azure portal][AZ04]
 
-1. When the properties blade for your database is displayed, click **Access keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
+1. When the properties page for your database is displayed, click **Access keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
 
    ![Azure portal][AZ05]
 
@@ -287,7 +287,7 @@ In this section you create two Java classes for storing user data, and then you 
 
    ![Successful output from the application][JV02]
 
-1. OPTIONAL: You can use the Azure portal to view the contents of your Azure Cosmos DB from the properties blade for your database by clicking  **Document Explorer**, and then selecting and item from the displayed list to view the contents.
+1. OPTIONAL: You can use the Azure portal to view the contents of your Azure Cosmos DB from the properties page for your database by clicking  **Document Explorer**, and then selecting and item from the displayed list to view the contents.
 
    ![Using the Document Explorer to view your data][JV03]
 
