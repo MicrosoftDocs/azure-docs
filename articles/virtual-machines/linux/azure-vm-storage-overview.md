@@ -111,7 +111,7 @@ Azure File storage offers file shares in the cloud using the standard SMB protoc
 
 File storage is built on the same technology as Blob, Table, and Queue storage, so File storage offers the availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform. For details about File storage performance targets and limits, see Azure Storage Scalability and Performance Targets.
 
-* [How to use Azure File storage with Linux](../../storage/storage-how-to-use-files-linux.md)
+* [How to use Azure File storage with Linux](../../storage/files/storage-how-to-use-files-linux.md)
 
 ## Hot Storage
 The Azure hot storage tier is optimized for storing data that is accessed frequently.  Hot storage is the default storage type for blob stores.

@@ -243,7 +243,7 @@ In this tutorial, you learned how to create a cross-platform application in Xama
 * [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
 * [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Get started with Azure Queue storage using .NET](storage-dotnet-how-to-use-queues.md)
-* [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
+* [Get started with Azure File storage on Windows](files/storage-dotnet-how-to-use-files.md)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 

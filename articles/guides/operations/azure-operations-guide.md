@@ -404,7 +404,7 @@ Azure File storage is a service that offers file shares in the cloud by using th
 
 Because a File storage share is a standard SMB file share, applications running in Azure can access data in the share via file system I/O APIs. Developers can therefore use their existing code and skills to migrate existing applications. IT pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications.
 
-For more information, see [Get started with Azure File storage on Windows](../../storage/storage-file-how-to-use-files-windows.md) or [How to use Azure File storage with Linux](../../storage/storage-how-to-use-files-linux.md).
+For more information, see [Get started with Azure File storage on Windows](../../storage/files/storage-how-to-use-files-windows.md) or [How to use Azure File storage with Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 **Table storage**
 

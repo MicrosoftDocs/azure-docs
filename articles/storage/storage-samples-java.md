@@ -205,7 +205,7 @@ Check out the following guides if you are looking for instructions on how to ins
 * [Getting Started with Azure Blob Service in Java](storage-java-how-to-use-blob-storage.md)
 * [Getting Started with Azure Queue Service in Java](storage-java-how-to-use-queue-storage.md)
 * [Getting Started with Azure Table Service in Java](../cosmos-db/table-storage-how-to-use-java.md)
-* [Getting Started with Azure File Service in Java](storage-java-how-to-use-file-storage.md)
+* [Getting Started with Azure File Service in Java](files/storage-java-how-to-use-file-storage.md)
 
 ## Next steps
 

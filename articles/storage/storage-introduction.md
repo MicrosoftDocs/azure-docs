@@ -232,13 +232,13 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 * [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
 * [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Get started with Azure Queue storage using .NET](storage-dotnet-how-to-use-queues.md)
-* [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
+* [Get started with Azure File storage on Windows](files/storage-dotnet-how-to-use-files.md)
 
 ### For Java/Android developers
 * [How to use Blob storage from Java](storage-java-how-to-use-blob-storage.md)
 * [How to use Table storage from Java](../cosmos-db/table-storage-how-to-use-java.md)
 * [How to use Queue storage from Java](storage-java-how-to-use-queue-storage.md)
-* [How to use File storage from Java](storage-java-how-to-use-file-storage.md)
+* [How to use File storage from Java](files/storage-java-how-to-use-file-storage.md)
 
 ### For Node.js developers
 * [How to use Blob storage from Node.js](storage-nodejs-how-to-use-blob-storage.md)
@@ -259,4 +259,4 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 * [How to use Blob storage from Python](storage-python-how-to-use-blob-storage.md)
 * [How to use Table storage from Python](../cosmos-db/table-storage-how-to-use-python.md)
 * [How to use Queue storage from Python](storage-python-how-to-use-queue-storage.md)
-* [How to use File storage from Python](storage-python-how-to-use-file-storage.md)
+* [How to use File storage from Python](files/storage-python-how-to-use-file-storage.md)
