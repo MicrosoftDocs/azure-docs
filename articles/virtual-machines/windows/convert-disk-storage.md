@@ -1,6 +1,6 @@
 ---
-title: Convert managed disks storage from standard to premium, and vice versa | Microsoft Docs
-description: How to convert managed disks from standard to premium, and vice versa by using PowerShell in the Resource Manager deployment model
+title: Convert Azure managed disks storage from standard to premium, and vice versa | Microsoft Docs
+description: How to convert Azure managed disks from standard to premium, and vice versa by using PowerShell in the Resource Manager deployment model
 services: virtual-machines-windows
 documentationcenter: ''
 author: ramankum
@@ -18,7 +18,7 @@ ms.date: 08/07/2017
 ms.author: ramankum
 ---
 
-# Convert managed disks storage from standard to premium, and vice versa
+# Convert Azure managed disks storage from standard to premium, and vice versa
 
 Managed disks offers two storage options: [Premium](../../storage/storage-premium-storage.md) (SSD-based) and [Standard](../../storage/storage-standard-storage.md) (HDD-based). It allows you to easily switch between the two options with minimal downtime based on your performance needs. This capability is not available for unmanaged disks. But you can easily [convert to managed disks](convert-unmanaged-to-managed-disks.md) to easily switch between the two options.
 
