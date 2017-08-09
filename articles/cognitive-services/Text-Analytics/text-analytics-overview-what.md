@@ -18,9 +18,6 @@ ms.author: heidist
 
  Within Cognitive Services, **Text Analytics** provides the REST APIs used for sentiment analysis, key phrase extraction, and language detection over text content.
 
- > [!Note]
- > Text Analytics was [first announced](https://blogs.technet.microsoft.com/machinelearning/2016/06/21/text-analytics-api-now-available-in-multiple-languages/) in June 2016 and is now [generally available (GA)](https://azure.microsoft.com//blog/) with support for production workloads. For more information about service level agreements (SLA) from Microsoft, see [SLA for Cognitive Services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
-
 ## Algorithms (resources) in Text Analytics
 
 Text analysis can mean different things, but in Azure Cognitive Services, APIs are exposed for three resource types. Each resource is backed by algorithms, models, and natural language processing capabilites developed by Microsoft Research.
@@ -100,6 +97,9 @@ Although Cognitive Services has multiple APIs, we ask you to sign up for them in
 You are charged only for the transactions you submit. A transaction is defined as a POST specifying one of the following resources:  sentiment, keyword, or language detection. You cannot combine multiple analyses into one request. There is no storage component to billing. However, there are [limits on the size and structure of the payload](#data-limits).
 
 At the Free tier, there is a maximum number of requests per month. The counter is reset one month plus one day ahead of the first request.
+
+ > [!Note]
+ > Text Analytics was [first announced](https://blogs.technet.microsoft.com/machinelearning/2016/06/21/text-analytics-api-now-available-in-multiple-languages/) in June 2016 and is now [generally available (GA)](https://azure.microsoft.com//blog/) with support for production workloads. For more information about service level agreements (SLA) from Microsoft, see [SLA for Cognitive Services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
 
 **How to sign up**
 
