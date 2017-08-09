@@ -10,9 +10,9 @@
     href: text-analytics-quickstart-rest-api.md
 - name: Tutorials
   items:
-  - name: Analyze text in Azure Cosmos DB
+  - name: Twitter sentiment analysis
     href: 
-  - name: Visualize analyses in Power BI
+  - name: Power BI visualizations
     href: 
 - name: Concepts
   items:
