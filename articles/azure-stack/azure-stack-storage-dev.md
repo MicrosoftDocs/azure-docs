@@ -153,13 +153,13 @@ The following Azure Blob storage tutorials are applicable to Azure Stack. Note t
 
 The following Azure Queue storage tutorials are applicable to Azure Stack. Note the specific endpoint suffix requirement for Azure Stack described in the previous [Examples](#examples) section.
 
-* [Get started with Azure Queue storage using .NET](../storage/storage-dotnet-how-to-use-queues.md)
-* [How to use Queue storage from Java](../storage/storage-java-how-to-use-queue-storage.md)
-* [How to use Queue storage from Node.js](../storage/storage-nodejs-how-to-use-queues.md)
-* [How to use Queue storage from C++](../storage/storage-c-plus-plus-how-to-use-queues.md)
-* [How to use Queue storage from PHP](../storage/storage-php-how-to-use-queues.md)
-* [How to use Queue storage from Python](../storage/storage-python-how-to-use-queue-storage.md)
-* [How to use Queue storage from Ruby](../storage/storage-ruby-how-to-use-queue-storage.md)
+* [Get started with Azure Queue storage using .NET](../storage/queues/storage-dotnet-how-to-use-queues.md)
+* [How to use Queue storage from Java](../storage/queues/storage-java-how-to-use-queue-storage.md)
+* [How to use Queue storage from Node.js](../storage/queues/storage-nodejs-how-to-use-queues.md)
+* [How to use Queue storage from C++](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
+* [How to use Queue storage from PHP](../storage/queues/storage-php-how-to-use-queues.md)
+* [How to use Queue storage from Python](../storage/queues/storage-python-how-to-use-queue-storage.md)
+* [How to use Queue storage from Ruby](../storage/queues/storage-ruby-how-to-use-queue-storage.md)
 
 
 ## Table storage
