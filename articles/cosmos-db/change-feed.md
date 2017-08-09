@@ -179,7 +179,8 @@ List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
 
 do
 {
-    FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+
+FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
         collectionUri, 
         new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
 
@@ -188,6 +189,7 @@ do
 }
 while (pkRangesResponseContinuation != null);
 ```
+
 
 Azure Cosmos DB supports retrieval of documents per partition key range by setting the optional `x-ms-documentdb-partitionkeyrangeid` header. 
 
@@ -221,6 +223,11 @@ The following table lists the [request](/rest/api/documentdb/common-documentdb-r
 			<p>&lt;etag&gt;: If set to a collection ETag, returns all changes made since that logical timestamp</p>
 		</td>
 	</tr>
+	 
+
+<tr>    <td>If-Modified-Since</td> 
+		<td>RFC 1123 time format; ignored if If-None-Match is specified</td> 
+	</tr> 
 	<tr>
 		<td>x-ms-documentdb-partitionkeyrangeid</td>
 		<td>The partition key range ID for reading data.</td>
@@ -260,6 +267,8 @@ Changes are ordered by time within each partition key value within the partition
 
 > [!NOTE]
 > With change feed, you might get more items returned in a page than specified in `x-ms-max-item-count` in the case of multiple documents inserted or updated inside a stored procedures or triggers. 
+
+By specifying `If-Modified-Since` , your request will return not the documents themselves, but rather the continuation token or `etag` in response header. To return the documents since a point in time, the continuation token `etag` must then be used in the next request with `If-None-Match` to return actual modified documents. 
 
 The .NET SDK provides the [CreateDocumentChangeFeedQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery?view=azure-dotnet) and [ChangeFeedOptions](/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) helper classes to access changes made to a collection. The following snippet shows how to retrieve all changes from the beginning using the .NET SDK from a single client.
 
