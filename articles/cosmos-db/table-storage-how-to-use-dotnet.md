@@ -4,7 +4,7 @@ description: Store structured data in the cloud using Azure Table storage, a NoS
 services: cosmos-db
 documentationcenter: .net
 author: mimig1
-manager: timlt
+manager: jhubbard
 editor: tysonn
 
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3

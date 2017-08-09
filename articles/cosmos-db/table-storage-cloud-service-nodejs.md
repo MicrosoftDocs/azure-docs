@@ -4,7 +4,7 @@ description: A tutorial that builds on the Web App with Express tutorial by addi
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
-manager: timlt
+manager: jhubbard
 editor: tysonn
 
 ms.assetid: e90959a2-4cb2-4b19-9bfb-aede15b18b1c

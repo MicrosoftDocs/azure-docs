@@ -4,7 +4,7 @@ description: Learn how to use the Table service from PHP to create and delete a 
 services: cosmos-db
 documentationcenter: php
 author: mimig1
-manager: timlt
+manager: jhubbard
 editor: tysonn
 
 ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
