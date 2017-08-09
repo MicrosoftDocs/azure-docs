@@ -18,7 +18,15 @@ ms.author: luisca
 
 TBD...
 
-## Next steps
+## Talking points
 
++ Response outputs documents, one output document per input document, where each one has an ID plus one of the following: X, Y, Z
++ Nulls or empty rows, errors (irregular response)
++ Interpreting results
++ Approaches for fast visualization: Power BI (Power Query), Tableau
++ Custom code for rendering 
++ Other API necessary for trending (Twitter APIs with date/time info, ???)
+
+## Next steps
 
 ## See also

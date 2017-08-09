@@ -18,11 +18,14 @@ ms.author: luisca
 
 TBD...
 
-Based on n-grams...
+## Talking points
+
+Not sure at all -- maybe we say nothing.  One question I had: what is the context of key phrase extraction? is it bounded by the document, or the transaction?
+
+From intro blog:  Based on n-grams...
 
 N-grams denote all occurrences of n consecutive words in the input text. The precise value of n may vary across scenarios, but it’s common to pick n=2 or n=3. With n=2, for the text “the quick brown fox”, the following n-grams would be generated – [ “the quick”, “quick brown”, “brown fox”]
 
 ## Next steps
-
 
 ## See also

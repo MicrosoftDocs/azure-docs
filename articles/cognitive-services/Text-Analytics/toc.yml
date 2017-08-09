@@ -8,6 +8,12 @@
   items:
   - name: Analyze text with REST
     href: text-analytics-quickstart-rest-api.md
+- name: Tutorials
+  items:
+  - name: Analyze text in Azure Cosmos DB
+    href: 
+  - name: Visualize analyses in Power BI
+    href: 
 - name: Concepts
   items:
    - name: Sentiment analysis 

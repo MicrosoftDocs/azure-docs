@@ -16,11 +16,16 @@ ms.author: luisca
 ---
 # Sentiment analysis (Azure Cognitive Services > Text Analytics API)
 
-TBD...
+TBD... this has the highest level of interest so if possible, say something about this
 
-Dumping ground -- read at your own peril...
+## Talking points
 
-## Usage model
++ Classification, not aspect sentiment.
++ Pretrained, ongoing training (frequency of training and updates)
++ How scoring works, Range of scores | interpretation
++ How to get the best analyses
+
+## Usage model (draft)
 
 The usage model is as simple as this: JSON input > Analysis > JSON output
 
@@ -32,7 +37,7 @@ A solid 0.5 is the functional equivalent of an indeterminate sentiment. The algo
 
 The response consists of a document ID and a score. There is no built-in drillthrough to document detail. If you want clickthrough from a sentiment score to the original input, or to key phrases extracted for the same document, you will need to write code that collects the outputs for each document ID.
 
-## Strengths and limitations
+## Strengths and limitations (draft)
 
 In Cognitive Services, we use hueristics and machine learning to train the model, matching text with evidence of positive or negative sentiment to come up with patterns that can be applied to any text you provide.
 

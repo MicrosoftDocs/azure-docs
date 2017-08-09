@@ -50,9 +50,9 @@ As a general rule, the documents you provide can be used as-is for all three wor
 
 ## Supported languages
 
-Text Analytics can detect language for up to 120 different languages. However, the supported language list is much smaller for sentiment analysis and key phrase extract. These complex analyses require access to linguistic rules specific to languages.
+Text Analytics can detect language for up to 120 different languages. However, the supported language list for sentiment analysis and key phrase extraction is much smaller.
 
-For both analyses, upport for individual languages is initially rolled out in preview, graduating to generally available (GA) status, on a per language basis, independently of the Text Analytics service overall. This means several languages are still in preview, even though the Text Analytics API itself is GA.
+For both analyses, language support is initially rolled out in preview, graduating to generally available (GA) status on a per language basis, independently of each other and of the Text Analytics service overall. This means several languages are still in preview, even though the Text Analytics API itself is GA.
 
 | Language    | Language code | Sentiment | Key phrases |
 |:----------- |:----:|:----:|:----:|
@@ -109,7 +109,7 @@ Sign in to the Azure portal, create a [Cognitive Services API account](https://d
 
 **How to restrict access to the API**
 
-Selectively enable or disable access to specific APIs within your organization by [creating resource policies](../../../azure-resource-manager/resource-manager-policy-portal).
+Selectively enable or disable access to specific APIs within your organization by [creating resource policies](../../azure-resource-manager/resource-manager-policy-portal.md).
 
 **How to change tiers**
 

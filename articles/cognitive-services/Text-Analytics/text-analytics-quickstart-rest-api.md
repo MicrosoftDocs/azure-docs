@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > [!Note]
 > If you already signed up for Cognitive Services to use another API, you need to retrace your steps for Text Analytics. Billing, policies, and release cycles vary for each API, so we ask you to sign up for each one individually. 
 
-## Set up a request in Chrome
+## Set up a request in Postman
 
 In this first exercise, you will structure the request, using key phrase extraction as the first analysis.
 
