@@ -83,64 +83,49 @@ You may launch Node.js from the bash shell or windows command prompt by typing `
 Use the following code to connect and load the data using **CREATE TABLE** and  **INSERT INTO** SQL statements.
 The [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) object is used to interface with the PostgreSQL server. The [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) function is used to establish the connection to the server. The [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) function is used to execute the SQL query against PostgreSQL database. 
 
-Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database. 
+Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
 
 ```javascript
 const pg = require('pg');
 
-var config =
-{
-	host: 'mypgserver-20170401.postgres.database.azure.com',
-	user: 'mylogin@mypgserver-20170401',
-	password: '<server_admin_password>',
-	database: 'mypgsqldb',
-	port: 5432,
-	ssl: true
+const config = {
+    host: 'mypgserver-20170401.postgres.database.azure.com',
+    user: 'mylogin@mypgserver-20170401',
+    password: '<server_admin_password>',
+    database: '<name_of_database>',
+    port: 5432,
+    ssl: true
 };
 
 const client = new pg.Client(config);
 
-client.connect(function (err)
-{
-	if (err)
-		throw err;
-	else
-	{
-		queryDatabase();
-	}
+client.connect(err => {
+    if (err) throw err;
+    else {
+        queryDatabase();
+    }
 });
 
-function queryDatabase()
-{
-	client.query(
-		' \
-			DROP TABLE IF EXISTS inventory; \
-			CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER); \
-			INSERT INTO inventory (name, quantity) VALUES (\'banana\', 150); \
-			INSERT INTO inventory (name, quantity) VALUES (\'orange\', 154); \
-			INSERT INTO inventory (name, quantity) VALUES (\'apple\', 100); \
-		',
-		function (err)
-	{
-  		console.log("Connection established");
+function queryDatabase() {
+    const query = `
+        DROP TABLE IF EXISTS inventory;
+        CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);
+        INSERT INTO inventory (name, quantity) VALUES ('banana', 150);
+        INSERT INTO inventory (name, quantity) VALUES ('orange', 154);
+        INSERT INTO inventory (name, quantity) VALUES ('apple', 100);
+    `;
 
-  		if (err)
-  			throw err;
-  		else
-  		{
-			client.end(function (err)
-			{
-	      		if (err)
-	      			throw err;
-
-	      		// Else closing connection finished without error
-  				console.log("Closed client connection");
-	    	});
-
-	  		console.log("Finished execution, exiting now");
-	  		process.exit()
-  		}
-  	});
+    client
+        .query(query)
+        .then(() => {
+            console.log('Table created successfully!');
+            client.end(console.log('Closed client connection'));
+        })
+        .catch(err => console.log(err))
+        .then(() => {
+            console.log('Finished execution, exiting now');
+            process.exit();
+        });
 }
 ```
 
