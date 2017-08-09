@@ -8,12 +8,12 @@ manager: carmonm
 editor: ''
 
 ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
-ms.service: storage-backup-recovery
+ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/24/2017
+ms.date: 07/23/2017
 ms.author: raynew
 
 ---

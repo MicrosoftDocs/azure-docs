@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/1/2017
+ms.date: 07/10/2017
 ms.author: helaw
 
 ---
-# Add users in the Azure Stack POC
+# Add users in the Azure Stack Development Kit
 
-To add additional users to the POC deployment, you must add them to the Azure Stack POC directory using Microsoft Management Console from the Azure Stack host computer.
+To add additional users to the Development Kit deployment, you must add them to the Azure Stack Development Kit directory using Microsoft Management Console from the Azure Stack host computer.
 1.	On the Azure Stack host computer, open Microsoft Management Console.
 2.	Click **File > Add or remove snap-in**.
 3.	Select **Active Directory Users and Computers** > **AzureStack.local** > **Users**.

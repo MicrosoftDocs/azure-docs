@@ -1,8 +1,8 @@
 ---
 title: Call a webhook on Azure Activity Log alerts | Microsoft Docs
 description: Route Activity log events to other services for custom actions. For example send SMS, log bugs, or notify a team via chat/messaging service. 
-author: kamathashwin
-manager: carmonm
+author: johnkemnetz
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: ashwink
+ms.author: johnkem
 
 ---
 # Call a webhook on Azure Activity Log alerts

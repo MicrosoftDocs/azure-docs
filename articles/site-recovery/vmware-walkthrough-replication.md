@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 06/27/2017
 ms.author: raynew
 
 ---
@@ -24,6 +24,7 @@ This article describes how to set up a replication policy when you're replicatin
 
 
 Post comments and questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+
 
 ## Configure a policy
 

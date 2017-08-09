@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 07/25/2017
 ms.author: owend
 
 ---
-# On-premises data gateway
+# Install on-premises data gateway
 The on-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services server in the cloud.
 
 The latest version of the gateway supports tabular 1400 models connected to on-premises data sources by using Get Data and M queries in SSDT. 
@@ -27,7 +27,7 @@ To learn more about supported data sources, see [Data sources supported in Azure
 
 A gateway is installed on a computer in your network. One gateway must be installed for each Azure Analysis Services server you have in your Azure subscription. For example, if you have two servers in your Azure subscription that connect to on-premises data sources, a gateway must be installed on two separate computers in your network.
 
-## Requirements
+## Prerequisites
 **Minimum Requirements:**
 
 * .NET 4.5 Framework
@@ -56,7 +56,7 @@ A gateway is installed on a computer in your network. One gateway must be instal
 1. Run setup.
 2. Choose an installation location and accept the license terms.
 3. Sign in to Azure.
-4. Specify your Azure Analysis Server name. You can only specify one server per gateway. Click **Configure** and you're good to go.
+4. Specify your Azure Analysis Server name, and then click **Configure**. You can only specify one server per gateway.
 
     ![sign in to azure](./media/analysis-services-gateway/aas-gateway-configure-server.png)
 
@@ -65,7 +65,7 @@ The gateway runs as a Windows service, **On-premises data gateway**, on a comput
 
 ![How it works](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
-Queries and data flow work like this:
+Queries and data flow:
 
 1. A query is created by the cloud service with the encrypted credentials for the on-premises data source. It's then sent to a queue for the gateway to process.
 2. The gateway cloud service analyzes the query and pushes the request to the [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/).
@@ -106,7 +106,7 @@ The following are the fully qualified domain names used by the gateway.
 | *.microsoftonline-p.com |443 |Used for authentication depending on configuration. |
 
 ### Forcing HTTPS communication with Azure Service Bus
-You can force the gateway to communicate with Azure Service Bus using HTTPS instead of direct TCP; however, this can greatly reduce performance. You need to modify the *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* file. Change the value from `AutoDetect` to `Https`. This file is located, by default, at *C:\Program Files\On-premises data gateway*.
+You can force the gateway to communicate with Azure Service Bus by using HTTPS instead of direct TCP; however, doing so can greatly reduce performance. You can modify the *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* file by changing the value from `AutoDetect` to `Https`. This file is located, by default, at *C:\Program Files\On-premises data gateway*.
 
 ```
 <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
@@ -127,7 +127,7 @@ Telemetry can be used for monitoring and troubleshooting.
 
 **To turn on telemetry**
 
-1.	Check the On-premises data gateway client directory on the computer. Typically, it's %systemdrive%\Program Files\On-premises data gateway. Or, you can open a Services console and check the Path to executable: A property of the On-premises data gateway service.
+1.	Check the On-premises data gateway client directory on the computer. Typically, it is **%systemdrive%\Program Files\On-premises data gateway**. Or, you can open a Services console and check the Path to executable: A property of the On-premises data gateway service.
 2.	In the Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config file from client directory. Change the SendTelemetry setting to true.
         
     ```

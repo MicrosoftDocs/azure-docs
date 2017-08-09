@@ -4,7 +4,7 @@ description: Use Azure Machine Learning to predict the chance of rain based on t
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'weather forecast machine learning'
 

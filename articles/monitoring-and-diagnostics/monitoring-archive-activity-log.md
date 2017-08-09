@@ -2,7 +2,7 @@
 title: Archive the Azure Activity Log | Microsoft Docs
 description: Learn how to archive your Azure Activity Log for long-term retention in a storage account.
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -24,7 +24,7 @@ In this article, we show how you can use the Azure portal, PowerShell Cmdlets, o
 Before you begin, you need to [create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) to which you can archive your Activity Log. We highly recommend that you do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. However, if you are also archiving Diagnostic Logs and metrics to a storage account, it may make sense to use that storage account for your Activity Log as well to keep all monitoring data in a central location. The storage account you use must be a general purpose storage account, not a blob storage account. The storage account does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 ## Log Profile
-To archive the Activity Log using any of the methods below, you set the **Log Profile** for a subscription. The Log Profile defines the type of events that are stored or streamed and the outputs—storage account and/or event hub. It also defines the retention policy (number of days to retain) for events stored in a storage account. If the retention policy is set to zero, events are stored indefinitely. Otherwise, this can be set to any value between 1 and 2147483647. Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy will be deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted. [You can read more about log profiles here](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles). 
+To archive the Activity Log using any of the methods below, you set the **Log Profile** for a subscription. The Log Profile defines the type of events that are stored or streamed and the outputs—storage account and/or event hub. It also defines the retention policy (number of days to retain) for events stored in a storage account. If the retention policy is set to zero, events are stored indefinitely. Otherwise, this can be set to any value between 1 and 2147483647. Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy will be deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted. [You can read more about log profiles here](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
 
 ## Archive the Activity Log using the portal
 1. In the portal, click the **Activity Log** link on the left-side navigation. If you don’t see a link for the Activity Log, click the **More Services** link first.

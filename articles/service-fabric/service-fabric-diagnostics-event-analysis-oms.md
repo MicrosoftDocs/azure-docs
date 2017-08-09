@@ -32,7 +32,7 @@ After data is received by Log Analytics, OMS has several *Management Solutions* 
 
 ## Setting up an OMS workspace with the Service Fabric Solution
 
-It is recommended that you include the Service Fabric Solution in your OMS workspace, since it provides a useful dashboard that shows the various incoming log channels from the infrastructure and application level, and the able to query Service Fabric specific logs. Here is what a relatively simple Service Fabric Solution looks like, with a single application deployed on the cluster:
+It is recommended that you include the Service Fabric Solution in your OMS workspace, since it provides a useful dashboard that shows the various incoming log channels from the platform and application level, and the able to query Service Fabric specific logs. Here is what a relatively simple Service Fabric Solution looks like, with a single application deployed on the cluster:
 
 ![OMS SF solution](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
@@ -99,6 +99,6 @@ In the creation step, it requests an OMS workspace. Select the one that was crea
 
 Explore the following OMS tools and options to customize a workspace to your needs:
 
-* For on-premise clusters, OMS offers a Gateway (HTTP Forward Proxy) that can be used to send data to OMS. Read more about that in [Connecting computers without Internet access to OMS using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md)
+* For on-premises clusters, OMS offers a Gateway (HTTP Forward Proxy) that can be used to send data to OMS. Read more about that in [Connecting computers without Internet access to OMS using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md)
 * Configure OMS to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics
 * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics

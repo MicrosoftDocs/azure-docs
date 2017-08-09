@@ -173,6 +173,7 @@
 
 # Reference
 
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=machine-learning)
 ## [PowerShell module (New)](/powershell/module/azurerm.machinelearning)
 ## [PowerShell module (Classic)](machine-learning-powershell-module.md)
 ## [Algorithm & Module reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
@@ -193,6 +194,10 @@
 ### [Collections](machine-learning-gallery-collections.md)
 ### [Custom Modules](machine-learning-gallery-custom-modules.md)
 
+## Cortana Intelligence Partner Solutions
+### [Cortana Intelligence publishing guide](cortana-intelligence-appsource-publishing-guide.md)
+### [Cortana Intelligence solution evaluation tool](cortana-intelligence-appsource-evaluation-tool.md)
+
 ## Cortana Analytics
 ### APIs
 #### [Anomaly detection](machine-learning-apps-anomaly-detection-api.md)
@@ -211,6 +216,7 @@
 
 ## [Net# Neural Networks Language](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)

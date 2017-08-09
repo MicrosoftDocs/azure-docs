@@ -1,6 +1,6 @@
 ---
 title: Assigning administrator roles in Azure Active Directory | Microsoft Docs
-description: Explains what administrator roles are available with Azure Active Directory and how to assign them.
+description: An admin role can create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains. A user who is assigned an admin role has the same permissions across all cloud services to which your organization has subscribed.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -13,8 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 07/25/2017
 ms.author: curtand
+
+ms.reviewer: Vince.Smith
+ms.custom: it-pro;
 
 ---
 # Assigning administrator roles in Azure Active Directory

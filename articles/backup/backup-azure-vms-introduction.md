@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/22/2017
+ms.date: 7/18/2017
 ms.author: markgal;trinadhk
 
 ---
@@ -35,6 +35,7 @@ When the data transfer is complete, the snapshot is removed and a recovery point
 > [!NOTE]
 > 1. During the backup process, Azure Backup doesn't include the temporary disk attached to the virtual machine. For more information, see the blog on [temporary storage](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 > 2. Since Azure Backup takes a storage-level snapshot and transfers that snapshot to vault, do not change the storage account keys until the backup job finishes.
+> 3. For premium VMs, we copy the snapshot to storage account. This is to make sure that Azure Backup service gets sufficient IOPS for transferring data to vault. This additional copy of storage is charged as per the VM allocated size. 
 >
 
 ### Data consistency

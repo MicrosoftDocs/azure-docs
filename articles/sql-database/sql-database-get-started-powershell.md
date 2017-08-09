@@ -51,7 +51,7 @@ $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
 # The ip address range that you want to allow to access your server - change as appropriate
 $startip = "0.0.0.0"
-$endip = "0.0.0.1"
+$endip = "0.0.0.0"
 # The database name
 $databasename = "mySampleDatabase"
 ```

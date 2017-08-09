@@ -14,7 +14,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 06/9/2017
+ms.date: 07/13/2017
 ms.author: LADocs; dimazaid; estfan
 
 ---
@@ -31,7 +31,7 @@ Learn more about [how the data gateway works](#gateway-cloud-service).
 
 The gateway supports connections to these data sources on premises:
 
-*   BizTalk Server
+*   BizTalk Server 2016
 *   DB2  
 *   File System
 *   Informix
@@ -41,7 +41,7 @@ The gateway supports connections to these data sources on premises:
 *   PostgreSQL
 *   SAP Application Server 
 *   SAP Message Server
-*   SharePoint for HTTP only, not HTTPS
+*   SharePoint
 *   SQL Server
 *   Teradata
 
@@ -50,12 +50,12 @@ These steps show how to first install the on-premises data gateway before you
 For more information about supported connectors, see 
 [Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list). 
 
-For more information about data gateways for other Microsoft services, see these articles:
+For information about how to use the gateway with other services, see these articles:
 
-*   [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/): [Application Gateway overview](../application-gateway/application-gateway-introduction.md)
 *   [Microsoft Power BI on-premises data gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 *   [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
 *   [Microsoft Flow on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
+*   [Microsoft PowerApps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
 
 <a name="requirements"></a>
 ## Requirements

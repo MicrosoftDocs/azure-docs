@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 08/01/2017
 ms.author: tomfitz
 
 ---
@@ -24,7 +24,6 @@ Resource Manager provides the following functions for working with strings:
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
-* [bool](#bool)
 * [concat](#concat)
 * [contains](#contains)
 * [dataUri](#datauri)
@@ -250,60 +249,7 @@ The output from the preceding example with the default values is:
 | toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
-<a id="bool" />
 
-## bool
-`bool(arg1)`
-
-Converts the parameter to a boolean.
-
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |string or int |The value to convert to a boolean. |
-
-### Return value
-A boolean of the converted value.
-
-### Examples
-
-The following example shows how to use bool with a string or integer.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "trueString": {
-            "value": "[bool('true')]",
-            "type" : "bool"
-        },
-        "falseString": {
-            "value": "[bool('false')]",
-            "type" : "bool"
-        },
-        "trueInt": {
-            "value": "[bool(1)]",
-            "type" : "bool"
-        },
-        "falseInt": {
-            "value": "[bool(0)]",
-            "type" : "bool"
-        }
-    }
-}
-```
-
-The output from the preceding example with the default values is:
-
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| trueString | Bool | True |
-| falseString | Bool | False |
-| trueInt | Bool | True |
-| falseInt | Bool | False |
 
 <a id="concat" />
 
@@ -1922,7 +1868,7 @@ The output from the preceding example with the default values is:
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 
-## Next Steps
+## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).

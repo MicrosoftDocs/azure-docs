@@ -44,7 +44,7 @@ export adminlogin = ServerAdmin
 export password = ChangeYourAdminPassword1
 # The ip address range that you want to allow to access your DB
 export startip = "0.0.0.0"
-export endip = "0.0.0.1"
+export endip = "0.0.0.0"
 # The database name
 export databasename = mySampleDatabase
 ```

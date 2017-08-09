@@ -176,6 +176,15 @@ Now that you've created a vault, prepare your infrastructure to back up files an
 
 The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
 
+## Network and Connectivity Requirements
+
+If your machine/proxy has limited internet access, ensure that firewall settings on the machine/proxy are configured to allow the following URLs: <br>
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. *.WindowsAzure.com
+    4. *.microsoftonline.com
+    5. *.windows.ne
+
 
 ## Create the backup policy
 The backup policy is the schedule when recovery points are taken, and the length of time the recovery points are retained. Use the Microsoft Azure Backup agent to create the backup policy for files and folders.
