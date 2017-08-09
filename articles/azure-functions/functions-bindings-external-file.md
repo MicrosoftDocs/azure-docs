@@ -65,13 +65,14 @@ See one of the following subheadings for more information:
 <a name="pattern"></a>
 
 ### Name patterns
-You can specify a file name pattern in the `path` property. For example:
+You can specify a file name pattern in the `path` property. The folder referenced must exist in the SaaS provider.
+Examples:
 
 ```json
 "path": "input/original-{name}",
 ```
 
-This path would find a file named *original-File1.txt* in the *input* folder, and the value of the `name` variable in function code would be `File1`.
+This path would find a file named *original-File1.txt* in the *input* folder, and the value of the `name` variable in function code would be `File1.txt`.
 
 Another example:
 
@@ -148,17 +149,11 @@ The file can be deserialized into any of the following types:
 In C# functions, you can also bind to any of the following types, and the Functions runtime attempts to
 deserialize the file data using that type:
 
-* `TextReader`
+* `string`
+* `byte[]`
 * `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
-* `CloudBlobContainer`
-* `CloudBlobDirectory`
-* `IEnumerable<CloudBlockBlob>`
-* `IEnumerable<CloudPageBlob>`
-* Other types deserialized by [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb)
-
+* `StreamReader`
+* `TextReader`
 
 ## Trigger sample
 Suppose you have the following function.json, that defines an external file trigger:
@@ -253,11 +248,11 @@ The file can be deserialized into any of the following types:
 In C# functions, you can also bind to any of the following types, and the Functions runtime attempts to
 deserialize the file data using that type:
 
-* `TextReader`
+* `string`
+* `byte[]`
 * `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
+* `StreamReader`
+* `TextReader`
 
 
 <a name="output"></a>
