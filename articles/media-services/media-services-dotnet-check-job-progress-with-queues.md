@@ -21,7 +21,7 @@ ms.author: juliako
 When you run jobs, you often require a way to track job progress. You can check the progress by using Azure Queue storage to monitor Azure Media Services job notifications (as described in this article). You can also define a **StateChanged** event handler, as described in [Monitor job progress using .NET](media-services-check-job-progress.md).  
 
 ## Use Queue storage to monitor Media Services job notifications
-When processing media jobs, Media Services can deliver notifications to [Queue storage](../storage/storage-dotnet-how-to-use-queues.md). This topic shows how to get these notification messages from Queue storage.
+When processing media jobs, Media Services can deliver notifications to [Queue storage](../storage/queues/storage-dotnet-how-to-use-queues.md). This topic shows how to get these notification messages from Queue storage.
 
 Messages delivered to Queue storage can be accessed from anywhere in the world. The Queue storage messaging architecture is reliable and highly scalable. Polling Queue storage for messages is recommended over using other methods.
 

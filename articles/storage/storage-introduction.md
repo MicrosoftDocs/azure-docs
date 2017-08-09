@@ -231,32 +231,32 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 ### For .NET developers
 * [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
 * [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md)
-* [Get started with Azure Queue storage using .NET](storage-dotnet-how-to-use-queues.md)
+* [Get started with Azure Queue storage using .NET](queues/storage-dotnet-how-to-use-queues.md)
 * [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
 
 ### For Java/Android developers
 * [How to use Blob storage from Java](storage-java-how-to-use-blob-storage.md)
 * [How to use Table storage from Java](../cosmos-db/table-storage-how-to-use-java.md)
-* [How to use Queue storage from Java](storage-java-how-to-use-queue-storage.md)
+* [How to use Queue storage from Java](queues/storage-java-how-to-use-queue-storage.md)
 * [How to use File storage from Java](storage-java-how-to-use-file-storage.md)
 
 ### For Node.js developers
 * [How to use Blob storage from Node.js](storage-nodejs-how-to-use-blob-storage.md)
 * [How to use Table storage from Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md)
-* [How to use Queue storage from Node.js](storage-nodejs-how-to-use-queues.md)
+* [How to use Queue storage from Node.js](queues/storage-nodejs-how-to-use-queues.md)
 
 ### For PHP developers
 * [How to use Blob storage from PHP](storage-php-how-to-use-blobs.md)
 * [How to use Table storage from PHP](../cosmos-db/table-storage-how-to-use-php.md)
-* [How to use Queue storage from PHP](storage-php-how-to-use-queues.md)
+* [How to use Queue storage from PHP](queues/storage-php-how-to-use-queues.md)
 
 ### For Ruby developers
 * [How to use Blob storage from Ruby](storage-ruby-how-to-use-blob-storage.md)
 * [How to use Table storage from Ruby](../cosmos-db/table-storage-how-to-use-ruby.md)
-* [How to use Queue storage from Ruby](storage-ruby-how-to-use-queue-storage.md)
+* [How to use Queue storage from Ruby](queues/storage-ruby-how-to-use-queue-storage.md)
 
 ### For Python developers
 * [How to use Blob storage from Python](storage-python-how-to-use-blob-storage.md)
 * [How to use Table storage from Python](../cosmos-db/table-storage-how-to-use-python.md)
-* [How to use Queue storage from Python](storage-python-how-to-use-queue-storage.md)
+* [How to use Queue storage from Python](queues/storage-python-how-to-use-queue-storage.md)
 * [How to use File storage from Python](storage-python-how-to-use-file-storage.md)
