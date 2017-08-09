@@ -21,24 +21,24 @@ ms.author: ashwink
 This article shows you sample PowerShell commands to help you access Azure Monitor features. Azure Monitor allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.
 
 > [!NOTE]
-> Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the commands below still contain the "insights".
+> Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the following commands still contain the "insights".
 > 
 > 
 
 ## Set up PowerShell
-If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](/powershell/azure/overview) .
+If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](/powershell/azure/overview).
 
 ## Examples in this article
 The examples in the article illustrate how you can use Azure Monitor cmdlets. You can also review the entire list of Azure Monitor PowerShell cmdlets at [Azure Monitor (Insights) Cmdlets](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
 
 ## Sign in and use subscriptions
-First, log into your Azure subscription.
+First, log in to your Azure subscription.
 
 ```PowerShell
 Login-AzureRmAccount
 ```
 
-This requires you to sign in. Once you do, your Account, TenantId and default Subscription Id are displayed. All the Azure cmdlets work in the context of your default subscription. To view the list of subscriptions you have access to, use the following command.
+This requires you to sign in. Once you do, your Account, TenantID and default Subscription ID are displayed. All the Azure cmdlets work in the context of your default subscription. To view the list of subscriptions you have access to, use the following command.
 
 ```PowerShell
 Get-AzureRmSubscription
@@ -52,7 +52,7 @@ Set-AzureRmContext -SubscriptionId <subscriptionid>
 
 
 ## Retrieve Activity log for a subscription
-Use the `Get-AzureRmLog` cmdlet.  Below are some common examples.
+Use the `Get-AzureRmLog` cmdlet.  The following are some common examples.
 
 Get log entries from this time/date to present:
 
@@ -148,7 +148,7 @@ The following table describes the parameters and values used to create an alert 
 | Location of this alert rule |East US |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName of the alert that is created |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet below about how to retrieve the exact metric names |
+| MetricName of the alert that is created |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
 | operator |GreaterThan |
 | Threshold value (count/sec in for this metric) |1 |
 | WindowSize (hh:mm:ss format) |00:05:00 |
@@ -198,8 +198,8 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 A full list of available options for `Get-AzureRmMetricDefinition` is available at [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
 ## Create and manage AutoScale settings
-A resource, such as a Web app, VM, Cloud Service or VM Scale Set can have only one autoscale setting configured for it.
-However, each autoscale setting can have multiple profiles. For example, one for a performance-based scale profile and a second one for a schedule based profile. Each profile can have multiple rules configured on it. For more information about Autoscale, see [How to Autoscale an Application](../cloud-services/cloud-services-how-to-scale.md).
+A resource, such as a Web app, VM, Cloud Service or Virtual Machine Scale Set can have only one autoscale setting configured for it.
+However, each autoscale setting can have multiple profiles. For example, one for a performance-based scale profile and a second one for a schedule-based profile. Each profile can have multiple rules configured on it. For more information about Autoscale, see [How to Autoscale an Application](../cloud-services/cloud-services-how-to-scale.md).
 
 Here are the steps we will use:
 
@@ -208,9 +208,9 @@ Here are the steps we will use:
 3. Optional: Create notifications for autoscale by configuring webhook and email properties.
 4. Create an autoscale setting with a name on the target resource by mapping the profiles and notifications that you created in the previous steps.
 
-The following examples show you how you can create an Autoscale setting for a VM scale set for a Windows operating system based by using the CPU utilization metric.
+The following examples show you how you can create an Autoscale setting for a Virtual Machine Scale Set for a Windows operating system based by using the CPU utilization metric.
 
-First, create a rule to scale-out, with an instance count increase .
+First, create a rule to scale-out, with an instance count increase.
 
 ```PowerShell
 $rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionValue 1
