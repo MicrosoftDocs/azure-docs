@@ -29,9 +29,12 @@ to a batch by using the **Batch** action.
 
 This topic shows how you can build a batching solution by performing these tasks: 
 
-* Create a logic app that receives and holds data as a batch until ready for processing.
-* Create a logic app that sends data to a batch. 
-In this sender logic app, you can create a partition for the receiver logic 
+* Create a logic app that receives and holds data as a batch. 
+In this "receiver" logic app, you specify the criteria 
+to meet before this "receiver" logic app releases the data for processing.
+
+* Create a logic app that sends data to a batch defined by the receiver logic app. 
+In this "sender" logic app, you can also specify a partition for the receiver logic 
 app to create batches based on a unique key, for example, a customer number. 
 
 ## Requirements
