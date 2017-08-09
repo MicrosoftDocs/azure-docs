@@ -17,7 +17,7 @@ ms.author: bwren
 # Automate Log Analytics processes with the connector for Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) makes hundreds of actions for a variety of services. For example, you can use Microsoft Flow to automatically send an email notification from Office 365 or create a bug in Visual Studio Team Services.  You can trigger a workflow by a simple schedule or from some action in a connected service.  The Azure Log Analytics connector (preview) for Microsoft Flow allow you to build workflows that include data retrieved by log searches in Log Analytics.  
 
-This tutorial in this article shows you how to create a flow that automatically sends the results of a Log Analytics log search by email, just one example of how you can use Microsoft Flow and Log Analytics together. 
+The tutorial in this article shows you how to create a flow that automatically sends the results of a Log Analytics log search by email, just one example of how you can use Microsoft Flow and Log Analytics together. 
 
 
 ## Step 1: Create a flow
