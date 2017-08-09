@@ -13,24 +13,28 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2017
+ms.date: 08/09/2017
 ms.author: ryanwi, mikhegn
 
 ---
 
 # Create and Deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service
-This tutorial shows you how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data.
+This tutorial is part one of a series and shows you how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. 
 
 ![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-In this tutorial, you learn how to:
+In this tutorial series you learn how to:
+> [!div class="checklist"]
+> * Build a .NET Service Fabric application
+> * Deploy the application to a remote cluster
+> * Configure CI/CD
+
+In part one of the series, you learn how to:
 
 > [!div class="checklist"]
 > * Create an ASP.NET Core Web API service as a reliable service
 > * Create a stateful reliable service
 > * Implement service remoting and using a service proxy
-
-The tutorial is split across three articles, this article is the first in the series.
 
 ## Prerequisites
 Before you begin this tutorial:
