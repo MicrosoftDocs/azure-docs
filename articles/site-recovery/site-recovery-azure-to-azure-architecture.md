@@ -50,7 +50,7 @@ When you enable Azure VM replication in the Azure portal, the resources shown in
 --- | ---
 **Target resource group** | The resource group to which replicated VMs belong after failover.
 **Target virtual network** | The virtual network in which replicated VMs are located after failover. A network mapping is created between source and target virtual networks, and vice versa.
-**Cache storage accounts** | Before changes on source VMs are replicated to the target storage account, they are tracked and sent to the cache storage account in the target location. This ensures minimal impact on production apps running on the VM.
+**Cache storage accounts** | Before changes on source VMs are replicated to the target storage account, they are tracked and sent to the cache storage account in the source location. This ensures minimal impact on production apps running on the VM.
 **Target storage accounts**  | Storage accounts in the target location to which the data is replicated.
 **Target availability sets**  | Availability sets in which the replicated VMs are located after failover.
 
