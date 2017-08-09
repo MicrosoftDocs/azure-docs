@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The Certificate download link](./media/active-directory-saas-intime-tutorial/tutorial_intime_certificate.png) 
 
-5. InTime application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **"User Atrributes"** tab of the application. The following screenshot shows an example for this. 
+5. Your InTime application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **User Identifier** is **user.userprincipalname** but InTime expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration 
 
     ![Configure Attribute](./media/active-directory-saas-intime-tutorial/tutorial_intime_attribute.png)
 
