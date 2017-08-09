@@ -361,10 +361,6 @@ For more information about the various technologies discussed in this article, s
 
 * [Maven plugin for Azure App Service]
 
-* [Deploy a Spring Boot App on Kubernetes in Azure Container Service](kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md)
-
-* [Deploy a Spring Boot Web App on Linux in Azure Container Service](kubernetes/container-service-deploy-spring-boot-app-on-linux.md)
-
 * [Log in to Azure from the Azure CLI](/azure/xplat-cli-connect)
 
 * [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli)
