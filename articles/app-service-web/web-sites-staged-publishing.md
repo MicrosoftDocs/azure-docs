@@ -1,5 +1,5 @@
 ﻿---
-title: Set up staging environments for web apps in Azure App Service | Microsoft Docs 
+title: Set up deployment slots for web apps in Azure App Service | Microsoft Docs 
 description: Learn how to use staged publishing for web apps in Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 12/16/2016
 ms.author: cephalin
 
 ---
-# Set up staging environments in Azure App Service
+# Set up deployment slots in Azure App Service
 <a name="Overview"></a>
 
 When you deploy your web app, web app on Linux, mobile back end, and API app to [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan mode. Deployment slots are actually live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
