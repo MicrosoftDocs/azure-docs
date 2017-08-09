@@ -21,7 +21,7 @@ ms.author: cherylmc
 # Generate and export certificates for Point-to-Site connections using MakeCert
 
 > [!NOTE]
-> MakeCert is deprecated. However, you can use the instructions in this article to generate certificates if you don't have access to a computer running Windows 10. The MakeCert cetificates will still be valid. If you have access to a computer running Windows 10, we recommend that you use the steps in the [Generate self-signed certificates using Windows 10 PowerShell](vpn-gateway-certificates-point-to-site.md) article instead.
+> MakeCert is deprecated. However, you can use the instructions in this article to generate certificates if you don't have access to a computer running Windows 10. The MakeCert certificates will still be valid. If you have access to a computer running Windows 10, we recommend that you use the steps in the [Generate self-signed certificates using Windows 10 PowerShell](vpn-gateway-certificates-point-to-site.md) article instead.
 >
 
 Point-to-Site connections use certificates to authenticate. This article shows you how to create a self-signed root certificate and generate client certificates using MakeCert. If you are looking for Point-to-Site configuration steps, such as how to upload root certificates, select one of the 'Configure Point-to-Site' articles from the following list:
