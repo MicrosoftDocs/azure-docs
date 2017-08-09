@@ -1,11 +1,11 @@
 ---
 title: Automate Azure Log Analytics processes with Microsoft Flow
-description: Learn how you can use Microsoft Flow to quickly automate repeatable processes by using the Application Insights connector.
-services: application-insights
+description: Learn how you can use Microsoft Flow to quickly automate repeatable processes by using the Azure Log Analytics connector.
+services: log-analytics
 documentationcenter: ''
 author: CFreemanwa
 manager: carmonm
-ms.service: application-insights
+ms.service: log-analytics
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
@@ -16,7 +16,7 @@ ms.author: bwren
 
 # Automate Log Analytics processes with the connector for Microsoft Flow
 
-Do you find yourself repeatedly running the same queries on your telemetry data to check that your service is functioning properly? Are you looking to automate these queries for finding trends and anomalies and then build your own workflows around them? The Azure Application Insights connector (preview) for Microsoft Flow is the right tool for these purposes.
+Do you find yourself repeatedly running the same queries on your telemetry data to check that your service is functioning properly? Are you looking to automate these queries for finding trends and anomalies and then build your own workflows around them? The Azure Log Analytics connector (preview) for Microsoft Flow is the right tool for these purposes.
 
 With this integration, you can now automate numerous processes without writing a single line of code. After you create a flow by using an Application Insights action, the flow automatically runs your Application Insights Analytics query. 
 
@@ -93,7 +93,7 @@ When the flow runs, the recipients you have specified in the email list receive 
 
 ## Next steps
 
-- Learn more about creating [Analytics queries](app-insights-analytics-using.md).
+- Learn more about [Log Analytics queries](log-analytics-log-search-new.md).
 - Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
 
 
