@@ -79,13 +79,13 @@ to create a cluster. Alternatively read a community [blog post](https://loekd.bl
 
 
 ## Packaging a Linux Docker container with yeoman
-When packaging a container on Linux, you can choose either to use a yeoman template or [create the application package manually](#manually).
+To package a container on Linux, you can either use the provided yeoman template or [create the application package manually](#manually).
 
 A Service Fabric application can contain one or more containers, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create an application with a single Docker container called *SimpleContainerApp*. You can add more services later by editing the generated manifest files.
 
 ### Install Docker on your development box
 
-Run the following commands to install docker on your Linux development box (if you are using the vagrant image on OSX, docker is already installed):
+Run the following commands to install docker on your Linux development box (if you are using the vagrant image on OS X, docker is already installed):
 
 ```bash
     sudo apt-get install wget
@@ -94,9 +94,9 @@ Run the following commands to install docker on your Linux development box (if y
 
 ### Create the application
 1. In a terminal, type `yo azuresfcontainer`.
-2. Name your application - for example, mycontainerap
+2. Name your application - for example, `mycontainerapp`.
 3. Provide the URL for the container image from a DockerHub repo. The image parameter takes the form [repo]/[image name]
-4. If the image does not have a workload entry-point defined, then you need to explicitly specify input commands with a comma-delimited set of commands to run inside the container, which will keep the container running after startup.
+4. If the image does not have an entry-point defined, specify a comma-delimited set of commands to run inside the container.
 
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
@@ -116,8 +116,8 @@ Once the application is built, you can deploy it to the local cluster using the 
     ./install.sh
     ```
 
-3. Open a browser and navigate to Service Fabric Explorer at http://localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X).
-4. Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
+3. Open a browser and navigate to Service Fabric Explorer at http://localhost:19080/Explorer (replace localhost with the private IP address of the VM if using Vagrant on Mac OS X).
+4. Expand the Applications menu to check the entry for your application type and another for the first instance of that type.
 5. Use the uninstall script provided in the template to delete the application instance and unregister the application type.
 
     ```bash
@@ -360,7 +360,7 @@ An example service manifest (specified in the preceding application manifest) fo
 
 ## Configure time interval before container is force terminated
 
-Instead of removing a container service immediately when the service is removed, you can configure a time interval for the runtime to wait before the container is removed. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.   For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified in the cluster manifest under the `Hosting` section as shown in the following snippet (the time interval is set to 10 seconds by default): 
+You can configure a time interval for the runtime to wait before the container is removed after the service deletion has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.   For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The following cluster manifest snippet shows how to set the wait interval:
 
 ```xml
 {
@@ -373,12 +373,13 @@ Instead of removing a container service immediately when the service is removed,
         ]
 }
 ```
-Since this is a dynamic configuration, a config only upgrade on the cluster updates the timeout. 
+The default time interval is set to 10 seconds. Since this configuration is dynamic, a config only upgrade on the cluster updates the timeout. 
 
 
 ## Configure the runtime to remove unused container images
 
-You can configure the Service Fabric cluster to remove unused container images from the node if no services are using that image on the node. This allows disk space to be recaptured if too many container images are present on the node.  To enable this feature, update the `Hosting` section in the cluster manifest as shown in the following snippet: 
+You can configure the Service Fabric cluster to remove unused container images from the node. This configuration allows disk space to be recaptured if too many container images are present on the node.  To enable this feature, update the `Hosting` section in the cluster manifest as shown in the following snippet: 
+
 
 ```xml
 {
@@ -393,7 +394,7 @@ You can configure the Service Fabric cluster to remove unused container images f
 } 
 ```
 
-For images that shouldn’t ever be deleted, specify them as shown above under the `ContainerImagesToSkip` parameter. 
+For images that should not be deleted, you can specify them under the `ContainerImagesToSkip` parameter. 
 
 
 ## Next steps

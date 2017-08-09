@@ -17,4 +17,299 @@ ms.date: 7/27/2017
 ms.author: subramar
 
 ---
-# Prepare your development environment on Linux
+# Service Fabric networking modes
+
+The default networking mode offered in the Service Fabric cluster is the `nat` networking mode. With the `nat` networking mode, having more than one service listening to the same port results in port conflicts. Some scenarios need multiple services (for example, different containers) to listen on the same port. To support this scenario, Service Fabric supports the `open` networking mode. With the `open` networking mode, each service gets a dynamically assigned IP address and port allowing multiple services to listen to the same port.  
+
+Using the dynamically assigned IP to discover services is not advisable since the IP address changes when the service restarts or moves to another node. Only use the **Service Fabric Naming Service**  or the **DNS Service** for service discovery. 
+
+## Setting up `open` networking mode
+
+1. Set up the Azure Resource Manager template by enabling DNS Service and the IP Provider under `fabricSettings`. 
+
+```json
+"variables": {
+    "nicName": "NIC",
+    "vmName": "vm",
+    "virtualNetworkName": "VNet",
+    "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+    "vmNodeType0Name": "[toLower(concat('NT1', variables('vmName')))]",
+    "subnet0Name": "Subnet-0",
+    "subnet0Prefix": "10.0.0.0/24",
+    "subnet0Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet0Name'))]",
+    "lbID0": "[resourceId('Microsoft.Network/loadBalancers',concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType0Name')))]",
+    "lbIPConfig0": "[concat(variables('lbID0'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
+    "lbPoolID0": "[concat(variables('lbID0'),'/backendAddressPools/LoadBalancerBEAddressPool')]",
+    "lbProbeID0": "[concat(variables('lbID0'),'/probes/FabricGatewayProbe')]",
+    "lbHttpProbeID0": "[concat(variables('lbID0'),'/probes/FabricHttpGatewayProbe')]",
+    "lbNatPoolID0": "[concat(variables('lbID0'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]"
+}
+"fabricSettings": [
+  {
+    "parameters": [
+      {
+        "name": "IsEnabled",
+        "value": "true"
+      }
+    ],
+    "name": "DnsService"
+  },
+  {
+    "parameters": [
+      {
+        "name": "ClientRoleEnabled",
+        "value": "false"
+      }
+    ],
+    "name": "Security"
+  },
+  {
+    "parameters": [
+      {
+        "name": "IPProviderEnabled",
+        "value": "true"
+      }
+    ],
+    "name": "Hosting"
+  }
+],`
+```
+
+2. Set up the network profile section to allow multiple IP addresses to be configured on each node of the cluster. The following example sets up five IP addresses per node (thus you can have five service instances listening to the port on each node) for a Windows Service Fabric cluster.
+
+```json
+"networkProfile": {
+            "networkInterfaceConfigurations": [
+              {
+                "name": "[concat(parameters('nicName'), '-0')]",
+                "properties": {
+                  "ipConfigurations": [
+                    {
+                      "name": "[concat(parameters('nicName'),'-',0)]",
+                      "properties": {
+                        "primary": "true",
+                        "loadBalancerBackendAddressPools": [
+                          {
+                            "id": "[variables('lbPoolID0')]"
+                          }
+                        ],
+                        "loadBalancerInboundNatPools": [
+                          {
+                            "id": "[variables('lbNatPoolID0')]"
+                          }
+                        ],
+                        "subnet": {
+                          "id": "[variables('subnet0Ref')]"
+                        }
+                      }
+                    },
+                    {
+                      "name": "[concat(parameters('nicName'),'-', 1)]",
+                      "properties": {
+                        "primary": "false",
+                        "subnet": {
+                          "id": "[variables('subnet0Ref')]"
+                        }
+                      }
+                    },
+                    {
+                      "name": "[concat(parameters('nicName'),'-', 2)]",
+                      "properties": {
+                        "primary": "false",
+                        "subnet": {
+                          "id": "[variables('subnet0Ref')]"
+                        }
+                      }
+                    },
+                    {
+                      "name": "[concat(parameters('nicName'),'-', 3)]",
+                      "properties": {
+                        "primary": "false",
+                        "subnet": {
+                          "id": "[variables('subnet0Ref')]"
+                        }
+                      }
+                    },
+                    {
+                      "name": "[concat(parameters('nicName'),'-', 4)]",
+                      "properties": {
+                        "primary": "false",
+                        "subnet": {
+                          "id": "[variables('subnet0Ref')]"
+                        }
+                      }
+                    },
+                    {
+                      "name": "[concat(parameters('nicName'),'-', 5)]",
+                      "properties": {
+                        "primary": "false",
+                        "subnet": {
+                          "id": "[variables('subnet0Ref')]"
+                        }
+                      }
+                    }
+                  ],
+                  "primary": true
+                }
+              }
+            ]
+          }
+```
+
+For Linux clusters, an additional public IP configuration is added to allow outbound connectivity. The following snippet sets up five IP addresses per node for a Linux cluster:
+
+```json
+"networkProfile": {
+            "networkInterfaceConfigurations": [
+              {
+                "name": "[concat(parameters('nicName'), '-0')]",
+                "properties": {
+                  "ipConfigurations": [
+                    {
+                      "name": "[concat(parameters('nicName'),'-',0)]",
+                      "properties": {
+                        "primary": "true",
+                        "publicipaddressconfiguration": {
+                          "name": "devpub",
+                          "properties": {
+                            "idleTimeoutInMinutes": 15
+                          }
+                        },
+                        "loadBalancerBackendAddressPools": [
+                          {
+                            "id": "[variables('lbPoolID0')]"
+                          }
+                        ],
+                        "loadBalancerInboundNatPools": [
+                          {
+                            "id": "[variables('lbNatPoolID0')]"
+                          }
+                        ],
+                        "subnet": {
+                          "id": "[variables('subnet0Ref')]"
+                        }
+                      }
+                    },
+                    {
+                      "name": "[concat(parameters('nicName'),'-', 1)]",
+                      "properties": {
+                        "primary": "false",
+                        "publicipaddressconfiguration": {
+                          "name": "[concat('devpub', 1)]",
+                          "properties": {
+                            "idleTimeoutInMinutes": 15
+                          }
+                        },
+                        "subnet": {
+                          "id": "[variables('subnet0Ref')]"
+                        }
+                      }
+                    },
+                    {
+                      "name": "[concat(parameters('nicName'),'-', 2)]",
+                      "properties": {
+                        "primary": "false",
+                        "publicipaddressconfiguration": {
+                          "name": "[concat('devpub', 2)]",
+                          "properties": {
+                            "idleTimeoutInMinutes": 15
+                          }
+                        },
+                        "subnet": {
+                          "id": "[variables('subnet0Ref')]"
+                        }
+                      }
+                    },
+                    {
+                      "name": "[concat(parameters('nicName'),'-', 3)]",
+                      "properties": {
+                        "primary": "false",
+                        "publicipaddressconfiguration": {
+                          "name": "[concat('devpub', 3)]",
+                          "properties": {
+                            "idleTimeoutInMinutes": 15
+                          }
+                        },
+                        "subnet": {
+                          "id": "[variables('subnet0Ref')]"
+                        }
+                      }
+                    },
+                    {
+                      "name": "[concat(parameters('nicName'),'-', 4)]",
+                      "properties": {
+                        "primary": "false",
+                        "publicipaddressconfiguration": {
+                          "name": "[concat('devpub', 4)]",
+                          "properties": {
+                            "idleTimeoutInMinutes": 15
+                          }
+                        },
+                        "subnet": {
+                          "id": "[variables('subnet0Ref')]"
+                        }
+                      }
+                    },
+                    {
+                      "name": "[concat(parameters('nicName'),'-', 5)]",
+                      "properties": {
+                        "primary": "false",
+                        "publicipaddressconfiguration": {
+                          "name": "[concat('devpub', 5)]",
+                          "properties": {
+                            "idleTimeoutInMinutes": 15
+                          }
+                        },
+                        "subnet": {
+                          "id": "[variables('subnet0Ref')]"
+                        }
+                      }
+                    }
+                  ],
+                  "primary": true
+                }
+              }
+            ]
+          }
+```
+
+3. For Windows cluster, set up an NSG rule opening up port UDP/53 for the vNET.
+
+4. Specify the networking mode in the app manifest for each service `<NetworkConfig NetworkType="open">`.  The mode `open` results in the service getting a dedicated IP address. If a mode isn't specified, it defaults to the basic `nat` mode. You can mix and match different networking modes across services within an application. Thus, in the following manifest example, `NodeContainerServicePackage1` and `NodeContainerServicePackage2`, can each listen to the same port, for example 80 and Service Fabric routes requests to each correctly.  
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Description>Calculator Application</Description>
+  <Parameters>
+    <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+    <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+  </Parameters>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage1" ServiceManifestVersion="1.0"/>
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="NodeContainerService1.Code" Isolation="hyperv">
+       <NetworkConfig NetworkType="open"/>
+       <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+      </ContainerHostPolicies>
+    </Policies>
+  </ServiceManifestImport>
+    <ServiceManifestImport>
+     <ServiceManifestRef ServiceManifestName="NodeEXEServicePackage" ServiceManifestVersion="1.0"/>
+     <Policies>
+      <ExeHostPolicies CodePackageRef="NodeExeService.Code">
+       <NetworkConfig NetworkType="nat">
+      </ExeHostPolicies>
+     </Policies>
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage2" ServiceManifestVersion="1.0"/>
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="NodeContainerService2.Code" Isolation="default">
+        <NetworkConfig NetworkType="open"/>
+        <PortBinding ContainerPort="8910" EndpointRef="Endpoint1"/>
+      </ContainerHostPolicies>
+    </Policies>
+  </ServiceManifestImport>
+</ApplicationManifest>
+```
