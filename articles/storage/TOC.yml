@@ -1,0 +1,12 @@
+- name: Overview
+  items:
+  - name: Introduction
+    href: storage-introduction.md
+  - name: Choose Blobs, Files, or Data Disks
+    href: storage-decide-blobs-files-disks.md
+- name: Blobs
+  href: ./blobs/storage-blobs-introduction.md
+- name: Files 
+  href: storage-files-introduction.md
+- name: Queues
+  href: ./queues/storage-queues-introduction.md 

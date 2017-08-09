@@ -1,0 +1,31 @@
+- name: Overview
+  items:
+  - name: Introduction to Queues
+    href: storage-queues-introduction.md
+- name: Get Started
+  items:
+  - name: Create a storage account
+    href: ../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Develop with queues
+    items:
+    - name: .NET
+      href: ../storage-dotnet-how-to-use-queues.md
+    - name: Java
+      href: ../storage-java-how-to-use-queue-storage.md
+    - name: Node.js
+      href: ../storage-nodejs-how-to-use-queues.md
+    - name: C++
+      href: ../storage-c-plus-plus-how-to-use-queues.md
+    - name: PHP
+      href: ../storage-php-how-to-use-queues.md
+    - name: Python
+      href: ../storage-python-how-to-use-queue-storage.md
+    - name: Ruby
+      href: ../storage-ruby-how-to-use-queue-storage.md
+- name: How To
+  items:
+  - name: Samples
+    href: https://azure.microsoft.com/documentation/samples/?service=storage&term=queue
+#include file for the articles that apply to >1 service
+- name: Common
+  href: ../common/toc.yml

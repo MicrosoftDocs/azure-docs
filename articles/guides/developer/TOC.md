@@ -66,7 +66,7 @@
 ## Store data
 ### [Blobs](../../storage/storage-dotnet-how-to-use-blobs.md)
 ### [File shares](../../storage/storage-dotnet-how-to-use-files.md)
-### [Key-value pairs](../../storage/storage-dotnet-how-to-use-tables.md)
+### [Key-value pairs](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [JSON documents](../../documentdb/documentdb-get-started.md)
 ### [Relational tables](../../sql-database/sql-database-get-started.md)
 ### [Message queues](../../storage/storage-dotnet-how-to-use-queues.md)
