@@ -69,7 +69,7 @@
 ### [Key-value pairs](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [JSON documents](../../documentdb/documentdb-get-started.md)
 ### [Relational tables](../../sql-database/sql-database-get-started.md)
-### [Message queues](../../storage/storage-dotnet-how-to-use-queues.md)
+### [Message queues](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## Scale
 ### [Web and mobile apps](../../app-service-web/web-sites-scale.md)

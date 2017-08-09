@@ -188,7 +188,7 @@ Because Service Bus queues provide a number of advanced features, such as sessio
 The following articles provide more guidance and information about using Storage queues or Service Bus queues.
 
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [How to Use the Queue Storage Service](../storage/storage-dotnet-how-to-use-queues.md)
+* [How to Use the Queue Storage Service](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Best practices for performance improvements using Service Bus brokered messaging](service-bus-performance-improvements.md)
 * [Introducing Queues and Topics in Azure Service Bus (blog post)](http://www.code-magazine.com/article.aspx?quickid=1112041)
 * [The Developer's Guide to Service Bus](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
