@@ -1,7 +1,7 @@
 ---
-title: Batch process messages and outputs - Azure Logic Apps | Microsoft Docs
-description: Send, receive, and process messages or outputs from actions in batches for logic apps
-keywords: batch, batch processing
+title: Batch process messages - Azure Logic Apps | Microsoft Docs
+description: Send, receive, and process messages in batches for logic apps
+keywords: batch, batch process
 author: jonfancey
 manager: anneta
 editor: ''
@@ -18,11 +18,10 @@ ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
 ---
 
-# Batch processing: Send and receive messages or outputs in batches for logic apps
+# Batch processing: Send and receive messages in batches for logic apps
 
-To reduce the number of messages between logic apps, 
-you can group messages and outputs from actions 
-so your logic apps can process these items in batches. 
+To process groups of messages together, you can batch data items, 
+or messages, and process these items in batches. 
 You can create logic apps that receive items 
 as a batch by using the **Batch** trigger. 
 You can also create logic apps that send items 
