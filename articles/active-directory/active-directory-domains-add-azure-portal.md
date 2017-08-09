@@ -26,12 +26,9 @@ Using Azure Active Directory (Azure AD), you can add your corporate domain name 
 3. Verify the custom domain name in Azure AD
 
 ## How do I add a domain name?
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
-   
-   ![Opening user management](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. On the ***directory-name*** blade, select **Domain names**.
-4. On the ***directory-name* - Domain names** blade, select the **Add** command.
+1. Sign in to the [Azure portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that's a global admin for the directory.
+2. On the **Overview** blade, select **Domain names**.
+3. On the ***directory-name* - Domain names** blade, select the **Add domain name** command.
    
    ![Selecting the Add command](./media/active-directory-domains-add-azure-portal/add-command.png)
 5. On the **Domain name** blade, enter the name of your custom domain in the box, such as 'contoso.com', and then select **Add Domain**. Be sure to include the .com, .net, or other top-level extension.
@@ -47,18 +44,18 @@ The next step to use your custom domain name with Azure AD is to update the DNS 
 1. Sign in to the domain name registrar for the domain. If you don't have access to update the DNS entry, ask the person or team who has this access to complete step 2 and to let you know when it is completed.
 2. Update the DNS zone file for the domain by adding the DNS entry provided to you by Azure AD. This DNS entry enables Azure AD to verify your ownership of the domain. The DNS entry doesn't change any behaviors such as mail routing or web hosting.
   
-  You can add the DNS entry using [Azure DNS in the Azure portal](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) or [other DNS registrars](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+  You can create a DNS zone and add the DNS entry using [Azure DNS in the Azure portal](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) or add the DNS entry at [a different DNS registrar](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
  
 ## Verify the domain name with Azure AD
 Once you have added the DNS entry, you are ready to verify the domain name with Azure AD.
 
 A domain name can be verified only after the DNS records have propagated. This propagation often takes only seconds, but it can sometimes take an hour or more. If verification doesn’t work the first time, try again later.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **Browse**, enter User Management in the text box, and then select **Enter**.
-   
-   ![Opening user management](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. On the **User management - Domain names** blade, select the unverified domain name that you want to verify.
+1. Sign in to the [Azure portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that's a global admin for the directory.
+2. On the **Overview** blade, select **Domain names**.
+3. On the ***directory-name* - Domain names** blade, select the **Add domain name** command.
+
+3. On the ***directory-name* - Domain names** blade, select the unverified domain name that you want to verify.
 4. On the ***domainname*** blade (that is, the blade that opens that has your new domain name in the title), select **Verify** to complete the verification.
 
 Now you can [assign user names that include your custom domain name](active-directory-users-create-azure-portal.md).
