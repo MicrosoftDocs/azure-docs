@@ -46,7 +46,6 @@ The tutorial in this article shows you how to create a flow that automatically s
 
 1. Specify the details for your workspace including the Subscription ID, Resource Group, and Workspace Name.
 2. Add the following Log Analytics query to the **Query** window.  This is only a sample query, and you can replace with any other that returns data.
-
 ```
 	Event
 	| where EventLevelName == "Error" 
