@@ -68,7 +68,7 @@ You can write a [PowerShell script](app-insights-powershell.md) to create a reso
 ## Next steps
 * [Create a dashboard](app-insights-dashboards.md)
 * [Diagnostic Search](app-insights-diagnostic-search.md)
-* [Explore metrics](app-insights-metrics-explorer.ifmd)
+* [Explore metrics](app-insights-metrics-explorer.md)
 * [Write Analytics queries](app-insights-analytics.md)
 
 <!--Link references-->
