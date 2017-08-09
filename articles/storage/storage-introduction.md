@@ -132,7 +132,7 @@ An account SAS delegates access to resources in one or more of the storage servi
 
 Finally, you can specify that a container and its blobs, or a specific blob, are available for public access. When you indicate that a container or blob is public, anyone can read it anonymously; no authentication is required.  Public containers and blobs are useful for exposing resources such as media and documents that are hosted on websites.  To decrease network latency for a global audience, you can cache blob data used by websites with the Azure CDN.
 
-See [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) for more information on shared access signatures. See [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md) and [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) for more information on secure access to your storage account.
+See [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) for more information on shared access signatures. See [Manage anonymous read access to containers and blobs](blob/storage-manage-access-to-resources.md) and [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) for more information on secure access to your storage account.
 
 ## Replication for durability and high availability
 The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability. Replication copies your data, either within the same data center, or to a second data center, depending on which replication option you choose. Replication protects your data and preserves your application up-time in the event of transient hardware failures. If your data is replicated to a second data center, that also protects your data against a catastrophic failure in the primary location.
@@ -229,34 +229,34 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 * [Using Azure CLI with Azure Storage](storage-azure-cli.md)
 
 ### For .NET developers
-* [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
+* [Get started with Azure Blob storage using .NET](blob/storage-dotnet-how-to-use-blobs.md)
 * [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Get started with Azure Queue storage using .NET](storage-dotnet-how-to-use-queues.md)
 * [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
 
 ### For Java/Android developers
-* [How to use Blob storage from Java](storage-java-how-to-use-blob-storage.md)
+* [How to use Blob storage from Java](blob/storage-java-how-to-use-blob-storage.md)
 * [How to use Table storage from Java](../cosmos-db/table-storage-how-to-use-java.md)
 * [How to use Queue storage from Java](storage-java-how-to-use-queue-storage.md)
 * [How to use File storage from Java](storage-java-how-to-use-file-storage.md)
 
 ### For Node.js developers
-* [How to use Blob storage from Node.js](storage-nodejs-how-to-use-blob-storage.md)
+* [How to use Blob storage from Node.js](blob/storage-nodejs-how-to-use-blob-storage.md)
 * [How to use Table storage from Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md)
 * [How to use Queue storage from Node.js](storage-nodejs-how-to-use-queues.md)
 
 ### For PHP developers
-* [How to use Blob storage from PHP](storage-php-how-to-use-blobs.md)
+* [How to use Blob storage from PHP](blob/storage-php-how-to-use-blobs.md)
 * [How to use Table storage from PHP](../cosmos-db/table-storage-how-to-use-php.md)
 * [How to use Queue storage from PHP](storage-php-how-to-use-queues.md)
 
 ### For Ruby developers
-* [How to use Blob storage from Ruby](storage-ruby-how-to-use-blob-storage.md)
+* [How to use Blob storage from Ruby](blob/storage-ruby-how-to-use-blob-storage.md)
 * [How to use Table storage from Ruby](../cosmos-db/table-storage-how-to-use-ruby.md)
 * [How to use Queue storage from Ruby](storage-ruby-how-to-use-queue-storage.md)
 
 ### For Python developers
-* [How to use Blob storage from Python](storage-python-how-to-use-blob-storage.md)
+* [How to use Blob storage from Python](blob/storage-python-how-to-use-blob-storage.md)
 * [How to use Table storage from Python](../cosmos-db/table-storage-how-to-use-python.md)
 * [How to use Queue storage from Python](storage-python-how-to-use-queue-storage.md)
 * [How to use File storage from Python](storage-python-how-to-use-file-storage.md)

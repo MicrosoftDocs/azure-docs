@@ -370,7 +370,7 @@ Finally, as with the management of any computer system, you should provide secur
 
 ## Azure Storage
 
-Azure Storage is a Microsoft-managed service that provides durable, scalable, and redundant storage. You can add an Azure storage account as a resource to any resource group by using any resource deployment method. Azure includes four storage types: Blob storage, File Storage, Table storage, and Queue storage. When deploying a storage account, two account types are available, general-purpose and blob storage. A general-purpose storage account gives you access to all four storage types. Blob storage accounts are similar to general-purpose accounts, but contain specialized blobs that include hot and cold access tiers. For more information on blob storage, see [Azure Blob storage](../../storage/storage-blob-storage-tiers.md).
+Azure Storage is a Microsoft-managed service that provides durable, scalable, and redundant storage. You can add an Azure storage account as a resource to any resource group by using any resource deployment method. Azure includes four storage types: Blob storage, File Storage, Table storage, and Queue storage. When deploying a storage account, two account types are available, general-purpose and blob storage. A general-purpose storage account gives you access to all four storage types. Blob storage accounts are similar to general-purpose accounts, but contain specialized blobs that include hot and cold access tiers. For more information on blob storage, see [Azure Blob storage](../../storage/blob/storage-blob-storage-tiers.md).
 
 Azure storage accounts can be configured with different levels of redundancy:
 
@@ -396,7 +396,7 @@ Azure Storage supports three kinds of blobs:
 
 -   **Append blobs** consist of blocks like block blobs, but they are optimized for append operations. These are frequently used for logging information from one or more sources to the same blob. For example, you might write all of your trace logging to the same append blob for an application that’s running on multiple VMs. A single append blob can be up to 195 GB.
 
-For more information, see [Get started with Azure Blob storage using .NET](../../storage/storage-dotnet-how-to-use-blobs.md).
+For more information, see [Get started with Azure Blob storage using .NET](../../storage/blob/storage-dotnet-how-to-use-blobs.md).
 
 **File storage**
 

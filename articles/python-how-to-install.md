@@ -159,4 +159,4 @@ For more information on developing and publishing Azure Websites, see the tutori
 [Configuring Python with Azure Websites]: web-sites-python-configure.md
 [table storage]: storage-python-how-to-use-table-storage.md
 [queue storage]: storage-python-how-to-use-queue-storage.md
-[blob storage]: storage-python-how-to-use-blob-storage.md
+[blob storage]:storage/blob/storage-python-how-to-use-blob-storage.md

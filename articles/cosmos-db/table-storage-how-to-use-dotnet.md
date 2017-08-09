@@ -467,7 +467,7 @@ Now that you've learned the basics of Table storage, follow these links to learn
 * [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
 * Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
 * View more feature guides to learn about additional options for storing data in Azure.
-* [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md) to store unstructured data.
+* [Get started with Azure Blob storage using .NET](../storage/blob/storage-dotnet-how-to-use-blobs.md) to store unstructured data.
 * [Connect to SQL Database by using .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) to store relational data.
 
 [Download and install the Azure SDK for .NET]: /develop/net/

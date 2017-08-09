@@ -184,7 +184,7 @@ private static async Task CreateContainerIfNotExistAsync(
 Once the containers have been created, the application can now upload the files that will be used by the tasks.
 
 > [!TIP]
-> [How to use Blob Storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md) provides a good overview of working with Azure Storage containers and blobs. It should be near the top of your reading list as you start working with Batch.
+> [How to use Blob Storage from .NET](../storage/blob/storage-dotnet-how-to-use-blobs.md) provides a good overview of working with Azure Storage containers and blobs. It should be near the top of your reading list as you start working with Batch.
 >
 >
 
@@ -282,7 +282,7 @@ Shared access signatures are strings which—when included as part of a URL—pr
 * **Container shared access signatures**: As each task finishes its work on the compute node, it uploads its output file to the *output* container in Azure Storage. To do so, TaskApplication uses a container shared access signature that provides write access to the container as part of the path when it uploads the file. Obtaining the container shared access signature is done in a similar fashion as when obtaining the blob shared access signature. In DotNetTutorial, you will find that the `GetContainerSasUrl` helper method calls [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] to do so. You'll read more about how TaskApplication uses the container shared access signature in "Step 6: Monitor Tasks."
 
 > [!TIP]
-> Check out the two-part series on shared access signatures, [Part 1: Understanding the shared access signature (SAS) model](../storage/storage-dotnet-shared-access-signature-part-1.md) and [Part 2: Create and use a shared access signature (SAS) with Blob storage](../storage/storage-dotnet-shared-access-signature-part-2.md), to learn more about providing secure access to data in your Storage account.
+> Check out the two-part series on shared access signatures, [Part 1: Understanding the shared access signature (SAS) model](../storage/storage-dotnet-shared-access-signature-part-1.md) and [Part 2: Create and use a shared access signature (SAS) with Blob storage](../storage/blob/storage-dotnet-shared-access-signature-part-2.md), to learn more about providing secure access to data in your Storage account.
 >
 >
 

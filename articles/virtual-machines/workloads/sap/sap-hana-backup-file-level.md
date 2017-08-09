@@ -1,4 +1,4 @@
-﻿---
+---
 title: SAP HANA Azure Backup on file level | Microsoft Docs
 description: There are two major backup possibilities for SAP HANA on Azure virtual machines, this article covers SAP HANA Azure Backup on file level
 services: virtual-machines-linux
@@ -32,7 +32,7 @@ This figure shows the dialog of the backup menu item in SAP HANA Studio. When ch
 
 While this choice sounds simple and straight forward, there are some considerations. As mentioned before, an Azure VM has a limitation of number of data disks that can be attached. There might not be capacity to store SAP HANA backup files on the file systems of the VM, depending on the size of the database and disk throughput requirements, which might involve software RAID using striping across multiple data disks. Various options for moving these backup files, and managing file size restrictions and performance when handling terabytes of data, are provided later in this article.
 
-Another option, which offers more freedom regarding total capacity, is Azure blob storage. While a single blob is also restricted to 1 TB, the total capacity of a single blob container is currently 500 TB. Additionally, it gives customers the choice to select so-called &quot;cool&quot; blob storage, which has a cost benefit. See [Azure Blob Storage: Hot and cool storage tiers](../../../storage/storage-blob-storage-tiers.md) for details about cool blob storage.
+Another option, which offers more freedom regarding total capacity, is Azure blob storage. While a single blob is also restricted to 1 TB, the total capacity of a single blob container is currently 500 TB. Additionally, it gives customers the choice to select so-called &quot;cool&quot; blob storage, which has a cost benefit. See [Azure Blob Storage: Hot and cool storage tiers](../../../storage/blob/storage-blob-storage-tiers.md) for details about cool blob storage.
 
 For additional safety, use a geo-replicated storage account to store the SAP HANA backups. See [Azure Storage replication](../../../storage/storage-redundancy.md) for details about storage account replication.
 
@@ -66,7 +66,7 @@ Repeating the same backup on software RAID with striping across five attached Az
 
 ## Copy SAP HANA backup files to Azure blob storage
 
-As of December 2016, the best option to quickly store SAP HANA backup files is Azure blob storage. One single blob container has a limit of 500 TB, enough for most SAP HANA systems, running in a GS5 VM on Azure, to keep sufficient SAP HANA backups. Customers have the choice between &quot;hot&quot; and &quot;cold&quot; blob storage (see [Azure Blob Storage: Hot and cool storage tiers](../../../storage/storage-blob-storage-tiers.md)).
+As of December 2016, the best option to quickly store SAP HANA backup files is Azure blob storage. One single blob container has a limit of 500 TB, enough for most SAP HANA systems, running in a GS5 VM on Azure, to keep sufficient SAP HANA backups. Customers have the choice between &quot;hot&quot; and &quot;cold&quot; blob storage (see [Azure Blob Storage: Hot and cool storage tiers](../../../storage/blob/storage-blob-storage-tiers.md)).
 
 With the blobxfer tool, it is easy to copy the SAP HANA backup files directly to Azure blob storage.
 

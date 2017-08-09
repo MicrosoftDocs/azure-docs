@@ -23,7 +23,7 @@ ms.author: robinsh
 ## Overview
 The [Azure Storage Client Library for .NET Nuget package](https://www.nuget.org/packages/WindowsAzure.Storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
 
-For a step-by-step tutorial that leads you through the process of encrypting blobs using client-side encryption and Azure Key Vault, see [Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md).
+For a step-by-step tutorial that leads you through the process of encrypting blobs using client-side encryption and Azure Key Vault, see [Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](blob/storage-encrypt-decrypt-blobs-key-vault.md).
 
 For client-side encryption with Java, see [Client-Side Encryption with Java for Microsoft Azure Storage](storage-client-side-encryption-java.md).
 
@@ -238,7 +238,7 @@ As mentioned above, if the entity implements TableEntity, then the properties ca
 Note that encrypting your storage data results in additional performance overhead. The content key and IV must be generated, the content itself must be encrypted, and additional meta-data must be formatted and uploaded. This overhead will vary depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
 
 ## Next steps
-* [Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
+* [Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](blob/storage-encrypt-decrypt-blobs-key-vault.md)
 * Download the [Azure Storage Client Library for .NET NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Download the Azure Key Vault NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages  
 * Visit the [Azure Key Vault Documentation](../key-vault/key-vault-whatis.md)

@@ -286,7 +286,7 @@ New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType "Secondary"
 ```
 
 ## How to manage Azure blobs
-Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This section assumes that you are already familiar with the Azure Blob Storage Service concepts. For detailed information, see [Get started with Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This section assumes that you are already familiar with the Azure Blob Storage Service concepts. For detailed information, see [Get started with Blob storage using .NET](blob/storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ### How to create a container
 Every blob in Azure storage must be in a container. You can create a private container using the New-AzureStorageContainer cmdlet:
@@ -297,7 +297,7 @@ New-AzureStorageContainer -Name $StorageContainerName -Permission Off
 ```
 
 > [!NOTE]
-> There are three levels of anonymous read access: **Off**, **Blob**, and **Container**. To prevent anonymous access to blobs, set the Permission parameter to **Off**. By default, the new container is private and can be accessed only by the account owner. To allow anonymous public read access to blob resources, but not to container metadata or to the list of blobs in the container, set the Permission parameter to **Blob**. To allow full public read access to blob resources, container metadata, and the list of blobs in the container, set the Permission parameter to **Container**. For more information, see [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md).
+> There are three levels of anonymous read access: **Off**, **Blob**, and **Container**. To prevent anonymous access to blobs, set the Permission parameter to **Off**. By default, the new container is private and can be accessed only by the account owner. To allow anonymous public read access to blob resources, but not to container metadata or to the list of blobs in the container, set the Permission parameter to **Blob**. To allow full public read access to blob resources, container metadata, and the list of blobs in the container, set the Permission parameter to **Container**. For more information, see [Manage anonymous read access to containers and blobs](blob/storage-manage-access-to-resources.md).
 > 
 > 
 
@@ -709,7 +709,7 @@ A shared access signature can be in one of two forms:
 * **Ad hoc SAS**: When you create an ad hoc SAS, the start time, expiry time, and permissions for the SAS are all specified on the SAS URI. This type of SAS may be created on a container, blob, table, or queue and it is non-revocable.
 * **SAS with stored access policy**: A stored access policy is defined on a resource container a blob container, table, or queue - and you can use it to manage constraints for one or more shared access signatures. When you associate a SAS with a stored access policy, the SAS inherits the constraints - the start time, expiry time, and permissions - defined for the stored access policy. This type of SAS is revocable.
 
-For more information, see [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) and [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md).
+For more information, see [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) and [Manage anonymous read access to containers and blobs](blob/storage-manage-access-to-resources.md).
 
 In the next sections, you will learn how to create a shared access signature token and stored access policy for Azure tables. Azure PowerShell provides similar cmdlets for containers, blobs, and queues as well. To run the scripts in this section, download the [Azure PowerShell version 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) or later.
 

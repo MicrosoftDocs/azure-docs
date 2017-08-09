@@ -64,7 +64,7 @@
 ### [Linux VM from a template](../../virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows VM from a template](../../virtual-machines/virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## Store data
-### [Blobs](../../storage/storage-dotnet-how-to-use-blobs.md)
+### [Blobs](../../storage/blob/storage-dotnet-how-to-use-blobs.md)
 ### [File shares](../../storage/storage-dotnet-how-to-use-files.md)
 ### [Key-value pairs](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [JSON documents](../../documentdb/documentdb-get-started.md)

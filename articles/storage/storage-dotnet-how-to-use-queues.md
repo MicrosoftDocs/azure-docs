@@ -313,7 +313,7 @@ to learn about more complex storage tasks.
 * Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md).
 * View more feature guides to learn about additional options for storing data in Azure.
   * [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md) to store structured data.
-  * [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) to store unstructured data.
+  * [Get started with Azure Blob storage using .NET](blob/storage-dotnet-how-to-use-blobs.md) to store unstructured data.
   * [Connect to SQL Database by using .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) to store relational data.
 
 [Download and install the Azure SDK for .NET]: /develop/net/
