@@ -1,5 +1,5 @@
 ---
-title: How to use the Maven plugin for Azure App Service to deploy a Spring Boot app in Azure Container Registry to Azure App Service
+title: How to use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app in Azure Container Registry to Azure App Service
 description: This tutorial will walk you though the steps to deploy a Spring Boot application in Azure Container Registry to Azure to Azure App Service by using a Maven plugin.
 services: ''
 documentationcenter: java
@@ -18,15 +18,15 @@ ms.author: robmcm;kevinzha
 
 ---
 
-# How to use the Maven plugin for Azure App Service to deploy a Spring Boot app in Azure Container Registry to Azure App Service
+# How to use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app in Azure Container Registry to Azure App Service
 
 The **[Spring Framework]** is a popular open-source framework that helps Java developers create web, mobile, and API applications. This tutorial uses a sample app created using [Spring Boot], a convention-driven approach for using Spring to get started quickly.
 
-This article demonstrates how to deploy a sample Spring Boot application to Azure Container Registry, and then use the Maven plugin for Azure App Service to deploy your application to Azure App Service.
+This article demonstrates how to deploy a sample Spring Boot application to Azure Container Registry, and then use the Maven Plugin for Azure Web Apps to deploy your application to Azure App Service.
 
 > [!NOTE]
 >
-> The Maven plugin for Azure App Service is currently available as a preview. For now, only FTP publishing is supported, although additional features are planned for the future.
+> The Maven Plugin for Azure Web Apps is currently available as a preview. For now, only FTP publishing is supported, although additional features are planned for the future.
 >
 
 ## Prerequisites
@@ -204,7 +204,7 @@ In this section, you create an Azure service principal that the Maven plugin use
    `<client>` | Contains the `appId` value from your service principal.
    `<tenant>` | Contains the `tenant` value from your service principal.
    `<key>` | Contains the `password` value from your service principal.
-   `<environment>` | Defines the target Azure cloud environment, which is `AZURE` in this example. (A full list of environments is available in the [Maven plugin for Azure App Service] documentation)
+   `<environment>` | Defines the target Azure cloud environment, which is `AZURE` in this example. (A full list of environments is available in the [Maven Plugin for Azure Web Apps] documentation)
 
 1. Save and close the *settings.xml* file.
 
@@ -268,13 +268,13 @@ In this section, you create an Azure service principal that the Maven plugin use
 
 ## Customize your pom.xml, then build and deploy your container to Azure
 
-Open the `pom.xml` file for your Spring Boot application in a text editor, and then locate the `<plugin>` element for `webapp-maven-plugin`. This element should resemble the following example:
+Open the `pom.xml` file for your Spring Boot application in a text editor, and then locate the `<plugin>` element for `azure-webapp-maven-plugin`. This element should resemble the following example:
 
    ```xml
    <plugin>
       <groupId>com.microsoft.azure</groupId>
-      <artifactId>webapp-maven-plugin</artifactId>
-      <version>0.1.1</version>
+      <artifactId>azure-webapp-maven-plugin</artifactId>
+      <version>0.1.3</version>
       <configuration>
          <authentication>
             <serverId>azure-auth</serverId>
@@ -297,14 +297,15 @@ Open the `pom.xml` file for your Spring Boot application in a text editor, and t
    </plugin>
    ```
 
-There are several values that you can modify for the Maven plugin, and a detailed description for each of these elements is available in the [Maven plugin for Azure App Service] documentation. That being said, there are several values that are worth highlighting in this article:
+There are several values that you can modify for the Maven plugin, and a detailed description for each of these elements is available in the [Maven Plugin for Azure Web Apps] documentation. That being said, there are several values that are worth highlighting in this article:
 
 Element | Description
 ---|---|---
+`<version>` | Specifies the version of the [Maven Plugin for Azure Web Apps]. You should check the version listed in the [Maven Central Respository](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22) to ensure that you are using the latest version.
 `<authentication>` | Specifies the authentication information for Azure, which in this example contains a `<serverId>` element that contains `azure-auth`; Maven uses that value to look up the Azure service principal values in your Maven *settings.xml* file, which you defined in an earlier section of this article.
 `<resourceGroup>` | Specifies the target resource group, which is `wingtiptoysresources` in this example. The resource group will be created during deployment if it does not already exist.
 `<appName>` | Specifies the target name for your web app. In this example, the target name is `maven-linux-app-${maven.build.timestamp}`, where the `${maven.build.timestamp}` suffix is appended in this example to avoid conflict. (The timestamp is optional; you can specify any unique string for the app name.)
-`<region>` | Specifies the target region, which in this example is `westus`. (A full list is in the [Maven plugin for Azure App Service] documentation.)
+`<region>` | Specifies the target region, which in this example is `westus`. (A full list is in the [Maven Plugin for Azure Web Apps] documentation.)
 `<containerSettings>` | Specifies the properties which contain the name and URL of your container.
 `<appSettings>` | Specifies any unique settings for Maven to use when deploying your web app to Azure. In this example, a `<property>` element contains a name/value pair of child elements that specify the port for your app.
 
@@ -338,7 +339,7 @@ Maven will deploy your web app to Azure; if the web app does not already exist, 
 > [INFO] Finished at: 2017-08-04T12:15:47-07:00
 > [INFO] Final Memory: 51M/279M
 > [INFO] ------------------------------------------------------------------------
-> [ERROR] Failed to execute goal com.microsoft.azure:webapp-maven-plugin:0.1.1:deploy (default-cli) on project gs-spring-boot-docker: null: MojoExecutionException: CloudException: OnError while emitting onNext value: retrofit2.Response.class
+> [ERROR] Failed to execute goal com.microsoft.azure:azure-webapp-maven-plugin:0.1.3:deploy (default-cli) on project gs-spring-boot-docker: null: MojoExecutionException: CloudException: OnError while emitting onNext value: retrofit2.Response.class
 > ```
 >
 > If this happens, you can specify another region and re-run the Maven command to deploy your application.
@@ -359,7 +360,7 @@ When your web has been deployed, you will be able to manage it by using the [Azu
 
 For more information about the various technologies discussed in this article, see the following articles:
 
-* [Maven plugin for Azure App Service]
+* [Maven Plugin for Azure Web Apps]
 
 * [Log in to Azure from the Azure CLI](/azure/xplat-cli-connect)
 
@@ -375,7 +376,7 @@ For more information about the various technologies discussed in this article, s
 [Azure Container Service (ACS)]: https://azure.microsoft.com/services/container-service/
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Azure portal]: https://portal.azure.com/
-[Maven plugin for Azure App Service]: https://github.com/Microsoft/azure-maven-plugins/tree/master/webapp-maven-plugin
+[Maven Plugin for Azure Web Apps]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
 [Using a custom Docker image for Azure Web App on Linux]: /azure/app-service-web/app-service-linux-using-custom-docker-image
 [Docker]: https://www.docker.com/

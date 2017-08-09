@@ -1,6 +1,6 @@
 ---
-title: How to use the Maven plugin for Azure App Service to deploy a Spring Boot app to Azure
-description: Learn how to use the Maven plugin for Azure App Service to deploy a Spring Boot app to Azure.
+title: How to use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app to Azure
+description: Learn how to use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app to Azure.
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
@@ -17,15 +17,15 @@ ms.date: 08/07/2017
 ms.author: robmcm;kevinzha
 ---
 
-# How to use the Maven plugin for Azure App Service to deploy a Spring Boot app to Azure
+# How to use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app to Azure
 
-The [Maven plugin for Azure App Service](https://github.com/Microsoft/webapp-maven-plugin) for [Apache Maven](http://maven.apache.org/) provides seamless integration of Azure App Service into Maven projects, and streamlines the process for developers to deploy web apps to Azure App Service.
+The [Maven Plugin for Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin) for [Apache Maven](http://maven.apache.org/) provides seamless integration of Azure App Service into Maven projects, and streamlines the process for developers to deploy web apps to Azure App Service.
 
-This article demonstrates using the Maven plugin for Azure App Service to deploy a sample Spring Boot application to Azure App Services.
+This article demonstrates using the Maven Plugin for Azure Web Apps to deploy a sample Spring Boot application to Azure App Services.
 
 > [!NOTE]
 >
-> The Maven plugin for Azure App Service is currently available as a preview. For now, only FTP publishing is supported, although additional features are planned for the future.
+> The Maven Plugin for Azure Web Apps is currently available as a preview. For now, only FTP publishing is supported, although additional features are planned for the future.
 >
 
 ## Prerequisites
@@ -146,36 +146,36 @@ In this section, you use the values from your Azure service principal to configu
    `<client>` | Contains the `appId` value from your service principal.
    `<tenant>` | Contains the `tenant` value from your service principal.
    `<key>` | Contains the `password` value from your service principal.
-   `<environment>` | Defines the target Azure cloud environment, which is `AZURE` in this example. (A full list of environments is available in the [Maven plugin for Azure App Service] documentation)
+   `<environment>` | Defines the target Azure cloud environment, which is `AZURE` in this example. (A full list of environments is available in the [Maven Plugin for Azure Web Apps] documentation)
 
 1. Save and close the *settings.xml* file.
 
 ## OPTIONAL: Customize your pom.xml before deploying your web app to Azure
 
-Open the `pom.xml` file for your Spring Boot application in a text editor, and then locate the `<plugin>` element for `webapp-maven-plugin`. This element should resemble the following example:
+Open the `pom.xml` file for your Spring Boot application in a text editor, and then locate the `<plugin>` element for `azure-webapp-maven-plugin`. This element should resemble the following example:
 
    ```xml
    <plugin>
       <groupId>com.microsoft.azure</groupId>
-         <artifactId>webapp-maven-plugin</artifactId>
-         <version>0.1.1</version>
-         <configuration>
+      <artifactId>azure-webapp-maven-plugin</artifactId>
+      <version>0.1.3</version>
+      <configuration>
          <authentication>
             <serverId>azure-auth</serverId>
          </authentication>
-        <resourceGroup>maven-plugin</resourceGroup>
-        <appName>maven-web-app-${maven.build.timestamp}</appName>
-        <region>westus</region>
-        <javaVersion>1.8</javaVersion>
-        <javaWebContainer>tomcat 8.5</javaWebContainer>
-        <deploymentType>ftp</deploymentType>
-        <resources>
+         <resourceGroup>maven-plugin</resourceGroup>
+         <appName>maven-web-app-${maven.build.timestamp}</appName>
+         <region>westus</region>
+         <javaVersion>1.8</javaVersion>
+         <javaWebContainer>tomcat 8.5</javaWebContainer>
+         <deploymentType>ftp</deploymentType>
+         <resources>
             <resource>
-                <directory>${project.basedir}/target</directory>
-                <targetPath>/</targetPath>
-                <includes>
-                    <include>*.jar</include>
-                </includes>
+               <directory>${project.basedir}/target</directory>
+               <targetPath>/</targetPath>
+               <includes>
+                  <include>*.jar</include>
+               </includes>
             </resource>
             <resource>
                <directory>${project.basedir}</directory>
@@ -189,16 +189,17 @@ Open the `pom.xml` file for your Spring Boot application in a text editor, and t
    </plugin>
    ```
 
-There are several values that you can modify for the Maven plugin, and a detailed description for each of these elements is available in the [Maven plugin for Azure App Service] documentation. That being said, there are several values that are worth highlighting in this article:
+There are several values that you can modify for the Maven plugin, and a detailed description for each of these elements is available in the [Maven Plugin for Azure Web Apps] documentation. That being said, there are several values that are worth highlighting in this article:
 
 Element | Description
 ---|---|---
+`<version>` | Specifies the version of the [Maven Plugin for Azure Web Apps]. You should check the version listed in the [Maven Central Respository](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22) to ensure that you are using the latest version.
 `<authentication>` | Specifies the authentication information for Azure, which in this example contains a `<serverId>` element that contains `azure-auth`; Maven uses that value to look up the Azure service principal values in your Maven *settings.xml* file, which you defined in an earlier section of this article.
 `<resourceGroup>` | Specifies the target resource group, which is `maven-plugin` in this example. The resource group is created during deployment if it does not already exist.
 `<appName>` | Specifies the target name for your web app. In this example, the target name is `maven-web-app-${maven.build.timestamp}`, where the `${maven.build.timestamp}` suffix is appended in this example to avoid conflict. (The timestamp is optional; you can specify any unique string for the app name.)
-`<region>` | Specifies the target region, which in this example is `westus`. (A full list is in the [Maven plugin for Azure App Service] documentation.)
-`<javaVersion>` | Specifies the Java runtime version for your web app. (A full list is in the [Maven plugin for Azure App Service] documentation.)
-`<javaWebContainer>` | Specifies the web container for your web app, which is `tomcat 8.5` in this example. (A full list is in the [Maven plugin for Azure App Service] documentation.)
+`<region>` | Specifies the target region, which in this example is `westus`. (A full list is in the [Maven Plugin for Azure Web Apps] documentation.)
+`<javaVersion>` | Specifies the Java runtime version for your web app. (A full list is in the [Maven Plugin for Azure Web Apps] documentation.)
+`<javaWebContainer>` | Specifies the web container for your web app, which is `tomcat 8.5` in this example. (A full list is in the [Maven Plugin for Azure Web Apps] documentation.)
 `<deploymentType>` | Specifies deployment type for your web app. For now, only `ftp` is supported, although support for other deployment types is in development.
 `<resources>` | Specifies resources and target destinations which Maven uses when deploying your web app to Azure. In this example, two `<resource>` elements specify that Maven will deploy the JAR file for your web app and the *web.config* file from the Spring Boot project.
 
@@ -253,11 +254,11 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 
 For more information about the various technologies discussed in this article, see the following articles:
 
-* [Maven plugin for Azure App Service]
+* [Maven Plugin for Azure Web Apps]
 
 * [Log in to Azure from the Azure CLI](/azure/xplat-cli-connect)
 
-* [How to use the Maven plugin for Azure App Service to deploy a containerized Spring Boot app to Azure](app-service-web-deploy-containerized-spring-boot-app-with-maven-plugin.md)
+* [How to use the Maven Plugin for Azure Web Apps to deploy a containerized Spring Boot app to Azure](app-service-web-deploy-containerized-spring-boot-app-with-maven-plugin.md)
 
 * [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli)
 
@@ -277,7 +278,7 @@ For more information about the various technologies discussed in this article, s
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Boot Getting Started]: https://github.com/microsoft/gs-spring-boot
 [Spring Framework]: https://spring.io/
-[Maven plugin for Azure App Service]: https://github.com/Microsoft/azure-maven-plugins/tree/master/webapp-maven-plugin
+[Maven Plugin for Azure Web Apps]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 
 <!-- IMG List -->
 
