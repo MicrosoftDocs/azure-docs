@@ -20,9 +20,9 @@ ms.author: LADocs; estfan; jonfan
 
 # Send, receive, and batch process messages in logic apps
 
-To process groups of messages together, you can send data items, 
-or messages, to a batch, and then process those items as a batch. 
-Batch processing is useful when you want to make sure data items 
+To process messages together in groups, you can send data items, 
+or messages, to a *batch*, and then process those items as a batch. 
+This approach is useful when you want to make sure data items 
 are grouped in a specific way and are processed together. 
 
 You can create logic apps that receive items 
@@ -218,10 +218,11 @@ choose **Show advanced options**.
         ![Set up a partition for your target batch](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-partition-advanced-options.png)
 
         This **rand** function generates a number between one and five. 
-        So you are dividing this batch into five numbered partitions 
-        that this expression dynamically sets.
+        So you are dividing this batch into five numbered partitions, 
+        which this expression dynamically sets.
 
-   * **Message Id**: An optional message identifier and is a generated GUID when empty. 
+   * **Message Id**: An optional message identifier 
+   and is a generated GUID when empty. 
    For this example, leave this box blank.
 
 5. Save your logic app. Your sender logic app now looks similar to this example:
