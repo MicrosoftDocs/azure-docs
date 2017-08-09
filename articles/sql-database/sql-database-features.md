@@ -28,7 +28,7 @@ We continue to add features to Azure SQL Database. So we encourage you to visit 
 * Filtered to General Availability [(GA) announcements](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
 
 | **SQL Server Feature** | **Supported in Azure SQL Database** | 
-| --- | :---: | :---: | 
+| --- | --- |  
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md)|
 | [AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | No - see [Failover groups and active geo-replication](sql-database-geo-replication-overview.md) |
 | [Attach a database](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | No |
@@ -42,23 +42,22 @@ We continue to add features to Azure SQL Database. So we encourage you to visit 
 | [Collation statements](https://docs.microsoft.com/sql/t-sql/statements/collations) | Yes |
 | [Columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | [In Premium edition only](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |
 | [Common language runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No |
-| Contained databases | [Supported](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | [Supported](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) |
-| Contained users | [Supported](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | [Supported](sql-database-manage-logins.md#non-administrator-users) |
-| Control of flow language keywords | [Supported](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | [Supported](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) |
-| Cross-database queries | [Supported](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/cross-database-queries) | Partial - see [Elastic queries](sql-database-elastic-query-overview.md) |
-| Cursors | [Supported](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | [Supported](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | 
-| Data compression | [Supported](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | [Supported](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) |
-| Database backups | [User managed](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) | [Managed by SQL Database service](sql-database-automated-backups.md) |
-| Database mail | [Supported](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | Not supported |
-| Database mirroring | [Supported](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server) | Not supported |
-| Database configuration settings | [Supported](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) | [Supported](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) |
-| Data Quality Services (DQS) | [Supported](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | Not supported |
-| Database snapshots | [Supported](https://docs.microsoft.com/sql/relational-databases/databases/database-snapshots-sql-server) | Not supported |
-| Data types | [Supported](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql) | [Supported](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql) |  
-| DBCC statements | [Supported](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) | Most - see [individual statements](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) |
-| DDL statements | [Supported](https://docs.microsoft.com/sql/t-sql/statements/statements) | Most - see [Individual statements](https://docs.microsoft.com/sql/t-sql/statements/statements)
-| DDL triggers | [Supported](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | [Database only](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) |
-| Distributed transactions | [MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Limited intra-SQL Database scenarios only |
+| [Contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Yes |
+| [Contained users](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Yes |
+| [Control of flow language keywords](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Yes |
+| [Cross-database queries](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/cross-database-queries) | Partial - see [Elastic queries](sql-database-elastic-query-overview.md) |
+| [Cursors](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | Yes | 
+| [Data compression](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | Yes |
+| [Database mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | No |
+| [Database mirroring](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server) | No |
+| [Database configuration settings](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) | Yes |
+| [Data Quality Services (DQS)](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | No |
+| [Database snapshots](https://docs.microsoft.com/sql/relational-databases/databases/database-snapshots-sql-server) | No |
+| [Data types](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql) | Yes |  
+| [DBCC statements](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) | Most - see individual statements |
+| [DDL statements](https://docs.microsoft.com/sql/t-sql/statements/statements) | Most - see individual statements
+| [DDL triggers](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | Database only |
+| [Distributed transactions - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No - see [Elastic transactions](sql-database-elastic-transactions-overview.md) |
 | DML statements | [Supported](https://docs.microsoft.com/sql/t-sql/queries/queries) | Most - see [Individual statements]](https://docs.microsoft.com/sql/t-sql/queries/queries) |
 | DML triggers | [Supported](https://docs.microsoft.com/sql/relational-databases/triggers/dml-triggers) | [Supported](https://docs.microsoft.com/sql/relational-databases/triggers/dml-triggers) |
 | DMVs | [All](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Some - see [Individual DMVs](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) |
