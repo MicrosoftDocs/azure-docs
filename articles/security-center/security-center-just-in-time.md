@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/08/2017
 ms.author: terrylan
 
 ---
@@ -153,7 +153,7 @@ Modify the filters and select **Apply** to create a search and log.
 ## Using just in time VM access via PowerShell
 
 In order to use the just in time solution via PowerShell, make sure you have the [latest](/powershell/azure/install-azurerm-ps) Azure PowerShell version.
-Once you do, you need to install the [latest](https://www.powershellgallery.com/packages/Azure-Security-Center/0.0.10) Azure Security Center from the PowerShell gallery.
+Once you do, you need to install the [latest](https://www.powershellgallery.com/packages/Azure-Security-Center/0.0.12) Azure Security Center from the PowerShell gallery.
 
 ### Configuring a just in time policy for a VM
 
