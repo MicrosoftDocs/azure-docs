@@ -84,23 +84,34 @@ Given the sample family document above, following SQL query returns the document
 
 **Results**
 
-    [{
-        "id": "AndersenFamily",
-        "lastName": "Andersen",
-        "parents": [
-           { "firstName": "Thomas" },
-           { "firstName": "Mary Kay"}
-        ],
-        "children": [
-           {
-               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-               "pets": [{ "givenName": "Fluffy" }]
-           }
-        ],
-        "address": { "state": "WA", "county": "King", "city": "seattle" },
-        "creationDate": 1431620472,
-        "isRegistered": true
-    }]
+```json
+{
+  "id": "WakefieldFamily",
+  "parents": [
+      { "familyName": "Wakefield", "givenName": "Robin" },
+      { "familyName": "Miller", "givenName": "Ben" }
+  ],
+  "children": [
+      {
+        "familyName": "Merriam", 
+        "givenName": "Jesse", 
+        "gender": "female", "grade": 1,
+        "pets": [
+            { "givenName": "Goofy" },
+            { "givenName": "Shadow" }
+        ]
+      },
+      { 
+        "familyName": "Miller", 
+         "givenName": "Lisa", 
+         "gender": "female", 
+         "grade": 8 }
+  ],
+  "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+  "creationDate": 1431620462,
+  "isRegistered": false
+}
+```
 
 ## Example query 2
 

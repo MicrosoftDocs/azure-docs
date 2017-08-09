@@ -3,7 +3,7 @@ title: 'Azure CosmosDB: Request units per minute (RU/m) | Microsoft Docs'
 description: Learn how to reduce cost by utilizing request units per minute.
 services: cosmos-db
 documentationcenter: ''
-author: arnomicrosoft
+author: mimig1
 manager: jhubbard
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: acomet
+ms.author: mimig
 
 ---
 # Request units per minute in Azure Cosmos DB
@@ -109,7 +109,7 @@ In this section, we provide an overview of scenarios that are a good fit for ena
 
 **Dev/Test environment:** Good fit. During the development stage, if you are testing your application with different workloads, RU/m can provide the flexibility at this stage. While the [emulator](local-emulator.md) is a great free tool to test Azure Cosmos DB. However if you want to start in a cloud environment, you will have a great flexibility with RU/m for your adhoc performance needs. You will spend more time developing, less worrying about performance needs at first. We recommend starting with the minimum RU/s provisioning and enable RU/m.
 
-**Unpredictable, spiky, minute granularity needs:** Good fit – Savings: 25-75%. We have seen large improvement from RU/m and most production scenarios are into that group. If you have an IoT workload that has spike a few times in a minute, if you have queries running when your system makes mass insert at the same time, you will need extra capacity for hadndling spiky needs. We recommend optimizing your resource needs by applying our step by step approach below.
+**Unpredictable, spiky, minute granularity needs:** Good fit – Savings: 25-75%. We have seen large improvement from RU/m and most production scenarios are into that group. If you have an IoT workload that has spike a few times in a minute, if you have queries running when your system makes mass insert at the same time, you will need extra capacity for handeling spiky needs. We recommend optimizing your resource needs by applying our step by step approach below.
 
  ![Graph showing request consumption in 5 minute granularity](./media/request-units-per-minute/azure-cosmos-db-request-units-per-minute-consumption.png)
  
@@ -171,6 +171,6 @@ var query = client.CreateDocumentQuery<Book>(
 In this article, we've described how partitioning works in Azure Cosmos DB, how you can create partitioned collections, and how you can pick a good partition key for your application.
 
 * Perform scale and performance testing with Azure Cosmos DB. See [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) for a sample.
-* Get started coding with the [SDKs](documentdb-sdk-dotnet.md) or the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+* Get started coding with the [SDKs](documentdb-sdk-dotnet.md) or the [REST API](/rest/api/documentdb/).
 * Learn about [provisioned throughput](request-units.md) in Azure Cosmos DB 
 

@@ -1,21 +1,21 @@
 ---
-title: Monitor performance of many Azure SQL databases in a multi-tenant SaaS app  | Microsoft Docs 
+title: Monitor performance of many Azure SQL databases in a multi-tenant SaaS app  | Microsoft Docs
 description: "Monitor and manage performance of databases and pools in the Azure SQL Database Wingtip SaaS app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 07/26/2017
 ms.author: sstein
 
 ---
@@ -61,7 +61,7 @@ For high-volume scenarios where you're working with many reources, [Log Analytic
 
 ## Get the Wingtip application source code and scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## Provision additional tenants
 
@@ -113,7 +113,7 @@ The pool's resource utilization is the aggregate database utilization for all da
 
 ![](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
 
-Because there are additional databases in the pool beyomd the top five, the pool utilization shows activity that is not reflected in the top five databases chart. For additional details, click **Database Resource Utilization**:
+Because there are additional databases in the pool beyond the top five, the pool utilization shows activity that is not reflected in the top five databases chart. For additional details, click **Database Resource Utilization**:
 
 ![](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
 
@@ -127,7 +127,7 @@ Set an alert on the pool that triggers on \>75% utilization as follows:
 
    ![add alert](media/sql-database-saas-tutorial-performance-monitoring/add-alert.png)
 
-1. Provide a name, such as **High DTU**, 
+1. Provide a name, such as **High DTU**,
 1. Set the following values:
    * **Metric = eDTU percentage**
    * **Condition = greater than**.
@@ -136,7 +136,6 @@ Set an alert on the pool that triggers on \>75% utilization as follows:
 1. Add an email address to the *Additional administrator email(s)* box and click **OK**.
 
    ![set alert](media/sql-database-saas-tutorial-performance-monitoring/alert-rule.png)
-
 
 
 ## Scale up a busy pool
@@ -152,12 +151,12 @@ You can simulate a busy pool by increasing the load produced by the generator. C
 1. Set *$DemoScenario* = **3**, _Generate load with longer and more frequent bursts per database_ to increase the intensity of the aggregate load on the pool without changing the peak load required by each database.
 1. Press **F5** to apply a load to all your tenant databases.
 
-1. Go to **Pool1** in the portal.
+1. Go to **Pool1** in the Azure portal.
 
 Monitor the increased pool eDTU usage on the upper chart. It takes a few minutes for the new higher load to kick in, but you should quickly see the pool start to hit max utilization, and as the load steadies into the new pattern, it rapidly overloads the pool.
 
-1. To scale up the pool, click **Configure pool**
-1. Adjust the **Pool eDTU** slider to **100**. Changing the pool eDTU does not change the per-database settings (which is still 50 eDTU max per database). You can see the per-database settings on the right side of the **Configure pool** page.
+1. To scale up the pool, click **Configure pool** at the top of the **Pool1** page.
+1. Adjust the **Pool eDTU** setting to **100**. Changing the pool eDTU does not change the per-database settings (which is still 50 eDTU max per database). You can see the per-database settings on the right side of the **Configure pool** page.
 1. Click **Save** to submit the request to scale the pool.
 
 Go back to **Pool1** > **Overview** to view the monitoring charts. Monitor the effect of providing the pool with more resources (although with few databases and a randomized load it’s not always easy to see conclusively until you run for some time). While you are looking at the charts bear in mind that 100% on the upper chart now represents 100 eDTUs, while on the lower chart 100% is still 50 eDTUs as the per-database max is still 50 eDTUs.

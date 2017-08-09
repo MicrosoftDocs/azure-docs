@@ -32,7 +32,7 @@ With Azure Stream Analytics, you can test queries in the Azure portal without ne
 
     ![stream analytics query editor test sample data](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 
-The output of your query is displayed in the browser, with a link to the download results should you want to save the test output for later use. You can now easily and iteratively modify your query and test it repeatedly to see how the output changes.
+The output of your query is displayed in the browser, with Download results link should you want to save the test output for later use. You can now easily and iteratively modify your query and test it repeatedly to see how the output changes.
 
 ![Stream Analytics query editor sample output](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
 
@@ -47,7 +47,7 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 ## Next steps
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

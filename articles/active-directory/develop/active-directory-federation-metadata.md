@@ -3,7 +3,7 @@ title: Azure AD Federation Metadata | Microsoft Docs
 description: This article describes the federation metadata document that Azure Active Directory publishes for services that accept Azure Active Directory tokens.
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: dstrockis
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: priyamo
+ms.author: dastrock
 ms.custom: aaddev
 
 ---

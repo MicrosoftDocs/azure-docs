@@ -43,4 +43,4 @@ virtual machines:
 Please note that this page describes how Microsoft Azure performs
 planned maintenance. For more information about unplanned events
 (outages), see [Manage the availability of virtual
-machines](../windows/manage-availability.md).
+machines](../linux/manage-availability.md).

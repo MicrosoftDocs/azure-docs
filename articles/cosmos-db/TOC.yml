@@ -13,8 +13,6 @@
     items:
     - name: .NET
       href: create-documentdb-dotnet.md
-    - name: .NET Core
-      href: create-documentdb-dotnet-core.md
     - name: Java
       href: create-documentdb-java.md
     - name: Node.js
@@ -31,6 +29,8 @@
       href: create-mongodb-dotnet.md
     - name: Java
       href: create-mongodb-java.md
+    - name: Golang
+      href: create-mongodb-golang.md
   - name: Graph
     items:
     - name: .NET
@@ -135,8 +135,10 @@
       items:
       - name: Resources
         href: documentdb-resources.md
-      - name: SQL query
+      - name: SQL queries
         href: documentdb-sql-query.md
+      - name: SQL query performance
+        href: documentdb-sql-query-metrics.md        
       - name: SQL playground
         href: https://www.documentdb.com/sql/demo
       - name: Partitioning
@@ -187,12 +189,10 @@
           href: documentdb-nodejs-samples.md
         - name: Python samples
           href: documentdb-python-samples.md
-        - name: SQL syntax
-          href: https://msdn.microsoft.com/library/azure/dn782250.aspx
-        - name: SQL grammar cheat sheet
-          href: documentdb-sql-query-cheat-sheet.md
       - name: Resources
         items:
+        - name: SQL grammar cheat sheet
+          href: documentdb-sql-query-cheat-sheet.md
         - name: Stack Overflow
           href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
         - name: Videos
@@ -283,14 +283,20 @@
       href: powerbi-visualize.md
     - name: Leverage the ODBC driver for data visualization
       href: odbc-driver.md
+    - name: Use Spring Boot Starter with DocumentDB APIs
+      href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Reference
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db
   - name: DocumentDB APIs
     items:
     - name: Java
       href: documentdb-sdk-java.md
     - name: .NET
       href: documentdb-sdk-dotnet.md
+    - name: .NET Change feed
+      href: documentdb-sdk-dotnet-changefeed.md
     - name: .NET Core
       href: documentdb-sdk-dotnet-core.md
     - name: Node.js
@@ -301,6 +307,8 @@
       href: /rest/api/documentdb/
     - name: REST Resource Provider
       href: /rest/api/documentdbresourceprovider/
+    - name: SQL
+      href: documentdb-sql-query-reference.md
   - name: Table APIs
     items:
     - name: .NET
@@ -311,8 +319,10 @@
       href: graph-sdk-dotnet.md
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/documentdb/
+    href: https://azure.microsoft.com/pricing/details/cosmos-db/
   - name: FAQ
     href: faq.md
   - name: Stack Overflow

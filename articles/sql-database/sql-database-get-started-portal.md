@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start create
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
@@ -54,7 +54,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
    > You must select the sample database on this form because it is used in the remainder of this quick start.
    > 
 
-4. Fill out the SQL server (logical server) form with the following information, as shown on the preceding image:   
+4. Under **Server**, click **Configure required settings** and fill out the SQL server (logical server) form with the following information, as shown on the following image:   
 
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
@@ -99,12 +99,11 @@ The SQL Database service creates a firewall at the server-level that prevents ex
    > You need this fully qualified server name to connect to your server and its databases in subsequent quick starts.
    > 
 
-   ![server name](./media/sql-database-get-started-portal/server-name.png) 
+   ![server name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
 
    ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
-
 
 3. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
@@ -118,6 +117,7 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.
+>
 
 ## Query the SQL database
 
@@ -137,7 +137,7 @@ Now that you have created a sample database in Azure, let’s use the built-in q
 
 5. After you are authenticated, type the following query in the query editor pane.
 
-   ```
+   ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p

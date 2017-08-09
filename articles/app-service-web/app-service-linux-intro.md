@@ -34,6 +34,7 @@ Web App on Linux currently supports the following application stacks:
 	* 6.2
 	* 6.6
 	* 6.9
+	* 6.10
 * PHP
 	* 5.6
 	* 7.0
@@ -52,20 +53,20 @@ Customers can deploy their applications by using:
 
 For application scaling:
 
-* Customers can scale web apps up and down by changing the tier in their App Service plan
+* Customers can scale web apps up and down by changing the tier of their App Service plan
 * Customers can scale out applications and run multiple app instances within the confines of their SKU
 
 For Kudu, some of the basic functionality:
 
 * Environments
 * Deployments
-* Basic consoles
+* Basic console
 * SSH
 
 For devops:
 
 * Staging environments
-* DockerHub CI/CD
+* ACR and DockerHub CI/CD
 
 ## Limitations
 The Azure portal shows only features that currently work for Web App on Linux and hides the rest. As we enable more features, they will be visible on the portal.
@@ -75,9 +76,13 @@ Some features, such as virtual network integration, Azure Active Directory/third
 This public preview is currently only available in the following regions:
 
 * West US
-* West Europe 
+* East US
+* West Europe
+* North Europe
 * Southeast Asia
 * Australia East
+* Japan East
+* Brazil South
 
 Web Apps on Linux is only supported in the Dedicated app service plans and does not have a Free or Shared tier. Also, App Service plans for regular and Linux web apps are mutually exclusive, so you cannot create a Linux web app in a non-Linux app service plan.
 

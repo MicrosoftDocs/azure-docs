@@ -11,10 +11,10 @@ tags: ''
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 06/01/2017
 ms.author: owend
 ---
 
@@ -58,11 +58,11 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
-After you click OK, Query Editor will open where, in the next section, you filter the data you want to import.
+After you click OK, Query Editor opens. In the next section, you select only the data you want to import.
 
   
 ## Filter the table data  
-Tables in the AdventureWorksDW2014 sample database have data that isn't necessary to include in your model. When possible, you want to filter out data that will not be used to save in-memory space used by the model. You will filter out some of the columns from tables so they're not imported into the workspace database, or the model database after it has been deployed. 
+Tables in the AdventureWorksDW2014 sample database have data that isn't necessary to include in your model. When possible, you want to filter out unnecessary data to save in-memory space used by the model. You filter out some of the columns from tables so they're not imported into the workspace database, or the model database after it has been deployed. 
   
 #### To filter the table data before importing  
   
@@ -132,7 +132,7 @@ Tables in the AdventureWorksDW2014 sample database have data that isn't necessar
       |**ShipDateKey**|   
   
 ## <a name="Import"></a>Import the selected tables and column data  
-Now that you've previewed and filtered out unnecessary data, you can import the rest of the data you do want. The wizard imports the table data along with any relationships between tables. New tables and columns are created in the model and data that you filtered out will not be imported.  
+Now that you've previewed and filtered out unnecessary data, you can import the rest of the data you do want. The wizard imports the table data along with any relationships between tables. New tables and columns are created in the model and data that you filtered out is not be imported.  
   
 #### To import the selected tables and column data  
   

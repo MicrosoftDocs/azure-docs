@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 07/23/2017
 ms.author: raynew
 ---
 
@@ -21,7 +21,7 @@ ms.author: raynew
 
 ## What are paired regions?
 
-Azure operates in multiple geographies around the world. An Azure geography is a defined area of the world that contains at least one Azure Region. An Azure region is an area within a geography containing one or more datacenters.
+Azure operates in multiple geographies around the world. An Azure geography is a defined area of the world that contains at least one Azure Region. An Azure region is an area within a geography, containing one or more datacenters.
 
 Each Azure region is paired with another region within the same geography, together making a regional pair. The exception is Brazil South, which is paired with a region outside its geography.
 
@@ -31,22 +31,28 @@ Figure 1 – Azure regional pair diagram
 
 | Geography | Paired regions |  |
 |:--- |:--- |:--- |
+| Asia |East Asia |Southeast Asia |
+| Australia |Australia East |Australia Southeast |
+| Canada |Canada Central |Canada East |
+| China |China North |China East|
+| India |Central India |South India |
+| Japan |Japan East |Japan West |
+| Korea |Korea Central |Korea South |
 | North America |North Central US |South Central US |
 | North America |East US |West US |
-| North America |US East 2 |US Central |
+| North America |East US 2 |Central US |
 | North America |West US 2 |West Central US |
 | Europe |North Europe |West Europe |
-| Asia |South East Asia |East Asia |
-| China |East China |North China |
 | Japan |Japan East |Japan West |
 | Brazil |Brazil South (1) |South Central US |
-| Australia |Australia East |Australia Southeast |
 | US Government |US Gov Iowa |US Gov Virginia |
-| India |Central India |South India |
-| Canada |Canada Central |Canada East |
+| US Government |US Gov Virginia |US Gov Texas |
+| US Government |US Gov Texas |US Gov Arizona |
+| US Government |US Gov Arizona |US Gov Texas |
 | UK |UK West |UK South |
+| Germany |Germany Central |Germany Northeast |
 
-Table 1 - Mapping of azure regional pairs
+Table 1 - Mapping of Azure regional pairs
 
 > (1) Brazil South is unique because it is paired with a region outside of its own geography. Brazil South’s secondary region is South Central US, but South Central US’s secondary region is not Brazil South.
 

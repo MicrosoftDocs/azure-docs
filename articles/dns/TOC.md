@@ -40,10 +40,12 @@
 ## [Protect DNS zones and records](dns-protect-zones-recordsets.md)
 ## [Automate DNS operations with the .NET SDK](dns-sdk.md)
 
+## [Custom domains for Azure resources](dns-custom-domain.md)
 ## Troubleshoot
 ### [Troubleshooting guide](dns-troubleshoot.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
 ## [PowerShell](/powershell/module/azurerm.dns)
 ## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
@@ -62,8 +64,10 @@
 ## [Web apps](/azure/app-service-web/)
 
 # Resources
-## [Service updates](https://azure.microsoft.com/updates/?product=dns)
-## [Pricing](https://azure.microsoft.com/pricing/details/dns/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
+## [Feature requests](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
-## [Feature requests](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
+## [Pricing](https://azure.microsoft.com/pricing/details/dns/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Service updates](https://azure.microsoft.com/updates/?product=dns)

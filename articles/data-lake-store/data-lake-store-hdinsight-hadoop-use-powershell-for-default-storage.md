@@ -39,7 +39,7 @@ Before you begin this tutorial, make sure that you meet the following requiremen
 
 * **An Azure subscription**: Go to [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 or greater**: See [How to install and configure PowerShell](/powershell/azure/overview).
-* **Windows Software Development Kit (SDK)**: To install Windows SDK, go to [Downloads and tools for Windows 10](https://dev.windows.com/en-us/downloads). You use Windows SDK to create a security certificate.
+* **Windows Software Development Kit (SDK)**: To install Windows SDK, go to [Downloads and tools for Windows 10](https://dev.windows.com/en-us/downloads). The SDK is used to create a security certificate.
 * **Azure Active Directory service principal**: This tutorial describes how to create a service principal in Azure Active Directory (Azure AD). However, to create a service principal, you must be an Azure AD administrator. If you are an administrator, you can skip this prerequisite and proceed with the tutorial.
 
 	>[!NOTE]

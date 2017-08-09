@@ -1,4 +1,5 @@
 # [Overview](active-directory-developers-guide.md)
+## [Why Azure AD](https://azure.microsoft.com/develop/identity/signin/)
 ## [Auth basics](active-directory-authentication-scenarios.md)
 ## [Types of apps](active-directory-authentication-scenarios.md#application-types-and-scenarios)
 # Get Started
@@ -60,17 +61,19 @@
 ### [What happened to my Web API project](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Auth libraries (ADAL)](active-directory-authentication-libraries.md)
-## [Code Samples](active-directory-code-samples.md)
+## [Code samples article](active-directory-code-samples.md)
 ## [Glossary](active-directory-dev-glossary.md)
 ## [Authentication Protocols](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [Service to Service Calls](active-directory-protocols-oauth-service-to-service.md)
 ### [On-Behalf-Of flow](active-directory-protocols-oauth-on-behalf-of.md)
-### [Supported Token and Claim Types](active-directory-token-and-claims.md)
+### [Supported token and claim types](active-directory-token-and-claims.md)
 ### [Signing key rollover](active-directory-signing-key-rollover.md)
-### [Federation Metadata](active-directory-federation-metadata.md)
+### [Federation metadata](active-directory-federation-metadata.md)
+### [Certificate credentials](active-directory-certificate-credentials.md)
 ## [Application objects](active-directory-application-objects.md)
 ### [Apps and Azure AD](active-directory-how-applications-are-added.md)
 ## [Application manifest](active-directory-application-manifest.md)
@@ -83,11 +86,11 @@
 ### [v1-v2 comparison](active-directory-v2-compare.md)
 ## Get Started
 ### Mobile & Desktop apps
-#### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+#### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
 #### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
 ### Web apps
-#### [Javascript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+#### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
 #### [ASP.NET Web Server](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS Web app](active-directory-v2-devquickstarts-node-web.md)
 ## Guides
@@ -101,4 +104,8 @@
 #### [Oauth 2.0 client credentials grant](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Oauth 2.0 On-Behalf-Of flow](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Token reference](active-directory-v2-tokens.md)
+#### [Certificate credentials](active-directory-certificate-credentials.md)
 ### [Scopes](active-directory-v2-scopes.md)
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

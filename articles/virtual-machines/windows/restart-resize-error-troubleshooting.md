@@ -14,7 +14,7 @@ ms.topic: support-article
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.workload: required
-ms.date: 01/10/2017
+ms.date: 06/13/2017
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
 

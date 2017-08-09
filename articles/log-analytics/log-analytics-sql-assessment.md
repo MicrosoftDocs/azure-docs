@@ -12,12 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
 ---
 # Optimize your SQL Server environment with the SQL Assessment solution in Log Analytics
+
+![SQL Assessment symbol](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)
 
 You can use the SQL Assessment solution to assess the risk and health of your server environments on a regular interval. This article will help you install the solution so that you can take corrective actions for potential problems.
 
@@ -162,6 +164,8 @@ View the summarized compliance assessments for your infrastructure and then dril
 
 ## Ignore recommendations
 If you have recommendations that you want to ignore, you can create a text file that OMS will use to prevent recommendations from appearing in your assessment results.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### To identify recommendations that you will ignore
 1. Sign in to your workspace and open Log Search. Use the following query to list recommendations that have failed for computers in your environment.

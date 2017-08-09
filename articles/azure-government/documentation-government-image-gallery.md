@@ -1,6 +1,6 @@
 ---
-title: Azure Government Image Gallery | Microsoft Docs
-description: This article provides an overview of the Azure Government Image Gallery and the images included
+title: Azure Government image gallery | Microsoft Docs
+description: This article provides an overview of the Azure Government image gallery and the images included
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -17,36 +17,37 @@ ms.date: 05/12/2017
 ms.author: brendal
 
 ---
-# Azure Government Marketplace Images
-## Overview
-The Microsoft Azure Government Marketplace is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.
+# Azure Government Marketplace images
 
-## Variations
+The Azure Government Marketplace provides a similar experience as the public Azure portal. You can choose to deploy prebuilt images from Microsoft and our partners, or upload your own VHDs. This gives you the flexibility to deploy your own standardized images if needed.
 
-The below provides a list of available images within the Azure Government Marketplace.  Some of the prebuilt images do include pay as you go licensing for specific software.  Please review <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual Machine Pricing</a> page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.
+The following table shows a list of available images within the Azure Government Marketplace.  Some of the prebuilt images include pay-as-you-go licensing for specific software. Work with your Microsoft account team or reseller for Azure Government-specific pricing. For more information, see <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual machine pricing</a>.
 
-## Images - Azure Resource Manager
+## Images: Azure Resource Manager
 |Publisher|Offer|SKU|
 | --- | --- | --- |
 | a10networks | a10-vthunder-adc | vthunder_410_byol |
 | a10networks | a10-vthunder-adc | vthunder_byol |
+| akumina | akumina-interchange | akam101 |
 | alertlogic | alert-logic-tm | 20215000100-tmpbyol |
-| avepoint | avepoint-compliance-guardian | complianceguardian_4 |
-| avepoint | docave-for-office365 | docavemgr_6_6_0 |
+| altamira-corporation | lumify | lumify |
 | barracudanetworks | barracuda-email-security-gateway | byol |
 | barracudanetworks | barracuda-message-archiver | byol |
 | barracudanetworks | barracuda-ng-cc | byol |
 | barracudanetworks | barracuda-ng-firewall | byol |
 | barracudanetworks | barracuda-spam-firewall | byol |
 | barracudanetworks | waf | byol |
+| beyondtrust | beyondinsight | uvm-azm |
 | bitnami | abantecart | 1-2 |
 | bitnami | activemq | 5-13 |
 | bitnami | akeneo | 1-4 |
 | bitnami | alfrescocommunity | 201602 |
+| bitnami | ametys | 3-7 |
 | bitnami | apachesolr | 5-5 |
 | bitnami | artifactory | 4-5 |
 | bitnami | canvaslms | 2016-02 |
 | bitnami | cassandra | 3-7 |
+| bitnami | cassandra | default |
 | bitnami | chyrp | 2-5 |
 | bitnami | civicrm | 4-7 |
 | bitnami | cmsmadesimple | 2-1 |
@@ -82,6 +83,7 @@ The below provides a list of available images within the Azure Government Market
 | bitnami | joomla | 3-5 |
 | bitnami | jrubystack | 9-0 |
 | bitnami | kafka | 0-1 |
+| bitnami | kafka | default |
 | bitnami | lampstack | 5-6 |
 | bitnami | lappstack | 5-6 |
 | bitnami | letschat | 0-4 |
@@ -91,6 +93,7 @@ The below provides a list of available images within the Azure Government Market
 | bitnami | magento | 2-0 |
 | bitnami | mahara | 15-10 |
 | bitnami | mantis | 1-2 |
+| bitnami | mariadb | default |
 | bitnami | mattermost | 3-6 |
 | bitnami | mautic | 1-2 |
 | bitnami | mean | 3-2 |
@@ -120,6 +123,7 @@ The below provides a list of available images within the Azure Government Market
 | bitnami | owncloud | 8-2 |
 | bitnami | oxid-eshop | 4-9 |
 | bitnami | parseserver | 2-1 |
+| bitnami | parseserver | default |
 | bitnami | phabricator | 20160208 |
 | bitnami | phpbb | 3-1 |
 | bitnami | phplist | 3-2 |
@@ -128,15 +132,18 @@ The below provides a list of available images within the Azure Government Market
 | bitnami | plone | 5-0 |
 | bitnami | pootle | 2-7 |
 | bitnami | postgresql | 9-5 |
+| bitnami | postgresql | default |
 | bitnami | prestashop | 1-6-1 |
 | bitnami | processmakerenterprise | 3-1 |
 | bitnami | processmakeropensourceedition | 3-0 |
 | bitnami | processwire | 2-7 |
 | bitnami | publify | 8-2 |
 | bitnami | rabbitmq | 3-6 |
+| bitnami | rabbitmq | default |
 | bitnami | railo | 4-2 |
 | bitnami | redash | 0-10 |
 | bitnami | redis | 3-2 |
+| bitnami | redis | default |
 | bitnami | redmine | 3 |
 | bitnami | redmineplusagile | public |
 | bitnami | refinerycms | 2-1 |
@@ -147,12 +154,12 @@ The below provides a list of available images within the Azure Government Market
 | bitnami | reviewboardpowerpack | public |
 | bitnami | roundcube | 1-1 |
 | bitnami | rubystack | 2-0 |
-| bitnami | sharelock | 0-1 |
+| bitnami | seopanel | 3-8 |
 | bitnami | shopware | default |
 | bitnami | silverstripe | 3-2 |
 | bitnami | simpleinvoices | 2013-1 |
 | bitnami | simplemachinesforum | 2-0 |
-| bitnami | sitecake | 2-2 |
+| bitnami | sonarqube | 6-4 |
 | bitnami | spree | 3-0 |
 | bitnami | squash | 20151209 |
 | bitnami | subversion | 1-8 |
@@ -163,7 +170,6 @@ The below provides a list of available images within the Azure Government Market
 | bitnami | tinytinyrss | 20160220 |
 | bitnami | tom-cat | 7-0 |
 | bitnami | trac | 1-0 |
-| bitnami | tracks | 2-3 |
 | bitnami | typo3 | 7-6 |
 | bitnami | weblate | 2-4 |
 | bitnami | webmailpro | public |
@@ -171,6 +177,7 @@ The below provides a list of available images within the Azure Government Market
 | bitnami | wordpress | 4-4 |
 | bitnami | wordpress-multisite | 4 |
 | bitnami | x-cart | public |
+| bitnami | x2enginesalescrm | 5-5 |
 | bitnami | xoops | 2-5 |
 | bitnami | youtrack | 7-0 |
 | bitnami | zurmo | 3-1 |
@@ -183,10 +190,16 @@ The below provides a list of available images within the Azure Government Market
 | Canonical | UbuntuServer | 17.04 |
 | Canonical | UbuntuServer | 17.04-DAILY |
 | checkpoint | check-point-r77-10 | SG-BYOL |
+| checkpoint | check-point-vsec-r80 | sg-byol |
 | checkpoint | sg2 | sg-byol2 |
+| chef-software | chef-automate | byol |
+| cisco | centos65 | centos65 |
+| cisco | centos72 | centos72 |
 | cisco | cisco-asav | asav-azure-byol |
 | cisco | cisco-csr-1000v | 3_16 |
 | cisco | cisco-csr-1000v | csr-azure-byol |
+| cisco | ubuntu14 | ubuntu14 |
+| citrix | netscalervpx-120 | netscalerbyol |
 | citrix | netscalervpx110-6531 | netscalerbyol |
 | citrix | netscalervpx111 | netscalerbyol |
 | citrix | xenapp-server | coldfireserver |
@@ -194,13 +207,18 @@ The below provides a list of available images within the Azure Government Market
 | citrix | xenapp-vda-rdsh | server2016rdsh |
 | citrix | xenapp-vda-vdi | coldfirevdi |
 | citrix | xenapp-vda-vdi | server2016vdi |
+| clouber | cws | cuber |
 | cloudera | cloudera-centos-6 | cloudera-centos-6 |
 | cloudera | cloudera-centos-os | 6_7 |
 | cloudera | cloudera-centos-os | 6_8 |
 | cloudera | cloudera-centos-os | 7_2 |
+| cloudhub-technologies | umbraco-cms-win2012-r2 | umbraco-cms-on-win2012-r2 |
+| cloudhub-technologies | wordpress-on-windows-2012-r2 | wordpress-on-windows-2012-r2 |
 | codelathe | codelathe-filecloud-win2012r2 | filecloud_byol |
+| codelathe | filecloud-efss-windows2016 | filecloud_windows2016 |
 | commvault | commvault | csmav11 |
 | composable | composable | composable-govt |
+| connecting-software | cb-replicator-byol | cbrep-gov-byol |
 | CoreOS | CoreOS | Stable |
 | couchbase | couchbase-server-enterprise | byol |
 | couchbase | couchbase-sync-gateway-enterprise | byol |
@@ -208,12 +226,14 @@ The below provides a list of available images within the Azure Government Market
 | credativ | Debian | 8 |
 | credativ | Debian | 9-beta |
 | datastax | datastax-enterprise | datastaxenterprise |
+| dell_software | rapid-recovery-replication-target-vm-for-azure | quest_rr_replication_target_vm_for_azure |
 | docker | docker-ee | docker-ee |
 | docker | docker4azure-cs | docker4azure-cs-1_12 |
 | docker | docker4azure-cs | docker4azure-cs-1_1x |
 | enterprise-ethereum-alliance | quorum-demo | quorum-demo |
 | esri | arcgis-10-4-for-server | cloud |
 | esri | arcgis-enterprise | byol |
+| esri | arcgis-enterprise | byol-1051 |
 | esri | arcgis-for-server | cloud |
 | eventtracker | eventtracker-siem | etlm |
 | eventtracker | eventtracker-siem | etsc |
@@ -230,25 +250,37 @@ The below provides a list of available images within the Azure Government Market
 | infoblox | infoblox-vnios-te-v1420 | vnios-te-v1420 |
 | infoblox | infoblox-vnios-te-v1420 | vnios-te-v2220 |
 | infoblox | infoblox-vnios-te-v1420 | vnios-te-v820 |
+| infoblox | infoblox-vnios-te-v1420 | vsot |
+| juniper-networks | vsrx-next-generation-firewall | vsrx-byol-azure-image |
+| juniper-networks | vsrx-next-generation-firewall-solution-template | vsrx-byol-azure-image-solution-template |
 | kemptech | kemp360central-byol | kemp360central-byol |
 | kemptech | vlm-azure | basic-byol |
 | kemptech | vlm-azure | freeloadmaster |
 | kemptech | vlm-azure | vlm-byol-lts |
+| kemptech | vlm-azure | vlm-spla |
+| kinetica | kineticadbbyol | centos73-601 |
+| mapr-technologies | mapr52-base-dev | 5202 |
 | mico | mobile-impact-platform | mipvm |
 | MicrosoftAzureSiteRecovery | Process-Server | Windows-2012-R2-Datacenter |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2016 |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2017 |
 | MicrosoftHybridCloudStorage | StorSimple | StorSimple-Garda-8000-Series |
+| MicrosoftHybridCloudStorage | StorSimple | StorSimple-Garda-8000-Series-BBUpdate |
 | MicrosoftHybridCloudStorage | StorSimpleVA | StorSimpleUpdate3RC |
 | MicrosoftOSTC | FreeBSD | 10.3 |
 | MicrosoftOSTC | FreeBSD | 11 |
 | MicrosoftOSTC | FreeBSD | 11.0 |
+| MicrosoftRServer | RServer-CentOS | Enterprise |
+| MicrosoftRServer | RServer-RedHat | Enterprise |
+| MicrosoftRServer | RServer-Ubuntu | Enterprise |
+| MicrosoftRServer | RServer-WS2016 | Enterprise |
 | MicrosoftSharePoint | MicrosoftSharePointServer | 2016 |
+| MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Enterprise |
+| MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Express |
 | MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Standard |
 | MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Web |
 | MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Enterprise |
 | MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Express |
 | MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Standard |
+| MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Web |
 | MicrosoftSQLServer | SQL2012SP3-WS2012R2-BYOL | Enterprise |
 | MicrosoftSQLServer | SQL2012SP3-WS2012R2-BYOL | Standard |
 | MicrosoftSQLServer | SQL2014SP1-WS2012R2 | Enterprise |
@@ -284,18 +316,11 @@ The below provides a list of available images within the Azure Government Market
 | MicrosoftSQLServer | SQL2016SP1-WS2016-BYOL | Enterprise |
 | MicrosoftSQLServer | SQL2016SP1-WS2016-BYOL | Standard |
 | MicrosoftSQLServer | SQL2017-RHEL73 | Evaluation |
-| MicrosoftVisualStudio | VisualStudio | VS-2013-Comm-VSU5-AzureSDK-29-WS2012R2 |
-| MicrosoftVisualStudio | VisualStudio | VS-2013-Prem-VSU5-AzureSDK-29-WS2012R2 |
-| MicrosoftVisualStudio | VisualStudio | VS-2013-Ult-VSU5-AzureSDK-29-WS2012R2 |
-| MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-AzureSDK-29-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-VSU3-AzureSDK-29-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-VSU3-AzureSDK-291-WS2012R2 |
-| MicrosoftVisualStudio | VisualStudio | VS-2015-Ent-AzureSDK-29-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Ent-VSU3-AzureSDK-29-WS2012R2 |
-| MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-v151-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-v152-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-WS2016 |
-| MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-v151-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-v152-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-WS2016 |
 | MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
@@ -304,6 +329,7 @@ The below provides a list of available images within the Azure Government Market
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-Server-Core |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-RDSH |
 | MicrosoftWindowsServer | WindowsServer | 2016-Nano-Server |
 | MicrosoftWindowsServer | WindowsServer-HUB | 2008-R2-SP1-HUB |
 | MicrosoftWindowsServer | WindowsServer-HUB | 2012-Datacenter-HUB |
@@ -328,9 +354,15 @@ The below provides a list of available images within the Azure Government Market
 | RedHat | RHEL | 6.8 |
 | RedHat | RHEL | 6.9 |
 | RedHat | RHEL | 6.9-LVM |
+| RedHat | RHEL | 7-LVM |
+| RedHat | RHEL | 7-RAW |
 | RedHat | RHEL | 7.2 |
 | RedHat | RHEL | 7.3 |
 | RedHat | RHEL | 7.3-LVM |
+| RedHat | RHEL | 7.4-LVM |
+| RedHat | RHEL | 7.4-RAW |
+| RedHat | RHEL | 7.4.Beta |
+| RedHat | RHEL | 7.4.Beta-LVM |
 | RedHat | RHEL-SAP-APPS | 6.8 |
 | RedHat | RHEL-SAP-APPS | 7.3 |
 | RedHat | RHEL-SAP-HANA | 6.7 |
@@ -340,35 +372,40 @@ The below provides a list of available images within the Azure Government Market
 | riverbed | riverbed-steelhead-9-5-0 | riverbed-steelhead-9-5-0 |
 | riverbed | riverbed-steelhead-9-6-0 | riverbed-steelhead-9-6-0 |
 | scalegrid | centos | free |
-| sentryone | sentryoneeval | sentryoneeval |
+| silver-peak-systems | silver_peak_edgeconnect | silver_peak_edgeconnect_8_1 |
+| silver-peak-systems | silver_peak_vx | silver-peak-vx-8-1 |
 | sophos | sophos-xg | byol |
 | splunk | splunk-enterprise-base-image | splunk-on-ubuntu-14-04-lts |
 | stonefly | stonefly-cloud-drive | byol_stonefly |
-| SUSE | openSUSE-Leap | 42.1 |
 | SUSE | openSUSE-Leap | 42.2 |
 | SUSE | SLES | 11-SP4 |
-| SUSE | SLES | 12-SP1 |
 | SUSE | SLES | 12-SP2 |
 | SUSE | SLES-BYOS | 11-SP4 |
 | SUSE | SLES-BYOS | 12-SP2 |
 | SUSE | SLES-SAP-BYOS | 12-SP1 |
 | SUSE | SLES-SAP-BYOS | 12-SP2 |
+| SUSE | SLES-SAPCAL | 11-SP4 |
 | SUSE | SUSE-Manager-Proxy-BYOS | 3.0 |
+| SUSE | SUSE-Manager-Proxy-BYOS | 3.1 |
 | SUSE | SUSE-Manager-Server-BYOS | 3.0 |
+| SUSE | SUSE-Manager-Server-BYOS | 3.1 |
 | suse-byos | sles-byos | 12-sp1 |
 | talon | talon-fast | talon-azure-byol |
 | tenable | tenable-nessus-byol | serv-nes-byol-azure |
+| veritas | netbackup-8-0 | netbackup_8-standard |
+| vidizmo | enterprisetube-video-streaming-premium-portal | vidizmo-enterprisetube-premium-100 |
 | winmagic_securedoc_cloudvm | seccuredoc_cloudvm_5 | winmagic_securedoc_cloudvm_byol |
+
 
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged -->
 
-## Quick Start Templates
+## Quickstart templates
 ### Step 1
-Go to Azure Quickstart Templates GitHub Repository and select from the list of Solution Templates below:
+Go to the GitHub repository for Azure Quickstart templates, and select from the following list of solution templates:
 
-| Quick Start Template |
+| Quickstart template |
 | --- |
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/ethereum-consortium-blockchain-network"> Ethereum Consortium Blockchain Network </a> |
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/splunk-on-ubuntu"> Splunk on Ubuntu </a> |
@@ -377,34 +414,33 @@ Go to Azure Quickstart Templates GitHub Repository and select from the list of S
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-existing-vnet-4-nic"> Cisco CSR1000v (4 NIC existing Vnet) </a> |
 
 ### Step 2
-In the Readme file, launch the template by clicking on "Deploy to Azure Government" button/link at the top of the page.
+In the readme file, open the template by clicking **Deploy to Azure Government** at the top of the page.
 
 ### Step 3
-A browser page will open the template deployment blade in the Azure Government portal. In the parameters blade, complete the required fields, and click "Okay."
+A browser page opens the **Template deployment** blade in the Azure Government portal. On the **Parameters** blade, complete the required fields, and click **Okay**.
 
 ### Step 4
-Accept legal terms and conditions, and checkmark the “Pin to dashboard” box, then click create.
+If you accept legal terms and conditions, select **Pin to dashboard**, and then click **create**.
 
 > [!NOTE]
-> You will need a valid Azure Government Account in order to continue. To experience the power of Azure Government for your organization, sign up for an [Azure Government Trial](https://azuregov.microsoft.com/trial/azuregovtrial).
+> You need a valid Azure Government account to continue. To use Azure Government in your organization, sign up for an [Azure Government trial](https://azuregov.microsoft.com/trial/azuregovtrial).
 > 
 > 
 
 ### Step 5
-The blades will close and it will go back to your portal dashboard view showing the image deployment. This will take several minutes. Once the VM solution is running, it will show up in your dashboard. If you did not select the “Pin to dashboard” option in step 4, you will need to search for the VM in your Resources.
+The blades close, and you return to your portal dashboard view, showing the image deployment. This takes several minutes. After the VM solution is running, it appears in your dashboard. If you did not select the **Pin to dashboard** option in step 4, you can search for the VM in your **Resources**.
 
 > [!NOTE]
-> Solution templates are provided from Microsoft and third-party providers as a starting point only. You are solely responsible for developing, implementing, and managing your applications and/or subscriptions running on Microsoft Azure and Azure Government in compliance with applicable laws, regulations, and contractual obligations.  These templates are provided "AS-IS" and without any warranty of any kind, whether in express, implied or statutory, and Microsoft expressly disclaims all warranties of merchantability, fitness for a particular purpose, or non-infringement.
+> Solution templates are provided from Microsoft and third-party providers as a starting point only. You are solely responsible for developing, implementing, and managing your applications and subscriptions that run on Azure and Azure Government in compliance with applicable laws, regulations, and contractual obligations. These templates are provided "as-is" and without any warranty of any kind, whether in express, implied or statutory, and Microsoft expressly disclaims all warranties of merchantability, fitness for a particular purpose, or non-infringement.
 > 
 > 
 
 ## Next steps
-The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the [Azure Government Developer Guide](documentation-government-developer-guide.md) to uncover an programmatic differences with endpoints when working with Azure Government.
+The following resources provide more information on deploying from the image gallery or creating your own VHD. To uncover any programmatic differences with endpoints when you are working with Azure Government, see the [Azure Government developer guide](documentation-government-developer-guide.md).
 
-### Other Resources:
-* [Deploying a Windows Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Virtual Machine FAQ](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Capture Linux VM Image](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Deploying a Windows virtual machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Virtual machine FAQ](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Capture Linux VM image](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 

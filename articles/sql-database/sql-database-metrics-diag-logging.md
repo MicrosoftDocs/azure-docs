@@ -9,7 +9,7 @@ editor:
 
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: monitor & tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,7 +19,7 @@ ms.author: vvasic
 
 ---
 # Azure SQL Database metrics and diagnostics logging 
-Azure SQL Database can emit metrics and diagnostic logs for easier monitoring. You can configure Azure SQL Database to store resource usage, workers and sessions and connectivity into one of these Azure resources:
+Azure SQL Database can emit metrics and diagnostic logs for easier monitoring. You can configure Azure SQL Database to store resource usage, workers and sessions, and connectivity into one of these Azure resources:
 - **Azure Storage**: For archiving vast amounts of telemetry for a small price
 - **Azure Event Hub**: For integrating Azure SQL Database telemetry with your custom monitoring solution or hot pipelines
 - **Azure Log Analytics**: For out of the box monitoring solution with reporting, alerting, and mitigating capabilities 
@@ -98,7 +98,7 @@ To enable metrics and diagnostics logging using the Azure CLI, use the following
 
 - To enable storage of Diagnostic Logs in a Storage Account, use this command:
 
-   ```azurecli
+   ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
    ```
 
@@ -106,19 +106,19 @@ To enable metrics and diagnostics logging using the Azure CLI, use the following
 
 - To enable streaming of Diagnostic Logs to an Event Hub, use this command:
 
-   ```azurecli
+   ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
    ```
 
    The Service Bus Rule ID is a string with this format:
 
-   ```azurecli
+   ```azurecli-interactive
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
 - To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
-   ```azurecli
+   ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
    ```
 

@@ -1,10 +1,10 @@
 ---
-title: Learn Node.js - Azure Cosmos DB Node.js Tutorial | Microsoft Docs
-description: Learn Node.js! Tutorial explores how to use Microsoft Azure Cosmos DB to store and access data from a Node.js Express web application hosted on Azure Websites.
-keywords: Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure
+title: Build a Node.js web app for Azure Cosmos DB | Microsoft Docs
+description: This Node.js tutorial explores how to use Microsoft Azure Cosmos DB to store and access data from a Node.js Express web application hosted on Azure Websites.
+keywords: Application development, database tutorial, learn node.js, node.js tutorial
 services: cosmos-db
 documentationcenter: nodejs
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 
@@ -13,9 +13,9 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
-ms.date: 05/23/2017
-ms.author: syamk
+ms.topic: article
+ms.date: 07/06/2017
+ms.author: mimig
 
 ---
 # <a name="_Toc395783175"></a>Build a Node.js web application using Azure Cosmos DB
@@ -46,7 +46,7 @@ that you have the following:
 
    OR
 
-   A local installation of the [Azure Cosmos DB Emulator](local-emulator.md).
+   A local installation of the [Azure Cosmos DB Emulator](local-emulator.md) (Windows only).
 * [Node.js][Node.js] version v0.10.29 or higher.
 * [Express generator](http://www.expressjs.com/starter/generator.html) (you can install this via `npm install express-generator -g`)
 * [Git][Git].
@@ -58,7 +58,7 @@ Let's start by creating an Azure Cosmos DB account. If you already have an accou
 
 [!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
 
-## <a name="_Toc395783178"></a>Step 2: Learn to create a new Node.js application
+## <a name="_Toc395783178"></a>Step 2: Create a new Node.js application
 Now let's learn to create a basic Hello World Node.js project using the [Express](http://expressjs.com/) framework.
 
 1. Open your favorite terminal, such as the Node.js command prompt.
@@ -85,7 +85,7 @@ The **package.json** file is one of the files created in the root of the project
 1. Back in the terminal, install the **async** module via npm.
    
         npm install async --save
-2. Install the **documentdb** module via npm. This is the module where all the DocumentDB magic happens.
+2. Install the **documentdb** module via npm. This is the module where all the Azure Cosmos DB magic happens.
    
         npm install documentdb --save
 3. A quick check of the **package.json** file of the application should show the additional modules. This file will tell Azure which packages to download and install when running your application. It should resemble the example below.
@@ -387,8 +387,8 @@ That takes care of all the initial setup and configuration, now let’s get down
    
         var config = {}
    
-        config.host = process.env.HOST || "[the URI value from the DocumentDB Keys blade on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the DocumentDB Keys blade on http://portal.azure.com]";
+        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
+        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
         config.databaseId = "ToDoList";
         config.collectionId = "Items";
    
@@ -431,22 +431,25 @@ Now let’s turn our attention to building the user interface so a user can actu
 
 1. The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking website. 
 2. Open the **layout.jade** file found in the **views** folder and replace the contents with the following:
-   
-        doctype html
-        html
-           head
-             title= title
-             link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
-             link(rel='stylesheet', href='/stylesheets/style.css')
-           body
-             nav.navbar.navbar-inverse.navbar-fixed-top
-               div.navbar-header
-                 a.navbar-brand(href='#') My Tasks
-             block content
-             script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
-             script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+
+    ```
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body
+        nav.navbar.navbar-inverse.navbar-fixed-top
+          div.navbar-header
+            a.navbar-brand(href='#') My Tasks
+        block content
+        script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+    ```
 
     This effectively tells the **Jade** engine to render some HTML for our application and creates a **block** called **content** where we can supply the layout for our content pages.
+
     Save and close this **layout.jade** file.
 
 3. Now open the **index.jade** file, the view that will be used by our application, and replace the content of the file with the following:
@@ -478,44 +481,28 @@ Now let’s turn our attention to building the user interface so a user can actu
                      td #{month + "/" + day + "/" + year}
                      td
                        input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-             button.btn(type="submit") Update tasks
+             button.btn.btn-primary(type="submit") Update tasks
            hr
            form.well(action="/addtask", method="post")
-             label Item Name:
-             input(name="name", type="textbox")
-             label Item Category:
-             input(name="category", type="textbox")
+             .form-group
+               label(for="name") Item Name:
+               input.form-control(name="name", type="textbox")
+             .form-group
+               label(for="category") Item Category:
+               input.form-control(name="category", type="textbox")
              br
              button.btn(type="submit") Add item
    
+
     This extends layout, and provides content for the **content** placeholder we saw in the **layout.jade** file earlier.
    
-    In this layout we created two HTML forms. 
+    In this layout we created two HTML forms.
+
     The first form contains a table for our data and a button that allows us to update items by posting to **/completetask** method of our controller.
+    
     The second form contains two input fields and a button that allows us to create a new item by posting to **/addtask** method of our controller.
-   
+
     This should be all that we need for our application to work.
-4. Open the **style.css** file in **public\stylesheets** directory and replace the code with the following:
-   
-        body {
-          padding: 50px;
-          font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-        }
-        a {
-          color: #00B7FF;
-        }
-        .well label {
-          display: block;
-        }
-        .well input {
-          margin-bottom: 5px;
-        }
-        .btn {
-          margin-top: 5px;
-          border: outset 1px #C8C8C8;
-        }
-   
-    Save and close this **style.css** file.
 
 ## <a name="_Toc395783181"></a>Step 6: Run your application locally
 1. To test the application on your local machine, run `npm start` in the terminal to start your application, then refresh your [http://localhost:3000](http://localhost:3000) browser page. The page should now look like the image below:

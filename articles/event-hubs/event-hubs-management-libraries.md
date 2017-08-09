@@ -4,7 +4,7 @@ description: Manage Event Hubs namespaces and entities from .NET
 services: event-hubs
 cloud: na
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 4/10/2017
-ms.author: jotaub;sethm
+ms.author: sethm
 
 ---
 
@@ -44,7 +44,7 @@ The pattern to manipulate any Event Hubs resource follows a common protocol:
 
 1. Obtain a token from Azure Active Directory using the `Microsoft.IdentityModel.Clients.ActiveDirectory` library.
     ```csharp
-    var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
     var result = await context.AcquireTokenAsync(
         "https://management.core.windows.net/",

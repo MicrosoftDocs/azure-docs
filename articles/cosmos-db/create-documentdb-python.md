@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 51c11be2-af6d-425f-a86a-39cbfe61da29
 ms.service: cosmos-db
-ms.custom: quick start connect
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: python
@@ -54,7 +54,7 @@ Now let's clone a DocumentDB API app from github, set the connection string, and
     ```  
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
+Let's make a quick review of what's happening in the app. Open the DocumentDBGetStarted.py file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
 
 * The DocumentClient is initialized.

@@ -39,10 +39,12 @@
 ### [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
 ### [Web + Mobile](documentation-government-services-webandmobile.md)
 ### [Media Services](documentation-government-services-media.md)
-
+### [Internet of Things](documentation-government-services-iot-hub.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/)
-## [Trial](https://azuregov.microsoft.com/trial/azuregovtrial)
-## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
 ## [Azure Government Website](https://azure.microsoft.com/overview/clouds/government/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
+## [Pricing](https://azure.microsoft.com/pricing/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Trial](https://azuregov.microsoft.com/trial/azuregovtrial)

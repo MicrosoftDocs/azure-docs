@@ -5,11 +5,11 @@ services: site-recovery
 documentationcenter: ''
 author: nsoneji
 manager: gauravd
-editor: 
+editor:
 
-ms.assetid: 
+ms.assetid:
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -31,9 +31,9 @@ Traditional non-replication based recovery methods involve backing up of various
 A good disaster recovery solution, should allow modeling of recovery plans around the above complex application architectures and also have the ability to add customized steps to handle application mappings between various tiers hence providing a single-click sure shot solution in the event of a disaster leading to a lower RTO.
 
 
-This article describes how to protect an IIS based web application using a [Azure Site Recovery](site-recovery-overview.md). This article will cover best practices for replicating a three tier IIS based web application to Azure, how you can do a disaster recovery drill, and how you can failover the application to Azure. 
+This article describes how to protect an IIS based web application using a [Azure Site Recovery](site-recovery-overview.md). This article will cover best practices for replicating a three tier IIS based web application to Azure, how you can do a disaster recovery drill, and how you can failover the application to Azure.
 
- 
+
 ## Prerequisites
 
 Before you start, make sure you understand the following:
@@ -49,12 +49,12 @@ Before you start, make sure you understand the following:
 An IIS based web application typically follows one of the following deployment patterns:
 
 **Deployment pattern 1 **
-An IIS based web farm  with Application Request Routing(ARR), IIS Server and Microsoft SQL Server. 
+An IIS based web farm  with Application Request Routing(ARR), IIS Server and Microsoft SQL Server.
 
 ![Deployment Pattern](./media/site-recovery-iis/deployment-pattern1.png)
 
 **Deployment pattern 2**
-An IIS based web farm with Application Request Routing(ARR), IIS Server, Application Server, and Microsoft SQL Server. 
+An IIS based web farm with Application Request Routing(ARR), IIS Server, Application Server, and Microsoft SQL Server.
 
 
 ![Deployment Pattern](./media/site-recovery-iis/deployment-pattern2.png)
@@ -73,9 +73,9 @@ For the purpose of creating this article VMware virtual machines with IIS Server
 
 ## Replicate virtual machines
 
-Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating all the IIS web farm virtual machines to Azure. 
+Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating all the IIS web farm virtual machines to Azure.
 
-If you are using a static IP then specify the IP that you want the virtual machine to take in the [**Target IP**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties) setting in Compute and Network settings. 
+If you are using a static IP then specify the IP that you want the virtual machine to take in the [**Target IP**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties) setting in Compute and Network settings.
 
 ![Target IP](./media/site-recovery-active-directory/dns-target-ip.png)
 
@@ -87,7 +87,7 @@ A recovery plan allows sequencing the failover of various tiers in a multi-tier 
 ### Adding virtual machines to failover groups
 A typical multi-tier IIS web application will consist of a database tier with SQL virtual machines, the web tier constituted by a IIS server and an application tier. Add all these virtual machines to different group based on tier as below. [Learn more about customising recovery plan](site-recovery-runbook-automation.md#customize-the-recovery-plan).
 
-1. Create a recovery plan. Add the database tier virtual machines under Group 1 to ensure that they are shutdown last and brought up first. 
+1. Create a recovery plan. Add the database tier virtual machines under Group 1 to ensure that they are shutdown last and brought up first.
 
 1. Add the application tier virtual machines under Group 2 such that they are brought up after the database tier has been brought up.
 
@@ -103,38 +103,38 @@ You may need to do some operations on the Azure virtual machines post failover/T
 If the DNS is configured for dynamic DNS update then virtual machines usually update the DNS with the new IP once they start. If you want to add an explicit step to update DNS with the new IPs of the virtual machines then add this [script to update IP in DNS](https://aka.ms/asr-dns-update) as a post action on recovery plan groups.  
 
 #### Connection string in an application’s web.config
-The connection string specifies the database that the web site communicates with. 
+The connection string specifies the database that the web site communicates with.
 
-If the connection string carries the name of the database virtual machine, no further steps will be needed post failover and the application will be able to automatically communicate to the DB. Also, if the IP address for the database virtual machine is retained, it will not be needed to update the connection string. If the connection string refers to the database virtual machine using an IP address, it will need to be updated post failover. E.g. the below connection string points to the DB with IP 127.0.1.2 
+If the connection string carries the name of the database virtual machine, no further steps will be needed post failover and the application will be able to automatically communicate to the DB. Also, if the IP address for the database virtual machine is retained, it will not be needed to update the connection string. If the connection string refers to the database virtual machine using an IP address, it will need to be updated post failover. E.g. the below connection string points to the DB with IP 127.0.1.2
 
-		<?xml version="1.0" encoding="utf-8"?> 
-		<configuration> 
-		<connectionStrings> 
-		<add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" /> 
-		</connectionStrings> 
+		<?xml version="1.0" encoding="utf-8"?>
+		<configuration>
+		<connectionStrings>
+		<add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" />
+		</connectionStrings>
 		</configuration>
 
 You can update the connection string in web tier by adding [IIS connection update script](https://aka.ms/asr-update-webtier-script-classic) after Group 3 in the recovery plan.
 
 #### Site bindings for the application
-Every site consists of binding information that includes the type of binding, the IP address at which the IIS server listens to the requests for the site, the port number and the host names for the site. At the time of a failover, these bindings might need to be updated if there is a change in the IP address associated with them. 
+Every site consists of binding information that includes the type of binding, the IP address at which the IIS server listens to the requests for the site, the port number and the host names for the site. At the time of a failover, these bindings might need to be updated if there is a change in the IP address associated with them.
 
 > [!NOTE]
-> 
-> If you have marked ‘all unassigned’ for the site binding as in the example below, you will not need to update this binding post failover. Also, if the IP address associated with a site is not changed post failover, the site binding need not be updated (Retention of the IP address depends on the network architecture and subnets assigned to the primary and recovery sites and hence may or may not be feasible for your organization.) 
+>
+> If you have marked ‘all unassigned’ for the site binding as in the example below, you will not need to update this binding post failover. Also, if the IP address associated with a site is not changed post failover, the site binding need not be updated (Retention of the IP address depends on the network architecture and subnets assigned to the primary and recovery sites and hence may or may not be feasible for your organization.)
 
 ![SSL Binding](./media/site-recovery-iis/sslbinding.png)
 
-If you have associated the IP address with a site, you will need to update all site bindings with the new IP address. You can add [IIS Web tier update script](https://aka.ms/asr-web-tier-update-runbook-classic) after Group 3 in recovery plan to change the site bindings. 
+If you have associated the IP address with a site, you will need to update all site bindings with the new IP address. You can add [IIS Web tier update script](https://aka.ms/asr-web-tier-update-runbook-classic) after Group 3 in recovery plan to change the site bindings.
 
 
 #### Update load balancer IP address
 If you have  Application Request Routing virtual machine, add [IIS ARR  failover script](https://aka.ms/asr-iis-arrtier-failover-script-classic) after Group 4 to update the IP address.
 
 #### The SSL cert binding for an https connection
-Websites can have an associated SSL certificate that helps in ensuring a secure communication between the webserver and the user’s browser. If the website has an https connection and an associated https site binding to the IP address of the IIS server with an SSL cert binding, a new site binding will need to be added for the cert with the IP of the IIS virtual machine post failover. 
+Websites can have an associated SSL certificate that helps in ensuring a secure communication between the webserver and the user’s browser. If the website has an https connection and an associated https site binding to the IP address of the IIS server with an SSL cert binding, a new site binding will need to be added for the cert with the IP of the IIS virtual machine post failover.
 
-The SSL cert can be issued against- 
+The SSL cert can be issued against-
 
 a) The fully qualified domain name of the website<br>
 b) The name of the server<br>
@@ -163,4 +163,4 @@ Follow [this guidance](site-recovery-failover.md) when you are doing a failover.
 1.	Select recovery point to start the failover process.
 
 ## Next steps
-You can learn more about [replicate other applications](site-recovery-workload.md) using Site Recovery. 
+You can learn more about [replicate other applications](site-recovery-workload.md) using Site Recovery.

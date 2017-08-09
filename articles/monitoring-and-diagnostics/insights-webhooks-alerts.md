@@ -1,7 +1,7 @@
 ---
 title: Configure webhooks on Azure metric alerts | Microsoft Docs
 description: Reroute Azure alerts to other non-Azure systems.
-author: kamathashwin
+author: johnkemnetz
 manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
-ms.author: ashwink
+ms.author: johnkem
 
 ---
 # Configure a webhook on an Azure metric alert

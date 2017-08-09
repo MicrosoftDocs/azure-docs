@@ -2,16 +2,13 @@
 title: Connection libraries for Azure Database for MySQL | Microsoft Docs
 description: This article lists each library or driver that client programs can use when connecting to Azure Database for MySQL.
 services: mysql
-author: wutao
+author: mswutao
 ms.author: wutao
 manager: jhubbard
-editor: jasonh
-ms.assetid:
+editor: jasonwhowell
 ms.service: mysql-database
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: portal
-ms.date: 05/10/2017
+ms.date: 06/08/2017
 ---
 
 # Connection libraries for Azure Database for MySQL
@@ -30,6 +27,7 @@ MySQL offers standard database driver connectivity for using MySQL with applicat
 | Python | Windows, Linux, Mac OS X | [MySQL Connector/Python Developer Guide](https://dev.mysql.com/doc/connector-python/en/) | [Download](https://dev.mysql.com/downloads/connector/python/) |
 | C++ | Windows, Linux, Mac OS X | [MySQL Connector/C++ Developer Guide](https://dev.mysql.com/doc/connector-cpp/en/) | [Download](https://dev.mysql.com/downloads/connector/python/) |
 | C | Windows, Linux, Mac OS X | [MySQL Connector/C Developer Guide](https://dev.mysql.com/doc/connector-c/en/) | [Download](https://dev.mysql.com/downloads/connector/c/)
+| Perl | Windows, Linux, Mac OS X, and Unix platforms | [DBD::MySQL](https://metacpan.org/pod/DBD::mysql) | [Download](https://metacpan.org/pod/DBD::mysql) |
 
 
 ## Next steps

@@ -6,6 +6,7 @@ keywords:
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 
 ms.assetid: 
 ms.service: active-directory
@@ -13,12 +14,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: end-user
 
 ---
 # Register for self-service password reset
+
+> [!IMPORTANT]
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 
 As an end user, you can reset your password or unlock your account without having to speak to a person using self-service password reset (SSPR). Before you can use this functionality, you have to register authentication methods or confirm the predefined authentication methods your administrator has populated.
 

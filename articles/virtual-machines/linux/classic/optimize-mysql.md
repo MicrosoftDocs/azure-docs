@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2015
+ms.date: 05/31/2017
 ms.author: ningk
 
 ---
@@ -38,27 +38,22 @@ There are limits on how many disks you can add for different virtual machine typ
 This article assumes you have already created a Linux virtual machine and have MYSQL installed and configured. For more information on getting started, see How to install MySQL on Azure.  
 
 ### Set up RAID on Azure
-The following steps show how to create RAID on Azure by using the Azure classic portal. You can also set up RAID by using Windows PowerShell scripts.
+The following steps show how to create RAID on Azure by using the Azure portal. You can also set up RAID by using Windows PowerShell scripts.
 In this example, we will configure RAID 0 with four disks.  
 
 #### Add a data disk to your virtual machine
-On the virtual machines page of the Azure classic portal, click the virtual machine to which you want to add a data disk. In this example, the virtual machine is mysqlnode1.  
+In the Azure portal, go to the dashboard and select the virtual machine to which you want to add a data disk. In this example, the virtual machine is mysqlnode1.  
 
-![Virtual machines][1]
+<!--![Virtual machines][1]-->
 
-On the page for the virtual machine, click **Dashboard**.  
+Click **Disks** and then click **Attach New**.
 
-![Virtual machine dashboard][2]
+![Virtual machines add disk](media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-Disks-option.png)
 
-In the taskbar, click **Attach**.
+Create a new 500 GB disk. Make sure that **Host Cache Preference** is set to **None**.  When you're finished, click **OK**.
 
-![Virtual machine taskbar][3]
+![Attach empty disk](media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-attach-empty-disk.png)
 
-And then click **Attach empty disk**.  
-
-![Attach empty disk][4]
-
-For data disks, the **Host Cache Preference** should be set to **None**.  
 
 This adds one empty disk into your virtual machine. Repeat this step three more times so that you have four data disks for RAID.  
 
@@ -344,3 +339,4 @@ For more detailed [optimization configuration parameters](http://dev.mysql.com/d
 [12]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-12.png
 [13]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-14.png
+

@@ -11,7 +11,7 @@ tags: ''
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017

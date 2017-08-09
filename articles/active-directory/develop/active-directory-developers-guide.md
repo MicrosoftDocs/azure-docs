@@ -2,7 +2,7 @@
 title: Azure Active Directory for developers | Microsoft Docs
 description: This article provides an overview of signing in Microsoft work and school accounts using Azure Active Directory.
 services: active-directory
-author: bryanla
+author: dstrockis
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/07/2017
-ms.author: bryanla
-ms.custom: aaddev
+ms.author: dastrock
 ms.custom: aaddev
 ---
 # Azure Active Directory for developers
@@ -63,6 +62,7 @@ These are the best places to get help with developing on Azure Active Directory.
 |---|
 |[Stack Overflow's `azure-active-directory` and `adal` tags](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
 |[Feedback on Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
+| [Try out Microsoft Dev Chat (free for a limited time)](http://aka.ms/devchat) |
 
 <br />
 

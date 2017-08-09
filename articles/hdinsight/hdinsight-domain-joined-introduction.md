@@ -25,8 +25,9 @@ Azure HDInsight until today supported only a single user local admin. This worke
 
 > [!NOTE]
 > The new features described in this preview are available only on Linux-based HDInsight clusters for Hive workload. The other workloads, such as HBase, Spark, Storm and Kafka, will be enabled in future releases.
->
->
+
+> [!IMPORTANT]
+> Oozie is not enabled on domain-joined HDInsight.
 
 ## Benefits
 Enterprise Security contains four big pillars – Perimeter Security, Authentication, Authorization, and Encryption.

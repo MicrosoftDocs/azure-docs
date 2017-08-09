@@ -28,3 +28,5 @@ ECC		|Field of total estimated citation count|Int32		|none
 FL		|Level in fields of study hierarchy 	|Int32		|Equals, <br/>IsBetween
 FP.FN	|Parent field of study name 			|String		|Equals
 FP.FId 	|Parent field of study ID 				|Int64 		|Equals
+FC.FN	|Child field of study name 		    	|String		|Equals
+FC.FId 	|Child field of study ID 				|Int64 		|Equals

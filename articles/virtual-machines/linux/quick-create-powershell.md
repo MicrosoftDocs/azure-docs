@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
-
+ms.custom: mvc
 ---
 
 # Create a Linux virtual machine with PowerShell

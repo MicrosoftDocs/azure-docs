@@ -5,20 +5,20 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
-ms.devlang: azurecli
-ms.topic: article
-ms.custom: sample
-ms.date: 05/25/2017
+ms.devlang: azure-cli
+ms.custom: mvc
+ms.topic: sample
+ms.date: 05/31/2017
 ---
 
 # Create a MySQL server and configure a firewall rule using the Azure CLI
 This sample CLI script creates an Azure Database for MySQL server and configures a server-level firewall rule. Once the script runs successfully, the MySQL server is accessible by all Azure services and the configured IP address.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Sample script
 In this sample script, edit the highlighted lines to customize the admin username and password.

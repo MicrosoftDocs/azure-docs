@@ -152,7 +152,7 @@ Learn how to use Hadoop in the cloud on HDInsight to analyze streaming or histor
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt271028.aspx">.NET (Hadoop)</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight">.NET (Hadoop)</a></p>
                         <p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p>
                         <p><a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library">.NET (Avro)</a></p>
                     </div>

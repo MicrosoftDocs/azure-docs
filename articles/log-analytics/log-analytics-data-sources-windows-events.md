@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 07/12/2017
 ms.author: bwren
 
 ---
@@ -66,9 +66,20 @@ The following table provides different examples of log searches that retrieve Wi
 | Type=Event &#124; Measure count() by Source |Count of Windows events by source. |
 | Type=Event EventLevelName=error &#124; Measure count() by Source |Count of Windows error events by source. |
 
+
+>[!NOTE]
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
+>
+>| Query | Description |
+|:---|:---|
+| Event |All Windows events. |
+| Event &#124; where EventLevelName == "error" |All Windows events with severity of error. |
+| Event &#124; summarize count() by Source |Count of Windows events by source. |
+| Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |Count of Windows error events by source. |
+
+
 ## Next steps
 * Configure Log Analytics to collect other [data sources](log-analytics-data-sources.md) for analysis.
 * Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.  
 * Use [Custom Fields](log-analytics-custom-fields.md) to parse the event records into individual fields.
 * Configure [collection of performance counters](log-analytics-data-sources-performance-counters.md) from your Windows agents.
-
