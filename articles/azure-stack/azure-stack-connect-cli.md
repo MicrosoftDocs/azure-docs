@@ -101,7 +101,8 @@ Use the following steps to connect to Azure Stack:
      -n AzureStackUser \ 
      --endpoint-resource-manager "https://management.local.azurestack.external" \ 
      --suffix-storage-endpoint "local.azurestack.external" \ 
-     --suffix-keyvault-dns ".vault.local.azurestack.external"
+     --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
+     --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
    ```
 
 3. Set the active environment by using the following commands:
