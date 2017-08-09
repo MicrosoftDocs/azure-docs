@@ -108,3 +108,4 @@
 ### [Scopes](active-directory-v2-scopes.md)
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

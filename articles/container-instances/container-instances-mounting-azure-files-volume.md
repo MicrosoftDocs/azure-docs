@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 08/01/2017
 ms.author: seanmck
 ---
 
@@ -46,7 +46,7 @@ az storage share create -n $ACI_PERS_SHARE_NAME
 
 ## Acquire storage account access details
 
-The mount an Azure file share as a volume in Azure Container Instances, you need three values: the storage account name, the share name, and the storage access key. 
+To mount an Azure file share as a volume in Azure Container Instances, you need three values: the storage account name, the share name, and the storage access key. 
 
 If you used the script above, the storage account name was created with a random value at the end. To query the final string (including the random portion), use the following commands:
 
@@ -108,28 +108,29 @@ To define the volumes you want to make available for mounting, add a `volumes` a
     "properties": {
       "containers": [{
         "name": "hellofiles",
-        "image": "seanmckenna/aci-hellofiles",
-        "resources": {
-          "request": {
-            "cpu": 1,
-            "memoryInGb": 1.5
-          }
-        },
-        "volumeMounts": [{
-          "name": "myvolume",
-          "mountPath": "/aci/logs/"
-        }]
+        "properties": {
+          "image": "seanmckenna/aci-hellofiles",
+          "resources": {
+            "request": {
+              "cpu": 1,
+              "memoryInGb": 1.5
+            }
+          },
+          "volumeMounts": [{
+            "name": "myvolume",
+            "mountPath": "/aci/logs/"
+          }]
+        }  
       }],
       "osType": "Linux",
       "volumes": [{
-          "name": "myvolume",
-          "azureFile": {
-              "shareName": "acishare",
-              "storageAccountName": "[parameters('storageaccountname')]",
-              "storageAccountKey": "[parameters('storageaccountkey')]"
-          }
+        "name": "myvolume",
+        "azureFile": {
+            "shareName": "acishare",
+            "storageAccountName": "[parameters('storageaccountname')]",
+            "storageAccountKey": "[parameters('storageaccountkey')]"
         }
-      ]
+      }]
     }
   }]
 }

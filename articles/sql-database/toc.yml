@@ -52,7 +52,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=sql-database
+    href: https://azure.microsoft.com/resources/samples/?service=sql-database
   - name: Azure CLI
     href: sql-database-cli-samples.md
   - name: PowerShell
@@ -99,10 +99,6 @@
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Threat detection
       href: sql-database-threat-detection.md
-    - name: TDE with SQL DB
-      href: https://msdn.microsoft.com/library/dn948096
-    - name: Always encrypted
-      href: https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine
     - name: Data masking
       href: sql-database-dynamic-data-masking-get-started.md
   - name: Business continuity
@@ -334,9 +330,9 @@
 - name: Reference
   items:
   - name: PowerShell
-    href: https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/#sql
+    href: /powershell/module/azurerm.sql/#sql
   - name: PowerShell (Elastic DB)
-    href: https://docs.microsoft.com/en-us/powershell/module/elasticdatabasejobs/#elasticdatabasejobs
+    href: /powershell/module/elasticdatabasejobs/#elasticdatabasejobs
   - name: Azure CLI 2.0
     href: /cli/azure/sql
   - name: .NET
@@ -344,40 +340,40 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.sql
   - name: Node.js
-    href: https://msdn.microsoft.com/library/mt652093.aspx
+    href: /sql/connect/node-js/node-js-driver-for-sql-server
   - name: Python
-    href: https://msdn.microsoft.com/library/mt652092.aspx
+    href: /sql/connect/python/python-driver-for-sql-server
   - name: Ruby
-    href: https://msdn.microsoft.com/library/mt691981.aspx
+    href: /sql/connect/ruby/ruby-driver-for-sql-server
   - name: PHP
-    href: https://msdn.microsoft.com/library/dn865013.aspx
+    href: /sql/connect/php/microsoft-php-driver-for-sql-server
   - name: T-SQL
-    href: https://msdn.microsoft.com/library/bb510741.aspx
+    href: /sql/t-sql/language-reference
   - name: REST
-    href: https://msdn.microsoft.com/library/mt163571.aspx
+    href: /rest/api/sql/
   - name: SQL Server tools
-    href: https://msdn.microsoft.com/library/mt238365.aspx
+    href: /sql/tools/overview-sql-tools
   - name: SQL Server Management Studio (SSMS)
-    href: https://msdn.microsoft.com/library/mt238290.aspx
+    href: /sql/ssms/download-sql-server-management-studio-ssms
   - name: SQL Server Data Tools (SSDT)
-    href: https://msdn.microsoft.com/library/mt204009.aspx
+    href: /sql/ssdt/download-sql-server-data-tools-ssdt
   - name: BCP
-    href: https://msdn.microsoft.com/library/ms162802.aspx
+    href: /sql/tools/bcp-utility
   - name: SQLCMD
-    href: https://msdn.microsoft.com/library/ms162773.aspx
+    href: /sql/tools/sqlcmd-utility
   - name: SqlPackage
     href: https://msdn.microsoft.com/hh550080.aspx
   - name: SQL Database Management Library package
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
   - name: SQL Server drivers
-    href: https://msdn.microsoft.com/library/mt654049.aspx
+    href: /sql/connect/sql-server-drivers
     items:
     - name: ADO.NET
-      href: https://msdn.microsoft.com/library/mt657768.aspx
+      href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
     - name: JDBC
-      href: https://msdn.microsoft.com/library/mt484311.aspx
+      href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
     - name: ODBC
-      href: https://msdn.microsoft.com/library/mt654048.aspx
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -399,16 +395,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?service=sql-database
   - name: Architecture guidance
-    href: https://docs.microsoft.com/sql/#pivot=architecture
-  - name: Customer implementations
-    href: sql-database-customer-implementations.md
-  - name: Sample applications
-    items:
-    - name: Tailspin Surveys
-      href: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md
-    - name: Contoso Clinic
-      href: https://github.com/Microsoft/azure-sql-security-sample
-    - name: Elastic pool telemetry
-      href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
-    - name: Elastic pool custom dashboard
-      href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
+    href: /azure/architecture/guide/
+  - name: Customer stories
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
+  

@@ -216,6 +216,7 @@
 
 ## [Net# Neural Networks Language](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)

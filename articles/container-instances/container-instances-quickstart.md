@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-The Azure Container Instances CLI commands are currently only available in Azure Cloud Shell.
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.12 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Create a resource group
 
@@ -47,8 +47,6 @@ az group create --name myResourceGroup --location eastus
 ## Create a container
 
 You can create a container by providing a name, a Docker image, and an Azure resource group. You can optionally expose the container to the internet with a public IP address. In this case, we'll use a container that hosts a very simple web app written in [Node.js](http://nodejs.org).
-
-Azure Container Instances CLI commands are currently only available in Azure Cloud Shell.
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 

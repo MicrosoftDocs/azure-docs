@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/07/2017
 ms.author: juliako
 
 ---
@@ -75,6 +75,7 @@ To stream videos using Azure Media Services, you need to upload the source video
 Once the upload completes, you see the new asset listed in the **Assets** window. 
 
 ## Encode assets
+
 When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH. To prepare your videos for adaptive bitrate streaming, you need to encode your source video into multi-bitrate files. You should use the **Media Encoder Standard** encoder to encode your videos.  
 
 Media Services also provides dynamic packaging, which allows you to deliver your multi-bitrate MP4s in the following streaming formats: MPEG DASH, HLS, Smooth Streaming, without you having to repackage into these streaming formats. With dynamic packaging, you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client.
@@ -87,7 +88,7 @@ This section describes the steps you can take to encode your content with Media 
 1. In the **Settings** window, select **Assets**.  
 2. In the **Assets** window, select the asset that you would like to encode.
 3. Press the **Encode** button.
-4. In the **Encode an asset** window, select the "Media Encoder Standard" processor and a preset. For example, if you know your input video has a resolution of 1920x1080 pixels, then you could use the "H264 Multiple Bitrate 1080p" preset. For more information about presets, see [this](media-services-mes-presets-overview.md) article – it is important to select the preset that is most appropriate for your input video. If you have a low resolution (640x360) video, then you should not be using the default "H264 Multiple Bitrate 1080p" preset.
+4. In the **Encode an asset** window, select the "Media Encoder Standard" processor and a preset. For information about presets, see [auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md) and [Task Presets for MES](media-services-mes-presets-overview.md). If you plan to control which encoding preset is used, keep this in mind: it is important to select the preset that is most appropriate for your input video. For example, if you know your input video has a resolution of 1920x1080 pixels, then you could use the "H264 Multiple Bitrate 1080p" preset. If you have a low resolution (640x360) video, then you should not be using "H264 Multiple Bitrate 1080p" preset.
    
    For easier management, you have an option of editing the name of the output asset, and the name of the job.
    
@@ -151,6 +152,7 @@ Click the desired video and then click the **Play** button.
 
 Some considerations apply:
 
+* To begin streaming, start running the **default** streaming endpoint.
 * Make sure the video has been published.
 * This **Media player** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, click to copy the URL and use another player. For example, [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
