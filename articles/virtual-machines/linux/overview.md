@@ -95,7 +95,7 @@ To begin using Azure you need an Azure account, the Azure CLI installed, and a p
 The first step in using the Azure Cloud is to sign up for an Azure account.  Go to the [Azure Account Signup](https://azure.microsoft.com/pricing/free-trial/) page to get started.
 
 ### Install the CLI
-With your new Azure account, you can get started immediately using the Azure portal, which is a web-based admin panel.  To manage the Azure Cloud via the command-line, you install the `azure-cli`.  Install the [Azure CLI 2.0](/cli/azure/install)on your Mac or Linux workstation.
+With your new Azure account, you can get started immediately using the Azure portal, which is a web-based admin panel.  To manage the Azure Cloud via the command-line, you install the `azure-cli`.  Install the [Azure CLI 2.0](/cli/azure/install-azure-cli) on your Mac or Linux workstation.
 
 ### Create an SSH key pair
 Now you have an Azure account, the Azure web portal, and the Azure CLI.  The next step is to create an SSH key pair that is used to SSH into Linux without using a password.  [Create SSH keys on Linux and Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to enable password-less logins and better security.
