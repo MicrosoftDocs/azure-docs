@@ -78,10 +78,10 @@ Install Node.js and update the npm package manager on the VM.
 ```bash
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash –
 sudo apt-get install -y nodejs
-npm install npm@latest -g
+sudo npm install npm@latest -g
 ```
 
-## Install MongoDB and setup the server
+## Install MongoDB and set up the server
 [MongoDB](http://www.mongodb.com) stores data in flexible, JSON-like documents. Fields in a database can vary from document to document and data structure can be changed over time. For our example application, we are adding book records to MongoDB that contain book name, isbn number, author, and number of pages. 
 
 1. Install and start the MongoDB server.
@@ -97,7 +97,7 @@ npm install npm@latest -g
 2. We also need to install the [body-parser](https://www.npmjs.com/package/body-parser-json) package to help us process the JSON passed in requests to the server.
 
     ```bash
-    npm install body-parser
+    sudo npm install body-parser
     ```
 
 3. Create a folder named *Books* and add a file to it named *server.js* that contains the configuration for the web server.
@@ -105,10 +105,10 @@ npm install npm@latest -g
     ```node.js
     var express = require('express');
     var bodyParser = require('body-parser');
-    var book = express();
-    require('./apps/routes')(app);
+    var app = express();
     app.use(express.static(__dirname + '/public'));
     app.use(bodyParser.json());
+    require('./apps/routes')(app);
     app.set('port', 3300);
     app.listen(app.get('port'), function() {
         console.log('Server up: http://localhost:' + app.get('port'));
@@ -122,8 +122,8 @@ npm install npm@latest -g
 1. Install Express and Mongoose.
 
     ```bash
-    npm install express
-    npm install mongoose
+    sudo npm install express
+    sudo npm install mongoose
     ```
 
 2. In the *Books* folder, create a folder named *apps* and add a file named *routes.js* with the express routes defined.
@@ -247,16 +247,23 @@ npm install npm@latest -g
             <tr>
               <td>Name:</td> 
               <td><input type="text" ng-model="Name"></td>
+            </tr>
+            <tr>
               <td>Isbn:</td>
               <td><input type="text" ng-model="Isbn"></td>
+            </tr>
+            <tr>
               <td>Author:</td> 
               <td><input type="text" ng-model="Author"></td>
+            </tr>
+            <tr>
               <td>Pages:</td>
               <td><input type="number" ng-model="Pages"></td>
             </tr>
           </table>
           <button ng-click="add_book()">Add</button>
         </div>
+        <hr>
         <div>
           <table>
             <tr>
