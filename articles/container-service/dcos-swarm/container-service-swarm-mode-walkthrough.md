@@ -93,7 +93,7 @@ Create and SSH tunnel to the Swarm master. Replace `IPAddress` with the IP addre
 ssh -p 2200 -fNL localhost:2374:/var/run/docker.sock azureuser@IPAddress
 ```
 
-Set the **DOCKER_HOST** environment variable. This allows you to run docker commands against the Docker Swarm without having to specify the name of the host.
+Set the `DOCKER_HOST` environment variable. This allows you to run docker commands against the Docker Swarm without having to specify the name of the host.
 
 ```bash
 export DOCKER_HOST=localhost:2374
@@ -106,7 +106,7 @@ You are now ready to run Docker services on the Docker Swarm.
 
 Create a file named `azure-vote.yaml` and copy the following content into it.
 
-If you are using Azure Cloud Shell, **vi** and **Nano** are installed and can be used to complete this task.
+If you are using Azure Cloud Shell, `vi` and `Nano` are installed and can be used to complete this task.
 
 ```yaml
 version: '3'
