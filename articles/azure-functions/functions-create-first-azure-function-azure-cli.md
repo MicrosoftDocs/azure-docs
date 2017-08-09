@@ -38,11 +38,14 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 Create a resource group with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like function apps, databases, and storage accounts are deployed and managed.
 
-The following example creates a resource group named `myResourceGroup`:
+The following example creates a resource group named `myResourceGroup`.  
+If you are not using Cloud Shell, you must first sign in using `az login`.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
+
+
 ## Create an Azure Storage account
 
 Functions uses an Azure Storage account to maintain state and other information about your functions. Create a storage account in the resource group you created by using the [az storage account create](/cli/azure/storage/account#create) command.
