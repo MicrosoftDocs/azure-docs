@@ -25,31 +25,27 @@ Learn how to use Apache Storm on HDInsight to process sensor data from Azure Eve
 The Azure Resource Manager template used in this document demonstrates how to create multiple Azure resources in a resource group. The template creates a Azure Virtual Network, two HDInsight clusters (Storm and HBase) and an Azure Web App. A node.js implementation of a real-time web dashboard is automatically deployed to the web app.
 
 > [!NOTE]
-> The information in this document and example in this document require HDInsight version 3.5.
+> The information in this document and example in this document require HDInsight version 3.6.
 >
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Prerequisites
 
-* An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-  
-  > [!IMPORTANT]
-  > You do not need an existing HDInsight cluster. The steps in this document create the following resources:
-  > 
-  > * A Azure Virtual Network
-  > * A Storm on HDInsight cluster (Linux-based, two worker nodes)
-  > * An HBase on HDInsight cluster (Linux-based, two worker nodes)
-  > * An Azure Web App that hosts the web dashboard
-
+* An Azure subscription.
 * [Node.js](http://nodejs.org/):Used to preview the web dashboard locally on your development environment.
 * [Java and the JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): Used to develop the Storm topology.
 * [Maven](http://maven.apache.org/what-is-maven.html): Used to build and compile the project.
 * [Git](http://git-scm.com/): Used to download the project from GitHub.
 * An **SSH** client: Used to connect to the Linux-based HDInsight clusters. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-    
-    > [!NOTE]
-    > You must also have access to the `scp` command, which is used to copy files between your local development environment and the HDInsight cluster using SSH.
 
+
+> [!IMPORTANT]
+> You do not need an existing HDInsight cluster. The steps in this document create the following resources:
+> 
+> * A Azure Virtual Network
+> * A Storm on HDInsight cluster (Linux-based, two worker nodes)
+> * An HBase on HDInsight cluster (Linux-based, two worker nodes)
+> * An Azure Web App that hosts the web dashboard
 
 ## Architecture
 
@@ -95,7 +91,7 @@ The following diagram explains the layout of the topology:
 * **EventHub Spout**: The spout is provided as part of Apache Storm version 0.10.0 and higher.
   
   > [!NOTE]
-  > The Event Hub spout used in this example requires a Storm on HDInsight cluster version 3.3 or 3.4. For information on how to use Event Hubs with an older version of Storm on HDInsight, see [Process events from Azure Event Hubs with Storm on HDInsight](hdinsight-storm-develop-java-event-hub-topology.md).
+  > The Event Hub spout used in this example requires a Storm on HDInsight cluster version 3.5 or 3.6.
 
 * **ParserBolt.java**: The data that is emitted by the spout is raw JSON, and occasionally more than one event is emitted at a time. This bolt demonstrates how to read the data emitted by the spout, and emit it to a new stream as a tuple that contains multiple fields.
 * **DashboardBolt.java**: This component demonstrates how to use the Socket.io client library for Java to send data in real time to the web dashboard.
@@ -251,11 +247,11 @@ The steps in this section use an [Azure Resource Manager template](../azure-reso
 > [!NOTE]
 > A virtual network is used so that the topology running on the Storm cluster can directly communicate with the HBase cluster using the HBase Java API.
 
-The Resource Manager template used in this document is located in a public blob container at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hbase-storm-cluster-in-vnet.json**.
+The Resource Manager template used in this document is located in a public blob container at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hbase-storm-cluster-in-vnet-3.6.json**.
 
 1. Click the following button to sign in to Azure and open the Resource Manager template in the Azure portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet-3.5.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet-3.6.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. From the **Custom deployment** blade, enter the following values:
    
