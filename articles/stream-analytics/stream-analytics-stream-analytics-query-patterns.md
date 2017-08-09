@@ -175,11 +175,11 @@ For example, analyze data for a threshold-based alert and archive all events to 
 
 **Explanation**:
 The **INTO** clause tells Stream Analytics which of the outputs to write the data to from this statement.
-The first query, is a pass-through of the data we received to an output that we named **ArchiveOutput**.
-The second query, does some simple aggregation and filtering and sends the results to a downstream alerting system.
+The first query is a pass-through of the data we received to an output that we named **ArchiveOutput**.
+The second query does some simple aggregation and filtering, and it sends the results to a downstream alerting system.
 
-[!NOTE] 
-You can also reuse the results of the common table expressions (CTEs) (such as **WITH** statements) in multiple output statements. This option has the added benefit of opening fewer readers to the input source.
+> [!NOTE] 
+> You can also reuse the results of the common table expressions (CTEs) (such as **WITH** statements) in multiple output statements. This option has the added benefit of opening fewer readers to the input source.
 For example: 
 
     WITH AllRedCars AS (
@@ -357,7 +357,7 @@ Now let’s change the problem and find the first car of a particular make in ev
         AND Input.Time = LastInWindow.LastEventTime
 
 **Explanation**:
-There are two steps in the query. The first one finds the latest time stamp in 10-minute windows. The second step joins the results of the first query with the original stream to find the events matching the last time stamps in each window. 
+There are two steps in the query. The first one finds the latest time stamp in 10-minute windows. The second step joins the results of the first query with the original stream to find the events that match the last time stamps in each window. 
 
 ## Query example: Detect the absence of events
 **Description**: Check that a stream has no value that matches a certain criterion.
@@ -392,7 +392,7 @@ For example, have 2 consecutive cars from the same make entered the toll road wi
         LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 
 **Explanation**:
-Use **LAG** to peek into the input stream one event back and get the **Make** value. Then, compare it to the **MAKE** value in the current event, and then, output the event if they are the same. You can also use **LAG** to get data about the previous car.
+Use **LAG** to peek into the input stream one event back and get the **Make** value. Compare it to the **MAKE** value in the current event, and then output the event if they are the same. You can also use **LAG** to get data about the previous car.
 
 ## Query example: Detect the duration between events
 **Description**: Find the duration of a given event. For example, given a web clickstream, determine the time spent on a feature.
