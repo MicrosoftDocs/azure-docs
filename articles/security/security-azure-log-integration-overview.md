@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 08/08/2017
 ms.author: TomSh
 ms.custom: azlog
 
-
- ---
+---
 # Introduction to Microsoft Azure log integration
 Learn about Azure log integration, its key capabilities, and how it works.
 
