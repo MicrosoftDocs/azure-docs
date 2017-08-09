@@ -16,6 +16,7 @@
 ### [Add switch statements](logic-apps-switch-case.md)
 ### [Add custom code with Azure Functions](logic-apps-azure-functions.md)
 ### [Loops, scopes, and data debatching](logic-apps-loops-and-scopes.md)
+### [Batch process messages](logic-apps-batch-process-send-receive-messages.md)
 ### [Author logic app definitions](logic-apps-author-definitions.md)
 ### [Call, trigger, or nest logic apps](logic-apps-http-endpoint.md)
 ### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
