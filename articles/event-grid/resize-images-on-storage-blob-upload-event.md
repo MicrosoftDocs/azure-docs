@@ -68,25 +68,7 @@ az storage account create --name <storage_name> \
 --location westeurope --resource-group myResourceGroup \
 --sku Standard_LRS
 ```
-After the storage account is created, the Azure CLI shows information similar to the following example:
 
-```json
-{
-  "creationTime": "2017-04-15T17:14:39.320307+00:00",
-  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myresourcegroup/...",
-  "kind": "Storage",
-  "location": "westeurope",
-  "name": "myfunctionappstorage",
-  "primaryEndpoints": {
-    "blob": "https://myfunctionappstorage.blob.core.windows.net/",
-    "file": "https://myfunctionappstorage.file.core.windows.net/",
-    "queue": "https://myfunctionappstorage.queue.core.windows.net/",
-    "table": "https://myfunctionappstorage.table.core.windows.net/"
-  },
-     ....
-    // Remaining output has been truncated for readability.
-}
-```
 ## Configure storage
 
 The app uses two blob containers: _images_ for uploaded images, and _thumbs_ for resized thumbnail images. The following commands get the first shared key for the storage account and use it to create the two containers. 
@@ -115,10 +97,10 @@ In the sample app you downloaded, open the appsettings.json file. Set AzureStora
 
 You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. Create a function app by using the [az functionapp create](/cli/azure/functionapp#create) command. 
 
-In the following command, substitute your own unique function app name where you see the `<app_name>` placeholder. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. $storageaccount is the storage account name variable defined in the previous command.  
+In the following command, substitute your own unique function app name where you see the `<function_app_name>` placeholder. The `<function_app>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. $storageaccount is the storage account name variable defined in the previous command.  
 
 ```azurecli-interactive
-$functionapp=<app_name>
+$functionapp=<function_app>
 
 az functionapp create --name $functionapp --storage-account  $storageaccount  \
 --resource-group myResourceGroup --consumption-plan-location westeurope
@@ -139,12 +121,20 @@ az functionapp deployment source config --name $functionapp \
 
 The function code is deployed directly from the public sample repo. To learn more about deployment options for Azure Functions, see [Continuous deployment for Azure Functions](../azure-functions/functions-continuous-deployment.md).
 
+<<TBD: do we want to have users test an HTTP endpoint on the app?>>
+
 ## Configure function app settings
+
+Get the connection string for the storage account.
+
+Set the connection string in the function app settings.
 
 ## Configure the event grid
 
 ## Test the sample app locally
 
 ## Deploy to Azure
+
+Do a VS publish to a new web app
 
 ## Test the sample app in Azure
