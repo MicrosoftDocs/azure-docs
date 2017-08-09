@@ -22,11 +22,11 @@ ms.custom:
 
 # Deploy Docker Swarm Mode cluster for Linux containers
 
-# Deploy Kubernetes cluster for Linux containers
-
 In this quick start, a Docker Swarm Mode cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
 
 ![Image of browsing to Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
+
+Docker Swarm mode on Azure Container Service is in perview and should not be used for production workload.
 
 This quick start assumes a basic understanding of Docker concepts, for detailed information on Kubernetes see the [Docker documentation](https://docs.docker.com/).
 
@@ -73,7 +73,7 @@ After several minutes, the command completes and returns json formatted informat
 
 ## Connect to the cluster
 
-Throughout this quick start, you will need the IP address of the Azure load balancers serving both the Docker Swarm master and the Docker agent pool. Run the following command to return both IP addresses. Take note of each IP address.
+Throughout this quick start, you need the IP address of the Azure load balancers serving both the Docker Swarm master and the Docker agent pool. Run the following command to return both IP addresses; take note of each.
 
 
 ```bash
@@ -89,13 +89,13 @@ swarmm-agent-ip-myswarmcluster-myresourcegroup-d5b9d4agent-66066781  51.141.44.4
 swarmm-master-ip-myswarmcluster-myresourcegroup-d5b9d4mgmt-66066781  51.141.37.199
 ```
 
-Create and SSH tunnel to the Swarm master. Replace `<SwarmMaster>' with the name or IP address of the Swarm master.
+Create and SSH tunnel to the Swarm master. Replace `IPAddress` with the IP address of the Swarm master.
 
 ```bash
-ssh -p 2200 -fNL localhost:2374:/var/run/docker.sock azureuser@<SwarmMaster>
+ssh -p 2200 -fNL localhost:2374:/var/run/docker.sock azureuser@IPAddress
 ```
 
-Set the **DOCKER_HOST** environment variable. This allows you to run docker commands against the Docker Swarm without having to specify the name of the host in each command.
+Set the **DOCKER_HOST** environment variable. This allows you to run docker commands against the Docker Swarm without having to specify the name of the host.
 
 ```bash
 export DOCKER_HOST=localhost:2374
@@ -106,7 +106,9 @@ You are now ready to run Docker services on the Docker Swarm.
 
 ## Run the application
 
-Create a file named `azure-vote.yaml` and copy the following content into it. If you are using Azure Cloud Shell, **vi** and **Nano** are installed and can be used to complete this task.
+Create a file named `azure-vote.yaml` and copy the following content into it. 
+
+If you are using Azure Cloud Shell, **vi** and **Nano** are installed and can be used to complete this task.
 
 ```yaml
 version: '3'
@@ -119,7 +121,6 @@ services:
 
   azure-vote-front:
     image: microsoft/azure-vote-front:redis-v1
-    container_name: azure-vote-front
     environment:
       REDIS: azure-vote-back
     ports:
@@ -129,7 +130,15 @@ services:
 Run the following command to create the Azure Vote service.
 
 ```bash
-docker stack deploy azure-vote --compose-file docker-compose.yaml
+docker stack deploy azure-vote --compose-file azure-vote.yaml
+```
+
+Output:
+
+```bash
+Creating network azure-vote_default
+Creating service azure-vote_azure-vote-back
+Creating service azure-vote_azure-vote-front
 ```
 
 ## Test the application
@@ -158,4 +167,4 @@ In this quick start, you deployed a Docker Swarm cluster and deployed a multi-co
 To learn about integrating Docker warm with Visual Studio Team Services, continue to the CI/CD with Docker Swarm and VSTS.
 
 > [!div class="nextstepaction"]
-> [CI/CD with Docker Swarm and VSTS](./container-service-docker-swarm-ci-cd.md)
+> [CI/CD with Docker Swarm and VSTS](./container-service-docker-swarm-setup-ci-cd.md)
