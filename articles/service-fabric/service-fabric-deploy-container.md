@@ -358,25 +358,9 @@ An example service manifest (specified in the preceding application manifest) fo
     </ServiceManifest>
 ```
 
-## Start docker daemon on cluster with customer parameters 
-
-Custom parameters can be specified when the Service Fabric runtime launches the docker daemon on the cluster nodes. The parameters are specified in the cluster manifest under the hosting section as shown in the following snippet:
-
-```xml
-{
-        "name": "Hosting",
-        "parameters": [
-          {
-            "DockerParams": "-H fd:// -H unix:///var/run/docker.sock",
-	      ...
-          }
-        ]
-}
-```
-
 ## Configure time interval before container is force terminated
 
-Instead of removing a container service immediately when the service is removed, you can configure a time interval for the runtime to wait before the container is removed. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.   For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified in the cluster manifest under the **Hosting** section as shown in the following snippet (the time interval is set to 10 seconds by default): 
+Instead of removing a container service immediately when the service is removed, you can configure a time interval for the runtime to wait before the container is removed. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.   For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified in the cluster manifest under the `Hosting` section as shown in the following snippet (the time interval is set to 10 seconds by default): 
 
 ```xml
 {
@@ -394,22 +378,22 @@ Since this is a dynamic configuration, a config only upgrade on the cluster upda
 
 ## Configure the runtime to remove unused container images
 
-You can configure the Service Fabric cluster to remove unused container images from the node if no services are using that image on the node. This allows disk space to be recaptured if too many container images are present on the node.  To enable this feature, update the **Hosting** section in the cluster manifest as shown in the following snippet: 
+You can configure the Service Fabric cluster to remove unused container images from the node if no services are using that image on the node. This allows disk space to be recaptured if too many container images are present on the node.  To enable this feature, update the `Hosting` section in the cluster manifest as shown in the following snippet: 
 
 ```xml
 {
         "name": "Hosting",
         "parameters": [
           {
-	      “PruneCustomerImages”: “True”,
-            "DNDImages": "…”,
+	        "PruneContainerImages": “True”,
+            "ContainerImagesToSkip": "microsoft/windowsservercore|microsoft/nanoserver|…",
 	      ...
           }
         ]
 } 
 ```
 
-For images that shouldn’t ever be deleted, specify them as do not delete, but adding them under the “DNDImages” parameter as shown above. 
+For images that shouldn’t ever be deleted, specify them as shown above under the `ContainerImagesToSkip` parameter. 
 
 
 ## Next steps
