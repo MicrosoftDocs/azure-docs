@@ -21,9 +21,8 @@ Before you can test-drive the API from the online console, you will need a few v
 
 - **team**: The team name you created when you set up your review tool account. 
 - **workflowname**: The name for your workflow
-- **Ocp-Apim-Subscription-Key**: This is found under the Settings tab, as shown below.
+- **Ocp-Apim-Subscription-Key**: This is found under the **Settings** tab, as shown in the [Overview](overview.md) article.
 
-![Content Moderator credentials in the review tool](Review-Tool-User-Guide/images/credentials-2-reviewtool.png)
 
 The simplest way to access a testing console is from the Credentials window.
 1.	From the Credentials window, click **[API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)**.
