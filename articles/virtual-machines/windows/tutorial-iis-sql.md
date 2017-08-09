@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/1/2017
+ms.date: 08/9/2017
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -26,8 +26,9 @@ In this tutorial, we deploy a two-tier music store .Net Core application. The ap
 > [!div class="checklist"]
 > * Create an Azure SQL server and database
 > * Create a VM 
-> * Configure the VM to run a .NET core sample application
-> * Connect to the application to see it running
+> * Install IIS and the .NET SDK on the VM
+> * Configure the VM to run a sample website 
+> * Connect to the website to see it running
 
 You can also deploy this entire sample (including the fully configured VM) using an example template. For more information, see [Deploy Two Tier Application on Windows and Azure SQL DB](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-vm-sql-db/README.MD).
 
@@ -163,8 +164,8 @@ $sqlfqdn = ($sqlserver + '.database.windows.net')
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName $resourceGroup `
     -VMName $vmName `
     -Location $location `
-    -FileUri https://github......... `
-    -Run "musicstore.ps1 -user $user -password $password -sqlserver $sqlfqdn" `
+    -FileUri https://github.com/cynthn/samples/blob/master/musicstoreinstall.ps1 `
+    -Run "musicstoreinstall.ps1 -user $user -password $password -sqlserver $sqlfqdn" `
     -Name MusicStoreExtension
 ```
 
@@ -190,8 +191,9 @@ In this tutorial, you created a two-tier .Net Core sample music store applicatio
 > [!div class="checklist"]
 > * Create an Azure SQL server and database
 > * Create a VM 
-> * Configure the VM to run a .NET core sample application
-> * Connect to the application to see it running
+> * Install IIS and the .NET SDK on the VM
+> * Configure the VM to run a sample website 
+> * Connect to the website to see it running
 
 You can deploy this entire sample (including the fully configured VM) using an example template. For more information, see [Deploy Two Tier Application on Windows and Azure SQL DB](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-vm-sql-db/README.MD).
 
