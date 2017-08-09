@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric Enlightened Containers  Preview
-description: Azure Service Fabric Has added new functionality for Enlightened Containers which are Service Fabric applications inside Containers. This support is currently in preview.
+title: How to containerize your Service Fabric micro-services  Preview
+description: Azure Service Fabric Has added new functionality to containerize your Service Fabric micro-services. This support is currently in preview.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -35,7 +35,7 @@ Please follow the steps below in order to successfully containerize and deploy a
 
 1. Open your Service Fabric application in *Visual Studio*
 
-2. Add class at [TODO: Insert git hub link here] to your project. This is a helper to correctly load the Service Fabric runtime binaries inside your application when running inside a containerize
+2. Add class at [TODO: Insert git hub link here] to your project. This is a helper to correctly load the Service Fabric runtime binaries inside your application when running inside a container
 
 3. For each code package you would like to containerize initialize the loader at the program entry point. You could add the code snippet below to your program entry point file assuming it is in *Program.cs*
 
