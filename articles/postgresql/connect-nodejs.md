@@ -23,28 +23,6 @@ This quickstart uses the resources created in either of these guides as a starti
 
 You also need to:
 - Install [Node.js](https://nodejs.org)
-- Install [pg](https://www.npmjs.com/package/pg) package. 
-
-## Install Node.js 
-Depending on your platform, to install Node.js:
-
-### **Mac OS**
-Enter the following commands to install **brew**, an easy-to-use package manager for Mac OS X and **Node.js**.
-
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install node
-```
-
-### **Linux (Ubuntu)**
-Enter the following commands to install **Node.js** and **npm** the package manager for Node.js.
-
-```bash
-sudo apt-get install -y nodejs npm
-```
-
-### **Windows**
-Visit the [Node.js downloads page](https://nodejs.org/en/download/) and select your desired Windows installer option.
 
 ## Install pg client
 Install [pg](https://www.npmjs.com/package/pg), which is a pure JavaScript non-blocking client for node.js useful to connect to and query PostgreSQL.
