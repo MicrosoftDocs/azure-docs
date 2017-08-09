@@ -168,6 +168,12 @@
       href: app-service-web-test-in-production-get-start.md
     - name: Add functionality to web app
       href: app-service-web-get-started-2.md
+    - name: How to use the Maven Plugin for Azure Web Apps to deploy a containerized Spring Boot app to Azure
+      href: app-service-web-deploy-containerized-spring-boot-app-with-maven-plugin.md
+    - name: How to use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app in Azure Container Registry to Azure App Service
+      href: app-service-web-deploy-spring-boot-app-from-container-registry-using-maven-plugin.md
+    - name: How to use the Maven Plugin for Azure Web Apps to deploy a Spring Boot app to Azure
+      href: app-service-web-deploy-spring-boot-app-with-maven-plugin.md
   - name: Connect to DB/resources
     items:
     - name: Connect to on-premises data
