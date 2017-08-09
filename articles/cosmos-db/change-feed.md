@@ -111,7 +111,7 @@ To provide scalable processing of incremental changes, Azure Cosmos DB supports 
 
 ### Retrieving partition key ranges for a collection
 You can retrieve the partition key ranges by requesting the `pkranges` resource within a collection. For example the following request retrieves the list of partition key ranges for the `serverlogs` collection:
-
+ 
 	GET https://querydemo.documents.azure.com/dbs/bigdb/colls/serverlogs/pkranges HTTP/1.1
 	x-ms-date: Tue, 15 Nov 2016 07:26:51 GMT
 	authorization: type%3dmaster%26ver%3d1.0%26sig%3dEConYmRgDExu6q%2bZ8GjfUGOH0AcOx%2behkancw3LsGQ8%3d
@@ -152,7 +152,7 @@ Each partition key range includes the metadata properties in the following table
 <table>
 	<tr>
 		<th>Header name</th>
-		<th>Description</th>
+ 		<th>Description</th>
 	</tr>
 	<tr>
 		<td>id</td>
@@ -162,7 +162,7 @@ Each partition key range includes the metadata properties in the following table
 		</td>
 	</tr>
 	<tr>
-		<td>maxExclusive</td>
+ 		<td>maxExclusive</td>
 		<td>The maximum partition key hash value for the partition key range. For internal use.</td>
 	</tr>
 	<tr>
@@ -198,7 +198,7 @@ ReadDocumentFeed supports the following scenarios/tasks for incremental processi
 
 * Read all changes to documents from the beginning, that is, from collection creation.
 * Read all changes to future updates to documents from current time.
-* Read all changes to documents from a logical version of the collection (ETag). You can checkpoint your consumers based on the returned ETag from incremental read-feed requests.
+ * Read all changes to documents from a logical version of the collection (ETag). You can checkpoint your consumers based on the returned ETag from incremental read-feed requests.
 
 The changes include inserts and updates to documents. To capture deletes, you must use a "soft delete" property within your documents, or use the [built-in TTL property](time-to-live.md) to signal a pending deletion in the change feed.
 
@@ -219,8 +219,7 @@ The following table lists the [request](/rest/api/documentdb/common-documentdb-r
 		<td>If-None-Match</td>
 		<td>
 			<p>No header: returns all changes from the beginning (collection creation)</p>
-			<p>"*": returns all new changes to data within the collection</p>
-			<p>&lt;etag&gt;: If set to a collection ETag, returns all changes made since that logical timestamp</p>
+			<p>"*": returns all new changes to data within the collection</p>			<p>&lt;etag&gt;: If set to a collection ETag, returns all changes made since that logical timestamp</p>
 		</td>
 	</tr>
 	 
@@ -230,7 +229,7 @@ The following table lists the [request](/rest/api/documentdb/common-documentdb-r
 	</tr> 
 	<tr>
 		<td>x-ms-documentdb-partitionkeyrangeid</td>
-		<td>The partition key range ID for reading data.</td>
+a		<td>The partition key range ID for reading data.</td>
 	</tr>
 </table>
 
@@ -249,7 +248,6 @@ The following table lists the [request](/rest/api/documentdb/common-documentdb-r
 		</td>
 	</tr>
 </table>
-
 Here's a sample request to return all incremental changes in collection from the logical version/ETag `28535` and partition key range = `16`:
 
 	GET https://mydocumentdb.documents.azure.com/dbs/bigdb/colls/bigcoll/docs HTTP/1.1
@@ -268,7 +266,7 @@ Changes are ordered by time within each partition key value within the partition
 > [!NOTE]
 > With change feed, you might get more items returned in a page than specified in `x-ms-max-item-count` in the case of multiple documents inserted or updated inside a stored procedures or triggers. 
 
-By specifying `If-Modified-Since` , your request will return not the documents themselves, but rather the continuation token or `etag` in response header. To return the documents since a point in time, the continuation token `etag` must then be used in the next request with `If-None-Match` to return actual modified documents. 
+By specifying `If-Modified-Since` , your request will return not the documents themselves, but rather the continuation token or `etag` in response header. To return the documents modified the specified time, the continuation token `etag` must then be used in the next request with `If-None-Match` to return the actual documents. 
 
 The .NET SDK provides the [CreateDocumentChangeFeedQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery?view=azure-dotnet) and [ChangeFeedOptions](/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) helper classes to access changes made to a collection. The following snippet shows how to retrieve all changes from the beginning using the .NET SDK from a single client.
 
