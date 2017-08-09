@@ -37,7 +37,6 @@ Point-to-Site connections use certificates to authenticate. This article shows y
 
 While we recommend using the [Windows 10 PowerShell steps](vpn-gateway-certificates-point-to-site.md) to create your certificates, we provide these MakeCert instructions as an optional method. The certificates that you generate using either method can be installed on [any supported client operating system](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). However, MakeCert has the following limitations:
 
-* MakeCert cannot generate SHA-2 certificates, only SHA-1. SHA-1 certificates are still valid for Point-to-Site connections, but SHA-1 uses an encryption hash that is not as strong as SHA-2.
 * MakeCert is deprecated. This means that this tool could be removed at any point. Any certificates that you already generated using MakeCert won't be affected if MakeCert is no longer available. MakeCert is only used to generate the certificates, not as a validating mechanism.
 
 ## <a name="rootcert"></a>Create a self-signed root certificate
