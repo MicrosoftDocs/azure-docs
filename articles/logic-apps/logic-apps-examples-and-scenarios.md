@@ -61,7 +61,7 @@ Azure Logic Apps also provides monitoring and alerts.
 * [Perform different actions with switch statements](../logic-apps/logic-apps-switch-case.md)
 * [Process items in arrays and collections with loops and batches in logic apps](../logic-apps/logic-apps-loops-and-scopes.md)
 * [Author error and exception handling in a workflow](../logic-apps/logic-apps-exception-handling.md)
-* [Configure Azure Alerts and diagnostics](logic-apps-monitor-your-logic-apps.md)
+* [Turn on monitoring, logging, and alerts for existing logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Turn on monitoring and diagnostics logging when creating logic apps](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)
 * [Use case: How a healthcare company uses logic app exception handling for HL7 FHIR workflows](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 
