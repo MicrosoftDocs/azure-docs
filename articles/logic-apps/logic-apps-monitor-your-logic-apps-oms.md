@@ -20,9 +20,9 @@ ms.author: LADocs; divswa
 # Monitor and get insights about logic app runs with Operations Management Suite (OMS) and Log Analytics
 
 For monitoring and richer debugging information, 
-you can turn on Log Analytics at the same time when you 
-[create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). 
-Log Analytics provides diagnostics logging and monitoring for your 
+you can turn on Log Analytics at the same time 
+when you create a logic app. Log Analytics provides 
+diagnostics logging and monitoring for your 
 logic app runs through the Operations Management Suite (OMS) portal. 
 When you add the Logic Apps Management solution to OMS, 
 you get aggregated status for your logic app runs and 
