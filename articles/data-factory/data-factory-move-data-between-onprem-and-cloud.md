@@ -44,7 +44,6 @@ Before you begin this walkthrough, you must have the following prerequisites:
 * **Azure subscription**.  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) article for details.
 * **Azure Storage Account**. You use the blob storage as a **destination/sink** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
 * **SQL Server**. You use an on-premises SQL Server database as a **source** data store in this tutorial. 
->>>>>>> 3d25ff8ee73809922d77ad5944ad36c503ab7c83
 
 ## Create data factory
 In this step, you use the Azure portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**.
