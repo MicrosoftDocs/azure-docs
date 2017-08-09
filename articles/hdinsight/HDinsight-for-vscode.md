@@ -152,20 +152,16 @@ After submitting a hive job, submission status is shown in output window in VSCo
 2. Copy and paste the following code into **xxx.py**, then save it.
 
         from __future__ import print_function
-
         import sys
         from operator import add
-
         from pyspark.sql import SparkSession
-
-
         if __name__ == "__main__":
             spark = SparkSession\
                 .builder\
                 .appName("PythonWordCount")\
                 .getOrCreate()
 
-            lines = spark.read.text('test.tsv').rdd.map(lambda r: r[0])
+            lines = spark.read.text('test.csv').rdd.map(lambda r: r[0])
             counts = lines.flatMap(lambda x: x.split(' '))\
                         .map(lambda x: (x, 1))\
                         .reduceByKey(add)
@@ -174,7 +170,7 @@ After submitting a hive job, submission status is shown in output window in VSCo
                 print("%s: %i" % (word, count))
             spark.stop()
 
-Make sure the test.tsv is already existed in your container.
+Make sure the test.csv is already existed in your container.
 
 3. Open the command palette by pressing **CTRL+SHIFT+P**. 
 4. Enter **HDInsight: Submit PySpark Job**. You can also right-click a script file, and then click **HDInsight: Submit PySpark Job** to submit a hive job.
@@ -188,11 +184,9 @@ The Data Lake Tools for VSCode supports the following features:
 
 -	IntelliSense auto-complete. Suggestions are popped up around keyword, method, variables, etc. Different icons represent different types of the objects:
 
-    
-    ![HDInsight Tools for Visual Studio Code IntelliSense object types](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
- 
-
 -	IntelliSense error marker. The Data Lake Tools underline the editing errors for hive script and python script. 
+
+    ![HDInsight Tools for Visual Studio Code IntelliSense object types](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
 -	Syntax highlights. The Data Lake Tools use different color to differentiate variables, keywords, data type, functions, etc. 
 
     ![HDInsight Tools for Visual Studio Code syntax highlights](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
