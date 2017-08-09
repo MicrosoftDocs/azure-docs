@@ -104,10 +104,9 @@
   - name: Consistency
     href: consistency-levels.md
   - name: Throughput
-    href: request-units.md
     items:
-    - name: Request units per minute
-      href: request-units-per-minute.md
+    - name: Request units
+    - href: request-units.md
   - name: Multi-model APIs
     items:
     - name: DocumentDB

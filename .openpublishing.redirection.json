@@ -8649,6 +8649,11 @@
             "source_path": "articles/container-service/container-service-tutorial-kubernetes-scale.md",
             "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/request-units-per-minute.md",
+            "redirect_url": "/azure/cosmos-db/request-units",
+            "redirect_document_id": false
         }
     ]
 }
