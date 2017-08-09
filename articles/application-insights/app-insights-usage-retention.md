@@ -57,8 +57,9 @@ Or in ASP.NET server code:
 
 
 ## Next steps
-
-* [Usage overview](app-insights-usage-overview.md)
-* [Users and sessions](app-insights-usage-segmentation.md)
-* [Coding custom events](app-insights-api-custom-events-metrics.md)
-
+- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- If you already send custom events or page views, explore the Usage tools to learn how users use your service.
+    - [Users, Sessions, Events](app-insights-usage-segmentation.md)
+    - [Funnels](usage-funnels.md)
+    - [Workbooks](app-insights-usage-workbooks.md)
+    - [Add user context](app-insights-usage-send-user-context.md)
