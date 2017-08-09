@@ -267,8 +267,8 @@ Replace the host, dbname, user, and password parameters with the values that you
 const pg = require('pg');
 
 const config = {
-    host: 'mypgserver-20170401.postgres.database.azure.com',
-    user: 'mylogin@mypgserver-20170401',
+    host: 'your-pg-server.postgres.database.azure.com',
+    user: 'your-login@your-pg-server',
     password: '<server_admin_password>',
     database: '<name_of_database>',
     port: 5432,
