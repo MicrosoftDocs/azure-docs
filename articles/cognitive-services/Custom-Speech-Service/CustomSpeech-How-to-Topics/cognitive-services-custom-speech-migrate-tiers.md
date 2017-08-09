@@ -15,7 +15,7 @@ ms.author: panosper
 
 
 # Migrate deployments to the new pricing model
-As of July 2017, Custom Speech Service offers a [new pricing model](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-speech-service/). The new model is *easier to understand*, *simpler to calculate costs*, and *more flexible* in terms of scaling. For scaling, Microsoft has introduced the concept of a scale unit. Each scale unit can handle five concurrent requests. The scaling for concurrent requests was fixed in the old model to 5 concurrent requests for tier S0 and 12 concurrent requests for tier S1. We have opened these limits to offer you greater flexibility with your use-case requirements.
+As of July 2017, Custom Speech Service offers a [new pricing model](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-speech-service/). The new model is *easier to understand*, *simpler to calculate costs*, and *more flexible* in terms of scaling. For scaling, Microsoft has introduced the concept of a scale unit. Each scale unit can handle five concurrent requests. The scaling for concurrent requests in the old model was set at 5 concurrent requests for tier S0, and it was set at 12 concurrent requests for tier S1. We have opened these limits to offer you greater flexibility with your use-case requirements.
 
 If you run an old S0 or S1 tier, we recommend that you migrate your existing deployments to the new S2 tier. The new S2 tier covers both the S0 and S1 tiers. You can see the available options in the following figure:
 
@@ -33,7 +33,7 @@ The mapping from the old tiers to scale units is shown in the following table:
 To migrate to the new tier, do the following:
 
 ## Step 1: Check your existing deployment
-Go to the [Custom Speech Service portal](http://cris.ai), and check your existing deployments. In our example, there are two deployments. One deployment runs on an S0 tier, and the other deployment runs on an S1 tier, as shown in the **Deployment Options** column of the following table:
+Go to the [Custom Speech Service portal](http://cris.ai), and check your existing deployments. In our example, there are two deployments. One deployment runs on an S0 tier, and the other deployment runs on an S1 tier. The deployments are shown in the **Deployment Options** column of the following table:
 
 ![The Deployments page](../../../media/cognitive-services/custom-speech-service/custom-speech-deployments.png)
 
@@ -53,7 +53,7 @@ Go to the [Custom Speech Service portal](http://cris.ai), and check your existin
     ![The "Choose your pricing tier" page](../../../media/cognitive-services/custom-speech-service/custom-speech-update-pricing.png)
 
 ## Step 3: Check the migration status in the Custom Speech Service portal
-Return to the Custom Speech Service portal, and check your deployments. (If your browser window is still open, be sure to refresh it.) 
+Return to the Custom Speech Service portal, and check your deployments. (If your browser window is still open, refresh it.) 
 
 The status of the related deployment should have switched to *Processing*. You can also validate the migration by checking the **Deployment Options** column. There you can now find information about scale units and logging. The scale units should reflect your previous pricing tier. The logging should also be turned on, as shown in the table:
 
