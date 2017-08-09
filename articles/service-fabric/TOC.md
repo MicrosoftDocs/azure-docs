@@ -134,7 +134,7 @@
 #### [Create a Windows container application](service-fabric-get-started-containers.md)
 #### [Create a Linux container application](service-fabric-get-started-containers-linux.md)
 #### [Deploy a container](service-fabric-deploy-container.md)
-#### [Deploy Linux container](service-fabric-deploy-container-linux.md)
+#### [Container security](service-fabric-securing-containers.md)
 #### [Docker compose (preview)](service-fabric-docker-compose.md)
 #### [Resource governance for containers and services](service-fabric-resource-governance.md)
 #### [Volume and logging drivers](service-fabric-containers-volume-logging-drivers.md)
