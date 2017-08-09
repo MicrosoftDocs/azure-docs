@@ -205,7 +205,7 @@ Check out the following guides if you are looking for instructions on how to ins
 * [Getting Started with Azure Blob Service in .NET](blob/storage-dotnet-how-to-use-blobs.md)
 * [Getting Started with Azure Queue Service in .NET](queues/storage-dotnet-how-to-use-queues.md)
 * [Getting Started with Azure Table Service in .NET](../cosmos-db/table-storage-how-to-use-dotnet.md)
-* [Getting Started with Azure File Service in .NET](storage-dotnet-how-to-use-files.md)
+* [Getting Started with Azure File Service in .NET](files/storage-dotnet-how-to-use-files.md)
 
 ## Next steps
 
