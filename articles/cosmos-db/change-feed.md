@@ -235,8 +235,7 @@ a		<td>The partition key range ID for reading data.</td>
 
 **Response headers for incremental ReadDocumentFeed**:
 
-<table>
-	<tr>
+<table>	<tr>
 		<th>Header name</th>
 		<th>Description</th>
 	</tr>
@@ -249,7 +248,6 @@ a		<td>The partition key range ID for reading data.</td>
 	</tr>
 </table>
 Here's a sample request to return all incremental changes in collection from the logical version/ETag `28535` and partition key range = `16`:
-
 	GET https://mydocumentdb.documents.azure.com/dbs/bigdb/colls/bigcoll/docs HTTP/1.1
 	x-ms-max-item-count: 1
 	If-None-Match: "28535"
@@ -266,7 +264,7 @@ Changes are ordered by time within each partition key value within the partition
 > [!NOTE]
 > With change feed, you might get more items returned in a page than specified in `x-ms-max-item-count` in the case of multiple documents inserted or updated inside a stored procedures or triggers. 
 
-By specifying `If-Modified-Since` , your request will return not the documents themselves, but rather the continuation token or `etag` in response header. To return the documents modified the specified time, the continuation token `etag` must then be used in the next request with `If-None-Match` to return the actual documents. 
+By specifying `If-Modified-Since`, your request will return not the documents themselves, but rather the continuation token or `etag` in the response header. To return the documents modified the specified time, the continuation token `etag` must then be used in the next request with `If-None-Match` to return the actual documents. 
 
 The .NET SDK provides the [CreateDocumentChangeFeedQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery?view=azure-dotnet) and [ChangeFeedOptions](/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) helper classes to access changes made to a collection. The following snippet shows how to retrieve all changes from the beginning using the .NET SDK from a single client.
 
