@@ -35,7 +35,7 @@ Recovery Services vaults open an array of features including:
 
 - Manage Backup and Site Recovery from the same vault – You can now protect servers for disaster recovery or perform backup, from the same vault, which reduces your management overhead significantly.
 
-For more details regarding the upgraded experience and features, check this [blog](https://azure.microsoft.com/en-us/blog/azure-site-recovery-now-available-in-a-new-experience-with-support-for-arm-and-csp/).
+For more details regarding the upgraded experience and features, check this [blog](https://azure.microsoft.com/blog/azure-site-recovery-now-available-in-a-new-experience-with-support-for-arm-and-csp/).
 
 ## Salient features
 
@@ -55,7 +55,7 @@ As part of upgrading you vault type from the Classic deployment model to the Res
 
 ## Preparing your environment for vault upgrade
 
-1.	Install/Upgrade PowerShell to version 5 or above using this [link](https://www.microsoft.com/en-us/download/details.aspx?id=50395)
+1.	Install/Upgrade PowerShell to version 5 or above using this [link](https://www.microsoft.com/download/details.aspx?id=50395)
 
 2.	Install latest Azure PowerShell MSI from [here](https://github.com/Azure/azure-powershell/releases)
 
@@ -64,14 +64,16 @@ As part of upgrading you vault type from the Classic deployment model to the Res
 ## Prerequisites for upgrade
 The following pre-requisites should be met, to upgrade your vaults from Site Recovery vaults to Azure Resource Manager based Recovery Service Vaults.
 
-1. Minimum agent version: Upgrade requires that the version of Azure Site Recovery Provider installed on your server is at-least 5.1.1700.0.
+- Minimum agent version: Upgrade requires that the version of Azure Site Recovery Provider installed on your server is at-least 5.1.1700.0.
 
-2. Supported configuration: Your vault shouldn’t be configured with SAN, SQL Always Availability groups. All other configurations are supported.
-NOTE: Storage mapping can only be managed via PowerShell post the upgrade.
+- Supported configuration: Your vault shouldn’t be configured with SAN, SQL Always Availability groups. All other configurations are supported.
 
-3. Supported deployment scenario – Your vault shouldn’t be on ‘VMware to Azure’ legacy deployment model.  You need to first move to enhanced deployment model before proceeding.
+>[!NOTE]
+> Storage mapping can only be managed via PowerShell post the upgrade.
 
-4. No active user-initiated jobs that involve management plane operations: Since access to the management plane is restricted during upgrade, you need to complete all your management plane actions and then trigger upgrade. This doesn’t include on-going replication.
+- Supported deployment scenario – Your vault shouldn’t be on ‘VMware to Azure’ legacy deployment model.  You need to first move to enhanced deployment model before proceeding.
+
+- No active user-initiated jobs that involve management plane operations: Since access to the management plane is restricted during upgrade, you need to complete all your management plane actions and then trigger upgrade. This doesn’t include on-going replication.
 
 ## Frequently asked questions
 

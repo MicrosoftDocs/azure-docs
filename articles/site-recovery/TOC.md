@@ -129,7 +129,7 @@
 ### [Automate Hyper-V replication to Azure (with VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Automate Hyper-V replication to a secondary site (with VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Manage
-### [Upgrade you Site Recovery vault to Recovery Services vault](upgrade-site-recovery-vaults.md
+### [Upgrade your Site Recovery vault to Recovery Services vault](upgrade-site-recovery-vaults.md)
 ### [Manage process servers in Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md)
 ### [Manage the configuration server](site-recovery-vmware-to-azure-manage-configuration-server.md)
 ### [Manage scaled-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
