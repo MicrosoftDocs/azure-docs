@@ -173,6 +173,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |10.7|Deleted.|
 |10.8|For your Office Add-in to be available on iOS, it must be free. It must not include "app" in the **App Title** or **App Short Description**. Your add-in must be free of in-app purchases, trial offers, UI that aims to upsell to paid, or links to any online stores where users can purchase or acquire other content, apps, or add-ins. Your Privacy Policy and Terms of Use pages must also be free of any commerce UI or Store links.<br/>You must also do the following on the Seller Dashboard submission form:<br/><br/>Accept Apple's Terms and Conditions by selecting the appropriate checkbox. Your Office Add-in must be compliant with all relevant Apple App Store policies.<br/><br/>Provide a valid Apple ID.|
 |10.8.1| For your Outlook add-in to be available on iOS, it must comply with the [Outlook add-in design guidelines](https://docs.microsoft.com/en-us/outlook/add-ins/outlook-addin-design).|
+|10.8.2|The Office on iOS and/or Office on Android version of your add-in CANNOT show any UI, language or link to any other apps, add-ins or web sites, where the user can be asked to pay (using the term “free” as in “free account” is not allowed either). If the add-in requires an account, only free accounts can be created in the mobile version of the add-in. It is up to you to determine the length of time the free account is active (perpetually or time-limited), however, if the user’s account expires, no UI, text or links can be shown to the user indicating that they need to pay.
 |10.9|Office Add-ins must use version 1.1 of the Office.js library and the manifest schema.|
 
 ## 11. Add-ins provide a seamless and fluid experience for Office Store customers
@@ -252,6 +253,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.3|August 9,2017|Added policy 10.8.2
 |2.2|August 4, 2017|Added policies 14.15 and 14.16.|
 |2.2|July 21, 2017|Added policy 7.19.|
 |2.2|July 7, 2017|Removed policy 14.4. Updated policies 14.5, 14.6, 14.8, and 14.9.|
