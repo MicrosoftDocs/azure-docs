@@ -16,6 +16,8 @@ ms.author: luisca
 ---
 # Sentiment analysis (Azure Cognitive Services > Text Analytics API)
 
+TBD...
+
 Classifies text as predominantly positive or negative, assigning a score in the range of 0 to 1, up to 15 decimal places. 
 
 A solid 0.5 is the functional equivalent of an indeterminate sentiment. The algorithm couldn't read or make sense of the text input.
@@ -27,10 +29,7 @@ The usage model is as simple as this: JSON input > Analysis > JSON output
 Through code, you can control the quality of the input, and you can summarize or further analyze output, but you cannot configure or customize the sentiment analysis model itself. In your solution design, the sentiment resource is a black box.
 
 
-
 ## Limits
-
-
 
 we use machine learning to train the model, matching text with evidence of positive or negative sentiment to come up with patterns that can be applied to any text you provide.
 

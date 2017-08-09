@@ -22,18 +22,20 @@ In this Quickstart, learn how to call the Text Analytics REST APIs to perform se
 
 ## Before you begin
 
-To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. 
+To use Microsoft Cognitive Service APIs, create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 > [!Note]
 > If you already signed up for Cognitive Services to use another API, you need to retrace your steps for Text Analytics. Billing, policies, and release cycles vary for each API, so we ask you to sign up for each one individually. 
 
-## Set up a request for keyword extraction
+## Set up a request in Chrome
 
-Text Analytics APIs invoke operations against models and algorithms running in Azure data centers. You need your own key to access the operations. 
+In this first exercise, you will structure the request, using key phrase extraction as the first analysis.
 
-Endpoints for each operation include the resource providing the underlying algorithms used for a particular analysis: **sentiment analysis** , **key phrase extraction**, and **language detection**. We list them in full below.
+Text Analytics APIs invoke operations against machine learning pretrained models and algorithms running in Azure data centers. You need your own key to access the operations. 
+
+Endpoints for each operation include the resource providing the underlying algorithms used for a particular analysis: **sentiment analysis** , **key phrase extraction**, and **language detection**. Each request must specify which resource to use. We list them in full below.
 
 1. In the [Azure portal](https://portal.azure.com) and find the Text Analysis API you signed up for. Leave the page open so that you can copy a key and endpoint, starting in the next step.
 
@@ -105,7 +107,7 @@ Input rows must be JSON in raw text. XML is not supported. The schema is extreme
 
 + Document ID is required. Each ID should be a unique integer. The system uses this ID to structure the output. For example, keywords and sentiment scores are provided for each ID.
 
-+ Text provdes the strings to be analyzed. The maximum size of a single document that can be submitted is 10 KB, and 1 MB for the request overall. For more information about limits, see [Text Analytics Overview > Data limits](text-analytics-overview-what.md#data-limits). 
++ Text provdes the strings to be analyzed. The maximum size of a single document that can be submitted is 10 KB, and 1 MB for the request overall. For more information about limits, see [Text Analytics Overview > Data limits](text-analytics-overview-whatis.md#data-limits). 
 
 ### Drilldown: Parsing the response
 
@@ -247,5 +249,5 @@ Response output for each document includes a longer name, language code, and a s
 
 ## See also 
 
- [What is Text Analytics in Azure Cognitive Services](overview.md)  
+ [What is Text Analytics in Azure Cognitive Services](text-analytics-overview-whatis.md)  
  [Frequently asked questions (FAQ)](text-analytics-resource-faq.md)

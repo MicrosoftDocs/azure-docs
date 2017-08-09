@@ -3,10 +3,10 @@
 - name: Overview
   items:
   - name: Learn about Text Analytics API
-    href: text-analytics-overview-what.md
+    href: text-analytics-overview-whatis.md
 - name: Quickstarts
   items:
-  - name: Analyze text (REST API)
+  - name: Analyze text with REST
     href: text-analytics-quickstart-rest-api.md
 - name: Concepts
   items:
@@ -33,7 +33,7 @@
 - name: Resources
   items:
   - name: Data usage and retention
-    href: text-analytics-concept-data-privacy.md
+    href: text-analytics-resource-data-privacy.md
   - name: Frequently asked questions (FAQ)
     href: text-analytics-resource-faq.md
   - name: Azure Roadmap
