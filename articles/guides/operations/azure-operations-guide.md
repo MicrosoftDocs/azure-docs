@@ -404,7 +404,7 @@ Azure File storage is a service that offers file shares in the cloud by using th
 
 Because a File storage share is a standard SMB file share, applications running in Azure can access data in the share via file system I/O APIs. Developers can therefore use their existing code and skills to migrate existing applications. IT pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications.
 
-For more information, see [Get started with Azure File storage on Windows](../../storage/storage-file-how-to-use-files-windows.md) or [How to use Azure File storage with Linux](../../storage/storage-how-to-use-files-linux.md).
+For more information, see [Get started with Azure File storage on Windows](../../storage/files/storage-how-to-use-files-windows.md) or [How to use Azure File storage with Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 **Table storage**
 
@@ -418,7 +418,7 @@ For more information, see [Get started with Azure Table storage](../../cosmos-db
 
 Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows.
 
-For more information, see [Get started with Azure Queue storage](../../storage/storage-dotnet-how-to-use-queues.md).
+For more information, see [Get started with Azure Queue storage](../../storage/queues/storage-dotnet-how-to-use-queues.md).
 
 ### Deploying a storage account
 

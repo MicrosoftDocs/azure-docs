@@ -271,10 +271,10 @@ Note that while Azure File shares can be used with Unix, the Linux SMB client do
 You can enforce the use of encryption with the Azure Files service by enabling [Secure transfer required](storage-require-secure-transfer.md) for the storage account. If using the REST APIs, HTTPs is required. For SMB, only SMB connections that support encryption will connect successfully.
 
 #### Resources
-* [How to use Azure File storage with Linux](storage-how-to-use-files-linux.md)
+* [How to use Azure File storage with Linux](files/storage-how-to-use-files-linux.md)
 
   This article shows how to mount an Azure File share on a Linux system and upload/download files.
-* [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
+* [Get started with Azure File storage on Windows](files/storage-dotnet-how-to-use-files.md)
 
   This article gives an overview of Azure File shares and how to mount and use them using PowerShell and .NET.
 * [Inside Azure File storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)

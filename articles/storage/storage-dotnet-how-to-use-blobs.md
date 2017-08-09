@@ -400,5 +400,5 @@ to learn more.
 
 ### Conceptual guides
 * [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
-* [Get started with File storage for .NET](storage-dotnet-how-to-use-files.md)
+* [Get started with File storage for .NET](files/storage-dotnet-how-to-use-files.md)
 * [How to use Azure blob storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
