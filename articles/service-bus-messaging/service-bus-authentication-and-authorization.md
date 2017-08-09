@@ -22,7 +22,7 @@ ms.author: sethm
 Applications can authenticate to Azure Service Bus using Shared Access Signature (SAS) authentication. Shared Access Signature authentication enables applications to authenticate to Service Bus using an access key configured on the namespace, or on the entity with which specific rights are associated. You can then use this key to generate a Shared Access Signature token that clients can use to authenticate to Service Bus.
 
 > [!IMPORTANT]
-> SAS is strongly recommended over Azure Active Directory Access Control (also known as Access Control Service or ACS), and ACS is being deprecated. SAS provides a simple, flexible, and easy-to-use authentication scheme for Service Bus. Applications can use SAS in scenarios in which they do not need to manage the notion of an authorized "user." For more information, see [this blog post](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
+> You should use SAS instead of Azure Active Directory Access Control (also known as Access Control Service or ACS), as ACS is being deprecated. SAS provides a simple, flexible, and easy-to-use authentication scheme for Service Bus. Applications can use SAS in scenarios in which they do not need to manage the notion of an authorized "user." For more information, see [this blog post](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
 
 ## Shared Access Signature authentication
 
