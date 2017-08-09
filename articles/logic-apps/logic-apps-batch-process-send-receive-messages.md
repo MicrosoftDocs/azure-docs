@@ -67,7 +67,7 @@ which starts your logic app workflow.
 In the search box, enter "batch" as your filter. 
 Select this trigger: **Batch – Batch messages**
 
-   ![Add Batch trigger](./media/logic-apps-send-receive-batch-outputs-messages/add-batch-receiver-trigger.png)
+   ![Add Batch trigger](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
 3. Provide a name for the batch, 
 and specify criteria for releasing the batch, for example:
@@ -77,7 +77,7 @@ and specify criteria for releasing the batch, for example:
    * **Message Count**: The number of messages to hold as a batch 
    before releasing for processing and is "5" in this example.
 
-   ![Provide Batch trigger details](./media/logic-apps-send-receive-batch-outputs-messages/receive-batch-trigger-details.png)
+   ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/receive-batch-trigger-details.png)
 
 4. Add another action that sends an email when the batch trigger fires. 
 Each time the batch has five items, the logic app sends an email.
@@ -95,7 +95,7 @@ Each time the batch has five items, the logic app sends an email.
 
       For example:
 
-      ![Select "Send an email" action for your email provider](./media/logic-apps-send-receive-batch-outputs-messages/add-send-email-action.png)
+      ![Select "Send an email" action for your email provider](./media/logic-apps-batch-process-send-receive-messages/add-send-email-action.png)
 
 5. If you didn't previously create a connection for your email provider, 
 provide your email credentials for authentication when prompted. 
@@ -109,7 +109,7 @@ Learn more about [authenticating your email credentials](../logic-apps/logic-app
    * In the **Subject** box, select **Partition Name** when 
    the **Dynamic content** list appears.
 
-     ![From the "Dynamic content" list, select "Partition Name"](./media/logic-apps-send-receive-batch-outputs-messages/send-email-action-details.png)
+     ![From the "Dynamic content" list, select "Partition Name"](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png)
 
      In a later section, you specify how to partition, or divide, 
      the target batch into logical sets to where you send the messages. 
@@ -119,7 +119,7 @@ Learn more about [authenticating your email credentials](../logic-apps/logic-app
 
    * In the **Body** box, select **Message Id**.
 
-     ![For "Body", select "Message Id"](./media/logic-apps-send-receive-batch-outputs-messages/send-email-action-details-for-each.png)
+     ![For "Body", select "Message Id"](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
 
      Because the input for the send email action is an array, 
      the designer automatically adds a **For each** loop 
@@ -131,7 +131,7 @@ Learn more about [authenticating your email credentials](../logic-apps/logic-app
 7.  Now that you created a logic app that receives items as a batch, 
 save your logic app.
 
-    ![Save your logic app](./media/logic-apps-send-receive-batch-outputs-messages/save-batch-receiver-logic-app.png)
+    ![Save your logic app](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
 
 ## Create logic apps that send data to a batch
 
@@ -145,11 +145,11 @@ Receiver logic apps don't need to know anything about the senders.
    1. In the search box, enter "recurrence" as your filter. 
    Select this trigger: **Schedule - Recurrence**
 
-      ![Add the "Schedule-Recurrence" trigger](./media/logic-apps-send-receive-batch-outputs-messages/add-schedule-trigger-batch-receiver.png)
+      ![Add the "Schedule-Recurrence" trigger](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-receiver.png)
 
    2. Set the frequency and interval to run the sender logic app every minute.
 
-      ![Set frequency and interval for recurrence trigger](./media/logic-apps-send-receive-batch-outputs-messages/recurrence-trigger-batch-receiver-details.png)
+      ![Set frequency and interval for recurrence trigger](./media/logic-apps-batch-process-send-receive-messages/recurrence-trigger-batch-receiver-details.png)
 
 2. Add a new step for sending messages to a batch.
 
@@ -160,12 +160,12 @@ Receiver logic apps don't need to know anything about the senders.
    3. Select this action: 
    **Send messages to batch – Choose a Logic Apps workflow with batch trigger**
 
-      ![Select "Send messages to batch"](./media/logic-apps-send-receive-batch-outputs-messages/send-messages-batch-action.png)
+      ![Select "Send messages to batch"](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
 
    4. Now select your "BatchReceiver" logic app that you previously created, 
    which now appears as an action.
 
-      ![Select "batch receiver" logic app](./media/logic-apps-send-receive-batch-outputs-messages/send-batch-select-batch-receiver.png)
+      ![Select "batch receiver" logic app](./media/logic-apps-batch-process-send-receive-messages/send-batch-select-batch-receiver.png)
 
       > [!NOTE]
       > The list also shows any other logic apps that have batch triggers.
@@ -186,7 +186,7 @@ Receiver logic apps don't need to know anything about the senders.
      1. When the dynamic content list appears, choose **Expression**. 
      2. Enter the expression **utcnow()**, and choose **OK**. 
 
-        ![In "Message Content", choose "Expression". Enter "utcnow()".](./media/logic-apps-send-receive-batch-outputs-messages/send-batch-receiver-details.png)
+        ![In "Message Content", choose "Expression". Enter "utcnow()".](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details.png)
 
 4. Now set up a partition for the batch. In the "BatchReceiver" action, choose **Show advanced options**.
 
@@ -195,7 +195,7 @@ Receiver logic apps don't need to know anything about the senders.
 
    2. Enter this expression: **rand(1,6)**
 
-      ![Set up partition for your destination batch](./media/logic-apps-send-receive-batch-outputs-messages/send-batch-receiver-partition-advanced-options.png)
+      ![Set up partition for your destination batch](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-partition-advanced-options.png)
 
       This **rand** function expression generates a number between one and five. 
       So you are dividing this batch into five numbered partitions, 
@@ -203,7 +203,7 @@ Receiver logic apps don't need to know anything about the senders.
 
 5. Save your logic app. Your sender logic app now looks similar to this example:
 
-   ![Save your sender logic app](./media/logic-apps-send-receive-batch-outputs-messages/send-batch-receiver-details-finished.png)
+   ![Save your sender logic app](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details-finished.png)
 
 ## Test your logic apps
 
