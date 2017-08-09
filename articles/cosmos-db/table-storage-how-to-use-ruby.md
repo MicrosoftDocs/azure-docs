@@ -1,20 +1,20 @@
 ---
 title: How to use Azure Table Storage from Ruby | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
-services: storage
+services: cosmos-db
 documentationcenter: ruby
-author: mmacy
-manager: timlt
+author: mimig1
+manager: jhubbard
 editor: ''
 
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
-ms.service: storage
+ms.service: cosmos-db
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: marsma
+ms.author: mimig
 
 ---
 # How to use Azure Table Storage from Ruby

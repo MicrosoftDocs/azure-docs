@@ -1,20 +1,20 @@
 ---
 title: How to use table storage from PHP | Microsoft Docs
 description: Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table.
-services: storage
+services: cosmos-db
 documentationcenter: php
-author: mmacy
+author: mimig1
 manager: timlt
 editor: tysonn
 
 ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
-ms.service: storage
+ms.service: cosmos-db
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: marsma
+ms.author: mimig
 
 ---
 # How to use table storage from PHP

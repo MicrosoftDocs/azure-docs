@@ -1,20 +1,20 @@
 ---
 title: Web app with table storage (Node.js) | Microsoft Docs
 description: A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module.
-services: cloud-services, storage
+services: cosmos-db
 documentationcenter: nodejs
-author: mmacy
+author: mimig1
 manager: timlt
 editor: tysonn
 
 ms.assetid: e90959a2-4cb2-4b19-9bfb-aede15b18b1c
-ms.service: storage
+ms.service: cosmos-db
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: marsma
+ms.author: mimig
 
 ---
 # Node.js Web Application using Storage
