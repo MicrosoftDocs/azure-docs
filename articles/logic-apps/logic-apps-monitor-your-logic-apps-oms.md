@@ -34,8 +34,8 @@ the Logic Apps Management solution in OMS so you can
 view runtime events and data for your logic app run.
 
  > [!TIP]
- > To monitor your existing logic apps, 
- > follow these steps to [turn on diagnostic logging and send logic app runtime data to OMS](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app).
+ > To monitor your existing logic apps, follow these steps to 
+ > [turn on diagnostic logging and send logic app runtime data to OMS](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 ## Requirements
 
