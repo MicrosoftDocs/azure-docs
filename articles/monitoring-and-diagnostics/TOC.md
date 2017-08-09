@@ -39,7 +39,7 @@
 ### [Stream activity log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Create activity log alerts with Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-### [Migrate to Activity Log alerts](monitoring-migrate-mgmt-alerts.md)
+### [Migrate to Activity Log alerts](monitoring-migrate-managememt-alerts.md)
 ## Use Service notifications
 ### [View service notifications](monitoring-service-notifications.md)
 ### [Configure alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md)
