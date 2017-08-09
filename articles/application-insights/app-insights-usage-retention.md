@@ -34,7 +34,7 @@ If you don't yet see data in the retention tool in the Application Insights port
 5. The grid shows the number of users retained according to the query builder in #2. Each row represents a cohort of users who performed any event in the time period shown. Each cell in the row shows how many of that cohort returned at least once in a later period. Some users may return in more than one period. 
 6. The insights cards show top 5 initiating events, and top 5 returned events to give users a better understanding of their retention report. 
 
-![Retention hover](./media/app-insights-usage-retention/hover.png)
+![Retention mouse hover](./media/app-insights-usage-retention/hover.png)
 
 Users can hover over cells on the retention tool to access the analytics button and tool tips explaining what the cell means. The Analytics button will take users to the Analytics tool with a pre-populated query to generate users from the cell. 
 
