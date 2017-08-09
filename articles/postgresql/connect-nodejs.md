@@ -115,53 +115,41 @@ Replace the host, dbname, user, and password parameters with the values that you
 ```javascript
 const pg = require('pg');
 
-var config =
-{
-	host: 'mypgserver-20170401.postgres.database.azure.com',
-	user: 'mylogin@mypgserver-20170401',
-	password: '<server_admin_password>',
-	database: 'mypgsqldb',
-	port: 5432,
-	ssl: true
+const config = {
+    host: 'mypgserver-20170401.postgres.database.azure.com',
+    user: 'mylogin@mypgserver-20170401',
+    password: '<server_admin_password>',
+    database: '<name_of_database>',
+    port: 5432,
+    ssl: true
 };
-
 
 const client = new pg.Client(config);
 
-client.connect(function (err)
-{
-	if (err)
-	    throw err;
-
-	else
-	{
-		console.log("Connected to Azure Database for PostgreSQL server:" + config.host);
-		queryDatabase();
-	}
+client.connect(err => {
+    if (err) throw err;
+    else { queryDatabase(); }
 });
 
-function queryDatabase()
-{
-	// Declare array to hold query result set
-	const results = [];
+function queryDatabase() {
+  
+    console.log(`Running query to PostgreSQL server: ${config.host}`);
 
-	console.log("Running query to PostgreSQL server:" + config.host);
+    const query = 'SELECT * FROM inventory;';
 
-	// Perform query
-	var query = client.query('SELECT * FROM inventory;');
+    client.query(query)
+        .then(res => {
+            const rows = res.rows;
 
-	// Print result set
-	query.on('row', function(row)
-	{
-		console.log("Read " + JSON.stringify(row));
-	});
+            rows.map(row => {
+                console.log(`Read: ${JSON.stringify(row)}`);
+            });
 
-	// Exit program after execution
-	query.on('end', function(row)
-	{
-		console.log("Finished execution, exiting now");
-		process.exit()
-	});
+            process.exit();
+        })
+        .catch(err => {
+            console.log(err);
+        });
 }
 ```
 
@@ -173,51 +161,39 @@ Replace the host, dbname, user, and password parameters with the values that you
 ```javascript
 const pg = require('pg');
 
-var config =
-{
-	host: 'mypgserver-20170401.postgres.database.azure.com',
-	user: 'mylogin@mypgserver-20170401',
-	password: '<server_admin_password>',
-	database: 'mypgsqldb',
-	port: 5432,
-	ssl: true
+const config = {
+    host: 'mypgserver-20170401.postgres.database.azure.com',
+    user: 'mylogin@mypgserver-20170401',
+    password: '<server_admin_password>',
+    database: '<name_of_database>',
+    port: 5432,
+    ssl: true
 };
 
 const client = new pg.Client(config);
 
-client.connect(function (err)
-{
-	if (err)
-		throw err;
-	else
-	{
-		queryDatabase();
-	}	
+client.connect(err => {
+    if (err) throw err;
+    else {
+        queryDatabase();
+    }
 });
 
-function queryDatabase()
-{
-	client.query('UPDATE inventory SET quantity= 1000 WHERE name=\'banana\';', function (err, result)
-	{
-		console.log("Connection established");
+function queryDatabase() {
+    const query = `UPDATE inventory 
+                   SET quantity= 1000 WHERE name='banana';`;
 
-  		if (err)
-  			throw err;
-  		else
-  		{
-			client.end(function (err)
-			{
-	      		if (err)
-	      			throw err;
-	      		
-	      		// Else closing connection finished without error
-  				console.log("Closed client connection");
-	    	});  			
-  		}
-
-  		console.log("Finished execution, exiting now");
-  		process.exit()
-  	});
+    client
+        .query(query)
+        .then(() => {
+            console.log('Update completed succesfully!');
+            client.end(console.log('Closed client connection'));
+        })
+        .catch(err => console.log(err))
+        .then(() => {
+            console.log('Finished execution, exiting now');
+            process.exit();
+        });
 }
 ```
 
