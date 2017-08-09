@@ -1,6 +1,6 @@
 ---
 title: Provision a SQL Server Virtual Machine | Microsoft Docs
-description: Create and connect to a SQL Server virtual machine in Azure using the Portal. This tutorial uses the Resource Manager mode.
+description: Create and connect to a SQL Server virtual machine in Azure using the portal. This tutorial uses the Resource Manager mode.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 08/08/2017
 ms.author: jroth
 ---
-# Provision a SQL Server virtual machine in the Azure Portal
+# Provision a SQL Server virtual machine in the Azure portal
 > [!div class="op_single_selector"]
 > * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
 > 
 > 
 
-This end-to-end tutorial shows you how to use the Azure Portal to provision a virtual machine running SQL Server.
+This end-to-end tutorial shows you how to use the Azure portal to provision a virtual machine running SQL Server.
 
 The Azure virtual machine (VM) gallery includes several images that contain Microsoft SQL Server. With a few clicks, you can select one of the SQL VM images from the gallery and provision it in your Azure environment.
 
@@ -255,7 +255,7 @@ For more information, see [Configure Azure Key Vault Integration for SQL Server 
 
 You have the option to enable [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). This enables you to use advanced analytics with SQL Server 2016. Click **Enable** on the **SQL Server Settings** blade.
 
-> [NOTE]
+> [!NOTE]
 > For SQL Server 2016 Developer Edition, this option is incorrectly disabled by the portal. For Developer edition, you must enable R Services manually after creating your VM.
 
 ![Enable SQL Server R Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
@@ -272,29 +272,8 @@ You can monitor the deployment from the azure portal. The **Notifications** butt
 > To provide you with an idea on deployment times, I deployed a SQL VM to the East US region with default settings. This test deployment took a total of 26 minutes to complete. But you might experience a faster or slower deployment time based on your region and selected settings.
 
 ## Open the VM with Remote Desktop
-Use the following steps to connect to the virtual machine with Remote Desktop:
 
-1. After the Azure VM is built, the icon for the VM appears on your Azure dashboard. You can also find it by browsing your existing virtual machines. Click on your new SQL virtual machine. A **Virtual machine** blade displays your virtual machine details.
-
-2. At the top of the **Virtual machine** blade, click **Connect**.
-
-3. The browser downloads an RDP file for the VM. Open the RDP file.
-
-    ![Remote Desktop to SQL VM](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-remote-desktop.png)
-
-4. The Remote Desktop Connection notifies you that the publisher of this remote connection cannot be identified. Click **Connect** to continue.
-
-5. In the **Windows Security** dialog, click **Use another account**.
-
-6. For **User name** type **\<user name>**, where <user name> is the user name that you specified when you configured the VM. You have to add an initial backslash before the name.
-
-7. Type the **Password** that you previously configured for this VM, and then click **OK** to connect.
-
-8. If another **Remote Desktop Connection** dialog asks you whether to connect, click **Yes**.
-
-After you connect to the SQL Server virtual machine, you can launch SQL Server Management Studio and connect with Windows Authentication using your local administrator credentials. If you enabled SQL Server Authentication, you can also connect with SQL Authentication using the SQL login and password you configured during provisioning.
-
-Access to the machine enables you to directly change machine and SQL Server settings based on your requirements. For example, you could configure the firewall settings or change SQL Server configuration settings.
+> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
 ## Connect to SQL Server remotely
 
