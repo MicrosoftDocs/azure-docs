@@ -1226,9 +1226,9 @@
             "redirect_document_id": false
         },
         {
-           "source_path": "articles/automation/automation-troubleshooting-hrw-runbook-terminates-suspended.md",
-           "redirect_url": "https://docs.microsoft.com/azure/automation/automation-troubleshooting-hybrid-runbook-worker",
-           "redirect_document_id": false
+            "source_path": "articles/automation/automation-troubleshooting-hrw-runbook-terminates-suspended.md",
+            "redirect_url": "https://docs.microsoft.com/azure/automation/automation-troubleshooting-hybrid-runbook-worker",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-portal/resource-group-portal.md",
@@ -8255,7 +8255,8 @@
             "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-get-started",
             "redirect_document_id": false
         },
-        {   "source_path": "articles/active-directory/active-directory-reporting-irregular-sign-in-activity.md",
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-irregular-sign-in-activity.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
             "redirect_document_id": false
         },
@@ -8278,51 +8279,52 @@
             "source_path": "articles/active-directory/active-directory-reporting-sign-ins-from-possibly-infected-devices.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-sign-ins-from-unknown-sources.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-users-with-anomalous-sign-in-activity.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
             "redirect_document_id": false
-        },            
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-latencies.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-latencies-azure-portal",
             "redirect_document_id": false
-        },                
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-audit-events.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-activity-audit-logs",
             "redirect_document_id": false
-        },                    
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-api-prerequisites.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-api-prerequisites-azure-portal",
             "redirect_document_id": false
-        },                        
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-api-getting-started.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal",
             "redirect_document_id": false
-        },                            
+        },
         {
             "source_path": "articles/active-directory/active-directory-known-networks.md",
             "redirect_url": "/azure/active-directory/active-directory-named-locations",
             "redirect_document_id": false
-        },                                
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-getting-started.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
-            "redirect_document_id": false        },                                    
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/active-directory/active-directory-view-access-usage-reports.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
             "redirect_document_id": false
-        },                                        
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-guide.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
@@ -8353,12 +8355,12 @@
             "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers",
             "redirect_document_id": false
         },
-	{
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-azcopy.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-load",
             "redirect_document_id": false
         },
-	{
+        {
             "source_path": "articles/application-insights/app-insights-analytics-reference.md",
             "redirect_url": "https://docs.loganalytics.io/",
             "redirect_document_id": false
@@ -8406,6 +8408,246 @@
         {
             "source_path": "articles/vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md",
             "redirect_url": "azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/cli-samples.md",
+            "redirect_url": "/azure/container-service/kubernetes/cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-connect.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-connect",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-application-specific-marathon.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-application-specific-marathon",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-create-acs-cluster-cli.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-create-acs-cluster-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-dcos-acr.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-dcos-acr",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-dcos-agents.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-dcos-agents",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-dcos-fileshare.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-dcos-fileshare",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-dcos-manage-tutorial.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-dcos-manage-tutorial",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-dcos-quickstart.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-dcos-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-dcos-vamp-canary-release.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-dcos-vamp-canary-release",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-deploy-spring-boot-app-on-kubernetes.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-deploy-spring-boot-app-on-linux.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-deployment.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-docker-swarm-mode-setup-ci-cd-acs-engine",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-docker-swarm-setup-ci-cd.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-docker-swarm.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-docker-swarm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-draft-up.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-draft-up",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-enable-public-access.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-enable-public-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-faq.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-intro.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-intro-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-coscale.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-coscale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-datadog.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-datadog",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-helm.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-helm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-jenkins.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-jenkins",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-load-balancing.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-load-balancing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-oms.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-oms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-service-principal.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-service-principal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-sysdig.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-sysdig",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-ui.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-ui",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-walkthrough.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-walkthrough",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-windows-walkthrough.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-windows-walkthrough",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-load-balancing.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-load-balancing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-mesos-marathon-rest.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-mesos-marathon-rest",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-mesos-marathon-ui.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-mesos-marathon-ui",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-monitoring-dynatrace.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-monitoring-dynatrace",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-monitoring-elk.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-monitoring-elk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-monitoring-oms.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-monitoring-oms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-monitoring-sysdig.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-monitoring-sysdig",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-monitoring.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-scale.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-scale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-security.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-tutorial-kubernetes-app-update.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-tutorial-kubernetes-deploy-application.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-tutorial-kubernetes-deploy-cluster.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-tutorial-kubernetes-monitor.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-tutorial-kubernetes-prepare-acr.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-tutorial-kubernetes-prepare-app.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-tutorial-kubernetes-scale.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale",
             "redirect_document_id": false
         }
     ]
