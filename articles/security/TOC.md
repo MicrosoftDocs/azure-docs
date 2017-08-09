@@ -5,10 +5,11 @@
 ## [Compute security](security-virtual-machines-overview.md)
 ## [Operational security](azure-operational-security-overview.md)
 ## [Security management and monitoring](security-management-and-monitoring-overview.md)
+## [Service Fabric security](azure-service-fabric-security-overview.md)
 ## [Identity management](security-identity-management-overview.md)
 ## [IoT security](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Security architecture](azure-security-architecture-overview.md)
-### [Operational security](azure-operational-security.md)
+### [Enabling operational security](azure-operational-security.md)
 ### [Advanced threat detection](azure-threat-detection.md)
 ### [Logging and auditing](azure-log-audit.md)
 ### [Isolation in the public cloud](azure-isolation.md)
@@ -40,6 +41,9 @@
 #### [Disk encryption troubleshooting](azure-security-disk-encryption-tsg.md)
 ### [Encrypt an Azure VM](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
+## Operational security
+### [Best practices for operational security](azure-operational-security-best-practices.md)
+
 ## Security management and monitoring
 ### [Security management](azure-security-management.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -49,6 +53,10 @@
 #### [Integrate Security Center alerts](security-azure-log-integration-security-center.md)
 #### [Integrate logs from Key Vault using Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [FAQ](security-azure-log-integration-faq.md)
+
+## Service Fabric
+### [Service Fabric best practices](azure-service-fabric-security-best-practices.md)
+### [Service Fabric checklist](azure-service-fabric-security-checklist.md)
 
 ## Identity management
 ### [Identity management security best practices](azure-security-identity-management-best-practices.md)
