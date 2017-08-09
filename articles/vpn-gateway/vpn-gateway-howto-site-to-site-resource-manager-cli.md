@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/01/2017
+ms.date: 08/02/2017
 ms.author: cherylmc
 
 ---
@@ -27,7 +27,6 @@ This article shows you how to use the Azure CLI to create a Site-to-Site VPN gat
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure portal (classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Classic portal (classic)](vpn-gateway-site-to-site-create.md)
 > 
 >
 
@@ -101,7 +100,6 @@ For this configuration, you also need a gateway subnet. The virtual network gate
 The size of the gateway subnet that you specify depends on the VPN gateway configuration that you want to create. While it is possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting /27 or /28. Using a larger gateway subnet allows for enough IP addresses to accommodate possible future configurations.
 
 Use the [az network vnet subnet create](/cli/azure/network/vnet/subnet#create) command to create the gateway subnet.
-
 
 ```azurecli
 az network vnet subnet create --address-prefix 10.12.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
@@ -193,7 +191,8 @@ This section contains common commands that are helpful when working with site-to
 
 ## Next steps
 
-*  Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+* Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
-* For information about forced tunneling, see [Configure forced tunneling](vpn-gateway-forced-tunneling-rm.md).
+* For information about Forced Tunneling, see [About Forced Tunneling](vpn-gateway-forced-tunneling-rm.md).
+* For information about Highly Available Active-Active connections, see [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
 * For a list of networking Azure CLI commands, see [Azure CLI](https://docs.microsoft.com/cli/azure/network).

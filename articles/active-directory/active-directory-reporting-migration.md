@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 07/19/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk 
 
@@ -150,3 +150,7 @@ To view the **Application Usage** report, on the **Azure Active Directory** blad
 
 
 ![Enterprise Applications Sign-Ins report](./media/active-directory-reporting-migration/199.png "Enterprise Applications Sign-Ins report")
+
+## Next steps
+
+For an overview of reporting, see the [Azure Active Directory reporting](active-directory-reporting-azure-portal.md).

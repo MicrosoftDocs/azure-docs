@@ -66,6 +66,7 @@
 ## Troubleshoot
 ### [VM deployments](troubleshoot-deployment-new-vm.md)
 ### [Restart or resize a VM](restart-resize-error-troubleshooting.md)
+### [Attach virtual hard disk to troubleshooting VM](troubleshoot-recovery-disks-portal.md)
 
 # Reference
 ## [PowerShell](/powershell/azure/overview)
@@ -79,8 +80,9 @@
 
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Regional availability](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

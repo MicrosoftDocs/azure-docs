@@ -34,7 +34,7 @@ By reading this article, you'll be able to answer the following questions:
 As the following diagram illustrates, the Cosmos DB hierarchical **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI. A set of resources will be referred to as a **feed** in this article. 
 
 > [!NOTE]
-> Cosmos DB offers a highly efficient TCP protocol which is also RESTful in its communication model, available through the [DocumentDB .NET client API](documentdb-sdk-dotnet.md).
+> Azure Cosmos DB offers a highly efficient TCP protocol which is also RESTful in its communication model, available through the [DocumentDB .NET client API](documentdb-sdk-dotnet.md).
 > 
 > 
 

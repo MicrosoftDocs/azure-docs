@@ -7,10 +7,11 @@
 
 # Get started
 ## [Export template](resource-manager-export-template.md)
-## [Create your first template](resource-manager-create-first-template.md)
+## [Create and deploy template](resource-manager-create-first-template.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Samples
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
 ## PowerShell
 ### [Deploy template](resource-manager-samples-powershell-deploy.md)
 
@@ -102,6 +103,7 @@
 ### [Array and object functions](resource-group-template-functions-array.md)
 ### [Comparison functions](resource-group-template-functions-comparison.md)
 ### [Deployment functions](resource-group-template-functions-deployment.md)
+### [Logical functions](resource-group-template-functions-logical.md)
 ### [Numeric functions](resource-group-template-functions-numeric.md)
 ### [Resource functions](resource-group-template-functions-resource.md)
 ### [String functions](resource-group-template-functions-string.md)
@@ -128,7 +130,8 @@
 ## [REST](/rest/api/resources/)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Throttling requests](resource-manager-request-limits.md)

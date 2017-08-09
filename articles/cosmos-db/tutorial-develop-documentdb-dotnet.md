@@ -103,7 +103,7 @@ In the Azure portal, navigate to your Azure Cosmos DB account, click **Keys**, a
 
 Copy the URI from the portal and paste it over `<your endpoint URL>` in the program.cs file. Then copy the PRIMARY KEY from the portal and paste it over `<your primary key>`. Be sure to remove the `<` and `>` from your values.
 
-![Screen shot of the Azure portal used by the NoSQL tutorial to create a C# console application. Shows an Azure Cosmos DB account, with the KEYS highlighted on the Azure Cosmos DB account blade, and the URI and PRIMARY KEY values highlighted on the Keys blade][keys]
+![Screen shot of the Azure portal used by the NoSQL tutorial to create a C# console application. Shows an Azure Cosmos DB account, with the KEYS highlighted on the Azure Cosmos DB account blade, and the URI and PRIMARY KEY values highlighted on the Keys blade](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-keys.png)
 
 ## <a id="instantiate"></a>Instantiate the DocumentClient
 
