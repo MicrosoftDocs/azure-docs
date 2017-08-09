@@ -26,7 +26,7 @@ Integrating Cezanne HR software with Azure AD provides you with the following be
 - Enable your users to automatically sign in to Cezanne HR software with single sign-on (SSO) with their Azure AD accounts.
 - Manage your accounts in one central location: the Azure portal.
 
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and SSO with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and SSO with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
@@ -83,7 +83,7 @@ For SSO to work, Azure AD needs to know the Cezanne HR software counterpart to t
 
 To establish the link relationship, assign the Cezanne HR software **user name** value as the Azure AD **Username** value.
 
-To configure and test Azure AD SSO by using Cezanne HR software, complete the following building blocks:
+To configure and test Azure AD SSO by using Cezanne HR software, complete the following building blocks.
 
 ### Configure Azure AD SSO
 
@@ -176,6 +176,7 @@ To create a test user in Azure AD, do the following:
 2. To display the list of users, select **Users and groups** > **All users**.
 	
 	![The "All users" link](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_02.png) 
+	
 	The **All users** dialog box opens.
 
 3. To open the **User** dialog box, select **Add**.
