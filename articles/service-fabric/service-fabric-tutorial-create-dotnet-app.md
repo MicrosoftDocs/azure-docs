@@ -23,18 +23,18 @@ This tutorial is part one of a series and shows you how to create an Azure Servi
 
 ![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-In this tutorial series you learn how to:
-> [!div class="checklist"]
-> * Build a .NET Service Fabric application
-> * Deploy the application to a remote cluster
-> * Configure CI/CD
-
 In part one of the series, you learn how to:
 
 > [!div class="checklist"]
 > * Create an ASP.NET Core Web API service as a reliable service
 > * Create a stateful reliable service
 > * Implement service remoting and using a service proxy
+
+In this tutorial series you learn how to:
+> [!div class="checklist"]
+> * Build a .NET Service Fabric application
+> * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 ## Prerequisites
 Before you begin this tutorial:
