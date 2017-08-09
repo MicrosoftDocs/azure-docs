@@ -35,7 +35,7 @@ view runtime events and data for your logic app run.
 
  > [!TIP]
  > To monitor your existing logic apps, 
- > follow these steps to [turn on diagnotic logging and send logic app runtime data to OMS](../logic-apps/logic-apps-monitor-your-logic-apps#turn-on-diagnostics-logging-for-your-logic-app.md).
+ > follow these steps to [turn on diagnostic logging and send logic app runtime data to OMS](../logic-apps/logic-apps-monitor-your-logic-apps#turn-on-diagnostics-logging-for-your-logic-app.md).
 
 ## Requirements
 
@@ -49,7 +49,7 @@ Choose **New** > **Enterprise Integration** > **Logic App** > **Create**.
 
    ![Create a logic app](media/logic-apps-monitor-your-logic-apps-oms/find-logic-apps-azure.png)
 
-2. In the **Create logic app** blade, perform these tasks as shown:
+2. In the **Create logic app** page, perform these tasks as shown:
 
    1. Provide a name for your logic app and select your Azure subscription. 
    2. Create or select an Azure resource group.
