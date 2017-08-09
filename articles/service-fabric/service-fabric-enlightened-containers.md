@@ -16,28 +16,28 @@ ms.workload: NA
 ms.date: 8/04/2017
 ms.author: anmola
 ---
-# Enlightened Containers in Azure Service Fabric (Preview)
+# How to containerize your Service Fabric micro-services (Preview)
 
-As of Service Fabric release 5.7 we have added support for containerizing Service Fabric applications (Windows Only). For more information on containers please read this article introducing [service fabric containers](service-fabric-containers-overview).
+Service Fabric now has support for containerizing Service Fabric micro-services (Stateless, Actor and Reliable Collection based services). For more information please read [service fabric containers](service-fabric-containers-overview).
 
 The main reasons to consider containerizing your Service Fabric service are similar to the benefits you would receive when containerizing your applications
--	Portability - The service I run has all the dependencies it needs, so will run anywhere.
--	Lots of customers have existing build pipelines using containers – this makes it easy for them to use the same build pipeline for everything including their Service Fabric services
+-	Portability - The service has all the dependencies it needs, so will run anywhere
+-	Customers can use teh existing build pipelines defined for their other containerized applications
 -	Resource governance
 
 
 > [!NOTE]
-> This feature is in preview and is not supported.
+> This feature is in preview and is not supported. currenlty this feature only works for Windows
 
 ## Steps to containerize your Service Fabric Application
 
 Please follow the steps below in order to successfully containerize and deploy a service fabric application to your cluster.
 
-1. Open your Service Fabric application in Visual studio
+1. Open your Service Fabric application in *Visual Studio*
 
 2. Add class at [TODO: Insert git hub link here] to your project. This is a helper to correctly load the Service Fabric runtime binaries inside your application when running inside a containerize
 
-3. For each code package you would like to containerize initialize the loader at the program entry point. You could add the code snippet below to your program entry point file assuming it is in Program.cs
+3. For each code package you would like to containerize initialize the loader at the program entry point. You could add the code snippet below to your program entry point file assuming it is in *Program.cs*
 
   ```csharp
         static Program()
