@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Profiling live Azure web apps with Application Insights

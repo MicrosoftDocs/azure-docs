@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/24/2016
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Monitor a SharePoint site with Application Insights

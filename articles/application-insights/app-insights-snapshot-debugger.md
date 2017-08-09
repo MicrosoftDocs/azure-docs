@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Debug snapshots on exceptions in .NET apps
