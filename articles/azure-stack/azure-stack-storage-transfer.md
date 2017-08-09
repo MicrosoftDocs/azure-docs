@@ -66,7 +66,7 @@ Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Des
 ### Azcopy Known issues
 * Any AzCopy operation on File storage is not available because File Storage is not yet available in Azure Stack.
 * Asynchronous data transfer between Azure Storage and Azure Stack is not supported. You can specify the transfer with the `/SyncCopy` option to copy the data.
-* The Linux version of Azcopy is not supported for Azure Stack Storage data transfer. 
+* The Linux version of Azcopy is not supported for Azure Stack Storage. 
 
 ## Azure PowerShell
 Azure PowerShell is a module that provides cmdlets for managing services on both Azure and Azure Stack. It's a task-based command-line shell and scripting language designed especially for system administration.
@@ -75,7 +75,15 @@ Azure PowerShell is a module that provides cmdlets for managing services on both
 Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. For more information, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) and [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md) to learn more.
 
 ### PowerShell Sample script for Azure Stack 
-You need to complete the installation followed by [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) and  [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md).  This sample will help you conplete the configuration and ask your Azure Stacn tenant credentials to add your account to the local PowerShell environemnt. Then, the script will set the default Azure subscription and create a new storage account in Azure. Next, the script will create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will create a new destination directory in your local computer and download the image file.
+This sample assume you have successfully [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). This script will help you conplete the configuration and ask your Azure Stack tenant credentials to add your account to the local PowerShell environemnt. Then, the script will set the default Azure subscription, create a new storage account in Azure, create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will create a new destination directory in your local computer and download the image file.
+
+1. Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
+2. Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
+3. Open **Windows PowerShell ISE** and **Run as Administrator**, click **File** > **New** to create a new script file.
+4. Copy the script below and paste to the new script file.
+5. Update the script variables based on your configuration settings. 
+6. Note: this script has to be run under the root of downloaded **AzureStack_Tools**. 
+
 ```PowerShell 
 # begin
 
@@ -145,7 +153,6 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 The current compatible Azure PowerShell module version for Azure Stack is 1.2.10. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
 
 * The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.10 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
-
    ```
    # This command gets a specific key for a Storage account, 
    # and works for Azure PowerShell version 1.4, and later versions.
@@ -158,7 +165,6 @@ The current compatible Azure PowerShell module version for Azure Stack is 1.2.10
    -AccountName "MyStorageAccount").Key1
 
    ```
-
    For more information, see [Get-​Azure​Rm​Storage​Account​Key](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
 
 ## Azure CLI
@@ -166,10 +172,10 @@ The Azure CLI is Azure’s command-line experience for managing Azure resources.
 
 Azure CLI is optimized for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager. It provides many of the same functions found in the Azure Stack portal, including rich data access.
 
-Azure Stack requires Azure CLI version 2.0. For more information about installing and configuring Azure CLI with Azure Stack, see [Install and configure Azure Stack CLI](azure-stack-connect-cli.md).
+Azure Stack requires Azure CLI version 2.0. For more information about installing and configuring Azure CLI with Azure Stack, see [Install and configure Azure Stack CLI](azure-stack-connect-cli.md). For more information about how to use the Azure CLI 2.0 to perform several tasks working with resources in your Azure Stack Storage account, see [Using the Azure CLI2.0 with Azure Storage](../storage/storage-azure-cli.md)
 
 ### Azure CLI sample script for Azure Stack 
-Once you complete the CLI installation and configuration, you can try the follow small shell script to interact with Azure Stack Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container. It then lists all blobs in the container, and finally, downloads the file to a destination on your local computer that you specify.
+Once you complete the CLI installation and configuration, you can try the following steps to work with a small shell sample script to interact with Azure Stack Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container, lists all blobs in the container, and finally, downloads the file to a destination on your local computer that you specify. Before you run this script, make sure you successfully connect and login to the target Azure Stack. 
 1. Open your favorite text editor, then copy and paste the preceding script into the editor.
 2. Update the script's variables to reflect your configuration settings. 
 3. After you've updated the necessary variables, save the script and exit your editor. The next steps assume you've named your script my_storage_sample.sh.
@@ -184,13 +190,11 @@ export AZURESTACK_RESOURCE_GROUP=<resource_group_name>
 export AZURESTACK_RG_LOCATION="local"
 export AZURESTACK_STORAGE_ACCOUNT_NAME=<storage_account_name>
 export AZURESTACK_STORAGE_CONTAINER_NAME=<container_name>
-export AZURESTACK_STORAGE_BLOB_NAME="blob_name"
+export AZURESTACK_STORAGE_BLOB_NAME=<blob_name>
 export FILE_TO_UPLOAD=<file_to_upload>
 export DESTINATION_FILE=<destination_file>
 
 echo "Creating the resource group..."
-echo $AZURESTACK_RESOURCE_GROUP
-echo $AZURESTACK_RG_LOCATION
 az group create --name $AZURESTACK_RESOURCE_GROUP --location $AZURESTACK_RG_LOCATION
 
 echo "Creating the storage account..."
