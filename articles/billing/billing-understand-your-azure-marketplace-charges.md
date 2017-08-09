@@ -4,7 +4,7 @@ description: Learn about billing of external services, formerly known as Marketp
 services: ''
 documentationcenter: ''
 author: adpick
-manager: ruchic
+manager: tonguyen
 editor: ''
 tags: billing
 

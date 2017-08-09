@@ -1,8 +1,8 @@
 ---
 title: Overview of metrics in Microsoft Azure | Microsoft Docs
 description: Overview of metrics and their use in Microsoft Azure
-author: kamathashwin
-manager: carmonm
+author: johnkemnetz
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
-ms.author: ashwink
+ms.author: johnkem
 ---
 
 # Overview of metrics in Microsoft Azure

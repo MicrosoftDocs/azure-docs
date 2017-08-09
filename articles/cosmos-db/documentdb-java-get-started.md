@@ -1,6 +1,6 @@
 ---
-title: 'NoSQL tutorial: Azure DocumentDB Java SDK | Microsoft Docs'
-description: A NoSQL tutorial that creates an online database and Java console application using the DocumentDB Java SDK. Azure DocumentDB is a NoSQL database for JSON.
+title: 'NoSQL tutorial: DocumentDB API for Azure Cosmos DB Java SDK | Microsoft Docs'
+description: A NoSQL tutorial that creates an online database and Java console application using the DocumentDB API for Azure Cosmos DB. Azure DocumentDB is a NoSQL database for JSON.
 keywords: nosql tutorial, online database, java console application
 services: cosmos-db
 documentationcenter: Java
@@ -13,12 +13,12 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: article
 ms.date: 05/22/2017
 ms.author: arramac
 
 ---
-# NoSQL tutorial: Build a DocumentDB Java console application
+# NoSQL tutorial: Build a DocumentDB API Java console application
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -29,7 +29,7 @@ ms.author: arramac
 >  
 > 
 
-Welcome to the NoSQL tutorial for the Azure DocumentDB Java SDK! After following this tutorial, you'll have a console application that creates and queries DocumentDB resources.
+Welcome to the NoSQL tutorial for the DocumentDB API for Azure Cosmos DB Java SDK! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
 We cover:
 
@@ -67,7 +67,7 @@ You can get started by cloning the GitHub repository for [Get Started with Azure
 
     cd azure-cosmos-db-documentdb-java-getting-started
 
-The directory contains a `pom.xml` for the project and a `src` folder containing Java source code including `Program.java` which shows how perform simple operations with Azure DocumentDB like creating documents and querying data within a collection. The `pom.xml` includes a dependency on the [DocumentDB Java SDK on Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
+The directory contains a `pom.xml` for the project and a `src` folder containing Java source code including `Program.java` which shows how perform simple operations with Azure Cosmos DB like creating documents and querying data within a collection. The `pom.xml` includes a dependency on the [DocumentDB Java SDK on Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -115,7 +115,7 @@ A [collection](documentdb-resources.md#collections) can be created by using the 
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>Step 6: Create JSON documents
-A [document](documentdb-resources.md#documents) can be created by using the [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) method of the **DocumentClient** class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use DocumentDB's [Data Migration tool](import-data.md) to import the data into a database.
+A [document](documentdb-resources.md#documents) can be created by using the [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) method of the **DocumentClient** class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use Azure Cosmos DB's [Data Migration tool](import-data.md) to import the data into a database.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();

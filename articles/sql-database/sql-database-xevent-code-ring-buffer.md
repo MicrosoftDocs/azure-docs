@@ -34,7 +34,7 @@ This topic presents a Transact-SQL code sample that:
    * Chooses to send the output of the event to a target of type Ring Buffer, namely  **package0.ring_buffer**.
 3. Starts the event session.
 4. Issues a couple of simple SQL UPDATE statements.
-5. Issues an SQL SELECT to retrieve event output from the Ring Buffer.
+5. Issues a SQL SELECT statement to retrieve event output from the Ring Buffer.
    
    * **sys.dm_xe_database_session_targets** and other dynamic management views (DMVs) are joined.
 6. Stops the event session.
@@ -62,7 +62,7 @@ With very minor modification, the following Ring Buffer code sample can be run o
 
 &nbsp;
 
-```tsql
+```sql
 GO
 ----  Transact-SQL.
 ---- Step set 1.
@@ -319,7 +319,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 When you are done with your Ring Buffer, you can remove it and release its resources issuing an **ALTER** like the following:
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     DROP TARGET package0.ring_buffer;
@@ -329,7 +329,7 @@ GO
 
 The definition of your event session is updated, but not dropped. Later you can add another instance of the Ring Buffer to your event session:
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     ADD TARGET

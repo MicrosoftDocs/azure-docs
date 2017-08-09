@@ -5,13 +5,14 @@ services: data-factory
 author: nabhishek
 manager: jhubbard
 editor: monicar
+
 ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/27/2017
 ms.author: abnarain
 published: true
 ---

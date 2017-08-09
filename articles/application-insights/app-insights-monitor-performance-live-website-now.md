@@ -38,10 +38,10 @@ Here's a summary of what you get by each route:
 | [More detailed exceptions](app-insights-asp-net-exceptions.md) | |Yes |
 | [Dependency diagnostics](app-insights-asp-net-dependencies.md) |On .NET 4.6+, but less detail |Yes, full detail: result codes, SQL command text, HTTP verb|
 | [System performance counters](app-insights-performance-counters.md) |Yes |Yes |
-| [API for custom telemetry][api] |Yes | |
-| [Trace log integration](app-insights-asp-net-trace-logs.md) |Yes | |
-| [Page view & user data](app-insights-javascript.md) |Yes | |
-| No need to rebuild code |No | |
+| [API for custom telemetry][api] |Yes |No |
+| [Trace log integration](app-insights-asp-net-trace-logs.md) |Yes |No |
+| [Page view & user data](app-insights-javascript.md) |Yes |No |
+| Need to rebuild code |Yes | No |
 
 
 ## Monitor a live Azure web app
