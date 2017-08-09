@@ -102,8 +102,8 @@ Event Hubs Capture is the easiest way to get data into Azure. Using Azure Data L
 
 You can learn more about Event Hubs by visiting the following links:
 
-* A complete [sample application that uses Event Hubs][sample application that uses Event Hubs].
-* The [Scale out Event Processing with Event Hubs][Scale out Event Processing with Event Hubs] sample.
+* [Get started sending and receiving events](event-hubs-dotnet-framework-getstarted-send.md)
+* A complete [sample application that uses Event Hubs][sample application that uses Event Hubs]
 * [Event Hubs overview][Event Hubs overview]
 
 [Apache Avro]: http://avro.apache.org/
