@@ -141,7 +141,7 @@ If all 5 tries fail, Azure Functions adds a message to a Storage queue named *we
 If the blob container being monitored contains more than 10,000 blobs, the Functions runtime scans log files to watch 
 for new or changed blobs. This process is not real time. A function might not get triggered until several minutes or longer 
 after the blob is created. In addition, [storage logs are created on a "best effort"](/rest/api/storageservices/About-Storage-Analytics-Logging) 
-basis. There is no guarantee that all events are captured. Under some conditions, logs may be missed. If you require faster or more reliable blob processing, consider creating a [queue message](../storage/storage-dotnet-how-to-use-queues.md) 
+basis. There is no guarantee that all events are captured. Under some conditions, logs may be missed. If you require faster or more reliable blob processing, consider creating a [queue message](../storage/queues/storage-dotnet-how-to-use-queues.md) 
  when you create the blob. Then, use a [queue trigger](functions-bindings-storage-queue.md) instead of a blob trigger to process the blob.
 
 <a name="triggerusage"></a>

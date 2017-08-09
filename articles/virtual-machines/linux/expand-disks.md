@@ -53,7 +53,7 @@ In the following samples, replace example parameter names with your own values. 
     ```
 
     > [!NOTE]
-    > When you expand a managed disk, the updated size is mapped to the nearest managed disk size. For a table of the available managed disk sizes and tiers, see [Azure Managed Disks Overview - Pricing and Billing](../../storage/storage-managed-disks-overview.md#pricing-and-billing).
+    > When you expand a managed disk, the updated size is mapped to the nearest managed disk size. For a table of the available managed disk sizes and tiers, see [Azure Managed Disks Overview - Pricing and Billing](../windows/managed-disks-overview.md#pricing-and-billing).
 
 3. Start your VM with [az vm start](/cli/azure/vm#start). The following example starts the VM named *myVM* in the resource group named *myResourceGroup*:
 

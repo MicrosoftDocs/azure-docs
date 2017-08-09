@@ -22,13 +22,13 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 
 ## Managed Disks
 
-Azure VMs are now available using [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), which enables you to create your VMs without creating or managing any [Azure Storage accounts](../../storage/storage-introduction.md) yourself. You specify whether you want Premium or Standard storage and how big the disk should be, and Azure creates the VM disks for you. VMs with Managed Disks have many important features, including:
+Azure VMs are now available using [Azure Managed Disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), which enables you to create your VMs without creating or managing any [Azure Storage accounts](../../storage/storage-introduction.md) yourself. You specify whether you want Premium or Standard storage and how big the disk should be, and Azure creates the VM disks for you. VMs with Managed Disks have many important features, including:
 
 - Automatic scalability support. Azure creates the disks and manages the underlying storage to support up to 10,000 disks per subscription.
 - Increased reliability with Availability Sets. Azure ensures that VM disks are isolated from each other within Availability Sets automatically.
 - Increased access control. Managed Disks expose a variety of operations controlled by [Azure Role-Based Access Control (RBAC)](../../active-directory/role-based-access-control-what-is.md).
 
-Pricing for Managed Disks is different than for that of unmanaged disks. For that information, see [Pricing and Billing for Managed Disks](../../storage/storage-managed-disks-overview.md#pricing-and-billing).
+Pricing for Managed Disks is different than for that of unmanaged disks. For that information, see [Pricing and Billing for Managed Disks](../windows/managed-disks-overview.md#pricing-and-billing).
 
 You can convert existing VMs that use unmanaged disks to use managed disks with [az vm convert](/cli/azure/vm#convert). For more information, see [How to convert a Linux VM from unmanaged disks to Azure Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). You cannot convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The following steps detail how to to convert unmanaged disks that are, or have been, in an encrypted storage account:
 

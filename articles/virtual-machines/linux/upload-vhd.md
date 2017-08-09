@@ -87,7 +87,7 @@ You can upload a customized VHD that you have running on a local machine or that
 Before uploading your custom disk and creating VMs, you first need to create a resource group with [az group create](/cli/azure/group#create).
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location:
-[Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md)
+[Azure Managed Disks overview](../windows/managed-disks-overview.md)
 ```azurecli
 az group create \
     --name myResourceGroup \

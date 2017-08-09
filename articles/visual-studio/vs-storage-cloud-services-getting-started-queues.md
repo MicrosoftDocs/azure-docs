@@ -27,7 +27,7 @@ We'll show you how to create a queue in code. We'll also show you how to perform
 
 The **Add Connected Services** operation installs the appropriate NuGet packages to access Azure storage in your project and adds the connection string for the storage account to your project configuration files.
 
-* See [Get started with Azure Queue storage using .NET](../storage/storage-dotnet-how-to-use-queues.md) for more information on manipulating queues in code.
+* See [Get started with Azure Queue storage using .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) for more information on manipulating queues in code.
 * See [Storage documentation](https://azure.microsoft.com/documentation/services/storage/) for general information about Azure Storage.
 * See [Cloud Services documentation](https://azure.microsoft.com/documentation/services/cloud-services/) for general information about Azure cloud services.
 * See [ASP.NET](http://www.asp.net) for more information about programming ASP.NET applications.

@@ -25,7 +25,7 @@ This article describes how get started using Azure Queue storage in a Visual Stu
 
 This article provides C# code samples that show how to use the Azure WebJobs SDK version 1.x with the Azure Queue storage service.
 
-Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account. See [Get started with Azure Queue Storage using .NET](../storage/storage-dotnet-how-to-use-queues.md) for more information. For more information about ASP.NET, see [ASP.NET](http://www.asp.net).
+Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account. See [Get started with Azure Queue Storage using .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) for more information. For more information about ASP.NET, see [ASP.NET](http://www.asp.net).
 
 ## How to trigger a function when a queue message is received
 To write a function that the WebJobs SDK calls when a queue message is received, use the **QueueTrigger** attribute. The attribute constructor takes a string parameter that specifies the name of the queue to poll. To see how to set the queue name dynamically, check out [How to set Configuration Options](#how-to-set-configuration-options).

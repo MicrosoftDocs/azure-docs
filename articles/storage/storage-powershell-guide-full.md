@@ -599,7 +599,7 @@ if ($table -ne $null)
 ```
 
 ## How to manage Azure queues and queue messages
-Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. This section assumes that you are already familiar with the Azure Queue Storage Service concepts. For detailed information, see [Get started with Azure Queue storage using .NET](storage-dotnet-how-to-use-queues.md).
+Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. This section assumes that you are already familiar with the Azure Queue Storage Service concepts. For detailed information, see [Get started with Azure Queue storage using .NET](queues/storage-dotnet-how-to-use-queues.md).
 
 This section will show you how to manage Azure Queue storage service using Azure PowerShell. The scenarios covered include **inserting** and **deleting** queue messages, as well as **creating**, **deleting**, and **retrieving queues**.
 

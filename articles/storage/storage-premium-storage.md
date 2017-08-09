@@ -36,7 +36,7 @@ Azure offers two ways to create premium storage disks for VMs:
 
 * **Managed disks**
 
-    When you choose [Azure Managed Disks](storage-managed-disks-overview.md), Azure manages the storage accounts that you use for your VM disks. You specify the disk type (Premium or Standard) and the size of the disk that you need. Azure creates and manages the disk for you. You don't have to worry about placing the disks in multiple storage accounts to ensure that you stay within scalability limits for your storage accounts. Azure handles that for you.
+    When you choose [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md), Azure manages the storage accounts that you use for your VM disks. You specify the disk type (Premium or Standard) and the size of the disk that you need. Azure creates and manages the disk for you. You don't have to worry about placing the disks in multiple storage accounts to ensure that you stay within scalability limits for your storage accounts. Azure handles that for you.
 
 We recommend that you choose managed disks, to take advantage of their many features.
 
@@ -218,7 +218,7 @@ To the Storage service, the VHD file is a page blob. You can take snapshots of p
 
 ### Unmanaged disks
 
-Create [incremental snapshots](storage-incremental-snapshots.md) for unmanaged premium disks the same way you use snapshots with standard storage. Premium Storage supports only locally redundant storage as the replication option. We recommend that you create snapshots, and then copy the snapshots to a geo-redundant standard storage account. For more information, see [Azure Storage redundancy options](storage-redundancy.md).
+Create [incremental snapshots](../virtual-machines/windows/incremental-snapshots.md) for unmanaged premium disks the same way you use snapshots with standard storage. Premium Storage supports only locally redundant storage as the replication option. We recommend that you create snapshots, and then copy the snapshots to a geo-redundant standard storage account. For more information, see [Azure Storage redundancy options](storage-redundancy.md).
 
 If a disk is attached to a VM, some API operations on the disk are not permitted. For example, you cannot perform a [Copy Blob](/rest/api/storageservices/Copy-Blob) operation on that blob if the disk is attached to a VM. Instead, first create a snapshot of that blob by using the [Snapshot Blob](/rest/api/storageservices/Snapshot-Blob) REST API. Then, perform the [Copy Blob](/rest/api/storageservices/Copy-Blob) of the snapshot to copy the attached disk. Alternatively, you can detach the disk, and then perform any necessary operations.
 
@@ -236,7 +236,7 @@ For detailed information about performing REST operations against page blobs in 
 
 ### Managed disks
 
-A snapshot for a managed disk is a read-only copy of the managed disk. The snapshot is stored as a standard managed disk. Currently, [incremental snapshots](storage-incremental-snapshots.md) are not supported for managed disks. To learn how to take a snapshot for a managed disk, see [Create a copy of a VHD stored as an Azure managed disk by using managed snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md) or [Create a copy of a VHD stored as an Azure managed disk by using managed snapshots in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md).
+A snapshot for a managed disk is a read-only copy of the managed disk. The snapshot is stored as a standard managed disk. Currently, [incremental snapshots](../virtual-machines/windows/incremental-snapshots.md) are not supported for managed disks. To learn how to take a snapshot for a managed disk, see [Create a copy of a VHD stored as an Azure managed disk by using managed snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md) or [Create a copy of a VHD stored as an Azure managed disk by using managed snapshots in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md).
 
 If a managed disk is attached to a VM, some API operations on the disk are not permitted. For example, you cannot generate a shared access signature (SAS) to perform a copy operation while the disk is attached to a VM. Instead, first create a snapshot of the disk, and then perform the copy of the snapshot. Alternately, you can detach the disk and then generate an SAS to perform the copy operation.
 
