@@ -111,7 +111,7 @@ To provide scalable processing of incremental changes, Azure Cosmos DB supports 
 
 ### Retrieving partition key ranges for a collection
 You can retrieve the partition key ranges by requesting the `pkranges` resource within a collection. For example the following request retrieves the list of partition key ranges for the `serverlogs` collection:
- 
+
 	GET https://querydemo.documents.azure.com/dbs/bigdb/colls/serverlogs/pkranges HTTP/1.1
 	x-ms-date: Tue, 15 Nov 2016 07:26:51 GMT
 	authorization: type%3dmaster%26ver%3d1.0%26sig%3dEConYmRgDExu6q%2bZ8GjfUGOH0AcOx%2behkancw3LsGQ8%3d
@@ -152,7 +152,7 @@ Each partition key range includes the metadata properties in the following table
 <table>
 	<tr>
 		<th>Header name</th>
- 		<th>Description</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<td>id</td>
@@ -162,7 +162,7 @@ Each partition key range includes the metadata properties in the following table
 		</td>
 	</tr>
 	<tr>
- 		<td>maxExclusive</td>
+		<td>maxExclusive</td>
 		<td>The maximum partition key hash value for the partition key range. For internal use.</td>
 	</tr>
 	<tr>
@@ -179,8 +179,7 @@ List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
 
 do
 {
-
-FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+	FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
         collectionUri, 
         new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
 
@@ -189,7 +188,6 @@ FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKey
 }
 while (pkRangesResponseContinuation != null);
 ```
-
 
 Azure Cosmos DB supports retrieval of documents per partition key range by setting the optional `x-ms-documentdb-partitionkeyrangeid` header. 
 
@@ -219,17 +217,17 @@ The following table lists the [request](/rest/api/documentdb/common-documentdb-r
 		<td>If-None-Match</td>
 		<td>
 			<p>No header: returns all changes from the beginning (collection creation)</p>
-			<p>"*": returns all new changes to data within the collection</p>			<p>&lt;etag&gt;: If set to a collection ETag, returns all changes made since that logical timestamp</p>
+			<p>"*": returns all new changes to data within the collection</p>			
+			<p>&lt;etag&gt;: If set to a collection ETag, returns all changes made since that logical timestamp</p>
 		</td>
 	</tr>
-	 
-
-<tr>    <td>If-Modified-Since</td> 
+	<tr>    
+		<td>If-Modified-Since</td> 
 		<td>RFC 1123 time format; ignored if If-None-Match is specified</td> 
 	</tr> 
 	<tr>
 		<td>x-ms-documentdb-partitionkeyrangeid</td>
-a		<td>The partition key range ID for reading data.</td>
+		<td>The partition key range ID for reading data.</td>
 	</tr>
 </table>
 
@@ -247,7 +245,9 @@ a		<td>The partition key range ID for reading data.</td>
 		</td>
 	</tr>
 </table>
+
 Here's a sample request to return all incremental changes in collection from the logical version/ETag `28535` and partition key range = `16`:
+
 	GET https://mydocumentdb.documents.azure.com/dbs/bigdb/colls/bigcoll/docs HTTP/1.1
 	x-ms-max-item-count: 1
 	If-None-Match: "28535"
