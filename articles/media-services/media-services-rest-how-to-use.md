@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 07/12/2017
 ms.author: juliako
 
 ---
@@ -24,6 +24,7 @@ The **Media Services Operations REST** API is used for creating jobs, assets, ac
 
 Microsoft Azure Media Services is a service that accepts OData-based HTTP requests and can respond back in verbose JSON or atom+pub. Because Media Services conforms to Azure design guidelines, there is a set of required HTTP headers that each client must use when connecting to Media Services, as well as a set of optional headers that can be used. The following sections describe the headers and HTTP verbs you can use when creating requests and receiving responses from Media Services.
 
+This topic gives an overview of how to use REST v2 with Media Services.
 
 ## Considerations
 
@@ -105,6 +106,10 @@ When querying entities, there is a limit of 1000 entities returned at one time b
 To make Media Services entities more discoverable, the $metadata operation can be used. It allows you to retrieve all valid entity types, entity properties, associations, functions, actions, and so on. The following example shows how to construct the URI: https://media.windows.net/API/$metadata.
 
 You should append "?api-version=2.x" to the end of the URI if you want to view the metadata in a browser, or do not include the x-ms-version header in your request.
+
+## Next steps
+
+To access AMS APIs with REST, see [Use Azure AD authentication to access the Azure Media Services API with REST](media-services-rest-connect-with-aad.md).
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

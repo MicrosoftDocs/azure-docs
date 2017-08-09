@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 06/29/2017
 ms.author: tarcher
 
 ---
@@ -68,6 +68,21 @@ The auto-shutdown policy helps to minimize lab waste by allowing you to specify 
 1. Select **Save**.
 
 	By default, once enabled, this policy applies to all VMs in the current lab. To remove this setting from a specific VM, open the VM's blade and change its **Auto-shutdown** setting 
+
+## Set auto-start
+The auto-start policy allows you to specify when the VMs in the current lab should be started.  
+
+1. On the lab's **Configuration and policies** blade, select **Auto-start**.
+   
+    ![Auto-start](./media/devtest-lab-set-lab-policy/auto-start.png)
+
+2. Select **On** to enable this policy, and **Off** to disable it.
+
+3. If you enable this policy, specify the scheduled start time, time zone, and the days of the week for which the time applies. 
+
+4. Select **Save**.
+
+	Once enabled, this policy is not automatically applied to any VMs in the current lab. To apply this setting to a specific VM, open the VM's blade and change its **Auto-start** setting 
 
 ## Next steps
 

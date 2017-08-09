@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
 
@@ -59,7 +59,7 @@ For Windows agents to connect to and register with the OMS service, they must ha
 The following table shows resources needed for communication.
 
 >[!NOTE]
->Some of the following resources mention Operational Insights, which was a previous version of OMS. However, the listed resources will change in the future.
+>Some of the following resources mention Operational Insights, which was a previous name for Log Analytics.
 
 | Agent Resource | Ports | Bypass HTTPS inspection |
 |---|---|---|
@@ -161,6 +161,12 @@ The agent uses IExpress as its self-extractor using the `/c` command. You can se
 |OPINSIGHTS_WORKSPACE_ID                | Workspace Id (guid) for the workspace to add                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Workspace key used to initially authenticate with the workspace |
 |OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Specify the cloud environment where the workspace is located <br> 0 = Azure commercial cloud (default) <br> 1 = Azure Government |
+|OPINSIGHTS_PROXY_URL               | URI for the proxy to use |
+|OPINSIGHTS_PROXY_USERNAME               | Username to access an authenticated proxy |
+|OPINSIGHTS_PROXY_PASSWORD               | Password to access an authenticated proxy |
+
+>[!NOTE]
+To avoid hitting the command-line length limit of IExpress, install the agent with no workspace configured and then use a script to set configuration for the workspace.
 
 >[!NOTE]
 If you get a `Command line option syntax error.` when using the `OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE` parameter, you can use the following workaround:
@@ -168,6 +174,7 @@ If you get a `Command line option syntax error.` when using the `OPINSIGHTS_WORK
 MMASetup-AMD64.exe /C /T:.\MMAExtract
 cd .\MMAExtract
 setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+```
 
 ## Add a workspace using a script
 Add a workspace using the Log Analytics agent scripting API with the following example:

@@ -210,7 +210,7 @@ From the **Actions** available at the right of the backup agent console you perf
     ![Schedule a Windows Server Backup](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
 3. If you want to add or change items, on the **Select Items to Backup** screen click **Add Items**.
 
-    You can also set **Exclusion Settings** from this page in the wizard. If you want to exclude files or file types read the procedure for adding [exclusion settings](#exclusion-settings).
+    You can also set **Exclusion Settings** from this page in the wizard. If you want to exclude files or file types read the procedure for adding [exclusion settings](#manage-exclusion-settings).
 4. Select the files and folders you want to back up and click **Okay**.
 
     ![Schedule a Windows Server Backup](./media/backup-azure-manage-windows-server/add-items-modify.png)

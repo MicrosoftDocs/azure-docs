@@ -1,6 +1,6 @@
 ---
 title: Java application development tutorial using Azure Cosmos DB | Microsoft Docs
-description: This Java web application tutorial shows you how to use the Azure Cosmos DB service to store and access data from a Java application hosted on Azure Websites.
+description: This Java web application tutorial shows you how to use the Azure Cosmos DB and the DocumentDB API to store and access data from a Java application hosted on Azure Websites.
 keywords: Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: java
@@ -11,14 +11,14 @@ editor: mimig
 ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 06/23/2017
 ms.author: denlee
 
 ---
-# Build a Java web application using Azure Cosmos DB
+# Build a Java web application using Azure Cosmos DB and the DocumentDB API
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [Node.js](documentdb-nodejs-application.md)

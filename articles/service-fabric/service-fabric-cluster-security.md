@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2017
+ms.date: 06/28/2017
 ms.author: chackdan
 
 ---
@@ -53,7 +53,7 @@ Authenticates clients and secures communication between a client and individual 
 Clusters running on Azure or standalone clusters running on Windows can use either [Certificate Security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows Security](https://msdn.microsoft.com/library/ff649396.aspx).
 
 ### Client-to-node certificate security
- Client-to-node certificate security is configured while creating the cluster either through the Azure portal, Resource Manager templates or a standalone JSON template by specifying an admin client certificate and/or a user client certificate.  The admin client and user client certificates you specify should be different than the primary and secondary certificates you specify for [Node-to-node security](#node-to-node-security).
+ Client-to-node certificate security is configured while creating the cluster either through the Azure portal, Resource Manager templates or a standalone JSON template by specifying an admin client certificate and/or a user client certificate.  The admin client and user client certificates you specify should be different than the primary and secondary certificates you specify for [Node-to-node security](#node-to-node-security) as a best practice. By default, the cluster certificates for node-to-node security are added to the allowed client Admin certificates list.
 
 Clients connecting to the cluster using the admin certificate have full access to management capabilities.  Clients connecting to the cluster using the read-only user client certificate have only read access to management capabilities. In other words these certificates are used for the role bases access control (RBAC) described later in this article.
 

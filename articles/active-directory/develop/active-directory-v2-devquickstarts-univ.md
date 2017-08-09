@@ -3,7 +3,7 @@ title: Azure AD v2.0 Windows Universal App | Microsoft Docs
 description: How to build an Windows Universal app that signs users in with both personal Microsoft Account and work or school accounts.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.date: 02/20/2016
-ms.author: dastrock
+ms.author: jmprieur
 ms.custom: aaddev
 
 ---

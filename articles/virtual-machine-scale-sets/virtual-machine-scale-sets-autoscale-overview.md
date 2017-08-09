@@ -119,7 +119,7 @@ This example shows the configuration of the resource in the template:
         "rules": [
           {
             "metricTrigger": {
-              "metricName": "\\Process(_Total)\\Thread Count",
+              "metricName": "\\Processor(_Total)\\Thread Count",
               "metricNamespace": "",
               "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
               "timeGrain": "PT1M",
@@ -138,7 +138,7 @@ This example shows the configuration of the resource in the template:
           },
           {
             "metricTrigger": {
-              "metricName": "\\Process(_Total)\\Thread Count",
+              "metricName": "\\Processor(_Total)\\Thread Count",
               "metricNamespace": "",
               "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
               "timeGrain": "PT1M",

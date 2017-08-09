@@ -27,7 +27,7 @@ by:
 
 1. In an Internet browser, navigate to
    https://adminportal.local.azurestack.external.
-2. Sign in to the Azure Stack administration portal as an administrator (using the
+2. Sign in to the Azure Stack administration portal as a cloud operator (using the
    credentials you provided during deployment)
 3. On the default dashboard – find the **Region management** list and click the region you want to explore. For example **(local**).
    
@@ -117,7 +117,7 @@ In Azure Stack there is a very simple way to do that:
   collected. In this case it cannot be recovered. See [Reclaim capacity](#reclaim) in this topic.
 
 ## Set the retention period
-The retention period setting allows an administrator to specify a time period in
+The retention period setting allows a cloud operator to specify a time period in
 days (between 0 and 9999 days) during which any deleted account can
 potentially be recovered. The default retention period is set to 15
 days. Setting the value to “0” means that any deleted account is
@@ -128,7 +128,7 @@ collection.
 
 1. In an internet browser, navigate to
    https://adminportal.local.azurestack.external.
-2. Sign in to the Azure Stack administration portal as an administrator (using the
+2. Sign in to the Azure Stack administration portal as a cloud operator (using the
    credentials you provided during deployment)
 3. On the default dashboard – find the **Region management** list and click the region you want to explore – for example **(local**).
 4. Select **Storage** from the **Resource Providers** list.
@@ -143,7 +143,7 @@ collection.
    ![](media/azure-stack-manage-storage-accounts/image10.png)
 
 ## <a name="reclaim"></a>Reclaim capacity
-One of the side effects of having a retention period is that a deleted account continues to consume capacity until it comes out of the retention period. As an administrator you may need a way to reclaim the deleted account space even though the retention period has not yet expired.
+One of the side effects of having a retention period is that a deleted account continues to consume capacity until it comes out of the retention period. As a cloud operator you may need a way to reclaim the deleted account space even though the retention period has not yet expired.
 
 You can reclaim capacity using either the portal or PowerShell.
 
@@ -182,7 +182,7 @@ For more details, refer to [Azure Stack powershell documentation.](https://msdn.
  
 
 ## Migrate a container
-Due to uneven storage use by tenants, an administrator may find one or more underlying tenant shares using more space than others. If this occurs, the administrator can attempt to free up some space on the stressed share by manually migrating some blob containers to another share. 
+Due to uneven storage use by tenants, an cloud operator may find one or more underlying tenant shares using more space than others. If this occurs, the cloud operator can attempt to free up some space on the stressed share by manually migrating some blob containers to another share. 
 
 You must use PowerShell to migrate containers.
 > [!NOTE]

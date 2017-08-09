@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/05/2017
+ms.date: 06/26/2017
 ms.author: larryfr
 
 ---
@@ -43,7 +43,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 * A Linux-based Hadoop on HDInsight cluster.
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * An SSH client or a local Beeline client. Most of the steps in this document assume that you are using Beeline from an SSH session to the cluster. For information on running Beeline from outside the cluster, see the [use Beeline remotely](#remote) section.
 
@@ -79,7 +79,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 3. Use the following command to display the schema for the hivesampletable:
 
-    ```bash
+    ```hiveql
     describe hivesampletable;
     ```
 
@@ -109,7 +109,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
     DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-    STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+    STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
     ```
 

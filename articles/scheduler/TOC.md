@@ -1,4 +1,4 @@
-﻿
+
 
 # Overview
 ## [What is Scheduler?](scheduler-intro.md)
@@ -25,11 +25,13 @@
 ## [REST](/rest/api/scheduler)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/scheduler/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
+## [Pricing](https://azure.microsoft.com/pricing/details/scheduler/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Service updates](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
-## [Service updates](https://azure.microsoft.com/updates/?product=scheduler)
 
 
 

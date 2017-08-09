@@ -32,7 +32,7 @@ This tutorial shows you how to use the [Azure Storage Client Library for .NET](h
 
 You need the following to complete this tutorial successfully:
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure storage account](storage-create-storage-account.md#create-a-storage-account)

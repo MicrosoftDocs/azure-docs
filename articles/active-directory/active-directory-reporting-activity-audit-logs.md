@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/19/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 
 ---
 # Audit activity reports in the Azure Active Directory portal 
@@ -126,7 +127,7 @@ When you select **Group** as **activity resource type**, you get an additional f
 
 The **activity** filter is based on the category and Activity resource type selection you make. You can select a specific activity you want to see or choose all. 
 
-You can get the list of all Audit Activities using the Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, where $tenantdomain = your domain name or refer to the article [audit report events](active-directory-reporting-audit-events.md#list-of-audit-report-events).
+You can get the list of all Audit Activities using the Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, where $tenantdomain = your domain name or refer to the article [audit report events](active-directory-reporting-audit-events.md).
 
 
 ## Audit logs shortcuts
@@ -180,5 +181,6 @@ You can filter this view further down to just **groups** or just **users**.
 
 
 ## Next steps
-See the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
+
+For an overview of reporting, see the [Azure Active Directory reporting](active-directory-reporting-azure-portal.md).
 

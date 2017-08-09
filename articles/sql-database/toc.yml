@@ -19,8 +19,10 @@
       href: sql-database-connect-query-ssms.md
     - name: VS Code
       href: sql-database-connect-query-vscode.md
-    - name: .NET
-      href: sql-database-connect-query-dotnet.md
+    - name: .NET with Visual Studio
+      href: sql-database-connect-query-dotnet-visual-studio.md
+    - name: .NET core
+      href: sql-database-connect-query-dotnet-core.md
     - name: PHP
       href: sql-database-connect-query-php.md
     - name: Node.js
@@ -33,8 +35,10 @@
       href: sql-database-connect-query-ruby.md
 - name: Tutorials
   items:
-  - name: 1 - Create/design new SQL DB
+  - name: 1 - Design DB using SSMS
     href: sql-database-design-first-database.md
+  - name: 1 - Design DB using .NET
+    href: sql-database-design-first-database-csharp.md
   - name: 2 - Migrate SQL Server DB
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Secure your SQL DB
@@ -47,6 +51,8 @@
     href: sql-database-implement-geo-distributed-database.md 
 - name: Samples
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=sql-database
   - name: Azure CLI
     href: sql-database-cli-samples.md
   - name: PowerShell
@@ -55,10 +61,8 @@
   items:
   - name: Databases & servers
     items:
-    - name: Databases
-      href: sql-database-overview.md
-    - name: Servers
-      href: sql-database-server-overview.md
+    - name: Overview
+      href: sql-database-servers-databases.md
     - name: Service tiers
       href: sql-database-service-tiers.md
     - name: Elastic pools
@@ -75,8 +79,6 @@
       href: sql-database-paas-vs-sql-server-iaas.md  
     - name: Features
       href: sql-database-features.md
-    - name: Tools
-      href: sql-database-manage-overview.md
   - name: Security
     items:
     - name: Overview
@@ -97,10 +99,6 @@
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Threat detection
       href: sql-database-threat-detection.md
-    - name: TDE with SQL DB
-      href: https://msdn.microsoft.com/library/dn948096
-    - name: Always encrypted
-      href: https://msdn.microsoft.com/library/mt163865.aspx
     - name: Data masking
       href: sql-database-dynamic-data-masking-get-started.md
   - name: Business continuity
@@ -139,6 +137,8 @@
       href: sql-database-import.md
     - name: Export a DB
       href: sql-database-export.md
+    - name: Sync data
+      href: sql-database-sync-data.md
   - name: Monitor & tune
     items:
     - name: Overview
@@ -161,12 +161,12 @@
       href: sql-database-in-memory-oltp-monitoring.md
   - name: Scale out apps
     items:
+    - name: Overview
+      href: sql-database-elastic-scale-introduction.md
     - name: SaaS design patterns
       href: sql-database-design-patterns-multi-tenancy-saas-applications.md
     - name: SaaS app security
       href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-    - name: Sharded databases
-      href: sql-database-elastic-scale-introduction.md
     - name: Elastic client library
       href: sql-database-elastic-database-client-library.md
     - name: Shard maps
@@ -225,16 +225,6 @@
       href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: How-to guides
   items:
-  - name: Databases & servers
-    items:
-    - name: Elastic pools - Portal
-      href: sql-database-elastic-pool-manage-portal.md
-    - name: Elastic pools - PowerShell
-      href: sql-database-elastic-pool-manage-powershell.md
-    - name: Elastic pools - T-SQL
-      href: sql-database-elastic-pool-manage-tsql.md
-    - name: Elastic pools - C#
-      href: sql-database-elastic-pool-manage-csharp.md
   - name: Security
     items:
     - name: Configure Azure AD auth
@@ -337,14 +327,12 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
-    - name: Create DB with C#
-      href: sql-database-get-started-csharp.md
 - name: Reference
   items:
   - name: PowerShell
-    href: /powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql
+    href: /powershell/module/azurerm.sql/#sql
   - name: PowerShell (Elastic DB)
-    href: /powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs
+    href: /powershell/module/elasticdatabasejobs/#elasticdatabasejobs
   - name: Azure CLI 2.0
     href: /cli/azure/sql
   - name: .NET
@@ -352,42 +340,44 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.sql
   - name: Node.js
-    href: https://msdn.microsoft.com/library/mt652093.aspx
+    href: /sql/connect/node-js/node-js-driver-for-sql-server
   - name: Python
-    href: https://msdn.microsoft.com/library/mt652092.aspx
+    href: /sql/connect/python/python-driver-for-sql-server
   - name: Ruby
-    href: https://msdn.microsoft.com/library/mt691981.aspx
+    href: /sql/connect/ruby/ruby-driver-for-sql-server
   - name: PHP
-    href: https://msdn.microsoft.com/library/dn865013.aspx
+    href: /sql/connect/php/microsoft-php-driver-for-sql-server
   - name: T-SQL
-    href: https://msdn.microsoft.com/library/bb510741.aspx
+    href: /sql/t-sql/language-reference
   - name: REST
-    href: https://msdn.microsoft.com/library/mt163571.aspx
+    href: /rest/api/sql/
   - name: SQL Server tools
-    href: https://msdn.microsoft.com/library/mt238365.aspx
+    href: /sql/tools/overview-sql-tools
   - name: SQL Server Management Studio (SSMS)
-    href: https://msdn.microsoft.com/library/mt238290.aspx
+    href: /sql/ssms/download-sql-server-management-studio-ssms
   - name: SQL Server Data Tools (SSDT)
-    href: https://msdn.microsoft.com/library/mt204009.aspx
+    href: /sql/ssdt/download-sql-server-data-tools-ssdt
   - name: BCP
-    href: https://msdn.microsoft.com/library/ms162802.aspx
+    href: /sql/tools/bcp-utility
   - name: SQLCMD
-    href: https://msdn.microsoft.com/library/ms162773.aspx
+    href: /sql/tools/sqlcmd-utility
   - name: SqlPackage
     href: https://msdn.microsoft.com/hh550080.aspx
   - name: SQL Database Management Library package
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
   - name: SQL Server drivers
-    href: https://msdn.microsoft.com/library/mt654049.aspx
+    href: /sql/connect/sql-server-drivers
     items:
     - name: ADO.NET
-      href: https://msdn.microsoft.com/library/mt657768.aspx
+      href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
     - name: JDBC
-      href: https://msdn.microsoft.com/library/mt484311.aspx
+      href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
     - name: ODBC
-      href: https://msdn.microsoft.com/library/mt654048.aspx
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: FAQ
     href: sql-database-faq.md
   - name: Public data sets
@@ -405,16 +395,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?service=sql-database
   - name: Architecture guidance
-    href: https://docs.microsoft.com/sql/#pivot=architecture
-  - name: Customer implementations
-    href: sql-database-customer-implementations.md
-  - name: Sample applications
-    items:
-    - name: Tailspin Surveys
-      href: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md
-    - name: Contoso Clinic
-      href: https://github.com/Microsoft/azure-sql-security-sample
-    - name: Elastic pool telemetry
-      href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
-    - name: Elastic pool custom dashboard
-      href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
+    href: /azure/architecture/guide/
+  - name: Customer stories
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
+  

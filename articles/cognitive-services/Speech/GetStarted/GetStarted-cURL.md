@@ -26,7 +26,7 @@ This example assumes that cURL is available in your bash environment.
 ## <a name="Prerequisites"></a>Prerequisites
 * Platform requirements: The examples shown in the following sections were developed in bash. They also work in Git Bash, zsh, and other shells.
 
-* Subscribe to Speech API and get a free trial subscription key. Speech API is part of Microsoft Cognitive Services. For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). You can use both the primary and secondary keys in this tutorial.
+* Subscribe to Speech API and get a free trial subscription key. Speech API is part of Microsoft Cognitive Services. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). You can use both the primary and secondary keys in this tutorial.
 
 ## <a name="Step1"></a>Step 1: Generate an access token
 1.	Replace **your_subscription_key** with your own subscription key, and then run the command in bash.
@@ -44,7 +44,7 @@ This example assumes that cURL is available in your bash environment.
 3. Replace **your_wave_file** with the actual wave file.
 4. In bash, run the following command:
 
-    `curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR&locale=your_locale&format=your_format&requestid=your_guid" -H 'Authorization: Bearer your_access_token' -H 'Content-type: audio/wav; codec="audio/pcm"; samplerate=16000' --data-binary @your_wave_file`
+    `curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR&locale=your_locale&format=your_format&requestid=your_guid" -H "Transfer-Encoding: chunked" -H 'Authorization: Bearer your_access_token' -H 'Content-type: audio/wav; codec="audio/pcm"; samplerate=16000' --data-binary @your_wave_file`
 
 5. Parse the successful recognition response or error response.
 

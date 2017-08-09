@@ -94,8 +94,8 @@ For more information about authentication and authorization in Azure App Service
 For more information about OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT), see the following resources.
 
 * [Getting started with OAuth 2.0](http://shop.oreilly.com/product/0636920021810.do "Getting Started with OAuth 2.0") 
-* [Introduction to OAuth2, OpenID Connect and JSON Web Tokens (JWT) - PluralSight Course](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
-* [Building and Securing a RESTful API for Multiple Clients in ASP.NET - PluralSight course](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
+* [Introduction to OAuth2, OpenID Connect and JSON Web Tokens (JWT) - Pluralsight Course](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
+* [Building and Securing a RESTful API for Multiple Clients in ASP.NET - Pluralsight course](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
 
 For more information about Azure Active Directory, see the following resources.
 

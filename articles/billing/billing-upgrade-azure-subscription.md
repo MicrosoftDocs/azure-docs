@@ -4,8 +4,8 @@ description: Describes how you can do a pay as you go upgrade from a free subscr
 keywords: pay as you go upgrade
 services: ''
 documentationcenter: ''
-author: adpick
-manager: adpick
+author: jlian
+manager: jlian
 editor: ''
 tags: billing
 
@@ -30,5 +30,5 @@ Upgrade your [Free Trial](https://azure.microsoft.com/free/) or [Microsoft Imagi
    
     ![Screenshot that shows what to select to confirm that you want to upgrade your subscription](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-Use any benefits left over from your Free Trial like the 30-day limit or $200 credit. After you use all the benefits, your subscription is upgraded.
+Use any benefits left over from your Free Trial like the 30-day limit or the credit. After you use all the benefits, your subscription is upgraded.
 

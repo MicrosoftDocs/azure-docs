@@ -1,18 +1,15 @@
 ---
 title: Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI | Microsoft Docs
-description: Describes how to create and manage Azure Database for PostgreSQL firewall rules using Azure CLI.
+description: This article describes how to create and manage Azure Database for PostgreSQL firewall rules using Azure CLI command line.
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.assetid:
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
-ms.devlang: azurecli
-ms.custom: mvc
+ms.devlang: azure-cli
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 06/13/2017
 ---
 # Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI
 Server-level firewall rules enable administrators to manage access to an Azure Database for PostgreSQL Server from a specific IP address or range of IP addresses. Using convenient Azure CLI commands, you can create, update, delete, list, and show firewall rules to manage your server. For an overview of Azure Database for PostgreSQL firewalls, see [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md)

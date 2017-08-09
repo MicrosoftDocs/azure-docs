@@ -2,7 +2,7 @@
 title: 'Introduction to Azure Cosmos DB Graph APIs | Microsoft Docs'
 description: Learn how you can use Azure Cosmos DB to store, query, and traverse massive graphs with low latency using the the Gremlin graph query language of Apache TinkerPop.
 services: cosmos-db
-author: arramac
+author: dennyglee
 documentationcenter: ''
 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/21/2017
-ms.author: arramac
+ms.author: denlee
 
 ---
 # Introduction to Azure Cosmos DB: Graph API
@@ -98,7 +98,7 @@ The following table shows popular Gremlin drivers that you can use against Azure
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin-JavaScript on Github](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin console](https://tinkerpop.apache.org/downloads.html) |[TinkerPop docs](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-Azure Cosmos DB also provides a .NET library that has Gremlin extension methods on top of the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md) via NuGet. This library provides an "in-process" Gremlin server that you can use to connect directly to DocumenDB data partitions.
+Azure Cosmos DB also provides a .NET library that has Gremlin extension methods on top of the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md) via NuGet. This library provides an "in-process" Gremlin server that you can use to connect directly to DocumentDB data partitions.
 
 | Download | Documentation |
 | --- | --- |

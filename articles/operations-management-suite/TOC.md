@@ -29,6 +29,7 @@
 ### [Malware assessment](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [System update assessment](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Connect security products](oms-security-connect-products.md)
+### [Web baseline assessment](oms-security-web-baseline-assessment.md)
 
 ## Use solutions
 ### [Management solutions](operations-management-suite-solutions.md)
@@ -36,11 +37,13 @@
 ### Insight & analytics
 #### [AD Assessment](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD Replication Status](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Agent Health](oms-solution-agenthealth.md)
 #### [Alert Management](../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Containers](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Key Vault Analytics](../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Network Performance Monitor](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric Analytics](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Service Map
 ##### [Walkthrough](operations-management-suite-walkthrough-servicemap.md)
@@ -73,3 +76,6 @@
 # Reference
 ## [SDK](operations-management-suite-sdk.md)
 
+# Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

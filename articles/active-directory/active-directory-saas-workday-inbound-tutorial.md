@@ -246,7 +246,7 @@ Follow these instructions to configure user account provisioning from Workday to
 
    * **Admin Username** – Enter the username of the Workday
         integration system account, with the tenant domain name
-        appended. Should look something like: username@contoso4
+        appended. **Should look something like: username@contoso4**
 
    * **Admin password –** Enter the password of the Workday
         integration system account

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Monitor & scale a single SQL Database | Microsoft Docs
-description: Azure CLI Script Sample - Monitor and scale a single SQL database using the Azure CLI
+title: CLI example-monitor-scale-single Azure SQL database | Microsoft Docs
+description: Azure CLI example script to monitor and scale a single Azure SQL database
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -15,19 +15,19 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/24/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ---
 
-# Monitor and scale a single SQL database using the Azure CLI
+# Use CLI to monitor and scale a single SQL database
 
-This sample CLI script scales a single Azure SQL database to a different performance level after querying the size information of the database. 
+This Azure CLI script example scales a single Azure SQL database to a different performance level after querying the size information of the database. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Sample script
 

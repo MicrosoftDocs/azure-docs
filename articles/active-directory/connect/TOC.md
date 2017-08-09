@@ -30,11 +30,16 @@
 ### [Enable device writeback](active-directory-aadconnect-feature-device-writeback.md)
 ### [User sign-on options](active-directory-aadconnect-user-signin.md)
 #### [Seamless Single Sign-on](active-directory-aadconnect-sso.md)
+##### [Quick start](active-directory-aadconnect-sso-quick-start.md)
+##### [How does it work?](active-directory-aadconnect-sso-how-it-works.md)
+##### [Frequently asked questions](active-directory-aadconnect-sso-faq.md)
 ##### [Troubleshoot](active-directory-aadconnect-troubleshoot-sso.md)
 #### [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md)
 ##### [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Current limitations](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [How does it work?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [Upgrade preview agents](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
+##### [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Frequently asked questions](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ### [Multiple domain support for federating](active-directory-aadconnect-multiple-domains.md)
@@ -78,6 +83,7 @@
 ### [How to recover from LocalDB 10-GB limit](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Identity synchronization and duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Hybrid Identity Required Ports and Protocols](active-directory-aadconnect-ports.md)
 ## [Features in preview](active-directory-aadconnect-feature-preview.md)
@@ -102,5 +108,8 @@
 
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Azure AD Connect FAQ](active-directory-aadconnect-faq.md)
 ##[DirSync Deprecation](active-directory-aadconnect-dirsync-deprecated.md)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+
