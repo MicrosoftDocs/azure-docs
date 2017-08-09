@@ -115,7 +115,6 @@ version: '3'
 services:
   azure-vote-back:
     image: redis
-    container_name: azure-vote-back
     ports:
         - "6379:6379"
 
