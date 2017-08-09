@@ -25,6 +25,8 @@ ms.author: johnkem
 >
 > 
 
+## What is changing
+
 Azure Monitor (formerly Azure Insights) offered a capability to create an alert that triggered off of management events and generated notifications to a webhook URL or email addresses. You may have created one of these alerts any of these ways:
 * In the Azure portal for certain resource types, under Monitoring -> Alerts -> Add Alert, where “Alert on” is set to “Events”
 * By running the Add-AzureRmLogAlertRule PowerShell cmdlet
@@ -55,6 +57,8 @@ This capability has been replaced with [Azure Monitor Activity Log Alerts](monit
 * You can [create Activity Log Alerts with Resource Manager templates](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
 * You can create conditions with greater flexibility and complexity to meet your specific needs.
 * Notifications are delivered more quickly.
+ 
+## How to migrate
  
 To create a new Activity Log Alert, you can either:
 * Follow [our guide on how to create an alert in the Azure portal](monitoring-activity-log-alerts.md)
