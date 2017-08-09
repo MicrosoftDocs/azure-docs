@@ -1,4 +1,4 @@
--
+---
 title: Batch process messages - Azure Logic Apps | Microsoft Docs
 description: Send, receive, and process messages in batches for logic apps
 keywords: batch, batch process
