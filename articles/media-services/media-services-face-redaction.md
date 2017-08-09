@@ -129,7 +129,37 @@ Example foo_IDList.txt
      1
      2
      3
+
+## Blur types
+
+In the **Combined** or **Redact** mode, there are 5 different blur modes you can choose from via the JSON input configuration: **Low**, **Med**, **High**, **Debug**, and **Black**. By default **Med** is used.
+
+You can find samples of the blur types below.
+
+### Example JSON:
+
+	{'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+
+#### Low
+
+![Low](./media/media-services-face-redaction/blur1.png)
  
+#### Med
+
+![Med](./media/media-services-face-redaction/blur2.png)
+
+#### High
+
+![High](./media/media-services-face-redaction/blur3.png)
+
+#### Debug
+
+![Debug](./media/media-services-face-redaction/blur4.png)
+
+#### Black
+
+![Black](./media/media-services-face-redaction/blur5.png)
+
 ## Elements of the output JSON file
 
 The Redaction MP provides high precision face location detection and tracking that can detect up to 64 human faces in a video frame. Frontal faces provide the best results, while side faces and small faces (less than or equal to 24x24 pixels) are challenging.
