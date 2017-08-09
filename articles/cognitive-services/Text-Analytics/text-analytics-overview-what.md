@@ -1,5 +1,5 @@
 ---
-title: What is Text Analytics API (Azure Cognitive Servies) | Microsoft Docs
+title: What is Text Analytics API (Azure Cognitive Services) | Microsoft Docs
 description: A Text Analytics API in Azure Cognitive Services for sentiment analysis, key phrase extraction, and language detection.
 services: cognitive-services
 author: HeidiSteen
@@ -14,16 +14,28 @@ ms.author: heidist
 
 # Text Analytics API in Azure Cognitive Services
 
-Azure Cognitive Services is Microsoft's cloud solution for adding intelligent behaviors to the features you create in custom apps. **Text Analytics** is a collection of APIs within Cognitive Services used for accessing leading edge machine learning models dedicated to these workloads: sentiment analysis, key phrase extraction, and language detection. 
+[Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a collection of machine learning and AI technologies in the cloud, exposed through APIs so that you can leverage leading edge technology from Microsoft Research in your development projects. 
 
-The models are trained and refined by Microsoft on a continuous development cycle. To use them, submit the text for analysis using the REST API. Depending on the request, results are either a sentiment score, a collection of extracted keywords, or a language code. You can subsequently aggregate, analyze, or classify the results into actionable insights. 
+ **Text Analytics** in Cognitive Services provides the REST APIs used for sentiment analysis, key phrase extraction, and language detection over text content.
+ 
+ ## Typical workflow
+ 
+1. [Sign up](#sign-up) for the **Text Analytics API** when creating a Cognitive Services account. The free version allows five million requests per month, depending on whether you batch requests.
 
-> [!Note]
-> As part of the language-oriented services in [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), you can use Text Analytics in combination with other applications and services to understand the patterns and relevance of results. For recommendations on multi-technology scenarios, see [How to use Text Analytics](text-analytics-overview-how.md).
+2. Post raw text data for analysis, in JSON as , of a request for one of the following resources: sentiment analysis, key phrase extraction, or language detection. Depending on the request, results are either a sentiment score, a collection of extracted keywords, or a language code. 
 
-## Workloads supported through Text Analytics APIs
+3. Store, stream, or otherwise handle the response returned from each request. Output is returned in the form of JSON documents in a one-to-one ratio: one JSON document output for every document input. You can subsequently aggregate, analyze, or classify the results into actionable insights.
 
-Text analysis can mean different things, but in Azure Cognitive Services, APIs are exposed through three resource types. Each resource is backed by leading edge algorithms, models, and natural language processing capabilites from Microsoft.
+Data is not stored in your account for reuse, but Cognitive Services will sometimes capture and use it temporarily for testing or further training of models. 
+
+As a general rule, the documents you provide can be used as-is for all three workloads. For example, given a single JSON documents collection, your code can invoke a series of operations (language detection, keyword extraction, sentiment analysis) over the same data.
+
+> [!Note] 
+> Machine learning algorithms in Cognitive services are trained and refined by Microsoft on a continuous development cycle. For this reason we do not divulge the implementation details or internal architecture of specific technologies. For text analysis, you can control inputs and handle outputs, but there are no configuration options or settings to control how scoring or processing occurs.
+
+ ## What algorithms (resources) are available in Text Analytics?
+
+Text analysis can mean different things, but in Azure Cognitive Services, APIs are exposed for three resource types. Each resource is backed by leading edge algorithms, models, and natural language processing capabilites from Microsoft.
 
 | Workloads | APIs | Description |
 |-----------|------|-------------|
@@ -31,19 +43,9 @@ Text analysis can mean different things, but in Azure Cognitive Services, APIs a
 |Key Phrase Extraction | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) or [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) | Automatically extract key phrases to quickly identify the main points. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit. For example, for the input text ‘The food was delicious and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’.|
 |Language Detection | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) or [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) | The service can detect which language the input text is written in (120 languages are supported). A single language code is provided for every document submitted on the request, along with a score indicating a level of certainty for the analysis. For example, if text includes a combination of languages, the service gives you the predominant language, but with a score reflecting the mixed results. |
 
-## Typical workflow
-
-The Text Analytics API is used to access an analytics engine in the Azure cloud, which hosts machine learning algorithms and models for handling requests and returning results to a calling application.
-
-To use our analytical services, you submit raw text data in JSON as part of a request for sentiment analysis, key phrase extraction, or language detection. Inputs are analyzed, and outputs are returned in the form of JSON documents, typically a one-to-one result set for each document you provide as input.
-
-Data is not stored, but on occasion Microsoft might capture and use it temporarily for testing various Cognitive Services algorithms and platforms. 
-
-Generally, the documents you provide can be used as-is for all three workloads. For example, given a single JSON documents collection, your code can invoke a series of operations (language detection, keyword extraction, sentiment analysis) over the same data.
-
 ## Supported languages for sentiment and key phrase extraction
 
-Analyzing sentiment and phrases is a complex operation requiring access to linguistic rules specific to each language. Support for several languages has graduated from preview to generally available (GA) status. Others are still in preview, even though the Text Analytics API itself has GA status.
+Analyzing sentiment and extracting key phrases is a complex operation requiring access to linguistic rules specific to each language. Support for several languages has graduated from preview to generally available (GA) status. Others are still in preview, even though the Text Analytics API itself has GA status.
 
 | Language    | Language code | Sentiment | Key phrases |
 |:----------- |:----:|:----:|:----:|
@@ -79,6 +81,8 @@ Text Analytics accepts raw text data. The service currently sets a limit of 10 K
 | Maximum number of documents in a request | 1,000 documents |
 
 Rate limiting exists at a rate of 100 calls per minute. We therefore recommend that you submit large quantities of documents in a single call. 
+
+<a name="sign-up"></a>
 
 ## Sign up and billing
 
