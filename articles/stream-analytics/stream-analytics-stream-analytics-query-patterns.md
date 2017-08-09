@@ -178,8 +178,7 @@ The **INTO** clause tells Stream Analytics which of the outputs to write the dat
 The first query is a pass-through of the data we received to an output that we named **ArchiveOutput**.
 The second query does some simple aggregation and filtering, and it sends the results to a downstream alerting system.
 
-> [!NOTE] 
-> You can also reuse the results of the common table expressions (CTEs) (such as **WITH** statements) in multiple output statements. This option has the added benefit of opening fewer readers to the input source.
+Note that you can also reuse the results of the common table expressions (CTEs) (such as **WITH** statements) in multiple output statements. This option has the added benefit of opening fewer readers to the input source.
 For example: 
 
     WITH AllRedCars AS (
