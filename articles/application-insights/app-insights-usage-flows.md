@@ -45,17 +45,17 @@ To get started answering questions with the Flows tool, choose an initial page v
 
 The "Step 1" column of the visualization shows what users did most frequently just after the initial event, ordered top-to-bottom from most- to least-frequent. The "Step 2" and subsequent columns show what users did thereafter, creating a picture of all the ways users have navigated through your site.
 
-By default, the Flows tool randomly samples only the last 24 hours of page views and custom event from your site. You can increase the time range and change the balance of performance and accuracy for random sampling in the Edit blade.
+By default, the Flows tool randomly samples only the last 24 hours of page views and custom event from your site. You can increase the time range and change the balance of performance and accuracy for random sampling in the Edit menu.
 
 If some of the page views and custom events aren't relevant to you, click the "X" on the nodes you want to hide. Once you've selected the nodes you want to hide, click the "Create graph" button below the visualization. To see all of the nodes you've hidden, click the Edit button, then look at the "Excluded events" section.
 
-If page views or custom events are missing that you expect to see on the visualzation:
-* Check the "Excluded events" section in the Edit blade.
-* Use the "Detail level" control in the Edit blade to include less-frequent events in the visualization.
-* If the page view or custom event you expect is sent infrequently by users, try increasing the time range of the visualization in the Edit blade.
-* Make sure the page view or custom event you expect is actually set up to be collected by the Application Insights SDK in the source code of your site. [Learn more about collecting custom events.](app-insights-api-custom-events-metrics.md)
+If page views or custom events are missing that you expect to see on the visualization:
+* Check the "Excluded events" section in the Edit menu.
+* Use the "Detail level" control in the Edit menu to include less-frequent events in the visualization.
+* If the page view or custom event you expect is sent infrequently by users, try increasing the time range of the visualization in the Edit menu.
+* Make sure the page view or custom event you expect is set up to be collected by the Application Insights SDK in the source code of your site. [Learn more about collecting custom events.](app-insights-api-custom-events-metrics.md)
 
-If you want to see more steps in the visualization, use the "Number of steps" slider in the Edit blade.
+If you want to see more steps in the visualization, use the "Number of steps" slider in the Edit menu.
 
 ## After visiting a page or feature, where do users go and what do they click?
 
@@ -73,7 +73,7 @@ Keep in mind that "Session Ended" nodes are based only on telemetry collected by
 
 ## Are there places where users repeat the same action over and over?
 
-Look for a page view or custom event that is repeated by many users across subsequent steps in the visualzation. This usually means that users are performing repetitive actions on your site. If you find repetition, think about changing the design of your site or adding new functionality to reduce repetition. For example, adding bulk edit functionality if you find users performing repetitive actions on each row of a table element.
+Look for a page view or custom event that is repeated by many users across subsequent steps in the visualization. This usually means that users are performing repetitive actions on your site. If you find repetition, think about changing the design of your site or adding new functionality to reduce repetition. For example, adding bulk edit functionality if you find users performing repetitive actions on each row of a table element.
 
 ## Common Questions
 
@@ -81,7 +81,7 @@ Look for a page view or custom event that is repeated by many users across subse
 
 ![Flows with disconnected steps](./media/app-insights-usage-flows/flows-disconnected.png)
 
-If steps (columns) in a Flows visualization are disconnected, it means none of the paths taken by users between the steps were frequent enough to be shown. To show less frequent events on the visualization so the steps appear connected, adjust the "Detail level" slider in the Edit blade.
+If steps (columns) in a Flows visualization are disconnected, it means none of the paths taken by users between the steps were frequent enough to be shown. To show less frequent events on the visualization so the steps appear connected, adjust the "Detail level" slider in the Edit menu.
 
 ### Does the initial event represent the first time the event appears in a session, or any time it appears in a session?
 
