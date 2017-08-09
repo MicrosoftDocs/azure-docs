@@ -23,7 +23,7 @@ TBD...
 
 + All 3 APIs are POST commands with mostly identical request structures
 + Required and optional parameters. If you know the language, specify it.
-+ Order of operations (not sure this applies, but if you're using all 3, is there a recommended order in terms of performance or efficiency)
++ Order of operations (not sure this applies, but if you're using all 3, is there a recommended order in terms of performance or efficiency). Question: Does key phrase extraction inform sentiment analysis? If I want to understand the basis of a score, do the key phrases indicate what TA thought was important?
 + How to operate within limits (batch)
 + Generic recommendations: segment text into smaller units for improved sentiment analysis, enlarge text payload for improved language detection, batch documents to extract key phrases in a larger context (?)
 + Examples: Twitter, Facebook, Cosmos DB, Azure Data Lake, Azure SQL Database

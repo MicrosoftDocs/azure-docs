@@ -76,22 +76,22 @@ Endpoints for each operation include the resource providing the underlying algor
             {
                 "language": "en",
                 "id": "2",
-                "text": "Ok but nothing special. Check out the other trails instead."
+                "text": "Poorly marked trails! I thought we were goners. Worst hike ever."
             },
             {
                 "language": "en",
                 "id": "3",
-                "text": "Not recommended for small children or dogs."
+                "text": "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children."
             },
             {
                 "language": "en",
                 "id": "4",
-                "text": "It was foggy so we missed the spectacular views, but the trail was deserted and our dog loved it!"
+                "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
             },                
             {
                 "language": "en",
                 "id": "5",
-                "text": "Stunning view but very crowded with small children and dogs. We didn't stay long."
+                "text": "Me encanta este sendero. Tiene hermosas vistas y muchos lugares para detenerse y descansar."
             }
         ]
     }
@@ -118,37 +118,43 @@ All POST requests return a JSON formatted response with the IDs and detected pro
     "documents": [
         {
             "keyPhrases": [
-                "views",
-                "hike",
-                "trail"
+                "year",
+                "trail",
+                "trip",
+                "views"
             ],
             "id": "1"
         },
         {
             "keyPhrases": [
-                "trails"
+                "Worst hike",
+                "trails",
+                "goners"
             ],
             "id": "2"
         },
         {
             "keyPhrases": [
-                "dogs",
+                "family",
+                "trail",
+                "us",
                 "small children"
             ],
             "id": "3"
         },
         {
             "keyPhrases": [
-                "trail",
                 "spectacular views",
-                "dog"
+                "trail",
+                "Worth",
+                "area"
             ],
             "id": "4"
         },
         {
             "keyPhrases": [
-                "small children",
-                "Stunning view"
+                "Tiene hermosas vistas y muchos lugares para detenerse y descansar",
+                "encanta este sendero"
             ],
             "id": "5"
         }
@@ -165,11 +171,11 @@ The algorithm finds and discards non-essential words, and keeps single terms or 
 
 | ID | Input | keyPhrase output | 
 |----|-------|------|
-| 1 | "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!" | views", "hike", "trail" |
-| 2 | "Ok but nothing special. Check out the other trails instead." | "trails" |
-| 3 | "Not recommended for small children or dogs." | "dogs", "small children" |
-| 4 | "It was foggy so we missed the spectacular views, but the trail was deserted and our dog loved it!" | "trail", "spectacular views", "dog"|
-| 5 | "Stunning view but very crowded with small children and dogs. We didn't stay long." | "small children", "Stunning view"|
+| 1 | "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!" | "year", "trail", "trip", "views"" |
+| 2 | "Poorly marked trails! I thought we were goners. Worst hike ever." | "Worst hike",  "trails", "goners" |
+| 3 | "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children." | "family", "trail", "us", "small children"|
+| 4 | "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area." | "spectacular views", "trail", "Worth", "area" |
+| 5 | "Tiene hermosas vistas y muchos lugares para detenerse y descansar", "encanta este sendero" | The|
 
 
 ## Analyze sentiment
@@ -178,30 +184,29 @@ Using the same documents, you can edit the existing request to call the sentimen
 
 + Replace `/keyPhrases` with `/sentiment` in the endpoint and then click **Send**.
 
-The response includes a sentiment score between 0.0 (negative) and 0.9999999 (positive) to indicate relative sentiment.
-
+The response includes a sentiment score between 0.0 (negative) and 1.0 (positive) to indicate relative sentiment.
 
 ```
 {
     "documents": [
         {
-            "score": 0.992584952105894,
+            "score": 0.989059339865683,
             "id": "1"
         },
         {
-            "score": 0.902196155767694,
+            "score": 0.00626599157674657,
             "id": "2"
         },
         {
-            "score": 0.0902095755821843,
+            "score": 0.919842553279166,
             "id": "3"
         },
         {
-            "score": 0.0645565664913637,
+            "score": 0.841722489453801,
             "id": "4"
         },
         {
-            "score": 0.0196635616288255,
+            "score": 0.5,
             "id": "5"
         }
     ],
@@ -213,27 +218,35 @@ The API returns a score and ID, but not the input string. The following table sh
 
 | ID | Score | Bias | String |
 |----|-------|------|--------|
-| 1 | 0.992584952105894  | positive | "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!" |
-| 2 | 0.902196155767694  | false positive <sup>1</sup> | "Ok but nothing special. Check out the other trails instead." |
-| 3 | 0.0902095755821843  | negative | "Not recommended for small children or dogs." |
-| 4 | 0.0645565664913637  | false negative <sup>1</sup> | "It was foggy so we missed the spectacular views, but the trail was deserted and our dog loved it!" |
-| 5 | 0.0196635616288255 | negative | "Stunning view but very crowded with small children and dogs. We didn't stay long." |
+| 1 | 0.989059339865683  | positive | "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!" |
+| 2 | 0.00626599157674657  | negative | "Poorly marked trails! I thought we were goners. Worst hike ever." |
+| 3 | 0.919842553279166  | positive | "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children." |
+| 4 | 0.841722489453801  | positive | "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area." |
+| 5 | 0.5 | indeterminate <sup>1</sup> | "Me encanta este sendero. Tiene hermosas vistas y muchos lugares para detenerse y descansar." |
 
-<sup>1</sup> Sometimes algorithms are off, particularly when sentiment is complex.
+<sup>1</sup> The Spanish string is not parsed for sentiment because the language code is `en` instead of `es`. When a string cannot be analyzed for sentiment, the score is always 0.5 exactly.
 
 ## Detect language
 
-Again, using same documents, you can edit the existing request to call the language detection algorithm.
+Using same documents, you can edit the existing request to call the language detection algorithm.
 
 + Replace `/sentiment` with `/languages` in the endpoint and then click **Send**.
 
-The language code input, which was useful for other analyses, is ignored for language detection.
+The language code input, which was useful for other analyses, is ignored for language detection. Text Analytics operates only on the `text` you provide. Response output for each document includes a friendly langauge, language code, and a score indicating certainty of the analysis. 
 
-Response output for each document includes a longer name, language code, and a score indicating certainty of the analysis.
+Notice that the last document is correctly indentified as Spanish, even though the string was tagged as `en`.
+
+            "id": "5",
+            "detectedLanguages": [
+                {
+                    "name": "Spanish",
+                    "iso6391Name": "es",
+                    "score": 1
+                }
+            ]
 
 > [!Tip] 
 > Use an online translator to translate some of the existing phrases from English to another language. Re-send the request to detect the various languages (120 languages are supported for language detection).
-
 
 ## Next steps
 
