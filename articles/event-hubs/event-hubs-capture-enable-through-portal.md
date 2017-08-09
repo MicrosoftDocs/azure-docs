@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/08/2017
+ms.date: 08/09/2017
 ms.author: sethm
 
 ---
@@ -57,7 +57,7 @@ To capture data to Azure Data Lake Store, you create a Data Lake Store account, 
 
 ### Create an event hub
 
-1. Create an event hub, clicking the **On** button under **Capture** in the **Create Event Hub** portal blade.
+1. Note that the event hub must be in the same Azure subscription as the Data Lake Store you just created. Create the event hub, clicking the **On** button under **Capture** in the **Create Event Hub** portal blade. 
 2. In the **Create Event Hub** portal blade, select **Azure Data Lake Store** from the **Archive Provider** box.
 3. In **Select Data Lake Store**, specify the Data Lake Store account you created previously, and in the **Data Lake Path** field, enter the path to the data folder you created.
 
@@ -65,7 +65,7 @@ To capture data to Azure Data Lake Store, you create a Data Lake Store account, 
 
 ## Add or configure Capture on an existing event hub
 
-You can configure Capture on existing event hubs that are in Event Hubs namespaces. The feature is not available to older **Messaging** or **Mixed** type namespaces. To enable Capture on an existing event hub, or to change your Capture settings, click the namespace to load the **Essentials** blade, then click the event hub for which you want to enable or change the Capture setting. Finally, click the **Properties** section of the open blade and then edit the Capture settings, as shown in the following figures:
+You can configure Capture on existing event hubs that are in Event Hubs namespaces. To enable Capture on an existing event hub, or to change your Capture settings, click the namespace to load the **Essentials** blade, then click the event hub for which you want to enable or change the Capture setting. Finally, click the **Properties** section of the open blade and then edit the Capture settings, as shown in the following figures:
 
 ### Blob Storage
 
