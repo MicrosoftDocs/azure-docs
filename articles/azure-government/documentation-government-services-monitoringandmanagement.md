@@ -71,11 +71,29 @@ For more information, see [Monitor commercial documentation](https://docs.micros
 ### Variations
 The following Monitor features are not currently available in Azure Government:
 
-* Metrics and Alerts
-* Diagnostic Logs
-* Autoscale
-* Action Groups
+* Action Groups do not support SMS at this time. 
+* Autoscale is available in two regions, Iowa and Virginia; default behavior is to create the autoscale setting in the same regions as the monitored resource. For Texas and Arizona, to create an autoscale setting on resources in these regions, please use ARM/Rest calls to specify the setting should be created in Iowa or Virginia. 
+* Metrics are supported in all regions, but only for RPs which are available and onboard to Azure Monitor. An exhaustive list is below.
+* Metric Alerts are available in two regions, Iowa and Virginia; default behavior is to create the metric alert in the same regions as the monitored resource. For Texas and Arizona, to create an autoscale setting on resources in these regions, please use ARM/Rest calls to specify the setting should be created in Iowa or Virginia. 
 
+Services which have metrics and metric alerts available in Azure Goverment are:
+| Service | Service Status | Metrics Availability | Visible Via | Metric Alerts Availability |
+| --- | --- | --- | --- | --- |
+| App Service  | GA | Available | RP Blade & Dashboards | Available |
+| Azure Backup & Restore | - | Not Available in public cloud | - | - |
+| Azure IoT Hub | GA | Not Available | Not Available | Coming Soon |
+| Azure SQL | GA | Available | Available | Available |
+| Azure Storage (Classic) | GA | Available | Available | Available |
+| Cloud Services | GA | WAD Tables -> OMS | - | OMS Alerts |
+| Document DB | GA | Available | RP Blade & Dashboards | Available |
+| Event Hub | GA | Available | Azure Monitor & Dashboards | Available |
+| Storage Account (ARM) | GA | Available | RP Blade & Dashboards | Available |
+| Web App | GA | Available | RP Blade & Dashboards | Available |
+| Service Fabric | GA | WAD Tables -> OMS | - | OMS alerts |
+| Virtual Machine/VMSS | GA | Available | Azure Monitor & Dashboards | Available |
+| Classic Virtual Machine | GA | Not Available | Not Available | Coming Soon |
+| Stream Analytics | - | Not Available | - | - |
+| Redis Cache | GA | Available | RP Blade & Dashboards | Available |
 
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
