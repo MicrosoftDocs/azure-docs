@@ -172,7 +172,8 @@ This document describes the criteria that are used to validate that Office Add-i
 |10.6|Submitting Office Add-ins that are hosted within Access as paid add-ins is not currently supported.|
 |10.7|Deleted.|
 |10.8|For your Office Add-in to be available on iOS or Android, it must be free. It must not include "app" in the **App Title** or **App Short Description**. Your add-in must be free of in-app purchases, trial offers, UI that aims to upsell to paid, or links to any online stores where users can purchase or acquire other content, apps, or add-ins. Your Privacy Policy and Terms of Use pages must also be free of any commerce UI or Store links.<br/>For add-ins for iOS, you must also do the following on the Seller Dashboard submission form:<br/><br/>Accept Apple's Terms and Conditions by selecting the appropriate checkbox. Your Office Add-in must be compliant with all relevant Apple App Store policies.<br/><br/>Provide a valid Apple ID.|
-|10.8.1| For your Outlook add-in to be available on iOS or Android, it must comply with the [Outlook add-in design guidelines](https://docs.microsoft.com/en-us/outlook/add-ins/outlook-addin-design).|
+|10.8.1|For your Outlook add-in to be available on iOS or Android, it must comply with the [Outlook add-in design guidelines](https://docs.microsoft.com/en-us/outlook/add-ins/outlook-addin-design).|
+|10.8.2|The version of your add-in that runs on Office for iOS or Office for Android must not show any UI or language, or link to any other apps, add-ins, or websites, that ask the user to pay. Use of the term “free”, as in “free account”, is also not allowed. If the add-in requires an account, only free accounts can be created in the mobile version of the add-in. You can determine the length of time that the free account remains active (indefinitely or for a limited amount of time); however, if the user’s account expires, you cannot show any UI, text, or links to the user to indicate that they need to pay.
 |10.9|Office Add-ins must use version 1.1 of the Office.js library and the manifest schema.|
 
 ## 11. Add-ins provide a seamless and fluid experience for Office Store customers
@@ -252,6 +253,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.3|August 9,2017|Added policy 10.8.2
 |2.2|August 4, 2017|Added policies 14.15 and 14.16.|
 |2.2|July 21, 2017|Added policy 7.19.|
 |2.2|July 7, 2017|Removed policy 14.4. Updated policies 14.5, 14.6, 14.8, and 14.9.|
