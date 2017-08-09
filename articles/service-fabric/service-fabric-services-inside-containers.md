@@ -20,24 +20,24 @@ ms.author: anmola
 
 Service Fabric now has support for containerizing Service Fabric micro-services (Stateless, Actor, and Reliable Collection based services). For more information, read [service fabric containers](service-fabric-containers-overview.md).
 
-The main reasons to consider containerizing your Service Fabric service are similar to the benefits you would receive when containerizing your applications
--	Portability - The service has all the dependencies it needs, so runs anywhere
--	Customers can use the existing build pipelines defined for their other containerized applications
--	Resource governance
+The main reasons to consider containerizing your Service Fabric service are similar to the benefits you would receive when containerizing your applications.
+-	Portability - The service has all the dependencies it needs, so runs anywhere.
+-	Customers can use the existing build pipelines defined for their other containerized applications.
+-	Resource governance.
 
 
 > [!NOTE]
-> This feature is in preview and is not supported. currently this feature only works for Windows
+> This feature is in preview and is not supported. Currently this feature only works for Windows.
 
 ## Steps to containerize your Service Fabric Application
 
 Follow these steps in order to successfully containerize and deploy a service fabric application to your cluster.
 
-1. Open your Service Fabric application in *Visual Studio*
+1. Open your Service Fabric application in *Visual Studio*.
 
-2. Add class [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) to your project. The code in this class is a helper to correctly load the Service Fabric runtime binaries inside your application when running inside a container
+2. Add class [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) to your project. The code in this class is a helper to correctly load the Service Fabric runtime binaries inside your application when running inside a container.
 
-3. For each code package, you would like to containerize, initialize the loader at the program entry point. You could add the following code snippet to your program entry point file assuming it is in *Program.cs*
+3. For each code package, you would like to containerize, initialize the loader at the program entry point. You could add the following code snippet to your program entry point file assuming it is in *Program.cs*.
 
   ```csharp
         static Program()
@@ -46,9 +46,9 @@ Follow these steps in order to successfully containerize and deploy a service fa
         }
   ```
 
-4. Build and [package](service-fabric-package-apps.md#Package-App) your project
+4. Build and [package](service-fabric-package-apps.md#Package-App) your project.
 
-5. For every code package you need to containerize, run the powershell script [CreateDockerPackage.ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1). The usage is as follows
+5. For every code package you need to containerize, run the powershell script [CreateDockerPackage.ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1). The usage is as follows:
   ```powershell
     $codePackagePath = 'Path to the code package to containerize.'
     $dockerPackageOutputDirectoryPath = 'Output path for the generated docker folder.'
@@ -57,7 +57,7 @@ Follow these steps in order to successfully containerize and deploy a service fa
  ```
   The script creates a folder with docker artifacts at $dockerPackageOutputDirectoryPath. Modify the generated Dockerfile to expose any ports, run setup scripts etc. based on your needs.
 
-6. Next you need to [build](service-fabric-get-started-containers.md#Build-Containers) and [push](service-fabric-get-started-containers.md#Push-Containers) your docker container package to your repository
+6. Next you need to [build](service-fabric-get-started-containers.md#Build-Containers) and [push](service-fabric-get-started-containers.md#Push-Containers) your docker container package to your repository.
 
 7. Modify the ApplicationManifest.xml and ServiceManifest.xml to add your container image, repository information, registry authentication, and port-to-host mapping by following the guidelines described in this [article](service-fabric-get-started-containers.md). The code package definition in the service manifest needs to be replaced with corresponding container image. Make sure to change the EntryPoint to a ContainerHost type.
 
