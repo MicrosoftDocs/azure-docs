@@ -91,4 +91,4 @@ Review the [pricing for Managed Disks](https://azure.microsoft.com/en-us/pricing
 
 ## Next steps
 
-- Learn more about [Managed Disks](../../storage/storage-managed-disks-overview.md)
+- Learn more about [Managed Disks](managed-disks-overview.md)

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Expand a data disk attached to a Windows VM in Azure | Microsoft Docs
 description: Expand the size of a data disk that is attached to a Windows virtual machine using PowerShell.
 services: virtual-machines-windows
@@ -168,4 +168,4 @@ Resize-Partition -DriveLetter $driveLetter -Size $MaxSize
 ```
 
 ## Next Steps
-- [Learn more about disks and VHDs](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Learn more about disks and VHDs](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

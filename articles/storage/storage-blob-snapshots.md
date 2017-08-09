@@ -170,7 +170,7 @@ In scenario 4, the base blob has been completely updated and contains none of it
 
 ## Next steps
 
-* You can find more information about working with virtual machine (VM) disk snapshots in [Back up Azure unmanaged VM disks with incremental snapshots](storage-incremental-snapshots.md)
+* You can find more information about working with virtual machine (VM) disk snapshots in [Back up Azure unmanaged VM disks with incremental snapshots](../virtual-machines/windows/incremental-snapshots.md)
 
 * For additional code examples using Blob storage, see [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). You can download a sample application and run it, or browse the code on GitHub.
 
