@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 08/09/2017
 ms.author: ashwink
 
 ---
@@ -135,14 +135,11 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 
 `Get-AzureRmAlertRule` supports other parameters. See [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) for more information.
 
-## Create alert rules
+## Create metric alerts
 You can use the `Add-AlertRule` cmdlet to create, update or disable an alert rule.
 
 You can create email and webhook properties using  `New-AzureRmAlertRuleEmail` and `New-AzureRmAlertRuleWebhook`, respectively. In the Alert rule cmdlet, assign these as actions to the **Actions** property of the Alert Rule.
 
-The next section contains a sample that shows you how to create an Alert Rule with various parameters.
-
-### Alert rule on a metric
 The following table describes the parameters and values used to create an alert using a metric.
 
 | parameter | value |
@@ -184,40 +181,6 @@ Get-AzureRmAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 ```
 
 The Add alert cmdlet also updates the rule if an alert rule already exists for the given properties. To disable an alert rule, include the parameter **-DisableRule**.
-
-### Alert on activity log event
-> [!NOTE]
-> This feature is in preview and will be removed at some point in the future (it is being replaced).
-> 
-> 
-
-In this scenario, you'll send email when a website is successfully started in my subscription in resource group *abhingrgtest123*.
-
-Setup an email rule
-
-```PowerShell
-$actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
-```
-
-Setup a webhook rule
-
-```PowerShell
-$actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken
-```
-
-Create the rule on the event
-
-```PowerShell
-Add-AzureRmLogAlertRule -Name superalert1 -Location "East US" -ResourceGroup myrg1 -OperationName microsoft.web/sites/start/action -Status Succeeded -TargetResourceGroup abhingrgtest123 -Actions $actionEmail, $actionWebhook
-```
-
-Retrieve the alert rule
-
-```PowerShell
-Get-AzureRmAlertRule -Name superalert1 -ResourceGroup myrg1 -DetailedOutput
-```
-
-The `Add-AlertRule` cmdlet allows various other parameters. More information, see [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).
 
 ## Get a list of available metrics for alerts
 You can use the `Get-AzureRmMetricDefinition` cmdlet to view the list of all metrics for a specific resource.

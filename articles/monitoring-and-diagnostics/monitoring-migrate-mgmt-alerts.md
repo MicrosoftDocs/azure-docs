@@ -1,0 +1,73 @@
+---
+title: Migrate Azure Alerts on Management Events to Activity Log Alerts | Microsoft Docs
+description: Alerts on management events will be removed on October 1st. Prepare by migrating exisiting alerts.
+author: johnkemnetz
+manager: orenr
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+
+ms.assetid:
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/09/2017
+ms.author: johnkem
+
+---
+# Migrate Azure alerts on management events to Activity Log alerts
+
+
+> [!WARNING]
+> Alerts on management events will be turned off on or after October 1st. Please use the directions below to understand if you have these alerts and migrate them if so.
+>
+> 
+
+Azure Monitor (formerly Azure Insights) offered a capability to create an alert that triggered off of management events and generated notifications to a webhook URL or email addresses. You may have created one of these alerts any of these ways:
+•	In the Azure portal for certain resource types, under Monitoring -> Alerts -> Add Alert, where “Alert on” is set to “Events”
+•	By running the Add-AzureRmLogAlertRule PowerShell cmdlet
+•	By directly using [the alert REST API](./rest/api/monitor/alertrules) with odata.type = “ManagementEventRuleCondition” and dataSource.odata.type = “RuleManagementEventDataSource”
+ 
+The following PowerShell script will return a list of all alerts on management events that you have in your subscription, as well as the conditions set on each alert.
+
+```powershell
+Login-AzureRmAccount
+$alerts = $null
+foreach ($rg in Get-AzureRmResourceGroup ) {
+  $alerts += Get-AzureRmAlertRule -ResourceGroup $rg.ResourceGroupName
+}
+foreach ($alert in $alerts) {
+  if($alert.Properties.Condition.DataSource.GetType().Name.Equals("RuleManagementEventDataSource")) {
+    "Alert Name: " + $alert.Name
+    "Alert Resource ID: " + $alert.Id
+    "Alert conditions:"
+    $alert.Properties.Condition.DataSource
+    "---------------------------------"
+  }
+} 
+```
+
+This capability has been replaced with [Azure Monitor Activity Log Alerts](monitoring-activity-log-alerts.md). These new alerts enable you to set a condition on Activity Log events and receive a notification when a new event matches the condition. They also offer several improvements from alerts on management events:
+* You can reuse your group of notification recipients (“actions”) across many alerts using [Action Groups](monitoring-action-groups.md), reducing the complexity of changing who should receive an alert.
+* You can receive a notification directly on your phone using SMS with Action Groups.
+* You can [create Activity Log Alerts with Resource Manager templates](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+* You can create conditions with greater flexibility and complexity to meet your specific needs.
+* Notifications are delivered more quickly.
+ 
+To create a new Activity Log Alert, you can either:
+* Follow [our guide on how to create an alert in the Azure Portal](monitoring-activity-log-alerts.md)
+* Learn how to [create an alert using a Resource Manager template](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+ 
+Alerts on management events that you have previously created will not be migrated to Activity Log Alerts. You will need to use the PowerShell script above to list the alerts on management events that you currently have configured and manually recreate them as Activity Log Alerts. This must be done before October 1st, after which alerts on management events will no longer be visible in your Azure subscription. Other types of Azure alerts, including Azure Monitor metric alerts, Application Insights alerts, and Log Analytics alerts are unaffected by this change. If you have any questions, please contact AzMonMgmtAlertHelp@microsoft.com.
+
+
+## Next steps
+
+* Learn more about [Activity Log](monitoring-overview-activity-logs.md)
+* Configure [Activity Log Alerts via Azure portal](monitoring-activity-log-alerts.md)
+* Configure [Activity Log Alerts via Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md)
+* Learn more about [Service Notifications](monitoring-service-notifications.md)
+* Learn more about [Action Groups](monitoring-action-groups.md)
