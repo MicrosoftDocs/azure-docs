@@ -67,7 +67,7 @@ az vm show -n $vmName -g $rgName --query storageProfile.osDisk.managedDisk -o ts
 az vm start --name $vmName --resource-group $rgName
 
 ```
-## Convert a managed disk storage from standard to premium, and vice versa
+## Convert a managed disk from standard to premium, and vice versa
 
 For your dev/test workload, you may want to have mixture of standard and premium disks to reduce your cost. You can accomplish it by upgrading to premium storage, only the disks that require better performance. In the following example, we show how to switch a single disk of a VM from standard to premium storage, and vice versa. To use premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage. This example also switches to a size that supports premium storage.
 
