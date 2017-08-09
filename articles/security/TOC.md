@@ -9,7 +9,7 @@
 ## [Identity management](security-identity-management-overview.md)
 ## [IoT security](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Security architecture](azure-security-architecture-overview.md)
-### [Operational security](azure-operational-security.md)
+### [Enabling operational security](azure-operational-security.md)
 ### [Advanced threat detection](azure-threat-detection.md)
 ### [Logging and auditing](azure-log-audit.md)
 ### [Isolation in the public cloud](azure-isolation.md)
