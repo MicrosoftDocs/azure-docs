@@ -224,6 +224,7 @@
 - name: How-to guides
   items:
   - name: Service features
+    items:
     - name: Upgrade elastic database client library
       href: sql-database-elastic-scale-upgrade-client-library.md
     - name: Install elastic job

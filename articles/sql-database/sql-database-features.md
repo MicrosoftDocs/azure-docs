@@ -27,26 +27,21 @@ We continue to add features to Azure SQL Database. So we encourage you to visit 
 * Filtered to the [SQL Database service](https://azure.microsoft.com/updates/?service=sql-database).
 * Filtered to General Availability [(GA) announcements](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
 
-| **Feature** | **SQL Server** | **Azure SQL Database** | 
+| **SQL Server Feature** | **Supported in Azure SQL Database** | 
 | --- | :---: | :---: | 
-| Active geo-replication | Not supported - see [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Supported](sql-database-geo-replication-overview.md)
-| Always Encrypted | [Supported](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Supported - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md)|
-| AlwaysOn Availability Groups | [Supported](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Not supported - See [active geo-replication](sql-database-geo-replication-overview.md) |
-| Attach a database | [Supported](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Not supported |
-| Application roles | [Supported](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | [Supported](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) |
-| Auto scale | Not supported | Supported - see [Service tiers](sql-database-service-tiers.md) |
-| Azure Active Directory | Not supported | [Supported](sql-database-aad-authentication.md) |
-| Azure Data Factory | [Supported](../data-factory/data-factory-introduction.md) | [Supported](../data-factory/data-factory-introduction.md) |
-| Auditing | [Supported](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Supported](sql-database-auditing.md) |
-| BACPAC file (export) | [Supported](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | [Supported](sql-database-export.md) |
-| BACPAC file (import) | [Supported](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | [Supported](sql-database-import.md) |
-| BACKUP | [Supported](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Not supported |
-| Built-in functions | [Supported](https://docs.microsoft.com/sql/t-sql/functions/functions) | Most - see [individual functions] (https://docs.microsoft.com/sql/t-sql/functions/functions) |
-| Change data capture | [Supported](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Not supported |
-| Change tracking | [Supported](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | [Supported](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) |
-| Collation statements | [Supported](https://docs.microsoft.com/sql/t-sql/statements/collations) | [Supported](https://docs.microsoft.com/sql/t-sql/statements/collations) |
-| Columnstore indexes | [Supported](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | [Premium edition only](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |
-| Common language runtime (CLR) | [Supported](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Not supported |
+| [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md)|
+| [AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | No - see [Failover groups and active geo-replication](sql-database-geo-replication-overview.md) |
+| [Attach a database](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | No |
+| [Application roles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Yes |
+| [BACPAC file (export)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Yes - see [SQL Database export](sql-database-export.md) |
+| [BACPAC file (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Yes - see [SQL Database import](sql-database-import.md) |
+| [BACKUP command](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | No - see [Automated backups](sql-database-automated-backups.md) |
+| [Built-in functions](https://docs.microsoft.com/sql/t-sql/functions/functions) | Most - see [individual functions] (https://docs.microsoft.com/sql/t-sql/functions/functions) |
+| [Change data capture](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | No |
+| [Change tracking](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Yes |
+| [Collation statements](https://docs.microsoft.com/sql/t-sql/statements/collations) | Yes |
+| [Columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | [In Premium edition only](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |
+| [Common language runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No |
 | Contained databases | [Supported](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | [Supported](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) |
 | Contained users | [Supported](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | [Supported](sql-database-manage-logins.md#non-administrator-users) |
 | Control of flow language keywords | [Supported](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | [Supported](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) |
@@ -106,6 +101,7 @@ We continue to add features to Azure SQL Database. So we encourage you to visit 
 | Spatial | [Supported](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | [Supported](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) |
 | SQL Server Agent | [Supported](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Not supported - See [Elastic jobs](sql-database-elastic-jobs-getting-started.md) |
 | SQL Server Analysis Services (SSAS) | [Supported](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Not supported - see [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
+| [SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | No - see [SQL Database auditing](sql-database-auditing.md) |
 | SQL Server Integration Services (SSIS) | [Supported](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Not supported - see [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | SQL Server PowerShell | [Supported](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | [Supported](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) |
 | SQL Server Profiler | [Supported](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Not supported - see [Extended events](sql-database-xevent-db-diff-from-svr.md) |
