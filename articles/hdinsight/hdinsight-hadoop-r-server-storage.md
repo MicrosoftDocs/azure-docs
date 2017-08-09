@@ -184,8 +184,8 @@ There is also a convenient data storage option for use on the edge node called [
 
 A major benefit of Azure Files is that the file shares can be mounted and used by any system that has a supported OS such as Windows or Linux. For example, it can be used by another HDInsight cluster that you or someone on your team has, by an Azure VM, or even by an on-premises system. For more information, see:
 
-- [How to use Azure File storage with Linux](../storage/storage-how-to-use-files-linux.md)
-- [How to use Azure File storage on Windows](../storage/storage-dotnet-how-to-use-files.md)
+- [How to use Azure File storage with Linux](../storage/files/storage-how-to-use-files-linux.md)
+- [How to use Azure File storage on Windows](../storage/files/storage-dotnet-how-to-use-files.md)
 
 
 ## Next steps
