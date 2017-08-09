@@ -61,7 +61,7 @@ Subnet                  = 10.11.1.0/28 
 GatewaySubnet           = 10.11.0.0/27
 LocalNetworkGatewayName = Site2
 LNG Public IP           = <VPN device IP address> 
-Local Address Prefixes  = 10.0.0.0/24','20.0.0.0/24
+Local Address Prefixes  = 10.0.0.0/24, 20.0.0.0/24
 Gateway Name            = VNet1GW
 PublicIP                = VNet1GWIP
 Gateway IP Config       = gwipconfig1 
@@ -100,7 +100,7 @@ Create your virtual network.
 
   ```powershell
   $subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.11.0.0/27
-  $subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.11.1.0/28'
+  $subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix 10.11.1.0/28
   ```
 2. Create the VNet.
 
