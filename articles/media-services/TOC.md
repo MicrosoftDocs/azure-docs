@@ -225,5 +225,6 @@
 ## [Azure Media Services Community](media-services-community.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Release notes](media-services-release-notes.md)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=media-services)

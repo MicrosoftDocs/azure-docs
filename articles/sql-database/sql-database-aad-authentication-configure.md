@@ -153,9 +153,10 @@ You can also provision an Azure Active Directory Administrator by using the REST
 You can also provision an Azure AD admin by calling the following CLI commands:
 | Command | Description |
 | --- | --- |
-|az sql server ad-admin create |Provisions an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. (Must be from the current subscription.) |
-|az sql server ad-admin delete |Removes an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. |
-|az sql server ad-admin list |Returns information about an Azure Active Directory administrator currently configured for the Azure SQL server or Azure SQL Data Warehouse. |
+|[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#create) |Provisions an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. (Must be from the current subscription.) |
+|[az sql server ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#delete) |Removes an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. |
+|[az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#list) |Returns information about an Azure Active Directory administrator currently configured for the Azure SQL server or Azure SQL Data Warehouse. |
+|[az sql server ad-admin update](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#update) |Updates the Active Directory administrator for an Azure SQL server or Azure SQL Data Warehouse. |
 
 For more information about CLI commands, see [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server).  
 
@@ -243,10 +244,10 @@ The following procedures show you how to connect to a SQL database with an Azure
 
 Use this method if you are logged in to Windows using your Azure Active Directory credentials from a federated domain.
 
-1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Active Directory Integrated Authentication**. No password is needed or can be entered because your existing credentials will be presented for the connection.   
+1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Active Directory - Integrated**. No password is needed or can be entered because your existing credentials will be presented for the connection.   
 
     ![Select AD Integrated Authentication][11]
-2. Click the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to.   
+2. Click the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. (The **AD domain name or tenant ID**” option is only supported for **Universal with MFA connection** options, otherwise it is greyed out.)  
 
     ![Select the database name][13]
 
@@ -256,7 +257,7 @@ Use this method when connecting with an Azure AD principal name using the Azure 
 
 Use this method if you are logged in to Windows using credentials from a domain that is not federated with Azure, or when using Azure AD authentication using Azure AD based on the initial or the client domain.
 
-1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Active Directory Password Authentication**.
+1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Active Directory - Password**.
 2. In the **User name** box, type your Azure Active Directory user name in the format **username@domain.com**. This must be an account from the Azure Active Directory or an account from a domain federate with the Azure Active Directory.
 3. In the **Password** box, type your user password for the Azure Active Directory account or federated domain account.
 
@@ -341,7 +342,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 [7]: ./media/sql-database-aad-authentication/7edit-directory-confirm.png
 [8]: ./media/sql-database-aad-authentication/8choose-ad.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
-[11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
-[12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
-[13]: ./media/sql-database-aad-authentication/13connect-to-db.png
+[11]: ./media/sql-database-aad-authentication/active-directory-integrated.png
+[12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth2.png
+[13]: ./media/sql-database-aad-authentication/13connect-to-db2.png
 

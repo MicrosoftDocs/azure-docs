@@ -69,6 +69,7 @@
 ##### [DNS service](service-fabric-dnsservice.md)
 ##### [Reverse proxy](service-fabric-reverseproxy.md)
 ##### [Configure reverse proxy for secure communication](service-fabric-reverseproxy-configure-secure-communication.md)
+##### [Reverse proxy diagnostics](service-fabric-reverse-proxy-diagnostics.md)
 ### [Scalability of applications](service-fabric-concepts-scalability.md)
 ### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
@@ -112,7 +113,7 @@
 #### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## Monitore and diagnose
+## Monitor and diagnose
 ### [Overview](service-fabric-diagnostics-overview.md)
 ### [Health model](service-fabric-health-introduction.md)
 ### [Diagnostics in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
@@ -133,6 +134,7 @@
 #### [Create a Windows container application](service-fabric-get-started-containers.md)
 #### [Create a Linux container application](service-fabric-get-started-containers-linux.md)
 #### [Deploy a container](service-fabric-deploy-container.md)
+#### [Deploy Linux container](service-fabric-deploy-container-linux.md)
 #### [Docker compose (preview)](service-fabric-docker-compose.md)
 #### [Resource governance for containers and services](service-fabric-resource-governance.md)
 #### [Volume and logging drivers](service-fabric-containers-volume-logging-drivers.md)
@@ -328,6 +330,7 @@
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Pricing](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Sample code](http://aka.ms/servicefabricsamples)
 ## [Support options](service-fabric-support.md)
 ## [Service Updates](https://azure.microsoft.com/updates/?product=service-fabric)

@@ -105,6 +105,7 @@
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [Pricing](https://azure.microsoft.com/pricing/details/data-factory/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Release notes for Data Management Gateway](data-factory-gateway-release-notes.md)
 ## [Request a feature](https://feedback.azure.com/forums/270578-azure-data-factory)
 ## [Service updates](https://azure.microsoft.com/updates/?product=data-factory)
