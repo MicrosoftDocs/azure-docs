@@ -28,22 +28,6 @@ Using the dynamically assigned IP to discover services is not advisable since th
 1. Set up the Azure Resource Manager template by enabling DNS Service and the IP Provider under `fabricSettings`. 
 
 ```json
-"variables": {
-    "nicName": "NIC",
-    "vmName": "vm",
-    "virtualNetworkName": "VNet",
-    "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-    "vmNodeType0Name": "[toLower(concat('NT1', variables('vmName')))]",
-    "subnet0Name": "Subnet-0",
-    "subnet0Prefix": "10.0.0.0/24",
-    "subnet0Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet0Name'))]",
-    "lbID0": "[resourceId('Microsoft.Network/loadBalancers',concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType0Name')))]",
-    "lbIPConfig0": "[concat(variables('lbID0'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
-    "lbPoolID0": "[concat(variables('lbID0'),'/backendAddressPools/LoadBalancerBEAddressPool')]",
-    "lbProbeID0": "[concat(variables('lbID0'),'/probes/FabricGatewayProbe')]",
-    "lbHttpProbeID0": "[concat(variables('lbID0'),'/probes/FabricHttpGatewayProbe')]",
-    "lbNatPoolID0": "[concat(variables('lbID0'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]"
-}
 "fabricSettings": [
   {
     "parameters": [
@@ -78,6 +62,22 @@ Using the dynamically assigned IP to discover services is not advisable since th
 2. Set up the network profile section to allow multiple IP addresses to be configured on each node of the cluster. The following example sets up five IP addresses per node (thus you can have five service instances listening to the port on each node) for a Windows Service Fabric cluster.
 
 ```json
+"variables": {
+    "nicName": "NIC",
+    "vmName": "vm",
+    "virtualNetworkName": "VNet",
+    "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+    "vmNodeType0Name": "[toLower(concat('NT1', variables('vmName')))]",
+    "subnet0Name": "Subnet-0",
+    "subnet0Prefix": "10.0.0.0/24",
+    "subnet0Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet0Name'))]",
+    "lbID0": "[resourceId('Microsoft.Network/loadBalancers',concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType0Name')))]",
+    "lbIPConfig0": "[concat(variables('lbID0'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
+    "lbPoolID0": "[concat(variables('lbID0'),'/backendAddressPools/LoadBalancerBEAddressPool')]",
+    "lbProbeID0": "[concat(variables('lbID0'),'/probes/FabricGatewayProbe')]",
+    "lbHttpProbeID0": "[concat(variables('lbID0'),'/probes/FabricHttpGatewayProbe')]",
+    "lbNatPoolID0": "[concat(variables('lbID0'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]"
+}
 "networkProfile": {
             "networkInterfaceConfigurations": [
               {
@@ -273,9 +273,12 @@ For Linux clusters, an additional public IP configuration is added to allow outb
           }
 ```
 
-3. For Windows cluster, set up an NSG rule opening up port UDP/53 for the vNET.
+3. For Windows cluster, set up an NSG rule opening up port UDP/53 for the vNET with the following values:
+    | Priority | Name      | Source         | Destination    | Service      | Action
+    | 2000	   |Custom_Dns | VirtualNetwork |	VirtualNetwork | DNS (UDP/53)	| Allow
 
-4. Specify the networking mode in the app manifest for each service `<NetworkConfig NetworkType="open">`.  The mode `open` results in the service getting a dedicated IP address. If a mode isn't specified, it defaults to the basic `nat` mode. You can mix and match different networking modes across services within an application. Thus, in the following manifest example, `NodeContainerServicePackage1` and `NodeContainerServicePackage2`, can each listen to the same port, for example 80 and Service Fabric routes requests to each correctly.  
+
+4. Specify the networking mode in the app manifest for each service `<NetworkConfig NetworkType="open">`.  The mode `open` results in the service getting a dedicated IP address. If a mode isn't specified, it defaults to the basic `nat` mode. Thus, in the following manifest example, `NodeContainerServicePackage1` and `NodeContainerServicePackage2`, can each listen to the same port (both services are listening on `Endpoint1`), for example 80 and Service Fabric routes requests to each correctly.  
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -294,14 +297,6 @@ For Linux clusters, an additional public IP configuration is added to allow outb
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>
-    <ServiceManifestImport>
-     <ServiceManifestRef ServiceManifestName="NodeEXEServicePackage" ServiceManifestVersion="1.0"/>
-     <Policies>
-      <ExeHostPolicies CodePackageRef="NodeExeService.Code">
-       <NetworkConfig NetworkType="nat">
-      </ExeHostPolicies>
-     </Policies>
-  </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage2" ServiceManifestVersion="1.0"/>
     <Policies>
@@ -313,3 +308,4 @@ For Linux clusters, an additional public IP configuration is added to allow outb
   </ServiceManifestImport>
 </ApplicationManifest>
 ```
+You can mix and match different networking modes across services within an application for a Windows cluster. Thus, you can have two services on `open` mode and another on `nat` networking mode. Mixing networking modes for different services isn't supported on Linux clusters. 
