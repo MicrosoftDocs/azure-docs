@@ -83,7 +83,7 @@ For SSO to work, Azure AD needs to know the vxMaintain counterpart to the Azure 
 
 To establish the link relationship, assign the vxMaintain **user name** value as the Azure AD **Username** value.
 
-To configure and test Azure AD SSO by using vxMaintain, complete the following building blocks:
+To configure and test Azure AD SSO by using vxMaintain, complete the following building blocks.
 
 ### Configure Azure AD SSO
 
