@@ -206,7 +206,7 @@ Open the `pom.xml` file for your Spring Boot application in a text editor, and t
          <appSettings>
             <property>
                <name>PORT</name>
-               <value>80</value>
+               <value>8080</value>
             </property>
          </appSettings>
       </configuration>

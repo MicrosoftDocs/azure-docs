@@ -167,7 +167,6 @@ Open the `pom.xml` file for your Spring Boot application in a text editor, and t
          <appName>maven-web-app-${maven.build.timestamp}</appName>
          <region>westus</region>
          <javaVersion>1.8</javaVersion>
-         <javaWebContainer>tomcat 8.5</javaWebContainer>
          <deploymentType>ftp</deploymentType>
          <resources>
             <resource>
@@ -199,7 +198,6 @@ Element | Description
 `<appName>` | Specifies the target name for your web app. In this example, the target name is `maven-web-app-${maven.build.timestamp}`, where the `${maven.build.timestamp}` suffix is appended in this example to avoid conflict. (The timestamp is optional; you can specify any unique string for the app name.)
 `<region>` | Specifies the target region, which in this example is `westus`. (A full list is in the [Maven Plugin for Azure Web Apps] documentation.)
 `<javaVersion>` | Specifies the Java runtime version for your web app. (A full list is in the [Maven Plugin for Azure Web Apps] documentation.)
-`<javaWebContainer>` | Specifies the web container for your web app, which is `tomcat 8.5` in this example. (A full list is in the [Maven Plugin for Azure Web Apps] documentation.)
 `<deploymentType>` | Specifies deployment type for your web app. For now, only `ftp` is supported, although support for other deployment types is in development.
 `<resources>` | Specifies resources and target destinations which Maven uses when deploying your web app to Azure. In this example, two `<resource>` elements specify that Maven will deploy the JAR file for your web app and the *web.config* file from the Spring Boot project.
 
