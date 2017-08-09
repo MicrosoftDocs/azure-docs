@@ -27,7 +27,7 @@ Learn how to use the Azure Data Lake Tools for Visual Studio Code (VS Code) to c
 
 ## Prerequisites
 
-The Data Lake Tools can be installed on the platforms supported by VS Code. The supported platforms include Windows, Linux, and MacOS. The following is a list of the prerequisites for the different platforms:
+The Data Lake Tools can be installed on the platforms supported by VS Code. The supported platforms include Windows, Linux, and MacOS. The different platforms have the following prerequisites:
 
 - Windows
 
@@ -296,7 +296,7 @@ Use the command palette (**Ctrl+Shift+P**) and choose **ADL: Show Job**.
 
 1.	Select an ADLA or Local account. 
 2.  Wait for the jobs list for the account to be shown.
-3.	Select a job from job list, ADL Tools opens the job details in the Azure portal and displays the JobInfo file in VS Code.
+3.	Select a job from job list, the ADL Tools open the job details in the Azure portal and displays the JobInfo file in VS Code.
 
 ![Data Lake Tools for Visual Studio Code IntelliSense object types](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-show-job.png)
 
@@ -316,7 +316,7 @@ Use the command palette and enter a command.
 
     > [!NOTE]
     >- VS Code keeps the last-visited path in every ADLA account. For example：/tt/ss.
-    >- Use the browser from the root path: The list root path from your selected ADLA account or a local path.
+    >- Browser from root path: The list root path from your selected ADLA account or a local path.
     >- Enter a path: List a specified path from your selected ADLA account or a local path.
     
 3. Select an account from the local path or an ADLA account.
@@ -356,7 +356,7 @@ A more convenient way to list the relative path is through the right-click conte
 ### Preview the storage file
 
 Use the command palette and enter a command.
-1.  Open the command palette (**Ctrl+Shift+P**) and enter the command **ADL: : Preview Storage File**.
+1.  Open the command palette (**Ctrl+Shift+P**) and enter the command **ADL: Preview Storage File**.
 
        ![Data Lake Tools for Visual Studio Code preview storage file](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-preview.png)
 
@@ -405,7 +405,7 @@ You can upload files through the commands **ADL: Upload File** or **ADL: Upload 
     ![Data Lake Tools for Visual Studio Code list storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account-selectoneway.png)
     >[!NOTE]
     >- VS Code keeps the last-visited path in every ADLA account. For example：/tt/ss.
-    >- Use the browser from the root path: The list root path from your selected ADLA account or a local path.
+    >- Browser from root path: The list root path from your selected ADLA account or a local path.
     >- Enter a path: List a specified path from your selected ADLA account or a local path.
 
 4. Select an account from the local path or an ADLA account.
@@ -443,7 +443,7 @@ You can open the **Web Azure Storage Explorer** by entering the command: **ADL: 
 2. Enter **Open Web Azure Storage Explorer** or right-click on a relative path or the full path in the script editor to choose **Open Web Azure Storage Explorer**.
 3. Select a Data Lake Analytics account.
 
-The ADL Tools opens the Azure storage path in the Azure portal. You can find the path and preview the file from the web.
+The ADL Tools open the Azure storage path in the Azure portal. You can find the path and preview the file from the web.
 
 ### Local run and local debug for Windows users
 U-SQL local run has been implemented to test your local data and validate your script locally, before publishing your code to ADLA. The local debug feature enables you to debug your C# code-behind, step through the code, and validate your script locally before submitting it to ADLA. For instructions, see: [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
