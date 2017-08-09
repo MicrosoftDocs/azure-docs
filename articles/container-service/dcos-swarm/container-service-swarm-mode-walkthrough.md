@@ -24,9 +24,7 @@ ms.custom:
 
 In this quick start, a Docker Swarm Mode cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
 
-![Image of browsing to Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
-
-Docker Swarm mode on Azure Container Service is in perview and should not be used for production workload.
+Docker Swarm mode on Azure Container Service is in preview and should not be used for production workload.
 
 This quick start assumes a basic understanding of Docker concepts, for detailed information on Kubernetes see the [Docker documentation](https://docs.docker.com/).
 
@@ -34,15 +32,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
 The following example creates a resource group named *myResourceGroup* in the *ukwest* location.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location ukwest
 ```
 
@@ -65,11 +63,11 @@ Output:
 
 Create a Docker Swarm Mode cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. The following example creates a cluster named *mySwarmCluster* with one Linux master node and three Linux agent nodes.
 
-```azurecli-interactive 
-az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys 
+```azurecli-interactive
+az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-After several minutes, the command completes and returns json formatted information about the cluster. 
+After several minutes, the command completes and returns json formatted information about the cluster.
 
 ## Connect to the cluster
 
@@ -106,7 +104,7 @@ You are now ready to run Docker services on the Docker Swarm.
 
 ## Run the application
 
-Create a file named `azure-vote.yaml` and copy the following content into it. 
+Create a file named `azure-vote.yaml` and copy the following content into it.
 
 If you are using Azure Cloud Shell, **vi** and **Nano** are installed and can be used to complete this task.
 
@@ -149,7 +147,7 @@ Browse to the agent IP address to test out the Azure Vote application.
 ## Delete cluster
 When the cluster is no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, container service, and all related resources.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
@@ -161,7 +159,7 @@ In this quick start, pre-created container images have been used to create a Doc
 
 ## Next steps
 
-In this quick start, you deployed a Docker Swarm cluster and deployed a multi-container application to it. 
+In this quick start, you deployed a Docker Swarm cluster and deployed a multi-container application to it.
 
 To learn about integrating Docker warm with Visual Studio Team Services, continue to the CI/CD with Docker Swarm and VSTS.
 
