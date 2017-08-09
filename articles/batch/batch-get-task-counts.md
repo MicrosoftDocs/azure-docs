@@ -59,6 +59,8 @@ The Batch service aggregates task counts by gathering data from multiple parts o
 
 The **validationStatus** property in the response indicates whether Batch has performed the consistency check. If Batch has not been able to check state counts against the actual states held in the system, then the **validationStatus** property is set to `unvalidated`. For performance reasons, Batch will not perform the consistency check if the job includes more than 200,000 tasks, so the **validationStatus** property may be set to `unvalidated` in this case. However, the task count is not necessarily wrong in this case, as even a very limited data loss is highly unlikely. 
 
+When a task changes state, the aggregation pipeline processes the change within few seconds. The Get Task Counts operation reflects the updated task counts within that period. However, if the aggregation pipeline misses a change in a task state, then that change is not registered until the next validation pass. During this time, task counts may be slightly inaccurate due to the missed event, but they are corrected on the next validation pass.
+
 ## Best practices for counting a job's tasks
 
 Calling the Get Task Counts operation is the most efficient way to return a basic count of a job's tasks by state. If you are using Batch service version 2017-06-01.5.1, we recommend writing or updating your code to use Get Task Counts.
