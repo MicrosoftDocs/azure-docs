@@ -63,7 +63,7 @@ This tutorial shows you how to create a basic ruby on rails application locally 
 
     ![New Hello-world](./media/app-service-linux-ruby-get-started/rails-new-hello-world-2.png)
 
-	If you are using Rails 5.1+, a package.json is created if the `--skip-yarn` option is not used. We don't want it included with our deployment. As an alternative, you can delete the package.json file or add it to the *.git-ignore* file in the directory as follows: 
+	If you are using Rails 5.1+, a package.json is created if the `--skip-yarn` option is not used. We don't want it included with our deployment. As an alternative, you can delete the package.json file or add it to the *.gitignore* file in the directory as follows: 
 
 		# Ignore package.json
 		/package.json
