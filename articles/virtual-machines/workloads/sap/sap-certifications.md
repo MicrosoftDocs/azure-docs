@@ -22,7 +22,7 @@ ms.custom:
 ---
 # SAP certifications and configurations running on Microsoft Azure
 
-SAP and Microsoft have a long history of working together in a strong partnership that has mutual benefits for their customers. Microsoft is constantly updating it's platform and submitting new certification details to SAP in order to ensure Microsoft Azure is the best platform on which to run your SAP workloads. The following tables outline our supported configurations and list of growing certifications. 
+SAP and Microsoft have a long history of working together in a strong partnership that has mutual benefits for their customers. Microsoft is constantly updating its platform and submitting new certification details to SAP in order to ensure Microsoft Azure is the best platform on which to run your SAP workloads. The following tables outline our supported configurations and list of growing certifications. 
 
 ## SAP HANA certifications
 
