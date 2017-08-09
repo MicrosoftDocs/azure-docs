@@ -32,7 +32,7 @@ The *\articles* folder contains the documentation articles formatted as markdown
 The *\articles* folder contains the *\media* folder for root directory article media files, inside which are subfolders with the images for each article.  The service folders contain a separate media folder for the articles within each service folder. The article image folders are named identically to the article file, minus the *.md* file extension.
 
 ### \includes
-Create reusable content sections to be included in one or more articles. 
+You can create reusable content sections to be included in one or more articles.
 
 ## How to use markdown to format your topic
 All the articles in this repository use GitHub flavored markdown.  Here's a list of resources.
