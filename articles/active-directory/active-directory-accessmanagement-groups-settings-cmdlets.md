@@ -13,8 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
-ms.author: rodejo
+ms.date: 08/09/2017
+ms.author: curtand
+ms.reviewer: kairaz.contractor
+ms.custom: it-pro;
+
+
 
 
 ---
@@ -23,7 +27,7 @@ ms.author: rodejo
 > [!IMPORTANT]
 > This content applies only to Office 365 groups. 
 
-Office 365 Groups settings are configured using a Settings object and a SettingsTemplate object. Initially, you will not see any Settings objects in your directory. This means your directory is configured with the default settings. To change the default settings, you must create a new settings object using a settings template. Settings templates are defined by Microsoft. There are several different settings templates. To configure group settings for your directory, you will use the template named "Group.Unified". To configure group settings on a single group, use the template named "Group.Unified.Guest". This template is used to manage guest access to a group. 
+Office 365 Groups settings are configured using a Settings object and a SettingsTemplate object. Initially, you will not see any Settings objects in your directory. This means your directory is configured with the default settings. To change the default settings, you must create a new settings object using a settings template. Settings templates are defined by Microsoft. There are several different settings templates. To configure Office 365 group settings for your directory, you will use the template named "Group.Unified". To configure Office 365 group settings on a single group, use the template named "Group.Unified.Guest". This template is used to manage guest access to an Office 365 group. 
 
 The cmdlets are part of the Azure Active Directory PowerShell V2 module. For more information about this module and for instructions how to download and install the module on your computer, please refer to [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/). You can install the version 2 release of the module from [here](https://www.powershellgallery.com/packages/AzureAD/).
 
@@ -37,7 +41,7 @@ If you know the name of the setting you want to retrieve, you can use the below 
 ## Create settings at the directory level
 These steps create settings at directory level, which apply to all Unified groups in the directory.
 
-1. In the DirectorySettings cmdlets you will need to specify the ID of the SettingsTemplate you want to use. If you do not know this ID, this cmdlet returns the list of all settings templates:
+1. In the DirectorySettings cmdlets must specify the ID of the SettingsTemplate you want to use. If you do not know this ID, this cmdlet returns the list of all settings templates:
   
   ```
   PS C:> Get-AzureADDirectorySettingTemplate
