@@ -21,7 +21,7 @@ ms.author: yurid
 This guide is for information technology (IT) professionals, information security analysts, and cloud administrators whose organizations are using Azure Security Center and need to troubleshoot Security Center related issues.
 
 >[!NOTE] 
->Beginning in early June 2017, Security Center will use the Microsoft Monitoring Agent to collect and store data. See [Azure Security Center Platform Migration](security-center-platform-migration.md) to learn more. The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
+>Beginning in early June 2017, Security Center uses the Microsoft Monitoring Agent to collect and store data. See [Azure Security Center Platform Migration](security-center-platform-migration.md) to learn more. The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
 >
 
 ## Troubleshooting guide
@@ -108,19 +108,19 @@ Multihoming can happen only when Security Center identifies that a VM doesn’t 
 
 ![Flow](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig7.png)
 
-Assuming that the OMS agent was originally connected to *workspace X*, you canreinstall the OMS extension with configuration pointing in to *workspace X* by following one of these methods:
+Assuming that the OMS agent was originally connected to *workspace X*, you can re-install the OMS extension with configuration pointing in to *workspace X*, by following one of these methods:
 
-* Manually disconnecting the VMs from the Securiy Center default workspace, and connect it to the user workspace via the log analytics blade in Azure portal.
+* Manually disconnecting the VMs from the Security Center default workspace, and connect it to the user workspace via the [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) in Azure portal.
 * Re-install the extension using PowerShell script.
 
 >[!NOTE] 
 > See [Azure Security Center Platform Migration FAQ]() for more details about multihoming issues.
 >
 
-### The extension created by Security caused a unwanted version upgrade to existing agent
-Security Center installs the latest version of OMS extension. If the your environment is dependent on specific version, you should reevaluate the need to use an old version, since the recommendation is to use the latest version, and if upgrade is still not possible, you can disable data collection on the subscription containing the VMs, remove to OMS extension and install the correct OMS version.
+### The extension created by Security caused an unwanted version upgrade to existing agent
+Security Center installs the latest version of OMS extension. If your environment is dependent on specific version, you should reevaluate the need to use an old version, since the recommendation is to use the latest version, and if upgrade is still not possible, you can disable data collection on the subscription containing the VMs, remove to OMS extension and install the correct OMS version.
 
-The installation of the OMS extension and the creation of default workspaces is done when the customer enables the data collection in Security Center policy blade. For 'Standard' tier Security Center customers, the data collection is enabled by default and cannot be disabled unless the pricing tier is change to 'Free'. Disabling the data collection means that Security Center will no longer able be to provide security recommendations and alerts for the your VMs, and therefore is not recommended. 
+The installation of the OMS extension and the creation of default workspaces is done when the customer enables the data collection in Security Center policy blade. For 'Standard' tier Security Center customers, the data collection is enabled by default and cannot be disabled unless the pricing tier is change to 'Free'. Disabling the data collection means that Security Center will no longer able be to provide security recommendations and alerts for your VMs, and therefore is not recommended. 
 
 >[!NOTE] 
 >This is a last resort solution.
