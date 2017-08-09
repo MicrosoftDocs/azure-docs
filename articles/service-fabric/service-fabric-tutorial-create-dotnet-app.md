@@ -19,7 +19,7 @@ ms.author: ryanwi, mikhegn
 ---
 
 # Create and Deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service
-This tutorial is part one of a series and shows you how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. 
+This tutorial is part one of a series and shows you how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. If you prefer, you can download the source code for the completed [voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).
 
 ![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
@@ -55,21 +55,288 @@ To get a complete understanding of how ASP.NET Core integrates with Service Fabr
 
 3. In the **New Project** dialog, choose **Cloud > Service Fabric Application**.
 
-4. Name the application **MyApplication** and press **OK**.
+4. Name the application **Voting** and press **OK**.
 
    ![New project dialog in Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
-5. On the **New Service Fabric Service** page, choose **Stateless ASP.NET Core**, and name your service **MyWebAPIFrontEnd**.
+5. On the **New Service Fabric Service** page, choose **Stateless ASP.NET Core**, and name your service **VotingWeb**.
    
    ![Choosing ASP.NET web service in the new service dialog](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **Web API**. However, you can apply the same concepts to building a full web application.
+6. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **Web Application**. 
    
    ![Choosing ASP.NET project type](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
    Visual Studio creates an application and a service project and displays them in Solution Explorer.
 
    ![Solution Explorer following creation of application with ASP.NET core Web API service]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
+
+### Add AngularJS to the VotingWeb service
+Add AngularJS to your service using the built-in [Bower support](/aspnet/core/client-side/bower). Open *bower.json* and add entries for angular and angular-bootstrap, then save your changes.
+
+```json
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "jquery": "2.2.0",
+    "jquery-validation": "1.14.0",
+    "jquery-validation-unobtrusive": "3.2.6",
+    "angular": "v1.6.5",
+    "angular-bootstrap": "v1.1.0"
+  }
+}
+```
+Upon saving the *bower.json* file, Angular will be installed in your project's *wwwroot/lib* folder. Additionally, it will be listed within the *Dependencies/Bower* folder.
+
+### Update the site.js file
+Open the *wwwroot/js/site.js* file and replace it's contents with the following:
+
+```javascript
+var app = angular.module('VotingApp', ['ui.bootstrap']);
+app.run(function () { });
+
+app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeout', function ($rootScope, $scope, $http, $timeout) {
+
+    $scope.refresh = function () {
+        $http.get('api/Votes?c=' + new Date().getTime())
+            .then(function (data, status) {
+                $scope.votes = data;
+            }, function (data, status) {
+                $scope.votes = undefined;
+            });
+    };
+
+    $scope.remove = function (item) {
+        $http.delete('api/Votes/' + item)
+            .then(function (data, status) {
+                $scope.refresh();
+            })
+    };
+
+    $scope.add = function (item) {
+        var fd = new FormData();
+        fd.append('item', item);
+        $http.put('api/Votes/' + item, fd, {
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        })
+            .then(function (data, status) {
+                $scope.refresh();
+                $scope.item = undefined;
+            })
+    };
+}]);
+```
+
+### Update the Index.cshtml file
+Open the *Views/Home/Index.cshtml* file.  Replace it's contents with the following, then save your changes.
+
+```html
+@{
+    ViewData["Title"] = "Service Fabric Voting Sample";
+}
+
+<div ng-controller="VotingAppController" ng-init="refresh()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 text-center">
+                <h2>Service Fabric Voting Sample</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <form class="col-xs-12 center-block">
+                    <div class="col-xs-6 form-group">
+                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item" />
+                    </div>
+                    <button id="btnAdd" class="btn btn-default" ng-click="add(item)">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        Add
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="row">
+                    <div class="col-xs-4">
+                        Click to vote
+                    </div>
+                </div>
+                <div class="row top-buffer" ng-repeat="vote in votes.data">
+                    <div class="col-xs-8">
+                        <button class="btn btn-success text-left btn-block" ng-click="add(vote.key)">
+                            <span class="pull-left">
+                                {{vote.key}}
+                            </span>
+                            <span class="badge pull-right">
+                                {{vote.value}} Votes
+                            </span>
+                        </button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(vote.key)">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            Remove
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+### Update the _Layout.cshtml file
+Open the *Views/Shared/_Layout.cshtml* file.  Replace it's contents with the following, then save your changes.
+
+```html
+<!DOCTYPE html>
+<html ng-app="VotingApp" xmlns:ng="http://angularjs.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/angular/angular.js"></script>
+    <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="~/js/site.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+```
+
+### Add the VotesController.cs file
+Right-click on the **Controllers** folder, then select **Add->New item->Class**.  Name the file "VotesControll.cs" and click **Add**.  Replace the file contens with the following, then save your changes.
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using System.Text;
+using System.Net.Http;
+using System.Net.Http.Headers;
+
+namespace VotingWeb.Controllers
+{
+    [Produces("application/json")]
+    [Route("api/Votes")]
+    public class VotesController : Controller
+    {
+        private readonly HttpClient httpClient;
+        string serviceProxyUrl = "http://localhost:19081/Voting/VotingData/api/VoteData";
+        string partitionKind = "Int64Range";
+        string partitionKey = "0";
+
+        public VotesController(HttpClient httpClient)
+        {
+            this.httpClient = httpClient;
+        }
+
+        // GET: api/Votes
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            IEnumerable<KeyValuePair<string, int>> votes;
+
+            HttpResponseMessage response = await this.httpClient.GetAsync($"{serviceProxyUrl}?PartitionKind={partitionKind}&PartitionKey={partitionKey}");
+
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return this.StatusCode((int)response.StatusCode);
+            }
+
+            votes = JsonConvert.DeserializeObject<List<KeyValuePair<string, int>>>(await response.Content.ReadAsStringAsync());
+
+            return Json(votes);
+        }
+
+        // PUT: api/Votes/name
+        [HttpPut("{name}")]
+        public async Task<IActionResult> Put(string name)
+        {
+            string payload = $"{{ 'name' : '{name}' }}";
+            StringContent putContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            putContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            string proxyUrl = $"{serviceProxyUrl}/{name}?PartitionKind={partitionKind}&PartitionKey={partitionKey}";
+
+            HttpResponseMessage response = await this.httpClient.PutAsync(proxyUrl, putContent);
+
+            return new ContentResult()
+            {
+                StatusCode = (int)response.StatusCode,
+                Content = await response.Content.ReadAsStringAsync()
+            };
+        }
+
+        // DELETE: api/Votes/name
+        [HttpDelete("{name}")]
+        public async Task<IActionResult> Delete(string name)
+        {
+            HttpResponseMessage response = await this.httpClient.DeleteAsync($"{serviceProxyUrl}/{name}?PartitionKind={partitionKind}&PartitionKey={partitionKey}");
+
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return this.StatusCode((int)response.StatusCode);
+            }
+
+            return new OkResult();
+
+        }
+    }
+}
+
+```
+
+### Update the VotingWeb.cs file
+Open the *VotingWeb.cs* file.  Add the `using System.Net.Http;` directive to the top of the file.  Replace the function with the following, then save your changes.
+
+```csharp
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+{
+    return new ServiceInstanceListener[]
+    {
+        new ServiceInstanceListener(serviceContext =>
+            new WebListenerCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+            {
+                ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting WebListener on {url}");
+
+                return new WebHostBuilder().UseWebListener()
+                            .ConfigureServices(
+                                services => services
+                                    .AddSingleton<StatelessServiceContext>(serviceContext)
+                                    .AddSingleton<HttpClient>())
+                            .UseContentRoot(Directory.GetCurrentDirectory())
+                            .UseStartup<Startup>()
+                            .UseApplicationInsights()
+                            .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+                            .UseUrls(url)
+                            .Build();
+            }))
+    };
+}
+```
 
 ### Deploy and debug the application locally
 You can now go ahead and debug the application and look at the default behavior that the ASP.NET Core Web API template provides.
