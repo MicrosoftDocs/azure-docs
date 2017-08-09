@@ -18,36 +18,29 @@ ms.author: luisca
 
 TBD...
 
+Dumping ground -- read at your own peril...
+
+## Usage model
+
+The usage model is as simple as this: JSON input > Analysis > JSON output
+
+Through code, you can control the quality of the input, and you can summarize or further analyze output, but you cannot configure or customize the sentiment analysis model itself. In your solution design, the sentiment resource is a black box.
+
 Classifies text as predominantly positive or negative, assigning a score in the range of 0 to 1, up to 15 decimal places. 
 
 A solid 0.5 is the functional equivalent of an indeterminate sentiment. The algorithm couldn't read or make sense of the text input.
 
 The response consists of a document ID and a score. There is no built-in drillthrough to document detail. If you want clickthrough from a sentiment score to the original input, or to key phrases extracted for the same document, you will need to write code that collects the outputs for each document ID.
 
-The usage model is as simple as this: JSON input > Analysis > JSON output
+## Strengths and limitations
 
-Through code, you can control the quality of the input, and you can summarize or further analyze output, but you cannot configure or customize the sentiment analysis model itself. In your solution design, the sentiment resource is a black box.
+In Cognitive Services, we use hueristics and machine learning to train the model, matching text with evidence of positive or negative sentiment to come up with patterns that can be applied to any text you provide.
 
+While the model continues to improve, the nuance and multi-layered complexities of language result can result in imprecise results. In particular, the model might fail to correctly interpret slang, sarcasm, irony, or mixed reviews with similar proportions of positve and negative commentary in the same string.
 
-## Limits
+For this reason, having a larger number of requests is recommended so that you can detect trends in sentiment scores.
 
-we use machine learning to train the model, matching text with evidence of positive or negative sentiment to come up with patterns that can be applied to any text you provide.
-
-imprecise
-hueristics
-
-PREDICT SENTIMENT
-
-The model might fail to correctly interpret slang, sarcasm, irony, or very mixed reviews with similar proportions of positve and negative commentary in the same string.
-
-Over time, even the most challenging
-
-As the service exists today, you can try it out and see if it helps.
-
-Mixed reviews, sarcasm, irony -- nuance.
-
-
-## Approach
+## (intro blog)
 
 A more robust approach is to train models that detect sentiment. Here is how the training process works – we obtained a large dataset of text records that was already labeled with sentiment for each record. The first step is to tokenize the input text into individual words, then apply stemming. Next we constructed features from these words; these features are used to train a classifier. Upon completion of the training process, the classifier can be used to predict the sentiment of any new piece of text. It is important to construct meaningful features for the classifier, and our list of features includes several from state-of-the-art research: 
 
