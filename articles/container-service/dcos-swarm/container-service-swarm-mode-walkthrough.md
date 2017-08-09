@@ -40,10 +40,10 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed. 
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+The following example creates a resource group named *myResourceGroup* in the *ukwest* location.
 
 ```azurecli-interactive 
-az group create --name myResourceGroup --location westcentralus
+az group create --name myResourceGroup --location ukwest
 ```
 
 Output:
@@ -63,17 +63,50 @@ Output:
 
 ## Create Docker Swarm cluster
 
-Create a Docker Swarm Mode cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. The following example creates a cluster named *myK8sCluster* with one Linux master node and three Linux agent nodes.
+Create a Docker Swarm Mode cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. The following example creates a cluster named *mySwarmCluster* with one Linux master node and three Linux agent nodes.
 
 ```azurecli-interactive 
-az acs create --orchestrator-type dockerce --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys 
+az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys 
 ```
 
 After several minutes, the command completes and returns json formatted information about the cluster. 
 
 ## Connect to the cluster
 
+Throughout this quick start, you will need the IP address of the Azure load balancers serving both the Docker Swarm master and the Docker agent pool. Run the following command to return both IP addresses. Take note of each IP address.
+
+
+```bash
+az network public-ip list --query '[*].{Name:name,IPAddress:ipAddress}' -o table
+```
+
+Output:
+
+```bash
+Name                                                                 IPAddress
+-------------------------------------------------------------------  -------------
+swarmm-agent-ip-myswarmcluster-myresourcegroup-d5b9d4agent-66066781  51.141.44.42
+swarmm-master-ip-myswarmcluster-myresourcegroup-d5b9d4mgmt-66066781  51.141.37.199
+```
+
+Create and SSH tunnel to the Swarm master. Replace `<SwarmMaster>' with the name or IP address of the Swarm master.
+
+```bash
+ssh -p 2200 -fNL localhost:2374:/var/run/docker.sock azureuser@<SwarmMaster>
+```
+
+Set the **DOCKER_HOST** environment variable. This allows you to run docker commands against the Docker Swarm without having to specify the name of the host in each command.
+
+```bash
+export DOCKER_HOST=localhost:2374
+```
+
+You are now ready to run Docker services on the Docker Swarm.
+
+
 ## Run the application
+
+Create a file named `azure-vote.yaml` and copy the following content into it. If you are using Azure Cloud Shell, **vi** and **Nano** are installed and can be used to complete this task.
 
 ```yaml
 version: '3'
@@ -85,11 +118,44 @@ services:
         - "6379:6379"
 
   azure-vote-front:
-    build: ./azure-vote
-    image: azure-vote-front
+    image: microsoft/azure-vote-front:redis-v1
     container_name: azure-vote-front
     environment:
       REDIS: azure-vote-back
     ports:
-        - "8080:80"
+        - "80:80"
 ```
+
+Run the following command to create the Azure Vote service.
+
+```bash
+docker stack deploy azure-vote --compose-file docker-compose.yaml
+```
+
+## Test the application
+
+Browse to the agent IP address to test out the Azure Vote application.
+
+![Image of browsing to Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
+
+## Delete cluster
+When the cluster is no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, container service, and all related resources.
+
+```azurecli-interactive 
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+## Get the code
+
+In this quick start, pre-created container images have been used to create a Docker service. The related application code, Dockerfile, and Compose file are available on GitHub.
+
+[https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
+
+## Next steps
+
+In this quick start, you deployed a Docker Swarm cluster and deployed a multi-container application to it. 
+
+To learn about integrating Docker warm with Visual Studio Team Services, continue to the CI/CD with Docker Swarm and VSTS.
+
+> [!div class="nextstepaction"]
+> [CI/CD with Docker Swarm and VSTS](./container-service-docker-swarm-ci-cd.md)
