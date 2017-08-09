@@ -55,8 +55,8 @@
 #### [FAQ](security-azure-log-integration-faq.md)
 
 ## Service Fabric
-### [Best practices for Service Fabric security](azure-service-fabric-security-best-practices.md)
-### [Checklist for Service Fabric security](azure-service-fabric-security-checklist.md)
+### [Service Fabric best practices](azure-service-fabric-security-best-practices.md)
+### [Service Fabric checklist](azure-service-fabric-security-checklist.md)
 
 ## Identity management
 ### [Identity management security best practices](azure-security-identity-management-best-practices.md)
