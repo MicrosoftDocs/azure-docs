@@ -17,7 +17,7 @@ ms.date: 08/03/2017
 ms.author: sngun
 
 ---
-# Create virtual machines and include certificates retrieved from a key vault
+# Create a virtual machine and include certificate retrieved from a key vault
 
 This article helps you to create a virtual machine in Azure Stack and push certificates onto it. 
 
