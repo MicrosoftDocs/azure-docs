@@ -356,7 +356,7 @@
 ### [High availability](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md)
 
-## [Get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md)
+## [Troubleshoot](active-directory-troubleshooting-support-howto.md)
 ### [Troubleshoot Active Directory item is missing or not available](active-directory-troubleshooting.md)
 
 ## Deploy Azure AD Proof of Concept (PoC)
