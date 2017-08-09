@@ -67,7 +67,6 @@ If a Docker log driver is specified, it is necessary to deploy agents (or contai
 
 Refer to the following articles to deploy containers to a Service Fabric cluster:
 
-[Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-deploy-container.md)
 
-[Deploy a Docker container to Service Fabric on Linux](service-fabric-deploy-container-linux.md)
+[Deploy a container on Service Fabric](service-fabric-deploy-container.md)
 
