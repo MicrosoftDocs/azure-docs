@@ -1,6 +1,6 @@
 ---
 title: Migrate Azure Alerts on Management Events to Activity Log Alerts | Microsoft Docs
-description: Alerts on management events will be removed on October 1st. Prepare by migrating exisiting alerts.
+description: Alerts on management events will be removed on October 1. Prepare by migrating exisiting alerts.
 author: johnkemnetz
 manager: orenr
 editor: ''
@@ -21,7 +21,7 @@ ms.author: johnkem
 
 
 > [!WARNING]
-> Alerts on management events will be turned off on or after October 1st. Please use the directions below to understand if you have these alerts and migrate them if so.
+> Alerts on management events will be turned off on or after October 1. Use the directions below to understand if you have these alerts and migrate them if so.
 >
 > 
 
@@ -30,7 +30,7 @@ Azure Monitor (formerly Azure Insights) offered a capability to create an alert 
 •	By running the Add-AzureRmLogAlertRule PowerShell cmdlet
 •	By directly using [the alert REST API](./rest/api/monitor/alertrules) with odata.type = “ManagementEventRuleCondition” and dataSource.odata.type = “RuleManagementEventDataSource”
  
-The following PowerShell script will return a list of all alerts on management events that you have in your subscription, as well as the conditions set on each alert.
+The following PowerShell script returns a list of all alerts on management events that you have in your subscription, as well as the conditions set on each alert.
 
 ```powershell
 Login-AzureRmAccount
@@ -57,10 +57,10 @@ This capability has been replaced with [Azure Monitor Activity Log Alerts](monit
 * Notifications are delivered more quickly.
  
 To create a new Activity Log Alert, you can either:
-* Follow [our guide on how to create an alert in the Azure Portal](monitoring-activity-log-alerts.md)
+* Follow [our guide on how to create an alert in the Azure portal](monitoring-activity-log-alerts.md)
 * Learn how to [create an alert using a Resource Manager template](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
  
-Alerts on management events that you have previously created will not be migrated to Activity Log Alerts. You will need to use the PowerShell script above to list the alerts on management events that you currently have configured and manually recreate them as Activity Log Alerts. This must be done before October 1st, after which alerts on management events will no longer be visible in your Azure subscription. Other types of Azure alerts, including Azure Monitor metric alerts, Application Insights alerts, and Log Analytics alerts are unaffected by this change. If you have any questions, please contact AzMonMgmtAlertHelp@microsoft.com.
+Alerts on management events that you have previously created will not be migrated to Activity Log Alerts. You need to use the preceding PowerShell script to list the alerts on management events that you currently have configured and manually recreate them as Activity Log Alerts. This must be done before October 1, after which alerts on management events will no longer be visible in your Azure subscription. Other types of Azure alerts, including Azure Monitor metric alerts, Application Insights alerts, and Log Analytics alerts are unaffected by this change. If you have any questions, post in the comments below.
 
 
 ## Next steps
