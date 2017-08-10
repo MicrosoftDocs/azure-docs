@@ -24,7 +24,7 @@ The Microsoft Azure Import/Export Tool returns error messages if it runs into is
 ## A copy session fails, what I should do?  
  When a copy session fails, there are two options:  
   
- If the error is retryable, for example if the network share was offline for a short period and now is back online, you can resume the copy session. If the error is not retryable, for example if you specified the wrong source file directory in the command line parameters, you need to abort the copy session. See [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md) for more information about resuming and aborting copy sessions.  
+ If the error is retryable, for example if the network share was offline for a short period and now is back online, you can resume the copy session. If the error is not retryable, for example if you specified the wrong source file directory in the command line parameters, you need to abort the copy session. See [Preparing Hard Drives for an Import Job](common/storage-import-export-tool-preparing-hard-drives-import-v1.md) for more information about resuming and aborting copy sessions.  
   
 ## I can't resume or abort a copy session.  
  If the copy session is the first copy session for a drive, then the error message should state: "The first copy session cannot be resumed or aborted." In this case, you can delete the old journal file and rerun the command.  
@@ -37,7 +37,7 @@ The Microsoft Azure Import/Export Tool returns error messages if it runs into is
 ## Next steps
  
 * [Setting up the azure import/export tool](storage-import-export-tool-setup-v1.md)   
-* [Preparing hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Preparing hard drives for an import job](common/storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Repairing an import job](common/storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Repairing an export job](common/storage-import-export-tool-repairing-an-export-job-v1.md)

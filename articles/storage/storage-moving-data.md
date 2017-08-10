@@ -55,7 +55,7 @@ See [Using the Azure CLI with Azure Storage](common/storage-azure-cli.md) to lea
 ## Moving large amounts of data with a slow network
 One of the biggest challenges associated with moving large amounts of data is the transfer time. If you want to get data to/from Azure Storage without worrying about networks costs or writing code, then Azure Import/Export is an appropriate solution.
 
-See [Azure Import/Export](storage-import-export-service.md) to learn more.
+See [Azure Import/Export](common/storage-import-export-service.md) to learn more.
 
 ## Backing up your data
 If you simply need to backup your data to Azure Storage, Azure Backup is the way to go. This is a powerful solution for backing up on-premises data and Azure VMs.

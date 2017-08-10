@@ -101,7 +101,7 @@ To prepare the VHDs for migration, you'll need:
 > [!NOTE]
 > If you choose synchronous copy option with AzCopy, for optimal performance, copy your VHD by running one of these tools from an Azure VM that is in the same region as the destination storage account. If you are copying a VHD from an Azure VM in a different region, your performance may be slower.
 >
-> For copying a large amount of data over limited bandwidth, consider [using the Azure Import/Export service to transfer data to Blob Storage](storage-import-export-service.md); this allows you to transfer your data by shipping hard disk drives to an Azure datacenter. You can use the Azure Import/Export service to copy data to a standard storage account only. Once the data is in your standard storage account, you can use either the [Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx) or AzCopy to transfer the data to your premium storage account.
+> For copying a large amount of data over limited bandwidth, consider [using the Azure Import/Export service to transfer data to Blob Storage](common/storage-import-export-service.md); this allows you to transfer your data by shipping hard disk drives to an Azure datacenter. You can use the Azure Import/Export service to copy data to a standard storage account only. Once the data is in your standard storage account, you can use either the [Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx) or AzCopy to transfer the data to your premium storage account.
 >
 > Note that Microsoft Azure only supports fixed size VHD files. VHDX files or dynamic VHDs are not supported. If you have a dynamic VHD, you can convert it to fixed size using the [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) cmdlet.
 >

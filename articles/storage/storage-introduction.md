@@ -56,7 +56,7 @@ There are three types of blobs -- block blobs, append blobs, and page blobs (use
 * Page blobs are used to hold random access files up to 8 TB in size. These are used for the VHD files that back VMs.
 * Append blobs are made up of blocks like the block blobs, but are optimized for append operations. These are used for things like logging information to the same blob from multiple VMs.
 
-For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a set of hard drives to Microsoft to import or export data directly from the data center. See [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](storage-import-export-service.md).
+For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a set of hard drives to Microsoft to import or export data directly from the data center. See [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](common/storage-import-export-service.md).
 
 ## File storage
 
@@ -195,7 +195,7 @@ You can use the AzCopy command-line utility to copy blob, and file data within y
 
 AzCopy is built on top of the [Azure Data Movement Library](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), which is currently available in preview.
 
-The Azure Import/Export service can be used to import or export large amounts of blob data to or from your storage account. You prepare and mail multiple hard drives to an Azure data center, where they will transfer the data to/from the hard drives and send the hard drives back to you. For more information about the Import/Export service, see [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](storage-import-export-service.md).
+The Azure Import/Export service can be used to import or export large amounts of blob data to or from your storage account. You prepare and mail multiple hard drives to an Azure data center, where they will transfer the data to/from the hard drives and send the hard drives back to you. For more information about the Import/Export service, see [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](common/storage-import-export-service.md).
 
 ## Pricing
 
@@ -250,7 +250,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Storage Service Management REST API (Classic)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### Azure Storage data movement services
-* [Storage Import/Export Service REST API](storage-import-export-service.md)
+* [Storage Import/Export Service REST API](common/storage-import-export-service.md)
 * [Storage Data Movement Client Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### Tools and utilities

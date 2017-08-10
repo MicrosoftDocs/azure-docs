@@ -71,4 +71,4 @@ K:\Temp\FavoriteVideo.ISO,https://mystorageaccount.blob.core.windows.net/favorit
 
 ## Next steps
 
-* [Import/Export service metadata and properties file format](storage-import-export-file-format-metadata-and-properties.md)
+* [Import/Export service metadata and properties file format](common/storage-import-export-file-format-metadata-and-properties.md)

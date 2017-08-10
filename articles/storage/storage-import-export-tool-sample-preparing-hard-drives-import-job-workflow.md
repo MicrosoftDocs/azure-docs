@@ -127,5 +127,5 @@ Once the copy sessions have completed, you can disconnect the two drives from th
 
 ## Next steps
 
-* [Preparing hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import.md)
-* [Quick reference for frequently used commands](storage-import-export-tool-quick-reference.md)
+* [Preparing hard drives for an import job](common/storage-import-export-tool-preparing-hard-drives-import.md)
+* [Quick reference for frequently used commands](common/storage-import-export-tool-quick-reference.md)

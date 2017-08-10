@@ -21,7 +21,7 @@ ms.author: muralikk
 
 The Microsoft Azure Import/Export service exposes a REST API to enable programmatic control of import/export jobs. You can use the REST API to perform all of the import/export operations that you can perform with the [Azure portal](https://portal.azure.com/). Additionally, you can use the REST API to perform certain granular operations, such as querying the percentage completion of a job, which are not currently available in the classic portal.
 
-See [Using the Microsoft Azure Import/Export service to Transfer Data to Blob Storage](storage-import-export-service.md) for an overview of the Import/Export service and a tutorial that demonstrates how to use the classic portal to create and manage import and export jobs.
+See [Using the Microsoft Azure Import/Export service to Transfer Data to Blob Storage](common/storage-import-export-service.md) for an overview of the Import/Export service and a tutorial that demonstrates how to use the classic portal to create and manage import and export jobs.
 
 ## Service endpoints
 
@@ -37,19 +37,19 @@ Requests to the Import/Export service must specify the `api-version` parameter a
 
 ## Import/Export service operations
 
-[Creating an import job](storage-import-export-creating-an-import-job.md)
+[Creating an import job](common/storage-import-export-creating-an-import-job.md)
 
-[Creating an export job](storage-import-export-creating-an-export-job.md)
+[Creating an export job](common/storage-import-export-creating-an-export-job.md)
 
 [Retrieving state information for a job](storage-import-export-retrieving-state-info-for-a-job.md)
 
-[Enumerating jobs](storage-import-export-enumerating-jobs.md)
+[Enumerating jobs](common/storage-import-export-enumerating-jobs.md)
 
-[Cancelling and deleting jobs](storage-import-export-cancelling-and-deleting-jobs.md)
+[Cancelling and deleting jobs](common/storage-import-export-cancelling-and-deleting-jobs.md)
 
-[Backing Up drive manifests](storage-import-export-backing-up-drive-manifests.md)
+[Backing Up drive manifests](common/storage-import-export-backing-up-drive-manifests.md)
 
-[Diagnostics and error recovery for Import/Export jobs](storage-import-export-diagnostics-and-error-recovery.md)
+[Diagnostics and error recovery for Import/Export jobs](common/storage-import-export-diagnostics-and-error-recovery.md)
 
 ## Next steps
 
