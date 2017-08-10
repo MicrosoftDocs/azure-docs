@@ -67,7 +67,7 @@ When the VotingWeb front-end service is created, Visual Studio randomly selects 
   </Resources>
 ```
 
-Also update the Application URL property value in the Voting project so Visual Studio launches a web browser to the correct port when you debug using 'F5'.  In Solution Explorer, select the **Voting** project and update the **Application URL** property.
+Also update the Application URL property value in the Voting project so a web browser opens to the correct port when you debug using 'F5'.  In Solution Explorer, select the **Voting** project and update the **Application URL** property.
 
 ![Application URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
@@ -91,7 +91,7 @@ Now that the application is ready, you can deploy it to the Party Cluster direct
 ## Remove the application from a cluster using Service Fabric Explorer
 Service Fabric Explorer is a graphical user interface to explore and manage applications in a Service Fabric cluster.
 
-To remove the application we deployed to the Party Cluster:
+To remove the application from the Party Cluster:
 
 1. Browse to the Service Fabric Explorer, using the link provided by the Party Cluster sign-up page. For example, http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
@@ -101,7 +101,7 @@ To remove the application we deployed to the Party Cluster:
 
 ![Delete Application in Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/delete-application.png)
 
-## Remove the application type from a cluster using Service Fabric Exlorer
+## Remove the application type from a cluster using Service Fabric Explorer
 Applications are deployed as application types in a Service Fabric cluster, which enables you to have multiple instances and versions of the application running within the cluster. After having removed the running instance of our application, we can also remove the type, to complete the cleanup of the deployment.
 
 For more information about the application model in Service Fabric, see [Model an application in Service Fabric](service-fabric-application-model.md).
