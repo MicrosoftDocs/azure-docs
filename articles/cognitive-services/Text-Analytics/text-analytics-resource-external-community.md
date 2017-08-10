@@ -16,7 +16,7 @@ ms.author: heidist
  
  Find answers to commonly asked questions about concepts, code, and scenarios related to the Text Analytics API in Azure Cognitive Services.
 
- ## API availability and Billing
+ ## Availability and Billing
 
  ### Can I manually throttle requests to suspend billable transactions?
 
@@ -24,15 +24,16 @@ ms.author: heidist
  
  Because data isn't stored, the impact on deleting and recreating the sign up is generally minimal. The only coding investment you lose is the reference to your access key string, which you would need to update after a new sign up.
 
+ ### If I upgrade to a higher tier mid-cycle, is the cost of the current month applied to  
+
 ## Architecture and concept questions
 
- ### How can I find out if support for a specific language is forthcoming?
+Placeholder for questions/answers...
 
-We avoid pre-announcing support for specific languages. This practice minimizes the chance of customers or partners taking a dependency on functionality that we might not be able to deliver in a timely manner. If you want support for specific language, you can request or vote for it on [User Voice](https://cognitive.uservoice.com/). Your votes will help us prioritize which ones to work on next.
+## Code and debug questions
 
-### Why do sentiment score and key phrase outputs vary, when inputs are identical?
+Placeholder for questions/answers...
 
-Machine learning models and algorithms are subject to change and will produce different scores, hopefully more accurate scores, as we evolve the technology. We do not announce every update to the service
 
 ## Next steps
 

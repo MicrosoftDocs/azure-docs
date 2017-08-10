@@ -2,45 +2,55 @@
   href: ../index.md
 - name: Overview
   items:
-  - name: Learn about Text Analytics API
+  - name: Welcome to Text Analytics API
     href: text-analytics-overview-whatis.md
 - name: Quickstarts
   items:
-  - name: Analyze text with REST
+  - name: Analyze sentiment with REST
+    href: text-analytics-quickstart-rest-api.md
+  - name: Extract key phrases with REST
+    href: text-analytics-quickstart-rest-api.md
+  - name: Detect languages with REST
     href: text-analytics-quickstart-rest-api.md
 - name: Tutorials
   items:
-  - name: Twitter sentiment analysis
-    href: 
-  - name: Power BI visualizations
+  - name: Logic Apps & Text Analytics
     href: 
 - name: Concepts
   items:
    - name: Sentiment analysis 
      href: text-analytics-concept-sentiment-analysis.md
-   - name: Keyword extraction
+   - name: Key phrase extraction
      href: text-analytics-concept-keyword-extraction.md
 - name: How-to guides
   items:
    - name: Structure data inputs
      href: text-analytics-howto-input-data.md
-   - name: Aggregate and analyze results
-     href: text-analytics-howto-aggregation.md
+   - name: Work with analyis outputs
+     href: text-analytics-howto-output.md
+   - name: Develop with C#
+     href: 
 - name: Reference
   items: 
   - name: REST API
     href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
-  - name: Windows SDK
-    href: https://github.com/Microsoft/Cognitive-TextAnalytics-Windows
   - name: Android SDK
     href: https://github.com/Microsoft/Cognitive-TextAnalytics-Android
   - name: .Net Standard SDK
     href: https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet
 - name: Resources
   items:
-  - name: Data usage and retention
-    href: text-analytics-resource-data-privacy.md
   - name: Frequently asked questions (FAQ)
     href: text-analytics-resource-faq.md
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/text-analytics-api
+  - name: User Voice 
+    href: https://cognitive.uservoice.com/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
+  - name: Azure Support
+    href: https://azure.microsoft.com/overview/sales-number/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: External & Community Content
+    href: text-analytics-resource-external-community.md
