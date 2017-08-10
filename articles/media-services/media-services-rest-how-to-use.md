@@ -17,7 +17,7 @@ ms.date: 08/10/2017
 ms.author: juliako
 
 ---
-# Media Services Operations REST API overview
+# Media Services operations REST API overview
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 The **Media Services Operations REST** API is used for creating jobs, assets, access policies, and other operations on objects in a Media Service account. For more information, see [Media Services Operations REST API reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
