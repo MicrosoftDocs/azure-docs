@@ -41,6 +41,8 @@
     href: tutorial-vsts-iis-cicd.md
 - name: Samples
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=virtual-machines
   - name: PowerShell
     href: powershell-samples.md
   - name: Azure CLI
@@ -203,6 +205,8 @@
         href: convert-unmanaged-to-managed-disks.md
       - name: Migrate a classic VM to Managed Disks
         href: migrate-single-classic-to-resource-manager.md
+    - name: Convert disk storage from standard to premium, and vice versa 
+      href: convert-disk-storage.md
     - name: Take a snapshot of a Managed Disk
       href: snapshot-copy-managed-disk.md
     - name: Attach data disk
@@ -352,6 +356,8 @@
         href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
+    - name: Supportability of adding Azure VM to an existing availability set
+      href: ../virtual-machines-availability-set-supportability.md
     - name: Understand a system reboot
       href: understand-vm-reboot.md
     - name: Remote Desktop connections

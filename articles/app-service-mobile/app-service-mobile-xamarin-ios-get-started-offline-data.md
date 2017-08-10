@@ -2,8 +2,8 @@
 title: Enable offline sync for your Azure Mobile App (Xamarin iOS)
 description: Learn how to use App Service Mobile App to cache and sync offline data in your Xamarin iOS application
 documentationcenter: xamarin
-author: dhei
-manager: adrianha
+author: ggailey777
+manager: cfowler
 editor: ''
 services: app-service\mobile
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: glenga
 
 ---
 # Enable offline sync for your Xamarin.iOS mobile app

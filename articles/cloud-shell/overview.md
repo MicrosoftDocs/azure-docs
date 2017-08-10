@@ -8,7 +8,7 @@ manager: timlt
 tags: azure-resource-manager
  
 ms.assetid: 
-ms.service: 
+ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
@@ -40,11 +40,11 @@ On first launch Cloud Shell prompts to create a resource group, storage account,
 #### Create new storage
 ![](media/basic-storage.png)
 
-A locally redundant storage (LRS) account can be created on your behalf with an Azure file share containing a default 5-GB disk image. The file share mounts as `clouddrive` for file share interaction with the disk image being used to sync and persist your $Home directory. Regular storage costs apply.
+A locally-redundant storage (LRS) account can be created on your behalf with an Azure file share containing a default 5-GB disk image. The file share mounts as `clouddrive` for file share interaction with the disk image being used to sync and persist your $Home directory. Regular storage costs apply.
 
 Three resources will be created on your behalf:
 1. Resource Group named: `cloud-shell-storage-<region>`
-2. Storage Account named: `cs-uniqueGuid`
+2. Storage Account named: `cs<uniqueGuid>`
 3. File Share named: `cs-<user>-<domain>-com-uniqueGuid`
 
 > [!Note]
@@ -53,7 +53,7 @@ Three resources will be created on your behalf:
 #### Use existing resources
 ![](media/advanced-storage.png)
 
-An advanced option is also provided allowing you to associate existing resources to Cloud Shell. When presented with the storage setup prompt, click "Show advanced settings" to select additional options. Dropdowns are filtered for your assigned Cloud Shell region and locally/globally redundant storage accounts.
+An advanced option is also provided allowing you to associate existing resources to Cloud Shell. When presented with the storage setup prompt, click "Show advanced settings" to select additional options. Dropdowns are filtered for your assigned Cloud Shell region and locally/globally-redundant storage accounts.
 
 [Learn about Cloud Shell storage, updating file shares, and uploading/downloading files.] (persisting-shell-storage.md)
 

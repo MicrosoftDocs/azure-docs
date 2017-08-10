@@ -3,8 +3,8 @@ title: Migrate from Mobile Services to an App Service Mobile App
 description: Learn how to easily migrate your Mobile Services application to an App Service Mobile App
 services: app-service\mobile
 documentationcenter: ''
-author: dhei
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: ''
 
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: adrianha
+ms.author: glenga
 
 ---
 # <a name="article-top"></a>Migrate your existing Azure Mobile Service to Azure App Service
