@@ -21,7 +21,7 @@ ms.author: nitinme
 ---
 # Use Azure Toolkit for IntelliJ to create Spark applications for HDInsight cluster
 
-Use the Azure Toolkit for the IntelliJ plug-in to develop Spark applications written in Scala, and then submit them to an HDInsight Spark cluster directly from the IntelliJ IDE. You can use the plug-in in a few ways:
+Use the Azure Toolkit for the IntelliJ plug-in to develop Spark applications written in Scala, and then submit them to an HDInsight Spark cluster directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
 
 * Develop and submit a Scala Spark application on an HDInsight Spark cluster.
 * Access your Azure HDInsight Spark cluster resources.
@@ -166,7 +166,7 @@ For installation instructions, see [Install Azure Toolkit for IntelliJ](../azure
       To learn how to access the job output, see the "Access and manage HDInsight Spark clusters by using Azure Toolkit for IntelliJ" section later in this article.
 
 ## Run or debug a Spark Scala application on an HDInsight Spark cluster
-We also recommend another way of submitting the Spark application to the cluster. You can do so by setting the parameters in **Run/Debug configurations** IDE. For more information, see [Remotely debug Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+We also recommend another way of submitting the Spark application to the cluster. You can do so by setting the parameters in the **Run/Debug configurations** IDE. For more information, see [Remotely debug Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
 ## Choose Azure Data Lake Store as Spark Scala application storage
 To submit an application to Azure Data Lake Store, choose **Interactive** mode during the Azure sign-in process. 
@@ -246,7 +246,7 @@ To resolve this error, [download the executable](http://public-repo-1.hortonwork
    
     a. Enter a project name and location.
 
-    b. In the **Project SDK** drop-down list, select a Java version later than 1.7.
+    b. In the **Project SDK** drop-down list, select a Java version that's later than version 1.7.
 
     c. In the **Spark Version** drop-down list, select the version of Scala that you want to use: Scala 2.11.x for Spark 2.0 or Scala 2.10.x for Spark 1.6.
 
