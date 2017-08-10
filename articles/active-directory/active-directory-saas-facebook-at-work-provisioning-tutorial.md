@@ -40,7 +40,7 @@ Before configuring and enabling the provisioning service, decide what users and 
 [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
 >[!IMPORTANT]
->*   Test the provisioning configuration by assigning a single Azure AD user to Workplace by Facebook. Assign additional users and/or groups later.
+>*   Test the provisioning configuration by assigning a single Azure AD user to Workplace by Facebook. Assign additional users and groups later.
 >*   When you assign a user to Workplace by Facebook, you must select a valid user role. The "Default Access" role does not work for provisioning.
 
 ## Enable automated user provisioning
@@ -48,7 +48,7 @@ Before configuring and enabling the provisioning service, decide what users and 
 This section guides you through connecting your Azure AD to the user account provisioning API of Workplace by Facebook. You also learn how to configure the provisioning service to create, update, and disable assigned user accounts in Workplace by Facebook. This is based on user and group assignment in Azure AD.
 
 >[!Tip]
->You may also choose to enabled SAML-based SSO for Workplace by Facebook, by following the instructions provided in the [Azure portal](https://portal.azure.com). SSO can be configured independently of automatic provisioning, though these two features complement each other.
+>You can also choose to enabled SAML-based SSO for Workplace by Facebook, by following the instructions provided in the [Azure portal](https://portal.azure.com). SSO can be configured independently of automatic provisioning, though these two features complement each other.
 
 ### Configure user account provisioning to Workplace by Facebook in Azure AD
 

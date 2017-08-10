@@ -112,7 +112,7 @@ In this section, you enable Azure AD SSO in the Azure portal, and configure SSO 
 7. In a different web browser window, sign in to your Workplace by Facebook company site as an administrator.
   
    > [!NOTE] 
-   > As part of the SAML authentication process, Workplace may use query strings of up to 2.5 kilobytes in size in order to pass parameters to Azure AD.
+   > As part of the SAML authentication process, Workplace can use query strings of up to 2.5 kilobytes in size in order to pass parameters to Azure AD.
 
 8. In the **Company Dashboard**, go to the **Authentication** tab.
 
@@ -129,7 +129,7 @@ In this section, you enable Azure AD SSO in the Azure portal, and configure SSO 
 
 12. Scroll to the bottom of the section, and select **Test SSO**. A pop-up window appears, with the Azure AD sign in page. To authenticate, enter your credentials as normal. Ensure the email address returned back from Azure AD is the same as the Workplace account you are logged in with.
 
-13. If the test has completed successfully, scroll to the bottom of the page and click **Save**.
+13. If the test has completed successfully, scroll to the bottom of the page and select **Save**.
 
 14. Anyone using Workplace is now presented with Azure AD sign-in page for authentication.
 
@@ -185,7 +185,7 @@ In this section, a user called Britta Simon is created in Workplace by Facebook.
 There is no action for you in this section. If a user doesn't exist in Workplace by Facebook, a new one is created when you attempt to access Workplace by Facebook.
 
 >[!Note]
->If you need to create a user manually, contact the [Workplace by Facebook Client support team](https://workplace.fb.com/faq/)
+>If you need to create a user manually, contact the [Workplace by Facebook Client support team](https://workplace.fb.com/faq/).
 
 ### Assign the Azure AD test user
 
