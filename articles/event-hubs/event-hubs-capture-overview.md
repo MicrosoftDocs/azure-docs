@@ -57,7 +57,7 @@ You can configure Capture at the event hub creation time using the [Azure portal
 
 For Azure Blob Storage, Event Hubs Capture creates files in the Azure Storage account and container specified on the configured time window. You can view these files in any tool such as [Azure Storage Explorer][Azure Storage Explorer]. You can download the files locally to work on them.
 
-The files produced by Event Hubs Capture and saved to Blob Storage have the following Avro schema:
+The files produced by Event Hubs Capture have the following Avro schema:
 
 ![][3]
 
