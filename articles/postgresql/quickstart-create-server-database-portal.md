@@ -130,7 +130,7 @@ There are a number of applications you can use to connect to your Azure Database
     password | *your admin password* | Note, the typed password characters are not shown on the bash prompt. Press enter after you have typed all the characters to authenticate and connect.
 
 
-   Once connected, the psql utility displays a `postgres=>` prompt for you to type commands. In the initial connection output, a warning may be displayed since the psql in the Cloud Shell may be a different version than the Azure Database for PostgreSQL server version. Example psql output:
+   Once connected, the psql utility displays a `postgres=\>` prompt for you to type commands. In the initial connection output, a warning may be displayed since the psql in the Cloud Shell may be a different version than the Azure Database for PostgreSQL server version. Example psql output:
 
     ```bash
     psql (9.5.7, server 9.6.2)
@@ -139,7 +139,7 @@ There are a number of applications you can use to connect to your Azure Database
     SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-SHA384, bits: 256, compression: off)
     Type "help" for help.
    
-    postgres=> 
+    postgres=\> 
     ```
 
 4.  Create a blank database at the prompt by typing the following command:
