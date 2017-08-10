@@ -38,12 +38,13 @@ You can use IoT Suite, IoT Central, or IoT Hub to build your IoT solution. [IoT 
 
 The following table summarizes the key differences between IoT Suite and IoT Central to help you choose the correct one to meet your requirements:
 
-|              | IoT Suite | IoT Central |
-| ------------ | --------- | ----------- |
-| Service type | PaaS. You have access to the underlying Azure services to manage them. | SaaS. Fully managed solution, you don't need to manage the underlying Azure services. |
-| Flexibility | High. The code for the microservices is open source and you can modify it in any way you see fit. | Medium. You can use the built-in GUI tools to customize the model and aspects of the UI. |
-| Skills | Java or .NET skills are required to customize the solution. | Modelling skills are required to customize the solution. |
+|                        | IoT Suite | IoT Central |
+| ---------------------- | --------- | ----------- |
+| Service type           | PaaS. You have access to the underlying Azure services to manage them. | SaaS. Fully managed solution, you don't need to manage the underlying Azure services. |
+| Flexibility            | High. The code for the microservices is open source and you can modify it in any way you see fit. | Medium. You can use the built-in GUI tools to customize the model and aspects of the UI. |
+| Skills                 | Java or .NET skills are required to customize the solution. | Modelling skills are required to customize the solution. |
 | Get started experience | Preconfigured solutions implement common IoT scenarios. Can be deployed in minutes. | Templates provide pre-built models. Can be deployed in minutes. |
+| Pricing                | You can fine tune the services to control the cost. | Simple, predictable pricing structure. |
 
 <!-- Extend table with info from Cory and Hector -->
 
