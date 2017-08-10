@@ -31,10 +31,11 @@ In this article, you learn about the following:
 * replication 
 * transferring data into or out of storage
 * the many storage client libraries available. 
-
+<!--> RE-ENABLE THIS AFTER MVC GOES IN
 To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
 * [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
 * [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
+--> 
 
 ## Introducing the Azure Storage services
 
@@ -214,10 +215,15 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 
 ## Next steps
 
+* [Learn more about Blob storage](/blobs/storage-blobs-introduction.md)
+* [Learn more about File storage](/files/storage-files-introduction.md)
+* [Learn more about Queue storage](/queues/storage-queues-introduction.md)
+
+<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
 To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
 * [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
 * [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
-
+-->
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 
