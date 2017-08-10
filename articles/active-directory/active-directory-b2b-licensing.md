@@ -27,13 +27,16 @@ You can use Azure AD B2B collaboration capabilities to invite guest users into y
 
 Specifically:
 * Azure AD Free capabilities are available for guest users without additional licensing.
-* If you want do to provide access to paid Azure AD features to B2B users, you must have enough licenses to support those B2B guest users.
-* An inviting tenant with an Azure AD paid license has B2B collaboration user rights to an additional five B2B guest users invited to the tenant.
+* If you want to provide access to paid Azure AD features to B2B users, you must have enough licenses to support those B2B guest users.
+* An inviting tenant with an Azure AD paid license has B2B collaboration use rights to an additional five B2B guest users invited to the tenant.
 * The customer who owns the inviting tenant must be the one to determine how many B2B collaboration users need paid Azure AD capabilities. Depending on the paid Azure AD features you want for your guest users, you must have enough Azure AD paid licenses to cover B2B collaboration users in the same 5:1 ratio.
 
-A B2B collaboration guest user is added as a user from a partner company, not an employee of your organization. A B2B guest user can sign in with external credentials or credentials owned by your organization as described in this document. 
+A B2B collaboration guest user is added as a user from a partner company, not an employee of your organization or an employee of a different business in your conglomerate. A B2B guest user can sign in with external credentials or credentials owned by your organization as described in this article. 
 
-In other words, B2B licensing is set not by how the user authenticates but rather by the relationship of the user to your organization. If these users are not partners but rather are users such as your employees, or staff signing in using external identities, they are not considered for licensing purposes to be a B2B collaboration user even if their UserType is marked as “Guest.” They should be licensed normally, at one license per user.
+In other words, B2B licensing is set not by how the user authenticates but rather by the relationship of the user to your organization. If these users are not partners are treated differently in licensing terms. They are not considered to be a B2B collaboration user for licensing purposes even if their UserType is marked as “Guest.” They should be licensed normally, at one license per user. These users include:
+* Your employees
+* Staff signing in using external identities
+* An employee of a different business in your conglomerate
 
 
 ## Licensing examples
