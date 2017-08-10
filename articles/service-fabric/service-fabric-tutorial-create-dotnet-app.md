@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 08/10/2017
 ms.author: ryanwi, mikhegn
 
 ---
@@ -201,7 +201,7 @@ We start by creating the interface to act as the contract between the two servic
         }
     }
     ```
-7. Right click the **MyStatefulService.Interface** project in Solution Explorer and select **Properties**. Select the **Build** tab, then select a the **x64** value in the **Platform target** dropdown. 
+7. Right click solution in Solution Explorer and select **<New...>** in the dropdown column **Platform** in the **MyStatefulService.Interface** row. Select the **OK**. Select **<Edit...>** in the same cell, then select **Any CPU** and click **Remove**. Confirm and close the dialogs. 
 
 8. Save all your changes.
 
