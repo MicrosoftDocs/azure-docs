@@ -502,56 +502,42 @@ In the **VotingWeb** project, open the *Controllers/VotesController.cs* file.  R
     }
 ```
 
-## Deploy and debug the application locally
-With the new service added to the application, let us debug the full application and look at the default behavior of the new service.
+## Walk through the voting sample application
+The voting application consists of two services:
+- Web front-end service (VotingWeb)- An ASP.NET Core web front-end service, which serves the web page and exposes web APIs to communicate with the backend service.
+- Back-end service (VotingData)- An ASP.NET Core web service, which exposes an API to store the vote results in a reliable dictionary persisted on disk.
 
-To debug the application, press F5 in Visual Studio.
+![Application Diagram](./media/service-fabric-quickstart-dotnet/application-diagram.png)
 
-> [!NOTE]
-> If you choose to use **Refresh Application** as the Application Debug Mode, you are prompted to grant the local Service Fabric cluster access to the build output folder of your application.
-> 
+When you vote in the application the following events occur:
+1. A JavaScript sends the vote request to the web API in the web front-end service as an HTTP PUT request.
 
-Both services in your application are build, deployed and stated in your local Service Fabric cluster. Once the services start, Visual Studio still launches your browser, but also automatically brings up the **Diagnostics Event viewer**, where you can see trace-output from your services.
-   
-![Diagnostic events viewer](./media/service-fabric-tutorial-create-dotnet-app/diagnostic-events-viewer.png)
+2. The web front-end service uses a proxy to locate and forward an HTTP PUT request to the back-end service.
 
-The Diagnostics Events viewer shows you trace messages from all services that are part of the Visual Studio solution being debugged. By pausing the Diagnostics Event viewer, you are able to expand one of the service massages, to inspect its properties. By doing so, you can see which service in the cluster emitted the message, which node that service instance is currently running on and other information.
+3. The back-end service takes the incoming request, and stores the updated result in a reliable dictionary, which gets replicated to multiple nodes within the cluster and persisted on disk. All the application's data is stored in the cluster, so no database is needed.
 
-![Diagnostic events viewer](./media/service-fabric-tutorial-create-dotnet-app/expanded-diagnostics-viewer.png)
+## Debug in Visual Studio
+When debugging application in Visual Studio, you are using a local Service Fabric development cluster. You have the option to adjust your debugging experience to your scenario. In this application, we store data in our back-end service, using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
 
-You see that the service messages are coming from the stateful service we created, as the **serviceTypeName** is **MyStatefulServiceType**. You can also see that it is sending messages with the text "Current counter is...". This message is being emitted by this highlighted line of code in the `RunAsync` method of the **MyStatefulService.cs**, that you see in the following screenshot.
+To look at what happens in the code, complete the following steps:
+1. Open the **VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 47) - You can search for the file in the Solution Explorer in Visual Studio.
 
-![Service Message Code](./media/service-fabric-tutorial-create-dotnet-app/service-message-code.png)
+2. Open the **VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 50).
 
-For more information about emitting diagnostics information from your services and applications, see [Monitoring and diagnostics for Azure Service Fabric](service-fabric-diagnostics-overview.md).
+3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
+    - This is where the JavaScript in the browser sends a request to the web API controller in the front-end service. The controller in the front-end service then uses the ReverseProxy to send a PUT request to the back-end service.
 
-To stop debugging the application, go back to Visual Studio and press **Shift+F5**.
+4. Press **F5** to continue
+    - You are now at the break point in the back-end service.
+    
+    ![Add Vote Async Method](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-## Understanding the Service Fabric application and service
-Your Visual Studio solution now contains two projects.
-1. The Service Fabric application project - **MyApplication**
-    - This project does not contain any code directly. Instead, it references a set of service projects. In addition, it contains other types of content to specify how your application is composed and deployed.
-2. The service project - **MyWebAPIFrontEnd**
-    - This project is your ASP.NET Core Web API project, containing the code and configuration for your service. Looking at the ValuesController.cs code file in the Controllers folder, you notice it is a regular ASP.NET Core Web API controller. There are no specific requirements to the code you write as part of your controllers, when running an ASP.NET Core Web API as a reliable service in Service Fabric.
+    - In the first line in the method **(1)** we are using the `StateManager` to get or add a reliable dictionary called `counts`.
+    - All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
+    - In the transaction, we then update the value of the relevant key for the voting option and commits the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
+5. Press **F5** to continue
 
-For more information about the application model in Service Fabric, see [Model an application in Service Fabric](service-fabric-application-model.md).
-
-For more information about the contents of the service project, see [Getting started with reliable services](service-fabric-reliable-services-quick-start.md).
-
-
-To understand how it's using a reliable dictionary to store the data in the cluster, let's spend a little time looking at the code in the **MyStatefulService** service.
-
-The are five lines of code in the service that are related to creating, updating, and reading from the reliable dictionary.
-
-![Reliable Dictionary Code](./media/service-fabric-tutorial-create-dotnet-app/reliable-dictionary-code.png)
-
-1. Whenever the `RunAsync` method of the service is being run (which happens when the service starts), this line of code gets or adds a reliable dictionary with the name `myDictionary` to the service.
-2. All interaction with values in a reliable dictionary requires a transaction, this using statement being entered in this line of code creates that transaction.
-3. This line of code gets the value associated with the key specified in the method call for example, `Counter`.
-4. This line of code updates the value associated with the key `Counter`, by incrementing the value.
-5. This method call commits the transaction, and returns once the updated value is stored across a quorum of nodes in your cluster.
-
-For more detailed information about reliable dictionaries and reliable collections, see [Introduction to Reliable Collections in Azure Service Fabric stateful services](service-fabric-reliable-services-reliable-collections.md).
+To stop the debugging session, press **Shift+F5**.
 
 
 ## Next steps
