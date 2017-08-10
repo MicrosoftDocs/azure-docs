@@ -16,7 +16,7 @@ ms.author: gauravbh; tomfitz
 
 # Azure managed applications overview
 
-Vendors that use Azure can offer solutions to customers around the world. Azure Marketplace is a gallery that consists of hundreds of complex, multiresource templates from first- and third-party vendors. Within minutes, customers can deploy and start using platform as a service (PaaS) and software as a service (SaaS) applications. 
+Vendors that use Azure can offer solutions to customers around the world. Azure Marketplace is a gallery that consists of hundreds of complex, multiresource templates from first-party and third-party vendors. Within minutes, customers can deploy and start using platform as a service (PaaS) and software as a service (SaaS) applications. 
 
 Although the Marketplace provides a great way for customers to quickly deploy an offering, the customer is responsible for maintaining and updating the solution. Beyond the virtual machine image billing, vendors can't charge customers for the use of an application. Furthermore, vendors can't prevent customers from modifying critical application resources. Vendors also can't block access to intellectual property that makes up an application. Azure managed applications provide solutions for these concerns. 
 
@@ -26,7 +26,7 @@ A managed application is similar to a solution template in the Marketplace, with
 
 Managed service providers (MSPs), ISVs, and corporate central IT teams can use managed applications to deliver solutions through the Marketplace or the Service Catalog. Although customers deploy these managed applications in their subscriptions, they don't have to maintain, update, or service them. Because vendors manage and support the applications, customers don't have to develop application-specific domain knowledge to manage these applications. Customers can automatically acquire application updates without the need to worry about troubleshooting and diagnosing issues with the applications.
 
-For vendors and providers, managed applications create a channel to sell infrastructure and software through the Marketplace. Managed applications also provide a way to attach services and operational support to Azure customers. Vendors can bill customers by using Azure's billing system. They can use templates to manage the lifecycle of deployed applications. These solutions are self-contained and sealed to the customer, so vendors can provide high-quality service. This approach benefits PaaS and SaaS vendors. It also helps corporate central platform teams and system integrators (SIs) who want to package and resell their solutions.
+For vendors and providers, managed applications create a channel to sell infrastructure and software through the Marketplace. Managed applications also provide a way to attach services and operational support to Azure customers. Vendors can bill customers by using the Azure billing system. They can use templates to manage the lifecycle of deployed applications. These solutions are self-contained and sealed to the customer, so vendors can provide high-quality service. This approach benefits PaaS and SaaS vendors. It also helps corporate central platform teams and system integrators (SIs) who want to package and resell their solutions.
 
 ## Managed application types
 Azure managed applications come in two types: Service Catalog and Marketplace.
@@ -41,9 +41,9 @@ For information about consuming a Service Catalog managed application, see [Cons
  
 ### Marketplace
 
-Managed applications are available through the Marketplace in the Azure portal. After the vendor publishes these applications, they're available for everyone inside or outside of an organization to consume. With this approach, MSPs, ISVs, and SIs can offer their solutions to all Azure customers. Customers get the benefit of using these complex solutions without the need to invest in understanding and maintaining the solutions. 
+Managed applications are available through the Marketplace in the Azure portal. After the vendor publishes these applications, they're available for everyone inside or outside an organization to consume. With this approach, MSPs, ISVs, and SIs can offer their solutions to all Azure customers. Customers get the benefit of using these complex solutions without the need to invest in understanding and maintaining the solutions. 
 
-Currently, publishers can make their offers available as a managed application or as a solution template that's unmanaged. The main components of publishing a managed application include the template files and the UI definition file. The template file describes the resources that are provisioned. The UI definition file describes how the required inputs for provisioning these resources are displayed in the portal. The required files are packaged in a .zip file and uploaded through the publishing portal.
+Currently, publishers can make their offers available as a managed application or as a solution template that's unmanaged. The main components of publishing a managed application include the template file and the UI definition file. The template file describes the resources that are provisioned. The UI definition file describes how the required inputs for provisioning these resources are displayed in the portal. The required files are packaged in a .zip file and uploaded through the publishing portal.
  
 For information about publishing a managed application to the Marketplace, see [Azure managed applications in the Marketplace](managed-application-author-marketplace.md).
 
@@ -59,7 +59,7 @@ The publisher creates a package that contains the template files and the createU
 
 - **applianceMainTemplate.json**: This template file defines all the resources that are provisioned by the appliance. This file is a regular template file that's used to create resources.
 
-- **MainTemplate.json**: This template file defines the appliance resource (Microsoft.Solutions/appliances). One key property defined in this resource is the ManagedResourceGroupId. This property indicates which resource group is used to host the actual resources that are defined in the applianceMainTemplate.json.
+- **MainTemplate.json**: This template file defines the appliance resource (Microsoft.Solutions/appliances). One key property defined in this resource is ManagedResourceGroupId. This property indicates which resource group is used to host the actual resources that are defined in applianceMainTemplate.json.
 
 - **applianceCreateUIDefinition.json**: This file describes how the UI needed for the parameters defined in the template is rendered.
 
