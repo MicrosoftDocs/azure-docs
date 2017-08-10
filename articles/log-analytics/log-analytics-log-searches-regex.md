@@ -23,7 +23,7 @@ ms.author: bwren
 This article provides details on the regular expression syntax used by Log Analytics.
 
 > [!NOTE]
-> You can only use RegEx with saerchable fields.  For more information on searchable fields, see **Field Types** in [Find data using log searches in Log Analytics](log-analytics-log-searches.md#use-additional-filters).
+> You can only use RegEx with searchable fields.  For more information on searchable fields, see **Field Types** in [Find data using log searches in Log Analytics](log-analytics-log-searches.md#use-additional-filters).
 
 
 ## RegEx keyword
