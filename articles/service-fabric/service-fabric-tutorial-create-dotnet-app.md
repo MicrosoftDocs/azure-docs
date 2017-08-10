@@ -65,7 +65,7 @@ To get a complete understanding of how ASP.NET Core integrates with Service Fabr
 
 6. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **Web Application**. 
    
-   ![Choosing ASP.NET project type](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
+   ![Choose ASP.NET project type](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
    Visual Studio creates an application and a service project and displays them in Solution Explorer.
 
@@ -225,7 +225,7 @@ Open the *Views/Shared/_Layout.cshtml* file.  Replace it's contents with the fol
 ```
 
 ### Update the VotingWeb.cs file
-Open the *VotingWeb.cs* file.  Add the `using System.Net.Http;` directive to the top of the file.  Replace the function with the following, then save your changes.
+Open the *VotingWeb.cs* file.  Add the `using System.Net.Http;` directive to the top of the file.  Replace the `CreateServiceInstanceListeners()` function with the following, then save your changes.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -254,7 +254,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```
 
 ### Add the VotesController.cs file
-Right-click on the **Controllers** folder, then select **Add->New item->Class**.  Name the file "VotesController.cs" and click **Add**.  Replace the file contens with the following, then save your changes.
+Right-click on the **Controllers** folder, then select **Add->New item->Class**.  Name the file "VotesController.cs" and click **Add**.  Replace the file contents with the following, then save your changes.
 
 ```csharp
 using System;
@@ -293,13 +293,16 @@ namespace VotingWeb.Controllers
 }
 ```
 
+### Update the port
+
+
 ### Deploy and run the application locally
 You can now go ahead and run the application. In Visual Studio, press `F5` to deploy the application for debugging. `F5` fails if you didn't previously open Visual Studio as **administrator**.
 
 > [!NOTE]
 > The first time you run and deploy the application locally, Visual Studio creates a local cluster for debugging, which may take some time. The cluster creation status is displayed in the Visual Studio output window.
 
-When the cluster is ready, you get a notification from the Service Fabric Local Cluster Manager application in the system tray.
+At this point, your web app should look like this:
 
 ![ASP.NET Core front-end](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
 
@@ -316,64 +319,123 @@ In this tutorial you create a service, which stores a counter value in a reliabl
    
     ![Adding a new service to an existing application](./media/service-fabric-tutorial-create-dotnet-app/vs-add-new-service.png)
 
-2. In the **New Service Fabric Service** dialog, choose **Stateful Service**, and name the service **MyStatefulService** and press **OK**.
+2. In the **New Service Fabric Service** dialog, choose **Stateful ASP.NET Core**, and name the service **VotingData** and press **OK**.
 
     ![New service dialog in Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/add-stateful-service.png)
 
     Once your service project is created, you have two services in your application. As you continue to build your application, you can add more services in the same way. Each can be independently versioned and upgraded.
 
-### Deploy and debug the application locally
-With the new service added to the application, let us debug the full application and look at the default behavior of the new service.
+3. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **Web API**.
 
-To debug the application, press F5 in Visual Studio.
+    ![Choose ASP.NET project type](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog2.png)
 
-> [!NOTE]
-> If you choose to use **Refresh Application** as the Application Debug Mode, you are prompted to grant the local Service Fabric cluster access to the build output folder of your application.
-> 
+    Visual Studio creates a service project and displays them in Solution Explorer.
 
-Both services in your application are build, deployed and stated in your local Service Fabric cluster. Once the services start, Visual Studio still launches your browser, but also automatically brings up the **Diagnostics Event viewer**, where you can see trace-output from your services.
-   
-![Diagnostic events viewer](./media/service-fabric-tutorial-create-dotnet-app/diagnostic-events-viewer.png)
+    ![Solution Explorer](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
-The Diagnostics Events viewer shows you trace messages from all services that are part of the Visual Studio solution being debugged. By pausing the Diagnostics Event viewer, you are able to expand one of the service massages, to inspect its properties. By doing so, you can see which service in the cluster emitted the message, which node that service instance is currently running on and other information.
+### Add the VoteDataController.cs file
 
-![Diagnostic events viewer](./media/service-fabric-tutorial-create-dotnet-app/expanded-diagnostics-viewer.png)
+In the **VotingData** project right-click on the **Controllers** folder, then select **Add->New item->Class**. Name the file "VoteDataController.cs" and click **Add**. Replace the file contents with the following, then save your changes.
 
-You see that the service messages are coming from the stateful service we created, as the **serviceTypeName** is **MyStatefulServiceType**. You can also see that it is sending messages with the text "Current counter is...". This message is being emitted by this highlighted line of code in the `RunAsync` method of the **MyStatefulService.cs**, that you see in the following screenshot.
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.ServiceFabric.Data;
+using System.Threading;
+using Microsoft.ServiceFabric.Data.Collections;
 
-![Service Message Code](./media/service-fabric-tutorial-create-dotnet-app/service-message-code.png)
+namespace VotingData.Controllers
+{
+    [Route("api/[controller]")]
+    public class VoteDataController : Controller
+    {
+        private readonly IReliableStateManager stateManager;
 
-For more information about emitting diagnostics information from your services and applications, see [Monitoring and diagnostics for Azure Service Fabric](service-fabric-diagnostics-overview.md).
+        public VoteDataController(IReliableStateManager stateManager)
+        {
+            this.stateManager = stateManager;
+        }
 
-To stop debugging the application, go back to Visual Studio and press **Shift+F5**.
+        // GET api/VoteData
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var ct = new CancellationToken();
+
+            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+
+            using (ITransaction tx = this.stateManager.CreateTransaction())
+            {
+                var list = await votesDictionary.CreateEnumerableAsync(tx);
+
+                var enumerator = list.GetAsyncEnumerator();
+
+                var result = new List<KeyValuePair<string, int>>();
+
+                while (await enumerator.MoveNextAsync(ct))
+                {
+                    result.Add(enumerator.Current);
+                }
+
+                return Json(result);
+            }
+        }
+
+        // PUT api/VoteData/name
+        [HttpPut("{name}")]
+        public async Task<IActionResult> Put(string name)
+        {
+            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+
+            using (ITransaction tx = this.stateManager.CreateTransaction())
+            {
+                await votesDictionary.AddOrUpdateAsync(tx, name, 1, (key, oldvalue) => oldvalue + 1);
+                await tx.CommitAsync();
+            }
+
+            return new OkResult();
+        }
+
+        // DELETE api/VoteData/name
+        [HttpDelete("{name}")]
+        public async Task<IActionResult> Delete(string name)
+        {
+            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+
+            using (ITransaction tx = this.stateManager.CreateTransaction())
+            {
+                if (await votesDictionary.ContainsKeyAsync(tx, name))
+                {
+                    await votesDictionary.TryRemoveAsync(tx, name);
+                    await tx.CommitAsync();
+                    return new OkResult();
+                }
+                else
+                {
+                    return new NotFoundResult();
+                }
+            }
+        }
+    }
+}
+```
 
 
 ## Connect the services
-In this next step we will connect the two services, and make the front-end Web application get and set voting information from the back-end services reliable dictionary.
+In this next step we will connect the two services and make the front-end Web application get and set voting information from the back-end service's reliable dictionary.
 
 Service Fabric provides complete flexibility in how you communicate with reliable services. Within a single application, you might have services that are accessible via TCP. Other services that might be accessible via an HTTP REST API and still other services could be accessible via web sockets. For background on the options available and the tradeoffs involved, see [Communicating with services](service-fabric-connect-and-communicate-with-services.md).
 
 In this tutorial, we are using [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md).
 
 
-
-### Add the VotesController.cs file
-Right-click on the **Controllers** folder, then select **Add->New item->Class**.  Name the file "VotesController.cs" and click **Add**.  Replace the file contens with the following, then save your changes.
+### Update the VotesController.cs file
+In the **VotingWeb** project, open the *Controllers/VotesController.cs* file.  Replace the `VotesController` class definition contents with the following, then save your changes.
 
 ```csharp
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using Newtonsoft.Json;
-using System.Text;
-using System.Net.Http;
-using System.Net.Http.Headers;
-
-namespace VotingWeb.Controllers
-{
-    [Produces("application/json")]
-    [Route("api/Votes")]
     public class VotesController : Controller
     {
         private readonly HttpClient httpClient;
@@ -438,9 +500,32 @@ namespace VotingWeb.Controllers
 
         }
     }
-}
-
 ```
+
+## Deploy and debug the application locally
+With the new service added to the application, let us debug the full application and look at the default behavior of the new service.
+
+To debug the application, press F5 in Visual Studio.
+
+> [!NOTE]
+> If you choose to use **Refresh Application** as the Application Debug Mode, you are prompted to grant the local Service Fabric cluster access to the build output folder of your application.
+> 
+
+Both services in your application are build, deployed and stated in your local Service Fabric cluster. Once the services start, Visual Studio still launches your browser, but also automatically brings up the **Diagnostics Event viewer**, where you can see trace-output from your services.
+   
+![Diagnostic events viewer](./media/service-fabric-tutorial-create-dotnet-app/diagnostic-events-viewer.png)
+
+The Diagnostics Events viewer shows you trace messages from all services that are part of the Visual Studio solution being debugged. By pausing the Diagnostics Event viewer, you are able to expand one of the service massages, to inspect its properties. By doing so, you can see which service in the cluster emitted the message, which node that service instance is currently running on and other information.
+
+![Diagnostic events viewer](./media/service-fabric-tutorial-create-dotnet-app/expanded-diagnostics-viewer.png)
+
+You see that the service messages are coming from the stateful service we created, as the **serviceTypeName** is **MyStatefulServiceType**. You can also see that it is sending messages with the text "Current counter is...". This message is being emitted by this highlighted line of code in the `RunAsync` method of the **MyStatefulService.cs**, that you see in the following screenshot.
+
+![Service Message Code](./media/service-fabric-tutorial-create-dotnet-app/service-message-code.png)
+
+For more information about emitting diagnostics information from your services and applications, see [Monitoring and diagnostics for Azure Service Fabric](service-fabric-diagnostics-overview.md).
+
+To stop debugging the application, go back to Visual Studio and press **Shift+F5**.
 
 ## Understanding the Service Fabric application and service
 Your Visual Studio solution now contains two projects.
