@@ -226,7 +226,7 @@
       - name: Table storage
         href: https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
       - name: Table storage design guide
-        table-storage-design-guide.md
+        href: table-storage-design-guide.md
       - name: Tutorials
         items:
           - name: .NET
