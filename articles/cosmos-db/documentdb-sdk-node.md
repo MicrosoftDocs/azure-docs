@@ -59,7 +59,6 @@ ms.custom: H1Hack27Feb2017
 ## Release notes
 
 ### <a name="1.12.0"/>1.12.0</a>
-* Added support for [Request Unit per Minute (RU/m)](../cosmos-db/request-units-per-minute.md) feature.
 * Added support for a new [consistency level](consistency-levels.md) called ConsistentPrefix.
 * Added support for UriFactory.
 * Fixed a unicode support bug. (GitHub issue #171)

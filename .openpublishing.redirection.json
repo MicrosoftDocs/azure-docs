@@ -8411,6 +8411,396 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/linux/add-user.md",
+            "redirect_url": "articles/virtual-machines/linux/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/app-frameworks.md",
+            "redirect_url": "articles/virtual-machines/linux/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/cli-deploy-templates.md",
+            "redirect_url": "articles/virtual-machines/linux/create-ssh-secured-vm-from-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/configure-sshd-on-azure-linux-vms.md",
+            "redirect_url": "articles/virtual-machines/linux/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/create-aad-work-id.md",
+            "redirect_url": "articles/active-directory/active-directory-users-create-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/creation-choices.md",
+            "redirect_url": "articles/virtual-machines/linux/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/creation-choices-nodejs.md",
+            "redirect_url": "articles/virtual-machines/linux/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/deis-cluster.md",
+            "redirect_url": "articles/virtual-machines/linux/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/deploy-linux-vm-into-existing-vnet-using-cli.md",
+            "redirect_url": "articles/virtual-machines/linux/create-cli-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md",
+            "redirect_url": "articles/virtual-machines/linux/create-cli-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/deploy-linux-vm-into-existing-vnet-using-portal.md",
+            "redirect_url": "articles/virtual-machines/linux/create-cli-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/dotnet-core-1-landing.md",
+            "redirect_url": "articles/virtual-machines/linux/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/dotnet-core-2-architecture.md",
+            "redirect_url": "articles/virtual-machines/linux/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/dotnet-core-3-access-security.md",
+            "redirect_url": "articles/virtual-machines/linux/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/dotnet-core-4-availability-scale.md",
+            "redirect_url": "articles/virtual-machines/linux/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/dotnet-core-5-app-deployment.md",
+            "redirect_url": "articles/virtual-machines/linux/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/endpoints-in-resource-manager.md",
+            "redirect_url": "articles/virtual-machines/linux/nsg-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/infrastructure-availability-sets-guidelines.md",
+            "redirect_url": "articles/virtual-machines/linux/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/infrastructure-naming-guidelines.md",
+            "redirect_url": "articles/virtual-machines/linux/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/infrastructure-networking-guidelines.md",
+            "redirect_url": "articles/virtual-machines/linux/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/infrastructure-resource-groups-guidelines.md",
+            "redirect_url": "articles/virtual-machines/linux/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/infrastructure-storage-solutions-guidelines.md",
+            "redirect_url": "articles/virtual-machines/linux/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/infrastructure-subscription-accounts-guidelines.md",
+            "redirect_url": "articles/virtual-machines/linux/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/infrastructure-virtual-machine-guidelines.md",
+            "redirect_url": "articles/virtual-machines/linux/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/intro-on-azure.md",
+            "redirect_url": "articles/virtual-machines/linux/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/jupyter-notebook.md",
+            "redirect_url": "articles/virtual-machines/linux/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/mac-disable-ssh-password-usage.md",
+            "redirect_url": "articles/virtual-machines/linux/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/opensource-links.md",
+            "redirect_url": "articles/virtual-machines/linux/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/python-django-web-app.md",
+            "redirect_url": "articles/virtual-machines/linux/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/tutorial-convert-to-vmss.md",
+            "redirect_url": "articles/virtual-machines/linux/tutorial-create-vmss",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/use-root-privileges.md",
+            "redirect_url": "articles/virtual-machines/linux/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/usernames.md",
+            "redirect_url": "articles/virtual-machines/linux/faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/vm-monitoring.md",
+            "redirect_url": "articles/virtual-machines/linux/tutorial-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/extensions-authoring-templates.md",
+            "redirect_url": "articles/virtual-machines/windows/template-description",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/extensions-configuration-samples.md",
+            "redirect_url": "articles/virtual-machines/windows/template-description",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/extensions-troubleshoot.md",
+            "redirect_url": "articles/virtual-machines/linux/extensions-features",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/virtual-machines-linux-reset-password.md",
+            "redirect_url": "articles/virtual-machines/linux/reset-password",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/attach-disk-portal.md",
+            "redirect_url": "articles/virtual-machines/windows/attach-managed-disk-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/cli-manage.md",
+            "redirect_url": "articles/virtual-machines/linux/cli-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/create-managed-disk-ps.md",
+            "redirect_url": "articles/virtual-machines/windows/attach-disk-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/guidance-compute-single-vm.md",
+            "redirect_url": "/azure/architecture/reference-architectures/virtual-machines-windows/single-vmInclude file",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/upload-image.md",
+            "redirect_url": "articles/virtual-machines/windows/upload-generalized-managed",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/upload-specialized.md",
+            "redirect_url": "articles/virtual-machines/windows/create-vm-specialized",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/vhd-copy.md",
+            "redirect_url": "articles/virtual-machines/windows/create-vm-specialized",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/ps-manage.md",
+            "redirect_url": "articles/virtual-machines/windows/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sap-dbms-guide.md",
+            "redirect_url": "articles/virtual-machines/workloads/sap/dbms-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sap-deployment-guide.md",
+            "redirect_url": "articles/virtual-machines/workloads/sap/deployment-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sap-get-started.md",
+            "redirect_url": "articles/virtual-machines/workloads/sap/get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sap-planning-guide.md",
+            "redirect_url": "articles/virtual-machines/workloads/sap/planning-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/app-frameworks.md",
+            "redirect_url": "articles/virtual-machines/windows/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/cli-deploy-templates.md",
+            "redirect_url": "articles/virtual-machines/linux/create-ssh-secured-vm-from-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/create-aad-work-id.md",
+            "redirect_url": "articles/active-directory/active-directory-users-create-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/create-availability-set.md",
+            "redirect_url": "articles/virtual-machines/windows/tutorial-availability-sets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/creation-choices.md",
+            "redirect_url": "articles/virtual-machines/windows/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/dotnet-core-1-landing.md",
+            "redirect_url": "articles/virtual-machines/windows/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/dotnet-core-2-architecture.md",
+            "redirect_url": "articles/virtual-machines/windows/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/dotnet-core-3-access-security.md",
+            "redirect_url": "articles/virtual-machines/windows/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/dotnet-core-4-availability-scale.md",
+            "redirect_url": "articles/virtual-machines/windows/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/dotnet-core-5-app-deployment.md",
+            "redirect_url": "articles/virtual-machines/windows/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/endpoints-in-resource-manager.md",
+            "redirect_url": "articles/virtual-machines/windows/nsg-quickstart-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/hero-role.md",
+            "redirect_url": "articles/virtual-machines/windows/quick-create-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/infrastructure-availability-sets-guidelines.md",
+            "redirect_url": "articles/virtual-machines/windows/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/infrastructure-naming-guidelines.md",
+            "redirect_url": "articles/virtual-machines/windows/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/infrastructure-networking-guidelines.md",
+            "redirect_url": "articles/virtual-machines/windows/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/infrastructure-resource-groups-guidelines.md",
+            "redirect_url": "articles/virtual-machines/windows/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/infrastructure-storage-solutions-guidelines.md",
+            "redirect_url": "articles/virtual-machines/windows/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/infrastructure-subscription-accounts-guidelines.md",
+            "redirect_url": "articles/virtual-machines/windows/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/infrastructure-virtual-machine-guidelines.md",
+            "redirect_url": "articles/virtual-machines/windows/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/load-balance.md",
+            "redirect_url": "articles/virtual-machines/windows/tutorial-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/load-balanced-iis-tutorial.md",
+            "redirect_url": "articles/virtual-machines/windows/tutorial-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/manage-using-azure-automation.md",
+            "redirect_url": "articles/automation/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/multiple-vms.md",
+            "redirect_url": "articles/virtual-machines/windows/tutorial-create-vmss",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/ps-hybrid-cloud-test-env-lob.md",
+            "redirect_url": "articles/virtual-machines/windows/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/ps-hybrid-cloud-test-env-sim.md",
+            "redirect_url": "articles/virtual-machines/windows/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sharepoint-farm.md",
+            "redirect_url": "articles/virtual-machines/windows/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/vmss-powershell-creating.md",
+            "redirect_url": "articles/virtual-machines/windows/tutorial-create-vmss",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/extensions-authoring-templates.md",
+            "redirect_url": "articles/virtual-machines/windows/template-description",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/extensions-configuration-samples.md",
+            "redirect_url": "articles/virtual-machines/windows/template-description",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/container-service/cli-samples.md",
             "redirect_url": "/azure/container-service/kubernetes/cli-samples",
             "redirect_document_id": false
@@ -8648,6 +9038,11 @@
         {
             "source_path": "articles/container-service/container-service-tutorial-kubernetes-scale.md",
             "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/request-units-per-minute.md",
+            "redirect_url": "/azure/cosmos-db/request-units",
             "redirect_document_id": false
         }
     ]
