@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/06/2017
+ms.date: 08/10/2017
 ms.author: glenga
 
 ---
 # Create a function triggered by a generic webhook
 
-Learn how to execute code when a resource group is created     in your subscription. In this topic, you create a function that is triggered by an HTTP webhook request from an alert in Azure Monitor. The request contains a JSON payload with data about the activity that triggered the alert.  
+Azure Functions lets you execute your code in a serverless environment without having to first create a VM or publish a web application. For example, you can configure a function to be triggered by an alert raised by Azure Monitor. This topic shows you how to execute C# code when a resource group is added to your subscription.   
 
 ![Generic webhook triggered function in the Azure portal](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
 
@@ -46,11 +46,11 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
 
-2. Select the **GitHubWebHook** template for your desired language. **Name your function**, then select **Create**.
+2. Select the **Generic WebHook - C#** template. Type a name for your C# function, then select **Create**.
 
-     ![Create a GitHub webhook triggered function in the Azure portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
+     ![Create a generic webhook triggered function in the Azure portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
 
-2. In your new function, click **</> Get function URL**, then copy and save the values. You use this value to configure the webhook. 
+2. In your new function, click **</> Get function URL**, then copy and save the value. You use this value to configure the webhook. 
 
     ![Review the function code](./media/functions-create-generic-webhook-triggered-function/functions-copy-function-url.png)
          
@@ -70,13 +70,13 @@ Next, you create a webhook endpoint in an activity log alert in Azure Monitor.
     | ------------ |  ------- | -------------------------------------------------- |
     | **Activity log alert name** | resource-group-create-alert | Name of the activity log alert. |
     | **Subscription** | Your subscription | The subscription you are using for this tutorial. | 
-    |  **Resource Group** | myResourceGroup | The resource group the alert and action group is deployed to. Using the same resource group as your function app makes it easier to clean up after you complete the tutorial. |
+    |  **Resource Group** | myResourceGroup | The resource group that the alert resources are deployed to. Using the same resource group as your function app makes it easier to clean up after you complete the tutorial. |
     | **Event category** | Administrative | This category includes changes made to Azure resources.  |
-    | **Resource type** | Resource groups | Filters alerts to only resource groups activities. |
+    | **Resource type** | Resource groups | Filters alerts to resource group activities. |
     | **Resource Group**<br/>and **Resource** | All | Monitor all resources. |
-    | **Operation name** | Create Resource Group | Filters alerts to only create operations. |
+    | **Operation name** | Create Resource Group | Filters alerts to create operations. |
     | **Level** | Informational | Include informational level alerts. | 
-    | **Status** | Succeeded | Filters alerts to only actions that have completed successfully. |
+    | **Status** | Succeeded | Filters alerts to actions that have completed successfully. |
     | **Action group** | New | Create a new action group, which defines the action takes when an alert is raised. |
     | **Action group name** | function-webhook | A name to identify the action group.  | 
     | **Short name** | funcwebhook | A short name for the action group. |  
@@ -93,49 +93,51 @@ Next, you create a webhook endpoint in an activity log alert in Azure Monitor.
 
 4. Click **OK** to create the alert and action group.  
 
-The webhook is now called when a resource group is created in your subscription. Next, you update the code to handle the JSON log data in the body of the request.   
+The webhook is now called when a resource group is created in your subscription. Next, you update the code in your function to handle the JSON log data in the body of the request.   
 
 ## Update the function code
 
-Replace the C# script code in the function in the portal with the following code:
+1. Navigate back to your function app in the portal, and expand your function. 
 
-```csharp
-#r "Newtonsoft.Json"
+2. Replace the C# script code in the function in the portal with the following code:
 
-using System;
-using System.Net;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
-{
-    log.Info($"Webhook was triggered!");
-
-    // Get the activityLog object from the JSON in the message body.
-    string jsonContent = await req.Content.ReadAsStringAsync();
-    JToken activityLog = JObject.Parse(jsonContent.ToString())
-        .SelectToken("data.context.activityLog");
-
-    // Return an error if the resource in the activity log isn't a resource group. 
-    if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
-        "Microsoft.Resources/subscriptions/resourcegroups"))
+    ```csharp
+    #r "Newtonsoft.Json"
+    
+    using System;
+    using System.Net;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    
+    public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
     {
-        log.Error("An error occured");
-        return req.CreateResponse(HttpStatusCode.BadRequest, new
+        log.Info($"Webhook was triggered!");
+    
+        // Get the activityLog object from the JSON in the message body.
+        string jsonContent = await req.Content.ReadAsStringAsync();
+        JToken activityLog = JObject.Parse(jsonContent.ToString())
+            .SelectToken("data.context.activityLog");
+    
+        // Return an error if the resource in the activity log isn't a resource group. 
+        if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
+            "Microsoft.Resources/subscriptions/resourcegroups"))
         {
-            error = "Unexpected message payload or wrong alert received."
-        });
+            log.Error("An error occured");
+            return req.CreateResponse(HttpStatusCode.BadRequest, new
+            {
+                error = "Unexpected message payload or wrong alert received."
+            });
+        }
+    
+        // Write information about the created resource group to the streaming log.
+        log.Info(string.Format("Resource group '{0}' was {1} on {2}.",
+            (string)activityLog["resourceGroupName"],
+            ((string)activityLog["subStatus"]).ToLower(), 
+            (DateTime)activityLog["submissionTimestamp"]));
+    
+        return req.CreateResponse(HttpStatusCode.OK);    
     }
-
-    // Write information about the created resource group to the streaming log.
-    log.Info(string.Format("Resource group '{0}' was {1} on {2}.",
-        (string)activityLog["resourceGroupName"],
-        ((string)activityLog["subStatus"]).ToLower(), 
-        (DateTime)activityLog["submissionTimestamp"]));
-
-    return req.CreateResponse(HttpStatusCode.OK);    
-}
-```
+    ```
 
 Now you can test the function by creating a new resource group in your subscription.
 
@@ -157,9 +159,9 @@ Now you can test the function by creating a new resource group in your subscript
 
 ## Next steps
 
-You have created a function that runs when a request is received from a GitHub webhook. 
+You have created a function that runs when a request is received from a generic webhook. 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-For more information about webhook triggers, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md). 
+For more information about webhook triggers, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md). To learn more about developing functions in C#, see [Azure Functions C# script developer reference](functions-reference-csharp.md).
 
