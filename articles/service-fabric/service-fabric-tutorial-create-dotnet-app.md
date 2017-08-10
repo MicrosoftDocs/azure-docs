@@ -293,23 +293,7 @@ namespace VotingWeb.Controllers
 }
 ```
 
-### Configure the listening port
-When the web front-end is created, Visual Studio randomly selects a port for the service to listen on.  Configure the VotingWeb service to listen on port 8080.  In the **VotingWeb** project, open *PackageRoot/ServiceManifest.xml*.  Find the **Endpoint** resource in the **Resources** section and change the **Port** value to 8080.
 
-```xml
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
-    </Endpoints>
-  </Resources>
-```
-
-Also update the Application URL property value in the Voting project so Visual Studio launches a web browers to the correct port when you debug using 'F5'.  In Solution Explorer, select the **Voting** project and update the **Application URL** property.
-
-![Application URL](./media/service-fabric-tutorial-create-dotnet-app/application-url.png)
 
 ### Deploy and run the application locally
 You can now go ahead and run the application. In Visual Studio, press `F5` to deploy the application for debugging. `F5` fails if you didn't previously open Visual Studio as **administrator**.
