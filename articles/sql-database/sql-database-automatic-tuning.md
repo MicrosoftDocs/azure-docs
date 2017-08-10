@@ -39,4 +39,4 @@ See this article for the steps to [enable automatic tuning](sql-database-automat
 
 - To enable automatic tuning in Azure SQL Database and let automatic tuning feature fully manage your workload, see [Enable automatic tuning](sql-database-automatic-tuning-enable.md).
 - To use manual tuning, you can review [Tuning recommendations in Azure portal](sql-database-advisor-portal.md) and manually apply the ones that improve performance of your queries.
-- Read more about built-in intellgence that tunes the [Azure SQL Database](https://azure.microsoft.com/en-us/blog/artificial-intelligence-tunes-azure-sql-databases/)
+- Read more about built-in intelligence that tunes the [Azure SQL Database](https://azure.microsoft.com/en-us/blog/artificial-intelligence-tunes-azure-sql-databases/).
