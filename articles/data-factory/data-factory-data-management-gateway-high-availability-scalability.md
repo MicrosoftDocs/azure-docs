@@ -20,7 +20,9 @@ ms.author: abnarain
 This article helps you configure high availability and scalability solution with Data Management Gateway.    
 
 > [!NOTE]
-> This article assumes that you are already familiar with basics of Data Management Gateway. If you are not, see [Data Management Gateway](data-factory-data-management-gateway.md).  
+> This article assumes that you are already familiar with basics of Data Management Gateway. If you are not, see [Data Management Gateway](data-factory-data-management-gateway.md).
+
+>**This preview feature is officially supported on Data Management Gateway version 2.12.xxxx.x and above**. Please make sure you are using version 2.12.xxxx.x or above. Download the latest version of Data Management Gateway [here](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## Overview
 You can associate data management gateways that are installed on multiple on-premises machines with a single logical gateway from the portal. These machines are called **nodes**. You can have up to **four nodes** associated with a logical gateway. The benefits of having multiple nodes (on-premises machines with gateway installed) for a logical gateway are:  
@@ -121,7 +123,7 @@ This section assumes that you have gone through the following two articles or fa
 11. To delete a gateway node, click **Delete Node** on the toolbar, select the node you want to delete, and then click **Delete** from the toolbar. This action deletes the selected node from the group. Note that this action does not uninstall the data management gateway software from the node (on-premises Windows machine). Use **Add or remove programs** in Control Panel on the on-premises to uninstall the gateway. When you uninstall gateway from the node, it's automatically deleted in the portal.   
 
 ## Upgrade an existing gateway
-You can upgrade an existing gateway to use the high availability and scalability feature. This feature works only with nodes that have the data management gateway of version >= 2.9.xxxx. You can see the version of data management gateway installed on a machine in the **Help** tab of the Data Management Gateway Configuration Manager. 
+You can upgrade an existing gateway to use the high availability and scalability feature. This feature works only with nodes that have the data management gateway of version >= 2.12.xxxx. You can see the version of data management gateway installed on a machine in the **Help** tab of the Data Management Gateway Configuration Manager. 
 
 1. Update the gateway on the on-premises machine to the latest version by following by downloading and running an MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). See [installation](data-factory-data-management-gateway.md#installation) section for details.  
 2. Navigate to the Azure portal. Launch the **Data Factory page** for your data factory. Click Linked services tile to launch the **linked services page**. Select the gateway to launch the **gateway page**. Click and enable **Preview Feature** as shown in the following image: 
