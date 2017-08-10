@@ -205,6 +205,8 @@
         href: convert-unmanaged-to-managed-disks.md
       - name: Migrate a classic VM to Managed Disks
         href: migrate-single-classic-to-resource-manager.md
+    - name: Convert disk storage from standard to premium, and vice versa 
+      href: convert-disk-storage.md
     - name: Take a snapshot of a Managed Disk
       href: snapshot-copy-managed-disk.md
     - name: Attach data disk

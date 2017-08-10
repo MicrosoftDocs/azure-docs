@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/15/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Manually configure Application Insights for .NET applications
