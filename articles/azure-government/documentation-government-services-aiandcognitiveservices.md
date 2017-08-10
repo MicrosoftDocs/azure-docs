@@ -48,13 +48,13 @@ The following variations exist for Face API from Commercial Azure:
 For more information, please see [public documentation](../cognitive-services/Face/index.md) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
 ##### Emotion API
-Emotion API is being deprecated and all of it's technology has been encorporated to Face API.
+Emotion API is being deprecated and all of its technology has been incorporated to Face API.
  
 #### Speech
  
 ##### Translator Speech API (Speech Translation): 
 The following variations exist for Translator Speech API from Commercial Azure:
-- Endpoint: https|wss]://dev.microsofttranslator.us
+- Endpoint: https://dev.microsofttranslator.us
 - Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
 - Available SKUs: F0, S1, S2, S3, S4
  
@@ -67,7 +67,7 @@ The following variations exist for Translator Text API from Commercial Azure:
 - Endpoint: https://api.microsofttranslator.us
 - Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
 - Available SKUs: F0, S1, S2, S3, S4
-- Tranlator Hub, Web Widget, and Collaboration Translation Framework (CTF) are not supported.
+- Translator Hub, Web Widget, and Collaboration Translation Framework (CTF) are not supported.
  
 For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](http://docs.microsofttranslator.com/text-translate.html) for Translator Text API.
 
@@ -77,6 +77,6 @@ Data considerations for Cognitive Services are not yet available.
 
 ## Next Steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
-* Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)
+* Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov) tag
 * Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government) 
 
