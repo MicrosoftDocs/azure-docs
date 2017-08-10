@@ -3,7 +3,7 @@ title: Add your custom domain name to Azure Active Directory | Microsoft Docs
 description: How to add your company's domain names to Azure Active Directory, and how to verify the domain name.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: jeffgilb
 manager: femila
 editor: ''
 
