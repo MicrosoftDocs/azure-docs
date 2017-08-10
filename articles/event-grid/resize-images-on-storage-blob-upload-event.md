@@ -109,15 +109,7 @@ az functionapp create --name $functionapp --storage-account  $storageaccount  \
 ```
 You can now use Git to deploy your function code to this function app.
 
-## Configure the function app
-
-The function needs to connect to your storage account. You must add a storage_connection_string   
-
-Get the connection string for the storage account.
-
-Set the connection string in the function app settings.
-
-## Deploy the image resizing function code 
+## Deploy the function code 
 
 The function code that performs image resizing is available in a public GitHub repo: <https://github.com/Azure-Samples/function-image-upload-resize>. In the following command, $functionapp is the same function app name variable defined in the previous script.
 
