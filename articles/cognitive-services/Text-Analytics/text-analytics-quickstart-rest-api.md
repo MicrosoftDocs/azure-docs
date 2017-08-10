@@ -12,7 +12,7 @@ ms.date: 08/01/2017
 ms.author: heidist
 ---
 
-# Analyze sentiment, keywords, and language in ten minutes (REST API)
+# Analyze sentiment in ten minutes (REST API)
 
 In this Quickstart, learn how to call the Text Analytics REST APIs to perform sentiment analysis, keyword extraction, and language detection on text provided in requests to Azure Cognitive Services.
 
@@ -103,11 +103,11 @@ Endpoints for each operation include the resource providing the underlying algor
 
 Input rows must be JSON in raw text. XML is not supported. The schema is extremely simple, which means the same documents collection can be used in all requests.
  
-+ Language is used only in sentiment analysis and keyphrase extraction. It is ignored in language detection. For both sentiment analysis and keyphrase extraction, languuage is an optional parameter but if you do not provide it, the service performs an additional language detection pass. For maximum efficiency, you should always include the language in the request, assuming you know what it is. Refer to the [Text Analytics Overview > Supported Languages](overview.md#supported-languages) for a list of supported languages.
++ Language is used only in sentiment analysis and key phrase extraction. It is ignored in language detection. For both sentiment analysis and key phrase extraction, language is an optional parameter but if you do not provide it, the service performs an additional language detection pass. For maximum efficiency, you should always include the language in the request, assuming you know what it is. Refer to the [Text Analytics Overview > Supported Languages](overview.md#supported-languages) for a list of supported languages.
 
 + Document ID is required. Each ID should be a unique integer. The system uses this ID to structure the output. For example, keywords and sentiment scores are provided for each ID.
 
-+ Text provdes the strings to be analyzed. The maximum size of a single document that can be submitted is 10 KB, and 1 MB for the request overall. For more information about limits, see [Text Analytics Overview > Data limits](text-analytics-overview-whatis.md#data-limits). 
++ Text provides the strings to be analyzed. The maximum size of a single document that can be submitted is 10 KB, and 1 MB for the request overall. For more information about limits, see [Text Analytics Overview > Data limits](text-analytics-overview-whatis.md#data-limits). 
 
 ### Drilldown: Parsing the response
 
@@ -163,13 +163,13 @@ All POST requests return a JSON formatted response with the IDs and detected pro
 }
 ```
 
-### Drilldown: Observations about keyPhrase extraction
+### Drilldown: Observations about key phrase extraction
 
-Presenting inputs and outputs side by side helps us see how the keyPhrase extraction algorithm operates. 
+Presenting inputs and outputs side by side helps us see how the key phrase extraction algorithm operates. 
 
-The algorithm finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentenece.
+The algorithm finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentence.
 
-| ID | Input | keyPhrase output | 
+| ID | Input | key phrase output | 
 |----|-------|------|
 | 1 | "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!" | "year", "trail", "trip", "views"" |
 | 2 | "Poorly marked trails! I thought we were goners. Worst hike ever." | "Worst hike",  "trails", "goners" |
@@ -232,9 +232,9 @@ Using same documents, you can edit the existing request to call the language det
 
 + Replace `/sentiment` with `/languages` in the endpoint and then click **Send**.
 
-The language code input, which was useful for other analyses, is ignored for language detection. Text Analytics operates only on the `text` you provide. Response output for each document includes a friendly langauge, language code, and a score indicating certainty of the analysis. 
+The language code input, which was useful for other analyses, is ignored for language detection. Text Analytics operates only on the `text` you provide. Response output for each document includes a friendly language name, an ISO language code, and a score indicating the strength of the analysis. 
 
-Notice that the last document is correctly indentified as Spanish, even though the string was tagged as `en`.
+Notice that the last document is correctly identified as Spanish, even though the string was tagged as `en`.
 
             "id": "5",
             "detectedLanguages": [

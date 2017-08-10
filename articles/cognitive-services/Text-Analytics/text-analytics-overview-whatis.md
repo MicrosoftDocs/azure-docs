@@ -100,9 +100,9 @@ Billing is based on transactions, where a transaction is based on the number of 
 
 | Document | Sentiment | Key Phrase | Language Detection | Transactions |
 |----------|-----------|------------|--------------------|--------------|
-|1  | ![check][1]  |  ![check][1]  | ![check][1]   | 3 |
-|100 | ![check][1]  |  ![check][1]  |   | 200 |
-|1000 |   |   | ![check][1]   |1000 |
+| 1  | ✔ | ✔ | ✔ | 3 |
+| 100 | ✔ | ✔ |   | 200 |
+| 1000 |   |   | ✔ | 1000 |
 
 Each tier provides an allocation of transactions to be consumed over a 30-day billing cycle. The counter is reset back to 0 on day 31. 
 
@@ -152,6 +152,4 @@ For .NET developers, we recommend the [Cognitive Services Text Analytics .NET SD
  [Azure Cognitive Services Documentation page](https://docs.microsoft.com/azure/cognitive-services/)   
  [Azure Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)
 
-
-[1]: ././media/text-analytics/checkpoint.png
 
