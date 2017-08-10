@@ -14,7 +14,7 @@ To create and manage Azire virtual machines (VMs) in a consistent manner at scal
 
 
 ## Ansible
-[Ansible](https://www.ansible.com/) uses an agent-less model that typically uses SSH keys to authenticate and manage target machines. Configuration tasks are defined in runbooks, with a number of Ansible modules available to carry out specific tasks. Ansible can both deploy and configure the infrastructure in Azure, and then configure and manage the VMs you deploy.
+[Ansible](https://www.ansible.com/) is an automation engine for configuration management, VM creation, or application deployment. Ansible uses an agent-less model, typically with SSH keys, to authenticate and manage target machines. Configuration tasks are defined in runbooks, with a number of Ansible modules available to carry out specific tasks. For more information, see [How Ansible works](https://www.ansible.com/how-ansible-works).
 
 Learn how to:
 
@@ -24,7 +24,7 @@ Learn how to:
 
 
 ## Chef
-[Chef](https://www.chef.io/) clients are installed on target machines to allow Chef Server to run cookbooks that define the desired configuration of the Azure infrastructure and VMs. Chef can both deploy and configure the infrastructure in Azure, and then configure and manage the VMs you deploy.
+[Chef](https://www.chef.io/) is an automation platform that helps define how your infrastructure is configured, deployed, and managed. Additional components included Chef Habitat for application lifecycle automation rather than the infrastructure, and Chef InSpec that helps automate compliance with security and policy requirements. Chef Clients are installed on target machines, with one or more central Chef Servers that store and manage the configurations. For more information, see [An Overview of Chef](https://docs.chef.io/chef_overview.html).
 
 Learn how to:
 
@@ -33,7 +33,7 @@ Learn how to:
 
 
 ## Puppet
-[Puppet](https://www.puppet.com) agents are installed on target machines to allow Puppet Master to run manifests that define the desired configuration of the Azure infrastructure and VMs. Puppet can both deploy and configure the infrastructure in Azure, and then configure and manage the VMs you deploy.
+[Puppet](https://www.puppet.com) is an enteprise-ready automation platform that handles the application delivery and deployment process. Agents are installed on target machines to allow Puppet Master to run manifests that define the desired configuration of the Azure infrastructure and VMs. Puppet can integrate with other solutions such as Jenkins and GitHub for an improve devops workflow. For more information, see [How Puppet works](https://puppet.com/product/how-puppet-works).
 
 Learn how to:
 
