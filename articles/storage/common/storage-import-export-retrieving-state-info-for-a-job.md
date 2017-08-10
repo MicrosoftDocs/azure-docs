@@ -89,4 +89,4 @@ When a job or drive fails to progress normally through its expected life cycle, 
 
 ## Next steps
 
-* [Using the Import/Export service REST API](common/storage-import-export-using-the-rest-api.md)
+* [Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)
