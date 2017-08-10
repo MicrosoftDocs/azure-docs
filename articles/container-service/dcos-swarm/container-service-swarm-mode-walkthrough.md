@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 08/11/2017
 ms.author: nepeters
 ms.custom:
 ---
@@ -24,7 +24,7 @@ ms.custom:
 
 In this quick start, a Docker Swarm Mode cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
 
-Docker Swarm mode on Azure Container Service is in preview and should not be used for production workload.
+Docker Swarm mode on Azure Container Service is in preview and **should not be used for production workloads**.
 
 This quick start assumes a basic understanding of Docker concepts, for detailed information on Kubernetes see the [Docker documentation](https://docs.docker.com/).
 
@@ -61,7 +61,9 @@ Output:
 
 ## Create Docker Swarm cluster
 
-Create a Docker Swarm Mode cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. The following example creates a cluster named *mySwarmCluster* with one Linux master node and three Linux agent nodes.
+Create a Docker Swarm Mode cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
+
+The following example creates a cluster named *mySwarmCluster* with one Linux master node and three Linux agent nodes.
 
 ```azurecli-interactive
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
@@ -75,7 +77,7 @@ Throughout this quick start, you need the IP address of the Azure load balancers
 
 
 ```bash
-az network public-ip list --query '[*].{Name:name,IPAddress:ipAddress}' -o table
+az network public-ip list --resource-group myResourceGroup --query '[*].{Name:name,IPAddress:ipAddress}' -o table
 ```
 
 Output:
@@ -83,11 +85,11 @@ Output:
 ```bash
 Name                                                                 IPAddress
 -------------------------------------------------------------------  -------------
-swarmm-agent-ip-myswarmcluster-myresourcegroup-d5b9d4agent-66066781  51.141.44.42
-swarmm-master-ip-myswarmcluster-myresourcegroup-d5b9d4mgmt-66066781  51.141.37.199
+swarmm-agent-ip-myswarmcluster-myresourcegroup-d5b9d4agent-66066781  52.179.23.131
+swarmm-master-ip-myswarmcluster-myresourcegroup-d5b9d4mgmt-66066781  52.141.37.199
 ```
 
-Create and SSH tunnel to the Swarm master. Replace `IPAddress` with the IP address of the Swarm master.
+Create an SSH tunnel to the Swarm master. Replace `IPAddress` with the IP address of the Swarm master.
 
 ```bash
 ssh -p 2200 -fNL localhost:2374:/var/run/docker.sock azureuser@IPAddress
