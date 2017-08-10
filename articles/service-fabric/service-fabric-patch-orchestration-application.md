@@ -361,7 +361,7 @@ A. The time needed by the patch orchestration app is mostly dependent on the fol
 - The average time needed to download and install an update, which should not exceed a couple of hours.
 - The performance of the VM and network bandwidth.
 
-Q. **Why do i see some updates in Windows Update results obtained via REST api's, but not under the Windows Update history on machine?**
+Q. **Why do I see some updates in Windows Update results obtained via REST api's, but not under the Windows Update history on machine?**
 
 A. Some product updates need to be checked in their respective update/patch history. Eg: Windows Defender updates does not show up in Windows Update history on Windows Server 2016.
 
@@ -411,10 +411,8 @@ An administrator must intervene and determine why the application or cluster bec
 ### Version 1.1.1
 - Fixed a bug in SetupEntryPoint of NodeAgentService which prevented installation of NodeAgentNTService.
 
-### Version 1.2.0
+### Version 1.2.0 (Latest)
 
-- Fixed a rare bug in the logic of system restart which would leave the node in disabled state.
-- Fixed a bug which occurs if SF cluster upgrade (requiring resart) happens alongside windows update also requiring restart.
-- POA would now be stopping SF services before trying to restart the machine.
-- Fixed a bug in creation of RM tasks due to which health check during preparing repair tasks wasn't happening as expected.
-- POANodeSvc would start after bootup has completed (service would start with delayed-auto instead of auto).
+- Bug fixes around system restart workflow.
+- Bug fix in creation of RM tasks due to which health check during preparing repair tasks wasn't happening as expected.
+- Changed the startup mode for windows service POANodeSvc from auto to delayed-auto.
