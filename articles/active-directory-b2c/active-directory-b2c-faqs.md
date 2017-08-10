@@ -36,7 +36,7 @@ We currently support Facebook, Google+, LinkedIn, Amazon, Twitter (preview), WeC
 
 Azure AD B2C has also added support for [custom policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom).  These [custom policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom) allow a developer to create their own policy that with any identity provider that supports [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) or SAML. 
 
-To checkout some example custom policies, checkout the [custom policy examples](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
+Get started with custom policies by checking out our [custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### Can I configure scopes to gather more information about consumers from various social identity providers?
 No, but this feature is on our roadmap. The default scopes used for our supported set of social identity providers are:
