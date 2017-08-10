@@ -13,7 +13,9 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-# Use rules and actions to automate the remote monitoring solution
+# Create and configure operational rules
+
+<!-- See Run Phase scenario 2 in https://microsoft.sharepoint.com/teams/Azure_IoT/_layouts/15/WopiFrame.aspx?sourcedoc=%7B1C5712E7-0B96-4274-BFF0-89E43CC58C17%7D&file=PCS%20Scenarios%20v05.docx&action=default -->
 
 This how-to guide shows you how to create rules and actions in the remote monitoring preconfigured solution dashboard. You use rules and actions to automate your solution.
 

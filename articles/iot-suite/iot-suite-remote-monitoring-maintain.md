@@ -15,7 +15,9 @@ ms.workload: NA
 
 # Toubleshoot and remediate device issues to maintain solution health
 
-This how-to guide shows you how to use the dashboard to troubleshoot and remediate device issues. As an operator, you use thes capabilities to maintain the solution health.
+<!-- See Run Phase scenario 1 in https://microsoft.sharepoint.com/teams/Azure_IoT/_layouts/15/WopiFrame.aspx?sourcedoc=%7B1C5712E7-0B96-4274-BFF0-89E43CC58C17%7D&file=PCS%20Scenarios%20v05.docx&action=default -->
+
+This how-to guide shows you how to use the dashboard to troubleshoot and remediate device issues. As an operator, you use these capabilities to maintain the solution health.
 
 In this how-to guide, you learn how to:
 

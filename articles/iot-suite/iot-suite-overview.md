@@ -27,6 +27,11 @@ Compare IoT solution options, replaces existing "What is IoT Suite?" article.-->
 
 Azure IoT Suite is a collection of preconfigured IoT solutions that you can deploy to your Azure subscription. Each *preconfigured solution* is a base implementation of a common IoT solution pattern such as remote monitoring or predictive maintenance. You can customize and extend these solutions to meet your specific requirements. You can also use these solutions as examples or templates when you develop new IoT solutions.
 
+Azure IoT Suite is a collection of enterprise-grade preconfigured solutions that enable you to get started quickly with IoT. Preconfigured solutions are open source, and you can customize and extended them to meet your specific requirements. The preconfigured solutions:
+
+* Implement common IoT patterns to accelerate your solution development.
+* Deploy into your Azure subscription in a matter of minutes.
+
 ## Compare IoT Suite, IoT Central, and IoT Hub
 
 You can use IoT Suite, IoT Central, or IoT Hub to build your IoT solution. The following table summarizes the key differences between these services to help you choose the correct one to meet your requirements:
@@ -41,15 +46,13 @@ Both IoT Suite and IoT Central use IoT Hub for core IoT services such as telemet
 
 ## Use preconfigured solutions
 
-IoT Suite preconfigured solutions enable you to quickly get started with and to explore the common IoT scenarios, such as:
+The IoT Suite preconfigured solutions implement common IoT patterns, such as:
 
 * Remote monitoring
 * Predictive maintenance
 * Connected factory
 
-You can deploy these solutions to your Azure subscription and then run complete, end-to-end IoT scenarios.
-
-The preconfigured solutions implement a number of core IoT capabilities. These enterprise grade solutions deliver services such as:
+The preconfigured solutions implement a number of core IoT capabilities. These enterprise-grade solutions deliver services such as:
 
 * Collect data from devices
 * Analyze data streams in-motion
