@@ -43,7 +43,7 @@ Before you begin this tutorial:
 - [Install the Service Fabric SDK](service-fabric-get-started.md)
 
 ## Create an ASP.NET Web API service as a reliable service
-ASP.NET Core is a lightweight, cross-platform web development framework that you can use to create modern web UI and web APIs. 
+First, create the web front-end of the voting application using ASP.NET Core. ASP.NET Core is a lightweight, cross-platform web development framework that you can use to create modern web UI and web APIs. 
 To get a complete understanding of how ASP.NET Core integrates with Service Fabric, we strongly recommend reading through the [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) article. For now, you can follow this tutorial to get started quickly. To learn more about ASP.NET Core, see the [ASP.NET Core Documentation](https://docs.microsoft.com/aspnet/core/).
 
 > [!NOTE]
@@ -72,7 +72,7 @@ To get a complete understanding of how ASP.NET Core integrates with Service Fabr
    ![Solution Explorer following creation of application with ASP.NET core Web API service]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### Add AngularJS to the VotingWeb service
-Add AngularJS to your service using the built-in [Bower support](/aspnet/core/client-side/bower). Open *bower.json* and add entries for angular and angular-bootstrap, then save your changes.
+Add [AngularJS](http://angularjs.org/) to your service using the built-in [Bower support](/aspnet/core/client-side/bower). Open *bower.json* and add entries for angular and angular-bootstrap, then save your changes.
 
 ```json
 {
@@ -91,7 +91,7 @@ Add AngularJS to your service using the built-in [Bower support](/aspnet/core/cl
 Upon saving the *bower.json* file, Angular is installed in your project's *wwwroot/lib* folder. Additionally, it is listed within the *Dependencies/Bower* folder.
 
 ### Update the site.js file
-Open the *wwwroot/js/site.js* file and replace its contents with the following:
+Open the *wwwroot/js/site.js* file.  Replace its contents with the JavaScript used by the Home views:
 
 ```javascript
 var app = angular.module('VotingApp', ['ui.bootstrap']);
@@ -131,7 +131,7 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 ```
 
 ### Update the Index.cshtml file
-Open the *Views/Home/Index.cshtml* file.  Replace its contents with the following, then save your changes.
+Open the *Views/Home/Index.cshtml* file, the view specific to the Home controller.  Replace its contents with the following, then save your changes.
 
 ```html
 @{
@@ -194,7 +194,7 @@ Open the *Views/Home/Index.cshtml* file.  Replace its contents with the followin
 ```
 
 ### Update the _Layout.cshtml file
-Open the *Views/Shared/_Layout.cshtml* file.  Replace its contents with the following, then save your changes.
+Open the *Views/Shared/_Layout.cshtml* file, the default layout for the ASP.NET app.  Replace its contents with the following, then save your changes.
 
 ```html
 <!DOCTYPE html>
@@ -225,7 +225,7 @@ Open the *Views/Shared/_Layout.cshtml* file.  Replace its contents with the foll
 ```
 
 ### Update the VotingWeb.cs file
-Open the *VotingWeb.cs* file.  Add the `using System.Net.Http;` directive to the top of the file.  Replace the `CreateServiceInstanceListeners()` function with the following, then save your changes.
+Open the *VotingWeb.cs* file, which creates the ASP.NET Core WebHost inside the stateless service using the WebListener web server.  Add the `using System.Net.Http;` directive to the top of the file.  Replace the `CreateServiceInstanceListeners()` function with the following, then save your changes.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -254,7 +254,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```
 
 ### Add the VotesController.cs file
-Right-click on the **Controllers** folder, then select **Add->New item->Class**.  Name the file "VotesController.cs" and click **Add**.  Replace the file contents with the following, then save your changes.
+Add a controller which defines voting actions. Right-click on the **Controllers** folder, then select **Add->New item->Class**.  Name the file "VotesController.cs" and click **Add**.  Replace the file contents with the following, then save your changes.  Later, in [Update the VotesController.cs file](#updatevotecontroller_anchor), this file will be modified to read and write voting data from the back-end service.  For now, the controller returns static string data to the view.
 
 ```csharp
 using System;
@@ -293,8 +293,23 @@ namespace VotingWeb.Controllers
 }
 ```
 
-### Update the port
+### Configure the listening port
+When the web front-end is created, Visual Studio randomly selects a port for the service to listen on.  Configure the VotingWeb service to listen on port 8080.  In the **VotingWeb** project, open *PackageRoot/ServiceManifest.xml*.  Find the **Endpoint** resource in the **Resources** section and change the **Port** value to 8080.
 
+```xml
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
+    </Endpoints>
+  </Resources>
+```
+
+Also update the Application URL property value in the Voting project so Visual Studio launches a web browers to the correct port when you debug using 'F5'.  In Solution Explorer, select the **Voting** project and update the **Application URL** property.
+
+![Application URL](./media/service-fabric-tutorial-create-dotnet-app/application-url.png)
 
 ### Deploy and run the application locally
 You can now go ahead and run the application. In Visual Studio, press `F5` to deploy the application for debugging. `F5` fails if you didn't previously open Visual Studio as **administrator**.
@@ -431,6 +446,7 @@ Service Fabric provides complete flexibility in how you communicate with reliabl
 
 In this tutorial, we are using [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md).
 
+<a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
 ### Update the VotesController.cs file
 In the **VotingWeb** project, open the *Controllers/VotesController.cs* file.  Replace the `VotesController` class definition contents with the following, then save your changes.
