@@ -34,7 +34,7 @@ In an Azure AD B2C tenant, most apps want the user to sign-in with any arbitrary
 ### Which social identity providers do you support now? Which ones do you plan to support in the future?
 We currently support Facebook, Google+, LinkedIn, Amazon, Twitter (preview), WeChat (preview), Weibo (preview), and QQ (Preview). We will add support for other popular social identity providers based on customer demand.
 
-Azure AD B2C has also added support for [custom policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom).  These [custom policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom) allow a developer to create their own policy that with any identity provider that supports [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html), OAuth2.0, or SAML. 
+Azure AD B2C has also added support for [custom policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom).  These [custom policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom) allow a developer to create their own policy that with any identity provider that supports [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) or SAML. 
 
 To checkout some example custom policies, checkout the [custom policy examples](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
