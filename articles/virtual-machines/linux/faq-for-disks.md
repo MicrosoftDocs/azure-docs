@@ -1,5 +1,5 @@
 ---
-title: 'Frequently asked questions (FAQ) about Azure IaaS Linux VM disks | Microsoft Docs'
+title: Frequently asked questions (FAQ) about Azure IaaS Linux VM disks | Microsoft Docs
 description: Frequently asked questions about Azure IaaS Linux VM disks and premium disks (managed and unmanaged)
 services: virtual-machines-linux
 documentationcenter: ''
@@ -9,7 +9,7 @@ editor: tysonn
 
 ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
 ms.service: virtual-machines-linux
-ms.workload: storage
+ms.workload: 
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
