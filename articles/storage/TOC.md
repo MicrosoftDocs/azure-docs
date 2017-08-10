@@ -220,6 +220,7 @@
 ### [Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Manage blobs with Storage Explorer (Preview)](../vs-azure-tools-storage-explorer-blobs.md)
 ### [Using Storage Explorer (Preview) with Azure file storage](../vs-azure-tools-storage-explorer-files.md)
+### [Storage Explorer (Preview) release notes](../vs-azure-tools-storage-explorer-relnotes.md)
 
 ## NuGet packages
 ### [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

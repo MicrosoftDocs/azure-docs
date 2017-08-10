@@ -100,7 +100,6 @@ To decide on a service tier, start by determining the minimum database features 
 - Extra storage for an elastic pool can be provisioned by increasing its max size using the [Azure portal](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#update), or [REST API](/rest/api/sql/).
 - The price of extra storage for an elastic pool is the extra storage amount multiplied by the extra storage unit price of the service tier.  For details on the price of extra storage, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).
 
-
 ## How are other resource limits enforced?
 
 Resources other than CPU, Memory, Log I/O, and Data I/O are enforced by denying new requests when limits are reached. These resource limits vary based on the service tier and performance level for [single databases](sql-database-single-database-resources.md#single-database-service-tiers-performance-levels-and-storage-amounts) and for [elastic pools](sql-database-elastic-pool.md#elastic-pool-service-tiers-performance-levels-and-storage-amounts). When a database reaches the configured maximum size limit, inserts and updates that increase data size fail, while selects and deletes continue to work. Clients receive an [error message](sql-database-develop-error-messages.md) depending on the limit that has been reached.
