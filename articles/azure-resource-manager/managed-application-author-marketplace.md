@@ -129,10 +129,10 @@ The next step is to add SKUs for your offer.
 	b. **Select a package file**: This package contains the following files that are compressed into a .zip file:
 	* **applianceMainTemplate.json**: The deployment template file that's used to deploy the solution/application. For information about how to create deployment template files, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).
 	* **appliancecreateUIDefinition.json**: This file is used by the Azure portal to generate the user interface that's used to provision this solution/application. For more information, see [Get started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
-	* **mainTemplate.json**: This template file contains only the Microsoft.Solution/appliances resource. The mainTemplate includes the following properties:
+	* **mainTemplate.json**: This template file contains only the Microsoft.Solution/appliances resource. The mainTemplate file includes the following properties:
 
 		*  **kind**: Use **Marketplace** for managed applications in the Marketplace.
-		*  **ManagedResourceGroupId**: This resource group in the customer's subscription is where all the resources defined in the applianceMainTemplate.json are deployed.
+		*  **ManagedResourceGroupId**: This resource group in the customer's subscription is where all the resources defined in applianceMainTemplate.json are deployed.
 		*  **PublisherPackageId**: This string uniquely identifies the package. Provide the value in the format of `{publisherId}.{OfferId}.{SKUID}.{PackageVersion}`.
 
 Obtain the **Offer ID** and **Publisher ID** from the publishing portal, as shown in the following image:
@@ -194,13 +194,13 @@ Obtain the package **Version**, as shown in the following image:
   }
   ```
 
-This package should contain any other nested templates or scripts that are required to successfully provision this application. The mainTemplate.json, applianceMainTemplate.json, and applianceCreateUIDefinition.json must be present at the root folder.
+This package should contain any other nested templates or scripts that are required to successfully provision this application. The mainTemplate.json, applianceMainTemplate.json, and applianceCreateUIDefinition.json files must be present at the root folder.
 
 * **Authorizations**: This property defines who gets access and the level of access to the resources in customers' subscriptions. The publisher can use it to manage the application on behalf of the customer.
 * **PrincipalId**: This property is the Azure Active Directory (Azure AD) identifier of a user, user group, or application that's granted certain permissions on the resources in the customer's subscription. The Role Definition describes the permissions. 
 * **Role Definition**: This property is a list of all the built-in Role-Based Access Control (RBAC) roles provided by Azure AD. You can select the role that's most appropriate to use to manage the resources on behalf of the customer.
 
-You can add multiple authorizations. We recommend that you create an AD user group and specify its ID in the **PrincipalId**. This way, you can add more users to the user group without the need to update the SKU.
+You can add multiple authorizations. We recommend that you create an AD user group and specify its ID in **PrincipalId**. This way, you can add more users to the user group without the need to update the SKU.
 
 For more information about RBAC, see [Get started with RBAC in the Azure portal](../active-directory/role-based-access-control-what-is.md).
 
