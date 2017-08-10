@@ -108,6 +108,11 @@ You can now test the solution by sending data to the Azure Event Hub. Follow the
 
 ![Sample EventHub data in Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-eventhub-data-sample.png "Sample EventHub data in Data Lake Store")
 
+> [!NOTE]
+> Even if you do not have messages coming into Event Hub, Event Hub writes empty files with just the headers into the Data Lake Store account. The files are written at the same time interval that you provided while creating the Event Hub.
+> 
+>
+
 ## Analyze data in Data Lake Store
 
 Once the data is in Data Lake Store, you can run analytical jobs to process and crunch the data. See [USQL Avro Example](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) on how to do this using Azure Data Lake Analytics.
