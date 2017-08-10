@@ -93,7 +93,7 @@ choose **New** > **Enterprise Integration** > **Logic App** as shown:
 
 4. Under **Templates**, choose **Blank Logic App**.
 
-5. In the search box, enter "event grid". 
+5. In the search box, enter "event grid" as your filter. 
 Select this trigger: **Azure Event Grid - On a resource event**
 
    ![Select this trigger: "Azure Event Grid - On a resource event"](./media/trigger-logic-app-event-grid/logic-app-event-grid-trigger.png)
@@ -137,7 +137,7 @@ choose **New step** > **Add an action**.
 
    ![Choose "New step", "Add an action"](./media/trigger-logic-app-event-grid/logic-app-add-azure-function-app.png)
 
-2. In the search box, enter "azure functions". 
+2. In the search box, enter "azure functions" as your filter. 
 Select this action: **Azure Functions - Choose an Azure function**
 
    ![Select this action: "Azure Functions - Choose an Azure function"](./media/trigger-logic-app-event-grid/logic-app-azure-functions.png)
@@ -174,7 +174,7 @@ so they can check the resized image.
 1. In your logic app, under your Azure function, 
 choose **New step** > **Add an action**. 
 
-2. In the search box, enter "send email". 
+2. In the search box, enter "send email" as your filter. 
 Select the action that sends email for your Outlook or Gmail account, 
 for example:
 
