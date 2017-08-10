@@ -3,7 +3,7 @@ title: Prevent unexpected costs, manage billing - Azure | Microsoft Docs
 description: Learn how to avoid unexpected charges on your Azure bill. Use cost-tracking and management features for a Microsoft Azure subscription.
 services: ''
 documentationcenter: ''
-author: jlian
+author: tonguyen10
 manager: tonguyen
 editor: ''
 tags: billing
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2017
-ms.author: jlian
+ms.date: 08/10/2017
+ms.author: tonguyen
 
 ---
 # Prevent unexpected costs with Azure billing and cost management
