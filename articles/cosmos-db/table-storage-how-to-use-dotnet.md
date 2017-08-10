@@ -1,20 +1,20 @@
 ---
 title: Get started with Azure Table storage using .NET | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
-services: storage
+services: cosmos-db
 documentationcenter: .net
-author: mmacy
-manager: timlt
+author: mimig1
+manager: jhubbard
 editor: tysonn
 
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
-ms.service: storage
+ms.service: cosmos-db
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 04/10/2017
-ms.author: marsma
+ms.author: mimig
 
 ---
 # Get started with Azure Table storage using .NET
@@ -467,7 +467,7 @@ Now that you've learned the basics of Table storage, follow these links to learn
 * [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
 * Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
 * View more feature guides to learn about additional options for storing data in Azure.
-* [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md) to store unstructured data.
+* [Get started with Azure Blob storage using .NET](../storage/blob/storage-dotnet-how-to-use-blobs.md) to store unstructured data.
 * [Connect to SQL Database by using .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) to store relational data.
 
 [Download and install the Azure SDK for .NET]: /develop/net/

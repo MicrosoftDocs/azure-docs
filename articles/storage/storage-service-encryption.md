@@ -86,7 +86,7 @@ Azure File storage offers file shares in the cloud using the standard SMB protoc
 #### Using the Storage Client Libraries
 You can copy blob or file data to and from blob storage or between storage accounts using our rich set of Storage Client Libraries including .NET, C++, Java, Android, Node.js, PHP, Python, and Ruby.
 
-To learn more, please visit our [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md).
+To learn more, please visit our [Get started with Azure Blob storage using .NET](blob/storage-dotnet-how-to-use-blobs.md).
 
 #### Using a Storage Explorer
 You can use a Storage explorer to create storage accounts, upload and download data, view contents of blobs, and navigate through directories. You can use one of these to upload blobs to your storage account with encryption enabled. With some storage explorers, you can also copy data from existing blob storage to a different container in the storage account or a new storage account that has SSE enabled.

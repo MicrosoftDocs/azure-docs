@@ -221,7 +221,7 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 >
 
 ## Create and manage blobs
-Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This section assumes that you are already familiar with Azure Blob storage concepts. For detailed information, see [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](/rest/api/storageservices/blob-service-concepts).
+Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This section assumes that you are already familiar with Azure Blob storage concepts. For detailed information, see [Get started with Azure Blob storage using .NET](blob/storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](/rest/api/storageservices/blob-service-concepts).
 
 ### Create a container
 Every blob in Azure storage must be in a container. You can create a container by using the `az storage container create` command:
@@ -236,7 +236,7 @@ You can set one of three levels of read access for a new container by specifying
 * `blob`: Public read access for blobs.
 * `container`: Public read and list access to the entire container.
 
-For more information, see [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md).
+For more information, see [Manage anonymous read access to containers and blobs](blob/storage-manage-access-to-resources.md).
 
 ### Upload a blob to a container
 Azure Blob storage supports block, append, and page blobs. Upload blobs to a container by using the `blob upload` command:

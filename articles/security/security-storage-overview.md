@@ -53,7 +53,7 @@ A shared access signature (SAS) provides delegated access to resources in your s
 Learn more:
 
 * [Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [Create and use a SAS with Blob storage](../storage/storage-dotnet-shared-access-signature-part-2.md)
+* [Create and use a SAS with Blob storage](../storage/blob/storage-dotnet-shared-access-signature-part-2.md)
 
 ## Encryption in transit
 Encryption in transit is a mechanism of protecting data when it is transmitted across networks. With Azure Storage you can secure data using:

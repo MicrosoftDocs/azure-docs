@@ -141,7 +141,7 @@ https://myaccount.blob.core.windows.net/mycontainer/task1/output.txt
 https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 ```
 
-For more information about virtual directories in Azure Storage, see [List the blobs in a container](../storage/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
+For more information about virtual directories in Azure Storage, see [List the blobs in a container](../storage/blob/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
 
 
 ## Diagnose file upload errors

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage expiration of Azure Storage blobs in Azure CDN | Microsoft Docs
 description: Learn about the options for controlling time-to-live for blobs in Azure CDN caching.
 services: cdn
@@ -60,7 +60,7 @@ $blob.ICloudBlob.SetProperties()
 > 
 
 ## Azure Storage Client Library for .NET
-To set a blob's TTL using .NET, use the [Azure Storage Client Library for .NET](../storage/storage-dotnet-how-to-use-blobs.md) to set the [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) property.
+To set a blob's TTL using .NET, use the [Azure Storage Client Library for .NET](../storage/blob/storage-dotnet-how-to-use-blobs.md) to set the [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) property.
 
 ```csharp
 class Program
