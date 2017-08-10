@@ -18,8 +18,8 @@ ms.author: ryanwi, mikhegn
 
 ---
 
-# Create and Deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service
-This tutorial is part one of a series and shows you how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor).
+# Create and deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service
+This tutorial is part one of a series.  You will learn how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor).
 
 ![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
@@ -44,7 +44,7 @@ Before you begin this tutorial:
 
 ## Create an ASP.NET Web API service as a reliable service
 ASP.NET Core is a lightweight, cross-platform web development framework that you can use to create modern web UI and web APIs. 
-To get a complete understanding of how ASP.NET Core integrates with Service Fabric, we strongly recommend reading through the [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) article. For now you can follow this tutorial to get started quickly. To learn more about ASP.NET Core, see the [ASP.NET Core Documentation](https://docs.microsoft.com/aspnet/core/).
+To get a complete understanding of how ASP.NET Core integrates with Service Fabric, we strongly recommend reading through the [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) article. For now, you can follow this tutorial to get started quickly. To learn more about ASP.NET Core, see the [ASP.NET Core Documentation](https://docs.microsoft.com/aspnet/core/).
 
 > [!NOTE]
 > This tutorial is based on the [ASP.NET Core tools for Visual Studio 2017](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc). The .NET Core tools for Visual Studio 2015 are no longer being updated.
@@ -91,7 +91,7 @@ Add AngularJS to your service using the built-in [Bower support](/aspnet/core/cl
 Upon saving the *bower.json* file, Angular is installed in your project's *wwwroot/lib* folder. Additionally, it is listed within the *Dependencies/Bower* folder.
 
 ### Update the site.js file
-Open the *wwwroot/js/site.js* file and replace it's contents with the following:
+Open the *wwwroot/js/site.js* file and replace its contents with the following:
 
 ```javascript
 var app = angular.module('VotingApp', ['ui.bootstrap']);
@@ -131,7 +131,7 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 ```
 
 ### Update the Index.cshtml file
-Open the *Views/Home/Index.cshtml* file.  Replace it's contents with the following, then save your changes.
+Open the *Views/Home/Index.cshtml* file.  Replace its contents with the following, then save your changes.
 
 ```html
 @{
@@ -194,7 +194,7 @@ Open the *Views/Home/Index.cshtml* file.  Replace it's contents with the followi
 ```
 
 ### Update the _Layout.cshtml file
-Open the *Views/Shared/_Layout.cshtml* file.  Replace it's contents with the following, then save your changes.
+Open the *Views/Shared/_Layout.cshtml* file.  Replace its contents with the following, then save your changes.
 
 ```html
 <!DOCTYPE html>
@@ -300,7 +300,7 @@ namespace VotingWeb.Controllers
 You can now go ahead and run the application. In Visual Studio, press `F5` to deploy the application for debugging. `F5` fails if you didn't previously open Visual Studio as **administrator**.
 
 > [!NOTE]
-> The first time you run and deploy the application locally, Visual Studio creates a local cluster for debugging, which may take some time. The cluster creation status is displayed in the Visual Studio output window.
+> The first time you run and deploy the application locally, Visual Studio creates a local cluster for debugging.  Cluster creation may take some time. The cluster creation status is displayed in the Visual Studio output window.
 
 At this point, your web app should look like this:
 
@@ -311,7 +311,7 @@ To stop debugging the application, go back to Visual Studio and press **Shift+F5
 ## Add a stateful back-end service to your application
 Now that we have an ASP.NET Web API service running in our application, let's go ahead and add a stateful reliable service to store some data in our application.
 
-Service Fabric allows you to consistently and reliably store your data right inside your service by using reliable collections. Reliable collections are a simple set of highly available and reliable collection classes that is familiar to anyone who has used C# collections.
+Service Fabric allows you to consistently and reliably store your data right inside your service by using reliable collections. Reliable collections are a set of highly available and reliable collection classes that are familiar to anyone who has used C# collections.
 
 In this tutorial, you create a service which stores a counter value in a reliable collection.
 
@@ -425,7 +425,7 @@ namespace VotingData.Controllers
 
 
 ## Connect the services
-In this next step, we will connect the two services and make the front-end Web application get and set voting information from the back-end service's reliable dictionary.
+In this next step, we will connect the two services and make the front-end Web application get and set voting information from the back-end service.
 
 Service Fabric provides complete flexibility in how you communicate with reliable services. Within a single application, you might have services that are accessible via TCP. Other services that might be accessible via an HTTP REST API and still other services could be accessible via web sockets. For background on the options available and the tradeoffs involved, see [Communicating with services](service-fabric-connect-and-communicate-with-services.md).
 
@@ -515,7 +515,7 @@ When you vote in the application, the following events occur:
 
 2. The web front-end service uses a proxy to locate and forward an HTTP PUT request to the back-end service.
 
-3. The back-end service takes the incoming request, and stores the updated result in a reliable dictionary, which gets replicated to multiple nodes within the cluster and persisted on disk. All the application's data is stored in the cluster, so no database is needed.
+3. The back-end service takes the incoming request and stores the updated result in a reliable dictionary.  The result gets replicated to multiple nodes within the cluster and persisted on disk. All the application's data is stored in the cluster, so no database is needed.
 
 ## Debug in Visual Studio
 When debugging application in Visual Studio, you are using a local Service Fabric development cluster. You have the option to adjust your debugging experience to your scenario. In this application, we store data in our back-end service, using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
