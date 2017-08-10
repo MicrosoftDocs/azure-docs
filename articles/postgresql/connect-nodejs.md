@@ -296,7 +296,8 @@ function queryDatabase() {
   client
     .query(query)
     .then(result => {
-      console.log(`Delete completed. Rows affected: ${result.rowCount}`);
+      console.log('Delete completed');
+      console.log(`Rows affected: ${result.rowCount}`);
     })
     .catch(err => {
       console.log(err);
