@@ -19,11 +19,11 @@ ms.author: subramar
 
 # Container security
 
-Service Fabric supports certificate-based authentication and encryption of container services for Windows and Linux clusters. In addition, Service Fabric also supports gMSA (group Managed Service Accounts) for Windows containers. 
+Service Fabric provides a mechanism for services inside a Windows container to access a certificate that is installed on the nodes in the cluster. In addition, Service Fabric also supports gMSA (group Managed Service Accounts) for Windows containers. 
 
 ## Certificate management for containers
 
-You can secure your container services by providing a certificate to the Service Fabric runtime. The certificate must be installed on the nodes of the cluster. The certificate information is provided in the application manifest under the `ContainerHostPolicies` tag as the following snippet shows:
+You can secure your container services by specifying a certificate. The certificate must be installed on the nodes of the cluster. The certificate information is provided in the application manifest under the `ContainerHostPolicies` tag as the following snippet shows:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -31,12 +31,25 @@ You can secure your container services by providing a certificate to the Service
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-When starting the application, the runtime reads the certificates and generate a PFX certificate and password per certificate. This PFX cerficate and password are accessible inside the container using the following environment variables: 
+When starting the application, the runtime reads the certificates and generates a PFX file and password for each certificate. This PFX file and password are accessible inside the container using the following environment variables: 
 
 * **Certificate_[CodePackageName]_[CertName]_PFX**
 * **Certificate_[CodePackageName]_[CertName]_Password**
 
-The container service is responsible for installing the runtime generated certificate into the container. To import the certificate, you can use `setupentrypoint.sh` scripts or executed custom code within the container process. This runtime generated certificate can be used to authenticate services or encrypt commmunication within or outside the cluster. 
+The container service or process is responsible for importing the PFX file into the container. To import the certificate, you can use `setupentrypoint.sh` scripts or executed custom code within the container process. Sample code in C# for importing the PFX file follows:
+
+```c#
+    string certificatePFXPath = Environment.GetEnvironmentVariable("Certificate_NodeContainerService.Code_MyCert1_PFX");
+    string passwordPath = Environment.GetEnvironmentVariable("Certificate_NodeContainerService.Code_MyCert1_Password");
+    X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
+    string password = File.ReadAllLines(passwordFilePath, Encoding.Default)[0];
+    password = password.Replace("\0", string.Empty);
+    X509Certificate2 cert = new X509Certificate2(certificateFilePath, password, X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet);
+    store.Open(OpenFlags.ReadWrite);
+    store.Add(cert);
+    store.Close();
+```
+This PFX certificate can be used for authenticate the application or service or secure commmunication with other services.
 
 
 ## Set up gMSA for Windows containers

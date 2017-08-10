@@ -19,7 +19,9 @@ ms.author: subramar
 ---
 # Service Fabric networking modes
 
+
 The default networking mode offered in the Service Fabric cluster is the `nat` networking mode. With the `nat` networking mode, having more than one service listening to the same port results in port conflicts. Some scenarios need multiple services (for example, different containers) to listen on the same port. To support this scenario, Service Fabric supports the `open` networking mode. With the `open` networking mode, each service gets a dynamically assigned IP address and port allowing multiple services to listen to the same port.  
+
 
 Using the dynamically assigned IP to discover services is not advisable since the IP address changes when the service restarts or moves to another node. Only use the **Service Fabric Naming Service**  or the **DNS Service** for service discovery. 
 
@@ -42,7 +44,7 @@ Using the dynamically assigned IP to discover services is not advisable since th
     "parameters": [
       {
         "name": "ClientRoleEnabled",
-        "value": "false"
+        "value": "true"
       }
     ],
     "name": "Security"
@@ -274,8 +276,9 @@ For Linux clusters, an additional public IP configuration is added to allow outb
 ```
 
 3. For Windows cluster, set up an NSG rule opening up port UDP/53 for the vNET with the following values:
-    | Priority | Name      | Source         | Destination    | Service      | Action
-    | 2000	   |Custom_Dns | VirtualNetwork |	VirtualNetwork | DNS (UDP/53)	| Allow
+    |Priority  | Name      | Source         | Destination    | Service      | Action |
+    !:--------:|:---------:|:--------------:|:--------------:|:------------:|:------:|
+    |2000 	   |Custom_Dns | VirtualNetwork |	VirtualNetwork | DNS (UDP/53)	| Allow  |
 
 
 4. Specify the networking mode in the app manifest for each service `<NetworkConfig NetworkType="open">`.  The mode `open` results in the service getting a dedicated IP address. If a mode isn't specified, it defaults to the basic `nat` mode. Thus, in the following manifest example, `NodeContainerServicePackage1` and `NodeContainerServicePackage2`, can each listen to the same port (both services are listening on `Endpoint1`), for example 80 and Service Fabric routes requests to each correctly.  
