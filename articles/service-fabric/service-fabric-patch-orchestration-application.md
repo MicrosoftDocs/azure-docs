@@ -73,7 +73,7 @@ You can enable repair manager from Azure portal at the time of setting up of clu
 ##### Azure Resource Manager template
 Alternatively you can use the [Azure Resource Manager template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) to enable the repair manager service on new and existing Service Fabric clusters. Get the template for the cluster that you want to deploy. You can either use the sample templates or create a custom Resource Manager template. 
 
-To enable the repair manager service using [Azure Resource Manager template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) :
+To enable the repair manager service using [Azure Resource Manager template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
 
 1. First check that the `apiversion` is set to `2017-07-01-preview` for the `Microsoft.ServiceFabric/clusters` resource, as shown in the following snippet. If it is different, then you need to update the `apiVersion` to the value `2017-07-01-preview`:
 
@@ -363,7 +363,7 @@ A. The time needed by the patch orchestration app is mostly dependent on the fol
 
 Q. **Why do I see some updates in Windows Update results obtained via REST api's, but not under the Windows Update history on machine?**
 
-A. Some product updates need to be checked in their respective update/patch history. Eg: Windows Defender updates does not show up in Windows Update history on Windows Server 2016.
+A. Some product updates need to be checked in their respective update/patch history. Eg: Windows Defender updates do not show up in Windows Update history on Windows Server 2016.
 
 ## Disclaimers
 
@@ -409,7 +409,7 @@ An administrator must intervene and determine why the application or cluster bec
 - Public release
 
 ### Version 1.1.1
-- Fixed a bug in SetupEntryPoint of NodeAgentService which prevented installation of NodeAgentNTService.
+- Fixed a bug in SetupEntryPoint of NodeAgentService that prevented installation of NodeAgentNTService.
 
 ### Version 1.2.0 (Latest)
 
