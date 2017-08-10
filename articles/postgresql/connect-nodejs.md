@@ -267,8 +267,8 @@ Replace the host, dbname, user, and password parameters with the values that you
 const pg = require('pg');
 
 const config = {
-    host: 'your-pg-server.postgres.database.azure.com',
-    user: 'your-login@your-pg-server',
+    host: '<your-pg-server-name>.postgres.database.azure.com',
+    user: '<your-login>@your-pg-server',
     password: '<server_admin_password>',
     database: '<name_of_database>',
     port: 5432,
@@ -278,27 +278,23 @@ const config = {
 const client = new pg.Client(config);
 
 client.connect(err => {
-    if (err) throw err;
-    else {
-        queryDatabase();
-    }
+  if (err) throw err;
+  else {
+    queryDatabase();
+  }
 });
 
 function queryDatabase() {
-    const query = `DELETE FROM inventory 
-                   WHERE name ='apple'`;
+  const query = `DELETE FROM inventory 
+                 WHERE name = 'apple'`;
 
-    client
-        .query(query)
-        .then(() => {
-            console.log('Delete completed succesfully!');
-            client.end(console.log('Closed client connection'));
-        })
-        .catch(err => console.log(err))
-        .then(() => {
-            console.log('Finished execution, exiting now');
-            process.exit();
-        });
+  client
+    .query(query)
+    .then(result => {
+      console.log('Delete completed succesfully');
+      console.log(`Rows affected: ${result.rowCount}`);
+    })
+    .catch(err => console.log(err));
 }
 ```
 
