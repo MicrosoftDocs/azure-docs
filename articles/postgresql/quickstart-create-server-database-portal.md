@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 08/04/2017
+ms.date: 08/10/2017
 ---
 
 # Create an Azure Database for PostgreSQL in the Azure portal
@@ -133,6 +133,7 @@ There are a number of applications you can use to connect to your Azure Database
     ```bash
     CREATE DATABASE mypgsqldb;
     ```
+    The command may take a few moments to complete. 
 
 5.  At the prompt, execute the following command to switch connection to the newly created database **mypgsqldb**.
     ```bash
