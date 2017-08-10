@@ -306,7 +306,7 @@ These errors happen because the heap size is not large enough for Spark to run. 
 ## Feedback and known issues
 Currently, viewing Spark outputs directly is not supported.
 
-If you have any suggestions or feedback, or if you encounter any problems when you use this plug-in, [contact us by email](hdivstool@microsoft.com).
+If you have any suggestions or feedback, or if you encounter any problems when you use this plug-in, email us at hdivstool@microsoft.com.
 
 ## <a name="seealso"></a>Next steps
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
