@@ -182,6 +182,9 @@ The objective of this section is to create a test user in the Azure portal calle
 In order to enable Azure AD users to log into ClickTime, they must be provisioned into ClickTime.  
 In the case of ClickTime, provisioning is a manual task.
 
+> [!NOTE]
+> You can use any other ClickTime user account creation tools or APIs provided by ClickTime to provision Azure AD user accounts.
+
 **To provision a user account, perform the following steps:**
 1. Log in to your **ClickTime** tenant.
 2. In the toolbar on the top, click **Company**, and then click **People**.
@@ -194,18 +197,15 @@ In the case of ClickTime, provisioning is a manual task.
    
     ![People](./media/active-directory-saas-clicktime-tutorial/tic777284.png "People")
    
-   a.  In the **full name** textbox, type full name of user like **Britta Simon**. 
+    a.  In the **full name** textbox, type full name of user like **Britta Simon**. 
   
-   b.  In the **email address** textbox, type the email of user like **brittasimon@contoso.com**.
+    b.  In the **email address** textbox, type the email of user like **brittasimon@contoso.com**.
      
    
-   > [!NOTE]
-   > If you want to, you can set additional properties of the new person object.
+    > [!NOTE]
+    > If you want to, you can set additional properties of the new person object.
      
-   c.  Click **Save**.
-
-> [!NOTE]
-> You can use any other ClickTime user account creation tools or APIs provided by ClickTime to provision Azure AD user accounts.
+    c.  Click **Save**.
 
 ### Assign the Azure AD test user
 
