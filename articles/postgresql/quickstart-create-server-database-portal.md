@@ -127,7 +127,7 @@ There are a number of applications you can use to connect to your Azure Database
 
     psql parameter |Suggested value|Description
     ---|---|---
-    password | *your admin password* | Note, the typed password characters not show on the bash prompt. Press enter after you have typed all the characters to authenticate and connect.
+    password | *your admin password* | Note, the typed password characters are not shown on the bash prompt. Press enter after you have typed all the characters to authenticate and connect.
 
 
 Once connected, the psql utility displays a `postgres=>` prompt for you to type commands. In the initial connection output, a warning may be displayed since the psql in the Cloud Shell may be a different version than the Azure Database for PostgreSQL server version.
