@@ -265,7 +265,7 @@ Azure Search document extraction logic isn't perfect and will sometimes fail to 
 
 You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values:
 
-* `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/storage-properties-metadata.md) are indexed.
+* `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/blob/storage-properties-metadata.md) are indexed.
 * `allMetadata` - specifies that storage metadata and the [content-type specific metadata](#ContentSpecificMetadata) extracted from the blob content are indexed.
 * `contentAndMetadata` - specifies that all metadata and textual content extracted from the blob are indexed. This is the default value.
 

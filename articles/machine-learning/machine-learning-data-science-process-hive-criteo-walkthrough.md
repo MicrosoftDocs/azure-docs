@@ -73,7 +73,7 @@ The [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) dat
 
 Click **Continue to Download** to read more about the dataset and its availability.
 
-The data resides in a public [Azure blob storage](../storage/storage-dotnet-how-to-use-blobs.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location. 
+The data resides in a public [Azure blob storage](../storage/blob/storage-dotnet-how-to-use-blobs.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location. 
 
 1. The data in this public blob storage consists of three subfolders of unzipped data.
    

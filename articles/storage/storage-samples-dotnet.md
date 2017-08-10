@@ -202,7 +202,7 @@ To view the complete sample library, go to the [Azure Code Samples](https://azur
 
 Check out the following guides if you are looking for instructions on how to install and get started with the Azure Storage Client Libraries.
 
-* [Getting Started with Azure Blob Service in .NET](storage-dotnet-how-to-use-blobs.md)
+* [Getting Started with Azure Blob Service in .NET](blob/storage-dotnet-how-to-use-blobs.md)
 * [Getting Started with Azure Queue Service in .NET](queues/storage-dotnet-how-to-use-queues.md)
 * [Getting Started with Azure Table Service in .NET](../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Getting Started with Azure File Service in .NET](files/storage-dotnet-how-to-use-files.md)

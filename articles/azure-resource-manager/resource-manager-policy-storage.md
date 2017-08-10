@@ -53,7 +53,7 @@ A similar policy rule with a parameter for accepting the allowed SKUs is availab
 
 ## Define permitted access tier
 
-The following policy specifies the type of [access tier](../storage/storage-blob-storage-tiers.md) that can be specified for storage accounts:
+The following policy specifies the type of [access tier](../storage/blob/storage-blob-storage-tiers.md) that can be specified for storage accounts:
 
 ```json
 {
