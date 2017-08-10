@@ -40,7 +40,7 @@ Every Azure AD directory comes with an initial domain name in the form of *domai
    ![get DNS entry information](./media/active-directory-domains-add-azure-portal/get-dns-info.png)
 
 > [!TIP]
-> If you plan to federate your on-premises Windows Server AD with Azure AD, then you need to select the **I plan to configure this domain for single sign-on with my local Active Directory** checkbox when you run the Azure AD Connect tool to synchronize your directories. You also need to register the same domain name you select for federating with your on-premises directory in the **Azure AD Domain** step in the wizard. You can see what that step in the wizard looks like [in these instructions](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom#verify-the-azure-ad-domain-selected-for-federation). If you do not have the Azure AD Connect tool, you can [download it here](http://go.microsoft.com/fwlink/?LinkId=615771).
+> If you plan to federate your on-premises Windows Server AD with Azure AD, then you need to select the **I plan to configure this domain for single sign-on with my local Active Directory** checkbox when you run the Azure AD Connect tool to synchronize your directories. You also need to register the same domain name you select for federating with your on-premises directory in the **Azure AD Domain** step in the wizard. You can see what that step in the wizard looks like [in these instructions](./connect/active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation). If you do not have the Azure AD Connect tool, you can [download it here](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 Now that you've added the domain name, Azure AD must verify that your organization owns the domain name. Before Azure AD can perform this verification, you must add a DNS entry in the DNS zone file for the domain name. This task is performed at the website for domain name registrar for the domain name.
 
@@ -65,7 +65,7 @@ A domain name can be verified only after the DNS records have propagated. This p
 4. On the ***domain name*** blade (that is, the blade that opens that has your new domain name in the title), select **Verify** to complete the verification.
 
 > [!TIP]
-> You can add up to 900 custom domain names, but only one can be [set as the primary domain name for your Azure AD directory](active-directory-domains-manage-azure-portal#set-the-primary-domain-name-for-your-azure-ad-directory) used by default when you create new accounts.
+> You can add up to 900 custom domain names, but only one can be [set as the primary domain name for your Azure AD directory](active-directory-domains-manage-azure-portal.md#set-the-primary-domain-name-for-your-azure-ad-directory) used by default when you create new accounts.
 
 Now you can create cloud-based user accounts, or update previously synchronized on-premises user account information, using your custom domain name. You can also modify previously synchronized user account domain suffix information using [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) or the [Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
 

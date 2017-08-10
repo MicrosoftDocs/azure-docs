@@ -8,6 +8,7 @@
 # Get started
 ## [Get an Azure AD tenant](active-directory-howto-tenant.md)
 ## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
+## [Add a custom domain name](add-custom-domain.md)
 ## [Associate Azure subscriptions](active-directory-how-subscriptions-associated-directory.md)
 ## [Quickstart: Self-service password reset](active-directory-passwords-getting-started.md)
 ## Manage Azure AD licensing
