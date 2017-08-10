@@ -49,7 +49,7 @@ the sole point of communication with Azure.
 
 The **ServiceBusService** class provides methods to create, enumerate,
 and delete queues. The example below shows how a **ServiceBusService** object
-can be used to create a queue named "TestQueue", with a namespace named "HowToSample":
+can be used to create a queue named `TestQueue`, with a namespace named `HowToSample`:
 
 ```java
 Configuration config =
@@ -74,7 +74,7 @@ catch (ServiceException e)
 }
 ```
 
-There are methods on **QueueInfo** that allow properties of the queue to be
+There are methods on `QueueInfo` that allow properties of the queue to be
 tuned (for example: to set the default time-to-live (TTL) value to be
 applied to messages sent to the queue). The following example shows how
 to create a queue named `TestQueue` with a maximum size of 5GB:
@@ -86,7 +86,7 @@ queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
 CreateQueueResult result = service.createQueue(queueInfo);
 ````
 
-Note that you can use the **listQueues** method on **ServiceBusContract**
+Note that you can use the `listQueues` method on **ServiceBusContract**
 objects to check if a queue with a specified name already exists within
 a service namespace.
 
