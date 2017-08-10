@@ -53,11 +53,8 @@ To get access to a Party Cluster, browse to this site: http://aka.ms/tryservicef
 > [!NOTE]
 > Party clusters are not secured, so your applications and any data you put in them may be visible to others. Don't deploy anything you don't want others to see. Be sure to read over our Terms of Use for all the details.
 
-## Make your application ready for deployment
-As our ASP.NET Core Web API service acts as the front end for this application and accepts external traffic, we want to bind that service to a fixed and well-know port. 
-
 ## Configure the listening port
-When the VotingWeb front-end service is created, Visual Studio randomly selects a port for the service to listen on.  The VotingWeb service acts as the front end for this application and accepts external traffic, so let's bind that service to a fixed and well-know port. In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Find the **Endpoint** resource in the **Resources** section and change the **Port** value to 8080.
+When the VotingWeb front-end service is created, Visual Studio randomly selects a port for the service to listen on.  The VotingWeb service acts as the front-end for this application and accepts external traffic, so let's bind that service to a fixed and well-know port. In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Find the **Endpoint** resource in the **Resources** section and change the **Port** value to 80.
 
 ```xml
 <Resources>
@@ -65,19 +62,19 @@ When the VotingWeb front-end service is created, Visual Studio randomly selects 
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
     </Endpoints>
   </Resources>
 ```
 
-Also update the Application URL property value in the Voting project so Visual Studio launches a web browers to the correct port when you debug using 'F5'.  In Solution Explorer, select the **Voting** project and update the **Application URL** property.
+Also update the Application URL property value in the Voting project so Visual Studio launches a web browser to the correct port when you debug using 'F5'.  In Solution Explorer, select the **Voting** project and update the **Application URL** property.
 
 ![Application URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ## Deploy the app to the Azure
 Now that the application is ready, you can deploy it to the Party Cluster direct from Visual Studio.
 
-1. Right-click **MyApplication** in the Solution Explorer and choose **Publish**.
+1. Right-click **Voting** in the Solution Explorer and choose **Publish**.
 
     ![Publish Dialog](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
@@ -85,7 +82,7 @@ Now that the application is ready, you can deploy it to the Party Cluster direct
 
     Once the publish has finished, you should be able to send a request to the application via a browser.
 
-3. Open you preferred browser and type in the cluster address (the connection endpoint without the port information - for example, win1kw5649s.westus.cloudapp.azure.com), add `/api/values` to the url.
+3. Open you preferred browser and type in the cluster address (the connection endpoint without the port information - for example, win1kw5649s.westus.cloudapp.azure.com).
 
     You should now see the same result as you saw when running the application locally.
 
@@ -98,17 +95,18 @@ To remove the application we deployed to the Party Cluster:
 
 1. Browse to the Service Fabric Explorer, using the link provided by the Party Cluster sign-up page. For example, http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
-2. In Service Fabric Explorer, navigate to the **fabric://MyApplication** node in the treeview on the left-hand side.
+2. In Service Fabric Explorer, navigate to the **fabric://Voting** node in the treeview on the left-hand side.
 
 3. Click the **Action** button in the right-hand **Essentials** pane, and choose **Delete Application**. Confirm deleting the application instance, which removes the instance of our application running in the cluster.
 
 ![Delete Application in Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/delete-application.png)
 
+## Remove the application type from a cluster using Service Fabric Exlorer
 Applications are deployed as application types in a Service Fabric cluster, which enables you to have multiple instances and versions of the application running within the cluster. After having removed the running instance of our application, we can also remove the type, to complete the cleanup of the deployment.
 
 For more information about the application model in Service Fabric, see [Model an application in Service Fabric](service-fabric-application-model.md).
 
-1. Navigate to the **MyApplicationType** node in the treeview.
+1. Navigate to the **VotingType** node in the treeview.
 
 2. Click the **Action** button in the right-hand **Essentials** pane, and choose **Unprovision Type**. Confirm unprovisioning the application type.
 
