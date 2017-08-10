@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/7/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Debug your applications with Azure Application Insights in Visual Studio

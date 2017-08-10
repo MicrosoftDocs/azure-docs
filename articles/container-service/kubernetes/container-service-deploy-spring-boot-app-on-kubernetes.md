@@ -4,7 +4,7 @@ description: This tutorial will walk you though the steps to deploy a Spring Boo
 services: ''
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 05/20/2017
+ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 
 ---
@@ -294,10 +294,7 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
 For more information about using Spring Boot on Azure, see the following articles:
 
 * [Deploy a Spring Boot Application to the Azure App Service](../../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
-
-* [Running a Spring Boot Application on Linux in the Azure Container Service](container-service-deploy-spring-boot-app-on-linux.md)
-
-## Additional Resources
+* [Deploy a Spring Boot application on Linux in the Azure Container Service](container-service-deploy-spring-boot-app-on-linux.md)
 
 For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
 
