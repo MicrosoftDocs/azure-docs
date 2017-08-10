@@ -31,7 +31,7 @@ In this article, you learn about the following:
 * replication 
 * transferring data into or out of storage
 * the many storage client libraries available. 
-<!--> RE-ENABLE THIS AFTER MVC GOES IN
+<!-- RE-ENABLE THIS AFTER MVC GOES IN
 To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
 * [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
 * [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
