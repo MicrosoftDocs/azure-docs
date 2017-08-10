@@ -1,227 +1,242 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with IBM Kenexa Survey Enterprise | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and IBM Kenexa Survey Enterprise.
-services: active-directory
-documentationCenter: na
-author: jeevansd
-manager: femila
-
-ms.assetid: c7aac6da-f4bf-419e-9e1a-16b460641a52
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: "Azure Content Delivery Network HTTPS acceleration service: Customer-supplied certificates"
+metaKeywords: "Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-on, Live Streaming, 流媒体加速, CDN加速,CDN服务,主流CDN, 流媒体直播加速, 媒体服务, Azure Media Service, 缓存规则, HLS, CDN技术文档, CDN帮助文档, 视频直播加速, 直播加速"
+description: This article explains how to enable HTTPS acceleration for customer-supplied certificates
+metaCanonical: 
+services: cdn
+documentationCenter: .NET
+author: jessie-jyy
+solutions: 
+manager: 
+editor: 
+ms.service: cdn
+ms.author: v-jijes
 ms.topic: article
-ms.date: 06/30/2017
-ms.author: jeedes
+ms.date: 06/14/2017
+wacn.date: 06/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 273aa8c36630cc3b25d9966c7e67b26d71458693
+ms.openlocfilehash: 16205ac706e7e1cc05f27880eacb16284b480c9a
+ms.contentlocale: en-us
+ms.lasthandoff: 07/05/2017
 
 ---
-# Tutorial: Azure Active Directory integration with IBM Kenexa Survey Enterprise
+# Azure Content Delivery Network HTTPS acceleration service: Customer-supplied certificates
+<a id="azure-cdn-https-" class="xliff"></a>
 
-In this tutorial, you learn how to integrate IBM Kenexa Survey Enterprise with Azure Active Directory (Azure AD).
+The Azure Content Delivery Network provides HTTPS secure acceleration services that support certificates uploaded by the user and the automatic configuration of certificates applied for by the Azure Content Delivery Network. Both types are available only to paying users.
 
-Integrating IBM Kenexa Survey Enterprise with Azure AD provides you with the following benefits:
+This article discusses how to self-configure user-uploaded certificates and explanations of certificates. For more information about how to configure certificates that the Content Delivery Network applies for on the user’s behalf, see [Azure Content Delivery Network HTTPS acceleration services: Certificates applied for by the Content Delivery Network for users](https://www.azure.cn/documentation/articles/cdn-https-how-to/). For more information about the differences between the two, see [FAQs – Service Consulting](https://www.azure.cn/documentation/articles/cdn-faq-service-inquiry/).
 
-- You can control in Azure AD who has access to IBM Kenexa Survey Enterprise.
-- You can enable your users to automatically sign in to IBM Kenexa Survey Enterprise by using single sign-on (SSO) with their Azure AD accounts.
-- You can manage your accounts in one central location: the Azure portal.
 
-If you want to know more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+## Configuration
+<a id="" class="xliff"></a>
 
-## Prerequisites
+- HTTPS acceleration is available only to paying users.
+- Content Delivery Network supports HTTPS acceleration for wildcard domain names.
+- The types of acceleration that are supported are standard Content Delivery Network acceleration, such as webpage acceleration, download acceleration, video on demand (VOD) acceleration, and live streaming acceleration.
 
-To configure Azure AD integration with IBM Kenexa Survey Enterprise, you need the following items:
+    >[!NOTE] 
+    >The image-processing acceleration type does not currently support HTTPS acceleration.
 
-- An Azure AD subscription
-- An IBM Kenexa Survey Enterprise SSO-enabled subscription
+- You need to enable the HTTPS service in the new Azure Content Delivery Network management interface and upload the certificate in Privacy Enhanced Mail (PEM) format and the private key. For more information, see the “Automatically enable HTTPS acceleration” section.
 
-> [!NOTE]
-> When you test the steps in this tutorial, we recommend that you do not use a production environment.
+- After you enable HTTPS acceleration, it supports both HTTP and HTTPS requests by default. If you need to force an HTTP request to jump to an HTTPS request, contact CenturyLink to arrange the configuration. We plan to implement an automated option in the management interface soon.
 
-To test the steps in this tutorial, follow these recommendations:
+- By default, the return-to-source protocol follows the request protocol initiated by the user. That is, an HTTP request returns to the source by using the HTTP protocol, and an HTTPS request returns to the source by using the HTTPS protocol. If you need to specify only HTTP returns to source or only HTTPS returns to source, contact CenturyLink to arrange the configuration. We plan to implement an automated option in the management interface soon.
 
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
-## Scenario description
-In this tutorial, you test Azure AD SSO in a test environment. The scenario outlined in the tutorial consists of two main building blocks:
+## Certificates
+<a id="" class="xliff"></a>
 
-* Adding IBM Kenexa Survey Enterprise from the gallery
-* Configuring and testing Azure AD SSO
+- HTTPS acceleration for customer-supplied certificates is implemented using SNI technology. An SNI certificate enables multiple HTTPS clients to share the same IP address.
 
-## Add IBM Kenexa Survey Enterprise from the gallery
-To configure the integration of IBM Kenexa Survey Enterprise into Azure AD, add IBM Kenexa Survey Enterprise from the gallery to your list of managed SaaS apps.
+    >[!NOTE] 
+    >SNI certificates do not support all versions of Internet Explorer on Windows XP, so you will be notified if the browser you are using is not trusted.
 
-To add IBM Kenexa Survey Enterprise from the gallery, do the following:
+- After you enable HTTPS acceleration, you need to upload the certificate and private key for the accelerated domain name. The certificate must match the domain name, and the private key must match the certificate. Otherwise, there will be an authentication error.
 
-1. In the [Azure portal](https://portal.azure.com), in the left pane, click the **Azure Active Directory** button. 
+- You can view details of certificates, but you cannot download certificates or view private keys, so take the appropriate precautions to safeguard the relevant information.
 
-	![The Azure Active Directory button][1]
+- Certificate chains are supported. The individual PEM files for the certificate chain must include multiple certificates in following order: public certificate, intermediate certificate, root certificate. Each certificate must start with `-----BEGIN CERTIFICATE-----` and end with `-----END CERTIFICATE-----`.
 
-2. Select **Enterprise applications**, and then select **All applications**.
+### **Certificate format**
+<a id="" class="xliff"></a>
 
-	![The Enterprise applications blade][2]
-	
-3. To add an application, click the **New application** button.
+- Certificates must be in PEM format. Certificates in other formats are not supported and must be converted into PEM format, which you can do by using OpenSSL tools. For more information, see the “Converting common certificate formats” section.
 
-	![The New application button][3]
+- Certificates start with `-----BEGIN CERTIFICATE-----` and end with `-----END CERTIFICATE-----`.
 
-4. In the search box, type **IBM Kenexa Survey Enterprise**.
+- PKCS1 and PKCS8 encoding are currently supported for private keys. The format for PKCS1-encoded private keys starts with `-----BEGIN RSA PRIVATE KEY-----` and ends with `-----END RSA PRIVATE KEY-----`; PKCS8-encoded private keys start and finish with `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----`.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_search.png)
+    >[!NOTE] 
+    >You can perform private key-encoding format conversion by using OpenSSL tools. 
+    >
+    >For example:
+    >
+    >`openssl.exe pkcs8 -topk8 -inform PEM -outform PEM -in yourkeyfile.key -out yourconverted.key -nocrypt` 
+    
 
-5. In the results list, select **IBM Kenexa Survey Enterprise**, and then click the **Add** button to add the application.
+### **Convert common certificate formats**
+<a id="" class="xliff"></a>
 
-	![IBM Kenexa Survey Enterprise in the results list](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_addfromgallery.png)
+#### Convert DER format to PEM
+<a id="derpem" class="xliff"></a>
 
-##  Configure and test Azure AD single sign-on
-In this section, you configure and test Azure AD SSO with IBM Kenexa Survey Enterprise based on a test user called "Britta Simon."
+- Certificate conversion
 
-For SSO to work, Azure AD needs to identify the IBM Kenexa Survey Enterprise user counterpart in Azure AD. In other words, Azure AD must establish a link relationship between an Azure AD user and a related user in IBM Kenexa Survey Enterprise.
+    ```
+    openssl x509 -in cert.der -inform DER -out cert.pem -outform PEM
+    ```
 
-To establish the link relationship, assign the value of the **user name** in IBM Kenexa Survey Enterprise as the value of the **Username** in Azure AD.
+- Private key conversion
 
-To configure and test Azure AD SSO with IBM Kenexa Survey Enterprise, complete the building blocks in the next two sections.
+    ```
+    openssl rsa -in privagekey.der -inform DER -out privatekey.pem -outform PEM
+    ```
 
-### Configure Azure AD SSO
+#### Convert PFX format to PEM
+<a id="pfxpem" class="xliff"></a>
 
-In this section, you enable Azure AD SSO in the Azure portal and configure SSO in your IBM Kenexa Survey Enterprise application by doing the following:
+- Certificate conversion
 
-1. In the Azure portal, on the **IBM Kenexa Survey Enterprise** application integration page, click **Single sign-on**.
+    ```
+    openssl pkcs12 -in cert.pfx -nokeys -out cert.pem
+    ```
 
-	![IBM Kenexa Survey Enterprise Configure single sign-on link][4]
+- Private key conversion
 
-2. In the **Single sign-on** dialog box, in the **Mode** box, select **SAML-based Sign-on** to enable SSO.
- 
-	![Single sign-on dialog box](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_samlbase.png)
+    ```
+    openssl pkcs12 -in cert.pfx -nocerts -out key.pem -nodes
+    ```
 
-3. In the **IBM Kenexa Survey Enterprise Domain and URLs** section, perform the following steps:
+## Pricing
+<a id="" class="xliff"></a>
 
-	![IBM Kenexa Survey Enterprise Domain and URLs single sign-on information](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
+As of July 1, 2017, standard-edition service prices apply to HTTPS acceleration for customer-supplied certificates. Before July 1, 2017, this service was classed and priced as an advanced service. For specific pricing methods, go to the [Azure website](https://www.azure.cn/pricing/details/cdn/).
 
-    a. In the **Identifier** textbox, type a URL with the following pattern: `https://surveys.kenexa.com/<companycode>`
 
-	b. In the **Reply URL** textbox, type a URL with the following pattern: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
+## Automatically enable HTTPS acceleration
+<a id="https" class="xliff"></a>
 
-	> [!NOTE] 
-	> The preceding values are not real. Update them with the actual identifier and reply URL. To obtain the actual values, contact the [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw).
+You can enable customer-supplied certificate HTTPS acceleration for all Content Delivery Network domain names that meet the conditions (in paid accounts, Content Delivery Network domains with all standard version acceleration types except image acceleration nodes).
 
-4. Under **SAML Signing Certificate**, click **Certificate (Base64)**, and then save the certificate file to your computer.
+>[!NOTE] 
+>If you need to create a new Content Delivery Network profile and node in the Azure preview portal and enable customer-supplied certificate HTTPS acceleration, select **S1 Standard** for the pricing tier. In **P1 Premium**, HTTPS refers to certificates that the Content Delivery Network applies for on the customer’s behalf.
+  
+  ![][15]
 
-	![The Certificate (Base64) download link](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_certificate.png) 
+1. For example, if you are previewing by using the new Azure portal, you need to click **Manage** to go to the old Content Delivery Network management portal. To go to the new Content Delivery Network management portal, click **Access new site**.
 
-    The IBM Kenexa Survey Enterprise application expects to receive the Security Assertions Markup Language (SAML) assertions in a specific format, which requires you to add custom attribute mappings to the configuration of your SAML token attributes. The value of the user-identifier claim in the response must match the SSO ID that's configured in the Kenexa system. To map the appropriate user identifier in your organization as SSO Internet Datagram Protocol (IDP), work with the [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw). 
+    >[!NOTE] 
+    >You need to go to the new Azure Content Delivery Network management portal to upload HTTPS customer-supplied certificates.
+    
+    **The Content Delivery Network profile interface in the new Azure portal preview:**
 
-    By default, Azure AD sets the user identifier as the user principal name (UPN) value. You can change this value on the **Attribute** tab, as shown in the following screenshot. The integration works only after you've completed the mapping correctly.
-	
-    ![The User Attributes dialog box](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_attribute.png)	
+    ![][1]
 
-5. Click **Save**.
+    **The old Azure Content Delivery Network management portal interface:**
 
-	![The configure single sign-on Save button](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_400.png)
+    ![][2]
 
-6. To open the **Configure sign-on** window, under **IBM Kenexa Survey Enterprise Configuration**, click **Configure IBM Kenexa Survey Enterprise**. 
- 
-	![The Configure IBM Kenexa Survey Enterprise link](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_configure.png)
+    **The new Azure Content Delivery Network management portal interface:** 
 
-7. Copy the **Sign-Out URL**, **SAML Entity ID**, and **SAML single sign-on Service URL** values from the **Quick Reference** section.
+    ![][3]
 
-8. In the **Configure sign-on** window, under **Quick Reference**, copy the **Sign-Out URL**, **SAML Entity ID**, and **SAML single sign-on Service URL** values.
+2. To upload a certificate, click **Certificate management**, click **Add SSL certificate**, and then enter the certificate name so that you can identify the certificate. You need to enable the HTTPS service’s domain name certificate to upload. The certificate must be in PEM format and only the RSA PKCS8 encoding format is currently supported for private keys. For specific information about certificate format conversion, see the previous “Certificates” section.
 
-9. To configure SSO on the **IBM Kenexa Survey Enterprise** side, send the downloaded **Certificate (Base64)**, **Sign-Out URL**, **SAML Entity ID**, and **SAML single sign-on Service URL** values to the [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw).
+    >[!NOTE] 
+    >After you have uploaded the certificate, go to the **Domain Name Management** interface and bind the certificate to the domain name before the certificate can be deployed.
+     
+    ![][4]
 
-> [!TIP]
-> You can refer to a concise version of these instructions in the [Azure portal](https://portal.azure.com) while you are setting up the app. After you add the app from the **Active Directory** > **Enterprise Applications** section, simply click the **single sign-on** tab, and then access the embedded documentation through the **Configuration** section at the end. To learn more about the embedded documentation feature, see [Azure AD embedded documentation](https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+3. To bind a domain name to a certificate, go to either **Certificate Management** or **Domain Name Management**.
+    
+    - You can directly select the domain name that you want to bind when you upload the certificate in **Certificate Management**.
+    
+      ![][9]
 
-### Create an Azure AD test user
-In this section, you create test user Britta Simon in the Azure portal by doing the following:
+    - You can also bind the domain name after you have uploaded the certificate by selecting the certificate on the management page and clicking **Edit bindings** > **Add bound domain name**.
+     
+      ![][5]
+      ![][6]
 
-![Create an Azure AD test user][100]
+    - You can also click **Domain Name Management** and select the domain name for which you want to enable HTTPS service, select **HTTPS (Customer-supplied Certificate)** at the right, click **Enable** to bind a certificate, select an uploaded certificate in the drop-down list under the uploaded certificate, and then click **Confirm**. If you do not have a compliant certificate, click **Certificate Management** and then, to upload a certificate, refer to step 3.
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+      ![][8]
 
-	![The Azure Active Directory button](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_01.png) 
+    - **Certificate deployment**: After you bind a domain name, the system notifies you that “The certificate is currently being deployed and will generally take effect within 2-4 hours. Please contact us if deployment is not completed within 24 hours. ”
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
-	
-	![The "Users and groups" and "All users" links](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_02.png) 
+      ![][13]
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
- 
-	![The Add button](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_03.png) 
+    - **After the domain name has been successfully bound**, the system notifies you that “The certificate has been successfully bound. You can access the accelerated domain name via HTTPS,” and you can view details of the certificate. The *HTTPS status (customer-supplied certificate)* for the domain name also changes to *Active*.
 
-4. In the **User** dialog box, perform the following steps:
- 
-	![The User dialog box](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_04.png) 
+      - To view details of the certificate, click the domain name.
+    
+        ![][10]
 
-    a. In the **Name** box, type **BrittaSimon**.
+      - The *HTTPS status (customer-supplied certificate)* for the domain name changes to *Active*.
+    
+        ![][11]
 
-    b. In the **User name** box, type the email address of user Britta Simon.
+      - The number of domain names bound to certificates in Certificate Management also changes.
+    
+        ![][12]
 
-	c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
+4. To view certificate details and details of all bound domain names, click any certificate in Certificate Management.
 
-    d. Click **Create**.
- 
-### Create an IBM Kenexa Survey Enterprise test user
+    ![][7]
+5. To confirm that it has taken effect, look for a small lock flag when you access the domain name by using HTTPS. The flag indicates that HTTPS acceleration was successfully activated.
 
-In this section, you create a user called Britta Simon in IBM Kenexa Survey Enterprise. 
+    ![][14]   
 
-To create users in the IBM Kenexa Survey Enterprise system and map the SSO ID for them, you can work with the [IBM Kenexa Survey Enterprise support team](https://www.ibm.com/support/home/?lnk=fcw). This SSO ID value should also be mapped to the user identifier value from Azure AD. You can change this default setting on the **Attribute** tab.
+## Replace and delete certificates
+<a id="" class="xliff"></a>
 
-### Assign the Azure AD test user
+### **Delete a certificate**
+<a id="" class="xliff"></a>
 
-In this section, you enable user Britta Simon to use Azure SSO by granting access to IBM Kenexa Survey Enterprise.
+You can delete a certificate by deleting it from Certificate Management. Select the certificate that you want to delete, and then click **Delete** at the right of the window.
 
-![Assign the user role][200] 
+![][19] 
 
-To assign user Britta Simon to IBM Kenexa Survey Enterprise, do the following:
+>[!NOTE] 
+>If a certificate has a bound domain name, you must unbind the certificate and the domain name before you can delete it. Otherwise, you will be notified that this step must be performed first. You can unbind the certificate and domain name either by replacing the certificate for the domain name or by directly deleting the domain name. For information about how to replace a certificate, see the next section, "Replace a certificate." 
 
-1. In the Azure portal, open the **Applications** view, go to the **Directory** view, select **Enterprise applications**, and then click **All applications**.
+![][16] 
 
-	![The "Enterprise applications" and "All applications" links][201] 
+### **Replace a certificate**
+<a id="" class="xliff"></a>
 
-2. In the **Applications** list, select **IBM Kenexa Survey Enterprise**.
+If you have already enabled the HTTPS customer-supplied certificate service, you can replace a certificate for the corresponding domain name in Domain Name Management.
 
-	![The IBM Kenexa Survey Enterprise link in the Applications list](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_app.png) 
+1. Select the domain name whose certificate you want to replace, go to HTTPS (customer-supplied certificate), and replace the certificate:
 
-3. In the left pane, click **Users and groups**.
+   ![][17]
 
-	![The "Users and groups" link][202] 
+2. Select the certificate that you want to replace, and then click **Save**.
 
-4. Click the **Add** button and then, in the **Add Assignment** pane, select **Users and groups**.
+   ![][18]
 
-	![The Add Assignment pane][203]
-
-5. In the **Users and groups** dialog box, in the **Users** list, select **Britta Simon**.
-
-6. In the **Users and groups** dialog box, click the **Select** button.
-
-7. In the **Add Assignment** dialog box, click the **Assign** button.
-	
-### Test single sign-on
-
-In this section, you test your Azure AD SSO configuration by using the Access Panel.
-
-When you click the **IBM Kenexa Survey Enterprise** tile in the Access Panel, you should be automatically signed in to your IBM Kenexa Survey Enterprise application.
-
-## Additional resources
-
-* [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+3. To automatically enable HTTPS acceleration, repeat steps 3, 4, and 5 from the process.
 
 <!--Image references-->
-
-[1]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_04.png
-
-[100]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_100.png
-
-[200]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_203.png
-
- 
+[1]: ./media/cdn-httpsimage/manage.png
+[2]: ./media/cdn-httpsimage/oldportal.png
+[3]: ./media/cdn-httpsimage/newportaloverview.png
+[4]: ./media/cdn-httpsimage/uploadcert.png
+[5]: ./media/cdn-httpsimage/bindcert1.png
+[6]: ./media/cdn-httpsimage/bindcert1.1.png
+[7]: ./media/cdn-httpsimage/certdetail.png
+[8]: ./media/cdn-httpsimage/bindcert2.png
+[9]: ./media/cdn-httpsimage/bindcert3.png
+[10]: ./media/cdn-httpsimage/success.png
+[11]: ./media/cdn-httpsimage/successdomainstatuspng.png
+[12]: ./media/cdn-httpsimage/cert4.png
+[13]: ./media/cdn-httpsimage/deploying.png
+[14]: ./media/cdn-httpsimage/finalaccess.png
+[15]: ./media/cdn-httpsimage/ibizapricingtier.png
+[16]: ./media/cdn-httpsimage/deletecerterror.png
+[17]: ./media/cdn-httpsimage/changecert1.png
+[18]: ./media/cdn-httpsimage/changecert2.png
+[19]: ./media/cdn-httpsimage/deletecert.png
