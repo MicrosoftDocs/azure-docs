@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
-ms.author: cfreeman
+ms.author: sewhee
 ---
 
 # Investigate and share usage data with interactive workbooks in Application Insights
@@ -119,4 +119,6 @@ To pin a link to a workbook to an Azure Dashboard:
     - [Users, Sessions, Events](app-insights-usage-segmentation.md)
     - [Funnels](usage-funnels.md)
     - [Retention](app-insights-usage-retention.md)
+    - [Flows](app-insights-usage-flows.md)
     - [Add user context](app-insights-usage-send-user-context.md)
+    
