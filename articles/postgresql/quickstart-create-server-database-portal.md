@@ -175,19 +175,20 @@ To connect to Azure PostgreSQL server using the GUI tool _pgAdmin_
 
 
 ## Clean up resources
-Clean up all resources you created in the quickstart by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+Clean up the resources you created in the quickstart either by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group, or by deleting the one server resource if you want to keep the other resources intact.
 
 > [!TIP]
-> Other quickstarts in this collection build upon this quick start. If you plan to continue on to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
+> Other quickstarts in this collection build upon this quick start. If you plan to continue on to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete resources created by this quickstart in the Azure portal.
 
-1.	From the left-hand menu in the Azure portal, click **Resource groups** and then click **myresourcegroup**.
-2.	On your resource group page, click **Delete**, type **myresourcegroup** in the text box, and then click Delete.
+To delete the entire resource group including the newly created server:
+1.	Locate your resource group in the Azure portal. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of your resource group, such as our example **myresourcegroup**.
+2.	On your resource group page, click **Delete**. Then type the name of your resource group, such as our example **myresourcegroup**, in the text box to confirm deletion, and then click Delete.
 
-If you just would like to delete the newly created server:
-1.	From the left-hand menu in Azure portal, click PostgreSQL servers and then search for the server you just created
-2.	On the Overview page, click the Delete button on the top pane
+Or instead, to delete the newly created server:
+1.	Locate your server in the Azure portal, if you do not have it open. From the left-hand menu in Azure portal, click all resources, and then search for the server you just created.
+2.	On the Overview page, click the Delete button on the top pane.
 ![Azure Database for PostgreSQL - Delete server](./media/quickstart-create-database-portal/12-delete.png)
-3.	Confirm the server name you want to delete, and show the databases under it that is affected. Type **mypgserver-20170401** in the text box, and then click Delete.
+3.	Confirm the server name you want to delete, and show the databases under it that is affected. Type your server name in the text box, such as our example **mypgserver-20170401**, and then click Delete.
 
 ## Next steps
 > [!div class="nextstepaction"]
