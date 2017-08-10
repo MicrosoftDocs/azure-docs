@@ -112,7 +112,7 @@ After your project is set up, you'll need to add the required Flask packages to 
 2. Save the **requirements.txt** file. 
 3. In Solution Explorer, right-click **env** and click **Install from requirements.txt**.
    
-    ![Screen shot showing env (Python 2.7) selected with Install from requirements.txt highlighted in the list](./media/documentdb-python-application/image11.png)
+    ![Screen shot showing env (Python 2.7) selected with Install from requirements.txt highlighted in the list](./media/documentdb-python-application/cosmos-db-python-install-from-requirements.png)
    
     After successful installation, the output window displays the following:
    
@@ -347,7 +347,7 @@ def vote():
 6. After adding all the files, Solution
    Explorer should look like this:
    
-    ![Screen shot of the Visual Studio Solution Explorer window](./media/documentdb-python-application/image15.png)
+    ![Screen shot of the Visual Studio Solution Explorer window](./media/documentdb-python-application/cosmos-db-python-solution-explorer.png)
 
 ## Step 4: Run your web application locally
 1. Build the solution by pressing **Ctrl**+**Shift**+**B**.
