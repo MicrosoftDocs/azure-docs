@@ -154,6 +154,8 @@ You can find out the time when a managed disk was created from the Azure portal,
 
 As of June 10, 2017, new data written to existing managed disks is automatically encrypted. We are also planning to encrypt existing data, and the encryption will happen asynchronously in the background. If you must encrypt existing data now, create a copy of your disk. New disks will be encrypted.
 
+As of June 10, 2017, new data written to the underlying storage accounts of managed disks is automatically encrypted. We are also planning to encrypt existing data, and the encryption will happen asynchronously in the background. If you must encrypt existing data now, create a copy of your disk. New disks will be encrypted.  This encryption is a Storage Service Encryption.  To encrypt the disks attached to the VMs, this has to be manually done by following the steps here (https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
+
 * [Copy managed disks by using the Azure CLI](https://docs.microsoft.com/en-us/azure/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
 * [Copy managed disks by using PowerShell](https://docs.microsoft.com/en-us/azure/storage/scripts/storage-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
 
