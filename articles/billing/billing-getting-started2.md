@@ -38,17 +38,23 @@ Check out the [pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 The [total cost of ownership calculator](https://aka.ms/azure-tco-calculator) provides a comparison of the savings of an Azure cloud infrastructure over an on-premise environment. For more information on pricing, see this [FAQ](https://azure.microsoft.com/pricing/faq/). Or if you want to talk to an Azure salesperson, contact 1-800-867-1389.
 
-### <a name="spending-limit"></a> Check if you have a spending limit on
+### Review the estimated cost in the Azure portal
 
-If you have a subscription that uses credits, then the spending limit is turned on for you by default. This way, when you spend all your credits, your credit card doesn't get charged. See the [full list of Azure offers and the availability of spending limit](https://azure.microsoft.com/support/legal/offer-details/).
+Typically when you add a service in the Azure portal, there's a view that shows you a similar estimated cost per month. For example, when you choose the size of your Windows VM, you see the estimated monthly cost for the compute hours:
 
-However, if you hit your spending limit, your services get disabled. That means your VMs are deallocated. To avoid service downtime, you must turn off the spending limit. Any overage gets charged onto your credit card on file. 
+![Example: an A1 Windows VM is estimated to cost $66.96 USD per month](./media/billing-getting-started/vm-size-cost.PNG)
 
-To see if you've got spending limit on, go to the [Subscriptions view in the Account Center](https://account.windowsazure.com/Subscriptions). A banner appears if your spending limit is on:
+## Ways to monitor your costs when using Azure services
 
-![Screenshot that shows a warning about spending limit being on in the Account Center](./media/billing-getting-started/spending-limit-banner.PNG)
+### <a name="tags"></a> Add tags to your resources to group your billing data
 
-Click the banner and follow prompts to remove the spending limit. If you didn't enter credit card information when you signed up, you must enter it to remove the spending limit. For more information, see [Azure spending limit – How it works and how to enable or remove it](https://azure.microsoft.com/pricing/spending-limits/).
+You can use tags to group billing data for supported services. For example, if you run several VMs for different teams, then you can use tags to categorize costs by cost center (HR, marketing, finance) or environment (production, pre-production, test). 
+
+![Screenshot that shows setting up tags in the portal](./media/billing-getting-started/tags.PNG)
+
+The tags show up throughout different cost reporting views. For example, they're visible in your [cost analysis view](#costs) right away and [detail usage .csv](#invoice-and-usage) after your first billing period.
+
+For more information, see [Using tags to organize your Azure resources](../azure-resource-manager/resource-group-using-tags.md).
 
 ### Set up billing alerts
 
@@ -61,27 +67,20 @@ Set up billing alerts to get emails when your usage costs exceed an amount that 
 
 You might want to use the cost estimate from the pricing calculator as a guideline for your first alert.
 
+### <a name="spending-limit"></a> Check if you have a spending limit on
+
+If you have a subscription that uses credits, then the spending limit is turned on for you by default. This way, when you spend all your credits, your credit card doesn't get charged. See the [full list of Azure offers and the availability of spending limit](https://azure.microsoft.com/support/legal/offer-details/).
+
+However, if you hit your spending limit, your services get disabled. That means your VMs are deallocated. To avoid service downtime, you must turn off the spending limit. Any overage gets charged onto your credit card on file. 
+
+To see if you've got spending limit on, go to the [Subscriptions view in the Account Center](https://account.windowsazure.com/Subscriptions). A banner appears if your spending limit is on:
+
+![Screenshot that shows a warning about spending limit being on in the Account Center](./media/billing-getting-started/spending-limit-banner.PNG)
+
+Click the banner and follow prompts to remove the spending limit. If you didn't enter credit card information when you signed up, you must enter it to remove the spending limit. For more information, see [Azure spending limit – How it works and how to enable or remove it](https://azure.microsoft.com/pricing/spending-limits/).
 ### Understand limits and quotas for your subscription
 
 There are default limits to each subscription for things like the number of CPU cores and IP addresses. Be mindful of these limits. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). You can request an increase to your limit or quota by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-## Ways to monitor your costs when using Azure services
-
-### Review the estimated cost in the portal
-
-Typically when you add a service in the Azure portal, there's a view that shows you a similar estimated cost per month. For example, when you choose the size of your Windows VM you see the estimated monthly cost for the compute hours:
-
-![Example: an A1 Windows VM is estimated to cost $66.96 USD per month](./media/billing-getting-started/vm-size-cost.PNG)
-
-### <a name="tags"></a> Add tags to your resources to group your billing data
-
-You can use tags to group billing data for supported services. For example, if you run several VMs for different teams, then you can use tags to categorize costs by cost center (HR, marketing, finance) or environment (production, pre-production, test). 
-
-![Screenshot that shows setting up tags in the portal](./media/billing-getting-started/tags.PNG)
-
-The tags show up throughout different cost reporting views. For example, they're visible in your [cost analysis view](#costs) right away and [detail usage .csv](#invoice-and-usage) after your first billing period.
-
-For more information, see [Using tags to organize your Azure resources](../azure-resource-manager/resource-group-using-tags.md).
 
 ### Consider enabling cost-cutting features like auto-shutdown for VMs
 
