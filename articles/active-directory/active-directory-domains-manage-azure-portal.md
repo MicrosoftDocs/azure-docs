@@ -62,5 +62,5 @@ Most management tasks for domain names in Azure Active Directory can also be com
 * [Using Graph API to manage domain names in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## Next steps
-* [Add custom domain names](active-directory-domains-add-azure-portal.md)
+* [Add custom domain names](add-custom-domain.md)
 
