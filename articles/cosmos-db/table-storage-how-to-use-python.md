@@ -1,20 +1,20 @@
 ---
 title: How to use Azure Table storage with Python | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
-services: storage
+services: cosmos-db
 documentationcenter: python
-author: mmacy
-manager: timlt
+author: mimig1
+manager: jhubbard
 editor: tysonn
 
 ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
-ms.service: storage
+ms.service: cosmos-db
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 05/16/2017
-ms.author: marsma
+ms.author: mimig
 
 ---
 # How to use Table storage in Python

@@ -1,20 +1,20 @@
 ---
 title: Get started with Azure Table storage using .NET | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
-services: storage
+services: cosmos-db
 documentationcenter: .net
-author: mmacy
-manager: timlt
+author: mimig1
+manager: jhubbard
 editor: tysonn
 
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
-ms.service: storage
+ms.service: cosmos-db
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 04/10/2017
-ms.author: marsma
+ms.author: mimig
 
 ---
 # Get started with Azure Table storage using .NET
