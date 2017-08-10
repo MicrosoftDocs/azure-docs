@@ -11,7 +11,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2017
-ms.author: cfreeman
+ms.author: sewhee
 ---
 
 # Automate Azure Application Insights processes with the connector for Microsoft Flow

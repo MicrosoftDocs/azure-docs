@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/04/2017
 ms.author: sstein
 
 ---
@@ -43,7 +43,7 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 In a database-backed multi-tenant SaaS application, it's important to know where information for each tenant is stored. In the SaaS catalog pattern, a catalog database is used to hold the mapping between tenants and where their data is stored. The Wingtip SaaS app uses a single-tenant per database architecture, but the basic pattern of storing tenant-to-database mapping in a catalog applies whether a multi-tenant or single-tenant database is used.
 
-Each tenant is assigned a key that distinguishes their data in the catalog. In the Wingtip SaaS application, the key is formed from a hash of the tenant’s name. This pattern allows the tenant name portion of the application URL to be used to construct the key and retrieve a specific tenant's connection. Other id schemes could be used without impacting the overall pattern.
+Each tenant is assigned a key that distinguishes their data in the catalog. In the Wingtip SaaS application, the key is formed from a hash of the tenant’s name. This pattern allows the tenant name portion of the application URL to be used to construct the key and retrieve a specific tenant's connection. Other ID schemes could be used without impacting the overall pattern.
 
 The catalog in the app is implemented using Shard Management technology in the [Elastic Database Client Library (EDCL)](sql-database-elastic-database-client-library.md). EDCL is responsible for creating and managing a database-backed *catalog* where a *shard map* is maintained. The catalog contains the mapping between keys (tenants) and their shards (databases).
 
@@ -78,7 +78,7 @@ After the script completes, the new tenant is provisioned, and their *Events* ap
 
 This exercise provisions a batch of additional tenants. It’s recommended you provision a batch of tenants before completing other Wingtip SaaS tutorials so there's more than just a few databases to work with.
 
-1. Open ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* in the *PowerShell ISE* and change the *$DemoScenario* parameter to 3:
+1. Open ...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1* in the *PowerShell ISE* and change the *$DemoScenario* parameter to 3:
    * **$DemoScenario** = **3**, change to **3** to *Provision a batch of tenants*.
 1. Press **F5** and run the script.
 
@@ -91,24 +91,31 @@ The script deploys a batch of additional tenants. It uses an [Azure Resource Man
    ![database list](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
 
 
-## Provision and catalog details
+## Stepping through the provision and catalog implementation details
 
 For a better understanding of how the Wingtip application implements new tenant provisioning, run the *Demo-ProvisionAndCatalog* script again and provision yet another tenant. This time, add a breakpoint and step through the workflow:
 
-1. Open ...\\Learning Modules\Utilities\_Demo-ProvisionAndCatalog.ps1_ and set the following parameters:
+1. Open ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ and set the following parameters:
    * **$TenantName** = tenant names must be unique, so set to a different name than any existing tenants (for example, *Hackberry Hitters*).
    * **$VenueType** = use one of the pre-defined venue types (for example, *judo*).
    * **$DemoScenario** = **1**, Set to **1** to *Provision a single tenant*.
 
-1. Add a breakpoint by putting your cursor anywhere on the following line: *New-Tenant `*, and press **F9**.
+1. Add a breakpoint by putting your cursor anywhere on line 48, the line that says: *New-Tenant `*, and press **F9**.
 
    ![break point](media/sql-database-saas-tutorial-provision-and-catalog/breakpoint.png)
 
-1. To run the script press **F5**. When the breakpoint is hit, press **F11** to step in. Trace the script's execution using the Debug menu options - **F10** and **F11** to step over or into the called functions. For more information about debugging PowerShell scripts, see [Tips on working with and debugging PowerShell scripts](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+1. To run the script press **F5**.
 
-### Examine the provision and catalog implementation in detail by stepping through the script
+1. After the script execution stops at the breakpoint, press **F11** to step into the code.
 
-The script provisions and catalogs new tenants by doing the following steps:
+   ![break point](media/sql-database-saas-tutorial-provision-and-catalog/debug.png)
+
+
+
+Trace the script's execution using the **Debug** menu options - **F10** and **F11** to step over or into the called functions. For more information about debugging PowerShell scripts, see [Tips on working with and debugging PowerShell scripts](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+
+
+The following are not steps to explicitly follow, but an explanation of the workflow you step through while debugging the script:
 
 1. **Import the SubscriptionManagement.psm1** module that contains functions for signing in to Azure and selecting the Azure subscription you are working with.
 1. **Import the CatalogAndDatabaseManagement.psm1** module that provides a catalog and tenant-level abstraction over the [Shard Management](sql-database-elastic-scale-shard-map-management.md) functions. This is an important module that encapsulates much of the catalog pattern and is worth exploring.
