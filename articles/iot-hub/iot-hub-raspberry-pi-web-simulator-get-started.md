@@ -7,13 +7,15 @@ author: shizn
 manager: timtl
 tags: ''
 keywords: 'raspberry pi simulator, azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud'
+experimental: true
+experiment_id: "bfcb8ffc-3d7a-4d"
 
 ms.service: iot-hub
 ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/27/2017
+ms.date: 7/7/2017
 ms.author: xshi
 
 ---

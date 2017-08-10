@@ -96,11 +96,11 @@
         href: sizes-storage.md
       - name: GPU
         href: sizes-gpu.md
+        items:
+        - name: GPU drivers
+          href: n-series-driver-setup.md
       - name: High performance compute
         href: sizes-hpc.md
-        items:
-        - name: Compute-intensive sizes
-          href: a8-a9-a10-a11-specs.md
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Compute benchmark scores
@@ -129,16 +129,14 @@
     items:
     - name: VM creation overview
       href: creation-choices.md
-    - name: Create a VM with CLI
-      href: quick-create-cli-nodejs.md
+    - name: Create complete VM
+      href: create-cli-complete.md
     - name: Create a VM with template
       href: create-ssh-secured-vm-from-template.md
     - name: Copy a VM
       href: copy-vm.md
     - name: Move a VM between subscriptions
       href: move-vm.md
-    - name: Create highly available VMs
-      href: create-cli-complete.md
     - name: Terraform
       items:
       - name: Install and configure

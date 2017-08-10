@@ -17,7 +17,7 @@ ms.date: 02/22/2017
 ms.author: gwallace
 ---
 
-# Diagnose on-premise connectivity via VPN gateways
+# Diagnose on-premises connectivity via VPN gateways
 
 Azure VPN Gateway enables you to create hybrid solution that address the need for a secure connection between your on-premises network and your Azure virtual network. As your requirements are unique, so is the choice of on-premises VPN device. Azure currently supports [several VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides) that are constantly validated in partnership with the device vendors. Review the device-specific configuration settings before configuring your on-premises VPN device. Similarly, Azure VPN Gateway is configured with a set of [supported IPsec parameters](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-nameipsecaipsecike-parameters) that are used for establishing connections. Currently there is no way for you to specify or select a specific combination of IPsec parameters from the Azure VPN Gateway. For establishing a successful connection between on-premises and Azure, the on-premises VPN device settings must be in accordance with the IPsec parameters prescribed by Azure VPN Gateway. Failure to do so results in loss of connectivity and until now troubleshooting these issues was not trivial and usually took hours to identify and fix the issue.
 

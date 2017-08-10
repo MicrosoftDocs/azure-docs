@@ -225,7 +225,7 @@ This link relationship is established by assigning the value of the **user name*
 
     k. Deselect **Create an AuthnContextClass**.
 
-    l. In the **AuthnContextClassRef Method**, type `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`. This is only needed if you are cloud only organization. If you are using on premise ADFS or MFA for authentication then you should not configure this value. 
+    l. In the **AuthnContextClassRef Method**, type `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`. This is only needed if you are cloud only organization. If you are using on-premises ADFS or MFA for authentication then you should not configure this value. 
 
     m. In **Clock Skew** textbox, type **60**.
 

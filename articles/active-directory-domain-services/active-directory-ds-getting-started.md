@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 07/10/2017
 ms.author: maheshu
 
 ---
@@ -47,9 +47,7 @@ In the **Basics** page of the wizard, you can specify the DNS domain name for th
 
 1. Choose the **DNS domain name** for your managed domain.
 
-   * The default domain name of the directory (with a **.onmicrosoft.com** suffix) is selected by default.
-
-   * The list contains all domains that have been configured for your Azure AD directory, including both verified and unverified domains that you configure on the **Domains** tab.
+   * The default domain name of the directory (with a **.onmicrosoft.com** suffix) is specified by default.
 
    * You can also type in a custom domain name. In this example, the custom domain name is *contoso100.com*.
 

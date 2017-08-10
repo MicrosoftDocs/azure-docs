@@ -6,14 +6,13 @@ documentationcenter: ''
 author: billmath
 manager: femila
 editor: ''
-
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 07/07/2017
 ms.author: billmath
 
 ---
@@ -217,7 +216,7 @@ Azure AD Connect sync
 * Azure AD Connect now automatically enables the use of ConsistencyGuid attribute as the Source Anchor attribute for on-premises AD objects. Further, Azure AD Connect populates the ConsistencyGuid attribute with the objectGuid attribute value if it is empty. This feature is applicable to new deployment only. To find out more about this feature, refer to article section [Azure AD Connect: Design concepts - Using msDS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
 * New troubleshooting cmdlet Invoke-ADSyncDiagnostics has been added to help diagnose Password Hash Synchronization related issues. For information about using the cmdlet, refer to article [Troubleshoot password synchronization with Azure AD Connect sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization).
 * Azure AD Connect now supports synchronizing Mail-Enabled Public Folder objects from on-premises AD to Azure AD. You can enable the feature using Azure AD Connect wizard under Optional Features. To find out more about this feature, refer to article [Office 365 Directory Based Edge Blocking support for on-premises Mail Enabled Public Folders](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
-* Azure AD Connect requires AD DS accounts to synchronize from on-premises AD. Previously, if you install Azure AD Connect using Express mode, you can provide the credential of an Enterprise Admin account. Azure AD Connect and leave it to Azure AD Connect to create the AD DS account required. However, for custom installation and adding forests to existing deployment, you must provide the AD DS account instead. Now, you also have the option to provide the credentials of an Enterprise Admin account during custom installation and let Azure AD Connect create the AD DS account required.
+* Azure AD Connect requires an AD DS account to synchronize from on-premises AD. Previously, if you installed Azure AD Connect using the Express mode, you could provide the credentials of an Enterprise Admin account and Azure AD Connect would create the AD DS account required. However, for a custom installation and adding forests to an existing deployment, you were required to provide the AD DS account instead. Now, you also have the option to provide the credentials of an Enterprise Admin account during a custom installation and let Azure AD Connect create the AD DS account required.
 * Azure AD Connect now supports SQL AOA. You must enable SQL before installing Azure AD Connect. During installation, Azure AD Connect  detects whether the SQL instance provided is enabled for SQL AOA or not. If SQL AOA is enabled, Azure AD Connect further figures out if SQL AOA is configured to use synchronous replication or asynchronous replication. When setting up the Availability Group Listener, it is recommended that you set the RegisterAllProvidersIP property to 0. This is because Azure AD Connect currently uses SQL Native Client to connect to SQL and SQL Native Client does not support the use of MultiSubNetFailover property.
 * If you are using LocalDB as the database for your Azure AD Connect server and has reached its 10-GB size limit, the Synchronization Service no longer starts. Previously, you need to perform ShrinkDatabase operation on the LocalDB to reclaim enough DB space for the Synchronization Service to start. After which, you can use the Synchronization Service Manager to delete run history to reclaim more DB space. Now, you can use Start-ADSyncPurgeRunHistory cmdlet to purge run history data from LocalDB to reclaim DB space. Further, this cmdlet supports an offline mode (by specifying the -offline parameter) which can be used when the Synchronization Service is not running. Note: The offline mode can only be used if the Synchronization Service is not running and the database used is LocalDB.
 * To reduce the amount of storage space required, Azure AD Connect now compresses sync error details before storing them in LocalDB/SQL databases. When upgrading from an older version of Azure AD Connect to this version, Azure AD Connect performs a one-time compression on existing sync error details.

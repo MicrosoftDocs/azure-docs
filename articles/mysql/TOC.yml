@@ -17,6 +17,8 @@
       href: connect-php.md
     - name: Java
       href: connect-java.md
+    - name: Python
+      href: connect-python.md      
 - name: Tutorials
   items:
   - name: 1 - Design a Database

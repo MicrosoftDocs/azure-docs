@@ -195,7 +195,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
       *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * To enable the Azure Disk Encryption feature, the IaaS VMs must meet the following network endpoint configuration requirements:
-  * To get a token to connect to your key vault, the IaaS VM must be able to connect to an Azure Active Directory endpoint, \[Login.windows.net\].
+  * To get a token to connect to your key vault, the IaaS VM must be able to connect to an Azure Active Directory endpoint, \[login.microsoftonline.com\].
   * To write the encryption keys to your key vault, the IaaS VM must be able to connect to the key vault endpoint.
   * The IaaS VM must be able to connect to an Azure storage endpoint that hosts the Azure extension repository and an Azure storage account that hosts the VHD files.
 

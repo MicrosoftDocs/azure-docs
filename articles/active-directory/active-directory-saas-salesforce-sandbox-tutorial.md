@@ -109,7 +109,7 @@ The objective of this section is to outline how to enable users to authenticate 
  5. As **SAML Identity Type**, select **Assertion contains the Federation ID from the User object**. 
  6. As **SAML Identity Location**, select **Identity is in the NameIdentifier element of the Subject statement**.
  7. In the Azure classic portal, on the **Configure single sign-on at Salesforce Sandbox** dialogue page, copy the **Remote Login URL** value, and then paste it into the **Identity Provider Login URL** textbox. 
- 8. SFDC does not support SAML logout.  As a workaround, paste 'https://login.windows.net/common/wsfederation?wa=wsignout1.0' it into the **Identity Provider Logout URL** textbox.
+ 8. SFDC does not support SAML logout.  As a workaround, paste 'https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0' it into the **Identity Provider Logout URL** textbox.
  9. As **Service Provider Initiated Request Binding**, select **HTTP POST**. 
  10. Click **Save**.
 11. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.

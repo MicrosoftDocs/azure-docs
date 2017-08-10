@@ -14,7 +14,7 @@ ms.date: 05/17/2017
 ms.author: gauravbh; tomfitz
 
 ---
-# Consume an Azure Managed Application
+# Consume a Service Catalog Managed Application
 
 As described in the [Managed Application overview](managed-application-overview.md) article, there are two scenarios in the end to end experience. One is the publisher or ISV who wants to create a managed application for use by customers. The second is the end customer or the consumer of the managed application. This article covers the second scenario and explains how an end customer can consume a managed application provided by an ISV.
 

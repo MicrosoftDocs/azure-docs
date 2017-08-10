@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/06/2017
 ms.author: billmath
 ---
 
@@ -57,6 +57,10 @@ You need version 1.1.486.0 or later for Azure AD Connect and 1.5.58.0 or later f
 If you have configured [password writeback](../active-directory-passwords-update-your-own-password.md) for a specific user, and if the user signs in using Pass-through Authentication, they can change or reset their passwords. The passwords are written back to on-premises Active Directory as expected.
 
 However, if password writeback is not configured or if the user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Please update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator has to reset their password in your on-premises Active Directory.
+
+## How does Pass-through Authentication protect you against brute force password attacks?
+
+Read [this article](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) for more information.
 
 ## What do Pass-through Authentication Agents communicate over ports 80 and 443?
 

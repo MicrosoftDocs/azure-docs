@@ -271,7 +271,7 @@ Azure AD uses industry standard to establish trust between itself and applicatio
 
 Detailed info on Azure AD key rollover can be found in the document: [Important Information about Signing Key Rollover in Azure AD](../active-directory/active-directory-signing-key-rollover.md).
 
-Between the [public-private key pair](https://login.windows.net/common/discovery/keys/),
+Between the [public-private key pair](https://login.microsoftonline.com/common/discovery/keys/),
 
 * The private key is used by Azure Active Directory to generate a JWT token;
 * The public key is used by an application such as DRM License Delivery Services in AMS to verify the JWT token;

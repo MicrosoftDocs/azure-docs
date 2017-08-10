@@ -64,7 +64,7 @@ Before you start this step, make sure that you have access to an [Active Directo
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
       var cc = new ClientCredential("client-id", "client-secret");
-      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
+      var context = new AuthenticationContext("https://login.microsoftonline.com/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
       if (token == null)
       {

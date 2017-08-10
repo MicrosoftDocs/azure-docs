@@ -94,7 +94,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the `<ClaimsP
                 <Protocol Name="OpenIdConnect"/>
                 <OutputTokenFormat>JWT</OutputTokenFormat>
                 <Metadata>
-                    <Item Key="METADATA">https://login.windows.net/contoso.com/.well-known/openid-configuration</Item>
+                    <Item Key="METADATA">https://login.microsoftonline.com/contoso.com/.well-known/openid-configuration</Item>
                     <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
                     <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
                     <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
@@ -138,7 +138,7 @@ To get a token from the Azure AD endpoint, you need to define the protocols that
 
 You need to update the `<Metadata>` section in the XML file referred to earlier to reflect the configuration settings for your specific Azure AD tenant. In the XML file, update the metadata values as follows:
 
-1. Set `<Item Key="METADATA">` to `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, where `yourAzureADtenant` is your Azure AD tenant name (contoso.com).
+1. Set `<Item Key="METADATA">` to `https://login.microsoftonline.com/yourAzureADtenant/.well-known/openid-configuration`, where `yourAzureADtenant` is your Azure AD tenant name (contoso.com).
 1. Open your browser and go to the `METADATA` URL that you just updated.
 1. In the browser, look for the 'issuer' object and copy its value. It should look like the following: `https://sts.windows.net/{tenantId}/`.
 1. Paste the value for `<Item Key="ProviderName">` in the XML file.

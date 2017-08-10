@@ -195,7 +195,7 @@ Replace the contents of **Program.cs** with the following, and update the `{vari
 
         private static AuthenticationResult GetToken(string tenantId, string applicationId, string applicationSecret)
         {
-            AuthenticationContext authContext = new AuthenticationContext("https://login.windows.net/" + tenantId);
+            AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
             _token = authContext.AcquireToken("https://management.core.windows.net/", new ClientCredential(applicationId, applicationSecret));
             return _token;
         }

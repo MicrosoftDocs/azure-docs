@@ -40,7 +40,7 @@ To solve the problem where the application has been deployed using a different u
 
 ![Edit User Attribute][2]
 
-In the **Attribute Value** menu, select **user.mail** to set the NameIdentifier claim to be the user’s email address in the directory. Or, select **user.onpremisessamaccountname** to set to the user’s SAM Account Name that has been synced from on-premise Azure AD.
+In the **Attribute Value** menu, select **user.mail** to set the NameIdentifier claim to be the user’s email address in the directory. Or, select **user.onpremisessamaccountname** to set to the user’s SAM Account Name that has been synced from on-premises Azure AD.
 
 You can also use the special ExtractMailPrefix() function to remove the domain suffix from either the email address or the user principal name. And then, only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com).
 
@@ -55,7 +55,7 @@ For example, you need to send the department that the user belongs to in their o
 
 If for a given user there is no value stored for a selected attribute, then that claim is not being issued in the token.
 
-**Note:** The **user.onpremisesecurityidentifier** and **user.onpremisesamaccountname** are only supported when synchronizing user data from on-premise Active Directory using the [Azure AD Connect tool](../active-directory-aadconnect.md).
+**Note:** The **user.onpremisesecurityidentifier** and **user.onpremisesamaccountname** are only supported when synchronizing user data from on-premises Active Directory using the [Azure AD Connect tool](../active-directory-aadconnect.md).
 
 ## Next steps
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)

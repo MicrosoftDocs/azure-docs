@@ -32,6 +32,7 @@
 ### [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
 ### [Azure CLI](batch-cli-get-started.md)
 #### [Create a Batch account](./scripts/batch-cli-sample-create-account.md)
+#### [Run Batch jobs without code](batch-cli-templates.md)
 #### [Add an application](./scripts/batch-cli-sample-add-application.md)
 #### [Manage pools](./scripts/batch-cli-sample-manage-pool.md)
 #### [Run a job and tasks](./scripts/batch-cli-sample-run-job.md)

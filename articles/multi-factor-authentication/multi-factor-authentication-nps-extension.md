@@ -221,7 +221,7 @@ This error could be due to one of several reasons. Use these steps to help troub
 1. Restart your NPS server.
 2. Verify that that client cert is installed as expected.
 3. Verify that the certificate is associated with your tenant on Azure AD.
-4. Verify that https://login.windows.net/ is accessible from the server running the extension.
+4. Verify that https://login.microsoftonline.com/ is accessible from the server running the extension.
 
 -------------------------------------------------------------
 

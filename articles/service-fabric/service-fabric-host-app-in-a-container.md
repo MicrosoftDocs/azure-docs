@@ -37,7 +37,7 @@ This tutorial shows you how to deploy an existing ASP.NET application in a Windo
 
 ## Containerize the application
 
-To start running our application in a container, we need to add **Docker Support** to the project in Visual Studio. When you add **Docker support** to the application, two things happen. First, a _docker_ file is added to the project. This new file describes how the container image is to be built. Then second, a new _docker-compose_ project is added to the solution. The new project contains a few docker-compose files. Docker-compose files can be used to describe how the container is run.
+To start running our application in a container, we need to add **Docker Support** to the project in Visual Studio. When you add **Docker support** to the application, two things happen. First, a _Dockerfile_ is added to the project. This new file describes how the container image is to be built. Then second, a new _docker-compose_ project is added to the solution. The new project contains a few docker-compose files. Docker-compose files can be used to describe how the container is run.
 
 More info on working with [Visual Studio Container Tools][link-visualstudio-container-tools].
 
@@ -258,7 +258,7 @@ Now that your code is synchronized with a VSTS source repository, you can config
    Once the configuration is completed, your container is deployed to Service Fabric. Whenever you push updates to the repository a new build and release is executed.
    
    >[!NOTE]
-   >Building the container images take approx. 15 minutes.
+   >Building the container images take approximately 15 minutes.
    >The first deployment to the Service Fabric cluster causes the base Windows Server Core container images to be downloaded. The download takes additional 5-10 minutes to complete.
 
 7. Browse to the Fabrikam Call Center application using the url of your cluster: for example, *http://mycluster.westeurope.cloudapp.azure.com*

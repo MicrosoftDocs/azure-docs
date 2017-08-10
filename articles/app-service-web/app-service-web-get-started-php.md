@@ -64,7 +64,7 @@ php -S localhost:8080
 
 Open a web browser, and navigate to the sample app at http://localhost:8080.
 
-You see the **Hello World** message from the sample app displayed in the page.
+You see the **Hello World!** message from the sample app displayed in the page.
 
 ![Sample app running locally](media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
 

@@ -48,7 +48,7 @@ Before you begin this process, you must have the following:
      <add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
      <add key="JobName" value="YOUR JOB NAME" />
      <add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
-     <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+     <add key="ActiveDirectoryEndpoint" value="https://login.microsoftonline.com/" />
      <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
      <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
      <add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />

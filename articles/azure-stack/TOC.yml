@@ -21,11 +21,11 @@
     href: azure-stack-solution-pipeline.md
 - name: Concepts
   items:
-  - name: What's new
-    href: azure-stack-whats-new.md
+  - name: Release notes
+    href: azure-stack-asdk-release-notes.md
   - name: Key features and concepts
     href: azure-stack-key-features.md
-  - name: POC architecture
+  - name: Azure Stack Development Kit architecture
     href: azure-stack-architecture.md
   - name: Administration basics
     href: azure-stack-manage-basics.md
@@ -37,8 +37,6 @@
       href: azure-stack-deploy.md
     - name: Deploy
       href: azure-stack-run-powershell-script.md
-    - name: Activate portals
-      href: azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals
     - name: Register
       href: azure-stack-register.md
     - name: Connect to Azure Stack
@@ -105,6 +103,8 @@
         href: azure-stack-delegated-provider.md
     - name: Offer SQL or MySQL as PaaS
       items:
+      - name: PaaS services overview
+        href: azure-stack-tools-paas-services.md
       - name: Deploy MySQL resource provider
         href: azure-stack-mysql-resource-provider-deploy.md
       - name: Deploy SQL resource provider
@@ -131,8 +131,12 @@
         href: azure-stack-marketplace.md
       - name: Download marketplace items
         href: azure-stack-download-azure-marketplace-item.md
+      - name: Azure marketplace items for Azure Stack
+        href: azure-stack-marketplace-azure-items.md
       - name: Create and publish a marketplace item
         href: azure-stack-create-and-publish-marketplace-item.md
+      - name: Use the Marketplace Publishing tool
+        href: azure-stack-marketplace-publisher.md
       - name: Add a custom virtual machine image
         href: azure-stack-add-vm-image.md
       - name: Deploy Linux virtual machines
@@ -233,12 +237,12 @@
       href: azure-stack-troubleshooting.md
     - name: Diagnostics in Azure Stack
       href: azure-stack-diagnostics.md
-    - name: Redeploy Azure Stack POC
+    - name: Redeploy Azure Stack Development Kit
       href: azure-stack-redeploy.md
 - name: Reference
   items:
   - name: PowerShell
-    href: /powershell/azure/overview?view=azurestackps-1.2.9
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
 - name: Resources
   items:
   - name: Azure Roadmap

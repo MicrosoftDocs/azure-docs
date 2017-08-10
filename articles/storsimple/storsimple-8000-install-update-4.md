@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/20/2017
+ms.date: 07/07/2017
 ms.author: alkohli
 
 ---
@@ -37,7 +37,7 @@ Update 4 includes device software, USM firmware, LSI driver and firmware, Storpo
 Perform the following steps to update your device to [Update 4](storsimple-update4-release-notes.md).
 
 > [!NOTE]
-> If you are applying Update 2 or later (including Update 2.1), Microsoft will be able to pull additional diagnostic information from the device. As a result, when our operations team identifies devices that are having problems, we are better equipped to collect information from the device and diagnose issues. By accepting Update 2 or later, you allow us to provide this proactive support.
+> Microsoft pulls additional diagnostic information from the device. As a result, when our operations team identifies devices that are having problems, we are better equipped to collect information from the device and diagnose issues. 
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
