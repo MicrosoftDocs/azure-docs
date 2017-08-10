@@ -25,7 +25,7 @@ To use Storage Analytics, you must enable it individually for each service you w
 
 The aggregated data is stored in a well-known blob (for logging) and in well-known tables (for metrics), which may be accessed using the Blob service and Table service APIs.
 
-Storage Analytics has a 20 TB limit on the amount of stored data that is independent of the total limit for your storage account. For more information about billing and data retention policies, see [Storage Analytics and Billing](https://msdn.microsoft.com/library/hh360997.aspx). For more information about storage account limits, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).
+Storage Analytics has a 20 TB limit on the amount of stored data that is independent of the total limit for your storage account. For more information about billing and data retention policies, see [Storage Analytics and Billing](https://msdn.microsoft.com/library/hh360997.aspx). For more information about storage account limits, see [Azure Storage Scalability and Performance Targets](../storage-scalability-targets.md).
 
 For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
 
