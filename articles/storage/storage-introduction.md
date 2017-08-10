@@ -135,7 +135,6 @@ You can use shared access signatures and stored access policies to secure your d
 The Blob Service allows you to provide public access to a container and its blobs, or a specific blob. When you indicate that a container or blob is public, anyone can read it anonymously; no authentication is required. An example of when you would want to do this is when you have a website that is using images, video, or documents from Blob storage. For more information, see [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md) 
 
 ## Encryption
-<<<<<<< HEAD
 
 There are a couple of basic kinds of encryption available for the Storage services. 
 
@@ -175,47 +174,6 @@ Geo-redundant storage (GRS) maintains the three local copies of your data in a p
 
 **Read-access geo-redundant storage (RA-GRS)** 
 
-=======
-
-There are a couple of basic kinds of encryption available for the Storage services. 
-
-### Encryption at rest 
-
-You can enable Storage Service Encryption (SSE) on either the Files service (preview) or the Blob service for an Azure storage account. If enabled, all data written to the specific service is encrypted before written. When you read the data, it is decrypted before returned. 
-
-### Client-side encryption
-
-The storage client libraries have methods you can call to programmatically encrypt data before sending it across the wire from the client to Azure. It is stored encrypted, which means it also is encrypted at rest. When reading the data back, you decrypt the information after receiving it. 
-
-### Encryption in transit with Azure File Shares
-
-Azure File storage supports HTTPS when using the REST API, but is more commonly used as an SMB file share attached to a VM. SMB 3.0 supports encryption, and is available on the newer versions of Windows as well as the Mac. So when using SMB 3.0 with an Azure File share, the transfer of data from the source to the file share is encrypted. 
-
-For more details about securing your storage account and encryption, see the [Azure Storage security guide](storage-security-guide.md).
-
-## Replication
-
-In order to ensure that your data is durable, Azure Storage has the ability to keep (and manage) multiple copies of your data. This is called replication, or sometimes redundancy. When you set up your storage account, you select replication type. In most cases, this setting can be modified after the storage account is set up. 
-
-All storage accounts have **locally redundant storage (LRS)**. This means three copies of your data are managed by Azure Storage in the data center specified when the storage account was set up. When changes are committed to one copy, the other two copies are updated before returning success. This means the three replicas are always in sync. Also, the three copies reside in separate fault domains and upgrade domains, which means your data is available even if a storage node holding your data fails or is taken offline to be updated. 
-
-**Locally redundant storage (LRS)**
-
-As explained above, with LRS you have three copies of your data in a single datacenter. This handles the problem of data becoming unavailable if a storage node fails or is taken offline to be updated, but not the case of an entire datacenter becoming unavailable.
-
-**Zone redundant storage (ZRS)**
-
-Zone-redundant storage (ZRS) maintains the three local copies of your data as well as another set of three copies of your data. The second set of three copies is replicated asynchronously across datacenters within one or two regions. Note that ZRS is only available for block blobs in general-purpose storage accounts. Also, once you have created your storage account and selected ZRS, you cannot convert it to use to any other type of replication, or vice versa.
-
-ZRS accounts provide higher durability than LRS, but ZRS accounts do not have metrics or logging capability. 
-
-**Geo-redundant storage (GRS)**
-
-Geo-redundant storage (GRS) maintains the three local copies of your data in a primary region plus another set of three copies of your data in a secondary region hundreds of miles away from the primary region. In the event of a failure at the primary region, Azure Storage will fail over to the secondary region. 
-
-**Read-access geo-redundant storage (RA-GRS)** 
-
->>>>>>> 595ed874b101b15ca181eba499aee25e1e3223a4
 Read-access geo-redundant storage is exactly like GRS except that you get read access to the data in the secondary location. If the primary data center becomes unavailable temporarily, you can continue to read the data from the secondary location. This can be very helpful. For example, you could have a web application that changes into read-only mode and points to the secondary copy, allowing some access even though updates are not available. 
 
 > [!IMPORTANT]
