@@ -52,7 +52,7 @@ You will need the following to use the Blob service with your Jenkins CI solutio
      
       While a typical Jenkins CI solution would be set up to run as a service, running the Jenkins war at the command line will be sufficient for this tutorial.
 * An Azure account. You can sign up for an Azure account at <http://www.azure.com>.
-* An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](../storage-create-storage-account.md#create-a-storage-account).
+* An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](../common/storage-create-storage-account.md#create-a-storage-account).
 * Familiarity with the Jenkins CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Jenkins CI build artifacts.
 
 ## How to use the Blob service with Jenkins CI

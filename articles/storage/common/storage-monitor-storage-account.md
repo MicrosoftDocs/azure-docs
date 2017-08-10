@@ -50,7 +50,7 @@ ms.author: marsma
    To set the data retention policy, move the **Retention (days)** slider or enter the number of days of data to retain, from 1 to 365. The default for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
 
    > [!WARNING]
-   > You are charged when you manually delete metrics data. Stale analytics data (data older than your retention policy) is deleted by the system at no cost. We recommend setting a retention policy based on how long you want to retain storage analytics data for your account. See [What charges do you incur when you enable storage metrics?](../storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) for more information.
+   > You are charged when you manually delete metrics data. Stale analytics data (data older than your retention policy) is deleted by the system at no cost. We recommend setting a retention policy based on how long you want to retain storage analytics data for your account. See [What charges do you incur when you enable storage metrics?](../common/storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) for more information.
    >
 
 1. When you finish the monitoring configuration, select **Save**.
@@ -60,7 +60,7 @@ A default set of metrics is displayed in charts on the storage account blade, as
 You can disable metrics collection and logging by setting **Status** to **Off**.
 
 > [!NOTE]
-> Azure Storage uses [table storage](../storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see. [How metrics are stored](../storage-analytics.md#how-metrics-are-stored).
+> Azure Storage uses [table storage](../common/storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see. [How metrics are stored](../common/storage-analytics.md#how-metrics-are-stored).
 >
 
 ## Customize metrics charts
