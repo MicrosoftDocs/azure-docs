@@ -33,7 +33,7 @@ There are two ways to create a managed application by using Azure CLI:
 
 Deploy the applianceMainTemplate.json file that the vendor created.
 
-Then create two resource groups. The first resource group is where the appliance resource is created: Microsoft.Solutions/appliances. The second resource group contains all the resources defined in the mainTemplate.json. This resource group is managed by the ISV.
+Then create two resource groups. The first resource group is where the appliance resource is created: Microsoft.Solutions/appliances. The second resource group contains all the resources defined in mainTemplate.json. This resource group is managed by the ISV.
 
 ```azurecli
 az group create --name mainResourceGroup --location westcentralus    
@@ -45,15 +45,15 @@ az group create --name managedResourceGroup --location westcentralus
 >
 
 
-To deploy the applianceMainTemplate.json in the mainResourceGroup, use the following command:
+To deploy applianceMainTemplate.json in mainResourceGroup, use the following command:
 
 ```azurecli
 az group deployment create --name managedAppDeployment --resourceGroup mainResourceGroup --templateUri  
 ```
 
-After the preceding template executes, it prompts you for the values of the parameters that are defined in the template. In addition to the parameters that are needed to provision resources in a template, you need two key parameter values:
+After the preceding template runs, it prompts you for the values of the parameters that are defined in the template. In addition to the parameters that are needed to provision resources in a template, you need two key parameter values:
 
-- **managedResourceGroupId**: The ID of the resource group where the resources defined in the applianceMainTemplate.json are created. The ID is of the form `/subscriptions/{subscriptionId}/resourceGroups/{resoureGroupName}`. In the preceding example, it's the ID of `managedResourceGroup`.
+- **managedResourceGroupId**: The ID of the resource group where the resources defined in applianceMainTemplate.json are created. The ID is of the form `/subscriptions/{subscriptionId}/resourceGroups/{resoureGroupName}`. In the preceding example, it's the ID of `managedResourceGroup`.
 - **applianceDefinitionId**: The ID of the managed application definition resource. This value is provided by the ISV. 
 
 > [!NOTE] 
@@ -76,15 +76,15 @@ az managedapp create --name ravtestappliance401 --location "westcentralus"
 
 * **appliance-definition-Id**: The resource ID of the appliance definition created in the preceding step. To obtain this ID, run the following command:
 
-```azurecli
-az appliance definition show -n ravtestAppDef1 -g ravApplianceRG2
-```
+  ```azurecli
+  az appliance definition show -n ravtestAppDef1 -g ravApplianceRG2
+  ```
 
-This command returns the appliance definition. You need the value of the ID property:
+  This command returns the appliance definition. You need the value of the ID property.
 
-* **managed-rg-id**: The name of the resource group where all the resources defined in the applianceMainTemplate.json are created. This resource group is the managed resource group. It's managed by the publisher. If it doesn't exist, it's created for you.
+* **managed-rg-id**: The name of the resource group where all the resources defined in applianceMainTemplate.json are created. This resource group is the managed resource group. It's managed by the publisher. If it doesn't exist, it's created for you.
 * **resource-group**: The resource group where the appliance resource is created. The Microsoft.Solutions/appliance resource lives in this resource group. 
-* **parameters**: The parameters that are needed for the resources defined in the applianceMainTemplate.json.
+* **parameters**: The parameters that are needed for the resources defined in applianceMainTemplate.json.
 
 ## Create the managed application by using the portal
 
