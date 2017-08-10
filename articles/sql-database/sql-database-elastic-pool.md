@@ -147,7 +147,7 @@ The following table describes the properties for pooled databases.
  
 ## Rescaling eDTUs for an elastic pool
 
-You can increase or decrease the resources available to an elastic pool based on resource needs using the [Azure portal](#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](#manage-sql-database-elastic-pools-using-powershell), the [Azure CLI](#manage-sql-database-elastic-pools-using-the-azure-cli), or the [REST API](#manage-single-databases-elastic-pools-using-the-rest-api).
+You can increase or decrease the resources available to an elastic pool based on resource needs using the [Azure portal](#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), the [Azure CLI](/cli/azure/sql/elastic-pool#update), or the [REST API](/rest/api/sql/elasticpools#ElasticPools_Update).
 
 - When rescaling pool eDTUs, database connections are briefly dropped. This is the same behavior as occurs when rescaling DTUs for a single database (not in a pool). For details on the duration and impact of dropped connections for a database during rescaling operations, see [Rescaling DTUs for a single database](sql-database-single-database-resources.md#rescaling-dtus-for-a-single-database). 
 - The duration to rescale pool eDTUs can depend on the total amount of storage space used by all databases in the pool. In general, the rescaling latency averages 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for rescaling the pool is 3 hours or less. In some cases within the Standard or Basic tier, the rescaling latency can be under 5 minutes regardless of the amount of space used.
