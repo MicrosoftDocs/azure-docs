@@ -75,7 +75,7 @@ Instead of backing up to a local file, you can use the [backup to URL](https://m
 Detach your database and log files and transfer them to [Azure Blob storage](https://msdn.microsoft.com/library/dn385720.aspx). Then attach the database from the URL on your Azure VM. Use this if you want the physical database files to reside in Blob storage. This might be useful for very large databases. Use the following general steps to migrate a user database using this manual method:
 
 1. Detach the database files from the on-premises database instance.
-2. Copy the detached database files into Azure blob storage using the [AZCopy command-line utility](../../../storage/storage-use-azcopy.md).
+2. Copy the detached database files into Azure blob storage using the [AZCopy command-line utility](../../../storage/common/storage-use-azcopy.md).
 3. Attach the database files from the Azure URL to the SQL Server instance in the Azure VM.
 
 ## Convert to VM and upload to URL and deploy as new VM

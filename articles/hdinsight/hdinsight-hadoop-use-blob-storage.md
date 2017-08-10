@@ -146,7 +146,7 @@ If you have [installed and configured the Azure CLI](../cli-install-nodejs.md), 
     azure storage account create <storageaccountname> --type LRS
 
 > [!NOTE]
-> The `--type` parameter indicates how the storage account is replicated. For more information, see [Azure Storage Replication](../storage/storage-redundancy.md). Don't use ZRS as ZRS doesn't support page blob, file, table or queue.
+> The `--type` parameter indicates how the storage account is replicated. For more information, see [Azure Storage Replication](../storage/common/storage-redundancy.md). Don't use ZRS as ZRS doesn't support page blob, file, table or queue.
 > 
 > 
 

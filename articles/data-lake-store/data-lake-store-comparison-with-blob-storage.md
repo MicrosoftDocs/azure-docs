@@ -38,7 +38,7 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 | Developer SDKs |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby |
 | Analytics Workload Performance |Optimized performance for parallel analytics workloads. High Throughput and IOPS. |Not optimized for analytics workloads |
 | Size limits |No limits on account sizes, file sizes or number of files |Specific limits documented [here](../azure-subscription-service-limits.md#storage-limits) |
-| Geo-redundancy |Locally-redundant (multiple copies of data in one Azure region) |Locally redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS). See [here](../storage/storage-redundancy.md) for more information |
+| Geo-redundancy |Locally-redundant (multiple copies of data in one Azure region) |Locally redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS). See [here](../storage/common/storage-redundancy.md) for more information |
 | Service state |Generally available |Generally available |
 | Regional availability |See [here](https://azure.microsoft.com/regions/#services) |See [here](https://azure.microsoft.com/regions/#services) |
 | Price |See [Pricing](https://azure.microsoft.com/pricing/details/data-lake-store/) |See [Pricing](https://azure.microsoft.com/pricing/details/storage/) |

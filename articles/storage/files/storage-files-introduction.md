@@ -83,7 +83,7 @@ Managing Azure File shares is a lot simpler than managing file shares on-premise
 
 ### Tooling support for Azure File storage
 * [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md)
-* [How to use AzCopy with Microsoft Azure Storage](../storage-use-azcopy.md)
+* [How to use AzCopy with Microsoft Azure Storage](../common/storage-use-azcopy.md)
 * [Using the Azure CLI with Azure Storage](../common/storage-azure-cli.md#create-and-manage-file-shares)
 
 ### Blog posts

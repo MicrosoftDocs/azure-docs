@@ -115,7 +115,7 @@ You can copy a VHD to another storage account to use when creating a new, duplic
 Make sure that you:
 
 * Have information about the **source and destination storage accounts**. For the source VM, you need to have the storage account and container names. Usually, the container name will be **vhds**. You also need to have a destination storage account. If you don't already have one, you can create one using either the portal (**More Services** > Storage accounts > Add) or using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet. 
-* Have downloaded and installed the [AzCopy tool](../../storage/storage-use-azcopy.md). 
+* Have downloaded and installed the [AzCopy tool](../../storage/common/storage-use-azcopy.md). 
 
 ### Deallocate the VM
 Deallocate the VM, which frees up the VHD to be copied. 

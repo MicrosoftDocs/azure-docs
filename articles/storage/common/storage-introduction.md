@@ -120,7 +120,7 @@ The hot access tier is used for files that are accessed frequently -- you pay a 
 
 Each storage account has two authentication keys, either of which can be used for any operation. There are two keys so you can roll over the keys occasionally to enhance security. It is critical that these keys be kept secure because their possession, along with the account name, allows unlimited access to all data in the storage account. 
 
-This section looks two ways to secure the storage account and its data. For detailed information about securing your storage account and your data, see the [Azure Storage security guide](../storage-security-guide.md).
+This section looks two ways to secure the storage account and its data. For detailed information about securing your storage account and your data, see the [Azure Storage security guide](storage-security-guide.md).
 
 ### Securing access to storage accounts using Azure AD
 
@@ -150,7 +150,7 @@ The storage client libraries have methods you can call to programmatically encry
 
 See [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) for more information on shared access signatures. See [Manage anonymous read access to containers and blobs](../blob/storage-manage-access-to-resources.md) and [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) for more information on secure access to your storage account.
 
-For more details about securing your storage account and encryption, see the [Azure Storage security guide](../storage-security-guide.md).
+For more details about securing your storage account and encryption, see the [Azure Storage security guide](storage-security-guide.md).
 
 ## Replication
 
@@ -180,7 +180,7 @@ Read-access geo-redundant storage is exactly like GRS except that you get read a
 > You can change how your data is replicated after your storage account has been created, unless you specified ZRS when you created the account. However, note that you may incur an additional one-time data transfer cost if you switch from LRS to GRS or RA-GRS.
 >
 
-For more information about replication, see [Azure Storage replication](../storage-redundancy.md).
+For more information about replication, see [Azure Storage replication](storage-redundancy.md).
 
 For disaster recovery information, see [What to do if an Azure Storage outage occurs](storage-disaster-recovery-guidance.md).
 
@@ -190,8 +190,8 @@ For an example of how to leverage RA-GRS storage to ensure high availability, se
 
 You can use the AzCopy command-line utility to copy blob, and file data within your storage account or across storage accounts. See one of the following articles for help:
 
-* [Transfer data with AzCopy for Windows](../storage-use-azcopy.md)
-* [Transfer data with AzCopy for Linux](../storage-use-azcopy-linux.md)
+* [Transfer data with AzCopy for Windows](storage-use-azcopy.md)
+* [Transfer data with AzCopy for Linux](storage-use-azcopy-linux.md)
 
 AzCopy is built on top of the [Azure Data Movement Library](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), which is currently available in preview.
 

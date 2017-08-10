@@ -93,7 +93,7 @@ All VMs in the availability set must be deallocated before you convert the avail
     ```
 
 ## Managed disks and Azure Storage Service Encryption
-You can't use the preceding steps to convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that has ever been encrypted through [Azure Storage Service Encryption](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The following steps detail how to copy and use unmanaged disks that have been in an encrypted storage account:
+You can't use the preceding steps to convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that has ever been encrypted through [Azure Storage Service Encryption](../../storage/common/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The following steps detail how to copy and use unmanaged disks that have been in an encrypted storage account:
 
 1. Copy the VHD by using [az storage blob copy start](/cli/azure/storage/blob/copy#start) to a storage account that has never been enabled for Azure Storage Service Encryption.
 

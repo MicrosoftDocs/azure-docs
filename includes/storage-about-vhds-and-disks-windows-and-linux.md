@@ -24,9 +24,9 @@ There are two performance tiers for storage that you can choose from when creati
 
 ### Standard storage 
 
-Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, please see [Azure Storage replication](../articles/storage/storage-redundancy.md). 
+Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, please see [Azure Storage replication](../articles/storage/common/storage-redundancy.md). 
 
-For more information about using Standard Storage with VM disks, please see [Standard Storage and Disks](../articles/storage/storage-standard-storage.md).
+For more information about using Standard Storage with VM disks, please see [Standard Storage and Disks](../articles/storage/common/storage-standard-storage.md).
 
 ### Premium storage 
 
@@ -34,7 +34,7 @@ Premium Storage is backed by SSDs, and delivers high-performance, low-latency di
 
 ### Unmanaged disks
 
-Unmanaged disks are the traditional type of disks that have been used by VMs. With these, you create your own storage account and specify that storage account when you create the disk. You have to make sure you don't put too many disks in the same storage account, because you could exceed the [scalability targets](../articles/storage/storage-scalability-targets.md) of the storage account (20,000 IOPS, for example), resulting in the VMs being throttled. With unmanaged disks, you have to figure out how to maximize the use of one or more storage accounts to get the best performance out of your VMs.
+Unmanaged disks are the traditional type of disks that have been used by VMs. With these, you create your own storage account and specify that storage account when you create the disk. You have to make sure you don't put too many disks in the same storage account, because you could exceed the [scalability targets](../articles/storage/common/storage-scalability-targets.md) of the storage account (20,000 IOPS, for example), resulting in the VMs being throttled. With unmanaged disks, you have to figure out how to maximize the use of one or more storage accounts to get the best performance out of your VMs.
 
 ### Managed disks 
 

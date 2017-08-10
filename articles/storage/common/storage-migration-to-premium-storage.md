@@ -62,10 +62,10 @@ There are five types of disks that can be used with your VM and each has specifi
 | IOPS per disk       | 500   | 2300  | 5000           | 7500           | 7500           | 
 | Throughput per disk | 100 MB per second | 150 MB per second | 200 MB per second | 250 MB per second | 250 MB per second |
 
-Depending on your workload, determine if additional data disks are necessary for your VM. You can attach several persistent data disks to your VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. (See what is Disk Striping [here](../storage-premium-storage-performance.md#disk-striping).) If you stripe Premium Storage data disks using [Storage Spaces][4], you should configure it with one column for each disk that is used. Otherwise, the overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. For Linux VMs you can use the *mdadm* utility to achieve the same. See article [Configure Software RAID on Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for details.
+Depending on your workload, determine if additional data disks are necessary for your VM. You can attach several persistent data disks to your VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. (See what is Disk Striping [here](storage-premium-storage-performance.md#disk-striping).) If you stripe Premium Storage data disks using [Storage Spaces][4], you should configure it with one column for each disk that is used. Otherwise, the overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. For Linux VMs you can use the *mdadm* utility to achieve the same. See article [Configure Software RAID on Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for details.
 
 #### Storage account scalability targets
-Premium Storage accounts have the following scalability targets in addition to the [Azure Storage Scalability and Performance Targets](../storage-scalability-targets.md). If your application requirements exceed the scalability targets of a single storage account, build your application to use multiple storage accounts, and partition your data across those storage accounts.
+Premium Storage accounts have the following scalability targets in addition to the [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md). If your application requirements exceed the scalability targets of a single storage account, build your application to use multiple storage accounts, and partition your data across those storage accounts.
 
 | Total Account Capacity | Total Bandwidth for a Locally Redundant Storage Account |
 |:--- |:--- |
@@ -83,7 +83,7 @@ Pick a location where Azure Premium Storage is available. See [Azure Services by
 When creating an Azure VM, you will be asked to configure certain VM settings. Remember, few settings are fixed for the lifetime of the VM, while you can modify or add others later. Review these Azure VM configuration settings and make sure that these are configured appropriately to match your workload requirements.
 
 ### Optimization
-[Azure Premium Storage: Design for High Performance](../storage-premium-storage-performance.md) provides guidelines for building high-performance applications using Azure Premium Storage. You can follow the guidelines combined with performance best practices applicable to technologies used by your application.
+[Azure Premium Storage: Design for High Performance](storage-premium-storage-performance.md) provides guidelines for building high-performance applications using Azure Premium Storage. You can follow the guidelines combined with performance best practices applicable to technologies used by your application.
 
 ## <a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>Prepare and copy virtual hard disks (VHDs) to Premium Storage
 The following section provides guidelines for preparing VHDs from your VM and copying VHDs to Azure Storage.
@@ -96,7 +96,7 @@ To prepare the VHDs for migration, you'll need:
 
 * An Azure subscription, a storage account, and a container in that storage account to which you can copy your VHD. Note that the destination storage account can be a Standard or Premium Storage account depending on your requirement.
 * A tool to generalize the VHD if you plan to create multiple VM instances from it. For example, sysprep for Windows or virt-sysprep for Ubuntu.
-* A tool to upload the VHD file to the Storage account. See [Transfer data with the AzCopy Command-Line Utility](../storage-use-azcopy.md) or use an [Azure storage explorer](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). This guide describes copying your VHD using the AzCopy tool.
+* A tool to upload the VHD file to the Storage account. See [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) or use an [Azure storage explorer](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). This guide describes copying your VHD using the AzCopy tool.
 
 > [!NOTE]
 > If you choose synchronous copy option with AzCopy, for optimal performance, copy your VHD by running one of these tools from an Azure VM that is in the same region as the destination storage account. If you are copying a VHD from an Azure VM in a different region, your performance may be slower.
@@ -163,7 +163,7 @@ For data disks, you can choose to keep some data disks in a standard storage acc
 You will need to find your container path and storage account key to process either of these two options. Container path and storage account key can be found in **Azure Portal** > **Storage**. The container URL will be like "https://myaccount.blob.core.windows.net/mycontainer/".
 
 ##### Option 1: Copy a VHD with AzCopy (Asynchronous copy)
-Using AzCopy, you can easily upload the VHD over the Internet. Depending on the size of the VHDs, this may take time. Remember to check the storage account ingress/egress limits when using this option. See [Azure Storage Scalability and Performance Targets](../storage-scalability-targets.md) for details.
+Using AzCopy, you can easily upload the VHD over the Internet. Depending on the size of the VHDs, this may take time. Remember to check the storage account ingress/egress limits when using this option. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details.
 
 1. Download and install AzCopy from here: [Latest version of AzCopy](http://aka.ms/downloadazcopy)
 2. Open Azure PowerShell and go to the folder where AzCopy is installed.
@@ -187,7 +187,7 @@ Using AzCopy, you can easily upload the VHD over the Internet. Depending on the 
    * **/DestKey: *&lt;dest-account-key&gt;:*** Storage account key of the destination storage account.
    * **/Pattern: *&lt;file-name&gt;:*** Specify the file name of the VHD to copy.
 
-For details on using AzCopy tool, see [Transfer data with the AzCopy Command-Line Utility](../storage-use-azcopy.md).
+For details on using AzCopy tool, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
 ##### Option 2: Copy a VHD with PowerShell (Synchronized copy)
 You can also copy the VHD file using the PowerShell cmdlet Start-AzureStorageBlobCopy. Use the following command on Azure PowerShell to copy VHD. Replace the values in <> with corresponding values from your source and destination storage account. To use this command, you must have a container called vhds in your destination storage account. If the container doesn't exist, create one before running the command.
@@ -257,7 +257,7 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 An example <Uri> might be ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. An example <FileInfo> might be ***"C:\path\to\upload.vhd"***.
 
 ##### Option 2: Using AzCopy to upload the .vhd file
-Using AzCopy, you can easily upload the VHD over the Internet. Depending on the size of the VHDs, this may take time. Remember to check the storage account ingress/egress limits when using this option. See [Azure Storage Scalability and Performance Targets](../storage-scalability-targets.md) for details.
+Using AzCopy, you can easily upload the VHD over the Internet. Depending on the size of the VHDs, this may take time. Remember to check the storage account ingress/egress limits when using this option. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details.
 
 1. Download and install AzCopy from here: [Latest version of AzCopy](http://aka.ms/downloadazcopy)
 2. Open Azure PowerShell and go to the folder where AzCopy is installed.
@@ -282,7 +282,7 @@ Using AzCopy, you can easily upload the VHD over the Internet. Depending on the 
    * **/BlobType: page:** Specifies that the destination is a page blob.
    * **/Pattern: *&lt;file-name&gt;:*** Specify the file name of the VHD to copy.
 
-For details on using AzCopy tool, see [Transfer data with the AzCopy Command-Line Utility](../storage-use-azcopy.md).
+For details on using AzCopy tool, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
 ##### Other options for uploading a VHD
 You can also upload a VHD to your storage account using one of the following means:
@@ -747,7 +747,7 @@ Your current VM configuration may be customized specifically to work well with S
 2. Login to the VM and copy the data from the current volume to the new disk that maps to that volume. Do this for all the current volumes that need to map to a new disk.
 3. Next, change the application settings to switch to the new disks, and detach the old volumes.
 
-For tuning the application for better disk performance, please refer to [Optimizing Application Performance](../storage-premium-storage-performance.md#optimizing-application-performance).
+For tuning the application for better disk performance, please refer to [Optimizing Application Performance](storage-premium-storage-performance.md#optimizing-application-performance).
 
 ### Application migrations
 Databases and other complex applications may require special steps as defined by the application provider for the migration. Please refer to respective application documentation. E.g. typically databases can be migrated through backup and restore.

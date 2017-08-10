@@ -40,7 +40,7 @@ You are billed for Azure Storage usage based on your storage account. Storage co
 
 The [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page provides detailed pricing information for data egress.
 
-For details about storage account capacity and performance targets, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).
+For details about storage account capacity and performance targets, see [Azure Storage Scalability and Performance Targets](common/storage-scalability-targets.md).
 
 > [!NOTE]
 > When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/) for more details.
@@ -73,7 +73,7 @@ For details about storage account capacity and performance targets, see [Azure S
    > 
    > 
 5. If you have more than one Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Azure subscription that you want to use the storage account with.
-6. In **Replication**, select the desired level of replication for your storage account. The recommended replication option is geo-redundant replication, which provides maximum durability for your data. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
+6. In **Replication**, select the desired level of replication for your storage account. The recommended replication option is geo-redundant replication, which provides maximum durability for your data. For more details on Azure Storage replication options, see [Azure Storage replication](common/storage-redundancy.md).
 7. Click **Create Storage Account**.
    
     It may take a few minutes to create your storage account. To check the status, you can monitor the notifications at the bottom of the Azure Classic Portal. After the storage account has been created, your new storage account has **Online** status and is ready for use.
@@ -167,5 +167,5 @@ To remove a storage account that you are no longer using, use **Delete** on the 
 ## Next steps
 * To learn more about Azure Storage, see the [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/).
 * Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
-* [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
+* [Transfer data with the AzCopy Command-Line Utility](common/storage-use-azcopy.md)
 

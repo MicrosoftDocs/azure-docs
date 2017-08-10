@@ -104,7 +104,7 @@ These are some of the features of the DS-series, DSv2-series, GS-series, Ls-seri
 
 * **Cache**
 
-    VMs in the size series that support Premium Storage have a unique caching capability for high levels of throughput and latency. The caching capability exceeds underlying premium storage disk performance. You can set the disk caching policy on premium storage disks to **ReadOnly**, **ReadWrite**, or **None**. The default disk caching policy is **ReadOnly** for all premium data disks, and **ReadWrite** for operating system disks. For optimal performance for your application, use the correct cache setting. For example, for read-heavy or read-only data disks, such as SQL Server data files, set the disk caching policy to **ReadOnly**. For write-heavy or write-only data disks, such as SQL Server log files, set the disk caching policy to **None**. To learn more about optimizing your design with Premium Storage, see [Design for performance with Premium Storage](../storage-premium-storage-performance.md).
+    VMs in the size series that support Premium Storage have a unique caching capability for high levels of throughput and latency. The caching capability exceeds underlying premium storage disk performance. You can set the disk caching policy on premium storage disks to **ReadOnly**, **ReadWrite**, or **None**. The default disk caching policy is **ReadOnly** for all premium data disks, and **ReadWrite** for operating system disks. For optimal performance for your application, use the correct cache setting. For example, for read-heavy or read-only data disks, such as SQL Server data files, set the disk caching policy to **ReadOnly**. For write-heavy or write-only data disks, such as SQL Server log files, set the disk caching policy to **None**. To learn more about optimizing your design with Premium Storage, see [Design for performance with Premium Storage](storage-premium-storage-performance.md).
 
 * **Analytics**
 
@@ -139,7 +139,7 @@ Premium storage accounts have the following scalability targets:
 
 <sup>2</sup> All data (responses) that are received from a storage account
 
-For more information, see [Azure Storage scalability and performance targets](../storage-scalability-targets.md).
+For more information, see [Azure Storage scalability and performance targets](storage-scalability-targets.md).
 
 If you are using premium storage accounts for unmanaged disks and your application exceeds the scalability targets of a single storage account, you might want to migrate to managed disks. If you don't want to migrate to managed disks, build your application to use multiple storage accounts. Then, partition your data across those storage accounts. For example, if you want to attach 51-TB disks across multiple VMs, spread them across two storage accounts. 35 TB is the limit for a single premium storage account. Make sure that a single premium storage account never has more than 35 TB of provisioned disks.
 
@@ -210,7 +210,7 @@ You have a DS4 VM with two P30 disks attached. Each P30 disk is capable of 200 M
 > If your disk traffic mostly consists of small I/O sizes, your application likely will hit the IOPS limit before the throughput limit. However, if the disk traffic mostly consists of large I/O sizes, your application likely will hit the throughput limit first, instead of the IOPS limit. You can maximize your application's IOPS and throughput capacity by using optimal I/O sizes. Also, you can limit the number of pending I/O requests for a disk.
 > 
 
-To learn more about designing for high performance by using Premium Storage, see [Design for performance with Premium Storage](../storage-premium-storage-performance.md).
+To learn more about designing for high performance by using Premium Storage, see [Design for performance with Premium Storage](storage-premium-storage-performance.md).
 
 ## Snapshots and Copy Blob
 
@@ -218,7 +218,7 @@ To the Storage service, the VHD file is a page blob. You can take snapshots of p
 
 ### Unmanaged disks
 
-Create [incremental snapshots](../../virtual-machines/windows/incremental-snapshots.md) for unmanaged premium disks the same way you use snapshots with standard storage. Premium Storage supports only locally redundant storage as the replication option. We recommend that you create snapshots, and then copy the snapshots to a geo-redundant standard storage account. For more information, see [Azure Storage redundancy options](../storage-redundancy.md).
+Create [incremental snapshots](../../virtual-machines/windows/incremental-snapshots.md) for unmanaged premium disks the same way you use snapshots with standard storage. Premium Storage supports only locally redundant storage as the replication option. We recommend that you create snapshots, and then copy the snapshots to a geo-redundant standard storage account. For more information, see [Azure Storage redundancy options](storage-redundancy.md).
 
 If a disk is attached to a VM, some API operations on the disk are not permitted. For example, you cannot perform a [Copy Blob](/rest/api/storageservices/Copy-Blob) operation on that blob if the disk is attached to a VM. Instead, first create a snapshot of that blob by using the [Snapshot Blob](/rest/api/storageservices/Snapshot-Blob) REST API. Then, perform the [Copy Blob](/rest/api/storageservices/Copy-Blob) of the snapshot to copy the attached disk. Alternatively, you can detach the disk, and then perform any necessary operations.
 
@@ -230,7 +230,7 @@ The following limits apply to premium storage blob snapshots:
 | Storage account capacity for snapshots<br>(Includes data in snapshots only. Does not include data in base blob.) | 10 TB |
 | Minimum time between consecutive snapshots | 10 minutes |
 
-To maintain geo-redundant copies of your snapshots, you can copy snapshots from a premium storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [Transfer data with the AzCopy command-line utility](../storage-use-azcopy.md) and [Copy Blob](/rest/api/storageservices/Copy-Blob).
+To maintain geo-redundant copies of your snapshots, you can copy snapshots from a premium storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md) and [Copy Blob](/rest/api/storageservices/Copy-Blob).
 
 For detailed information about performing REST operations against page blobs in a premium storage account, see [Blob service operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969).
 
@@ -317,7 +317,7 @@ To create a backup job with time-based backups, easy VM restoration, and backup 
 For more information about Premium Storage, see the following articles.
 
 ### Design and implement with Premium Storage
-* [Design for performance with Premium Storage](../storage-premium-storage-performance.md)
+* [Design for performance with Premium Storage](storage-premium-storage-performance.md)
 * [Blob storage operations with Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969)
 
 ### Operational guidance

@@ -66,9 +66,9 @@ ms.author: renash
 
 * **Q. How can I enable Server Side encryption for Azure File storage?**
 
-    [Server Side Encryption](../storage-service-encryption.md) for Azure File storage is generally available in all regions and public and national clouds. You can enable SSE for Azure File storage using [Azure portal](https://portal.azure.com/),[Microsoft Azure Storage Resource Provider API](/rest/api/storagerp/storageaccounts), [Azure Powershell](https://msdn.microsoft.com/library/azure/mt607151.aspx) or [Azure CLI](../common/storage-azure-cli.md).
+    [Server Side Encryption](../common/storage-service-encryption.md) for Azure File storage is generally available in all regions and public and national clouds. You can enable SSE for Azure File storage using [Azure portal](https://portal.azure.com/),[Microsoft Azure Storage Resource Provider API](/rest/api/storagerp/storageaccounts), [Azure Powershell](https://msdn.microsoft.com/library/azure/mt607151.aspx) or [Azure CLI](../common/storage-azure-cli.md).
     
-    After enabling SSE on Azure File storage, any new data written to the file storage in that storage account will be automatically encrypted. This feature is available for all new data written to existing or new shares in an existing or new storage account. There is no additional charge for enabling this feature. Learn more on [how to enable SSE on Azure File storage](../storage-service-encryption.md).
+    After enabling SSE on Azure File storage, any new data written to the file storage in that storage account will be automatically encrypted. This feature is available for all new data written to existing or new shares in an existing or new storage account. There is no additional charge for enabling this feature. Learn more on [how to enable SSE on Azure File storage](../common/storage-service-encryption.md).
 
 * **Q. Is Active Directory-based authentication supported by Azure File storage?**
    
@@ -105,7 +105,7 @@ ms.author: renash
 ## Performance
 
 * **Q. What are the scale limits of Azure File storage?**
-    For information on scalability and performance targets of Azure File storage, see [Azure Storage Scalability and Performance Targets](../storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files).
+    For information on scalability and performance targets of Azure File storage, see [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files).
 
 * **Q. My performance was slow when trying to unzip files into Azure File storage. What should I do?**
     
@@ -148,7 +148,7 @@ See these links for more information about Azure File storage.
 
 ### Tooling support for File storage
 * [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md)
-* [How to use AzCopy with Microsoft Azure Storage](../storage-use-azcopy.md)
+* [How to use AzCopy with Microsoft Azure Storage](../common/storage-use-azcopy.md)
 * [Using the Azure CLI with Azure Storage](../common/storage-azure-cli.md)
 * [Troubleshooting Azure File storage problems](storage-troubleshoot-linux-file-connection-problems.md)
 

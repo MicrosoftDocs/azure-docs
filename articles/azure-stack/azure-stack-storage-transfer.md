@@ -53,7 +53,7 @@ AzCopy is a Windows Command-line utility designed to copy data to and from Micro
  
 ### Download and install AzCopy 
 
-[Download](https://aka.ms/azcopyforazurestack) the supported version of AzCopy for Azure Stack. You can install and use AzCopy on Azure Stack the same way as Azure. To learn more, see [Transfer data with the AzCopy Command-Line Utility](../storage/storage-use-azcopy.md). 
+[Download](https://aka.ms/azcopyforazurestack) the supported version of AzCopy for Azure Stack. You can install and use AzCopy on Azure Stack the same way as Azure. To learn more, see [Transfer data with the AzCopy Command-Line Utility](../storage/common/storage-use-azcopy.md). 
 
 ### Known issues
 * Any AzCopy operation on File storage is not available because File Storage is not yet available in Azure Stack.

@@ -40,7 +40,7 @@ The Queue service contains the following components:
   
     `http://myaccount.queue.core.windows.net/images-to-download`
 
-* **Storage Account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../storage-scalability-targets.md) for details about storage account capacity.
+* **Storage Account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md) for details about storage account capacity.
 
 * **Queue:** A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 

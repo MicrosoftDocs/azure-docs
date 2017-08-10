@@ -382,7 +382,7 @@ By default, the blob data in your storage account is accessible only to storage 
 Azure Storage supports encrypting blob data both at the client and on the server:
 
 * **Client-side encryption:** The Storage Client Library for .NET supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with Azure Key Vault for storage account key management. See [Client-Side Encryption with .NET for Microsoft Azure Storage](../common/storage-client-side-encryption.md) for more information. Also see [Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](../storage-encrypt-decrypt-blobs-key-vault.md).
-* **Server-side encryption**: Azure Storage now supports server-side encryption. See [Azure Storage Service Encryption for Data at Rest (Preview)](../storage-service-encryption.md).
+* **Server-side encryption**: Azure Storage now supports server-side encryption. See [Azure Storage Service Encryption for Data at Rest (Preview)](../common/storage-service-encryption.md).
 
 ## Next steps
 Now that you've learned the basics of Blob storage, follow these links
@@ -399,6 +399,6 @@ to learn more.
 * [REST API reference](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 
 ### Conceptual guides
-* [Transfer data with the AzCopy command-line utility](../storage-use-azcopy.md)
+* [Transfer data with the AzCopy command-line utility](../common/storage-use-azcopy.md)
 * [Get started with File storage for .NET](../storage-dotnet-how-to-use-files.md)
 * [How to use Azure blob storage with the WebJobs SDK](../../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)

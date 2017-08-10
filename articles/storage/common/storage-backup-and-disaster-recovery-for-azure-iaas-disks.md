@@ -96,21 +96,21 @@ You have an application that computes, maintains, and serves critical commercial
 
 [Azure Backup Service](https://azure.microsoft.com/services/backup/) is can be used for Backup and DR, and it works with [Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) as well as [Unmanaged Disks](../../virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). You can create a backup job with time-based backups, easy VM restoration and backup retention policies. 
 
-If you use [Premium Storage disks](storage-premium-storage.md), [Managed Disks](../../virtual-machines/windows/managed-disks-overview.md), or other disk types with the [locally redundant storage (LRS)](../storage-redundancy.md#locally-redundant-storage) option, it is especially important to leverage periodic DR backups. Azure Backup stores the data in your Recovery Services vault for long term retention. Choose the [Geo-redundant storage (GRS)](../storage-redundancy.md#geo-redundant-storage) option for the Backup Recovery Services vault. That will ensure backups are replicated to a different Azure region for safeguarding from regional disasters.
+If you use [Premium Storage disks](storage-premium-storage.md), [Managed Disks](../../virtual-machines/windows/managed-disks-overview.md), or other disk types with the [locally redundant storage (LRS)](storage-redundancy.md#locally-redundant-storage) option, it is especially important to leverage periodic DR backups. Azure Backup stores the data in your Recovery Services vault for long term retention. Choose the [Geo-redundant storage (GRS)](storage-redundancy.md#geo-redundant-storage) option for the Backup Recovery Services vault. That will ensure backups are replicated to a different Azure region for safeguarding from regional disasters.
 
 For [Unmanaged Disks](../../virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks), you can use the LRS storage type for IaaS disks, but ensure that Azure Backup is enabled with the GRS option for the Recovery Services Vault.
 
-**If you use the [GRS](../storage-redundancy.md#geo-redundant-storage)/[RA-GRS](../storage-redundancy.md#read-access-geo-redundant-storage) option for your Unmanaged Disks, you still need consistent snapshots for Backup and DR.** You must use either [Azure Backup Service](https://azure.microsoft.com/services/backup/) or [consistent snapshots](#alternative-solution-consistent-snapshots).
+**If you use the [GRS](storage-redundancy.md#geo-redundant-storage)/[RA-GRS](storage-redundancy.md#read-access-geo-redundant-storage) option for your Unmanaged Disks, you still need consistent snapshots for Backup and DR.** You must use either [Azure Backup Service](https://azure.microsoft.com/services/backup/) or [consistent snapshots](#alternative-solution-consistent-snapshots).
 
 The following is a summary of solutions for DR.
 
 | Scenario | Automatic Replication | DR Solution |
 | --- | --- | --- |
-| *Premium Storage Disks* | Local ([LRS](../storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| *Managed Disks* | Local ([LRS](../storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| *Unmanaged LRS Disks* | Local ([LRS](../storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| *Unmanaged GRS Disks* | Cross region ([GRS](../storage-redundancy.md#geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Consistent snapshots](#alternative-solution-consistent-snapshots) |
-| *Unmanaged RA-GRS Disks* | Cross region ([RA-GRS](../storage-redundancy.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Consistent snapshots](#alternative-solution-consistent-snapshots) |
+| *Premium Storage Disks* | Local ([LRS](storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| *Managed Disks* | Local ([LRS](storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| *Unmanaged LRS Disks* | Local ([LRS](storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| *Unmanaged GRS Disks* | Cross region ([GRS](storage-redundancy.md#geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Consistent snapshots](#alternative-solution-consistent-snapshots) |
+| *Unmanaged RA-GRS Disks* | Cross region ([RA-GRS](storage-redundancy.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Consistent snapshots](#alternative-solution-consistent-snapshots) |
 
 High availability can best by met through the use of Managed Disks in an Availability Set along with Azure Backup. If you are using Unmanaged Disks, you can still  use Azure Backup for DR. If you are unable to use Azure Backup, then taking [consistent snapshots](#alternative-solution-consistent-snapshots) as described in a later section is an alternative solution for Backup and DR.
 
@@ -219,7 +219,7 @@ To copy your incremental snapshots for DR efficiently, review the instructions i
 
 ### Recovery from Snapshots
 
-To retrieve a snapshot, copy it to make a new blob. If you are copying the snapshot from the primary account, you can copy the snapshot over to the base blob of the snapshot, thus reverting the disk to the snapshot; this is known as promoting the snapshot. If you are copying the snapshot backup from a secondary account (in the case of RA-GRS), it must be copied to a primary account. You can copy a snapshot [using PowerShell](storage-powershell-guide-full.md#how-to-copy-a-snapshot-of-a-blob) or using the AzCopy utility. For more information, see [Transfer data with the AzCopy Command-Line Utility](../storage-use-azcopy.md).
+To retrieve a snapshot, copy it to make a new blob. If you are copying the snapshot from the primary account, you can copy the snapshot over to the base blob of the snapshot, thus reverting the disk to the snapshot; this is known as promoting the snapshot. If you are copying the snapshot backup from a secondary account (in the case of RA-GRS), it must be copied to a primary account. You can copy a snapshot [using PowerShell](storage-powershell-guide-full.md#how-to-copy-a-snapshot-of-a-blob) or using the AzCopy utility. For more information, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
 In the case of VMs with multiple disks, you must copy all the snapshots that are part of the same coordinated restore point. Once you copy the snapshots to writable VHD blobs, you can use the blobs to recreate your VM using the template for the VM.
 

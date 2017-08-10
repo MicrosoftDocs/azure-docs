@@ -32,7 +32,7 @@ The following is our initial effort at providing a list. Over time, this list wi
 * [Azure Dev/Test Labs](https://azure.microsoft.com/documentation/services/devtest-lab/)
 
 ## Azure Storage Security
-* [Azure Storage Service Encryption](../storage/storage-service-encryption.md)
+* [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md)
 * [StorSimple Encrypted Hybrid Storage](https://azure.microsoft.com/documentation/services/storsimple/)
 * [Azure Client-Side Encryption](../storage/common/storage-client-side-encryption.md)
 * [Azure Storage Shared Access Signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md)

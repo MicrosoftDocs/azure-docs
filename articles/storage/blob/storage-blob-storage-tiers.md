@@ -115,7 +115,7 @@ The following table highlights the comparison between the two storage tiers:
 </table>
 
 > [!NOTE]
-> Blob storage accounts support the same performance and scalability targets as general-purpose storage accounts. See [Azure Storage Scalability and Performance Targets](../storage-scalability-targets.md) for more information.
+> Blob storage accounts support the same performance and scalability targets as general-purpose storage accounts. See [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md) for more information.
 > 
 > 
 
@@ -159,7 +159,7 @@ In this section we will demonstrate the following scenarios using the Azure port
    
     LRS = locally redundant storage; GRS = geo-redundant storage (2 regions); RA-GRS is read-access geo-redundant storage (2 regions with read access to the second).
    
-    For more details on Azure Storage replication options, check out [Azure Storage replication](../storage-redundancy.md).
+    For more details on Azure Storage replication options, check out [Azure Storage replication](../common/storage-redundancy.md).
 7. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**. The default is **Hot**.
 8. Select the subscription in which you want to create the new storage account.
 9. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
@@ -270,7 +270,7 @@ You can use the following methods to migrate existing data into Blob storage acc
 #### AzCopy
 AzCopy is a Windows command-line utility designed for high-performance copying of data to and from Azure Storage. You can use AzCopy to copy data into your Blob storage account from your existing general-purpose storage accounts, or to upload data from your on-premises storage devices into your Blob storage account.
 
-For more details, see [Transfer data with the AzCopy Command-Line Utility](../storage-use-azcopy.md).
+For more details, see [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md).
 
 #### Data Movement Library
 Azure Storage data movement library for .NET is based on the core data movement framework that powers AzCopy. The library is designed for high-performance, reliable and easy data transfer operations similar to AzCopy. This allows you to take full benefits of the features provided by AzCopy in your application natively without having to deal with running and monitoring external instances of AzCopy.
@@ -336,7 +336,7 @@ For more details, see [Get Started with Azure Blob storage](storage-dotnet-how-t
 
 [Moving data to and from Azure Storage](../common/storage-moving-data.md)
 
-[Transfer data with the AzCopy Command-Line Utility](../storage-use-azcopy.md)
+[Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md)
 
 [Browse and explore your storage accounts](http://storageexplorer.com/)
 

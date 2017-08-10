@@ -41,7 +41,7 @@ You can use the [Microsoft Azure Configuration Manager](https://www.nuget.org/pa
 ## Create a connection string for the storage emulator
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-For more information about the storage emulator, see [Use the Azure storage emulator for development and testing](../storage-use-emulator.md).
+For more information about the storage emulator, see [Use the Azure storage emulator for development and testing](storage-use-emulator.md).
 
 ## Create a connection string for an Azure storage account
 To create a connection string for your Azure storage account, use the following format. Indicate whether you want to connect to the storage account through HTTPS (recommended) or HTTP, replace `myAccountName` with the name of your storage account, and replace `myAccountKey` with your account access key:
@@ -130,7 +130,7 @@ EndpointSuffix=core.chinacloudapi.cn;
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
 ## Next steps
-* [Use the Azure storage emulator for development and testing](../storage-use-emulator.md)
+* [Use the Azure storage emulator for development and testing](storage-use-emulator.md)
 * [Azure Storage explorers](storage-explorers.md)
 * [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 

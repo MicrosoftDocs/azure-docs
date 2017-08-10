@@ -78,7 +78,7 @@ You can also configure a custom domain name to use with your storage account. Fo
     If **General purpose** was selected, then specify the performance tier: **Standard** or **Premium**. The default is **Standard**. For more details on standard and premium storage accounts, see [Introduction to Microsoft Azure Storage](storage-introduction.md) and [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md).
    
     If **Blob Storage** was selected, then specify the access tier: **Hot** or **Cool**. The default is **Hot**. See [Azure Blob Storage: Cool and Hot tiers](../storage-blob-storage-tiers.md) for more details.
-6. Select the replication option for the storage account: **LRS**, **GRS**, **RA-GRS**, or **ZRS**. The default is **RA-GRS**. For more details on Azure Storage replication options, see [Azure Storage replication](../storage-redundancy.md).
+6. Select the replication option for the storage account: **LRS**, **GRS**, **RA-GRS**, or **ZRS**. The default is **RA-GRS**. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
 7. Select the subscription in which you want to create the new storage account.
 8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 9. Select the geographic location for your storage account. See [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about what services are available in which region.
@@ -154,8 +154,8 @@ For more information, see the [Azure Virtual Machine documentation](http://azure
 ## Next steps
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Blob Storage: Cool and Hot tiers](../storage-blob-storage-tiers.md)
-* [Azure Storage replication](../storage-redundancy.md)
+* [Azure Storage replication](storage-redundancy.md)
 * [Configure Azure Storage Connection Strings](../storage-configure-connection-string.md)
-* [Transfer data with the AzCopy Command-Line Utility](../storage-use-azcopy.md)
+* [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
 * Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
 

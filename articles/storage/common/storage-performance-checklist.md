@@ -105,8 +105,8 @@ If your application is approaching the scalability targets for a single storage 
 #### Useful Resources
 The following links provide additional detail on scalability targets:
 
-* See [Azure Storage Scalability and Performance Targets](../storage-scalability-targets.md) for information about scalability targets.
-* See [Azure Storage replication](../storage-redundancy.md) and the blog post [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) for information about storage redundancy options.
+* See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for information about scalability targets.
+* See [Azure Storage replication](storage-redundancy.md) and the blog post [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) for information about storage redundancy options.
 * For current information about pricing for Azure services, see [Azure pricing](https://azure.microsoft.com/pricing/overview/).  
 
 ### <a name="subheading47"></a>Partition Naming Convention
@@ -228,7 +228,7 @@ In other scenarios such as scientific simulations where the data is confidential
 #### <a name="subheading16"></a>Bandwidth and operations per Blob
 You can read or write to a single blob at up to a maximum of 60 MB/second (this is approximately 480 Mbps which exceeds the capabilities of many client side networks (including the physical NIC on the client device). In addition, a single blob supports up to 500 requests per second. If you have multiple clients that need to read the same blob and you might exceed these limits, you should consider using a CDN for distributing the blob.  
 
-For more information about target throughput for blobs, see [Azure Storage Scalability and Performance Targets](../storage-scalability-targets.md).  
+For more information about target throughput for blobs, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).  
 
 ### Copying and Moving Blobs
 #### <a name="subheading17"></a>Copy Blob
@@ -241,7 +241,7 @@ Note that copies within the same storage account itself are generally completed 
 For more information, see [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).  
 
 #### <a name="subheading18"></a>Use AzCopy
-The Azure Storage team has released a command-line tool "AzCopy" that is meant to help with bulk transferring many blobs to, from, and across storage accounts.  This tool is optimized for this scenario, and can achieve high transfer rates.  Its use is encouraged for bulk upload, download, and copy scenarios. To learn more about it and download it, see [Transfer data with the AzCopy Command-Line Utility](../storage-use-azcopy.md).  
+The Azure Storage team has released a command-line tool "AzCopy" that is meant to help with bulk transferring many blobs to, from, and across storage accounts.  This tool is optimized for this scenario, and can achieve high transfer rates.  Its use is encouraged for bulk upload, download, and copy scenarios. To learn more about it and download it, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).  
 
 #### <a name="subheading19"></a>Azure Import/Export Service
 For very large volumes of data (more than 1TB), the Azure Storage offers the Import/Export service, which allows for uploading and downloading from blob storage by shipping hard drives.  You can put your data on a hard drive and send it to Microsoft for upload, or send a blank hard drive to Microsoft to download data.  For more information, see [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](../storage-import-export-service.md).  This can be much more efficient than uploading/downloading this volume of data over the network.  
@@ -378,7 +378,7 @@ In addition to the proven practices for [All Services](#allservices) described p
 ### <a name="subheading39"></a>Scalability Limits
 A single queue can process approximately 2,000 messages (1KB each) per second (each AddMessage, GetMessage, and DeleteMessage count as a message here). If this is insufficient for your application, you should use multiple queues and spread the messages across them.  
 
-View current scalability targets at [Azure Storage Scalability and Performance Targets](../storage-scalability-targets.md).  
+View current scalability targets at [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).  
 
 ### <a name="subheading40"></a>Nagle Off
 See the section on table configuration that discusses the Nagle algorithm — the Nagle algorithm is generally bad for the performance of queue requests, and you should disable it.  

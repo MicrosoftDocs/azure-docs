@@ -244,9 +244,9 @@ ms.custom: H1Hack27Feb2017
 [storage-introduction]:../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../storage/common/storage-premium-storage.md
-[storage-redundancy]:../../storage/storage-redundancy.md
-[storage-scalability-targets]:../../storage/storage-scalability-targets.md
-[storage-use-azcopy]:../../storage/storage-use-azcopy.md
+[storage-redundancy]:../../storage/common/storage-redundancy.md
+[storage-scalability-targets]:../../storage/common/storage-scalability-targets.md
+[storage-use-azcopy]:../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
