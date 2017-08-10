@@ -30,7 +30,7 @@ For examples of the files, see [Managed application samples](https://github.com/
 
 The first step is to create the managed application package that contains the main template files. The publisher or ISV creates three files. Package all three files into a .zip file, and upload it to an accessible location.
 
-* **applianceMainTemplate.json**: This first template file defines the actual resources that are provisioned as part of the managed application. For example, to create a storage account by using a managed application, the applianceMainTemplate.json contains: 
+* **applianceMainTemplate.json**: This first template file defines the actual resources that are provisioned as part of the managed application. For example, to create a storage account by using a managed application, applianceMainTemplate.json contains: 
 
   ```json
   {
@@ -58,11 +58,11 @@ The first step is to create the managed application package that contains the ma
   }
   ```
 
-* **mainTemplate.json**: This second template file contains only the appliance resource, Microsoft.Solutions/appliances. It also contains all the parameters you need for the resources in the applianceMainTemplate.json. 
+* **mainTemplate.json**: This second template file contains only the appliance resource, Microsoft.Solutions/appliances. It also contains all the parameters you need for the resources in applianceMainTemplate.json. 
 
   You need two important properties as input to create the managed application:
 
-   * **managedResourceGroupId**: This property is the ID of the resource group where the resources defined in the applianceMainTemplate.json are created. The format of the ID is
+  * **managedResourceGroupId**: This property is the ID of the resource group where the resources defined in applianceMainTemplate.json are created. The format of the ID is
   `/subscriptions/{subscriptionId}/resourceGroups/{resoureGroupName}`.
   * **applianceDefinitionId**: This property is the ID of the managed application definition resource. The ID is in the format
   `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applianceDefinitions/{applianceDefinitionName}`.
@@ -132,7 +132,7 @@ Example:
 az ad group show --group ravAppliancetestADgroup
 ```
 
-Which returns the following output:
+The example command returns the following output:
 
 ```json 
 {
@@ -154,7 +154,7 @@ Next, you need the role definition ID of the RBAC built-in role you want to gran
 az role definition list --name owner
 ```
 
-Which returns the following output:
+That command returns the following output:
 
 ```json
 {
