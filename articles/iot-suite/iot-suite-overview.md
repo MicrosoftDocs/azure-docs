@@ -34,15 +34,18 @@ Azure IoT Suite is a collection of enterprise-grade preconfigured solutions that
 
 ## Compare IoT Suite, IoT Central, and IoT Hub
 
-You can use IoT Suite, IoT Central, or IoT Hub to build your IoT solution. The following table summarizes the key differences between these services to help you choose the correct one to meet your requirements:
+You can use IoT Suite, IoT Central, or IoT Hub to build your IoT solution. [IoT Hub provides core IoT services](../iot-hub/iot-hub-what-is-iot-hub.md) such as high-volume telemetry ingestion, device management, and security. The IoT Suite preconfigured solutions and IoT Central both use IoT Hub, and both offer enterprise-grade end-to-end solutions. If you are building an IoT solution from scratch, you can use IoT Hub as a core building block in your solution.
 
-|   | IoT Suite | IoT Central | IoT Hub |
-| - | --------- | ----------- | ------- |
-| Service type | PaaS | SaaS | IaaS |
+The following table summarizes the key differences between IoT Suite and IoT Central to help you choose the correct one to meet your requirements:
+
+|              | IoT Suite | IoT Central |
+| ------------ | --------- | ----------- |
+| Service type | PaaS. You have access to the underlying Azure services to manage them. | SaaS. Fully managed solution, you don't need to manage the underlying Azure services. |
+| Flexibility | High. The code for the microservices is open source and you can modify it in any way you see fit. | Medium. You can use the built-in GUI tools to customize the model and aspects of the UI. |
+| Skills | Java or .NET skills are required to customize the solution. | Modelling skills are required to customize the solution. |
+| Get started experience | Preconfigured solutions implement common IoT scenarios. Can be deployed in minutes. | Templates provide pre-built models. Can be deployed in minutes. |
 
 <!-- Extend table with info from Cory and Hector -->
-
-Both IoT Suite and IoT Central use IoT Hub for core IoT services such as telemetry and device management.
 
 ## Use preconfigured solutions
 
