@@ -40,17 +40,21 @@
     href: https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet
 - name: Resources
   items:
-  - name: Frequently asked questions (FAQ)
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Contact us
+    href: https://azure.microsoft.com/overview/sales-number/
+  - name: External & Community Content
+    href: text-analytics-resource-external-community.md
+  - name: FAQ
     href: text-analytics-resource-faq.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/text-analytics-api
   - name: User Voice 
     href: https://cognitive.uservoice.com/
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
-  - name: Azure Support
-    href: https://azure.microsoft.com/overview/sales-number/
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: External & Community Content
-    href: text-analytics-resource-external-community.md
+
+
+
+

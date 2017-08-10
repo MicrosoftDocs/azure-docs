@@ -42,11 +42,11 @@ Text analysis can mean different things, but in Azure Cognitive Services, APIs a
 
 3. Store or stream the response returned from each request. Depending on the request, results are either a sentiment score, a collection of extracted keywords, or a language code.
 
-Output is returned in the form of JSON documents in a one-to-one ratio: one JSON document output for every document input. You can subsequently aggregate, analyze, or classify the results into actionable insights.
+Output is returned in the form of JSON documents in a one-to-one ratio: one JSON document output for every document input. You can subsequently analyze, visualize, or classify the results into actionable insights.
 
-Data is not stored in your account for reuse, but Cognitive Services will sometimes capture and use it temporarily for testing or further training of models. For more information, see [Data privacy and retention](text-analytics-resource-data-privacy.md).
+Data is not stored in your account. The functions performed by Text Analytics API are stateless, which means the text you provide is processed and results are returned immediately. 
 
-As a general rule, the documents you provide can be used as-is for all three workloads. For example, given a single JSON documents collection, your code can invoke a series of operations (language detection, keyword extraction, sentiment analysis) over the same data.
+With a few minor exceptions, the documents you provide can be used as-is for all three workloads. Given a single JSON documents collection, your code can invoke a series of operations (language detection, keyword extraction, sentiment analysis) over the same data.
 
 ## Supported languages
 

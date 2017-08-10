@@ -1,6 +1,6 @@
 ---
-title: Frequently Asked Questions (FAQ) about Azure Text Analytics API | Microsoft Docs
-description: Get answers to common questions about Microsoft Azure Cognitive Services Text Analytics API.
+title: External & community content for Text Analytics API (Azure Cognitive Services) | Microsoft Docs
+description: Partner blogs, youtube videos, training for Microsoft Azure Cognitive Services Text Analytics API.
 services: cognitive-services
 author: HeidiSteen
 manager: jhubbard
@@ -8,36 +8,30 @@ manager: jhubbard
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/10/2017
 ms.author: heidist
 ---
 
-# Frequently Asked Questions (FAQ) about Text Analytics API (Azure Cognitive Services)
+# External & community content for Text Analytics API (Azure Cognitive Services) 
  
- Find answers to commonly asked questions about concepts, code, and scenarios related to the Text Analytics API in Azure Cognitive Services.
+ Links in this article lead you to helpful web content developed and produced by partners and professionals familiar with Text Analytics API.
 
- ## Availability and Billing
++ [PowerApps blog: Using the Azure Cognitive Services Text Analytics API in PowerApps](https://powerapps.microsoft.com/blog/custom-connectors-and-text-analytics-in-powerapps-part-one/)
 
- ### Can I manually throttle requests to suspend billable transactions?
++ [PowerBI blog:Text Analytics in Power BI - Extraction of key phrases from Facebook messages (part 1)](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) and [Part 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
- You cannot pause the service or temporarily throttle requests service-side to conserve the balance of your request allocation for future use in the same billing cycle. The only guarantee for preventing transactions against your subscription is to remove Text Analytics API from your subscription, and then repeat sign up when you are ready to resume transactions. 
- 
- Because data isn't stored, the impact on deleting and recreating the sign up is generally minimal. The only coding investment you lose is the reference to your access key string, which you would need to update after a new sign up.
++ [TechNet blog: Sentiment analysis in Logic App using SQL Server data](https://social.technet.microsoft.com/wiki/contents/articles/36074.logic-apps-with-azure-cognitive-service.aspx?ranMID=24542&ranEAID=TnL5HPStwNw&ranSiteID=TnL5HPStwNw-Fm3trO5Abd2tCnHg9VrqSQ&tduid=(302edb164f69847ebdc390e21f96d546)(256380)(2459594)(TnL5HPStwNw-Fm3trO5Abd2tCnHg9VrqSQ) 
 
- ### If I upgrade to a higher tier mid-cycle, is the cost of the current month applied to  
++ [YouTube video: Logic App to detect sentiment and extract key phrases from your text](https://www.youtube.com/watch?v=jVN9NObAzgk)
 
-## Architecture and concept questions
++ [YouTube video: Sentiment Analysis using Power BI and Microsoft Cognitive Services](https://www.youtube.com/watch?v=gJ1j3N7Y75k)
 
-Placeholder for questions/answers...
-
-## Code and debug questions
-
-Placeholder for questions/answers...
++ [YouTube video: Text analytics extract key phrases using Power BI and Microsoft Cognitive Services](https://www.youtube.com/watch?v=R_-1TB2BF14)
 
 
 ## Next steps
 
-Is your question about a missing feature or functionality? Consider requesting or voting for it on our [User Voice web site](https://cognitive.uservoice.com/).
+Are you looking for information about a feature or use-case that we don't cover? Consider requesting or voting for it on [User Voice](https://cognitive.uservoice.com/). 
 
 ## See also
 
