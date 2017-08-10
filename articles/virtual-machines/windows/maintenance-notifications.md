@@ -8,32 +8,25 @@ manager: timlt
 editor: ''
 tags: azure-service-management,azure-resource-manager
 
-ms.assetid: eb4b92d8-be0f-44f6-a6c3-f8f7efab09fe
+ms.assetid: 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: zivr
+ms.date: 08/10/2017
+ms.author: cynthn
 
 ---
 
 
-## View maintenance notifications for Windows virtual machines
+# View maintenance notifications for Windows virtual machines
 
-You can use the Azure portal, API, PowerShell, or CLI to query for the
-maintenance windows for your VMs. In addition, expect to
-receive a notification (email) in the case where one (or more) of your
-VMs are impacted during the process.
+You can use the Azure portal, PowerShell or the API to query for the maintenance windows for your VMs. In addition, you will  receive an e-mail notification if one or more of your VMs are scheduled for maintenance.
 
-Both pre-emptive maintenance and scheduled maintenance phases begin with
-a notification. Expect to receive a single notification per Azure
-subscription. The notification is sent to the subscription’s admin
-and co-admin by default. You can also configure the audience for the
-maintenance notification.
+Both self-service maintenance and scheduled maintenance phases begin with a notification. Expect to receive a single notification per Azure subscription. The notification is sent to the subscription’s admin and co-admin by default. You can also configure who receives maintenance notifications.
 
-### View the Maintenance Window in the portal 
+## View in the portal 
 
 You can use the Azure portal and look for VMs scheduled for maintenance.
 
@@ -45,7 +38,7 @@ You can use the Azure portal and look for VMs scheduled for maintenance.
 
 4. Select and add the **Maintenance Window** columns. VMs that are scheduled for maintenance have the maintenance windows surfaced. Once maintenance is completed or aborted, the maintenance window is no longer be presented.
 
-### Query maintenance details using the Azure API
+## Query using the Azure API
 
 Use the [get VM information
 API](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get)
@@ -67,4 +60,6 @@ individual VM. The response includes the following elements:
   - lastOperationMessage:  Message describing the result of your last Maintenance-Redeploy operation.
 
 
+## Next Steps
 
+To learn more about VM maintenance, see [Planned maintenance for Windows virtual machines](planned-maintenance.md).
