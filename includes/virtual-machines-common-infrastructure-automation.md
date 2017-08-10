@@ -1,5 +1,5 @@
 # Use infrastructure automation tools with your Linux virtual machines in Azure
-To create and manage Azire virtual machines (VMs) in a consistent manner at scale, some form of automation is typically desired. There are many tools and solutions that allow you to automate the complete Azure infrastructure deployment and management lifecycle. This article introduces some of the infrastructure automation tools that you can use in Azure. These tools commonly fit in to one of the following approaches:
+To create and manage Azure virtual machines (VMs) in a consistent manner at scale, some form of automation is typically desired. There are many tools and solutions that allow you to automate the complete Azure infrastructure deployment and management lifecycle. This article introduces some of the infrastructure automation tools that you can use in Azure. These tools commonly fit in to one of the following approaches:
 
 - Automate the configuration of VMs
     - Tools include [Ansible](#ansible), [Chef](#chef), and [Puppet](#puppet).
@@ -33,7 +33,7 @@ Learn how to:
 
 
 ## Puppet
-[Puppet](https://www.puppet.com) is an enteprise-ready automation platform that handles the application delivery and deployment process. Agents are installed on target machines to allow Puppet Master to run manifests that define the desired configuration of the Azure infrastructure and VMs. Puppet can integrate with other solutions such as Jenkins and GitHub for an improve devops workflow. For more information, see [How Puppet works](https://puppet.com/product/how-puppet-works).
+[Puppet](https://www.puppet.com) is an enterprise-ready automation platform that handles the application delivery and deployment process. Agents are installed on target machines to allow Puppet Master to run manifests that define the desired configuration of the Azure infrastructure and VMs. Puppet can integrate with other solutions such as Jenkins and GitHub for an improve devops workflow. For more information, see [How Puppet works](https://puppet.com/product/how-puppet-works).
 
 Learn how to:
 
@@ -43,7 +43,7 @@ Learn how to:
 ## Cloud-init
 [Cloud-init](https://cloudinit.readthedocs.io) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, there are no additional steps or required agents to apply your configuration.
 
-Cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install and cloud-init automatically uses the native package management tool for the distro you select.
+Cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead, you define a list of packages to install. Cloud-init automatically uses the native package management tool for the distro you select.
 
 We are working with our partners to get cloud-init included and working in the images that they provide to Azure. The following table outlines the current cloud-init availability on Azure platform images:
 
@@ -73,7 +73,7 @@ Learn how to:
 ## Azure Custom Script Extension
 The Azure Custom Script Extension for [Linux](../articles/virtual-machines/linux/extensions-customscript.md) or [Windows](../articles/virtual-machines/windows/extensions-customscript.md) downloads and executes scripts on Azure VMs. You can use the extension when you create a VM, or any time after the VM is in use. 
 
-Scripts can be downloaded from Azure storage or any public location such as a GitHub repository. With the Custom Script Extension, you can write scripts in any language that runs on the source VM to install applications and configure as desired. To secure credentials, sensitive information such as passwords can be stored in a protected configuration and only decrypted inside the VM.
+Scripts can be downloaded from Azure storage or any public location such as a GitHub repository. With the Custom Script Extension, you can write scripts in any language that runs on the source VM. These scripts can be used to install applications or configure the VM as desired. To secure credentials, sensitive information such as passwords can be stored in a protected configuration. These credentials are only decrypted inside the VM.
 
 Learn how to:
 
@@ -95,14 +95,14 @@ Learn how to:
 
 Learn how to:
 
-- [Install and configure Terraform with Azure](../articles/virtual-machines/terraform-install-configure.md) 
-- [Create an Azure infrastructure with Terraform](../articles/virtual-machines//terraform-create-complete-vm.md).
+- [Install and configure Terraform with Azure](../articles/virtual-machines/linux/terraform-install-configure.md) 
+- [Create an Azure infrastructure with Terraform](../articles/virtual-machines/linux/terraform-create-complete-vm.md).
 
 
 ## Azure Automation
-[Azure Automation](https://azure.microsoft.com/services/automation/) uses runbooks to process a set of tasks on the VMs you target. Azure Automation is used to manage existing VMs rather than to create an infrastructure. Azure Automation can run across both Linux and Windows VMs, as well as on-prem virtual or physical machines with a hybrid runbook worker. Runbooks can be stored in a source control repository, such as GitHub, and can be run manually or on a defined schedule.
+[Azure Automation](https://azure.microsoft.com/services/automation/) uses runbooks to process a set of tasks on the VMs you target. Azure Automation is used to manage existing VMs rather than to create an infrastructure. Azure Automation can run across both Linux and Windows VMs, as well as on-prem virtual or physical machines with a hybrid runbook worker. Runbooks can be stored in a source control repository, such as GitHub. These runbooks can then run manually or on a defined schedule.
 
-Azure Automation also provides a Desired State Configuration (DSC) service that allows you to create definitions for how a given set of VMs should be configured, then ensure that configuration is applied and stays consistent. Azure Automation DSC runs on both Windows and Linux machines.
+Azure Automation also provides a Desired State Configuration (DSC) service that allows you to create definitions for how a given set of VMs should be configured. DSC then ensures that the required configuration is applied and the VM stays consistent. Azure Automation DSC runs on both Windows and Linux machines.
 
 Learn how to:
 
@@ -111,20 +111,20 @@ Learn how to:
 - [Use Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md)
 
 
-## Jenkins
-[Jenkins](https://www.jenkins.io) is a complete automation platform that allows you to build out infrastructure, deploy and test applications, and create automated pipelines for code delivery. There are hundreds of plugins to extend the core Jenkins platform, and you can also integrate with many other products and solutions through webhooks. You can manually install Jenkins on an Azure VM, run Jenkins from within a Docker container, or use a pre-built Azure Marketplace image.
-
-Learn how to:
-
-- [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md)
-
-
 ## Visual Studio Team Services
-[Team Services](https://www.visualstudio.com/team-services/) is a suite of tools that help you share and track code, use automated builds, and create a complete continuous integration and development (CI/CD) pipeline. You can use the cloud version of Team Services so you don't need to install and configure the suite of tools, and Team Services integrates with Visual Studio and other editors to simplify usage. Team Services can also create and configure Azure VMs and then deploy code to them.
+[Team Services](https://www.visualstudio.com/team-services/) is a suite of tools that help you share and track code, use automated builds, and create a complete continuous integration and development (CI/CD) pipeline. Team Services integrates with Visual Studio and other editors to simplify usage. Team Services can also create and configure Azure VMs and then deploy code to them.
 
 Learn how to:
 
 - [Create a continuous integration pipeline with Team Services](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+
+
+## Jenkins
+[Jenkins](https://www.jenkins.io) is a continuous integration server that helps deploy and test applications, and create automated pipelines for code delivery. There are hundreds of plugins to extend the core Jenkins platform, and you can also integrate with many other products and solutions through webhooks. You can manually install Jenkins on an Azure VM, run Jenkins from within a Docker container, or use a pre-built Azure Marketplace image.
+
+Learn how to:
+
+- [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md)
 
 
 ## Next steps
