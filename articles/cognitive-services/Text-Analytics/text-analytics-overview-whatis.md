@@ -96,23 +96,23 @@ Although Cognitive Services has multiple APIs, we ask you to sign up for them in
 + [Pricing for text analytics](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)
 + [Calculator](https://azure.microsoft.com/pricing/calculator/?service=cognitive-services)
 
-Billing is per transaction, where a transaction is based on the number of documents multiplied by unit of operation. The following table illustrates the billing model at a glance.
+Billing is based on transactions, where a transaction is based on the number of documents multiplied by unit of operation. The following table illustrates the billing model at a glance.
 
 | Document | Sentiment | Key Phrase | Language Detection | Transactions |
 |----------|-----------|------------|--------------------|--------------|
-|1  | x |  x | x  | 3 |
-|100 | x |  x |   | 200 |
-|1000 |   |   | x  |1000 |
+|1  | ![check][1]  |  ![check][1]  | ![check][1]   | 3 |
+|100 | ![check][1]  |  ![check][1]  |   | 200 |
+|1000 |   |   | ![check][1]   |1000 |
 
-You are charged only for the transactions you submit. There is no storage component to billing because we do not store your data, but there are [technical limits on the size and structure of the payload](#data-limits). Although you could load a document with the maximum amount of text to 
+Each tier provides an allocation of transactions to be consumed over a 30-day billing cycle. The counter is reset back to 0 on day 31. 
 
-For all tiers, there is an upper limit on the number of requests within a 30 day period. The counter is reset back to 0 on day 31.
+There is no storage component to billing because we do not store your data, but there are [technical limits on the size and structure of the payload](#data-limits). Although you could load a document with the maximum amount of text to save money, analysis generally performs better if the body of the request is under the maximum.
 
 **What happens if you use up the transaction allocation before rolling over to the next period?**
 
-At the Free tier, excess requests are not handled and you will get a message stating to that effect.
+At the Free tier, excess requests are not handled and you will get a message explaining why the request was dropped.
 
-For billable tiers, the overage rate goes into effect for each transaction above the limit. The overage rate and the per-transaction rate vary by tier, with lower rates for larger request volumes. 
+For billable tiers, an overage rate goes into effect for each transaction above the limit. The overage rate varies by tier, with lower rates for larger request volumes. 
 
  > [!Note]
  > Text Analytics was [first announced](https://blogs.technet.microsoft.com/machinelearning/2016/06/21/text-analytics-api-now-available-in-multiple-languages/) in June 2016 and is now [generally available (GA)](https://azure.microsoft.com//blog/) with support for production workloads. Preview pricing has been retired. For more information about service level agreements (SLA) from Microsoft, see [SLA for Cognitive Services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
@@ -152,4 +152,6 @@ For .NET developers, we recommend the [Cognitive Services Text Analytics .NET SD
  [Azure Cognitive Services Documentation page](https://docs.microsoft.com/azure/cognitive-services/)   
  [Azure Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)
 
+
+[1]: ././media/text-analytics/checkpoint.png
 
