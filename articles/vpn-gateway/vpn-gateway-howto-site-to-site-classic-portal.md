@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 08/010/2017
 ms.author: cherylmc
 
 ---
@@ -81,7 +81,7 @@ When you create a virtual network to use for a S2S connection, you need to make 
 3. Near the bottom of the Virtual Network page, from the **Select a deployment model** dropdown list, select **Classic**, and then click **Create**.
 
   ![Select deployment model](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
-4. On the **Create virtual network(classic)** page, configure the VNet settings. In this page, you add your first address space and a single subnet address range. After you finish creating the VNet, you can go back and add additional subnets and address spaces.
+4. On the **Create virtual network(classic)** page, configure the VNet settings. On this page, you add your first address space and a single subnet address range. After you finish creating the VNet, you can go back and add additional subnets and address spaces.
 
   ![Create virtual network page](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Create virtual network page")
 5. Verify that the **Subscription** is the correct one. You can change subscriptions by using the drop-down.
