@@ -8,6 +8,7 @@
 
 # Get started
 ## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
+## [Add a custom domain name](add-custom-domain.md)
 ## [Configure Self-service password reset](active-directory-passwords-getting-started.md)
 ## Manage Azure AD licensing
 ### [Azure portal](active-directory-licensing-get-started-azure-portal.md)
@@ -53,7 +54,6 @@
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 #### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
-
 ### [Add users from other directories (classic portal)](active-directory-create-users-external.md)
 ### [Delete users](active-directory-users-delete-user-azure-portal.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
