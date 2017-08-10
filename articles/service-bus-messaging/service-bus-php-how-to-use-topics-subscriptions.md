@@ -17,7 +17,8 @@ ms.date: 04/27/2017
 ms.author: sethm
 
 ---
-# How to use Service Bus topics and subscriptions
+# How to use Service Bus topics and subscriptions with PHP
+
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 This article shows you how to use Service Bus topics and subscriptions. The samples are written in PHP and use the [Azure SDK for PHP](../php-download-sdk.md). The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**.
