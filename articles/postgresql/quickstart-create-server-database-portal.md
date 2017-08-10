@@ -123,14 +123,14 @@ There are a number of applications you can use to connect to your Azure Database
     --username | *server admin login name* |Type in the  server admin login username supplied when you created the Azure Database for PostgreSQL earlier. Follow the previous section to get the connection information if you do not remember the username.  The format is *username@servername*.
     --dbname | **postgres** | Use the default system generated database name *postgres* for the first connection. Later you create your own database.
 
-    After running the psql command, with your own parameter values, you will be prompted to type the server admin password. This is the same password that you provided when you created the server. 
+    After running the psql command, with your own parameter values, you are prompted to type the server admin password. This is the same password that you provided when you created the server. 
 
     psql parameter |Suggested value|Description
     ---|---|---
-    password | *your admin password* | Note, the typed password characters will not be shown on the bash prompt. Press enter after you have typed all the characters to authenticate and connect.
+    password | *your admin password* | Note, the typed password characters not show on the bash prompt. Press enter after you have typed all the characters to authenticate and connect.
 
 
-Once connected, the psql utility will display a `postgres=>` prompt for you to type commands. In the initial connection output, a warning may be displayed since the psql in the Cloud Shell may be a different version than the Azure Database for PostgreSQL server version.
+Once connected, the psql utility displays a `postgres=>` prompt for you to type commands. In the initial connection output, a warning may be displayed since the psql in the Cloud Shell may be a different version than the Azure Database for PostgreSQL server version.
 
 > psql (9.5.7, server 9.6.2)
 > WARNING: psql major version 9.5, server major version 9.6.
