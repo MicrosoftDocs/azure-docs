@@ -57,7 +57,7 @@ Durability and high availability is provided by the underlying Azure Storage env
 * across Azure datacenters within a given region
 * across Azure datacenters across different regions.
 
-You can read [more about the replication options for high availability](../../storage/storage-introduction.md#replication-for-durability-and-high-availability).
+You can read [more about the replication options for high availability](../../storage/storage-redundancy,md).
 
 Operating system disks and data disks have a maximum size of 4TB. You can use Logical Volume Manager (LVM) to surpass this limit by pooling together data disks to present logical volumes larger than 1023GB to your VM.
 
