@@ -29,7 +29,7 @@ To manage such applications successfully you should monitor them proactively and
 > The Azure File storage does not support logging at this time.
 > 
 
-For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](storage-e2e-troubleshooting.md).
+For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](common/storage-e2e-troubleshooting.md).
 
 * [Introduction]
   * [How this guide is organized]

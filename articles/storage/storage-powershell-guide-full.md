@@ -199,7 +199,7 @@ To use Azure storage, you will need a storage account. You can create a new Azur
 	```
 
 > [!IMPORTANT]
-> The name of your storage account must be unique within Azure and must be lowercase. For naming conventions and restrictions, see [About Azure Storage Accounts](storage-create-storage-account.md) and [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/library/azure/dd135715.aspx).
+> The name of your storage account must be unique within Azure and must be lowercase. For naming conventions and restrictions, see [About Azure Storage Accounts](common/storage-create-storage-account.md) and [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/library/azure/dd135715.aspx).
 > 
 > 
 
@@ -249,7 +249,7 @@ Use one of the following three ways to create a storage context:
 	$Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -SasToken $sasToken
 	```
 
-    For more information, see [New-AzureStorageContainerSASToken](/powershell/module/azure.storage/new-azurestoragecontainersastoken) and [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+    For more information, see [New-AzureStorageContainerSASToken](/powershell/module/azure.storage/new-azurestoragecontainersastoken) and [Using Shared Access Signatures (SAS)](common/storage-dotnet-shared-access-signature-part-1.md).
 
 * In some cases, you may want to specify the service endpoints when you create a new storage context. This might be necessary when you have registered a custom domain name for your storage account with the Blob service or you want to use a shared access signature for accessing storage resources. Set the service endpoints in a connection string and use it to create a new storage context as shown below:
 
@@ -258,7 +258,7 @@ Use one of the following three ways to create a storage context:
 	$Ctx = New-AzureStorageContext -ConnectionString $ConnectionString
 	```
 
-For more information on how to configure a storage connection string, see [Configuring Connection Strings](storage-configure-connection-string.md).
+For more information on how to configure a storage connection string, see [Configuring Connection Strings](common/storage-configure-connection-string.md).
 
 Now that you have set up your computer and learned how to manage subscriptions and storage accounts using Azure PowerShell, go to the next section to learn how to manage Azure blobs and blob snapshots.
 
@@ -689,7 +689,7 @@ Azure File storage offers shared storage for applications using the standard SMB
 For more information on Azure File storage, see [Get started with Azure File storage on Windows](files/storage-dotnet-how-to-use-files.md) and [File Service REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
 ## How to set and query storage analytics
-You can use [Azure Storage Analytics](storage-analytics.md) to collect metrics for your Azure storage accounts and log data about requests sent to your storage account. You can use storage metrics to monitor the health of a storage account, and storage logging to diagnose and troubleshoot issues with your storage account. You can configure monitoring using the Azure portal or Windows PowerShell, or programmatically using the storage client library. Storage logging happens server-side and enables you to record details for both successful and failed requests in your storage account. These logs enable you to see details of read, write, and delete operations against your tables, queues, and blobs as well as the reasons for failed requests.
+You can use [Azure Storage Analytics](common/storage-analytics.md) to collect metrics for your Azure storage accounts and log data about requests sent to your storage account. You can use storage metrics to monitor the health of a storage account, and storage logging to diagnose and troubleshoot issues with your storage account. You can configure monitoring using the Azure portal or Windows PowerShell, or programmatically using the storage client library. Storage logging happens server-side and enables you to record details for both successful and failed requests in your storage account. These logs enable you to see details of read, write, and delete operations against your tables, queues, and blobs as well as the reasons for failed requests.
 
 To learn how to enable and view Storage Metrics data using PowerShell, see [How to enable Storage Metrics using PowerShell](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell).
 
@@ -709,7 +709,7 @@ A shared access signature can be in one of two forms:
 * **Ad hoc SAS**: When you create an ad hoc SAS, the start time, expiry time, and permissions for the SAS are all specified on the SAS URI. This type of SAS may be created on a container, blob, table, or queue and it is non-revocable.
 * **SAS with stored access policy**: A stored access policy is defined on a resource container a blob container, table, or queue - and you can use it to manage constraints for one or more shared access signatures. When you associate a SAS with a stored access policy, the SAS inherits the constraints - the start time, expiry time, and permissions - defined for the stored access policy. This type of SAS is revocable.
 
-For more information, see [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) and [Manage anonymous read access to containers and blobs](blob/storage-manage-access-to-resources.md).
+For more information, see [Using Shared Access Signatures (SAS)](common/storage-dotnet-shared-access-signature-part-1.md) and [Manage anonymous read access to containers and blobs](blob/storage-manage-access-to-resources.md).
 
 In the next sections, you will learn how to create a shared access signature token and stored access policy for Azure tables. Azure PowerShell provides similar cmdlets for containers, blobs, and queues as well. To run the scripts in this section, download the [Azure PowerShell version 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) or later.
 

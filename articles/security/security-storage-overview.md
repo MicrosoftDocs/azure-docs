@@ -52,7 +52,7 @@ A shared access signature (SAS) provides delegated access to resources in your s
 
 Learn more:
 
-* [Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md)
+* [Understanding the SAS model](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
 * [Create and use a SAS with Blob storage](../storage/blob/storage-dotnet-shared-access-signature-part-2.md)
 
 ## Encryption in transit

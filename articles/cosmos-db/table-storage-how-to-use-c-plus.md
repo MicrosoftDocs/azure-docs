@@ -52,7 +52,7 @@ Add the following include statements to the top of the C++ file where you want t
 ```
 
 ## Set up an Azure storage connection string
-An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running a client application, you must provide the storage connection string in the following format. Use the name of your storage account and the storage access key for the storage account listed in the [Azure Portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure storage accounts](../storage/storage-create-storage-account.md). This example shows how you can declare a static field to hold the connection string:  
+An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running a client application, you must provide the storage connection string in the following format. Use the name of your storage account and the storage access key for the storage account listed in the [Azure Portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md). This example shows how you can declare a static field to hold the connection string:  
 
 ```cpp
 // Define the connection string with your values.
@@ -450,6 +450,6 @@ Now that you've learned the basics of table storage, follow these links to learn
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [How to use Blob storage from C++](../storage/storage-c-plus-plus-how-to-use-blobs.md)
 * [How to use Queue storage from C++](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
-* [List Azure Storage resources in C++](../storage/storage-c-plus-plus-enumeration.md)
+* [List Azure Storage resources in C++](../storage/common/storage-c-plus-plus-enumeration.md)
 * [Storage Client Library for C++ reference](http://azure.github.io/azure-storage-cpp)
 * [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/)

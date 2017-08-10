@@ -36,7 +36,7 @@ For instructions on installing AzCopy and additional information on using it wit
 This document assumes that you have an Azure subscription, a storage account and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure storage account name and account key.
 
 * To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-* For instructions on creating a storage account and for getting account and key information, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
+* For instructions on creating a storage account and for getting account and key information, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 
 ## Run AzCopy commands
 To run AzCopy commands, open a command window and navigate to the AzCopy installation directory on your computer, where the AzCopy.exe executable is located. 

@@ -80,7 +80,7 @@ Here are three examples of prediction problems that we address in this walkthrou
 
 You can set up an Azure environment for advanced analytics that employs an HDInsight cluster in three steps:
 
-1. [Create a storage account](../storage/storage-create-storage-account.md): This storage account is used for storing data in Azure Blob Storage. The data used in HDInsight clusters also resides here.
+1. [Create a storage account](../storage/common/storage-create-storage-account.md): This storage account is used for storing data in Azure Blob Storage. The data used in HDInsight clusters also resides here.
 2. [Customize Azure HDInsight Hadoop clusters for the Advanced Analytics Process and Technology](machine-learning-data-science-customize-hadoop-cluster.md). This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
    
    * Remember to link the storage account created in step 1 with your HDInsight cluster when creating it. This storage account is used to access data that is processed within the cluster.

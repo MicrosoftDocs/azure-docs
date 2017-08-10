@@ -67,7 +67,7 @@ The URLs for storage accounts in Azure Government are different:
 | File Storage |*.file.core.windows.net |*.file.core.usgovcloudapi.net | 
 
 > [!NOTE]
-> All your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage/storage-configure-connection-string.md). 
+> All your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage/common/storage-configure-connection-string.md). 
 >
 >
 

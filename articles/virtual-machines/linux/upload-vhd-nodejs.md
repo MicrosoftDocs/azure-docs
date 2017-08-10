@@ -145,7 +145,7 @@ azure storage account create mystorageaccount --resource-group myResourceGroup \
 ```
 
 ## List storage account keys
-Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, such as to carry out write operations. Read more about [managing access to storage here](../../storage/storage-create-storage-account.md#manage-your-storage-account). You can view access keys with the `azure storage account keys list` command.
+Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, such as to carry out write operations. Read more about [managing access to storage here](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). You can view access keys with the `azure storage account keys list` command.
 
 View the access keys for the storage account you created:
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use the Azure storage emulator for development and testing | Microsoft Docs
 description: The Azure storage emulator provides a free local development environment for developing and testing your Azure Storage applications. Learn how requests are authenticated, how to connect to the emulator from your application, and how to use the command-line tool.
 services: storage
@@ -87,7 +87,7 @@ Once you've installed and started the storage emulator, you can test your code a
 ### Authenticate with Shared Key credentials
 [!INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
 
-For more information on connection strings, see [Configure Azure Storage connection strings](storage-configure-connection-string.md).
+For more information on connection strings, see [Configure Azure Storage connection strings](common/storage-configure-connection-string.md).
 
 ### Authenticate with a shared access signature
 Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. You can create the SAS token using a tool like the [Storage Explorer](http://storageexplorer.com/) or another application that supports Shared Key authentication.
@@ -115,7 +115,7 @@ https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-
 
 The shared access signature created with this example is valid for one day. The signature grants full access (read, write, delete, list) to blobs within the container.
 
-For more information on shared access signatures, see [Using shared access signatures (SAS) in Azure Storage](storage-dotnet-shared-access-signature-part-1.md).
+For more information on shared access signatures, see [Using shared access signatures (SAS) in Azure Storage](common/storage-dotnet-shared-access-signature-part-1.md).
 
 ## Addressing resources in the storage emulator
 The service endpoints for the storage emulator are different from those of an Azure storage account. The difference is because the local computer does not perform domain name resolution, requiring the storage emulator endpoints to be local addresses.

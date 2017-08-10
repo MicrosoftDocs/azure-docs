@@ -35,7 +35,7 @@ When you create an Hadoop cluster in HDInsight, you specify either an **Azure st
 
 For more information on the Azure storage solutions, see [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md). 
 
-For guidance on selecting the most appropriate storage option to use for your scenario, see [Deciding when to use Azure Blobs, Azure Files, or Azure Data Disks](../storage/storage-decide-blobs-files-disks.md) 
+For guidance on selecting the most appropriate storage option to use for your scenario, see [Deciding when to use Azure Blobs, Azure Files, or Azure Data Disks](../storage/common/storage-decide-blobs-files-disks.md) 
 
 
 ## Use Azure Blob storage accounts with R Server

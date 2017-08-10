@@ -32,7 +32,7 @@ In addition, we also offer the [Azure Storage Data Movement Library](https://www
 ## Quickly viewing/interacting with your data
 If you want an easy way to view your Azure Storage data while also having the ability to upload and download your data, then consider using an Azure Storage Explorer.
 
-Check out our list of [Azure Storage Explorers](storage-explorers.md) to learn more.
+Check out our list of [Azure Storage Explorers](common/storage-explorers.md) to learn more.
 
 ## System Administration
 If you require or are more comfortable with a command-line utility (e.g. System Administrators), here are a few options for you to consider:
@@ -50,7 +50,7 @@ See [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md
 ### Azure CLI
 Azure CLI provides a set of open source, cross-platform commands for working with Azure services. Azure CLI is available on Windows, OSX, and Linux.
 
-See [Using the Azure CLI with Azure Storage](storage-azure-cli.md) to learn more.
+See [Using the Azure CLI with Azure Storage](common/storage-azure-cli.md) to learn more.
 
 ## Moving large amounts of data with a slow network
 One of the biggest challenges associated with moving large amounts of data is the transfer time. If you want to get data to/from Azure Storage without worrying about networks costs or writing code, then Azure Import/Export is an appropriate solution.

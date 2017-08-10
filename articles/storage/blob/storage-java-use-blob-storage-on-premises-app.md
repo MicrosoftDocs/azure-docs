@@ -32,8 +32,8 @@ HTML file that displays the image in your browser.
     your Java compiler. For information about installing the Azure Libraries for Java, see [Download the Azure SDK for Java](/java/azure/).
 * An Azure storage account has been set up. The account name
     and account key for the storage account will be used by the code
-    in this article. See [How to Create a Storage Account](../storage-create-storage-account.md#create-a-storage-account) for information about creating a storage account,
-    and [View and copy storage access keys](../storage-create-storage-account.md#view-and-copy-storage-access-keys) for information about retrieving the account key.
+    in this article. See [How to Create a Storage Account](../common/storage-create-storage-account.md#create-a-storage-account) for information about creating a storage account,
+    and [View and copy storage access keys](../common/storage-create-storage-account.md#view-and-copy-storage-access-keys) for information about retrieving the account key.
 * You have created a local image file named stored at the path
     c:\\myimages\\image1.jpg. Alternatively, modify the
     **FileInputStream** constructor in the example to use a different

@@ -19,7 +19,7 @@ ms.author: robinsh
 ---
 # Azure Storage security guide
 ## Overview
-Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. The storage account itself can be secured using Role-Based Access Control and Azure Active Directory. Data can be secured in transit between an application and Azure by using [Client-Side Encryption](storage-client-side-encryption.md), HTTPS, or SMB 3.0. Data can be set to be automatically encrypted when written to Azure Storage using [Storage Service Encryption (SSE)](storage-service-encryption.md). OS and Data disks used by virtual machines can be set to be encrypted using [Azure Disk Encryption](../security/azure-security-disk-encryption.md). Delegated access to the data objects in Azure Storage can be granted using [Shared Access Signatures](storage-dotnet-shared-access-signature-part-1.md).
+Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. The storage account itself can be secured using Role-Based Access Control and Azure Active Directory. Data can be secured in transit between an application and Azure by using [Client-Side Encryption](common/storage-client-side-encryption.md), HTTPS, or SMB 3.0. Data can be set to be automatically encrypted when written to Azure Storage using [Storage Service Encryption (SSE)](storage-service-encryption.md). OS and Data disks used by virtual machines can be set to be encrypted using [Azure Disk Encryption](../security/azure-security-disk-encryption.md). Delegated access to the data objects in Azure Storage can be granted using [Shared Access Signatures](common/storage-dotnet-shared-access-signature-part-1.md).
 
 This article will provide an overview of each of these security features that can be used with Azure Storage. Links are provided to articles that will give details of each feature so you can easily do further investigation on each topic.
 
@@ -139,7 +139,7 @@ Another advantage of using Azure Key Vault is you can also control access to you
 Note: it is recommended to use only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you will not be able to rotate your keys without some application losing access.
 
 #### Resources
-* [About Azure Storage Accounts](storage-create-storage-account.md#regenerate-storage-access-keys)
+* [About Azure Storage Accounts](common/storage-create-storage-account.md#regenerate-storage-access-keys)
 
   This article gives an overview of storage accounts and discusses viewing, copying, and regenerating storage access keys.
 * [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt163683.aspx)
@@ -235,7 +235,7 @@ For more detailed information on using Shared Access Signatures and Stored Acces
   * [Constructing an account SAS](https://msdn.microsoft.com/library/mt584140.aspx)
 * These are tutorials for using the .NET client library to create Shared Access Signatures and Stored Access Policies.
 
-  * [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
+  * [Using Shared Access Signatures (SAS)](common/storage-dotnet-shared-access-signature-part-1.md)
   * [Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](blob/storage-dotnet-shared-access-signature-part-2.md)
 
     This article includes an explanation of the SAS model, examples of Shared Access Signatures, and recommendations for the best practice use of SAS. Also discussed is the revocation of the permission granted.
@@ -319,7 +319,7 @@ For the encryption itself, you can generate and manage your own encryption keys.
 * [Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](blob/storage-encrypt-decrypt-blobs-key-vault.md)
 
   This article shows how to use client-side encryption with Azure Key Vault, including how to create the KEK and store it in the vault using PowerShell.
-* [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](storage-client-side-encryption.md)
+* [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](common/storage-client-side-encryption.md)
 
   This article gives an explanation of client-side encryption, and provides examples of using the storage client library to encrypt and decrypt resources from the four storage services. It also talks about Azure Key Vault.
 
@@ -437,7 +437,7 @@ We have three cases that we are interested in.
 You can use the Microsoft Message Analyzer to view and analyze these logs. It includes search and filter capabilities. For example, you might want to search for instances of GetBlob to see if the usage is what you expect, i.e. to make sure someone is not accessing your storage account inappropriately.
 
 #### Resources
-* [Storage Analytics](storage-analytics.md)
+* [Storage Analytics](common/storage-analytics.md)
 
   This article is an overview of storage analytics and how to enable them.
 * [Storage Analytics Log Format](https://msdn.microsoft.com/library/azure/hh343259.aspx)
@@ -446,7 +446,7 @@ You can use the Microsoft Message Analyzer to view and analyze these logs. It in
 * [Monitor a Storage Account in the Azure portal](storage-monitor-storage-account.md)
 
   This article shows how to configure monitoring of metrics and logging for a storage account.
-* [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](storage-e2e-troubleshooting.md)
+* [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](common/storage-e2e-troubleshooting.md)
 
   This article talks about troubleshooting using the Storage Analytics and shows how to use the Microsoft Message Analyzer.
 * [Microsoft Message Analyzer Operating Guide](https://technet.microsoft.com/library/jj649776.aspx)
@@ -494,7 +494,7 @@ Here's what each row means:
 #### Resources
 For more information about CORS and how to enable it, please check out these resources.
 
-* [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on Azure.com](storage-cors-support.md)
+* [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on Azure.com](common/storage-cors-support.md)
 
   This article provides an overview of CORS and how to set the rules for the different storage services.
 * [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)

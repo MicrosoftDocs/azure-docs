@@ -736,9 +736,9 @@ For more information about Azure Storage and AzCopy, see the following resources
 
 ### Azure Storage documentation:
 * [Introduction to Azure Storage](storage-introduction.md)
-* [Create a storage account](storage-create-storage-account.md)
+* [Create a storage account](common/storage-create-storage-account.md)
 * [Manage blobs with Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs)
-* [Using the Azure CLI 2.0 with Azure Storage](storage-azure-cli.md)
+* [Using the Azure CLI 2.0 with Azure Storage](common/storage-azure-cli.md)
 * [How to use Blob storage from C++](storage-c-plus-plus-how-to-use-blobs.md)
 * [How to use Blob storage from Java](blob/storage-java-how-to-use-blob-storage.md)
 * [How to use Blob storage from Node.js](blob/storage-nodejs-how-to-use-blob-storage.md)

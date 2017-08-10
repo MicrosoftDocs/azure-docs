@@ -308,7 +308,7 @@ For tables, in addition to the encryption policy, users must specify the propert
 
 Note that merge is not currently supported. Since a subset of properties may have been encrypted previously using a different key, simply merging the new properties and updating the metadata will result in data loss. Merging either requires making extra service calls to read the pre-existing entity from the service, or using a new key per property, both of which are not suitable for performance reasons.     
 
-For information about encrypting table data, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../storage/storage-client-side-encryption.md).  
+For information about encrypting table data, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../storage/common/storage-client-side-encryption.md).  
 
 ## Modelling relationships
 Building domain models is a key step in the design of complex systems. Typically, you use the modelling process to identify entities and the relationships between them as a way to understand the business domain and inform the design of your system. This section focuses on how you can translate some of the common relationship types found in domain models to designs for the Table service. The process of mapping from a logical data-model to a physical NoSQL based data-model is very different from that used when designing a relational database. Relational databases design typically assumes a data normalization process optimized for minimizing redundancy – and a declarative querying capability that abstracts how the implementation of how the database works.  
@@ -1095,7 +1095,7 @@ Note that exceptions thrown when the Storage Client Library executes an EGT typi
 You should also consider how your design affects how your client application handles concurrency and update operations.  
 
 #### Managing concurrency
-By default, the table service implements optimistic concurrency checks at the level of individual entities for **Insert**, **Merge**, and **Delete** operations, although it is possible for a client to force the table service to bypass these checks. For more information about how the table service manages concurrency, see  [Managing Concurrency in Microsoft Azure Storage](../storage/storage-concurrency.md).  
+By default, the table service implements optimistic concurrency checks at the level of individual entities for **Insert**, **Merge**, and **Delete** operations, although it is possible for a client to force the table service to bypass these checks. For more information about how the table service manages concurrency, see  [Managing Concurrency in Microsoft Azure Storage](../storage/common/storage-concurrency.md).  
 
 #### Merge or replace
 The **Replace** method of the **TableOperation** class always replaces the complete entity in the Table service. If you do not include a property in the request when that property exists in the stored entity, the request removes that property from the stored entity. Unless you want to remove a property explicitly from a stored entity, you must include every property in the request.  
@@ -1418,7 +1418,7 @@ You can use Shared Access Signature (SAS) tokens to enable client applications t
 * You can offload some of the work that web and worker roles perform in managing your entities to client devices such as end-user computers and mobile devices.  
 * You can assign a constrained and time limited set of permissions to a client (such as allowing read-only access to specific resources).  
 
-For more information about using SAS tokens with the Table service, see [Using Shared Access Signatures (SAS)](../storage/storage-dotnet-shared-access-signature-part-1.md).  
+For more information about using SAS tokens with the Table service, see [Using Shared Access Signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
 
 However, you must still generate the SAS tokens that grant a client application to the entities in the table service: you should do this in an environment that has secure access to your storage account keys. Typically, you use a web or worker role to generate the SAS tokens and deliver them to the client applications that need access to your entities. Because there is still an overhead involved in generating and delivering SAS tokens to clients, you should consider how best to reduce this overhead, especially in high-volume scenarios.  
 

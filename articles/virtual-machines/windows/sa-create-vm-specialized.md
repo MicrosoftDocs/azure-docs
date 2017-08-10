@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create VM from a specialized disk in Azure | Microsoft Docs
 description: Create a new VM by attaching a specialized unmanaged disk, in the Resource Manager deployment model.
 services: virtual-machines-windows
@@ -142,7 +142,7 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
 ## Get the storage access keys
-Find the access keys for the source and destination storage accounts. For more information about access keys, see [About Azure storage accounts](../../storage/storage-create-storage-account.md).
+Find the access keys for the source and destination storage accounts. For more information about access keys, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
 
 * **Portal**: Click **More services** > **Storage accounts** > *storage account* > **Access keys**. Copy the key labeled as **key1**.
 * **Powershell**: Use [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) to get the storage key for the storage account **mystorageaccount** in the resource group **myResourceGroup**. Copy the key labeled **key1**.

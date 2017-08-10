@@ -18,7 +18,7 @@ ms.author: marsma
 ---
 # Shared Access Signatures, Part 2: Create and use a SAS with Blob storage
 
-[Part 1](../storage-dotnet-shared-access-signature-part-1.md) of this tutorial explored shared access signatures (SAS) and explained best practices for using them. Part 2 shows you how to generate and then use shared access signatures with Blob storage. The examples are written in C# and use the Azure Storage Client Library for .NET. The examples in this tutorial:
+[Part 1](../common/storage-dotnet-shared-access-signature-part-1.md) of this tutorial explored shared access signatures (SAS) and explained best practices for using them. Part 2 shows you how to generate and then use shared access signatures with Blob storage. The examples are written in C# and use the Azure Storage Client Library for .NET. The examples in this tutorial:
 
 * Generate a shared access signature on a container
 * Generate a shared access signature on a blob
@@ -589,7 +589,7 @@ Additional error information: The remote server returned an error: (403) Forbidd
 
 ## Next Steps
 
-* [Shared Access Signatures, Part 1: Understanding the SAS Model](../storage-dotnet-shared-access-signature-part-1.md)
+* [Shared Access Signatures, Part 1: Understanding the SAS Model](../common/storage-dotnet-shared-access-signature-part-1.md)
 * [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md)
 * [Delegating access with a shared access signature (REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

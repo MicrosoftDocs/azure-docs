@@ -426,7 +426,7 @@ There are several options for deploying a storage account.
 
 **Portal**
 
-Deploying a storage account by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new storage account into a new or existing resource group. After you’ve created the storage account, you can create a blob container or file share by using the portal. You can create Table and Queue storage entities programmatically. For more information, see [Create a storage account](../../storage/storage-create-storage-account.md#create-a-storage-account).
+Deploying a storage account by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new storage account into a new or existing resource group. After you’ve created the storage account, you can create a blob container or file share by using the portal. You can create Table and Queue storage entities programmatically. For more information, see [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 In addition to deploying a storage account from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template, including any storage accounts. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
@@ -438,7 +438,7 @@ In addition to deploying Azure resources individually, you can use the Azure Pow
 
 **Command-line interface (CLI)**
 
-As with the PowerShell module, the Azure command-line Interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **storage account create** command to create a storage account. For more information, see [Using the Azure CLI with Azure Storage.](../../storage/storage-azure-cli.md)
+As with the PowerShell module, the Azure command-line Interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **storage account create** command to create a storage account. For more information, see [Using the Azure CLI with Azure Storage.](../../storage/common/storage-azure-cli.md)
 
 Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../resource-group-template-deploy-cli.md).
 
@@ -452,7 +452,7 @@ When you’re deploying a virtual machine, you also need to create a storage acc
 
 **Storage tools**
 
-Azure storage accounts can be accessed through many different storage explorers, such as Visual Studio Cloud Explorer. These tools let you browse through storage accounts and data. For more information and a list of available storage explorers, see [Azure Storage client tools](../../storage/storage-explorers.md).
+Azure storage accounts can be accessed through many different storage explorers, such as Visual Studio Cloud Explorer. These tools let you browse through storage accounts and data. For more information and a list of available storage explorers, see [Azure Storage client tools](../../storage/common/storage-explorers.md).
 
 **Storage API**
 
@@ -464,7 +464,7 @@ Each storage account has two authentication keys, a primary and a secondary. Eit
 
 **Shared access signatures**
 
-If you need to allow users to have controlled access to your storage resources, you can create a shared access signature. A shared access signature is a token that can be appended to a URL that enables delegated access to a storage resource. Anyone who possesses the token can access the resource that it points to with the permissions that it specifies, for the period of time that it’s valid. For more information, see [Using shared access signatures](../../storage/storage-dotnet-shared-access-signature-part-1.md).
+If you need to allow users to have controlled access to your storage resources, you can create a shared access signature. A shared access signature is a token that can be appended to a URL that enables delegated access to a storage resource. Anyone who possesses the token can access the resource that it points to with the permissions that it specifies, for the period of time that it’s valid. For more information, see [Using shared access signatures](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ## Azure Virtual Network
 

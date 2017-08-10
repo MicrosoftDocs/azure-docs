@@ -149,7 +149,7 @@ Normally, a browser will not allow JavaScript in a page hosted by a website on o
 Both of these technologies can help you avoid unnecessary load (and bottlenecks) on your web application.  
 
 #### Useful Resources
-For more information about SAS, see [Shared Access Signatures, Part 1: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md).  
+For more information about SAS, see [Shared Access Signatures, Part 1: Understanding the SAS Model](common/storage-dotnet-shared-access-signature-part-1.md).  
 
 For more information about CORS, see [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](http://msdn.microsoft.com/library/azure/dn535601.aspx).  
 

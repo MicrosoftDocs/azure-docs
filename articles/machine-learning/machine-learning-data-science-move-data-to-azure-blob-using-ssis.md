@@ -37,7 +37,7 @@ For a discussion of canonical scenarios that use SSIS to accomplish business nee
 To perform the tasks described in this article, you must have an Azure subscription and an Azure storage account set up. You must know your Azure storage account name and account key to upload or download data.
 
 * To set up an **Azure subscription**, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-* For instructions on creating a **storage account** and for getting account and key information, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
+* For instructions on creating a **storage account** and for getting account and key information, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 
 To use the **SSIS connectors**, you must download:
 

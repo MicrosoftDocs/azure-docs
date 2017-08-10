@@ -37,10 +37,10 @@ This article assumes that you have a working knowledge of C# and Visual Studio. 
 ### Accounts
 * **Azure account**: If you don't already have an Azure subscription, [create a free Azure account][azure_free_account].
 * **Batch account**: Once you have an Azure subscription, [create an Azure Batch account](batch-account-create-portal.md).
-* **Storage account**: See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
+* **Storage account**: See [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 
 > [!IMPORTANT]
-> Batch currently supports *only* the **general-purpose** storage account type, as described in step #5 [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
+> Batch currently supports *only* the **general-purpose** storage account type, as described in step #5 [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 >
 >
 
@@ -282,7 +282,7 @@ Shared access signatures are strings which—when included as part of a URL—pr
 * **Container shared access signatures**: As each task finishes its work on the compute node, it uploads its output file to the *output* container in Azure Storage. To do so, TaskApplication uses a container shared access signature that provides write access to the container as part of the path when it uploads the file. Obtaining the container shared access signature is done in a similar fashion as when obtaining the blob shared access signature. In DotNetTutorial, you will find that the `GetContainerSasUrl` helper method calls [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] to do so. You'll read more about how TaskApplication uses the container shared access signature in "Step 6: Monitor Tasks."
 
 > [!TIP]
-> Check out the two-part series on shared access signatures, [Part 1: Understanding the shared access signature (SAS) model](../storage/storage-dotnet-shared-access-signature-part-1.md) and [Part 2: Create and use a shared access signature (SAS) with Blob storage](../storage/blob/storage-dotnet-shared-access-signature-part-2.md), to learn more about providing secure access to data in your Storage account.
+> Check out the two-part series on shared access signatures, [Part 1: Understanding the shared access signature (SAS) model](../storage/common/storage-dotnet-shared-access-signature-part-1.md) and [Part 2: Create and use a shared access signature (SAS) with Blob storage](../storage/blob/storage-dotnet-shared-access-signature-part-2.md), to learn more about providing secure access to data in your Storage account.
 >
 >
 

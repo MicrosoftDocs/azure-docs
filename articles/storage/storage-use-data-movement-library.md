@@ -36,10 +36,10 @@ This document demonstrates how to create a .NET Core console application that th
 **What you need:**
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* An [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
+* An [Azure storage account](common/storage-create-storage-account.md#create-a-storage-account)
 
 > [!NOTE]
-> This guide assumes that you are already familiar with [Azure Storage](https://azure.microsoft.com/services/storage/). If not, reading the [Introduction to Azure Storage](storage-introduction.md) documentation is helpful. Most importantly, you need to [create a Storage account](storage-create-storage-account.md#create-a-storage-account) to start using the Data Movement Library.
+> This guide assumes that you are already familiar with [Azure Storage](https://azure.microsoft.com/services/storage/). If not, reading the [Introduction to Azure Storage](storage-introduction.md) documentation is helpful. Most importantly, you need to [create a Storage account](common/storage-create-storage-account.md#create-a-storage-account) to start using the Data Movement Library.
 > 
 > 
 

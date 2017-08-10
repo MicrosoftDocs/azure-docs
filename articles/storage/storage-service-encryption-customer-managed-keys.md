@@ -39,7 +39,7 @@ To learn more, please refer to the [FAQ](#frequently-asked-questions-about-stora
 > You must sign up for the preview prior to following the steps in this article. Without preview access, you will not be able to enable this feature in the portal.
 
 ## Getting Started
-## Step 1: [Create a new storage account](storage-create-storage-account.md)
+## Step 1: [Create a new storage account](common/storage-create-storage-account.md)
 
 ## Step 2: Enable encryption
 You can enable SSE for the storage account using the [Azure portal](https://portal.azure.com). On the Settings blade for the storage account, look for the Blob Service section as shown in figure below and click Encryption.

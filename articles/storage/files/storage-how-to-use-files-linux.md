@@ -113,6 +113,6 @@ See these links for more information about Azure File storage.
 * [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 * [Using Azure PowerShell with Azure storage](../storage-powershell-guide-full.md)
 * [How to use AzCopy with Microsoft Azure storage](../storage-use-azcopy.md)
-* [Using the Azure CLI with Azure storage](../storage-azure-cli.md#create-and-manage-file-shares)
+* [Using the Azure CLI with Azure storage](../common/storage-azure-cli.md#create-and-manage-file-shares)
 * [FAQ](../storage-files-faq.md)
 * [Troubleshooting](storage-troubleshoot-linux-file-connection-problems.md)

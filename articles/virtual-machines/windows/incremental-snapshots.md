@@ -81,7 +81,7 @@ In this section we will describe a scenario that involves a custom backup strate
 
 Consider a DS-series Azure VM with a premium storage P30 disk attached. The P30 disk called *mypremiumdisk* is stored in a premium storage account called *mypremiumaccount*. A standard storage account called *mybackupstdaccount* will be used for storing the backup of *mypremiumdisk*. We would like to keep a snapshot of *mypremiumdisk* every 12 hours.
 
-To learn about creating storage account and disks, refer to [About Azure storage accounts](../../storage/storage-create-storage-account.md).
+To learn about creating storage account and disks, refer to [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
 
 To learn about backing up Azure VMs, refer to [Plan Azure VM backups](../../backup/backup-azure-vms-introduction.md).
 

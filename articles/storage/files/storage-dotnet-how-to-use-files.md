@@ -218,7 +218,7 @@ if (share.Exists())
 }
 ```
 
-For more information about creating and using shared access signatures, see [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) and [Create and use a SAS with Azure Blobs](../storage-dotnet-shared-access-signature-part-2.md).
+For more information about creating and using shared access signatures, see [Using Shared Access Signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md) and [Create and use a SAS with Azure Blobs](../storage-dotnet-shared-access-signature-part-2.md).
 
 ## Copy files
 Beginning with version 5.x of the Azure Storage Client Library, you can copy a file to another file, a file to a blob, or a blob to a file. In the next sections, we demonstrate how to perform these copy operations programmatically.
@@ -395,7 +395,7 @@ See these links for more information about Azure File storage.
 ### Tooling support for File storage
 * [Using Azure PowerShell with Azure Storage](../storage-powershell-guide-full.md)
 * [How to use AzCopy with Microsoft Azure Storage](../storage-use-azcopy.md)
-* [Using the Azure CLI with Azure Storage](../storage-azure-cli.md#create-and-manage-file-shares)
+* [Using the Azure CLI with Azure Storage](../common/storage-azure-cli.md#create-and-manage-file-shares)
 * [Troubleshooting Azure File storage problems](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### Reference

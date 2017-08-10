@@ -72,7 +72,7 @@ In case a virtual machine is created from a .vhd image file that already contain
 We recommend that the Azure virtual machine name be the same as the underlying operating system computer name. Because of this, follow the NetBIOS naming rules as described in [Microsoft NetBIOS computer naming conventions](https://support.microsoft.com/kb/188997/).
 
 ### Storage account names
-Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. See [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) for more information. Additionally, the storage account name, in combination with core.windows.net, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
+Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. See [Create a storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) for more information. Additionally, the storage account name, in combination with core.windows.net, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
 
 * mystorageaccount.blob.core.windows.net
 * mystorageaccount.table.core.windows.net

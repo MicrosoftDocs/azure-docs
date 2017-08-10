@@ -19,7 +19,7 @@ ms.author: marsma
 ---
 # Monitor a storage account in the Azure portal
 
-[Azure Storage Analytics](storage-analytics.md) provides metrics for all storage services, and logs for blobs, queues, and tables. You can use the [Azure portal](https://portal.azure.com) to configure which metrics and logs are recorded for your account, and configure charts that provide visual representations of your metrics data.
+[Azure Storage Analytics](common/storage-analytics.md) provides metrics for all storage services, and logs for blobs, queues, and tables. You can use the [Azure portal](https://portal.azure.com) to configure which metrics and logs are recorded for your account, and configure charts that provide visual representations of your metrics data.
 
 > [!NOTE]
 > There are costs associated with examining monitoring data in the Azure portal. For more information, see [Storage Analytics and Billing](/rest/api/storageservices/Storage-Analytics-and-Billing).
@@ -50,7 +50,7 @@ ms.author: marsma
    To set the data retention policy, move the **Retention (days)** slider or enter the number of days of data to retain, from 1 to 365. The default for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
 
    > [!WARNING]
-   > You are charged when you manually delete metrics data. Stale analytics data (data older than your retention policy) is deleted by the system at no cost. We recommend setting a retention policy based on how long you want to retain storage analytics data for your account. See [What charges do you incur when you enable storage metrics?](storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) for more information.
+   > You are charged when you manually delete metrics data. Stale analytics data (data older than your retention policy) is deleted by the system at no cost. We recommend setting a retention policy based on how long you want to retain storage analytics data for your account. See [What charges do you incur when you enable storage metrics?](common/storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) for more information.
    >
 
 1. When you finish the monitoring configuration, select **Save**.
@@ -60,7 +60,7 @@ A default set of metrics is displayed in charts on the storage account blade, as
 You can disable metrics collection and logging by setting **Status** to **Off**.
 
 > [!NOTE]
-> Azure Storage uses [table storage](storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see. [How metrics are stored](storage-analytics.md#how-metrics-are-stored).
+> Azure Storage uses [table storage](storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see. [How metrics are stored](common/storage-analytics.md#how-metrics-are-stored).
 >
 
 ## Customize metrics charts
@@ -153,5 +153,5 @@ For information about accessing the $logs container, see [Enabling Storage Loggi
 
 ## Next steps
 
-* Find more details about [metrics, logging, and billing](storage-analytics.md) for Storage Analytics.
-* [Enable Azure Storage metrics and view metrics data](storage-enable-and-view-metrics.md) by using PowerShell and programmatically with C#.
+* Find more details about [metrics, logging, and billing](common/storage-analytics.md) for Storage Analytics.
+* [Enable Azure Storage metrics and view metrics data](common/storage-enable-and-view-metrics.md) by using PowerShell and programmatically with C#.

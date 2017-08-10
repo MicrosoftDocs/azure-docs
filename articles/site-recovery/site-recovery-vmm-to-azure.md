@@ -78,7 +78,7 @@ Azure networks used by Site Recovery can't be [moved](../azure-resource-manager/
 
 ### Set up an Azure storage account
 * You need a standard/premium Azure storage account to hold data replicated to Azure.[Premium storage](../storage/storage-premium-storage.md) is  used for virtual machines that need a consistently high IO performance, and low latency to host IO intensive workloads. If you want to use a premium account to store replicated data, you also need a standard storage account to store replication logs that capture ongoing changes to on-premises data. The account must be in the same region as the Recovery Services vault.
-* Depending on the resource model you want to use for failed over Azure VMs, you set up an account in [Resource Manager mode](../storage/storage-create-storage-account.md) or [classic mode](../storage/storage-create-storage-account-classic-portal.md).
+* Depending on the resource model you want to use for failed over Azure VMs, you set up an account in [Resource Manager mode](../storage/common/storage-create-storage-account.md) or [classic mode](../storage/storage-create-storage-account-classic-portal.md).
 * We recommend that you set up an account before you begin. If you don't, you need to do it during Site Recovery deployment.
 - Note that storage accounts used by Site Recovery can't be [moved](../azure-resource-manager/resource-group-move-resources.md) within the same, or across different, subscriptions.
 

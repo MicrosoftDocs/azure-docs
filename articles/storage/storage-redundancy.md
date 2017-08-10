@@ -78,7 +78,7 @@ With GRS, both the primary and secondary regions manage replicas across separate
 Considerations:
 
 * Since asynchronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region will be lost if the data cannot be recovered from the primary region.
-* The replica is not available unless Microsoft initiates failover to the secondary region. If Microsoft does initiate a failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](storage-disaster-recovery-guidance.md). 
+* The replica is not available unless Microsoft initiates failover to the secondary region. If Microsoft does initiate a failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](common/storage-disaster-recovery-guidance.md). 
 * If an application wants to read from the secondary region, the user should enable RA-GRS.
 
 When you create a storage account, you select the primary region for the account. The secondary region is determined based on the primary region, and cannot be changed. The following table shows the primary and secondary region pairings.
@@ -134,7 +134,7 @@ Considerations:
 
 * Your application has to manage which endpoint it is interacting with when using RA-GRS.
 * Since asynchronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region will be lost if the data cannot be recovered from the primary region.
-* If Microsoft initiates failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](storage-disaster-recovery-guidance.md). 
+* If Microsoft initiates failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](common/storage-disaster-recovery-guidance.md). 
 * RA-GRS is intended for high-availability purposes. For scalability guidance, please review the [performance checklist](storage-performance-checklist.md).
 
 ## Frequently asked questions
@@ -159,7 +159,7 @@ If you change from GRS to LRS, there is no additional cost, but your data will b
 <a id="ragrsbenefits"></a>
 #### 4. How can RA-GRS help me?
    
-   GRS storage provides replication of your data from a primary to a secondary region that is hundreds of miles away from the primary region. In such case, your data is durable even in the case of a complete regional outage or a disaster in which the primary region is not recoverable. RA-GRS storage includes this plus it adds the ability to read the data from the secondary location. For some ideas about how to leverage this ability, please refer to [Designing Highly Available Applications using RA-GRS storage](storage-designing-ha-apps-with-ragrs.md). 
+   GRS storage provides replication of your data from a primary to a secondary region that is hundreds of miles away from the primary region. In such case, your data is durable even in the case of a complete regional outage or a disaster in which the primary region is not recoverable. RA-GRS storage includes this plus it adds the ability to read the data from the secondary location. For some ideas about how to leverage this ability, please refer to [Designing Highly Available Applications using RA-GRS storage](common/storage-designing-ha-apps-with-ragrs.md). 
 
 <a id="lastsynctime"></a>
 #### 5. Is there a way for me to figure out how long it takes to replicate my data from the primary to the secondary region?
@@ -169,7 +169,7 @@ If you change from GRS to LRS, there is no additional cost, but your data will b
 <a id="outage"></a>
 #### 6. How can I switch to the secondary region if there is an outage in the primary region?
    
-   Please refer to the article [What to do if an Azure Storage outage occurs](storage-disaster-recovery-guidance.md) for more details.
+   Please refer to the article [What to do if an Azure Storage outage occurs](common/storage-disaster-recovery-guidance.md) for more details.
 
 <a id="rpo-rto"></a>
 #### 7. What is the RPO and RTO with GRS?
@@ -183,9 +183,9 @@ If you change from GRS to LRS, there is no additional cost, but your data will b
    We take the responsibility of preserving your data very seriously, so if there is any chance of recovering the data, we will hold off on doing the failover and focus on recovering the data in the primary location. In the future, we plan to provide an API to allow you to trigger a failover at an account level, which would then allow you to control the RTO yourself, but this is not available yet.
    
 ## Next steps
-* [Designing highly available applications using RA-GRS Storage](storage-designing-ha-apps-with-ragrs.md)
+* [Designing highly available applications using RA-GRS Storage](common/storage-designing-ha-apps-with-ragrs.md)
 * [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/)
-* [About Azure storage accounts](storage-create-storage-account.md)
+* [About Azure storage accounts](common/storage-create-storage-account.md)
 * [Azure Storage scalability and performance targets](storage-scalability-targets.md)
 * [Microsoft Azure Storage redundancy options and read access geo redundant storage ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 * [SOSP Paper - Azure Storage: A highly available cloud storage service with strong consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

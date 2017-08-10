@@ -132,7 +132,7 @@ An account SAS delegates access to resources in one or more of the storage servi
 
 Finally, you can specify that a container and its blobs, or a specific blob, are available for public access. When you indicate that a container or blob is public, anyone can read it anonymously; no authentication is required.  Public containers and blobs are useful for exposing resources such as media and documents that are hosted on websites.  To decrease network latency for a global audience, you can cache blob data used by websites with the Azure CDN.
 
-See [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) for more information on shared access signatures. See [Manage anonymous read access to containers and blobs](blob/storage-manage-access-to-resources.md) and [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) for more information on secure access to your storage account.
+See [Using Shared Access Signatures (SAS)](common/storage-dotnet-shared-access-signature-part-1.md) for more information on shared access signatures. See [Manage anonymous read access to containers and blobs](blob/storage-manage-access-to-resources.md) and [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) for more information on secure access to your storage account.
 
 ## Replication for durability and high availability
 The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability. Replication copies your data, either within the same data center, or to a second data center, depending on which replication option you choose. Replication protects your data and preserves your application up-time in the event of transient hardware failures. If your data is replicated to a second data center, that also protects your data against a catastrophic failure in the primary location.
@@ -206,7 +206,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 
 ### Tools and utilities
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
-* [Azure Storage Client Tools](storage-explorers.md)
+* [Azure Storage Client Tools](common/storage-explorers.md)
 * [Azure SDKs and Tools](https://azure.microsoft.com/tools/)
 * [Azure Storage Emulator](http://www.microsoft.com/download/details.aspx?id=43709)
 * [Azure PowerShell](/powershell/azure/overview)
@@ -217,7 +217,7 @@ To learn more about Azure Storage, explore these resources:
 
 ### Documentation
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
-* [Create a storage account](storage-create-storage-account.md)
+* [Create a storage account](common/storage-create-storage-account.md)
 
 <!-- after our quick starts are available, replace this link with a link to one of those. 
 Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
@@ -226,7 +226,7 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### For administrators
 * [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
-* [Using Azure CLI with Azure Storage](storage-azure-cli.md)
+* [Using Azure CLI with Azure Storage](common/storage-azure-cli.md)
 
 ### For .NET developers
 * [Get started with Azure Blob storage using .NET](blob/storage-dotnet-how-to-use-blobs.md)

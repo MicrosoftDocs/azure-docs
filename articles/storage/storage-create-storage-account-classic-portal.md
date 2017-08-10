@@ -108,14 +108,14 @@ An *affinity group* is a geographic grouping of your Azure services and VMs with
 When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
 
 > [!NOTE]
-> We recommend that you avoid sharing your storage access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) for more information.
+> We recommend that you avoid sharing your storage access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See [Using Shared Access Signatures (SAS)](common/storage-dotnet-shared-access-signature-part-1.md) for more information.
 > 
 > 
 
 In the [Azure Classic Portal](https://manage.windowsazure.com), use **Manage Keys** on the dashboard or the **Storage** page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services.
 
 ### Copy a storage access key
-You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Azure storage services, see [Configure Azure Storage Connection Strings](storage-configure-connection-string.md).
+You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Azure storage services, see [Configure Azure Storage Connection Strings](common/storage-configure-connection-string.md).
 
 1. In the [Azure Classic Portal](https://manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
 2. Click **Manage Keys**.
@@ -137,7 +137,7 @@ We recommend that you change the access keys to your storage account periodicall
 
 **Applications** - If you have web applications or cloud services that use the storage account, you will lose the connections if you regenerate keys, unless you roll your keys. 
 
-**Storage Explorers** - If you are using any [storage explorer applications](storage-explorers.md), you will probably need to update the storage key used by those applications.
+**Storage Explorers** - If you are using any [storage explorer applications](common/storage-explorers.md), you will probably need to update the storage key used by those applications.
 
 Here is the process for rotating your storage access keys:
 

@@ -57,7 +57,7 @@ The URLs for storage accounts in Azure Germany are different from those in globa
 | File storage | *.file.core.windows.net | *.file.core.cloudapi.de | 
 
 > [!NOTE]
-> All your scripts and code need to account for the appropriate endpoints. For more information, see [Configure Azure Storage connection strings](../storage/storage-configure-connection-string.md). 
+> All your scripts and code need to account for the appropriate endpoints. For more information, see [Configure Azure Storage connection strings](../storage/common/storage-configure-connection-string.md). 
 >
 >
 

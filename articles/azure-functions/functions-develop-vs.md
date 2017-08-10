@@ -40,7 +40,7 @@ To create and deploy functions, you also need:
 
 * An active Azure subscription. If you don't have an Azure subscription, [free accounts](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) are available.
 
-* An Azure Storage account. To create a storage account, see [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).  
+* An Azure Storage account. To create a storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
 
 ## Install the Azure Functions Tools
 
