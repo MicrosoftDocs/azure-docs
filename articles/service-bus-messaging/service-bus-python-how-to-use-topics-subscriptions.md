@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 08/10/2017
 ms.author: sethm
 
 ---
 # How to use Service Bus topics and subscriptions
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-This article describes how to use Service Bus topics and subscriptions. The samples are written in Python and use the [Python Azure package][Python Azure package]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**. For more information about topics and subscriptions, see the [Next Steps](#next-steps) section.
+This article describes how to use Service Bus topics and subscriptions. The samples are written in Python and use the [Azure Python SDK package][Azure Python package]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**. For more information about topics and subscriptions, see the [Next Steps](#next-steps) section.
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 > [!NOTE] 
-> If you need to install Python or the [Python Azure package][Python Azure package], please see the [Python Installation Guide](../python-how-to-install.md).
+> If you need to install Python or the [Azure Python package][Azure Python package], see the [Python Installation Guide](../python-how-to-install.md).
 
 ## Create a topic
 The **ServiceBusService** object enables you to work with topics. Add the following near the top of any Python file in which you wish to programmatically access Service Bus:
@@ -49,7 +49,7 @@ You can obtain the values for the SAS key name and value from the [Azure portal]
 bus_service.create_topic('mytopic')
 ```
 
-**create\_topic** also supports additional options, which enable you to override default topic settings such as message time to live or maximum topic size. The following example sets the maximum topic size to 5 GB, and a time to live (TTL) value of 1 minute:
+The **create\_topic** method also supports additional options, which enable you to override default topic settings such as message time to live or maximum topic size. The following example sets the maximum topic size to 5 GB, and a time to live (TTL) value of 1 minute:
 
 ```python
 topic_options = Topic()
@@ -177,7 +177,7 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 * Reference for [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 [Azure portal]: https://portal.azure.com
-[Python Azure package]: https://pypi.python.org/pypi/azure  
+[Azure Python package]: https://pypi.python.org/pypi/azure  
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
 [Service Bus quotas]: service-bus-quotas.md 
