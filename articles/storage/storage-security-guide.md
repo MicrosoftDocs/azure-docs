@@ -443,7 +443,7 @@ You can use the Microsoft Message Analyzer to view and analyze these logs. It in
 * [Storage Analytics Log Format](https://msdn.microsoft.com/library/azure/hh343259.aspx)
 
   This article illustrates the Storage Analytics Log Format, and details the fields available therein, including authentication-type, which indicates the type of authentication used for the request.
-* [Monitor a Storage Account in the Azure portal](storage-monitor-storage-account.md)
+* [Monitor a Storage Account in the Azure portal](common/storage-monitor-storage-account.md)
 
   This article shows how to configure monitoring of metrics and logging for a storage account.
 * [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](common/storage-e2e-troubleshooting.md)

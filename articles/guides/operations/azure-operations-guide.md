@@ -432,7 +432,7 @@ In addition to deploying a storage account from the Azure portal, you can deploy
 
 **PowerShell**
 
-Deploying an Azure storage account by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Using Azure PowerShell with Azure Storage](../../storage/storage-powershell-guide-full.md).
+Deploying an Azure storage account by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Using Azure PowerShell with Azure Storage](../../storage/common/storage-powershell-guide-full.md).
 
 In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 

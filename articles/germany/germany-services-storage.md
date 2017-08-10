@@ -36,13 +36,13 @@ Storage Service Encryption safeguards data at rest within Azure storage accounts
 
 | Service | Germany Central | Germany Northeast |
 | --- | --- | --- | --- |
-| [Blob storage](../storage/storage-introduction.md#blob-storage) |GA |GA |
-| [Table storage](../storage/storage-introduction.md#table-storage) |GA  |GA |
-| [Queue storage](../storage/storage-introduction.md#queue-storage) |GA | GA |
-| [File storage](../storage/storage-introduction.md#file-storage) |GA |GA |
+| [Blob storage](../storage/common/storage-introduction.md#blob-storage) |GA |GA |
+| [Table storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |
+| [Queue storage](../storage/common/storage-introduction.md#queue-storage) |GA | GA |
+| [File storage](../storage/common/storage-introduction.md#file-storage) |GA |GA |
 | [Hot/cool blob storage](../storage/blob/storage-blob-storage-tiers.md) |GA |GA |
 | [Storage Service Encryption](../storage/storage-service-encryption.md) |GA |GA |
-| [Premium Storage](../storage/storage-premium-storage.md) |GA |GA |
+| [Premium Storage](../storage/common/storage-premium-storage.md) |GA |GA |
 | Import/Export |NA |NA |
 | StorSimple |NA |NA |
 

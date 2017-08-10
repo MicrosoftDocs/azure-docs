@@ -21,7 +21,7 @@ ms.author: jgao
 ---
 # Use Data Lake Store with Azure HDInsight clusters
 
-To analyze data in HDInsight cluster, you can store the data either in [Azure Storage](../storage/storage-introduction.md), [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md), or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
+To analyze data in HDInsight cluster, you can store the data either in [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md), or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
 In this article, you learn how Data Lake Store works with HDInsight clusters. To learn how Azure Storage works with HDInsight clusters, see [Use Azure Storage with Azure HDInsight clusters](hdinsight-hadoop-use-blob-storage.md). For more information about creating an HDInsight cluster, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 

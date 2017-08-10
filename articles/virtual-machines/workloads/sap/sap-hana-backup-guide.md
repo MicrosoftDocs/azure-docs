@@ -68,7 +68,7 @@ is enabled, after takeover to the secondary side, the log backups will automatic
 
 ### Why SAP HANA backup?
 
-Azure storage offers availability and reliability out of the box (see [Introduction to Microsoft Azure Storage](../../../storage/storage-introduction.md) for more information about Azure storage).
+Azure storage offers availability and reliability out of the box (see [Introduction to Microsoft Azure Storage](../../../storage/common/storage-introduction.md) for more information about Azure storage).
 
 The minimum for &quot;backup&quot; is to rely on the Azure SLAs, keeping the SAP HANA data and log files on Azure VHDs attached to the SAP HANA server VM. This approach covers VM failures, but not potential damage to the SAP HANA data and log files, or logical errors like deleting data or files by accident. Backups are also required for compliance or legal reasons. In short, there is always a need for SAP HANA backups.
 

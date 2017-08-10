@@ -102,7 +102,7 @@ On the **Size** step, choose a virtual machine size in the **Choose a size** bla
 
 ![SQL VM Size Options](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
-For production workloads, we recommend selecting a virtual machine size that supports [Premium Storage](../../../storage/storage-premium-storage.md). If you do not require that level of performance, use the **View all** button, which shows all machine size options. For example, you might use a smaller machine size for a development or test environment.
+For production workloads, we recommend selecting a virtual machine size that supports [Premium Storage](../../../storage/common/storage-premium-storage.md). If you do not require that level of performance, use the **View all** button, which shows all machine size options. For example, you might use a smaller machine size for a development or test environment.
 
 > [!NOTE]
 > For more information about virtual machine sizes see, [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For considerations about SQL Server VM sizes, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).

@@ -75,8 +75,8 @@ Detailed recommendations for designing partitioning strategy for tables can be f
 ## See Also
 * [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/)
 * [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
-* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md)
+* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](common/storage-premium-storage.md)
 * [Azure Storage Replication](storage-redundancy.md)
-* [Microsoft Azure Storage Performance and Scalability Checklist](storage-performance-checklist.md)
+* [Microsoft Azure Storage Performance and Scalability Checklist](common/storage-performance-checklist.md)
 * [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

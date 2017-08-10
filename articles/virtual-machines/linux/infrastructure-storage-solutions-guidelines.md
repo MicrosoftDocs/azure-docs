@@ -47,7 +47,7 @@ Azure Storage is a key part of deploying and managing virtual machines (VMs) and
 There are two types of storage accounts available for supporting VMs:
 
 * Standard storage accounts give you access to blob storage (used for storing Azure VM disks), table storage, queue storage, and file storage.
-* [Premium storage](../../storage/storage-premium-storage.md) accounts deliver high-performance, low-latency disk support for I/O intensive workloads, such as MongoDB Sharded cluster. Premium storage currently supports Azure VM disks only.
+* [Premium storage](../../storage/common/storage-premium-storage.md) accounts deliver high-performance, low-latency disk support for I/O intensive workloads, such as MongoDB Sharded cluster. Premium storage currently supports Azure VM disks only.
 
 Azure creates VMs with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure page blobs, whereas the temporary disk is stored locally on the node where the machine lives. Take care when designing applications to only use this temporary disk for non-persistent data as the VM may be migrated between hosts during a maintenance event. Any data stored on the temporary disk would be lost.
 

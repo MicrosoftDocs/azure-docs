@@ -399,7 +399,7 @@ If you are seeing high **AverageServerLatency** for blob download requests when 
 High **AverageServerLatency** values can also be a symptom of poorly designed tables or queries that result in scan operations or that follow the append/prepend anti-pattern. See "[Metrics show an increase in PercentThrottlingError]" for more information.
 
 > [!NOTE]
-> You can find a comprehensive checklist performance checklist here: [Microsoft Azure Storage Performance and Scalability Checklist](storage-performance-checklist.md).
+> You can find a comprehensive checklist performance checklist here: [Microsoft Azure Storage Performance and Scalability Checklist](common/storage-performance-checklist.md).
 > 
 > 
 

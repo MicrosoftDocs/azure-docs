@@ -334,7 +334,7 @@ For more details, see [Get Started with Azure Blob storage](storage-dotnet-how-t
 ### Start using Blob storage accounts
 [Get Started with Azure Blob storage](storage-dotnet-how-to-use-blobs.md)
 
-[Moving data to and from Azure Storage](../storage-moving-data.md)
+[Moving data to and from Azure Storage](../common/storage-moving-data.md)
 
 [Transfer data with the AzCopy Command-Line Utility](../storage-use-azcopy.md)
 

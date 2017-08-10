@@ -42,7 +42,7 @@ The following table provides a quick overview of the differences between LRS, ZR
 See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information for the different redundancy options.
 
 > [!NOTE]
-> Premium Storage supports only locally redundant storage (LRS). For information about Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md).
+> Premium Storage supports only locally redundant storage (LRS). For information about Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](common/storage-premium-storage.md).
 >
 
 ## Locally redundant storage
@@ -135,14 +135,14 @@ Considerations:
 * Your application has to manage which endpoint it is interacting with when using RA-GRS.
 * Since asynchronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region will be lost if the data cannot be recovered from the primary region.
 * If Microsoft initiates failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](common/storage-disaster-recovery-guidance.md). 
-* RA-GRS is intended for high-availability purposes. For scalability guidance, please review the [performance checklist](storage-performance-checklist.md).
+* RA-GRS is intended for high-availability purposes. For scalability guidance, please review the [performance checklist](common/storage-performance-checklist.md).
 
 ## Frequently asked questions
 
 <a id="howtochange"></a>
 #### 1. How can I change the geo replication type of my storage account?
 
-   You can change the geo replication type of your storage account between LRS, GRS, and RA-GRS using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md) or programmatically using one of our many Storage Client Libraries. 
+   You can change the geo replication type of your storage account between LRS, GRS, and RA-GRS using the [Azure portal](https://portal.azure.com/), [Azure Powershell](common/storage-powershell-guide-full.md) or programmatically using one of our many Storage Client Libraries. 
 Please note that ZRS accounts cannot be converted LRS or GRS. Similarly, an existing LRS or GRS account cannot be converted to a ZRS account.
 
 <a id="changedowntime"></a>
@@ -164,7 +164,7 @@ If you change from GRS to LRS, there is no additional cost, but your data will b
 <a id="lastsynctime"></a>
 #### 5. Is there a way for me to figure out how long it takes to replicate my data from the primary to the secondary region?
    
-   If you are using RA-GRS storage, you can check the Last Sync Time of your storage account. Last Sync Time is a GMT date/time value; all primary writes before the Last Sync Time have been successfully written to the secondary location, which mean they are available to be read from the secondary location. Primary writes after the Last Sync Time may or may not be available for reads yet. You can query this value using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), or programmatically using the REST API or one of the Storage Client Libraries. 
+   If you are using RA-GRS storage, you can check the Last Sync Time of your storage account. Last Sync Time is a GMT date/time value; all primary writes before the Last Sync Time have been successfully written to the secondary location, which mean they are available to be read from the secondary location. Primary writes after the Last Sync Time may or may not be available for reads yet. You can query this value using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](common/storage-powershell-guide-full.md), or programmatically using the REST API or one of the Storage Client Libraries. 
 
 <a id="outage"></a>
 #### 6. How can I switch to the secondary region if there is an outage in the primary region?

@@ -96,7 +96,7 @@ You have an application that computes, maintains, and serves critical commercial
 
 [Azure Backup Service](https://azure.microsoft.com/services/backup/) is can be used for Backup and DR, and it works with [Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) as well as [Unmanaged Disks](../../virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). You can create a backup job with time-based backups, easy VM restoration and backup retention policies. 
 
-If you use [Premium Storage disks](../storage-premium-storage.md), [Managed Disks](../../virtual-machines/windows/managed-disks-overview.md), or other disk types with the [locally redundant storage (LRS)](../storage-redundancy.md#locally-redundant-storage) option, it is especially important to leverage periodic DR backups. Azure Backup stores the data in your Recovery Services vault for long term retention. Choose the [Geo-redundant storage (GRS)](../storage-redundancy.md#geo-redundant-storage) option for the Backup Recovery Services vault. That will ensure backups are replicated to a different Azure region for safeguarding from regional disasters.
+If you use [Premium Storage disks](storage-premium-storage.md), [Managed Disks](../../virtual-machines/windows/managed-disks-overview.md), or other disk types with the [locally redundant storage (LRS)](../storage-redundancy.md#locally-redundant-storage) option, it is especially important to leverage periodic DR backups. Azure Backup stores the data in your Recovery Services vault for long term retention. Choose the [Geo-redundant storage (GRS)](../storage-redundancy.md#geo-redundant-storage) option for the Backup Recovery Services vault. That will ensure backups are replicated to a different Azure region for safeguarding from regional disasters.
 
 For [Unmanaged Disks](../../virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks), you can use the LRS storage type for IaaS disks, but ensure that Azure Backup is enabled with the GRS option for the Recovery Services Vault.
 
@@ -196,7 +196,7 @@ Another option to create consistent backups is shutting down the VM and taking b
 
 2. Create a snapshot of each VHD blob, which only takes a few seconds.
 
-    To create a snapshot, you can use [PowerShell](../storage-powershell-guide-full.md#how-to-manage-azure-blob-snapshots), the [Azure Storage Rest API](https://msdn.microsoft.com/library/azure/ee691971.aspx), [Azure CLI](https://docs.microsoft.com/azure/xplat-cli-install), or one of the Azure Storage Client Libraries such as [the Storage client library for .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx).
+    To create a snapshot, you can use [PowerShell](storage-powershell-guide-full.md#how-to-manage-azure-blob-snapshots), the [Azure Storage Rest API](https://msdn.microsoft.com/library/azure/ee691971.aspx), [Azure CLI](https://docs.microsoft.com/azure/xplat-cli-install), or one of the Azure Storage Client Libraries such as [the Storage client library for .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx).
 
 3. Start the VM, which ends the downtime. Typically the entire process completes within a few minutes.
 
@@ -219,7 +219,7 @@ To copy your incremental snapshots for DR efficiently, review the instructions i
 
 ### Recovery from Snapshots
 
-To retrieve a snapshot, copy it to make a new blob. If you are copying the snapshot from the primary account, you can copy the snapshot over to the base blob of the snapshot, thus reverting the disk to the snapshot; this is known as promoting the snapshot. If you are copying the snapshot backup from a secondary account (in the case of RA-GRS), it must be copied to a primary account. You can copy a snapshot [using PowerShell](../storage-powershell-guide-full.md#how-to-copy-a-snapshot-of-a-blob) or using the AzCopy utility. For more information, see [Transfer data with the AzCopy Command-Line Utility](../storage-use-azcopy.md).
+To retrieve a snapshot, copy it to make a new blob. If you are copying the snapshot from the primary account, you can copy the snapshot over to the base blob of the snapshot, thus reverting the disk to the snapshot; this is known as promoting the snapshot. If you are copying the snapshot backup from a secondary account (in the case of RA-GRS), it must be copied to a primary account. You can copy a snapshot [using PowerShell](storage-powershell-guide-full.md#how-to-copy-a-snapshot-of-a-blob) or using the AzCopy utility. For more information, see [Transfer data with the AzCopy Command-Line Utility](../storage-use-azcopy.md).
 
 In the case of VMs with multiple disks, you must copy all the snapshots that are part of the same coordinated restore point. Once you copy the snapshots to writable VHD blobs, you can use the blobs to recreate your VM using the template for the VM.
 

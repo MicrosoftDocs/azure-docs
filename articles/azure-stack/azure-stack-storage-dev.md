@@ -176,4 +176,4 @@ The following Azure Table storage tutorials are applicable to Azure Stack. Note 
 
 ## Next steps
 
-* [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md)
+* [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md)

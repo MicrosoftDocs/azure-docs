@@ -82,7 +82,7 @@ Managing Azure File shares is a lot simpler than managing file shares on-premise
 * [Azure File storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 
 ### Tooling support for Azure File storage
-* [Using Azure PowerShell with Azure Storage](../storage-powershell-guide-full.md)
+* [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md)
 * [How to use AzCopy with Microsoft Azure Storage](../storage-use-azcopy.md)
 * [Using the Azure CLI with Azure Storage](../common/storage-azure-cli.md#create-and-manage-file-shares)
 

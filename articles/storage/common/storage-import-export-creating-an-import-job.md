@@ -103,4 +103,4 @@ After you have your tracking number, call the [Update Job Properties](/api/stora
 
 ## Next steps
 
-* [Using the Import/Export service REST API](../storage-import-export-using-the-rest-api.md)
+* [Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)

@@ -735,7 +735,7 @@ AzCopy is designed to maximize the utilization of your machine resource to accel
 For more information about Azure Storage and AzCopy, see the following resources:
 
 ### Azure Storage documentation:
-* [Introduction to Azure Storage](storage-introduction.md)
+* [Introduction to Azure Storage](common/storage-introduction.md)
 * [Create a storage account](common/storage-create-storage-account.md)
 * [Manage blobs with Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs)
 * [Using the Azure CLI 2.0 with Azure Storage](common/storage-azure-cli.md)

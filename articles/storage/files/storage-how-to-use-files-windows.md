@@ -123,7 +123,7 @@ See these links for more information about Azure File storage.
 * [How to use Azure File storage with Linux](../storage-how-to-use-files-linux.md)
 
 ### Tooling support for Azure File storage
-* [Using Azure PowerShell with Azure Storage](../storage-powershell-guide-full.md)
+* [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md)
 * [How to use AzCopy with Microsoft Azure Storage](../storage-use-azcopy.md)
 * [Using the Azure CLI with Azure Storage](../common/storage-azure-cli.md#create-and-manage-file-shares)
 * [Troubleshooting Azure File storage problems](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)

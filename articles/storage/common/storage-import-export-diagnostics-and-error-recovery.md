@@ -59,4 +59,4 @@ There may be cases where some parts of an import or export job do not complete s
 
 ## Next steps
 
-* [Using the Import/Export service REST API](../storage-import-export-using-the-rest-api.md)
+* [Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)

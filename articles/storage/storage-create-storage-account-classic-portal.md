@@ -28,7 +28,7 @@ An Azure storage account gives you access to the Azure Blob, Queue, Table, and F
 There are two types of storage accounts:
 
 * A standard storage account includes Blob, Table, Queue, and File storage.
-* A premium storage account currently supports Azure virtual machine disks only. See [Premium Storage: High-performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md) for an in-depth overview of Premium Storage.
+* A premium storage account currently supports Azure virtual machine disks only. See [Premium Storage: High-performance Storage for Azure Virtual Machine Workloads](common/storage-premium-storage.md) for an in-depth overview of Premium Storage.
 
 ## Storage account billing
 You are billed for Azure Storage usage based on your storage account. Storage costs are based on four factors: storage capacity, replication scheme, storage transactions, and data egress.

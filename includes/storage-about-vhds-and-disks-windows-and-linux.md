@@ -1,7 +1,7 @@
 
 ## About VHDs
 
-The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. For details about page blobs, see [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). For details about premium storage, see [High-performance premium storage and Azure VMs](../articles/storage/storage-premium-storage.md).
+The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. For details about page blobs, see [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). For details about premium storage, see [High-performance premium storage and Azure VMs](../articles/storage/common/storage-premium-storage.md).
 
 Azure supports the fixed disk VHD format. The fixed format lays the logical disk out linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. Often, the fixed format wastes space because most disks have large unused ranges in them. However, Azure stores .vhd files in a sparse format, so you receive the benefits of both the fixed and dynamic disks at the same time. For more details, see [Getting started with virtual hard disks](https://technet.microsoft.com/library/dd979539.aspx).
 
@@ -30,7 +30,7 @@ For more information about using Standard Storage with VM disks, please see [Sta
 
 ### Premium storage 
 
-Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. You can use Premium Storage with DS, DSv2, GS, Ls, or FS series Azure VMs. For more information, please see [Premium Storage](../articles/storage/storage-premium-storage.md).
+Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. You can use Premium Storage with DS, DSv2, GS, Ls, or FS series Azure VMs. For more information, please see [Premium Storage](../articles/storage/common/storage-premium-storage.md).
 
 ### Unmanaged disks
 

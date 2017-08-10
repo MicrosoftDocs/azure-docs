@@ -34,7 +34,7 @@ You have reached the upper limit of concurrent open handles that are allowed for
 
 ### Solution
 
-Reduce the number of concurrent open handles by closing some handles, and then retry the operation. For more information, see [Microsoft Azure Storage performance and scalability checklist](../storage-performance-checklist.md).
+Reduce the number of concurrent open handles by closing some handles, and then retry the operation. For more information, see [Microsoft Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md).
 
 <a id="slowfilecopying"></a>
 ## Slow file copying to and from Azure File storage in Linux

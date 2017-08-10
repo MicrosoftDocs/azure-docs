@@ -79,7 +79,7 @@
 ### [Get started with Azure Table storage](../../cosmos-db/table-storage-how-to-use-dotnet.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Get started with Azure Queue storage](../../storage/queues/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
-### [Using Azure PowerShell with Azure Storage](../../storage/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Using Azure PowerShell with Azure Storage](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Using the Azure CLI with Azure Storage.](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Storage infrastructure guidelines for Windows](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Storage infrastructure guidelines for Linux](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

@@ -27,7 +27,7 @@ ms.custom: H1Hack27Feb2017
 >
 >
 
-Learn the basics of [Azure Batch][azure_batch] and the [Batch .NET][net_api] library in this article as we discuss a C# sample application step by step. We look at how the sample application leverages the Batch service to process a parallel workload in the cloud, and how it interacts with [Azure Storage](../storage/storage-introduction.md) for file staging and retrieval. You'll learn a common Batch application workflow and gain a base understanding of the major components of Batch such as jobs, tasks, pools, and compute nodes.
+Learn the basics of [Azure Batch][azure_batch] and the [Batch .NET][net_api] library in this article as we discuss a C# sample application step by step. We look at how the sample application leverages the Batch service to process a parallel workload in the cloud, and how it interacts with [Azure Storage](../storage/common/storage-introduction.md) for file staging and retrieval. You'll learn a common Batch application workflow and gain a base understanding of the major components of Batch such as jobs, tasks, pools, and compute nodes.
 
 ![Batch solution workflow (basic)][11]<br/>
 
@@ -124,7 +124,7 @@ Navigate to the top of the `MainAsync` method in the *DotNetTutorial* project's 
 ![Create containers in Azure Storage][1]
 <br/>
 
-Batch includes built-in support for interacting with Azure Storage. Containers in your Storage account will provide the files needed by the tasks that run in your Batch account. The containers also provide a place to store the output data that the tasks produce. The first thing the *DotNetTutorial* client application does is create three containers in [Azure Blob Storage](../storage/storage-introduction.md):
+Batch includes built-in support for interacting with Azure Storage. Containers in your Storage account will provide the files needed by the tasks that run in your Batch account. The containers also provide a place to store the output data that the tasks produce. The first thing the *DotNetTutorial* client application does is create three containers in [Azure Blob Storage](../storage/common/storage-introduction.md):
 
 * **application**: This container will store the application run by the tasks, as well as any of its dependencies, such as DLLs.
 * **input**: Tasks will download the data files to process from the *input* container.

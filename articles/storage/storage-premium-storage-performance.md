@@ -33,7 +33,7 @@ This article will help answer following common questions about optimizing applic
 
 We have provided these guidelines specifically for Premium Storage because workloads running on Premium Storage are highly performance sensitive. We have provided examples where appropriate. You can also apply some of these guidelines to applications running on IaaS VMs with Standard Storage disks.
 
-Before you begin, if you are new to Premium Storage, first read the [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md) and [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) articles.
+Before you begin, if you are new to Premium Storage, first read the [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](common/storage-premium-storage.md) and [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) articles.
 
 ## Application Performance Indicators
 We assess whether an application is performing well or not using performance indicators like, how fast an application is processing a user request, how much data an application is processing per request, how many requests is an application processing in a specific period of time, how long a user has to wait to get a response after submitting their request. The technical terms for these performance indicators are, IOPS, Throughput or Bandwidth, and Latency.
@@ -350,7 +350,7 @@ Benchmarking is the process of simulating different workloads on your applicatio
 
 We have used common benchmarking tools Iometer and FIO, for Windows and Linux respectively. These tools spawn multiple threads simulating a production like workload, and measure the system performance. Using the tools you can also configure parameters like block size and queue depth, which you normally cannot change for an application. This gives you more flexibility to drive the maximum performance on a high scale VM provisioned with premium disks for different types of application workloads. To learn more about each benchmarking tool visit [Iometer](http://www.iometer.org/) and [FIO](http://freecode.com/projects/fio).
 
-To follow the examples below, create a Standard DS14 VM and attach 11 Premium Storage disks to the VM. Of the 11 disks, configure 10 disks with host caching as "None" and stripe them into a volume called NoCacheWrites. Configure host caching as "ReadOnly" on the remaining disk and create a volume called CacheReads with this disk. Using this setup, you will be able to see the maximum Read and Write performance from a Standard DS14 VM. For detailed steps about creating a DS14 VM with premium disks, go to [Create and use a Premium Storage account for a virtual machine data disk](storage-premium-storage.md).
+To follow the examples below, create a Standard DS14 VM and attach 11 Premium Storage disks to the VM. Of the 11 disks, configure 10 disks with host caching as "None" and stripe them into a volume called NoCacheWrites. Configure host caching as "ReadOnly" on the remaining disk and create a volume called CacheReads with this disk. Using this setup, you will be able to see the maximum Read and Write performance from a Standard DS14 VM. For detailed steps about creating a DS14 VM with premium disks, go to [Create and use a Premium Storage account for a virtual machine data disk](common/storage-premium-storage.md).
 
 *Warming up the Cache*  
 The disk with ReadOnly host caching will be able to give higher IOPS than the disk limit. To get this maximum read performance from the host cache, first you must warm up the cache of this disk. This ensures that the Read IOs which benchmarking tool will drive on CacheReads volume actually hits the cache and not the disk directly. The cache hits result in additional IOPS from the single cache enabled disk.
@@ -585,7 +585,7 @@ To get the maximum combined Read and Write Throughput, use a larger block size a
 ## Next Steps
 Learn more about Azure Premium Storage:
 
-* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md)  
+* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](common/storage-premium-storage.md)  
 
 For SQL Server users, read articles on Performance Best Practices for SQL Server:
 

@@ -349,7 +349,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 See more details about using the WAImportExport tool in [Preparing hard drives for import](storage-import-export-tool-preparing-hard-drives-import.md).
 
-Also, refer to the [Sample workflow to prepare hard drives for an import job](../storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) for more detailed step-by-step instructions.  
+Also, refer to the [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) for more detailed step-by-step instructions.  
 
 ### Create the import job
 1. Once you have prepared your drive, navigate to your storage account in the Azure portal and view the Dashboard. Under **Quick Glance**, click **Create an Import Job**. Review the steps and select the checkbox to indicate that you have prepared your drive and that you have the drive journal file available.

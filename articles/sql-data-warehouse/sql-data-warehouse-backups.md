@@ -31,7 +31,7 @@ SQL Data Warehouse protects your data by storing your data in locally redundant 
 
 To learn more about:
 
-* Azure Premium storage, see [Introduction to Azure Premium Storage](../storage/storage-premium-storage.md).
+* Azure Premium storage, see [Introduction to Azure Premium Storage](../storage/common/storage-premium-storage.md).
 * Locally Redundant storage, see [Azure Storage replication](../storage/storage-redundancy.md#locally-redundant-storage).
 
 ## Azure Storage Blob snapshots

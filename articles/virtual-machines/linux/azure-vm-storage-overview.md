@@ -22,7 +22,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 
 ## Managed Disks
 
-Azure VMs are now available using [Azure Managed Disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), which enables you to create your VMs without creating or managing any [Azure Storage accounts](../../storage/storage-introduction.md) yourself. You specify whether you want Premium or Standard storage and how big the disk should be, and Azure creates the VM disks for you. VMs with Managed Disks have many important features, including:
+Azure VMs are now available using [Azure Managed Disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), which enables you to create your VMs without creating or managing any [Azure Storage accounts](../../storage/common/storage-introduction.md) yourself. You specify whether you want Premium or Standard storage and how big the disk should be, and Azure creates the VM disks for you. VMs with Managed Disks have many important features, including:
 
 - Automatic scalability support. Azure creates the disks and manages the underlying storage to support up to 10,000 disks per subscription.
 - Increased reliability with Availability Sets. Azure ensures that VM disks are isolated from each other within Availability Sets automatically.
@@ -88,7 +88,7 @@ Premium storage features:
 * Premium Storage Disks: Azure Premium Storage supports VM disks that can be attached to DS, DSv2, or GS series Azure VMs.
 * Premium Page Blob: Premium Storage supports Azure Page Blobs, which are used to hold persistent disks for Azure Virtual Machines (VMs).
 * Premium Locally Redundant Storage: A Premium Storage account only supports Locally Redundant Storage (LRS) as the replication option and keeps three copies of the data within a single region.
-* [Premium Storage](../../storage/storage-premium-storage.md)
+* [Premium Storage](../../storage/common/storage-premium-storage.md)
 
 ## Premium Storage supported VMs
 Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series Azure Virtual Machines (VMs). You can use both Standard and Premium storage disks with Premium Storage supported of VMs. But you cannot use Premium Storage disks with VM series, which are not Premium Storage compatible.

@@ -53,4 +53,4 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3 /AdditionalDriveS
 
 ## Next steps
 
-* [Sample workflow to prepare hard drives for an import job](../storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
+* [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)

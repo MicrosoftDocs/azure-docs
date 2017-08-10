@@ -135,7 +135,7 @@ azure group create myResourceGroup --location "WestUS"
 ```
 
 ## Create a storage account
-VMs are stored as page blobs within a storage account. Read more about [Azure blob storage here](../../storage/storage-introduction.md#blob-storage). You create a storage account for your custom disk image and VMs. Any VMs that you create from your custom disk image need to be in the same storage account as that image.
+VMs are stored as page blobs within a storage account. Read more about [Azure blob storage here](../../storage/common/storage-introduction.md#blob-storage). You create a storage account for your custom disk image and VMs. Any VMs that you create from your custom disk image need to be in the same storage account as that image.
 
 The following example creates a storage account named `mystorageaccount` in the resource group previously created:
 

@@ -29,7 +29,7 @@ To prepare one or more hard drives for an import job, follow these steps:
 
 -   Copy the data to each of your hard drives
 
- For a sample workflow, see [Sample Workflow to Prepare Hard Drives for an Import Job](../storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
+ For a sample workflow, see [Sample Workflow to Prepare Hard Drives for an Import Job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
 
 ## Identify the data to be imported
  The first step to creating an import job is to determine which directories and files you are going to import. This can be a list of directories, a list of unique files, or a combination of those two. When a directory is included, all files in the directory and its subdirectories will be part of the import job.
@@ -67,10 +67,10 @@ To prepare one or more hard drives for an import job, follow these steps:
 
 -   A copy session can copy either a single directory or a single blob to the drive. If you are copying multiple directories, multiple blobs, or a combination of both, you'll need to create multiple copy sessions.
 
--   You can specify properties and metadata that will be set on the blobs imported as part of an import job. The properties or metadata that you specify for a copy session will apply to all blobs specified by that copy session. If you want to specify different properties or metadata for some blobs, you'll need to create a separate copy session. See [Setting Properties and Metadata during the Import Process](../storage-import-export-tool-setting-properties-metadata-import-v1.md)for more information.
+-   You can specify properties and metadata that will be set on the blobs imported as part of an import job. The properties or metadata that you specify for a copy session will apply to all blobs specified by that copy session. If you want to specify different properties or metadata for some blobs, you'll need to create a separate copy session. See [Setting Properties and Metadata during the Import Process](storage-import-export-tool-setting-properties-metadata-import-v1.md)for more information.
 
 > [!NOTE]
->  If you have multiple machines that meet the requirements outlined in [Setting Up the Azure Import/Export Tool](../storage-import-export-tool-setup-v1.md), you can copy data to multiple hard drives in parallel by running an instance of this tool on each machine.
+>  If you have multiple machines that meet the requirements outlined in [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md), you can copy data to multiple hard drives in parallel by running an instance of this tool on each machine.
 
  For each hard drive that you prepare with the Azure Import/Export Tool, the tool will create a single journal file. You will need the journal files from all of your drives to create the import job. The journal file can also be used to resume drive preparation if the tool is interrupted.
 
@@ -172,11 +172,11 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 
 ## Next steps
 
-* [Setting Up the Azure Import/Export Tool](../storage-import-export-tool-setup-v1.md)
-* [Setting properties and metadata during the import process](../storage-import-export-tool-setting-properties-metadata-import-v1.md)
-* [Sample workflow to prepare hard drives for an import job](../storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
+* [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)
+* [Setting properties and metadata during the import process](storage-import-export-tool-setting-properties-metadata-import-v1.md)
+* [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
 * [Quick reference for frequently used commands](storage-import-export-tool-quick-reference-v1.md) 
-* [Reviewing job status with copy log files](../storage-import-export-tool-reviewing-job-status-v1.md)
+* [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md)
-* [Troubleshooting the Azure Import/Export Tool](../storage-import-export-tool-troubleshooting-v1.md)
+* [Troubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)

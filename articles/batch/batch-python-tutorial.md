@@ -27,7 +27,7 @@ ms.custom: H1Hack27Feb2017
 >
 >
 
-Learn the basics of [Azure Batch][azure_batch] and the [Batch Python][py_azure_sdk] client as we discuss a small Batch application written in Python. We look at how two sample scripts use the Batch service to process a parallel workload on Linux virtual machines in the cloud, and how they interact with [Azure Storage](../storage/storage-introduction.md) for file staging and retrieval. You'll learn a common Batch application workflow and gain a base understanding of the major components of Batch such as jobs, tasks, pools, and compute nodes.
+Learn the basics of [Azure Batch][azure_batch] and the [Batch Python][py_azure_sdk] client as we discuss a small Batch application written in Python. We look at how two sample scripts use the Batch service to process a parallel workload on Linux virtual machines in the cloud, and how they interact with [Azure Storage](../storage/common/storage-introduction.md) for file staging and retrieval. You'll learn a common Batch application workflow and gain a base understanding of the major components of Batch such as jobs, tasks, pools, and compute nodes.
 
 ![Batch solution workflow (basic)][11]<br/>
 
@@ -148,7 +148,7 @@ if __name__ == '__main__':
 ![Create containers in Azure Storage][1]
 <br/>
 
-Batch includes built-in support for interacting with Azure Storage. Containers in your Storage account will provide the files needed by the tasks that run in your Batch account. The containers also provide a place to store the output data that the tasks produce. The first thing the *python_tutorial_client.py* script does is create three containers in [Azure Blob Storage](../storage/storage-introduction.md#blob-storage):
+Batch includes built-in support for interacting with Azure Storage. Containers in your Storage account will provide the files needed by the tasks that run in your Batch account. The containers also provide a place to store the output data that the tasks produce. The first thing the *python_tutorial_client.py* script does is create three containers in [Azure Blob Storage](../storage/common/storage-introduction.md#blob-storage):
 
 * **application**: This container will store the Python script run by the tasks, *python_tutorial_task.py*.
 * **input**: Tasks will download the data files to process from the *input* container.

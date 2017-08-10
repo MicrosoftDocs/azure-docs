@@ -28,4 +28,4 @@ You can request that a job be cancelled before it is in the `Packaging` state by
 
 ## Next steps
 
-* [Using the Import/Export service REST API](../storage-import-export-using-the-rest-api.md)
+* [Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)

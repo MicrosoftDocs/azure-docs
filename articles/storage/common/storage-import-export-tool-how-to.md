@@ -35,4 +35,4 @@ In these articles, you will see how to use the tool to do the following:
 
 ## Next steps
 
-* [Setting up the WAImportExport tool](../storage-import-export-tool-setup.md)
+* [Setting up the WAImportExport tool](storage-import-export-tool-setup.md)

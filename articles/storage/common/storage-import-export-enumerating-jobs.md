@@ -29,4 +29,4 @@ To enumerate all jobs in a subscription, call the [List Jobs](/rest/api/storagei
 
 ## Next steps
 
-* [Using the Import/Export service REST API](../storage-import-export-using-the-rest-api.md)
+* [Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)

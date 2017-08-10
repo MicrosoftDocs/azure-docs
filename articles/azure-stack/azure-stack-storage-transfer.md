@@ -95,5 +95,5 @@ Azure Stack requires Azure CLI version 2.0. For more information about installin
 * [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md)
 * [Get started with Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
-* [Introduction to Microsoft Azure Storage](..\storage\storage-introduction.md)
+* [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md)
 

@@ -171,7 +171,7 @@ write-host "Storage Account Key: $destStorageAccountKey"
 Write-host "`nScript completed" -ForegroundColor Green
 ```
 
-If you need help with the PowerShell script, see [Using the Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md). If you like to use Azure CLI instead, see the [Appendix](#appendix) section for the Azure CLI script.
+If you need help with the PowerShell script, see [Using the Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md). If you like to use Azure CLI instead, see the [Appendix](#appendix) section for the Azure CLI script.
 
 **To examine the storage account and the contents**
 

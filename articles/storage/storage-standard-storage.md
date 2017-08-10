@@ -21,7 +21,7 @@ ms.author: yuemlu
 
 Azure Standard Storage delivers reliable, low-cost disk support for VMs running latency-insensitive workloads. It also supports blobs, tables, queues, and files. With Standard Storage, the data is stored on hard disk drives (HDDs). When working with VMs, you can use standard storage disks for Dev/Test scenarios and less critical workloads, and premium storage disks for mission-critical production applications. Standard Storage is available in all Azure regions. 
 
-This article will focus on the use of standard storage for VM Disks. For more information about the use of storage with blobs, tables, queues, and files, please refer to the [Introduction to Storage](storage-introduction.md).
+This article will focus on the use of standard storage for VM Disks. For more information about the use of storage with blobs, tables, queues, and files, please refer to the [Introduction to Storage](common/storage-introduction.md).
 
 ## Disk types
 
@@ -45,7 +45,7 @@ For information on how to create a VM with Managed Disks, please see one of the 
 ## Standard Storage Features 
 
 Let's take a look at some of the features of Standard Storage. For more details, please see [Introduction to Azure
-Storage](storage-introduction.md).
+Storage](common/storage-introduction.md).
 
 **Standard Storage**: Azure Standard Storage supports Azure Disks, Azure Blobs, Azure File storage, Azure Tables, and Azure Queues. To use Standard Storage services, start with [Create an Azure Storage account](common/storage-create-storage-account.md#create-a-storage-account).
 
@@ -88,7 +88,7 @@ Unlike Premium Disks, the input/output operations per second (IOPS) and throughp
 | Max 8 KB IOPS per disk | Up to 300         | Up to 500            |
 | Max Bandwidth per disk | Up to 60 MB/s     | Up to 60 MB/s        |
 
-If your workload requires high-performance, low-latency disk support, you should consider using Premium Storage. To know more benefits of Premium Storage, visit [High-Performance Premium Storage and Azure VM Disks](storage-premium-storage.md). 
+If your workload requires high-performance, low-latency disk support, you should consider using Premium Storage. To know more benefits of Premium Storage, visit [High-Performance Premium Storage and Azure VM Disks](common/storage-premium-storage.md). 
 
 ## Snapshots and copy blob
 
@@ -146,7 +146,7 @@ You can also use the Azure Backup service with Managed Disks to create a backup 
 
 ## Next steps
 
-* [Introduction to Azure Storage](storage-introduction.md)
+* [Introduction to Azure Storage](common/storage-introduction.md)
 
 * [Create a storage account](common/storage-create-storage-account.md)
 

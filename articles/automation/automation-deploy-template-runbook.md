@@ -26,7 +26,7 @@ By doing this, you can automate deployment of Azure resources. You can maintain 
 templates in a central,secure location such as Azure Storage.
 
 In this topic, we create a PowerShell runbook that uses an Resource Manager template stored in
-[Azure Storage](../storage/storage-introduction.md) to deploy a new Azure Storage account.
+[Azure Storage](../storage/common/storage-introduction.md) to deploy a new Azure Storage account.
 
 ## Prerequisites
 
@@ -251,7 +251,7 @@ and Resource Manager templates to deploy all your Azure resources.
 ## Next steps
 
 * To learn more about Resource Manager templates, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
-* To get started with Azure Storage, see [Introduction to Azure Storage](../storage/storage-introduction.md).
+* To get started with Azure Storage, see [Introduction to Azure Storage](../storage/common/storage-introduction.md).
 * To find other useful Azure Automation runbooks, see
 [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md).
 * To find other useful Resource Manager templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/)

@@ -26,4 +26,4 @@ Drive manifests can be automatically backed up to blobs by setting the `BackupDr
 
 ## Next steps
 
-* [Using the Import/Export service REST API](../storage-import-export-using-the-rest-api.md)
+* [Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)
