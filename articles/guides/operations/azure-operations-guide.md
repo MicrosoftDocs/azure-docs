@@ -9,7 +9,7 @@ editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid:
-ms.service: multiple
+ms.service: azure
 ms.devlang: 
 ms.topic: 
 ms.tgt_pltfrm: 
@@ -187,7 +187,7 @@ A subscription is a logical grouping of Azure services that is linked to an Azur
 
 Before you can work with Azure services, you need a subscription. Several subscription types are available.
 
-**Free accounts**: The link to sign up for a free account is on the [Azure website](https://azure.microsoft.com/). This gives you a $200 credit over the course of 30 days to try any combination of resources in Azure. If you exceed your credit amount, your account is suspended. At the end of the trial, your services are decommissioned and will no longer work. You can upgrade to a pay-as-you-go subscription at any time.
+**Free accounts**: The link to sign up for a free account is on the [Azure website](https://azure.microsoft.com/). This gives you a credit over the course of 30 days to try any combination of resources in Azure. If you exceed your credit amount, your account is suspended. At the end of the trial, your services are decommissioned and will no longer work. You can upgrade to a pay-as-you-go subscription at any time.
 
 **MSDN subscriptions**: If you have an MSDN subscription, you get a specific amount in Azure credit each month. For example, if you have a Microsoft Visual Studio Enterprise with MSDN subscription, you get \$150 per month in Azure credit.
 
@@ -448,7 +448,7 @@ Azure Storage is accessed in various ways, including though the Azure portal, du
 
 **Virtual machine disks**
 
-When you’re deploying a virtual machine, you also need to create a storage account to hold the virtual machine operating system disk and any additional data disks. You can select an existing storage account or create a new one. Because the maximum size of a blob is 1,024 GB, a single VM disk has a maximum size of 1,023 GB. To configure a larger data disk, you can present multiple data disks to the virtual machine and pool them together as a single logical disk. For more information, see “Storage infrastructure guidelines” for [Windows](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md) and [Linux](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md).
+When you’re deploying a virtual machine, you also need to create a storage account to hold the virtual machine operating system disk and any additional data disks. You can select an existing storage account or create a new one. Because the maximum size of a blob is 1,024 GB, a single VM disk has a maximum size of 1,023 GB. To configure a larger data disk, you can present multiple data disks to the virtual machine and pool them together as a single logical disk. For more information, see “Manage Azure disks” for [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) and [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
 
 **Storage tools**
 

@@ -23,9 +23,10 @@ ms.author: gwallace
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-web-application-firewall-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
+> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
+> * [Azure CLI](application-gateway-web-application-firewall-cli.md)
 
-Learn how to create an web application firewall enabled application gateway.
+Learn how to create a web application firewall enabled application gateway.
 
 The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks. Web application protects against many of the OWASP top 10 common web vulnerabilities.
 
@@ -62,7 +63,7 @@ This example updates an existing application gateway to support web application 
    | **Setting** | **Value** | **Details**
    |---|---|---|
    |**Upgrade to WAF Tier**| Checked | This sets the tier of the application gateway to the WAF tier.|
-   |**Firewall status**| Enabled | Enabled | This setting enables the firewall on the WAF.|
+   |**Firewall status**| Enabled | This setting enables the firewall on the WAF.|
    |**Firewall mode** | Prevention | This setting is how web application firewall deals with malicious traffic. **Detection** mode only logs the events, where **Prevention** mode logs the events and stops the malicious traffic.|
    |**Rule set**|3.0|This setting determines the [core rule set](application-gateway-web-application-firewall-overview.md#core-rule-sets) that is used to protect the backend pool members.|
    |**Configure disabled rules**|varies|To prevent possible false positives, this setting allows you to disable certain [rules and rule groups](application-gateway-crs-rulegroups-rules.md).|
@@ -91,13 +92,13 @@ This scenario will:
 
     ![Creating Application Gateway][1]
 
-1. In the **Basics** blade that appears, eneter the following values, then click **OK**:
+1. In the **Basics** blade that appears, enter the following values, then click **OK**:
 
    | **Setting** | **Value** | **Details**
    |---|---|---|
    |**Name**|AdatumAppGateway|The name of the application gateway|
    |**Tier**|WAF|Available values are Standard and WAF. Visit [web application firewall](application-gateway-web-application-firewall-overview.md) to learn more about WAF.|
-   |**SKU Size**|Medium|Choices when choosing Standard tier are Small, Medium and Large. When choosing WAF tier, options are Medium and Large only.|
+   |**SKU Size**|Medium|Choices when choosing Standard tier are Small, Medium, and Large. When choosing WAF tier, options are Medium and Large only.|
    |**Instance count**|2|Number of instances of the application gateway for high availability. Instance counts of 1 should only be used for testing purposes.|
    |**Subscription**|[Your subscription]|Select a subscription to create the application gateway in.|
    |**Resource group**|**Create new:** AdatumAppGatewayRG|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups) overview article.|
@@ -105,35 +106,35 @@ This scenario will:
 
    ![blade showing basic settings][2-2]
 
-1. In the **Settings** blade that appears under **Virtual network**, click **Choose a virtual network**. This will open enter the **Choose virtual network** blade.  Click **Create new** to open the **Create virtual network** blade.
+1. In the **Settings** blade that appears under **Virtual network**, click **Choose a virtual network**. This step opens enter the **Choose virtual network** blade.  Click **Create new** to open the **Create virtual network** blade.
 
    ![choose a virtual network][2]
 
-1. On the **Create virtual network blade** enter the following values, then click **OK**. This will close the **Create virtual network** and **Choose virtual network** blades. This will also populate the **Subnet** field on the **Settings** blade with the subnet chosen.
+1. On the **Create virtual network blade** enter the following values, then click **OK**. This step closes the **Create virtual network** and **Choose virtual network** blades. This populates the **Subnet** field on the **Settings** blade with the subnet chosen.
 
    |**Setting** | **Value** | **Details** |
    |---|---|---|
    |**Name**|AdatumAppGatewayVNET|Name of the application gateway|
-   |**Address Space**|10.0.0.0/16| This is the address space for the virtual network|
+   |**Address Space**|10.0.0.0/16| This value is the address space for the virtual network|
    |**Subnet name**|AppGatewaySubnet|Name of the subnet for the application gateway|
-   |**Subnet address range**|10.0.0.0/28| This subnet allows more additional subnets in the virtual network for backend pool members|
+   |**Subnet address range**|10.0.0.0/28 | This subnet allows more additional subnets in the virtual network for backend pool members|
 
-1. On the **Settings** blade under **Frontend IP configuration** choose **Public** as the **IP address type**
+1. On the **Settings** blade under **Frontend IP configuration**, choose **Public** as the **IP address type**
 
-1. On the **Settings** blade under **Public IP address** click **Choose a public IP address**, this opens the **Choose public IP address** blade, click **Create new**.
+1. On the **Settings** blade under **Public IP address**, click **Choose a public IP address**, this step opens the **Choose public IP address** blade, click **Create new**.
 
    ![choose public ip][3]
 
-1. On the **Create public IP address** blade, accept the default value and click **OK**. This will close the **Choose public IP address** blade, the **Create public IP address** blade, and populate **Public IP address** with the public IP address chosen.
+1. On the **Create public IP address** blade, accept the default value, and click **OK**. This step closes the **Choose public IP address** blade, the **Create public IP address** blade, and populate **Public IP address** with the public IP address chosen.
 
-1. On the **Settings** blade under **Listener configuration** click **HTTP** under **Protocol**. To use **https**, a certificate is required. The private key of the certificate is needed so a .pfx export of the certificate needs to be provided and the password for the file.
+1. On the **Settings** blade under **Listener configuration**, click **HTTP** under **Protocol**. To use **https**, a certificate is required. The private key of the certificate is needed so a .pfx export of the certificate needs to be provided and the password for the file.
 
 1. Configure the **WAF** specific settings.
 
    |**Setting** | **Value** | **Details** |
    |---|---|---|
    |**Firewall status**| Enabled| This setting turns WAF on or off.|
-   |**Firewall mode** | Prevention| his setting determines the actions WAF takes on malicious traffic. If **Detection** is chosen, traffic is only logged.  If **Prevention** is chosen, traffic is logged and stopped with a 403 Unauthorized response.|
+   |**Firewall mode** | Prevention| This setting determines the actions WAF takes on malicious traffic. If **Detection** is chosen, traffic is only logged.  If **Prevention** is chosen, traffic is logged and stopped with a 403 Unauthorized response.|
 
 
 1. Review the Summary page and click **OK**.  Now the application gateway is queued up and created.
@@ -148,6 +149,8 @@ These steps create a basic application gateway with default settings for the lis
 > Application gateways created with the basic web application firewall configuration are configured with CRS 3.0 for protections.
 
 ## Next steps
+
+Next, you can learn how to configure a custom domain alias for the [public IP address](../dns/dns-custom-domain.md#public-ip-address) using Azure DNS or another DNS provider.
 
 Learn how to configure diagnostic logging, to log the events that are detected or prevented with web application firewall by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
 

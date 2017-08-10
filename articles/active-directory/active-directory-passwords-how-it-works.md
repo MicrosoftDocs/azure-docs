@@ -221,7 +221,7 @@ The Azure AD Connect tool sends periodic pings/keepalives to ServiceBus endpoint
 
 The account specified in the Azure AD Connect utility must have Reset Password, Change Password, Write Permissions on lockoutTime, and Write Permissions on pwdLastSet, extended rights on either the root object of **each domain** in that forest **OR** on the user OUs you wish to be in scope for SSPR.
 
-If you are not sure what account the above refers to, open the Azure Active Directory Connect configuration UI and click the Review Your Solution option. The account you need to add permission to is listed under "Synchronized Directories"
+If you are not sure what account the above refers to, open the Azure Active Directory Connect configuration UI and click the View current configuration option. The account you need to add permission to is listed under "Synchronized Directories"
 
 Setting these permissions allows the MA service account for each forest to manage passwords on behalf of user accounts within that forest. **If you neglect to assign these permissions, then, even though writeback appears to be configured correctly, users encounter errors when attempting to manage their on-premises passwords from the cloud.**
 

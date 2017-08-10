@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # More telemetry from Application Insights

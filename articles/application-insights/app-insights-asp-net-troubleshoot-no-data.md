@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Troubleshooting no data - Application Insights for .NET
