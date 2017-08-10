@@ -88,7 +88,7 @@ Add AngularJS to your service using the built-in [Bower support](/aspnet/core/cl
   }
 }
 ```
-Upon saving the *bower.json* file, Angular will be installed in your project's *wwwroot/lib* folder. Additionally, it will be listed within the *Dependencies/Bower* folder.
+Upon saving the *bower.json* file, Angular is installed in your project's *wwwroot/lib* folder. Additionally, it is listed within the *Dependencies/Bower* folder.
 
 ### Update the site.js file
 Open the *wwwroot/js/site.js* file and replace it's contents with the following:
@@ -313,7 +313,7 @@ Now that we have an ASP.NET Web API service running in our application, let's go
 
 Service Fabric allows you to consistently and reliably store your data right inside your service by using reliable collections. Reliable collections are a simple set of highly available and reliable collection classes that is familiar to anyone who has used C# collections.
 
-In this tutorial you create a service, which stores a counter value in a reliable collection.
+In this tutorial, you create a service which stores a counter value in a reliable collection.
 
 1. In Solution Explorer, right-click **Services** within the application project and choose **Add > New Service Fabric Service**.
    
@@ -425,7 +425,7 @@ namespace VotingData.Controllers
 
 
 ## Connect the services
-In this next step we will connect the two services and make the front-end Web application get and set voting information from the back-end service's reliable dictionary.
+In this next step, we will connect the two services and make the front-end Web application get and set voting information from the back-end service's reliable dictionary.
 
 Service Fabric provides complete flexibility in how you communicate with reliable services. Within a single application, you might have services that are accessible via TCP. Other services that might be accessible via an HTTP REST API and still other services could be accessible via web sockets. For background on the options available and the tradeoffs involved, see [Communicating with services](service-fabric-connect-and-communicate-with-services.md).
 
@@ -510,7 +510,7 @@ The voting application consists of two services:
 
 ![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-When you vote in the application the following events occur:
+When you vote in the application, the following events occur:
 1. A JavaScript sends the vote request to the web API in the web front-end service as an HTTP PUT request.
 
 2. The web front-end service uses a proxy to locate and forward an HTTP PUT request to the back-end service.
