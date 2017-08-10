@@ -193,11 +193,15 @@ To run the script, follow these steps:
 
 1. Download [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
 
-2.  Expand the compressed .zip file into your temporary drive (by default, usually the D drive). The compressed file should contain the following files and folders:
+2. Unblock the PerfInsights.zip file. To do this, right-click the PerfInsights.zip file, select **Properties**. In the **General** tab, select **Unblock** and then select **OK**. This will make sure that the script runs without any additional security prompts.  
+
+    ![Unlock the zip file](media/how-to-use-perfInsights/unlock-file.png)
+
+3.  Expand the compressed PerfInsights.zip file into your temporary drive (by default, usually the D drive). The compressed file should contain the following files and folders:
 
     ![files in the zip folder](media/how-to-use-perfInsights/file-folder.png)
 
-3.  Open Windows PowerShell as an administrator, and then run the PerfInsights.ps1 script.
+4.  Open Windows PowerShell as an administrator, and then run the PerfInsights.ps1 script.
 
     ```
     cd <the path of PerfInsights folder >
@@ -210,19 +214,19 @@ To run the script, follow these steps:
 
     ![Disclaimer box](media/how-to-use-perfInsights/disclaimer.png)
 
-4.  Submit the case number, if it is available, when you run the script (This is for our statistics). Then, click **OK**.
+5.  Submit the case number, if it is available, when you run the script (This is for our statistics). Then, click **OK**.
     
     ![enter support ID](media/how-to-use-perfInsights/enter-support-number.png)
 
-5.  Select your temporary storage drive. The Script can auto-detect the drive letter of the drive. If any problems occur in this stage, you might be prompted to select the drive (the default drive is D). Generated logs are stored here in the log\_collection folder. After you enter or accept the drive letter, click **OK**.
+6.  Select your temporary storage drive. The Script can auto-detect the drive letter of the drive. If any problems occur in this stage, you might be prompted to select the drive (the default drive is D). Generated logs are stored here in the log\_collection folder. After you enter or accept the drive letter, click **OK**.
 
     ![enter drive](media/how-to-use-perfInsights/enter-drive.png)
 
-6.  Select a troubleshooting scenario from the provided list.
+7.  Select a troubleshooting scenario from the provided list.
 
        ![Select support scenarios](media/how-to-use-perfInsights/select-scenarios.png)
 
-7.  You can also run PerfInsights without UI.
+8.  You can also run PerfInsights without UI.
 
     The following command runs the "General VM Slow analysis" troubleshooting scenario without a UI prompt or capture data for 30 seconds. It prompts you to consent to the same disclaimer and EULA that  are mentioned in step 4.
 

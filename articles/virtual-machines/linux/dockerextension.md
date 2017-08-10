@@ -26,7 +26,7 @@ The Azure Docker VM extension installs and configures the Docker daemon, Docker 
 For more information about the different deployment methods, including using Docker Machine and Azure Container Services, see the following articles:
 
 * To quickly prototype an app, you can create a single Docker host using [Docker Machine](docker-machine.md).
-* To build production-ready, scalable environments that provide additional scheduling and management tools, you can deploy a [Docker Swarm cluster on Azure Container Services](../../container-service/container-service-deployment.md).
+* To build production-ready, scalable environments that provide additional scheduling and management tools, you can deploy a [Docker Swarm cluster on Azure Container Services](../../container-service/dcos-swarm/container-service-deployment.md).
 
 ## Deploy a template with the Azure Docker VM extension
 Let's use an existing quickstart template to create an Ubuntu VM that uses the Azure Docker VM extension to install and configure the Docker host. You can view the template here: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). You need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
@@ -140,5 +140,5 @@ Read more information about the additional Docker deployment options in Azure:
 
 * [Use Docker Machine with the Azure driver](docker-machine.md)  
 * [Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine](docker-compose-quickstart.md).
-* [Deploy an Azure Container Service cluster](../../container-service/container-service-deployment.md)
+* [Deploy an Azure Container Service cluster](../../container-service/dcos-swarm/container-service-deployment.md)
 

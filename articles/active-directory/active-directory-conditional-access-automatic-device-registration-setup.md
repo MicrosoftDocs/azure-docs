@@ -117,7 +117,7 @@ The **$scp.Keywords** output shows the Azure AD tenant information, for example:
     azureADName:microsoft.com
     azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
 
-If the service connection point does not exist, you can create it by running the `Initialize-ADSyncDomainJoinedComputerSync` cmdlet on your Azure AD Connect server.  
+If the service connection point does not exist, you can create it by running the `Initialize-ADSyncDomainJoinedComputerSync` cmdlet on your Azure AD Connect server. Enterprise admin credential is required to run this cmdlet.  
 The cmdlet:
 
 - Creates the service connection point in the Active Directory forest Azure AD Connect is connected to. 

@@ -1,14 +1,14 @@
----
+﻿---
 ms.assetid: 
 title: Azure Key Vault Storage Account Keys
-description: Storage account keys provide a seemless integration between Azure Key Vault and key access to Azure Storage Account.
+description: Storage account keys provide a seemless integration between Azure Key Vault and key based access to Azure Storage Account.
 ms.topic: article
 services: key-vault
 ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 07/10/2017
+ms.date: 07/25/2017
 ---
 # Azure Key Vault Storage Account Keys
 
@@ -52,7 +52,8 @@ Developers used to need to do the following practices with a storage account key
 //create storage account using connection string containing account name 
 // and the storage key 
 
-var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));var blobClient = storageAccount.CreateCloudBlobClient();
+var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+var blobClient = storageAccount.CreateCloudBlobClient();
  ```
  
 ### After Azure Key Vault Storage Keys 
@@ -61,7 +62,7 @@ var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSett
 //Use PowerShell command to get Secret URI 
 
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
--AccountName msak01 -Name blobsas1 -Protocol HttpsOrHttp -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
+-AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
 
 //Get SAS token from Key Vault
 
@@ -91,9 +92,9 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ## Getting started
 
-### Setup for role-based access control permissions
+### Setup for role-based access control (RBAC) permissions
 
-Key Vault needs permissions to list and regenerate keys for a storage account. Set up these permissions using the following steps:
+Key Vault needs permissions to *list* and *regenerate* keys for a storage account. Set up these permissions using the following steps:
 
 - Get ObjectId of Key Vault: 
 
@@ -108,23 +109,18 @@ Key Vault needs permissions to list and regenerate keys for a storage account. S
 
 ### Storage account onboarding 
 
-#### Example
+Example: As a Key Vault object owner you add a storage account object to your Azure Key Vault to onboard a storage account.
 
-A key vault object owner adds a storage account object on AzKV to onboard a storage account.
-
-During onboarding, Key Vault needs to verify that the identity of the onboarding the account has access to *list* and *regenerate* the storage keys. Key Vault gets an OBO token from EvoSTS with audience as Azure Resource Manager and makes a list key call to Storage RP. If the list call fails, then the Key Vault object creation fails with *Forbidden* http status code. The keys listed in this fashion are cached with your key vault entity storage. 
+During onboarding, Key Vault needs to verify that the identity of the onboarding account has permissions to *list* and to *regenerate* storage keys. In order to verify these permissions, Key Vault gets an OBO (On Behalf Of) token from the authentication service, audience set to Azure Resource Manager, and makes a *list* key call to the Azure Storage service. If the *list* call fails, the Key Vault object creation fails with a HTTP status code of *Forbidden*. The keys listed in this fashion are cached with your key vault entity storage. 
 
 Key Vault must verify that the identity has *regenerate* permissions before it can take ownership of regenerating your keys. To verify that the identity, via OBO token, as well as the Key Vault first party identity has these permissions:
 
 - Key Vault lists RBAC permissions on the storage account resource.
 - Key Vault validates the response via regular expression matching of actions and non-actions. 
 
-Some supporting examples: 
+Find some supporting examples at [Key Vault - Managed Storage Accont Keys Samples](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167).
 
-- Example 
-[Github Samples](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167) 
-
-If the identity, via OBO token, does not have *regenerate* permission or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails returning an appropriate error code and message. 
+If the identity does not have *regenerate* permissions or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails returning an appropriate error code and message. 
 
 The OBO token will only work when you use first-party, native client applications of either PowerShell or CLI.
 

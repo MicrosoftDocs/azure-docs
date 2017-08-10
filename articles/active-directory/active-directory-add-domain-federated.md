@@ -3,7 +3,7 @@ title: Add your custom domain name and set up federated sign-in to Azure Active 
 description: How to add your company's domain names to Azure Active Directory to set up federated sign-in between Azure Active Directory and your on-premises federation solution
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/25/2017
 ms.author: curtand
 
 ---

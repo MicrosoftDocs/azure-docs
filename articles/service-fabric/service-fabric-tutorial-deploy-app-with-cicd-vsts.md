@@ -13,15 +13,15 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2017
+ms.date: 08/09/2017
 ms.author: ryanwi
 
 ---
 
 # Deploy an application with CI/CD to a Service Fabric cluster
-This tutorial describes how to set up continuous integration and deployment for an Azure Service Fabric application using Visual Studio Team Services.  An existing Service Fabric application is needed, the application created in [Build a .NET application](service-fabric-tutorial-create-dotnet-app.md) is used as an example.
+This tutorial is part three of a series and describes how to set up continuous integration and deployment for an Azure Service Fabric application using Visual Studio Team Services.  An existing Service Fabric application is needed, the application created in [Build a .NET application](service-fabric-tutorial-create-dotnet-app.md) is used as an example.
 
-In this tutorial, you learn how to:
+In part three of the series, you learn how to:
 
 > [!div class="checklist"]
 > * Add source control to your project
@@ -29,7 +29,11 @@ In this tutorial, you learn how to:
 > * Create a release definition in Team Services
 > * Automatically deploy and upgrade an application
 
-The tutorial is split across three articles, this article is the third in the series.
+In this tutorial series you learn how to:
+> [!div class="checklist"]
+> * [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
+> * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * Configure CI/CD using Visual Studio Team Services
 
 ## Prerequisites
 Before you begin this tutorial:

@@ -41,5 +41,10 @@ Offers must be made public for tenants to get the full view when subscribing. Of
 
 Changes to the offer are not immediately visible to the tenant. To see the changes, you might have to logout/login to see the new subscription in the “Subscription picker” when creating resources/resource groups.
 
+> [!NOTE]
+>You can also create default offers, plans, and quotas by using PowerShell as explained in the [Azure Stack Service Administrator readme](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin).
+>
+
+
 ## Next steps
 [Subscribe to an offer and then provision a VM](azure-stack-subscribe-plan-provision-vm.md)
