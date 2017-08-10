@@ -100,7 +100,7 @@ Run the following commands to install docker on your Linux development box (if y
 
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
-### Deploy the application the Xplat CLI
+### Deploy the application with the Xplat CLI
 
 Once the application is built, you can deploy it to the local cluster using the Azure CLI.
 
@@ -124,7 +124,7 @@ Once the application is built, you can deploy it to the local cluster using the 
     ./uninstall.sh
     ```
 
-### Deploy the application Azure CLI 2.0
+### Deploy the application with Azure CLI 2.0
 
 See the reference doc on managing an [application life cycle using the Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
 
