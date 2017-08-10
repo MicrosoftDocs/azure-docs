@@ -267,34 +267,41 @@ Replace the host, dbname, user, and password parameters with the values that you
 const pg = require('pg');
 
 const config = {
-    host: '<your-pg-server-name>.postgres.database.azure.com',
-    user: '<your-login>@your-pg-server',
-    password: '<server_admin_password>',
-    database: '<name_of_database>',
-    port: 5432,
-    ssl: true
+  host: '<your-db-server-name>.postgres.database.azure.com',
+  // Do not hard code your username. Consider using Node environment variables.
+  user: '<your-db-username>',
+  // Do not hard code your password. Consider using Node environment variables.
+  password: '<your-db-password>',
+  database: '<name_of_database>',
+  port: 5432,
+  ssl: true
 };
 
 const client = new pg.Client(config);
 
 client.connect(err => {
-  if (err) throw err;
-  else {
+  if (err) {
+    throw err;
+  } else {
     queryDatabase();
   }
 });
 
 function queryDatabase() {
-  const query = `DELETE FROM inventory 
-                 WHERE name = 'apple'`;
+  const query = `
+    DELETE FROM inventory 
+    WHERE name = 'apple'
+  `;
 
   client
     .query(query)
     .then(result => {
-      console.log('Delete completed succesfully');
-      console.log(`Rows affected: ${result.rowCount}`);
+      console.log(`Delete completed. Rows affected: ${result.rowCount}`);
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err);
+      throw err;
+    });
 }
 ```
 
