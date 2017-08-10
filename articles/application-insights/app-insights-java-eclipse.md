@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Get started with Application Insights with Java in Eclipse
