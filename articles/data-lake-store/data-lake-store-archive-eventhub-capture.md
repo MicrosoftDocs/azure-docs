@@ -96,7 +96,7 @@ In this section you create an an Event Hub within an Event Hubs namespace. You a
     
     c. Set **Capture** to **On**. Set the **Time Window** (how frequently to capture) and **Size Window** (data size to capture). 
     
-    d. For **Archive Provider**, select **Azure Data Lake Store** and the select the Data Lake Store you created earlier. For **Data Lake Path**, enter the name of the folder you created in the Data Lake Store account. You only need to provide the relative path to the folder.
+    d. For **Capture Provider**, select **Azure Data Lake Store** and the select the Data Lake Store you created earlier. For **Data Lake Path**, enter the name of the folder you created in the Data Lake Store account. You only need to provide the relative path to the folder.
 
     e. Leave the **Sample capture file name formats** to the default value. This governs the folder structure that is created under the capture folder.
 
