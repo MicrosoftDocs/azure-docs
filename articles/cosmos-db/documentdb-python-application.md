@@ -15,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: syamk
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 
