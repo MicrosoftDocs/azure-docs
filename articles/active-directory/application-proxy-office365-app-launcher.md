@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 08/10/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -20,18 +20,18 @@ ms.custom: it-pro
 
 # Set a custom home page for published apps by using Azure AD Application Proxy
 
-This article discusses how to configure apps to direct users to a custom home page when they access the apps from the Azure Active Directory (Azure AD) Access Panel and the Office 365 app launcher.
+This article discusses how to configure apps to direct users to a custom home page. When you publish an application with Application Proxy, you set an internal URL but sometimes that's not the page your users should see first. Set a custom home page so that your users go to the right page when they access the apps from the Azure Active Directory Access Panel or the Office 365 app launcher.
 
-When users launch the app, they're directed by default to the root domain URL for the published app. The landing page is typically set as the home page URL. For example, for the back-end app http://ExpenseApp, the URL is published as *https://expenseApp-contoso.msappproxy.net*. By default, the home page URL is set as *https://expenseApp-contoso.msappproxy.net*.
+When users launch the app, they're directed by default to the root domain URL for the published app. The landing page is typically set as the home page URL. For example, consider an application with an internal URL *http://ExpenseApp* that is published with an external URL *https://expenseApp-contoso.msappproxy.net*. By default, the home page URL is set as *https://expenseApp-contoso.msappproxy.net*.
 
-By using the Azure AD PowerShell module, you can define custom home page URLs for instances when you want app users to land on a specific page within the app (for example, *https://expenseApp-contoso.msappproxy.net/login/login.aspx*).
+Use the Azure AD PowerShell module to define custom home page URLs when you want app users to land on a specific page within the app (for example, *https://expenseApp-contoso.msappproxy.net/login/login.aspx*).
 
 >[!NOTE]
 >When you give users access to published apps, the apps are displayed in the [Azure AD Access Panel](active-directory-saas-access-panel-introduction.md) and the [Office 365 app launcher](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
 
 ## Before you start
 
-Before you set the home page URL, keep in mind the following:
+Before you set the home page URL, keep in mind the following requirements:
 
 * Ensure that the path you specify is a subdomain path of the root domain URL.
 
@@ -45,6 +45,9 @@ Before you set the home page URL, keep in mind the following:
 2. Navigate to **Azure Active Directory** > **App registrations** and choose your application from the list. 
 3. Select **Properties** from the settings.
 4. Update the **Home page URL** field with your new path. 
+
+   ![Provide new home page URL](./media/application-proxy-office365-app-launcher/homepage.png)
+
 5. Select **Save**
 
 ## Change the home page with PowerShell
@@ -83,7 +86,7 @@ Obtain the ObjectID of the app, and then search for the app by its home page.
     ```
     Get-AzureADApplication | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
     ```
-4. You should get a result that's similar to the one shown here. Copy the ObjectID GUID to use in the next secion.
+4. You should get a result that's similar to the one shown here. Copy the ObjectID GUID to use in the next section.
 
     ```
     DisplayName : SharePoint
@@ -93,9 +96,9 @@ Obtain the ObjectID of the app, and then search for the app by its home page.
 
 ### Update the home page URL
 
-In the same PowerShell module that you used for step 1, do the following:
+In the same PowerShell module that you used for step 1, perform the following steps:
 
-1. Confirm that you have the correct app, and replace *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* with the GUID (ObjectID) that you copied in the preceding step.
+1. Confirm that you have the correct app, and replace *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* with the ObjectID that you copied in the preceding step.
 
     ```
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
@@ -103,16 +106,13 @@ In the same PowerShell module that you used for step 1, do the following:
 
  Now that you've confirmed the app, you're ready to update the home page, as follows.
 
-2. Create a blank application object to hold the changes that you want to make.  
-
- >[!NOTE]
- >This is only a variable to hold the values that you want to update, so nothing has actually been created.
+2. Create a blank application object to hold the changes that you want to make. This variable holds the values that you want to update. Nothing is created in this step.
 
     ```
     $appnew = New-Object “Microsoft.Open.AzureAD.Model.Application”
     ```
 
-3. Set the home page URL to the value that you want. The value must be a subdomain path of the published app. For example, if you change the home page URL from *https://sharepoint-iddemo.msappproxy.net/* to *https://sharepoint-iddemo.msappproxy.net/hybrid/*, app users will go directly to the custom home page.
+3. Set the home page URL to the value that you want. The value must be a subdomain path of the published app. For example, if you change the home page URL from *https://sharepoint-iddemo.msappproxy.net/* to *https://sharepoint-iddemo.msappproxy.net/hybrid/*, app users go directly to the custom home page.
 
     ```
     $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
@@ -129,7 +129,7 @@ In the same PowerShell module that you used for step 1, do the following:
     ```
 
 >[!NOTE]
->Any changes that you make to the app might reset the home page URL. If this happens, repeat step 2.
+>Any changes that you make to the app might reset the home page URL. If your home page URL resets, repeat step 2.
 
 ## Next steps
 
