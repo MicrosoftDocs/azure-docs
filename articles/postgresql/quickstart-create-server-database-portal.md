@@ -123,13 +123,26 @@ There are a number of applications you can use to connect to your Azure Database
     --username | *server admin login name* |Type in the  server admin login username supplied when you created the Azure Database for PostgreSQL earlier. Follow the previous section to get the connection information if you do not remember the username.  The format is *username@servername*.
     --dbname | **postgres** | Use the default system generated database name *postgres* for the first connection. Later you create your own database.
 
-    After running the psql command, with your own parameter values, you will be prompted to type the server admin password. This is the same password that you provided when you created the server. 
+    After running the psql command, with your own parameter values, you are prompted to type the server admin password. This is the same password that you provided when you created the server. 
 
     psql parameter |Suggested value|Description
     ---|---|---
-    password | *your admin password* | Note, the typed password characters will not be shown on the bash prompt. Press enter after you have typed all the characters to authenticate and connect.
+    password | *your admin password* | Note, the typed password characters are not shown on the bash prompt. Press enter after you have typed all the characters to authenticate and connect.
 
-4.  Once you're connected to the server, create a blank database at the prompt by typing the following command:
+
+   Once connected, the psql utility displays a `postgres=\>` prompt for you to type commands. In the initial connection output, a warning may be displayed since the psql in the Cloud Shell may be a different version than the Azure Database for PostgreSQL server version. Example psql output:
+
+    ```bash
+    psql (9.5.7, server 9.6.2)
+    WARNING: psql major version 9.5, server major version 9.6.
+        Some psql features might not work.
+    SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-SHA384, bits: 256, compression: off)
+    Type "help" for help.
+   
+    postgres=\> 
+    ```
+
+4.  Create a blank database at the prompt by typing the following command:
     ```bash
     CREATE DATABASE mypgsqldb;
     ```
