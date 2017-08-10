@@ -19,16 +19,16 @@ ms.author: ryanwi, mikhegn
 ---
 
 # Create and Deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service
-This tutorial is part one of a series and shows you how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster. You can download the source code for the completed [voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).
+This tutorial is part one of a series and shows you how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor).
 
 ![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 In part one of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Create an ASP.NET Core Web API service as a reliable service
-> * Create a stateful reliable service
-> * Implement service remoting and using a service proxy
+> * Create an ASP.NET Core Web API service as a stateful reliable service
+> * Create an ASP.NET Core Web Application service as a stateless web service
+> * Use the reverse proxy to communicate with the stateful service
 
 In this tutorial series you learn how to:
 > [!div class="checklist"]
@@ -501,13 +501,14 @@ In the **VotingWeb** project, open the *Controllers/VotesController.cs* file.  R
         }
     }
 ```
+<a id="walkthrough" name="walkthrough_anchor"></a>
 
 ## Walk through the voting sample application
 The voting application consists of two services:
 - Web front-end service (VotingWeb)- An ASP.NET Core web front-end service, which serves the web page and exposes web APIs to communicate with the backend service.
 - Back-end service (VotingData)- An ASP.NET Core web service, which exposes an API to store the vote results in a reliable dictionary persisted on disk.
 
-![Application Diagram](./media/service-fabric-quickstart-dotnet/application-diagram.png)
+![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 When you vote in the application the following events occur:
 1. A JavaScript sends the vote request to the web API in the web front-end service as an HTTP PUT request.
@@ -530,7 +531,7 @@ To look at what happens in the code, complete the following steps:
 4. Press **F5** to continue
     - You are now at the break point in the back-end service.
     
-    ![Add Vote Async Method](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
+    ![Add Vote Async Method](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
     - In the first line in the method **(1)** we are using the `StateManager` to get or add a reliable dictionary called `counts`.
     - All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
@@ -544,9 +545,9 @@ To stop the debugging session, press **Shift+F5**.
 In this part of the tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create an ASP.NET Core Web API service as a reliable service
-> * Create a stateful reliable service
-> * Implement service remoting and using a service proxy
+> * Create an ASP.NET Core Web API service as a stateful reliable service
+> * Create an ASP.NET Core Web Application service as a stateless web service
+> * Use the reverse proxy to communicate with the stateful service
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
