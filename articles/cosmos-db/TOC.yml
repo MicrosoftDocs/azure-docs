@@ -224,14 +224,14 @@
     - name: Table API
       items:
       - name: Table storage
-        href: https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
+        href: /rest/api/storageservices/Table-Service-Concepts
       - name: Table storage design guide
         href: table-storage-design-guide.md
       - name: Tutorials
         items:
           - name: .NET
             href: table-storage-how-to-use-dotnet.md
-          - name: F#
+          - name: "F#:"
             href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
           - name: Node.js 
             href: table-storage-cloud-service-nodejs.md
