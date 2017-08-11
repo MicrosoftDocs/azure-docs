@@ -38,7 +38,7 @@ Azure File storage allows you to replace Windows Server, Linux, or NAS-based fil
 
 * **Resiliency**. Azure File storage has been built from the ground up to be always available. Replacing on-premises file shares with Azure File storage means you no longer have to wake up to deal with local power outages or network issues. 
 
-* **Familiar Programmability**. Applications running in Azure can access data on the share via [file system I/O APIs](https://msdn.microsoft.com/library/system.io.file.aspx). Developers can therefore leverage their existing code and skills to migrate existing applications. In addition to System IO APIs, you can use any of the Azure storage client Libraries, such as the one for [.NET](api/overview/azure/storage?view=azure-dotnet), or the [Azure Storage REST API](/rest/api/storageservices/file-service-rest-api).
+* **Familiar Programmability**. Applications running in Azure can access data on the share via [file system I/O APIs](https://msdn.microsoft.com/library/system.io.file.aspx). Developers can therefore leverage their existing code and skills to migrate existing applications. In addition to System IO APIs, you can use any of the Azure storage client Libraries, such as the one for [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet), or the [Azure Storage REST API](/rest/api/storageservices/file-service-rest-api).
 
 Azure File shares can be used to:
 
