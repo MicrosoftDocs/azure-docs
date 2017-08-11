@@ -19,25 +19,25 @@ ms.author: asgang
 ---
 # Troubleshooting Mobility Service push install issues
 
-This article details the common issues faced when trying to push install the Mobility Service on to source server for enabling protection.
+This article details the common issues faced when trying to install the Mobility Service on to source server for enabling protection.
 
 ## (Error code 95107) Protection could not be enabled.
-**Error code** | **Possible causes** | **Error specific Recommendations**
+**Error code** | **Possible causes** | **Error-specific Recommendations**
 --- | --- | ---
 95107 </br>***Message -***  Push installation of the mobility service to the source machine failed with error code ***EP0858***. <br> Either that the credentials provided to install mobility service is incorrect or the user account has insufficient privileges | User credentials provided to install mobility service on source machine is incorrect | Ensure the user credentials provided for the source machine on configuration server are correct. <br> To add/edit user credentials: go to configuration server > Cspsconfigtool icon > Manage account. </br> In addition, ensure below pre-requisites are checked to successfully complete push install.
 
 ## (Error code 95015) Protection could not be enabled.
-**Error code** | **Possible causes** | **Error specific Recommendations**
+**Error code** | **Possible causes** | **Error-specific Recommendations**
 --- | --- | ---
 95105 </br>***Message -***  Push installation of the mobility service to the source machine failed with error code ***EP0856***. <br> Either “File and Printer Sharing” not allowed on the source machine, or there are network connectivity issues between the process server and the source machine| File and print sharing is not enabled | Allow “File and Printer Sharing” on the source machine in the Windows Firewall, Go to the source machine > Under Windows Firewall settings > “Allow an app or feature through Firewall” > select “File and Printer Sharing for all profiles”. </br> In addition, ensure below pre-requisites are checked to successfully complete push install.
 
 ## (Error code 95117) Protection could not be enabled.
-**Error code** | **Possible causes** | **Error specific Recommendations**
+**Error code** | **Possible causes** | **Error-specific Recommendations**
 --- | --- | ---
 95117 </br>***Message -***  Push installation of the mobility service to the source machine failed with error code ***EP0865***. <br> Either the source machine is not running, or there are network connectivity issues between the process server and the source machine | Network connectivity between process server and source server | Check connectivity between process server and source server. </br> In addition, ensure below pre-requisites are checked to successfully complete push install.
 
 ## (Error code 95103) Protection could not be enabled.
-**Error code** | **Possible causes** | **Error specific Recommendations**
+**Error code** | **Possible causes** | **Error-specific Recommendations**
 --- | --- | ---
 95103 </br>***Message -***  Push installation of the mobility service to the source machine failed with error code ***EP0854***. <br> Either “Windows Management Instrumentation (WMI)”is not allowed on the source machine, or there are network connectivity issues between the process server and the source machine| Windows Management Instrumentation (WMI) blocked in the Windows Firewall | Allow Windows Management Instrumentation (WMI) in the Windows Firewall. Under Windows Firewall settings > “Allow an app or feature through Firewall” > “select WMI for all profiles”. </br> In addition, ensure below pre-requisites are checked to successfully complete push install.
 
@@ -47,9 +47,9 @@ On the Configuration/Process server, Navigate to file 'PushinstallService' locat
 ![pushiinstalllogs](./media/site-recovery-protection-common-errors/pushinstalllogs.png)
 
 ## Push Install pre-requisites for Windows
-#### Ensure "File and Printer Sharing" is enabled
+### Ensure "File and Printer Sharing" is enabled
 Allow “File and Printer Sharing” and "Windows Management Instrumentation" on the source machine in the Windows Firewall </br>
-###### If Source machine is Domain Joined. </br>
+#### If Source machine is Domain Joined: </br>
 Configure firewall settings using Group Policy Management Console (GPMC).
 1. Login to Active directory domain machine as administrator and open Group Policy Management Console (GPMC.MSC, run from a Start > Run).</br>
 3. If GPMC is not installed, follow the link to [Install the GPMC](https://technet.microsoft.com/en-us/library/cc725932.aspx) </br>
@@ -63,7 +63,7 @@ Configure firewall settings using Group Policy Management Console (GPMC).
 ![gpmc3](./media/site-recovery-protection-common-errors/gpmc3.png) </br>
 </br>
 7. Enable the following settings for Domain Profile and  Standard Profile </br>
-a)	Double click on exception “Windows Firewall: Allow inbound file and printer sharing exception”. Select Enabled and click OK. </br>
+a)	Double-click on exception “Windows Firewall: Allow inbound file and printer sharing exception”. Select Enabled and click OK. </br>
 b)	Double click on exception “Windows Firewall: Allow inbound remote administration exception”. Select Enabled and click OK. </br>
 ![gpmc4](./media/site-recovery-protection-common-errors/gpmc4.png) </br>
 </br>
@@ -146,8 +146,8 @@ Input the credentials of the account used for protection and check if connectivi
   Note: If connection is unsuccessful, please check whether all pre-requisites are met. </br>
 
 
-**Note** - If you don’t want to open “Windows Management Instrumentation”, you can also install mobility service manually on the source machine.</br> [Install Mobility Service manually by using the GUI](site-recovery-vmware-to-azure-install-mob-svc#install-mobility-service-manually-by-using-the-gui.md) </br>
-[Installation through configuration manager guidance](site-recovery/site-recovery-install-mobility-service-using-sccm.md) </br>
+**Note** - If you don’t want to open “Windows Management Instrumentation”, you can also install mobility service manually on the source machine.</br> [Install Mobility Service manually through GUI](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui) </br>
+[Installation through configuration manager guidance](site-recovery-install-mobility-service-using-sccm.md) </br>
 
 ## Next steps
-- [Enable replication for VMware virtual machines](site-recovery/vmware-walkthrough-enable-replication.md)
+- [Enable replication for VMware virtual machines](vmware-walkthrough-enable-replication.md)
