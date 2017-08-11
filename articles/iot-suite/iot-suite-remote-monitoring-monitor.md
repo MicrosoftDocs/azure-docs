@@ -1,6 +1,6 @@
 ---
 title: Monitor devices with Azure IoT Suite remote monitoring | Microsoft Docs
-description: This how-to guide shows you how to monitor devices with the remote monitoring solution dashboard.
+description: This tutorial shows you how to monitor devices with the remote monitoring solution dashboard.
 services: ''
 suite: iot-suite
 author: dominicbetts
@@ -15,9 +15,9 @@ ms.workload: NA
 
 # Monitor your devices using the remote monitoring solution
 
-This how-to guide shows you how to monitor your devices using the the remote monitoring preconfigured solution dashboard.
+This tutorial shows you how to monitor your devices using the the remote monitoring preconfigured solution dashboard.
 
-In this how-to guide, you learn how to:
+In this tutorial, you learn how to:
 
 >[!div class="checklist"]
 > * Use the dashboard map
@@ -28,7 +28,7 @@ In this how-to guide, you learn how to:
 
 ## Prerequisites
 
-To follow this how-to guide, you need a deployed instance of the remote monitoring solution in your Azure subscription.
+To follow this tutorial, you need a deployed instance of the remote monitoring solution in your Azure subscription.
 
 If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial.
 
@@ -42,7 +42,7 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 ## Organize your devices
 
-This how-to guide showed you how to:
+This tutorial showed you how to:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
