@@ -3,7 +3,7 @@ title: Assign users to a custom domain in Azure Active Directory | Microsoft Doc
 description: How to populate a custom domain in Azure Active Directory with user accounts.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: jeffgilb
 manager: femila
 editor: ''
 
