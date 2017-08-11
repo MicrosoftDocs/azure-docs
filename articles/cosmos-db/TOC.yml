@@ -231,7 +231,7 @@
         items:
           - name: .NET
             href: table-storage-how-to-use-dotnet.md
-          - name: "F#:"
+          - name: F#
             href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
           - name: Node.js 
             href: table-storage-cloud-service-nodejs.md
