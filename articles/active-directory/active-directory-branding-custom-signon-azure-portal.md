@@ -13,57 +13,75 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/04/2017
 ms.author: curtand
 
 ---
 # Add company branding to your sign-in page in the Azure Active Directory
 To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory provides this capability by allowing you to customize the appearance of the sign-in page with your company logo and custom color schemes. The sign-in page is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page to enter your credentials.
 
-If you want to show your company brand, colors and other customizable elements on this page, see the following images to understand the difference between the two experiences.
-
-The following screenshot shows and example for the Office 365 sign-in page on a desktop computer **before** a customization:
-
-![Office 365 sign-in page before customization](./media/active-directory-branding-custom-signon-azure-portal/sign-in-page-before-customization.png)
-
-The following screenshot shows and example for the Office 365 sign-in page on a desktop computer **after** a customization:
-
-![Office 365 sign-in page after customization](./media/active-directory-branding-custom-signon-azure-portal/sign-in-page-after-customization.png)
+> [!NOTE]
+> * Company branding is available only if you upgraded to the Premium or Basic edition of Azure AD, or have an Office 365 license. For more information, see [Azure Active Directory editions](active-directory-editions.md).
+> 
+> * Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## Customizing the sign-in page
-Typically, if you need browser-based access to your cloud apps and services that your organization subscribes to, you use the sign-in page.
 
-If you have applied changes to your sign-in page, it can take up to an hour for the changes to appear.
+<!--You can customize the following elements on the sign-in page: <attach image>-->
 
-A branded sign-in page only appears when you visit a service with a tenant-specific URL such as https://outlook.com/**contoso**.com, or https://mail.**contoso**.com.
+Company branding customizations appear on the Azure AD sign-in page when users access a tenant-specific URL such as
+[*https://outlook.com/contoso.com*](https://outlook.com/contoso.com).
 
-When you visit a service with non-tenant specific URLs (e.g.: https://mail.office365.com), a non-branded sign-in page appears. in this case, your branding appears once you have entered your user ID or you have selected a user tile.
+When users visit a generic URL such as www.office.com, the sign-in page
+does not contain company branding customizations because the system
+doesn’t know who the user is. Company branding will show after users
+enter their user ID or select a user tile.
 
 > [!NOTE]
+> * A new sign-in page design is currently being rolled out. This article describes how to customize the new design. If you are looking for help with the old design, see [Add company branding to sign-in and Access Panel pages](active-directory-add-company-branding.md).
 > * Your domain name must appear as “Active" in the **Domains** portion of the Azure portal in which you have configured branding. For more information, see [Add custom domain names](active-directory-domains-add-azure-portal.md).
-> * Sign-in page branding doesn’t carry over to the consumer sign in page of Microsoft. If you sign in with a Microsoft account, you may see a branded list of user tiles rendered by Azure AD, but the branding of your organization does not apply to the Microsoft account sign-in page.
->
->
+> * Sign-in page branding doesn’t carry over to the sign-in page for personal Microsoft accounts. If your employees or business guests sign in with a personal Microsoft account, their sign-in page does not reflect the branding of your organization.
 
-On your sign-in page, the **Keep me signed in** checkbox allows a user to remain signed in when they close and re-open their browser.
+## Customizable elements
+The constraints for each element also appear on the **Users and groups - Company branding** blade.
 
-   ![Keep me signed-in](./media/active-directory-branding-custom-signon-azure-portal/01.png)
+### Banner logo	
 
-It does not effect session lifetime. You can hide the checkbox on the Azure Active Directory sign-in page.
-Whether the checkbox is displayed depends on the setting of **Keep me signed in disabled**.
+Description | Constraints | Recommendations
+------- | ------- | ----------
+The banner logo is displayed on the sign-in and the Access panel pages.<br>On the sign-in page, this shows once the user’s organization is determined, usually after the username is entered.  | Transparent JPG or PNG<br>Max height: 36 px<br>Max width: 245 px | Use your organization’s logo here.<br>Use a transparent image. Don’t assume that the background will be white.<br>Do not add padding around your logo in the image. If you do this, your logo will look disproportionately small.
 
-   ![Keep me signed-in](./media/active-directory-branding-custom-signon-azure-portal/02.png)
+### Username hint	
+Description | Constraints | Recommendations
+------- | ------- | ----------
+This customizes the hint text in the username field. | Unicode text up to 64 characters<br>Plain text only | We recommend that you do not set this if you expect guest users outside your organization to sign in to your app.
+		 	
+### Sign-in page text	
+Description | Constraints | Recommendations
+------- | ------- | ----------
+This appears at the bottom of the sign-in form and can be used to communicate additional information such as the phone number to your help desk, or a legal statement. | Unicode text up to 256 characters<br>Plain text only (no links or HTML tags)	
 
-To hide the checkbox, configure this setting to **Yes**.
+### Sign-in page image	
+Description | Constraints | Recommendations
+------- | ------- | ----------
+This appears in the background of the sign-in page, is anchored to the center of the viewable space, and will scale and crop to fill the browser window.	<br>On narrow screens such as mobile phones, this image is not shown.<br>A black mask with 0.55 opacity will be applied over this image by our code when the page is loaded. | JPG or PNG<br>Image dimensions: 1920x1080 px<br>File size: &gt; 300 KB | <br>Use images where there isn't a strong subject focus. The opaque sign-in form appears over the center of this image and can cover any part of the image depending on the size of the browser window.<br>Keep the file size as small as possible to ensure quick load times. 
+
+### Background Color
+Description | Constraints | Recommendations
+------- | ------- | ----------
+This color is used in place of the background image on low-bandwidth connections. |	RGB color in hexadecimal (example: #FFFFFF | We suggest using the primary color of the banner logo or your organization color.
+
+### Show option to remain signed in
+Description | Constraints | Recommendations
+------- | ------- | ----------
+Azure AD sign in gives the user the option to remain signed in when they close and re-open their browser. Use this to hide that option.<br>Set this to “No” to hide this option from your users. | &nbsp; | This does not affect session lifetime.<br>Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you set this to be hidden, your users may see additional and unexpected prompts to sign-in.
 
 > [!NOTE]
-> Some features of SharePoint Online and Office 2010 depend on users being able to check this box. If you configure this setting to hidden, your users may see additional and unexpected prompts to sign-in.
->
->
+> All elements are optional. For example, if you specify a banner logo with no background image, the sign-in page will show your logo and the background image for the destination site (for example, Office 365).
 
-**To add company branding to your directory:**
+## To add company branding to your directory
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+1. Sign in to [the Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
    ![Opening user management](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)

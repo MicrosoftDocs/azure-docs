@@ -7,12 +7,12 @@ author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 
-ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
+ms.assetid: 
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/27/2017
+ms.date: 07/19/2017
 ms.author: renash
 ---
 # Frequently Asked Questions about Azure File storage
@@ -75,6 +75,10 @@ ms.author: renash
     We currently do not support AD-based authentication or ACLs, but do have it in our list of feature requests. For now, the Azure Storage account keys are used to provide authentication to the file share. We do offer a workaround using shared access signatures (SAS) via the REST API or the client libraries. Using SAS, you can generate tokens with specific permissions that are valid for a specified time interval. For example, you can generate a token with read-only access to a given file with 10 minutes expiry. Anyone who possesses this token while it is valid has read-only access to that file for those 10 minutes.
    
     SAS is only supported via the REST API or client libraries. When you mount the file share via the SMB protocol, you can't use a SAS to delegate access to its contents. 
+    
+* **Q. What are the data compliance policies supported for Azure File storage?**
+
+   Azure File Storage runs on top of the same storage architecture as other storage services in Azure Storage and applies the same data compliance policies. More information on Azure Storage data compliance, you can download and refer to [Microsoft Azure Data Protection document](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409).
 
 ## On-Premises Access
 

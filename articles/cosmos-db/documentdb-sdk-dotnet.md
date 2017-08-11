@@ -1,6 +1,6 @@
 ---
-title: Azure DocumentDB .NET SDK & Resources | Microsoft Docs
-description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK.
+title: Azure Cosmos DB .NET SDK & Resources | Microsoft Docs
+description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET SDK.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -13,14 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB .NET SDK: Download and release notes
+# Azure Cosmos DB .NET SDK: Download and release notes
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -39,7 +40,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Samples**</td><td>[.NET code samples](documentdb-dotnet-samples.md)</td></tr>
 
-<tr><td>**Get started**</td><td>[Get started with the DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
+<tr><td>**Get started**</td><td>[Get started with the Azure Cosmos DB .NET SDK](documentdb-get-started.md)</td></tr>
 
 <tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](documentdb-dotnet-application.md)</td></tr>
 
@@ -48,14 +49,25 @@ ms.custom: H1Hack27Feb2017
 
 ## Release notes
 
+### <a name="1.17.0"/>1.17.0 
+
+* Added support for PartitionKeyRangeId as a FeedOption for scoping query results to a specific partition key range value. 
+* Added support for StartTime as a ChangeFeedOption to start looking for the changes after that time.
+
+### <a name="1.16.1"/>1.16.1
+* Fixed an issue in the JsonSerializable class that may cause a stack overflow exception.
+
+### <a name="1.16.0"/>1.16.0
+*	Fixed an issue that required recompiling of the application due to the introduction of JsonSerializerSettings as an optional parameter in the DocumentClient constructor.
+* Marked the DocumentClient constructor obsolete that required JsonSerializerSettings as the last parameter to allow for default values of ConnectionPolicy and ConsistencyLevel parameters when passing in JsonSerializerSettings parameter.
+
 ### <a name="1.15.0"/>1.15.0
 *	Added support for specifying custom JsonSerializerSettings while instantiating [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="1.14.1"/>1.14.1
-*	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw an SEHException when running DocumentDB API queries.
+*	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw an SEHException when running Azure Cosmos DB DocumentDB API queries.
 
 ### <a name="1.14.0"/>1.14.0
-*	Added support for the request unit per minute (RU/m) feature.
 *	Added support for a new consistency level called ConsistentPrefix.
 *	Added support for query metrics for individual partitions.
 *	Added support for limiting the size of the continuation token for queries.
@@ -138,7 +150,7 @@ ms.custom: H1Hack27Feb2017
 ### <a name="1.9.2"/>1.9.2
 * Added support for parallel queries for partitioned collections.
 * Added support for cross partition ORDER BY and TOP queries for partitioned collections.
-* Fixed the missing references to DocumentDB.Spatial.Sql.dll and Microsoft.Azure.Documents.ServiceInterop.dll that are required when referencing a DocumentDB project with a reference to the DocumentDB Nuget package.
+* Fixed the missing references to DocumentDB.Spatial.Sql.dll and Microsoft.Azure.Documents.ServiceInterop.dll that are required when referencing an Azure Cosmos DB project with a reference to the Azure Cosmos DB Nuget package.
 * Fixed the ability to use parameters of different types when using user-defined functions in LINQ. 
 * Fixed a bug for globally replicated accounts where Upsert calls were being directed to read locations instead of write locations.
 * Added methods to the IDocumentClient interface that were missing: 
@@ -151,7 +163,7 @@ ms.custom: H1Hack27Feb2017
 * Added the support for multi-region database accounts.
 * Added support for retry on throttled requests.  User can customize the number of retries and the max wait time by configuring the ConnectionPolicy.RetryOptions property.
 * Added a new IDocumentClient interface that defines the signatures of all DocumenClient properties and methods.  As part of this change, also changed extension methods that create IQueryable and IOrderedQueryable to methods on the DocumentClient class itself.
-* Added configuration option to set the ServicePoint.ConnectionLimit for a given DocumentDB endpoint Uri.  Use ConnectionPolicy.MaxConnectionLimit to change the default value, which is set to 50.
+* Added configuration option to set the ServicePoint.ConnectionLimit for a given Azure Cosmos DB endpoint Uri.  Use ConnectionPolicy.MaxConnectionLimit to change the default value, which is set to 50.
 * Deprecated IPartitionResolver and its implementation.  Support for IPartitionResolver is now obsolete. It's recommended that you use Partitioned Collections for higher storage and throughput.
 
 ### <a name="1.7.1"/>1.7.1
@@ -167,7 +179,7 @@ ms.custom: H1Hack27Feb2017
 * Implemented [partitioned collections](partition-data.md) and [user-defined performance levels](performance-levels.md). 
 
 ### <a name="1.5.3"/>1.5.3
-* **[Fixed]** Querying DocumentDB endpoint throws: 'System.Net.Http.HttpRequestException: Error while copying content to a stream'.
+* **[Fixed]** Querying Azure Cosmos DB endpoint throws: 'System.Net.Http.HttpRequestException: Error while copying content to a stream'.
 
 ### <a name="1.5.2"/>1.5.2
 * Expanded LINQ support including new operators for paging, conditional expressions, and range comparison.
@@ -242,6 +254,9 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.17.0](#1.17.0) |August 10, 2017 |--- |
+| [1.16.1](#1.16.1) |August 07, 2017 |--- |
+| [1.16.0](#1.16.0) |August 02, 2017 |--- |
 | [1.15.0](#1.15.0) |June 30, 2017 |--- |
 | [1.14.1](#1.14.1) |May 23, 2017 |--- |
 | [1.14.0](#1.14.0) |May 10, 2017 |--- |

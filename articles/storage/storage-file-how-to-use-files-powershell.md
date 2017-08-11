@@ -7,7 +7,7 @@ author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 
-ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
+ms.assetid: 
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na

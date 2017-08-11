@@ -1,6 +1,6 @@
 ---
 title: Data transfer tools for Azure Stack storage
-description: Learn about Azure Stack storage data trandfer tools
+description: Learn about Azure Stack storage data transfer tools
 services: azure-stack
 documentationcenter: ''
 author: xiaofmao

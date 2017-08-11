@@ -4,7 +4,7 @@ description: Use Power BI to visualize temperature and humidity data that is col
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'real time data visualization, live data visualization, sensor data visualization'
 
