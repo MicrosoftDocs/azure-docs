@@ -63,12 +63,12 @@ The Azure Database for PostgreSQL service creates a firewall at the server-level
 
 1.	Locate your server after the deployment completes. If needed you can search for it. For example, click **All Resources** from the left-hand menu and type in the server name (such as the example mypgserver-20170401) to search for your newly created server. Click on your server name listed in the search result. The Overview page for your server opens and provides options for further configuration.
  
-    ![Azure Database for PostgreSQL - Search for server name](./media/quickstart-create-database-portal/4-locate.png)
+    ![Azure Database for PostgreSQL - Search for server ](./media/quickstart-create-database-portal/4-locate.png)
 
-2.	On the server page, select **Connection security**. 
-    ![Azure Database for PostgreSQL - Create Firewall rule](./media/quickstart-create-database-portal/5-firewall-2.png)
+2.	On the server page, select **Connection Security**. 
+    ![Azure Database for PostgreSQL - Create Firewall Rule](./media/quickstart-create-database-portal/5-firewall-2.png)
 
-3.	Under the **Firewall rules** heading, click in the blank text box in the **Rule Name** column to begin creating the firewall rule. 
+3.	Under the **Firewall Rules** heading, click in the blank text box in the **Rule Name** column to begin creating the firewall rule. 
 
     For this quick start, let's allow all IP addresses into the server by filling in the text box in each column with the following values:
 
@@ -76,7 +76,7 @@ The Azure Database for PostgreSQL service creates a firewall at the server-level
     ---|---|---
     AllowAllIps |  0.0.0.0 | 255.255.255.255
 
-4. On the upper toolbar of the Connection security page, click **Save**. Wait for a few moments and notice the notification showing that updating connection security has finished successfully before continuing.
+4. On the upper toolbar of the Connection Security page, click **Save**. Then click the **X** to close the Connection Security page.
 
     > [!NOTE]
     > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 5432.
@@ -166,7 +166,7 @@ Now you have connected to the Azure Database for PostgreSQL and created a blank 
 
 To connect to Azure PostgreSQL server using the GUI tool _pgAdmin_
 1.	Launch the _pgAdmin_ application on your client computer. You can install _pgAdmin_ from http://www.pgadmin.org/.
-2.	Choose **Add New Server** from the **Quick Links** menu.
+2.	Click the **Add New Server** icon from the **Quick Links** section in the center of the Dashboard page.
 3.	In the **Create - Server** dialog box **General** tab, enter a unique friendly Name for the server, such as **Azure PostgreSQL Server**.
 ![pgAdmin tool - create - server](./media/quickstart-create-database-portal/9-pgadmin-create-server.png)
 4.	In the **Create - Server** dialog box, **Connection** tab, use the settings as specified and click **Save**.
@@ -177,18 +177,19 @@ To connect to Azure PostgreSQL server using the GUI tool _pgAdmin_
     Host Name/Address | *server name* | Specify the server name value that was used when you created the Azure Database for PostgreSQL earlier. Our example server shown is mypgserver-20170401.postgres.database.azure.com. Use the fully qualified domain name (\*.postgres.database.azure.com) as shown in the example. Follow the previous section to get the connection information if you do not remember your server name. 
     Port | **5432** | Always use port 5432 when connecting to Azure Database for PostgreSQL.  
     Maintenance Database | **postgres** | Use the default system generated database name *postgres*.
-    User Name | *server admin login name* |Type in the  server admin login username supplied when you created the Azure Database for PostgreSQL earlier. Follow the previous section to get the connection information if you do not remember the username.  The format is *username@servername*.
+    User Name | *server admin login name* | Type in the server admin login username supplied when you created the Azure Database for PostgreSQL earlier. Follow the previous section to get the connection information if you do not remember the username.  The format is *username@servername*.
     Password | *your admin password* |  The password you chose when you created the server earlier in this quickstart.
     Role | *leave blank* | No need to provide a role name at this point. Leave the field blank.
     SSL Mode | Require | By default, all Azure PostgreSQL servers are created with SSL enforcing turned ON. To turn OFF SSL enforcing, see details in [Enforcing SSL](./concepts-ssl-connection-security.md).
     
 5.	Click **Save**.
 6.	In the Browser left pane, expand the **Servers** node. Choose your server, for example **Azure PostgreSQL Server** and click to connect to it.
-7. Expand the server node, and then expand **Databases** under it. The list should include your existing *postgres* database, and the newly created *mypgsqldb* that we created in the previous section. Notice that you may create multiple databases per server with Azure Database for PostgreSQL.
-8. Right-click on **Databases** to Create a Database.
-9.	Choose a database name, such as **mypgsqldb** and the owner for it as server admin login, such as our example **mylogin**.
+7. Expand the server node, and then expand **Databases** under it. The list should include your existing *postgres* database, and any newly created user database, such as *mypgsqldb*, that we created in the previous section. Notice that you may create multiple databases per server with Azure Database for PostgreSQL.
+8. Right-click on **Databases**, choose the **Create** menu, and click **Database**.
+9.	Type a database name of your choice in the **Database** field, such as *mypgsqldb* shown in the example. 
+10. Select the **Owner** for the database from the drop down box. Choose your server admin login name, such as our example *mylogin*.
 10. Click **Save** to create a new blank database.
-11. In the **Browser**, expand the server. Expand the server you created, and see the database **mypgsqldb** under it.
+11. In the **Browser** pane, expand your server name node. See the database you created in the list.
  ![pgAdmin - Create - Database](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 
