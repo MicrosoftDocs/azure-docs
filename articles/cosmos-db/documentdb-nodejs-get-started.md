@@ -1,5 +1,5 @@
 ---
-title: Node.js tutorial for the DocumentDB API for Azure Cosmos DB | Microsoft Docs
+title: Node.js tutorial for Azure Cosmos DB | Microsoft Docs
 description: A Node.js tutorial that creates a Cosmos DB with the DocumentDB API. 
 keywords: node.js tutorial, node database
 services: cosmos-db
@@ -18,7 +18,7 @@ ms.date: 08/11/2017
 ms.author: mimig
 
 ---
-# Node.js tutorial: DocumentDB Node.js console application
+# Node.js tutorial: Azure Cosmos DB Node.js console application
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
