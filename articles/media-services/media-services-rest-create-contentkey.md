@@ -43,7 +43,7 @@ The following are general steps for generating content keys that you will associ
    Media Services .NET SDK uses RSA with OAEP when doing the encryption.  You can see an example in the [EncryptSymmetricKeyData function](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Create a checksum value (based on the PlayReady AES key checksum algorithm) calculated using the key identifier and content key. For more information, see the “PlayReady AES Key Checksum Algorithm” section of the PlayReady Header Object document located [here](http://www.microsoft.com/playready/documents/).
    
-The following is a .NET example that calculates the checksum using the GUID part of the key identifier and the clear content key.
+   The following is a .NET example that calculates the checksum using the GUID part of the key identifier and the clear content key.
 
 ```   
 public static string CalculateChecksum(byte[] contentKey, Guid keyId)
