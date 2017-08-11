@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Application Insights: Frequently Asked Questions
