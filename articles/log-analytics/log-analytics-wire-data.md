@@ -397,7 +397,7 @@ You can use the **Agents capturing network traffic** blade to determine how much
 
 ![log search example](./media/log-analytics-wire-data/log-search-example01.png)
 
-Similarly, you can use the **Local Subnets** blade to determine how much network traffic is moving through your subnets. Users often define subnets around critical areas their applications. This blade offers a view into those areas.
+Similarly, you can use the **Local Subnets** blade to determine how much network traffic is moving through your subnets. Users often define subnets around critical areas for their applications. This blade offers a view into those areas.
 
 ![log search example](./media/log-analytics-wire-data/log-search-example02.png)
 
