@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2017
+ms.date: 08/11/2017
 ms.author: yurid
 
 ---
@@ -100,31 +100,31 @@ If you experience issues loading the Security Center dashboard, ensure that the 
 
 ## Troubleshooting platform migration
 
-Beginning in early June 2017, Azure Security Center rolls out important changes to the way security data is collected and stored.  Read [Azure Security Center platform migration](https://docs.microsoft.com/azure/security-center/security-center-platform-migration) for more information about these changes. The sections that follow have some common known issues that could be caused during this migration, and how to fix it.
+In June 2017, Azure Security Center began rolling out important changes to the way security data is collected and stored. Read [Azure Security Center platform migration](https://docs.microsoft.com/azure/security-center/security-center-platform-migration) and the [Platform Migration FAQ]() for more information about these changes. The sections that follow include common known issues that could arise as a result of these changes and how to resolve them. 
 
-### Windows VMs that already had non-extension OMS are now reporting to 2 workspaces (multihoming)
+### Windows VMs running the Microsoft Monitoring Agent (OMS agent), not installed as an Azure extension, are now reporting to two workspaces
 
-Multihoming can happen only when Security Center identifies that a VM doesn’t have OMS extension, but there's non-extension agent install on the VM. For direct agent, the solution is to 'surface' the agent installed on the VM as an extension. Security Center will not touch existing extensions and will attempt to use existing connections to collect security data, as shown in this diagram:
+This scenario  happens when Security Center does not recognize that the Microsoft Monitoring Agent is installed on a VM, because the agent was not installed as an Azure extension. In this case, Security Center will install the agent as an extension and send data to the default workspace created by Security Center. This can result in duplicate billing for the VM.   
 
-![Flow](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig7.png)
+You can resolve this by completing the following steps:
 
-Assuming that the OMS agent was originally connected to *workspace X*, you can re-install the OMS extension with configuration pointing in to *workspace X*, by following one of these methods:
-
-* Manually disconnecting the VMs from the Security Center default workspace, and connect it to the user workspace via the [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) in Azure portal.
+* In the Azure portal, manually disconnect the VMs from the Security Center default workspace, and connect it to the user workspace via  [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 * Re-install the extension using PowerShell script.
 
->[!NOTE] 
-> See [Azure Security Center Platform Migration FAQ]() for more details about multihoming issues.
->
+### The Microsoft Monitoring Agent installed by Security caused an unwanted version upgrade to an existing agent
 
-### The extension created by Security caused an unwanted version upgrade to existing agent
-Security Center installs the latest version of OMS extension. If your environment is dependent on specific version, you should reevaluate the need to use an old version, since the recommendation is to use the latest version, and if upgrade is still not possible, you can disable data collection on the subscription containing the VMs, remove to OMS extension and install the correct OMS version.
+Security Center installs the latest version of the agent. It is strongly recommended that you use the latest version. If your environment is dependent on a specific version, and you cannot upgrade, you can disable data collection for the subscription. This will limit Security Center recommendations and alerts, and is strongly discouraged. If you must remove the latest version and re-install and older version, complete these steps:
 
-The installation of the OMS extension and the creation of default workspaces is done when the customer enables the data collection in Security Center policy blade. For 'Standard' tier Security Center customers, the data collection is enabled by default and cannot be disabled unless the pricing tier is change to 'Free'. Disabling the data collection means that Security Center will no longer able be to provide security recommendations and alerts for your VMs, and therefore is not recommended. 
+* From the security policy, disable data collection on the subscription containing the VMs
+* Remove to OMS extension and install the correct OMS version.
 
 >[!NOTE] 
->This is a last resort solution.
+>You cannot disable data collection for subscriptions on the Standard pricing tier. To disable data collection, you must first change to the free pricing tier in the security policy.
 
+
+### The default workspace created by Azure Security Center was deleted 
+
+Security Center uses the default workspaces to store security data from your VMs.  If you delete a workspace, Security Center will be unable to collect this data and some security recommendations and alerts will be unavailable. To recover, remove the Microsoft Monitoring agent on the VMs connected to the deleted workspace. Azure Security Center will re-install the agent and create new default workspaces.
 
 ## Contacting Microsoft Support
 Some issues can be identified using the guidelines provided in this article, others you can also find documented at the Security Center public [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter). However if you need further troubleshooting, you can open a new support request using **Azure portal** as shown below: 
