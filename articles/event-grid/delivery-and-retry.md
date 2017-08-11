@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/11/2017
 ms.author: darosa
 ---
 
