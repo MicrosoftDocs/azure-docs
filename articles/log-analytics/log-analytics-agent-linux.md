@@ -89,15 +89,15 @@ The OMS Agent for Linux shares agent binaries with the System Center Operations 
 After installing the OMS Agent for Linux packages, the following additional system-wide configuration changes are applied. These artifacts are removed when the omsagent package is uninstalled.
 
 * A non-privileged user named: `omsagent` is created. This is the account the omsagent daemon runs as.
-* A sudoers “include” file is created at /etc/sudoers.d/omsagent. This authorizes omsagent to restart the syslog and omsagent daemons. If sudo “include” directives are not supported in the installed version of sudo, these entries will be written to /etc/sudoers.
+* A sudoers “include” file is created at /etc/sudoers.d/omsagent. This authorizes omsagent to restart the syslog and omsagent daemons. If sudo “include” directives are not supported in the installed version of sudo, these entries are written to /etc/sudoers.
 * The syslog configuration is modified to forward a subset of events to the agent. For more information, see the **Configuring Data Collection** section below
 
 ### Upgrade from a previous release
-Upgrade from versions earlier than 1.0.0-47 is supported in this release. Performing the installation with the `--upgrade` command will upgrade all components of the agent to the latest version.
+Upgrade from versions earlier than 1.0.0-47 is supported in this release. Performing the installation with the `--upgrade` command upgrades all components of the agent to the latest version.
 
 ## Installing the agent
 
-This section describes how to install the OMS Agent for Linux using a bunndle which contains Debian and RPM packages for each of the agent components and can be installed directly or extracted to retrieve the individual packages.  
+This section describes how to install the OMS Agent for Linux using a bunndle, which contains Debian and RPM packages for each of the agent components and can be installed directly or extracted to retrieve the individual packages.  
 
 1. Download the latest [OMS Agent for Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x64.sh) or [OMS Agent for Linux x86](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x86.sh) from GitHub.  
 2. Transfer the appropriate bundle (x86 or x64) to your Linux computer using scp/sftp.
@@ -229,7 +229,7 @@ sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
    
 3.	Run the following command to Onboard to OMS:
 `sudo /opt/microsoft/omsagent/bin/omsadmin.sh`
-4.	The file will be deleted on successful onboarding
+4.	The file is deleted on successful onboarding.
 
 ## Manage omsagent daemon
 Starting with version 1.3.0-1, we register omsagent daemon for each onboarded workspace. The daemon name is *omsagent-\<workspace-id>*.  You can use `/opt/microsoft/omsagent/bin/service_control` command to operate the daemon.
@@ -238,7 +238,7 @@ Starting with version 1.3.0-1, we register omsagent daemon for each onboarded wo
 sudo sh /opt/microsoft/omsagent/bin/service_control start|stop|restart|enable|disable [<workspace id>]
 ```
 
-The workspace id is an optional parameter. If it is specified, it will only operate on the workspace-specific daemon.  Otherwise, it will operate on all the daemons.
+The workspace id is an optional parameter. If it is specified, it will only operate on the workspace-specific daemon.  Otherwise, it operates on all daemons.
 
 
 ## Agent logs
