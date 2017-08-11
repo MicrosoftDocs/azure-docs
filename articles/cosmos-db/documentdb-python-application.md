@@ -66,8 +66,7 @@ that you have the following installed:
 * Microsoft Visual C++ Compiler for Python 2.7 from the [Microsoft Download Center][3].
 
 ## Step 1: Create an Azure Cosmos DB database account
-Let's start by creating an Cosmos DB account. If you already have an account or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create a new Python Flask web application](#step-2:-create-a-new-python-flask-web-application).
-<!---Loc Comment: Please, check link [Step 2: Create a new Python Flask web application] since it's not redirecting to any location.--->
+Let's start by creating an Cosmos DB account. If you already have an account or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create a new Python Flask web application](#step-2-create-a-new-python-flask-web-application).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
