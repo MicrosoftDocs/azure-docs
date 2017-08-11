@@ -18,6 +18,7 @@ ms.author: dastrock
 
 ---
 # Azure AD B2C: Token reference
+
 Azure Active Directory B2C (Azure AD B2C) emits several types of security tokens as it processes each [authentication flow](active-directory-b2c-apps.md). This document describes the format, security characteristics, and contents of each type of token.
 
 ## Types of tokens
