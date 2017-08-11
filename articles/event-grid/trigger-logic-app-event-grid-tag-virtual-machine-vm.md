@@ -1,7 +1,7 @@
 ---
-title: Start logic apps with events from event grids - Azure Event Grid & Logic Apps | Microsoft Docs
-description: Trigger logic app workflows with events published to event grids from Azure resources, like Azure Storage and Event Hubs
-keywords: logic app, events, trigger, event grid
+title: Trigger logic apps with event grids for virtual machine tagging - Azure Event Grid & Logic Apps | Microsoft Docs
+description: Tag virtual machines by triggering logic apps with events from event grids
+keywords: logic app, events, trigger, event grid, virtual machine
 services: logic-apps
 author: ecfan
 manager: anneta
@@ -14,7 +14,7 @@ ms.date: 08/16/2017
 ms.author: LADocs; estfan
 ---
 
-# Trigger logic app workflows with events published to event grids from Azure resources
+# Tag virtual machines by triggering logic app workflows with events from event grids
 
 You can start a [logic app automated workflow](../logic-apps/logic-apps-what-are-logic-apps.md) 
 when specific events happen in Azure resources or third-party resources. 
@@ -31,14 +31,14 @@ from publisher to subscriber:
 * New message in a queue
 * New tweet
 
-This tutorial shows how to create a logic app that triggers when 
-you upload an image file to an [Azure Blob Storage container](../storage/storage-introduction.md). 
-The container publishes an event for this action to an event grid, 
-which pushes the event to your logic app and passes a URL for the image file. 
-Your logic app passes this URL to an Azure function that resizes the image file, 
-and sends email for reviewers to check the resized image.
+This tutorial shows how to create a logic app that 
+fires when you create a virtual machine in Azure. 
+When created, the virtual machine publishes an event to an event grid, 
+which pushes the event to your logic app and passes the URL. 
+Your logic app passes this URL to an Azure function that tags 
+the virtual machine with a specified label. 
 
-![Logic app with event grid workflow](./media/trigger-logic-app-event-grid/logic-app-event-grid-arch.png)
+![Logic app with event grid workflow](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-event-grid-arch.png)
 
 ## Requirements
 
@@ -51,39 +51,31 @@ To follow along, complete these tutorials first:
   For the upload action, the container publishes an event to the event grid. 
   The event grid then pushes that event to subscribers, like your logic app.
 
+* [Create a virtual machine with an event grid]()
+
 * [Create an Azure Functions app and function]() 
 
-  This tutorial shows how to create an Azure function that resizes 
-  an image file from your blob storage container. Your logic app 
+  This tutorial shows how to create an Azure function that 
+  tags a virtual machine. Your logic app 
   calls this function as a step in its workflow. 
-
-You also need:
-
-* An Outlook.com, Office 365 Outlook, or Gmail account 
-for the example in this tutorial
-
-    > [!TIP]
-    > If you have a personal 
-    > [Microsoft account](https://account.microsoft.com/account), 
-    > you have an Outlook.com account. 
-    > Otherwise, if you have an Azure work or school account, 
-    > you have an Office 365 Outlook account.
 
 ## Create a logic app that responds to events from an event grid
 
 1. In the [Azure portal](https://portal.azure.com), from the main Azure menu, 
 choose **New** > **Enterprise Integration** > **Logic App** as shown:
 
-   ![Create logic app](./media/trigger-logic-app-event-grid/azure-portal-create-logic-app.png)
+   ![Create logic app](./media/trigger-logic-app-event-grid-tag-virtual-machine/azure-portal-create-logic-app.png)
 
 2. Create your logic app as shown:
 
-   1. Provide a name for your logic app. 
+   1. Provide a name for your logic app.
+
    2. Select the Azure subscription, resource group, 
    and location that you want to use for your logic app. 
+
    3. When you're ready, select **Pin to dashboard**, and choose **Create**.
 
-      ![Provide logic app details](./media/trigger-logic-app-event-grid/logic-app-event-grid-settings.png)
+      ![Provide logic app details](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-event-grid-settings.png)
 
 3. Wait until Azure finishes deploying your logic app. 
 
@@ -96,10 +88,11 @@ choose **New** > **Enterprise Integration** > **Logic App** as shown:
 5. In the search box, enter "event grid" as your filter. 
 Select this trigger: **Azure Event Grid - On a resource event**
 
-   ![Select this trigger: "Azure Event Grid - On a resource event"](./media/trigger-logic-app-event-grid/logic-app-event-grid-trigger.png)
+   ![Select this trigger: "Azure Event Grid - On a resource event"](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-event-grid-trigger.png)
 
-6. Now provide these details for your logic app's event subscription, 
-so that your logic app can get events pushed by the publisher resource:
+6. Now create an event subscription for your logic app 
+to get events pushed by the publisher resource. 
+Provide these event subscription details:
 
    * **Subscription**: Select the publisher resource's Azure subscription.
    * **Resource Type**: Select the publisher's resource type, 
@@ -116,7 +109,7 @@ so that your logic app can get events pushed by the publisher resource:
       provide a file name extension for specific image file types. 
       The default or an empty string matches all values.
 
-      ![Provide details for event subscription](./media/trigger-logic-app-event-grid/logic-app-event-grid-trigger-details.png)
+      ![Provide details for event subscription](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-event-grid-trigger-details.png)
 
 7. Save your logic app. On the designer toolbar, choose **Save**. 
    
@@ -135,12 +128,12 @@ in [this tutorial]() for resizing an image.
 1. In your logic app, under your Event Grid trigger, 
 choose **New step** > **Add an action**.
 
-   ![Choose "New step", "Add an action"](./media/trigger-logic-app-event-grid/logic-app-add-azure-function-app.png)
+   ![Choose "New step", "Add an action"](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-add-azure-function-app.png)
 
 2. In the search box, enter "azure functions" as your filter. 
 Select this action: **Azure Functions - Choose an Azure function**
 
-   ![Select this action: "Azure Functions - Choose an Azure function"](./media/trigger-logic-app-event-grid/logic-app-azure-functions.png)
+   ![Select this action: "Azure Functions - Choose an Azure function"](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-azure-functions.png)
 
    Azure shows all the existing Azure function apps that 
    were created and associated with your Azure subscription.
@@ -148,14 +141,14 @@ Select this action: **Azure Functions - Choose an Azure function**
 3. In the search box, find the Azure function that you previously created. 
 Select your Azure function app: **Azure Functions - your-function-app-name**
 
-   ![Select this function app: "Azure Functions - your-function-app-name"](./media/trigger-logic-app-event-grid/logic-app-azure-function-app.png)
+   ![Select this function app: "Azure Functions - your-function-app-name"](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-azure-function-app.png)
 
    Azure now shows all the functions that are 
    associated with your selected function app.
 
 4. Select the function that you previously created: **Azure Functions - your-function-name**
 
-   ![Select this function: "Azure Functions - your-function-name"](./media/trigger-logic-app-event-grid/logic-app-azure-function-app-functions.png)
+   ![Select this function: "Azure Functions - your-function-name"](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-azure-function-app-functions.png)
 
 5. In **Request Body**, specify the URL for the blob 
 that you want your function to process.
@@ -178,7 +171,7 @@ choose **New step** > **Add an action**.
 Select the action that sends email for your Outlook or Gmail account, 
 for example:
 
-   ![Select "send email" action](./media/trigger-logic-app-event-grid/logic-app-send-email.png)
+   ![Select "send email" action](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-send-email.png)
 
    > [!TIP]
    > For personal Microsoft accounts, choose **Outlook.com**. 
@@ -193,15 +186,15 @@ like the recipient's email address, subject, and body.
    For example, if you chose Outlook 365, 
    here's what your email action might look like:
 
-   ![Select outputs to include in email](./media/trigger-logic-app-event-grid/logic-app-send-email-details.png)
+   ![Select outputs to include in email](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-send-email-details.png)
 
    When you're done, your logic app looks like this example: 
 
-   ![Finished logic app](./media/trigger-logic-app-event-grid/logic-app-completed.png)
+   ![Finished logic app](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-completed.png)
 
 5. Save and run your logic app.
 
-   ![Save and run logic app](./media/trigger-logic-app-event-grid/logic-app-event-grid-save-run.png)
+   ![Save and run logic app](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-event-grid-save-run.png)
 
 ## FAQ
 
