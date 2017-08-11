@@ -32,12 +32,12 @@ Data Lake Tools can be installed on the platforms supported by VS Code. The supp
 - Windows
 
     - [Visual Studio Code]( https://www.visualstudio.com/products/code-vs.aspx).
-    - [Java SE Runtime Environment version 8 update 77 or later](https://java.com/download/manual.jsp). You need to add the java.exe path to the system environment variable path. For configuration instructions, see [How do I set or change the Path system variable?]( https://www.java.com/download/help/path.xml). The path is similar to C:\Program Files\Java\jdk1.8.0_77\jre\bin.
+    - [Java SE Runtime Environment version 8 update 77 or later](https://java.com/download/manual.jsp). Add the java.exe path to the system environment variable path. For configuration instructions, see [How do I set or change the Path system variable?]( https://www.java.com/download/help/path.xml). The path is similar to C:\Program Files\Java\jdk1.8.0_77\jre\bin.
     - [.NET Core SDK 1.0.3 or .NET Core 1.1 runtime](https://www.microsoft.com/net/download).
     
 - Linux (We recommend Ubuntu 14.04 LTS)
 
-    - [Visual Studio Code]( https://www.visualstudio.com/products/code-vs.aspx). Enter the following command to install the code:
+    - [Visual Studio Code]( https://www.visualstudio.com/products/code-vs.aspx). To install the code, enter the following command:
 
               sudo dpkg -i code_<version_number>_amd64.deb
 
@@ -49,12 +49,12 @@ Data Lake Tools can be installed on the platforms supported by VS Code. The supp
                 echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots 4.2.4.4/main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
                 sudo apt-get update
 
-        - Install Mono by running the following command:
+        - To install Mono enter the following command:
 
                 sudo apt-get install mono-complete
 
 		    > [!NOTE] 
-            > Mono 4.6 is not supported. You need to uninstall version 4.6 entirely before installing 4.2.x.  
+            > Mono 4.6 is not supported. Uninstall version 4.6 entirely before installing 4.2.x.  
 
         - [Java SE Runtime Environment version 8 update 77 or later](https://java.com/download/manual.jsp). For instructions on installation, see the [Linux 64-bit installation instructions for Java]( https://java.com/en/download/help/linux_x64_install.xml) page.
         - [.NET Core SDK 1.0.3 or .NET Core 1.1 runtime](https://www.microsoft.com/net/download).
@@ -72,7 +72,7 @@ After you install the prerequisites, you can install Data Lake Tools for VS Code
 **To install Data Lake Tools**
 
 1. Open Visual Studio Code.
-2. Select Ctrl+P, and then enter:
+2. Select Ctrl+P, and then enter the following command:
 ```
 ext install usql-vscode-ext
 ```
@@ -92,7 +92,7 @@ Before you can compile and run U-SQL scripts in Data Lake Analytics, you must co
 
 **To connect to Azure**
 
-1.	Open the command palette by selecting Ctrl+Shift+P. 
+1.	Select Ctrl+Shift+P to open the command palette. 
 2.  Enter **ADL: Login**. The login information shows in the **Output** pane.
 
     ![Data Lake Tools for Visual Studio Code command palette](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
@@ -100,7 +100,7 @@ Before you can compile and run U-SQL scripts in Data Lake Analytics, you must co
 3. Select Ctrl+click on the login URL: https://aka.ms/devicelogin to open the login webpage. Enter the code **G567LX42V** into the text box, and then select **Continue**.
 
    ![Data Lake Tools for Visual Studio Code login paste code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
-4.  Follow the instructions to sign in from the webpage. When connected, your Azure account name displays on the status bar in the lower-left corner of the VS Code window. 
+4.  Follow the instructions to sign in from the webpage. When connected, your Azure account name displays on the status bar in the lower-left corner of the **VS Code** window. 
 
     > [!NOTE] 
     > If your account has two factors enabled, we recommended that you use phone authentication rather than using a PIN.
@@ -117,7 +117,7 @@ To test the connection, get a list of your Data Lake Analytics accounts:
 2. Enter **ADL: List Accounts**. The accounts appear in the **Output** pane.
 
 ## Open the sample script
-Open the command palette (**Ctrl+Shift+P**) and enter **ADL: Open Sample Script**. This opens another instance of this sample. You can also edit, configure, and submit script on this instance.
+Open the command palette (Ctrl+Shift+P) and enter **ADL: Open Sample Script**. This opens another instance of this sample. You can also edit, configure, and submit script on this instance.
 
 ## Work with U-SQL
 
@@ -146,7 +146,7 @@ You need open either a U-SQL file or a folder to work with U-SQL.
     The script creates a departments.csv file with some data included in the /output folder.
 
 5. Save the file as **myUSQL.usql** in the opened folder. A adltools_settings.json configuration file is also added to the project.
-4. Open and configure **adltools_settings.json** with the following properties:
+4. Open and configure adltools_settings.json with the following properties:
 
     - Account:  A Data Lake Analytics account under your Azure subscription.
     - Database: A database under your account. The default is **master**.
@@ -160,34 +160,33 @@ You need open either a U-SQL file or a folder to work with U-SQL.
 
     ![Data Lake Tools for Visual Studio Code configuration file](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-configuration-file.png)
 
-    A compute Data Lake Analytics account is needed for compiling and running U-SQL jobs. You must configure the computer account before you can compile and run U-SQL jobs.
+    A compute Data Lake Analytics account is needed to compile and run U-SQL jobs. You must configure the computer account before you can compile and run U-SQL jobs.
     
 After the configuration is saved, the account, database, and schema information displays on the status bar at the bottom-left corner of the corresponding .usql file. 
  
  
-
 Compared to opening a file, when you open a folder you can:
 
 - Use a code-behind file. In the single-file mode, code-behind is not supported.
 - Use a configuration file. When you open a folder, the scripts in the working folder share a single configuration file.
 
 
-The U-SQL script compiles remotely thorugh the Data Lake Analytics service.  When you issue the **compile** command, the U-SQL script is sent to your Data Lake Analytics account. Later, Visual Studio Code receives the compilation result. Due to the remote compilation, Visual Studio Code requires that you list the information to connect to your Data Lake Analytics account in the configuration file.
+The U-SQL script compiles remotely through the Data Lake Analytics service. When you issue the **compile** command, the U-SQL script is sent to your Data Lake Analytics account. Later, Visual Studio Code receives the compilation result. Due to the remote compilation, Visual Studio Code requires that you list the information to connect to your Data Lake Analytics account in the configuration file.
 
 **To compile a U-SQL script**
 
-1. Open the command palette by selecting Ctrl+Shift+P. 
-2. Enter **ADL: Compile Script**. The compile results show in the Output window. You can also right-click a script file, and then select **ADL: Compile Script** to compile a U-SQL job. The compilation result shows in the **Output** pane.
+1. Select Ctrl+Shift+P to open the command palette. 
+2. Enter **ADL: Compile Script**. The compile results show in the **Output** window. You can also right-click a script file, and then select **ADL: Compile Script** to compile a U-SQL job. The compilation result shows in the **Output** pane.
  
 
 **To submit a U-SQL script**
 
-1. Open the command palette by selecting Ctrl+Shift+P. 
+1. Select Ctrl+Shift+P to open the command palette. 
 2. Enter **ADL: Submit Job**.  You can also right-click a script file, and then select **ADL: Submit Job**. 
 
-After submitting a U-SQL job, the submission logs display in the Output window in VS Code. If the submission is successful, the job URL shows as well. You can open the job URL in a web browser to track the real-time job status.
+After submitting a U-SQL job, the submission logs display in the **Output** window in VS Code. If the submission is successful, the job URL shows as well. You can open the job URL in a web browser to track the real-time job status.
 
-To enable the output of the job details: Set the **jobInformationOutputPath** in the **vscode for u-sql_settings.json** file.
+To enable the output of the job details: Set the **jobInformationOutputPath** in the **vs code for the u-sql_settings.json** file.
  
 ## Use a code-behind file
 
@@ -198,7 +197,7 @@ To support code-behind, you must open a working folder:
 **To generate a code-behind file**
 
 1. Open a source file. 
-2. Open the command palette by selecting Ctrl+Shift+P.
+2. Select Ctrl+Shift+P to open the command palette.
 3. Enter **ADL: Generate Code Behind**. A code-behind file is created in the same folder. 
 
 You can also right-click a script file, and then select **ADL: Generate Code Behind**. 
@@ -219,7 +218,7 @@ You can use Data Lake Tools to register custom code assemblies in the Data Lake 
 
 **To register an assembly**
 
-You can register the assembly through **ADL: Register Assembly** or **ADL: Register Assembly through Configuration**.
+You can register the assembly through the **ADL: Register Assembly** or **ADL: Register Assembly through Configuration** commands:
 
 **To register through the ADL: Register Assembly command**
 1.	Select Ctrl+Shift+P to open the command palette.
@@ -236,7 +235,7 @@ Another convenient way to trigger the **ADL: Register Assembly** command is to r
 1.	Select Ctrl+Shift+P to open the command palette.
 2.	Enter **ADL: Register Assembly through Configuration**. 
 3.	Specify the local assembly path. 
-4.  The JSON file is displayed. Review and edit the assembly dependencies and resource parameters, if needed. Instructions are displayed in the Output window. To proceed to the assembly registration, save (Ctrl+S) the JSON file.
+4.  The JSON file is displayed. Review and edit the assembly dependencies and resource parameters, if needed. Instructions are displayed in the **Output** window. To proceed to the assembly registration, save (Ctrl+S) the JSON file.
 
 ![Data Lake Tools for Visual Studio Code code-behind](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
 >[!NOTE]
@@ -245,7 +244,7 @@ Another convenient way to trigger the **ADL: Register Assembly** command is to r
 
 Another way to trigger the **ADL: Register Assembly through Configuration** command is to right-click the .dll file in File Explorer. 
 
-The following U-SQL code demonstrates how to call an assembly. In the sample, the assembly name is **test**.
+The following U-SQL code demonstrates how to call an assembly. In the sample, the assembly name is *test*.
 
 ```
 REFERENCE ASSEMBLY [test];
@@ -295,25 +294,28 @@ After you have connected to Azure, you can use the following steps to access the
 **To view Data Lake Analytics jobs**
 1.  Open the command palette (Ctrl+Shift+P) and select **ADL: Show Job**. 
 2.	Select a Data Lake Analytics or local account. 
-3.  Wait for the jobs list for the account to be shown.
-4.	Select a job from job list, the ADL Tools open the job details in the Azure portal and displays the JobInfo file in VS Code.
+3.  Wait for the jobs list for the account to show.
+4.	Select a job from job list, Data Lake Tools opens the job details in the Azure portal and displays the JobInfo file in VS Code.
 
 ![Data Lake Tools for Visual Studio Code IntelliSense object types](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-show-job.png)
 
 ## Azure Data Lake Storage integration
 
-You can use Azure Data Lake Storage-related commands to navigate the Azure Data Lake Storage resources, preview the Azure Data Lake Storage file, and upload the file into the Azure Data Lake Storage directly in VS Code. 
+You can use Azure Data Lake Storage-related commands to:
+ - Navigate the Azure Data Lake Storage resources. 
+ - Preview the Azure Data Lake Storage file.  
+ - Upload the file directly to Azure Data Lake Storage in VS Code. 
 
 ### List the storage path 
 You can list the storage path through the command palette or by using right-click:
 
-**To list the storage path through the command pallette**
+**To list the storage path through the command palette**
 
 1.  Open the command palette (Ctrl+Shift+P) and enter **ADL: List Storage Path**.
 
     ![Data Lake Tools for Visual Studio Code list storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-storage.png)
 
-2.  Select your preferred way for listing the storage path. This passage uses **Enter a path** as an example.
+2.  Select your preferred way for listing the storage path. This passage uses Enter a path as an example.
 
     ![Data Lake Tools for Visual Studio Code one way to list the storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account-selectoneway.png)
 
@@ -322,17 +324,17 @@ You can list the storage path through the command palette or by using right-clic
     >- Browser from root path: The list root path from your selected Data Lake Analytics account or a local path.
     >- Enter a path: List a specified path from your selected Data Lake Analytics account or a local path.
     
-3. Select an account from the local path or an Data Lake Analytics account.
+3. Select an account from the local path or a Data Lake Analytics account.
 
     ![Data Lake Tools for Visual Studio Code select more](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
 
-4. Select **more** to list more Data Lake Analytics accounts, and then select an Data Lake Analytics account.
+4. Select **more** to list more Data Lake Analytics accounts, and then select a Data Lake Analytics account.
 
     ![Data Lake Tools for Visual Studio Code select an account](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-select-adla-account.png)
 
-5.  Enter an Azure storage path. For example, **/output**.
+5.  Enter an Azure storage path. For example, /output.
 
-       ![Data Lake Tools for Visual Studio Code input storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-path.png)
+       ![Data Lake Tools for Visual Studio Code enter storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-path.png)
 
 6.  Results: The command palette lists the path information based on your entries.
 
@@ -340,7 +342,7 @@ You can list the storage path through the command palette or by using right-clic
 
 A more convenient way to list the relative path is through the right-click context menu:
 
-**To list the storage path by using right-click**
+**To list the storage path through right-click**
 
 1.  Right-click the path string to select **List Storage Path**.
 
@@ -350,7 +352,7 @@ A more convenient way to list the relative path is through the right-click conte
 
    ![Data Lake Tools for Visual Studio Code selected relative path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-relative-path.png)
 
-3.  Select an account from the local path or an Data Lake Analytics account.
+3.  Select an account from the local path or a Data Lake Analytics account.
 
        ![Data Lake Tools for Visual Studio Code select an account](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
 
@@ -359,25 +361,25 @@ A more convenient way to list the relative path is through the right-click conte
        ![Data Lake Tools for Visual Studio Code list from the current path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-current.png)
 
 ### Preview the storage file
-You can you can preview the storage file through the command palette or by using right-click:
+You can preview the storage file through the command palette or by using right-click:
 
-**To preview the storage file through the command pallette**
+**To preview the storage file through the command palette**
 
-1.  Open the command palette (**Ctrl+Shift+P**) and enter **ADL: Preview Storage File**.
+1.  Open the command palette (Ctrl+Shift+P) and enter **ADL: Preview Storage File**.
 
        ![Data Lake Tools for Visual Studio Code preview storage file](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-preview.png)
 
-2.  Select an account from the local path or an Data Lake Analytics account.
+2.  Select an account from the local path or a Data Lake Analytics account.
 
        ![Data Lake Tools for Visual Studio Code list account](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
 
-3.  select **more** to list more Data Lake Analytics accounts, and then select an Data Lake Analytics account.
+3.  Select **more** to list more Data Lake Analytics accounts, and then select a Data Lake Analytics account.
 
        ![Data Lake Tools for Visual Studio Code select an account](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-select-adla-account.png)
 
-4.  Enter an Azure storage path or file. For example, **/output/SearchLog.txt**.
+4.  Enter an Azure storage path or file. For example, /output/SearchLog.txt.
 
-       ![Data Lake Tools for Visual Studio Code input storage path and file](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-preview-file.png)
+       ![Data Lake Tools for Visual Studio Code enter storage path and file](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-preview-file.png)
 
 5.  Results: The command palette lists the path information based on your entries.
 
@@ -385,11 +387,11 @@ You can you can preview the storage file through the command palette or by using
 
 **To list the storage path by using right-click**
 
-1.  To preview a file, right-click a file path.
+1.  To preview a file, right-click the file path.
 
    ![Data Lake Tools for Visual Studio Code right-click context menu](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-preview.png) 
 
-2.  Select an account from the local path or an Data Lake Analytics account.
+2.  Select an account from the local path or a Data Lake Analytics account.
 
        ![Data Lake Tools for Visual Studio Code select an account](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
 
@@ -399,15 +401,15 @@ You can you can preview the storage file through the command palette or by using
 
 ### Upload a file 
 
-You can upload files by entering the commands: **ADL: Upload File** or **ADL: Upload File through Configuration**:
+You can upload files by entering the commands **ADL: Upload File** or **ADL: Upload File through Configuration**:
 
 **To upload files though the ADL: Upload File command**
 1. Select Ctrl+Shift+P to open the command palette or right-click the script editor, and then enter **Upload File**.
-2. Input a local path for to upload the file.
+2. Enter a local path to upload the file.
 
-    ![Data Lake Tools for Visual Studio Code input local path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-input-local-path.png)
+    ![Data Lake Tools for Visual Studio Code enter local path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-input-local-path.png)
 
-3. Select one of the ways of listing the storage path. This passage uses **Enter a path** as an example.
+3. Select one of the ways of listing the storage path. This passage uses Enter a path as an example.
 
     ![Data Lake Tools for Visual Studio Code list storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account-selectoneway.png)
     >[!NOTE]
@@ -415,53 +417,58 @@ You can upload files by entering the commands: **ADL: Upload File** or **ADL: Up
     >- Browser from root path: The list root path from your selected Data Lake Analytics account or a local path.
     >- Enter a path: List a specified path from your selected Data Lake Analytics account or a local path.
 
-4. Select an account from the local path or an Data Lake Analytics account.
+4. Select an account from the local path or a Data Lake Analytics account.
 
     ![Data Lake Tools for Visual Studio Code right-click storage](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
 
-5. Enter an Azure storage path. For example: **/output/**
+5. Enter an Azure storage path. For example: /output.
 
-       ![Data Lake Tools for Visual Studio Code input storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-preview-file.png)
+       ![Data Lake Tools for Visual Studio Code enter storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-preview-file.png)
 
-6. List your input the Azure storage path. Select **Choose current folder**.
+6. Find your Azure storage path. Select **Choose current folder**.
 
     ![Data Lake Tools for Visual Studio Code select a folder](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-choose-current-folder.png)
 
-7.  Results: The Output window displays the file upload status.
+7.  Results: The **Output** window displays the file upload status.
 
        ![Data Lake Tools for Visual Studio Code upload status](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)    
 
 **To upload files though the ADL: Upload File through Configuration command**
 1.  Select Ctrl+Shift+P to open the command palette or right-click the script editor, and then enter **Upload File through Configuration**.
-2.  VS Code displays a JSON file. You can enter file paths and upload multiple files at the same time. Instructions are displayed in the Output window. To proceed to upload the file, save (Ctrl+S) the JSON file.
+2.  VS Code displays a JSON file. You can enter file paths and upload multiple files at the same time. Instructions are displayed in the **Output** window. To proceed to upload the file, save (Ctrl+S) the JSON file.
 
-       ![Data Lake Tools for Visual Studio Code input file](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-file.png)
+       ![Data Lake Tools for Visual Studio Code file path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-file.png)
 
-3.  Results: The Output window displays the file upload status.
+3.  Results: The **Output** window displays the file upload status.
 
        ![Data Lake Tools for Visual Studio Code upload status](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)     
 
-Another way to upload file to storage is through the right-click menu on the file's full path or the file's relative path in the script editor. Input the local file path and choose the account. The Output window displays the uploading status. 
+Another way to upload a file to storage is through the right-click menu on the file's full path or the file's relative path in the script editor. Enter the local file path, and then choose the account. The **Output** window displays the uploading status. 
 
 ### Open Azure Storage Explorer
-You can open **Azure Storage Explorer** by entering the command: **ADL: Open Web Azure Storage Explorer** or by selecting it from the right-click context menu:
+You can open **Azure Storage Explorer** by entering the command **ADL: Open Web Azure Storage Explorer** or by selecting it from the right-click context menu:
 
 **To open Azure Storage Explorer**
 
 1. Select Ctrl+Shift+P to open the command palette.
-2. Enter **Open Web Azure Storage Explorer** or right-click on a relative path or the full path in the script editor to choose **Open Web Azure Storage Explorer**.
+2. Enter **Open Web Azure Storage Explorer** or right-click on a relative path or the full path in the script editor, and then choose **Open Web Azure Storage Explorer**.
 3. Select a Data Lake Analytics account.
 
-The ADL Tools open the Azure storage path in the Azure portal. You can find the path and preview the file from the web.
+The Data Lake Tools open the Azure storage path in the Azure portal. You can find the path and preview the file from the web.
 
 ### Local run and local debug for Windows users
-U-SQL local run has been implemented to test your local data and validate your script locally, before publishing your code to Data Lake Analytics. The local debug feature enables you to debug your C# code-behind, step through the code, and validate your script locally before submitting it to Data Lake Analytics. For instructions, see: [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
+U-SQL local run tests your local data and validates your script locally, before your code is published to Data Lake Analytics. The local debug feature enables you to do the following before your code is submitted to Data Lake Analytics: 
+- Debug your C# code-behind. 
+- Step through the code. 
+- Validate your script locally.
+
+ For instructions on local run and local debug, see [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
 
 ## Additional features
 
 The Data Lake Tools for VS Code supports the following features:
 
--	IntelliSense auto-complete: Suggestions are popped up around keyword, method, variables, and so forth. Different icons represent different types of the objects:
+-	IntelliSense auto-complete: Suggestions appear in pop-up windows around items, such as keywords, methods, and variables. Different icons represent different types of the objects:
 
     - Scala data type
     - Complex data type
@@ -479,7 +486,7 @@ The Data Lake Tools for VS Code supports the following features:
     ![Data Lake Tools for Visual Studio Code IntelliSense metadata](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-metastore.png)
 
 -	IntelliSense error marker: Data Lake Tools underline the editing errors for U-SQL and C#. 
--	Syntax highlights: Data Lake Tools use different colors to differentiate variables, keywords, data type, functions, and so forth. 
+-	Syntax highlights: Data Lake Tools use different colors to differentiate items, such as variables, keywords, data type, and functions. 
 
     ![Data Lake Tools for Visual Studio Code syntax highlights](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
