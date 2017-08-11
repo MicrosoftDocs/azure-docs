@@ -105,7 +105,7 @@ After WiFi is configured, your credentials will be persisted on the device for t
 
 Now it's time to set up the development environment: tools and packages for you to build stunning IoT applications.
 
-# Windows(#tab/windows)
+# [Windows](#tab/windows)
 
 ### Download latest package
 
@@ -144,7 +144,7 @@ The VS Code for Arduino extension relies on the Arduino IDE. If this is the firs
 
 It should take around 10 minutes to finish installation depending on your Internet speed. Once installation is complete, you should see Visual Studio Code and Arduino IDE shortcuts on your desktop.
 
-# macOS(#tab/macos)
+# [macOS](#tab/macos)
 
 ### Install Azure CLI 2.0
 
