@@ -30,14 +30,10 @@ Microsoft Azure Stack supports the following Azure marketplace items:
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Express on Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016?tab=Overview) | Express version of SQL Server 2016 SP1 | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Enterprise on Windows Server 2016 ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Database platform for intelligent, mission-critical applications. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.activemq?tab=Overview) | Open Source message broker in Java. | Bitnami |
-
 | ![](media/azure-stack-marketplace-azure-items/akeneo.png) | [Akeneo](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.akeneo?tab=Overview) | Powerful PIM designed to simplify management processes. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/alfrescocommunity.png) | [Alfresco Community](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.alfrescocommunity?tab=Overview) | ECM system for easy document management. | Bitnami |
-
-
 | ![](media/azure-stack-marketplace-azure-items/apachesolr.png) | [Apache Solr](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.apachesolr?tab=Overview) | Reliable Open Source enterprise search platform. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/canvaslms.png) | [Canvas LMS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.canvaslms?tab=Overview) | Open Source learning management system. | Bitnami |
-
 | ![](media/azure-stack-marketplace-azure-items/cassandra.png) | [Cassandra](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.cassandra?tab=Overview) | Scalable Open Source database with high availability. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/civicrm.png) | [CiviCRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.civicrm?tab=Overview) | Simple web-based relationship management system. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/cmsmadesimple.png) | [CMS Made Simple](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.cmsmadesimple?tab=Overview) | Fast and easy way to create and manage a website. | Bitnami |
@@ -96,9 +92,6 @@ Microsoft Azure Stack supports the following Azure marketplace items:
 | ![](media/azure-stack-marketplace-azure-items/openproject.png) | [OpenProject](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.openproject?tab=Overview) | Popular open source project management software. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/orangehrm.png) | [OrangeHRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.orangehrm?tab=Overview) | HR management system with a wealth of modules. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/orocrm.png) | [OroCRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.orocrm?tab=Overview) | Flexible open source CRM application. | Bitnami |
-
-
-
 | ![](media/azure-stack-marketplace-azure-items/owncloud.png) | [ownCloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.owncloud?tab=Overview) | Popular open source file sync and share solution. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/piwik.png) | [Piwik](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.piwik?tab=Overview) | Real-time web analytics software program. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.rabbitmq?tab=Overview) | Efficient messaging broker offering a common platform. | Bitnami |
