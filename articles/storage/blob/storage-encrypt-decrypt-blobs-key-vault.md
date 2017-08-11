@@ -25,7 +25,7 @@ This tutorial covers how to make use of client-side storage encryption with Azur
 
 For overview information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-whatis.md).
 
-For overview information about client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../storage-client-side-encryption.md).
+For overview information about client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../common/storage-client-side-encryption.md).
 
 ## Prerequisites
 To complete this tutorial, you must have the following:
@@ -35,7 +35,7 @@ To complete this tutorial, you must have the following:
 * Azure PowerShell
 
 ## Overview of client-side encryption
-For an overview of client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../storage-client-side-encryption.md)
+For an overview of client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../common/storage-client-side-encryption.md)
 
 Here is a brief description of how client side encryption works:
 

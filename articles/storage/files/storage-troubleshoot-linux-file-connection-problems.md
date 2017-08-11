@@ -34,7 +34,7 @@ You have reached the upper limit of concurrent open handles that are allowed for
 
 ### Solution
 
-Reduce the number of concurrent open handles by closing some handles, and then retry the operation. For more information, see [Microsoft Azure Storage performance and scalability checklist](../storage-performance-checklist.md).
+Reduce the number of concurrent open handles by closing some handles, and then retry the operation. For more information, see [Microsoft Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md).
 
 <a id="slowfilecopying"></a>
 ## Slow file copying to and from Azure File storage in Linux
@@ -42,7 +42,7 @@ Reduce the number of concurrent open handles by closing some handles, and then r
 -	If you don’t have a specific minimum I/O size requirement, we recommend that you use 1 MB as the I/O size for optimal performance.
 -	If you know the final size of a file that you are extending by using writes, and your software doesn’t experience compatibility problems when an unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
 -	Use the right copy method:
-    -	Use [AzCopy](../storage-use-azcopy.md#file-copy) for any transfer between two file shares.
+    -	Use [AzCopy](../common/storage-use-azcopy.md#file-copy) for any transfer between two file shares.
     -	Use [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) between file shares on an on-premises computer.
 
 <a id="error112"></a>

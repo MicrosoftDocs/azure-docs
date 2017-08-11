@@ -23,7 +23,7 @@ You can create Azure File shares using [Azure portal](https://portal.azure.com/
 * [How to create an Azure File share using CLI](#create-file-share-using-command-line-interface-cli)
 
 ## Prerequisites
-To create an Azure File share, you can use a storage account that already exists, or [create a new Azure storage account](../storage-create-storage-account.md). To create an Azure File share with PowerShell, you will need the account key and name of your storage account.. You will need Storage account key if you plan to use Powershell or CLI.
+To create an Azure File share, you can use a storage account that already exists, or [create a new Azure storage account](../common/storage-create-storage-account.md). To create an Azure File share with PowerShell, you will need the account key and name of your storage account.. You will need Storage account key if you plan to use Powershell or CLI.
 
 ## Create file share through the Portal
 1. **Go to Storage Account blade on Azure Portal**:    
@@ -52,7 +52,7 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
 > It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
 
 1. **Create a context for your storage account and key**
-    The context encapsulates the storage account name and account key. For instructions on copying your account key from the [Azure portal](https://portal.azure.com/), see [View and copy storage access keys](../storage-create-storage-account.md#view-and-copy-storage-access-keys).
+    The context encapsulates the storage account name and account key. For instructions on copying your account key from the [Azure portal](https://portal.azure.com/), see [View and copy storage access keys](../common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
     ```powershell
     $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>

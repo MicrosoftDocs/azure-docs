@@ -16,7 +16,7 @@ Snapshots can be copied to another storage account as a blob to keep backups of 
 > 
 
 ### Back up disks using snapshots
-As a backup strategy for your virtual machine disks, you can take periodic snapshots of the disk or page blob, and copy them to another storage account using tools like [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) operation or [AzCopy](../articles/storage/storage-use-azcopy.md). You can copy a snapshot to a destination page blob with a different name. The resulting destination page blob is a writeable page blob and not a snapshot. Later in this article we will describe steps to take backups of virtual machine disks using snapshots.
+As a backup strategy for your virtual machine disks, you can take periodic snapshots of the disk or page blob, and copy them to another storage account using tools like [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) operation or [AzCopy](../articles/storage/common/storage-use-azcopy.md). You can copy a snapshot to a destination page blob with a different name. The resulting destination page blob is a writeable page blob and not a snapshot. Later in this article we will describe steps to take backups of virtual machine disks using snapshots.
 
 ### Restore disks using snapshots
 When it is time to restore your disk to a previous stable version captured in one of the backup snapshots, you can copy a snapshot over the base page blob. After the snapshot is promoted to the base page blob, the snapshot remains, but its source is overwritten with a copy that can be both read and written. Later in this article we will describe steps to restore a previous version of your disk from its snapshot.

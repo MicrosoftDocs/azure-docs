@@ -30,7 +30,7 @@ To manage such applications successfully you should monitor them proactively and
 > 
 > 
 
-For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](storage-e2e-troubleshooting.md).
+For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](common/storage-e2e-troubleshooting.md).
 
 * [Introduction]
   * [How this guide is organized]
@@ -399,7 +399,7 @@ If you are seeing high **AverageServerLatency** for blob download requests when 
 High **AverageServerLatency** values can also be a symptom of poorly designed tables or queries that result in scan operations or that follow the append/prepend anti-pattern. See "[Metrics show an increase in PercentThrottlingError]" for more information.
 
 > [!NOTE]
-> You can find a comprehensive checklist performance checklist here: [Microsoft Azure Storage Performance and Scalability Checklist](storage-performance-checklist.md).
+> You can find a comprehensive checklist performance checklist here: [Microsoft Azure Storage Performance and Scalability Checklist](common/storage-performance-checklist.md).
 > 
 > 
 

@@ -250,7 +250,7 @@ To resolve this issue, stop your running job and go to your Power BI output.  Cl
   ![Power BI renew authorization](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## Table Storage
-[Azure Table storage](../storage/storage-introduction.md)  offers highly available, massively scalable storage, so that an application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL key/attribute store which one can leverage for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
+[Azure Table storage](../storage/common/storage-introduction.md)  offers highly available, massively scalable storage, so that an application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL key/attribute store which one can leverage for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
 
 The table below lists the property names and their description for creating a table output.
 

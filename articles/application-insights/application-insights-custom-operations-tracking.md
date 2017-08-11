@@ -217,7 +217,7 @@ module.Initialize(TelemetryConfiguration.Active);
 // Do not forget to dispose of the module during application shutdown.
 ```
 
-You also might want to correlate the Application Insights operation ID with the Storage request ID. For information on how to set and get a Storage request client and a server request ID, see [Monitor, diagnose, and troubleshoot Azure Storage](../storage/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
+You also might want to correlate the Application Insights operation ID with the Storage request ID. For information on how to set and get a Storage request client and a server request ID, see [Monitor, diagnose, and troubleshoot Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
 #### Enqueue
 Because Storage queues support the HTTP API, all operations with the queue are automatically tracked by Application Insights. In many cases, this instrumentation should be enough. However, to correlate traces on the consumer side with producer traces, you must pass some correlation context similarly to how we do it in the HTTP Protocol for Correlation. 

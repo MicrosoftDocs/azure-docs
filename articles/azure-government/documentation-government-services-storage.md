@@ -41,15 +41,15 @@ To view the current secondary region of your storage account through the Azure P
 
 | Service | USGov Virginia | USGov Iowa | Notes
 | --- | --- | --- | --- |
-| [Blob Storage] (../storage/storage-introduction.md#blob-storage) |GA |GA |
-| [Table Storage] (../storage/storage-introduction.md#table-storage) |GA  |GA |
-| [Queue Storage] (../storage/storage-introduction.md#queue-storage) |GA | GA |
-| [File Storage] (../storage/storage-introduction.md#file-storage) |GA |GA |
-| [Hot/Cool Blob Storage] (../storage/storage-blob-storage-tiers.md) |NA |NA |
-| [Storage Service Encryption] (../storage/storage-service-encryption.md) |GA |GA |
-| [Premium Storage] (../storage/storage-premium-storage.md) |GA |NA | Includes DS-series Virtual Machines. |
-| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA |
-| [StorSimple] (../storsimple/storsimple-ova-overview.md) |GA |GA |
+| [Blob Storage](../storage/common/storage-introduction.md#blob-storage) |GA |GA |
+| [Table Storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |
+| [Queue Storage](../storage/common/storage-introduction.md#queue-storage) |GA | GA |
+| [File Storage](../storage/common/storage-introduction.md#file-storage) |GA |GA |
+| [Hot/Cool Blob Storage](../storage/storage-blob-storage-tiers.md) |NA |NA |
+| [Storage Service Encryption](../storage/common/storage-service-encryption.md) |GA |GA |
+| [Premium Storage](../storage/storage-premium-storage.md) |GA |NA | Includes DS-series Virtual Machines. |
+| [Blob Import/Export](../storage/storage-import-export-service.md) |GA |GA |
+| [StorSimple](../storsimple/storsimple-ova-overview.md) |GA |GA |
 
 > [!NOTE]
 > Zone Redundant Storage (ZRS) is not available in US Gov Virginia and US Gov Iowa.
@@ -67,7 +67,7 @@ The URLs for storage accounts in Azure Government are different:
 | File Storage |*.file.core.windows.net |*.file.core.usgovcloudapi.net | 
 
 > [!NOTE]
-> All your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage/storage-configure-connection-string.md). 
+> All your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage/common/storage-configure-connection-string.md). 
 >
 >
 

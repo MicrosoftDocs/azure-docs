@@ -55,7 +55,7 @@ Here are some basic guidelines for selecting a VM size from one of our series (A
 
 Note: DS-series and GS-series VMs have access to Premium Storage - our SSD backed high-performance, low-latency storage for I/O intensive workloads. Premium Storage is available in certain regions. For details, see:
 
-* [Premium Storage: High-performance storage for Azure virtual machine workloads](../../storage/storage-premium-storage.md)
+* [Premium Storage: High-performance storage for Azure virtual machine workloads](../../storage/common/storage-premium-storage.md)
 
 ## Automation
 To achieve a proper DevOps culture, all infrastructure must be code.  When all the infrastructure lives in code it can easily be recreated (Phoenix Servers).  Azure works with all the major automation tooling like Ansible, Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
@@ -117,7 +117,7 @@ The VM is now running on Azure and you are ready to log in.  Using passwords to 
 
 ## Related Azure components
 ## Storage
-* [Introduction to Microsoft Azure Storage](../../storage/storage-introduction.md)
+* [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 * [Add a disk to a Linux VM using the azure-cli](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [How to attach a data disk to a Linux VM in the Azure portal](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

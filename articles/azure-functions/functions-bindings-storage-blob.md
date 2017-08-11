@@ -28,7 +28,7 @@ Azure Functions supports trigger, input, and output bindings for Azure Blob stor
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> A [blob only storage account](../storage/storage-create-storage-account.md#blob-storage-accounts) is not supported. Blob storage triggers and bindings require a general-purpose storage account. 
+> A [blob only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts) is not supported. Blob storage triggers and bindings require a general-purpose storage account. 
 > 
 
 <a name="trigger"></a>

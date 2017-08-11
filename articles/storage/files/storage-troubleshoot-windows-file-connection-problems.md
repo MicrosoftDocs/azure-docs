@@ -87,7 +87,7 @@ Error 1816 happens when you reach the upper limit of concurrent open handles tha
 
 ### Solution
 
-Reduce the number of concurrent open handles by closing some handles, and then retry. For more information, see [Microsoft Azure Storage performance and scalability checklist](../storage-performance-checklist.md).
+Reduce the number of concurrent open handles by closing some handles, and then retry. For more information, see [Microsoft Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md).
 
 <a id="slowfilecopying"></a>
 ## Slow file copying to and from Azure File storage in Windows
@@ -97,7 +97,7 @@ You might see slow performance when you try to transfer files to the Azure File 
 - If you don’t have a specific minimum I/O size requirement, we recommend that you use 1 MB as the I/O size for optimal performance.
 -	If you know the final size of a file that you are extending with writes, and your software doesn’t have compatibility problems when the unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
 -	Use the right copy method:
-    -	Use [AzCopy](../storage-use-azcopy.md#file-copy) for any transfer between two file shares.
+    -	Use [AzCopy](../common/storage-use-azcopy.md#file-copy) for any transfer between two file shares.
     -	Use [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) between file shares on an on-premises computer.
 
 ### Considerations for Windows 8.1 or Windows Server 2012 R2
