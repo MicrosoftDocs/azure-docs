@@ -123,13 +123,26 @@ There are a number of applications you can use to connect to your Azure Database
     --username | *server admin login name* |Type in the  server admin login username supplied when you created the Azure Database for PostgreSQL earlier. Follow the previous section to get the connection information if you do not remember the username.  The format is *username@servername*.
     --dbname | **postgres** | Use the default system generated database name *postgres* for the first connection. Later you create your own database.
 
-    After running the psql command, with your own parameter values, you will be prompted to type the server admin password. This password is the same that you provided when you created the server. 
+    After running the psql command, with your own parameter values, you are prompted to type the server admin password. This password is the same that you provided when you created the server. 
 
     psql parameter |Suggested value|Description
     ---|---|---
-    password | *your admin password* | Note, the typed password characters will not be shown on the bash prompt. Press enter after you have typed all the characters to authenticate and connect.
+    password | *your admin password* | Note, the typed password characters are not shown on the bash prompt. Press enter after you have typed all the characters to authenticate and connect.
 
-4.  Once you're connected to the server, create a blank database at the prompt by typing the following command:
+
+   Once connected, the psql utility displays a `postgres=\>` prompt for you to type commands. In the initial connection output, a warning may be displayed since the psql in the Cloud Shell may be a different version than the Azure Database for PostgreSQL server version. Example psql output:
+
+    ```bash
+    psql (9.5.7, server 9.6.2)
+    WARNING: psql major version 9.5, server major version 9.6.
+        Some psql features might not work.
+    SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-SHA384, bits: 256, compression: off)
+    Type "help" for help.
+   
+    postgres=\> 
+    ```
+
+4.  Create a blank database at the prompt by typing the following command:
     ```bash
     CREATE DATABASE mypgsqldb;
     ```
@@ -175,19 +188,20 @@ To connect to Azure PostgreSQL server using the GUI tool _pgAdmin_
 
 
 ## Clean up resources
-Clean up all resources you created in the quickstart by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+Clean up the resources you created in the quickstart either by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group, or by deleting the one server resource if you want to keep the other resources intact.
 
 > [!TIP]
-> Other quickstarts in this collection build upon this quick start. If you plan to continue on to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
+> Other quickstarts in this collection build upon this quick start. If you plan to continue on to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete resources created by this quickstart in the Azure portal.
 
-1.	From the left-hand menu in the Azure portal, click **Resource groups** and then click **myresourcegroup**.
-2.	On your resource group page, click **Delete**, type **myresourcegroup** in the text box, and then click Delete.
+To delete the entire resource group including the newly created server:
+1.	Locate your resource group in the Azure portal. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of your resource group, such as our example **myresourcegroup**.
+2.	On your resource group page, click **Delete**. Then type the name of your resource group, such as our example **myresourcegroup**, in the text box to confirm deletion, and then click Delete.
 
-If you just would like to delete the newly created server:
-1.	From the left-hand menu in Azure portal, click PostgreSQL servers and then search for the server you just created
-2.	On the Overview page, click the Delete button on the top pane
+Or instead, to delete the newly created server:
+1.	Locate your server in the Azure portal, if you do not have it open. From the left-hand menu in Azure portal, click all resources, and then search for the server you just created.
+2.	On the Overview page, click the Delete button on the top pane.
 ![Azure Database for PostgreSQL - Delete server](./media/quickstart-create-database-portal/12-delete.png)
-3.	Confirm the server name you want to delete, and show the databases under it that is affected. Type **mypgserver-20170401** in the text box, and then click Delete.
+3.	Confirm the server name you want to delete, and show the databases under it that is affected. Type your server name in the text box, such as our example **mypgserver-20170401**, and then click Delete.
 
 ## Next steps
 > [!div class="nextstepaction"]
