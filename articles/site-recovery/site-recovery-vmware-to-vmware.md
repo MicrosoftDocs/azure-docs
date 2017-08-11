@@ -20,7 +20,7 @@ ms.author: nisoneji
 # Replicate on-premises VMware virtual machines or physical servers to a secondary site in the classic Azure portal
 
 ## Overview
-InMage Scout in Azure Site Recovery provides real-time replication between on-premises VMware sites. InMage Scout is included in Azure Site Recovery service subscriptions.
+InMage Scout in Azure Site Recovery provides real-time replication between on-premises VMware sites. InMage Scout is included in Azure Site Recovery service subscriptions. 
 
 ## Prerequisites
 **Azure account**: You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing.
