@@ -39,8 +39,8 @@ When starting the application, the runtime reads the certificates and generates 
 The container service or process is responsible for importing the PFX file into the container. To import the certificate, you can use `setupentrypoint.sh` scripts or executed custom code within the container process. Sample code in C# for importing the PFX file follows:
 
 ```c#
-    string certificatePFXPath = Environment.GetEnvironmentVariable("Certificate_NodeContainerService.Code_MyCert1_PFX");
-    string passwordPath = Environment.GetEnvironmentVariable("Certificate_NodeContainerService.Code_MyCert1_Password");
+    string certificateFilePath = Environment.GetEnvironmentVariable("Certificate_NodeContainerService.Code_MyCert1_PFX");
+    string passwordFilePath = Environment.GetEnvironmentVariable("Certificate_NodeContainerService.Code_MyCert1_Password");
     X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
     string password = File.ReadAllLines(passwordFilePath, Encoding.Default)[0];
     password = password.Replace("\0", string.Empty);
@@ -65,5 +65,5 @@ To set up gMSA (group Managed Service Accounts), a credential specification file
 ```
 ## Next steps
 
-[Deploy a Windows container to Service Fabric on Windows Server 2016](service-get-started-containers.md)
+[Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-get-started-containers.md)
 [Deploy a Docker container to Service Fabric on Linux](service-fabric-get-started-containers-linux.md)
