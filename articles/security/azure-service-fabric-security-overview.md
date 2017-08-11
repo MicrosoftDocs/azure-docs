@@ -19,7 +19,7 @@ ms.author: tomsh
 
 ---
 # Azure Service Fabric security overview
-[Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable micro-services. Service Fabric also addresses the significant challenges in developing and managing cloud applications. Developers and administrators can avoid complex infrastructure problems and focus on implementing mission-critical, demanding workloads that are scalable, reliable, and manageable.
+[Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable micro-services. Service Fabric addresses the significant challenges in developing and managing cloud applications. Developers and administrators can avoid complex infrastructure problems and focus on implementing mission-critical, demanding workloads that are scalable, reliable, and manageable.
 
 This Azure Service Fabric Security Overview article focuses on the following areas:
 
