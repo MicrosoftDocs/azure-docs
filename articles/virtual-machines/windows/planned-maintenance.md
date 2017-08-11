@@ -28,7 +28,7 @@ Azure periodically performs updates to improve the reliability, performance, and
 
 This page describes how Microsoft Azure performs both types of maintenance. For more information about unplanned events (outages), see [Manage the availability of virtual machines](manage-availability.md).
 
-Applications running in a virtual machine can gather information about upcoming updates by calling the [Scheduled Events](../virtual-machines-scheduled-events.md) API of the [Azure Metadata Service](../virtual-machines-instancemetadataservice-overview.md).
+Applications running in a virtual machine can gather information about upcoming updates by using the [Azure Metadata Service](instance-metadata-service.md).
 
 ## In-place VM migration
 
@@ -67,12 +67,12 @@ Within an availability set, individual VMs are spread across up to 20 update dom
 
 Virtual machine scale sets are an Azure compute resource that enables you to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across update domains, like VMs in an availability set. Just like with availability sets, with scale sets only a single update domain is impacted at any given time.
 
-For more information about configuring your virtual machines for high availability, see [Manage the availability of your Windows virtual machines](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information about configuring your virtual machines for high availability, see [Manage the availability of your Windows virtual machines](manage-availability.md).
 
 ## Next steps
 
-The Azure Metadata Service enables you to discover information about your Virtual Machine hosted in Azure. Scheduled Events, one of the exposed categories, surfaces information regarding upcoming events (for example, reboot) so your application can prepare for them and limit disruption.
+The [Azure Metadata Service](instance-metadata-service.md) enables you to discover information about your Virtual Machine hosted in Azure. 
 
-For more information about scheduled events, refer to [Azure Metadata Service - Scheduled Events](../virtual-machines-scheduled-events.md).
+
 
 
