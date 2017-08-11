@@ -261,9 +261,12 @@ Make sure that the following settings are configured correctly for remote deskto
     ```
     Make sure that the report shows a clean and healthy disk.
 
-2. Set the Boot Configuration Data (BCD) settings. Run these commands on an elevated CMD window:
+2. Set the Boot Configuration Data (BCD) settings. 
+
+    > [!Note]
+    > Make sure you run these commands on an elevated CMD window and **NOT** on PowerShell:
    
-   ```PowerShell
+   ```CMD
    bcdedit /set {bootmgr} integrityservices enable
    
    bcdedit /set {default} device partition=C:
