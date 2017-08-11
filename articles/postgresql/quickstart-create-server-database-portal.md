@@ -131,7 +131,6 @@ There are a number of applications you can use to connect to your Azure Database
 
 
    Once connected, the psql utility displays a `postgres=\>` prompt for you to type commands. In the initial connection output, a warning may be displayed since the psql in the Cloud Shell may be a different version than the Azure Database for PostgreSQL server version. Example psql output:
-
     ```bash
     psql (9.5.7, server 9.6.2)
     WARNING: psql major version 9.5, server major version 9.6.
@@ -189,7 +188,7 @@ To connect to Azure PostgreSQL server using the GUI tool _pgAdmin_
 9.	Type a database name of your choice in the **Database** field, such as *mypgsqldb* shown in the example. 
 10. Select the **Owner** for the database from the drop down box. Choose your server admin login name, such as our example *mylogin*.
 10. Click **Save** to create a new blank database.
-11. In the **Browser** pane, expand your server name node. See the database you created in the list.
+11. In the **Browser** pane, see the database you created in the list of Databases under your server name.
  ![pgAdmin - Create - Database](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 
