@@ -4,7 +4,7 @@ description: Get guidance choosing a cloud analytics platform by using an Apache
 keywords: analytics platform, analytics platforms, cloud analytics platform, storm comparison
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/27/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Choosing a streaming analytics platform: comparing Apache Storm and Azure Stream Analytics
