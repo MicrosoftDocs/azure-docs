@@ -3,44 +3,48 @@
   - name: Introduction
     href: storage-blobs-introduction.md
   - name: Choose Blobs, Files, or Data Disks
-    href: ../storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Get Started
   items:
   - name: Create a storage account
-    href: ../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Develop with blobs
     items:
     - name: .NET
-      href: ../storage-dotnet-how-to-use-blobs.md
+      href: storage-dotnet-how-to-use-blobs.md
     - name: Java
-      href: ../storage-java-how-to-use-blob-storage.md
+      href: storage-java-how-to-use-blob-storage.md
     - name: Node.js
-      href: ../storage-nodejs-how-to-use-blob-storage.md
+      href: storage-nodejs-how-to-use-blob-storage.md
     - name: C++
-      href: ../storage-c-plus-plus-how-to-use-blobs.md
+      href: storage-c-plus-plus-how-to-use-blobs.md
     - name: PHP
-      href: ../storage-php-how-to-use-blobs.md
+      href: storage-php-how-to-use-blobs.md
     - name: Python
-      href: ../storage-python-how-to-use-blob-storage.md
+      href: storage-python-how-to-use-blob-storage.md
     - name: Ruby
-      href: ../storage-ruby-how-to-use-blob-storage.md
+      href: storage-ruby-how-to-use-blob-storage.md
     - name: iOS
-      href: ../storage-ios-how-to-use-blob-storage.md
+      href: storage-ios-how-to-use-blob-storage.md
     - name: Xamarin
-      href: ../storage-xamarin-blob-storage.md
+      href: storage-xamarin-blob-storage.md
 
 - name: How To
   items:
   - name: Searching Blob storage with Azure Search
     href: ../../search/search-blob-storage-integration.md
   - name: Hot and cool tiers
-    href: ../storage-blob-storage-tiers.md
+    href: storage-blob-storage-tiers.md
+  - name: Encrypt and decrypt blobs using Azure Key Vault
+    href: storage-encrypt-decrypt-blobs-key-vault.md
+  - name: Set and retrieve properties and metadata
+    href: storage-properties-metadata.md
   - name: Custom domains
-    href: ../storage-custom-domain-name.md
+    href: storage-custom-domain-name.md
   - name: Using the Azure CDN to access blobs with custom domains over HTTPs
-    href: ../storage-https-custom-domain-cdn.md
+    href: storage-https-custom-domain-cdn.md
   - name: Anonymous access to blobs
-    href: ../storage-manage-access-to-resources.md
+    href: storage-manage-access-to-resources.md
   - name: Samples
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=blob
 
