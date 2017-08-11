@@ -4,7 +4,7 @@ description: A Node.js tutorial that creates a Cosmos DB with the DocumentDB API
 keywords: node.js tutorial, node database
 services: cosmos-db
 documentationcenter: node.js
-author: AndrewHoh
+author: mimig1
 manager: jhubbard
 editor: monicar
 
@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: anhoh
+ms.date: 08/11/2017
+ms.author: mimig
 
 ---
 # Node.js tutorial: DocumentDB Node.js console application
@@ -363,7 +363,7 @@ In your terminal, locate your ```app.js``` file and run the command: ```node app
 
 Congratulations! You have successfully created an Azure Cosmos DB document.
 
-![Node.js tutorial - Diagram illustrating the hierarchical relationship between the account, the database, the collection, and the documents - Node database](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
+![Node.js tutorial - Diagram illustrating the hierarchical relationship between the account, the database, the collection, and the documents - Node database](./media/documentdb-nodejs-get-started/node-js-tutorial-cosmos-db-account.png)
 
 ## <a id="Query"></a>Step 8: Query Azure Cosmos DB resources
 Azure Cosmos DB supports [rich queries](documentdb-sql-query.md) against JSON documents stored in each collection. The following sample code shows a query that you can run against the documents in your collection.
