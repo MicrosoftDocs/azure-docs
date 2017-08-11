@@ -21,6 +21,17 @@ ms.custom: H1Hack27Feb2017
 
 High availability and disaster recovery are important aspects of running your mission-critical SAP HANA on Azure (large instances) servers. It's important to work with SAP, your system integrator, or Microsoft to properly architect and implement the right high-availability/disaster-recovery strategy. It is also important to consider the recovery point objective and recovery time objective, which are specific to your environment.
 
+Currently supported High-Availability and Disaster Recovery methods can be seen in this table:
+
+| Scenario supported in HANA Large Instances | High Availability Option | Disaster Recovery Option | Comments |
+| --- | --- | --- | --- |
+| Single Node | Not Available | Dedicated DR Setup<br /> Multipurpose DR Setup | |
+| Host auto Failover: N+m<br /> including 1+1 | Possible with Standby taking active role<br /> HANA controls the role switch | Dedicated DR Setup<br /> Multipurpose DR Setup<br /> DR synchronization using storage replication | HANA volume sets attached to all the nodes (n+m)<br /> DR site must have the same number of nodes |
+| HANA System Replication | Possible with Primary/Secondary setup<br /> Secondary moves in primary role in case of failover<br /> HANA System replication controls failover \ Dedicated DR Setup<br /> Multipurpose DR Setup<br /> DR synchronization using storage replication<br /> DR using HANA System Replication is not yet possible without 3rd party components | Separate set of disk volumes attached to each node<br /> Two sets of volumes required at DR site<br /> Storage replication maps to storage from production site to DR site | 
+
+As Dedicated DR Setup we characterize a setup where the HANA Large Instance unit in the DR site is not used for running any other workload or test. The unit is passive and us held just for the case of jumping into action in the case of a disaster
+As a Multipurpose DR Setup we characterize a setup on the DR site, where the HANA Large Instance unit runs a test or QA workload. In the disaster case that test or QA system would get shut down, the storage replicated (additional) volume sets mounted and the production HANA instance would get started.  
+
 ## High Availability 
 
 Microsoft supports some SAP HANA high-availability methods "out of the box" with HANA Large Instances. These include:
