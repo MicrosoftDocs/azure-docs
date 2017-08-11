@@ -57,11 +57,11 @@ Please make sure you have the following:
 * [Node.js](https://nodejs.org/) version v0.10.29 or higher.
 
 ## Step 1: Create an Azure Cosmos DB account
-Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Setup your Node.js application](#SetupNode). If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Setup your Node.js application](#SetupNode).
+Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Set up your Node.js application](#SetupNode). If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Set up your Node.js application](#SetupNode).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupNode"></a>Step 2: Setup your Node.js application
+## <a id="SetupNode"></a>Step 2: Set up your Node.js application
 1. Open your favorite terminal.
 2. Locate the folder or directory where you'd like to save your Node.js application.
 3. Create two empty JavaScript files with the following commands:
@@ -79,9 +79,9 @@ Great! Now that you've finished setting up, let's start writing some code.
 ## <a id="Config"></a>Step 3: Set your app's configurations
 Open ```config.js``` in your favorite text editor.
 
-Then, copy and paste the code snippet below and set properties ```config.endpoint``` and ```config.primaryKey``` to your Azure Cosmos DB endpoint uri and primary key. Both these configurations can be found in the [Azure Portal](https://portal.azure.com).
+Then, copy and paste the code snippet below and set properties ```config.endpoint``` and ```config.primaryKey``` to your Azure Cosmos DB endpoint uri and primary key. Both these configurations can be found in the [Azure portal](https://portal.azure.com).
 
-![Node.js tutorial - Screen shot of the Azure Portal, showing an Azure Cosmos DB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the Azure Cosmos DB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade - Node database][keys]
+![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the Azure Cosmos DB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade - Node database][keys]
 
     // ADD THIS PART TO YOUR CODE
     var config = {}
