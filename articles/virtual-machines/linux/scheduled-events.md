@@ -1,6 +1,6 @@
 ---
-title: Scheduled Events with Azure Metadata Service | Microsoft Docs
-description: React to Impactful Events on your Virtual Machine before they happen.
+title: Scheduled Events for Linux VMs | Microsoft Docs
+description: Scheduled events using the Azure Metadata service for on your Linux virtual machines.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: zivraf
@@ -8,17 +8,17 @@ manager: timlt
 editor: ''
 tags: ''
 
-ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
+ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/10/2016
+ms.date: 08/11/2017
 ms.author: zivr
 
 ---
-# Azure Metadata Service - Scheduled Events (Preview)
+# Azure Metadata Service - Scheduled Events (Preview) for Linux VMs
 
 > [!NOTE] 
 > Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
@@ -133,201 +133,10 @@ curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [
 > [!NOTE] 
 > Acknowledging a event will allow the event to proceed for all `Resources` in the event, not just the virtual machine that acknowledges the event. You may therefore choose to elect a leader to coordinate the acknowledgement, which may be as simple as the first machine in the `Resources` field.
 
-## Samples
-
-### PowerShell Sample 
-
-The following sample queries the metadata service for scheduled events and approves each outstanding event.
-
-```PowerShell
-# How to get scheduled events 
-function GetScheduledEvents($uri)
-{
-    $scheduledEvents = Invoke-RestMethod -Headers @{"Metadata"="true"} -URI $uri -Method get
-    $json = ConvertTo-Json $scheduledEvents
-    Write-Host "Received following events: `n" $json
-    return $scheduledEvents
-}
-
-# How to approve a scheduled event
-function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
-{    
-    # Create the Scheduled Events Approval Document
-    $startRequests = [array]@{"EventId" = $eventId}
-    $scheduledEventsApproval = @{"StartRequests" = $startRequests; "DocumentIncarnation" = $docIncarnation} 
-    
-    # Convert to JSON string
-    $approvalString = ConvertTo-Json $scheduledEventsApproval
-
-    Write-Host "Approving with the following: `n" $approvalString
-
-    # Post approval string to scheduled events endpoint
-    Invoke-RestMethod -Uri $uri -Headers @{"Metadata"="true"} -Method POST -Body $approvalString
-}
-
-function HandleScheduledEvents($scheduledEvents)
-{
-    # Add logic for handling events here
-}
-
-######### Sample Scheduled Events Interaction #########
-
-# Set up the scheduled events URI for a VNET-enabled VM
-$localHostIP = "169.254.169.254"
-$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
-
-# Get events
-$scheduledEvents = GetScheduledEvents $scheduledEventURI
-
-# Handle events however is best for your service
-HandleScheduledEvents $scheduledEvents
-
-# Approve events when ready (optional)
-foreach($event in $scheduledEvents.Events)
-{
-    Write-Host "Current Event: `n" $event
-    $entry = Read-Host "`nApprove event? Y/N"
-    if($entry -eq "Y" -or $entry -eq "y")
-    {
-        ApproveScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
-    }
-}
-``` 
 
 
-### C\# Sample 
 
-The following sample is of a simple client that communicates with the metadata service.
-
-```csharp
-public class ScheduledEventsClient
-{
-    private readonly string scheduledEventsEndpoint;
-    private readonly string defaultIpAddress = "169.254.169.254"; 
-
-    // Set up the scheduled events URI for a VNET-enabled VM
-    public ScheduledEventsClient()
-    {
-        scheduledEventsEndpoint = string.Format("http://{0}/metadata/scheduledevents?api-version=2017-03-01", defaultIpAddress);
-    }
-
-    // Get events
-    public string GetScheduledEvents()
-    {
-        Uri cloudControlUri = new Uri(scheduledEventsEndpoint);
-        using (var webClient = new WebClient())
-        {
-            webClient.Headers.Add("Metadata", "true");
-            return webClient.DownloadString(cloudControlUri);
-        }   
-    }
-
-    // Approve events
-    public void ApproveScheduledEvents(string jsonPost)
-    {
-        using (var webClient = new WebClient())
-        {
-            webClient.Headers.Add("Content-Type", "application/json");
-            webClient.UploadString(scheduledEventsEndpoint, jsonPost);
-        }
-    }
-}
-```
-
-Scheduled Events can be represented using the following data structures:
-
-```csharp
-public class ScheduledEventsDocument
-{
-    public string DocumentIncarnation;
-    public List<CloudControlEvent> Events { get; set; }
-}
-
-public class CloudControlEvent
-{
-    public string EventId { get; set; }
-    public string EventStatus { get; set; }
-    public string EventType { get; set; }
-    public string ResourceType { get; set; }
-    public List<string> Resources { get; set; }
-    public DateTime? NotBefore { get; set; }
-}
-
-public class ScheduledEventsApproval
-{
-    public string DocumentIncarnation;
-    public List<StartRequest> StartRequests = new List<StartRequest>();
-}
-
-public class StartRequest
-{
-    [JsonProperty("EventId")]
-    private string eventId;
-
-    public StartRequest(string eventId)
-    {
-        this.eventId = eventId;
-    }
-}
-```
-
-The following sample queries the metadata service for scheduled events and approves each outstanding event.
-
-```csharp
-public class Program
-{
-    static ScheduledEventsClient client;
-
-    static void Main(string[] args)
-    {
-        client = new ScheduledEventsClient();
-
-        while (true)
-        {
-            string json = client.GetDocument();
-            ScheduledEventsDocument scheduledEventsDocument = JsonConvert.DeserializeObject<ScheduledEventsDocument>(json);
-
-            HandleEvents(scheduledEventsDocument.Events);
-
-            // Wait for user response
-            Console.WriteLine("Press Enter to approve executing events\n");
-            Console.ReadLine();
-
-            // Approve events
-            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval()
-            {
-	            DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
-            };
-	    
-            foreach (CloudControlEvent event in scheduledEventsDocument.Events)
-            {
-                scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(event.EventId));
-            }
-
-            if (scheduledEventsApprovalDocument.StartRequests.Count > 0)
-            {
-                // Serialize using Newtonsoft.Json
-                string approveEventsJsonDocument =
-                    JsonConvert.SerializeObject(scheduledEventsApprovalDocument);
-
-                Console.WriteLine($"Approving events with json: {approveEventsJsonDocument}\n");
-                client.ApproveScheduledEvents(approveEventsJsonDocument);
-            }
-
-            Console.WriteLine("Complete. Press enter to repeat\n\n");
-            Console.ReadLine();
-            Console.Clear();
-        }
-    }
-
-    private static void HandleEvents(List<CloudControlEvent> events)
-    {
-        // Add logic for handling events here
-    }
-}
-```
-
-### Python Sample 
+## Python Sample 
 
 The following sample queries the metadata service for scheduled events and approves each outstanding event.
 
