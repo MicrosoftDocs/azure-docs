@@ -26,11 +26,7 @@ In this quick start, a Docker Swarm Mode cluster is deployed using the Azure CLI
 
 Docker Swarm mode on Azure Container Service is in preview and **should not be used for production workloads**.
 
-This quick start assumes a basic understanding of Docker concepts, for detailed information on Kubernetes see the [Docker documentation](https://docs.docker.com/).
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
@@ -73,7 +69,7 @@ After several minutes, the command completes and returns json formatted informat
 
 ## Connect to the cluster
 
-Throughout this quick start, you need the IP address of the Azure load balancers serving both the Docker Swarm master and the Docker agent pool. Run the following command to return both IP addresses; take note of each.
+Throughout this quick start, you need the IP address of both the Docker Swarm master and the Docker agent pool. Run the following command to return both IP addresses.
 
 
 ```bash
@@ -108,7 +104,6 @@ You are now ready to run Docker services on the Docker Swarm.
 
 Create a file named `azure-vote.yaml` and copy the following content into it.
 
-If you are using Azure Cloud Shell, `vi` and `Nano` are installed and can be used to complete this task.
 
 ```yaml
 version: '3'
@@ -135,14 +130,16 @@ docker stack deploy azure-vote --compose-file azure-vote.yaml
 Output:
 
 ```bash
-Creating network azure-vote_default
-Creating service azure-vote_azure-vote-back
-Creating service azure-vote_azure-vote-front
+Creating network "user_default" with the default driver
+Pulling azure-vote-front (microsoft/azure-vote-front:redis-v1)...
+swarm-agent-ACA4652E000005: Pulling microsoft/azure-vote-front:redis-v1...
+swarm-agent-ACA4652E000004: Pulling microsoft/azure-vote-front:redis-v1...
+swarm-agent-ACA4652E000003: Pulling microsoft/azure-vote-front:redis-v1...
 ```
 
 ## Test the application
 
-Browse to the agent IP address to test out the Azure Vote application.
+Browse to the IP address of the Swarm agent pool to test out the Azure Vote application.
 
 ![Image of browsing to Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 

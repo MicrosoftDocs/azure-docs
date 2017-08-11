@@ -24,8 +24,6 @@ ms.custom:
 
 In this quick start, a Docker Swarm cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
 
-This quick start assumes a basic understanding of Docker concepts, for detailed information on Kubernetes see the [Docker documentation](https://docs.docker.com/).
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 This quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
@@ -34,10 +32,10 @@ This quickstart requires that you are running the Azure CLI version 2.0.4 or lat
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroup* in the *ukwest* location.
+The following example creates a resource group named *myResourceGroup* in the *westus* location.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westus
 ```
 
 Output:
@@ -69,7 +67,7 @@ After several minutes, the command completes and returns json formatted informat
 
 ## Connect to the cluster
 
-Throughout this quick start, you need the IP address of the Azure load balancers serving both the Docker Swarm master and the Docker agent pool. Run the following command to return both IP addresses; take note of each.
+Throughout this quick start, you need the IP address of both the Docker Swarm master and the Docker agent pool. Run the following command to return both IP addresses.
 
 
 ```bash
@@ -138,7 +136,7 @@ Creating service azure-vote_azure-vote-front
 
 ## Test the application
 
-Browse to the agent IP address to test out the Azure Vote application.
+Browse to the IP address of the Swarm agent pool to test out the Azure Vote application.
 
 ![Image of browsing to Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
