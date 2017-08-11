@@ -10,7 +10,7 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 08/10/2017
 ms.author: glenga
 ms.custom: mvc
 ---
@@ -73,7 +73,7 @@ az storage account create --name <storage_name> \
 
 ## Configure storage
 
-The app uses two blob containers: _images_ for uploaded images, and _thumbs_ for resized thumbnail images. The following commands get the first shared key for the storage account and use it to create the two containers. 
+The app uses two blob containers: _images_ for uploaded images, and _thumbs_ for resized thumbnail images. The following commands get a shared key for the storage account and uses it to create the two containers. 
 
 ```azurecli-interactive
 storageaccount=<storage_name>
@@ -86,10 +86,8 @@ az storage container create -n images --account-name $storageaccount \
 
 az storage container create -n thumbs --account-name $storageaccount \ 
 --account-key $storageAccountKey
-
-
 ```
-After the blob containers are created, you can configure the sample app to connect to your storage account.
+After the blob containers are created, you configure the sample app to connect to your storage account.
 
 ## Configure the sample app
 
