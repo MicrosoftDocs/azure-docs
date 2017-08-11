@@ -142,6 +142,11 @@ There are a number of applications you can use to connect to your Azure Database
     postgres=\> 
     ```
 
+    > [!TIP]
+    > If the firewall is not configured to allow the IP address of the cloud shell, the following error occurs:
+    > "psql: FATAL:  no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL:  SSL connection is required. Please specify SSL options and retry.
+    > To resolve the error, make sure the server configuration matches the steps above in the *Configure a server-level firewall rule* section of the article.
+
 4.  Create a blank database at the prompt by typing the following command:
     ```bash
     CREATE DATABASE mypgsqldb;
