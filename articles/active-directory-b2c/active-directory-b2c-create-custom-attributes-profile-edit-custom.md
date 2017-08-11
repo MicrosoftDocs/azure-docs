@@ -128,7 +128,7 @@ For every TechnicalProfile that will read or write extension attributes you must
    </TechnicalProfile>
  </RelyingParty>
  ```
-3. Add a claim definition to the Extension policy file  `TrustFrameworkExtensions.xml` inside the ``<ClaimsSchema>`` element as shown below.
+3. Add a claim definition to the Extension policy file  `TrustFrameworkExtensions.xml` inside the `<ClaimsSchema>` element as shown below.
 ```xml
 <ClaimsSchema>
 		<ClaimType Id="extension_loyaltyId">
