@@ -34,7 +34,7 @@ By reading this article, you'll be able to answer the following questions:
 As the following diagram illustrates, the Cosmos DB hierarchical **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI. A set of resources will be referred to as a **feed** in this article. 
 
 > [!NOTE]
-> Cosmos DB offers a highly efficient TCP protocol which is also RESTful in its communication model, available through the [DocumentDB .NET client API](documentdb-sdk-dotnet.md).
+> Azure Cosmos DB offers a highly efficient TCP protocol which is also RESTful in its communication model, available through the [DocumentDB .NET client API](documentdb-sdk-dotnet.md).
 > 
 > 
 
@@ -189,7 +189,7 @@ The indexing policy of each collection allows you to make performance and storag
 The indexing policy can be changed by executing a PUT on the collection. This can be achieved either through the [client SDK](documentdb-sdk-dotnet.md), the [Azure Portal](https://portal.azure.com) or the [REST APIs](/rest/api/documentdb/).
 
 ### Querying a collection
-The documents within a collection can have arbitrary schemas and you can query documents within a collection without providing any schema or secondary indices upfront. You can query the collection using the [DocumentDB API SQL syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx), which provides rich hierarchical, relational, and spatial operators and extensibility via JavaScript-based UDFs. JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes. This is exploited both by DocumentDB API’s automatic indexing techniques as well as DocumentDB API's SQL dialect. The DocumetDB API query language consists of three main aspects:   
+The documents within a collection can have arbitrary schemas and you can query documents within a collection without providing any schema or secondary indices upfront. You can query the collection using the [Azure Cosmos DB DocumentDB API: SQL syntax reference](https://msdn.microsoft.com/library/azure/dn782250.aspx), which provides rich hierarchical, relational, and spatial operators and extensibility via JavaScript-based UDFs. JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes. This is exploited both by DocumentDB API’s automatic indexing techniques as well as DocumentDB API's SQL dialect. The DocumetDB API query language consists of three main aspects:   
 
 1. A small set of query operations that map naturally to the tree structure including hierarchical queries and projections. 
 2. A subset of relational operations including composition, filter, projections, aggregates and self joins. 

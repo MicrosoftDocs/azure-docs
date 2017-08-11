@@ -9,7 +9,11 @@
   - name: API Reference content
     href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
   - name: Windows SDK
-    href: https://github.com/adgroc/Cognitive-TextAnalytics-Windows
+    href: https://github.com/Microsoft/Cognitive-TextAnalytics-Windows
+  - name: Android SDK
+    href: https://github.com/Microsoft/Cognitive-TextAnalytics-Android
+  - name: .Net Standard SDK
+    href: https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet
 - name: Resources
   items:
   - name: Azure Roadmap

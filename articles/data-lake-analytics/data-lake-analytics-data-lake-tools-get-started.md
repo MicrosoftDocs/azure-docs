@@ -4,7 +4,7 @@ description: Learn how to install Data Lake Tools for Visual Studio, and how to 
 services: data-lake-analytics
 documentationcenter: ''
 author: saveenr
-manager: saveenr
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
@@ -107,6 +107,6 @@ OUTPUT @a
 
 ## Next steps
 
-* Get started with Data Lake Analytics using: [Azure portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) 
+* [Run U-SQL scripts on your own workstation for testing and debugging](data-lake-analytics-data-lake-tools-local-run.md)
 * [Debug C# code in U-SQL jobs](data-lake-analytics-debug-u-sql-jobs.md)
 * [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)

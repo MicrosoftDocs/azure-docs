@@ -101,7 +101,7 @@ Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
 ## Next steps
 * To use a compute-intensive instance size for the burst nodes, see the considerations in 
-  [About H-series and compute-intensive A-series VMs](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  [High performance compute VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * If you want to
   automatically grow or shrink the Azure computing resources according to
   the cluster workload, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](hpcpack-cluster-node-autogrowshrink.md).

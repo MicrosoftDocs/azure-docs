@@ -23,9 +23,8 @@ ms.custom: aaddev
 In this step, you will configure your project to use SSL, and then use the SSL URL to configure your application’s registration information. After this, add the application’ registration information to your solution via *web.config*.
 
 1.	In Solution Explorer, select the project and look at the `Properties` window (if you don’t see a Properties window, press F4)
-2.	Change `SSL Enabled` to `True`:<br/>
-![Project properties](media/active-directory-serversidewebapp-aspnetwebappowin-configure/vsprojectproperties.png)<br />
-3.	Copy the value from `SSL URL` above and paste it in the `Redirect URL` field on the top of this page, then click *Update*:
+2.	Change `SSL Enabled` to `True`
+3.	Copy the value from `SSL URL` above and paste it in the `Redirect URL` field on the top of this page, then click *Update*:<br/><br/>![Project properties](media/active-directory-serversidewebapp-aspnetwebappowin-configure/vsprojectproperties.png)<br />
 4.	Add the following in `web.config` file located in root’s folder, under section `configuration\appSettings`:
 
 ```xml

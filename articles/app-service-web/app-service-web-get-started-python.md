@@ -55,6 +55,12 @@ cd Python-docs-hello-world
 
 ## Run the app locally
 
+Install the required packages using `pip`.
+
+```bash
+pip install -r requirements.txt
+```
+
 Run the application locally by opening a terminal window and using the `Python` command to launch the built-in Python web server.
 
 ```bash

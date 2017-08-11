@@ -23,6 +23,9 @@ ms.custom: aaddev
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
+> [!NOTE]
+> Windows Store 8.1 and prior version projects are not supported in Visual Studio 2017.  For more information, see [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+
 If you're developing apps for the Windows Store, Azure Active Directory (Azure AD) makes it simple and straightforward to authenticate your users with their Active Directory accounts. By integrating with Azure AD, an app can securely consume any web API that's protected by Azure AD, such as the Office 365 APIs or the Azure API.
 
 For Windows Store desktop apps that need to access protected resources, Azure AD provides the Active Directory Authentication Library (ADAL). The sole purpose of ADAL is to make it easy for the app to get access tokens. To demonstrate how easy it is, this article shows how to build a DirectorySearcher Windows Store app that:

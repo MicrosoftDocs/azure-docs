@@ -12,7 +12,7 @@
 ## [Serverless](../../azure-functions/functions-create-first-azure-function.md)
 ## Microservices
 ### [Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)
-### [Container Service](../../container-service/container-service-deployment.md) 
+### [Container Service](../../container-service/dcos-swarm/container-service-deployment.md) 
 
 # Tutorials
 ## Create and deploy a web app
@@ -112,5 +112,6 @@
 # Resources
 ## [Azure regions](https://azure.microsoft.com/regions/)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Samples](https://azure.microsoft.com/resources/samples/)
 ## [Videos](https://azure.microsoft.com/resources/videos/home/)
