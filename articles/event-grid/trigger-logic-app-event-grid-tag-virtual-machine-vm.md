@@ -56,8 +56,8 @@ To follow along, complete these tutorials first:
   that tags a virtual machine. Your logic app 
   calls this function as a step in its workflow. 
 
-For this tutorial, you also need an email account 
-with [any email provider that's supported by Azure Logic Apps](../logic-apps/azure/connectors/apis-list.md), 
+For this tutorial, you also need an email account with 
+[any email provider that's supported by Azure Logic Apps](../connectors/apis-list.md), 
 like Outlook.com, Office 365 Outlook, or Gmail.
 
 ## Create a logic app that responds to events from an event grid
@@ -82,7 +82,8 @@ choose **New** > **Enterprise Integration** > **Logic App** as shown:
       After Azure deploys your logic app, the Logic Apps Designer 
       shows templates that you can use to get started.
 
-      > [!NOTE] When you select **Pin to dashboard**, 
+      > [!NOTE] 
+      > When you select **Pin to dashboard**, 
       > your logic app automatically opens in Logic Apps Designer. 
       > Otherwise, you can manually find and open your logic app.
 
