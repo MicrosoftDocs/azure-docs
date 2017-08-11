@@ -9,7 +9,6 @@ editor: ''
 tags: acs, azure-container-service, kubernetes
 keywords: ''
 
-ms.assetid: 
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -17,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2017
 ms.author: danlep
+ms.custom: mvc
 
 ---
 
