@@ -1,6 +1,6 @@
 ---
 title: 'Connect to Azure Database for PostgreSQL from Python | Microsoft Docs'
-description: Provides a Python code sample you can use to connect and query data from Azure Database for PostgreSQL.
+description: This quickstart provides a Python code sample that you can use to connect and query data from Azure Database for PostgreSQL.
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -10,7 +10,7 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 07/07/2017
+ms.date: 08/10/2017
 ---
 # Azure Database for PostgreSQL: Use Python to connect and query data
 This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for PostgreSQL; then use SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. The steps in this article assume that you are familiar with developing using Python and are new to working with Azure Database for PostgreSQL.
@@ -43,7 +43,7 @@ Get the connection information needed to connect to the Azure Database for Postg
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
 
 ## How to run Python code
-- Using your favorite text editor, create a new file called postgres.py, and save it into a project folder. Copy and paste a code sample shown below into the text file and save it. Make sure to select UTF-8 encoding when saving the file in the Windows OS. 
+- Using your favorite text editor, create a new file called postgres.py, and save it into a project folder. Copy and paste a code sample shown below into the text file. Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database. Then save the file. Make sure to select UTF-8 encoding when saving the file in the Windows OS. 
 - To run the code, launch the command prompt or bash shell. Change directory into your project folder, such as `cd postgresql`. Then, type the python command followed by the file name, such as `python postgres.py`.
 
 > [!NOTE]
