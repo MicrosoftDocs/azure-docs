@@ -73,6 +73,8 @@ This section lists the steps to create a Python console app, that creates a devi
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "MyFirstPythonDevice"
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 3. Add the following function to print some of the device information.
 
     ```python

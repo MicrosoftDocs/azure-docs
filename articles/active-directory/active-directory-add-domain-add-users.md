@@ -16,11 +16,17 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: curtand
 
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+
 ---
 # Assign users to a custom domain
 After you have added your custom domain to Azure Active Directory, you must add the user accounts for this domain so that you can begin authenticating them.
 
-## Users synced in from a directory on your corporate network
+> [!IMPORTANT]
+> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. For how to manage your domain names in the Azure AD admin center, see [Managing custom domain names in your Azure Active Directory](active-directory-domains-manage-azure-portal.md).
+
+## Users synced from a on-premises directory
 If you have already set up a connection between your on-premises Active Directory and Azure Active Directory, synchronization can populate the accounts. For more information on how to synchronize Azure Active Directory with your on-premises Active Directory, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
 ## Users added and managed in the cloud

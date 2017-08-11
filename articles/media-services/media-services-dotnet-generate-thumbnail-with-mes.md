@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/14/2017
 ms.author: juliako
 
 ---
@@ -96,8 +96,8 @@ The following JSON and XML preset can be used to produce a set of 10 images at t
 	        }
 	      ],
 	      "Start": "5%",
-	      "Step": "10%",
-	      "Range": "96%",
+	      "Step": "1",
+	      "Range": "1",
 	      "Type": "JpgImage"
 	    }
 	  ],
@@ -135,7 +135,7 @@ The following JSON and XML preset can be used to produce a set of 10 images at t
 
 ## Example – one image at a specific timestamp
 
-The following JSON and XML preset can be used to produce a single JPEG image at the 30 second mark of the input video. Needless to say, this preset expects the input to be more than 30 seconds in duration (else the job will fail).
+The following JSON and XML preset can be used to produce a single JPEG image at the 30 second mark of the input video. This preset expects the input to be more than 30 seconds in duration (else the job will fail).
 
 ### JSON preset
 
@@ -152,8 +152,8 @@ The following JSON and XML preset can be used to produce a single JPEG image at 
 	        }
 	      ],
 	      "Start": "00:00:30",
-	      "Step": "00:00:02",
-	      "Range": "00:00:01",
+	      "Step": "1",
+	      "Range": "1",
 	      "Type": "JpgImage"
 	    }
 	  ],
@@ -205,6 +205,8 @@ The following code example uses Media Services .NET SDK to perform the following
 * Add an event handler to check the job progress.
 * Submit the job.
 
+See the [Media Services development with .NET](media-services-dotnet-how-to-use.md) topic for directions on how to set up your dev environment.
+
 	    using System;
 	    using System.Configuration;
 	    using System.IO;
@@ -220,7 +222,7 @@ The following code example uses Media Services .NET SDK to perform the following
 		    private static readonly string _AADTenantDomain =
 			ConfigurationManager.AppSettings["AADTenantDomain"];
 		    private static readonly string _RESTAPIEndpoint =
-			ConfigurationManager.AppSettings["RESTAPIEndpoint"];
+			ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
 		    private static CloudMediaContext _context = null;
 

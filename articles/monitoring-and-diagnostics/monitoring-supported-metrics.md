@@ -2,7 +2,7 @@
 title: Azure Monitor metrics - supported metrics per resource type  | Microsoft Docs
 description: List of metrics available for each resource type with Azure Monitor.
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

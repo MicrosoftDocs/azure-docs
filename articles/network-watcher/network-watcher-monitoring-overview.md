@@ -122,6 +122,8 @@ Perform proactive monitoring and diagnostics using [alert triggered packet captu
 
 Detect security vulnerabilities with [Analyzing packet capture with Wireshark](network-watcher-deep-packet-inspection.md), using open source tools.
 
+Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
+
 <!--Image references-->
 [TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png
 [logs]: ./media/network-watcher-monitoring-overview/logs.png

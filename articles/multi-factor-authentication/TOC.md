@@ -15,6 +15,7 @@
 ### [Configure settings](multi-factor-authentication-whats-next.md)
 ### [Reports in MFA](multi-factor-authentication-manage-reports.md)
 ### [Use existing network policy servers](multi-factor-authentication-nps-extension.md)
+#### [Advanced configuration for NPS extension](nps-extension-advanced-configuration.md)
 ### [Create an Auth Provider](multi-factor-authentication-get-started-auth-provider.md)
 ### Azure MFA on-premises
 #### [Install the users portal](multi-factor-authentication-get-started-portal.md)
@@ -49,4 +50,5 @@
 ### [Ask a question](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [NPS extension errors](multi-factor-authentication-nps-errors.md)
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

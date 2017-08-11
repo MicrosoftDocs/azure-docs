@@ -6,7 +6,7 @@ documentationcenter: ''
 author: juliako
 manager: erikre
 
-ms.service: video-indexer
+ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: juliako;

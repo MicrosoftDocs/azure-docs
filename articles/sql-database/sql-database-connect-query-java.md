@@ -66,7 +66,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
    <dependency>
 	   <groupId>com.microsoft.sqlserver</groupId>
 	   <artifactId>mssql-jdbc</artifactId>
-	   <version>6.2.0.jre8</version>
+	   <version>6.2.1.jre8</version>
    </dependency>
    ```
 
