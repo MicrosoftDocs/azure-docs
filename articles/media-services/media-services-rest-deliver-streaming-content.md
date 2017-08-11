@@ -34,6 +34,17 @@ This topic shows how to create an OnDemand streaming locator in order to publish
 
 The [following](#types) section shows the enum types whose values are used in the REST calls.   
 
+> [!NOTE]
+> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+> 
+
+## Connect to Media Services
+
+For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
+
 ## Create an OnDemand streaming locator
 To create the OnDemand streaming locator and get URLs you need to do the following:
 
@@ -180,5 +191,7 @@ example:
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## See also
+[Media Services operations REST API overview](media-services-rest-how-to-use.md)
+
 [Configure asset delivery policy](media-services-rest-configure-asset-delivery-policy.md)
 
