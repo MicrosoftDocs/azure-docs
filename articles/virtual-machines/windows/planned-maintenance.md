@@ -41,7 +41,7 @@ Some applications may be impacted by these types of updates. Applications that p
 
 ## Maintenance requiring a reboot
 
-When VMs need to be rebooted for planned maintenance, you will be notified at least 30 days in advance. Planned maintenance has two phases: the self-service window and a scheduled maintenance window.
+When VMs need to be rebooted for planned maintenance, you will be notified in advance. Planned maintenance has two phases: the self-service window and a scheduled maintenance window.
 
 The **self-service window** lets you initiate the maintenance on your VMs. During this time, you can query each VM to see their status and check the result of your last maintenance request.
 
