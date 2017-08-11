@@ -125,7 +125,7 @@ We encourage you to use the installation package to prepare the development envi
 The `.zip` file you download contains all necessary tools and packages required for DevKit development.
 
 > [!div class="button"]
-[Download](https://azureboard.azureedge.net/installpackage/devkit_install_1.0.2.zip)
+[Download](https://azureboard.azureedge.net/prod/installpackage/devkit_install_1.0.2.zip)
 
 
 > [!NOTE] 
@@ -195,7 +195,7 @@ Download and install [Visual Studio Code for macOS](https://code.visualstudio.co
 2. Download `.zip` file containing task scripts required for DevKit development in VS Code.
 
    > [!div class="button"]
-   [Download](https://azureboard.azureedge.net/installpackage/devkit_install_1.0.2.zip)
+   [Download](https://azureboard.azureedge.net/prod/installpackage/devkit_install_1.0.2.zip)
 
    Locate the `.zip` and extract it. Then launch **Terminal** app and run the following commands to configure:
 
