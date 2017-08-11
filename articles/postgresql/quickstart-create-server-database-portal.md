@@ -63,12 +63,12 @@ The Azure Database for PostgreSQL service creates a firewall at the server-level
 
 1.	Locate your server after the deployment completes. If needed you can search for it. For example, click **All Resources** from the left-hand menu and type in the server name (such as the example mypgserver-20170401) to search for your newly created server. Click on your server name listed in the search result. The Overview page for your server opens and provides options for further configuration.
  
-    ![Azure Database for PostgreSQL - Search for server ](./media/quickstart-create-database-portal/4-locate.png)
+    ![Azure Database for PostgreSQL - Search for server name](./media/quickstart-create-database-portal/4-locate.png)
 
-2.	On the server page, select **Connection Security**. 
-    ![Azure Database for PostgreSQL - Create Firewall Rule](./media/quickstart-create-database-portal/5-firewall-2.png)
+2.	On the server page, select **Connection security**. 
+    ![Azure Database for PostgreSQL - Create Firewall rule](./media/quickstart-create-database-portal/5-firewall-2.png)
 
-3.	Under the **Firewall Rules** heading, click in the blank text box in the **Rule Name** column to begin creating the firewall rule. 
+3.	Under the **Firewall rules** heading, click in the blank text box in the **Rule Name** column to begin creating the firewall rule. 
 
     For this quick start, let's allow all IP addresses into the server by filling in the text box in each column with the following values:
 
@@ -76,7 +76,7 @@ The Azure Database for PostgreSQL service creates a firewall at the server-level
     ---|---|---
     AllowAllIps |  0.0.0.0 | 255.255.255.255
 
-4. On the upper toolbar of the Connection Security page, click **Save**. Then click the **X** to close the Connection Security page.
+4. On the upper toolbar of the Connection security page, click **Save**. Wait for a few moments and notice the notification showing that updating connection security has finished successfully before continuing.
 
     > [!NOTE]
     > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 5432.
