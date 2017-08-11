@@ -103,7 +103,7 @@ Endpoints for each operation include the resource providing the underlying algor
 
 Input rows must be JSON in raw text. XML is not supported. The schema is simple, consisting of just a few elements. You can use the same documents for all three operations: sentiment, key phrase, and language detection.
 
-+ `id` is required. Each document ID should be a unique integer. The system uses this ID to structure the output. For example, keywords and sentiment scores are provided for each ID.
++ `id` is required. The data type is string, but in practice document IDs tend to be integers. The system uses this ID to structure the output. For example, keywords and sentiment scores are provided for each ID.
 
 + `text` field contains the content to be analyzed. The maximum size of a single document that can be submitted is 10 KB, and 1 MB for the request overall. For more information about limits, see [Text Analytics Overview > Data limits](text-analytics-overview-whatis.md#data-limits). 
 

@@ -19,6 +19,9 @@ ms.author: luisca
 
 TBD...
 
+100 calls per minute
+
+
 ## Talking points
 
 + All 3 APIs are POST commands with mostly identical request structures

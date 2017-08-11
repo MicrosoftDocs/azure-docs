@@ -22,7 +22,7 @@ ms.author: heidist
 
  You cannot pause the service or temporarily throttle requests service-side to conserve the balance of your request allocation for future use in the same billing cycle. The only guarantee for preventing transactions against your subscription is to remove the Text Analytics API from your subscription, and then repeat signup when you are ready to resume transactions. 
  
- Because data isn't stored, the impact on deleting and recreating the signup is generally minimal. The only coding investment you lose is the reference to your access key string, which you would need to update after signing up for the API.
+ Because data isn't stored, the impact on deleting and recreating the signup is minimal. The only coding investment you lose is the reference to your access key string, which you would need to update after signing up for the API.
 
 ## Architecture & concepts
 
@@ -30,7 +30,7 @@ ms.author: heidist
 
 No, the models are pretrained. The only operations available on uploaded data are scoring, key phrase extraction, and language detection.
 
-### Can I find out if support for a specific language is forthcoming?
+### Can I find out when support for a specific language is forthcoming?
 
 We avoid pre-announcing support for specific languages. This practice minimizes the chance of customers or partners taking a dependency on functionality that we might not be able to deliver in a timely manner. If you want support for a specific language, you can request or vote for it on [User Voice](https://cognitive.uservoice.com/). Your votes will help us prioritize which ones to work on next.
 
@@ -40,7 +40,7 @@ Improvements to models and algorithms are announced if the change is major, or q
 
 ### Why do some sentiment scores seem off?
 
-Sentiment analysis is hard to do when sentiment is nuanced or unclear. Sarcasm, irony, puns, and some slang continues to challenge most analyzers. In general, sentiment scoring is best at predicting positive or negative sentiment. The model provides a score given sufficeint evidence. When analysis is indeterminate, a neutral score of 0.5 is assigned to the document.
+Sentiment analysis is hard to do when sentiment is nuanced or unclear. Sarcasm, irony, puns, and some slang are a challenge for most analyzers. In general, sentiment scoring is best at predicting positive or negative sentiment. The model provides a score given sufficient evidence. When analysis is indeterminate, a neutral score of 0.5 is assigned to the document.
 
 ## Next steps
 

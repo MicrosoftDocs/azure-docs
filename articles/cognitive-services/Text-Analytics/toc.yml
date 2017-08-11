@@ -22,6 +22,8 @@
      href: text-analytics-concept-sentiment-analysis.md
    - name: Key phrase extraction
      href: text-analytics-concept-keyword-extraction.md
+   - name: Language detection
+     href: text-analytics-concept-language-detection.md
 - name: How-to guides
   items:
    - name: Structure data inputs

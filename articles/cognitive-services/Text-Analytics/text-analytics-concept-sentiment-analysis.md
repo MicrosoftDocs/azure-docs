@@ -1,66 +1,94 @@
 ---
-title: 'Sentiment analysis using Azure Text Analytics API | Microsoft Docs'
-description: Guidance, best practices, and tips for implmenting sentiment analysis over text in custom apps using Azure Cognitive Services.
+title: 'Sentiment analysis in Text Analytics API (Microsoft Cognitive Services on Azure) | Microsoft Docs'
+description: Guidance, best practices, and tips for implmenting sentiment analysis over text in custom apps using Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
-author: LuisCabrer
+author: HeidiSteen
 manager: jhubbard
 editor: cgronlun
 
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 07/24/2017
-ms.author: luisca
+ms.date: 08/11/2017
+ms.author: heidist
 
 ---
-# Sentiment analysis (Azure Cognitive Services > Text Analytics API)
+# Sentiment analysis in Text Analytics API
 
-TBD... this has the highest level of interest so if possible, say something about this
+The [sentiment analysis](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) API evaluates text input and for each document returns a sentiment score along a positive-negative continuum, ranging from 0 to 1.
 
-## Talking points
+> [!Note]
+> You can submit the same collection of documents for multiple operations: sentiment analysis, key phrase analysis, and language detection. Operations are indepenent so run them sequentially or in parallel.
 
-+ Classification, not aspect sentiment.
-+ Pretrained, ongoing training (frequency of training and updates)
-+ How scoring works, Range of scores | interpretation
-+ How to get the best analyses
+## Common use cases
 
-## Usage model (draft)
+This capability is useful for detecting trends in terms of positive and negative sentiment in social media, customer reviews, discussion forums, and so forth. Given a large number of sentiment scores, you can import or stream the results to a visualization app for trend analysis, or call additional API from Twitter, Facebook, and so forth to supplement findings with metadata and other constructs available in the data platform. For more guidance on handling results, see [How to work with analyses outputs](text-analytics-howto-output.md).
 
-The usage model is as simple as this: JSON input > Analysis > JSON output
+The sentiment analyzer is engineered to solve classification problems, and not aspect sentiment. The model is trained to analyze text at face value, and then score a positive, negative, or neutral sentiment. Scoring is based on our internal training data that consisted of a large body of sentiment-labeled content. The model is most reliable when there is no hidden meaning or subtext to the content. Irony, sarcasm, puns, jokes, and similarly nuanced content relies on cultural context and norms to communicate intent. For these types of inputs, the content is scored imprecisely in most cases. 
 
-Through code, you can control the quality of the input, and you can summarize or further analyze output, but you cannot configure or customize the sentiment analysis model itself. In your solution design, the sentiment resource is a black box.
+## Classification techniques
 
-Classifies text as predominantly positive or negative, assigning a score in the range of 0 to 1, up to 15 decimal places. 
+We use a Naive-Bayes machine learning algorithm to classify any new piece of text as positive, negative, or neutral content. The model uses training data, as well as the following methodologies:
 
-A solid 0.5 is the functional equivalent of an indeterminate sentiment. The algorithm couldn't read or make sense of the text input.
++ Applying linguistic analysis for tokenization and stemming.
++ Using N-grams to articulate patterns such as word repetition, proximity, and sequencing.
++ Assigning a part-of-speech to each word in the input text.
++ Incorporating any emoticons, punctuation, and letter case (upper or lower) as indictators of sentiment.
++ Creating resonance in the training data by mapping syntactically similar words so that sentiment evidence associated with one term is available for similar terms. We use neural networks for constructing the associations.
+
+## Guidance for constructing inputs
+
++ For sentiment analysis, you can submit any text subject to the 10 KB limit per document, but we recommend spliting text into sentences. This generally leads to higher precision in sentiment predictions.
+
++ Include the language identifier in the request. It is not required, but the score will be neutral or inconclusive (0.5) if you omit it.
+
+## Examples of sentiment output
+
+Classifies text as predominantly positive or negative, assigning a score in the range of 0 to 1, up to 15 decimal places. A solid 0.5 is the functional equivalent of an indeterminate sentiment. The algorithm couldn't read or make sense of the text input.
 
 The response consists of a document ID and a score. There is no built-in drillthrough to document detail. If you want clickthrough from a sentiment score to the original input, or to key phrases extracted for the same document, you will need to write code that collects the outputs for each document ID.
 
-## Strengths and limitations (draft)
+The following example illustrates the syntax, starting with an input:
 
-In Cognitive Services, we use hueristics and machine learning to train the model, matching text with evidence of positive or negative sentiment to come up with patterns that can be applied to any text you provide.
+```
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "My cat ate all my food! He is one crazy dude."
+    }
+  ]
+}
+```
 
-While the model continues to improve, the nuance and multi-layered complexities of language result can result in imprecise results. In particular, the model might fail to correctly interpret slang, sarcasm, irony, or mixed reviews with similar proportions of positve and negative commentary in the same string.
+Output is one score for each document, where the ID is derived from the input, and the score is a 15 digit string indicating a degree of sentiment.
 
-For this reason, having a larger number of requests is recommended so that you can detect trends in sentiment scores.
-
-## (intro blog)
-
-A more robust approach is to train models that detect sentiment. Here is how the training process works – we obtained a large dataset of text records that was already labeled with sentiment for each record. The first step is to tokenize the input text into individual words, then apply stemming. Next we constructed features from these words; these features are used to train a classifier. Upon completion of the training process, the classifier can be used to predict the sentiment of any new piece of text. It is important to construct meaningful features for the classifier, and our list of features includes several from state-of-the-art research: 
-
-N-grams denote all occurrences of n consecutive words in the input text. The precise value of n may vary across scenarios, but it’s common to pick n=2 or n=3. With n=2, for the text “the quick brown fox”, the following n-grams would be generated – [ “the quick”, “quick brown”, “brown fox”]
-
-Part-of-speech tagging is the process of assigning a part-of-speech to each word in the input text. We also compute features based on the presence of emoticons, punctuation and letter case (upper or lower)
-
-Word embeddings are a recent development in natural language processing, where words or phrases that are syntactically similar are mapped closer together, e.g. in such a mapping, the term cat would be mapped closer to the term dog, than to the term car, since both dogs and cats are animals. Neural networks are a popular choice for constructing such a mapping. For sentiment analysis, we employ neural networks that encode the associated sentiment information as well. The layers of the neural network are then used as features for the classifier.
-
-## Recommendations for improving accuracy of sentiment scoring
-
-> [!TIP]
-> For sentiment analysis, we recommend spliting text into sentences. This generally leads to higher precision in sentiment predictions.
-> 
+```
+{
+  "documents": [
+    {
+      "score": 0.193176138548217,
+      "id": "1"
+    }
+  ],
+  "errors": []
+}
+```
 
 ## Next steps
 
+Use the built-in API testing console in the [REST API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) to call the API interactively. To use the console:
+
++ Provide an access key to your service. You can get it from the [Azure portal](https://portal.azure.com). 
++ Paste the JSON documents, in the format described for the API. 
++ Click **Send** to analyze content and get the results. 
++ Review the reponse inline. Reponses include a status code, latency (in milliseconds), and payload (in JSON). 
+
+We also recommend the [Quickstart](quick-start.md) for additional practice and detail about each operation.
+
 ## See also
+
+ [Key phrase extraction concepts](text-analytics-concept-keyword-extraction.md)  
+ [Language detection concepts](text-analytics-concept-language-detection.md) 
