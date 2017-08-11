@@ -91,6 +91,7 @@ Use the following steps to connect to Azure Stack:
      --endpoint-resource-manager "https://adminmanagement.local.azurestack.external" \ 
      --suffix-storage-endpoint "local.azurestack.external" \ 
      --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
+     --endpoint-active-directory-graph-resource-id "https://graph.windows.net/" \
      --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
    ```
 
@@ -102,6 +103,7 @@ Use the following steps to connect to Azure Stack:
      --endpoint-resource-manager "https://management.local.azurestack.external" \ 
      --suffix-storage-endpoint "local.azurestack.external" \ 
      --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
+     --endpoint-active-directory-graph-resource-id "https://graph.windows.net/" \
      --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
    ```
 
@@ -129,13 +131,16 @@ Use the following steps to connect to Azure Stack:
      --profile 2017-03-09-profile
    ```
 
-5. Sign in to your Azure Stack environment by using the following commands:
+5. Sign in to your Azure Stack environment by using the following commands. You can login to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+    
+    For the User login flow, you can either specify the username and password directly in the login command or authenticate using a browser. You would have to do the latter, if your account has multi-factor authentication enabled.
 
    a. For the **cloud administrative** environment, use:
 
    ```azurecli
    az login \
-     -u <Active directory global administrator account. For example: username@<aadtenant>.onmicrosoft.com>
+     -u <Active directory global administrator account. For example: username@<aadtenant>.onmicrosoft.com> \
+     --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
    ```
 
    b. For the **user** environment, use:
@@ -143,6 +148,22 @@ Use the following steps to connect to Azure Stack:
    ```azurecli
    az login \
      -u < Active directory user account. Example: username@<aadtenant>.onmicrosoft.com>
+     --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+   ```
+**Note:** If you your user account has Multi factor authentication enabled, you can use the same command as above without providing the -u parameter. This will give you a URL and a code that you must use to authenticate.
+
+  ```azurecli
+   az login \
+     --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+   ```
+To login as a service principal, you must [create the Service Principal through the Azure Portal](azure-stack-create-service-principals.md) or CLI and assign it to a role for the scope you would like for it to have access to. You can then login using the service principal using the following command.
+
+```azurecli
+   az login \
+     --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
+     --service-principal \
+     -u <Application Id of the Service Principal> \
+     -p <Key generated for the Service Principal>
    ```
 
 ## Test the connectivity
