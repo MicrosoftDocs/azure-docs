@@ -37,8 +37,7 @@ This article shows how the developers can take advantage of the [Video Indexer A
 	
 	![Sign up](./media/video-indexer-use-apis/video-indexer-api02.png)
 	
-	This sends the Video Indexer team a subscription request, which will be approved shortly.
-	Once approved, you will be able to see your subscription and your primary and secondary keys. Notice: these keys should be protected. The keys should only be used by your server code. They should not be available on the client side (.js, .html, etc.).
+	Once you subscribe, you will be able to see your subscription and your primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They should not be available on the client side (.js, .html, etc.).
 
 	![Sign up](./media/video-indexer-use-apis/video-indexer-api03.png)
 
