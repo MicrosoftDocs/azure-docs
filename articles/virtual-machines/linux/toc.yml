@@ -169,6 +169,8 @@
         href: update-agent.md
     - name: Scheduled events
       href: scheduled-events.md
+    - name: Monitor metadata
+      href: instance-metadata-service.md
   - name: Use Images
     items:
     - name: Find and use images

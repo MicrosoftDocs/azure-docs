@@ -1,23 +1,23 @@
 ---
-title: Azure Instance Metadata Service Overview | Microsoft Docs
-description: RESTful interface to get information about VM's compute, network and upcoming maintenance events.
-services: virtual-machines-windows, virtual-machines-linux,virtual-machines-scale-sets, cloud-services
-documentationcenter: virtual-machines
+title: Azure Instance Metadata Service for Linux VMs | Microsoft Docs
+description: RESTful interface to get information about Linux VM's compute, network and upcoming maintenance events.
+services: virtual-machines-linux
+documentationcenter: ''
 author: harijay
 manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
-ms.date: 03/27/2017
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 08/11/2017
 ms.author: harijay
 ---
 
-# Azure Instance Metadata Service 
+# Azure Instance Metadata Service for Linux VMs
 
 
 The Azure Instance Metadata Service provides information about running virtual machine instances that can be used to manage and configure your virtual machines.
