@@ -37,7 +37,7 @@ Text Analytics APIs invoke operations against machine learning pretrained models
 
 Endpoints for each operation include the resource providing the underlying algorithms used for a particular analysis: **sentiment analysis**, **key phrase extraction**, and **language detection**. Each request must specify which resource to use. We list them in full below.
 
-1. In the [Azure portal](https://portal.azure.com), and find the Text Analysis API. If it's not pinned to dashboard, search for "text analytics" to find the page. Leave the page open so that you can copy a key and endpoint, starting in the next step.
+1. In the [Azure portal](https://portal.azure.com), find the Text Analysis API. If it's not pinned to dashboard, search for "text analytics" to find the page. Leave the page open so that you can copy a key and endpoint, starting in the next step.
 
 2. In Postman or another tool, set up the request:
 
@@ -101,13 +101,13 @@ Endpoints for each operation include the resource providing the underlying algor
 
 ### About the request body
 
-Input rows must be JSON in raw text. XML is not supported. The schema is simple, which means the same documents collection can be used in all requests.
- 
-+ Language is used only in sentiment analysis and key phrase extraction. It is ignored in language detection. For both sentiment analysis and key phrase extraction, language is an optional parameter but if you do not provide it, the service performs an additional language detection pass. For maximum efficiency, you should always include the language in the request, assuming you know what it is. Refer to the [Text Analytics Overview > Supported Languages](overview.md#supported-languages) for a list of supported languages.
+Input rows must be JSON in raw text. XML is not supported. The schema is simple, consisting of just a few elements. You can use the same documents for all three operations: sentiment, key phrase, and language detection.
 
-+ Document ID is required. Each ID should be a unique integer. The system uses this ID to structure the output. For example, keywords and sentiment scores are provided for each ID.
++ `id` is required. Each document ID should be a unique integer. The system uses this ID to structure the output. For example, keywords and sentiment scores are provided for each ID.
 
-+ Text provides the strings to be analyzed. The maximum size of a single document that can be submitted is 10 KB, and 1 MB for the request overall. For more information about limits, see [Text Analytics Overview > Data limits](text-analytics-overview-whatis.md#data-limits). 
++ `text` field contains the content to be analyzed. The maximum size of a single document that can be submitted is 10 KB, and 1 MB for the request overall. For more information about limits, see [Text Analytics Overview > Data limits](text-analytics-overview-whatis.md#data-limits). 
+
++ `language` is used only in sentiment analysis and key phrase extraction. It is ignored in language detection. For both sentiment analysis and key phrase extraction, language is an optional parameter but if you do not provide it, the service performs an additional language detection pass. For maximum efficiency, you should always include the language in the request, assuming you know what it is. Refer to the [Text Analytics Overview > Supported Languages](overview.md#supported-languages) for a list of supported languages.
 
 ### About the response
 
@@ -245,12 +245,8 @@ Notice that the last document is correctly identified as Spanish, even though th
                 }
             ]
 
-> [!Tip] 
-> Use an online translator to translate some of the existing phrases from English to another language. Resend the request to detect the various languages (120 languages are supported for language detection).
 
 ## Next steps
-
-+ Sign up for the [Translate API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) and submit the documents collection for translation. Copy the strings to create a language-specific version of the documents, then run language detection to confirm the results.
 
 + [Visit the product page](//go.microsoft.com/fwlink/?LinkID=759712) to try out an interactive demo of the APIs. Submit text, choose an analysis, and view results without writing any code.
 

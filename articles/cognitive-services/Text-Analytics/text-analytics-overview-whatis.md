@@ -79,7 +79,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 
 ## Data limits
 
-Text Analytics accepts raw text data. The service currently sets a limit of 10 KB for each document. If you require a higher limit, [contact us](https://azure.microsoft.com/overview/sales-number/) so that we can discuss your requirements.
+Text Analytics accepts raw text data. The service currently sets a limit of 10 KB for each document. If you need to analyze larger documents, you can break them up into 10 KB chunks. If you still require a higher limit, [contact us](https://azure.microsoft.com/overview/sales-number/) so that we can discuss your requirements.
 
 |Limits | |
 |------------------------|---------------|
@@ -98,7 +98,7 @@ Although Cognitive Services has multiple APIs, we ask you to sign up for them in
 + [Pricing for text analytics](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)
 + [Calculator](https://azure.microsoft.com/pricing/calculator/?service=cognitive-services)
 
-Billing is based on transactions, where a transaction is based on the number of documents multiplied by unit of operation. The following table illustrates the billing model at a glance.
+Billing is based on transactions, where a transaction is based on the number of documents multiplied by unit of operation. There is no storage component to billing because we do not store your data. The following table illustrates the billing model at a glance.
 
 | Document | Sentiment | Key Phrase | Language Detection | Transactions |
 |----------|-----------|------------|--------------------|--------------|
@@ -107,8 +107,6 @@ Billing is based on transactions, where a transaction is based on the number of 
 | 1000 |   |   | ✔ | 1000 |
 
 Each tier provides an allocation of transactions to be consumed over a 30-day billing cycle. The counter is reset back to 0 on day 31. 
-
-There is no storage component to billing because we do not store your data, but there are [technical limits on the size and structure of the payload](#data-limits). Although you could load a document with the maximum amount of text to save money, analysis generally performs better if the body of the request is under the maximum.
 
 **What happens if transactions get used up before the current billing period ends?**
 
