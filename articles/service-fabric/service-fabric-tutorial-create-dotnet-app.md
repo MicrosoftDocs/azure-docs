@@ -510,12 +510,12 @@ The voting application consists of two services:
 
 ![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-When you vote in the application, the following events occur:
+When you vote in the application the following events occur:
 1. A JavaScript sends the vote request to the web API in the web front-end service as an HTTP PUT request.
 
 2. The web front-end service uses a proxy to locate and forward an HTTP PUT request to the back-end service.
 
-3. The back-end service takes the incoming request and stores the updated result in a reliable dictionary.  The result gets replicated to multiple nodes within the cluster and persisted on disk. All the application's data is stored in the cluster, so no database is needed.
+3. The back-end service takes the incoming request, and stores the updated result in a reliable dictionary, which gets replicated to multiple nodes within the cluster and persisted on disk. All the application's data is stored in the cluster, so no database is needed.
 
 ## Debug in Visual Studio
 When debugging application in Visual Studio, you are using a local Service Fabric development cluster. You have the option to adjust your debugging experience to your scenario. In this application, we store data in our back-end service, using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
@@ -526,12 +526,18 @@ To look at what happens in the code, complete the following steps:
 2. Open the **VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 50).
 
 3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
-    - This is where the JavaScript in the browser sends a request to the web API controller in the front-end service. The controller in the front-end service then uses the ReverseProxy to send a PUT request to the back-end service.
+    - This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
+    
+    ![Add Vote Front-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+
+    - First we construct the URL to the ReverseProxy for our back-end service **(1)**.
+    - Then we send the HTTP PUT Request to the ReverseProxy **(2)**.
+    - Finally the we return the response from the back-end service to the client **(3)**.
 
 4. Press **F5** to continue
     - You are now at the break point in the back-end service.
     
-    ![Add Vote Async Method](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
+    ![Add Vote Back-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
     - In the first line in the method **(1)** we are using the `StateManager` to get or add a reliable dictionary called `counts`.
     - All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
