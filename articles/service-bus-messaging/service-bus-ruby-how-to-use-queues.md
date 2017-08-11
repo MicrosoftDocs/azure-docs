@@ -17,7 +17,8 @@ ms.date: 08/10/2017
 ms.author: sethm
 
 ---
-# How to use Service Bus queues
+# How to use Service Bus queues with Ruby
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 This guide describes how to use Service Bus queues. The samples are

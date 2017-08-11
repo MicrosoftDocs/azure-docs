@@ -333,9 +333,6 @@ You should change TableThroughput when either of the following conditions applie
 ### Can I scale up or scale down the throughput of my Table API (Preview) table? 
 Yes, you can use the Azure Cosmos DB portal’s scale pane to scale the throughput. For more information, see [Set throughput](set-throughput.md).
 
-### Can the premium Table API (Preview) take advantage of the RU-per-minute offering? 
-Yes, the premium Table API (Preview) borrows from the capabilities of Azure Cosmos DB to provide SLAs for performance, latency, availability, and consistency. This capability ensures that the table can use the RU-per-minute offering. For more information, see [Request Units in Azure Cosmos DB](request-units.md). With this capability, customers can avoid provisioning for the peak and smooth out the spikes in the workload.
-
 ### Is a default TableThroughput set for newly provisioned tables?
 Yes, if you do not override the TableThroughput via app.config and do not use a pre-created container in Azure Cosmos DB, the service creates a table with throughput of 400.
  
@@ -396,7 +393,7 @@ The current developer-facing manifestation of this work is the new support for [
 
 It is important to point out that the DocumentDB [SQL dialect](../documentdb/documentdb-sql-query.md) has always been just one of the many APIs that the underlying Azure Cosmos DB can support. For developers who use a fully managed service such as Azure Cosmos DB, the only interface to the service is the APIs that are exposed by the service. Nothing really changes for existing DocumentDB customers. In Azure Cosmos DB, you get exactly the same SQL API that DocumentDB offers. And now (and in the future), you can access other previously inaccessible capabilities 
 
-Another manifestation of our continued work is the extended foundation for global and elastic scalability of throughput and storage. One of the very first manifestations of scalability is the [RU/m](../cosmos-db/request-units-per-minute.md), but we plan to announce additional capabilities that can help reduce costs for our customers for various workloads. We have made several foundational enhancements to the global distribution subsystem. One of the many such developer-facing features is the Consistent Prefix consistency model, which makes a total five well-defined consistency models. We will release many more interesting capabilities as they mature. 
+Another manifestation of our continued work is the extended foundation for global and elastic scalability of throughput and storage. We have made several foundational enhancements to the global distribution subsystem. One of the many such developer-facing features is the Consistent Prefix consistency model, which makes a total five well-defined consistency models. We will release many more interesting capabilities as they mature. 
 
 ### What do I need to do to ensure that my DocumentDB resources continue to run on Azure Cosmos DB?
 
@@ -414,7 +411,7 @@ DocumentDB no longer appears in the portal as an Azure service. In its place is 
 
 ### Are there changes to pricing?
 
-No, the cost of running your app on Azure Cosmos DB is the same as it was before. However, you might benefit from the new "Request Unit per minute" feature. For more information, see the [Scale throughput per minute](../cosmos-db/request-units-per-minute.md) article.
+No, the cost of running your app on Azure Cosmos DB is the same as it was before.
 
 ### Are there changes to the SLAs?
 
