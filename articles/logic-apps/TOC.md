@@ -21,7 +21,7 @@
 ### [Call, trigger, or nest logic apps](logic-apps-http-endpoint.md)
 ### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
 ### [Call custom APIs for logic apps](logic-apps-custom-hosted-api.md)
-### [Trigger logic apps with event grids for virtual machine tagging](trigger-logic-app-event-grid-virtual-machine-vm.md)
+### [Trigger logic apps with event grids for virtual machine tagging](../event-grid/trigger-logic-app-event-grid-virtual-machine-vm.md)
 ### [Handle errors and exceptions](logic-apps-exception-handling.md)
 ### [Handle content types](logic-apps-content-type.md)
 ### [Secure your logic apps](logic-apps-securing-a-logic-app.md)
