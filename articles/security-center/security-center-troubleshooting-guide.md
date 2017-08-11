@@ -96,36 +96,6 @@ By default the Microsoft Antimalware User Interface is disabled, read [Enabling 
 
 If you experience issues loading the Security Center dashboard, ensure that the user that registers the subscription to Security Center (i.e. the first user one who opened Security Center with the subscription) and the user who would like to turn on data collection should be *Owner* or *Contributor* on the subscription. From that moment on also users with *Reader* on the subscription can see the dashboard/alerts/recommendation/policy.
 
-
-
-## Troubleshooting platform migration
-
-In June 2017, Azure Security Center began rolling out important changes to the way security data is collected and stored. Read [Azure Security Center platform migration](https://docs.microsoft.com/azure/security-center/security-center-platform-migration) and the [Platform Migration FAQ]() for more information about these changes. The sections that follow include common known issues that could arise as a result of these changes and how to resolve them. 
-
-### Windows VMs running the Microsoft Monitoring Agent (OMS agent), not installed as an Azure extension, are now reporting to two workspaces
-
-This scenario  happens when Security Center does not recognize that the Microsoft Monitoring Agent is installed on a VM, because the agent was not installed as an Azure extension. In this case, Security Center will install the agent as an extension and send data to the default workspace created by Security Center. This can result in duplicate billing for the VM.   
-
-You can resolve this by completing the following steps:
-
-* In the Azure portal, manually disconnect the VMs from the Security Center default workspace, and connect it to the user workspace via  [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
-* Re-install the extension using PowerShell script.
-
-### The Microsoft Monitoring Agent installed by Security caused an unwanted version upgrade to an existing agent
-
-Security Center installs the latest version of the agent. It is strongly recommended that you use the latest version. If your environment is dependent on a specific version, and you cannot upgrade, you can disable data collection for the subscription. This will limit Security Center recommendations and alerts, and is strongly discouraged. If you must remove the latest version and re-install and older version, complete these steps:
-
-* From the security policy, disable data collection on the subscription containing the VMs
-* Remove to OMS extension and install the correct OMS version.
-
->[!NOTE] 
->You cannot disable data collection for subscriptions on the Standard pricing tier. To disable data collection, you must first change to the free pricing tier in the security policy.
-
-
-### The default workspace created by Azure Security Center was deleted 
-
-Security Center uses the default workspaces to store security data from your VMs.  If you delete a workspace, Security Center will be unable to collect this data and some security recommendations and alerts will be unavailable. To recover, remove the Microsoft Monitoring agent on the VMs connected to the deleted workspace. Azure Security Center will re-install the agent and create new default workspaces.
-
 ## Contacting Microsoft Support
 Some issues can be identified using the guidelines provided in this article, others you can also find documented at the Security Center public [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter). However if you need further troubleshooting, you can open a new support request using **Azure portal** as shown below: 
 
