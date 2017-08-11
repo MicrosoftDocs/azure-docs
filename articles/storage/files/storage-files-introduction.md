@@ -46,6 +46,7 @@ Azure File shares can be used to:
     Azure File storage can be used to completely replace file shares on traditional on-premises file servers or NAS devices. Popular operating systems such as Windows, macOS, and Linux can easily mount an Azure File share wherever they are in the world.
 
 * **"Lift and Shift" applications**:  
+
     Azure File storage makes it easy to "lift and shift" applications to the cloud that use on-premises file shares to share data between parts of the application. To make this happen, each VM connects to the file share and then it can read and write files just like it would against an on-premises file share.
 
 * **Simplify Cloud Development**:  
@@ -70,15 +71,20 @@ Managing Azure File shares is much simpler than managing file shares on-premises
 
 ![File Structure](./media/storage-files-introduction/files-concepts.png)
 
-* **Storage Account**: All access to Azure Storage is done through a storage account. See Azure Storage Scalability and Performance Targets for details about storage account capacity.
+* **Storage Account**: All access to Azure Storage is done through a storage account. See [Scalability and Performance Targets](storage-scalability-targets.md) for details about storage account capacity.
+
 * **Share**: A File Storage share is an SMB file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the 5 TB total capacity of the file share.
+
 * **Directory**: An optional hierarchy of directories.
+
 * **File**: A file in the share. A file may be up to 1 TB in size.
+
 * **URL format**: Files are addressable using the following URL format:  
 
     ```
     https://<storage account>.file.core.windows.net/<share>/<directory/directories>/<file>
     ```
+
 ## Next Steps
 * [Create Azure File Share](storage-how-to-create-file-share.md)
 * [Connect and Mount on Windows](storage-how-to-use-files-windows.md)
@@ -88,6 +94,7 @@ Managing Azure File shares is much simpler than managing file shares on-premises
 * [Troubleshooting on Windows](storage-troubleshoot-windows-file-connection-problems.md)   
 * [Troubleshooting on Linux](storage-troubleshoot-linux-file-connection-problems.md)   
 
+<!-- Rena I would remove any articles from here that are more than a year old. - Robin-->
 ### Conceptual articles and videos
 * [Azure File storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 
@@ -103,5 +110,5 @@ Managing Azure File shares is much simpler than managing file shares on-premises
 * [Migrating data to Azure File ](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 
 ### Reference
-* [storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+* [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
