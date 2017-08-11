@@ -123,7 +123,7 @@ There are a number of applications you can use to connect to your Azure Database
     --username | *server admin login name* |Type in the  server admin login username supplied when you created the Azure Database for PostgreSQL earlier. Follow the previous section to get the connection information if you do not remember the username.  The format is *username@servername*.
     --dbname | **postgres** | Use the default system generated database name *postgres* for the first connection. Later you create your own database.
 
-    After running the psql command, with your own parameter values, you will be prompted to type the server admin password. This is the same password that you provided when you created the server. 
+    After running the psql command, with your own parameter values, you will be prompted to type the server admin password. This password is the same that you provided when you created the server. 
 
     psql parameter |Suggested value|Description
     ---|---|---
@@ -168,7 +168,7 @@ To connect to Azure PostgreSQL server using the GUI tool _pgAdmin_
 6.	In the Browser left pane, expand the **Server Groups**. Choose your server **Azure PostgreSQL Server**.
 7.  Choose the **Server** you connected to, and then choose **Databases** under it. 
 8.	Right-click on **Databases** to Create a Database.
-9.	Choose a database name **mypgsqldb** and the owner for it as server admin login **mylogin**.
+9.	Choose a database name **mypgsqldb** and specify the owner as your server admin login name (**mylogin**).
 10. Click **Save** to create a blank database.
 11. In the **Browser**, expand the **Server**. Expand the server you created, and see the database **mypgsqldb** under it.
  ![pgAdmin - Create - Database](./media/quickstart-create-database-portal/11-pgadmin-database.png)
