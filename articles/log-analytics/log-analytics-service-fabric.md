@@ -365,7 +365,7 @@ The following table shows data collection methods and other details about how da
 
 | platform | Direct Agent | Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![No](./media/log-analytics-malware/oms-bullet-red.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |![Yes](./media/log-analytics-malware/oms-bullet-green.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |10 minutes |
+| Windows |  |  | &#8226; |  |  |10 minutes |
 
 > [!NOTE]
 > You can change the scope of these events in the Service Fabric solution by clicking **Data based on last 7 days** at the top of the dashboard. You can also show events generated within the last seven days, one day, or six hours. Or, you can select **Custom** to specify a custom date range.

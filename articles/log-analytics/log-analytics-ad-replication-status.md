@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
@@ -36,7 +36,7 @@ The following table shows data collection methods and other details about how da
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Yes](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |![Yes](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |![No](./media/log-analytics-ad-replication-status/oms-bullet-red.png) |![No](./media/log-analytics-ad-replication-status/oms-bullet-red.png) |![Yes](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |every 5 days |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |every 5 days |
 
 ## Optionally, enable a non-domain controller to send AD data to OMS
 If you don’t want to connect any of your domain controllers directly to OMS, you can use any other OMS-connected computer in your domain to collect data for the AD Replication Status solution pack and have it send the data.

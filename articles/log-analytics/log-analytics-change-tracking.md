@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
@@ -38,7 +38,7 @@ Use the following steps to configure files to track on Linux computers.
 2. On the **Settings** page, click **Data**, and then click **Linux File Tracking**.
 3. Under Linux File Change Tracking, type the entire path, including the file name of the file that you want to track and then click the **Add** symbol. For example: "/etc/*.conf"
 4. Click **Save**.  
-  
+
 > [!NOTE]
 > Linux file tracking has additional capabilities including directory tracking, recrusion through directories, and wildcard tracking.
 
@@ -67,11 +67,11 @@ Use the following steps to configure registry keys to track on Windows computers
 2. **Links** (Handling Linux symlink references to other files or directories)
    * **Ignore** (Ignore symlinks during recurions to not include the files/directories referenced)
    * **Follow** (Follow the symlinks during recursion to also include the files/directories referenced)
-   * **Manage** (Follow the symlinks and alter the treatment of returned content) 
-   
+   * **Manage** (Follow the symlinks and alter the treatment of returned content)
+
    > [!NOTE]   
    > The "Manage" links option is not recommended since file content retrieval is not currently supported.
-   
+
 3. **Recurse** (Recurse through folder levels and track all files meeting the path statement)
 4. **Sudo** (Enable access files or directories that require sudo privilege)
 
@@ -99,7 +99,7 @@ The following table shows data collection methods and other details about how da
 
 | platform | Direct Agent | SCOM agent | Linux agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows and Linux |![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png) | 5 minutes to 50 minutes, depending on the change type. See below for more information. |
+| Windows and Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minutes to 50 minutes, depending on the change type. See below for more information. |
 
 
 The following table shows the data collection frequency for the types of changes.
