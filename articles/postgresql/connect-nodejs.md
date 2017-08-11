@@ -290,7 +290,7 @@ client.connect(err => {
 function queryDatabase() {
   const query = `
     DELETE FROM inventory 
-    WHERE name = 'apple'
+    WHERE name = 'apple';
   `;
 
   client
