@@ -4,168 +4,164 @@
 - name: Plan and design
   items:
   - name: Replication
-    href: ../storage-redundancy.md
+    href: storage-redundancy.md
   - name: Scalability and performance targets
-    href: ../storage-scalability-targets.md
+    href: storage-scalability-targets.md
   - name: Performance and scalability checklist
-    href: ../storage-performance-checklist.md
+    href: storage-performance-checklist.md
   - name: Concurrency
-    href: ../storage-concurrency.md
+    href: storage-concurrency.md
 - name: Develop
   items:
   - name: Samples
     items:
     - name: .NET
-      href: ../storage-samples-dotnet.md
+      href: storage-samples-dotnet.md
     - name: Java
-      href: ../storage-samples-java.md
+      href: storage-samples-java.md
   - name: Designing HA Apps using RA-GRS
-    href: ../storage-designing-ha-apps-with-ragrs.md
+    href: storage-designing-ha-apps-with-ragrs.md
   - name: Configure connection strings
-    href: ../storage-configure-connection-string.md
+    href: storage-configure-connection-string.md
   - name: Use the Storage Emulator
-    href: ../storage-use-emulator.md
-  - name: Set and retrieve properties and metadata
-    href: ../storage-properties-metadata.md
+    href: storage-use-emulator.md
 - name: Manage
   items:
   - name: PowerShell
-    href: ../storage-powershell-guide-full.md
+    href: storage-powershell-guide-full.md
   - name: Azure CLI 2.0
-    href: ../storage-azure-cli.md
+    href: storage-azure-cli.md
   - name: Azure CLI 1.0
-    href: ../storage-azure-cli-nodejs.md
-  - name: Azure Automation
-    href: ../automation-manage-storage.md
+    href: storage-azure-cli-nodejs.md
+  - name: Azure AutomationAutomation
+    href: storage-manage-with-automation.md
 - name: Secure
   items:
   - name: Security guide
-    href: ../storage-security-guide.md
+    href: storage-security-guide.md
   - name: Encryption for data at rest
-    href: ../storage-service-encryption.md
+    href: storage-service-encryption.md
   - name: Encryption at rest with customer keys
-    href: ../storage-service-encryption-customer-managed-keys.md
+    href: storage-service-encryption-customer-managed-keys.md
   - name: Shared key authentication
     href: /rest/api/storageservices/Authentication-for-the-Azure-Storage-Services
   - name: Shared access signatures (SAS)
-    href: ../storage-dotnet-shared-access-signature-part-1.md
-  - name: Encrypt and decrypt blobs using Azure Key Vault
-    href: ../storage-encrypt-decrypt-blobs-key-vault.md
+    href: storage-dotnet-shared-access-signature-part-1.md
   - name: Require secure transfer
-    href: ../storage-require-secure-transfer.md
+    href: storage-require-secure-transfer.md
   - name: Client-side encryption
     items:
     - name: .NET
-      href: ../storage-client-side-encryption.md
+      href: storage-client-side-encryption.md
     - name: Java
-      href: ../storage-client-side-encryption-java.md
+      href: storage-client-side-encryption-java.md
     - name: Python
-      href: ../storage-client-side-encryption-python.md
+      href: storage-client-side-encryption-python.md
 - name: Monitor and troubleshoot
   items:
   - name: Disaster recovery guidance
-    href: ../storage-disaster-recovery-guidance.md
+    href: storage-disaster-recovery-guidance.md
   - name: Backup and DR for IAAS disks
-    href: ../storage-backup-and-disaster-recovery-for-azure-iaas-disks.md
+    href: storage-backup-and-disaster-recovery-for-azure-iaas-disks.md
   - name: Troubleshoot Storage Explorer
-    href: ../storage-explorer-troubleshooting.md
+    href: storage-explorer-troubleshooting.md
   - name: Metrics and logging
     items:
     - name: Storage Analytics
-      href: ../storage-analytics.md
+      href: storage-analytics.md
     - name: Enable and view metrics
-      href: ../storage-enable-and-view-metrics.md
+      href: storage-enable-and-view-metrics.md
     - name: Monitor, diagnose, and troubleshoot
-      href: ../storage-monitoring-diagnosing-troubleshooting.md
+      href: storage-monitoring-diagnosing-troubleshooting.md
     - name: Troubleshooting tutorial
-      href: ../storage-e2e-troubleshooting.md
+      href: storage-e2e-troubleshooting.md
 - name: Transfer Data
   items:
   - name: Move data to and from Storage
-    href: ../storage-moving-data.md
+    href: storage-moving-data.md
   - name: AzCopy on Windows
-    href: ../storage-use-azcopy.md
+    href: storage-use-azcopy.md
   - name: AzCopy on Linux
-    href: ../storage-use-azcopy-linux.md
+    href: storage-use-azcopy-linux.md
   - name: Using the Import/Export service
-    href: ../storage-import-export-service.md
+    href: storage-import-export-service.md
   - name: Using the Import/Export Tool
-    href: ../storage-import-export-tool-how-to.md
+    href: storage-import-export-tool-how-to.md
     items:
     - name: Setting up the Import/Export Tool
-      href: ../storage-import-export-tool-setup.md
+      href: storage-import-export-tool-setup.md
     - name: Preparing hard drives for an import job
-      href: ../storage-import-export-tool-preparing-hard-drives-import.md
+      href: storage-import-export-tool-preparing-hard-drives-import.md
       items:
       - name: Setting properties and metadata during the import process
-        href: ../storage-import-export-tool-setting-properties-metadata-import.md
+        href: storage-import-export-tool-setting-properties-metadata-import.md
       - name: Sample workflow to prepare hard drives for an import job
-        href: ../storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md
+        href: storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md
       - name: Quick reference for frequently used commands for import jobs
-        href: ../storage-import-export-tool-quick-reference.md
+        href: storage-import-export-tool-quick-reference.md
     - name: Previewing drive usage for an export job
-      href: ../storage-import-export-tool-previewing-drive-usage-export-v1.md
+      href: storage-import-export-tool-previewing-drive-usage-export-v1.md
     - name: Reviewing job status with copy log files
-      href: ../storage-import-export-tool-reviewing-job-status-v1.md
+      href: storage-import-export-tool-reviewing-job-status-v1.md
     - name: Repairing an import job
-      href: ../storage-import-export-tool-repairing-an-import-job-v1.md
+      href: storage-import-export-tool-repairing-an-import-job-v1.md
     - name: Repairing an export job
-      href: ../storage-import-export-tool-repairing-an-export-job-v1.md
+      href: storage-import-export-tool-repairing-an-export-job-v1.md
     - name: Troubleshooting the Import/Export Tool
-      href: ../storage-import-export-tool-troubleshooting-v1.md
+      href: storage-import-export-tool-troubleshooting-v1.md
     - name: Import/Export service manifest file format
-      href: ../storage-import-export-file-format-manifest.md
+      href: storage-import-export-file-format-manifest.md
     - name: Import/Export service metadata and properties file format
-      href: ../storage-import-export-file-format-metadata-and-properties.md
+      href: storage-import-export-file-format-metadata-and-properties.md
     - name: Import/Export service log file format
-      href: ../storage-import-export-file-format-log.md
+      href: storage-import-export-file-format-log.md
   - name: Using the Import/Export Tool (v1)
-    href: ../storage-import-export-tool-how-to-v1.md
+    href: storage-import-export-tool-how-to-v1.md
     items:
     - name: Setting up the Import/Export Tool
-      href: ../storage-import-export-tool-setup-v1.md
+      href: storage-import-export-tool-setup-v1.md
     - name: Preparing hard drives for an import job
-      href: ../storage-import-export-tool-preparing-hard-drives-import-v1.md
+      href: storage-import-export-tool-preparing-hard-drives-import-v1.md
       items:
       - name: Setting properties and metadata during the import process
-        href: ../storage-import-export-tool-setting-properties-metadata-import-v1.md
+        href: storage-import-export-tool-setting-properties-metadata-import-v1.md
       - name: Sample workflow to prepare hard drives for an import job
-        href: ../storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+        href: storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
       - name: Quick reference for frequently used commands for import jobs
-        href: ../storage-import-export-tool-quick-reference-v1.md
+        href: storage-import-export-tool-quick-reference-v1.md
     - name: Previewing drive usage for an export job
-      href: ../storage-import-export-tool-previewing-drive-usage-export-v1.md
+      href: storage-import-export-tool-previewing-drive-usage-export-v1.md
     - name: Reviewing job status with copy log files
-      href: ../storage-import-export-tool-reviewing-job-status-v1.md
+      href: storage-import-export-tool-reviewing-job-status-v1.md
     - name: Repairing an import job
-      href: ../storage-import-export-tool-repairing-an-import-job-v1.md
+      href: storage-import-export-tool-repairing-an-import-job-v1.md
     - name: Repairing an export job
-      href: ../storage-import-export-tool-repairing-an-export-job-v1.md
+      href: storage-import-export-tool-repairing-an-export-job-v1.md
     - name: Troubleshooting the Import/Export Tool
-      href: ../storage-import-export-tool-troubleshooting-v1.md
+      href: storage-import-export-tool-troubleshooting-v1.md
     - name: Import/Export service manifest file format
-      href: ../storage-import-export-file-format-manifest.md
+      href: storage-import-export-file-format-manifest.md
     - name: Import/Export service metadata and properties file format
-      href: ../storage-import-export-file-format-metadata-and-properties.md
+      href: storage-import-export-file-format-metadata-and-properties.md
     - name: Import/Export service log file format
-      href: ../storage-import-export-file-format-log.md
+      href: storage-import-export-file-format-log.md
   - name: Using the Azure Import/Export service REST API
-    href: ../storage-import-export-using-the-rest-api.md
+    href: storage-import-export-using-the-rest-api.md
     items:
     - name: Creating an import job
-      href: ../storage-import-export-creating-an-import-job.md
+      href: storage-import-export-creating-an-import-job.md
     - name: Creating an export job
-      href: ../storage-import-export-creating-an-export-job.md
+      href: storage-import-export-creating-an-export-job.md
     - name: Retrieving state information for a job
-      href: ../storage-import-export-retrieving-state-info-for-a-job.md
+      href: storage-import-export-retrieving-state-info-for-a-job.md
     - name: Enumerating jobs
-      href: ../storage-import-export-enumerating-jobs.md
+      href: storage-import-export-enumerating-jobs.md
     - name: Cancelling and deleting jobs
-      href: ../storage-import-export-cancelling-and-deleting-jobs.md
+      href: storage-import-export-cancelling-and-deleting-jobs.md
     - name: Backing up drive manifests
-      href: ../storage-import-export-backing-up-drive-manifests.md
+      href: storage-import-export-backing-up-drive-manifests.md
     - name: Diagnostics and error recovery for Import/Export jobs
-      href: ../storage-import-export-diagnostics-and-error-recovery.md
+      href: storage-import-export-diagnostics-and-error-recovery.md
 - name: Reference
   items:
   - name: Code samples
@@ -211,7 +207,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=storage
   - name: Azure Storage client tools
-    href: ../storage-explorers.md
+    href: storage-explorers.md
   - name: Forum
     href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
   - name: Pricing
@@ -226,13 +222,9 @@
     href: https://azure.microsoft.com/documentation/videos/index/?services=storage
   - name: Azure Storage Explorer
     items:
-    - name: Storage Explorer (Preview)
+    - name: Storage Explorer
       href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md
-    - name: Manage blobs with Storage Explorer (Preview)
-      href: ../../vs-azure-tools-storage-explorer-blobs.md
-    - name: Using Storage Explorer (Preview) with Azure file storage
-      href: ../../vs-azure-tools-storage-explorer-files.md
-    - name: Storage Explorer (Preview) release notes
+    - name: Storage Explorer release notes
       href: ../../vs-azure-tools-storage-explorer-relnotes.md
   - name: NuGet packages
     items:
