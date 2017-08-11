@@ -63,3 +63,7 @@ To set up gMSA (group Managed Service Accounts), a credential specification file
   </ContainerHostPolicies>
 </Policies>
 ```
+## Next steps
+
+[Deploy a Windows container to Service Fabric on Windows Server 2016](service-get-started-containers.md)
+[Deploy a Docker container to Service Fabric on Linux](service-fabric-get-started-containers-linux.md)

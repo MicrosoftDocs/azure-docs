@@ -83,8 +83,8 @@ Service Fabric has several container capabilities that help you build applicatio
 ## Next steps
 In this article, you learned about containers, that Service Fabric is a container orchestrator, and that Service Fabric has features that support containers. As a next step, we will go over examples of each of the features to show you how to use them.
 
-[Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-deploy-container.md)
+[Deploy a Windows container to Service Fabric on Windows Server 2016](service-get-started-containers.md)
 
-[Deploy a Docker container to Service Fabric on Linux](service-fabric-deploy-container-linux.md)
+[Deploy a Docker container to Service Fabric on Linux](service-fabric-get-started-containers-linux.md)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
