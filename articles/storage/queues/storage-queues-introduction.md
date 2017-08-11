@@ -28,7 +28,8 @@ Common uses of Queue storage include:
 * Creating a backlog of work to process asynchronously
 * Passing messages from an Azure web role to an Azure worker role
 
-## Queue Service Concepts
+## Queue service concepts
+
 The Queue service contains the following components:
 
 ![Queue Concepts](./media/storage-queues-introduction/queue1.png)
@@ -46,7 +47,7 @@ The Queue service contains the following components:
 
 * **Message:** A message, in any format, of up to 64 KB. The maximum time that a message can remain in the queue is 7 days.
 
-## Next Steps
+## Next steps
 
 * [Create a storage account](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 * [Getting started with Queues using .NET](storage-dotnet-how-to-use-queues.md)

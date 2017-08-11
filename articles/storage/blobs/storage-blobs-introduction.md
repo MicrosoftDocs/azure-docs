@@ -49,7 +49,7 @@ a **General-purpose storage account** or a **Blob storage account** which is spe
   
     For details about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
-** Next Steps
+## Next Steps
 
 * [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Getting started with Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
