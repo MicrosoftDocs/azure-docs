@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Exploring Metrics in Application Insights

@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 07/18/2017
 ms.author: adegeo
 
 ---

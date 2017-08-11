@@ -391,6 +391,54 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
+    <tr>
+      <td>Cassandra table</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2>Publish as a generic ODBC asset</font></td>
+    </tr>
+    <tr>
+      <td>Cassandra view</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2>Publish as a generic ODBC asset</font></td>
+    </tr>
+    <tr>
+      <td>Sybase table</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+    <tr>
+      <td>Sybase view</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+    <tr>
+      <td>MongoDB table</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2>Publish as a generic ODBC asset</font></td>
+    </tr>
+    <tr>
+      <td>MongoDB view</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2>Publish as a generic ODBC asset</font></td>
+    </tr>
 </table>
 
 If you need support for additional sources, submit a feature request to the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
@@ -1311,6 +1359,36 @@ If you need support for additional sources, submit a feature request to the [Azu
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>Sybase</td>
+      <td>Container</td>
+      <td>Database</td>
+      <td>
+        <font size=2>
+            protocol: sybase
+            <br>authentication: {basic, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>Sybase</td>
+      <td>Table</td>
+      <td>Table, View</td>
+      <td>
+        <font size=2>
+            protocol: sybase
+            <br>authentication: {basic, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
         </font>
       </td>
     </tr>

@@ -6,7 +6,7 @@ keywords:
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 08/08/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -23,6 +23,20 @@ ms.custom: it-pro
 # How to troubleshoot self-service password reset
 
 If you are having issues with self-service password reset, the items that follow may help you to get things working quickly.
+
+## Troubleshoot self-service password reset errors that a user may see
+
+| Error | Details | Technical details |
+| --- | --- | --- |
+| TenantSSPRFlagDisabled = 9 | We’re sorry <br> You cannot reset your password at this time because your administrator has disabled password reset for your organization. There is no further action you can take to resolve this situation. Please contact your admin and ask them to enable this feature. To learn more, read [Help, I forgot my Azure AD password](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-update-your-own-password#common-problems-and-their-solutions). | SSPR_0009: We've detected that Password Reset has not been enabled by your administrator. Please contact your admin and ask them to enable Password Reset for your organization. |
+| WritebackNotEnabled = 10 |We’re sorry <br> You cannot reset your password at this time because your administrator has not enabled a necessary service for your organization. There is no further action you can take to resolve this situation. Please contact your admin and ask them to check your organization’s configuration. To learn more about this necessary service, read [Configuring password writeback](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-writeback#configuring-password-writeback). | SSPR_0010: We've detected that Password Writeback has not been enabled. Please contact your admin and ask them to enable Password Writeback. |
+| SsprNotEnabledInUserPolicy = 11 | We’re sorry  <br> You cannot reset your password at this time because your administrator has not configured password reset for your organization. There is no further action you can take to resolve this situation. Please contact your admin and ask them to configure password reset. To learn more about password reset configuration read the article [Quickstart: Azure AD self-service password reset](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-getting-started). | SSPR_0011: Your organization has not defined a password reset policy. Please contact your admin and ask them to define a password reset policy. |
+| UserNotLicensed = 12 | We’re sorry <br> You cannot reset your password at this time because required licenses are missing from your organization. There is no further action you can take to resolve this situation. Please contact your admin and ask them to check license assignment. To learn more about licensing read the article [Licensing requirements for Azure AD self-service password reset](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-licensing). | SSPR_0012: Your organization does not have the required licenses necessary to perform password reset. Please contact your admin and ask them to review license assignments. |
+| UserNotMemberOfScopedAccessGroup = 13 | We’re sorry <br> You cannot reset your password at this time because your administrator has not configured your account to use password reset. There is no further action you can take to resolve this situation. Please contact your admin and ask them to configure your account for password reset. To learn more about account configuration for password reset read the article [Roll out password reset for users](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-best-practices). | SSPR_0012: You are not a member of a group enabled for password reset. Contact your admin and request to be added to the group. |
+| UserNotProperlyConfigured = 14 | We’re sorry <br> You cannot reset your password at this time because necessary information is missing from your account. There is no further action you can take to resolve this situation. Please contact you admin and ask them to reset your password for you. After you have access to your account again, you can learn how register the necessary information by following the steps in the article [Register for self-service password reset](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-reset-register). | SSPR_0014: Additional security info is needed to reset your password. To proceed, contact your admin and ask them to reset your password. After you have access to your account you can register additional security info at https://aka.ms/ssprsetup. Your admin can add additional security info to your account by following the steps in [Set and read authentication data for Password Reset](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-data#set-and-read-authentication-data-using-powershell). |
+| OnPremisesAdminActionRequired = 29 | We’re sorry <br> We cannot reset your password at this time because of a problem with your organization’s password reset configuration. There is no further action you can take to resolve this situation. Please contact your admin and ask them to investigate. To learn more about the potential issue read the article [Troubleshoot password writeback](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback). | SSPR_0029: We are unable to reset your password due to an error in your on-premises configuration. Please contact your admin and ask them to investigate. |
+| OnPremisesConnectivityError = 30 | We’re sorry <br> We cannot reset your password at this time because of connectivity issues to your organization. There is no action to take right now, but the problem may be resolved if you try again later. If the problem persists, please contact your admin and ask them to investigate. To learn more about connectivity issues read [Troubleshoot Password Writeback connectivity](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity). | SSPR_0030: We cannot reset your password due to a poor connection with your on-premises environment. Please contact your admin and ask them to investigate.|
+
 
 ## Troubleshoot password reset configuration in the Azure portal
 
