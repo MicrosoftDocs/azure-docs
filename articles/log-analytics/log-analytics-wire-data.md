@@ -442,7 +442,7 @@ A record with a type of _WireData_ is created for each type of input data. WireD
 | RemotePortNumber | Port number used by the remote IP address |
 | SessionID | A unique value that identifies communication session between two IP addresses |
 | SentBytes | Number of bytes sent |
-| TotalBytes | Total number of by sent during session |
+| TotalBytes | Total number of bytes sent during session |
 | ApplicationProtocol | Type of network protocol used   |
 | ProcessID | Windows process ID |
 | ProcessName | Path and file name of the process |

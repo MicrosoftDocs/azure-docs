@@ -1,10 +1,10 @@
 ---
-title: 'Azure Government Intelligence + Analytics | Microsoft Docs'
+title: 'Azure Government Data + Analytics | Microsoft Docs'
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: smichelotti
+author: jglixon
 manager: zakramer
 
 ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 05/18/2017
-ms.author: stemi
+ms.date: 07/25/2017
+ms.author: jglixon
 
 ---
-# Azure Government Intelligence + Analytics
-This article outlines the intelligence and analytics services, variations, and considerations for the Azure Government environment.
+# Azure Government Data + Analytics
+This article outlines the data and analytics services, variations, and considerations for the Azure Government environment.
 
 ## HDInsight
 HDInsight on Linux Standard is generally available in Azure Government. You can see a demo on how to build data-centric solutions on Azure Government using HDInsight <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>here</a>.
