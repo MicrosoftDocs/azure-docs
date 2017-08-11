@@ -31,8 +31,8 @@ from publisher to subscriber:
 * New message in a queue
 * New tweet
 
-This tutorial shows how to create a logic app that starts running 
-a series of steps when you create a virtual machine in Azure. 
+This tutorial shows how to create a logic app that starts 
+running workflow steps when you create a virtual machine in Azure. 
 On creation, the virtual machine publishes an event to an event grid, 
 which pushes the event to your logic app. Your logic app passes 
 data about the virtual machine to an Azure function 
@@ -44,7 +44,7 @@ that tags the virtual machine with a specified label.
 
 To follow along, complete these tutorials first: 
 
-* [Create a virtual machine with an event grid]()
+* [Create a virtual machine and an event grid for publishing events]()
 
   This tutorial shows how to create a virtual machine and an event grid 
   that publishes an event when you create a virtual machine. 
@@ -91,9 +91,9 @@ choose **New** > **Enterprise Integration** > **Logic App** as shown:
 For this tutorial, under **Templates**, choose **Blank Logic App**, 
 so you can build your logic app from scratch.
 
-   The Logic Apps Designer now shows available [*connectors*](../connectors/apis-list.md) 
+   The Logic Apps Designer now shows [*connectors*](../connectors/apis-list.md) 
    and [*triggers*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts), 
-   which you use to start your logic app. A trigger is an event that creates a 
+   which you can use to start your logic app. A trigger is an event that creates a 
    logic app instance and starts your logic app workflow. 
    Your logic app needs a trigger as the first item.
 
@@ -201,7 +201,7 @@ sign in with the credentials for your email account when prompted for authentica
 
 4. Provide the details for the email action. 
 When the **Dynamic content** list appears, 
-you can select from fields availalbe in your logic app workflow.
+you can select from fields available in your workflow.
 
    * In the **To** box, enter the recipient's email address. 
    For testing purposes, you can use your own email address.
@@ -234,6 +234,7 @@ you can select from fields availalbe in your logic app workflow.
 
 **Q**: How do I set up publishing to an event grid for a third-party resource, 
 like custom APIs? </br>
+
 **A**: Here are more details for third-party resources that might need 
 configuration for publishing to event grids: 
 
