@@ -37,7 +37,7 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 The following example creates a resource group named *myResourceGroup* in the *ukwest* location.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location ukwest
+az group create --name myResourceGroup --location eastus
 ```
 
 Output:
@@ -102,20 +102,20 @@ You are now ready to run Docker services on the Docker Swarm.
 
 ## Run the application
 
-Create a file named `azure-vote.yaml` and copy the following content into it.
-
-If you are using Azure Cloud Shell, `vi` and `Nano` are installed and can be used to complete this task.
+Create a file named `docker-compose.yaml` and copy the following content into it.
 
 ```yaml
 version: '3'
 services:
   azure-vote-back:
     image: redis
+    container_name: azure-vote-back
     ports:
         - "6379:6379"
 
   azure-vote-front:
     image: microsoft/azure-vote-front:redis-v1
+    container_name: azure-vote-front
     environment:
       REDIS: azure-vote-back
     ports:
@@ -125,7 +125,7 @@ services:
 Run the following command to create the Azure Vote service.
 
 ```bash
-docker stack deploy azure-vote --compose-file azure-vote.yaml
+docker-compose up -d
 ```
 
 Output:
