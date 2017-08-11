@@ -218,12 +218,12 @@ if (share.Exists())
 }
 ```
 
-For more information about creating and using shared access signatures, see [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) and [Create and use a SAS with Azure Blobs](../storage-dotnet-shared-access-signature-part-2.md).
+For more information about creating and using shared access signatures, see [Using Shared Access Signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md) and [Create and use a SAS with Azure Blobs](../storage-dotnet-shared-access-signature-part-2.md).
 
 ## Copy files
 Beginning with version 5.x of the Azure Storage Client Library, you can copy a file to another file, a file to a blob, or a blob to a file. In the next sections, we demonstrate how to perform these copy operations programmatically.
 
-You can also use AzCopy to copy one file to another or to copy a blob to a file or vice versa. See [Transfer data with the AzCopy Command-Line Utility](../storage-use-azcopy.md).
+You can also use AzCopy to copy one file to another or to copy a blob to a file or vice versa. See [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md).
 
 > [!NOTE]
 > If you are copying a blob to a file, or a file to a blob, you must use a shared access signature (SAS) to authenticate the source object, even if you are copying within the same storage account.
@@ -393,9 +393,9 @@ See these links for more information about Azure File storage.
 * [How to use Azure File storage with Linux](storage-how-to-use-files-linux.md)
 
 ### Tooling support for File storage
-* [Using Azure PowerShell with Azure Storage](../storage-powershell-guide-full.md)
-* [How to use AzCopy with Microsoft Azure Storage](../storage-use-azcopy.md)
-* [Using the Azure CLI with Azure Storage](../storage-azure-cli.md#create-and-manage-file-shares)
+* [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md)
+* [How to use AzCopy with Microsoft Azure Storage](../common/storage-use-azcopy.md)
+* [Using the Azure CLI with Azure Storage](../common/storage-azure-cli.md#create-and-manage-file-shares)
 * [Troubleshooting Azure File storage problems](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### Reference

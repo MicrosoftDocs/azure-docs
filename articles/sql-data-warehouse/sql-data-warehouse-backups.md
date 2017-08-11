@@ -31,8 +31,8 @@ SQL Data Warehouse protects your data by storing your data in locally redundant 
 
 To learn more about:
 
-* Azure Premium storage, see [Introduction to Azure Premium Storage](../storage/storage-premium-storage.md).
-* Locally Redundant storage, see [Azure Storage replication](../storage/storage-redundancy.md#locally-redundant-storage).
+* Azure Premium storage, see [Introduction to Azure Premium Storage](../storage/common/storage-premium-storage.md).
+* Locally Redundant storage, see [Azure Storage replication](../storage/common/storage-redundancy.md#locally-redundant-storage).
 
 ## Azure Storage Blob snapshots
 As a benefit of using Azure Premium Storage, SQL Data Warehouse uses Azure Storage Blob snapshots to backup the data warehouse locally. You can restore a data warehouse to a snapshot restore point. Snapshots start a minimum of every eight hours and are available for seven days.  
@@ -58,8 +58,8 @@ This feature is on by default. If you don't want to use geo-redundant backups, y
 
 To learn more about:
 
-* Geo-redundant storage, see [Azure Storage replication](../storage/storage-redundancy.md).
-* RA-GRS storage, see [Read-access geo-redundant storage](../storage/storage-redundancy.md#read-access-geo-redundant-storage).
+* Geo-redundant storage, see [Azure Storage replication](../storage/common/storage-redundancy.md).
+* RA-GRS storage, see [Read-access geo-redundant storage](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage).
 
 ## Data warehouse backup schedule and retention period
 SQL Data Warehouse creates snapshots on your online data warehouses every four to eight hours and keeps each snapshot for seven days. You can restore your online database to one of the restore points in the past seven days. 

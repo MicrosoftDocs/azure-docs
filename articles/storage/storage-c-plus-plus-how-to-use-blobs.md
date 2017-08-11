@@ -57,14 +57,14 @@ Add the following include statements to the top of the C++ file where you want t
 ```
 
 ## Setup an Azure storage connection string
-An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the storage access key for the storage account listed in the [Azure Portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure Storage Accounts](storage-create-storage-account.md). This example shows how you can declare a static field to hold the connection string:  
+An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the storage access key for the storage account listed in the [Azure Portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure Storage Accounts](common/storage-create-storage-account.md). This example shows how you can declare a static field to hold the connection string:  
 
 ```cpp
 // Define the connection-string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-To test your application in your local Windows computer, you can use the Microsoft Azure [storage emulator](storage-use-emulator.md) that is installed with the [Azure SDK](https://azure.microsoft.com/downloads/). The storage emulator is a utility that simulates the Blob, Queue, and Table services available in Azure on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:
+To test your application in your local Windows computer, you can use the Microsoft Azure [storage emulator](common/storage-use-emulator.md) that is installed with the [Azure SDK](https://azure.microsoft.com/downloads/). The storage emulator is a utility that simulates the Blob, Queue, and Table services available in Azure on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:
 
 ```cpp
 // Define the connection-string with Azure Storage Emulator.
@@ -190,7 +190,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 }
 ```
 
-For more details on listing operations, see [List Azure Storage Resources in C++](storage-c-plus-plus-enumeration.md).
+For more details on listing operations, see [List Azure Storage Resources in C++](common/storage-c-plus-plus-enumeration.md).
 
 ## How to: Download blobs
 To download blobs, first retrieve a blob reference and then call the **download_to_stream** method. The following example uses the **download_to_stream** method to transfer the blob contents to a stream object that you can then persist to a local file.  
@@ -265,8 +265,8 @@ Now that you've learned the basics of blob storage, follow these links to learn 
 
 * [How to use Queue Storage from C++](queues/storage-c-plus-plus-how-to-use-queues.md)
 * [How to use Table Storage from C++](../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [List Azure Storage Resources in C++](storage-c-plus-plus-enumeration.md)
+* [List Azure Storage Resources in C++](common/storage-c-plus-plus-enumeration.md)
 * [Storage Client Library for C++ Reference](http://azure.github.io/azure-storage-cpp)
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
-* [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
+* [Transfer data with the AzCopy command-line utility](common/storage-use-azcopy.md)
 

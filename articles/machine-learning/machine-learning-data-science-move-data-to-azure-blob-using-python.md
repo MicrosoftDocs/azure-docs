@@ -42,7 +42,7 @@ For more information about using the Python API, see [How to Use the Blob Storag
 This document assumes that you have an Azure subscription, a storage account, and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure storage account name and account key.
 
 * To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-* For instructions on creating a storage account and for getting account and key information, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
+* For instructions on creating a storage account and for getting account and key information, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 
 ## Upload Data to Blob
 Add the following snippet near the top of any Python code in which you wish to programmatically access Azure Storage:

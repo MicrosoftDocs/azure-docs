@@ -164,7 +164,7 @@ For more information about the Azure credits for each MSDN offering, see [Monthl
 ### How do I automate the process of uploading VHD files to create custom images?
 There are two options:
 
-* [Azure AzCopy](../storage/storage-use-azcopy.md#blob-upload) can be used to copy or upload VHD files to the storage account associated with the lab.
+* [Azure AzCopy](../storage/common/storage-use-azcopy.md#blob-upload) can be used to copy or upload VHD files to the storage account associated with the lab.
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that runs on Windows, OSX, and Linux.   
 
 To find the destination storage account associated with your lab, follow these steps:

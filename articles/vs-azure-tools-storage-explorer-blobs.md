@@ -98,7 +98,7 @@ The following steps illustrate how to copy a blob container from one storage acc
    ![Paste blob container context menu][7]
 
 ## Get the SAS for a blob container
-A [shared access signature (SAS)](storage/storage-dotnet-shared-access-signature-part-1.md) provides delegated access to resources in your storage account.
+A [shared access signature (SAS)](storage/common/storage-dotnet-shared-access-signature-part-1.md) provides delegated access to resources in your storage account.
 This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to
 share your account access keys.
 

@@ -47,7 +47,7 @@ Azure Storage is a key part of deploying and managing virtual machines (VMs) and
 There are two types of storage accounts available for supporting VMs:
 
 * Standard storage accounts give you access to blob storage (used for storing Azure VM disks), table storage, queue storage, and file storage.
-* [Premium storage](../../storage/storage-premium-storage.md) accounts deliver high-performance, low-latency disk support for I/O intensive workloads, such as MongoDB Sharded cluster. Premium storage currently supports Azure VM disks only.
+* [Premium storage](../../storage/common/storage-premium-storage.md) accounts deliver high-performance, low-latency disk support for I/O intensive workloads, such as MongoDB Sharded cluster. Premium storage currently supports Azure VM disks only.
 
 Azure creates VMs with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure page blobs, whereas the temporary disk is stored locally on the node where the machine lives. Take care when designing applications to only use this temporary disk for non-persistent data as the VM may be migrated between hosts during a maintenance event. Any data stored on the temporary disk would be lost.
 
@@ -57,11 +57,11 @@ Durability and high availability is provided by the underlying Azure Storage env
 * across Azure datacenters within a given region
 * across Azure datacenters across different regions.
 
-You can read [more about the replication options for high availability](../../storage/storage-redundancy.md).
+You can read [more about the replication options for high availability](../../storage/common/storage-redundancy.md).
 
 Operating system disks and data disks have a maximum size of 4TB. You can use Logical Volume Manager (LVM) to surpass this limit by pooling together data disks to present logical volumes larger than 1023GB to your VM.
 
-There are some scalability limits when designing your Azure Storage deployments - for more information, see [Microsoft Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md#storage-limits). Also see [Azure storage scalability and performance targets](../../storage/storage-scalability-targets.md).
+There are some scalability limits when designing your Azure Storage deployments - for more information, see [Microsoft Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md#storage-limits). Also see [Azure storage scalability and performance targets](../../storage/common/storage-scalability-targets.md).
 
 For application storage, you can store unstructured object data such as documents, images, backups, configuration data, logs, etc. using blob storage. Rather than your application writing to a virtual disk attached to the VM, the application can write directly to Azure blob storage. Blob storage also provides the option of [hot and cool storage tiers](../../storage/blob/storage-blob-storage-tiers.md) depending on your availability needs and cost constraints.
 
@@ -83,7 +83,7 @@ This section does not apply to [Azure Managed Disks](../windows/managed-disks-ov
 
 When designing your Azure Storage environment for unmanaged disks, you can use multiple storage accounts as the number of VMs you deploy increases. This approach helps distribute out the I/O across the underlying Azure Storage infrastructure to maintain optimum performance for your VMs and applications. As you design the applications that you are deploying, consider the I/O requirements each VM has and balance out those VMs across Azure Storage accounts. Try to avoid grouping all the high I/O demanding VMs in to just one or two storage accounts.
 
-For more information about the I/O capabilities of the different Azure Storage options and some recommend maximums, see [Azure storage scalability and performance targets](../../storage/storage-scalability-targets.md).
+For more information about the I/O capabilities of the different Azure Storage options and some recommend maximums, see [Azure storage scalability and performance targets](../../storage/common/storage-scalability-targets.md).
 
 ## Next steps
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
