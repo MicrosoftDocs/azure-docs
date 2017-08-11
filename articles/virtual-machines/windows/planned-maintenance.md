@@ -24,7 +24,7 @@ Azure periodically performs updates to improve the reliability, performance, and
 
 - If the maintenance does not require a reboot, Azure will use in-place migration to pause the VM while the host is updated.
 
-- If maintenance requires a reboot, you will get at least 30 days notice of when the maintenance is planned. In these cases, you will also be given a time window where you can start the maintenance yourself, at a time that works for you.
+- If maintenance requires a reboot, you will get a notice of when the maintenance is planned. In these cases, you will also be given a time window where you can start the maintenance yourself, at a time that works for you.
 
 This page describes how Microsoft Azure performs both types of maintenance. For more information about unplanned events (outages), see [Manage the availability of virtual machines](manage-availability.md).
 
@@ -32,7 +32,7 @@ Applications running in a virtual machine can gather information about upcoming 
 
 ## In-place VM migration
 
-When updates don't require a full reboot, an in-place live migration is used. During the update the virtual machine is paused for about 30 seconds, preserving the memory in RAM, while the hosting environment applies the necessary updates and patches. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized.
+When updates don't require a full reboot, an in-place live migration is used. During the update the virtual machine is paused for about about 30 seconds, preserving the memory in RAM, while the hosting environment applies the necessary updates and patches. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized.
 
 For VMs in availability sets, update domains are updated one at a time. All VMs in one update domain (UD) are paused, updated and then resumed before planned maintenance moves on to the next UD.
 
@@ -57,8 +57,7 @@ If you decide to wait until the planned maintenance window, there are a few thin
 
 ### Paired Regions
 
-Each Azure region is paired with another region within the same geography, together they make a regional pair. During planned maintenance, Azure will only update the VMs in a single region of a region pair. For example, when updating the Virtual Machines in North
-Central US, Azure will not update any Virtual Machines in South Central US at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US. Understanding how region pairs work can help you better distribute your VMs across regions. For more information, see [Azure region pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Each Azure region is paired with another region within the same geography, together they make a regional pair. During planned maintenance, Azure will only update the VMs in a single region of a region pair. For example, when updating the Virtual Machines in North Central US, Azure will not update any Virtual Machines in South Central US at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US. Understanding how region pairs work can help you better distribute your VMs across regions. For more information, see [Azure region pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 ### Availability sets and scale sets
 
