@@ -11,7 +11,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
-ms.author: cfreeman
+ms.author: sewhee
 ---
 
 # Automate Application Insights processes by using Logic Apps

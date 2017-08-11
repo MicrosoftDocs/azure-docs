@@ -51,7 +51,7 @@ If you are not already authenticated, you are required to authenticate with your
 
 In order for a custom Docker image to support SSH communication between the container and the client in the Azure portal, perform the following steps for your Docker image. 
 
-These steps are are shown in the Azure App Service repository as an example [here](https://github.com/Azure-App-Service/node/tree/master/4.4.7-1).
+These steps are are shown in the Azure App Service repository as an example [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
 1. Include the `openssh-server` installation in [`RUN` instruction](https://docs.docker.com/engine/reference/builder/#run) in the Dockerfile for your image and set the password for the root account to `"Docker!"`. 
 
