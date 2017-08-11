@@ -35,20 +35,20 @@ Make sure you have the following prerequisites in place before starting these pr
 
 ## Set up the U-SQL local run environment
 
-1. Open the command palette by selecting Ctrl+Shift+P, and then enter **ADL: Download LocalRun Dependency** to download the packages.  
+1. Select Ctrl+Shift+P to open the command palette, and then enter **ADL: Download LocalRun Dependency** to download the packages.  
 
    ![Download the ADL LocalRun Dependency packages](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/DownloadLocalRun.png)
 
-2. Locate the dependency packages from the path shown in the **Output** pane, and then install **BuildTools** and **Win10SDK 10240**. Here is an example path:  
+2. Locate the dependency packages from the path shown in the **Output** pane, and then install BuildTools and Win10SDK 10240. Here is an example path:  
 `C:\Users\xxx\.vscode\extensions\usqlextpublisher.usql-vscode-ext-x.x.x\LocalRunDependency
 `  
   ![Locate the dependency packages](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/LocateDependencyPath.png)
 
-   a. To install **BuildTools**, follow the wizard instructions.   
+   a. To install BuildTools, follow the wizard instructions.   
 
   ![Install BuildTools](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallBuildTools.png)
 
-   b. To install **Win10SDK 10240**, follow the wizard instructions.  
+   b. To install Win10SDK 10240, follow the wizard instructions.  
 
   ![Install Win10SDK 10240](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallWin10SDK.png)
 
@@ -68,7 +68,7 @@ For the first-time user, you are prompted to download the ADL: Download Localrun
 3. The cmd console opens. For first-time users, you need to enter **3**, and then locate the local folder path for your data input and output. For other options, you can use the default values. 
 
    ![Data Lake Tools for Visual Studio Code local run cmd](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-cmd.png)
-4. Select **Ctrl+Shift+P** to open the command palette, enter **ADL: Submit Job**, and then select **Local** to submit the job to your local account.
+4. Select Ctrl+Shift+P to open the command palette, enter **ADL: Submit Job**, and then select **Local** to submit the job to your local account.
 
    ![Data Lake Tools for Visual Studio Code select local](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-select-local.png)
 5. After submitting the job, you can view the submission details by selecting **jobUrl** in the **Output** window. You can also view the job submission status from the cmd console. Enter **7** in the cmd console if you want to know more job details.
@@ -80,9 +80,9 @@ For the first-time user, you are prompted to download the ADL: Download Localrun
 ## Start a local debug for the U-SQL job  
 For the first-time user, you are prompted to download the ADL: Download Localrun Dependency packages if they are not already installed.
   
-1. Select **Ctrl+Shift+P** to open the command palette, and then enter **ADL: Start Local Run Service**. The cmd console opens. Make sure that the **DataRoot** is set.
+1. Select Ctrl+Shift+P to open the command palette, and then enter **ADL: Start Local Run Service**. The cmd console opens. Make sure that the **DataRoot** is set.
 3. Set a breakpoint in your C# code-behind.
-4. Back in the script editor, select **Ctrl+Shift+P** to open the command console, and then enter **Local Debug** to start your local debug service.
+4. Back in the script editor, select Ctrl+Shift+P to open the command console, and then enter **Local Debug** to start your local debug service.
 
 ![Data Lake Tools for Visual Studio Code local debug result](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-debug-result.png)
 
