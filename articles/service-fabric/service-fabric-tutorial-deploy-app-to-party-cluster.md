@@ -13,20 +13,24 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/03/2017
+ms.date: 08/09/2017
 ms.author: mikhegn
 
 ---
 
 # Deploy an application to a Party Cluster in Azure
-This tutorial shows you how to deploy an Azure Service Fabric application to a Party Cluster in Azure.
+This tutorial is part two of a series and shows you how to deploy an Azure Service Fabric application to a Party Cluster in Azure.
 
-In this part of the tutorial, you learn how to:
+In part two of the tutorial series, you learn how to:
 > [!div class="checklist"]
 > * Deploy an application to a remote cluster using Visual Studio
 > * Remove an application from a cluster using Service Fabric Explorer
 
-The tutorial is split across three articles, this article is the second in the series.
+In this tutorial series you learn how to:
+> [!div class="checklist"]
+> * [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
+> * Deploy the application to a remote cluster
+> * [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 ## Prerequisites
 Before you begin this tutorial:

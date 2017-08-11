@@ -6,7 +6,8 @@
 	"enable_pull_request_aggregation": true,	
 	"branch_target_mapping": {
 		"live": ["Publish", "PDF"],
-		"master": ["Publish", "PDF"]
+		"master": ["Publish", "PDF"],
+		"release-event-grid": ["PDF"]
 		},
 	"docsets_to_publish": [{
 		"docset_name": "azure-documents",
