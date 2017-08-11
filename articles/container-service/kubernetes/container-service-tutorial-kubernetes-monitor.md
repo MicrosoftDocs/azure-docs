@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: danlep
-ms.custom
+ms.custom: mvc
 ---
 
 # Monitor a Kubernetes cluster with Operations Management Suite
