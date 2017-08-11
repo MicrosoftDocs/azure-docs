@@ -24,7 +24,7 @@ This FAQ answers questions about Azure disk encryption for Windows and Linux Iaa
 ## General questions
 **Q.** Which region is Azure disk encryption in GA?
 
-**A: **Azure disk encryption for Windows and Linux IaaS VMs is available in GA in all Azure public regions.
+**A:** Azure disk encryption for Windows and Linux IaaS VMs is available in GA in all Azure public regions.
 
 **Q:** What user experiences are available with Azure Disk Encryption?
 
