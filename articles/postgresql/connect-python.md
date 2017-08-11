@@ -10,7 +10,7 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/10/2017
+ms.date: 08/11/2017
 ---
 # Azure Database for PostgreSQL: Use Python to connect and query data
 This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for PostgreSQL; then use SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. The steps in this article assume that you are familiar with developing using Python and are new to working with Azure Database for PostgreSQL.
@@ -25,7 +25,7 @@ You also need:
 - [pip](https://pip.pypa.io/en/stable/installing/) package installed (pip is already installed if you're working with Python 2 >=2.7.9 or Python 3 >=3.4 binaries downloaded from [python.org](https://python.org), but you need to upgrade pip by using a command such as `pip install -U pip`).
 
 ## Install the Python connection libraries for PostgreSQL
-Install the [psycopg2](http://initd.org/psycopg/docs/install.html) package, which enables you to connect and query the database. psycopg2 is [available on PyPI](https://pypi.python.org/pypi/psycopg2/) in the form of [wheel](http://pythonwheels.com/) packages for the most common platforms (Linux, OSX, Windows), so after ensuring that that you have the most current version of pip (you can upgrade it using a command such as `pip install -U pip`), you can use pip install to get the binary version of the module including all the dependencies:
+Install the [psycopg2](http://initd.org/psycopg/docs/install.html) package, which enables you to connect and query the database. psycopg2 is [available on PyPI](https://pypi.python.org/pypi/psycopg2/) in the form of [wheel](http://pythonwheels.com/) packages for the most common platforms (Linux, OSX, Windows), so after ensuring that you have the most current version of pip (you can upgrade it using a command such as `pip install -U pip`), you can use pip install to get the binary version of the module including all the dependencies:
 
 ```cmd
 pip install psycopg2
