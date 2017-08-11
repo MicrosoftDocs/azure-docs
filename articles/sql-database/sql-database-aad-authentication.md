@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 05/10/2017
+ms.date: 08/11/2017
 ms.author: rickbyh
 
 ---
@@ -101,7 +101,7 @@ Azure Active Directory authentication supports the following methods of connecti
 * Azure AD authentication is supported for SQL Database and SQL Data Warehouse by use CLI. For more information, see , [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication-configure.md) and [SQL Server - az sql server](https://docs.microsoft.com/en-us/cli/azure/sql/server).
 
 ## Next steps
-- To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database, see [Configure Azure AD with Azure SQL Database](sql-database-aad-authentication-configure.md).
+- To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database or Azure SQL Data Warehouse, see [Configure Azure AD with Azure SQL Database](sql-database-aad-authentication-configure.md).
 - For an overview of access and control in SQL Database, see [SQL Database access and control](sql-database-control-access.md).
 - For an overview of logins, users, and database roles in SQL Database, see [Logins, users, and database roles](sql-database-manage-logins.md).
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
