@@ -109,7 +109,7 @@ In the case where there are scheduled events, the response contains an array of 
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | Impact this event causes. <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for few seconds. The CPU is suspended, but there is no impact on memory, open files, or network connections. <li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). |
 | ResourceType | Type of resource this event impacts. <br><br> Values: <ul><li>`VirtualMachine`|
-| Resources| List of resources this event impacts. This is guaranteed to contain machines from at most one [Update Domain](windows/manage-availability.md), but may not contain all machines in the UD. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Resources| List of resources this event impacts. This is guaranteed to contain machines from at most one [Update Domain](manage-availability.md), but may not contain all machines in the UD. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Event Status | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided; the event will no longer be returned when the event is completed.
 | NotBefore| Time after which this event may start. <br><br> Example: <br><ul><li> 2016-09-19T18:29:47Z  |
 
@@ -182,6 +182,5 @@ if __name__ == '__main__':
 
 ## Next Steps 
 
-- Read more about the APIs available in the [instance metadata service](virtual-machines-instancemetadataservice-overview.md).
-- Learn about [planned maintenance for Windows virtual machines in Azure](windows/planned-maintenance.md).
-- Learn about [planned maintenance for Linux virtual machines in Azure](linux/planned-maintenance.md).
+- Read more about the APIs available in the [instance metadata service](../virtual-machines-instancemetadataservice-overview.md).
+- Learn about [planned maintenance for Linux virtual machines in Azure](planned-maintenance.md).
