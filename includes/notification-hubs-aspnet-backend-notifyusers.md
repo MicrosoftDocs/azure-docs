@@ -7,8 +7,8 @@ A new ASP.NET WebAPI backend will be created in the sections that follow and it 
 
 The following steps show how to create the new ASP.NET WebAPI backend: 
 
-> [!NOTE]
-> **Important**: If you are using Visual Studio 2015 or earlier, before starting this tutorial, please ensure that you have installed the latest version of the NuGet Package Manager. To check, start Visual Studio. From the **Tools** menu, click **Extensions and Updates**. Search for **NuGet Package Manager** for your version of Visual Studio, and make sure you have the latest version. If not, please uninstall, then reinstall the NuGet Package Manager.
+> [!IMPORTANT]
+> If you are using Visual Studio 2015 or earlier, before starting this tutorial, please ensure that you have installed the latest version of the NuGet Package Manager. To check, start Visual Studio. From the **Tools** menu, click **Extensions and Updates**. Search for **NuGet Package Manager** for your version of Visual Studio, and make sure you have the latest version. If not, please uninstall, then reinstall the NuGet Package Manager.
 > 
 > ![][B4]
 > 
@@ -313,7 +313,7 @@ In this section you add a new controller that exposes a way for client devices t
         }
 4. Press **F5** to run the application and to ensure the accuracy of your work so far. The app should launch a web browser and display the ASP.NET home page. 
 
-## Publish the new WebAPI BackendPublish the new WebAPI Backend
+## Publish the new WebAPI Backend
 1. Now we will deploy this app to an Azure Website in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
 2. Select **Microsoft Azure App Service** as your publish target and click **Publish**. This opens the Create App Service dialog, which helps you create all the necessary Azure resources to run the ASP.NET web app in Azure.
 
