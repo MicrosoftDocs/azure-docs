@@ -7,7 +7,7 @@
 	"branch_target_mapping": {
 		"live": ["Publish", "PDF"],
 		"master": ["Publish", "PDF"],
-		"release-event-grid": ["PDF"]
+		"release-event-grid": ["Publish", "PDF"]
 		},
 	"docsets_to_publish": [{
 		"docset_name": "azure-documents",
