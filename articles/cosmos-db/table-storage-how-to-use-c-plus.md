@@ -448,7 +448,7 @@ azure::storage::table_result delete_result = table.execute(delete_operation);
 Now that you've learned the basics of table storage, follow these links to learn more about Azure Storage:  
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
-* [How to use Blob storage from C++](../storage/storage-c-plus-plus-how-to-use-blobs.md)
+* [How to use Blob storage from C++](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [How to use Queue storage from C++](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
 * [List Azure Storage resources in C++](../storage/common/storage-c-plus-plus-enumeration.md)
 * [Storage Client Library for C++ reference](http://azure.github.io/azure-storage-cpp)

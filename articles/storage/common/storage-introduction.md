@@ -132,7 +132,7 @@ You can use shared access signatures and stored access policies to secure your d
 
 ### Public access to blobs
 
-The Blob Service allows you to provide public access to a container and its blobs, or a specific blob. When you indicate that a container or blob is public, anyone can read it anonymously; no authentication is required. An example of when you would want to do this is when you have a website that is using images, video, or documents from Blob storage. For more information, see [Manage anonymous read access to containers and blobs](../blob/storage-manage-access-to-resources.md) 
+The Blob Service allows you to provide public access to a container and its blobs, or a specific blob. When you indicate that a container or blob is public, anyone can read it anonymously; no authentication is required. An example of when you would want to do this is when you have a website that is using images, video, or documents from Blob storage. For more information, see [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) 
 
 ## Encryption
 
@@ -148,7 +148,7 @@ The storage client libraries have methods you can call to programmatically encry
 
 ### Encryption in transit with Azure File Shares
 
-See [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) for more information on shared access signatures. See [Manage anonymous read access to containers and blobs](../blob/storage-manage-access-to-resources.md) and [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) for more information on secure access to your storage account.
+See [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) for more information on shared access signatures. See [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) and [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) for more information on secure access to your storage account.
 
 For more details about securing your storage account and encryption, see the [Azure Storage security guide](storage-security-guide.md).
 
@@ -278,34 +278,34 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 * [Using Azure CLI with Azure Storage](../storage-azure-cli.md)
 
 ### For .NET developers
-* [Get started with Azure Blob storage using .NET](../storage-dotnet-how-to-use-blobs.md)
+* [Get started with Azure Blob storage using .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
 * [Get started with Azure Table storage using .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Get started with Azure Queue storage using .NET](../storage-dotnet-how-to-use-queues.md)
 * [Get started with Azure File storage on Windows](../storage-dotnet-how-to-use-files.md)
 
 ### For Java/Android developers
-* [How to use Blob storage from Java](../storage-java-how-to-use-blob-storage.md)
+* [How to use Blob storage from Java](../blobs/storage-java-how-to-use-blob-storage.md)
 * [How to use Table storage from Java](../../cosmos-db/table-storage-how-to-use-java.md)
 * [How to use Queue storage from Java](../storage-java-how-to-use-queue-storage.md)
 * [How to use File storage from Java](../storage-java-how-to-use-file-storage.md)
 
 ### For Node.js developers
-* [How to use Blob storage from Node.js](../storage-nodejs-how-to-use-blob-storage.md)
+* [How to use Blob storage from Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
 * [How to use Table storage from Node.js](../../cosmos-db/table-storage-how-to-use-nodejs.md)
 * [How to use Queue storage from Node.js](../storage-nodejs-how-to-use-queues.md)
 
 ### For PHP developers
-* [How to use Blob storage from PHP](../storage-php-how-to-use-blobs.md)
+* [How to use Blob storage from PHP](../blobs/storage-php-how-to-use-blobs.md)
 * [How to use Table storage from PHP](../../cosmos-db/table-storage-how-to-use-php.md)
 * [How to use Queue storage from PHP](../storage-php-how-to-use-queues.md)
 
 ### For Ruby developers
-* [How to use Blob storage from Ruby](../storage-ruby-how-to-use-blob-storage.md)
+* [How to use Blob storage from Ruby](../blobs/storage-ruby-how-to-use-blob-storage.md)
 * [How to use Table storage from Ruby](../../cosmos-db/table-storage-how-to-use-ruby.md)
 * [How to use Queue storage from Ruby](../storage-ruby-how-to-use-queue-storage.md)
 
 ### For Python developers
-* [How to use Blob storage from Python](../storage-python-how-to-use-blob-storage.md)
+* [How to use Blob storage from Python](../blobs/storage-python-how-to-use-blob-storage.md)
 * [How to use Table storage from Python](../../cosmos-db/table-storage-how-to-use-python.md)
 * [How to use Queue storage from Python](../storage-python-how-to-use-queue-storage.md)   
 * [How to use File storage from Python](../storage-python-how-to-use-file-storage.md) 

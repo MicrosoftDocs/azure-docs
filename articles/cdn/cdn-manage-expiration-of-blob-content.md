@@ -60,7 +60,7 @@ $blob.ICloudBlob.SetProperties()
 > 
 
 ## Azure Storage Client Library for .NET
-To set a blob's TTL using .NET, use the [Azure Storage Client Library for .NET](../storage/blob/storage-dotnet-how-to-use-blobs.md) to set the [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) property.
+To set a blob's TTL using .NET, use the [Azure Storage Client Library for .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) to set the [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) property.
 
 ```csharp
 class Program

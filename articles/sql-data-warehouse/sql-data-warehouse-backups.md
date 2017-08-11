@@ -39,7 +39,7 @@ As a benefit of using Azure Premium Storage, SQL Data Warehouse uses Azure Stora
 
 To learn more about:
 
-* Azure blob snapshots, see [Create a blob snapshot](../storage/storage-blob-snapshots.md).
+* Azure blob snapshots, see [Create a blob snapshot](../storage/blobs/storage-blob-snapshots.md).
 
 ## Geo-redundant backups
 Every 24 hours, SQL Data Warehouse stores the full data warehouse in Standard storage. The full data warehouse is created to match the time of the last snapshot. The standard storage belongs to a geo-redundant storage account with read access (RA-GRS). The Azure Storage RA-GRS feature replicates the backup files to a [paired data center](../best-practices-availability-paired-regions.md). This geo-replication ensures you can restore data warehouse in case you cannot access the snapshots in your primary region. 

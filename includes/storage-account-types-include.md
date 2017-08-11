@@ -19,9 +19,9 @@ Blob storage accounts expose the **Access Tier** attribute which can be specifie
 * A **Hot** access tier which indicates that the objects in the storage account will be more frequently accessed. This allows you to store data at a lower access cost.
 * A **Cool** access tier which indicates that the objects in the storage account will be less frequently accessed. This allows you to store data at a lower data storage cost.
 
-If there is a change in the usage pattern of your data, you can also switch between these access tiers at any time. Changing the access tier may result in additional charges. Please see [Pricing and billing for Blob storage accounts](../articles/storage/blob/storage-blob-storage-tiers.md#pricing-and-billing) for more details.
+If there is a change in the usage pattern of your data, you can also switch between these access tiers at any time. Changing the access tier may result in additional charges. Please see [Pricing and billing for Blob storage accounts](../articles/storage/blobs/storage-blob-storage-tiers.md#pricing-and-billing) for more details.
 
-For more details on Blob storage accounts, see [Azure Blob Storage: Cool and Hot tiers](../articles/storage/blob/storage-blob-storage-tiers.md).
+For more details on Blob storage accounts, see [Azure Blob Storage: Cool and Hot tiers](../articles/storage/blobs/storage-blob-storage-tiers.md).
 
 Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can get started with Azure with a [free account](https://azure.microsoft.com/pricing/free-trial/). Once you decide to purchase a subscription plan, you can choose from a variety of [purchase options](https://azure.microsoft.com/pricing/purchase-options/). If you’re an [MSDN subscriber](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage. See [Azure Storage Pricing ](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
 
