@@ -50,7 +50,7 @@ If the application is deleted, those Extension properties along with any data co
 
 ## Creating a new application to store the extension properties
 
-1. Open a browsing session and navigate to the [Azure porta](https://portal.azure.com) and sign in with administrative credentials of the B2C Directory you wish to configure.
+1. Open a browsing session and navigate to the [Azure portal](https://portal.azure.com) and sign in with administrative credentials of the B2C Directory you wish to configure.
 1. Click **Azure Active Directory** on the left navigation menu. You may need to find it by selecting More services>.
 1. Select **App registrations** and click **New application registration**
 1. Provide the following recommended entries:
