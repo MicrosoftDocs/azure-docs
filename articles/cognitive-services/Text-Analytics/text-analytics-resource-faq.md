@@ -20,9 +20,9 @@ ms.author: heidist
 
  ### Can I manually throttle requests to suspend billable transactions?
 
- You cannot pause the service or temporarily throttle requests service-side to conserve the balance of your request allocation for future use in the same billing cycle. The only guarantee for preventing transactions against your subscription is to remove the Text Analytics API from your subscription, and then repeat sign up when you are ready to resume transactions. 
+ You cannot pause the service or temporarily throttle requests service-side to conserve the balance of your request allocation for future use in the same billing cycle. The only guarantee for preventing transactions against your subscription is to remove the Text Analytics API from your subscription, and then repeat signup when you are ready to resume transactions. 
  
- Because data isn't stored, the impact on deleting and recreating the sign up is generally minimal. The only coding investment you lose is the reference to your access key string, which you would need to update after signing up for the API.
+ Because data isn't stored, the impact on deleting and recreating the signup is generally minimal. The only coding investment you lose is the reference to your access key string, which you would need to update after signing up for the API.
 
 ## Architecture & concepts
 
@@ -32,11 +32,11 @@ We avoid pre-announcing support for specific languages. This practice minimizes 
 
 ### Why do output calculations vary, when inputs are identical?
 
-Improvements to models and algorithms are announced if the change is major, or quietly slipstreamed into the service if the update is minor. Over time, you might find that the same text input results in a different sentiment score or key phrase extraction. This is a normal and intended consequence for machine learning resources hosted in Cognitive Services.
+Improvements to models and algorithms are announced if the change is major, or quietly slipstreamed into the service if the update is minor. Over time, you might find that the same text input results in a different sentiment score or key phrase extraction. This is a normal and intended consequence of using managed machine learning resources in the cloud.
 
 ### Why do some sentiment scores seem off?
 
-Machine learning algorithms for detecting sentiment are less effective if the sentiment is nuanced. Sarcasm, irony, puns, and some slang continues to challenge most analyzers. In general, sentiment scoring is best at predicting positive or negative sentiment, but it attempts to provide a score if the model has enough evidence to provide one. When the anaylzer is undecided, a neutral score of 0.5 is given to the document.
+Machine learning algorithms for detecting sentiment are less effective if the sentiment is nuanced. Sarcasm, irony, puns, and some slang continues to challenge most analyzers. In general, sentiment scoring is best at predicting positive or negative sentiment. It attempts to provide a score whenever the model is given enough evidence to provide one. When the anaylzer is undecided, a neutral score of 0.5 is assigned to the document.
 
 ## Next steps
 

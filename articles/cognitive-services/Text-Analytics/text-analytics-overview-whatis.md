@@ -12,15 +12,15 @@ ms.date: 07/31/2017
 ms.author: heidist
 ---
 
-# Welcome to Text Analytics API in Azure Cognitive Services
+# Welcome to Text Analytics API in Microsoft Cognitive Services
 
-[Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a collection of machine learning and AI technologies in the cloud, exposed through APIs so that you can leverage state of the art technology in your development projects. 
+[Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a collection of machine learning and AI technologies in the cloud, exposed through APIs so that you can leverage state of the art technology in your development projects. 
 
  Within Cognitive Services, **Text Analytics API** provides capabilities for sentiment analysis, key phrase extraction, and language detection.
 
 ## Capabilities in Text Analytics
 
-Text analysis can mean different things, but in Azure Cognitive Services, APIs are exposed for the three types of analysis, as described in the following table. Each one is backed by natural language processing resources hosted in Azure, including ready-to-use pretrained models, always available to score any raw text that you upload to the service.
+Text analysis can mean different things, but in Cognitive Services, APIs are exposed for the three types of analysis, as described in the following table. Each one is backed by natural language processing resources hosted in Azure, including ready-to-use pretrained models for scoring raw text that you upload to the service.
 
 | Workloads | APIs | Description |
 |-----------|------|-------------|
@@ -29,12 +29,14 @@ Text analysis can mean different things, but in Azure Cognitive Services, APIs a
 |Language Detection | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) or [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) |  For up to 120 languages, the service can detect which language the input text is written in and report a single language code for every document submitted on the request. The code is paired with a score indicating a level of certainty for the result. For example, if text includes a combination of languages, the service gives you the predominant language, but with a score reflecting the mixed results. |
 
 > [!Note] 
-> Machine learning algorithms in Cognitive services are trained and refined by Microsoft on a continuous development cycle. For this reason we do not divulge implementation details or internal architecture of specific technologies. For text analysis, you can control inputs and handle outputs, but there are no configuration options or settings to control how scoring or processing occurs.
+> Machine learning algorithms in Cognitive services are trained and refined on a continuous development cycle. For this reason we do not document the implementation details or internal architecture of specific technologies. 
 
 
 <a name="data-limits"></a>
 
  ## Typical workflow
+
+ The workflow is simple: you can control data inputs and handle outputs, but there are no configuration options to customize how scoring or processing occurs.
  
 1. [Sign up](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) for the **Text Analytics API** when creating a Cognitive Services account. As with most Azure Services, there is a free version so that you can experiment at no cost.
 
@@ -44,15 +46,15 @@ Text analysis can mean different things, but in Azure Cognitive Services, APIs a
 
 Output is returned in the form of JSON documents in a one-to-one ratio: one JSON document output for every document input. You can subsequently analyze, visualize, or classify the results into actionable insights.
 
-Data is not stored in your account. The functions performed by Text Analytics API are stateless, which means the text you provide is processed and results are returned immediately. 
+Data is not stored in your account. Operations performed by Text Analytics API are stateless, which means the text you provide is processed and results are returned immediately. 
 
 With a few minor exceptions, the documents you provide can be used as-is for all three workloads. Given a single JSON documents collection, your code can invoke a series of operations (language detection, keyword extraction, sentiment analysis) over the same data.
 
 ## Supported languages
 
-Text Analytics can detect language for up to 120 different languages. However, the supported language list for sentiment analysis and key phrase extraction is much smaller.
+Text Analytics can detect language for up to 120 different languages. For sentiment analysis and key phrase extraction, the list of supported languages is more selective as we refine the analyzers to accommodate the linguistic rules of additional languages.
 
-For both analyses, language support is initially rolled out in preview, graduating to generally available (GA) status on a per language basis, independently of each other and of the Text Analytics service overall. This means several languages are still in preview, even though the Text Analytics API itself is GA.
+Language support is initially rolled out in preview, graduating to generally available (GA) status, independently of each other and of the Text Analytics service overall. Several languages remain in preview, even though the Text Analytics API itself is GA.
 
 | Language    | Language code | Sentiment | Key phrases |
 |:----------- |:----:|:----:|:----:|
@@ -77,7 +79,7 @@ For both analyses, language support is initially rolled out in preview, graduati
 
 ## Data limits
 
-Text Analytics accepts raw text data. The service currently sets a limit of 10 KB for each document. While this number might seem low, the vast majority of text submitted for analysis is below this limit. If you require a higher limit, [contact us](https://azure.microsoft.com/overview/sales-number/) so that we can discuss your requirements.
+Text Analytics accepts raw text data. The service currently sets a limit of 10 KB for each document. If you require a higher limit, [contact us](https://azure.microsoft.com/overview/sales-number/) so that we can discuss your requirements.
 
 |Limits | |
 |------------------------|---------------|
@@ -89,7 +91,7 @@ Rate limiting exists at a rate of 100 calls per minute. We therefore recommend t
 
 <a name="sign-up"></a>
 
-## Sign up and billing
+## Signup and billing
 
 Although Cognitive Services has multiple APIs, we ask you to sign up for them individually so that you can manage costs and availbility for each one.
 
@@ -108,11 +110,11 @@ Each tier provides an allocation of transactions to be consumed over a 30-day bi
 
 There is no storage component to billing because we do not store your data, but there are [technical limits on the size and structure of the payload](#data-limits). Although you could load a document with the maximum amount of text to save money, analysis generally performs better if the body of the request is under the maximum.
 
-**What happens if you use up the transaction allocation before rolling over to the next period?**
+**What happens if transactions get used up before the current billing period ends?**
 
-At the Free tier, excess requests are not handled and you will get a message explaining why the request was dropped.
+At the Free tier, excess requests are not handled and you get a message explaining why the request was dropped.
 
-For billable tiers, an overage rate goes into effect for each transaction above the limit. The overage rate varies by tier, with lower rates for larger request volumes. 
+For billable tiers, an overage rate is applied for each transaction above the limit. The overage rate varies by tier, as indicated on the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). 
 
  > [!Note]
  > Text Analytics was [first announced](https://blogs.technet.microsoft.com/machinelearning/2016/06/21/text-analytics-api-now-available-in-multiple-languages/) in June 2016 and is now [generally available (GA)](https://azure.microsoft.com//blog/) with support for production workloads. Preview pricing has been retired. For more information about service level agreements (SLA) from Microsoft, see [SLA for Cognitive Services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
@@ -149,7 +151,7 @@ For .NET developers, we recommend the [Cognitive Services Text Analytics .NET SD
 
 ## See also
 
- [Azure Cognitive Services Documentation page](https://docs.microsoft.com/azure/cognitive-services/)   
- [Azure Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)
+ [Cognitive Services Documentation page](https://docs.microsoft.com/azure/cognitive-services/)   
+ [Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)
 
 

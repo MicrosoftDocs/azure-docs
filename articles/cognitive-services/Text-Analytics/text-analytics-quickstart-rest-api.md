@@ -1,6 +1,6 @@
 ---
-title: 'Text Analytics REST API Quickstart (Azure Cognitive Services) in 10 minutes| Microsoft Docs'
-description: Learn the Text Analytics API in Azure Cognitive Services in ten minutes.
+title: 'Analyze sentiment in ten minute quickstart (Microsoft Cognitive Services on Azure) in 10 minutes| Microsoft Docs'
+description: Learn the Text Analytics API in Microsoft Cognitive Services on Azure in ten minutes.
 services: cognitive-services
 author: HeidiSteen
 manager: jhubbard
@@ -14,7 +14,7 @@ ms.author: heidist
 
 # Analyze sentiment in ten minutes (REST API)
 
-In this Quickstart, learn how to call the Text Analytics REST APIs to perform sentiment analysis, keyword extraction, and language detection on text provided in requests to Azure Cognitive Services.
+In this Quickstart, learn how to call the Text Analytics REST APIs to perform sentiment analysis, keyword extraction, and language detection on text provided in requests to Microsoft Cognitive Services.
 
 > [!Tip]
 > We recommend using a Web API testing tool for this exercise. [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) is a good choice, but any tool that sends HTTP requests will work. You can watch this [short video](https://www.youtube.com/watch?v=jBjXVrS8nXs) to learn basic Postman operations.
@@ -262,5 +262,5 @@ Notice that the last document is correctly identified as Spanish, even though th
 
 ## See also 
 
- [What is Text Analytics in Azure Cognitive Services](text-analytics-overview-whatis.md)  
+ [Welcome to Text Analytics in Microsoft Cognitive Services on Azure](text-analytics-overview-whatis.md)  
  [Frequently asked questions (FAQ)](text-analytics-resource-faq.md)

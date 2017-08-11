@@ -26,7 +26,7 @@
   items:
    - name: Structure data inputs
      href: text-analytics-howto-input-data.md
-   - name: Work with analyis outputs
+   - name: Work with analyses outputs
      href: text-analytics-howto-output.md
    - name: Develop with C#
      href: 
