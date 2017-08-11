@@ -24,7 +24,7 @@ ms.author: iainfou
 Before you install and configure MongoDB, you need to create a VM and, ideally, add a data disk to it. See the following articles to create a VM and add a data disk:
 
 * Create a Windows Server VM using [the Azure portal](quick-create-portal.md) or [Azure PowerShell](quick-create-powershell.md).
-* Attach a data disk to a Windows Server VM using [the Azure portal](attach-disk-portal.md) or [Azure PowerShell](attach-disk-ps.md).
+* Attach a data disk to a Windows Server VM using [the Azure portal](attach-managed-disk-portal.md) or [Azure PowerShell](attach-disk-ps.md).
 
 To begin installing and configuring MongoDB, [log on to your Windows Server VM](connect-logon.md) by using Remote Desktop.
 

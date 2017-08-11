@@ -11,6 +11,7 @@
 
 # Concepts
 ## [Security and authentication](security-authentication.md)
+## [Delivery and retry](delivery-and-retry.md)
 
 # Reference
 ## [REST]()

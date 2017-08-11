@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: djrosanova
 ms.author: darosa
-ms.date: 08/10/2017
+ms.date: 08/11/2017
 ms.topic: hero-article
 ms.service: event-grid
 ---

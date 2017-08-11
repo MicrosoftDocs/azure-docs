@@ -20,12 +20,17 @@ ms.author: carlrab; jognanay
 ---
 # Azure SQL Database features
 
-The following tables lists the major features of SQL Server and provides information about whether each particular feature is supported and a link to more information about the feature. For Transact-SQL differences to consider when migrating an existing database solution, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
+Azure SQL Database shares a common code base with SQL Server and, at the database level, supports most of the same features. The major feature differences between Azure SQL Database and SQL Server are at the instance level. 
 
 We continue to add features to Azure SQL Database. So we encourage you to visit our Service Updates webpage for Azure, and to use its filters:
 
 * Filtered to the [SQL Database service](https://azure.microsoft.com/updates/?service=sql-database).
 * Filtered to General Availability [(GA) announcements](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
+
+## SQL Server and SQL Database feature support
+
+The following table lists the major features of SQL Server and provides information about whether each particular feature is supported and a link to more information about the feature. For Transact-SQL differences to consider when migrating an existing database solution, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
+
 
 | **SQL Server Feature** | **Supported in Azure SQL Database** | 
 | --- | --- |  
