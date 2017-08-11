@@ -3,11 +3,11 @@
   - name: Introduction
     href: storage-blobs-introduction.md
   - name: Choose Blobs, Files, or Data Disks
-    href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    href: ../storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Get Started
   items:
   - name: Create a storage account
-    href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    href: ../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Develop with blobs
     items:
     - name: .NET
