@@ -85,7 +85,7 @@ For example, if after trying to connect, you got the following:
 	HTTP/1.1 301 Moved Permanently
 	Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-In this case, you should post your subsequent API calls to https://wamsbayclus001rest-hs.cloudapp.net/api/.
+You should post your subsequent API calls to https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ## <a id="upload"></a>Create a new asset and upload a video file with REST API
 
