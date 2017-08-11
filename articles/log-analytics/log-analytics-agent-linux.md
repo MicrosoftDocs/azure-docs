@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/06/2017
+ms.date: 08/11/2017
 ms.author: magoedte
 ---
 
@@ -95,16 +95,17 @@ After installing the OMS Agent for Linux packages, the following additional syst
 ### Upgrade from a previous release
 Upgrade from versions earlier than 1.0.0-47 is supported in this release. Performing the installation with the `--upgrade` command will upgrade all components of the agent to the latest version.
 
-## Install the OMS Agent for Linux
-The OMS Agent for Linux is provided in a self-extracting and installable shell script bundle. This bundle contains Debian and RPM packages for each of the agent components and can be installed directly or extracted to retrieve the individual packages. One bundle is provided for x64 architectures and one for x86 architectures. 
+## Installing the agent
 
-### Installing the agent
+This section describes how to install the OMS Agent for Linux using a bunndle which contains Debian and RPM packages for each of the agent components and can be installed directly or extracted to retrieve the individual packages.  
 
-1. Transfer the appropriate bundle (x86 or x64) to your Linux computer using scp/sftp.
-2. Install the bundle by using the `--install` or `--upgrade` argument. 
+1. Download the latest [OMS Agent for Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x64.sh) or [OMS Agent for Linux x86](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x86.sh) from GitHub.  
+2. Transfer the appropriate bundle (x86 or x64) to your Linux computer using scp/sftp.
+3. Install the bundle by using the `--install` or `--upgrade` argument. 
 
     > [!NOTE]
     > Use the `--upgrade` argument if any existing packages are installed such as when the System Center Operations Manager agent for Linux is already installed. To connect to Operations Management Suite during installation, provide the `-w <WorkspaceID>` and `-s <Shared Key>` parameters.
+
 
 ### Bundle command-line arguments
 ```
