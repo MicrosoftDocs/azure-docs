@@ -51,7 +51,7 @@ When the NPS extension for Azure is integrated with the NPS and Remote Desktop G
 2. The username and password combination is verified in Active Directory and the user is authenticated.
 3. If all the conditions as specified in the NPS Connection Request and the Network Policies are met (for example, time of day or group membership restrictions), the NPS extension triggers a request for secondary authentication with Azure MFA. 
 4. Azure MFA communicates with Azure AD, retrieves the user’s details, and performs the secondary authentication using the method configured by the user (text message, mobile app, and so on). 
-5. Upon success of the MFA challenge, Azure MFA communicates with the NPS extension, which then provides the RADIUS server with security tokens that include an MFA claim issued by the Azure Security Token Service (STS).
+5. Upon success of the MFA challenge, Azure MFA communicates the result to the NPS extension.
 6. The NPS server where the extension is installed sends a RADIUS Access-Accept message for the RD CAP policy to the Remote Desktop Gateway server.
 7. The user is granted access to the requested network resource through the RD Gateway.
 

@@ -60,7 +60,7 @@ When the NPS extension for Azure is integrated with the NPS, the successful auth
 3. The username and password combination is verified in Active Directory. If the username / password is incorrect, the RADIUS Server sends an Access-Reject message. 
 4. If all conditions as specified in the NPS Connection Request and Network Policies are met (for example, time of day or group membership restrictions), the NPS extension triggers a request for secondary authentication with Azure MFA. 
 5. Azure MFA communicates with Azure Active Directory, retrieves the user’s details, and performs the secondary authentication using the method configured by the user (text message, mobile app, and so on). 
-6. Upon success of the MFA challenge, Azure MFA communicates with the NPS extension, which then provides the RADIUS server with security tokens that include an MFA claim issued by the Azure Security Token Service (STS).
+6. Upon success of the MFA challenge, Azure MFA communicates the result to the NPS extension.
 7. After the connection attempt is both authenticated and authorized, the NPS server where the extension is installed sends a RADIUS Access-Accept message to the VPN server (RADIUS client).
 8. The user is granted access to the virtual port on VPN server and establishes an encrypted VPN tunnel.
 
