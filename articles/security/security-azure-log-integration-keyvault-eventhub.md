@@ -19,10 +19,10 @@ ms.custom: AzLog
 
 You can use Azure Log Integration to retrieve logged events and make them available to your security information and event management (SIEM) system. This tutorial shows an example of how Azure Log Integration can be used to process logs that are acquired through Azure Event Hubs.
  
-You should use the tutorial to get acquainted with how Azure Log Integration and Event Hubs work together by following the example steps and understanding how each step supports the solution. Then you can take what you’ve learned here to create your own steps to support your company’s unique requirements.
+Use this tutorial to get acquainted with how Azure Log Integration and Event Hubs work together by following the example steps and understanding how each step supports the solution. Then you can take what you’ve learned here to create your own steps to support your company’s unique requirements.
 
 >[!WARNING]
-The steps and commands used in this tutorial are not intended to be copied and pasted. They're provided as examples only. Do not use the PowerShell commands “as is” in your live environment. You must customize them based on your unique environment.
+The steps and commands in this tutorial are not intended to be copied and pasted. They're examples only. Do not use the PowerShell commands “as is” in your live environment. You must customize them based on your unique environment.
 
 
 This tutorial walks you through the process of taking Azure Key Vault activity logged to an event hub and making it available as JSON files to your SIEM system. You can then configure your SIEM system to process the JSON files.
@@ -51,19 +51,19 @@ Before you can complete the steps in this article, you need the following:
 
    a. Use Remote Desktop to connect to the system mentioned in step 2.   
    b. Copy the Azure Log Integration installer to the system. You can [download the installation files](https://www.microsoft.com/download/details.aspx?id=53324).   
-   c. Start the installer and accept the terms in the Microsoft Software License Terms.   
+   c. Start the installer and accept the Microsoft Software License Terms.   
    d. If you will provide telemetry information, leave the check box selected. If you'd rather not send usage information to Microsoft, clear the check box.
    
-   For more information about Azure Log Integration and how to install it, see [Azure Log Integration Azure Diagnostics logging and Windows Event Forwarding](security-azure-log-integration-get-started.md).
+   For more information about Azure Log Integration and how to install it, see [Azure Log Integration with Azure Diagnostics logging and Windows Event Forwarding](security-azure-log-integration-get-started.md).
 
 4. The latest PowerShell version.
  
-   If you have Windows Server 2016 installed, then you have at least PowerShell 5.0. If you're using any other version of Windows Server, you might have an earlier version of PowerShell installed. You can check the version by typing ```get-host``` in a PowerShell window. If you don't have PowerShell 5.0 installed, you can [download it](https://www.microsoft.com/download/details.aspx?id=50395).
+   If you have Windows Server 2016 installed, then you have at least PowerShell 5.0. If you're using any other version of Windows Server, you might have an earlier version of PowerShell installed. You can check the version by entering ```get-host``` in a PowerShell window. If you don't have PowerShell 5.0 installed, you can [download it](https://www.microsoft.com/download/details.aspx?id=50395).
 
    After you have at least PowerShell 5.0, you can proceed to install the latest version:
    
-   a. In a PowerShell window, type ```Install-Module Azure``` and select Enter. Complete the installation steps.    
-   b. Type ```Install-Module AzureRM``` and select Enter. Complete the installation steps.
+   a. In a PowerShell window, enter the ```Install-Module Azure``` command. Complete the installation steps.    
+   b. Enter the ```Install-Module AzureRM``` command. Complete the installation steps.
 
    For more information, see [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0).
 
@@ -71,12 +71,12 @@ Before you can complete the steps in this article, you need the following:
 ## Create supporting infrastructure elements
 
 1. Open an elevated PowerShell window and go to **C:\Program Files\Microsoft Azure Log Integration**.
-2. Import the AzLog cmdlets by running the script LoadAzLogModule.ps1. (Notice the “.\” in the following command.) Type `.\LoadAzLogModule.ps1` and select Enter.
+2. Import the AzLog cmdlets by running the script LoadAzLogModule.ps1. Enter the `.\LoadAzLogModule.ps1` command. (Notice the “.\” in that command.)
 You should see something like this:</br>
 
    ![Loaded modules list](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-3. Type `Login-AzureRmAccount` and select Enter. In the login window, enter the credential information for the subscription that you will use for this tutorial.
+3. Enter the `Login-AzureRmAccount` command. In the login window, enter the credential information for the subscription that you will use for this tutorial.
 
    >[!NOTE]
    >If this is the first time that you're logging in to Azure from this machine, you will see a message about allowing Microsoft to collect PowerShell usage data. We recommend that you enable this data collection because it will be used to improve Azure PowerShell.
@@ -84,9 +84,9 @@ You should see something like this:</br>
 4. After successful authentication, you're logged in and you see the information in the following screenshot. Take note of the subscription ID and subscription name, because you'll need them to complete later steps.
 
    ![PowerShell window](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
-5. Create variables to store values that will be used later. Type each of the following PowerShell lines and select Enter after each one. You might need to adjust the values to match your environment.
+5. Create variables to store values that will be used later. Enter each of the following PowerShell lines. You might need to adjust the values to match your environment.
     - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Your subscription name might be different. You can see it as part of the output of the previous command.)
-    - ```$location = 'West US'``` (This variable will be used to pass the location where resources should be created. You can change this variable to be any other location of your choosing.)
+    - ```$location = 'West US'``` (This variable will be used to pass the location where resources should be created. You can change this variable to be any location of your choosing.)
     - ```$random = Get-Random```
     - ``` $name = 'azlogtest' + $random``` (The name can be anything, but it should include only lowercase letters and numbers.)
     - ``` $storageName = $name``` (This variable will be used for the storage account name.)
@@ -99,7 +99,7 @@ You should see something like this:</br>
     
     ```$rg = New-AzureRmResourceGroup -Name $rgname -Location $location```
     
-   If you type `$rg` and select Enter at this point, you should see output similar to this screenshot:
+   If you enter `$rg` at this point, you should see output similar to this screenshot:
 
    ![Output after creation of a resource group](./media/security-azure-log-integration-keyvault-eventhub/create-rg.png)
 8. Create a storage account that will be used to keep track of state information:
@@ -116,15 +116,15 @@ You should see something like this:</br>
     a. ```$locationObjects = Get-AzureRMLocation```    
     b. ```$locations = @('global') + $locationobjects.location```
     
-    If you type `$locations` and select Enter at this point, you see the location names without the additional information returned by Get-AzureRmLocation.
+    If you enter `$locations` at this point, you see the location names without the additional information returned by Get-AzureRmLocation.
 12. Create an Azure Resource Manager log profile: 
     
     ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
     
     For more information about the Azure log profile, see [Overview of the Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
->[!NOTE]
->You might get an error message when you try to create a log profile. You can then review the documentation for Get-AzureRmLogProfile and Remove-AzureRmLogProfile. If you run Get-AzureRmLogProfile, you see information about the log profile. You can delete the existing log profile by typing ```Remove-AzureRmLogProfile -name 'Log Profile Name' ``` and selecting Enter.
+> [!NOTE]
+> You might get an error message when you try to create a log profile. You can then review the documentation for Get-AzureRmLogProfile and Remove-AzureRmLogProfile. If you run Get-AzureRmLogProfile, you see information about the log profile. You can delete the existing log profile by entering the ```Remove-AzureRmLogProfile -name 'Log Profile Name' ``` command.
 >
 >![Resource Manager profile error](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 

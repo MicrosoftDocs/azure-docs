@@ -63,27 +63,27 @@ If your proxy setting does not allow Azure storage access directly, open the **A
       </system.diagnostics>   
 
 ## How can I see the subscription information in Windows events?
-Append the subscription ID to the friendly name while adding the source.
+Append the subscription ID to the friendly name while adding the source:
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
-The event XML has the following metadata, including the subscription ID.
+The event XML has the following metadata, including the subscription ID:
 
 ![Event XML][1]
 
 ## Error messages
-### When I run the command ```azlog createazureid```, why do I get the following error?
+### When I run the command **azlog createazureid**, why do I get the following error?
 Error:
 
   *Failed to create AAD Application - Tenant 72f988bf-86f1-41af-91ab-2d7cd011db37 - Reason = 'Forbidden' - Message = 'Insufficient privileges to complete the operation.'*
 
-The **azlog createazureid** command attempts to create a service principal in all the Azure AD tenants for the subscriptions that the Azure login has access to. If your Azure login is only a Guest user in that Azure AD tenant, the command fails with "Insufficient privileges to complete the operation." Ask the tenant admin to add your account as a user in the tenant.
+The **azlog createazureid** command attempts to create a service principal in all the Azure AD tenants for the subscriptions that the Azure login has access to. If your Azure login is only a guest user in that Azure AD tenant, the command fails with "Insufficient privileges to complete the operation." Ask the tenant admin to add your account as a user in the tenant.
 
 ### When I run the command **azlog authorize**, why do I get the following error?
 Error:
 
   *Warning creating Role Assignment - AuthorizationFailed: The client janedo@microsoft.com' with object id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.*
 
-The **azlog authorize** command assigns the role of Reader to the Azure AD service principal (created with **azlog createazureid**) to the provided subscriptions. If the Azure login is not a Co-Administrator or an Owner of the subscription, it fails with an "Authorization Failed" error message. Azure Role-Based Access Control (RBAC) of Co-Administrator or Owner is needed to complete this action.
+The **azlog authorize** command assigns the role of reader to the Azure AD service principal (created with **azlog createazureid**) to the provided subscriptions. If the Azure login is not a co-administrator or an owner of the subscription, it fails with an "Authorization Failed" error message. Azure Role-Based Access Control (RBAC) of co-administrator or owner is needed to complete this action.
 
 ## Where can I find the definition of the properties in the audit log?
 See:
@@ -107,7 +107,7 @@ The following example gets the Azure Diagnostics configuration:
 
     $xmlconfig | Out-File -Encoding utf8 -FilePath "d:\WADConfig.xml"
 
-The following example modifies the Azure Diagnostics configuration. In this configuration, only EventID 4624 and EventID 4625 are collected from the security event log. Microsoft Antimalware for Azure events are collected from the system event log. For details on the use of XPath expressions, see [Consuming Events](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85).
+The following example modifies the Azure Diagnostics configuration. In this configuration, only EventID 4624 and EventID 4625 are collected from the security event log. Microsoft Antimalware for Azure events are collected from the system event log. For details on the use of XPath expressions, see [Consuming Events](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85)).
 
     <WindowsEventLog scheduledTransferPeriod="PT1M">
         <DataSource name="Security!*[System[(EventID=4624 or EventID=4625)]]" />
