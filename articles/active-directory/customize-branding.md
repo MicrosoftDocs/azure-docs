@@ -3,7 +3,7 @@ title: Customize your sign-in page in the Azure Active Directory | Microsoft Doc
 description: Learn how to add a company branding to the Azure sign-in page
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
-ms.author: curtand
+ms.author: jeffgilb
 custom: it-pro
 ---
 # Quickstart: Add company branding to your sign-in page in Azure AD
