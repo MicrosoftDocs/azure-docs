@@ -78,8 +78,8 @@ The Azure Database for PostgreSQL service creates a firewall at the server-level
 4. On the upper toolbar of the Connection security page, click **Save**. Wait for a few moments and notice the notification showing that updating connection security has finished successfully before continuing.
 
     > [!NOTE]
-    > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 5432.
-  >
+    > Connections to your Azure Database for PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you will not be able to connect to your server unless your IT department opens port 5432.
+    >
 
 ## Get the connection information
 
