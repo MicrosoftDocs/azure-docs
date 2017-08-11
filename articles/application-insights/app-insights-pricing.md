@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Manage pricing and data volume in Application Insights
