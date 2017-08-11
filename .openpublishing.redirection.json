@@ -9051,17 +9051,17 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-add-domain",
+            "source_path": "articles/active-directory/active-directory-add-domain.md",
             "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-domains-add-azure-portal",
+            "source_path": "articles/active-directory/active-directory-domains-add-azure-portal.md",
             "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-add-domain-add-users",
+            "source_path": "articles/active-directory/active-directory-add-domain-add-users.md",
             "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
             "redirect_document_id": false
         }
