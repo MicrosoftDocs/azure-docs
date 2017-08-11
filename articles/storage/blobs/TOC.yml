@@ -45,6 +45,8 @@
     href: storage-https-custom-domain-cdn.md
   - name: Anonymous access to blobs
     href: storage-manage-access-to-resources.md
+  - name: Manage blobs with Storage Explorer
+    href: ../../vs-azure-tools-storage-explorer-blobs.md 
   - name: Samples
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=blob
 

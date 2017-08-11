@@ -222,13 +222,9 @@
     href: https://azure.microsoft.com/documentation/videos/index/?services=storage
   - name: Azure Storage Explorer
     items:
-    - name: Storage Explorer (Preview)
+    - name: Storage Explorer
       href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md
-    - name: Manage blobs with Storage Explorer (Preview)
-      href: ../../vs-azure-tools-storage-explorer-blobs.md
-    - name: Using Storage Explorer (Preview) with Azure file storage
-      href: ../../vs-azure-tools-storage-explorer-files.md
-    - name: Storage Explorer (Preview) release notes
+    - name: Storage Explorer release notes
       href: ../../vs-azure-tools-storage-explorer-relnotes.md
   - name: NuGet packages
     items:
