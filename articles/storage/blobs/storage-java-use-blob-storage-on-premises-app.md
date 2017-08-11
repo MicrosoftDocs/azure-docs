@@ -461,7 +461,7 @@ public class DeleteContainer {
 }
 ```
 
-For an overview of other blob storage classes and methods, see [How to use Blob storage from Java](../blob/storage-java-how-to-use-blob-storage.md).
+For an overview of other blob storage classes and methods, see [How to use Blob storage from Java](storage-java-how-to-use-blob-storage.md).
 
 ## Next steps
 Follow these links to learn more about more complex storage tasks.
