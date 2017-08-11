@@ -41,7 +41,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 3. Select **Add action group**, and fill in the fields.
 
     ![The "Add action group" command](./media/monitoring-action-groups/add-action-group.png)
-4. Enter an **Action group name** and a **Short name**. The short name is referenced in notifications sent to this group.
+4. Enter a name in the **Action group name** box, and enter a name in the **Short name** box. The short name is referenced in notifications sent to this group.
 
       ![The Add action group" dialog box](./media/monitoring-action-groups/action-group-define.png)
 
@@ -55,7 +55,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 
     b. **Action Type**: The type of action to be performed. The options are to send a SMS, send an email, or call a webhook.
 
-    c. **Details**: Based on the action type, enter the corresponding phone number, email address, or webhook URI.
+    c. **Details**: Based on the action type, enter a phone number, email address, or webhook URI.
 
 8. Select **OK** to create the action group.
 
