@@ -44,11 +44,11 @@ Make sure you have the following prerequisites in place before starting these pr
 `  
   ![Locate the dependency packages](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/LocateDependencyPath.png)
 
-- To install **BuildTools**, follow the wizard instructions.   
+   a. To install **BuildTools**, follow the wizard instructions.   
 
   ![Install BuildTools](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallBuildTools.png)
 
-- To install **Win10SDK 10240**, follow the wizard instructions.  
+   b. To install **Win10SDK 10240**, follow the wizard instructions.  
 
   ![Install Win10SDK 10240](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallWin10SDK.png)
 
