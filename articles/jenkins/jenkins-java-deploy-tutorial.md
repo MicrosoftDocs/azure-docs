@@ -1,7 +1,6 @@
 ---
 title: Deploy Java apps to Azure with Jenkins | Microsoft Docs
-description: Set up a CI/CD pipeline to Azure App Service for your Java apps using your existing Jenkins configuration.
-author: rloutlaw
+description: Set up a CI pipeline to Azure App Service for your Java web apps with Jenkins and Docker.
 manager: douge
 ms.service: jenkins
 ms.devlang: java
@@ -31,9 +30,9 @@ You will perform the following tasks in this tutorial:
 
 To complete this tutorial, you need:
 
-* [Jenkins](https://jenkins.io/). If you don't have a Jenkins system, create one now in [an Azure virtual machine](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd#create-jenkins-instance).
+* [Jenkins](https://jenkins.io/) with JDK and Maven tools configured . If you don't have a Jenkins system, create one now in Azure from the [Jenkins solution template](/azure/jenkins/install-jenkins-solution-template).
 * A [GitHub](https://github.com) account.
-* [Azure CLI 2.0](/cli/azure/overview), either from your command line or in the [Azure Cloud Shell](/azure/cloud-shell/overview)
+* [Azure CLI 2.0](/cli/azure/overview), either from your local command line or in the [Azure Cloud Shell](/azure/cloud-shell/overview)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -71,14 +70,7 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
 2. Under the **General** section, select **GitHub** project and enter your forked repo URL such as https://github.com/raisa/gs-spring-boot-docker
 3. Under the **Source code management**  section, select **Git**, enter your forked repo `.git` URL such as https://github.com/raisa/gs-spring-boot-docker.git
 4. Under the **Build Triggers** section, select **GitHub hook trigger for GITscm polling**.
-5. Under the **Build** section, select **Add build step** and choose **Execute shell**. Copy the following script into the **Command** field to use the [Maven](https://maven.apache.org/) wrapper script included in the repo to build the sample.
-    
-    ```bash
-    chmod +x complete/mvnw
-    cd complete
-    ./mvnw package
-    ```
-
+5. Under the **Build** section, select **Add build step** and choose **Invoke top-level Maven targets**. Enter `package` in the **Goals** field.
 6. Select **Save**. You can test your build by selecting **Build Now** from the project page.
 
 ## Configure Azure App Service 
