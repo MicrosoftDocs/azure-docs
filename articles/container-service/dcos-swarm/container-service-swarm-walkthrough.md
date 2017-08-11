@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Azure Docker Swarm Mode cluster for Linux | Microsoft Docs
-description: Quickly learn to create a Docker Swarm Mode cluster for Linux containers in Azure Container Service with the Azure CLI.
+title: Quickstart - Azure Docker Swarm cluster for Linux | Microsoft Docs
+description: Quickly learn to create a Docker Swarm cluster for Linux containers in Azure Container Service with the Azure CLI.
 services: container-service
 documentationcenter: ''
 author: neilpeterson
@@ -20,19 +20,15 @@ ms.author: nepeters
 ms.custom:
 ---
 
-# Deploy Docker Swarm Mode cluster for Linux containers
+# Deploy Docker Swarm cluster for Linux containers
 
-In this quick start, a Docker Swarm Mode cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
-
-Docker Swarm mode on Azure Container Service is in preview and **should not be used for production workloads**.
+In this quick start, a Docker Swarm cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
 
 This quick start assumes a basic understanding of Docker concepts, for detailed information on Kubernetes see the [Docker documentation](https://docs.docker.com/).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -61,12 +57,12 @@ Output:
 
 ## Create Docker Swarm cluster
 
-Create a Docker Swarm Mode cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
+Create a Docker Swarm cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
 
 The following example creates a cluster named *mySwarmCluster* with one Linux master node and three Linux agent nodes.
 
 ```azurecli-interactive
-az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
+az acs create --name mySwarmCluster --orchestrator-type Swarm --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 After several minutes, the command completes and returns json formatted information about the cluster.
@@ -92,13 +88,13 @@ swarmm-master-ip-myswarmcluster-myresourcegroup-d5b9d4mgmt-66066781  52.141.37.1
 Create an SSH tunnel to the Swarm master. Replace `IPAddress` with the IP address of the Swarm master.
 
 ```bash
-ssh -p 2200 -fNL localhost:2374:/var/run/docker.sock azureuser@IPAddress
+ssh -p 2200 -fNL 2375:localhost:2375 azureuser@IPAddress
 ```
 
 Set the `DOCKER_HOST` environment variable. This allows you to run docker commands against the Docker Swarm without having to specify the name of the host.
 
 ```bash
-export DOCKER_HOST=localhost:2374
+export DOCKER_HOST=:2375
 ```
 
 You are now ready to run Docker services on the Docker Swarm.
