@@ -79,7 +79,18 @@ Service Fabric supports containerizing Service Fabric microservices (Reliable Se
 </CodePackage>
   ```
 
-8. To test this application, you need to deploy it to a cluster that is running version 5.7 or higher. In addition, you need to edit and update the cluster settings to enable this preview feature. Follow the steps in this [article](service-fabric-cluster-fabric-settings.md) to add the setting shown next.
+8. Add the port-to-host mapping for your replicator and service endpoint. Since both these ports are assigned at runtime by Service Fabric, the ContainerPort is set to zero to use the assigned port for mapping.
+
+ ```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code">
+    <PortBinding ContainerPort="0" EndpointRef="ServiceEndpoint"/>
+    <PortBinding ContainerPort="0" EndpointRef="ReplicatorEndpoint"/>
+  </ContainerHostPolicies>
+</Policies>
+ ```
+
+9. To test this application, you need to deploy it to a cluster that is running version 5.7 or higher. In addition, you need to edit and update the cluster settings to enable this preview feature. Follow the steps in this [article](service-fabric-cluster-fabric-settings.md) to add the setting shown next.
 ```
       {
         "name": "Hosting",
@@ -91,7 +102,7 @@ Service Fabric supports containerizing Service Fabric microservices (Reliable Se
         ]
       }
 ```
-9. Next [deploy](service-fabric-deploy-remove-applications.md) the edited application package to this cluster.
+10. Next [deploy](service-fabric-deploy-remove-applications.md) the edited application package to this cluster.
 
 You should now have a containerized Service Fabric application running your cluster.
 
