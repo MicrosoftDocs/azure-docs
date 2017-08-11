@@ -74,7 +74,7 @@ AccountName=myAccountName;
 AccountKey=myAccountKey
 ```
 
-One scenario where you might wish to specify an explicit endpoint is when you've mapped your Blob storage endpoint to a [custom domain](../storage-custom-domain-name.md). In that case, you can specify your custom endpoint for Blob storage in your connection string. You can optionally specify the default endpoints for the other services if your application uses them.
+One scenario where you might wish to specify an explicit endpoint is when you've mapped your Blob storage endpoint to a [custom domain](../blobs/storage-custom-domain-name.md). In that case, you can specify your custom endpoint for Blob storage in your connection string. You can optionally specify the default endpoints for the other services if your application uses them.
 
 Here is an example of a connection string that specifies an explicit endpoint for the Blob service:
 

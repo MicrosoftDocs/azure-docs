@@ -26,7 +26,7 @@ This topic describes how to list, upload, and download blobs using the Python AP
 * List the blobs in a container
 * Delete a blob
 
-For more information about using the Python API, see [How to Use the Blob Storage Service from Python](../storage/blob/storage-python-how-to-use-blob-storage.md).
+For more information about using the Python API, see [How to Use the Blob Storage Service from Python](../storage/blobs/storage-python-how-to-use-blob-storage.md).
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -34,7 +34,7 @@ For more information about using the Python API, see [How to Use the Blob Storag
 > If you are using VM that was set up with the scripts provided by [Data Science Virtual machines in Azure](machine-learning-data-science-virtual-machines.md), then AzCopy is already installed on the VM.
 > 
 > [!NOTE]
-> For a complete introduction to Azure blob storage, refer to [Azure Blob Basics](../storage/blob/storage-dotnet-how-to-use-blobs.md) and to [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> For a complete introduction to Azure blob storage, refer to [Azure Blob Basics](../storage/blobs/storage-dotnet-how-to-use-blobs.md) and to [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
 

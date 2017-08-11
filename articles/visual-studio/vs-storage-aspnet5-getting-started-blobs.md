@@ -25,7 +25,7 @@ This article describes how to get started using Azure Blob storage in Visual Stu
 
 Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. A single blob can be any size. Blobs can be things like images, audio and video files, raw data, and document files. This article describes how to get started with blob storage after you create an Azure storage account by using the Visual Studio **Add Connected Services** dialog in an ASP.NET Core project.
 
-Just as files live in folders, storage blobs live in containers. After you have created a storage, you create one or more containers in the storage. For example, in a storage called "Scrapbook," you can create containers in the storage called "images" to store pictures and another called "audio" to store audio files. After you create the containers, you can upload individual blob files to them. See [Get started with Azure Blob storage using .NET](../storage/blob/storage-dotnet-how-to-use-blobs.md) for more information on programmatically manipulating blobs.
+Just as files live in folders, storage blobs live in containers. After you have created a storage, you create one or more containers in the storage. For example, in a storage called "Scrapbook," you can create containers in the storage called "images" to store pictures and another called "audio" to store audio files. After you create the containers, you can upload individual blob files to them. See [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) for more information on programmatically manipulating blobs.
 
 ## Access blob containers in code
 To programmatically access blobs in ASP.NET Core projects, you need to add the following items, if they're not already present.
@@ -121,7 +121,7 @@ To list the blobs in a container, first get a container reference. You can then 
         }
     } while (token != null);
 
-There are others ways to list the contents of a blob container. See [Get started with Azure Blob storage using .NET](../storage/blob/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) for more information.
+There are others ways to list the contents of a blob container. See [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) for more information.
 
 ## Download a blob
 To download a blob, first get a reference to the blob, and then call the **DownloadToStreamAsync** method. The following example uses the **DownloadToStreamAsync** method to transfer the blob contents to a stream object that you can then save as a local file.
@@ -135,7 +135,7 @@ To download a blob, first get a reference to the blob, and then call the **Downl
         await blockBlob.DownloadToStreamAsync(fileStream);
     }
 
-There are other ways to save blobs as files. See [Get started with Azure Blob storage using .NET](../storage/blob/storage-dotnet-how-to-use-blobs.md#download-blobs) for more information.
+There are other ways to save blobs as files. See [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs) for more information.
 
 ## Delete a blob
 To delete a blob, first get a reference to the blob, and then call the **DeleteAsync** method on it.

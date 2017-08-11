@@ -54,7 +54,7 @@ For example, if your storage account is named *mystorageaccount*, then the defau
 
 The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-You can also configure a custom domain name to use with your storage account. For classic storage accounts, see [Configure a custom domain Name for your Blob Storage Endpoint](../storage-custom-domain-name.md) for details. For Resource Manager storage accounts, this capability has not been added to the [Azure portal](https://portal.azure.com) yet, but you can configure it with PowerShell. For more information, see the [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) cmdlet.  
+You can also configure a custom domain name to use with your storage account. For classic storage accounts, see [Configure a custom domain Name for your Blob Storage Endpoint](../blobs/storage-custom-domain-name.md) for details. For Resource Manager storage accounts, this capability has not been added to the [Azure portal](https://portal.azure.com) yet, but you can configure it with PowerShell. For more information, see the [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) cmdlet.  
 
 ## Create a storage account
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -77,7 +77,7 @@ You can also configure a custom domain name to use with your storage account. Fo
    
     If **General purpose** was selected, then specify the performance tier: **Standard** or **Premium**. The default is **Standard**. For more details on standard and premium storage accounts, see [Introduction to Microsoft Azure Storage](storage-introduction.md) and [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md).
    
-    If **Blob Storage** was selected, then specify the access tier: **Hot** or **Cool**. The default is **Hot**. See [Azure Blob Storage: Cool and Hot tiers](../storage-blob-storage-tiers.md) for more details.
+    If **Blob Storage** was selected, then specify the access tier: **Hot** or **Cool**. The default is **Hot**. See [Azure Blob Storage: Cool and Hot tiers](../blobs/storage-blob-storage-tiers.md) for more details.
 6. Select the replication option for the storage account: **LRS**, **GRS**, **RA-GRS**, or **ZRS**. The default is **RA-GRS**. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
 7. Select the subscription in which you want to create the new storage account.
 8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
@@ -153,7 +153,7 @@ For more information, see the [Azure Virtual Machine documentation](http://azure
 
 ## Next steps
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
-* [Azure Blob Storage: Cool and Hot tiers](../storage-blob-storage-tiers.md)
+* [Azure Blob Storage: Cool and Hot tiers](../blobs/storage-blob-storage-tiers.md)
 * [Azure Storage replication](storage-redundancy.md)
 * [Configure Azure Storage Connection Strings](../storage-configure-connection-string.md)
 * [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)

@@ -263,7 +263,7 @@ queue.delete_queue_if_exists();
 ## Next steps
 Now that you've learned the basics of Queue storage, follow these links to learn more about Azure Storage.
 
-* [How to use Blob Storage from C++](../storage-c-plus-plus-how-to-use-blobs.md)
+* [How to use Blob Storage from C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [How to use Table Storage from C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [List Azure Storage Resources in C++](../common/storage-c-plus-plus-enumeration.md)
 * [Storage Client Library for C++ Reference](http://azure.github.io/azure-storage-cpp)

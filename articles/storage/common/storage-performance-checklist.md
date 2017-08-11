@@ -161,7 +161,7 @@ In some cases, you may decide that your application can assume that the blob rem
 
 Configuration, lookup, and other data that are always used by the application are great candidates for caching.  
 
-For an example of how to get a blob's properties to discover the last modified date using .NET, see [Set and Retrieve Properties and Metadata](../storage-properties-metadata.md). For more information about conditional downloads, see [Conditionally Refresh a Local Copy of a Blob](http://msdn.microsoft.com/library/azure/dd179371.aspx).  
+For an example of how to get a blob's properties to discover the last modified date using .NET, see [Set and Retrieve Properties and Metadata](../blobs/storage-properties-metadata.md). For more information about conditional downloads, see [Conditionally Refresh a Local Copy of a Blob](http://msdn.microsoft.com/library/azure/dd179371.aspx).  
 
 #### <a name="subheading8"></a>Uploading Data in Batches
 In some application scenarios, you can aggregate data locally, and then periodically upload it in a batch instead of uploading each piece of data immediately. For example, a web application might keep a log file of activities: the application could either upload details of every activity as it happens as a table entity (which requires many storage operations), or it could save activity details to a local log file, and then periodically upload all activity details as a delimited file to a blob. If each log entry is 1KB in size, you can upload thousands in a single "Put Blob" transaction (you can upload a blob of up to 64MB in size in a single transaction). Of course, if the local machine crashes prior to the upload, you will potentially lose some log data: the application developer must design for the possibility of client device or upload failures.  If the activity data needs to be downloaded for timespans (not just single activity), then blobs are recommended over tables.
@@ -249,7 +249,7 @@ For very large volumes of data (more than 1TB), the Azure Storage offers the Imp
 ### <a name="subheading20"></a>Use metadata
 The blob service supports head requests, which can include metadata about the blob. For example, if your application needed the EXIF data out of a photo, it could retrieve the photo and extract it. To save bandwidth and improve performance, your application could store the EXIF data in the blob's metadata when the application uploaded the photo: you can then retrieve the EXIF data in metadata using only a HEAD request, saving significant bandwidth and the processing time needed to extract the EXIF data each time the blob is read. This would be useful in scenarios where you only need the metadata, and not the full content of a blob.  Note that only 8 KB of metadata can be stored per blob (the service will not accept a request to store more than that), so if the data does not fit in that size, you may not be able to use this approach.  
 
-For an example of how to get a blob's metadata using .NET, see [Set and Retrieve Properties and Metadata](../storage-properties-metadata.md).  
+For an example of how to get a blob's metadata using .NET, see [Set and Retrieve Properties and Metadata](../blobs/storage-properties-metadata.md).  
 
 ### Uploading Fast
 To upload blobs fast, the first question to answer is: are you uploading one blob or many?  Use the below guidance to determine the correct method to use depending on your scenario.  

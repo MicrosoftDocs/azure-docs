@@ -172,7 +172,7 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [azure-cli]: /cli/azure/get-started-with-az-cli2
 [azure-linux]:../articles/virtual-machines/linux/overview.md
 [azure-storage]:../articles/storage/common/storage-introduction.md
-[blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
+[blob-snapshot]:../articles/storage/blobs/storage-blob-snapshots.md
 [blob-storage]:../articles/storage/common/storage-introduction.md
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
