@@ -113,7 +113,6 @@ This FAQ answers questions about Azure disk encryption for Windows and Linux Iaa
 **A:** You can provide ask questions or feedback on the Azure disk encryption forum [here](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption)
 
 ## See also
-
 In this document, you learned more about the most frequent questions related to Azure disk encryption, for more information about this service and its capability read:
 
 - [Apply disk encryption in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
