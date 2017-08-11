@@ -83,7 +83,7 @@ The NPS role service provides the RADIUS server and client functionality as well
 For information on installing the NPS role service Windows Server 2012 or older, please see [Install a NAP Health Policy Server](https://technet.microsoft.com/library/dd296890.aspx). For a description of best practices for NPS, including the recommendation to install NPS on a domain controller, please see [Best Practices for NPS](https://technet.microsoft.com/library/cc771746).
 
 ### Azure Active Directory synched with on-premises Active Directory 
-To use the NPS extension, on-premises users must be synced with Azure AD and enabled for MFA. This section assumes that on-premises users are synched with Azure AD using AD Connect. For information on Azure AD connect, please see [Integrate your on-premises directories with Azure Active Directory](../active-directory/connect/active-directory-aadconnect). 
+To use the NPS extension, on-premises users must be synced with Azure AD and enabled for MFA. This section assumes that on-premises users are synched with Azure AD using AD Connect. For information on Azure AD connect, please see [Integrate your on-premises directories with Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md). 
 
 ### Azure Active Directory GUID ID
 To install NPS, you will need to know the GUID of the Azure AD. Instructions for finding the GUID of the Azure AD are provided below.
@@ -176,7 +176,7 @@ Remote Desktop connection authorization policies (RD CAPs) specify the requireme
 
   ![Remote Desktop Services](./media/nps-extension-remote-desktop-gateway/image8.png)
 
-3. In the RD Gateway Manger, right-click **[Server Name] (Local)**, and click **Properties**.
+3. In the RD Gateway Manger, right-click **\[Server Name\] (Local)**, and click **Properties**.
 
   ![Server Name](./media/nps-extension-remote-desktop-gateway/image9.png)
 
@@ -372,5 +372,7 @@ The image below from Microsoft Message Analyzer shows network traffic filtered o
 
 ## Next steps
 [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md)
+
 [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](multi-factor-authentication-get-started-server-rdg.md)
+
 [Integrate your on-premises directories with Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)
