@@ -210,7 +210,7 @@ you can select from fields available in your workflow.
    select the fields that you want to include in the email.
 
    For example, if you chose Office 365 Outlook, 
-   here's what your email action might look like this example:
+   here's what your email action might look like:
 
    ![Select outputs to include in email](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-send-email-details.png)
 
@@ -220,7 +220,7 @@ you can select from fields available in your workflow.
    > around the action that references the array. 
    > That way, your logic app performs that action on each array item.
 
-   When you're done, your logic app looks like this example: 
+   When you're done, your logic app looks similar to this example: 
 
    ![Finished logic app](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-completed.png)
 
