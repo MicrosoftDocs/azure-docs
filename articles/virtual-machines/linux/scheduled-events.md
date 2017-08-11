@@ -182,5 +182,5 @@ if __name__ == '__main__':
 
 ## Next Steps 
 
-- Read more about the APIs available in the [instance metadata service](../virtual-machines-instancemetadataservice-overview.md).
+- Read more about the APIs available in the [instance metadata service](../instance-metadata-service.md).
 - Learn about [planned maintenance for Linux virtual machines in Azure](planned-maintenance.md).
