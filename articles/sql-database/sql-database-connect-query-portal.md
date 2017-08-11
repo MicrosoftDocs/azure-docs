@@ -67,6 +67,8 @@ Configuring an Active Directory administrator enables you to use a single identi
 
 3. In the Active Directory admin blade, click the **Set admin** command, and select the user or group that will be the Active Directory administrator.
 
+    ![select active directory](./media/sql-database-aad-authentication/select-active-directory.png) 
+
 4. At the top of the Active Directory admin blade, click the **Save** command to set your Active Directory administrator.
 
 Navigate to the SQL database you would like to query, click the **Tools command** on the toolbar, and select the **Query editor (preview)** option. The Query editor page opens and automatically connects you to the database.
