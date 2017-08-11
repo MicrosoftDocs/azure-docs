@@ -41,7 +41,7 @@ Requests to the Import/Export service must specify the `api-version` parameter a
 
 [Creating an export job](../storage-import-export-creating-an-export-job.md)
 
-[Retrieving state information for a job](../storage-import-export-retrieving-state-info-for-a-job.md)
+[Retrieving state information for a job](storage-import-export-retrieving-state-info-for-a-job.md)
 
 [Enumerating jobs](../storage-import-export-enumerating-jobs.md)
 
