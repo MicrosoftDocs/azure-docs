@@ -26,7 +26,11 @@ ms.author: heidist
 
 ## Architecture & concepts
 
- ### Can I find out if support for a specific language is forthcoming?
+### Can I train the models with my own data?
+
+No, the models are pretrained. The only operations available on uploaded data are scoring, key phrase extraction, and language detection.
+
+### Can I find out if support for a specific language is forthcoming?
 
 We avoid pre-announcing support for specific languages. This practice minimizes the chance of customers or partners taking a dependency on functionality that we might not be able to deliver in a timely manner. If you want support for a specific language, you can request or vote for it on [User Voice](https://cognitive.uservoice.com/). Your votes will help us prioritize which ones to work on next.
 
@@ -36,7 +40,7 @@ Improvements to models and algorithms are announced if the change is major, or q
 
 ### Why do some sentiment scores seem off?
 
-Machine learning algorithms for detecting sentiment are less effective if the sentiment is nuanced. Sarcasm, irony, puns, and some slang continues to challenge most analyzers. In general, sentiment scoring is best at predicting positive or negative sentiment. It attempts to provide a score whenever the model is given enough evidence to provide one. When the anaylzer is undecided, a neutral score of 0.5 is assigned to the document.
+Sentiment analysis is hard to do when sentiment is nuanced or unclear. Sarcasm, irony, puns, and some slang continues to challenge most analyzers. In general, sentiment scoring is best at predicting positive or negative sentiment. The model provides a score given sufficeint evidence. When analysis is indeterminate, a neutral score of 0.5 is assigned to the document.
 
 ## Next steps
 

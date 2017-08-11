@@ -18,11 +18,17 @@ ms.author: heidist
 
  ## Blogs
 
+ + MSDN blog: [Using Text Analytics Key Phrase Cognitive Services API from PowerShell](https://blogs.msdn.microsoft.com/riteshmodi/2017/03/24/text-analytics-key-phrase-cognitive-services-powershell/)
+
++ R Bloggers: [R Quick tip: Microsoft Cognitive Services’ Text Analytics API](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
+
 + PowerApps blog: [Using the Azure Cognitive Services Text Analytics API in PowerApps](https://powerapps.microsoft.com/blog/custom-connectors-and-text-analytics-in-powerapps-part-one/)
 
 + PowerBI blog: Extraction of key phrases from Facebook messages: [Part 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) and [Part 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
-+ TechNet blog: [Sentiment analysis in Logic App using SQL Server data](https://social.technet.microsoft.com/wiki/contents/articles/36074.logic-apps-with-azure-cognitive-service.aspx) 
++ TechNet blog: [Sentiment analysis in Logic App using SQL Server data](https://social.technet.microsoft.com/wiki/contents/articles/36074.logic-apps-with-azure-cognitive-service.aspx)
+
++ MSDN blog: [Sentiment analysis with Dynamics 365 CRM Online](https://blogs.msdn.microsoft.com/geoffreyinnis/2016/07/11/sentiment-analysis-in-usd-with-cognitive-services-text-analytics/) 
 
 ## Videos
 

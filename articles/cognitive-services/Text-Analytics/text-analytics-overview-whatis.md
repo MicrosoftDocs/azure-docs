@@ -14,7 +14,7 @@ ms.author: heidist
 
 # Welcome to Text Analytics API in Microsoft Cognitive Services
 
-[Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a collection of machine learning and AI technologies in the cloud, exposed through APIs so that you can leverage state of the art technology in your development projects. 
+[Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a collection of machine learning and AI technologies in the cloud, exposed through APIs so that you can leverage state-of-the-art technology in your development projects. 
 
  Within Cognitive Services, **Text Analytics API** provides capabilities for sentiment analysis, key phrase extraction, and language detection.
 
@@ -29,7 +29,7 @@ Text analysis can mean different things, but in Cognitive Services, APIs are exp
 |Language Detection | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) or [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) |  For up to 120 languages, the service can detect which language the input text is written in and report a single language code for every document submitted on the request. The code is paired with a score indicating a level of certainty for the result. For example, if text includes a combination of languages, the service gives you the predominant language, but with a score reflecting the mixed results. |
 
 > [!Note] 
-> Machine learning algorithms in Cognitive services are trained and refined on a continuous development cycle. For this reason we do not document the implementation details or internal architecture of specific technologies. 
+> Machine learning algorithms in Cognitive services are trained and refined on a continuous development cycle. For this reason, we do not document the implementation details or internal architecture of specific technologies. 
 
 
 <a name="data-limits"></a>
@@ -93,7 +93,7 @@ Rate limiting exists at a rate of 100 calls per minute. We therefore recommend t
 
 ## Signup and billing
 
-Although Cognitive Services has multiple APIs, we ask you to sign up for them individually so that you can manage costs and availbility for each one.
+Although Cognitive Services has multiple APIs, we ask you to sign up for them individually so that you can manage costs and availability for each one.
 
 + [Pricing for text analytics](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)
 + [Calculator](https://azure.microsoft.com/pricing/calculator/?service=cognitive-services)

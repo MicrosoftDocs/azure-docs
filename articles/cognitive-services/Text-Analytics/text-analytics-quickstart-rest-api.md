@@ -17,7 +17,7 @@ ms.author: heidist
 In this Quickstart, learn how to call the Text Analytics REST APIs to perform sentiment analysis, keyword extraction, and language detection on text provided in requests to Microsoft Cognitive Services.
 
 > [!Tip]
-> We recommend using a Web API testing tool for this exercise. [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) is a good choice, but any tool that sends HTTP requests will work. You can watch this [short video](https://www.youtube.com/watch?v=jBjXVrS8nXs) to learn basic Postman operations.
+> We recommend using a Web API testing tool for this exercise. [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) is a good choice, but any tool that sends HTTP requests will do. You can watch this [short video](https://www.youtube.com/watch?v=jBjXVrS8nXs) to learn basic Postman operations.
 >
 
 ## Before you begin
@@ -35,9 +35,9 @@ In this first exercise, you will structure the request, using key phrase extract
 
 Text Analytics APIs invoke operations against machine learning pretrained models and algorithms running in Azure data centers. You need your own key to access the operations. 
 
-Endpoints for each operation include the resource providing the underlying algorithms used for a particular analysis: **sentiment analysis** , **key phrase extraction**, and **language detection**. Each request must specify which resource to use. We list them in full below.
+Endpoints for each operation include the resource providing the underlying algorithms used for a particular analysis: **sentiment analysis**, **key phrase extraction**, and **language detection**. Each request must specify which resource to use. We list them in full below.
 
-1. In the [Azure portal](https://portal.azure.com) and find the Text Analysis API you signed up for. Leave the page open so that you can copy a key and endpoint, starting in the next step.
+1. In the [Azure portal](https://portal.azure.com), and find the Text Analysis API. If it's not pinned to dashboard, search for "text analytics" to find the page. Leave the page open so that you can copy a key and endpoint, starting in the next step.
 
 2. In Postman or another tool, set up the request:
 
@@ -57,13 +57,13 @@ Endpoints for each operation include the resource providing the underlying algor
    + `Content-Type` set to application/json.
    + `Accept` set to application/json.
 
-  Your request should look similar to the following screenshot.
+  Your request should look similar to the following screenshot:
 
    ![Request screenshot with endpoint and headers](../media/text-analytics/postman-request-keyphrase-1.png)
 
 4. Provide text for analysis. Each document can have a maximum of 10 KB of raw text. Specifying `language` is not required, but providing it bypasses an implicit language detection check, which is more efficient.
 
-  Click **Body** and paste in the JSON documents below. 
+  Click **Body** and paste in the JSON documents below: 
 
    ```
     {
@@ -99,9 +99,9 @@ Endpoints for each operation include the resource providing the underlying algor
 
 5. Choose **raw** for the format. Click **Send** to submit the request.
 
-### Drillldown: Formatting the request body
+### About the request body
 
-Input rows must be JSON in raw text. XML is not supported. The schema is extremely simple, which means the same documents collection can be used in all requests.
+Input rows must be JSON in raw text. XML is not supported. The schema is simple, which means the same documents collection can be used in all requests.
  
 + Language is used only in sentiment analysis and key phrase extraction. It is ignored in language detection. For both sentiment analysis and key phrase extraction, language is an optional parameter but if you do not provide it, the service performs an additional language detection pass. For maximum efficiency, you should always include the language in the request, assuming you know what it is. Refer to the [Text Analytics Overview > Supported Languages](overview.md#supported-languages) for a list of supported languages.
 
@@ -109,7 +109,7 @@ Input rows must be JSON in raw text. XML is not supported. The schema is extreme
 
 + Text provides the strings to be analyzed. The maximum size of a single document that can be submitted is 10 KB, and 1 MB for the request overall. For more information about limits, see [Text Analytics Overview > Data limits](text-analytics-overview-whatis.md#data-limits). 
 
-### Drilldown: Parsing the response
+### About the response
 
 All POST requests return a JSON formatted response with the IDs and detected properties. An example of the output for key phrase extraction is shown below. The keyPhrases algorithm iterates over the entire collection before extracting phrases, using the context of all strings to determine which ones to extract.
 
@@ -163,7 +163,7 @@ All POST requests return a JSON formatted response with the IDs and detected pro
 }
 ```
 
-### Drilldown: Observations about key phrase extraction
+### About key phrase extraction
 
 Presenting inputs and outputs side by side helps us see how the key phrase extraction algorithm operates. 
 
@@ -246,7 +246,7 @@ Notice that the last document is correctly identified as Spanish, even though th
             ]
 
 > [!Tip] 
-> Use an online translator to translate some of the existing phrases from English to another language. Re-send the request to detect the various languages (120 languages are supported for language detection).
+> Use an online translator to translate some of the existing phrases from English to another language. Resend the request to detect the various languages (120 languages are supported for language detection).
 
 ## Next steps
 
