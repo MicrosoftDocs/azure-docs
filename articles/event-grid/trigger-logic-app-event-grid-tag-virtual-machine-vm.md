@@ -16,13 +16,13 @@ ms.author: LADocs; estfan
 
 # Tag virtual machines by triggering logic app workflows with events from event grids
 
-You can start a [logic app automated workflow](../logic-apps/logic-apps-what-are-logic-apps.md) 
+You can start a [logic app workflow](../logic-apps/logic-apps-what-are-logic-apps.md) 
 when specific events happen in Azure resources or third-party resources. 
-These resources can publish these events to an [Azure event grid](../event-grid/overview.md). 
-And in turn, the event grid pushes those events to subscribers that have queues, 
+These resources can publish those events to an [Azure event grid](../event-grid/overview.md). 
+In turn, the event grid pushes those events to subscribers that have queues, 
 webhooks, or [event hubs](../event-hubs/event-hubs-what-is-event-hubs.md) as endpoints. 
-As a subscriber, your logic app can wait for those events from an event grid 
-before starting automated workflows to perform other tasks.
+As a subscriber, your logic app can wait for those events from the event grid 
+before running automated workflows to perform tasks.
 
 For example, here are some events that an event grid can send 
 from publisher to subscriber:
@@ -32,8 +32,8 @@ from publisher to subscriber:
 * New tweet
 
 This tutorial shows how to create a logic app that starts 
-running workflow steps when you create a virtual machine in Azure. 
-On creation, the virtual machine publishes an event to an event grid, 
+running a workflow when you create an Azure virtual machine. 
+At creation, the virtual machine publishes an event to an event grid, 
 which pushes the event to your logic app. Your logic app passes 
 data about the virtual machine to an Azure function 
 that tags the virtual machine with a specified label.
