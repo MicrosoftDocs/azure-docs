@@ -107,7 +107,7 @@ The following example gets the Azure Diagnostics configuration:
 
     $xmlconfig | Out-File -Encoding utf8 -FilePath "d:\WADConfig.xml"
 
-The following example modifies the Azure Diagnostics configuration. In this configuration, only EventID 4624 and EventID 4625 are collected from the security event log. Microsoft Antimalware for Azure events are collected from the system event log. For details on the use of XPath expressions, see [Consuming Events](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85)).
+The following example modifies the Azure Diagnostics configuration. In this configuration, only event ID 4624 and event ID 4625 are collected from the security event log. Microsoft Antimalware for Azure events are collected from the system event log. For details on the use of XPath expressions, see [Consuming Events](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85)).
 
     <WindowsEventLog scheduledTransferPeriod="PT1M">
         <DataSource name="Security!*[System[(EventID=4624 or EventID=4625)]]" />
@@ -123,7 +123,7 @@ After you make changes, check the storage account to ensure that the correct eve
 
 If you have any issues during the installation and configuration, please open a [support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Select **Log Integration** as the service for which you are requesting support.
 
-## Can I use Azure Log Integration to integrate Network Watcher logs in to my SIEM?
+## Can I use Azure Log Integration to integrate Network Watcher logs into my SIEM?
 
 Azure Network Watcher generates large quantities of logging information. These logs are not meant to be sent to a SIEM. The only supported destination for Network Watcher logs is a storage account. Azure Log Integration does not support reading these logs and making them available to a SIEM.
 

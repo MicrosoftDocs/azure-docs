@@ -57,18 +57,18 @@ The following video demonstrates the steps covered in this article:
 
 
 > [!NOTE]
-> You need to contact your SIEM vendor for specific instructions on bringing the information in the JSON files into your SIEM.
+> For specific instructions on bringing the information in the JSON files into your security information and event management (SIEM) system, contact your SIEM vendor.
 
 Community assistance is available through the [Azure Log Integration MSDN Forum](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). This forum enables people in the Azure Log Integration community to support each other with questions, answers, tips, and tricks. In addition, the Azure Log Integration team monitors this forum and helps whenever it can.
 
-You can also open a [support request](../azure-supportability/how-to-create-azure-support-request.md). To do this, select **Log Integration** as the service for which you are requesting support.
+You can also open a [support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Log Integration** as the service for which you are requesting support.
 
 ## Next steps
-To learn more about Azure Log Integration, see the following documents:
+To learn more about Azure Log Integration, see:
 
 * [Microsoft Azure Log Integration for Azure logs](https://www.microsoft.com/download/details.aspx?id=53324): This Download Center page gives details, system requirements, and installation instructions for Azure Log Integration.
-* [Introduction to Azure Log Integration](security-azure-log-integration-overview.md): This document introduces you to Azure Log Integration, its key capabilities, and how it works.
+* [Introduction to Azure Log Integration](security-azure-log-integration-overview.md): This article introduces you to Azure Log Integration, its key capabilities, and how it works.
 * [Partner configuration steps](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): This blog post shows you how to configure Azure Log Integration to work with partner solutions Splunk, HP ArcSight, and IBM QRadar.
 * [Azure Log Integration FAQ](security-azure-log-integration-faq.md): This article answers questions about Azure Log Integration.
-* [Integrating Security Center alerts with Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md): This document shows you how to sync Security Center alerts, along with virtual machine security events collected by Azure Diagnostics and Azure audit logs, with your log analytics or SIEM solution.
+* [Integrating Security Center alerts with Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md): This article shows you how to sync Security Center alerts, along with virtual machine security events collected by Azure Diagnostics and Azure audit logs, with your log analytics or SIEM solution.
 * [New features for Azure Diagnostics and Azure audit logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): This blog post introduces you to Azure audit logs and other features that help you gain insights into the operations of your Azure resources.
