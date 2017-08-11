@@ -17,4 +17,4 @@ ms.date: 08/10/2017
 ms.author: shlo
 
 ---
-# Compare and contrast V1 and V2
+# Compare and contrast version 1 and version 2
