@@ -49,7 +49,7 @@ Data Lake Tools can be installed on the platforms supported by VS Code. The supp
                 echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots 4.2.4.4/main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
                 sudo apt-get update
 
-        - To install Mono enter the following command:
+        - To install Mono, enter the following command:
 
                 sudo apt-get install mono-complete
 
@@ -405,7 +405,7 @@ You can upload files by entering the commands **ADL: Upload File** or **ADL: Upl
 
 **To upload files though the ADL: Upload File command**
 1. Select Ctrl+Shift+P to open the command palette or right-click the script editor, and then enter **Upload File**.
-2. Enter a local path to upload the file.
+2.  To upload the file, enter a local path.
 
     ![Data Lake Tools for Visual Studio Code enter local path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-input-local-path.png)
 
@@ -457,7 +457,7 @@ You can open **Azure Storage Explorer** by entering the command **ADL: Open Web 
 The Data Lake Tools open the Azure storage path in the Azure portal. You can find the path and preview the file from the web.
 
 ### Local run and local debug for Windows users
-U-SQL local run tests your local data and validates your script locally, before your code is published to Data Lake Analytics. The local debug feature enables you to do the following before your code is submitted to Data Lake Analytics: 
+U-SQL local run tests your local data and validates your script locally, before your code is published to Data Lake Analytics. The local debug feature enables you to complete the following tasks before your code is submitted to Data Lake Analytics: 
 - Debug your C# code-behind. 
 - Step through the code. 
 - Validate your script locally.
@@ -494,7 +494,7 @@ The Data Lake Tools for VS Code supports the following features:
 
 - For U-SQL local run and local debug with Visual Studio Code, see [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
 - For the getting started information on Data Lake Analytics, see [Tutorial: Get started with Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
-- For information about Data Lake Tools for Visual Studio, see [Tutorial: Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+- For information about Data Lake Tools for Visual Studio, see [Tutorial: Develop U-SQL scripts by using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - For the information on developing assemblies, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md).
 
 
