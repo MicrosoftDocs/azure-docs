@@ -36,7 +36,9 @@ running a workflow when you create an Azure virtual machine.
 At creation, the virtual machine publishes an event to an event grid, 
 which pushes the event to your logic app. Your logic app passes 
 data about the virtual machine to an Azure function 
-that tags the virtual machine with a specified label.
+that tags the virtual machine with a specified label. 
+Your logic app also sends email to notify you when the virtual 
+machine is created, tagged, and ready to use.
 
 ![Logic app with event grid workflow](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-event-grid-arch.png)
 
@@ -80,7 +82,7 @@ choose **New** > **Enterprise Integration** > **Logic App** as shown:
 
       You've now created an Azure resource for your logic app. 
       After Azure deploys your logic app, the Logic Apps Designer 
-      shows templates that you can use to get started.
+      shows you templates for more common patterns so you can get started faster.
 
       > [!NOTE] 
       > When you select **Pin to dashboard**, 
@@ -88,13 +90,13 @@ choose **New** > **Enterprise Integration** > **Logic App** as shown:
       > Otherwise, you can manually find and open your logic app.
 
 3. Now choose a logic app template. 
-For this tutorial, under **Templates**, choose **Blank Logic App**, 
+Under **Templates**, choose **Blank Logic App**, 
 so you can build your logic app from scratch.
 
-   The Logic Apps Designer now shows [*connectors*](../connectors/apis-list.md) 
-   and [*triggers*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts), 
-   which you can use to start your logic app. A trigger is an event that creates a 
-   logic app instance and starts your logic app workflow. 
+   The Logic Apps Designer now shows you [*connectors*](../connectors/apis-list.md) 
+   and [*triggers*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+   that you can use to start your logic app. A trigger is an event that creates 
+   a logic app instance and starts your logic app workflow. 
    Your logic app needs a trigger as the first item.
 
 4. In the search box, enter "event grid" as your filter. 
@@ -102,45 +104,47 @@ Select this trigger: **Azure Event Grid - On a resource event**
 
    ![Select this trigger: "Azure Event Grid - On a resource event"](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-event-grid-trigger.png)
 
-5. Now create an event subscription for your logic app 
-to get events pushed by the publisher resource. 
-Provide these event subscription details:
+5. Now create an event subscription so your logic app can get events 
+from the publisher resource. Provide these details for the event subscription:
 
    * **Subscription**: Select the publisher resource's Azure subscription.
 
-   * **Resource Type**: Select the publisher's resource type, 
-   which is **Microsoft.EventGrid.topics** for this tutorial.
+   * **Resource Type**: Select the publisher's resource type. 
+   For this tutorial, select **Microsoft.EventGrid.topics**.
 
-   * **Resource Name**: Select the publisher resource's name, 
-   which is your previously created event grid for this tutorial.
+   * **Resource Name**: Select the publisher resource's name. 
+   For this tutorial, select your previously-created event grid.
 
    * For optional settings, choose **Show advanced options**.
 
       * **Subscription Name**: Provide a name for your event subscription.
 
       * **Prefix Filter**: Specify a prefix string as a filter, for example, 
-      a path and parameter to the location for a specific resource.
-      that you want to process. The default or empty string matches all values.
+      a path and parameter to a specific resource. The default or empty 
+      string matches all values.
 
-      * **Suffix Filter**: Specify a suffix string as a filter, 
-      for example, a file name extension, if you want specific file types. 
+      * **Suffix Filter**: Specify a suffix string as a filter, for example, 
+      a file name extension, if you want only specific file types. 
       The default or an empty string matches all values.
 
       ![Provide details for event subscription](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-event-grid-trigger-details.png)
 
-6. Save your logic app. On the designer toolbar, choose **Save**. 
-   
-When you save your logic app, the Event Grid trigger 
-creates an event subscription between your logic app 
-and the publisher resource. When the publisher pushes 
-an event to the event grid, that event grid pushes 
-the event to your logic app. After getting this event, 
-your logic app creates an instance of itself and starts 
-running the workflow that you define in these next steps.
+6. Save your logic app. On the designer toolbar, choose **Save**.
+
+   ![Save your logic app](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-event-grid-save.png)
+
+   When you save your logic app, the Event Grid trigger 
+   creates an event subscription between your logic app 
+   and the publisher resource. 
+
+So now when the publisher pushes an event to the event grid, 
+that event grid pushes the event to your logic app. 
+After getting this event, your logic app creates an instance of itself 
+and starts running the workflow that you define in these next steps.
 
 ## Call an Azure function from your logic app
 
-Now you can add an [action](https://review.docs.microsoft.com/en-us/azure/logic-apps/logic-apps-what-are-logic-apps#logic-app-concepts) to perform tasks on data in your logic app workflow. 
+Now you can add an [action](https://review.docs.microsoft.com/en-us/azure/logic-apps/logic-apps-what-are-logic-apps#logic-app-concepts) that performs tasks on data in your logic app workflow. 
 For this example, add the Azure function that you previously created 
 in [this tutorial]() for tagging your virtual machine.
 
@@ -158,26 +162,29 @@ Select this action: **Azure Functions - Choose an Azure function**
    were created and associated with your Azure subscription.
 
 3. In the search box, find your previously created Azure function app. 
-Select your Azure function app: **Azure Functions - your-function-app-name**
+Select your Azure function app: **Azure Functions - *your-function-app-name***
 
    ![Select this function app: "Azure Functions - your-function-app-name"](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-azure-function-app.png)
 
-   Azure now shows all the functions that are available in your selected function app.
+   Azure now shows all the functions that are 
+   available in your selected function app.
 
-4. Select your previously created function: **Azure Functions - your-function-name**
+4. Select your previously created function: 
+**Azure Functions - *your-function-name***
 
    ![Select this function: "Azure Functions - your-function-name"](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-azure-function-app-functions.png)
 
 5. In **Request Body**, specify the data that you want to pass to your function.
 
-   For this example: **{TBD}**
+   For this example, enter this content: **{TBD}**
 
 6. Save your logic app.
 
 ## Send email from your logic app
 
-Now add an [*action*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) that sends email to notify the recipients when a virtual machine is created, tagged, 
-and ready for use.
+Now add an [*action*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
+that sends email to notify the recipients when a virtual machine is created, 
+tagged, and ready to use.
 
 1. In your logic app, under your Azure function, 
 choose **New step** > **Add an action**. 
@@ -196,8 +203,8 @@ For example, if you're using Office 365 Outlook:
 
    ![Select "send email" action](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-send-email.png)
 
-3. If you didn't previously create a connection for your email provider, 
-sign in with the credentials for your email account when prompted for authentication.
+3. If you didn't already create a connection for your email provider, 
+sign in to your email account when the connector asks for authentication.
 
 4. Provide the details for the email action. 
 When the **Dynamic content** list appears, 
