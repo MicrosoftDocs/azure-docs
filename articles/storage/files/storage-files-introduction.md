@@ -71,7 +71,7 @@ Managing Azure File shares is much simpler than managing file shares on-premises
 
 ![File Structure](./media/storage-files-introduction/files-concepts.png)
 
-* **Storage Account**: All access to Azure Storage is done through a storage account. See [Scalability and Performance Targets](storage-scalability-targets.md) for details about storage account capacity.
+* **Storage Account**: All access to Azure Storage is done through a storage account. See [Scalability and Performance Targets](../common/storage-scalability-targets.md) for details about storage account capacity.
 
 * **Share**: A File Storage share is an SMB file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the 5 TB total capacity of the file share.
 
