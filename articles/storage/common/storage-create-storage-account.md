@@ -95,7 +95,7 @@ After you create your storage account, you can modify its configuration, such as
 
 Changing the replication option will change your pricing. For more details, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page.
 
-For Blob storage accounts, changing the access tier may incur charges for the change in addition to changing your pricing. Please see the [Blob storage accounts - Pricing and Billing](../blob/storage-blob-storage-tiers.md#pricing-and-billing) for more details.
+For Blob storage accounts, changing the access tier may incur charges for the change in addition to changing your pricing. Please see the [Blob storage accounts - Pricing and Billing](../blobs/storage-blob-storage-tiers.md#pricing-and-billing) for more details.
 
 ### Manage your storage access keys
 When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
