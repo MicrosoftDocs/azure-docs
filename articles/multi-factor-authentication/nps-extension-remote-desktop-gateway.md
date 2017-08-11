@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: kgremban
+ms.reviewer:
 ms.custom: it-pro
 ---
 #  Integrate your Remote Desktop Gateway infrastructure using the Network Policy Server (NPS) extension and Azure AD
