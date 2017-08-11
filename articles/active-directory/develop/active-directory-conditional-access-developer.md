@@ -55,7 +55,7 @@ Some scenarios require code changes to handle conditional access whereas others 
 
 * You are building a single-tenant iOS app and apply a conditional access policy.  The app signs in a user and doesn't request access to an API.  When the user signs in, the policy is automatically invoked and the user needs to perform multi-factor authentication (MFA). 
 * You are building a multi-tenant web app that uses the Microsoft Graph to access Exchange, among other services.  An enterprise customer who adopts this app sets a policy on SharePoint Online.  When the web app requests a token for MS Graph, a policy on any Microsoft Service is applied (specifically services that can be accessed through graph).  This end-user is prompted for MFA. In the case, the end-user is signed in with valid tokens, a claims "challenge" is returned to the web app.  
-* You are building a native app that uses a middle tier service to access the Microsoft Graph.  An enterprise customer at the company using this app applies a policy to Exchange Online.  When an end-user signs in, the native app requests access to the middle tier and sends the token.  The middle tier performs on-behalf-of flow to request access to the MS Graph.  At this point, a claims "challenge" is presented to the middle tier. The middle tier sends the challenge back to the native app, which needs to "step-up" the token.
+* You are building a native app that uses a middle tier service to access the Microsoft Graph.  An enterprise customer at the company using this app applies a policy to Exchange Online.  When an end-user signs in, the native app requests access to the middle tier and sends the token.  The middle tier performs on-behalf-of flow to request access to the MS Graph.  At this point, a claims "challenge" is presented to the middle tier. The middle tier sends the challenge back to the native app, which needs to comply with the conditional access policy.
 
 ### Complying with a conditional access policy
 
@@ -73,7 +73,7 @@ Developers can take this challenge and append it onto a new request to Azure AD.
 
 ### Prerequisites
 
-Azure AD conditional access is a feature included in [Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-editions).  You can learn more about licensing requirements in the [unlicensed usage report](../active-directory-conditional-access-unlicensed-usage-report.md).  Developers can join the [Microsoft Developer Network](https://msdn.microsoft.com/en-us/dn308572.aspx), which includes a free subscription to the Enterprise Mobility Suite which includes Azure AD Premium.
+Azure AD conditional access is a feature included in [Azure AD Premium](../active-directory-whatis.md#choose-an-edition).  You can learn more about licensing requirements in the [unlicensed usage report](../active-directory-conditional-access-unlicensed-usage-report.md).  Developers can join the [Microsoft Developer Network](https://msdn.microsoft.com/en-us/dn308572.aspx), which includes a free subscription to the Enterprise Mobility Suite which includes Azure AD Premium.
 
 ### Considerations for specific scenarios
 
@@ -139,7 +139,7 @@ Let's assume we have web service A and B and web service B has our conditional a
 
 ![App accessing multiple-services flow diagram](media/active-directory-conditional-access-developer/app-accessing-multiple-services-scenario.png)
 
-Alternatively, if the app initially requests a token for web service A, the end-user does not invoke the conditional access policy.  This allows the app developer to control the end-user experience and not force the conditional access policy to be invoked in all cases. The tricky case is if the app subsequently requests a token for web service B. At this point, the end-user needs to comply with the conditional access policy.  When the app tries to `acquireToken`, it may generate the following error: 
+Alternatively, if the app initially requests a token for web service A, the end-user does not invoke the conditional access policy.  This allows the app developer to control the end-user experience and not force the conditional access policy to be invoked in all cases. The tricky case is if the app subsequently requests a token for web service B. At this point, the end-user needs to comply with the conditional access policy.  When the app tries to `acquireToken`, it may generate the following error (illustrated in the following diagram): 
 
 ```
 HTTP 400; Bad Request
@@ -166,7 +166,7 @@ When an app needs an access token to call a Web API, it attempts an `acquireToke
 
 ![Single page app using ADAL flow diagram](media/active-directory-conditional-access-developer/spa-using-adal-scenario.png)
 
-Let's walk through an example with our conditional access scenario.  The end-user just landed on the site and doesn’t have a session.  We perform a `login()` call, get an ID token without multi-factor authentication.  Then the user hits a button that requires the app to request data from a web API.  The app tries to do an `acquireToken()` call but fails since the user has not performed multi-factor authentication yet and needs to "step-up" their token.
+Let's walk through an example with our conditional access scenario.  The end-user just landed on the site and doesn’t have a session.  We perform a `login()` call, get an ID token without multi-factor authentication.  Then the user hits a button that requires the app to request data from a web API.  The app tries to do an `acquireToken()` call but fails since the user has not performed multi-factor authentication yet and needs to comply with the conditional access policy.
 
 Azure AD sends back the following HTTP response: 
 
