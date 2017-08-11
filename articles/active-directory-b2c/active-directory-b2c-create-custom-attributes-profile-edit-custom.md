@@ -45,7 +45,7 @@ If the application is deleted, those Extension properties along with any data co
 >Extension properties exist only in the context of a registered  Application in the tenant. The object id of that Application must be included in the TechnicalProfile which use it
 
 >[!NOTE]
->The Azure AD B2C directory typically includes a Web API App named `b2c-extensions-app`.  This application is primarily used by the b2c built-in  policies for the custom claims created via the Azure portal.  Using this application to register extensions for b2c custom policies is recommended only for advanced users.
+>The Azure AD B2C directory typically includes a Web App named `b2c-extensions-app`.  This application is primarily used by the b2c built-in  policies for the custom claims created via the Azure portal.  Using this application to register extensions for b2c custom policies is recommended only for advanced users.  Instructions for this are included in the `NEXT STEPS` section in this article.
 
 
 ## Creating a new application to store the extension properties
@@ -66,6 +66,8 @@ If the application is deleted, those Extension properties along with any data co
 1. Copy to your clipboard and save the following identifiers from WebApp-GraphAPI-DirectoryExtensions>Settings>Properties>
 *  **Application ID** . Example: `103ee0e6-f92d-4183-b576-8c3739027780`
 * **Object ID**. Example: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
+
+
 
 ## Modifying your custom policy to add the `ApplicationObjectId`
 
@@ -265,11 +267,38 @@ The  id token sent back to your application will include the new extension prope
 
 ## Next steps
 
-Add the new claim to the flows for social account logins by changing the TechnicalProfiles listed below. These two TechnicalProfiles are used by social/federated account logins to write and read the user data using the alternativeSecurityId as the locator of the user object.
+### Add the new claim to the flows for social account logins by changing the TechnicalProfiles listed below. These two TechnicalProfiles are used by social/federated account logins to write and read the user data using the alternativeSecurityId as the locator of the user object.
 ```
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
+```
+### Using the same extension attributes between built-in and custom policies
+When you add extension attributes (aka custom attributes) via the portal experience, those attributes are registered using the **b2c-extensions-app** which exists in every b2c tenant.  To use these extension attributes in your custom policy:
+1. Within your b2c tenant in portal.azure.com, navigate to **Azure Active Directory** and select **App registrations**
+2. Find your **b2c-extensions-app** and select it
+3. Under 'Essentials' record the **Application ID** and the **Object ID**
+4. Include them in your AAD-Common Technical profile metadata like this:
+
+```xml
+    <ClaimsProviders>
+    	<ClaimsProvider>
+    	      <DisplayName>Azure Active Directory</DisplayName>
+    		<TechnicalProfile Id="AAD-Common">
+              <DisplayName>Azure Active Directory</DisplayName>
+              <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+              <!-- Provide objectId and appId before using extension properties. -->
+              <Metadata>
+                <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
+                <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
+              </Metadata>
+```
+
+5. To keep consistency with the portal experience, create these attributes using the portal UI *before* you use them in your custom policies.  When you create an attribute "ActivationStatus" in the portal, you must refer to it as follows:
+
+```
+extension_ActivationStatus in the custom policy
+extension_<app-guid>_ActivationStatus via the Graph API.
 ```
 
 

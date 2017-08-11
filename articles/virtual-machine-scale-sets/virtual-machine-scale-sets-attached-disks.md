@@ -108,7 +108,7 @@ az vmss disk detach -g dsktest -n dskvmss --lun 2
 Similarly you can also remove a disk from a scale set by removing an entry from the _dataDisks_ property in the _storageProfile_ and applying the change. 
 
 ## Additional notes
-Support for Azure Managed disks, and scale set attached data disks was added to the [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) version of the Microsoft.Compute APi. You can use any SDK or command-line tool built with this version or later of the API.
+Support for Azure Managed disks and scale set attached data disks is available in API version [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) or later of the Microsoft.Compute API.
 
 In the initial implementation of attached disk support for scale sets, you cannot attach or detach data disks to/from individual VMs in a scale set.
 

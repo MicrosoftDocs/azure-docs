@@ -65,7 +65,7 @@ When you fail back to an alternate location, the data is recovered to the same d
 ## Prerequisites
 * To fail back VMware VMs and physical servers, you need a VMware environment. Failing back to a physical server isn’t supported.
 * To fail back, you must have created an Azure network when you initially set up protection. Failback needs a VPN or ExpressRoute connection from the Azure network in which the Azure VMs are located to the on-premises site.
-* If the VMs that you want to fail back to are managed by a vCenter server, make sure that you have the required permissions for discovery of VMs on vCenter servers. For more information, see [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+* If the VMs that you want to fail back to are managed by a vCenter server, make sure that you have the required permissions for discovery of VMs on vCenter servers. For more information, see [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 * If snapshots are present on a VM, reprotection fails. You can delete the snapshots or the disks.
 * Before you fail back, create these components:
   * **Create a Process Server in Azure**. This component is an Azure VM that you create and keep running during failback. You can delete the VM after failback is complete.
@@ -105,7 +105,7 @@ If you have protected your virtual machines as classic resources (that is, the V
  * The name of the image is *Microsoft Azure Site Recovery Process Server V2*. Select **Classic** as the deployment model.
 
        ![Select "Classic" as the Process Server deployment model](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
- * Install the Process Server according to the instructions in [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
+ * Install the Process Server according to the instructions in [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 7. If you select the *Resource Manager* Azure network, deploy the Process Server by providing the following information:
 
   * The name of the resource group that you want to deploy the server to
@@ -118,7 +118,7 @@ If you have protected your virtual machines as classic resources (that is, the V
 
     ![Enter information in the "Add Process Server" dialog box](./media/site-recovery-failback-azure-to-vmware-classic/psinputsadd.png)
 
-8. Click **OK**. This action triggers a job that creates a Resource Manager deployment type virtual machine during the Process Server setup. To register the server to the configuration server, run the setup inside the VM by following the instructions in [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). A job to deploy the Process Server is also triggered.
+8. Click **OK**. This action triggers a job that creates a Resource Manager deployment type virtual machine during the Process Server setup. To register the server to the configuration server, run the setup inside the VM by following the instructions in [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md). A job to deploy the Process Server is also triggered.
 
   The Process Server is listed on the **Configuration servers** > **Associated servers** > **Process Servers** tab.
 
@@ -137,7 +137,7 @@ The master target server receives the failback data. The server is automatically
 1. If you're setting up the master target server on Windows, open the quick-start page from the VM that you're installing the master target server on.
 2. Download the installation file for the Azure Site Recovery Unified Setup wizard.
 3. Run the setup and, in **Before you begin**, select **Add additional Process Servers to scale out deployment**.
-4. Complete the wizard in the same way you did when you [set up the management server](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). On the **Configuration Server Details** page, specify the IP address of the master target server, and enter a passphrase to access the VM.
+4. Complete the wizard in the same way you did when you [set up the management server](site-recovery-vmware-to-azure-classic.md). On the **Configuration Server Details** page, specify the IP address of the master target server, and enter a passphrase to access the VM.
 
 ### Set up a Linux VM as the master target server
 To set up the management server running the master target server as a Linux VM, install the CentOS 6.6 minimal operating system. Next, retrieve the SCSI IDs for each SCSI hard disk, install some additional packages, and apply some custom changes.
@@ -227,7 +227,7 @@ After the commit is completed, your data should be back on the on-premises site,
 After the reprotection is complete, the VM replicates back to Azure and you can do a failover.
 
 ### Resolve common failback issues
-* If you perform a read-only user vCenter discovery and protect virtual machines, it succeeds and failover works. During reprotection, failover fails because the datastores cannot be discovered. As a symptom, you will not see the datastores listed during reprotection. To resolve this issue, you can update the vCenter credential with an appropriate account that has permissions and retry the job. For more information, see [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)
+* If you perform a read-only user vCenter discovery and protect virtual machines, it succeeds and failover works. During reprotection, failover fails because the datastores cannot be discovered. As a symptom, you will not see the datastores listed during reprotection. To resolve this issue, you can update the vCenter credential with an appropriate account that has permissions and retry the job. For more information, see [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md)
 * When you fail back a Linux VM and run it on-premises, you can see that the Network Manager package has been uninstalled from the machine. This uninstallation happens because the Network Manager package is removed when the VM is recovered in Azure.
 * When a VM is configured with a static IP address and is failed over to Azure, the IP address is acquired via DHCP. When you fail over back to on-premises, the VM continues to use DHCP to acquire the IP address. Manually sign in to the machine and set the IP address back to a static address if necessary.
 * If you are using either ESXi 5.5 free edition or vSphere 6 Hypervisor free edition, failover would succeed, but failback would not succeed. To enable failback, upgrade to either program's evaluation license.

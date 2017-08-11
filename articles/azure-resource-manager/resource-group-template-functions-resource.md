@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 08/09/2017
 ms.author: tomfitz
 
 ---
@@ -72,7 +72,9 @@ Other list functions have different return formats. To see the format of a funct
 
 ### Remarks
 
-Any operation that starts with **list** can be used as a function in your template. The available operations include not only listKeys, but also operations like `list`, `listAdminKeys`, and `listStatus`. To determine which resource types have a list operation, you have the following options:
+Any operation that starts with **list** can be used as a function in your template. The available operations include not only listKeys, but also operations like `list`, `listAdminKeys`, and `listStatus`. However, you cannot use **list** operations that require values in the request body. For example, the [List Account SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) operation requires request body parameters like *signedExpiry*, so you cannot use it within a template.
+
+To determine which resource types have a list operation, you have the following options:
 
 * View the [REST API operations](/rest/api/) for a resource provider, and look for list operations. For example, storage accounts have the [listKeys operation](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
 * Use the [Get-​Azure​Rm​Provider​Operation](/powershell/module/azurerm.resources/get-azurermprovideroperation) PowerShell cmdlet. The following example gets all list operations for storage accounts:
@@ -276,7 +278,7 @@ The preceding example returns an object in the following format:
 }
 ```
 
-The following example references a storage account that is not deployed in this template, but exists within the same resource group.
+The following example references a storage account that is not deployed in this template. The storage account already exists within the same resource group.
 
 ```json
 {
@@ -421,7 +423,7 @@ To get the resource ID for a database in a different resource group, use:
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
 ```
 
-Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The storage account or virtual network may be used across multiple resource groups; therefore, you do not want to delete them when deleting a single resource group. The following example shows how a resource from an external resource group can easily be used:
+Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The following example shows how a resource from an external resource group can easily be used:
 
 ```json
 {
@@ -543,7 +545,7 @@ The following example shows the subscription function called in the outputs sect
 }
 ```
 
-## Next Steps
+## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).

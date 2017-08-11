@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 06/27/2017
 ms.author: raynew
 
 ---
@@ -65,9 +65,9 @@ We recommend that you verify the properties of the source machine before you run
 2. In the **Replicated item** pane, you can see a summary of VM information, health status, and the latest available recovery points. Click **Properties** to view more details.
 3. In **Compute and Network**, you can:
     - Modify the Azure VM name. The name must meet [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-    - Specify a post-failover [resource group](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md)
+    - Specify a post-failover [resource group].
     - Specify a target size for the Azure VM
-    - Select an [availability set](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+    - Select an [availability set](../virtual-machines/windows/tutorial-availability-sets.md).
     - Specify whether to use [managed disks](#managed-disk-considerations). Select **Yes**, if you want to attach managed disks to your machine on migration to Azure.
     - View or modify network settings, including the network/subnet in which the Azure VM will be located after failover, and the IP address that will be assigned to it.
 4. In **Disks**, you can see information about the operating system and data disks on the VM.
@@ -79,8 +79,11 @@ After you've set everything up, run a test failover to make sure everything's wo
 - If you want to connect to Azure VMs using RDP after failover, [prepare to connect](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
  - To fully test you need to copy of Active Directory and DNS in your test environment. [Learn more](site-recovery-active-directory.md#test-failover-considerations).
  - For full information about test failover, read [this article](site-recovery-test-failover-to-azure.md) article.
-- Get a quick video overview before you start
->[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
+- Get a quick video overview before you start:
+
+
+     >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
+
 
 Now, run a failover:
 

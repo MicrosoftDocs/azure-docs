@@ -16,6 +16,7 @@ This document lists the connection string types that are supported by Azure Data
 
 - To obtain the certificate, see [How to configure SSL](./howto-configure-ssl.md).
 - {your_host} = <servername>.mysql.database.azure.com
+- {your_user}@{servername} = userID format for authentication correctly.  Using just the userID will cause the authentication to fail.
 
 ## ADO.NET
 ```ado.net

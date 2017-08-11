@@ -36,12 +36,13 @@
 ### [Event Hubs management libraries](event-hubs-management-libraries.md)
 ### Capture
 #### [Event Hubs Capture](event-hubs-capture-overview.md)
-#### [Use Python to enable Event Hubs Capture](event-hubs-capture-python.md)
+#### [Capture Event Hubs data using Python](event-hubs-capture-python.md)
 ### [Using PowerShell to provision entities](event-hubs-manage-with-ps.md) 
 ### [Stream Azure Diagnostics data using Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Create and deploy an event hub using a Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
@@ -56,10 +57,11 @@
 ## [Quotas](event-hubs-quotas.md)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Code samples](event-hubs-samples.md)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/event-hubs/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)

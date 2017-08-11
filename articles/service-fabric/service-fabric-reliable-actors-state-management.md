@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
 
 ---
@@ -403,9 +403,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 ```
 
 ## Next steps
-* [Actor type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
-* [Actor polymorphism and object-oriented design patterns](service-fabric-reliable-actors-polymorphism.md)
-* [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
-* [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# sample code](https://github.com/Azure/servicefabric-samples)
-* [Java sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+
+State that's stored in Reliable Actors must be serialized before its written to disk and replicated for high availability. Learn more about [Actor type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+
+Next, learn more about [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md).

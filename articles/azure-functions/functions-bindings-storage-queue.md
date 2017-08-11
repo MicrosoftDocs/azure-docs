@@ -70,7 +70,7 @@ The queue trigger provides several metadata properties. These properties can be 
 * **ExpirationTime** - Type `DateTimeOffset?`. The time that the message expires.
 * **Id** - Type `string`. Queue message ID.
 * **InsertionTime** - Type `DateTimeOffset?`. The time that the message was added to the queue.
-* **NextVisibleTime** - Type `DateTimeOffset?. The time that the message will next be visible.
+* **NextVisibleTime** - Type `DateTimeOffset?`. The time that the message will next be visible.
 * **PopReceipt** - Type `string`. The message's pop receipt.
 
 See how to use the queue metadata in [Trigger sample](#triggersample).

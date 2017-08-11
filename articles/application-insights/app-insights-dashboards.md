@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Navigation and Dashboards in the Application Insights portal

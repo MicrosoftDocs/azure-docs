@@ -101,7 +101,7 @@ When Azure Redis Cache is hosted in a VNet, the ports in the following tables ar
 
 There are seven outbound port requirements.
 
-- If desired, all outbound connections to the internet can be made through a client's on-premise auditing device.
+- If desired, all outbound connections to the internet can be made through a client's on-premises auditing device.
 - Three of the ports route traffic to Azure endpoints servicing Azure Storage and Azure DNS.
 - The remaining port ranges and for internal Redis subnet communications. No subnet NSG rules are required for internal Redis subnet communications.
 
@@ -181,9 +181,9 @@ When your cache is part of a VNET, only clients in the VNET can access the cache
 ## Use ExpressRoute with Azure Redis Cache
 Customers can connect an [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit to their virtual network infrastructure, thus extending their on-premises network to Azure. 
 
-By default, a newly created ExpressRoute circuit advertises a default route that allows outbound Internet connectivity. With this configuration, client applications are able to connect to other Azure endpoints including Azure Redis Cache.
+By default, a newly created ExpressRoute circuit does not perform forced tunneling (advertisement of a default route, 0.0.0.0/0) on a VNET. As a result, outbound Internet connectivity is allowed directly from the VNET and client applications are able to connect to other Azure endpoints including Azure Redis Cache.
 
-However a common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises. This traffic flow breaks connectivity with Azure Redis Cache if the outbound traffic is then blocked on-premises such that the Azure Redis Cache instance is not able to communicate with its dependencies.
+However a common customer configuration is to use forced tunneling (advertise a default route) which forces outbound Internet traffic to instead flow on-premises. This traffic flow breaks connectivity with Azure Redis Cache if the outbound traffic is then blocked on-premises such that the Azure Redis Cache instance is not able to communicate with its dependencies.
 
 The solution is to define one (or more) user-defined routes (UDRs) on the subnet that contains the Azure Redis Cache. A UDR defines subnet-specific routes that will be honored instead of the default route.
 

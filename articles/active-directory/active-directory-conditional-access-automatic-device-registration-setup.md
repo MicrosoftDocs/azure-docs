@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: markvi
+ms.reviewer: jairoc
 
 ---
 # How to configure automatic registration of Windows domain-joined devices with Azure Active Directory
@@ -55,9 +56,8 @@ To improve the readability of the descriptions, this topic uses the following te
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- The registration of Windows down-level devices **is not** supported for:
-    - Non-federated environments (password hash sync configurations).  
-    - Devices using roaming profiles. If you are relying on roaming of profiles or settings, use Windows 10.
+- The registration of Windows down-level devices **is** supported in non-federated environments through Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://aka.ms/hybrid/sso).
+- The registration of Windows down-level devices **is not** supported for devices using roaming profiles. If you are relying on roaming of profiles or settings, use Windows 10.
 
 
 
@@ -117,7 +117,7 @@ The **$scp.Keywords** output shows the Azure AD tenant information, for example:
     azureADName:microsoft.com
     azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
 
-If the service connection point does not exist, you can create it by running the `Initialize-ADSyncDomainJoinedComputerSync` cmdlet on your Azure AD Connect server.  
+If the service connection point does not exist, you can create it by running the `Initialize-ADSyncDomainJoinedComputerSync` cmdlet on your Azure AD Connect server. Enterprise admin credential is required to run this cmdlet.  
 The cmdlet:
 
 - Creates the service connection point in the Active Directory forest Azure AD Connect is connected to. 
