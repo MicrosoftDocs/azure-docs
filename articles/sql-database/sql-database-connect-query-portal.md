@@ -43,9 +43,13 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 2. On the SQL database page for your database, click **Tools** on the toolbar. The Tools page opens.
 
+    ![tools menu](./media/sql-database-get-started-portal/tools-menu.png)
+
 3. Click **Query editor (preview)**, click the **Preview terms** checkbox, and then click **OK**. The Query editor page opens.
 
 4. Click **Login** and then, when prompted, select **SQL Server authentication** and then provide the server admin login and password you provided when creating the database.
+
+    ![login](./media/sql-database-get-started-portal/login.png) 
 
 5. Click **OK to login**.
 
@@ -80,6 +84,8 @@ After you are authenticated, type the following query in the query editor pane t
 ```
 
 Click **Run** and then review the query results in the **Results** pane.
+
+![query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
 
 ## Insert data into your database using query editor
 
