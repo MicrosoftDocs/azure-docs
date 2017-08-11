@@ -1,4 +1,4 @@
 ---
-redirect_url: /azure/storage/blob/storage-manage-access-to-resources
+redirect_url: /azure/storage/blobs/storage-manage-access-to-resources
 redirect_document_id: true
 ---
