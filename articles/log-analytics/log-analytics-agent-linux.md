@@ -66,7 +66,7 @@ PAM | Pluggable authentication Modules |
 > [!NOTE]
 >  Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog, 
 
-The agent is comprised of multiple packages. The release file contains the following packages, available by running the shell bundle with `--extract`:
+The agent includes multiple packages. The release file contains the following packages, available by running the shell bundle with `--extract`:
 
 **Package** | **Version** | **Description**
 ----------- | ----------- | --------------
