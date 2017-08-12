@@ -129,7 +129,7 @@ The function code is deployed directly from the public sample repo. To learn mor
 An Event Grid topic provides an endpoint that you post your events to. You create the topic in your resource group. The topic name must be unique.
 
 ```azurecli-interactive
-az eventgrid topic create --topic-name {unique-topic-name} -l westus2 -g gridResourceGroup
+az eventgrid topic create --topic-name <-topic-name> -l westus2 -g gridResourceGroup
 ```
 
 ## Subscribe to a topic
@@ -137,14 +137,43 @@ az eventgrid topic create --topic-name {unique-topic-name} -l westus2 -g gridRes
 You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the topic you created. It passes the URL from RequestBin as the endpoint for event notification.
 
 ```azurecli-interactive
-az eventgrid topic event-subscription create --name {unique-event-subscription-name} \
-  --endpoint {your-URL-from-RequestBin} \
+az eventgrid topic event-subscription create --name <unique-event-subscription-name> \
+  --endpoint <your-webhook-url> \
   -g gridResourceGroup 
-  --topic-name {your-topic-name}
+  --topic-name <your-topic-name>
 ```
 
 ## Deploy the sample app to Azure
+# Create an App Service plan in `FREE` tier.
+az appservice plan create --name $webappname --resource-group myResourceGroup --sku FREE
+
+# Create a web app.
+az webapp create --name $webappname --resource-group myResourceGroup --plan $webappname
+
+# Deploy code from a public GitHub repository. 
+az webapp deployment source config --name $webappname --resource-group myResourceGroup \
+--repo-url $gitrepo --branch master --manual-integration
 
 
+Create a web app.
 
-## Test the sample app in Azure
+    az webapp create --name $webAppName \
+                        --resource-group myResourceGroup \
+                        --plan $webAppName
+    
+Deploy webapp code from the sample GitHub repository. 
+
+    az webapp deployment source config --name $webAppName \
+        --resource-group myResourceGroup --repo-url $webappGitrepo \
+                                       
+                                       --branch master \
+                                       --manual-integration
+    
+Configure app settings
+
+    az webapp config appsettings set --name $webAppName \
+    --resource-group myResourceGroup \
+    --settings AzureStorageConfig__AccountName=$storageName AzureStorageConfig__AccountKey=$storageAccountKey AzureStorageConfig__QueueName=$queueName AzureStorageConfig__ImageContainer=$imagesContainerName AzureStorageConfig__ThumbnailContainer=$thumbnailsContainerName
+    
+## Test the sample app
+
