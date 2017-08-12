@@ -73,11 +73,11 @@ You can turn off data collection for your subscriptions in the security policy. 
 
 1. If your subscription is configured for the Standard tier, open the security policy for that subscription and select the **Free** tier.
 
-![Pricing tier][1]
+   ![Pricing tier][1]
 
 2. Next, turn off data collection by selecting **Off** on the **Security policy – Data collection** blade.
 
-![Data collection][2]
+   ![Data collection][2]
 
 ### How do I remove OMS extensions installed by Security Center?
 You can manually remove the Microsoft Monitoring Agent. This is not recommended as it will limit Security Center recommendations and alerts.
@@ -93,7 +93,7 @@ To manually remove the agent:
 2.	On the Log Analytics blade, select a workspace:
 3.	Select each VM that you don’t want to monitor and select **Disconnect**.
 
-![Remove the agent][3]
+   ![Remove the agent][3]
 
 > [!NOTE]
 > If a Linux VM already has a non-extension OMS agent, removing the extension will remove the agent as well and the customer will have to reinstall it.
@@ -119,7 +119,7 @@ When Security Center identifies that a VM is already connected to a workspace yo
 - **Free tier** – Security Center installs the 'SecurityCenterFree' solution on the default workspace. You are not billed for the Free tier.
 - **Standard tier** – Security Center installs the 'SecurityCenterFree' and 'Security' solutions on the default workspace.
 
-![Solutions on default workspace][4]
+   ![Solutions on default workspace][4]
 
 ### I already have workspaces in my environment, can I use them to collect security data?
 If a VM already has the Microsoft Monitoring Agent installed as an Azure extension, Security Center will use the existing connected workspace. A Security Center solution will be installed on the workspace if not present already, and the solution will be applied only to the relevant VMs.
