@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/10/2017
+ms.date: 08/12/2017
 ms.author: glenga
 
 ---
@@ -36,7 +36,7 @@ To complete this tutorial:
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-![Function app successfully created.](./media/functions-create-first-azure-function/function-app-create-success.png)
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 Next, you create a function in the new function app.
 
@@ -89,7 +89,7 @@ Next, you create a webhook endpoint in an activity log alert in Azure Monitor.
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name** | CallFunctionWebhook | A name for the action. |
     | **Action type** | Webhook | The response to the alert is that a Webhook URL is called. |
-    | **Details** | Webhook URL | Paste in the webhook URL that you copied earlier. |
+    | **Details** | Function URL | Paste in the webhook URL of the function that you copied earlier. |v
 
 4. Click **OK** to create the alert and action group.  
 
