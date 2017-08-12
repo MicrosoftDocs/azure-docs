@@ -17,6 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/17/2017
 ms.author: danlep
+ms.custom: mvc
 
 ---
 # Load balance containers in a Kubernetes cluster in Azure Container Service 
