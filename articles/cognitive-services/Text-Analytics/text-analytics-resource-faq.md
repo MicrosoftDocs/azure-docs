@@ -26,13 +26,17 @@ ms.author: heidist
 
 ## Architecture & concepts
 
-### Can I train the models with my own data?
+### Can I add my own training data or models?
 
-No, the models are pretrained. The only operations available on uploaded data are scoring, key phrase extraction, and language detection.
+No, the models are pretrained. The only operations available on uploaded data are scoring, key phrase extraction, and language detection. We do not host custom models. If you want to create and host custom machine learning models, consider the [machine learning capabilities in Microsoft R Server](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
 
-### Can I find out when support for a specific language is forthcoming?
+### What is the schedule or timeline for rolling out additional languages for sentiment analysis or key phrase extraction?
 
-We avoid pre-announcing support for specific languages. This practice minimizes the chance of customers or partners taking a dependency on functionality that we might not be able to deliver in a timely manner. If you want support for a specific language, you can request or vote for it on [User Voice](https://cognitive.uservoice.com/). Your votes will help us prioritize which ones to work on next.
+We avoid pre-announcing support for specific languages so that no one takes a dependency on functionality that we might not be able to deliver in a timely manner. To help us prioritize which ones to work on next, vote for specific languages on [User Voice](https://cognitive.uservoice.com/). 
+
+### Is keyword extraction related to sentiment analysis?
+
+No, while both use n-grams, they do not share models or components. Keywords or phrases are not extracted based on a higher or lower sentiment; nor is sentiment biased on words considered more important or relevant to the phrase. 
 
 ### Why do output calculations vary, when inputs are identical?
 

@@ -20,27 +20,28 @@ The [sentiment analysis API](https://westus.dev.cognitive.microsoft.com/docs/ser
 
 ## Common use cases
 
-This capability is useful for detecting trends in terms of positive and negative sentiment in social media, customer reviews, discussion forums, and so forth. Given a large number of sentiment scores, you can import or stream the results to a visualization app for trend analysis, or call additional APIs from Twitter, Facebook, and so forth to supplement findings with metadata and other constructs available in the platform of origin. For more information on handling results, see [How to work with analyses outputs](text-analytics-howto-output.md).
+This capability is useful for detecting trends in terms of positive and negative sentiment in social media, customer reviews, and discussion forums. Content is provided by you; models and training data are provided by the service. You cannot customize the model or training data, or supplement it with your own information.
+
+Given a large number of sentiment scores, you can import or stream the results to a visualization app for trend analysis, or call additional APIs from Twitter, Facebook, and so forth, to supplement sentiment scoring with metadata and other constructs available in the platform of origin. For more information on handling results, see [How to work with analyses outputs](text-analytics-howto-output.md).
 
 The sentiment analyzer is engineered to solve classification problems, and not aspect sentiment. The model is trained to analyze text at face value, and then score a positive, negative, or neutral sentiment based on our internal training data and natural language processing engines. 
 
-There is always a degree of imprecision in sentiment analysis, but the model is most reliable when there is no hidden meaning or subtext to the content. Irony, sarcasm, puns, jokes, and similarly nuanced content relies on cultural context and norms to convey intent, which continues to challenge most sentiment analyzers. The biggest discrepenancies between a given score produced by the analyzer and a subjective assessement by a human is usually on content with nuanced meaning.
+There is always a degree of imprecision in sentiment analysis, but the model is most reliable when there is no hidden meaning or subtext to the content. Irony, sarcasm, puns, jokes, and similarly nuanced content relies on cultural context and norms to convey intent, which continues to challenge most sentiment analyzers. The biggest discrepancies between a given score produced by the analyzer and a subjective assessment by a human is usually on content with nuanced meaning.
 
 ## Classification techniques
 
 We use a Naive-Bayes machine learning algorithm to classify any new piece of text as positive, negative, or neutral content. The model uses training data, as well as the following methodologies:
 
 | Dimensions  | Description |
-|---|---|
-| Linguistic analysis | Applying linguistic analysis for tokenization and stemming. |
-| Patterns | Using N-grams to articulate patterns such as word repetition, proximity, and sequencing.
-+ Assigning a part-of-speech to each word in the input text. | 
+|-------------|-------------|
+| Linguistics | Application of linguistic rules through tokenization and stemming. |
+| Patterns | Use of N-grams to articulate patterns, such as word repetition, proximity, and sequencing. <br/> Assignments of part-of-speech to each word in the input text. | 
 | Expressivity | Incorporating any emoticons, punctuation such as exclamation or question marks, and letter case (upper or lower) as indicators of sentiment.|
-| Semantics | Creating resonance in the training data by mapping syntactically similar words so that sentiment evidence associated with one term is available for similar terms. We use neural networks for constructing the associations. |
+| Semantics | Build resonance in the training data by mapping syntactically similar words. Sentiment evidence associated with one term can be applied to similar terms. We use neural networks for constructing the associations. |
 
 ## Guidance for constructing inputs
 
-+ For sentiment analysis, you can submit any text subject to the 10 KB limit per document, but we recommend splitting text into sentences. This generally leads to higher precision in sentiment predictions.
++ For sentiment analysis, you can submit any text subject to the 10-KB limit per document, but we recommend splitting text into sentences. This generally leads to greater precision in sentiment predictions.
 
 + Include the language identifier in the request. It is not required, but the score will be neutral or inconclusive (0.5) if you omit it.
 
@@ -67,7 +68,7 @@ The following example illustrates the syntax, starting with an input:
 }
 ```
 
-Output is one score for each document, where the ID is derived from the input, and the score is a 15 digit string indicating a degree of sentiment.
+Output is one score for each document, where the ID is derived from the input, and the score is a 15-digit string indicating a degree of sentiment.
 
 ```
 {

@@ -1,6 +1,6 @@
 ---
-title: 'Analyze sentiment in ten minute quickstart (Microsoft Cognitive Services on Azure) in 10 minutes| Microsoft Docs'
-description: Learn the Text Analytics API in Microsoft Cognitive Services on Azure in ten minutes.
+title: 'Analyze key phrases, sentiment and language in 10 minutes (Microsoft Cognitive Services on Azure) | Microsoft Docs'
+description: Learn the Text Analytics REST API in Microsoft Cognitive Services on Azure in this ten minute walkthrough tutorial.
 services: cognitive-services
 author: HeidiSteen
 manager: jhubbard
@@ -8,17 +8,19 @@ manager: jhubbard
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 08/12/2017
 ms.author: heidist
 ---
 
-# Analyze sentiment in ten minutes (REST API)
+# Analyze key phrases, sentiment and language in ten minutes (REST API)
 
-In this Quickstart, learn how to call the Text Analytics REST APIs to perform sentiment analysis, keyword extraction, and language detection on text provided in requests to Microsoft Cognitive Services.
+In this Quickstart, learn how to call the Text Analytics REST APIs to perform key phrase extraction, sentiment analysis, and language detection on text provided in requests to Microsoft Cognitive Services.
 
-> [!Tip]
-> We recommend using a Web API testing tool for this exercise. [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) is a good choice, but any tool that sends HTTP requests will do. You can watch this [short video](https://www.youtube.com/watch?v=jBjXVrS8nXs) to learn basic Postman operations.
->
+To complete this Quickstart, you need an interactive tool for sending HTTP requests. 
+
+If you have [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop), [Telerik Fiddler](https://www.telerik.com/download/fiddler), or another Web API testing tool, you should use it. Using a tool is recommended because once you set up the request, the tool retains request headers and body, which means less copy and paste. 
+
+Alternatively, use the built-in console app in our REST API documentation pages to interact with each API individually.
 
 ## Before you begin
 
@@ -27,19 +29,19 @@ To use Microsoft Cognitive Service APIs, create a [Cognitive Services API accoun
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 > [!Note]
-> If you already signed up for Cognitive Services to use another API, you need to retrace your steps for Text Analytics. Billing, policies, and release cycles vary for each API, so we ask you to sign up for each one individually. 
+> Cognitive Services has many APIs. Billing, policies, and release cycles vary for each API, so we ask you to sign up for each one individually. 
 
-## Set up a request in Postman
+## Set up a request 
 
 In this first exercise, you will structure the request, using key phrase extraction as the first analysis.
 
-Text Analytics APIs invoke operations against machine learning pretrained models and algorithms running in Azure data centers. You need your own key to access the operations. 
+Text Analytics APIs invoke operations against pretrained models and machine learning algorithms running in Azure data centers. You need your own key to access the operations. 
 
 Endpoints for each operation include the resource providing the underlying algorithms used for a particular analysis: **sentiment analysis**, **key phrase extraction**, and **language detection**. Each request must specify which resource to use. We list them in full below.
 
-1. In the [Azure portal](https://portal.azure.com), find the Text Analysis API. If it's not pinned to dashboard, search for "text analytics" to find the page. Leave the page open so that you can copy a key and endpoint, starting in the next step.
+1. In the [Azure portal](https://portal.azure.com), find the Text Analysis API. If it's not pinned to dashboard, search for "text analytics" to find the page. Leave the page open so that you can copy an acess key and endpoint, starting in the next step.
 
-2. In Postman or another tool, set up the request:
+2. If you are using Postman or another tool, set up the request:
 
    + Choose **Post** as the request type.
    + Paste in the endpoint you copied from the portal page.
@@ -61,9 +63,11 @@ Endpoints for each operation include the resource providing the underlying algor
 
    ![Request screenshot with endpoint and headers](../media/text-analytics/postman-request-keyphrase-1.png)
 
-4. Provide text for analysis. Each document can have a maximum of 10 KB of raw text. Specifying `language` is not required, but providing it bypasses an implicit language detection check, which is more efficient.
+4. Click **Body** and choose **raw** for the format.
 
-  Click **Body** and paste in the JSON documents below: 
+   ![Request screenshot with body setttings](../media/text-analytics/postman-request-body-raw.png)
+
+5. Paste in the JSON documents below text for analysis. 
 
    ```
     {
@@ -91,25 +95,28 @@ Endpoints for each operation include the resource providing the underlying algor
             {
                 "language": "en",
                 "id": "5",
-                "text": "Me encanta este sendero. Tiene hermosas vistas y muchos lugares para detenerse y descansar."
+                "text": "Me encanta este sendero. Tiene hermosas vistas y muchos lugares para detenerse y descansar"
             }
         ]
     }
 ```
 
-5. Choose **raw** for the format. Click **Send** to submit the request.
-
 ### About the request body
 
-Input rows must be JSON in raw text. XML is not supported. The schema is simple, consisting of just a few elements. You can use the same documents for all three operations: sentiment, key phrase, and language detection.
+Input rows must be JSON in raw text. XML is not supported. The schema is simple, consisting of the elements below. You can use the same documents for all three operations: sentiment, key phrase, and language detection.
 
-+ `id` is required. The data type is string, but in practice document IDs tend to be integers. The system uses this ID to structure the output. For example, keywords and sentiment scores are provided for each ID.
+> [!Note]
+> The Spanish string is included to demonstrate [language detection](#detect-language), described in a following section.
 
-+ `text` field contains the content to be analyzed. The maximum size of a single document that can be submitted is 10 KB, and 1 MB for the request overall. For more information about limits, see [Text Analytics Overview > Data limits](text-analytics-overview-whatis.md#data-limits). 
++ `id` is required. The data type is string, but in practice document IDs tend to be integers. The system uses this ID to structure the output. Language codes, keywords, and sentiment scores are provided for each ID.
+
++ `text` field contains unstructured raw text, up to 10 KB. For more information about limits, see [Text Analytics Overview > Data limits](overview.md#data-limits). 
 
 + `language` is used only in sentiment analysis and key phrase extraction. It is ignored in language detection. For both sentiment analysis and key phrase extraction, language is an optional parameter but if you do not provide it, the service performs an additional language detection pass. For maximum efficiency, you should always include the language in the request, assuming you know what it is. Refer to the [Text Analytics Overview > Supported Languages](overview.md#supported-languages) for a list of supported languages.
 
-### About the response
+## Key phrase extraction
+
++  Now that you have set up the request, click **Send** to submit the request.
 
 All POST requests return a JSON formatted response with the IDs and detected properties. An example of the output for key phrase extraction is shown below. The keyPhrases algorithm iterates over the entire collection before extracting phrases, using the context of all strings to determine which ones to extract.
 
@@ -163,11 +170,11 @@ All POST requests return a JSON formatted response with the IDs and detected pro
 }
 ```
 
-### About key phrase extraction
+### Review the output
 
 Presenting inputs and outputs side by side helps us see how the key phrase extraction algorithm operates. 
 
-The algorithm finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentence.
+The analyzer finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentence.
 
 | ID | Input | key phrase output | 
 |----|-------|------|
@@ -175,8 +182,18 @@ The algorithm finds and discards non-essential words, and keeps single terms or 
 | 2 | "Poorly marked trails! I thought we were goners. Worst hike ever." | "Worst hike",  "trails", "goners" |
 | 3 | "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children." | "family", "trail", "us", "small children"|
 | 4 | "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area." | "spectacular views", "trail", "Worth", "area" |
-| 5 | "Tiene hermosas vistas y muchos lugares para detenerse y descansar", "encanta este sendero" | The|
+| 5 | "Tiene hermosas vistas y muchos lugares para detenerse y descansar", "encanta este sendero" | |
 
+### Change the language code for the Spanish string
+
+Key phrase extraction is verbose for the Spanish string. Let's change the language from `en` to `es` for Spanish and resend the request. Notice the results are now consistent with what we see for the English strings.
+
+        {
+            "keyPhrases": [
+                "lugares",
+                "sendero"
+            ],
+            "id": "5"
 
 ## Analyze sentiment
 
@@ -226,6 +243,8 @@ The API returns a score and ID, but not the input string. The following table sh
 
 <sup>1</sup> The Spanish string is not parsed for sentiment because the language code is `en` instead of `es`. When a string cannot be analyzed for sentiment, the score is always 0.5 exactly.
 
+<a name="detect-language></a>
+
 ## Detect language
 
 Using same documents, you can edit the existing request to call the language detection algorithm.
@@ -258,5 +277,5 @@ Notice that the last document is correctly identified as Spanish, even though th
 
 ## See also 
 
- [Welcome to Text Analytics in Microsoft Cognitive Services on Azure](text-analytics-overview-whatis.md)  
+ [Welcome to Text Analytics in Microsoft Cognitive Services on Azure](overview.md)  
  [Frequently asked questions (FAQ)](text-analytics-resource-faq.md)

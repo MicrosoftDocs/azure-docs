@@ -16,18 +16,29 @@ ms.author: heidist
 ---
 # Key phrase extraction in Text Analytics API
 
-The [key phrase extraction API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) evaluates text input and for each document returns a list of keywords and a score indicating the strength of the analysis. Text Analytics recognizes up to 102 languages.
+The [key phrase extraction API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) evaluates unstructured text and for each JSON document returns a list of keywords and a score indicating the strength of the analysis. 
+
+## Common use cases
+
+This analyzer evaluates chunks of text and  useful for detecting trends in terms of positive and negative sentiment in social media, customer reviews, discussion forums, and so forth.
+
+Automatically extract key phrases to quickly identify the main points. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit.+
+For example, for the input text ‘The food was delicious and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’.
+
+returns a list of strings denoting the key talking points in the input text. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit. Currently, the following languages are supported: English, German, Spanish and Japanese.
+
+The analyzer finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentence.
+
+
+> [!Note]
+> Key phrase analysis is distinct from sentiment analysis. Individual words or phrases are not extracted based on degree of sentiment.
+
+## Guidance for constructing inputs
 
 > [!Note]
 > You can submit the same collection of documents for multiple operations: sentiment analysis, key phrase analysis, and language detection. Operations are indepednent so run them sequentially or in parallel.
 
-## Common use cases
-
-## Talking points
-
-Not sure at all -- maybe we say nothing.  One question I had: what is the context of key phrase extraction? is it bounded by the document, or the transaction?
-
-From intro blog:  Based on n-grams...
+## Examples of language output
 
 N-grams denote all occurrences of n consecutive words in the input text. The precise value of n may vary across scenarios, but it’s common to pick n=2 or n=3. With n=2, for the text “the quick brown fox”, the following n-grams would be generated – [ “the quick”, “quick brown”, “brown fox”]
 

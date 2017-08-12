@@ -25,7 +25,7 @@ This capability is useful for content stores that collect arbitrary text, in pos
 > [!Note]
 > If you are submitting the same collection of documents for sentiment analysis, key phrase analysis, and language detection, the `language` code used for sentiment analysis and key phrase extraction is ignored for language detection.
 
-## Examples of language detection output
+## Examples of language output
 
 Standard output assumes the following form (using English as an example). A positive score of 1.0 expresses the highest possible confidence level of the analysis.
 
@@ -95,7 +95,7 @@ Use the built-in API testing console in the [REST API documentation](https://wes
 + Provide an access key to your service. You can get it from the [Azure portal](https://portal.azure.com). 
 + Paste the JSON documents, in the format described for the API, into the Request Body section of the page. 
 + Click **Send** to analyze content and get the results. 
-+ Review the snse inline. Responses include a status code, latency (in milliseconds), and payload (in JSON). 
++ Review the response inline. Responses include a status code, latency (in milliseconds), and payload (in JSON). 
 
 In addition to the console, we also recommend the [Quickstart](quick-start.md) for more practice and details about each operation.
 
