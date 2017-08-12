@@ -51,9 +51,9 @@ Follow these steps to create an Azure Database for MySQL server:
 
     ![Azure portal - create MySQL by providing the required form input](./media/quickstart-create-mysql-server-database-using-azure-portal/3_create-server.png)
 
-    4.	Click **Create** to provision the server. Provisioning takes a few minutes, up to 20 minutes maximum.
+4.	Click **Create** to provision the server. Provisioning takes a few minutes, up to 20 minutes maximum.
    
-    5.	On the toolbar, click **Notifications** (bell icon) to monitor the deployment process.
+5.	On the toolbar, click **Notifications** (bell icon) to monitor the deployment process.
 
 ## Configure a server-level firewall rule
 
@@ -146,7 +146,7 @@ There are a number of applications you can use to connect to your Azure Database
    > For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
 5.  Create a blank database at the mysql> prompt by typing the following command:
-    ```bash
+    ```sql
     CREATE DATABASE quickstartdb;
     ```
     The command may take a few moments to complete. 
@@ -155,9 +155,9 @@ There are a number of applications you can use to connect to your Azure Database
 
 6. List the databases at the mysql> prompt  by typing the following command:
 
-   ```sql
-   SHOW DATABASES;
-   ```
+    ```sql
+    SHOW DATABASES;
+    ```
 
 7.  Type `\q` and then press ENTER to quit the mysql tool. You can close the Azure Cloud Shell once you are done.
 
