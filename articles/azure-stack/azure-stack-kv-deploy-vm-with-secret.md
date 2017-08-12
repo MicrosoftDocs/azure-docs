@@ -19,11 +19,26 @@ ms.author: sngun
 ---
 # Create a virtual machine by retrieving the password stored in a Key Vault
 
-When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an Azure Stack key vault and reference the value in other Azure Resource Manager templates. You include only a reference to the secret in your template so the secret is never exposed. You do not need to manually enter
-the value for the secret each time you deploy the resources. You specify which users or service principals can access the secret.
+When you need to pass a secure value such as a password during deployment, you can store that value as a secret in an Azure Stack key vault and reference it in the Azure Resource Manager templates. You do not need to manually enter the secret each time you deploy the resources, you can also specify which users or service principals can access the secret. 
 
-## Reference a secret with static ID
-You reference the secret from within a parameters file, which passes values to your template. You reference the secret by passing the resource identifier of the key vault and the name of the secret. In this example, the key vault secret must already exist. You use a static value for its resource ID.
+In this article, we walk you through the steps required to deploy a simple Windows virtual machine in Azure Stack by retrieving the password that is stored in a Key Vault. Therefore the password is never put in plain text in the template parameter file. You can use these steps either from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
+
+## Prerequisites
+
+* Azure Stack cloud administrators must have [created an offer](azure-stack-create-offer.md) that includes the Azure Key Vault service.  
+* Users must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that includes the Key Vault service.  
+* [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
+* [Configure PowerShell for use with Azure Stack.](azure-stack-powershell-configure.md)
+
+The following steps describe the process required create a virtual machine by retrieving the password stored in a Key Vault:
+
+1. Create a Key Vault secret.
+2. Update the azuredeploy.parameters.json file.
+3. Deploy the template.
+
+## Create a Key Vault secret
+
+The following script creates a key vault, and stores a password in the key vault as a secret. You must use the `-EnabledForDeployment` parameter when you're creating the key vault. This parameter makes sure that the key vault can be referenced from Azure Resource Manager templates.
 
 ```powershell
 
@@ -40,20 +55,20 @@ New-AzureRmKeyVault `
   -VaultName $vaultName `
   -ResourceGroupName $resourceGroup `
   -Location $location
+  -EnabledForTemplateDeployment
 
-$secretValue = ConvertTo-SecureString -String 'Demouser@123' -AsPlainText -Force
+$secretValue = ConvertTo-SecureString -String '<Password for your virtual machine>' -AsPlainText -Force
 
 Set-AzureKeyVaultSecret `
   -VaultName $vaultName `
   -Name $secretName `
   -SecretValue $secretValue
 
-Set-AzureRmKeyVaultAccessPolicy `
-  -VaultName $vaultName `
-  -EnabledForTemplateDeployment
 ```
 
-**azuredeploy.parameters.json:**
+## Update the azuredeploy.parameters.json file
+
+Update the azuredeploy.parameters.json file with the KeyVault URI, secretName,adminUsername of the virtual machines, and other values as per your environment. The following JSON file shows an example of the template parameters file: 
 
 ```json
 {
@@ -66,7 +81,7 @@ Set-AzureRmKeyVaultAccessPolicy `
          "adminPassword":  {
            "reference":  {
               "keyVault":  {
-                "id":  "/subscriptions/c176b255-50f2-4224-9468-ec4a6ea95988/resourceGroups/RgKvPwd/providers/Microsoft.KeyVault/vaults/KvPwd"
+                "id":  "/subscriptions/xxxxxx/resourceGroups/RgKvPwd/providers/Microsoft.KeyVault/vaults/KvPwd"
                 },
               "secretName":  "MySecret"
            }
@@ -82,7 +97,7 @@ Set-AzureRmKeyVaultAccessPolicy `
 
 ```
 
-**Template deployment:**
+## Template deployment
 
 Now deploy the template by using the following PowerShell script:
 
@@ -93,9 +108,9 @@ New-AzureRmResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+When the template is deployed successfully, it results in the following output:
 
-> [!NOTE]
-> The parameter that accepts the secret should be a *securestring*.
+![Deployment output](media\azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
 
 
 ## Next Steps
