@@ -36,8 +36,6 @@ To complete this tutorial:
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
-
 Next, you create a function in the new function app.
 
 ## <a name="create-function"></a>Create a generic webhook triggered function
