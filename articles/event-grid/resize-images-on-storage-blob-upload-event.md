@@ -96,13 +96,7 @@ az storage container create -n thumbs --account-name $storageaccount \
 echo "Make a note of your storage account key..."
 echo $storageaccountkey
 ```
-After the blob containers are created, you configure the sample app to connect to your storage account.
-
-## Configure the sample app
-
-In the sample app you downloaded, open the appsettings.json file from the ImageResizeWebApp project. 
-
-Locate the **AzureStorageConfig** object, and set the **AccountName** and **AccountKey** fields to the name of the storage account and the key.  
+After the blob containers are created, you configure the sample app to connect to your storage account. 
 
 ## Create a function app  
 
@@ -132,7 +126,7 @@ The function code is deployed directly from the public sample repo. To learn mor
 
 ## Create a custom topic
 
-A topic provides a user-defined endpoint that you post your events to. You create the topic in your resource group. The topic name must be unique.
+An Event Grid topic provides an endpoint that you post your events to. You create the topic in your resource group. The topic name must be unique.
 
 ```azurecli-interactive
 az eventgrid topic create --topic-name {unique-topic-name} -l westus2 -g gridResourceGroup
@@ -149,75 +143,8 @@ az eventgrid topic event-subscription create --name {unique-event-subscription-n
   --topic-name {your-topic-name}
 ```
 
+## Deploy the sample app to Azure
 
 
-## Test the sample app locally
-
-
-
-## Deploy to Azure
-
-In the **Solution Explorer**, right-click the **ImageResizeWebApp** project and select **Publish**.
-
-![Publish from Solution Explorer](./media/app-service-web-get-started-dotnet/solution-explorer-publish.png)
-
-Make sure that **Microsoft Azure App Service** is selected and select **Publish**.
-
-![Publish from project overview page](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
-
-This opens the **Create App Service** dialog, which helps you create all the necessary Azure resources to run the ASP.NET web app in Azure.
-
-## Sign in to Azure
-
-In the **Create App Service** dialog, select **Add an account**, and sign in to your Azure subscription. If you're already signed in, select the account containing the desired subscription from the dropdown.
-
-> [!NOTE]
-> If you're already signed in, don't select **Create** yet.
->
->
-   
-![Sign in to Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
-
-## Create a resource group
-
-[!INCLUDE [resource group intro text](../../includes/resource-group.md)]
-
-Next to **Resource Group**, select **New**.
-
-Name the resource group **myResourceGroup** and select **OK**.
-
-## Create an App Service plan
-
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
-
-Next to **App Service Plan**, select **New**. 
-
-In the **Configure App Service Plan** dialog, use the settings in the table following the screenshot.
-
-![Create App Service plan](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
-
-| Setting | Suggested Value | Description |
-|-|-|-|
-|App Service Plan| myAppServicePlan | Name of the App Service plan. |
-| Location | West Europe | The datacenter where the web app is hosted. |
-| Size | Free | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/) determines hosting features. |
-
-Select **OK**.
-
-## Create and publish the web app
-
-In **Web App Name**, type a unique app name (valid characters are `a-z`, `0-9`, and `-`), or accept the automatically generated unique name. The URL of the web app is `http://<app_name>.azurewebsites.net`, where `<app_name>` is your web app name.
-
-Select **Create** to start creating the Azure resources.
-
-![Configure web app name](./media/app-service-web-get-started-dotnet/web-app-name.png)
-
-Once the wizard completes, it publishes the ASP.NET web app to Azure, and then launches the app in the default browser.
-
-![Published ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
-
-The web app name specified in the [create and publish step](#create-and-publish-the-web-app) is used as the URL prefix in the format `http://<app_name>.azurewebsites.net`.
-
-Congratulations, your ASP.NET web app is running live in Azure App Service.
 
 ## Test the sample app in Azure
