@@ -55,7 +55,7 @@ You subscribe to a topic to tell Event Grid which events you want to track. The 
 ```azurecli-interactive
 az eventgrid topic event-subscription create --name <event_subscription_name> \
   --endpoint <URL_from_RequestBin> \
-  -g gridResourceGroup 
+  -g gridResourceGroup \
   --topic-name <topic_name>
 ```
  
