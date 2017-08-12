@@ -43,7 +43,7 @@ Alternatively, you can get the latest Media Services .NET SDK bits from GitHub (
    
     Ensure that you have the newest version of NuGet installed. For more information and installation instructions, see [NuGet](http://nuget.codeplex.com/).
 
-    1. In Solution Explorer, right-click the name of the project and choose Manage NuGet packages.
+    1. In Solution Explorer, right-click the name of the project and choose **Manage NuGet Packages**.
 
     2. The Manage NuGet Packages dialog box appears.
 
