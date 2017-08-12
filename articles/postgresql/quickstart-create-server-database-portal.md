@@ -123,14 +123,15 @@ There are a number of applications you can use to connect to your Azure Database
     --username | *server admin login name* |Type in the  server admin login username supplied when you created the Azure Database for PostgreSQL earlier. Follow the previous section to get the connection information if you do not remember the username.  The format is *username@servername*.
     --dbname | **postgres** | Use the default system generated database name *postgres* for the first connection. Later you create your own database.
 
-    After running the psql command, with your own parameter values, you are prompted to type the server admin password. This is the same password that you provided when you created the server. 
+    After running the psql command, with your own parameter values, you are prompted to type the server admin password. This password is the same that you provided when you created the server. 
 
     psql parameter |Suggested value|Description
     ---|---|---
     password | *your admin password* | Note, the typed password characters are not shown on the bash prompt. Press enter after you have typed all the characters to authenticate and connect.
 
-
-   Once connected, the psql utility displays a `postgres=\>` prompt for you to type commands. In the initial connection output, a warning may be displayed since the psql in the Cloud Shell may be a different version than the Azure Database for PostgreSQL server version. Example psql output:
+    Once connected, the psql utility displays a postgres prompt where you type sql commands. In the initial connection output, a warning may be displayed since the psql in the Cloud Shell may be a different  version than the Azure Database for PostgreSQL server version. 
+    
+    Example psql output:
     ```bash
     psql (9.5.7, server 9.6.2)
     WARNING: psql major version 9.5, server major version 9.6.
@@ -138,12 +139,14 @@ There are a number of applications you can use to connect to your Azure Database
     SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-SHA384, bits: 256, compression: off)
     Type "help" for help.
    
-    postgres=\> 
+    postgres=> 
     ```
 
     > [!TIP]
     > If the firewall is not configured to allow the IP address of the cloud shell, the following error occurs:
+    > 
     > "psql: FATAL:  no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL:  SSL connection is required. Please specify SSL options and retry.
+    > 
     > To resolve the error, make sure the server configuration matches the steps above in the *Configure a server-level firewall rule* section of the article.
 
 4.  Create a blank database at the prompt by typing the following command:
