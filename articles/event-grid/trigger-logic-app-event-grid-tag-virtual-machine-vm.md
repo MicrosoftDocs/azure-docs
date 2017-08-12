@@ -1,6 +1,6 @@
 ---
 title: Trigger logic apps with event grids for virtual machine tagging - Azure Event Grid & Logic Apps | Microsoft Docs
-description: Tag virtual machines by triggering logic apps with events from event grids
+description: Add tags when creating virtual machines by triggering logic apps with events from event grids
 keywords: logic app, events, trigger, event grid, virtual machine
 services: logic-apps
 author: ecfan
@@ -14,13 +14,13 @@ ms.date: 08/16/2017
 ms.author: LADocs; estfan
 ---
 
-# Tag virtual machines by triggering logic app workflows with events from event grids
+# Tag virtual machines at creation by triggering a logic app workflow with events from event grids
 
 You can start an automated [logic app workflow](../logic-apps/logic-apps-what-are-logic-apps.md) 
 when specific events happen in Azure resources or third-party resources. 
 These resources can publish those events to an [Azure event grid](../event-grid/overview.md). 
-In turn, the event grid pushes those events to subscribers that have queues, 
-webhooks, or [event hubs](../event-hubs/event-hubs-what-is-event-hubs.md) as endpoints. 
+In turn, the event grid pushes those events to subscribers that have queues, webhooks, 
+or [event hubs](../event-hubs/event-hubs-what-is-event-hubs.md) as endpoints. 
 As a subscriber, your logic app can wait for those events from the event grid 
 before running automated workflows to perform tasks.
 
@@ -48,10 +48,9 @@ To follow this tutorial, complete these other tasks first:
 
 * [Create a virtual machine resource with the Azure CLI](../virtual-machines/windows/quick-create-cli.md)
 
-* [Create an event grid that pushes events published by your virtual machine resource]
- and an event grid 
-  that publishes an event when you create a virtual machine
-    The event grid then pushes that event to subscribers, like your logic app.
+  This quickstart shows how to create an Azure virtual machine, 
+  which automatically publishes events to an event grid. 
+  The event grid pushes those events to subscribers, like your logic app.
 
 * [Create an Azure Functions app and function]() 
 
