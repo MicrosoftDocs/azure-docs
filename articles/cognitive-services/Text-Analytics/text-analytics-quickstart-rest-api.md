@@ -1,5 +1,5 @@
 ---
-title: 'Analyze key phrases, sentiment and language in 10 minutes (Microsoft Cognitive Services on Azure) | Microsoft Docs'
+title: 'Analyze keywords and phrases, sentiment and language in 10 minutes (Microsoft Cognitive Services on Azure) | Microsoft Docs'
 description: Learn the Text Analytics REST API in Microsoft Cognitive Services on Azure in this ten minute walkthrough tutorial.
 services: cognitive-services
 author: HeidiSteen
@@ -12,15 +12,14 @@ ms.date: 08/12/2017
 ms.author: heidist
 ---
 
-# Analyze key phrases, sentiment and language in ten minutes (REST API)
+# Analyze keywords, sentiment and language in ten minutes (REST API)
 
 In this Quickstart, learn how to call the Text Analytics REST APIs to perform key phrase extraction, sentiment analysis, and language detection on text provided in requests to Microsoft Cognitive Services.
 
 To complete this Quickstart, you need an interactive tool for sending HTTP requests. 
 
-If you have [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop), [Telerik Fiddler](https://www.telerik.com/download/fiddler), or another Web API testing tool, you should use it. Using a tool is recommended because once you set up the request, the tool retains request headers and body, which means less copy and paste. 
-
-Alternatively, use the built-in console app in our REST API documentation pages to interact with each API individually.
++ [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop), [Telerik Fiddler](https://www.telerik.com/download/fiddler), or any interactive Web API testing tool is recommended if you already have it. Once a request is set up, request headers and body are retained for multiple operations, which means less copy and paste. 
++ Alternatively, use the built-in console app in our REST API documentation pages to interact with each API individually. To use it, click the **Open API testing console** button on any of our doc pages.
 
 ## Before you begin
 
@@ -41,7 +40,7 @@ Endpoints for each operation include the resource providing the underlying algor
 
 1. In the [Azure portal](https://portal.azure.com), find the Text Analysis API. If it's not pinned to dashboard, search for "text analytics" to find the page. Leave the page open so that you can copy an acess key and endpoint, starting in the next step.
 
-2. If you are using Postman or another tool, set up the request:
+2. If you are using Postman or another tool, set up the request as follows:
 
    + Choose **Post** as the request type.
    + Paste in the endpoint you copied from the portal page.
@@ -116,7 +115,9 @@ Input rows must be JSON in raw text. XML is not supported. The schema is simple,
 
 ## Key phrase extraction
 
-+  Now that you have set up the request, click **Send** to submit the request.
+1. Make sure you set up the request as described in the previous section.
+
+2. Click **Send** to submit the request.
 
 All POST requests return a JSON formatted response with the IDs and detected properties. An example of the output for key phrase extraction is shown below. The keyPhrases algorithm iterates over the entire collection before extracting phrases, using the context of all strings to determine which ones to extract.
 
@@ -199,7 +200,9 @@ Key phrase extraction is verbose for the Spanish string. Let's change the langua
 
 Using the same documents, you can edit the existing request to call the sentiment analysis algorithm and return sentiment scores.
 
-+ Replace `/keyPhrases` with `/sentiment` in the endpoint and then click **Send**.
+1. In the request header, replace `/keyPhrases` with `/sentiment` in the endpoint.
+
+2. Click **Send**.
 
 The response includes a sentiment score between 0.0 (negative) and 1.0 (positive) to indicate relative sentiment.
 
@@ -249,7 +252,9 @@ The API returns a score and ID, but not the input string. The following table sh
 
 Using same documents, you can edit the existing request to call the language detection algorithm.
 
-+ Replace `/sentiment` with `/languages` in the endpoint and then click **Send**.
+1.  Replace `/sentiment` with `/languages` in the endpoint.
+
+2. Click **Send**.
 
 The language code input, which was useful for other analyses, is ignored for language detection. Text Analytics operates only on the `text` you provide. Response output for each document includes a friendly language name, an ISO language code, and a score indicating the strength of the analysis. 
 

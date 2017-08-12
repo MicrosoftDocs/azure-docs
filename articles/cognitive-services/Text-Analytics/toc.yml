@@ -6,7 +6,7 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Analyze key phrases, sentiment, and language with REST
+  - name: Analyze keywords, sentiment, and language with REST
     href: text-analytics-quickstart-rest-api.md
 - name: Tutorials
   items:
