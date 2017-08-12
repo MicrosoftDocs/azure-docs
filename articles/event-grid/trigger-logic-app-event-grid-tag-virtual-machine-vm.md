@@ -145,7 +145,7 @@ and starts running the workflow that you define in these next steps.
 
 ## Call an Azure function from your logic app
 
-Now you can add an [action](../logic-apps/logic-apps-what-are-logic-apps#logic-app-concepts.md) 
+Now you can add an [action](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
 that performs tasks on data in your logic app workflow. 
 For this tutorial, add the Azure function that you created earlier 
 in [this tutorial]() for tagging a virtual machine.
