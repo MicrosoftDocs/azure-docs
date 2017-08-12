@@ -75,7 +75,7 @@ You can quickly create a key vault by running the following script. For a detail
 
 
     Login-AzureRmAccount
-    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).SubscriptionId
+    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
     Set-AzureRmContext -SubscriptionId $subscriptionId
 
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
