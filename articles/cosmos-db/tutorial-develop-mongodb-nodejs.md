@@ -27,24 +27,17 @@ This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-intr
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * [Part 2: Create a Node.js app with Express and Angular]
-> * Create an Azure Cosmos DB account 
-> * Use Mongoose to handle MongoDB API connections
-> * Deploy the app
-> * Query the app
-> * Add PUT, POST, and DELETE commands
+> * [Create a Node.js app with Express and Angular](tutorial-develop-mongodb-nodejs-part2.md)
+> * [Build an Angular UI](tutorial-develop-mongodb-nodejs-part3.md)
+> * [Create a Cosmos DB account and deply the app](tutorial-develop-mongodb-nodejs-part4.md) 
+> * [Query with Mongoose APIs](tutorial-develop-mongodb-nodejs-part5.md)
+> * [Add PUT, POST, and DELETE commands](tutorial-develop-mongodb-nodejs-part6.md)
 
 > [!VIDEO https://www.youtube.com/embed/vlZRP0mDabM]
 
-## Prerequisites 
-In addition to Azure CLI, you need [Node.js](https://nodejs.org/) and [Git](http://www.git-scm.com/downloads) installed locally to run `npm` and `git` commands.
-
-You should have working knowledge of Node.js. This quickstart is not intended to help you with developing Node.js applications in general.
-
-
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account and create a MongoDB collection using the Data Explorer. You can now migrate your MongoDB data to Azure Cosmos DB.  
+In this video, you've learned the benefits of using Azure Cosmos DB to create MEAN apps and you've learned the steps involved in creating a MEAN.js app for Azure Cosmos DB that are covered in rest of the tutorial series. 
 
 > [!div class="nextstepaction"]
-> [Create the Node.js and Express App](mongodb-migrate.md)
+> [Create the Node.js and Express App](tutorial-develop-mongodb-nodejs-part2.md)

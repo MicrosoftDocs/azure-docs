@@ -224,8 +224,8 @@
           href: tutorial-develop-mongodb-nodejs-part5.md
         - name: Part 6
           href: tutorial-develop-mongodb-nodejs-part6.md
-      -name: Additional tutorials
-       items:
+      - name: Additional tutorials
+        items:
         - name: Node.js console app
           href: mongodb-samples.md
     - name: Graph API
