@@ -16,10 +16,10 @@ ms.author: heidist
 ---
 # Key phrase extraction in Text Analytics API
 
-The [key phrase extraction](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) API evaluates text input and for each document returns a list of keywords and a score indicating the strength of the analysis. Text Analytics recognizes up to 102 languages.
+The [key phrase extraction API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) evaluates text input and for each document returns a list of keywords and a score indicating the strength of the analysis. Text Analytics recognizes up to 102 languages.
 
 > [!Note]
-> You can submit the same collection of documents for multiple operations: sentiment analysis, key phrase analysis, and language detection. Operations are indepenent so run them sequentially or in parallel.
+> You can submit the same collection of documents for multiple operations: sentiment analysis, key phrase analysis, and language detection. Operations are indepednent so run them sequentially or in parallel.
 
 ## Common use cases
 
@@ -36,11 +36,12 @@ N-grams denote all occurrences of n consecutive words in the input text. The pre
 Use the built-in API testing console in the [REST API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) to call the API interactively. To use the console:
 
 + Provide an access key to your service. You can get it from the [Azure portal](https://portal.azure.com). 
-+ Paste the JSON documents, in the format described for the API. 
++ Paste the JSON documents, in the format described for the API, into the Request Body section of the page.  
 + Click **Send** to analyze content and get the results. 
 + Review the reponse inline. Reponses include a status code, latency (in milliseconds), and payload (in JSON). 
 
-We also recommend the [Quickstart](quick-start.md) for additional practice and detail about each operation.
+In addition to the console, we also recommend the [Quickstart](quick-start.md) for more practice and details about each operation.
+
 ## See also
 
  [Sentiment analysis concepts](text-analytics-concept-sentiment-analysis.md) 
