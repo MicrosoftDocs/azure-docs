@@ -12,11 +12,12 @@ keywords:
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: seanmck
+ms.custom: mvc
 ---
 
 # Deploy a container to Azure Container Instances
