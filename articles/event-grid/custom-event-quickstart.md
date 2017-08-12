@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: djrosanova
 ms.author: darosa
-ms.date: 08/11/2017
+ms.date: 08/12/2017
 ms.topic: hero-article
 ms.service: event-grid
 ---
@@ -38,10 +38,10 @@ az group create --name gridResourceGroup --location westus2
 
 ## Create a custom topic
 
-A topic provides a user-defined endpoint that you post your events to. You create the topic in your resource group. The topic name must be unique.
+A topic provides a user-defined endpoint that you post your events to. The following example creates the topic in your resource group. Replace `<topic_name>` with a unique name for your topic.
 
 ```azurecli-interactive
-az eventgrid topic create --topic-name {unique-topic-name} -l westus2 -g gridResourceGroup
+az eventgrid topic create --topic-name <topic_name> -l westus2 -g gridResourceGroup
 ```
 
 ## Create a message endpoint
@@ -50,22 +50,22 @@ Before subscribing to the topic, let's create the endpoint for the event message
 
 ## Subscribe to a topic
 
-You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the topic you created. It passes the URL from RequestBin as the endpoint for event notification.
+You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the topic you created, and passes the URL from RequestBin as the endpoint for event notification. Replace `<event_subscription_name>` with a unique name for your subscription, and `<URL_from_RequestBin>` with the value from the preceding section. For `<topic_name>`, use the value you created earlier. 
 
 ```azurecli-interactive
-az eventgrid topic event-subscription create --name {unique-event-subscription-name} \
-  --endpoint {your-URL-from-RequestBin} \
+az eventgrid topic event-subscription create --name <event_subscription_name> \
+  --endpoint <URL_from_RequestBin> \
   -g gridResourceGroup 
-  --topic-name {your-topic-name}
+  --topic-name <topic_name>
 ```
  
 ## Send an event to your topic
 
-Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First, let's get the URL and key for the topic.
+Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First, let's get the URL and key for the topic. Again, use your topic name for `<topic_name>`.
 
 ```azurecli-interactive
-endpoint=$(az eventgrid topic show --topic-name {your-topic-name} -g gridResourceGroup --query "endpoint" --output tsv)
-key=$(az eventgrid topic show-keys --topic-name {your-topic-name} -g gridResourceGroup --query "key1" --output tsv)
+endpoint=$(az eventgrid topic show --topic-name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)
+key=$(az eventgrid topic show-keys --topic-name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
 ```
 
 To simplify this article, we have set up sample event data to send to the topic. Typically, an application or Azure service would send the event data. The following example gets the event data:
