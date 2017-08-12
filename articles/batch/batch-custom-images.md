@@ -49,13 +49,13 @@ To prepare a custom image for use with Batch, you must generalize an existing in
 >
 >
 
-You can use any existing prepared Windows or Linux image as a custom image. For example, if you wish to use a local image, then upload the image to an Azure Storage account that is in the same subscription and region as your Batch account using [AzCopy](../storage/storage-use-azcopy) or another upload tool.
+You can use any existing prepared Windows or Linux image as a custom image. For example, if you wish to use a local image, then upload the image to an Azure Storage account that is in the same subscription and region as your Batch account using [AzCopy](../storage/storage-use-azcopy.md) or another upload tool.
 
 You can also prepare a custom image from a new or existing Azure VM. If you are creating a new VM, you can use an Azure Marketplace image as the base image for your custom image and then customize it. To customize the base image, create an Azure VM and add your applications or data to it. Then generalize the VM to serve as your custom image and save it to Azure Storage. 
 
 To prepare a custom image from an Azure VM, follow these steps:
 
-1. Create an **unmanaged** Azure VM from an Azure Marketplace image. Azure Marketplace includes images for both [Windows](../virtual-machines/windows/quick-create-portal) and [Linux](../virtual-machines/linux/quick-create-portal).
+1. Create an **unmanaged** Azure VM from an Azure Marketplace image. Azure Marketplace includes images for both [Windows](../virtual-machines/windows/quick-create-portal.md) and [Linux](../virtual-machines/linux/quick-create-portal.md).
     
     On step 3 of the VM creation process, make sure that you select **No** for **Storage: Use Managed Disks** option. Also take note of the storage account name for the VM's OS disk, as this storage account is also where Azure will save your custom image:
 
