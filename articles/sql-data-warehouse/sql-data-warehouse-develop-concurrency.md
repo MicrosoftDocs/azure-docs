@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
-ms.author: joeyong;barbkess
+ms.author: joeyong;barbkess;kavithaj
 
 ---
 # Concurrency and workload management in SQL Data Warehouse
@@ -55,22 +55,29 @@ When one of these thresholds is met, new queries are queued and executed on a fi
 > 
 
 ## Resource classes
-Resource classes help you control memory allocation and CPU cycles given to a query. You can assign four resource classes to a user in the form of *database roles*. The four resource classes are **smallrc**, **mediumrc**, **largerc**, and **xlargerc**. Users in smallrc are given a smaller amount of memory and can take advantage of higher concurrency. In contrast, users assigned to xlargerc are given large amounts of memory, and therefore fewer of their queries can run concurrently.
+Resource classes help you control memory allocation and CPU cycles given to a query. You can assign two types of resource classes to a user in the form of database roles. The two types of resource classes are as follows:
+1. Dynamic Resource Classes (**smallrc, mediumrc, largerc, xlargerc**) allocate a variable amount of memory depending on the current DWU. This means that when you scale up to a larger DWU, your queries will automatically get more memory. 
+2. Static Resource Classes (**staticrc10, staticrc20, staticrc30, staticrc40, staticrc50, staticrc60, staticrc70, staticrc80**) allocate the same amount of memory regardless of the current DWU (provided that the DWU itself has enough memory). This means that on larger DWUs, you can run more queries in each resource class concurrently.
 
-By default, each user is a member of the small resource class, smallrc. The procedure `sp_addrolemember` is used to increase the resource class, and `sp_droprolemember` is used to decrease the resource class. For example, this command would increase the resource class of loaduser to largerc:
+Users in **smallrc** and **staticrc10** are given a smaller amount of memory and can take advantage of higher concurrency. In contrast, users assigned to **xlargerc** or **staticrc80** are given large amounts of memory, and therefore fewer of their queries can run
+concurrently.
+
+By default, each user is a member of the small resource class, **smallrc**. The procedure `sp_addrolemember` is used to increase the resource class, and `sp_droprolemember` is used to decrease the resource class. For example, this command would increase the resource class of loaduser to **largerc**:
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser'
 ```
 
-A good practice is to permanently assign users to a resource class rather than changing their resource classes. For example, loads to clustered columnstore tables create higher-quality indexes when allocated more memory. To ensure that loads have access to higher memory, create a user specifically for loading data and permanently assign this user to a higher resource class.
-
+### Queries that do not honor resource classes
 There are a few types of queries that do not benefit from a larger memory allocation. The system will ignore their resource class allocation and always run these queries in the small resource class instead. If these queries always run in the small resource class, they can run when concurrency slots are under pressure and they won't consume more slots than needed. See [Resource class exceptions](#query-exceptions-to-concurrency-limits) for more information.
+
+## Details on resource class assignment
 
 A few more details on resource class:
 
-* *Alter role* permission is required to change the resource class of a user.  
-* Although you can add a user to one or more of the higher resource classes, users will take on the attributes of the highest resource class to which they are assigned. That is, if a user is assigned to both mediumrc and largerc, the higher resource class (largerc) is the resource class that will be honored.  
+* *Alter role* permission is required to change the resource class of a user.
+* Although you can add a user to one or more of the higher resource classes, dynamic resource classes will take precedence over static resource classes. That is, if a user is assigned to both **mediumrc**(dynamic) and **staticrc80**(static), **mediumrc** is the resource class that will be honored.
+ * When a user is assigned to more than one resource class in a specific resource class type (more than one dynamic resource class or more than one static resource class), the highest resource class will be honored. That is, if a user is assigned to both mediumrc and largerc, the higher resource class i.e., largerc will be honored. And if a user is assigned to both **staticrc20** and **statirc80**, **staticrc80** will be honored.
 * The resource class of the system administrative user cannot be changed.
 
 For a detailed example, see [Changing user resource class example](#changing-user-resource-class-example).
@@ -80,7 +87,7 @@ There are pros and cons to increasing a user's resource class. Increasing a reso
 
 The following table maps the memory allocated to each distribution by DWU and resource class.
 
-### Memory allocations per distribution (MB)
+### Memory allocations per distribution for dynamic resource classes (MB)
 | DWU | smallrc | mediumrc | largerc | xlargerc |
 |:--- |:---:|:---:|:---:|:---:|
 | DW100 |100 |100 |200 |400 |
@@ -96,7 +103,25 @@ The following table maps the memory allocated to each distribution by DWU and re
 | DW3000 |100 |1,600 |3,200 |6,400 |
 | DW6000 |100 |3,200 |6,400 |12,800 |
 
-From the preceding table, you can see that a query running on a DW2000 in the xlargerc resource class would have access to 6,400 MB of memory within each of the 60 distributed databases.  In SQL Data Warehouse, there are 60 distributions. Therefore, to calculate the total memory allocation for a query in a given resource class, the above values should be multiplied by 60.
+The following table maps the memory allocated to each distribution by DWU and static resource class. Note that the highter resource classes have their memory reduced to honor the global DWU limits.
+
+### Memory allocations per distribution for static resource classes (MB)
+| DWU | staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+|:--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| DW100 |100 |200 |400 |400 |400 |400 |400 |400 |
+| DW200 |100 |200 |400 |800 |800 |800 |800 |800 |
+| DW300 |100 |200 |400 |800 |800 |800 |800 |800 |
+| DW400 |100 |200 |400 |800 |1,600 |1,600 |1,600 |1,600 |
+| DW500 |100 |200 |400 |800 |1,600 |1,600 |1,600 |1,600 |
+| DW600 |100 |200 |400 |800 |1,600 |1,600 |1,600 |1,600 |
+| DW1000 |100 |200 |400 |800 |1,600 |3,200 |3,200 |3,200 |
+| DW1200 |100 |200 |400 |800 |1,600 |3,200 |3,200 |3,200 |
+| DW1500 |100 |200 |400 |800 |1,600 |3,200 |3,200 |3,200 |
+| DW2000 |100 |200 |400 |800 |1,600 |3,200 |6,400 |6,400 |
+| DW3000 |100 |200 |400 |800 |1,600 |3,200 |6,400 |6,400 |
+| DW6000 |100 |200 |400 |800 |1,600 |3,200 |6,400 |12,800 |
+
+From the preceding table, you can see that a query running on a DW2000 in the **xlargerc** resource class would have access to 6,400 MB of memory within each of the 60 distributed databases.  In SQL Data Warehouse, there are 60 distributions. Therefore, to calculate the total memory allocation for a query in a given resource class, the above values should be multiplied by 60.
 
 ### Memory allocations system-wide (GB)
 | DWU | smallrc | mediumrc | largerc | xlargerc |
@@ -116,16 +141,18 @@ From the preceding table, you can see that a query running on a DW2000 in the xl
 
 From this table of system-wide memory allocations, you can see that a query running on a DW2000 in the xlargerc resource class is allocated a total of 375 GB of memory (6,400 MB * 60 distributions / 1,024 to convert to GB) over the entirety of your SQL Data Warehouse.
 
+The same calculation applies to static resource classes.
+
 ## Concurrency slot consumption
 SQL Data Warehouse grants more memory to queries running in higher resource classes. Memory is a fixed resource.  Therefore, the more memory allocated per query, the fewer concurrent queries can execute. The following table reiterates all of the previous concepts in a single view that shows the number of concurrency slots available by DWU and the slots consumed by each resource class.
 
 ### Allocation and consumption of concurrency slots
 | DWU | Maximum concurrent queries | Concurrency slots allocated | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
-|:--- |:---:|:---:|:---:|:---:|:---:|:---:|
-| DW100 |4 |4 |1 |1 |2 |4 |
-| DW200 |8 |8 |1 |2 |4 |8 |
-| DW300 |12 |12 |1 |2 |4 |8 |
-| DW400 |16 |16 |1 |4 |8 |16 |
+|:--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| DW100 |4 |4 |1 |2 |4 |4 |4 |4 |4 |4 |
+| DW200 |8 |8 |1 |2 |4 |8 |8 |8 |8 |8 |
+| DW300 |12 |12 |1 |2 |4 |8 |8 |8 |8 |8 |
+| DW400 |16 |16 |1 |2 |4 |8 |16 |
 | DW500 |20 |20 |1 |4 |8 |16 |
 | DW600 |24 |24 |1 |4 |8 |16 |
 | DW1000 |32 |40 |1 |8 |16 |32 |
@@ -134,6 +161,22 @@ SQL Data Warehouse grants more memory to queries running in higher resource clas
 | DW2000 |32 |80 |1 |16 |32 |64 |
 | DW3000 |32 |120 |1 |16 |32 |64 |
 | DW6000 |32 |240 |1 |32 |64 |128 |
+
+### Allocation and consumption of concurrency slots for static resource classes
+| DWU | Maximum concurrent queries | Concurrency slots allocated |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+|:--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| DW100 |4 |4 |1 |2 |4 |4 |4 |4 |
+| DW200 |100 |200 |400 |800 |800 |800 |800 |800 |
+| DW300 |100 |200 |400 |800 |800 |800 |800 |800 |
+| DW400 |100 |200 |400 |800 |1,600 |1,600 |1,600 |1,600 |
+| DW500 |100 |200 |400 |800 |1,600 |1,600 |1,600 |1,600 |
+| DW600 |100 |200 |400 |800 |1,600 |1,600 |1,600 |1,600 |
+| DW1000 |100 |200 |400 |800 |1,600 |3,200 |3,200 |3,200 |
+| DW1200 |100 |200 |400 |800 |1,600 |3,200 |3,200 |3,200 |
+| DW1500 |100 |200 |400 |800 |1,600 |3,200 |3,200 |3,200 |
+| DW2000 |100 |200 |400 |800 |1,600 |3,200 |6,400 |6,400 |
+| DW3000 |100 |200 |400 |800 |1,600 |3,200 |6,400 |6,400 |
+| DW6000 |100 |200 |400 |800 |1,600 |3,200 |6,400 |12,800 |
 
 From this table, you can see that SQL Data Warehouse running as DW1000 allocates a maximum of 32 concurrent queries and a total of 40 concurrency slots. If all users are running in smallrc, 32 concurrent queries would be allowed because each query would consume 1 concurrency slot. If all users on a DW1000 were running in mediumrc, each query would be allocated 800 MB per distribution for a total memory allocation of 47 GB per query, and concurrency would be limited to 5 users (40 concurrency slots / 8 slots per mediumrc user).
 
