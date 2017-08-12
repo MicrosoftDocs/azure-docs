@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB: Create a MEAN.js app with the MongoDB API, Express, Angular and Node.js | Microsoft Docs
+title: "Azure Cosmos DB: Create a MEAN.js app with the MongoDB API, Express, Angular and Node.js | Microsoft Docs"
 description: Learn how to create a MEAN.js app for Azure Cosmos DB using the exact same APIs you use for MongoDB. 
 services: cosmos-db
 documentationcenter: ''
