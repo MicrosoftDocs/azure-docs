@@ -34,7 +34,7 @@ When data collection is enabled for the first time or when your subscriptions ar
    - if a workspace does not exist, Security Center will create a new resource group and default workspace in that geolocation, and connect the agent to that workspace. Both will follow the naming convention below:
 
        Workspace: DefaultWorkspace-[subscription-ID]-[geo]
-       
+
        Resource Group: DefaultResouceGroup-[geo]
 - install a Security Center solution on the workspace
 
@@ -131,7 +131,7 @@ The Security & Audit solution is used to enable Security Center Standard tier fe
 
 
 <!--Image references-->
-[1]: ./media/security-platform-migration-faq/pricing-tier.png
-[2]: ./media/security-platform-migration-faq/data-collection.png
-[3]: ./media/security-platform-migration-faq/remove-the-agent.png
-[4]: ./media/security-platform-migration-faq/solutions.png
+[1]: ./media/security-center-platform-migration-faq/pricing-tier.png
+[2]: ./media/security-center-platform-migration-faq/data-collection.png
+[3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
+[4]: ./media/security-center-platform-migration-faq/solutions.png
