@@ -44,13 +44,14 @@ machine is created, tagged, and ready to use.
 
 ## Requirements
 
-To follow this tutorial, complete these other tutorials first: 
+To follow this tutorial, complete these other tasks first: 
 
-* [Create a virtual machine and an event grid for publishing events]()
+* [Create a virtual machine resource with the Azure CLI](../virtual-machines/windows/quick-create-cli.md)
 
-  This tutorial shows how to create a virtual machine and an event grid 
-  that publishes an event when you create a virtual machine. 
-  The event grid then pushes that event to subscribers, like your logic app.
+* [Create an event grid that pushes events published by your virtual machine resource]
+ and an event grid 
+  that publishes an event when you create a virtual machine
+    The event grid then pushes that event to subscribers, like your logic app.
 
 * [Create an Azure Functions app and function]() 
 
