@@ -44,7 +44,8 @@ The following example uses the Azure CLI to create a resource group named *myRes
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
-az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
+az vm create --resource-group myResourceGroupMEAN --name myVM --image UbuntuLTS --admin-username azureuser --admin-password 'Azure12345678!' --generate-ssh-keys
+az vm open-port --port 3300 --resource-group myResourceGroupMEAN --name myVM
 ```
 
 When the VM has been created, the Azure CLI shows information similar to the following example: 
@@ -52,13 +53,13 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 ```azurecli-interactive
 {
   "fqdns": "",
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroupMEAN/providers/Microsoft.Compute/virtualMachines/myVM",
   "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
   "publicIpAddress": "40.68.254.142",
-  "resourceGroup": "myResourceGroup"
+  "resourceGroup": "myResourceGroupMEAN"
 }
 ```
 Take note of the `publicIpAddress`. This address is used to access the VM.
@@ -66,17 +67,21 @@ Take note of the `publicIpAddress`. This address is used to access the VM.
 Use the following command to create an SSH session with the VM. Make sure to use the correct public IP address. In our example above our IP address was 40.68.254.142.
 
 ```bash
-ssh <publicIpAddress>
+ssh azureuser@<publicIpAddress>
 ```
 
 ## Install Node.js
 
 [Node.js](https://nodejs.org/en/) is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js is used in this tutorial to set up the Express routes and AngularJS controllers.
 
+Get the latest Node.js package.
+
+```bash
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash
+```
 Install Node.js and update the npm package manager on the VM.
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash –
 sudo apt-get install -y nodejs
 sudo npm install npm@latest -g
 ```
@@ -84,7 +89,7 @@ sudo npm install npm@latest -g
 ## Install MongoDB and set up the server
 [MongoDB](http://www.mongodb.com) stores data in flexible, JSON-like documents. Fields in a database can vary from document to document and data structure can be changed over time. For our example application, we are adding book records to MongoDB that contain book name, isbn number, author, and number of pages. 
 
-1. Install and start the MongoDB server.
+1. On the VM using the bash shell that you opened with SSH, install and start the MongoDB server.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
@@ -122,8 +127,7 @@ sudo npm install npm@latest -g
 1. Install Express and Mongoose.
 
     ```bash
-    sudo npm install express
-    sudo npm install mongoose
+    sudo npm install express mongoose
     ```
 
 2. In the *Books* folder, create a folder named *apps* and add a file named *routes.js* with the express routes defined.
@@ -190,7 +194,7 @@ sudo npm install npm@latest -g
 
 [AngularJS](https://angularjs.org) provides a web framework for creating dynamic views in your web applications. In this tutorial, we use AngularJS to connect our web page with Express and perform actions on our book database.
 
-1. In the *Books* folder, create a folder named *public* and add a file named *script.js* with the controller configuration defined.
+1. Change the directory back up to the *Books* folder (`cd ..\..\..`), create a folder named *public* and add a file named *script.js* with the controller configuration defined.
 
     ```node.js
     var app = angular.module('myApp', []);
@@ -287,13 +291,13 @@ sudo npm install npm@latest -g
 
 ##  Run the application
 
-1. Start the server by running this command in the Books folder:
+1. Change the directory back up to *Books* (`cd ..\..') and start the server by running this command:
 
     ```bash
     node server.js
     ```
 
-2. Open a web browser to http://localhost:3300. You should see something like the following page:
+2. Open a web browser to http://<public-ip-address>:3300 where public-ip-address is the address that you recored for the VM. You should see something like the following page:
 
     ![Book record](media/tutorial-mean/meanstack-init.png)
 
