@@ -24,7 +24,7 @@ To complete this Quickstart, you need an interactive tool for sending HTTP reque
 > [!Tip]
 > For one-off interactions, we recommend the built-in console. There is no setup and user requirements consist only of the access key and the JSON documents you paste into the request. 
 >
->For more involved experimentation, we suggest a web API testing tool like Postman. A tool saves your request header and body. You can make incremental changes to existing documents and request headers, which means less copy-paste if you want to experiment with multiple operations..
+>For more involved experimentation, we suggest a web API testing tool like Postman. A tool saves your request header and body. You can make incremental changes to existing documents and request headers, which means less copy-paste when experimenting with multiple operations.
 
 ## Before you begin
 
@@ -41,7 +41,7 @@ In this first exercise, structure the request, using key phrase extraction as th
 
 Text Analytics APIs invoke operations against pretrained models and machine learning algorithms running in Azure data centers. You need your own key to access the operations, which is generated for you when you sign up. 
 
-Endpoints for each operation include the resource providing the underlying algorithms used for a particular analysis: **sentiment analysis**, **key phrase extraction**, and **language detection**. Each request must specify which resource to use. We list them in full below.
+Endpoints for each operation include the resource providing the underlying algorithms used for a particular analysis: **sentiment analysis**, **key phrase extraction**, and **language detection**. Each request must specify which resource to use. We list them in the next step.
 
 1. In the [Azure portal](https://portal.azure.com), open the Text Analytics page. If it's not pinned to dashboard, search for "text analytics" to find the page. Leave the page open so that you can copy an access key and endpoint.
 
@@ -71,7 +71,7 @@ Endpoints for each operation include the resource providing the underlying algor
 
    ![Request screenshot with body settings](../media/text-analytics/postman-request-body-raw.png)
 
-5. Paste in the JSON documents below text for analysis. 
+5. Paste in the JSON documents: 
 
    ```
     {
@@ -107,7 +107,7 @@ Endpoints for each operation include the resource providing the underlying algor
 
 ### About the request body
 
-Input rows must be JSON in raw unstructured text. XML is not supported. The schema is simple, consisting of the elements below. You can use the same documents for all three operations: sentiment, key phrase, and language detection.
+Input rows must be JSON in raw unstructured text. XML is not supported. The schema is simple, consisting of the elements described in the following list. You can use the same documents for all three operations: sentiment, key phrase, and language detection.
 
 > [!Note]
 > A Spanish string is included to demonstrate [language detection](#detect-language) and other behaviors, described in a following section.
@@ -116,7 +116,10 @@ Input rows must be JSON in raw unstructured text. XML is not supported. The sche
 
 + `text` field contains unstructured raw text, up to 10 KB. For more information about limits, see [Text Analytics Overview > Data limits](overview.md#data-limits). 
 
-+ `language` is used only in sentiment analysis and key phrase extraction. It is ignored in language detection. For both sentiment analysis and key phrase extraction, language is an optional parameter but if you do not provide it, the service performs an additional language detection pass. For maximum efficiency, you should always include the language in the request, assuming you know what it is. Refer to the [Text Analytics Overview > Supported Languages](overview.md#supported-languages) for a list of supported languages.
++ `language` is used only in sentiment analysis and key phrase extraction. It is ignored in language detection. 
+
+> [!Note]
+> For both sentiment analysis and key phrase extraction, `language` is an optional parameter. If `language` is wrong, results of the analysis might be incorrect or suboptimal. If `language` is missing, the system performs language detection prior to sentiment or key phrase analysis. This can slow down operations. For this reason, we recommend including an accurate language code in the request, assuming you know what it is. Refer to the [Text Analytics Overview > Supported Languages](overview.md#supported-languages) for a list of supported languages.
 
 ## Key phrase extraction
 
@@ -124,7 +127,7 @@ Input rows must be JSON in raw unstructured text. XML is not supported. The sche
 
 2. Click **Send** to submit the request.
 
-All POST requests return a JSON formatted response with the IDs and detected properties. An example of the output for key phrase extraction is shown below.
+All POST requests return a JSON formatted response with the IDs and detected properties. An example of the output for key phrase extraction is shown next:
 
 ```
 {
@@ -263,11 +266,11 @@ Notice that the last document is correctly identified as Spanish, even though th
 
 ## Align language codes to text
 
-We purposely specified an incorrect language code for document 5 to show what happens when a language code is wrong and what indeterminate or neutral results look like.
+We deliberately specified an incorrect language code in document 5 to show what happens when a language code is wrong. Byproducts of an incorrect language code includes indeterminate sentiment, or key phrase extraction with the help of N-gram analysis.
 
-In this last exercise, change the language code for the Spanish string in document 5 from `en` to `es` and resend the request for sentiment analysis and keyword detection. 
+In this last exercise, change the language code for the Spanish string in document 5 from `en` to `es`. Next, resend the request for sentiment analysis and keyword detection. 
 
-Comparing before-and-after results, sentiment score goes from 0.5 (neutral) to 1.0 (positive), accurately reflecting the positive sentiment of the text. For key phrase extraction, notice that the results are more granular, on a level consistent with the English strings.
+Comparing before-and-after results, sentiment score goes from 0.5 (neutral) to 1.0 (positive), an accurate score for this text. For key phrase extraction, notice that the results are more granular, on a level consistent with the English strings.
 
         {
             "keyPhrases": [
@@ -276,7 +279,7 @@ Comparing before-and-after results, sentiment score goes from 0.5 (neutral) to 1
             ],
             "id": "5"
 
-The point to take away from this exercise is that you should set the language code correctly, assuming you know it. If you don't know, use language detection to obtain it, and then set the code before performing sentiment analysis or key phrase extraction. 
+The point to take away from this exercise is that you should set the language code correctly, assuming you know it. If you don't, use language detection to obtain it, and then set the code before performing sentiment analysis or key phrase extraction. 
 
 ## Next steps
 
