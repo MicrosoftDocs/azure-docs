@@ -74,38 +74,47 @@ ssh azureuser@<publicIpAddress>
 
 [Node.js](https://nodejs.org/en/) is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js is used in this tutorial to set up the Express routes and AngularJS controllers.
 
-Get the latest Node.js package.
-
-```bash
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash
-```
 Install Node.js and update the npm package manager on the VM.
 
 ```bash
 sudo apt-get install -y nodejs
-sudo npm install npm@latest -g
 ```
 
 ## Install MongoDB and set up the server
 [MongoDB](http://www.mongodb.com) stores data in flexible, JSON-like documents. Fields in a database can vary from document to document and data structure can be changed over time. For our example application, we are adding book records to MongoDB that contain book name, isbn number, author, and number of pages. 
 
-1. On the VM using the bash shell that you opened with SSH, install and start the MongoDB server.
+1. On the VM, using the bash shell that you opened with SSH, set the MongoDB key.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
     echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+    ```
+
+2. Update the package manager with the key.
+  
+    ```bash
     sudo apt-get update
+    ```
+
+3. Install MongoDB.
+
+    ```bash
     sudo apt-get install -y mongodb
+    ```
+
+4. Start the server.
+
+    ```bash
     sudo service mongodb start
     ```
 
-2. We also need to install the [body-parser](https://www.npmjs.com/package/body-parser-json) package to help us process the JSON passed in requests to the server.
+5. We also need to install the [body-parser](https://www.npmjs.com/package/body-parser-json) package to help us process the JSON passed in requests to the server.
 
     ```bash
     sudo npm install body-parser
     ```
 
-3. Create a folder named *Books* and add a file to it named *server.js* that contains the configuration for the web server.
+6. Create a folder named *Books* and add a file to it named *server.js* that contains the configuration for the web server.
 
     ```node.js
     var express = require('express');
