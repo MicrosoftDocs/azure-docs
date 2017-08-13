@@ -28,14 +28,14 @@ Internally, we employ techniques from Microsoft Office's sophisticated Natural L
 
 N-grams denote all occurrences of *n* consecutive words in the input text. The precise value of *n* may vary across scenarios, but it’s common to pick *n=2* or *n=3*. With n=2, for the text “the quick brown fox”, the following n-grams would be generated – [ “the quick”, “quick brown”, “brown fox”]
 
-Currently, the following languages are supported for production workloads: English, German, Spanish and Japanese. Other languages are in preview. For more information, see [Supported languages](overview.md#supported-languages).
+Currently, the following languages are supported for production workloads: English, German, Spanish, and Japanese. Other languages are in preview. For more information, see [Supported languages](overview.md#supported-languages).
 
 > [!Note]
 > Key phrase analysis is distinct from sentiment analysis. Individual words or phrases are not extracted based on degree of sentiment.
 
 ## Guidance for constructing inputs
 
-You can submit the same collection of documents for multiple operations: sentiment analysis, key phrase analysis, and language detection. Operations are indepedendent so run them sequentially or in parallel.
+You can submit the same collection of documents for multiple operations: sentiment analysis, key phrase analysis, and language detection. Operations are independent so run them sequentially or in parallel.
 
 ## Next steps
 
@@ -44,7 +44,7 @@ Use the built-in API testing console in the [REST API documentation](https://wes
 + Provide an access key to your service. You can get it from the [Azure portal](https://portal.azure.com). 
 + Paste the JSON documents, in the format described for the API, into the Request Body section of the page.  
 + Click **Send** to analyze content and get the results. 
-+ Review the reponse inline. Reponses include a status code, latency (in milliseconds), and payload (in JSON). 
++ Review the response inline. Responses include a status code, latency (in milliseconds), and payload (in JSON). 
 
 In addition to the console, we also recommend the [Quickstart](quick-start.md) for more practice and details about each operation.
 

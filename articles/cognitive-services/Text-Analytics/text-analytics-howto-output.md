@@ -1,6 +1,6 @@
 ---
-title: 'Sentiment analysis using Azure Text Analytics API | Microsoft Docs'
-description: Guidance, best practices, and tips for implmenting sentiment analysis over text in custom apps using Azure Cognitive Services.
+title: 'Output visualization and analysis in Text Analytics (Microsoft Cognitive Services on Azure) | Microsoft Docs'
+description: Work with output produced through Text Analysis in Microsoft Cognitive Services, sentiment analysis, key phrase extraction, and language detection.
 services: cognitive-services
 documentationcenter: ''
 author: LuisCabrer
@@ -14,7 +14,7 @@ ms.date: 07/24/2017
 ms.author: luisca
 
 ---
-# How to aggregate and analyze output (Azure Cognitive Services > Text Analytics API)
+# How to visualize and analyze output from Text Analytics API
 
 TBD...
 
@@ -25,7 +25,7 @@ TBD...
 + Interpreting results
 + Approaches for fast visualization: Power BI (Power Query), Tableau
 + Custom code for rendering 
-+ Other API necessary for trending (Twitter APIs with date/time info, ???)
++ Other API necessary for trending (Twitter APIs with date/time info, Facebook, other)
 
 ## Next steps
 

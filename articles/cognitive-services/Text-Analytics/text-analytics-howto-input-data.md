@@ -1,5 +1,5 @@
 ---
-title: 'Upload text data for analysis (Azure Cognitive Services > Text Analysis API) | Microsoft Docs'
+title: 'Struture requests for Text Analytics in Microsoft Cognitive Services on Azure | Microsoft Docs'
 description: Submit data for text analysis, language dections, and scoring using Text Analytics API in Cognitive Services.
 services: cognitive-services
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.author: luisca
 
 ---
 
-# How to structure and manage data inputs (Azure Cognitive Services > Text Analytics API)
+# How to structure and manage data inputs in Text Analytics API
 
 TBD...
 
