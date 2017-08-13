@@ -37,24 +37,21 @@ To view the current secondary region of your storage account through the Azure P
 ![alt text](./media/documentation-government-services-storage-accountoverview.png)
 
 
-### Storage service availability by Azure Government region
+### Storage feature availability by Azure Government region
 
-
-
-| Service | USGov Virginia | USGov Iowa | Notes
-| --- | --- | --- | --- |
-| [Blob Storage] (../storage/storage-introduction.md#blob-storage) |GA |GA |
-| [Table Storage] (../storage/storage-introduction.md#table-storage) |GA  |GA |
-| [Queue Storage] (../storage/storage-introduction.md#queue-storage) |GA | GA |
-| [File Storage] (../storage/storage-introduction.md#file-storage) |GA |GA |
-| [Hot/Cool Blob Storage] (../storage/storage-blob-storage-tiers.md) |NA |NA |
-| [Storage Service Encryption] (../storage/storage-service-encryption.md) |GA |GA |
-| [Premium Storage] (../storage/storage-premium-storage.md) |GA |NA | Includes DS-series Virtual Machines. |
-| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA |
-| [StorSimple] (../storsimple/storsimple-ova-overview.md) |GA |GA |
+| Feature | USGov Virginia | USGov Iowa | USGov Arizona | USGov Texas | USDoD East | USDoD Central| Notes
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [Blob Storage] (../storage/storage-introduction.md#blob-storage) |GA |GA |GA |GA |GA |GA |
+| [Table Storage] (../storage/storage-introduction.md#table-storage) |GA  |GA |GA |GA |GA |GA |
+| [Queue Storage] (../storage/storage-introduction.md#queue-storage) |GA |GA |GA |GA |GA |GA |
+| [File Storage] (../storage/storage-introduction.md#file-storage) |GA |GA |GA |GA |GA |GA |
+| [Hot/Cool Blob Storage] (../storage/storage-blob-storage-tiers.md) |- |- |GA |GA |- |- |
+| [Storage Service Encryption] (../storage/storage-service-encryption.md) |GA |GA |GA |GA |GA |GA |
+| [Premium Storage] (../storage/storage-premium-storage.md) |GA |- |GA |GA |GA |GA | Includes DS-series Virtual Machines. |
+| [StorSimple] (../storsimple/storsimple-ova-overview.md) |GA |GA |GA |GA |GA |GA |
 
 > [!NOTE]
-> Zone Redundant Storage (ZRS) is not available in US Gov Virginia and US Gov Iowa.
+> Zone Redundant Storage (ZRS) is not available in Azure Government.
 >
 >
 
@@ -73,7 +70,7 @@ The URLs for storage accounts in Azure Government are different:
 >
 >
 
-For more information on APIs, see the <a href="https://msdn.microsoft.com/library/azure/mt616540.aspx"> Cloud Storage Account Constructor</a>.
+For more information on APIs, see the [Cloud Storage Account Constructor](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.-ctor).
 
 The endpoint suffix to use in these overloads is core.usgovcloudapi.net
 
@@ -96,11 +93,11 @@ The following information identifies the Azure Government boundary for Azure Sto
 
 ## Azure Import/Export
 
-Import/Export is Generally available for Azure Goverenment.
+Import/Export is Generally available for Azure Goverenment.  All Azure Government regions are supported.
 
 ### Variation
 
-Texas/Arizona storage accounts will have drives mailed to Virignia.
+When creating an Import/Export job for USGov Arizona or USGov Texas the mailing address will be for USGov Virginia.  The data will be loaded into selected storage account from the USGov Virignia region.
 
 ### Consideration
 
