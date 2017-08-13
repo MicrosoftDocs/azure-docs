@@ -27,7 +27,7 @@ Microsoft Dynamics AX is one of the most popular ERP solution among enterprises 
 Today, Microsoft Dynamics AX  does not provide any out-of-the-box disaster recovery capabilities. Microsoft Dynamics AX consists of many server components like Application Object Server, Active Directory (AD), SQL Database Server, SharePoint Server, Reporting Server etc. To manage the disaster recovery of each of these components manually is not only expensive but also error-prone.
 
 This article explains in detail about how you can create a disaster recovery solution for your Dynamics AX application using [Azure Site Recovery](site-recovery-overview.md). It will also cover planned/unplanned/test failovers using one-click recovery plan, supported configurations and prerequisites.
-Azure Site Recovery based disaster recovery solution is fully tested, certified and recommended by Microsoft Dynamics AX.
+Azure Site Recovery based disaster recovery solution is fully tested, certified, and recommended by Microsoft Dynamics AX.
 
 
 
@@ -35,7 +35,7 @@ Azure Site Recovery based disaster recovery solution is fully tested, certified 
 
 Implementing disaster recovery for Dynamics AX application using Azure Site Recovery requires the following pre-requisites completed.
 
-•	An on-premises Dynamics AX deployment has been setup
+•	An on-premises Dynamics AX deployment has been set up
 
 •	Azure Site Recovery Services vault has been created in Microsoft Azure subscription
 
@@ -131,19 +131,19 @@ You can customize the recovery plan for Dynamics AX application by adding variou
 
 *Steps:*
 
-*1.	SQL Server failover steps*
+*1.	SQL Server fail over steps*
 
 Refer to [‘SQL Server DR Solution’](site-recovery-sql.md) companion guide  for details about recovery steps specific to SQL server.
 
-*2.	Failover Group 1: Failover the AOS VMs*
+*2.	Failover Group 1: Fail over the AOS VMs*
 
 Make sure that the recovery point selected is as close as possible to the database PIT but not ahead.
 
 *3.	Script: Add load balancer (Only E-A)*
 Add a script (via Azure automation) after AOS VM group comes up to add a load balancer to it. You can use a script to do this task. Refer article [how to add load balancer for multi-tier application DR](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/)
 
-*4.	Failover Group 2: Failover the AX client VMs.*
-Failover the web tier VMs as part of the recovery plan.
+*4.	Failover Group 2: Fail over the AX client VMs.*
+Fail over the web tier VMs as part of the recovery plan.
 
 
 ### Doing a test failover
