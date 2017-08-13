@@ -43,7 +43,7 @@ Create a resource group with the [az group create](https://docs.microsoft.com/cl
 The following example uses the Azure CLI to create a resource group named *myResourceGroup* in the *eastus* location. A VM is created named *myVM* with SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the --ssh-key-value option.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroupMEAN --location eastus
 az vm create --resource-group myResourceGroupMEAN --name myVM --image UbuntuLTS --admin-username azureuser --admin-password 'Azure12345678!' --generate-ssh-keys
 az vm open-port --port 3300 --resource-group myResourceGroupMEAN --name myVM
 ```
