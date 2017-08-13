@@ -7,7 +7,7 @@
 - name: Quickstarts
   items:
   - name: Analyze keywords, sentiment, and language with REST
-    href: text-analytics-quickstart-rest-api.md
+    href: quick-start.md
 - name: Tutorials
   items:
   - name: Logic Apps & Text Analytics

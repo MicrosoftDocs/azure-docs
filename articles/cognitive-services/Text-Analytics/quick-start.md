@@ -1,269 +1,294 @@
 ---
-title: 'Azure Text Analytics Quick Start | Microsoft Docs'
-description: Get started using the Text Analytics API in Cognitive Services.
+title: 'Analyze keywords and phrases, sentiment and language in 10 minutes (Microsoft Cognitive Services on Azure) | Microsoft Docs'
+description: Learn the Text Analytics REST API in Microsoft Cognitive Services on Azure in this ten minute walkthrough tutorial.
 services: cognitive-services
-documentationcenter: ''
-author: LuisCabrer
+author: HeidiSteen
 manager: jhubbard
-editor: cgronlun
 
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 07/24/2017
-ms.author: luisca
-
+ms.date: 08/12/2017
+ms.author: heidist
 ---
-# Get started with the Text Analytics APIs to detect sentiment, key phrases, and language
-<a name="HOLTop"></a>
 
-This document describes how to onboard your service or application to use the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711).
-You can use these APIs to detect sentiment, key phrases, and language from your text. [Visit the product page to see an interactive demo of the APIs.](//go.microsoft.com/fwlink/?LinkID=759712)
+# Analyze keywords, sentiment and language in ten minutes (Text Analytics > REST API)
 
-Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
+In this Quickstart, learn how to call the Text Analytics REST APIs to perform key phrase extraction, sentiment analysis, and language detection on text provided in requests to Microsoft Cognitive Services.
 
-By the end of this tutorial, you will be able to programmatically detect:
+To complete this Quickstart, you need an interactive tool for sending HTTP requests. 
 
-* **Sentiment** - Is text positive or negative?
-* **Key phrases** - What are people discussing in a single article?
-* **Languages** - What language is text written in?
++ [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop), [Telerik Fiddler](https://www.telerik.com/download/fiddler), or any interactive Web API testing tool. 
++ Alternatively, use the built-in console app in our REST API documentation pages to interact with each API individually.Click the **Open API testing console** button on any [doc page](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6).
 
-<a name="Overview"></a>
+> [!Tip]
+> For one-off interactions, use the built-in console. There is no setup and user requirements consist only of the access key and JSON documents you provide. For more involved experimentation, use a web API testing tool like Postman. It saves your request header and body. You can make incremental changes over existing documents and request headers, which means less copy-paste.
 
-## General overview
-This document is a step-by-step guide. Our objective is to walk you through the steps necessary to train a model, and to point you to resources that will allow you to put it in production. This exercise takes about 30 minutes.
+## Before you begin
 
-For these tasks, you need an editor and call the RESTful endpoints in your language of choice.
+To use Microsoft Cognitive Service APIs, create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. 
 
-Let's get started!
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-## Task 1 - Sign up for the Text Analytics APIs
-In this task, you will sign up for the text analytics service.
+> [!Note]
+> Cognitive Services has many APIs. Billing, policies, and release cycles vary for each API, so we ask you to sign up for each one individually. 
 
-1. Navigate to **Cognitive Services** in the [Azure portal](//go.microsoft.com/fwlink/?LinkId=761108) and ensure **Text Analytics** is selected as the 'API type'.
-2. Select a plan. You may select the **free tier for 5,000 transactions/month**. As is a free tier, there are no charges for using the service. You need to login to your Azure subscription to sign up for the service. 
-3. Complete the other fields and create your account.
-4. After you sign up for Text Analytics, find your **API Key**. Copy the primary key, as you need it when using the API services.
+## Set up a request in Postman
 
-## Task 2 - Detect sentiment, key phrases, and languages
-It's easy to detect sentiment, key phrases, and languages in your text. You will programmatically get the same results as is shown in the [demo experience](//go.microsoft.com/fwlink/?LinkID=759712).
+In this first exercise, you will structure the request, using key phrase extraction as the first analysis.
 
-> [!TIP]
-> For sentiment analysis, we recommend that you split text into sentences. This generally leads to higher precision in sentiment predictions.
-> 
-> 
+Text Analytics APIs invoke operations against pretrained models and machine learning algorithms running in Azure data centers. You need your own key to access the operations, which is generated for you when you sign up. 
 
-Refer to the [Text Analytics Overview](overview.md#supported-languages) for details of supported languages
+Endpoints for each operation include the resource providing the underlying algorithms used for a particular analysis: **sentiment analysis**, **key phrase extraction**, and **language detection**. Each request must specify which resource to use. We list them in full below.
 
-1. Set the headers as shown below. JSON is currently the only accepted input format for the APIs. XML is not supported.
-   
-        Ocp-Apim-Subscription-Key: <your API key>
-        Content-Type: application/json
-        Accept: application/json
+1. In the [Azure portal](https://portal.azure.com), find the Text Analytics API. If it's not pinned to dashboard, search for "text analytics" to find the page. Leave the page open so that you can copy an acess key and endpoint.
 
-2. Next, format your input rows in JSON. For sentiment, key phrases and language, the format is the same. Each ID should be unique and is the ID returned by the system. The maximum size of a single document that can be submitted is 10 KB, and the total maximum size of submitted input is 1 MB. No more than 1,000 documents may be submitted in one call. Rate limiting exists at a rate of 100 calls per minute - we therefore recommend that you submit large quantities of documents in a single call. Language is an optional parameter that should be specified if analyzing non-English text. An example of input is shown below, where the optional parameter `language` for sentiment analysis or key phrase extraction is included:
-   
-        {
-            "documents": [
-                {
-                    "language": "en",
-                    "id": "1",
-                    "text": "First document"
-                },
-                ...
-                {
-                    "language": "en",
-                    "id": "100",
-                    "text": "Final document"
-                }
-            ]
-        }
-3. Make a **POST** call to the system with the input for sentiment, key phrases and language. The URLs are listed below:
-   
-        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
-        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
-        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
-4. This call returns a JSON formatted response with the IDs and detected properties. An example of the output for sentiment is shown below (with error details excluded). In the case of sentiment, a score between 0 and 1 is returned for each document:
-   
-        // Sentiment response
-        {
-              "documents": [
-                {
-                    "id": "1",
-                    "score": "0.934"
-                },
-                ...
-                {
-                    "id": "100",
-                    "score": "0.002"
-                },
-            ]
-        }
-   
-        // Key phrases response
-        {
-              "documents": [
-                {
-                    "id": "1",
-                    "keyPhrases": ["key phrase 1", ..., "key phrase n"]
-                },
-                ...
-                {
-                    "id": "100",
-                    "keyPhrases": ["key phrase 1", ..., "key phrase n"]
-                },
-            ]
-        }
-   
-        // Languages response
-        {
-              "documents": [
-                {
-                    "id": "1",
-                    "detectedLanguages": [
-                        {
-                            "name": "English",
-                            "iso6391Name": "en",
-                            "score": "1"
-                        }
-                    ]
-                },                
-                ...
-                {
-                    "id": "100",
-                    "detectedLanguages": [
-                        {
-                            "name": "French",
-                            "iso6391Name": "fr",
-                            "score": "0.985"
-                        }
-                    ]
-                }
-            ]
-        }
+3. Set up the request:
 
-## Task 3 - Detect topics in a corpus of text  (The topic detection capability will be deprecated August 24, 2017)
-This API returns the top detected topics for a list of submitted text records. A topic is identified with a key phrase, which can be one or more related words. The API is designed to work well for short, human written text such as reviews and user feedback.
+   + Choose **Post** as the request type.
+   + Paste in the endpoint you copied from the portal page.
+   + Append a resource. In this exercise, start with **/keyPhrases**.
 
-This API requires **a minimum of 100 text records** to be submitted, but is designed to detect topics across hundreds to thousands of records. Any non-English records or records with fewer than three words are discarded and therefore are not assigned to topics. For topic detection, the maximum size of a single document that can be submitted is 30 KB, and the total maximum size of submitted input is 30 MB. Topic detection is rate limited to five submissions every five minutes.
+  Endpoints for each available resource are as follows (your region may vary):
 
-There are two additional **optional** input parameters that can help to improve the quality of results:
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
 
-* **Stop words.**  These words and their close forms (for example, plurals) are excluded from the entire topic detection pipeline. Use this parameter for common words (for example, “issue”, “error” and “user” may be appropriate choices for customer complaints about software). Each string should be a single word.
-* **Stop phrases** - These phrases are excluded from the list of returned topics. Use this to exclude generic topics that you don’t want to see in the results. For example, “Microsoft” and “Azure” would be appropriate choices for topics to exclude. Strings can contain multiple words.
+4. Set three request headers:
 
-Follow these steps to detect topics in your text.
+   + `Ocp-Apim-Subscription-Key` set to your access key, obtained from Azure portal.
+   + `Content-Type` set to application/json.
+   + `Accept` set to application/json.
 
-1. Format the input in JSON. This time, you can define stop words and stop phrases.
-   
-        {
-            "documents": [
-                {
-                    "id": "1",
-                    "text": "First document"
-                },
-                ...
-                {
-                    "id": "100",
-                    "text": "Final document"
-                }
-            ],
-            "stopWords": [
-                "issue", "error", "user"
-            ],
-            "stopPhrases": [
-                "Microsoft", "Azure"
-            ]
-        }
-2. Using the same headers as defined in Task 2, make a **POST** call to the topics endpoint:
-   
-        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/topics
-3. This returns an `operation-location` as the header in the response, where the value is the URL to query for the resulting topics:
-   
-        'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
-4. Query the returned `operation-location` periodically with a **GET** request. Once per minute is recommended.
-   
-        GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
-5. The endpoint returns a response including `{"status": "notStarted"}` before processing, `{"status": "Running"}` while processing and `{"status": "Succeeded"}` with the output once completed. You can then consume the output, which is in the following format (note details like error format and dates have been excluded from this example):
-   
-        {
-            "status": "Succeeded",
-            "operationProcessingResult": {
-                  "topics": [
-                    {
-                        "id": "8b89dd7e-de2b-4a48-94c0-8e7844265196"
-                        "score": "5"
-                        "keyPhrase": "first topic name"
-                    },
-                    ...
-                    {
-                        "id": "359ed9cb-f793-4168-9cde-cd63d24e0d6d"
-                        "score": "3"
-                        "keyPhrase": "final topic name"
-                    }
-                ],
-                  "topicAssignments": [
-                    {
-                        "topicId": "8b89dd7e-de2b-4a48-94c0-8e7844265196",
-                        "documentId": "1",
-                        "distance": "0.354"
-                    },
-                    ...
-                    {
-                        "topicId": "359ed9cb-f793-4168-9cde-cd63d24e0d6d",
-                        "documentId": "55",
-                        "distance": "0.758"
-                    },            
-                ]
-            }
-        }
+  Your request should look similar to the following screenshot:
 
-The successful response for topics from the `operations` endpoint has the following schema:
+   ![Request screenshot with endpoint and headers](../media/text-analytics/postman-request-keyphrase-1.png)
 
+4. Click **Body** and choose **raw** for the format.
+
+   ![Request screenshot with body setttings](../media/text-analytics/postman-request-body-raw.png)
+
+5. Paste in the JSON documents below text for analysis. 
+
+   ```
     {
-            "topics" : [{
-                "id" : "string",
-                "score" : "number",
-                "keyPhrase" : "string"
-            }],
-            "topicAssignments" : [{
-                "documentId" : "string",
-                "topicId" : "string",
-                "distance" : "number"
-            }],
-            "errors" : [{
-                "id" : "string",
-                "message" : "string"
-            }]
+        "documents": [
+            {
+                "language": "en",
+                "id": "1",
+                "text": "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!"
+            },
+            {
+                "language": "en",
+                "id": "2",
+                "text": "Poorly marked trails! I thought we were goners. Worst hike ever."
+            },
+            {
+                "language": "en",
+                "id": "3",
+                "text": "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children."
+            },
+            {
+                "language": "en",
+                "id": "4",
+                "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
+            },                
+            {
+                "language": "en",
+                "id": "5",
+                "text": "Me encanta este sendero. Tiene hermosas vistas y muchos lugares para detenerse y descansar"
+            }
+        ]
+    }
+```
+
+### About the request body
+
+Input rows must be JSON in raw unstructured text. XML is not supported. The schema is simple, consisting of the elements below. You can use the same documents for all three operations: sentiment, key phrase, and language detection.
+
+> [!Note]
+> The Spanish string is included to demonstrate [language detection](#detect-language), described in a following section.
+
++ `id` is required. The data type is string, but in practice document IDs tend to be integers. The system uses this ID to structure the output. Language codes, keywords, and sentiment scores are provided for each ID.
+
++ `text` field contains unstructured raw text, up to 10 KB. For more information about limits, see [Text Analytics Overview > Data limits](overview.md#data-limits). 
+
++ `language` is used only in sentiment analysis and key phrase extraction. It is ignored in language detection. For both sentiment analysis and key phrase extraction, language is an optional parameter but if you do not provide it, the service performs an additional language detection pass. For maximum efficiency, you should always include the language in the request, assuming you know what it is. Refer to the [Text Analytics Overview > Supported Languages](overview.md#supported-languages) for a list of supported languages.
+
+## Key phrase extraction
+
+1. Make sure you set up the request as described in the previous section.
+
+2. Click **Send** to submit the request.
+
+All POST requests return a JSON formatted response with the IDs and detected properties. An example of the output for key phrase extraction is shown below. The keyPhrases algorithm iterates over the entire collection before extracting phrases, using the context of all strings to determine which ones to extract.
+
+```
+{
+    "documents": [
+        {
+            "keyPhrases": [
+                "year",
+                "trail",
+                "trip",
+                "views"
+            ],
+            "id": "1"
+        },
+        {
+            "keyPhrases": [
+                "Worst hike",
+                "trails",
+                "goners"
+            ],
+            "id": "2"
+        },
+        {
+            "keyPhrases": [
+                "family",
+                "trail",
+                "us",
+                "small children"
+            ],
+            "id": "3"
+        },
+        {
+            "keyPhrases": [
+                "spectacular views",
+                "trail",
+                "Worth",
+                "area"
+            ],
+            "id": "4"
+        },
+        {
+            "keyPhrases": [
+                "Tiene hermosas vistas y muchos lugares para detenerse y descansar",
+                "encanta este sendero"
+            ],
+            "id": "5"
         }
+    ],
+    "errors": []
+}
+```
 
-Explanations for each part of this response are as follows:
+### Review the output
 
-**topics**
+Presenting inputs and outputs side by side helps us see how the key phrase extraction algorithm operates. 
 
-| Key | Description |
-|:--- |:--- |
-| id |A unique identifier for each topic. |
-| score |Count of documents assigned to topic. |
-| keyPhrase |A summarizing word or phrase for the topic. |
+The analyzer finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentence.
 
-**topicAssignments**
+| ID | Input | key phrase output | 
+|----|-------|------|
+| 1 | "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!" | "year", "trail", "trip", "views"" |
+| 2 | "Poorly marked trails! I thought we were goners. Worst hike ever." | "Worst hike",  "trails", "goners" |
+| 3 | "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children." | "family", "trail", "us", "small children"|
+| 4 | "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area." | "spectacular views", "trail", "Worth", "area" |
+| 5 | "Tiene hermosas vistas y muchos lugares para detenerse y descansar", "encanta este sendero" | |
 
-| Key | Description |
-|:--- |:--- |
-| documentId |Identifier for the document. Equates to the ID included in the input. |
-| topicId |The topic ID, which the document has been assigned to. |
-| distance |Document-to-topic affiliation score between 0 and 1. The lower a distance score the stronger the topic affiliation is. |
+## Analyze sentiment
 
-**errors**
+Using the same documents, you can edit the existing request to call the sentiment analysis resource and return sentiment scores.
 
-| Key | Description |
-|:--- |:--- |
-| id |Input document unique identifier the error refers to. |
-| message |Error message. |
+1. In the request header, replace `/keyPhrases` with `/sentiment` in the endpoint.
+
+2. Click **Send**.
+
+The response includes a sentiment score between 0.0 (negative) and 1.0 (positive) to indicate relative sentiment.
+
+```
+{
+    "documents": [
+        {
+            "score": 0.989059339865683,
+            "id": "1"
+        },
+        {
+            "score": 0.00626599157674657,
+            "id": "2"
+        },
+        {
+            "score": 0.919842553279166,
+            "id": "3"
+        },
+        {
+            "score": 0.841722489453801,
+            "id": "4"
+        },
+        {
+            "score": 0.5,
+            "id": "5"
+        }
+    ],
+    "errors": []
+}
+```
+
+The API returns a score and ID, but not the input string. The following table shows the original strings so that you can evaluate the score with your own interpretation of positive or negative sentiment.
+
+| ID | Score | Bias | String |
+|----|-------|------|--------|
+| 1 | 0.989059339865683  | positive | "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!" |
+| 2 | 0.00626599157674657  | negative | "Poorly marked trails! I thought we were goners. Worst hike ever." |
+| 3 | 0.919842553279166  | positive | "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children." |
+| 4 | 0.841722489453801  | positive | "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area." |
+| 5 | 0.5 | indeterminate <sup>1</sup> | "Me encanta este sendero. Tiene hermosas vistas y muchos lugares para detenerse y descansar." |
+
+<sup>1</sup> The Spanish string is not parsed for sentiment because the language code is `en` instead of `es`. When a string cannot be analyzed for sentiment, the score is always 0.5 exactly.
+
+<a name="detect-language></a>
+
+## Detect language
+
+Using same documents, you can edit the existing request to call the language detection algorithm.
+
+1.  Replace `/sentiment` with `/languages` in the endpoint.
+
+2. Click **Send**.
+
+The language code input, which was useful for other analyses, is ignored for language detection. Text Analytics operates only on the `text` you provide. Response output for each document includes a friendly language name, an ISO language code, and a score indicating the strength of the analysis. 
+
+Notice that the last document is correctly identified as Spanish, even though the string was tagged as `en`.
+
+            "id": "5",
+            "detectedLanguages": [
+                {
+                    "name": "Spanish",
+                    "iso6391Name": "es",
+                    "score": 1
+                }
+            ]
+
+## Align language codes to text
+
+We purposely specified an incorrect language code for document 5 to show what happens when a language code is wrong and what indeterminate or neutral results look like.
+
+In this last exercise, change the language code for the Spanish string in document 5 from `en` to `es` and resend the request for sentiment analysis and keyword detection. 
+
+Comparing before-and-after results, sentiment score went from 0.5 (neutral) to 1.0 (positive), accurately reflecting the very positive sentiment of the text. For key phrase extraction, notice that the results are more granular, on a level consistent with those returned for the English strings.
+
+        {
+            "keyPhrases": [
+                "lugares",
+                "sendero"
+            ],
+            "id": "5"
+
+The point to take away from this exercise is that you should set the language code correctly, assuming you know it. If you don't know it, use language detection to obtain the language, and then set the code before performing sentiment analysis or key phrase extraction. 
 
 ## Next steps
-Congratulations! You have now completed using text analytics on your data. You may now wish to look into using a tool such as [Power BI](//powerbi.microsoft.com) to visualize your data. You can also use the insights to provide a streaming view of what customers are saying.
 
-To see how Text Analytics capabilities, such as sentiment, can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/en-us/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
++ [Visit the product page](//go.microsoft.com/fwlink/?LinkID=759712) to try out an interactive demo of the APIs. Submit text, choose an analysis, and view results without writing any code.
 
++ [Visit API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
+
++ Learn how to call the [Text Analytics API from PowerApps](https://powerapps.microsoft.com/blog/custom-connectors-and-text-analytics-in-powerapps-part-one/), an application development platform that does not require in-depth programming knowledge to use.
+
++ To see how the Text Analytics API can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
+
+## See also 
+
+ [Welcome to Text Analytics in Microsoft Cognitive Services on Azure](overview.md)  
+ [Frequently asked questions (FAQ)](text-analytics-resource-faq.md)
