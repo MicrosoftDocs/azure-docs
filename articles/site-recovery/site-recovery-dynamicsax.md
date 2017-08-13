@@ -54,7 +54,7 @@ For the purpose of creating this article VMware virtual machines with Dynamics A
 **VMware** | Yes | Yes
 **Physical server** | Yes | Yes
 
-## Enable DR of Dynamics AX application using ASR
+## Enable DR of Dynamics AX application using Azure Site Recovery
 ### Protect your Dynamics AX application
 Each component of the Dynamics AX needs to be protected to enable the complete application replication and recovery. This section covers:
 
@@ -98,7 +98,7 @@ The below snapshot shows the protection status of Dynamics component VMs in ‘V
 ### 4. Configure Networking
 Configure VM Compute and Network Settings
 
-For the AX client and AOS VMs configure network settings in ASR so that the VM networks get attached to the right DR network after failover. Ensure the DR network for these tiers is routable to the SQL tier.
+For the AX client and AOS VMs configure network settings in Azure Site Recovery so that the VM networks get attached to the right DR network after failover. Ensure the DR network for these tiers is routable to the SQL tier.
 
 You can select the VM in the replicated items to configure the network settings as shown in the snapshot below.
 
@@ -111,9 +111,9 @@ You can select the VM in the replicated items to configure the network settings 
 
 ### 5. Creating a recovery plan
 
-You can create a recovery plan in ASR to automate the failover process. Add app tier and web tier in the Recovery Plan. Order them in different groups so that the front-end shutdown before app tier.
+You can create a recovery plan in Azure Site Recovery to automate the failover process. Add app tier and web tier in the Recovery Plan. Order them in different groups so that the front-end shutdown before app tier.
 
-1)	Select the ASR vault in your subscription and click on ‘Recovery Plans’ tile.
+1)	Select the Azure Site Recovery vault in your subscription and click on ‘Recovery Plans’ tile.
 
 2)	Click on ‘+ Recovery plan and specify a name.
 
