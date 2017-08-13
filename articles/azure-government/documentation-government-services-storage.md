@@ -39,6 +39,8 @@ To view the current secondary region of your storage account through the Azure P
 
 ### Storage service availability by Azure Government region
 
+
+
 | Service | USGov Virginia | USGov Iowa | Notes
 | --- | --- | --- | --- |
 | [Blob Storage] (../storage/storage-introduction.md#blob-storage) |GA |GA |
@@ -91,6 +93,21 @@ The following information identifies the Azure Government boundary for Azure Sto
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
 | Data entered, stored, and processed within an Azure Storage product can contain export controlled data. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Azure Storage metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter Regulated/controlled data into the following fields:  Resource groups, Deployment names, Resource names, Resource tags |
+
+## Azure Import/Export
+
+Import/Export is Generally available for Azure Goverenment.
+
+### Variation
+
+Texas/Arizona storage accounts will have drives mailed to Virignia.
+
+### Consideration
+
+Shipping information and other files will leave the boundary.
+
+For DoD L5 data they must use the a DoD region storage acocunt to ensure it is 
+
 
 ## Next Steps
 For supplemental information and updates subscribe to the
