@@ -1,6 +1,6 @@
 ---
-title: Developer Guidance for Conditional Access | Microsoft Docs
-description: 
+title: Developer Guidance for Azure Active Directory Conditional Access | Microsoft Docs
+description: Developer guidance and scenarios for Azure AD conditional access
 services: active-directory
 keywords: 
 author: danieldobalian
@@ -16,9 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ---
 
-# Developer Guidance for Conditional Access
-
-## Introduction
+# Developer Guidance for Azure Active Directory Conditional Access
 
 Azure Active Directory (AD) offers several ways to secure your app and protect a service.  One of these unique features is conditional access.  Conditional access enables developers and enterprise customers to protect services in a multitude of ways including:
 
@@ -32,7 +30,7 @@ In this article, we focus on what conditional access means to developers buildin
 
 We'll dive into the impact of accessing resources you don't have control over that may have conditional access policies applied.  Moreover, we explore the implications of conditional access in the on-behalf-of flow, web apps, accessing the Microsoft Graph, and calling APIs.
 
-## How does conditional access impact an app
+## How does conditional access impact an app?
 
 ### App topologies impacted
 
@@ -73,7 +71,7 @@ Developers can take this challenge and append it onto a new request to Azure AD.
 
 ### Prerequisites
 
-Azure AD conditional access is a feature included in [Azure AD Premium](../active-directory-whatis.md#choose-an-edition).  You can learn more about licensing requirements in the [unlicensed usage report](../active-directory-conditional-access-unlicensed-usage-report.md).  Developers can join the [Microsoft Developer Network](https://msdn.microsoft.com/en-us/dn308572.aspx), which includes a free subscription to the Enterprise Mobility Suite which includes Azure AD Premium.
+Azure AD conditional access is a feature included in [Azure AD Premium](../active-directory-whatis.md#choose-an-edition).  You can learn more about licensing requirements in the [unlicensed usage report](../active-directory-conditional-access-unlicensed-usage-report.md).  Developers can join the [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), which includes a free subscription to the Enterprise Mobility Suite which includes Azure AD Premium.
 
 ### Considerations for specific scenarios
 
