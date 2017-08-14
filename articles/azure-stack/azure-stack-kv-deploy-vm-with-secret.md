@@ -21,7 +21,7 @@ ms.author: sngun
 
 When you need to pass a secure value such as a password during deployment, you can store that value as a secret in an Azure Stack key vault and reference it in the Azure Resource Manager templates. You do not need to manually enter the secret each time you deploy the resources, you can also specify which users or service principals can access the secret. 
 
-In this article, we walk you through the steps required to deploy a simple Windows virtual machine in Azure Stack by retrieving the password that is stored in a Key Vault. Therefore the password is never put in plain text in the template parameter file. You can use these steps either from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
+In this article, we walk you through the steps required to deploy a Windows virtual machine in Azure Stack by retrieving the password that is stored in a Key Vault. Therefore the password is never put in plain text in the template parameter file. You can use these steps either from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ The following steps describe the process required to create a virtual machine by
 
 ## Create a Key Vault secret
 
-The following script creates a key vault, and stores a password in the key vault as a secret. You must use the `-EnabledForDeployment` parameter when you're creating the key vault. This parameter makes sure that the key vault can be referenced from Azure Resource Manager templates.
+The following script creates a key vault, and stores a password in the key vault as a secret. Use the `-EnabledForDeployment` parameter when you're creating the key vault. This parameter makes sure that the key vault can be referenced from Azure Resource Manager templates.
 
 ```powershell
 
@@ -68,7 +68,7 @@ Set-AzureKeyVaultSecret `
 
 ## Update the azuredeploy.parameters.json file
 
-Update the azuredeploy.parameters.json file with the KeyVault URI, secretName,adminUsername of the virtual machines, and other values as per your environment. The following JSON file shows an example of the template parameters file: 
+Update the azuredeploy.parameters.json file with the KeyVault URI, secretName, adminUsername of the virtual machines, and other values as per your environment. The following JSON file shows an example of the template parameters file: 
 
 ```json
 {
