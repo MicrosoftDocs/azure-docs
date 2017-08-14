@@ -174,12 +174,12 @@ Certificates are used by Azure to authenticate VPN clients for Point-to-Site VPN
 
 If you use self-signed certificates, they must be created using specific parameters. You can create a self-signed certificate using the instructions for [PowerShell and Windows 10](vpn-gateway-certificates-point-to-site.md), or, if you don't have Windows 10, you can use [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). It's important that you follow the steps in the instructions when generating self-signed root certificates and client certificates. Otherwise, the certificates you generate will not be compatible with P2S connections and you will receive a connection error.
 
-### <a name="cer"></a>Step 1 - Obtain the .cer file for the root certificate
+### <a name="cer"></a>1. Obtain the .cer file for the root certificate
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
 
-### <a name="generate"></a>Step 2 - Generate a client certificate
+### <a name="generate"></a>2. Generate a client certificate
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 

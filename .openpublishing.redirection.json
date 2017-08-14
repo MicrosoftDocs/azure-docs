@@ -8241,6 +8241,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cloud-services/cloud-services-faq.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-application-and-service-availability-faq",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cloud-services/cloud-services-continuous-delivery-use-vso.md",
             "redirect_url": "/azure/cloud-services/cloud-services-dotnet-continuous-delivery",
             "redirect_document_id": false
@@ -9052,22 +9057,37 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-add-domain-federated.md",
-            "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
+            "redirect_url": "/azure/active-directory/add-custom-domain",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-add-domain.md",
-            "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
+            "redirect_url": "/azure/active-directory/add-custom-domain",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-domains-add-azure-portal.md",
-            "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
+            "redirect_url": "/azure/active-directory/add-custom-domain",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-add-domain-add-users.md",
-            "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
+            "redirect_url": "/azure/active-directory/add-custom-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-branding-localize-azure-portal.md",
+            "redirect_url": "/azure/active-directory/customize-branding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-add-company-branding.md",
+            "redirect_url": "/azure/active-directory/customize-branding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-branding-custom-signon-azure-portal.md",
+            "redirect_url": "/azure/active-directory/customize-branding",
             "redirect_document_id": false
         }
     ]
