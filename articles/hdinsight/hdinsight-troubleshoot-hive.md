@@ -108,7 +108,7 @@ The code in the resolution steps assumes that data paths on the new cluster are 
 - [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## How do I analyze Tez DAG data on a cluster-critical path
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>How do I analyze Tez DAG data on a cluster-critical path
 
 
 ### Resolution steps
