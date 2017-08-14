@@ -93,7 +93,7 @@ The following information identifies the Azure Government boundary for Azure Sto
 
 ## Azure Import/Export
 
-Import/Export is generally available for Azure Government.  All Azure Government regions are supported.  To create Import/Export jobs, see the [Azure Import/Export documentation](../storage/storage-import-export-service).
+Import/Export is generally available for Azure Government.  All Azure Government regions are supported.  To create Import/Export jobs, see the [Azure Import/Export documentation](../storage/storage-import-export-service.md).
 
 ### Variation
 
