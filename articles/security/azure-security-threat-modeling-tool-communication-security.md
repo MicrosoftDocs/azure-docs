@@ -206,38 +206,74 @@ This rule works by returning an HTTP status code of 301 (permanent redirect) whe
 | ----------------------- | ------------ |
 | Component               | Azure Storage | 
 | SDL Phase               | Build |  
-| Applicable Technologies | Generic, Windows Phone |
+| Applicable Technologies | Generic, Windows Mobile |
 | Attributes              | N/A  |
 | References              | [Certificate and Public Key Pinning](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net) |
-| Steps | <p>Certificate pinning defends against Man-In-The-Middle (MITM) attacks. Pinning is the process of associating a host with their expected X509 certificate or public key. Once a certificate or public key is known or seen for a host, the certificate or public key is associated or 'pinned' to the host. </p><p>Thus, when an adversary attempts to do SSL MITM attack, during SSL handshake the key from attacker's server will be different from the pinned certificate's key, and the request will be discarded, thus preventing MITM Certificate pinning can be achieved by implementing ServicePointManager's `ServerCertificateValidationCallback` delegate.</p>|
+| Steps | <p>Certificate pinning defends against TLS-based Man-In-The-Middle (MITM) attacks. Pinning is the process of associating a TLS connection with an expected X.509 certificate or public key. This association can take place after the first successful connection ("trust on first use") or prior to that (which would require pre-loading).</p><p>When an adversary attempts to perform a TLS MITM attack, the client will check to ensure that the received certificate/key matches the expected value. Thus, even if the adversary had an otherwise valid and trusted certificate, the connection would still fail.</p><p>Certificate pinning can be implemented under .NET by implementing either the [HttpWebRequest.ServerCertificateValidationCallback](https://docs.microsoft.com/dotnet/api/system.net.httpwebrequest.servercertificatevalidationcallback) (preferred) or [ServicePointManager.ServerCertificateValidationCallback](https://docs.microsoft.com/dotnet/api/system.net.servicepointmanager.servercertificatevalidationcallback) delegate. In the example below, we validate against a hardcoded public key and algorithm, but in a real-world application, those values should be stored in a secure configuration area and be updated as needed.</p>|
 
 ### Example
 ```C#
-private static String PUB_KEY = "30818902818100C4A06B7B52F8D17DC1CCB47362" +
-    "C64AB799AAE19E245A7559E9CEEC7D8AA4DF07CB0B21FDFD763C63A313A668FE9D764E" +
-    "D913C51A676788DB62AF624F422C2F112C1316922AA5D37823CD9F43D1FC54513D14B2" +
-    "9E36991F08A042C42EAAEEE5FE8E2CB10167174A359CEBF6FACC2C9CA933AD403137EE" +
-    "2C3F4CBED9460129C72B0203010001";
+using System;
+using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography;
 
-public static void Main(string[] args)
+namespace CertificatePinningExample
 {
-  ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
-  WebRequest wr = WebRequest.Create("https://encrypted.google.com/");
-  wr.GetResponse();
-}
+    class CertificatePinningExample
+    {
+        /* Note: In this example, we're hardcoding a the certificate's public key and algorithm for 
+           demonstration purposes. In a real-world application, this should be stored in a secure
+           configuration area that can be updated as needed. */
 
-public static bool PinPublicKey(object sender, X509Certificate certificate, X509Chain chain,
-                                SslPolicyErrors sslPolicyErrors)
-{
-  if (null == certificate)
-    return false;
+        private static readonly string PINNED_ALGORITHM = "RSA";
 
-  String pk = certificate.GetPublicKeyString();
-  if (pk.Equals(PUB_KEY))
-    return true;
+        private static readonly string PINNED_PUBLIC_KEY = "3082010A0282010100B0E75B7CBE56D31658EF79B3A1" +
+            "294D506A88DFCDD603F6EF15E7F5BCBDF32291EC50B2B82BA158E905FE6A83EE044A48258B07FAC3D6356AF09B2" +
+            "3EDAB15D00507B70DB08DB9A20C7D1201417B3071A346D663A241061C151B6EC5B5B4ECCCDCDBEA24F051962809" +
+            "FEC499BF2D093C06E3BDA7D0BB83CDC1C2C6660B8ECB2EA30A685ADE2DC83C88314010FFC7F4F0F895EDDBE5C02" +
+            "ABF78E50B708E0A0EB984A9AA536BCE61A0C31DB95425C6FEE5A564B158EE7C4F0693C439AE010EF83CA8155750" +
+            "09B17537C29F86071E5DD8CA50EBD8A409494F479B07574D83EDCE6F68A8F7D40447471D05BC3F5EAD7862FA748" +
+            "EA3C92A60A128344B1CEF7A0B0D94E50203010001";
 
-  // Bad dog
-  return false;
+
+        public static void Main(string[] args)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://azure.microsoft.com");
+            request.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) =>
+            {
+                if (certificate == null || sslPolicyErrors != SslPolicyErrors.None)
+                {
+                    // Error getting certificate or the certificate failed basic validation
+                    return false;
+                }
+
+                var targetKeyAlgorithm = new Oid(certificate.GetKeyAlgorithm()).FriendlyName;
+                var targetPublicKey = certificate.GetPublicKeyString();
+                
+                if (targetKeyAlgorithm == PINNED_ALGORITHM &&
+                    targetPublicKey == PINNED_PUBLIC_KEY)
+                {
+                    // Success, the certificate matches the pinned value.
+                    return true;
+                }
+                // Reject, either the key or the algorithm does not match the expected value.
+                return false;
+            };
+
+            try
+            {
+                var response = (HttpWebResponse)request.GetResponse();
+                Console.WriteLine($"Success, HTTP status code: {response.StatusCode}");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Failure, {ex.Message}");
+            }
+            Console.WriteLine("Press any key to end.");
+            Console.ReadKey();
+        }
+    }
 }
 ```
 

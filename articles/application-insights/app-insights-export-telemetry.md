@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Export telemetry from Application Insights

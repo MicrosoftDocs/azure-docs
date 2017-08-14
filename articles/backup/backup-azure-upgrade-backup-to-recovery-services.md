@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
-ms.author: markgal;arunak
+ms.author: sogup;markgal;arunak
 
 ---
 # Upgrade a Backup vault to a Recovery Services vault
