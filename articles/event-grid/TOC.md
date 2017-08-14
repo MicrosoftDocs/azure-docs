@@ -5,11 +5,10 @@
 ## [Create and route custom events](custom-event-quickstart.md)
 
 # Tutorials
-## [Resize uploaded images]()
 ## [Add tags during VM creation]()
-## [Enable app isolation]()
 
 # Concepts
+## [Event Grid terms](concepts.md)
 ## [Security and authentication](security-authentication.md)
 ## [Delivery and retry](delivery-and-retry.md)
 
