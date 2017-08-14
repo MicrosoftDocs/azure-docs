@@ -7,7 +7,7 @@ To connect to the SQL Server Database Engine from the Internet, consider creatin
 
 To create a DNS Label, first select **Virtual machines** in the portal. Select your SQL Server VM to bring up its properties.
 
-1. In the virtual machine blade, select your **Public IP address**.
+1. In the virtual machine overview, select your **Public IP address**.
 
     ![public ip address](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
 

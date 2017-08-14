@@ -50,9 +50,9 @@ Your options for connectivity include:
 
 The following sections explain the **Public** and **Private** options in more detail.
 
-### Connect to SQL Server over the Internet
+## Connect to SQL Server over the Internet
 
-If you want to connect to your SQL Server database engine from the Internet, select **Public** for your the **SQL connectivity** type in the portal during provisioning. The portal automatically does the following steps:
+If you want to connect to your SQL Server database engine from the Internet, select **Public** for the **SQL connectivity** type in the portal during provisioning. The portal automatically does the following steps:
 
 * Enables the TCP/IP protocol for SQL Server.
 * Configures a firewall rule to open the SQL Server TCP port (default 1433).
@@ -60,7 +60,7 @@ If you want to connect to your SQL Server database engine from the Internet, sel
 * Configures the network security group on the VM to all TCP traffic on the SQL Server port.
 
 > [!IMPORTANT]
-> The virtual machine images for the SQL Server Developer and Express editions do not automatically enable the TCP/IP protocol. For Developer and Express editions, you must use SQL Server Configuration Manager to [manually enable the TCP/IP protocol](#configure-sql-server-to-listen-on-the-tcp-protocol) after creating the VM.
+> The virtual machine images for the SQL Server Developer and Express editions do not automatically enable the TCP/IP protocol. For Developer and Express editions, you must use SQL Server Configuration Manager to [manually enable the TCP/IP protocol](#manualtcp) after creating the VM.
 
 Any client with internet access can connect to the SQL Server instance by specifying either the public IP address of the virtual machine or any DNS label assigned to that IP address. If the SQL Server port is 1433, you do not need to specify it in the connection string. The following connection string connects to a SQL VM with a DNS label of `sqlvmlabel.eastus.cloudapp.azure.com` using SQL Authentication (you could also use the public IP address).
 
@@ -74,10 +74,10 @@ Although this enables connectivity for clients over the internet, this does not 
 Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 ```
 
-> [!IMPORTANT]
+> [!NOTE]
 > When you query SQL Server in a VM over the internet, all outgoing data from the Azure datacenter is subject to normal [pricing on outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-### Connect to SQL Server in the same virtual network
+## Connect to SQL Server within a virtual network
 
 When you choose **Private** for the **SQL connectivity** type in the portal, Azure configures most of the settings identical to **Public**. The one difference is that there is no network security group rule to allow outside traffic on the SQL Server port (default 1433).
 
@@ -86,11 +86,13 @@ When you choose **Private** for the **SQL connectivity** type in the portal, Azu
 
 Private connectivity is often used in conjunction with [Virtual Network](../../../virtual-network/virtual-networks-overview.md), which enables several scenarios. You can connect VMs in the same virtual network, even if those VMs exist in different resource groups. And with a [site-to-site VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md), you can create a hybrid architecture that connects VMs with on-premises networks and machines.
 
-Virtual networks also enables you to join your Azure VMs to a domain. This is the only way to use Windows Authentication to SQL Server. The other connection scenarios require SQL Authentication with user names and passwords.
+Virtual networks also enable     you to join your Azure VMs to a domain. This is the only way to use Windows Authentication to SQL Server. The other connection scenarios require SQL Authentication with user names and passwords.
 
 Assuming that you have configured DNS in your virtual network, you can connect to your SQL Server instance by specifying the SQL Server VM computer name in the connection string. The following example also assumes that Windows Authentication has also been configured and that the user has been granted access to the SQL Server instance.
 
-    "Server=mysqlvm;Integrated Security=true"
+```
+Server=mysqlvm;Integrated Security=true
+```
 
 ## <a id="change"></a> Change SQL connectivity settings
 
@@ -110,7 +112,7 @@ You can change the connectivity settings for your SQL Server virtual machine in 
 
    ![SQL VM update notification](./media/virtual-machines-windows-sql-connect/sql-vm-updating-notification.png)
 
-## Enable TCP/IP for Developer and Express editions
+## <a id="manualtcp"></a> Enable TCP/IP for Developer and Express editions
 
 When changing SQL Server connectivity settings, Azure does not automatically enable the TCP/IP protocol for SQL Server Developer and Express editions. The steps below explain how to manually enable TCP/IP so that you can connect remotely by IP address.
 

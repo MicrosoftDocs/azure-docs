@@ -40,17 +40,17 @@ In this tutorial, you will:
    > [!NOTE]
    > If you do not have an Azure account, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-2. On the Azure portal, click **New**. The portal opens the **New** blade.
+2. On the Azure portal, click **New**. The portal opens the **New** window.
 
-3. In the **New** blade, click **Compute** and then click **See all**.
+3. In the **New** window, click **Compute** and then click **See all**.
 
-   ![Azure new compute blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
+   ![New Compute window](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
 4. In the search field, type **SQL Server**, and press ENTER.
 
-5. Then click the **Filter** icon and select **Microsoft** for the publisher. Click **Done** on the filter blade to filter the results to Microsoft published SQL Server images.
+5. Then click the **Filter** icon and select **Microsoft** for the publisher. Click **Done** on the filter window to filter the results to Microsoft published SQL Server images.
 
-   ![Azure Virtual Machines Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
+   ![Azure Virtual Machines window](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
 5. Review the available SQL Server images. Each image identifies a SQL Server version and an operating system.
 
@@ -71,7 +71,7 @@ In this tutorial, you will:
     ![Create SQL VM with Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
 ## Configure the VM
-There are five blades for configuring a SQL Server virtual machine.
+There are five windows for configuring a SQL Server virtual machine.
 
 | Step | Description |
 | --- | --- |
@@ -83,7 +83,7 @@ There are five blades for configuring a SQL Server virtual machine.
 
 ## 1. Configure basic settings
 
-On the **Basics** blade, provide the following information:
+On the **Basics** window, provide the following information:
 
 * Enter a unique virtual machine **Name**.
 
@@ -104,14 +104,14 @@ On the **Basics** blade, provide the following information:
 
 * Click **OK** to save the settings.
 
-    ![SQL Basics Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
+    ![SQL Basics window](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## 2. Choose virtual machine size
 
-On the **Size** step, choose a virtual machine size in the **Choose a size** blade. The blade initially displays recommended machine sizes based on the image you selected.
+On the **Size** step, choose a virtual machine size in the **Choose a size** window. The window initially displays recommended machine sizes based on the image you selected.
 
 > [!IMPORTANT]
-> The estimated monthly cost displayed on the **Choose a size** blade does not include SQL Server licensing costs. This is the cost of the VM alone. For the Express and Developer editions of SQL Server, this is the total estimated cost. For other editions, see the [Windows Virtual Machines pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and select your target edition of SQL Server. Also see the [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
+> The estimated monthly cost displayed on the **Choose a size** window does not include SQL Server licensing costs. This is the cost of the VM alone. For the Express and Developer editions of SQL Server, this is the total estimated cost. For other editions, see the [Windows Virtual Machines pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and select your target edition of SQL Server. Also see the [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 ![SQL VM Size Options](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
@@ -124,7 +124,7 @@ Choose your machine size, and then click **Select**.
 
 ## 3. Configure optional features
 
-On the **Settings** blade, configure Azure storage, networking, and monitoring for the virtual machine.
+On the **Settings** window, configure Azure storage, networking, and monitoring for the virtual machine.
 
 * Under **Storage**, select **Yes** under use **Managed Disks**.
 
@@ -140,7 +140,7 @@ On the **Settings** blade, configure Azure storage, networking, and monitoring f
 When you are done configuring these settings, click **OK**.
 
 ## 4. Configure SQL server settings
-On the **SQL Server settings** blade, configure specific settings and optimizations for SQL Server. The settings that you can configure for SQL Server include the following.
+On the **SQL Server settings** window, configure specific settings and optimizations for SQL Server. The settings that you can configure for SQL Server include the following.
 
 | Setting |
 | --- |
@@ -253,7 +253,7 @@ For more information, see [Configure Azure Key Vault Integration for SQL Server 
 
 ### R services
 
-You have the option to enable [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). This enables you to use advanced analytics with SQL Server 2016. Click **Enable** on the **SQL Server Settings** blade.
+You have the option to enable [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). This enables you to use advanced analytics with SQL Server 2016. Click **Enable** on the **SQL Server Settings** window.
 
 > [!NOTE]
 > For SQL Server 2016 Developer Edition, this option is incorrectly disabled by the portal. For Developer edition, you must enable R Services manually after creating your VM.
@@ -264,9 +264,9 @@ When you are finished configuring SQL Server settings, click **OK**.
 
 ## 5. Review the summary
 
-On the **Summary** blade, review the summary and click **Purchase** to create SQL Server, resource group, and resources specified for this VM.
+On the **Summary** window, review the summary and click **Purchase** to create SQL Server, resource group, and resources specified for this VM.
 
-You can monitor the deployment from the azure portal. The **Notifications** button at the top of the screen shows basic status of the deployment.
+You can monitor the deployment from the Azure portal. The **Notifications** button at the top of the screen shows basic status of the deployment.
 
 > [!NOTE]
 > To provide you with an idea on deployment times, I deployed a SQL VM to the East US region with default settings. This test deployment took a total of 26 minutes to complete. But you might experience a faster or slower deployment time based on your region and selected settings.
