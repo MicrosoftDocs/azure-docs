@@ -101,7 +101,7 @@ After you get your services running, regularly check how much they're costing yo
 
 5. Additionally, you can click a resource to see spend history and how much the resource costs each day.
 
-    ![Screenshot of the spend history view in Azure portal](./media/billing-getting-started/spend-history.PNG)
+    ![Screenshot of the spend history view in Azure portal](./media/billing-getting-started/costhistory.PNG)
 
 We recommend that you check the costs you see with the estimates you saw when you selected the services. If the costs wildly differ from estimates, double check the pricing plan (A1 vs A0 VM, for example) that you've selected for your resources. 
 
