@@ -57,11 +57,18 @@ An ASE inbound access dependency is:
 
 | Use | From | To |
 |-----|------|----|
-| Management | Internet | ASE subnet: 454, 455 |
+| Management | App Service management addresses | ASE subnet: 454, 455 |
 |  ASE internal communication | ASE subnet: All ports | ASE subnet: All ports
-|  Allow Azure load balancer inbound | Azure load balancer | Any
+|  Allow Azure load balancer inbound | Azure load balancer | ASE subnet: All ports
+|  App assigned IP addresses | App assigned addresses | ASE subnet: All ports
 
 The inbound traffic provides command and control of the ASE in addition to system monitoring. The source IPs for this traffic aren't constant. The network security configuration needs to allow access from all IPs on ports 454 and 455.
+
+Within the ASE subnet there are many ports used for internal component communication and they can change. 
+
+For the communication between the Azure load balancer and the ASE subnet the minimum ports that need to be open are 454, 455 and 16001. The 16001 port is used for keep alive traffic between the load balancer and the ASE. If you are using an ILB ASE then you can lock traffic down to just the 454, 455, 16001 ports.  If you are using an External ASE then you need to allow all ports unless you are not using app assigned IP addresses.  When an IP is assigned to a specific app then the load balancer will use ports that are not known of in advance to communicate HTTP and HTTPS traffic to the ASE.
+
+If you are using app assigned IP addresses you need to allow traffic from the IPs assigned to your apps to the ASE subnet.
 
 For outbound access, an ASE depends on multiple external systems. Those system dependencies are defined with DNS names and don't map to a fixed set of IP addresses. Thus, the ASE requires outbound access from the ASE subnet to all external IPs across a variety of ports. An ASE has the following outbound dependencies:
 
