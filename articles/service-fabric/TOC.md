@@ -138,6 +138,7 @@
 #### [Resource governance for containers and services](service-fabric-resource-governance.md)
 #### [Volume and logging drivers](service-fabric-containers-volume-logging-drivers.md)
 #### [Services inside containers](service-fabric-services-inside-containers.md)
+#### [Container networking modes](service-fabric-networking-modes.md)
 
 ### Build a Reliable Services service
 #### [Overview](service-fabric-reliable-services-introduction.md)
