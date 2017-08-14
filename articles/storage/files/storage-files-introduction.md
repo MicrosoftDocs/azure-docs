@@ -30,11 +30,11 @@ Azure File storage offers network file shares in the cloud using the industry st
 
 Azure File storage allows you to replace Windows Server, Linux, or NAS-based file servers hosted on-premises or in the cloud with an OS-free cloud file share. This has the following benefits:
 
-* **Shared access:**. Azure File shares support the industry standard SMB protocol, meaning you can seamlessly replace your on-premises file shares with Azure File shares without worrying about application compatibility. Being able to access a file share from multiple machines and applications/instances is a significant advantage with Azure File storage.
+* **Shared access**. Azure File shares support the industry standard SMB protocol, meaning you can seamlessly replace your on-premises file shares with Azure File shares without worrying about application compatibility. Being able to access a file share from multiple machines and applications/instances is a significant advantage with Azure File storage.
 
 * **Fully Managed**. Azure File shares can be created without the need to manage hardware or an OS. This means you don't have to deal with patching the server OS with critical security upgrades or replacing faulty hard disks.
 
-* **Scripting and Tooling**. PowerShell cmdlets and Azure CLI can be used to create, mount, and manage Azure File shares as part of the administration of Azure applications.You can create and manage Azure File shares using the [Azure Portal]()https://portal.azure.com) and the [Azure Storage Explorer](https://storageexplorer.com). 
+* **Scripting and Tooling**. PowerShell cmdlets and Azure CLI can be used to create, mount, and manage Azure File shares as part of the administration of Azure applications. You can create and manage Azure File shares using the [Azure Portal](https://portal.azure.com) and the [Azure Storage Explorer](https://storageexplorer.com). 
 
 * **Resiliency**. Azure File storage has been built from the ground up to be always available. Replacing on-premises file shares with Azure File storage means you no longer have to wake up to deal with local power outages or network issues. 
 
