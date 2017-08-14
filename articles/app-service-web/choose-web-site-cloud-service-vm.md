@@ -12,7 +12,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
@@ -62,7 +62,7 @@ The following table compares the capabilities of App Service, Cloud Services, Vi
 ## <a name="scenarios"></a>Scenarios and recommendations
 Here are some common application scenarios with recommendations as to which Azure web hosting option might be most appropriate for each.
 
-* [I need a web front end with background processing and database backend to run business applications integrated with on premise assets.](#onprem)
+* [I need a web front end with background processing and database backend to run business applications integrated with on-premises assets.](#onprem)
 * [I need a reliable way to host my corporate website that scales well and offers global reach.](#corp)
 * [I have an IIS6 application running on Windows Server 2003.](#iis6)
 * [I'm a small business owner, and I need an inexpensive way to host my site but with future growth in mind.](#smallbusiness)
@@ -73,7 +73,7 @@ Here are some common application scenarios with recommendations as to which Azur
 * [I have a line-of-business application that needs to connect to the corporate network.](#lob)
 * [I want to host a REST API or web service for mobile clients.](#mobile)
 
-### <a id="onprem"></a> I need a web front end with background processing and database backend to run business applications integrated with on premise assets.
+### <a id="onprem"></a> I need a web front end with background processing and database backend to run business applications integrated with on-premises assets.
 Azure App Service is a great solution for complex business applications. It lets you develop apps that scale automatically on a load balanced platform, are secured with Active Directory, and connect to your on-premises resources. It makes managing those apps easy through a world-class portal and APIs, and allows you to gain insight into how customers are using them with app insight tools. The [Webjobs][Webjobs] feature lets you run background processes and tasks as part of your web tier, while hybrid connectivity and VNET features make it easy to connect back to on-premises resources. Azure App Service provides three 9's SLA for web apps and enables you to:
 
 * Run your applications reliably on a self-healing, auto-patching cloud platform.
@@ -96,7 +96,7 @@ Azure App Service is a great solution for hosting corporate websites. It enables
 Azure App Service makes it easy to avoid the infrastructure costs associated with migrating older IIS6 applications. Microsoft has created [easy to use migration tools and detailed migration guidance](https://www.movemetowebsites.net/) that enable you to check compatibility and identify any changes that need to be made. Integration with Visual Studio, TFS, and common CMS tools makes it easy to deploy IIS6 applications directly to the cloud. Once deployed, the Azure Portal provides robust management tools that enable you to scale down to manage costs and up to meet demand as necessary. With the migration tool you can:
 
 * Quickly and easily migrate your legacy Windows Server 2003 web application to the cloud.
-* Opt to leave your attached SQL database on-premise to create a hybrid application.
+* Opt to leave your attached SQL database on-premises to create a hybrid application.
 * Automatically move your SQL database along with your legacy application.
 
 ### <a id="smallbusiness"></a>I'm a small business owner, and I need an inexpensive way to host my site but with future growth in mind.

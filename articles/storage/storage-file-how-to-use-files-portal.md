@@ -7,7 +7,7 @@ author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 
-ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
+ms.assetid: 
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -17,8 +17,8 @@ ms.date: 05/27/2017
 ms.author: renash
 ---
 
-# How to use File Storage from the Azure Portal
-The [Azure portal](https://portal.azure.com) provides a user interface for managing Azure File Storage. You can perform the following actions from your web browser:
+# How to use Azure File storage from the Azure Portal
+The [Azure portal](https://portal.azure.com) provides a user interface for managing Azure File storage. You can perform the following actions from your web browser:
 
 * Create a File Share
 * Upload and download files to and from your file share.
@@ -44,7 +44,7 @@ The [Azure portal](https://portal.azure.com) provides a user interface for manag
 
     ![Screenshot that shows how to create file share in the portal](media/storage-file-how-to-use-files-portal/use-files-portal-create-file-share4.png)
 
-6. Fill in the file share name and the size of the file share (up to 5120 GB) to create your first file share. Once the file share has been created, you can mount it from any file system that supports SMB 2.1 or SMB 3.0. You could click on **Quota** on the file share to change the size of the file up to 5120 GB. Please refer to [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the storage cost of using Azure File Storage.
+6. Fill in the file share name and the size of the file share (up to 5120 GB) to create your first file share. Once the file share has been created, you can mount it from any file system that supports SMB 2.1 or SMB 3.0. You could click on **Quota** on the file share to change the size of the file up to 5120 GB. Please refer to [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the storage cost of using Azure File storage.
 
     ![Screenshot that shows how to create file share in the portal](media/storage-file-how-to-use-files-portal/use-files-portal-create-file-share5.png)
 
@@ -58,7 +58,7 @@ The [Azure portal](https://portal.azure.com) provides a user interface for manag
     ![Screenshot that shows how to upload files from the portal](media/storage-file-how-to-use-files-portal/use-files-portal-upload-file2.png)
 
 ## Connect to file share
--  Click **Connect** to get the command line for mounting the file share from Windows and Linux. For Linux users, you can also refer to [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md) for more mounting instructions for other Linux distros.
+-  Click **Connect** to get the command line for mounting the file share from Windows and Linux. For Linux users, you can also refer to [How to use Azure File storage with Linux](storage-how-to-use-files-linux.md) for more mounting instructions for other Linux distributions.
 
     ![Screenshot that shows how to mount the file share](media/storage-file-how-to-use-files-portal/use-files-portal-connect.png)
 -  You can copy the commands for mounting file share on Windows or Linux and run it from you Azure VM or on-premises machine.

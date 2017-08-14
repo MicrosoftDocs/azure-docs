@@ -19,6 +19,7 @@
 
 ## Prevent
 ### [Set security policies](security-center-policies.md)
+### [Just in time access](security-center-just-in-time.md)
 ### [Implement security recommendations](security-center-recommendations.md)
 
 ### [Application recommendations](security-center-application-recommendations.md)
@@ -56,9 +57,10 @@
 ## Detect and Respond
 ### [Detection capabilities](security-center-detection-capabilities.md)
 ### [Manage security alerts](security-center-managing-and-responding-alerts.md)
+### [Types of security alerts](security-center-alerts-type.md)
+### [Alert validation](security-center-alert-validation.md)
 ### [Manage security incidents](security-center-incident.md)
 ### [Azure log integration](security-center-integrating-alerts-with-log-integration.md)
-### [Types of security alerts](security-center-alerts-type.md)
 ### [Threat intelligence report](security-center-threat-report.md)
 
 ## Troubleshoot
@@ -71,9 +73,10 @@
 ## [Azure Security](/azure/security/)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Azure Security, Privacy, & Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
 ## [Pricing](security-center-pricing.md)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service overview](https://azure.microsoft.com/services/security-center/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=security-center)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)

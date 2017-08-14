@@ -205,6 +205,10 @@ The following differences apply to Table storage in the emulator:
 There are no differences specific to Queue storage in the emulator.
 
 ## Storage emulator release notes
+### Version 5.2
+* The storage emulator now supports version 2017-04-17 of the storage services on Blob, Queue, and Table service endpoints.
+* Fixed a bug where table property values were not being properly encoded.
+
 ### Version 5.1
 * Fixed a bug where the storage emulator was returning the `DataServiceVersion` header in some responses where the service was not.
 

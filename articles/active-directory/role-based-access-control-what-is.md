@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: ''
 
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
@@ -13,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2017
+ms.date: 07/13/2017
 ms.author: kgremban
-
+ms.reviewer: rqureshi
 ---
 # Get started with Role-Based Access Control in the Azure portal
 Security-oriented companies should focus on giving employees the exact permissions they need. Too many permissions can expose an account to attackers. Too few permissions means that employees can't get their work done efficiently. Azure Role-Based Access Control (RBAC) helps address this problem by offering fine-grained access management for Azure.
@@ -43,7 +42,7 @@ The rest of the RBAC roles in Azure allow management of specific Azure resources
 [RBAC built-in roles](role-based-access-built-in-roles.md) lists the roles available in Azure. It specifies the operations and scope that each built-in role grants to users. If you're looking to define your own roles for even more control, see how to build [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md).
 
 ## Resource hierarchy and access inheritance
-* Each **subscription** in Azure belongs to only one directory.
+* Each **subscription** in Azure belongs to only one directory. (But each directory can have more than one subscription.)
 * Each **resource group** belongs to only one subscription.
 * Each **resource** belongs to only one resource group.
 

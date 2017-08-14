@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/03/2017
+ms.date: 07/10/2017
 ms.author: alkohli
 
 ---
@@ -169,7 +169,7 @@ After you enable remote management on the cloud appliance, use Windows PowerShel
 > [!WARNING]
 > **For enhanced security, we strongly recommend that you use HTTPS when connecting to the endpoints and then delete the endpoints after you have completed your PowerShell remote session.**
 
-You must follow the procedures in [Connecting remotely to your StorSimple device](storsimple-remote-connect.md) to set up remoting for your cloud appliance.
+You must follow the procedures in [Connecting remotely to your StorSimple device](storsimple-8000-remote-connect.md) to set up remoting for your cloud appliance.
 
 ## Connect directly to the cloud appliance
 

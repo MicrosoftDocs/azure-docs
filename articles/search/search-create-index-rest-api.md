@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Search index using the REST API | Microsoft Docs
+title: "Create an index (REST API - Azure Search) | Microsoft Docs"
 description: Create an index in code using the Azure Search HTTP REST API.
 services: search
 documentationcenter: ''

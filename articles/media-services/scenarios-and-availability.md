@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/07/2017
+ms.date: 07/10/2017
 ms.author: juliako;anilmur
 
 ---
@@ -179,7 +179,7 @@ Media Services customers can choose either a **Standard** streaming endpoint or 
 
 #### Availability
 
-Available in all datacenters except: Brazil South, India West, India South, and India Central. 
+Available in all datacenters except: Germany, Brazil South, India West, India South, and India Central. 
 
 ### Encoding media processors
 
@@ -208,7 +208,7 @@ Media Analytics is a collection of speech and vision components that makes it ea
 |Azure Media Redactor|Preview|All|
 |Azure Media Stabilizer|Preview|All|
 |Azure Media Video Thumbnails|Preview|All|
-|Media Indexer v2|Preview|All except China and Federal Government region|
+|Azure Media Indexer 2|Preview|All except China and Federal Government region|
 
 ### Protection
 
