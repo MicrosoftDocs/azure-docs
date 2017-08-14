@@ -53,7 +53,7 @@ A potential cause for timeout issues when you use the `hbck` command might be th
 5. In the Ambari UI, restart the Active HBase Master service.
 6. Run the `hbase hbck -fixAssignments` command again.
 
-## How do I force disable HDFS safe mode in a cluster
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>How do I force-disable HDFS safe mode in a cluster
 
 ### Issue
 
