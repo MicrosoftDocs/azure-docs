@@ -238,11 +238,6 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Custom domain names
 #### [Overview](active-directory-add-domain-concepts.md)
-#### Add your domain name
-##### [Azure portal](active-directory-domains-add-azure-portal.md)
-##### [Classic portal](active-directory-add-domain.md)
-##### [With AD FS](active-directory-add-domain-federated.md)
-#### [Assign users](active-directory-add-domain-add-users.md)
 #### Manage domain names
 ##### [Azure portal](active-directory-domains-manage-azure-portal.md)
 ##### [Classic portal](active-directory-add-manage-domain-names.md)
@@ -269,6 +264,7 @@
 #### [Self-service sign-up portal sample](active-directory-b2b-self-service-portal.md)
 #### [Invitation email](active-directory-b2b-invitation-email.md)
 #### [Invitation redemption](active-directory-b2b-redemption-experience.md)
+#### [Add B2B users without an invitation](active-directory-b2b-add-user-without-invite.md)
 #### [Conditional access for B2B](active-directory-b2b-mfa-instructions.md)
 #### [B2B sharing policies](active-directory-b2b-delegate-invitations.md)
 #### [Add a B2B user to a role](active-directory-b2b-add-guest-to-role.md)
