@@ -17,6 +17,7 @@ ms.date: 05/08/2017
 ms.author: curtand
 
 ms.custom: H1Hack27Feb2017
+ms.reviewer: asteen
 
 ---
 # Reset a password for a user in the Azure classic portal
