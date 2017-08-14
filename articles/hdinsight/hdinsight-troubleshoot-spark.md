@@ -27,9 +27,9 @@ Learn about the top issues and their resolutions when working with Apache Spark 
 
 ### Resolution steps
 
-The configuration values for this procedure were previously set in HDInsight. To determine which Spark configurations need to be set and to what values, see [Why did my Spark application fail with an OutOfMemoryError?](#why-did-my-spark-application-fail-with-an-outofmemoryerror) 
+The configuration values for this procedure were previously set in HDInsight. To determine which Spark configurations need to be set and to what values, see [What causes a Spark application OutofMemoryError exception](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
-1. Select **Spark2** from the list of clusters.
+1. In the list of clusters, select **Spark2**.
 
     ![Select cluster from list](media/hdinsight-troubleshoot-spark/update-config-1.png)
 
@@ -41,11 +41,11 @@ The configuration values for this procedure were previously set in HDInsight. To
 
     ![Select custom-spark-defaults](media/hdinsight-troubleshoot-spark/update-config-3.png)
 
-4. Look for the value setting that you need to adjust, such as **spark.executor.memory**. In this case, the value of 4608m is too high.
+4. Look for the value setting that you need to adjust, such as **spark.executor.memory**. In this case, the value of **4608m** is too high.
 
     ![Select the spark.executor.memory field](media/hdinsight-troubleshoot-spark/update-config-4.png)
 
-5. Set the value to the recommended setting. The value 2048m is recommended for this setting.
+5. Set the value to the recommended setting. The value **2048m** is recommended for this setting.
 
     ![Change value to 2048m](media/hdinsight-troubleshoot-spark/update-config-5.png)
 
@@ -53,7 +53,7 @@ The configuration values for this procedure were previously set in HDInsight. To
 
     ![Save the setting and configuration](media/hdinsight-troubleshoot-spark/update-config-6a.png)
 
-    You are notified if any configurations need attention. Take note of them, and then select **Proceed Anyway**. 
+    You are notified if any configurations need attention. Note the items, and then select **Proceed Anyway**. 
 
     ![Select Proceed Anyway](media/hdinsight-troubleshoot-spark/update-config-6b.png)
 
@@ -73,32 +73,32 @@ The configuration values for this procedure were previously set in HDInsight. To
 
     ![Review running processes](media/hdinsight-troubleshoot-spark/update-config-7c.png)
 
-8. You also can add configurations. In the list of configurations, select **Custom-spark2-defaults** as in step 3, and then select **Add Property**.
+8. You can add configurations. In the list of configurations, select **Custom-spark2-defaults**, and then select **Add Property**.
 
     ![Select add property](media/hdinsight-troubleshoot-spark/update-config-8.png)
 
 9. Define a new property. You can define a single property by using a dialog box for specific settings such as the data type. Or, you can define multiple properties by using one definition per line. 
 
-    In this example, the **spark.driver.memory** property is defined with a value of 4g.
+    In this example, the **spark.driver.memory** property is defined with a value of **4g**.
 
     ![Define new property](media/hdinsight-troubleshoot-spark/update-config-9.png)
 
 10. Save the configuration, and then restart the service as described in steps 6 and 7.
 
-These changes are cluster-wide but can be overridden at actual Spark job submission time.
+These changes are cluster-wide but can be overridden when you submit the Spark job.
 
 ### Additional reading
 
 [Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## How do I configure a Spark application through a Jupyter notebook on clusters
+## How do I configure a Spark application by using a Jupyter notebook on clusters
 
 ### Resolution steps
 
-1. To determine which Spark configurations need to be set and to what values, see the topic [Why did my Spark application fail with OutOfMemoryError?](#spark-application-failure-outofmemory).
+1. To determine which Spark configurations need to be set and to what values, see [What causes a Spark application OutofMemoryError exception](#what-causes-a-spark-application-outofmemoryerror-exception).
 
-2. Specify the Spark configurations in valid JSON format in the first cell of the Jupyter notebook after the `%%configure` directive. Change the actual values as necessary:
+2. In the first cell of the Jupyter notebook, after the `%%configure` directive, specify the Spark configurations in valid JSON format. Change the actual values as necessary:
 
     ![Add a configuration](media/hdinsight-troubleshoot-spark/add-configuration-cell.png)
 
@@ -107,11 +107,11 @@ These changes are cluster-wide but can be overridden at actual Spark job submiss
 [Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## How do I configure a Spark application through Livy on clusters
+## How do I configure a Spark application by using Livy on clusters
 
 ### Resolution steps
 
-1. To determine which Spark configurations need to be set and to what values, see to the topic [Why did my Spark application fail with OutOfMemoryError?](#spark-application-failure-outofmemory). 
+1. To determine which Spark configurations need to be set and to what values, see [What causes a Spark application OutofMemoryError exception](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
 2. Submit the Spark application to Livy by using a REST client like cURL. Use a command similar to the following. Change the actual values as necessary:
 
@@ -124,11 +124,11 @@ These changes are cluster-wide but can be overridden at actual Spark job submiss
 [Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## How do I configure a Spark application through spark-submit on clusters
+## How do I configure a Spark application by using spark-submit on clusters
 
 ### Resolution steps
 
-1. To determine which Spark configurations need to be set and to what values, see the topic [Why did my Spark application fail with OutOfMemoryError?](#spark-application-failure-outofmemory).
+1. To determine which Spark configurations need to be set and to what values, see [What causes a Spark application OutofMemoryError exception](#what-causes-a-spark-application-outofmemoryerror-exception).
 
 2. Launch spark-shell by using a command similar to the following. Change the actual value of the configurations as necessary: 
 
@@ -145,7 +145,8 @@ These changes are cluster-wide but can be overridden at actual Spark job submiss
 
 ### Detailed description
 
-The Spark application fails, with the following types of uncaught exceptions.  
+The Spark application fails, with the following types of uncaught exceptions:
+
 ```apache
 ERROR Executor: Exception in task 7.0 in stage 6.0 (TID 439) 
 
@@ -196,7 +197,7 @@ The most likely cause of this exception is that not enough heap memory is alloca
 
 2. Make sure that the HDInsight cluster that you're going to use has enough resources in terms of memory and cores to accommodate the Spark application. You can determine this by viewing the cluster metrics section of the YARN UI for the values of **Memory Used** vs. **Memory Total**, and **VCores Used** vs. **VCores Total**.
 
-3. Set the following Spark configurations to appropriate values that do not exceed 90% of the available memory and cores. The values should be well within the memory requirement of the Spark application: 
+3. Set the following Spark configurations to appropriate values, which should not exceed 90% of the available memory and cores. The values should be well within the memory requirements of the Spark application: 
 
     ```apache
     spark.executor.instances (Example: 8 for 8 executor count) 
@@ -208,11 +209,13 @@ The most likely cause of this exception is that not enough heap memory is alloca
     spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
     ```
 
-    Total memory used by all executors = 
+    To get the total memory used by all executors, run the following command: 
+    
     ```apache
     spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
     ```
-    Total memory used by driver = 
+    To get the total memory used by the driver, run the following command:
+    
     ```apache
     spark.driver.memory + spark.yarn.driver.memoryOverhead
     ```
@@ -220,5 +223,5 @@ The most likely cause of this exception is that not enough heap memory is alloca
 ### Additional reading
 
 - [Spark memory management overview](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [Debugging Spark application on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+- [Debug a Spark application on an HDInsight cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
