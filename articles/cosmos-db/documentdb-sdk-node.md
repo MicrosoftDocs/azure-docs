@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 08/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -58,18 +58,24 @@ ms.custom: H1Hack27Feb2017
 
 ## Release notes
 
+### <a name="1.12.2"/>1.12.2</a>
+*	Fixed a bug in executeStoredProcedure where documents involved had special unicode characters (LS, PS).
+*	Fixed a bug in handling documents with unicode characters in the partition key.
+*	Fixed support for creating collections with the name media. Github issue #114.
+*	Fixed support for permission authorization token. Github issue #178.
+
 ### <a name="1.12.0"/>1.12.0</a>
 * Added support for a new [consistency level](consistency-levels.md) called ConsistentPrefix.
 * Added support for UriFactory.
-* Fixed a unicode support bug. (GitHub issue #171)
+* Fixed a unicode support bug. GitHub issue #171.
 
 ### <a name="1.11.0"/>1.11.0</a>
 * Added the support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
 * Added the option for controlling degree of parallelism for cross partition queries.
 * Added the option for disabling SSL verification when running against Azure Cosmos DB Emulator.
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
-* Fixed the continuation token bug for single partition collection (github #107).
-* Fixed the executeStoredProcedure bug in handling 0 as single param (github #155).
+* Fixed the continuation token bug for single partition collection. Github issue #107.
+* Fixed the executeStoredProcedure bug in handling 0 as single param. Github issue #155.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * Fixed user-agent header to include the SDK version.
@@ -165,6 +171,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.12.2](#1.12.2) |August 14, 2017 |--- |
 | [1.12.0](#1.12.0) |May 10, 2017 |--- |
 | [1.11.0](#1.11.0) |March 16, 2017 |--- |
 | [1.10.2](#1.10.2) |January 27, 2017 |--- |
