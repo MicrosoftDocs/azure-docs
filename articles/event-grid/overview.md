@@ -46,7 +46,7 @@ Here are some of the key features of Azure Event Grid:
 * **Built-in Events** - Get up and running quickly with resource-defined built-in events.
 * **Custom Events** - use Event Grid route, filter, and reliably deliver custom events in your app.
 
-## Integrations
+## Built-in publisher and handler integration
 
 Azure offers built-in event support using numerous services, including both publishers and handlers. Many more will be added this year.
 
@@ -77,7 +77,7 @@ Coming soon: Service Bus, Event Hubs, Azure Data Factory, Storage Queues
 Azure Event Grid provides several capabilities that vastly improve serverless, ops automation, and integration work: 
 
 1. [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) – get started publishing custom events to Azure Event Grid to route, filter, and reliably deliver your application's events. 
-2. [Tutorial 1]() – TBD. 
+2. Respond to VM events with a Logic App. 
 
 ## How much does Event Grid cost?
 

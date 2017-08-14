@@ -13,7 +13,7 @@ ms.author: babanisa
 
 # Concepts in Azure Event Grid
 
-There are the five main concepts in Azure Event Grid:
+The main concepts in Azure Event Grid are:
 
 ## Events
 
