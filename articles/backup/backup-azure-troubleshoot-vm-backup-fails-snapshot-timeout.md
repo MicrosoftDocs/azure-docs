@@ -27,41 +27,41 @@ This article provides troubleshooting steps to help you resolve Backup failures 
 ## VM Agent unable to communicate with Azure Backup
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM agent to take a point-in-time snapshot. Any of four conditions might prevent the snapshot from being triggered, which in turn can lead to Backup failure.
 ##### Cause 1: [The VM has no Internet access](#cause-1-the-vm-has-no-internet-access)
-##### Cause 2: [The agent installed in the VM but unresponsive (for Windows VMs)](#cause-2-the-agent-installed-in-the-vm-but unresponsive-for-windows-vms)
+##### Cause 2: [The agent installed in the VM but unresponsive (for Windows VMs)](#cause-2-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 ##### Cause 3: [The agent installed in the VM is out of date (for Linux VMs)](#cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
-##### Cause 4: [The snapshot status cannot be retrieved or a snapshot cannot be taken](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-5-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
-##### Cause 5: [The backup extension fails to update or load](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-4-the-backup-extension-fails-to-update-or-load)
+##### Cause 4: [The snapshot status cannot be retrieved or a snapshot cannot be taken](#cause-5-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
+##### Cause 5: [The backup extension fails to update or load](#cause-4-the-backup-extension-fails-to-update-or-load)
 
 ## Snapshot operation failed due to no network connectivity on the virtual machine
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of four conditions might prevent the snapshot from being triggered, which in turn can lead to Backup failure.
-##### Cause 1: [The VM has no Internet access](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-1-the-vm-has-no-internet-access)
-##### Cause 2: [The snapshot status cannot be retrieved or a snapshot cannot be taken](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-5-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
-##### Cause 3: [The backup extension fails to update or load](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-4-the-backup-extension-fails-to-update-or-load)
+##### Cause 1: [The VM has no Internet access](#cause-1-the-vm-has-no-internet-access)
+##### Cause 2: [The snapshot status cannot be retrieved or a snapshot cannot be taken](#cause-5-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
+##### Cause 3: [The backup extension fails to update or load](#cause-4-the-backup-extension-fails-to-update-or-load)
 
 ## VMSnapshot extension operation failed
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of four conditions might prevent the snapshot from being triggered, which in turn can lead to Backup failure.
-##### Cause 1: [The snapshot status cannot be retrieved or a snapshot cannot be taken](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-5-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
-##### Cause 2: [The backup extension fails to update or load](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-4-the-backup-extension-fails-to-update-or-load)
-##### Cause 3: [The VM has no Internet access](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-1-the-vm-has-no-internet-access)
-##### Cause 4: [The agent installed in the VM but unresponsive (for Windows VMs)](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
-##### Cause 5: [The agent installed in the VM is out of date (for Linux VMs)](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+##### Cause 1: [The snapshot status cannot be retrieved or a snapshot cannot be taken](#cause-5-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
+##### Cause 2: [The backup extension fails to update or load](#cause-4-the-backup-extension-fails-to-update-or-load)
+##### Cause 3: [The VM has no Internet access](#cause-1-the-vm-has-no-internet-access)
+##### Cause 4: [The agent installed in the VM but unresponsive (for Windows VMs)](#cause-3-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+##### Cause 5: [The agent installed in the VM is out of date (for Linux VMs)](#cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 
 ## Unable to perform the operation as the VM Agent is not responsive
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of four conditions might prevent the snapshot from being triggered, which in turn can lead to Backup failure.
-##### Cause 1: [The agent installed in the VM but unresponsive (for Windows VMs)](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
-##### Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
-##### Cause 3: [The VM has no Internet access](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-1-the-vm-has-no-internet-access)
+##### Cause 1: [The agent installed in the VM but unresponsive (for Windows VMs)](#cause-3-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+##### Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+##### Cause 3: [The VM has no Internet access](#cause-1-the-vm-has-no-internet-access)
 
 ## Backup failed with an internal error - Please retry the operation in a few minutes.
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of four conditions might prevent the snapshot from being triggered, which in turn can lead to Backup failure.
-##### Cause 1: [The VM has no Internet access](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-1-the-vm-has-no-internet-access)
-##### Cause 2: [The agent installed in the VM but unresponsive (for Windows VMs)](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
-##### Cause 3: [The agent installed in the VM is out of date (for Linux VMs)](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
-##### Cause 4: [The snapshot status cannot be retrieved or a snapshot cannot be taken](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-5-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
-##### Cause 5: [The backup extension fails to update or load](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-4-the-backup-extension-fails-to-update-or-load)
+##### Cause 1: [The VM has no Internet access](#cause-1-the-vm-has-no-internet-access)
+##### Cause 2: [The agent installed in the VM but unresponsive (for Windows VMs)](#cause-3-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+##### Cause 3: [The agent installed in the VM is out of date (for Linux VMs)](#cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+##### Cause 4: [The snapshot status cannot be retrieved or a snapshot cannot be taken](#cause-5-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
+##### Cause 5: [The backup extension fails to update or load](#cause-4-the-backup-extension-fails-to-update-or-load)
 
 
 ## Here are the causes.
@@ -170,6 +170,4 @@ To uninstall the extension, do the following:
 6. Click **Uninstall**.
 
 This procedure causes the extension to be reinstalled during the next backup.
-
-
 
