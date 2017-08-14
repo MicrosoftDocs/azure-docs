@@ -52,7 +52,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 Add the IPv4 value to the previously created record set "@" using the $rs variable assigned. The IPv4 value assigned will be the IP address for your web app.
 
-To find the IP address for a web app, follow the steps in [Configure a custom domain name in Azure App Service](../app-service-web/web-sites-custom-domain-name.md#vip).
+To find the IP address for a web app, follow the steps in [Configure a custom domain name in Azure App Service](../app-service-web/app-service-web-tutorial-custom-domain.md).
 
 ```powershell
 Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address "<your web app IP address>"

@@ -137,7 +137,7 @@ The following images show the usage of Data Management Gateway for moving data b
 
 ### Firewall configurations and whitelisting IP address of gateway
 
-#### Firewall requirements for on-premise/private network	
+#### Firewall requirements for on-premises/private network	
 In an enterprise, a **corporate firewall** runs on the central router of the organization. And, **Windows firewall** runs as a daemon on the local machine on which the gateway is installed. 
 
 The following table provides **outbound port** and domain requirements for the **corporate firewall**.
@@ -169,7 +169,7 @@ The following cloud data stores require whitelisting of IP address of the gatewa
 - [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Azure Document DB](../documentdb/documentdb-firewall-support.md)
+- [Azure Cosmos DB](../documentdb/documentdb-firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## Frequently asked questions

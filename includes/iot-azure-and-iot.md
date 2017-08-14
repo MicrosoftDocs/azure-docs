@@ -7,6 +7,7 @@ Azure IoT Hub is a key building block when you implement this IoT solution archi
 
 * The *remote monitoring* solution enables you to monitor the status of devices such as vending machines.
 * The *predictive maintenance* solution helps you to anticipate maintenance needs of devices such as pumps in remote pumping stations and to avoid unscheduled downtime.
+* The *connected factory* solution helps you to connect and monitor your industrial devices.
 
 ## IoT solution architecture
 

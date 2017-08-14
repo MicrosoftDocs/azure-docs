@@ -69,7 +69,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 * [Azure infrastructure services implementation guidelines](../windows/infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Selecting Linux Usernames](usernames.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [How to configure an availability set for virtual machines in the classic deployment model](../windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [How to Schedule Planned Maintenance on Azure VMs](planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [How to Schedule Planned Maintenance on Azure VMs](classic/planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Manage the availability of virtual machines](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Planned maintenance for Linux virtual machines in Azure](planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

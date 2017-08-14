@@ -1,4 +1,4 @@
-﻿---
+---
 title: "PowerShell: Azure HDInsight cluster with Data Lake Store as add-on storage | Microsoft Docs"
 services: data-lake-store,hdinsight
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/14/2017
+ms.date: 06/08/2017
 ms.author: nitinme
 
 ---
@@ -27,16 +27,17 @@ ms.author: nitinme
 
 Learn how to use Azure PowerShell to configure an HDInsight cluster with Azure Data Lake Store, **as additional storage**. For instructions on how to create an HDInsight cluster with Azure Data Lake Store as default storage, see [Create an HDInsight cluster with Data Lake Store as default storage](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md).
 
+> [!NOTE]
+> If you are going to use Azure Data Lake Store as additional storage for HDInsight cluster, we strongly recommend that you do this while you create the cluster as described in this article. Adding Azure Data Lake Store as additional storage to an existing HDInsight cluster is a complicated process and prone to errors.
+>
+
 For supported cluster types, Data Lake Store can be used as a default storage or additional storage account. When Data Lake Store is used as additional storage, the default storage account for the clusters will still be Azure Storage Blobs (WASB) and the cluster-related files (such as logs, etc.) are still written to the default storage, while the data that you want to process can be stored in a Data Lake Store account. Using Data Lake Store as an additional storage account does not impact performance or the ability to read/write to the storage from the cluster.
 
 ## Using Data Lake Store for HDInsight cluster storage
 
 Here are some important considerations for using HDInsight with Data Lake Store:
 
-* Option to create HDInsight clusters with access to Data Lake Store as additional storage is available for HDInsight versions 3.2, 3.4, and 3.5.
-
-* For HBase clusters (Windows and Linux), Data Lake Store is **not supported** as a storage option, for both default storage as well as additional storage.
-
+* Option to create HDInsight clusters with access to Data Lake Store as additional storage is available for HDInsight versions 3.2, 3.4, 3.5, and 3.6.
 
 Configuring HDInsight to work with Data Lake Store using PowerShell involves the following steps:
 
@@ -58,7 +59,7 @@ Before you begin this tutorial, you must have the following:
 ## Create an Azure Data Lake Store
 Follow these steps to create a Data Lake Store.
 
-1. From your desktop, open a new Azure PowerShell window, and enter the following snippet. When prompted to log in, make sure you log in as one of the subscription admininistrators/owner:
+1. From your desktop, open a new Azure PowerShell window, and enter the following snippet. When prompted to log in, make sure you log in as one of the subscription administrator/owner:
 
         # Log in to your Azure account
         Login-AzureRmAccount
@@ -73,7 +74,7 @@ Follow these steps to create a Data Lake Store.
         Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
    > [!NOTE]
-   > If you receive an error similar to `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` when registering the Data Lake Store resource provider, it is possible that your subsrcription is not whitelisted for Azure Data Lake Store. Make sure you enable your Azure subscription for Data Lake Store public preview by following these [instructions](data-lake-store-get-started-portal.md).
+   > If you receive an error similar to `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` when registering the Data Lake Store resource provider, it is possible that your subscription is not whitelisted for Azure Data Lake Store. Make sure you enable your Azure subscription for Data Lake Store public preview by following these [instructions](data-lake-store-get-started-portal.md).
    >
    >
 2. An Azure Data Lake Store account is associated with an Azure Resource Group. Start by creating an Azure Resource Group.
@@ -81,18 +82,36 @@ Follow these steps to create a Data Lake Store.
         $resourceGroupName = "<your new resource group name>"
         New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
-    ![Create an Azure Resource Group](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Create an Azure Resource Group")
+    You should see an output like this:
+
+		ResourceGroupName : hdiadlgrp
+		Location          : eastus2
+		ProvisioningState : Succeeded
+		Tags              :
+		ResourceId        : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp
+
 3. Create an Azure Data Lake Store account. The account name you specify must only contain lowercase letters and numbers.
 
         $dataLakeStoreName = "<your new Data Lake Store name>"
         New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
 
-    ![Create an Azure Data Lake account](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateADLAcc.png "Create an Azure Data Lake account")
-4. Verify that the account is successfully created.
+    You should see an output like the following:
 
-        Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
+		...
+		ProvisioningState           : Succeeded
+		State                       : Active
+		CreationTime                : 5/5/2017 10:53:56 PM
+		EncryptionState             : Enabled
+		...
+		LastModifiedTime            : 5/5/2017 10:53:56 PM
+		Endpoint                    : hdiadlstore.azuredatalakestore.net
+		DefaultGroup                :
+		Id                          : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp/providers/Microsoft.DataLakeStore/accounts/hdiadlstore
+		Name                        : hdiadlstore
+		Type                        : Microsoft.DataLakeStore/accounts
+		Location                    : East US 2
+		Tags                        : {}
 
-    The output for this should be **True**.
 5. Upload some sample data to Azure Data Lake. We'll use this later in this article to verify that the data is accessible from an HDInsight cluster. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
         $myrootdir = "/"

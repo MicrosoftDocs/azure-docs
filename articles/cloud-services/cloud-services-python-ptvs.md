@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 07/18/2017
 ms.author: adegeo
 
 ---
@@ -342,7 +342,7 @@ For more details about using Azure services from your web and worker roles, such
 
 [What is a Cloud Service?]: cloud-services-choose-me.md
 [execution model-web sites]: ../app-service-web/app-service-web-overview.md
-[execution model-vms]:../virtual-machines/windows/about.md
+[execution model-vms]:../virtual-machines/windows/overview.md
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 

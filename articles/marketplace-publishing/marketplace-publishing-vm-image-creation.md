@@ -1,4 +1,4 @@
-﻿---
+---
 title: Creating a virtual machine image for the Azure Marketplace | Microsoft Docs
 description: Detailed instructions on how to create a virtual machine image for the Azure Marketplace for others to purchase.
 services: Azure Marketplace
@@ -355,9 +355,9 @@ Following are the steps for generating SAS URL by using Azure Storage Explorer
 
     f. In **Generated Shared Access Signature URI of this container**, check for the following as highlighted above:
 
-        - Make sure that your image file name and **".vhd"** are in the URI.
-        - At the end of the signature, make sure that **"=rl"** appears. This demonstrates that Read and List access was provided successfully.
-        - In middle of the signature, make sure that **"sr=c"** appears. This demonstrates that you have container level access
+       - Make sure that your image file name and **".vhd"** are in the URI.
+       - At the end of the signature, make sure that **"=rl"** appears. This demonstrates that Read and List access was provided successfully.
+       - In middle of the signature, make sure that **"sr=c"** appears. This demonstrates that you have container level access
 
 11.	To ensure that the generated shared access signature URI works, click **Test in Browser**. It should start the download process.
 

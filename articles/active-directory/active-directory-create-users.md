@@ -13,8 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 07/26/2017
 ms.author: curtand;jeffsta
+ms.reviewer: asteen
+ms.custom: oldportal
 
 ---
 # Add new users  or users with Microsoft accounts to Azure Active Directory

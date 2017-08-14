@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 06/14/2017
 ms.author: nkolli;giridham;markgal
 
 ---
@@ -58,10 +58,14 @@ After the snapshot has been taken, the data is transferred by the Azure Backup s
 ## Prerequisites
 Prepare Azure Backup to back up DPM data as follows:
 
-1. **Create a Backup vault**
+1. **Create a Backup vault**. If you haven't created a Backup vault in your subscription, see the Azure portal version of this article - [Prepare to back up workloads to Azure with DPM](backup-azure-dpm-introduction.md).
 
   > [!IMPORTANT]
-  > Starting March 2017, you can no longer use the classic portal to create Backup vaults. Existing Backup vaults are still supported, and it is possible to [use Azure PowerShell to create Backup vaults](./backup-client-automation-classic.md#create-a-backup-vault). However, Microsoft recommends you create Recovery Services vaults for all deployments because future enhancements apply to Recovery Services vaults, only.
+  > Starting March 2017, you can no longer use the classic portal to create Backup vaults.
+  > You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> **Starting November 1, 2017**:
+  >- Any remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+  >- You won't be able to access your backup data in the classic portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
+  >
 
 2. **Download vault credentials** — In Azure Backup, upload the management certificate you created to the vault.
 3. **Install the Azure Backup Agent and register the server** — From Azure Backup, install the agent on each DPM server and register the DPM server in the backup vault.

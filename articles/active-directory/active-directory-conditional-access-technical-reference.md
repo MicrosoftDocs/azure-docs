@@ -12,8 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2017
+ms.date: 05/25/2017
 ms.author: markvi
+ms.reviewer: calebb
 
 ---
 # Azure Active Directory Conditional Access technical reference
@@ -33,7 +34,8 @@ Conditional Access rules are supported across various Azure AD application types
 * Microsoft Office 365 SharePoint Online (includes OneDrive for Business)
 * Microsoft Power BI 
 * Password SSO applications from the Azure AD application gallery
-* Visual Studio Online
+* Visual Studio Team Services
+* Microsoft Teams
 
 
 

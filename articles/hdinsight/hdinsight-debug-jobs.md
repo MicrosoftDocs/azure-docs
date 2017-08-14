@@ -1,5 +1,5 @@
 ---
-title: 'Debug Hadoop in HDInsight: View logs and interpret error messages | Microsoft Docs'
+title: 'Debug Hadoop in HDInsight: View logs and interpret error messages - Azure | Microsoft Docs'
 description: Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover.
 services: hdinsight
 tags: azure-portal

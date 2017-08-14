@@ -215,7 +215,7 @@ For internal name resolution, you have two options:
 Learn more:
 
 * [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
-* [Manage DNS Servers used by a Virtual Network (VNet)](../virtual-network/virtual-networks-manage-dns-in-vnet.md)
+* [Manage DNS Servers used by a Virtual Network (VNet)](../virtual-network/virtual-network-manage-network.md#dns-servers)
 
 For external DNS resolution, you have two options:
 

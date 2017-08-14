@@ -1,4 +1,4 @@
----
+﻿---
 title: Article Index for Application Management in Azure Active Directory | Microsoft Azure
 description: Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
 services: active-directory
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: markvi
+ms.reviewer: asteen
 
 ---
 # Article Index for Application Management in Azure Active Directory
@@ -134,7 +135,7 @@ Automate the creation, maintenance, and removal of user identities in SaaS appli
 | Learn about how it works and find answers to common questions |[Automate User Provisioning & Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md) |
 | Configure how information is mapped between Azure AD and your SaaS app |[Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | How to enable automated provisioning to any app that supports the SCIM protocol |[Set up Automated User Provisioning to any SCIM-Enabled App](active-directory-scim-provisioning.md) |
-| Get notified of provisioning failures |[Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md) |
+| How to report on and troubleshoot user provisioning |[Reporting on automatic user provisioning](active-directory-saas-provisioning-reporting.md)<br><br>[Provisioning notifications](active-directory-saas-account-provisioning-notifications.md)<br><br>[Troubleshooting user provisioning](active-directory-application-provisioning-content-map.md) |
 | Limit who gets provisioned to an application based on their attribute values |[Scoping Filters](active-directory-saas-scoping-filters.md) |
 
 Automated user provisioning is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supports unlimited applications. If your organization has [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) or [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), then you can [use groups to manage which users get provisioned](#managing-access-to-applications).
@@ -198,7 +199,7 @@ Azure Active Directory provides several reports and alerts to help you monitor y
 | Track changes made to who can access a particular application |[Azure Active Directory Audit Report Events](active-directory-reporting-audit-events.md) |
 | Export the data of these reports to your preferred tools using the Reporting API |[Getting Started with the Azure AD Reporting API](active-directory-reporting-api-getting-started.md) |
 
-To see which reports are included with different editions of Azure Active Directory, [click here](active-directory-view-access-usage-reports.md#report-editions).
+To see which reports are included with different editions of Azure Active Directory, [click here](active-directory-view-access-usage-reports.md).
 
 ## See also
 [What is Azure Active Directory?](active-directory-whatis.md)

@@ -1,0 +1,8 @@
+- name: Kubernetes
+  href: kubernetes/container-service-kubernetes-walkthrough.md
+- name: DC/OS and Docker Swarm
+  href: dcos-swarm/container-service-dcos-quickstart.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=containers

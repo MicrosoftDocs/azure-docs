@@ -13,11 +13,19 @@ ms.author: panosper
 ---
 
 # Transcription guidelines
-To ensure the best use of your text data for acoustic and language model customization, the following transcription guidelines should be followed.
+To ensure the best use of your text data for acoustic and language model customization, the following transcription guidelines should be followed. These guidelines are language specific.
 
-## Transcription guidelines (en-US)
+## Text normalization
 
-Text data uploaded to this service should in written in plain text using only the ASCII printable character set. Each line of the file should contain the text for a single utterance only.
+For optimal use in the acoustic or language model customization, the text data must be normalized, which means transformed into a standard, unambiguous form readable by the system. This section describes the text normalization performed by the Custom Speech Service when data is imported and the text normalization that the user must perform prior to data import.
+
+## Inverse text normalization
+
+The process of converting “raw” unformatted text back to formatted text, i.e. with capitalization and punctuation, is called inverse text normalization (ITN). ITN is performed on results returned by the Microsoft Cognitive Services Speech API. A custom endpoint deployed using the Custom Speech Service uses the same ITN as the Microsoft Cognitive Services Speech API. However, this service does not currently support custom ITN, so new terms introduced by a custom language model will not be formatted in the recognition results.
+
+## Transcription guidelines for en-US
+
+Text data uploaded to this service should be written in plain text using only the ASCII printable character set. Each line of the file should contain the text for a single utterance only.
 
 It is important to avoid the use of Unicode punctuation characters. This can happen inadvertently if preparing the data in a word processing program or scraping data from web pages. Replace these characters with appropriate ASCII substitutions. For example:
 
@@ -25,10 +33,6 @@ It is important to avoid the use of Unicode punctuation characters. This can hap
 |----- | ----- |
 | “Hello world” (open and close double quotes) | "Hello world" (double quotes) |
 | John’s day (right single quotation mark) | John's day (apostrophe) |
-
-### Text normalization
-
-For optimal use in the acoustic or language model customization, the text data must be normalized, which means transformed into a standard, unambiguous form readable by the system. This section describes the text normalization performed by the Custom Speech Service when data is imported and the text normalization that the user must perform prior to data import.
 
 ### Text normalization performed by the Custom Speech Service
 
@@ -75,14 +79,9 @@ Here are some examples
 | water is H20 | water is H 2 O |
 | play OU812 by Van Halen | play O U 8 1 2 by Van Halen |
 
-### Inverse text normalization
+## Transcription guidelines for zh-CN
 
-The process of converting “raw” unformatted text back to formatted text, i.e. with capitalization and punctuation, is called inverse text normalization (ITN). ITN is performed on results returned by the Microsoft Cognitive Services Speech API. A custom endpoint deployed using the Custom Speech Service uses the same ITN as the Microsoft Cognitive Services Speech API. However, this service does not currently support custom ITN, so terms used in a custom language model will not be formatted in the recognition results unless they also existed in the base language model.
-
-
-## Transcription guidelines (zh-CN)
-
-Text data uploaded to the Custom Speech Service should in written in plain text using only the UTF-8 encoding (BOM is optional). Each line of the file should contain the text for a single utterance only.
+Text data uploaded to the Custom Speech Service should use **UTF-8 encoding (incl. BOM)**. Each line of the file should contain the text for a single utterance only.
 
 It is important to avoid the use of half-width punctuation characters. This can happen inadvertently if preparing the data in a word processing program or scraping data from web pages. Replace these characters with appropriate full-width substitutions. For example:
 
@@ -90,10 +89,6 @@ It is important to avoid the use of half-width punctuation characters. This can 
 |----- | ----- |
 | “你好” (open and close double quotes) | "你好" (double quotes) |
 | 需要什么帮助? (question mark) | 需要什么帮助？ |
-
-### Text normalization
-
-For optimal use in the acoustic or language model customization, the text data must be normalized, which means transformed into a standard, unambiguous form readable by the system. This section describes the text normalization performed by this service when data is imported and the text normalization that the user must perform prior to data import.
 
 ### Text normalization performed by the Custom Speech Service
 
@@ -130,9 +125,56 @@ Here are some examples
 | 我今年21 | 我今年二十一 |
 | 3号楼504 | 三号 楼 五 零 四 |
 
-### Inverse text normalization
+## Transcription guidelines for de-DE
 
-The process of converting “raw” unformatted text back to formatted text, i.e. with capitalization and punctuation, is called inverse text normalization (ITN). ITN is performed on results returned by the Microsoft Cognitive Services Speech API. A custom endpoint deployed using the Custom Speech Service uses the same ITN as the Microsoft Cognitive Services Speech API. However, this service does not currently support custom ITN, so new terms introduced by a custom language model will not be formatted in the recognition results.
+Text data uploaded to the Custom Speech Service should only use **UTF-8 encoding (incl. BOM)**. Each line of the file should contain the text for a single utterance only.
+
+### Text normalization performed by the Custom Speech Service
+
+This service will perform the following text normalization on data imported as a language data set or transcriptions for an acoustic data set. This includes
+
+*   Lower-casing all text
+*   Removing all punctuation including English or German quotes ("test", 'test', “test„ or «test» are ok)
+*   Discard any row containing any special character including: ^ ¢ £ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬
+*   Expansion of numbers to word form, including dollar or euro amounts
+*   We accept only umlauts for a, o, u; others will be replaced by "th" or discarded
+
+Here are some examples
+
+| Original Text | After Normalization |
+|----- | ----- |
+| Frankfurter Ring | frankfurter ring |
+| "Hallo, Mama!" sagt die Tochter. | hallo mama sagt die tochter |
+| ¡Eine Frage! | eine frage |
+| wir, haben | wir haben |
+| Das macht $10 | das macht zehn dollars |
+
+
+### Text normalization required by users
+
+To ensure the best use of your data, the following normalization rules should be applied to your data prior to importing it.
+
+*   Decimal point should be , and not . e.g., 2,3% and not 2.3%
+*   Time separator between hours and minutes should be : and not ., e.g., 12:00 Uhr
+*   Abbreviations such as 'ca.', 'bzw.' are not replaced. We recommend to use the full form in order to have the correct pronunciation.
+*   The five main mathematical operators are removed: +, -, \*, /.
+ We recommend to replace them by their literal form plus, minus, mal, geteilt.
+*   Same applies for the comparators (=, <, >) - gleich, kleiner als, grösser als
+*   Use fraction such as 3/4 in word form 'drei viertel' instead of ¾
+*   Replace the € symbol with the word form "Euro"
+
+
+Here are some examples
+
+| Original Text | After user's normalization | After system normalization
+|--------  | ----- | -------- |
+| Es ist 12.23Uhr | Es ist 12:23Uhr | es ist zwölf uhr drei und zwanzig uhr |
+| {12.45} | {12,45} | zwölf komma vier fünf |
+| 3 < 5 | 3 kleiner als 5 | drei kleiner als vier |
+| 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
+| Das macht 12€ | Das macht 12 Euros | das macht zwölf euros |
+
+
 
 ## Next steps
 * [How to use a custom speech-to-text endpoint](cognitive-services-custom-speech-create-endpoint.md)

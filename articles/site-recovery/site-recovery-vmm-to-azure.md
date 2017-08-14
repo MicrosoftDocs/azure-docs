@@ -9,11 +9,11 @@ editor: tysonn
 
 ms.assetid: 8e7d868e-00f3-4e8b-9a9e-f23365abf6ac
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-=article
-ms.date: 04/05/2017
+ms.topic: hero-article
+ms.date: 06/14/2017
 ms.author: raynew
 
 ---
@@ -37,7 +37,7 @@ If you want to migrate machines to Azure (without failback), learn more in [this
 Follow the article to complete these deployment steps:
 
 
-1. [Learn more](site-recovery-components.md#hyper-v-to-azure) about the architecture for this deployment. In addition, [learn about](site-recovery-hyper-v-azure-architecture.md) how Hyper-V replication works in Site Recovery.
+1. [Learn more](site-recovery-components.md) about the architecture for this deployment. In addition, [learn about](site-recovery-hyper-v-azure-architecture.md) how Hyper-V replication works in Site Recovery.
 2. Verify prerequisites and limitations.
 3. Set up Azure network and storage accounts.
 4. Prepare the on-premises VMM server and Hyper-V hosts.
@@ -55,7 +55,7 @@ Follow the article to complete these deployment steps:
 **Support requirement** | **Details**
 --- | ---
 **Azure** | Learn about [Azure requirements](site-recovery-prereq.md#azure-requirements).
-**On-premises servers** | [Learn more](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-in-virtual-machine-manager-clouds-to-azure) about requirements for the on-premises VMM server and Hyper-V hosts.
+**On-premises servers** | [Learn more](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-in-vmm-clouds-to-azure) about requirements for the on-premises VMM server and Hyper-V hosts.
 **On-premises Hyper-V VMs** | VMs you want to replicate should be running a [supported operating system](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), and conform with [Azure prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 **Azure URLs** | The VMM server needs access to these URLs:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> If you have IP address-based firewall rules, ensure they allow communication to Azure.<br/></br> Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.<br/></br> Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
 
@@ -160,6 +160,12 @@ Install the Azure Site Recovery Provider on the VMM server, and register the ser
 
      ![internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
 7. Accept or modify the location of an SSL certificate that’s automatically generated for data encryption. This certificate is used if you enable data encryption for a cloud protected by Azure in the Azure Site Recovery portal. Keep this certificate safe. When you run a failover to Azure you’ll need it to decrypt, if data encryption is enabled.
+
+	> [!NOTE]
+	> It is recommended to use the encryption capability provided by Azure for encrypting data at rest, instead of using the data
+	> encryption option provided by Azure Site Recovery. The encryption capability provided by Azure can be turned on for a storage	 	 > account and helps achieve better performance as the encryption/decryption is handled by Azure storage.
+	> [Learn more about Storage service encryption from Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+	
 8. In **Server name**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration, specify the VMM cluster role name.
 9. Enable **Sync cloud metadata**, if you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console. Click **Register** to complete the process.
 
@@ -285,6 +291,8 @@ Site Recovery provides a capacity planner to help you allocate the right resourc
 
 ## Enable replication
 
+Before you start, ensure that your Azure user account has the required  [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of a new virtual machine to Azure.
+
 Now enable replication as follows:
 
 1. Click **Step 2: Replicate application** > **Source**. After you've enabled replication for the first time, click **+Replicate** in the vault to enable replication for additional machines.
@@ -346,7 +354,31 @@ Note that:
      * If the VM has multiple network adapters, they will all connect to the same network.
 
      ![Enable replication](./media/site-recovery-vmm-to-azure/test-failover4.png)
+
 4. In **Disks** you can see the operating system and data disks on the VM that will be replicated.
+
+#### Managed disks
+
+In **Compute and Network** > **Compute properties**, you can set "Use managed disks" setting to "Yes" for the VM if you want to attach managed disks to your machine on migration to Azure. Managed disks simplifies disk management for Azure IaaS VMs by managing the storage accounts associated with the VM disks. [Learn More about managed disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview).
+
+   - Managed disks are created and attached to the virtual machine only on a failover to Azure. On enabling protection, data from on-premises machines will continue to replicate to storage accounts.
+   Managed disks can be created only for virtual machines deployed using the Resource manager deployment model.  
+
+  > [!NOTE]
+  > Failback from Azure to on-premises Hyper-V environment is not currently supported for machines
+  > with managed disks. Set "Use managed disks" to "Yes" only if you intend to migrate this machine to
+  > Azure.
+
+   - When you set "Use managed disks" to "Yes", only availability sets in the resource group with "Use managed disks" set to "Yes" would be available for selection. This is because virtual machines with managed disks can only be part of availability sets with "Use managed disks" property set to "Yes". Make sure that you create availability sets with "Use managed disks" property set based on your intent to use managed disks on failover.  Likewise, when you set "Use managed disks" to "No", only availability sets in the resource group with "Use managed disks" property set to "No" would be available for selection. [Learn more about managed disks and availability sets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+
+  > [!NOTE]
+  > If the storage account used for replication was encrypted with Storage Service Encryption at any
+  > point in time, creation of managed disks during failover will fail. You can either set "Use
+  > managed disks" to "No" and retry failover or disable protection for the virtual machine and
+  > protect it to a storage account which did not have Storage service encryption enabled at any point
+  > in time.
+  > [Learn more about Storage service encryption and managed disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
+
 
 ## Test the deployment
 
@@ -401,6 +433,14 @@ Where:
 * **/Credentials**: Mandatory parameter that specifies where the registration key file is located.  
 * **/FriendlyName**: Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
 * * **/EncryptionEnabled**: Optional parameter when you're replicating Hyper-V VMs in VMM clouds to Azure. Specify if you want to encrypt virtual machines in Azure (at rest encryption). Ensure that the name of the file has a **.pfx** extension. Encryption is off by default.
+
+	> [!NOTE]
+	> It is recommended to use the encryption capability provided by Azure for encrypting data at rest, instead of using 
+	> the encryption option (EncryptionEnabled option) provided by Azure Site Recovery. The encryption capability provided by Azure 
+	> can be turned on for a storage account and helps achieve better performance as the encryption/decryption is done by Azure  
+	> storage.
+	> [Learn more about Storage service encryption in Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+	
 * **/proxyAddress**: Optional parameter that specifies the address of the proxy server.
 * **/proxyport**: Optional parameter that specifies the port of the proxy server.
 * **/proxyUsername**: Optional parameter that specifies the proxy user name (if proxy requires authentication).

@@ -3,7 +3,7 @@ title: Tools for working with Azure Storage | Microsoft Docs
 description: A list of tools that allow you to view/interact with your Azure Storage data.
 services: storage
 documentationcenter: ''
-author: seguler
+author: dineshmurthy
 manager: jahogg
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: seguler
+ms.date: 05/11/2017
+ms.author: dineshmurthy
 
 ---
 # Azure Storage Client Tools
@@ -151,7 +151,7 @@ We have not verified the functionality or quality claimed by the following third
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://azurestorageexplorer.codeplex.com/">Azure Storage Explorer</a></td>
+    <td><a href="https://github.com/sebagomez/azurestorageexplorer">Azure Storage Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>

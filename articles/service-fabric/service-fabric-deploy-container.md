@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/17/2017
+ms.date: 5/16/2017
 ms.author: msfussell
 
 ---
-# Preview: Deploy a Windows container to Service Fabric
+# Deploy a Windows container to Service Fabric
 > [!div class="op_single_selector"]
 > * [Deploy Windows Container](service-fabric-deploy-container.md)
 > * [Deploy Docker Container](service-fabric-deploy-container-linux.md)
@@ -26,11 +26,7 @@ ms.author: msfussell
 
 This article walks you through the process of building containerized services in Windows containers.
 
-> [!NOTE]
-> This feature is in preview for Windows Server 2016.
->  
-
-Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. 
+Service Fabric has several capabilities that help you with building applications that are composed of microservices running inside containers. 
 
 The capabilities include:
 
@@ -54,35 +50,35 @@ Visual Studio provides a Service Fabric service template to help you deploy a co
 
 1. Choose **File** > **New Project**, and create a Service Fabric application.
 2. Choose **Guest Container** as the service template.
-3. Choose **Image Name** and provide the path to the image in your container repository such as at https://hub.docker.com/ for example myrepo/myimage:v1 
+3. Choose **Image Name** and provide the path to the image in your container repository. For example, `myrepo/myimage:v1` in https://hub.docker.com
 4. Give your service a name, and click **OK**.
 5. If your containerized service needs an endpoint for communication, you can now add the protocol, port, and type to the ServiceManifest.xml file. For example: 
      
     `<Endpoint Name="MyContainerServiceEndpoint" Protocol="http" Port="80" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
     
-    By providing the `UriScheme` this automatically registers the container endpoint with the Service Fabric Naming service for discoverability. The port can either be fixed (as shown in the preceding example) or dynamically allocated (left blank and a port is allocated from the designated application port range) just as you would with any service.
-    You also need to configure the container port-to-host port mapping by specifying a `PortBinding` policy in the application manifest as described below.
+    By providing the `UriScheme`, Service Fabric automatically registers the container endpoint with the Naming service for discoverability. The port can either be fixed (as shown in the preceding example) or dynamically allocated. If you don't specify a port, it is dynamically allocated from the application port range (as would happen with any service).
+    You also need to configure the container to host port mapping by specifying a `PortBinding` policy in the application manifest. For more information, see [Configure container to host port mapping](#Portsection).
 6. If your container needs resource governance then add a `ResourceGovernancePolicy`.
-8. If your container needs to authenticate with a private repository then add `RepositoryCredentials`.
-7. You can now use the package and publish action against your local cluster if this is Windows Server 2016 with container support activated. 
+8. If your container needs to authenticate with a private repository, then add `RepositoryCredentials`.
+7. If you are running on a Windows Server 2016 machine with container support enabled, you can use the package and publish action to deploy to your local cluster. 
 8. When ready, you can publish the application to a remote cluster or check in the solution to source control. 
 
-For an example application [checkout the Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+For an example, checkout the [Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## Creating a Windows Server 2016 cluster
 To deploy your containerized application, you need to create a cluster running Windows Server 2016 with container support enabled. 
-This can either be on your local development machine or deployed via Azure Resource Manager (ARM) in Azure. 
+Your cluster may be running locally, or deployed via Azure Resource Manager in Azure. 
 
-To deploy a cluster using ARM, choose the **Windows Server 2016 with Containers** image option in Azure. 
-See the article [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Ensure that you use the following ARM settings:
+To deploy a cluster using Azure Resource Manager, choose the **Windows Server 2016 with Containers** image option in Azure. 
+See the article [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Ensure that you use the following Azure Resource Manager settings:
 
 ```xml
 "vmImageOffer": { "type": "string","defaultValue": "WindowsServer"     },
 "vmImageSku": { "defaultValue": "2016-Datacenter-with-Containers","type": "string"     },
 "vmImageVersion": { "defaultValue": "latest","type": "string"     },  
 ```
-You can also use the [5 Node ARM template here](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)
-to create a cluster. Alternatively read [Leok's blog post here](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) on using Service Fabric and Windows containers.
+You can also use the [Five Node Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)
+to create a cluster. Alternatively read a community [blog post](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) on using Service Fabric and Windows containers.
 
 <a id="manually"></a>
 
@@ -110,7 +106,7 @@ In the service manifest, add a `ContainerHost` for the entry point. Then set the
     </CodePackage>
 ```
 
-You can provide input commands by specifying the optional `Commands` element with a comma-delimited set of commands to run inside the container.
+You can specify optional commands to run upon starting the container under the `Commands` element. For multiple commands, comma-delimit them. 
 
 ## Understand resource governance
 Resource governance is a capability of the container that restricts the resources that the container can use on the host. The `ResourceGovernancePolicy`, which is specified in the application manifest is used to declare resource limits for a service code package. Resource limits can be set for the following resources:
@@ -122,7 +118,7 @@ Resource governance is a capability of the container that restricts the resource
 * BlkioWeight (BlockIO relative weight).
 
 > [!NOTE]
-> In a future release, support for specifying specific block IO limits such as IOPs, read/write BPS, and others will be included.
+> Support for specifying specific block IO limits such as IOPs, read/write BPS, and others are planned for a future release.
 > 
 > 
 
@@ -167,7 +163,7 @@ The private key of the certificate that's used to decrypt the password must be d
     </ServiceManifestImport>
 ```
 
-## Configure container port-to-host port mapping
+## <a name ="Portsection"></a> Configure container to host port mapping
 You can configure a host port used to communicate with the container by specifying a `PortBinding` in the application manifest. The port binding maps the port to which the service is listening inside the container to a port on the host.
 
 ```xml
@@ -182,9 +178,8 @@ You can configure a host port used to communicate with the container by specifyi
 ```
 
 ## Configure container-to-container discovery and communication
-By using the `PortBinding` policy, you can map a container port to an `Endpoint` in the service manifest as shown in the following example. The endpoint `Endpoint1` can specify a fixed port (for example, port 80). It can also specify no port at all, in which case a random port from the cluster's application port range is chosen for you.
+You can use the `PortBinding` element to map a container port to an endpoint in the service manifest. In the following example, the endpoint `Endpoint1` specifies a fixed port, 8905. It can also specify no port at all, in which case a random port from the cluster's application port range is chosen for you.
 
-If you specify an endpoint, using the `Endpoint` tag in the service manifest of a guest container, Service Fabric can automatically publish this endpoint to the Naming service. Other services that are running in the cluster can thus discover this container using the REST queries for resolving.
 
 ```xml
     <ServiceManifestImport>
@@ -196,11 +191,12 @@ If you specify an endpoint, using the `Endpoint` tag in the service manifest of 
         </Policies>
     </ServiceManifestImport>
 ```
+If you specify an endpoint, using the `Endpoint` tag in the service manifest of a guest container, Service Fabric can automatically publish this endpoint to the Naming service. Other services that are running in the cluster can thus discover this container using the REST queries for resolving.
 
-By registering with the Naming service, you can easily do container-to-container communication in the code within your container by using the [reverse proxy](service-fabric-reverseproxy.md). Communication is performed by providing the reverse proxy http listening port and the name of the services that you want to communicate with as environment variables. For more information, see the next section. 
+By registering with the Naming service, you can perform container-to-container communication within your container by using the [reverse proxy](service-fabric-reverseproxy.md). Communication is performed by providing the reverse proxy http listening port and the name of the services that you want to communicate with as environment variables. For more information, see the next section. 
 
 ## Configure and set environment variables
-Environment variables can be specified for each code package in the service manifest, both for services that are deployed in containers or for services that are deployed as processes/guest executables. These environment variable values can be overridden specifically in the application manifest or specified during deployment as application parameters.
+Environment variables can be specified for each code package in the service manifest. This feature is available for all services irrespective of whether they are deployed as containers or processes or guest executables. You can override environment variable values in the application manifest or specify them during deployment as application parameters.
 
 The following service manifest XML snippet shows an example of how to specify environment variables for a code package:
 
@@ -238,6 +234,15 @@ These environment variables can be overridden at the application manifest level:
 ```
 
 In the previous example, we specified an explicit value for the `HttpGateway` environment variable (19000), while we set the value for `BackendServiceName` parameter via the `[BackendSvc]` application parameter. These settings enable you to specify the value for `BackendServiceName`value when you deploy the application and not have a fixed value in the manifest.
+
+## Configure isolation mode
+
+Windows supports two isolation modes for containers - process and Hyper-V.  With the process isolation mode, all the containers running on the same host machine share the kernel with the host. With the Hyper-V isolation mode, the kernels are isolated between each Hyper-V container and the container host. The isolation mode is specified in the `ContainerHostPolicies` tag in the application manifest file.  The isolation modes that can be specified are `process`, `hyperv`, and `default`. The `default` isolation mode defaults to `process` on Windows Server hosts, and defaults to `hyperv` on Windows 10 hosts.  The following snippet shows how the isolation mode is specified in the application manifest file.
+
+```xml
+   <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
+```
+
 
 ## Complete examples for application and service manifest
 
@@ -301,4 +306,4 @@ An example service manifest (specified in the preceding application manifest) fo
 Now that you have deployed a containerized service, learn how to manage its lifecycle by reading [Service Fabric application lifecycle](service-fabric-application-lifecycle.md).
 
 * [Overview of Service Fabric and containers](service-fabric-containers-overview.md)
-* For an example application [checkout the Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* For an example, checkout [Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)

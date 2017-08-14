@@ -2,7 +2,7 @@
 title: Get started with roles, permissions, and security with Azure Monitor | Microsoft Docs
 description: Learn how to use Azure Monitor's built-in roles and permissions to restrict access to monitoring resources.
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

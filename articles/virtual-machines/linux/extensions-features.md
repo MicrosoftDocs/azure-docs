@@ -16,8 +16,8 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
-
 ---
+
 # Virtual machine extensions and features for Linux
 
 Azure virtual machine extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. For example, if a virtual machine requires software installation, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run using the Azure CLI, PowerShell, Azure Resource Manager templates, and the Azure portal. Extensions can be bundled with a new virtual machine deployment, or run against any existing system.
@@ -35,7 +35,7 @@ Several different Azure VM extensions are available, each with a specific use ca
 
 In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any Bash script to be run on a virtual machine. Custom scripts are useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](extensions-customscript.md).
 
-To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](../windows/dotnet-core-1-landing.md).
+To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](../linux/dotnet-core-1-landing.md).
 
 ## Prerequisites
 
@@ -126,7 +126,7 @@ For more information, see the full [Resource Manager template](https://github.co
 }
 ```
 
-For more information, see [Authoring Azure Resource Manager templates with Linux VM extensions](../windows/extensions-authoring-templates.md).
+For more information, see [Authoring Azure Resource Manager templates with Linux VM extensions](../linux/extensions-authoring-templates.md).
 
 ## Secure VM extension data
 

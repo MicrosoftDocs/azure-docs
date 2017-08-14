@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to configure automatic registration of Windows domain-joined devices with Azure Active Directory | Microsoft Docs
 description: Set up your domain-joined Windows devices to register automatically and silently with Azure Active Directory.
 services: active-directory
@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 06/16/2017
 ms.author: markvi
+ms.reviewer: jairoc
 
 ---
 # How to configure automatic registration of Windows domain-joined devices with Azure Active Directory
@@ -28,6 +29,7 @@ For more information about:
 
 - Conditional access, see [Azure Active Directory device-based conditional access](active-directory-conditional-access-azure-portal.md). 
 - Windows 10 devices in the workplace and the enhanced experiences when registered with Azure AD, see [Windows 10 for the enterprise: Use devices for work](active-directory-azureadjoin-windows10-devices-overview.md).
+- Windows 10 Enterprise E3 in CSP, see the [Windows 10 Enterprise E3 in CSP Overview](https://docs.microsoft.com/en-us/windows/deployment/windows-10-enterprise-e3-overview).
 
 
 ## Before you begin
@@ -54,9 +56,8 @@ To improve the readability of the descriptions, this topic uses the following te
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- The registration of Windows down-level devices **is not** supported for:
-    - Non-federated environments (password hash sync configurations).  
-    - Devices using roaming profiles. If you are relying on roaming of profiles or settings, use Windows 10.
+- The registration of Windows down-level devices **is** supported in non-federated environments through Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://aka.ms/hybrid/sso).
+- The registration of Windows down-level devices **is not** supported for devices using roaming profiles. If you are relying on roaming of profiles or settings, use Windows 10.
 
 
 
@@ -116,7 +117,7 @@ The **$scp.Keywords** output shows the Azure AD tenant information, for example:
     azureADName:microsoft.com
     azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
 
-If the service connection point does not exist, you can create it by running the `Initialize-ADSyncDomainJoinedComputerSync` cmdlet on your Azure AD Connect server.  
+If the service connection point does not exist, you can create it by running the `Initialize-ADSyncDomainJoinedComputerSync` cmdlet on your Azure AD Connect server. Enterprise admin credential is required to run this cmdlet.  
 The cmdlet:
 
 - Creates the service connection point in the Active Directory forest Azure AD Connect is connected to. 
@@ -132,7 +133,10 @@ The following script shows an example for using the cmdlet. In this script, `$aa
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
-The `Initialize-ADSyncDomainJoinedComputerSync` cmdlet uses the Active Directory PowerShell module, which relies on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later. 
+The `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
+
+- Uses the Active Directory PowerShell module, which relies on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later.
+- Is only supported by the **MSOnline PowerShell module version 1.1.166.0**. To download this module, use this [link](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
 
 For domain controllers running Windows Server 2008 or earlier versions, use the script below to create the service connection point.
 
@@ -519,7 +523,9 @@ To avoid certificate prompts when users in register devices authenticate to Azur
 
 ## Step 4: Control deployment and rollout
 
-When you have completed the required steps, domain-joined devices are ready to automatically register with Azure AD. All domain-joined devices running Windows 10 Anniversary Update and Windows Server 2016 automatically register with Azure AD at device restart or user sign-in. New devices register with Azure AD when the device restarts after the domain join operation completes.
+When you have completed the required steps, domain-joined devices are ready to automatically register with Azure AD. All domain-joined devices running Windows 10 Anniversary Update and Windows Server 2016 automatically register with Azure AD at device restart or user sign-in. New devices register with Azure AD when the device restarts after the domain join operation is completed.
+
+Devices that were previously workplace-joined to Azure AD (for example for Intune) transition to “*Domain Joined, AAD Registered*”; however it takes some time for this process to complete across all devices due to the normal flow of domain and user activity.
 
 ### Remarks
 

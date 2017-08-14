@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 06/05/2017
 ms.author: dobett
 
 ---
@@ -118,7 +118,7 @@ The following steps describe how to use *CMake* to build your client application
     cmake_minimum_required(VERSION 2.8.11)
     compileAsC99()
 
-    set(AZUREIOT_INC_FOLDER ".." "../parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
+    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
 
     include_directories(${AZUREIOT_INC_FOLDER})
 
@@ -133,8 +133,7 @@ The following steps describe how to use *CMake* to build your client application
         ./remote_monitoring.h
     )
 
-    add_executable(sample_app ${sample_application_c_files} ${sample_application_h
-    _files})
+    add_executable(sample_app ${sample_application_c_files} ${sample_application_h_files})
 
     target_link_libraries(sample_app
         serializer

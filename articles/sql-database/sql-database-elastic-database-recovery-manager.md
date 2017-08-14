@@ -8,7 +8,7 @@ author: ddove
 
 ms.assetid: 45520ca3-6903-4b39-88ba-1d41b22da9fe
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -34,10 +34,10 @@ In a sharded database environment, there is one tenant per database, and many da
 The GSM and LSM may become out of sync for the following reasons:
 
 1. The deletion of a shard whose range is believed to no longer be in use, or renaming of a shard. Deleting a shard results in an **orphaned shard mapping**. Similarly, a renamed database can cause an orphaned shard mapping. Depending on the intent of the change, the shard may need to be removed or the shard location needs to be updated. To recover a deleted database, see [Restore a deleted database](sql-database-recovery-using-backups.md).
-2. A geo-failover event occurs. To continue, one must update the server name, and database name of shard map manager in the application and then update the shard mapping details for all shards in a shard map. If there is a geo-failover, such recovery logic should be automated within the failover workflow. Automating recovery actions enables a frictionless manageability for geo-enabled databases and avoids manual human actions. To learn about options to recover a database If there is a data center outage, see [Business Continuity](sql-database-business-continuity.md) and [Disaster Recovery](sql-database-disaster-recovery.md).
+2. A geo-failover event occurs. To continue, one must update the server name, and database name of shard map manager in the application and then update the shard mapping details for all shards in a shard map. If there is a geo-failover, such recovery logic should be automated within the failover workflow. Automating recovery actions enables a frictionless manageability for geo-enabled databases and avoids manual human actions. To learn about options to recover a database if there is a data center outage, see [Business Continuity](sql-database-business-continuity.md) and [Disaster Recovery](sql-database-disaster-recovery.md).
 3. Either a shard or the ShardMapManager database is restored to an earlier point-in time. To learn about point in time recovery using backups, see [Recovery using backups](sql-database-recovery-using-backups.md).
 
-For more information about Azure SQL Database Elastic Database tools, Geo-Replication and Restore, see the following: 
+For more information about Azure SQL Database Elastic Database tools, geo-replication and Restore, see the following: 
 
 * [Overview: Cloud business continuity and database disaster recovery with SQL Database](sql-database-business-continuity.md) 
 * [Get started with elastic database tools](sql-database-elastic-scale-get-started.md)  
@@ -96,7 +96,7 @@ The [ResolveMappingDifferences method](https://msdn.microsoft.com/library/azure/
 
 * The *RecoveryToken* parameter enumerates the differences in the mappings between the GSM and the LSM for the specific shard. 
 * The [MappingDifferenceResolution enumeration](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) is used to indicate the method for resolving the difference between the shard mappings. 
-* **MappingDifferenceResolution.KeepShardMapping** is recommended that when the LSM contains the accurate mapping and therefore the mapping in the shard should be used. This is typically the case If there is a failover: the shard now resides on a new server. Since the shard must first be removed from the GSM (using the RecoveryManager.DetachShard method), a mapping no longer exists on the GSM. Therefore, the LSM must be used to re-establish the shard mapping.
+* **MappingDifferenceResolution.KeepShardMapping** is recommended that when the LSM contains the accurate mapping and therefore the mapping in the shard should be used. This is typically the case if there is a failover: the shard now resides on a new server. Since the shard must first be removed from the GSM (using the RecoveryManager.DetachShard method), a mapping no longer exists on the GSM. Therefore, the LSM must be used to re-establish the shard mapping.
 
 ## Attach a shard to the ShardMap after a shard is restored
 The [AttachShard method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) attaches the given shard to the shard map. It then detects any shard map inconsistencies and updates the mappings to match the shard at the point of the shard restoration. It is assumed that the database is also renamed to reflect the original database name (before the shard was restored), since the point-in time restoration defaults to a new database appended with the timestamp. 

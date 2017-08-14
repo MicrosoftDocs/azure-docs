@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 07/16/2017
 ms.author: nepeters
 
 ---
@@ -32,7 +32,7 @@ The Custom Script Extension for Windows can be run against Windows Server 2008 R
 
 ### Script Location
 
-The script needs to be stored in Azure storage, or any other location accessible through a valid URL.
+The script needs to be stored in Azure Blob storage, or any other location accessible through a valid URL.
 
 ### Internet Connectivity
 
@@ -86,6 +86,8 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 | commandToExecute (e.g) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
 | storageAccountName (e.g) | examplestorageacct |
 | storageAccountKey (e.g) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== |
+
+**Note** - these property names are case sensitive. Use the names as seen above to avoid deployment issues.
 
 ## Template deployment
 

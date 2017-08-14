@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 07/14/2017
 ms.author: cherylmc
 
 ---
@@ -62,7 +62,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 
 ### Microsoft peering
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
-* Most of the Dynamics 365 services (formerly known as CRM Online)
+* Dynamics 365 (formerly known as CRM Online)
   * Dynamics 365 for Sales
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
@@ -99,7 +99,7 @@ No, you only need one physical connection if your service provider can establish
 No. We do not support layer 2 connectivity extensions into Azure.
 
 ### Can I have more than one ExpressRoute circuit in my subscription?
-Yes. You can have more than one ExpressRoute circuit in your subscription. The default limit on the number of dedicated circuits is set to 10. You can contact Microsoft Support to increase the limit if needed.
+Yes. You can have more than one ExpressRoute circuit in your subscription. The default limit is set to 10. You can contact Microsoft Support to increase the limit if needed.
 
 ### Can I have ExpressRoute circuits from different service providers?
 Yes. You can have ExpressRoute circuits with many service providers. Each ExpressRoute circuit will be associated with one service provider only. 
@@ -180,7 +180,7 @@ The following steps will help Azure recognize the activation request:
 Yes, you can attempt to increase the bandwidth of your ExpressRoute circuit in the Azure Portal or by using PowerShell. If there is capacity available on the physical port on which your circuit was created, your change will succeed. If your change fails, it means there isn’t enough capacity left on the current port and that you need to create a new ExpressRoute circuit with the higher bandwidth OR that there is no additional capacity at that location, in which case you will not be able to increase the bandwidth. You will also have to follow up with your connectivity provider to ensure that they update the throttles within their networks to support the bandwidth increase. You cannot, however, reduce the bandwidth of your ExpressRoute circuit. You will have to create a new ExpressRoute circuit with lower bandwidth and delete the old circuit.
 
 ### How do I change the bandwidth of an ExpressRoute circuit?
-You can update the bandwidth of the ExpressRoute circuit using the update dedicated circuit API and PowerShell cmdlet.
+You can update the bandwidth of the ExpressRoute circuit using the REST API and PowerShell cmdlet.
 
 ## ExpressRoute Premium
 ### What is ExpressRoute premium?
@@ -189,7 +189,7 @@ ExpressRoute premium is a collection of features listed below.
 * Increased routing table limit from 4000 routes to 10,000 routes for private peering.
 * Increased number of VNets that can be connected to the ExpressRoute circuit (default is 10). See table below for more details.
 * Global connectivity over the Microsoft core network. You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley. **Other example:** On the public peering, prefixes from other geopolitical regions are advertised such that you can connect to, for example, SQL Azure in Europe West from a circuit in Silicon Valley.
-* Connectivity to Office 365 services and CRM Online.
+* Connectivity to Office 365 and Dynamics 365.
 
 ### How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
 The tables below show the ExpressRoute limits and the number of VNets per ExpressRoute circuit.
@@ -197,10 +197,10 @@ The tables below show the ExpressRoute limits and the number of VNets per Expres
 [!INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
 
 ### How do I enable ExpressRoute premium?
-ExpressRoute premium features can be enabled when the feature is enabled and can be shut down by updating the circuit state. You can enable ExpressRoute premium at circuit creation time or can call the update dedicated circuit API / PowerShell cmdlet to enable ExpressRoute premium.
+ExpressRoute premium features can be enabled when the feature is enabled and can be shut down by updating the circuit state. You can enable ExpressRoute premium at circuit creation time or can call the REST API / PowerShell cmdlet to enable ExpressRoute premium.
 
 ### How do I disable ExpressRoute premium?
-You can disable ExpressRoute premium by calling the update dedicated circuit API / PowerShell cmdlet. You must ensure that you have scaled your connectivity needs to meet the default limits before you disable ExpressRoute premium. We will fail request to disable ExpressRoute premium if your utilization scales beyond the default limits.
+You can disable ExpressRoute premium by calling the REST API / PowerShell cmdlet. You must ensure that you have scaled your connectivity needs to meet the default limits before you disable ExpressRoute premium. We will fail request to disable ExpressRoute premium if your utilization scales beyond the default limits.
 
 ### Can I pick and choose the features I want from the premium feature set?
 No. You will not be able to pick the features you need. We enable all features when you turn on ExpressRoute premium.
@@ -211,37 +211,40 @@ Refer to [pricing details](https://azure.microsoft.com/pricing/details/expressro
 ### Do I pay for ExpressRoute premium in addition to standard ExpressRoute charges?
 Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges and charges required by the connectivity provider.
 
-## ExpressRoute and Office 365 Services and CRM Online
+## ExpressRoute for Office 365 and Dynamics 365
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### How do I create an ExpressRoute circuit to connect to Office 365 services and CRM Online?
+### How do I create an ExpressRoute circuit to connect to Office 365 services and Dynamics 365?
 1. Review the [ExpressRoute prerequisites page](expressroute-prerequisites.md) to make sure you meet the requirements.
 2. Review the list of service providers and locations at [ExpressRoute partners and locations](expressroute-locations.md) to ensure that your connectivity needs are met.
 3. Plan your capacity requirements by reviewing [Network planning and performance tuning for Office 365](http://aka.ms/tune/).
 4. Follow the steps listed in the workflows below to set up connectivity [ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md).
 
 > [!IMPORTANT]
-> Ensure that you have enabled ExpressRoute premium add-on when configuring connectivity to Office 365 services and CRM Online.
+> Ensure that you have enabled ExpressRoute premium add-on when configuring connectivity to Office 365 services and Dynamics 365.
 > 
 > 
 
-### Do I need to enable Azure Public Peering to connect to Office 365 services and CRM Online?
+### Do I need to enable Azure Public Peering to connect to Office 365 services and Dynamics 365?
 No, you only need to enable Microsoft Peering. Authentication traffic to Azure AD will be sent through Microsoft Peering. 
 
-### Can my existing ExpressRoute circuits support connectivity to Office 365 services and CRM Online?
+### Can my existing ExpressRoute circuits support connectivity to Office 365 services and Dynamics 365?
 Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Ensure that you have sufficient capacity to connect to Office 365 services and make sure that you have enabled premium add-on. [Network planning and performance tuning for Office 365](http://aka.ms/tune/) will help you plan your connectivity needs. Also, see [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-classic.md).
 
 ### What Office 365 services can be accessed over an ExpressRoute connection?
 Refer to [Office 365 URLs and IP address ranges](http://aka.ms/o365endpoints) page for an up-to-date list of services supported over ExpressRoute.
 
-### How much does ExpressRoute for Office 365 services and CRM Online cost?
-Office 365 services and CRM Online requires premium add-on to be enabled. The [pricing details page](https://azure.microsoft.com/pricing/details/expressroute/) provides details of costs for ExpressRoute.
+### How much does ExpressRoute for Office 365 services and Dynamics 365 cost?
+Office 365 services and Dynamics 365 requires premium add-on to be enabled. The [pricing details page](https://azure.microsoft.com/pricing/details/expressroute/) provides details of costs for ExpressRoute.
 
 ### What regions is ExpressRoute for Office 365 supported in?
 Refer to [ExpressRoute partners and locations](expressroute-locations.md) for more information on the list of partners and locations where ExpressRoute is supported.
 
 ### Can I access Office 365 over the internet even if ExpressRoute was configured for my organization?
 Yes. Office 365 service endpoints are reachable through the internet even though ExpressRoute has been configured for your network. If you are in a location that is configured to connect to Office 365 services through ExpressRoute, you will connect through ExpressRoute.
+
+### Can I access Office 365 US Government Community (GCC) services over an Azure US Government ExpressRoute circuit?
+Yes. Office 365 GCC service endpoints are reachable through the Azure US Government ExpressRoute. However, you first need to open a support ticket on Azure portal to provide the prefixes you intend to advertise to Microsoft. Your connectivity to Office 365 GCC services will be established after the support ticket is resolved. 
 
 ### Can Dynamics 365 for Operations (formerly known as Dynamics AX Online) be accessed over an ExpressRoute connection?
 Yes. [Dynamics 365 for Operations](https://www.microsoft.com/dynamics365/operations) is hosted on Azure. You can enable Azure public peering on your ExpressRoute circuit to connect to it. 

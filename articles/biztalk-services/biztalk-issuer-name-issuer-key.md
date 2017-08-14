@@ -18,6 +18,9 @@ ms.author: mandia
 
 ---
 # BizTalk Services: Issuer Name and Issuer Key
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Azure BizTalk Services uses the Service Bus Issuer Name and Issuer Key, and the Access Control Issuer Name and Issuer Key. Specifically:
 
 | Task | Which Issuer Name and Issuer Key |

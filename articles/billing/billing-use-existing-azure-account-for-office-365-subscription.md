@@ -4,7 +4,7 @@ description: Learn how to create an Office 365 subscription by using an Azure ac
 services: ''
 documentationcenter: ''
 author: JiangChen79
-manager: vikdesai
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 

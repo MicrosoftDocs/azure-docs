@@ -18,7 +18,7 @@ ms.author: tarcher
 
 ---
 # Using Remote Desktop with Azure Roles
-By using the Azure SDK and Remote Desktop Services, you can access Azure roles and virtual machines that are hosted by Azure. In Visual Studio, you can configure Remote Desktop Services from an Azure project. To enable Remote Desktop Services, you must create a working project that contains one or more roles and then publish it to Azure.
+By using the Azure SDK and Remote Desktop Services, you can access Azure roles and virtual machines that are hosted by Azure. In Visual Studio, you can configure Remote Desktop Services from an Azure cloud service project. To enable Remote Desktop Services, you must create a working project that contains one or more roles and then publish it to Azure.
 
 > [!IMPORTANT]
 > You should access an Azure role for troubleshooting or development only. The purpose of each virtual machine is to run a specific role in your Azure application, not to run other client applications. If you want to use Azure to host a virtual machine that you can use for any purpose, see Accessing Azure Virtual Machines from Server Explorer.
@@ -26,7 +26,7 @@ By using the Azure SDK and Remote Desktop Services, you can access Azure roles a
 > 
 
 ## To enable and use Remote Desktop for an Azure Role
-1. In Solution Explorer, open the shortcut menu for your project, and then choose **Publish**.
+1. In Solution Explorer, open the shortcut menu for your cloud service project, and then choose **Publish**.
    
     The **Publish Azure Application** wizard appears.
    

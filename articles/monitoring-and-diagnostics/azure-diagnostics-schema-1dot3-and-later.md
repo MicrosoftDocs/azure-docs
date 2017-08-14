@@ -1,6 +1,6 @@
 ---
-title: Azure Diagnostics 1.3, 1.4, 1.5, 1.6, 1.7 Configuration Schema | Microsoft Docs
-description: Schema version 1.3 and later Azure diagnostics shipped as part of the Microsoft Azure SDK.
+title: Azure Diagnostics extension 1.3 and later configuration schema | Microsoft Docs
+description: Schema version 1.3 and later Azure diagnostics shipped as part of the Microsoft Azure SDK 2.4 and later.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
@@ -13,29 +13,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 05/15/2017
 ms.author: robb
 
 ---
-# Azure Diagnostics 1.3, 1.4, 1.5 Configuration Schema
+# Azure Diagnostics 1.3 and later configuration schema
 > [!NOTE]
-> Azure Diagnostics is the component used to collect performance counters and other statistics from Azure Virtual Machines, Virtual Machine Scale Sets, Service
-> Fabric, and Cloud Services.  This page is only relevant if you are using one of these services.
->
+> The Azure Diagnostics extension is the component used to collect performance counters and other statistics from:
+> - Azure Virtual Machines 
+> - Virtual Machine Scale Sets
+> - Service Fabric 
+> - Cloud Services 
+> - Network Security Groups
+> 
+> This page is only relevant if you are using one of these services.
 
-Azure Diagnostics is used in conjunction with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics.
+This page is valid for versions 1.3 and newer (Azure SDK 2.4 and newer). Newer configuration sections are commented to show in what version they were added.  
 
-The Azure Diagnostics configuration file is used to set diagnostic configuration settings when the diagnostics monitor starts.  
+The configuration file described here is used to set diagnostic configuration settings when the diagnostics monitor starts.  
 
-This page is valid for versions 1.3, 1.4 and 1.5 (Azure SDK 2.4 and newer). Newer configuration sections are commented to show in what version they were added.  
+The extension is used in conjunction with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics.
 
- Download the public configuration file schema definition by executing the following PowerShell command:  
+
+
+Download the public configuration file schema definition by executing the following PowerShell command:  
 
 ```powershell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 
- For more information about using Azure Diagnostics, see [Enabling Diagnostics in Azure Cloud Services](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/).  
+For more information about using Azure Diagnostics, see [Azure Diagnostics Extension](azure-diagnostics.md).  
 
 ## Example of the diagnostics configuration file  
  The following example shows a typical diagnostics configuration file:  
@@ -99,6 +106,10 @@ This page is valid for versions 1.3, 1.4 and 1.5 (Azure SDK 2.4 and newer). Newe
           <CrashDumpConfiguration processName="badapp.exe"/>  
         </CrashDumps>  
 
+        <DockerSources> <!-- Added in 1.9 --> 
+          <Stats enabled="true" sampleRate="PT1M" scheduledTransferPeriod="PT1M" />
+        </DockerSources>
+
       </DiagnosticMonitorConfiguration>  
 
       <SinksConfig>   <!-- Added in 1.5 -->  
@@ -120,15 +131,20 @@ This page is valid for versions 1.3, 1.4 and 1.5 (Azure SDK 2.4 and newer). Newe
         </Sink>
    </SinksConfig>
 
-    </WadCfg>  
+  </WadCfg>  
+
+  <StorageAccount>diagstorageaccount</StorageAccount>
+  <StorageType>TableAndBlob</StorageType> <!-- Added in 1.8 -->  
   </PublicConfig>  
 
   <PrivateConfig>  <!-- Added in 1.3 -->  
-    <StorageAccount name="" key="" endpoint="" />
+    <StorageAccount name="" key="" endpoint="" sasToken="{sas token}"  />  <!-- sasToken in Private config added in 1.8.1 -->  
     <EventHub Url="https://myeventhub-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
+   
     <SecondaryStorageAccounts>
-       <StorageAccount name="secondarydiagstorageaccount" key="{base64 encoded key}" endpoint="https://core.windows.net" />
+       <StorageAccount name="secondarydiagstorageaccount" key="{base64 encoded key}" endpoint="https://core.windows.net" sasToken="{sas token}" />
     </SecondaryStorageAccounts>
+   
     <SecondaryEventHubs>
        <EventHub Url="https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
     </SecondaryEventHubs>
@@ -139,9 +155,12 @@ This page is valid for versions 1.3, 1.4 and 1.5 (Azure SDK 2.4 and newer). Newe
 
 ```  
 
-Here is the JSON equivalent of the previous XML configuration file.  
+JSON equivalent of the previous XML configuration file. 
+
+The PublicConfig and PrivateConfig are separated because in most json usage cases, they are passed as different variables. These cases include Resource Manager templates, Virtual Machine Scale set PowerShell, and Visual Studio. 
+
 ```json
-{
+"PublicConfig" {
     "WadCfg": {
         "DiagnosticMonitorConfiguration": {
             "overallQuotaInMB": 10000,
@@ -301,14 +320,17 @@ Here is the JSON equivalent of the previous XML configuration file.
             ]
         }
     },
-    "StorageAccount": "diagstorageaccount"
+    "StorageAccount": "diagstorageaccount",
+    "StorageType": "TableAndBlob"
 }
+```
 
-
-{
+```json
+"PrivateConfig" {
     "storageAccountName": "diagstorageaccount",
     "storageAccountKey": "{base64 encoded key}",
     "storageAccountEndPoint": "https://core.windows.net",
+    "storageAccountSasToken": "{sas token}",
     "EventHub": {
         "Url": "https://myeventhub-ns.servicebus.windows.net/diageventhub",
         "SharedAccessKeyName": "SendRule",
@@ -319,7 +341,8 @@ Here is the JSON equivalent of the previous XML configuration file.
             {
                 "name": "secondarydiagstorageaccount",
                 "key": "{base64 encoded key}",
-                "endpoint": "https://core.windows.net"
+                "endpoint": "https://core.windows.net",
+                "sasToken": "{sas token}"
             }
         ]
     },
@@ -342,17 +365,17 @@ Here is the JSON equivalent of the previous XML configuration file.
 ## Common Attribute Types  
  **scheduledTransferPeriod** attribute appears in several elements. It is the interval between scheduled transfers to storage rounded up to the nearest minute. The value is an [XML “Duration Data Type.”](http://www.w3schools.com/schema/schema_dtypes_date.asp)
 
-## Diagnostics Configuration Namespace  
- The XML namespace for the diagnostics configuration file is:  
-
-```  
-http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
-```  
 
 ## DiagnosticsConfiguration Element  
- Added in version 1.3.  
+ *Tree: Root - DiagnosticsConfiguration*
 
- The top-level element of the diagnostics configuration file.  
+Added in version 1.3.  
+
+The top-level element of the diagnostics configuration file.  
+
+**Attribute**  xmlns - The XML namespace for the diagnostics configuration file is:  
+http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
+
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
@@ -361,29 +384,51 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**IsEnabled**|Boolean. See description elsewhere on this page.|  
 
 ## PublicConfig Element  
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig*
+
  Describes the public diagnostics configuration.  
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
 |**WadCfg**|Required. See description elsewhere on this page.|  
-|**StorageAccount**|The name of the Azure Storage account to store the data in. This may also be specified as a parameter when executing the Set-AzureServiceDiagnosticsExtension cmdlet.|  
-|**LocalResourceDirectory**|The directory on the virtual machine where the Monitoring Agent stores event data. If not, set, the default directory is used:<br /><br /> For a Worker/web role: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> For a Virtual Machine: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Required attributes are:<br /><br /> - **path** - The directory on the system to be used by Azure Diagnostics.<br /><br /> - **expandEnvironment** - Controls whether or not environment variables are expanded in the path name.|  
+|**StorageAccount**|The name of the Azure Storage account to store the data in. May also be specified as a parameter when executing the Set-AzureServiceDiagnosticsExtension cmdlet.|  
+|**StorageType**|Can be *Table*, *Blob*, or *TableAndBlob*. Table is default. When TableAndBlob is chosen, diagnostic data is written twice -- once to each type.|  
+|**LocalResourceDirectory**|The directory on the virtual machine where the Monitoring Agent stores event data. If not, set, the default directory is used:<br /><br /> For a Worker/web role: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> For a Virtual Machine: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Required attributes are:<br /><br /> - **path** - The directory on the system to be used by Azure Diagnostics.<br /><br /> - **expandEnvironment** - Controls whether environment variables are expanded in the path name.|  
 
 ## WadCFG Element  
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
+ 
  Identifies and configures the telemetry data to be collected.  
+
+
+## DiagnosticMonitorConfiguration Element 
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
+
+ Required 
+
+|Attributes|Description|  
+|----------------|-----------------|  
+| **overallQuotaInMB** | The maximum amount of local disk space that may be consumed by the various types of diagnostic data collected by Azure Diagnostics. The default setting is 5120 MB.<br />
+|**useProxyServer** | Configure Azure Diagnostics to use the proxy server settings as set in IE settings.|  
+
+<br /> <br />
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
-|**DiagnosticMonitorConfiguration**|Required element.<br /><br /> Optional attributes are:<br /><br /> - **overallQuotaInMB** - The maximum amount of local disk space that may be consumed by the various types of diagnostic data collected by Azure Diagnostics. The default setting is 5120 MB.<br /><br /> - **useProxyServer** - Configure Azure Diagnostics to use the proxy server settings as set in IE settings.|  
 |**CrashDumps**|See description elsewhere on this page.|  
 |**DiagnosticInfrastructureLogs**|Enable collection of logs generated by Azure Diagnostics. The diagnostic infrastructure logs are useful for troubleshooting the diagnostics system itself. Optional attributes are:<br /><br /> - **scheduledTransferLogLevelFilter** - Configures the minimum severity level of the logs collected.<br /><br /> - **scheduledTransferPeriod** - The interval between scheduled transfers to storage rounded up to the nearest minute. The value is an [XML “Duration Data Type.”](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
 |**Directories**|See description elsewhere on this page.|  
 |**EtwProviders**|See description elsewhere on this page.|  
 |**Metrics**|See description elsewhere on this page.|  
 |**PerformanceCounters**|See description elsewhere on this page.|  
-|**WindowsEventLog**|See description elsewhere on this page.|  
+|**WindowsEventLog**|See description elsewhere on this page.| 
+|**DockerSources**|See description elsewhere on this page. | 
+
+
 
 ## CrashDumps Element  
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
+ 
  Enable the collection of crash dumps.  
 
 |Attributes|Description|  
@@ -396,25 +441,38 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**CrashDumpConfiguration**|Required. Defines configuration values for each process.<br /><br /> The following attribute is also required:<br /><br /> **processName** - The name of the process you want Azure Diagnostics to collect a crash dump for.|  
 
-## Directories Element  
+## Directories Element 
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration -  Directories*
+
  Enables the collection of the contents of a directory, IIS failed access request logs and/or IIS logs.  
 
- Optional **scheduledTransferPeriod** attribute. See explanation  earlier.  
+ Optional **scheduledTransferPeriod** attribute. See explanation earlier.  
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
-|**DataSources**|A list of directories to monitor.|  
+|**IISLogs**|Including this element in the configuration enables the collection of IIS logs:<br /><br /> **containerName** - The name of the blob container in your Azure Storage account to be used to store the IIS logs.|   
 |**FailedRequestLogs**|Including this element in the configuration enables collection of logs about failed requests to an IIS site or application. You must also enable tracing options under **system.WebServer** in **Web.config**.|  
-|**IISLogs**|Including this element in the configuration enables the collection of IIS logs:<br /><br /> **containerName** - The name of the blob container in your Azure Storage account to be used to store the IIS logs.|  
+|**DataSources**|A list of directories to monitor.| 
+
+
+
 
 ## DataSources Element  
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources*
+
  A list of directories to monitor.  
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
 |**DirectoryConfiguration**|Required. Required attribute:<br /><br /> **containerName** - The name of the blob container in your Azure Storage account that to be used to store the log files.|  
 
+
+
+
+
 ## DirectoryConfiguration Element  
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources - DirectoryConfiguration*
+
  May include either the **Absolute** or **LocalResource** element but not both.  
 
 |Child Elements|Description|  
@@ -422,7 +480,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Absolute**|The absolute path to the directory to monitor. The following attributes are required:<br /><br /> - **Path** - The absolute path to the directory to monitor.<br /><br /> - **expandEnvironment** - Configures whether environment variables in Path are expanded.|  
 |**LocalResource**|The path relative to a local resource to monitor. Required attributes are:<br /><br /> - **Name** - The local resource that contains the directory to monitor<br /><br /> - **relativePath** - The path relative to Name that contains the directory to monitor|  
 
+
+
 ## EtwProviders Element  
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders*
+
  Configures collection of ETW events from EventSource and/or ETW Manifest based providers.  
 
 |Child Elements|Description|  
@@ -430,7 +492,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**EtwEventSourceProviderConfiguration**|Configures collection of events generated from [EventSource Class](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Required attribute:<br /><br /> **provider** - The class name of the EventSource event.<br /><br /> Optional attributes are:<br /><br /> - **scheduledTransferLogLevelFilter** - The minimum severity level to transfer to your storage account.<br /><br /> - **scheduledTransferPeriod** - The interval between scheduled transfers to storage rounded up to the nearest minute. The value is an [XML “Duration Data Type.”](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
 |**EtwManifestProviderConfiguration**|Required attribute:<br /><br /> **provider** - The GUID of the event provider<br /><br /> Optional attributes are:<br /><br /> - **scheduledTransferLogLevelFilter** - The minimum severity level to transfer to your storage account.<br /><br /> - **scheduledTransferPeriod** - The interval between scheduled transfers to storage rounded up to the nearest minute. The value is an [XML “Duration Data Type.”](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
 
+
+
 ## EtwEventSourceProviderConfiguration Element  
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration*
+
  Configures collection of events generated from [EventSource Class](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
 
 |Child Elements|Description|  
@@ -438,23 +504,34 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**DefaultEvents**|Optional attribute:<br/><br/> **eventDestination** - The name of the table to store the events in|  
 |**Event**|Required attribute:<br /><br /> **id** - The id of the event.<br /><br /> Optional attribute:<br /><br /> **eventDestination** - The name of the table to store the events in|  
 
+
+
 ## EtwManifestProviderConfiguration Element  
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Optional attribute:<br /><br /> **eventDestination** - The name of the table to store the events in|  
 |**Event**|Required attribute:<br /><br /> **id** - The id of the event.<br /><br /> Optional attribute:<br /><br /> **eventDestination** - The name of the table to store the events in|  
 
+
+
 ## Metrics Element  
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Metrics*
+
  Enables you to generate a performance counter table that is optimized for fast queries. Each performance counter that is defined in the **PerformanceCounters** element is stored in the Metrics table in addition to the Performance Counter table.  
 
- The **resourceId** attribute is required.  This is the resource ID of the Virtual Machine you are deploying Azure Diagnostics to. Get the **resourceID** from the [Azure portal](https://portal.azure.com). Select **Browse** -> **Resource Groups** -> **<Name\>**. Click the **Properties** tile and copy the value from the **ID** field.  
+ The **resourceId** attribute is required.  The resource ID of the Virtual Machine you are deploying Azure Diagnostics to. Get the **resourceID** from the [Azure portal](https://portal.azure.com). Select **Browse** -> **Resource Groups** -> **<Name\>**. Click the **Properties** tile and copy the value from the **ID** field.  
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
 |**MetricAggregation**|Required attribute:<br /><br /> **scheduledTransferPeriod** - The interval between scheduled transfers to storage rounded up to the nearest minute. The value is an [XML “Duration Data Type.”](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
 
+
+
 ## PerformanceCounters Element  
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - PerformanceCounters*
+
  Enables the collection of performance counters.  
 
  Optional attribute:  
@@ -463,18 +540,28 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Child Element|Description|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|The following attributes are required:<br /><br /> - **counterSpecifier** - The name of the performance counter. For example, `\Processor(_Total)\% Processor Time`. To get a list of performance counters on your host run the command `typeperf`.<br /><br /> - **sampleRate** - How often the counter should be sampled.<br /><br /> Optional attribute:<br /><br /> **unit** - The unit of measure of the counter.|  
+|**PerformanceCounterConfiguration**|The following attributes are required:<br /><br /> - **counterSpecifier** - The name of the performance counter. For example, `\Processor(_Total)\% Processor Time`. To get a list of performance counters on your host, run the command `typeperf`.<br /><br /> - **sampleRate** - How often the counter should be sampled.<br /><br /> Optional attribute:<br /><br /> **unit** - The unit of measure of the counter.|  
 
-## WindowsEventLog Element  
+
+
+
+## WindowsEventLog Element
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
+ 
  Enables the collection of Windows Event Logs.  
 
  Optional **scheduledTransferPeriod** attribute. See explanation  earlier.  
 
 |Child Element|Description|  
 |-------------------|-----------------|  
-|**DataSource**|The Windows Event logs to collect. Required attribute:<br /><br /> **name** - The XPath query describing the windows events to be collected. For example:<br /><br /> `Application!*[Application[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[Security[(Level <= 3)]`<br /><br /> To collect all events, specify “*”.|  
+|**DataSource**|The Windows Event logs to collect. Required attribute:<br /><br /> **name** - The XPath query describing the windows events to be collected. For example:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> To collect all events, specify "*"|  
+
+
+
 
 ## Logs Element  
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logs*
+
  Present in version 1.0 and 1.1. Missing in 1.2. Added back in 1.3.  
 
  Defines the buffer configuration for basic Azure logs.  
@@ -486,14 +573,27 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**scheduledTransferPeriod**|**duration**|Optional. Specifies the interval between scheduled transfers of data, rounded up to the nearest minute.<br /><br /> The default is PT0S.|  
 |**sinks** Added in 1.5|**string**|Optional. Points to a sink location to also send diagnostic data. For example, Application Insights.|  
 
+## DockerSources
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
+
+ Added in 1.9.
+
+|Element Name|Description|  
+|------------------|-----------------|  
+|**Stats**|Tells the system to collect stats for Docker containers|  
+
 ## SinksConfig Element  
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
+
  A list of locations to send diagnostics data to and the configuration associated with those locations.  
 
 |Element Name|Description|  
 |------------------|-----------------|  
 |**Sink**|See description elsewhere on this page.|  
 
-## Sink Element  
+## Sink Element
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink*
+
  Added in version 1.5.  
 
  Defines locations to send diagnostic data to. For example, the Application Insights service.  
@@ -508,6 +608,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Channels**|string|One for each additional filtering that stream that you|  
 
 ## Channels Element  
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
+
  Added in version 1.5.  
 
  Defines filters for streams of log data passing through a sink.  
@@ -516,7 +618,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |-------------|----------|-----------------|  
 |**Channel**|string|See description elsewhere on this page.|  
 
-## Channel Element  
+## Channel Element
+ *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
+
  Added in version 1.5.  
 
  Defines locations to send diagnostic data to. For example, the Application Insights service.  
@@ -526,7 +630,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**logLevel**|**string**|Specifies the minimum severity level for log entries that are transferred. The default value is **Undefined**, which transfers all logs. Other possible values (in order of most to least information) are **Verbose**, **Information**, **Warning**, **Error**, and **Critical**.|  
 |**name**|**string**|A unique name of the channel to refer to|  
 
-## PrivateConfig Element  
+
+## PrivateConfig Element 
+ *Tree: Root - DiagnosticsConfiguration - PrivateConfig*
+
  Added in version 1.3.  
 
  Optional  
@@ -535,7 +642,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
-|**StorageAccount**|The storage account to use. The following attributes are required<br /><br /> - **name** - The name of the storage account.<br /><br /> - **key** - The key to the storage account.<br /><br /> - **endpoint** - The endpoint to access the storage account.|  
+|**StorageAccount**|The storage account to use. The following attributes are required<br /><br /> - **name** - The name of the storage account.<br /><br /> - **key** - The key to the storage account.<br /><br /> - **endpoint** - The endpoint to access the storage account. <br /><br /> -**sasToken** (added 1.8.1)- You can specify an SAS token instead of a storage account key in the private config. If provided, the storage account key is ignored. <br />Requirements for the SAS Token: <br />- Supports account SAS token only <br />- *b*, *t* service types are required. <br /> - *a*, *c*, *u*, *w* permissions are required. <br /> - *c*, *o* resource types are required. <br /> - Supports the HTTPS protocol only <br /> - Start and expiry time must be valid.|  
+
 
 ## IsEnabled Element  
+ *Tree: Root - DiagnosticsConfiguration - IsEnabled*
+
  Boolean. Use `true` to enable the diagnostics or `false` to disable the diagnostics.

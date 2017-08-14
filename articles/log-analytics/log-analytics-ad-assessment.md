@@ -12,12 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
 ---
 # Optimize your Active Directory environment with the Active Directory Assessment solution in Log Analytics
+
+![AD Assessment symbol](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
 
 You can use the Active Directory Assessment solution to assess the risk and health of your server environments on a regular interval. This article will help you install and use the solution so that you can take corrective actions for potential problems.
 

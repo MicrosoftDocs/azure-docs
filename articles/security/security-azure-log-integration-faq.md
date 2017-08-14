@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure log integration FAQ | Microsoft Docs
 description: This FAQ answers questions about Azure log integration.
 services: security
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 06/26/2017
 ms.author: TomSh
+ms.custom: azlog
 
 ---
 # Azure log integration frequently asked questions (FAQ)
@@ -27,8 +28,18 @@ Yes. There is no charge for the Azure Log Integration software.
 
 It is currently available in Azure commercial and Azure Government and not available in China, or Germany.
 
-## How can I see the storage accounts from which Azure log integration is pulling Azure VM logs from?
+## How can I see the storage accounts from which Azure Log integration is pulling Azure VM logs from?
 Run the command **azlog source list**.
+
+## How can I tell which subscription the Azure Log integration logs are from?
+
+In the case of Audit logs that are placed in the AzureResourcemanagerJson directories the subscription ID is in the log file name. This is also true for logs in the AzureSecurityCenterJson folder. For example:
+
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
+
+Azure Active Directory audit logs include the tenant ID as part of the name.
+
+Diagnostic logs read from an Event Hub do not include the subscription ID as part of the name but instead include the friendly name specified as part of the creation of the Event Hub source. 
 
 ## How can I update the proxy configuration?
 If your proxy setting does not allow Azure storage access directly, open the **AZLOG.EXE.CONFIG** file in **c:\Program Files\Microsoft Azure Log Integration**. Update the file to include the **defaultProxy** section with the proxy address of your organization. After update is done, stop and start the service using commands **net stop azlog** and **net start azlog**.
@@ -109,6 +120,9 @@ After making changes, check the storage account to ensure that the correct event
 
 If you run into any issues during the installation and configuration, please open a [support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request), select **Log Integration** as the service for which you are requesting support.
 
+### Can I use Azure Log integration to integrate Network Watcher logs into my SIEM?
+
+Network watcher generates large quantities of logging information and these logs are not meant to be sent to a SIEM. The only supported destination for Network Watcher logs is a storage account. Azlog does not support reading these logs and making them available to a SIEM
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png

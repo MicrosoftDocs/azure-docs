@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2016
+ms.date: 5/31/2017
 ms.author: kumud
 ---
 
@@ -41,7 +41,9 @@ You can use [Log Analytics for Load Balancer](load-balancer-monitor-log.md) and 
 
 ## Load-balanced VM with no Instance Level Public IP address
 
-In this scenario, the VM is part of an Azure Load Balancer pool. The VM does not have a public IP address assigned to it. When the load-balanced VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to the public IP address of the public Load Balancer frontend. Azure uses Source Network Address Translation (SNAT) to perform this function. Ephemeral ports of the Load Balancer's public IP address are used to distinguish individual flows originated by the VM. SNAT dynamically allocates ephemeral ports when outbound flows are created. In this context, the ephemeral ports used for SNAT are referred to as SNAT ports.
+In this scenario, the VM is part of an Azure Load Balancer pool.  The VM does not have a public IP address assigned to it. The Load Balancer resource must be configured with a rule to link the public IP frontend with the backend pool.  If you do not complete this configuration, the behavior is as described in the section above for [Standalone VM with no Instance Level Public IP](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
+
+When the load-balanced VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to the public IP address of the public Load Balancer frontend. Azure uses Source Network Address Translation (SNAT) to perform this function. Ephemeral ports of the Load Balancer's public IP address are used to distinguish individual flows originated by the VM. SNAT dynamically allocates ephemeral ports when outbound flows are created. In this context, the ephemeral ports used for SNAT are referred to as SNAT ports.
 
 SNAT ports are a finite resource that can be exhausted. It is important to understand how they are consumed. One SNAT port is consumed per flow to a single destination IP address. For multiple flows to the same destination IP address, each flow consumes a single SNAT port. This ensures that the flows are unique when originated from the same public IP address to the same destination IP address. Multiple flows, each to a different destination IP address consume a single SNAT port per destination. The destination IP address makes the flows unique.
 
@@ -65,6 +67,8 @@ You must ensure that the VM can receive health probe requests from Azure Load Ba
 
 ## Limitations
 
-While not guaranteed, the maximum number of SNAT ports available today is 64,511 (65,535 - 1024 privileged ports).  This does not translate directly to number of connections, please see above for specifics on when and how SNAT ports are allocated and how to manage this exhaustible resource.
-
 If [multiple (public) IP addresses are associated with a load balancer](load-balancer-multivip-overview.md), any of these public IP addresses are a candidate for outbound flows.
+
+Azure uses an algorithm to determine the number of SNAT ports available based on the size of the pool.  This is not configurable at this time.
+
+It is important to rememember that the number of SNAT ports available does not translate directly to number of connections. Please see above for specifics on when and how SNAT ports are allocated and how to manage this exhaustible resource.

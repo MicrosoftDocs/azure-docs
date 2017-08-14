@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 05/09/2017
 ms.author: terrylan
 
 ---
@@ -30,33 +30,30 @@ The **Partner solutions** tile on the **Security Center** blade lets you monitor
 
 ![Partner solutions tile][1]
 
-The **Partner solutions** tile displays the number of partner solutions and a status summary for those solutions.
-
-The **STATUS** of a partner solution can be:
-
-* Protected (green) - there is no health issue.
-* Unhealthy (red) - there is a health issue that requires immediate attention.
-* Stopped reporting (orange) - the solution has stopped reporting its health.
-* Unknown protection status (orange) - the health of the solution is unknown at this time due to a failed process of adding a new resource to the existing solution.
-* Not reported (gray) - the solution has not reported anything yet, a solution's status may be unreported if it has just been connected and is still deploying.
-
-If there are no solutions integrated with your subscription the tile will state that there are no solutions. Selecting the **Partner solutions** tile will enable you to open the **Recommendations** blade to deploy partner security solutions.
-
-![No partner solutions][2]
+The **Partner solutions** tile displays the number of partner solutions integrated with your subscription. If there are no solutions integrated, the tile displays the number zero.
 
 To view the health of your partner solutions:
 
-1. Select the **Partner solutions** tile. A blade opens displaying a list of your partner solutions connected to Security Center.
+1. Select the **Partner solutions** tile. The **Partner solutions** blade opens displaying a list of your partner solutions connected to Security Center.
 
    ![Partner solutions][3]
-2. Select a partner solution. In this example, lets select the **F5-WAF2** solution.  A blade opens showing you the status of the partner solution and the solution's associated resources. Select **Solution console** to open the partner management experience for this solution.
+
+   The status of a partner solution can be:
+
+   * Protected (green) - there is no health issue.
+   * Unhealthy (red) - there is a health issue that requires immediate attention.
+   * Stopped reporting (orange) - the solution has stopped reporting its health.
+   * Unknown protection status (orange) - the health of the solution is unknown at this time due to a failed process of adding a new resource to the existing solution.
+   * Not reported (gray) - the solution has not reported anything yet, a solution's status may be unreported if it has just been connected and is still deploying.
+
+2. Select a partner solution. In this example, lets select the **Qualys** solution.  A blade opens showing you the status of the partner solution and the solution's associated resources. Select **Solution console** to open the partner management experience for this solution.
 
    ![Partner solution detail][4]
-3. Go back to the **F5-WAF2** blade and select **Link app**. The **Link Applications** blade opens. Here you can connect resources to the partner solution.
+3. Go back to the **Qualys** blade and select **Link VM**. The **Link Applications** blade opens. Here you can connect resources to the partner solution.
 
    ![Link resources to partner solution][5]
 
-## See also
+## Next steps
 In this document, you were introduced to the **Partner Solutions** tile in Security Center. To learn more about Security Center, see the following:
 
 * [Setting security policies in Azure Security Center](security-center-policies.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
@@ -68,7 +65,6 @@ In this document, you were introduced to the **Partner Solutions** tile in Secur
 
 <!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png
-[2]: ./media/security-center-partner-solutions/no-partner-solutions-to-display.png
 [3]: ./media/security-center-partner-solutions/partner-solutions.png
 [4]: ./media/security-center-partner-solutions/partner-solutions-detail.png
 [5]: ./media/security-center-partner-solutions/link-applications.png

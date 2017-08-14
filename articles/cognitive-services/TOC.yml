@@ -1,3 +1,4 @@
+
 - name: Overview
   href: index.md
   items:
@@ -13,6 +14,8 @@
     href: Academic-Knowledge/Home.md
   - name: Bing Autosuggest
     href: Bing-Autosuggest/get-suggested-search-terms.md
+  - name: Bing Entities Search
+    href: Bing-Entities-Search/search-the-web.md
   - name: Bing Image Search
     href: Bing-Image-Search/search-the-web.md
   - name: Bing News Search
@@ -25,18 +28,26 @@
     href: Bing-Video-Search/search-the-web.md
   - name: Bing Web Search
     href: Bing-Web-Search/search-the-web.md
+  - name: Bing Custom Search
+    href: Bing-Custom-Search/overview.md
   - name: Computer Vision
     href: Computer-vision/Home.md
   - name: Content Moderator
     href: Content-Moderator/overview.md
+  - name: Custom Decision Service
+    href: custom-decision-service/custom-decision-service-overview.md
   - name: Custom Speech Service
     href: Custom-Speech-Service/cognitive-services-custom-speech-home.md
+  - name: Custom Vision Service
+    href: Custom-Vision-Service/home.md
   - name: Emotion
     href: Emotion/Home.md
   - name: Entity Linking
     href: EntityLinking/Home.md
   - name: Face
     href: Face/Overview.md
+  - name: Video Indexer
+    href: video-indexer/video-indexer-overview.md  
   - name: Knowledge Exploration Service
     href: KES/Overview.md
   - name: Linguistic Analysis
@@ -59,6 +70,8 @@
     href: Web-Language-Model/Home.md
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=cognitive-services
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/
   - name: Videos

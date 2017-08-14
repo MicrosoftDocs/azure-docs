@@ -157,7 +157,7 @@ SerDe is the best choice for parsing nested JSON documents, it allows you to def
       ![Setting up correct config values for JDK][image-hdi-hivejson-jdk]
 2. Install [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip)
    
-    Add the bin folder to your path by going to Control Panel-->Edit the System Variables for your account Environment variables. The following screenshot shows you how to do this.
+    Add the bin folder to your path by going to Control Panel-->Edit the System Variables for your account Environment variables. The following screenshot shows you how to do this.
    
     ![Setting up Maven][image-hdi-hivejson-maven]
 3. Clone the project from [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) github site. You can do this by clicking on the “Download Zip” button as shown in the following screenshot.
@@ -247,7 +247,7 @@ For other related articles, see
 * [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](hdinsight-use-hive.md)
 * [Analyze flight delay data by using Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
 * [Analyze Twitter data using Hive in HDInsight](hdinsight-analyze-twitter-data.md)
-* [Run a Hadoop job using DocumentDB and HDInsight](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
+* [Run a Hadoop job using Azure Cosmos DB and HDInsight](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]: hdinsight-python.md
 

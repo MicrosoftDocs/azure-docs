@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 07/15/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Create a Linux virtual machine with the Azure portal
@@ -42,7 +43,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-2. Select **Compute**, select **Ubuntu Server 16.04 LTS**, and ensure that **Resource Manager** is the selected deployment model. Click the **Create** button. 
+2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**. 
 
 3. Enter the virtual machine information. For **Authentication type**, select **SSH public key**. When pasting in your SSH public key, take care to remove any leading or trailing white space. When complete, click **OK**.
 
@@ -52,7 +53,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
     ![Screenshot that shows VM sizes](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. On the settings blade, select **Yes** under **Use managed disks**, keep the defaults for the rest of the settings, and click **OK**.
+5. On the settings blade, keep the defaults and click **OK**.
 
 6. On the summary page, click **Ok** to start the virtual machine deployment.
 
@@ -102,13 +103,13 @@ A Network security group (NSG) secures inbound and outbound traffic. When a VM i
 6. Click **OK**.
 
 
-## View the NGIX welcome page
+## View the NGINX welcome page
 
-With NGINX installed, and port 80 open to your VM, the webserver can now be accessed from the internet. Open a web browser, and enter the public IP address of the VM. the public IP address can be found on the VM blade in the Azure portal.
+With NGINX installed, and port 80 open to your VM, the webserver can now be accessed from the internet. Open a web browser, and enter the public IP address of the VM. The public IP address can be found on the VM blade in the Azure portal.
 
 ![NGINX default site](./media/quick-create-cli/nginx.png) 
 
-## Delete virtual machine
+## Clean up resources
 
 When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine blade and click **Delete**.
 

@@ -6,6 +6,7 @@ keywords: Active directory password management, password management, Azure AD se
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 
 ms.assetid: 
 ms.service: active-directory
@@ -13,8 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
 # Password policies and restrictions in Azure Active Directory
@@ -23,20 +25,43 @@ This article describes the password policies and complexity requirements associa
 
 ## Administrator password policy differences
 
-Microsoft enforces a strong default password reset policy for any Azure administrator role (Example: Global Administrator, Helpdesk Administrator, Password Administrator, etc.)
+Microsoft enforces a strong default **two gate** password reset policy for any Azure administrator role (Example: Global Administrator, Helpdesk Administrator, Password Administrator, etc.)
 
 This disables administrators from using security questions and enforces the following.
 
-One gate policy, requiring one piece of authentication data, applies in the following circumstances
+Two gate policy, requiring two pieces of authentication data (email address **and** phone number), applies in the following circumstances
+
+* All Azure administrator roles
+  * Helpdesk Administrator
+  * Service Support Administrator
+  * Billing Administrator
+  * Partner Tier1 Support
+  * Partner Tier2 Support
+  * Exchange Service Administrator
+  * Lync Service Administrator
+  * User Account Administrator
+  * Directory Writers
+  * Global Administrator/Company Administrator
+  * SharePoint Service Administrator
+  * Compliance Administrator
+  * Application Administrator
+  * Security Administrator
+  * Privileged Role Administrator
+  * Intune Service Administrator
+  * Application Proxy Service Administrator
+  * CRM Service Administrator
+  * Power BI Service Administrator
+  
+* 30 days have elapsed in a trial **OR**
+* Vanity domain is present (contoso.com) **OR**
+* Azure AD Connect is synchronizing identities from your on-premises directory
+
+### Exceptions
+One gate policy, requiring one piece of authentication data (email address **or** phone number), applies in the following circumstances
 
 * First 30 days of a trial **OR**
 * Vanity domain is not present (*.onmicrosoft.com) **AND** Azure AD Connect is not synchronizing identities
 
-Two gate policy, requiring two pieces of authentication data, applies in the following circumstances
-
-* 30 days have elapsed in a trial **OR**
-* Vanity domain is present (contoso.com) **OR**
-* Azure AD Connect is synchronizing identities from your on-premises directory
 
 ## UserPrincipalName policies that apply to all user accounts
 
@@ -75,7 +100,7 @@ A global administrator for a Microsoft cloud service can use the Microsoft Azure
 
 ## Set or check password policies using PowerShell
 
-To get started, you need to [download and install the Azure AD PowerShell module](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Once you have it installed, you can follow the steps below to configure each field.
+To get started, you need to [download and install the Azure AD PowerShell module](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Once you have it installed, you can follow the steps below to configure each field.
 
 ### How to check expiration policy for a password
 1. Connect to Windows PowerShell using your company administrator credentials.

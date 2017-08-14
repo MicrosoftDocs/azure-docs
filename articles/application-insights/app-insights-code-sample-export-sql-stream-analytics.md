@@ -4,7 +4,7 @@ description: Continuously export Application Insights data to SQL using Stream A
 services: application-insights
 documentationcenter: ''
 author: noamben
-manager: douge
+manager: carmonm
 
 ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Walkthrough: Export to SQL from Application Insights using Stream Analytics

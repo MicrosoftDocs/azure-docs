@@ -3,7 +3,7 @@ title: Understand Azure Active Directory architecture | Microsoft Docs
 description: Explains what an Azure AD tenant is, and how to manage Azure through Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: markvi
+author: MarkusVi
 writer: v-lorisc
 manager: femila
 
@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 05/16/2017
 ms.author: markvi
 
 ---

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/27/2017
-ms.author: deli; LADocs
+ms.author: LADocs; deli
 ---
 
 # Connect to on-premises file systems from logic apps with the File System connector
@@ -92,6 +92,9 @@ Try exploring other functionalities that the connector offers, for example:
 - Get file metadata using path
 - List files in root folder
 - Update file
+
+## View the swagger
+See the [swagger details](/connectors/fileconnector/). 
 
 ## Get help
 

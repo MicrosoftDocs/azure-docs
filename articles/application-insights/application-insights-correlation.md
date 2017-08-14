@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: sergkanz
+ms.author: cfreeman
 
 ---
 # Telemetry correlation in Application Insights

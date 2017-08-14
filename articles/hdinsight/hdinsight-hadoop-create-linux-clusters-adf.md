@@ -1,5 +1,5 @@
 ---
-title: Create Azure HDInsight (Hadoop) using Data Factory | Microsoft Docs
+title: Create on-demand Hadoop clusters using Data Factory - Azure HDInsight | Microsoft Docs
 description: Learn how to create on-demand Hadoop clusters in HDInsight using Azure Data Factory.
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 07/20/2017
 ms.author: spelluru
 
 ---
@@ -308,12 +308,12 @@ In the on-demand HDInsight linked service definition, you specify values for con
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "osType": "linux",
-            "version": "3.2",
+            "version": "3.5",
             "clusterSize": 1,
+            "timeToLive": "00:05:00",
+            "osType": "Linux",
             "sshUserName": "myuser",                            
             "sshPassword": "MyPassword!",
-            "timeToLive": "00:30:00",
             "linkedServiceName": "[variables('storageLinkedServiceName')]"
         }
     }
@@ -546,12 +546,12 @@ In case you don't want to delete the storage account when you delete the resourc
         "properties": {
             "type": "HDInsightOnDemand",
             "typeProperties": {
-                "osType": "linux",
-                "version": "3.2",
-                "clusterSize": 1,
+            	"version": "3.5",
+	            "clusterSize": 1,
+    	        "timeToLive": "00:05:00",
+    	        "osType": "Linux",
                 "sshUserName": "myuser",                            
                 "sshPassword": "MyPassword!",
-                "timeToLive": "00:30:00",
                 "linkedServiceName": "[variables('storageLinkedServiceName')]",
                 "additionalLinkedServiceNames": "[variables('defaultStorageLinkedServiceName')]"
             }
@@ -570,6 +570,7 @@ In this article, you have learned how to use Azure Data Factory to create on-dem
 
 ### Azure CLI script
 You can use Azure CLI instead of using Azure PowerShell to do the tutorial. To use Azure CLI, first install Azure CLI as per the following instructions:
+
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 #### Use Azure CLI to prepare the storage and copy the files

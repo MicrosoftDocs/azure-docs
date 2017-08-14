@@ -13,7 +13,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 05/02/2017
 ms.author: antisch
 ---
 
@@ -22,8 +22,9 @@ ms.author: antisch
 This script creates an Azure Batch account and shows how various properties of the account 
 can be queried and updated.
 
-If needed, install the Azure CLI using the instructions found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), 
-and then run `az login` to log into Azure.
+## Prerequisites
+
+Install the Azure CLI using the instructions provided in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), if you have not already done so.
 
 ## Batch account sample script
 

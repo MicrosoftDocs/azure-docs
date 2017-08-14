@@ -3,7 +3,7 @@ title: Azure Application Insights FAQ | Microsoft Docs
 description: Frequently asked questions about Application Insights.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Application Insights: Frequently Asked Questions
@@ -99,7 +99,7 @@ A desktop app that you can use in your IIS web server to help configure Applicat
 From server web apps:
 
 * HTTP requests
-* [Dependencies](app-insights-asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure DocumentDB, table, blob storage, and queue. 
+* [Dependencies](app-insights-asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue. 
 * [Exceptions](app-insights-asp-net-exceptions.md) and stack traces.
 * [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](app-insights-monitor-performance-live-website-now.md), Azure monitoring(app-insights-azure-web-apps.md) or the [Application Insights collectd writer](app-insights-java-collectd.md).
 * [Custom events and metrics](app-insights-api-custom-events-metrics.md) that you code.
@@ -167,6 +167,8 @@ You could:
 We don't log POST data automatically, but you can use a TrackTrace call: put the data in the message parameter. This has a longer size limit than the limits on string properties, though you can't filter on it.
 
 ## Should I use single or multiple Application Insights resources?
+
+Use a single resource for all the components or roles in a single business system. Use separate resources for development, test, and release versions, and for independent applications.
 
 * [See the discussion here](app-insights-separate-resources.md)
 * [Example - cloud service with worker and web roles](app-insights-cloudservices.md)
