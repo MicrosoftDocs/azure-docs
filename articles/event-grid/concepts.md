@@ -47,7 +47,7 @@ Event provides security for subscribing to topics, and publishing topics. When s
 
 ## Failed delivery
 
-When Event Grid cannot confirm that an event has been received by the subscriber's endpoint, it redelivers the event. For more information, see [Event Grid message delivery and retry](deliver-and-retry.md).
+When Event Grid cannot confirm that an event has been received by the subscriber's endpoint, it redelivers the event. For more information, see [Event Grid message delivery and retry](delivery-and-retry.md).
 
 ## Next steps
 
