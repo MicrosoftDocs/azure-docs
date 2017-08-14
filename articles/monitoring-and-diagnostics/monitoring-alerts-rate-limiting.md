@@ -23,8 +23,8 @@ Rate limiting is a suspension of notifications that occurs when too many notific
 
 The rules for SMS and email are the same. The rate limit threshold is:
 
- - SMS: 10 messages in an hour.
- - Email: 100 messages in an hour.
+ - **SMS**: 10 messages in an hour.
+ - **Email**: 100 messages in an hour.
 
 ## Rate limit rules
 - A particular phone number or email is rate limited when it receives more messages than the threshold allows.

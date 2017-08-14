@@ -24,7 +24,7 @@ The basic steps are:
 
 1. Create a template as a JSON file that describes how to create the activity log alert.
 
-2. [Deploy the template by using any deployment method](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+2. Deploy the template by using [any deployment method](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
 ## Resource Manager template for an activity log alert
 To create an activity log alert by using a Resource Manager template, you create a resource of the type `microsoft.insights/activityLogAlerts`. Then you fill in all related properties. Here's a template that creates an activity log alert.
@@ -100,5 +100,5 @@ To create an activity log alert by using a Resource Manager template, you create
 ## Next steps
 - Learn more about [alerts](monitoring-overview-alerts.md).
 - Learn how to add [action groups by using a Resource Manager template](monitoring-create-action-group-with-resource-manager-template.md).
-- [Create an activity log alert to monitor all autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
-- [Create an activity log alert to monitor all failed autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+- Learn how to [create an activity log alert to monitor all autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
+- Learn how to [create an activity log alert to monitor all failed autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
