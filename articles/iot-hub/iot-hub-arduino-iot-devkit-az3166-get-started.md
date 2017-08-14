@@ -90,7 +90,7 @@ Once the connection succeeds, the DevKit will reboot in a few seconds. If succee
 > [!NOTE] 
 The IP address displayed in the photo may not match the actual IP assigned and displayed on the DevKit screen. This is normal as WiFi uses DHCP to dynamically assign IPs.
 
-After WiFi is configured, your credentials will be persisted on the device for that connection, even if unplugged. For example, if you configured the DevKit for WiFi in your home and then took the DevKit to the office, you will need to reconfigure AP mode (starting at step 3A) to connect the DevKit to your office WiFi. 
+After WiFi is configured, your credentials will be persisted on the device for that connection, even if unplugged. For example, if you configured the DevKit for WiFi in your home and then took the DevKit to the office, you will need to reconfigure AP mode (starting at step **Enter AP Mode**) to connect the DevKit to your office WiFi. 
 
 ## Start using DevKit
 
@@ -113,14 +113,14 @@ Press button B to test sensors, continue pressing and releasing the B button to 
 
 ## Prepare development environment
 
-Now it's time to set up the development environment: tools and packages for you to build stunning IoT applications.
+Now it's time to set up the development environment: tools and packages for you to build stunning IoT applications. You can choose Windows or macOS version according to your operating system.
 
 
-# [Windows](#tab/windows)
+### Windows
 
 We encourage you to use the installation package to prepare the development environment. If you encounter any issues, you can follow the [manual steps](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/) to get it done.
 
-### Download latest package
+#### Download latest package
 
 The `.zip` file you download contains all necessary tools and packages required for DevKit development.
 
@@ -138,7 +138,7 @@ The `.zip` file you download contains all necessary tools and packages required 
 > * DevKit Board Package: Tool chains, libraries and projects for the DevKit
 > * ST-Link Utility: Essential utilities and drivers
 
-#### B. Run installation script
+#### Run installation script
 
 In Windows File Explorer, locate the `.zip` and extract it, find `install.cmd`, right-click and select **"Run as administrator"** to start.
 
@@ -148,7 +148,7 @@ During installation, you will see the progress of each tool or package.
 
 ![getting-started-install](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install.png)
 
-#### C. Confirm to install drivers
+#### Confirm to install drivers
 
 The VS Code for Arduino extension relies on the Arduino IDE. If this is the first time you are installing the Arduino IDE, you will be prompted to install relevant drivers:
 
@@ -160,11 +160,11 @@ It should take around 10 minutes to finish installation depending on your Intern
 Occasionally, when you launch VS Code, you will be prompted with an error that cannot find Arduino IDE or related board package. To solve it, close VS Code, launch Arduino IDE once and VS Code should locate Arduino IDE path correctly.
 
 
-# [macOS (Preview)](#tab/macOS)
+### macOS (Preview)
 
 Follow these steps to prepare development environment on macOS.
 
-### Install Azure CLI 2.0
+#### Install Azure CLI 2.0
 
 Follow the [official guide](https://docs.microsoft.com//cli/azure/install-azure-cli) to install Azure CLI 2.0:
 
@@ -180,15 +180,15 @@ And restart your command shell for changes to take effect:
 exec -l $SHELL
 ```
 
-### Install Arduino IDE
+#### Install Arduino IDE
 
 The Visual Studio Code Arduino extension relies on the Arduino IDE. Download and install the [Arduino IDE for macOS](https://www.arduino.cc/en/Main/Software).
 
-### Install Visual Studio Code
+#### Install Visual Studio Code
 
 Download and install [Visual Studio Code for macOS](https://code.visualstudio.com/). This will be the primary development tool for building DevKit IoT applications.
 
-###  Download latest package
+####  Download latest package
 
 1. Install Node.js. You can use popular macOS package manager [Homebrew](https://brew.sh/) or [pre-built installer](https://nodejs.org/en/download/) to install it.
 
@@ -209,13 +209,13 @@ Download and install [Visual Studio Code for macOS](https://code.visualstudio.co
    npm install
    ```
 
-### Install VS Code extension for Arduino
+#### Install VS Code extension for Arduino
 
 Visual Studio Code allows you to install Marketplace extensions directly in the tool, simply click the extensions icon in the left menu pane and then search `Arduino` to install:
 
 ![installation-extensions](media/iot-hub-arduino-devkit-az3166-get-started/installation-extensions-mac.png)
 
-### Install DevKit board package
+#### Install DevKit board package
 
 You will need to add the DevKit board using the Board Manager in Visual Studio Code.
 
@@ -235,7 +235,6 @@ You will need to add the DevKit board using the Board Manager in Visual Studio C
 
 You now have all the necessary tools and packages installed for macOS.
 
----
 
 ## Open project folder
 
