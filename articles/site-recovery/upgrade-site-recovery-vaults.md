@@ -1,5 +1,5 @@
 ---
-title: Upgrade an Azure Site Recovery vault to a Recovery Services vault
+title: Upgrade a Site Recovery vault to an Azure Recovery Services vault
 description: Learn how to upgrade an Azure Site Recovery vault to a Recovery Services vault
 documentationcenter: ''
 author: rajani-janaki-ram
@@ -114,9 +114,13 @@ In PowerShell, run the following command:
     PS > .\RecoveryServicesVaultUpgrade-1.0.0.ps1 -SubscriptionID <subscriptionID>  -VaultName <vaultname> -Location <location> -ResourceType HyperVRecoveryManagerVault -TargetResourceGroupName <rgname>
 
 * SubscriptionID: The subscription ID that's associated with the vault that you're upgrading.
+
 * VaultName: The name of the vault that you're upgrading.
+
 * Location: The location of the vault that you're upgrading.
+
 * ResourceType: HyperVRecoveryManagerVault for Site Recovery vaults.
+
 * TargetResourceGroupName: The resource group into which you want the upgraded vault to be placed. TargetResourceGroupName can be an existing resource group in Azure Resource Manager or a new one. If the TargetResourceGroupName that's supplied does not exist, it is created as part of the upgrade in the same location as the vault. For more information, see the "Resource groups" section of [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
 
     >[!NOTE]
