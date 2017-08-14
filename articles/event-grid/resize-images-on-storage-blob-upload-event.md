@@ -16,7 +16,7 @@ ms.custom: mvc
 ---
 # Automate the resizing of uploaded images using Event Grid
 
-Azure Event Grid is an eventing service for the cloud. Event Grid lets you send events raised by Azure services or third-party resources to an endpoint that can respond to the event. In this article, you use Event Grid to connect Azure Functions with Azure storage to enable thumbnail generation of images uploaded from a sample app. You use the Azure CLI to create and configure the application topology. 
+Azure Event Grid is an eventing service for the cloud. Event Grid lets you send events raised by Azure services or third-party resources to an endpoint that can respond to the event. In this article, you use Event Grid to connect Azure Functions with Azure storage to support thumbnail generation for images uploaded from a sample app. You use the Azure CLI to create and configure the application topology. 
 
 ![Published web app in Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
@@ -115,25 +115,20 @@ az functionapp deployment source config --name <function_app> \
 
 The function code is deployed directly from the public sample repo. To learn more about deployment options for Azure Functions, see [Continuous deployment for Azure Functions](../azure-functions/functions-continuous-deployment.md).
 
-## Create a custom topic
+## Create an event subscription in Event Grid
 
-An Event Grid topic provides an endpoint that you post your events to. The topic  Create a custom topic by using the `az eventgrid topic create` command. The topic name must be unique.
-
-```azurecli-interactive
-az eventgrid topic create --topic-name <-topic-name> -l westus2 -g myResourceGroup
-```
-
-## Subscribe to a topic
-
-You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the topic you created. It passes the URL from RequestBin as the endpoint for event notification.
+An event subscription tells Event Grid which events you want to send to your function. Create an event subscription by using the `az eventgrid resource event-subscription create` command. In the following command, `<function_app>` is the function app you created and `<storage_account>` is your storage account. 
 
 ```azurecli-interactive
-az eventgrid topic event-subscription create --name <unique-event-subscription-name> \
-  --endpoint <your-webhook-url> \
-  -g gridResourceGroup 
-  --topic-name <your-topic-name>
+az eventgrid resource event-subscription create -g myResourceGroup \  
+--provider-namespace Microsoft.Storage --resource-type storageAccounts \  
+--resource-name <storage_account> --name myFuncSub  --subject-begins-with images \  
+--endpoint https://<function_app>.azurewebsites.net/api/imageresizefunc \ 
 ```
-Now that the Storage, Event Grid, and Functions are configured, you can publish the sample web app to Azure. 
+
+The prefix filter value `image` filters storage events to only those on the **images** container.  
+
+Now that the backend services are configured, you can publish the sample web app to Azure. 
 
 ## Create an App Service plan
 
@@ -169,7 +164,7 @@ az webapp deployment source config --name <web_app>
 
 ## Configure web app settings
 
-The sample web app uses the Azure Storage SDK to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) command.
+The sample web app uses the Azure Storage SDK to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the application settings for the web app. Add application settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) command.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
@@ -184,4 +179,25 @@ After the web app is deployed and configured, you can test the entire image uplo
 
 To test the web app, browse to the URL of your published app as The default URL of the web app is `https://<web_app>.azurewebsites.net>`.
 
+Click the **Upload photos** region to select and upload a file. 
+
+Notice that a thumbnail copy of the uploaded image is displayed in the **Generated thumbnails** carousel. 
+
 ![Published web app in Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+
+## Next Steps
+
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Create an Azure Storage account
+> * Define blob containers in Azure Storage
+> * Deploy serverless code using Azure Functions
+> * Create a custom Event Grid topic 
+> * Subscribe to an Event Grid topic
+> * Deploy a web app to Azure
+
+Advance to the next tutorial to learn how to do something even better.
+
+> [!div class="nextstepaction"]
+> 
