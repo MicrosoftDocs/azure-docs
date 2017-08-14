@@ -3,7 +3,7 @@ title: Customize your sign-in page in the Azure Active Directory | Microsoft Doc
 description: Learn how to add a company branding to the Azure sign-in page
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
-ms.author: curtand
-
+ms.date: 08/11/2017
+ms.author: jeffgilb
+custom: it-pro
 ---
-# Add company branding to your sign-in page in the Azure Active Directory
-To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory provides this capability by allowing you to customize the appearance of the sign-in page with your company logo and custom color schemes. The sign-in page is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page to enter your credentials.
+# Quickstart: Add company branding to your sign-in page in Azure AD
+To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory (Azure AD) provides this capability by allowing you to customize the appearance of the sign-in page with your company logo and custom color schemes. The sign-in page is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page to enter your credentials.
 
 > [!NOTE]
-> * Company branding is available only if you upgraded to the Premium or Basic edition of Azure AD, or have an Office 365 license. For more information, see [Azure Active Directory editions](active-directory-editions.md).
+> * Company branding is available only if you upgraded to the Premium or Basic edition of Azure AD, or have an Office 365 license. To learn if a feature is supported by your license type, check the [Azure Active Directory pricing information page](https://azure.microsoft.com/pricing/details/active-directory/).
 > 
 > * Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
@@ -38,18 +38,15 @@ doesn’t know who the user is. Company branding will show after users
 enter their user ID or select a user tile.
 
 > [!NOTE]
-> * A new sign-in page design is currently being rolled out. This article describes how to customize the new design. If you are looking for help with the old design, see [Add company branding to sign-in and Access Panel pages](active-directory-add-company-branding.md).
-> * Your domain name must appear as “Active" in the **Domains** portion of the Azure portal in which you have configured branding. For more information, see [Add custom domain names](active-directory-domains-add-azure-portal.md).
+> * Your domain name must appear as “Active" in the **Domains** portion of the Azure portal in which you have configured branding. For more information, see [Add a custom domain name](add-custom-domain.md).
 > * Sign-in page branding doesn’t carry over to the sign-in page for personal Microsoft accounts. If your employees or business guests sign in with a personal Microsoft account, their sign-in page does not reflect the branding of your organization.
 
-## Customizable elements
-The constraints for each element also appear on the **Users and groups - Company branding** blade.
 
 ### Banner logo	
 
 Description | Constraints | Recommendations
 ------- | ------- | ----------
-The banner logo is displayed on the sign-in and the Access panel pages.<br>On the sign-in page, this shows once the user’s organization is determined, usually after the username is entered.  | Transparent JPG or PNG<br>Max height: 36 px<br>Max width: 245 px | Use your organization’s logo here.<br>Use a transparent image. Don’t assume that the background will be white.<br>Do not add padding around your logo in the image. If you do this, your logo will look disproportionately small.
+The banner logo is displayed on the sign-in and the Access panel pages.<br>On the sign-in page, this shows once the user’s organization is determined, usually after the username is entered.  | Transparent JPG or PNG<br>Max height: 36 px<br>Max width: 245 px | Use your organization’s logo here.<br>Use a transparent image. Don’t assume that the background will be white.<br>Do not add padding around your logo in the image or your logo will look disproportionately small.
 
 ### Username hint	
 Description | Constraints | Recommendations
@@ -79,7 +76,7 @@ Azure AD sign in gives the user the option to remain signed in when they close a
 > [!NOTE]
 > All elements are optional. For example, if you specify a banner logo with no background image, the sign-in page will show your logo and the background image for the destination site (for example, Office 365).
 
-## To add company branding to your directory
+## Add company branding to your directory
 
 1. Sign in to [the Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
@@ -94,5 +91,25 @@ Azure AD sign in gives the user the option to remain signed in when they close a
 
 It can take up to an hour for any changes you made to the sign-in page branding to appear.
 
+## Add language-specific company branding to your directory
+
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that's a global admin for the directory.
+2. Select **Users and groups** in the text box, and then select **Enter**.
+
+   ![Opening user management](./media/active-directory-branding-localize-azure-portal/user-management.png)
+3. On the **Users and groups** blade, select **Company branding**.
+4. On the **Users and groups - Company branding** blade, select the **Add language** command.
+
+    ![Add language-specific branding elements](./media/active-directory-branding-localize-azure-portal/add-language.png)
+5. Modify the elements you want to customize. All elements are optional.
+6. Click **Save**.
+
+It can take up to an hour for any changes you made to the sign-in page branding to appear.
+
 ## Next steps
-[Add language-specific company branding](active-directory-branding-localize-azure-portal.md)
+In this quickstart, you’ve learned how to add company branding to your Azure AD directory. 
+
+You can use the following link to configure your company branding in Azure AD from the Azure portal.
+
+> [!div class="nextstepaction"]
+> [Configure company branding](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/LoginTenantBrandingBlade) 

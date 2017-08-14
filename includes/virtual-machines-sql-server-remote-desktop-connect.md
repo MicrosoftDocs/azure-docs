@@ -1,5 +1,3 @@
-Use the following steps to connect to the SQL Server virtual machine with Remote Desktop:
-
 1. After the Azure virtual machine is created and running, click the Virtual Machines icon in the Azure portal to view your VMs.
 
 1. Click the ellipsis, **...**, for your new VM.
@@ -16,6 +14,4 @@ Use the following steps to connect to the SQL Server virtual machine with Remote
 
    ![Remote desktop authentication](./media/virtual-machines-sql-server-remote-desktop-connect/remote-desktop-connect.png)
 
-After you connect to the SQL Server virtual machine, you can launch SQL Server Management Studio and connect with Windows Authentication using your local administrator credentials. If you enabled SQL Server Authentication, you can also connect with SQL Authentication using the SQL login and password you configured during provisioning.
-
-Access to the machine enables you to directly change machine and SQL Server settings based on your requirements. For example, you could configure the firewall settings or change SQL Server configuration settings.
+1. Click **OK** to connect.
