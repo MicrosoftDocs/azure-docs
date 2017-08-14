@@ -1,4 +1,4 @@
-﻿---
+---
 title: Agile software development with Azure App Service
 description: Learn how to create high-scale complex applications with Azure App Service in a way that supports agile software development.
 services: app-service
@@ -86,19 +86,19 @@ In a typical DevOps scenario, you have an application that’s running live in A
 
 1. Create your own fork of the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) repository. For information on creating your fork, see [Fork a Repo](https://help.github.com/articles/fork-a-repo/). Once your fork is created, you can see it in your browser.
    
-   ![](./media/app-service-agile-software-development/production-1-private-repo.png)
+    ![](./media/app-service-agile-software-development/production-1-private-repo.png)
 2. Open a Git Shell session. If you don't have Git Shell yet, install [GitHub for Windows](https://windows.github.com/) now.
 3. Create a local clone of your fork by executing the following command:
-   
-     git clone https://github.com/<your_fork>/ToDoApp.git 
+
+        git clone https://github.com/<your_fork>/ToDoApp.git 
 4. Once you have your local clone, navigate to *&lt;repository_root>*\ARMTemplates, and run the deploy.ps1 script as follows:
    
-     .\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git
+        .\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git
 5. When prompted, type in the desired username and password for database access.
    
    You should see the provisioning progress of various Azure resources. When deployment completes, the script will launch the application in the browser and give you a friendly beep.
    
-   ![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
+    ![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
    
    > [!TIP]
    > Take a look at *&lt;repository_root>*\ARMTemplates\Deploy.ps1, to see how it generates resources with unique IDs. You can use the same approach to create clones of the same deployment without worrying about conflicting resource names.
@@ -106,15 +106,15 @@ In a typical DevOps scenario, you have an application that’s running live in A
    > 
 6. Back in your Git Shell session, run:
    
-     .\swap –Name ToDoApp<unique_string>master
+        .\swap –Name ToDoApp<unique_string>master
    
-   ![](./media/app-service-agile-software-development/production-4-swap.png)
+    ![](./media/app-service-agile-software-development/production-4-swap.png)
 7. When the script finishes, go back to browse to the frontend’s address (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/) to see the application running in production.
 8. Log into the [Azure Portal](https://portal.azure.com/) and take a look at what’s created.
    
    You should be able to see two web apps in the same resource group, one with the `Api` suffix in the name. If you look at the resource group view, you will also see the SQL Database and server, the App Service plan, and the staging slots for the web apps. Browse through the different resources and compare them with *&lt;repository_root>*\ARMTemplates\ProdAndStage.json to see how they are configured in the template.
    
-   ![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
+    ![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 
 You have now set up the production environment. Next, you will kick off a new update to the application.
 
@@ -123,9 +123,9 @@ Now that you have a complex application running in production in Azure, you will
 
 1. Create the test environment first. In your Git Shell session, run the following commands to create the environment for a new branch called **NewUpdate**. 
    
-     git checkout -b NewUpdate
-     git push origin NewUpdate 
-     .\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch NewUpdate
+        git checkout -b NewUpdate
+        git push origin NewUpdate 
+        .\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch NewUpdate
 2. When prompted, type in the desired username and password for database access. 
    
    When deployment completes, the script will launch the application in the browser and give you a friendly beep. And just like that, you now have a new branch with its own test environment. Take a moment to review a few things about this test environment:
@@ -137,9 +137,9 @@ Now that you have a complex application running in production in Azure, you will
    * Deleting this test environment will be as simple as deleting the resource group. You will find out how to do this [later](#delete).
 3. Go on to create a dev branch by running the following commands:
    
-     git checkout -b Dev
-     git push origin Dev
-     .\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch Dev
+        git checkout -b Dev
+        git push origin Dev
+        .\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch Dev
 4. When prompted, type in the desired username and password for database access. 
    
    Take a moment to review a few things about this dev environment: 
@@ -176,32 +176,32 @@ The template files ProdAndStage.json and Dev.json already specify the source con
 
 1. Make sure that you’re in the Dev branch of the local repository. To do this, run the following command in Git Shell:
    
-     git checkout Dev
+        git checkout Dev
 2. Make a simple change to the app’s UI layer by changing the code to use [Bootstrap](http://getbootstrap.com/components/) lists. Open *&lt;repository_root>*\src\MultiChannelToDo.Web\index.cshtml and make the highlighted change below:
    
-   ![](./media/app-service-agile-software-development/commit-1-changes.png)
+    ![](./media/app-service-agile-software-development/commit-1-changes.png)
    
-   > [!NOTE]
-   > If you can't read the image above: 
-   > 
-   > * In line 18, change `check-list` to `list-group`.
-   > * In line 19, change `class="check-list-item"` to `class="list-group-item"`.
-   > 
-   > 
+    > [!NOTE]
+    > If you can't read the image above: 
+    > 
+    > * In line 18, change `check-list` to `list-group`.
+    > * In line 19, change `class="check-list-item"` to `class="list-group-item"`.
+    > 
+    > 
 3. Save the change. Back in Git Shell, run the following commands:
    
-     cd <repository_root>
-     git add .
-     git commit -m "changed to bootstrap style"
-     git push origin Dev
+        cd <repository_root>
+        git add .
+        git commit -m "changed to bootstrap style"
+        git push origin Dev
    
    These git commands are similar to "checking in your code" in another source control system like TFS. When you run `git push`, the new commit triggers an automatic code push to Azure, which then rebuilds the application to reflect the change in the dev environment.
 4. To verify that this code push to your dev environment has occurred, go to your dev environment’s web app blade and look at the **Deployment** part. You should be able to see your latest commit message there.
    
-   ![](./media/app-service-agile-software-development/commit-2-deployed.png)
+    ![](./media/app-service-agile-software-development/commit-2-deployed.png)
 5. From there, click **Browse** to see the new change in the live application in Azure.
    
-   ![](./media/app-service-agile-software-development/commit-3-webapp-in-browser.png)
+    ![](./media/app-service-agile-software-development/commit-3-webapp-in-browser.png)
    
    This is a pretty minor change to the application. However, many times new changes to a complex web application has unintended and undesirable side effects. Being able to easily test every commit in live builds enables you to catch these issues before your customers see them.
 
@@ -236,9 +236,9 @@ In Git Shell, run the following commands:
     git merge NewUpdate
     git push origin master
 
-Remember that based on the way the staging and production environment is setup in ProdandStage.json, your new code is pushed to the **Staging** slot and is running there. So if you navigate to the staging slot’s URL, you’ll see the new code running there. To do this, run the `Show-AzureWebsite` cmdlet in Git Shell.
+Remember that based on the way the staging and production environment is setup in ProdandStage.json, your new code is pushed to the **Staging** slot and is running there. So if you navigate to the staging slot’s URL, you’ll see the new code running there. To do this, run the following cmdlet in Git Shell.
 
-    Show-AzureWebsite -Name ToDoApp<unique_string>master -Slot Staging
+    Start-Process -FilePath "http://ToDoApp<unique_string>master-Staging.azurewebsites.net"
 
 And now, after you’ve verified the update in the staging slot, the only thing left to do is to swap it into production. In Git Shell, just run the following commands:
 
