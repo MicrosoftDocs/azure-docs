@@ -1,4 +1,4 @@
----
+---     
 title: Azure AD v2 JS SPA Guided Setup - Configure | Microsoft Docs     
 description: How JavaScript SPA applications can call an API that require access tokens by Azure Active Directory v2 endpoint       
 services: active-directory      
