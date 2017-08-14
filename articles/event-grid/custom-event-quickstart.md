@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: djrosanova
 ms.author: darosa
-ms.date: 08/12/2017
+ms.date: 08/13/2017
 ms.topic: hero-article
 ms.service: event-grid
 ---
@@ -71,7 +71,7 @@ key=$(az eventgrid topic show-keys --topic-name <topic_name> -g gridResourceGrou
 To simplify this article, we have set up sample event data to send to the topic. Typically, an application or Azure service would send the event data. The following example gets the event data:
 
 ```azurecli-interactive
-body=$(eval echo "'$(curl https://tempstor1ga23s.blob.core.windows.net/template/customevent.json)'")
+body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
 ```
 
 If you `echo "$body"` you can see the full event. The `data` element of the JSON is the payload of your event. Any well-formed JSON can go in this field. You can also use the subject field for advanced routing and filtering. 
