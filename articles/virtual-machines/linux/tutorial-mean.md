@@ -40,7 +40,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command and create a Linux VM with the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example uses the Azure CLI to create a resource group named *myResourceGroup* in the *eastus* location. A VM is created named *myVM* with SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the --ssh-key-value option.
+The following example uses the Azure CLI to create a resource group named *myResourceGroupMEAN* in the *eastus* location. A VM is created named *myVM* with SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the --ssh-key-value option.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMEAN --location eastus
@@ -67,14 +67,14 @@ Take note of the `publicIpAddress`. This address is used to access the VM.
 Use the following command to create an SSH session with the VM. Make sure to use the correct public IP address. In our example above our IP address was 13.72.77.9.
 
 ```bash
-ssh azureuser@40.68.254.142
+ssh azureuser@13.72.77.9
 ```
 
 ## Install Node.js
 
 [Node.js](https://nodejs.org/en/) is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js is used in this tutorial to set up the Express routes and AngularJS controllers.
 
-Install Node.js and update the npm package manager on the VM.
+On the VM, using the bash shell that you opened with SSH, install Node.js.
 
 ```bash
 sudo apt-get install -y nodejs
@@ -211,7 +211,7 @@ sudo apt-get install -y nodejs
 
 [AngularJS](https://angularjs.org) provides a web framework for creating dynamic views in your web applications. In this tutorial, we use AngularJS to connect our web page with Express and perform actions on our book database.
 
-1. Change the directory back up to *Books* (`cd ..//..`), and then create a folder named *public* and add a file named *script.js* with the controller configuration defined.
+1. Change the directory back up to *Books* (`cd ../..`), and then create a folder named *public* and add a file named *script.js* with the controller configuration defined.
 
     ```node.js
     var app = angular.module('myApp', []);
@@ -308,13 +308,13 @@ sudo apt-get install -y nodejs
 
 ##  Run the application
 
-1. Change the directory back up to *Books* (`cd ..') and start the server by running this command:
+1. Change the directory back up to *Books* (`cd ..`) and start the server by running this command:
 
     ```bash
     nodejs server.js
     ```
 
-2. Open a web browser to http://13.72.77.9:3300 where public-ip-address is the address that you recored for the VM. You should see something like the following page:
+2. Open a web browser to the address that you recorded for the VM. For example, *http://13.72.77.9:3300*. You should see something like the following page:
 
     ![Book record](media/tutorial-mean/meanstack-init.png)
 
