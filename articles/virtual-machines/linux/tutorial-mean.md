@@ -58,16 +58,16 @@ When the VM has been created, the Azure CLI shows information similar to the fol
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "40.68.254.142",
+  "publicIpAddress": "13.72.77.9",
   "resourceGroup": "myResourceGroupMEAN"
 }
 ```
 Take note of the `publicIpAddress`. This address is used to access the VM.
 
-Use the following command to create an SSH session with the VM. Make sure to use the correct public IP address. In our example above our IP address was 40.68.254.142.
+Use the following command to create an SSH session with the VM. Make sure to use the correct public IP address. In our example above our IP address was 13.72.77.9.
 
 ```bash
-ssh azureuser@<publicIpAddress>
+ssh azureuser@40.68.254.142
 ```
 
 ## Install Node.js
@@ -211,7 +211,7 @@ sudo apt-get install -y nodejs
 
 [AngularJS](https://angularjs.org) provides a web framework for creating dynamic views in your web applications. In this tutorial, we use AngularJS to connect our web page with Express and perform actions on our book database.
 
-1. Change the directory back up to the *Books* folder (`cd ..\..\..`), create a folder named *public* and add a file named *script.js* with the controller configuration defined.
+1. Change the directory back up to *Books* (`cd ..//..`), and then create a folder named *public* and add a file named *script.js* with the controller configuration defined.
 
     ```node.js
     var app = angular.module('myApp', []);
@@ -308,13 +308,13 @@ sudo apt-get install -y nodejs
 
 ##  Run the application
 
-1. Change the directory back up to *Books* (`cd ..\..') and start the server by running this command:
+1. Change the directory back up to *Books* (`cd ..') and start the server by running this command:
 
     ```bash
-    node server.js
+    nodejs server.js
     ```
 
-2. Open a web browser to http://<public-ip-address>:3300 where public-ip-address is the address that you recored for the VM. You should see something like the following page:
+2. Open a web browser to http://13.72.77.9:3300 where public-ip-address is the address that you recored for the VM. You should see something like the following page:
 
     ![Book record](media/tutorial-mean/meanstack-init.png)
 
