@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 08/11/2017
+ms.date: 08/15/2017
 ---
 
 # Create an Azure Database for MySQL server using Azure portal
