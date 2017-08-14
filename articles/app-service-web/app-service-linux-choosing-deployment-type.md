@@ -22,9 +22,9 @@ ms.author: nickwalk
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
-Web App on Linux offers two different paths to getting your application published to the web:
+[Web App on Linux](app-service-linux-intro.md) offers two different paths to getting your application published to the web:
  - **Custom image deployment**: "Dockerize" your application into a self-contained Docker image, publish it to a repository, and configure Web App on Linux with your repository information.
- - **Application deployment to a built-in platform image**: Use any one of the classic Azure App Service deployment methods to get your application files to Azure, and then run your app on one of our built-in platform containers. Upload your compiled application binaries and configuration with FTP/FTPS or Web Deploy, or use Kudu to build and deploy your application from source.
+ - **Application deployment to a built-in platform image**: Use any one of the Azure App Service deployment methods to get your application files to Azure, and then run your app on one of our built-in platform containers. Upload your compiled application binaries and configuration with FTP or Web Deploy, or use Kudu to build and deploy your application from source.
 
 Which method is right for your application? The primary factors to consider are:
  - **Availability of Docker with your development workflow**: Custom image development requires basic knowledge of the Docker development workflow. Deployment of a custom image to a Web App requires publication of your custom image to a repository host like Docker Hub. If you are already familiar with Docker and are able to add Docker tasks to your build workflow, or if you are already publishing your application as a Docker image, a custom image is almost certainly the best choice.
