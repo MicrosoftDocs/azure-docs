@@ -150,7 +150,7 @@ az appservice plan create --name myAppServicePlan  --resource-group myResourceGr
 
 ## Create a web app
 
-The web app provides a hosting space for the sample app code that is deployed from the GitHub sample repository. Create a [web app](../articles/app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. 
+The web app provides a hosting space for the sample app code that is deployed from the GitHub sample repository. Create a [web app](../app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. 
 
 In the following command, replace *\<app_name>* with a unique name (valid characters are `a-z`, `0-9`, and `-`). If `<web_app>` is not unique, you get the error message: _Website with given name <web_app> already exists._ The default URL of the web app is `https://<web_app>.azurewebsites.net`. 
 
@@ -171,8 +171,7 @@ az webapp deployment source config --name <web_app>
 
 ## Configure web app settings
 
-App settings are used to connect 
-Add the app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) command.
+The sample web app uses the Azure Storage SDK to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) command.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
@@ -181,7 +180,10 @@ AzureStorageConfig__AccountKey=<storage_key> \
 AzureStorageConfig__ImageContainer=images  \  
 AzureStorageConfig__ThumbnailContainer=thumbs
 ```
+After the web app is deployed and configured, you can test the entire image upload and resizing functionality in the app.  
 
 ## Test the sample app
+
+To test the web app, browse to the URL of your published app as The default URL of the web app is `https://<web_app>.azurewebsites.net>`.
 
 ![Published web app in Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
