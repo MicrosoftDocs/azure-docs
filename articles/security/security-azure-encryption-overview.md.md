@@ -42,7 +42,7 @@ Azure supports various encryption models, including server-side encryption using
 Client-side encryption is performed outside of Azure. Client-side encryption includes:
 
 - Data encrypted by an application that’s running in the customer’s data center or by a service application
-- Data is already encrypted when it is received by the Azure. 
+- Data that is already encrypted when it is received by Azure.
 
 With client-side encryption the cloud service provider doesn’t have access to the encryption keys and cannot decrypt this data. You maintain complete control of the keys.
 
@@ -88,17 +88,17 @@ Finally, you can also use the Azure Storage Client Library for Java to perform c
 
 #### Transparent Data Encryption
 
-[TDE Transparent data encryption](../sql/relational-databases/security/encryption/transparent-data-encryption-tde.md) is used to encrypt [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../sql-database/sql-database-technical-overview.md), and [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) data files in real time, using a database encryption key (DEK), which is stored in the database boot record for availability during recovery.
+[TDE Transparent data encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) is used to encrypt [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../sql-database/sql-database-technical-overview.md), and [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) data files in real time, using a database encryption key (DEK), which is stored in the database boot record for availability during recovery.
 
 TDE protects data and log files, using AES and 3DES encryption algorithms. Encryption of the database file is performed at the page level; the pages in an encrypted database are encrypted before they are written to disk and are decrypted when they’re read into memory. TDE is now enabled by default on newly created Azure SQL databases.
 
 #### Always Encrypted
 
-The [Always Encrypted](../sql/relational-databases/security/encryption/always-encrypted-database-engine.md) feature in Azure SQL enables you to encrypt data within client applications prior to storing in Azure SQL Database and allows you to enable delegation of on-premises database administration to third parties and maintain separation between those who own and can view the data and those who manage it but should not have access to it.
+The [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) feature in Azure SQL enables you to encrypt data within client applications prior to storing in Azure SQL Database and allows you to enable delegation of on-premises database administration to third parties and maintain separation between those who own and can view the data and those who manage it but should not have access to it.
 
 #### Cell/Column Level Encryption
 
-Azure SQL Database enables you to apply symmetric encryption to a column of data using Transact-SQL. This is called [cell level encryption or column level encryption](../sql/relational-databases/security/encryption/encrypt-a-column-of-data.md) (CLE), because you can use it to encrypt specific columns or even specific cells of data with different encryption keys. This gives you more granular encryption capability than TDE, which encrypts data in pages.
+Azure SQL Database enables you to apply symmetric encryption to a column of data using Transact-SQL. This is called [cell level encryption or column level encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/encrypt-a-column-of-data) (CLE), because you can use it to encrypt specific columns or even specific cells of data with different encryption keys. This gives you more granular encryption capability than TDE, which encrypts data in pages.
 
 CLE has built-in functions that you can use to encrypt data using either symmetric or asymmetric keys, with the public key of a certificate, or with a passphrase using 3DES.
 
