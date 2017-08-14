@@ -1,6 +1,6 @@
 ---
-title: Trigger logic apps with event grids for virtual machine tagging - Azure Event Grid & Logic Apps | Microsoft Docs
-description: Add tags when creating virtual machines by triggering logic apps with events from event grids
+title: Trigger logic apps with event grids for virtual machine changes - Azure Event Grid & Logic Apps | Microsoft Docs
+description: Monitor Windows virtual machines by triggering logic apps with events from event grids
 keywords: logic app, events, trigger, event grid, virtual machine
 services: logic-apps
 author: ecfan
@@ -14,7 +14,7 @@ ms.date: 08/16/2017
 ms.author: LADocs; estfan
 ---
 
-# Tag virtual machines at creation by triggering a logic app workflow with events from event grids
+# Monitor Windows virtual machines by triggering a logic app workflow through an event grid
 
 You can start an automated [logic app workflow](../logic-apps/logic-apps-what-are-logic-apps.md) 
 when specific events happen in Azure resources or third-party resources. 
@@ -31,32 +31,29 @@ from publisher to subscriber:
 * New message in a queue
 * New tweet
 
-This tutorial shows how to create a logic app that starts 
-running a workflow when you create an Azure virtual machine. 
-At creation, the virtual machine publishes an event to an event grid, 
-which pushes the event to your logic app. Your logic app passes 
-data about the virtual machine to an Azure function 
-that tags the virtual machine with a specified label. 
-Your logic app can also send you email when the virtual 
-machine is created, tagged, and ready to use.
+This tutorial shows how to create a logic app that monitors 
+changes in a Windows virtual machine through an event grid. 
+So when you update or delete the virtual machine, 
+the virtual machine publishes an event to an event grid, 
+which pushes the event to your logic app. Your logic app 
+then sends email that notifies you about these changes.
 
 ![Logic app with event grid workflow](./media/trigger-logic-app-event-grid-tag-virtual-machine/logic-app-event-grid-arch.png)
 
 ## Requirements
 
-To follow this tutorial, complete these other tasks first: 
+To follow this tutorial, first create a Windows virtual machine 
+by completing any of these quickstarts:
 
-* [Create a virtual machine resource with the Azure CLI](../virtual-machines/windows/quick-create-cli.md)
+* [Create a Windows virtual machine with the Azure portal](..//virtual-machines/windows/quick-create-portal.md)
+* [Create a Windows virtual machine resource with the Azure CLI](../virtual-machines/windows/quick-create-cli.md)
+* [Create a Windows virtual machine with PowerShell](../virtual-machines/windows/quick-create-powershell.md)
 
-  This quickstart shows how to create an Azure virtual machine, 
-  which automatically publishes events to an event grid. 
-  The event grid pushes those events to subscribers, like your logic app.
-
-* [Create an Azure Functions app and function]() 
-
-  This tutorial shows how to create an Azure function 
-  that tags a virtual machine. Your logic app 
-  calls this function as a step in its workflow. 
+  With Azure publishers, you don't need to do anything to make 
+  that resource publish events. After you create and 
+  connect an event subscription from your logic app 
+  to an Azure resource that resource starts publishing events to the event grid. 
+  The event grid then pushes those events to subscribers, like your logic app.
 
 For this tutorial, you also need an email account with 
 [any email provider that's supported by Azure Logic Apps](../connectors/apis-list.md), 
