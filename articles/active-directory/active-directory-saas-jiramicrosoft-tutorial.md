@@ -3,7 +3,7 @@ title: 'Tutorial: Azure Active Directory integration with JIRA SAML SSO by Micro
 description: Learn how to configure single sign-on between Azure Active Directory and JIRA SAML SSO by Microsoft.
 services: active-directory
 documentationCenter: na
-author: jeevansd
+author: MicrosoftGuyJFlo
 manager: femila
 ms.reviewer: joflore
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: jeedes
+ms.author: joflore
 
 ---
 # Tutorial: Azure Active Directory integration with JIRA SAML SSO by Microsoft
