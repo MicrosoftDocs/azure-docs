@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: curtand
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal
 
 ---
 # Troubleshooting dynamic memberships for groups
