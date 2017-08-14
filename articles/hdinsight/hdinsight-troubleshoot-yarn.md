@@ -30,7 +30,7 @@ Learn about the top issues and their resolutions when working with Apache Hadoop
 
 Use the following steps in Ambari to create a new YARN queue, and then balance the capacity allocation among all the queues. 
 
-In this example, two existing queues (**default** and **thriftsvr**) both are changed from 50% capacity to 25% capacity, which gives the new queue (Spark) 50% capacity.
+In this example, two existing queues (**default** and **thriftsvr**) both are changed from 50% capacity to 25% capacity, which gives the new queue (spark) 50% capacity.
 | Queue | Capacity | Maximum capacity |
 | --- | --- | --- | --- |
 | default | 25% | 50% |
@@ -39,7 +39,7 @@ In this example, two existing queues (**default** and **thriftsvr**) both are ch
 
 1. Select the **Ambari Views** icon, and then select the grid pattern. Next, select **YARN Queue Manager**.
 
-    ![Click the Ambari Views icon](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
+    ![Select the Ambari Views icon](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
 2. Select the **default** queue.
 
     ![Select the default queue](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
@@ -73,9 +73,9 @@ These changes are visible immediately on the YARN Scheduler UI.
 
 ### Resolution steps 
 
-1. Connect to the HDInsight cluster by using a Secure Shell (SSH) client. (For more information, see the **Additional reading** section).
+1. Connect to the HDInsight cluster by using a Secure Shell (SSH) client. For more information, see [Additional reading](#additional-reading-2).
 
-2. To list all the application IDs of the currently running YARN applications, run the following command:
+2. To list all the application IDs of the YARN applications that are currently running, run the following command:
 
     ```apache
     yarn top
@@ -135,7 +135,7 @@ These changes are visible immediately on the YARN Scheduler UI.
 
     This command creates a log file named containerlogs.txt.
 
-### Additional reading
+### <a name="additional-reading-2"></a>Additional reading
 
 - [Connect to HDInsight (Hadoop) by using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN concepts and applications](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
