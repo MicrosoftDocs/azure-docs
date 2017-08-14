@@ -26,8 +26,8 @@ Instructions in this guide are based on both Python and Visual Studio 2017, but 
 <p/><!-- -->
 
 > ### Option 2: Python/ other web servers
-> Make sure you have installed [Python](https://www.python.org/downloads/), then follow the steps below:
-> 1.	Create a folder to host your application.
+> Make sure you have installed [Python](https://www.python.org/downloads/), then follow the step below:
+> -	Create a folder to host your application.
 
 
 ## Create your single page application’s UI
