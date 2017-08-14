@@ -110,6 +110,14 @@ sudo apt-get install -y nodejs
 
 5. We also need to install the [body-parser](https://www.npmjs.com/package/body-parser-json) package to help us process the JSON passed in requests to the server.
 
+    Install the npm package manager.
+
+    ```bash
+    sudo apt-get install npm
+    ```
+
+    Install the body parser package.
+    
     ```bash
     sudo npm install body-parser
     ```
