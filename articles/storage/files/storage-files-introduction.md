@@ -30,39 +30,39 @@ Azure File storage offers network file shares in the cloud using the industry st
 
 Azure File storage allows you to replace Windows Server, Linux, or NAS-based file servers hosted on-premises or in the cloud with an OS-free cloud file share. Azure File storage has the following benefits:
 
-* **Shared access**. Azure File shares support the industry standard SMB protocol, meaning you can seamlessly replace your on-premises file shares with Azure File shares without worrying about application compatibility. Being able to access a file share from multiple machines and applications/instances is a significant advantage with Azure File storage.
+* **Shared access** Azure File shares support the industry standard SMB protocol, meaning you can seamlessly replace your on-premises file shares with Azure File shares without worrying about application compatibility. Being able to access a file share from multiple machines and applications/instances is a significant advantage with Azure File storage.
 
-* **Fully Managed**. Azure File shares can be created without the need to manage hardware or an OS, which means you don't have to deal with patching the server OS with critical security upgrades or replacing faulty hard disks.
+* **Fully Managed** Azure File shares can be created without the need to manage hardware or an OS, which means you don't have to deal with patching the server OS with critical security upgrades or replacing faulty hard disks.
 
-* **Scripting and Tooling**. PowerShell cmdlets and Azure CLI can be used to create, mount, and manage Azure File shares as part of the administration of Azure applications. You can create and manage Azure File shares using the [Azure portal](https://portal.azure.com) and the [Azure Storage Explorer](https://storageexplorer.com). 
+* **Scripting and Tooling** PowerShell cmdlets and Azure CLI can be used to create, mount, and manage Azure File shares as part of the administration of Azure applications. You can create and manage Azure File shares using the [Azure portal](https://portal.azure.com) and the [Azure Storage Explorer](https://storageexplorer.com). 
 
-* **Resiliency**. Azure File storage has been built from the ground up to be always available. Replacing on-premises file shares with Azure File storage means you no longer have to wake up to deal with local power outages or network issues. 
+* **Resiliency** Azure File storage has been built from the ground up to be always available. Replacing on-premises file shares with Azure File storage means you no longer have to wake up to deal with local power outages or network issues. 
 
-* **Familiar Programmability**. Applications running in Azure can access data on the share via [file system I/O APIs](https://msdn.microsoft.com/library/system.io.file.aspx). Developers can therefore leverage their existing code and skills to migrate existing applications. In addition to System IO APIs, you can use any of the Azure storage client Libraries, such as the one for [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet), or the [Azure Storage REST API](/rest/api/storageservices/file-service-rest-api).
+* **Familiar Programmability** Applications running in Azure can access data on the share via [file system I/O APIs](https://msdn.microsoft.com/library/system.io.file.aspx). Developers can therefore leverage their existing code and skills to migrate existing applications. In addition to System IO APIs, you can use any of the Azure storage client Libraries, such as the one for [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet), or the [Azure Storage REST API](/rest/api/storageservices/file-service-rest-api).
 
 Azure File shares can be used to:
 
-* **Replace on-premises file servers**:  
+* **Replace on-premises file servers**
     Azure File storage can be used to completely replace file shares on traditional on-premises file servers or NAS devices. Popular operating systems such as Windows, macOS, and Linux can easily mount an Azure File share wherever they are in the world.
 
-* **"Lift and Shift" applications**:  
+* **"Lift and Shift" applications**
 
     Azure File storage makes it easy to "lift and shift" applications to the cloud that use on-premises file shares to share data between parts of the application. To implement this, each VM connects to the file share and then it can read and write files just like it would against an on-premises file share.
 
-* **Simplify Cloud Development**:  
+* **Simplify Cloud Development**
     
     Azure File storage can be used in a number of different ways to simplify new cloud development projects.
     
-    * **Shared Application Settings**:  
+    * **Shared Application Settings**
     
         A common pattern for distributed applications is to have configuration files in a centralized location where they can be accessed from many different VMs. Such configuration files can now be stored in an Azure File share, and read by all application instances. These settings can also be managed via the REST interface, which allows worldwide access to the configuration files.
 
-    * **Diagnostic Share**:  
+    * **Diagnostic Share**
     
         An Azure File share can also be used to save diagnostic files like logs, metrics, and crash dumps. Having file shares available through both the SMB and REST interface allows applications to build or leverage a variety of analysis tools for processing and analyzing the diagnostic data.
 
-    * **Dev/Test/Debug**:  
-    
+    * **Dev/Test/Debug**
+
         When developers or administrators are working on VMs in the cloud, they often need a set of tools or utilities. Installing and distributing these utilities on each virtual machine where they are needed can be a time consuming exercise. With Azure File storage, a developer or administrator can store their favorite tools on a file share, which can be easily connected to from any virtual machine.
         
 ## How does it work?
@@ -71,15 +71,15 @@ Managing Azure File shares is much simpler than managing file shares on-premises
 
 ![File Structure](./media/storage-files-introduction/files-concepts.png)
 
-* **Storage Account**: All access to Azure Storage is done through a storage account. See [Scalability and Performance Targets](../common/storage-scalability-targets.md) for details about storage account capacity.
+* **Storage Account** All access to Azure Storage is done through a storage account. See [Scalability and Performance Targets](../common/storage-scalability-targets.md) for details about storage account capacity.
 
-* **Share**: A File Storage share is an SMB file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the 5 TB total capacity of the file share.
+* **Share** A File Storage share is an SMB file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the 5 TB total capacity of the file share.
 
-* **Directory**: An optional hierarchy of directories.
+* **Directory** An optional hierarchy of directories.
 
-* **File**: A file in the share. A file may be up to 1 TB in size.
+* **File** A file in the share. A file may be up to 1 TB in size.
 
-* **URL format**: Files are addressable using the following URL format:  
+* **URL format** Files are addressable using the following URL format:  
 
     ```
     https://<storage account>.file.core.windows.net/<share>/<directory/directories>/<file>
