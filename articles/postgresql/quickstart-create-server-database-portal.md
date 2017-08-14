@@ -205,7 +205,7 @@ To delete the entire resource group including the newly created server:
 2.	On your resource group page, click **Delete**. Then type the name of your resource group, such as our example **myresourcegroup**, in the text box to confirm deletion, and then click **Delete**.
 
 Or instead, to delete the newly created server:
-1.	Locate your server in the Azure portal, if you do not have it open. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you just created.
+1.	Locate your server in the Azure portal, if you do not have it open. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you created.
 2.	On the **Overview** page, click the **Delete** button on the top pane.
 ![Azure Database for PostgreSQL - Delete server](./media/quickstart-create-database-portal/12-delete.png)
 3.	Confirm the server name you want to delete, and show the databases under it that are affected. Type your server name in the text box, such as our example **mypgserver-20170401**, and then click **Delete**.
