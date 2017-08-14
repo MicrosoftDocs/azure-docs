@@ -28,10 +28,11 @@ Common uses of Queue storage include:
 * Creating a backlog of work to process asynchronously
 * Passing messages from an Azure web role to an Azure worker role
 
-## Queue Service Concepts
+## Queue service concepts
+
 The Queue service contains the following components:
 
-![Queue1](./media/storage-queues-introduction/queue1.png)
+![Queue Concepts](./media/storage-queues-introduction/queue1.png)
 
 * **URL format:** Queues are addressable using the following URL format:   
     http://`<storage account>`.queue.core.windows.net/`<queue>` 
@@ -40,8 +41,13 @@ The Queue service contains the following components:
   
     `http://myaccount.queue.core.windows.net/images-to-download`
 
-* **Storage Account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md) for details about storage account capacity.
+* **Storage account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md) for details about storage account capacity.
 
 * **Queue:** A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-* **Message:** A message, in any format, of up to 64 KB. The maximum time that a message can remain in the queue is 7 days.
+* **Message:** A message, in any format, of up to 64 KB. The maximum time that a message can remain in the queue is seven days.
+
+## Next steps
+
+* [Create a storage account](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* [Getting started with Queues using .NET](storage-dotnet-how-to-use-queues.md)
