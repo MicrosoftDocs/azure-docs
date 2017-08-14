@@ -25,6 +25,7 @@ Thus, with a single service type with a static endpoint defined in the service m
 
 Using the dynamically assigned IP to discover services is not advisable since the IP address changes when the service restarts or moves to another node. Only use the **Service Fabric Naming Service**  or the **DNS Service** for service discovery. 
 
+
 > [!WARNING]
 > Only a total of 4096 IPs are allowed per vNET in Azure. Thus, the sum of the number of nodes and the number of container service instances (with `open` networking) cannot exceed 4096 within a vNET. For such high density scenarios,the `nat` networking mode is recommended.
 >
