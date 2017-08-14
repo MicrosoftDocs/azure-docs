@@ -29,7 +29,7 @@
     - name: Xamarin
       href: storage-xamarin-blob-storage.md
 
-- name: How To
+- name: How To - Blobs
   items:
   - name: Searching Blob storage with Azure Search
     href: ../../search/search-blob-storage-integration.md
@@ -51,5 +51,5 @@
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=blob
 
 #include file for the articles that apply to >1 service
-- name: Common
+- name: All Services
   href: ../common/toc.yml

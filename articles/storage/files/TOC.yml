@@ -44,5 +44,5 @@
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
 
 #include file for the articles that apply to >1 service
-- name: Common
+- name: All Services
   href: ../common/toc.yml
