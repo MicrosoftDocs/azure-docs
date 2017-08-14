@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: curtand
-
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal
 ---
 # Dedicated groups in Azure Active Directory
 In Azure Active Directory (Azure AD), the dedicated groups feature automatically creates and populates membership for Azure AD predefined groups. Members of dedicated groups cannot be added or removed using the Azure classic portal, Windows PowerShell cmdlets, or programmatically.
