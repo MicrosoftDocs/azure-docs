@@ -14,7 +14,7 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/13/2017
+ms.date: 08/14/2017
 ms.author: bradsev
 
 ---
@@ -674,6 +674,26 @@ As an optional step you can perform Diagnostic checks by running a diagnostic te
 6. Exit SSH
 
 ![Diagnostic for op](./media/hdinsight-hadoop-r-server-get-started/admin-util-diagnostics.png)
+
+
+>[!NOTE]
+>**Long delays when consuming web service on Spark**
+>
+>If you encounter long delays when trying to consume a web service created with mrsdeploy functions in a Spark compute context, you may need to add some missing folders. The Spark application belongs to a user called '*rserve2*' whenever it is invoked from a web service using mrsdeploy functions. To work around this issue:
+
+	# Create these required folders for user 'rserve2' in local and hdfs:
+
+	hadoop fs -mkdir /user/RevoShare/rserve2
+	hadoop fs -chmod 777 /user/RevoShare/rserve2
+
+	mkdir /var/RevoShare/rserve2
+	chmod 777 /var/RevoShare/rserve2
+
+
+	# Next, create a new Spark compute context:
+ 
+	rxSparkConnect(reset = TRUE)
+
 
 At this stage, the configuration for Operationalization is complete. Now you can use the ‘mrsdeploy’ package on your RClient to connect to the Operationalization on edge node and start using its features like [remote execution](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) and [web-services](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). Depending on whether your cluster is set up on a virtual network or not, you may need to set up port forward tunneling through SSH login. The following sections explain how to set up this tunnel.
 
