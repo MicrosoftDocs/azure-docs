@@ -59,10 +59,13 @@ ms.custom: H1Hack27Feb2017
 ## Release notes
 
 ### <a name="1.12.2"/>1.12.2</a>
-*	Fixed a bug in executeStoredProcedure where documents involved had special unicode characters (LS, PS).
-*	Fixed a bug in handling documents with unicode characters in the partition key.
-*	Fixed support for creating collections with the name media. Github issue #114.
-*	Fixed support for permission authorization token. Github issue #178.
+*	npm documentation fixed.
+
+### <a name="1.12.1"/>1.12.1</a>
+* Fixed a bug in executeStoredProcedure where documents involved had special unicode characters (LS, PS).
+* Fixed a bug in handling documents with unicode characters in the partition key.
+* Fixed support for creating collections with the name media. Github issue #114.
+* Fixed support for permission authorization token. Github issue #178.
 
 ### <a name="1.12.0"/>1.12.0</a>
 * Added support for a new [consistency level](consistency-levels.md) called ConsistentPrefix.
@@ -171,7 +174,8 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [1.12.2](#1.12.2) |August 14, 2017 |--- |
+| [1.12.2](#1.12.2) |August 10, 2017 |--- |
+| [1.12.1](#1.12.1) |August 10, 2017 |--- |
 | [1.12.0](#1.12.0) |May 10, 2017 |--- |
 | [1.11.0](#1.11.0) |March 16, 2017 |--- |
 | [1.10.2](#1.10.2) |January 27, 2017 |--- |
