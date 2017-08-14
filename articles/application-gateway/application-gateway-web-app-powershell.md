@@ -62,20 +62,18 @@ $webappname="mywebapp$(Get-Random)"
 # Creates a resource group
 $rg = New-AzureRmResourceGroup -Name ContosoRG -Location Eastus
 
-# Creates a new app service plan
+# Create an App Service plan in Free tier.
 New-AzureRmAppServicePlan -Name $webappname -Location EastUs -ResourceGroupName $rg.ResourceGroupName -Tier Free
 
 # Creates a web app
 $webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs
 
-# Defines the property object to configure the source control for the web app
+# Configure GitHub deployment from your GitHub repo and deploy once.
 $PropertiesObject = @{
     repoUrl = "$gitrepo";
     branch = "master";
     isManualIntegration = "true";
 }
-
-# Configure the source control for the web app
 Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName $rg.ResourceGroupName -ResourceType Microsoft.Web/sites/sourcecontrols -ResourceName $webappname/web -ApiVersion 2015-08-01 -Force
 
 # Creates a subnet for the application gateway
@@ -115,7 +113,7 @@ $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Pu
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
 # Create a new rule
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting01 -HttpListener $listener -BackendAddressPool $pool 
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool 
 
 # Define the application gateway SKU to use
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2

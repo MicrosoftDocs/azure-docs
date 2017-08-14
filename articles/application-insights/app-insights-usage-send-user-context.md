@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 #  Sending user context to enable usage experiences in Azure Application Insights
