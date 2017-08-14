@@ -199,7 +199,7 @@ To delete the entire resource group including the newly created server:
 
 Or instead, to delete the newly created server:
 1.	Locate your server in the Azure portal, if you do not have it open. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you created.
-2.	On the Overview page, click the **Delete** button on the top pane.
+2.	On the **Overview** page, click the **Delete** button on the top pane.
 ![Azure Database for MySQL - Delete server](./media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
 3.	Confirm the server name you want to delete, and show the databases under it that are affected. Type your server name in the text box, such as our example **myserver4demo**, and then click **Delete**.
 
