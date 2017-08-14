@@ -23,7 +23,7 @@ ms.author: arijitt
 
 Learn about the top issues and their resolutions when working with Apache Spark payloads in Apache Ambari.
 
-## How do I configure a Spark application through Ambari on clusters
+## How do I configure a Spark application by using Ambari on clusters
 
 ### Resolution steps
 
