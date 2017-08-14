@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: curtand
-ms.reviewer: rodejo
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal
 
 ---
 
