@@ -23,7 +23,7 @@ Azure Cloud Shell has the following known limitations.
 ## System state and persistence
 The machine that provides your Cloud Shell session is temporary, and it is recycled after your session is inactive for 20 minutes. Cloud Shell requires a file share to be mounted. As a result, your subscription must be able to set up storage resources to access Cloud Shell. Other considerations include:
 * With mounted storage, only modifications within your `$Home` directory or `clouddrive` directory are persisted.
-* File shares can be mounted only from within your [assigned region](persisting-shell-storage.md#prerequisites-for-manual-mounting).
+* File shares can be mounted only from within your [assigned region](persisting-shell-storage.md#mount-a-new-clouddrive).
 * Azure Files supports only locally redundant storage and geo-redundant storage accounts.
 
 ## User permissions

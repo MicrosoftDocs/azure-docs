@@ -12,11 +12,12 @@ keywords: Docker, Containers, Micro-services, Kubernetes, Azure
 ms.assetid: 
 ms.service: container-service
 ms.devlang: aurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: danlep
+ms.custom: mvc
 ---
 
 # Monitor a Kubernetes cluster with Operations Management Suite

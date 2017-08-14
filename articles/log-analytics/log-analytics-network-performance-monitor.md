@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 
 ---
@@ -212,7 +212,7 @@ The following table shows data collection methods and other details about how da
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Yes](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Yes](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![No](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![No](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![No](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |TCP handshakes/ICMP ECHO messages every 5 seconds, data sent every 3 minutes |
+| Windows | &#8226; | &#8226; |  |  |  |TCP handshakes/ICMP ECHO messages every 5 seconds, data sent every 3 minutes |
 
 The solution uses synthetic transactions to assess the health of the network. OMS agents installed at various point in the network exchange TCP packets or ICMP Echo (depending on the protocol selected for monitoring) with one another. In the process, agents learn the round-trip time and packet loss, if any. Periodically, each agent also performs a trace route to other agents to find all the various routes in the network that must be tested. Using this data, the agents can deduce the network latency and packet loss figures. The tests are repeated every five seconds and data is aggregated for a period of three minutes by the agents before uploading it to the Log Analytics service.
 

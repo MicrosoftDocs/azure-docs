@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/08/2017
 ms.author: magoedte;bwren
 
 ---
@@ -37,6 +37,7 @@ We understand that there’s pain in any transition, and we aren’t just changi
 - **Smart Analytics.**  The new language has advanced algorithms to evaluate patterns in datasets and compare different sets of data.
 - **Advanced Analytics portal.**  The Advanced Analytics portal offers analysis features not available in the Log Analytics portal including multiline editing of queries, additional visualizations, and advanced diagnostics.
 - **Consistency with other applications.**  The new language and the Advanced Analytics Portal are already used for analytics in Application Insights.  Implementing it for Log Analytics provides consistency across Azure services.
+- **Better integration with Power BI.** Queries in the new language can be exported to Power BI Desktop, so you can utilize its rich data transformation capabilities.
 - **Much more.** Refer to the [Azure Log Analytics Query Language](https://docs.loganalytics.io/index.html) site for complete details and tutorials on the new language.
 
 
