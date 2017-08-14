@@ -20,44 +20,53 @@ ms.author: jeffstok
 ---
 # Azure Stream Analytics event order handling
 
-In a temporal data stream of events, each event is recorded with the time that the event is received. Some conditions might cause event streams to occasionally receive some events in a different order than which they were sent. A simple TCP retransmit, or even a clock skew between the sending device and the receiving event hub might cause this to occur. “Punctuation” events also are added to received event streams, to advance the time in the absence of event arrivals. These are needed in scenarios like “Notify me when no logins occur for 3 minutes."
+In a temporal data stream of events, each event is assigned a timestamp. Azure Stream Analytics assigns timestamp to each event using either Arrival time or Application Time. "System.Timestamp" column has the timestamp assigned to the event. Arrival time is assigned at the input source when the event reaches the source. This is EventEnqueuedTime for eventhub input and blob last modified time for blob input. Application Time is assigned when the event is generated and is part of the payload. To process events by application time, use "Timestamp by" clause in the select query. If "Timestamp by" clause is absent, events will be processed by Arrival time. Azure Stream Analytics produces output in timestamp order and provides few settings to deal with out of order data.
+
+![Stream Analytics event handling](media/stream-analytics-event-handling/stream-analytics-event-handling.png)
 
 Input streams that are not in order are either:
 * Sorted (and therefore **delayed**).
 * Adjusted by the system, according to a user-specified policy.
 
+Stream Analytics tolerates late and out of order events when processing by application time.
 
-## Lateness tolerance
-Stream Analytics tolerates these types of scenarios. Stream Analytics has handling for "out-of-order" and "late" events. It handles these events in the following ways:
+## Out of order tolerance
 
-* Events that arrive out of order but within the set tolerance are **reordered by timestamp**.
-* Events that arrive later than tolerance are **dropped or adjusted**.
-    * **Adjusted**: Adjusted to appear to have arrived at the latest acceptable time.
+* Events that arrive out of order but within the set "out of order tolerance window" are **reordered by timestamp**. 
+* Events that arrive later than tolerance are **either dropped or adjusted**.
+    * **Adjusted**: Adjusted to appear to have arrived at the latest acceptable time. 
     * **Dropped**: Discarded.
 
-![Stream Analytics event handling](media/stream-analytics-event-handling/stream-analytics-event-handling.png)
+To support Reordering of events received within "out of order tolerance window", output of the query will be **delayed by out of order tolerance window**.
 
-## Reduce the number of out-of-order events
+**Late Arrival tolerance**
+* This setting is applicable only when processing by Application time, otherwise it is ignored.
+* This is the maximum difference between Arrival time and Application time. If Application time is before (Arrival Time - Late Arrival Window), it is set to (Arrival Time - Late Arrival Window)
+* When multiple partitions from same input stream or multiple input streams are combined together, this is the maximum amount of time every partition waits for new data. 
 
-Because Stream Analytics applies a temporal transformation when it processes incoming events (for example, for windowed aggregates or temporal joins), Stream Analytics sorts incoming events by timestamp order.
+Briefly, late arrival window is the maximum delay between event generation and receiving of the event at input source.
 
-When the “timestamp by” keyword is **not** used, the Azure Event Hubs event enqueue time is used by default. Event Hubs guarantees monotonicity of the timestamp on each partition of the event hub. It also guarantees that events from all partitions will be merged in timestamp order. These two Event Hubs guarantees ensure no out-of-order events.
+Adjustment based on Late arrival tolerance is done first and out of order is done next. **System.Timestamp** column will have the final timestamp assigned to the event.
 
-Sometimes, it’s important for you to use the sender’s timestamp. In that case, a timestamp from the event payload is chosen by using “timestamp by.” In these scenarios, one or more sources of event misorder might be introduced:
+**Example**
 
-* Event producers have clock skews. This is common when producers are from different computers, so they have different clocks.
-* There's a network delay from the source of the events to the destination event hub.
-* Clock skews exist between event hub partitions. Stream Analytics first sorts events from all event hub partitions by event enqueue time. Then, it examines the data stream for misordered events.
+Late Arrival tolerance = 10 minutes<br/>
+Out of order tolerance = 3 minutes<br/>
+Processing by application time<br/>
 
-On the configuration tab, you see the following defaults:
+Events:
 
-![Stream Analytics out-of-order handling](media/stream-analytics-event-handling/stream-analytics-out-of-order-handling.png)
+Event 1 _Application Time_ = 00:00:00, _Arrival Time_ = 00:10:01, _System.Timestamp_ = 00:00:01, adjusted because (_Arrival Time_ - _Application Time_) is more than late arrival tolerance.
 
-If you use 0 seconds as the out-of-order tolerance window, you are asserting that all events are in order all the time. Given the three sources of misordered events, it’s unlikely that this is true. 
+Event 2 _Application Time_ = 00:00:01, _Arrival Time_ = 00:10:01, _System.Timestamp_ = 00:00:00
 
-To allow Stream Analytics to correct an event misorder, you can specify a non-zero out-of-order tolerance window. Stream Analytics buffers events up to that window, and then reorders them by using the timestamp you chose. It then applies the temporal transformation. You can start with a 3-second window, and tune the value to reduce the number of events that are time-adjusted. 
+Event 3 _Application Time_ = 00:10:00, _Arrival Time_ = 00:10:02, _System.Timestamp_ = 00:10:00
 
-A side effect of the buffering is that the output is **delayed by the same amount of time**. You can tune the value to reduce the number of out-of-order events, and keep the job latency low.
+Event 4 _Application Time_ = 00:09:00, _Arrival Time_ = 00:10:03, _System.Timestamp_ = 00:09:00, accepted with original timestamp as this is within out of order tolerance
+
+Event 5 _Application Time_ = 00:06:00, _Arrival Time_ = 00:10:04, _System.Timestamp_ = 00:10:00, adjusted because this is older than out of order tolerance
+
+
 
 ## Get help
 For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
