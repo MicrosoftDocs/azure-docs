@@ -39,11 +39,11 @@ To learn more about action groups, see [Create and manage action groups](monitor
 For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
 
 ## Create an alert on a service health notification for a new action group with the Azure portal
-1.	In the [portal](https://portal.azure.com), select **Monitor**.
+1. In the [portal](https://portal.azure.com), select **Monitor**.
 
     ![The "Monitor" service](./media/monitoring-activity-log-alerts-on-service-notifications/home-monitor.png)
 
-2.	In the **Activity log** section, select **Alerts**.
+2. In the **Activity log** section, select **Alerts**.
 
     ![The "Alerts" tab](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades.png)
 
@@ -59,17 +59,17 @@ For information on how to configure service health notification alerts by using 
 
 6. Select the **Resource group** this alert is associated with.
 
-7. In the **Event category** box, select **Service Health**. Select the **Service, Region, Type, Status**, and **Level** of service health notifications that you want to receive.
+7. In the **Event category** box, select **Service Health**. Select the **Service**, **Region**, **Type**, **Status**, and **Level** of service health notifications that you want to receive.
 
-8. Under **Alert via**, select the **New** button. Enter a name in the **Action group name** box, and enter a name in the **Short name** box. The short name is referenced in the notifications that are sent when this alert fires.
+8. Under **Alert via**, select the **New** action group button. Enter a name in the **Action group name** box, and enter a name in the **Short name** box. The short name is referenced in the notifications that are sent when this alert fires.
 
 9. Define a list of receivers by providing the receiver's:
 
-    a. **Name:** The receiver’s name, alias, or identifier.
+    a. **Name**: Enter the receiver’s name, alias, or identifier.
 
-    b. **Action Type:** Choose to contact the receiver via SMS, email, or webhook.
+    b. **Action Type**: Select SMS, email, or webhook.
 
-    c. **Details:** Based on the action type chosen, enter a phone number, email address, or webhook URI.
+    c. **Details**: Based on the action type chosen, enter a phone number, email address, or webhook URI.
 
 10.	Select **OK** to create the alert.
 
@@ -89,7 +89,7 @@ For information on the webhook schema for activity log alerts, see [Webhooks for
 2. In the **Activity log** section, select **Alerts**.
 
     ![The "Alerts" tab](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades.png)
-3. Select the **Add activity log alert** command, and fill in the fields.
+3. Select **Add activity log alert**, and fill in the fields.
 
     ![The "Add activity log alert" command](./media/monitoring-activity-log-alerts-on-service-notifications/add-activity-log-alert.png)
 4. Enter a name in the **Activity log alert name** box, and select a **Description**.
@@ -99,9 +99,9 @@ For information on the webhook schema for activity log alerts, see [Webhooks for
 
 6. Select the **Resource group** this alert is associated with.
 
-7. In the **Event category** box, select **Service Health**. Select the **Service, Region, Type, Status**, and **Level** of service health notifications you want to receive.
+7. In the **Event category** box, select **Service Health**. Select the **Service**, **Region**, **Type**, **Status**, and **Level** of service health notifications you want to receive.
 
-8. Under **Alert via**, select the **Existing** button. Select the appropriate action group.
+8. Under **Alert via**, select the **Existing** action group button. Select the appropriate action group.
 
 9. Select **OK** to create the alert.
 

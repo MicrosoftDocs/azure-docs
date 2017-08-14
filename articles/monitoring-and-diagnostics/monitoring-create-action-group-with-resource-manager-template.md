@@ -29,7 +29,7 @@ The basic steps are:
 
  First, we describe how to create a Resource Manager template for an action group where the action definitions are hard-coded in the template. Second, we describe how to create a template that takes the webhook configuration information as input parameters when the template is deployed.
 
-## Resource Manager template for an action group
+## Resource Manager templates for an action group
 
 To create an action group by using a Resource Manager template, you create a resource of the type `Microsoft.Insights/actionGroups`. Then you fill in all related properties. Here are two sample templates that create an action group.
 

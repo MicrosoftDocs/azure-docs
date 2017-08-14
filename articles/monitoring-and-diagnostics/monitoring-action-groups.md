@@ -25,9 +25,9 @@ You can configure a list of actions with action groups. These groups then can be
 
 An action group can have up to 10 of each action type. An action is defined by combining the following options:
 
-* **Name:** A unique identifier within the action group.  
-* **Action type:** A SMS, an email, or a webhook.  
-* **Details:** The corresponding phone number, email address, or webhook URI.
+* **Name**: A unique identifier within the action group.  
+* **Action type**: Send a SMS, send an email, or call a webhook.  
+* **Details**: The corresponding phone number, email address, or webhook URI.
 
 For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md).
 
@@ -49,11 +49,11 @@ For information on how to use Azure Resource Manager templates to configure acti
 
 6. Select the **Resource group** this alert is associated with.
 
-7. Define a list of actions by combining the following options:
+7. Define a list of actions by providing the action's:
 
-    a. **Name**: A unique identifier within the action group.
+    a. **Name**: Enter a unique identifier within the action group.
 
-    b. **Action Type**: The type of action to be performed. The options are to send a SMS, send an email, or call a webhook.
+    b. **Action Type**: Select SMS, email, or webhook.
 
     c. **Details**: Based on the action type, enter a phone number, email address, or webhook URI.
 
