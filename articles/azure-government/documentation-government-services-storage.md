@@ -22,17 +22,17 @@ ms.author: ryansoc
 For details on this service and how to use it, see [Azure Storage public documentation](../storage/index.md).
 
 ### Storage pairing in Azure Government
-The map below shows the primary and secondary region pairings used for Geo-redundant storage (GRS) and Read-access geo-redundant storage (RA-GRS) accounts in Azure Government
+The following map shows the primary and secondary region pairings used for Geo-redundant storage (GRS) and Read-access geo-redundant storage (RA-GRS) accounts in Azure Government
 
 ![alt text](./media/documentation-government-services-storage.PNG)
 
 > [!NOTE]
-> US Gov Virginia secondary region is US Gov Texas. Previously, US Gov Virginia utilized US Gov Iowa as a secondary region. Storage accounts still leveraging US Gov Iowa as a secondary region are being migrated to US Gov Texas as a seconday region.
+> USGov Virginia secondary region is USGov Texas. Previously, USGov Virginia utilized US Gov Iowa as a secondary region. Storage accounts with USGov Iowa as a secondary region are being migrated to USGov Texas as a secondary region.
 >
 >
 
 ### Checking secondary region for RA-GRS and GRS storage accounts
-To view the current secondary region of your storage account through the Azure Portal, click the storage account blade then click on the name of the storage account. This will bring up the storage account overview blade which lists the primary and secondary regions.
+To view the current secondary region of your storage account through the Azure portal, click the storage account on the left. Click on the name of the storage account to bring up the storage account overview that lists the primary and secondary regions.
 
 ![alt text](./media/documentation-government-services-storage-accountoverview.png)
 
@@ -89,23 +89,23 @@ The following information identifies the Azure Government boundary for Azure Sto
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
-| Data entered, stored, and processed within an Azure Storage product can contain export controlled data. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Azure Storage metadata is not permitted to contain controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter regulated/controlled data into the following fields:  Resource groups, Deployment names, Resource names, Resource tags |
+| Data entered, stored, and processed within an Azure Storage product may contain export-controlled data. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Azure Storage metadata is not permitted to contain controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter regulated/controlled data into the following fields:  Resource groups, Deployment names, Resource names, Resource tags |
 
 ## Azure Import/Export
 
-Import/Export is Generally available for Azure Goverenment.  All Azure Government regions are supported.
+Import/Export is Generally available for Azure Govetnment.  All Azure Government regions are supported.
 
 ### Variation
 
-When creating an Import/Export job for USGov Arizona or USGov Texas the mailing address will be for USGov Virginia.  The data will be loaded into selected storage account from the USGov Virignia region.
+With Import/Export jobs for USGov Arizona or USGov Texas, the mailing address is for USGov Virginia.  The data will be loaded into selected storage account from the USGov Virginia region.
 
 ### Consideration
 
-For DoD L5 data, use a DoD region storage acocunt to ensure that data is loaded directly into the DoD regions. 
+For DoD L5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions. 
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
-| Data copied to the media for transport and the keys used to encrypt that data. | Azure Import/Export metadata is not permitted to contain controlled data. This metadata includes all configuration data entered when creating your Import/Export job and shipping infomration used to transport your media.  Do not enter regulated/controlled data into the following fields:  Job name, Carrier name, Tracking number, Description, Return information (Name, Address, Phone, E-Mail), Export Blob URI, Drive list, Package list, Storage account name, Contianer name |
+| Data copied to the media for transport and the keys used to encrypt that data. | Azure Import/Export metadata is not permitted to contain controlled data. This metadata includes all configuration data entered when creating your Import/Export job and shipping information used to transport your media.  Do not enter regulated/controlled data into the following fields:  Job name, Carrier name, Tracking number, Description, Return information (Name, Address, Phone, E-Mail), Export Blob URI, Drive list, Package list, Storage account name, Container name |
 
 ## Next Steps
 For supplemental information and updates subscribe to the
