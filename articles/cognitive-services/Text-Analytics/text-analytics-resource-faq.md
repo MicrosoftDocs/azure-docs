@@ -36,7 +36,7 @@ We avoid pre-announcing support for specific languages so that no one takes a de
 
 ### Is keyword extraction related to sentiment analysis?
 
-No, while both use n-grams, they do not share models or components. Keywords or phrases are not extracted based on a higher or lower sentiment; nor is sentiment biased on words considered more important or relevant to the phrase. 
+No, none of the operations share models or components. Keywords or phrases are not extracted based on a higher or lower sentiment; nor is sentiment biased on words considered more important or relevant in the document. 
 
 ### Why do output calculations vary, when inputs are identical?
 

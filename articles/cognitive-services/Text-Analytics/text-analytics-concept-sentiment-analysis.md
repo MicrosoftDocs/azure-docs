@@ -35,9 +35,9 @@ We use a Naive-Bayes machine learning algorithm to classify any new piece of tex
 | Modeling aspect  | How effected |
 |-------------|-------------|
 | Linguistics | We invoke linguistic processing in the form of tokenization and stemming. |
-| Patterns | We use oN-grams to articulate patterns, such as word repetition, proximity, and sequencing. <br/> We assign of part-of-speech to each word in the input text. | 
+| Patterns | We use n-grams to articulate patterns, such as word repetition, proximity, and sequencing. <br/> We assign of part-of-speech to each word in the input text. | 
 | Expressivity | We incorporate any emoticons, punctuation such as exclamation or question marks, and letter case (upper or lower) as indicators of sentiment.|
-| Semantics | We build resonance in the training data by mapping syntactically similar words. Sentiment evidence associated with one term can be applied to similar terms. We use neural networks to constructi the associations. |
+| Semantics | We build resonance in the training data by mapping syntactically similar words. Sentiment evidence associated with one term can be applied to similar terms. We use neural networks to construct the associations. |
 
 ## Guidance for constructing inputs
 
@@ -68,7 +68,7 @@ The following example illustrates the syntax, starting with an input:
 }
 ```
 
-Output is one score for each document, where the ID is derived from the input, and the score is a 15-digit string indicating a degree of sentiment.
+Output is one score for each document, where the ID is derived from the input, and the score is a 15-digit string indicating a degree of sentiment. Scores closer to zero indicate negative sentiment.
 
 ```
 {

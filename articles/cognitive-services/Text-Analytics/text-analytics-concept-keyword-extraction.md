@@ -22,20 +22,15 @@ The [key phrase extraction API](https://westus.dev.cognitive.microsoft.com/docs/
 
 This analyzer finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentence. This capability is useful if you need to quickly identify the main points in a collection of documents. For example, given input text "The food was delicious and there were wonderful staff", the service returns the main talking points: "food" and 'wonderful staff".
 
-## Extraction techniques
-
-Internally, we employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit. 
-
-N-grams denote all occurrences of *n* consecutive words in the input text. The precise value of *n* may vary across scenarios, but it’s common to pick *n=2* or *n=3*. With n=2, for the text “the quick brown fox”, the following n-grams would be generated – [ “the quick”, “quick brown”, “brown fox”]
-
 Currently, the following languages are supported for production workloads: English, German, Spanish, and Japanese. Other languages are in preview. For more information, see [Supported languages](overview.md#supported-languages).
 
-> [!Note]
-> Key phrase analysis is distinct from sentiment analysis. Individual words or phrases are not extracted based on degree of sentiment.
+## Extraction techniques
+
+Non-essential words are stripped out on the first pass through the text. Once the text is paired down, the model calculates the probability of certain word combinations, elevating the rank of those combinations more likely to be found in common use. For this reason, you might find that adjectives or adverbs that appear by themselves are not flagged for extraction, even they seem interesting or important at face value.
 
 ## Guidance for constructing inputs
 
-You can submit the same collection of documents for multiple operations: sentiment analysis, key phrase analysis, and language detection. Operations are independent so run them sequentially or in parallel.
+Although you can submit the same collection of documents for multiple operations, key phrase extraction tends to produce higher quality results when you give it bigger chunks of text to work on. This is opposite from sentiment analysis, which performs better on smaller blocks of text. To get the best results of both operations, consider restructuring the inputs accordingly.
 
 ## Next steps
 

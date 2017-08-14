@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial using Text Analytics API in a Logic Apps workflow (Microsoft Cognitive Services on Azure) | Microsoft Docs'
+title: 'Tutorial using Text Analytics API in an end-to-end workflow (Microsoft Cognitive Services on Azure) | Microsoft Docs'
 description: Learn how to structure and submit a text analytics request and visualize the response in Azure Logic Apps.
 services: cognitive-services
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.author: heidist
 
 ---
 
-# Tutorial: Use Logic Apps to structure, submit, and consume a Text Analytics workflow
+# Tutorial: Structure and consume a request for sentiment analysis using the Text Analytics API
 
 Use this tutorial to implement an end-to-end sequence for acquiring source JSON documents, structuring a request for sentiment analysis using **Text Analytics API** in Microsoft Cognitive Services, and then hand off the response to Outlook or other app. 
 
