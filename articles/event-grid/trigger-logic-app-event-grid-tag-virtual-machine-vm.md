@@ -49,9 +49,9 @@ by completing any of these quickstarts:
 * [Create a Windows virtual machine resource with the Azure CLI](../virtual-machines/windows/quick-create-cli.md)
 * [Create a Windows virtual machine with PowerShell](../virtual-machines/windows/quick-create-powershell.md)
 
-  With Azure publishers, you don't need to do anything to make 
-  that resource publish events. After you create and 
-  connect an event subscription from your logic app 
+  With Azure publishers, you don't 
+  [need to do anything to make that resource publish events](../event-grid/overview.md). 
+  After you create and connect an event subscription from your logic app 
   to an Azure resource that resource starts publishing events to the event grid. 
   The event grid then pushes those events to subscribers, like your logic app.
 
