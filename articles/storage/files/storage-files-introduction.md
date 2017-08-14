@@ -24,17 +24,17 @@ Azure File storage offers network file shares in the cloud using the industry st
 ## Videos
 | Introducing Azure File storage (27m) | Azure File storage Tutorial (5 minutes)  |
 |-|-|
-| [![Screencap of the Introducing Azure File storage video - click to play!](./media/storage-files-introduction/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Screencap of the Azure File storage Tutorial - click to play!](./media/storage-files-introduction/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
+| [![Screencast of the Introducing Azure File storage video - click to play!](./media/storage-files-introduction/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Screencast of the Azure File storage Tutorial - click to play!](./media/storage-files-introduction/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
 
 ## Why Azure File storage is useful
 
-Azure File storage allows you to replace Windows Server, Linux, or NAS-based file servers hosted on-premises or in the cloud with an OS-free cloud file share. This has the following benefits:
+Azure File storage allows you to replace Windows Server, Linux, or NAS-based file servers hosted on-premises or in the cloud with an OS-free cloud file share. Azure File storage has the following benefits:
 
 * **Shared access**. Azure File shares support the industry standard SMB protocol, meaning you can seamlessly replace your on-premises file shares with Azure File shares without worrying about application compatibility. Being able to access a file share from multiple machines and applications/instances is a significant advantage with Azure File storage.
 
-* **Fully Managed**. Azure File shares can be created without the need to manage hardware or an OS. This means you don't have to deal with patching the server OS with critical security upgrades or replacing faulty hard disks.
+* **Fully Managed**. Azure File shares can be created without the need to manage hardware or an OS, which means you don't have to deal with patching the server OS with critical security upgrades or replacing faulty hard disks.
 
-* **Scripting and Tooling**. PowerShell cmdlets and Azure CLI can be used to create, mount, and manage Azure File shares as part of the administration of Azure applications. You can create and manage Azure File shares using the [Azure Portal](https://portal.azure.com) and the [Azure Storage Explorer](https://storageexplorer.com). 
+* **Scripting and Tooling**. PowerShell cmdlets and Azure CLI can be used to create, mount, and manage Azure File shares as part of the administration of Azure applications. You can create and manage Azure File shares using the [Azure portal](https://portal.azure.com) and the [Azure Storage Explorer](https://storageexplorer.com). 
 
 * **Resiliency**. Azure File storage has been built from the ground up to be always available. Replacing on-premises file shares with Azure File storage means you no longer have to wake up to deal with local power outages or network issues. 
 
@@ -47,7 +47,7 @@ Azure File shares can be used to:
 
 * **"Lift and Shift" applications**:  
 
-    Azure File storage makes it easy to "lift and shift" applications to the cloud that use on-premises file shares to share data between parts of the application. To make this happen, each VM connects to the file share and then it can read and write files just like it would against an on-premises file share.
+    Azure File storage makes it easy to "lift and shift" applications to the cloud that use on-premises file shares to share data between parts of the application. To implement this, each VM connects to the file share and then it can read and write files just like it would against an on-premises file share.
 
 * **Simplify Cloud Development**:  
     
@@ -59,7 +59,7 @@ Azure File shares can be used to:
 
     * **Diagnostic Share**:  
     
-        An Azure File share can also be used to save diagnostic files like logs, metrics, and crash dumps. Having these available through both the SMB and REST interface allows applications to build or leverage a variety of analysis tools for processing and analyzing the diagnostic data.
+        An Azure File share can also be used to save diagnostic files like logs, metrics, and crash dumps. Having file shares available through both the SMB and REST interface allows applications to build or leverage a variety of analysis tools for processing and analyzing the diagnostic data.
 
     * **Dev/Test/Debug**:  
     

@@ -45,7 +45,7 @@ The Queue service contains the following components:
 
 * **Queue:** A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-* **Message:** A message, in any format, of up to 64 KB. The maximum time that a message can remain in the queue is 7 days.
+* **Message:** A message, in any format, of up to 64 KB. The maximum time that a message can remain in the queue is seven days.
 
 ## Next steps
 
