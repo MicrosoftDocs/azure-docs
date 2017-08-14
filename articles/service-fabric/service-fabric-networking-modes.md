@@ -1,5 +1,5 @@
 ---
-title: Configure networking modes for containers and Service Fabric services | Microsoft Docs
+title: Configure networking modes for Service Fabric container services | Microsoft Docs
 description: Learn how to setup the different networking modes that Azure Service Fabric supports. 
 services: service-fabric
 documentationcenter: .net
@@ -17,13 +17,17 @@ ms.date: 8/9/2017
 ms.author: subramar
 
 ---
-# Service Fabric networking modes
+# Service Fabric container networking modes
 
+The default networking mode offered in the Service Fabric cluster for container services is the `nat` networking mode. With the `nat` networking mode, having more than one containers service listening to the same port results in deployment errors. For running several services that listen on the same port, Service Fabric supports the `open` networking mode (version 5.7 or higher). With the `open` networking mode, each container service gets a dynamically assigned IP address internall hiii w  y allowing multiple services to listen to the same port.   
 
-The default networking mode offered in the Service Fabric cluster is the `nat` networking mode. With the `nat` networking mode, having more than one service listening to the same port results in port conflicts. Some scenarios need multiple services (for example, different containers) to listen on the same port. To support this scenario, Service Fabric supports the `open` networking mode. With the `open` networking mode, each service gets a dynamically assigned IP address and port allowing multiple services to listen to the same port.  
-
+Thus, with a single service type with a static endpoint defined in the service manifest, new services may be created and deleted without deployment errors using the `open` networking mode. Similarly, one can use the same `docker-compose.yml` file with static port mappings for creating multiple services.
 
 Using the dynamically assigned IP to discover services is not advisable since the IP address changes when the service restarts or moves to another node. Only use the **Service Fabric Naming Service**  or the **DNS Service** for service discovery. 
+
+> [!WARNING]
+> Only a total of 4096 IPs are allowed per vNET in Azure. Thus, the sum of the number of nodes and the number of container service instances (with `open` networking) cannot exceed 4096 within a vNET. For such high density scenarios,the `nat` networking mode is recommended.
+>
 
 ## Setting up `open` networking mode
 
@@ -31,34 +35,43 @@ Using the dynamically assigned IP to discover services is not advisable since th
 
 ```json
 "fabricSettings": [
-  {
-    "parameters": [
-      {
-        "name": "IsEnabled",
-        "value": "true"
-      }
-    ],
-    "name": "DnsService"
-  },
-  {
-    "parameters": [
-      {
-        "name": "ClientRoleEnabled",
-        "value": "true"
-      }
-    ],
-    "name": "Security"
-  },
-  {
-    "parameters": [
-      {
-        "name": "IPProviderEnabled",
-        "value": "true"
-      }
-    ],
-    "name": "Hosting"
-  }
-],`
+            {
+                "name": "DnsService",
+                "parameters": [
+                   {
+                        "name": "IsEnabled",
+                        "value": "true"
+                  }
+                ]
+            },
+            {
+                "name": "Hosting",
+                "parameters": [
+                  { 
+                        "name": "IPProviderEnabled",
+                        "value": "true"
+                  }
+                ]
+            },
+            {
+                "name":  "Trace/Etw", 
+                "parameters": [
+                {
+                        "name": "Level",
+                        "value": "5"
+                }
+                ]
+            },
+            {
+                "name": "Setup",
+                "parameters": [
+                {
+                        "name": "ContainerNetworkSetup",
+                        "value": "true"
+                }
+                ]
+            }
+        ],
 ```
 
 2. Set up the network profile section to allow multiple IP addresses to be configured on each node of the cluster. The following example sets up five IP addresses per node (thus you can have five service instances listening to the port on each node) for a Windows Service Fabric cluster.
@@ -311,7 +324,7 @@ For Linux clusters, an additional public IP configuration is added to allow outb
   </ServiceManifestImport>
 </ApplicationManifest>
 ```
-You can mix and match different networking modes across services within an application for a Windows cluster. Thus, you can have two services on `open` mode and another on `nat` networking mode. Mixing networking modes for different services isn't supported on Linux clusters. 
+You can mix and match different networking modes across services within an application for a Windows cluster. Thus, you can have some services on `open` mode and some on `nat` networking mode. When a service is configured with `nat`, the port it is listening to must be unique. Mixing networking modes for different services isn't supported on Linux clusters. 
 
 
 ## Next steps

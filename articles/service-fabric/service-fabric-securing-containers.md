@@ -19,7 +19,7 @@ ms.author: subramar
 
 # Container security
 
-Service Fabric provides a mechanism for services inside a Windows container to access a certificate that is installed on the nodes in the cluster. In addition, Service Fabric also supports gMSA (group Managed Service Accounts) for Windows containers. 
+Service Fabric provides a mechanism for services inside a container to access a certificate that is installed on the nodes in a Windows or Linux cluster (version 5.7 or higher). In addition, Service Fabric also supports gMSA (group Managed Service Accounts) for Windows containers. 
 
 ## Certificate management for containers
 
