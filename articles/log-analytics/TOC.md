@@ -46,6 +46,7 @@
 ### [Log search portals](log-analytics-log-search-portals.md)
 #### [Use the log search portal](log-analytics-log-search-log-search-portal.md)
 ### [Transitioning from legacy language](log-analytics-log-search-transition.md)
+### [Flow connector](log-analytics-flow-tutorial.md)
 
 ## Analyze data
 ### [Dashboards](log-analytics-dashboards.md)
@@ -84,6 +85,7 @@
 ### [Malware Assessment](log-analytics-malware.md)
 ### [Networking Analytics](log-analytics-azure-networking-analytics.md)
 ### [Network Performance Monitor](log-analytics-network-performance-monitor.md)
+### [Office 365](../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [SCOM Assessment](log-analytics-scom-assessment.md)
 ### [Security Audit](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Service Fabric](log-analytics-service-fabric.md)

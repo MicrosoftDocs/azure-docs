@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Deep diagnostics for web apps and services with Application Insights

@@ -61,7 +61,10 @@
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Web table](data-factory-web-table-connector.md)
-### [Data Management Gateway](data-factory-data-management-gateway.md)
+### Data Management Gateway
+#### [Overview](data-factory-data-management-gateway.md)
+#### [High availability and scalability (Preview)](data-factory-data-management-gateway-high-availability-scalability.md)
+#### [Walkthrough: Move data from an on-premises SQL Server to Azure Blob Storage](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## [Transform Data](data-factory-data-transformation-activities.md)

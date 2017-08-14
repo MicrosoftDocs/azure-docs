@@ -227,7 +227,7 @@ Updating Linux using the Azure VMAccess Extension is one method to make changes 
 
 [Virtual machine extensions and features for Linux](extensions-features.md)
 
-[Authoring Azure Resource Manager templates with Linux VM extensions](extensions-authoring-templates.md)
+[Authoring Azure Resource Manager templates with Linux VM extensions](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Using cloud-init to customize a Linux VM during creation](using-cloud-init.md)
 

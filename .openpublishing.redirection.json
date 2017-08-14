@@ -1226,9 +1226,9 @@
             "redirect_document_id": false
         },
         {
-           "source_path": "articles/automation/automation-troubleshooting-hrw-runbook-terminates-suspended.md",
-           "redirect_url": "https://docs.microsoft.com/azure/automation/automation-troubleshooting-hybrid-runbook-worker",
-           "redirect_document_id": false
+            "source_path": "articles/automation/automation-troubleshooting-hrw-runbook-terminates-suspended.md",
+            "redirect_url": "https://docs.microsoft.com/azure/automation/automation-troubleshooting-hybrid-runbook-worker",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-portal/resource-group-portal.md",
@@ -8255,7 +8255,8 @@
             "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-get-started",
             "redirect_document_id": false
         },
-        {   "source_path": "articles/active-directory/active-directory-reporting-irregular-sign-in-activity.md",
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-irregular-sign-in-activity.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
             "redirect_document_id": false
         },
@@ -8278,51 +8279,52 @@
             "source_path": "articles/active-directory/active-directory-reporting-sign-ins-from-possibly-infected-devices.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-sign-ins-from-unknown-sources.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-users-with-anomalous-sign-in-activity.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
             "redirect_document_id": false
-        },            
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-latencies.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-latencies-azure-portal",
             "redirect_document_id": false
-        },                
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-audit-events.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-activity-audit-logs",
             "redirect_document_id": false
-        },                    
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-api-prerequisites.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-api-prerequisites-azure-portal",
             "redirect_document_id": false
-        },                        
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-api-getting-started.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal",
             "redirect_document_id": false
-        },                            
+        },
         {
             "source_path": "articles/active-directory/active-directory-known-networks.md",
             "redirect_url": "/azure/active-directory/active-directory-named-locations",
             "redirect_document_id": false
-        },                                
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-getting-started.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
-            "redirect_document_id": false        },                                    
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/active-directory/active-directory-view-access-usage-reports.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
             "redirect_document_id": false
-        },                                        
+        },
         {
             "source_path": "articles/active-directory/active-directory-reporting-guide.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
@@ -8347,18 +8349,23 @@
             "source_path": "articles/storage/storage-cannot-delete-storage-account-container-vhd.md",
             "redirect_url": "/azure/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd",
             "redirect_document_id": false
+        },                 
+        {
+            "source_path": "articles/azure-government/documentation-government-services-intelligenceandanalytics.md",
+            "redirect_url": "/azure/azure-government/documentation-government-services-dataandanalytics",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/service-fabric/service-fabric-deploy-container.md",
             "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers",
             "redirect_document_id": false
         },
-	{
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-azcopy.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-load",
             "redirect_document_id": false
         },
-	{
+        {
             "source_path": "articles/application-insights/app-insights-analytics-reference.md",
             "redirect_url": "https://docs.loganalytics.io/",
             "redirect_document_id": false
@@ -8406,6 +8413,661 @@
         {
             "source_path": "articles/vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md",
             "redirect_url": "azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/add-user.md",
+            "redirect_url": "/azure/virtual-machines/linux/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/app-frameworks.md",
+            "redirect_url": "/azure//virtual-machines/linux/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/cli-deploy-templates.md",
+            "redirect_url": "/azure//virtual-machines/linux/create-ssh-secured-vm-from-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/configure-sshd-on-azure-linux-vms.md",
+            "redirect_url": "azure/virtual-machines/linux/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/create-aad-work-id.md",
+            "redirect_url": "/azure/active-directory/active-directory-users-create-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/creation-choices.md",
+            "redirect_url": "/azure/virtual-machines/linux/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/creation-choices-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/deis-cluster.md",
+            "redirect_url": "/azure/virtual-machines/linux/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/deploy-linux-vm-into-existing-vnet-using-cli.md",
+            "redirect_url": "/azure/virtual-machines/linux/create-cli-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/create-cli-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/deploy-linux-vm-into-existing-vnet-using-portal.md",
+            "redirect_url": "/azure/virtual-machines/linux/create-cli-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/dotnet-core-1-landing.md",
+            "redirect_url": "/azure/virtual-machines/linux/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/dotnet-core-2-architecture.md",
+            "redirect_url": "/azure/virtual-machines/linux/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/dotnet-core-3-access-security.md",
+            "redirect_url": "/azure/virtual-machines/linux/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/dotnet-core-4-availability-scale.md",
+            "redirect_url": "/azure/virtual-machines/linux/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/dotnet-core-5-app-deployment.md",
+            "redirect_url": "/azure/virtual-machines/linux/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/endpoints-in-resource-manager.md",
+            "redirect_url": "/azure/virtual-machines/linux/nsg-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/infrastructure-availability-sets-guidelines.md",
+            "redirect_url": "/azure/virtual-machines/linux/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/infrastructure-naming-guidelines.md",
+            "redirect_url": "/azure/virtual-machines/linux/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/infrastructure-networking-guidelines.md",
+            "redirect_url": "/azure/virtual-machines/linux/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/infrastructure-resource-groups-guidelines.md",
+            "redirect_url": "/azure/virtual-machines/linux/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/infrastructure-storage-solutions-guidelines.md",
+            "redirect_url": "/azure/virtual-machines/linux/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/infrastructure-subscription-accounts-guidelines.md",
+            "redirect_url": "/azure/virtual-machines/linux/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/infrastructure-virtual-machine-guidelines.md",
+            "redirect_url": "/azure/virtual-machines/linux/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/intro-on-azure.md",
+            "redirect_url": "/azure/virtual-machines/linux/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/jupyter-notebook.md",
+            "redirect_url": "/azure/virtual-machines/linux/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/mac-disable-ssh-password-usage.md",
+            "redirect_url": "/azure/virtual-machines/linux/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/opensource-links.md",
+            "redirect_url": "/azure/virtual-machines/linux/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/python-django-web-app.md",
+            "redirect_url": "/azure/virtual-machines/linux/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/tutorial-convert-to-vmss.md",
+            "redirect_url": "/azure/virtual-machines/linux/tutorial-create-vmss",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/use-root-privileges.md",
+            "redirect_url": "/azure/virtual-machines/linux/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/usernames.md",
+            "redirect_url": "/azure/virtual-machines/linux/faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/vm-monitoring.md",
+            "redirect_url": "/azure/virtual-machines/linux/tutorial-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/extensions-authoring-templates.md",
+            "redirect_url": "/azure/virtual-machines/windows/template-description",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/extensions-configuration-samples.md",
+            "redirect_url": "/azure/virtual-machines/windows/template-description",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/extensions-troubleshoot.md",
+            "redirect_url": "/azure/virtual-machines/linux/extensions-features",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/virtual-machines-linux-reset-password.md",
+            "redirect_url": "/azure/virtual-machines/linux/reset-password",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/attach-disk-portal.md",
+            "redirect_url": "/azure/virtual-machines/windows/attach-managed-disk-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/cli-manage.md",
+            "redirect_url": "/azure/virtual-machines/linux/cli-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/create-managed-disk-ps.md",
+            "redirect_url": "/azure/virtual-machines/windows/attach-disk-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/guidance-compute-single-vm.md",
+            "redirect_url": "/azure/architecture/reference-architectures/virtual-machines-windows/single-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/upload-image.md",
+            "redirect_url": "/azure/virtual-machines/windows/upload-generalized-managed",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/upload-specialized.md",
+            "redirect_url": "/azure/virtual-machines/windows/create-vm-specialized",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/vhd-copy.md",
+            "redirect_url": "/azure/virtual-machines/windows/create-vm-specialized",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/ps-manage.md",
+            "redirect_url": "/azure/virtual-machines/windows/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sap-dbms-guide.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/dbms-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sap-deployment-guide.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/deployment-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sap-get-started.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sap-planning-guide.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/planning-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/app-frameworks.md",
+            "redirect_url": "/azure/virtual-machines/windows/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/cli-deploy-templates.md",
+            "redirect_url": "/azure/virtual-machines/linux/create-ssh-secured-vm-from-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/create-aad-work-id.md",
+            "redirect_url": "/azure/active-directory/active-directory-users-create-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/create-availability-set.md",
+            "redirect_url": "/azure/virtual-machines/windows/tutorial-availability-sets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/creation-choices.md",
+            "redirect_url": "/azure/virtual-machines/windows/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/dotnet-core-1-landing.md",
+            "redirect_url": "/azure/virtual-machines/windows/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/dotnet-core-2-architecture.md",
+            "redirect_url": "/azure/virtual-machines/windows/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/dotnet-core-3-access-security.md",
+            "redirect_url": "/azure/virtual-machines/windows/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/dotnet-core-4-availability-scale.md",
+            "redirect_url": "/azure/virtual-machines/windows/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/dotnet-core-5-app-deployment.md",
+            "redirect_url": "/azure/virtual-machines/windows/tutorial-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/endpoints-in-resource-manager.md",
+            "redirect_url": "/azure/virtual-machines/windows/nsg-quickstart-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/hero-role.md",
+            "redirect_url": "/azure/virtual-machines/windows/quick-create-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/infrastructure-availability-sets-guidelines.md",
+            "redirect_url": "/azure/virtual-machines/windows/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/infrastructure-naming-guidelines.md",
+            "redirect_url": "/azure/virtual-machines/windows/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/infrastructure-networking-guidelines.md",
+            "redirect_url": "/azure/virtual-machines/windows/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/infrastructure-resource-groups-guidelines.md",
+            "redirect_url": "/azure/virtual-machines/windows/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/infrastructure-storage-solutions-guidelines.md",
+            "redirect_url": "/azure/virtual-machines/windows/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/infrastructure-subscription-accounts-guidelines.md",
+            "redirect_url": "/azure/virtual-machines/windows/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/infrastructure-virtual-machine-guidelines.md",
+            "redirect_url": "/azure/virtual-machines/windows/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/load-balance.md",
+            "redirect_url": "/azure/virtual-machines/windows/tutorial-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/load-balanced-iis-tutorial.md",
+            "redirect_url": "/azure/virtual-machines/windows/tutorial-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/manage-using-azure-automation.md",
+            "redirect_url": "/azure/automation/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/multiple-vms.md",
+            "redirect_url": "/azure/virtual-machines/windows/tutorial-create-vmss",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/ps-hybrid-cloud-test-env-lob.md",
+            "redirect_url": "/azure/virtual-machines/windows/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/ps-hybrid-cloud-test-env-sim.md",
+            "redirect_url": "/azure/virtual-machines/windows/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sharepoint-farm.md",
+            "redirect_url": "/azure/virtual-machines/windows/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/vmss-powershell-creating.md",
+            "redirect_url": "/azure/virtual-machines/windows/tutorial-create-vmss",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/extensions-authoring-templates.md",
+            "redirect_url": "/azure/virtual-machines/windows/template-description",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/extensions-configuration-samples.md",
+            "redirect_url": "/azure/virtual-machines/windows/template-description",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/cli-samples.md",
+            "redirect_url": "/azure/container-service/kubernetes/cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-connect.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-connect",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-application-specific-marathon.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-application-specific-marathon",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-create-acs-cluster-cli.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-create-acs-cluster-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-dcos-acr.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-dcos-acr",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-dcos-agents.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-dcos-agents",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-dcos-fileshare.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-dcos-fileshare",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-dcos-manage-tutorial.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-dcos-manage-tutorial",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-dcos-quickstart.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-dcos-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-dcos-vamp-canary-release.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-dcos-vamp-canary-release",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-deploy-spring-boot-app-on-kubernetes.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-deploy-spring-boot-app-on-linux.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-deployment.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-docker-swarm-mode-setup-ci-cd-acs-engine",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-docker-swarm-setup-ci-cd.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-docker-swarm.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-docker-swarm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-draft-up.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-draft-up",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-enable-public-access.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-enable-public-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-faq.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-intro.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-intro-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-coscale.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-coscale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-datadog.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-datadog",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-helm.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-helm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-jenkins.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-jenkins",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-load-balancing.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-load-balancing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-oms.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-oms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-service-principal.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-service-principal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-sysdig.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-sysdig",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-ui.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-ui",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-walkthrough.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-walkthrough",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-kubernetes-windows-walkthrough.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-windows-walkthrough",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-load-balancing.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-load-balancing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-mesos-marathon-rest.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-mesos-marathon-rest",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-mesos-marathon-ui.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-mesos-marathon-ui",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-monitoring-dynatrace.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-monitoring-dynatrace",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-monitoring-elk.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-monitoring-elk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-monitoring-oms.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-monitoring-oms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-monitoring-sysdig.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-monitoring-sysdig",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-monitoring.md",
+            "redirect_url": "/azure/container-service/dcos-swarm/container-service-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-scale.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-scale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-security.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-tutorial-kubernetes-app-update.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-tutorial-kubernetes-deploy-application.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-tutorial-kubernetes-deploy-cluster.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-tutorial-kubernetes-monitor.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-tutorial-kubernetes-prepare-acr.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-tutorial-kubernetes-prepare-app.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/container-service-tutorial-kubernetes-scale.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/request-units-per-minute.md",
+            "redirect_url": "/azure/cosmos-db/request-units",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-add-domain-federated.md",
+            "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-add-domain.md",
+            "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-domains-add-azure-portal.md",
+            "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-add-domain-add-users.md",
+            "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
             "redirect_document_id": false
         }
     ]

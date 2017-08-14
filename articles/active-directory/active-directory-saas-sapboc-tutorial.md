@@ -5,6 +5,7 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
 ms.service: active-directory
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 08/14/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with SAP Business Object Cloud, you need the following items:
 
 - An Azure AD subscription
-- An SAP Business Object Cloud single-sign on enabled subscription
+- An SAP Business Object Cloud single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -41,7 +42,7 @@ To configure Azure AD integration with SAP Business Object Cloud, you need the f
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -108,9 +109,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<sub-domain>.projectorca.cloud/`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: 
+	| |
+	|-|-|
+	| `https://<sub-domain>.sapanalytics.cloud/` |
+	| `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `<sub-domain>.projectorca.cloud`
+	b. In the **Identifier** textbox, type a URL using the following pattern:
+	| |
+	|-|-|
+	| `<sub-domain>.sapbusinessobjects.cloud` |
+	| `<sub-domain>.sapanalytics.cloud` |
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [SAP Business Object Cloud Client support team](https://www.sap.com/product/analytics/cloud-analytics.support.html) to get Sign-On URL and you can get Identifier downloading the SAP Business Object Cloud metadata from the admin console that is explained later in the tutorial. 
@@ -192,8 +201,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating an SAP Business Object Cloud test user
 
-To enable Azure AD users to log in to SAP Business Object Cloud, they must be provisioned into SAP Business Object Cloud.  
-In the case of SAP Business Object Cloud, provisioning is a manual task.
+To enable Azure AD users to log in to SAP Business Object Cloud, they must be provisioned into SAP Business Object Cloud. For SAP Business Object Cloud, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
@@ -207,7 +215,7 @@ In the case of SAP Business Object Cloud, provisioning is a manual task.
 
 	![Invite People](./media/active-directory-saas-sapboc-tutorial/user4.png)
 
-	a. In the **USER ID** textbox, type user id of the user like Britta.
+	a. In the **USER ID** textbox, type user ID of the user like Britta.
 
 	b. In the **FIRST NAME** textbox, type first name of the user like Britta.
 
