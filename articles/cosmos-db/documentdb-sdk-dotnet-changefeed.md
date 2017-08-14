@@ -44,6 +44,10 @@ ms.author: maquaran
 
 ## Release notes
 
+### <a name="1.1.0"/>1.1.0
+* Added a method to obtain an estimate of remaining work to be processed in the Change Feed.
+* Compatible with [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) versions 1.13.2 and above.
+
 ### <a name="1.0.0"/>1.0.0
 * GA SDK
 * Compatible with [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) versions 1.14.1 and below.
@@ -59,6 +63,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.1.0](#1.1.0) |August 13, 2017 |--- |
 | [1.0.0](#1.0.0) |July 07, 2017 |--- |
 
 
