@@ -137,7 +137,7 @@ Use the following steps to connect to Azure Stack:
 
    ```azurecli
    az login \
-     -u <Active directory global administrator or user account. Example: username@<aadtenant>.onmicrosoft.com> \
+     -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> \
      --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
    ```
 
