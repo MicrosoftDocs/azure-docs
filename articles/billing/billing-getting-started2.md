@@ -34,11 +34,11 @@ If your subscription is a Free Trial, [Visual Studio](https://azure.microsoft.co
 
 Check out the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to get an estimated monthly cost of the service you're interested in. You can add any first party Azure resource to get an estimate cost.
 
-![Screenshot of the pricing calculator menu](./media/billing-getting-started/pricing-calc.PNG)
+![Screenshot of the pricing calculator menu](./media/billing-getting-started/pricing-calc.png)
 
 For example, an A1 Windows Virtual Machine (VM) is estimated to cost $66.96 USD/month in compute hours if you leave it running the whole time:
 
-![Screenshot of the pricing calculator showing that an A1 Windows VM is estimated to cost $66.96 USD per month](./media/billing-getting-started/pricing-calcVM.PNG)
+![Screenshot of the pricing calculator showing that an A1 Windows VM is estimated to cost $66.96 USD per month](./media/billing-getting-started/pricing-calcVM.png)
 
 For more information on pricing, see this [FAQ](https://azure.microsoft.com/pricing/faq/). Or if you want to talk to an Azure salesperson, contact 1-800-867-1389.
 
