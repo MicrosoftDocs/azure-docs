@@ -30,7 +30,7 @@ In this article, we walk you through the steps required to deploy a simple Windo
 * [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
 * [Configure PowerShell for use with Azure Stack.](azure-stack-powershell-configure.md)
 
-The following steps describe the process required create a virtual machine by retrieving the password stored in a Key Vault:
+The following steps describe the process required to create a virtual machine by retrieving the password stored in a Key Vault:
 
 1. Create a Key Vault secret.
 2. Update the azuredeploy.parameters.json file.
@@ -113,7 +113,7 @@ When the template is deployed successfully, it results in the following output:
 ![Deployment output](media\azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
 
 
-## Next Steps
+## Next steps
 [Deploy a sample app with Key Vault](azure-stack-kv-sample-app.md)
 
 [Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
