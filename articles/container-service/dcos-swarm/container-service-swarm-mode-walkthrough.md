@@ -69,26 +69,25 @@ After several minutes, the command completes and returns json formatted informat
 
 ## Connect to the cluster
 
-Throughout this quick start, you need the IP address of both the Docker Swarm master and the Docker agent pool. Run the following command to return both IP addresses.
+Throughout this quick start, you need the FQDN of both the Docker Swarm master and the Docker agent pool. Run the following command to return both the master and agent FQDNs.
 
 
 ```bash
-az network public-ip list --resource-group myResourceGroup --query '[*].{Name:name,IPAddress:ipAddress}' -o table
+az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Ageent:agentPoolProfiles[0].fqdn}' -o table
 ```
 
 Output:
 
 ```bash
-Name                                                                 IPAddress
--------------------------------------------------------------------  -------------
-swarmm-agent-ip-myswarmcluster-myresourcegroup-d5b9d4agent-66066781  52.179.23.131
-swarmm-master-ip-myswarmcluster-myresourcegroup-d5b9d4mgmt-66066781  52.141.37.199
+Master                                                               Ageent
+-------------------------------------------------------------------  --------------------------------------------------------------------
+myswarmcluster-myresourcegroup-d5b9d4mgmt.ukwest.cloudapp.azure.com  myswarmcluster-myresourcegroup-d5b9d4agent.ukwest.cloudapp.azure.com
 ```
 
-Create an SSH tunnel to the Swarm master. Replace `IPAddress` with the IP address of the Swarm master.
+Create an SSH tunnel to the Swarm master. Replace `MasterFQDN` with the FQDN address of the Swarm master.
 
 ```bash
-ssh -p 2200 -fNL localhost:2374:/var/run/docker.sock azureuser@IPAddress
+ssh -p 2200 -fNL localhost:2374:/var/run/docker.sock azureuser@MasterFQDN
 ```
 
 Set the `DOCKER_HOST` environment variable. This allows you to run docker commands against the Docker Swarm without having to specify the name of the host.
@@ -139,7 +138,7 @@ swarm-agent-ACA4652E000003: Pulling microsoft/azure-vote-front:redis-v1...
 
 ## Test the application
 
-Browse to the IP address of the Swarm agent pool to test out the Azure Vote application.
+Browse to the FQDN of the Swarm agent pool to test out the Azure Vote application.
 
 ![Image of browsing to Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
