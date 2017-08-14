@@ -19,7 +19,7 @@ ms.author: ryansoc
 ---
 # Azure Government Storage
 ## Azure Storage
-For details on this service and how to use it, see [Azure Storage public documentation](../storage/index.md).
+Azure Storage is generally available in Azure Goverment.  For details on Azure Storage, see [Azure Storage public documentation](../storage/index.md).
 
 ### Storage pairing in Azure Government
 The following map shows the primary and secondary region pairings used for Geo-redundant storage (GRS) and Read-access geo-redundant storage (RA-GRS) accounts in Azure Government
@@ -93,7 +93,7 @@ The following information identifies the Azure Government boundary for Azure Sto
 
 ## Azure Import/Export
 
-Import/Export is Generally available for Azure Govetnment.  All Azure Government regions are supported.
+Import/Export is generally available for Azure Govetnment.  All Azure Government regions are supported.  To create Import/Export jobs, see the [Azure Import/Export documentation](../storage/storage-import-export-service).
 
 ### Variation
 
