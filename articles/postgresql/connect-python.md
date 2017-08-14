@@ -105,6 +105,9 @@ cursor.close()
 conn.close()
 ```
 
+After the code runs successfully, the output appears as follows:
+    ![Command line output](media/connect-python/2-example-python-output.png)
+
 ## Read data
 Use the following code to read the data inserted using [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function with **SELECT** SQL statement. This function accepts a query and returns a result set that can be iterated over with the use of [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
 
