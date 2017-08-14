@@ -125,7 +125,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. In a different web browser window, log into your ScreenSteps company site as an administrator.
 
-8. Click **Account Management**.
+8. Click **Account Settings**.
 
     ![Account management](./media/active-directory-saas-screensteps-tutorial/ic778523.png "Account management")
 
@@ -147,7 +147,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
 	c. Click **Create**.
 
-12. Edit the new endpoint.
+12. **Edit** the new endpoint.
 
     ![Edit endpoint](./media/active-directory-saas-screensteps-tutorial/ic778528.png "Edit endpoint")
 
