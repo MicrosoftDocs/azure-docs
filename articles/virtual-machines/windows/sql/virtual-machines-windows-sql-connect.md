@@ -124,7 +124,7 @@ Next, enable the TCP/IP protocol with **SQL Server Configuration Manager**.
 
 > [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
-## Connect with SSSMS
+## Connect with SSMS
 
 The following steps show how to create an optional DNS Label for your Azure VM and then connect with SQL Server Management Studio (SSMS).
 
