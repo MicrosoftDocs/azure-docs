@@ -301,7 +301,7 @@
         topicHref: /azure/storage/blobs/storage-blobs-introduction
       - name: Files
         tocHref: /azure/storage/files/
-        topicHref: azure/storage/files/storage-files-introduction 
+        topicHref: /azure/storage/files/storage-files-introduction 
       - name: Queues
         tocHref: /azure/storage/queues/
         topicHref: /azure/storage/queues/storage-queues-introduction
