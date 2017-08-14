@@ -22,11 +22,11 @@ ms.author: asgang
 ## Overview
 
 
-Microsoft Dynamics AX is one of the most popular ERP solution among enterprises to standardized process across locations, manage resources and simplifying compliance. Considering the application is business critical to an organization it is very important to be sure that in case of any disaster, application should be up and running in minimum time.
+Microsoft Dynamics AX is one of the most popular ERP solution among enterprises to standardized process across locations, manage resources and simplifying compliance. Considering the application is business critical to an organization it is very important to be sure that if any disaster, application should be up and running in minimum time.
 
 Today, Microsoft Dynamics AX  does not provide any out-of-the-box disaster recovery capabilities. Microsoft Dynamics AX consists of many server components like Application Object Server, Active Directory (AD), SQL Database Server, SharePoint Server, Reporting Server etc. To manage the disaster recovery of each of these components manually is not only expensive but also error-prone.
 
-This article explains in detail about how you can create a disaster recovery solution for your Dynamics AX application using [Azure Site Recovery](site-recovery-overview.md). It will also cover planned/unplanned/test failovers using one-click recovery plan, supported configurations and prerequisites.
+This article explains in detail about how you can create a disaster recovery solution for your Dynamics AX application using [Azure Site Recovery](site-recovery-overview.md). It also covers planned/unplanned/test failovers using one-click recovery plan, supported configurations, and prerequisites.
 Azure Site Recovery based disaster recovery solution is fully tested, certified, and recommended by Microsoft Dynamics AX.
 
 
@@ -44,7 +44,7 @@ Implementing disaster recovery for Dynamics AX application using Azure Site Reco
 
 ## Site Recovery support
 
-For the purpose of creating this article VMware virtual machines with Dynamics AX  2012R3 on Windows Server 2012 R2 Enterprise were used. As site recovery replication is application agnostic, the recommendations provided here are expected to hold on following scenarios as well.
+For the purpose of creating this article, VMware virtual machines with Dynamics AX  2012R3 on Windows Server 2012 R2 Enterprise were used. As site recovery replication is application agnostic, the recommendations provided here are expected to hold on following scenarios as well.
 
 ### Source and target
 
@@ -155,7 +155,10 @@ Refer to ‘AD DR Solution ’ and ‘SQL Server DR solution ’ companion guide
 3.	Click on ‘Test Failover’.
 4.	Select the virtual network to start the test fail-over process.
 5.	Once the secondary environment is up, you can perform your validations.
-6.	Once the validations are complete, you can select ‘Validations complete’ and the test failover environment will be cleaned.
+6.	Once the validations are complete, you can select ‘Validations complete’ and the test failover environment will 
+7.	
+8.	
+9.	be cleaned.
 
 Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test failover.
 
