@@ -76,7 +76,7 @@ Access the local HDFS from the command line and application code instead of by u
     ```
 
 
-## How do I force disable HDFS safe mode in a cluster
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>How do I force-disable HDFS safe mode in a cluster
 
 ### Issue
 
