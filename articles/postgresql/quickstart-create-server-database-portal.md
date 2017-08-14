@@ -78,7 +78,7 @@ The Azure Database for PostgreSQL service creates a firewall at the server-level
 4. On the upper toolbar of the Connection security page, click **Save**. Wait for a few moments and notice the notification showing that updating connection security has finished successfully before continuing.
 
     > [!NOTE]
-    > Connections to your Azure Database for PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you will not be able to connect to your server unless your IT department opens port 5432.
+    > Connections to your Azure Database for PostgreSQL server communicate over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you will not be able to connect to your server unless your IT department opens port 5432.
     >
 
 ## Get the connection information
@@ -188,7 +188,7 @@ To connect to Azure PostgreSQL server using the GUI tool _pgAdmin_
 7. Expand the server node, and then expand **Databases** under it. The list should include your existing *postgres* database, and any newly created user database, such as *mypgsqldb*, that we created in the previous section. Notice that you may create multiple databases per server with Azure Database for PostgreSQL.
 8. Right-click on **Databases**, choose the **Create** menu, and click **Database**.
 9.	Type a database name of your choice in the **Database** field, such as *mypgsqldb* shown in the example. 
-10. Select the **Owner** for the database from the drop down box. Choose your server admin login name, such as our example *mylogin*.
+10. Select the **Owner** for the database from the drop-down box. Choose your server admin login name, such as our example *mylogin*.
 10. Click **Save** to create a new blank database.
 11. In the **Browser** pane, see the database you created in the list of Databases under your server name.
  ![pgAdmin - Create - Database](./media/quickstart-create-database-portal/11-pgadmin-database.png)
