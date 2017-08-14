@@ -94,7 +94,7 @@ You can see the endpoints for your storage account on the storage dashboard in t
 
 The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-You can also configure a custom domain name to use with your storage account. See [Configure a custom domain name for your blob storage endpoint](storage-custom-domain-name.md) for details.
+You can also configure a custom domain name to use with your storage account. See [Configure a custom domain name for your blob storage endpoint](blobs/storage-custom-domain-name.md) for details.
 
 ### Service co-location with an affinity group
 An *affinity group* is a geographic grouping of your Azure services and VMs with your Azure storage account. An affinity group can improve service performance by locating computer workloads in the same data center or near the target user audience. Also, no billing charges are incurred for egress when data in a storage account is accessed from another service that is part of the same affinity group.

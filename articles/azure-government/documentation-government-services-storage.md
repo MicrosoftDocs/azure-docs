@@ -45,7 +45,7 @@ To view the current secondary region of your storage account through the Azure P
 | [Table Storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |
 | [Queue Storage](../storage/common/storage-introduction.md#queue-storage) |GA | GA |
 | [File Storage](../storage/common/storage-introduction.md#file-storage) |GA |GA |
-| [Hot/Cool Blob Storage](../storage/storage-blob-storage-tiers.md) |NA |NA |
+| [Hot/Cool Blob Storage](../storage/blobs/storage-blob-storage-tiers.md) |NA |NA |
 | [Storage Service Encryption](../storage/common/storage-service-encryption.md) |GA |GA |
 | [Premium Storage](../storage/storage-premium-storage.md) |GA |NA | Includes DS-series Virtual Machines. |
 | [Blob Import/Export](../storage/storage-import-export-service.md) |GA |GA |

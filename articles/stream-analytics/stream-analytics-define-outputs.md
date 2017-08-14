@@ -105,7 +105,7 @@ You will need to re-authenticate your Data Lake Store account if its password ha
 > 
 
 ## Blob storage
-Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud.  For an introduction on Azure Blob storage and its usage, see the documentation at [How to use Blobs](../storage/blob/storage-dotnet-how-to-use-blobs.md).
+Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud.  For an introduction on Azure Blob storage and its usage, see the documentation at [How to use Blobs](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 The table below lists the property names and their description for creating a blob output.
 

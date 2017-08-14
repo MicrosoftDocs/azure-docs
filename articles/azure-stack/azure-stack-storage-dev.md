@@ -141,13 +141,13 @@ EndpointSuffix=local.azurestack.external
 
 The following Azure Blob storage tutorials are applicable to Azure Stack. Note the specific endpoint suffix requirement for Azure Stack described in the previous [Examples](#examples) section.
 
-* [Get started with Azure Blob storage using .NET](../storage/blob/storage-dotnet-how-to-use-blobs.md)
-* [How to use Blob storage from Java](../storage/blob/storage-java-how-to-use-blob-storage.md)
-* [How to use Blob storage from Node.js](../storage/blob/storage-nodejs-how-to-use-blob-storage.md)
-* [How to use Blob storage from C++](../storage/storage-c-plus-plus-how-to-use-blobs.md)
-* [How to use Blob storage from PHP](../storage/blob/storage-php-how-to-use-blobs.md)
-* [How to use Azure Blob storage from Python](../storage/blob/storage-python-how-to-use-blob-storage.md)
-* [How to use Blob storage from Ruby](../storage/blob/storage-ruby-how-to-use-blob-storage.md)
+* [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+* [How to use Blob storage from Java](../storage/blobs/storage-java-how-to-use-blob-storage.md)
+* [How to use Blob storage from Node.js](../storage/blobs/storage-nodejs-how-to-use-blob-storage.md)
+* [How to use Blob storage from C++](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [How to use Blob storage from PHP](../storage/blobs/storage-php-how-to-use-blobs.md)
+* [How to use Azure Blob storage from Python](../storage/blobs/storage-python-how-to-use-blob-storage.md)
+* [How to use Blob storage from Ruby](../storage/blobs/storage-ruby-how-to-use-blob-storage.md)
 
 ## Queue storage
 

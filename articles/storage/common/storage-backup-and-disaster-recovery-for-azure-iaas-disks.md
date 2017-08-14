@@ -170,7 +170,7 @@ You can also use PowerShell for [restoring a VM](../../backup/backup-azure-vms-a
 
 If you are unable to use the Azure Backup Service, you can implement your own backup mechanism using snapshots. It is complicated to create consistent snapshots for all disks used by a VM and then replicate those snapshots to another region. For this reason, Azure considers leveraging the Backup Service a better option than building a custom solution. If you use RA-GRS/GRS storage for disks, snapshots are automatically replicated to a secondary data center. If you use LRS storage for disks, you will need to replicate the data yourself. For more information, see [Back up Azure unmanaged VM disks with incremental snapshots](../../virtual-machines/windows/incremental-snapshots.md).
 
-A snapshot is a representation of an object at a specific point in time. A snapshot will incur billing for the incremental size of the data it holds. For more information, see [Create a blob snapshot](../storage-blob-snapshots.md).
+A snapshot is a representation of an object at a specific point in time. A snapshot will incur billing for the incremental size of the data it holds. For more information, see [Create a blob snapshot](../blobs/storage-blob-snapshots.md).
 
 ### Creating snapshots while the VM is running
 
@@ -182,7 +182,7 @@ To avoid this situation, the backup process must implement the following steps:
 
 2.	Flush all the pending writes
 
-3.	Then, [create a blob snapshot](../storage-blob-snapshots.md) for all the disks
+3.	Then, [create a blob snapshot](../blobs/storage-blob-snapshots.md) for all the disks
 
 Some Windows applications like SQL Server provide a coordinated backup mechanism via VSS to create application-consistent backups. On Linux, you can use a tool like fsfreeze for coordinating the disks, which will provide file-consistent backups, but not application-consistent snapshots. This process is complicated, so and you should consider using [Azure Backup](../../backup/backup-azure-vms-introduction.md) or a third-party backup solution which already implement this.
 
