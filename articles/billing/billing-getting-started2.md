@@ -32,11 +32,15 @@ If your subscription is a Free Trial, [Visual Studio](https://azure.microsoft.co
 
 ### Estimate cost online using the pricing calculator
 
-Check out the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to get an estimated monthly cost of the service you're interested in. For example, an A1 Windows Virtual Machine (VM) is estimated to cost $66.96 USD/month in compute hours if you leave it running the whole time:
+Check out the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to get an estimated monthly cost of the service you're interested in. You can add any first party Azure resource to get an estimate cost.
 
-![Screenshot of the pricing calculator showing that an A1 Windows VM is estimated to cost $66.96 USD per month](./media/billing-getting-started/pricing-calc.PNG)
+![Screenshot of the pricing calculator menu](./media/billing-getting-started/pricing-calc.PNG)
 
-The [total cost of ownership calculator](https://aka.ms/azure-tco-calculator) provides a comparison of the savings of an Azure cloud infrastructure over an on-premise environment. For more information on pricing, see this [FAQ](https://azure.microsoft.com/pricing/faq/). Or if you want to talk to an Azure salesperson, contact 1-800-867-1389.
+For example, an A1 Windows Virtual Machine (VM) is estimated to cost $66.96 USD/month in compute hours if you leave it running the whole time:
+
+![Screenshot of the pricing calculator showing that an A1 Windows VM is estimated to cost $66.96 USD per month](./media/billing-getting-started/pricing-calc-VM.PNG)
+
+For more information on pricing, see this [FAQ](https://azure.microsoft.com/pricing/faq/). Or if you want to talk to an Azure salesperson, contact 1-800-867-1389.
 
 ### Review the estimated cost in the Azure portal
 
@@ -83,35 +87,23 @@ For more information, see [Using tags to organize your Azure resources](../azure
 
 After you get your services running, regularly check how much they're costing you. You can see the current spend and burn rate in Azure portal. 
 
-1. Visit the [Subscriptions blade in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Visit the [Subscriptions blade in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and select a subscription.
 
-2. Select your subscription you want to see. You might only have one to select.
+2. You should see the cost breakdown and burn rate in the popup blade. It may not be supported for your offer (a warning would be displayed near the top).
 
-3. You should see the cost breakdown and burn rate in the popup blade. It may not be supported for your offer (a warning would be displayed near the top). Wait 24 hours after you add a service for the data to populate.
-    
     ![Screenshot of burn rate and breakdown in the Azure portal](./media/billing-getting-started/burn-rate.PNG)
 
-4. You might want to pin the view to your dashboard.
-
-    ![Screenshot of pinning a view to the dashboard](./media/billing-getting-started/pin.PNG)
-
-5. Click **Cost analysis** in the list to the left to see the cost breakdown by resource.
+3. Click **Cost analysis** in the list to the left to see the cost breakdown by resource. Wait 24 hours after you add a service for the data to populate.
 
     ![Screenshot of the cost analysis view in Azure portal](./media/billing-getting-started/cost-analysis.PNG)
 
-6. You can filter by different properties like [tags](#tags), resource group, and timespan. Click **Apply** to confirm the filters and **Download** to export the view to a Comma-Separated Values (.csv) file.
+4. You can filter by different properties like [tags](#tags), resource group, and timespan. Click **Apply** to confirm the filters and **Download** if you want to export the view to a Comma-Separated Values (.csv) file.
 
-7. Click a resource to see spend history and how much it was costing you each day.
+5. Additionally, you can click a resource to see spend history and how much the resource costs each day.
 
     ![Screenshot of the spend history view in Azure portal](./media/billing-getting-started/spend-history.PNG)
 
 We recommend that you check the costs you see with the estimates you saw when you selected the services. If the costs wildly differ from estimates, double check the pricing plan (A1 vs A0 VM, for example) that you've selected for your resources. 
-
-#### View costs for all your subscriptions in the Billing blade
-
-If you manage multiple subscriptions as the Account admin, you can see the aggregate bill amount and breakdown for all your subscriptions in the [Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). 
-
-<!-- Add screenshots of multiple subs each with billed usage -->
 
 ### Consider enabling cost-cutting features like auto-shutdown for VMs
 
