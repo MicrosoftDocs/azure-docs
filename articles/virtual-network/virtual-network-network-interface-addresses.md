@@ -59,7 +59,7 @@ You can add as many [private](#private) and [public](#public) [IPv4](#ipv4) addr
 |Tool|Command|
 |---|---|
 |CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## Change IP address settings
 
@@ -80,7 +80,7 @@ You may need to change the assignment method of an IPv4 address, change the stat
 |Tool|Command|
 |---|---|
 |CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## Remove IP addresses
 
@@ -98,7 +98,7 @@ You can remove [private](#private) and [public](#public) IP addresses from a net
 |Tool|Command|
 |---|---|
 |CLI|[az network nic ip-config delete](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## IP configurations
 
@@ -182,14 +182,12 @@ Each network interface must have one [primary](#primary) IP configuration with a
 You can assign zero or one private [IPv6](#ipv6) address to one secondary IP configuration of a network interface. The network interface cannot have any existing secondary IP configurations. You cannot add an IP configuration with an IPv6 address using the portal. You must use PowerShell or the CLI to add an IP configuration with a private IPv6 address to an existing network interface. The network interface cannot be attached to an existing VM.
 
 > [!NOTE]
-> Though you can create a network interface with an IPv6 address using the portal, you can't create a virtual machine with a private IPv6 address, nor can you attach a network interface when creating a virtual machine, using the portal. You must use PowerShell or the Azure CLI 2.0 to create a network interface with a private IPv6 address, then attach the network interface when creating a virtual machine. You cannot attach a network interface with a private IPv6 address assigned to it to an existing virtual machine. You cannot add a private IPv6 address to an IP configuration for any network interface attached to a virtual machine using any tools (portal, CLI, or PowerShell).
+> Though you can create a network interface with an IPv6 address using the portal, you can't add an existing network interface to a new, or existing virtual machine, using the portal. You must use PowerShell or the Azure CLI 2.0 to create a network interface with a private IPv6 address, then attach the network interface when creating a virtual machine. You cannot attach a network interface with a private IPv6 address assigned to it to an existing virtual machine. You cannot add a private IPv6 address to an IP configuration for any network interface attached to a virtual machine using any tools (portal, CLI, or PowerShell).
 
 You can't assign a public IPv6 address to a primary or secondary IP configuration.
 
 ## Next steps
 To create a virtual machine with different IP configurations, read the following articles:
-
-**Commands**
 
 |Task|Tool|
 |---|---|
