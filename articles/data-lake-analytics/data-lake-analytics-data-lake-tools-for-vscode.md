@@ -43,7 +43,7 @@ Data Lake Tools can be installed on the platforms supported by VS Code. The supp
 
     - [Mono 4.2.x](http://www.mono-project.com/docs/getting-started/install/linux/). 
 
-        - Update the deb package source by executing the following commands:
+        - To update the deb package source, enter the following commands:
 
                 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
                 echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots 4.2.4.4/main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
@@ -54,7 +54,7 @@ Data Lake Tools can be installed on the platforms supported by VS Code. The supp
                 sudo apt-get install mono-complete
 
 		    > [!NOTE] 
-            > Mono 4.6 is not supported. Uninstall version 4.6 entirely before installing 4.2.x.  
+            > Mono 4.6 is not supported. Uninstall version 4.6 entirely before you install 4.2.x.  
 
         - [Java SE Runtime Environment version 8 update 77 or later](https://java.com/download/manual.jsp). For instructions on installation, see the [Linux 64-bit installation instructions for Java]( https://java.com/en/download/help/linux_x64_install.xml) page.
         - [.NET Core SDK 1.0.3 or .NET Core 1.1 runtime](https://www.microsoft.com/net/download).
@@ -184,13 +184,13 @@ The U-SQL script compiles remotely through the Data Lake Analytics service. When
 1. Select Ctrl+Shift+P to open the command palette. 
 2. Enter **ADL: Submit Job**.  You can also right-click a script file, and then select **ADL: Submit Job**. 
 
-After submitting a U-SQL job, the submission logs display in the **Output** window in VS Code. If the submission is successful, the job URL shows as well. You can open the job URL in a web browser to track the real-time job status.
+After you submit a U-SQL job, the submission logs display in the **Output** window in VS Code. If the submission is successful, the job URL shows as well. You can open the job URL in a web browser to track the real-time job status.
 
 To enable the output of the job details: Set the **jobInformationOutputPath** in the **vs code for the u-sql_settings.json** file.
  
 ## Use a code-behind file
 
-A code-behind file is a C# file associated with a single U-SQL script. You can define a script dedicated to UDO, UDA, UDT, and UDF in the code-behind file. The UDO, UDA, UDT, and UDF can be used directly in the script without registering the assembly first. The code-behind file is put in the same folder as its peering U-SQL script file. If the script is named xxx.usql, the code-behind is named as xxx.usql.cs. Deleting the code-behind file manually disables the code-behind feature for its associated U-SQL script. For more information about writing customer code for U-SQL script, see [Writing and Using Custom Code in U-SQL--User-Defined Functions]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
+A code-behind file is a C# file associated with a single U-SQL script. You can define a script dedicated to UDO, UDA, UDT, and UDF in the code-behind file. The UDO, UDA, UDT, and UDF can be used directly in the script without registering the assembly first. The code-behind file is put in the same folder as its peering U-SQL script file. If the script is named xxx.usql, the code-behind is named as xxx.usql.cs. If you manually delete the code-behind file, the code-behind feature is disabled for its associated U-SQL script. For more information about writing customer code for U-SQL script, see [Writing and Using Custom Code in U-SQL--User-Defined Functions]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
 
 To support code-behind, you must open a working folder: 
 
@@ -307,7 +307,7 @@ You can use Azure Data Lake Storage-related commands to:
  - Upload the file directly to Azure Data Lake Storage in VS Code. 
 
 ### List the storage path 
-You can list the storage path through the command palette or by using right-click:
+You can list the storage path through the command palette or through right-click:
 
 **To list the storage path through the command palette**
 
@@ -315,12 +315,12 @@ You can list the storage path through the command palette or by using right-clic
 
     ![Data Lake Tools for Visual Studio Code list storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-storage.png)
 
-2.  Select your preferred way for listing the storage path. This passage uses Enter a path as an example.
+2.  Select your preferred way for listing the storage path. This passage uses **Enter a path** as an example.
 
     ![Data Lake Tools for Visual Studio Code one way to list the storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account-selectoneway.png)
 
     > [!NOTE]
-    >- VS Code keeps the last-visited path in every Data Lake Analytics account. For example：/tt/ss.
+    >- VS Code keeps the last-visited path in every Data Lake Analytics account. For example: /tt/ss.
     >- Browser from root path: The list root path from your selected Data Lake Analytics account or a local path.
     >- Enter a path: List a specified path from your selected Data Lake Analytics account or a local path.
     
@@ -361,7 +361,7 @@ A more convenient way to list the relative path is through the right-click conte
        ![Data Lake Tools for Visual Studio Code list from the current path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-current.png)
 
 ### Preview the storage file
-You can preview the storage file through the command palette or by using right-click:
+You can preview the storage file through the command palette or through right-click:
 
 **To preview the storage file through the command palette**
 
@@ -385,7 +385,7 @@ You can preview the storage file through the command palette or by using right-c
 
        ![Data Lake Tools for Visual Studio Code preview file result](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-preview-results.png)
 
-**To list the storage path by using right-click**
+**To list the storage path through right-click**
 
 1.  To preview a file, right-click the file path.
 
@@ -409,11 +409,11 @@ You can upload files by entering the commands **ADL: Upload File** or **ADL: Upl
 
     ![Data Lake Tools for Visual Studio Code enter local path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-input-local-path.png)
 
-3. Select one of the ways of listing the storage path. This passage uses Enter a path as an example.
+3. Select one of the ways of listing the storage path. This passage uses **Enter a path** as an example.
 
     ![Data Lake Tools for Visual Studio Code list storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account-selectoneway.png)
     >[!NOTE]
-    >- VS Code keeps the last-visited path in every Data Lake Analytics account. For example：/tt/ss.
+    >- VS Code keeps the last-visited path in every Data Lake Analytics account. For example: /tt/ss.
     >- Browser from root path: The list root path from your selected Data Lake Analytics account or a local path.
     >- Enter a path: List a specified path from your selected Data Lake Analytics account or a local path.
 
@@ -443,7 +443,7 @@ You can upload files by entering the commands **ADL: Upload File** or **ADL: Upl
 
        ![Data Lake Tools for Visual Studio Code upload status](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)     
 
-Another way to upload a file to storage is through the right-click menu on the file's full path or the file's relative path in the script editor. Enter the local file path, and then choose the account. The **Output** window displays the uploading status. 
+Another way to upload a file to storage is through the right-click menu on the file's full path or the file's relative path in the script editor. Enter the local file path, and then select the account. The **Output** window displays the upload status. 
 
 ### Open Azure Storage Explorer
 You can open **Azure Storage Explorer** by entering the command **ADL: Open Web Azure Storage Explorer** or by selecting it from the right-click context menu:
@@ -451,7 +451,7 @@ You can open **Azure Storage Explorer** by entering the command **ADL: Open Web 
 **To open Azure Storage Explorer**
 
 1. Select Ctrl+Shift+P to open the command palette.
-2. Enter **Open Web Azure Storage Explorer** or right-click on a relative path or the full path in the script editor, and then choose **Open Web Azure Storage Explorer**.
+2. Enter **Open Web Azure Storage Explorer** or right-click on a relative path or the full path in the script editor, and then select **Open Web Azure Storage Explorer**.
 3. Select a Data Lake Analytics account.
 
 The Data Lake Tools open the Azure storage path in the Azure portal. You can find the path and preview the file from the web.
@@ -493,9 +493,9 @@ The Data Lake Tools for VS Code supports the following features:
 ## Next steps
 
 - For U-SQL local run and local debug with Visual Studio Code, see [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
-- For the getting started information on Data Lake Analytics, see [Tutorial: Get started with Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
+- For getting started information on Data Lake Analytics, see [Tutorial: Get started with Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
 - For information about Data Lake Tools for Visual Studio, see [Tutorial: Develop U-SQL scripts by using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-- For the information on developing assemblies, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md).
+- For information on developing assemblies, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md).
 
 
 
