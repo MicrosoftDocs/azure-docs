@@ -46,7 +46,6 @@
       - name: Deep Dive to Data Wrangling
     - name: Develop models
       items:
-       items:
       - name: Track Run History and Model Metrics
       - name: Use MMLSpark Library
   - name: Model Management Service
@@ -70,8 +69,6 @@
   - name: Use AZ ML CLI from VS Code
   - name: Use Git repo for source control
   - name: How to share project and collaborate with others.
-  - name: End-to-End Examples
-        items:
   - name: End-to-end examples
     items:
     - name: MMLSpark on Adult Census
