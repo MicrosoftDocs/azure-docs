@@ -1,4 +1,4 @@
-# [Machine Learning V-Next](workbench/what-is-ml-workbench.md?toc=%2fazure%2fmachine-learning%2fworkbench%2ftoc.json)
+# [Machine Learning V-Next](v-next/what-is-machine-learning.md?toc=%2fazure%2fmachine-learning%2fv-next%2ftoc.json)
 
 # [Machine Learning Studio](studio/what-is-ml-studio.md?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json)
 
