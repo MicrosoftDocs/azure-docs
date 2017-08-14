@@ -32,12 +32,12 @@ There is always a degree of imprecision in sentiment analysis, but the model is 
 
 We use a Naive-Bayes machine learning algorithm to classify any new piece of text as positive, negative, or neutral content. The model uses training data, as well as the following methodologies:
 
-| Dimensions  | Description |
+| Modeling aspect  | How effected |
 |-------------|-------------|
-| Linguistics | Application of linguistic rules through tokenization and stemming. |
-| Patterns | Use of N-grams to articulate patterns, such as word repetition, proximity, and sequencing. <br/> Assignments of part-of-speech to each word in the input text. | 
-| Expressivity | Incorporating any emoticons, punctuation such as exclamation or question marks, and letter case (upper or lower) as indicators of sentiment.|
-| Semantics | Build resonance in the training data by mapping syntactically similar words. Sentiment evidence associated with one term can be applied to similar terms. We use neural networks for constructing the associations. |
+| Linguistics | We invoke linguistic processing in the form of tokenization and stemming. |
+| Patterns | We use oN-grams to articulate patterns, such as word repetition, proximity, and sequencing. <br/> We assign of part-of-speech to each word in the input text. | 
+| Expressivity | We incorporate any emoticons, punctuation such as exclamation or question marks, and letter case (upper or lower) as indicators of sentiment.|
+| Semantics | We build resonance in the training data by mapping syntactically similar words. Sentiment evidence associated with one term can be applied to similar terms. We use neural networks to constructi the associations. |
 
 ## Guidance for constructing inputs
 

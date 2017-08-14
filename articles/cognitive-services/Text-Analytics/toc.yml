@@ -22,12 +22,12 @@
      href: text-analytics-concept-language-detection.md
 - name: How-to guides
   items:
-   - name: Structure data inputs
-     href: text-analytics-howto-input-data.md
-   - name: Work with analyses outputs
-     href: text-analytics-howto-output.md
    - name: Develop with C#
      href: 
+   - name: Structure data inputs
+     href: text-analytics-howto-input-data.md
+   - name: Work with analyzer outputs
+     href: text-analytics-howto-output.md
 - name: Reference
   items: 
   - name: REST API

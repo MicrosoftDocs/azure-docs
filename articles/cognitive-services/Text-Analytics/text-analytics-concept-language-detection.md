@@ -16,7 +16,7 @@ ms.author: heidist
 ---
 # Language detection in Text Analytics API
 
-The [language detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) evaluates text input and for each document returns a language code in [ISO 6391](https://www.iso.org/standard/22109.html) format and a score indicating the strength of the analysis. Text Analytics recognizes up to 102 languages.
+The [language detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) evaluates text input and for each document returns a language code in [ISO 6391](https://www.iso.org/standard/22109.html) format and a score indicating the strength of the analysis. Text Analytics recognizes up to 120 languages.
 
 ## Common use cases
 
