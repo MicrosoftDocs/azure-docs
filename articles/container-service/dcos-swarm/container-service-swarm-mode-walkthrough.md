@@ -20,7 +20,7 @@ ms.author: nepeters
 ms.custom:
 ---
 
-# Deploy Docker Swarm Mode cluster for Linux containers
+# Deploy Docker Swarm Mode cluster
 
 In this quick start, a Docker Swarm Mode cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
 
