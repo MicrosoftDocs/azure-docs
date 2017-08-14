@@ -42,12 +42,13 @@ To complete this tutorial:
 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
+If you are not using Cloud Shell, you must first sign in using `az login`.
+
 ## Create a resource group
 
 Create a resource group with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like topics and subscriptions, function apps, and storage accounts are deployed and managed.
 
 The following example creates a resource group named `myResourceGroup`.  
-If you are not using Cloud Shell, you must first sign in using `az login`.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
