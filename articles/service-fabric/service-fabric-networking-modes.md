@@ -295,7 +295,7 @@ For Linux clusters, an additional public IP configuration is added to allow outb
     |2000 	   |Custom_Dns | VirtualNetwork |	VirtualNetwork | DNS (UDP/53)	| Allow  |
 
 
-4. Specify the networking mode in the app manifest for each service `<NetworkConfig NetworkType="open">`.  The mode `open` results in the service getting a dedicated IP address. If a mode isn't specified, it defaults to the basic `nat` mode. Thus, in the following manifest example, `NodeContainerServicePackage1` and `NodeContainerServicePackage2`, can each listen to the same port (both services are listening on `Endpoint1`), for example 80 and Service Fabric routes requests to each correctly.  
+4. Specify the networking mode in the app manifest for each service `<NetworkConfig NetworkType="open">`.  The mode `open` results in the service getting a dedicated IP address. If a mode isn't specified, it defaults to the basic `nat` mode. Thus, in the following manifest example, `NodeContainerServicePackage1` and `NodeContainerServicePackage2`, can each listen to the same port (both services are listening on `Endpoint1`).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
