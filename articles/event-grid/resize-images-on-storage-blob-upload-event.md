@@ -16,7 +16,7 @@ ms.custom: mvc
 ---
 # Automate the resizing of uploaded images using Event Grid
 
-Azure Event Grid is an eventing service for the cloud. Event Grid lets you send events raised by Azure services or 3rd party resources to an endpoint that can respond to the event. In this article, you use Event Grid to connect Azure Functions with Azure storage to enable thumbnail generation of images uploaded from a sample app. You use the Azure CLI to create and configure the application topology. 
+Azure Event Grid is an eventing service for the cloud. Event Grid lets you send events raised by Azure services or third-party resources to an endpoint that can respond to the event. In this article, you use Event Grid to connect Azure Functions with Azure storage to enable thumbnail generation of images uploaded from a sample app. You use the Azure CLI to create and configure the application topology. 
 
 ![Published web app in Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
@@ -72,7 +72,7 @@ az storage account create --name <storage_account> \
 
 ## Configure storage
 
-The app uses two blob containers. The _images_ container is used by the app to upload full-resolution images. The function uploads resized image thumbnails to the _thumbs_ container. Get the storage account key by using the [storage account keys list](/cli/azure/storage/account/keys#list) command, and then use this key to create two containers using the [az storage container create](/cli/azure/storage/container#create) command. 
+The app uses two blob containers. The _images_ container is used by the app to upload full-resolution images. The function uploads resized image thumbnails to the _thumbs_ container. Get the storage account key by using the [storage account keys list](/cli/azure/storage/account/keys#list) command. You then use this key to create two containers using the [az storage container create](/cli/azure/storage/container#create) command. 
 
 ```azurecli-interactive
 storageaccount=<storage_account>
@@ -139,14 +139,16 @@ az eventgrid topic event-subscription create --name <unique-event-subscription-n
 ```
 Now that the Storage, Event Grid, and Functions are configured, you can publish the sample web app to Azure. 
 
-## Create an App Service plan to host the sample
+## Create an App Service plan
 
 An [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) specifies the location, size, and features of the web server farm that hosts your app.
 Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command.
 
 The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
 
+```azurecli-interactive
 az appservice plan create --name myAppServicePlan  --resource-group myResourceGroup --sku FREE
+```
 
 ## Create a web app
 
@@ -160,7 +162,7 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 ## Deploy the sample app from the GitHub repository
 
-App Service supports several ways to deploy content to a web app. In this tutorial, you  deploy the web app from a public GitHub sample repository: <https://github.com/Azure-Samples/integration-image-upload-resize-storage-functions> Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source#config) command. 
+App Service supports several ways to deploy content to a web app. In this tutorial, you  deploy the web app from a public GitHub sample repository: <https://github.com/Azure-Samples/integration-image-upload-resize-storage-functions>. Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source#config) command. 
 
 ```azurecli-interactive
 az webapp deployment source config --name <web_app>  
