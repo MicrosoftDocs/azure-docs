@@ -80,7 +80,7 @@ Now let's learn to create a basic Hello World Node.js project using the [Express
     Then, to stop the application, press CTRL+C in the terminal window and then click **y** to terminate the batch job.
 
 ## <a name="_Toc395783179"></a>Step 3: Install additional modules
-The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. Later, when you deploy this application to an Azure Websites, this file is used to determine which modules need to be installed on Azure to support your application. We still need to install two more packages for this tutorial.
+The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. Later, when you deploy this application to Azure Websites, this file is used to determine which modules need to be installed on Azure to support your application. We still need to install two more packages for this tutorial.
 
 1. Back in the terminal, install the **async** module via npm.
    
@@ -187,12 +187,6 @@ That takes care of all the initial setup and configuration, now let’s get down
    
         module.exports = DocDBUtils;
    
-   > [!TIP]
-   > createCollection takes an optional requestOptions parameter that can be used to specify the Offer Type for the Collection. If no requestOptions.offerType value is supplied then the Collection will be created using the default Offer Type.
-   > 
-   > For more information on Azure Cosmos DB Offer Types please refer to [Performance levels in Azure Cosmos DB](performance-levels.md) 
-   > 
-   > 
 5. Save and close the **docdbUtils.js** file.
 6. At the beginning of the **taskDao.js** file, add the following code to reference the **DocumentDBClient** and the **docdbUtils.js** we created above:
    
@@ -494,15 +488,15 @@ Now let’s turn our attention to building the user interface so a user can actu
              button.btn(type="submit") Add item
    
 
-    This extends layout, and provides content for the **content** placeholder we saw in the **layout.jade** file earlier.
+This extends layout, and provides content for the **content** placeholder we saw in the **layout.jade** file earlier.
    
-    In this layout we created two HTML forms.
+In this layout we created two HTML forms.
 
-    The first form contains a table for our data and a button that allows us to update items by posting to **/completetask** method of our controller.
+The first form contains a table for our data and a button that allows us to update items by posting to **/completetask** method of our controller.
     
-    The second form contains two input fields and a button that allows us to create a new item by posting to **/addtask** method of our controller.
+The second form contains two input fields and a button that allows us to create a new item by posting to **/addtask** method of our controller.
 
-    This should be all that we need for our application to work.
+This should be all that we need for our application to work.
 
 ## <a name="_Toc395783181"></a>Step 6: Run your application locally
 1. To test the application on your local machine, run `npm start` in the terminal to start your application, then refresh your [http://localhost:3000](http://localhost:3000) browser page. The page should now look like the image below:
@@ -531,7 +525,7 @@ Now let’s turn our attention to building the user interface so a user can actu
    
         git push azure master
 4. In a few seconds, git will finish publishing your web
-   application and launch a browser where you can see your handy work
+   application and launch a browser where you can see your handiwork
    running in Azure!
 
     Congratulations! You have just built your first Node.js Express Web Application using Azure Cosmos DB and published it to Azure Websites.
