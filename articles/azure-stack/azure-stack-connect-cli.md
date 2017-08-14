@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/14/2017
 ms.author: sngun
 
 ---
@@ -123,7 +123,6 @@ Use the following steps to connect to Azure Stack:
      -n AzureStackUser
    ```
 
-
 4. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
 
    ```azurecli
@@ -131,40 +130,29 @@ Use the following steps to connect to Azure Stack:
      --profile 2017-03-09-profile
    ```
 
-5. Sign in to your Azure Stack environment by using the following commands. You can login to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
-    
-    For the User login flow, you can either specify the username and password directly in the login command or authenticate using a browser. You would have to do the latter, if your account has multi-factor authentication enabled.
+5. Sign in to your Azure Stack environment by using the **az login** command. You can login to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
 
-   a. For the **cloud administrative** environment, use:
-
-   ```azurecli
-   az login \
-     -u <Active directory global administrator account. For example: username@<aadtenant>.onmicrosoft.com> \
-     --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
-   ```
-
-   b. For the **user** environment, use:
+   * Login as a **user**:
+   For the user login flow, you can either specify the username and password directly within the login command or authenticate using a browser. You would have to do the latter, if your account has multi-factor authentication enabled.
 
    ```azurecli
    az login \
-     -u < Active directory user account. Example: username@<aadtenant>.onmicrosoft.com>
+     -u <Active directory global administrator or user account. Example: username@<aadtenant>.onmicrosoft.com> \
      --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
    ```
-**Note:** If you your user account has Multi factor authentication enabled, you can use the same command as above without providing the -u parameter. This will give you a URL and a code that you must use to authenticate.
 
-  ```azurecli
-   az login \
-     --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
-   ```
-To login as a service principal, you must [create the Service Principal through the Azure Portal](azure-stack-create-service-principals.md) or CLI and assign it to a role for the scope you would like for it to have access to. You can then login using the service principal using the following command.
+   > [!NOTE] If you your user account has Multi factor authentication enabled, you can use the login command without providing the -u parameter. This will give you a URL and a code that you must use to authenticate.
+   
+   * Login as a **service principal**:
+     you must [create the Service Principal through the Azure Portal](azure-stack-create-service-principals.md) or CLI and assign it to a role for the scope you would like for it to have access to. You can then login using the service principal using the following command.
 
-```azurecli
-   az login \
-     --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
-     --service-principal \
-     -u <Application Id of the Service Principal> \
-     -p <Key generated for the Service Principal>
-   ```
+      ```azurecli
+        az login \
+          --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
+          --service-principal \
+          -u <Application Id of the Service Principal> \
+          -p <Key generated for the Service Principal>
+      ```
 
 ## Test the connectivity
 
