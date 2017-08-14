@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/04/2017
+ms.date: 08/10/2017
 ms.author: larryfr
 
 ---
@@ -250,13 +250,16 @@ Use the following table to find the IP addresses for the region you are using:
 | Country | Region | Allowed IP addresses | Allowed port | Direction |
 | ---- | ---- | ---- | ---- | ----- |
 | Asia | East Asia | 23.102.235.122</br>52.175.38.134 | 443 | Inbound |
+| &nbsp; | Southeast Asia | 13.76.245.160</br>13.76.136.249 | 443 | Inbound |
 | Australia | Australia East | 104.210.84.115</br>13.75.152.195 | 443 | Inbound |
+| &nbsp; | Australia Southeast | 13.77.2.56</br>13.77.2.94 | 443 | Inbound |
 | Brazil | Brazil South | 191.235.84.104</br>191.235.87.113 | 443 | Inbound |
 | Canada | Canada East | 52.229.127.96</br>52.229.123.172 | 443 | Inbound |
 | &nbsp; | Canada Central | 52.228.37.66</br>52.228.45.222 | 443 | Inbound |
 | China | China North | 42.159.96.170</br>139.217.2.219 | 443 | Inbound |
 | &nbsp; | China East | 42.159.198.178</br>42.159.234.157 | 443 | Inbound |
 | Europe | North Europe | 52.164.210.96</br>13.74.153.132 | 443 | Inbound |
+| &nbsp; | West Europe| 52.166.243.90</br>52.174.36.244 | 443 | Inbound |
 | Germany | Germany Central | 51.4.146.68</br>51.4.146.80 | 443 | Inbound |
 | &nbsp; | Germany Northeast | 51.5.150.132</br>51.5.144.101 | 443 | Inbound |
 | India | Central India | 52.172.153.209</br>52.172.152.49 | 443 | Inbound |
@@ -267,6 +270,7 @@ Use the following table to find the IP addresses for the region you are using:
 | United Kingdom | UK West | 51.141.13.110</br>51.141.7.20 | 443 | Inbound |
 | &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | 443 | Inbound |
 | United States | Central US | 13.67.223.215</br>40.86.83.253 | 443 | Inbound |
+| &nbsp; | North Central US | 157.56.8.38</br>157.55.213.99 | 443 | Inbound |
 | &nbsp; | West Central US | 52.161.23.15</br>52.161.10.167 | 443 | Inbound |
 | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | 443 | Inbound |
 
