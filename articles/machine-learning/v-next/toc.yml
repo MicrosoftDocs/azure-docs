@@ -41,7 +41,6 @@
     - name: Acquire and understand data
       items:
       - name: Bring Large Datasets to Azure
-      - name: Bring Large Datasets to Azure
       - name: Prepare Your Data
       - name: Deep Dive to Data Wrangling
     - name: Develop models
@@ -68,7 +67,7 @@
   - name: Use AZ ML CLI from Command Line
   - name: Use AZ ML CLI from VS Code
   - name: Use Git repo for source control
-  - name: How to share project and collaborate with others.
+  - name: How to share project and collaborate with others
   - name: End-to-end examples
     items:
     - name: MMLSpark on Adult Census
@@ -81,19 +80,19 @@
     - name: ARIMA Forecasting
     - name: Deep Learning with Keras and TensorFlow
     - name: Anomaly detection using IoT
-    - name: How to Apply Azure ML Workbench to Team Data Science Process
+    - name: How to Apply Azure ML Workbench to TDSP
     - name: Infrastructure Capacity Planning
     - name: Aerial image classification
     - name: Jabil circuit board failure prediction
-    - name: Kaggle competition using homeland security data
-    - name: Stackoverflow – auto-tagging
-    - name: NLP text classification, Q&A matching 
-    - name: Document level NLP analysis on a large collection of documents 
-    - name: Predictive maintenance with heavy feature engineering, collaboration capabilities 
+    - name: Kaggle competition 
+    - name: Stackoverflow - auto-tagging
+    - name: NLP text classification 
+    - name: Document level NLP analysis  
+    - name: Predictive maintenance  
     - name: Retail time series forecasting
-    - name: Distributed Hyper Parameter Tuning based on Talking Data Mobile User Demographics on Kaggle Competition.
+    - name: Distributed Hyper Parameter Tuning
     - name: Inventory optimization or supply chain 
-    - name: Fraud detection with graph database in SQL’17 + ML with Azure ML Workbench
+    - name: Fraud detection 
     - name: LSTM on Predictive Maintenance
     - name: CV toolkit integration with Azure ML Workbench
     - name: Create a model and show how to deploy to CoreML
