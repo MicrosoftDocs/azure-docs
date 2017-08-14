@@ -44,7 +44,6 @@ To access the MFA Management Portal via an Azure Multi-Factor Auth Provider, sig
 ### Use the MFA Service Settings page 
 
 If you have one of the following licenses, you can use the MFA Service Settings page:
-- Multi-Factor Auth Provider 
 - Azure MFA
 - Azure AD Premium 
 - Enterprise Mobility + Security
@@ -125,7 +124,7 @@ Before you begin, be aware of these things:
 
 * The supported file formats are .wav and .mp3.
 * The file size limit is 5 MB.
-* Authentication messages should be shorter than 20 seconds. If the message is longer than 20 seconds, the verification is sure to fail because the user may not respond before the message finishes, causing the verification to close.
+* Authentication messages should be shorter than 20 seconds. Messages that are longer than 20 seconds don't give the users enough time to respond before the verification time runs out.
 
 ### Set up a custom message
 
@@ -219,7 +218,7 @@ Here is a list of important things you should know about app passwords.
 * The actual password is automatically generated and is not supplied by the user. The automatically generated password is harder for an attacker to guess and is more secure.
 * There is a limit of 40 passwords per user. 
 * Apps which cache passwords and use it in on-premises scenarios might start failing since the app password isn't known outside of the organizational id. An example is Exchange emails that are on-premises but the archived mail is in the cloud. The same password doesn't work.
-* When multi-factor authentication is started, you can use your password with some non-browser clients. You cannot administrate app passwords through non-browser applications such as Windows PowerShell even if you have an administrative account. Ensure you create a service account with a strong password to run PowerShell scripts and do not enable that account for two-step verification.
+* When multi-factor authentication is started, you can use your password with some non-browser clients. You cannot use app passwords for administrative tasks. Ensure you create a service account with a strong password to run PowerShell scripts and do not enable that account for two-step verification.
 
 > [!WARNING]
 > App passwords don't work in hybrid environments where clients communicate with both on-premises and cloud autodiscover endpoints. Domain passwords are required to authenticate on-premises and app passwords are required to authenticate with the cloud.
@@ -267,7 +266,7 @@ Users can create app passwords during their initial registration. They are given
 Users can also create app passwords after registration. They can create the app passwords by changing their settings in the Azure portal or the Office 365 portal. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication](./end-user/multi-factor-authentication-end-user-app-passwords.md).
 
 ## Remember Multi-Factor Authentication for devices that users trust
-Remembering Multi-Factor Authentication for devices and browsers that users trust is a free feature for all MFA users. Multi-factor authentication allows users to by-pass MFA for a set number of days after signing in. Afterwards, enhancing usability by minimizing the number of times a user may perform two-step verification on the same device.
+Remembering Multi-Factor Authentication for devices and browsers that users trust is a free feature for all MFA users. Multi-factor authentication allows users to by-pass MFA for a set number of days after signing in. This feature enhances usability by minimizing the number of times a user may perform two-step verification on the same device.
 
 However, if an account or device is compromised, remembering MFA for trusted devices may affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you need to [restore Multi-Factor Authentication on all devices](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user). This action revokes the trusted status from all devices, and the user is required to perform two-step verification again. You can also instruct your users to restore MFA on their own devices with the instructions in [Manage your settings for two-step verification](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)
 
