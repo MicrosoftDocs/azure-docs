@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 08/14/2017
 ms.author: nepeters
 ms.custom:
 ---
@@ -120,7 +120,7 @@ services:
         - "80:80"
 ```
 
-Run the following command to create the Azure Vote service.
+Run the [docker stack deploy](https://docs.docker.com/engine/reference/commandline/stack_deploy/) command to create the Azure Vote service.
 
 ```bash
 docker stack deploy azure-vote --compose-file azure-vote.yaml
@@ -134,13 +134,13 @@ Creating service azure-vote_azure-vote-back
 Creating service azure-vote_azure-vote-front
 ```
 
-Use the [docker stack ps](https://docs.docker.com/engine/reference/commandline/stack_ps/) command to return the deployment status of the application. Once the `CURRENT STATE` of each service is `Running`, the application is ready.
+Use the [docker stack ps](https://docs.docker.com/engine/reference/commandline/stack_ps/) command to return the deployment status of the application.
 
 ```bash
 docker stack ps azure-vote
 ```
 
-Output:
+Once the `CURRENT STATE` of each service is `Running`, the application is ready.
 
 ```bash
 ID                  NAME                            IMAGE                                 NODE                               DESIRED STATE       CURRENT STATE                ERROR               PORTS
