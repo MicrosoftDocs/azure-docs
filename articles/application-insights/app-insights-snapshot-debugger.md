@@ -111,7 +111,7 @@ Snapshot collection is available for:
 2. Add the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
 3. Snapshots are collected only on exceptions that are reported to Application Insights. You may need to modify your code to report them. The exception handling code depends on the structure of your application, but an example is below:
-   ```C#
+    ```C#
    TelemetryClient _telemetryClient = new TelemetryClient();
 
    void ExampleRequest()
@@ -128,7 +128,8 @@ Snapshot collection is available for:
             // TODO: Rethrow the exception if desired.
         }
    }
-
+    ```
+    
 ## Grant permissions
 
 Owners of the Azure subscription can inspect snapshots. Other users must be granted permission by an owner.
