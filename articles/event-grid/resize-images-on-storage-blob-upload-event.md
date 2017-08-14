@@ -25,21 +25,16 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create an Azure Storage account
 > * Define blob containers in Azure Storage
-> * Deploy serverless code from GitHub using Azure Functions
+> * Deploy serverless code using Azure Functions
 > * Create a custom Event Grid topic 
-> * Subscribe to a topic
-> * Deploy a web app from GitHub to Azure
+> * Subscribe to an Event Grid topic
+> * Deploy a web app to Azure
 
 ## Prerequisites
 
-To complete this quickstart:
-* Install [Visual Studio 2017 version 15.3](https://www.visualstudio.com/downloads/), or a later version, with the following workloads:
-    - **ASP.NET and web development**
-    - **Azure development**
-    ![ASP.NET and web development and Azure development (under Web & Cloud)](media/resize-images-on-storage-blob-upload-event/workloads.png)
+To complete this tutorial:
 
-* Install [Git](https://git-scm.com/). You also need a [GitHub](https://github.com) account.
-
++ You must have an active Azure subscription.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -72,7 +67,9 @@ az storage account create --name <storage_account> \
 
 ## Configure storage
 
-The app uses two blob containers. The _images_ container is used by the app to upload full-resolution images. The function uploads resized image thumbnails to the _thumbs_ container. Get the storage account key by using the [storage account keys list](/cli/azure/storage/account/keys#list) command. You then use this key to create two containers using the [az storage container create](/cli/azure/storage/container#create) command. 
+The app uses two blob containers. The _images_ container is where  the app uploads full-resolution images. The function uploads resized image thumbnails to the _thumbs_ container. Get the storage account key by using the [storage account keys list](/cli/azure/storage/account/keys#list) command. You then use this key to create two containers using the [az storage container create](/cli/azure/storage/container#create) command. 
+
+In this case, `<storage_account>` is the name of the storage account you created.
 
 ```azurecli-interactive
 storageaccount=<storage_account>
@@ -95,7 +92,7 @@ Make a note of your storage account name and key. The sample app uses these sett
 
 You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. Create a function app by using the [az functionapp create](/cli/azure/functionapp#create) command. 
 
-In the following command, substitute your own unique function app name where you see the `<function_app_name>` placeholder. The `<function_app>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. In this case, `<storage_account>` is the storage account name variable defined in the previous command.  
+In the following command, substitute your own unique function app name where you see the `<function_app_name>` placeholder. The `<function_app>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. In this case, `<storage_account>` is the name of the storage account you created.  
 
 ```azurecli-interactive
 az functionapp create --name <function_app> --storage-account  <storage_account>  \
@@ -105,7 +102,7 @@ You can now deploy a function code project to this function app.
 
 ## Deploy the function code 
 
-The function that performs image resizing is available in a public GitHub repo: <https://github.com/Azure-Samples/function-image-upload-resize>. Deploy to a function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) command. 
+The C# function that performs image resizing is available in a public GitHub repo: <https://github.com/Azure-Samples/function-image-upload-resize>. Deploy to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) command. 
 
 In the following command, `<function_app>` is the same function app you created in the previous script.
 
@@ -113,8 +110,7 @@ In the following command, `<function_app>` is the same function app you created 
 az functionapp deployment source config --name <function_app> \
  --resource-group myResourceGroup \
  --repo-url https://github.com/Azure-Samples/function-image-upload-resize \
- --branch master \
- --manual-integration
+ --branch master --manual-integration
 ```
 
 The function code is deployed directly from the public sample repo. To learn more about deployment options for Azure Functions, see [Continuous deployment for Azure Functions](../azure-functions/functions-continuous-deployment.md).
