@@ -1,6 +1,6 @@
 ---
-title: How to configure automatic registration of Windows domain-joined devices with Azure Active Directory | Microsoft Docs
-description: Set up your domain-joined Windows devices to register automatically and silently with Azure Active Directory.
+title: Introduction to device management in Azure Active Directory | Microsoft Docs
+description: Learn how device management can help you to get control over the devices that are accessing resources in your environment.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 08/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -25,7 +25,7 @@ In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables 
 - Empower the end users to be productive wherever and whenever
 - Protect the corporate assets at any time
 
-Through devices, your users are getting access to your corporate assets. To protect your corporate assets, as an IT administrator, you want to have control over these devices to make sure that your users are accessing your resources from devices that meet your standards for security and compliance. 
+Through devices, your users are getting access to your corporate assets. To protect your corporate assets, as an IT administrator, you want to have control over these devices. This enables you to make sure that your users are accessing your resources from devices that meet your standards for security and compliance. 
 
 This topic explains how device management in Azure AD helps you to accomplish this goal.
 
@@ -51,7 +51,9 @@ When a user has added a work or school account, the device is registered with Az
 Your organization’s users can add a work or school account to a personal device conveniently:
 
 - When accessing a work application for the first time
-- Manually via the **Settings** menu 
+- Manually via the **Settings** menu in the case of Windows 10 
+
+You can configure Azure AD registered devices for Windows 10, iOS, Android and macOS.
 
 ## Azure AD joined devices
 
@@ -85,6 +87,9 @@ While Azure AD join is primarily intended for organizations that do not have an 
 
 - You want to provide joining capabilities to workers in remote branch offices with limited on-premises infrastructure.
 
+You can configure Azure AD joined devices for Windows 10 devices.
+
+
 ## Hybrid Azure AD joined devices
 
 For more than a decade, many organizations have used the domain join to their on-premises Active Directory to enable:
@@ -99,12 +104,13 @@ If your environment has an on-premises AD footprint and you also want benefit fr
 
 You should use Azure AD hybrid joined devices if:
 
-- You have Win32 apps deployed to these devices that use NTLM/Kerberos.
+- You have Win32 apps deployed to these devices that use NTLM / Kerberos.
 
 - You require GP or SCCM / DCM to manage devices.
 
 - You want to continue to use imaging solutions to configure devices for your employees.
 
+You can configure Hybrid Azure AD joined devices for Windows 10 and down-level devices such as Windows 8 and Windows 7.
 
 ## Summary
 
