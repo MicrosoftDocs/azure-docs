@@ -21,7 +21,7 @@ Azure Machine Learning provides two options to help you develop, experiment, and
 
 |  |  |
 |:--:|:--:|
-| [![](./media/index/machine-learning-workbench.png)<br>**Azure Machine Learning<br>V-Next**](workbench/what-is-ml-workbench.md?toc=%2fazure%2fmachine-learning%2fworkbench%2ftoc.json) <br>An integrated, end-to-end data science solution for professional data scientists working in Python and the Azure Command-Line Interface. | [![](./media/index/machine-learning-studio.png)<br>**Azure Machine Learning<br>Studio**](studio/what-is-ml-studio.md?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json) <br>A collaborative, drag-and-drop tool that provides predefined machine learning algorithms and push-button model deployment. |
+| [![](./media/index/machine-learning-workbench.png)<br>**Azure Machine Learning<br>V-Next**](v-next/what-is-ml-workbench.md?toc=%2fazure%2fmachine-learning%2fv-next%2ftoc.json) <br>An integrated, end-to-end data science solution for professional data scientists working in Python and the Azure Command-Line Interface. | [![](./media/index/machine-learning-studio.png)<br>**Azure Machine Learning<br>Studio**](studio/what-is-ml-studio.md?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json) <br>A collaborative, drag-and-drop tool that provides predefined machine learning algorithms and push-button model deployment. |
 | | |
 
 In addition, these tools are available to you in Azure Machine Learning:
