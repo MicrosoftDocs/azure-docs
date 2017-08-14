@@ -36,6 +36,8 @@ ationGatewaySslPredefinedPolicy/AppGwSslPolicy20170401
 ationGatewaySslPredefinedPolicy/AppGwSslPolicy20170401S
 
 AvailableCipherSuites:
+    TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+    TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
     TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
     TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
     TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
@@ -113,6 +115,9 @@ The following example sets a custom SSL policy on an application gateway. It set
 
 > [!IMPORTANT]
 > At least one cipher suite from the following list must be selected when configuring a custom SSL policy. Application gateway uses RSA SHA256 cipher suites for backend management.
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+> * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 > * TLS_RSA_WITH_AES_128_GCM_SHA256
 > * TLS_RSA_WITH_AES_256_CBC_SHA256
 > * TLS_RSA_WITH_AES_128_CBC_SHA256
@@ -125,21 +130,21 @@ $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroup Adatum
 Set-AzureRmApplicationGatewaySslPolicy -ApplicationGateway $gw -PolicyType Custom -MinProtocolVersion TLSv1_1 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
 ```
 
-## Create a application gateway with a pre-defined SSL policy
+## Create an application gateway with a pre-defined SSL policy
 
 The following example creates a new application gateway with a pre-defined SSL policy.
 
 ```powershell
 # Create a resource group
-$rg = New-AzureRmResourceGroup -Name $rg.ResourceGroupName -Location "West US"
+$rg = New-AzureRmResourceGroup -Name ContosoRG -Location "East US"
 # Create a subnet for the application gateway
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 # Create a virtual network with a 10.0.0.0/16 address space
-$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName $rg.ResourceGroupName -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName $rg.ResourceGroupName -Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 # Retrieve the subnet object for later use
 $subnet = $vnet.Subnets[0]
 # Create a public IP address
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -name publicIP01 -location "West US" -AllocationMethod Dynamic
+$publicip = New-AzureRmPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -name publicIP01 -location "East US" -AllocationMethod Dynamic
 # Create a ip configuration object
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 # Create a backend pool for backend web servers
@@ -161,7 +166,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 # Configure the SSL policy to use a different pre-defined policy
 $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
 # Create the application gateway.
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
+$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
 ## Next steps
