@@ -39,6 +39,9 @@ At the end of this guide, your application will accept sign ins of work and scho
 
 This guide is based on the scenario where a browser accesses an ASP.NET web site, requesting a user to authenticate via a sign-in button. In this scenario, most of the work to create the web page displayed in the browser occurs on the server side.
 
+> [!NOTE]
+> This guided setup shows know how sign in users on an ASP.NET Web Application from start, including adding a button to sign in users, while explaining some concepts along the way. You can also sign-in Azure Active Directory users - work and school accounts - by using the [Visual Studio web template](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) and selecting *Organizational Accounts* and then one of the cloud options.
+
 ## Libraries
 
 This guide uses the following packages:
