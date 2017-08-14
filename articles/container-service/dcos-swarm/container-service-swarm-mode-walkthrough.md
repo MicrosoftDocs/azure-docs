@@ -129,11 +129,23 @@ docker stack deploy azure-vote --compose-file azure-vote.yaml
 Output:
 
 ```bash
-Creating network "user_default" with the default driver
-Pulling azure-vote-front (microsoft/azure-vote-front:redis-v1)...
-swarm-agent-ACA4652E000005: Pulling microsoft/azure-vote-front:redis-v1...
-swarm-agent-ACA4652E000004: Pulling microsoft/azure-vote-front:redis-v1...
-swarm-agent-ACA4652E000003: Pulling microsoft/azure-vote-front:redis-v1...
+Creating network azure-vote_default
+Creating service azure-vote_azure-vote-back
+Creating service azure-vote_azure-vote-front
+```
+
+Use the [docker stack ps](https://docs.docker.com/engine/reference/commandline/stack_ps/) command to return the deployment status of the application. Once the `CURRENT STATE` of each service is `Running`, the application is ready.
+
+```bash
+docker stack ps azure-vote
+```
+
+Output:
+
+```bash
+ID                  NAME                            IMAGE                                 NODE                               DESIRED STATE       CURRENT STATE                ERROR               PORTS
+tnklkv3ogu3i        azure-vote_azure-vote-front.1   microsoft/azure-vote-front:redis-v1   swarmm-agentpool0-66066781000004   Running             Running 5 seconds ago                            
+lg99i4hy68r9        azure-vote_azure-vote-back.1    redis:latest                          swarmm-agentpool0-66066781000002   Running             Running about a minute ago
 ```
 
 ## Test the application

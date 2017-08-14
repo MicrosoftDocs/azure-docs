@@ -129,9 +129,16 @@ docker-compose up -d
 Output:
 
 ```bash
-Creating network azure-vote_default
-Creating service azure-vote_azure-vote-back
-Creating service azure-vote_azure-vote-front
+Creating network "user_default" with the default driver
+Pulling azure-vote-front (microsoft/azure-vote-front:redis-v1)...
+swarm-agent-EE873B23000005: Pulling microsoft/azure-vote-front:redis-v1...
+swarm-agent-EE873B23000004: Pulling microsoft/azure-vote-front:redis-v1... : downloaded
+Pulling azure-vote-back (redis:latest)...
+swarm-agent-EE873B23000004: Pulling redis:latest... : downloaded
+Creating azure-vote-front ... 
+Creating azure-vote-back ... 
+Creating azure-vote-front
+Creating azure-vote-back ...
 ```
 
 ## Test the application
