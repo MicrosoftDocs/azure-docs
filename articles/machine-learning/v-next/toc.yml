@@ -1,0 +1,122 @@
+
+- name: Machine Learning vNext Documentation
+- name: Overview
+  expanded: true
+  items:
+  - name: Azure Machine Learning
+  - name: Machine Learning Workbench
+  - name: Experimentation Service
+  - name: Model Management Service
+  - name: MMLSpark
+  - name: Open Mind
+- name: Quick Starts
+  items:
+  - name: Quick Start
+  - name: Classifying Iris
+- name: Tutorials
+  items:
+  - name: AZ ML CLI Tutorial
+  - name: Bike Share Forecast
+- name: Concepts
+  items:
+  - name: Azure ML Workbench Concepts
+  - name: Conceptual Overview of Operationalization
+  - name: Billing
+- name: How-to guides
+  items:
+  - name: Set Up and Configure Environment
+    items:
+    - name: Installation
+    - name: Set up Team Account and Workgroup
+    - name: Set up Hosting Account and environment
+      items:
+      - name: Setup Using CLI
+      - name: Setup Using UI
+      - name: Setup Using API
+    - name: Configure Execution Targets
+    - name: Use Jupyter Notebooks
+    - name: Persist Changes and Data in Docker Container
+  - name: Experimentation Service
+    items:
+    - name: Acquire and understand data
+      items:
+      - name: Bring Large Datasets to Azure
+      - name: Bring Large Datasets to Azure
+      - name: Prepare Your Data
+      - name: Deep Dive to Data Wrangling
+    - name: Develop models
+      items:
+       items:
+      - name: Track Run History and Model Metrics
+      - name: Use MMLSpark Library
+  - name: Model Management Service
+    items:
+    - name: Model Management using CLI
+    - name: Model Management using API
+    - name: Consume Web service using CLI
+    - name: Consume Web service using API
+    - name: Enable logging for Web Services and model telemetry
+    - name: Scale Web Service
+    - name: Troubleshooting web services
+    - name: Model telemetry 
+    - name: Updating web service 
+    - name: Retraining 
+    - name: Batch scoring on HDI using Livy
+    - name: Mini-batch scoring using realtime service
+    - name: Getting started with VNETs
+    - name: Encryption at rest
+    - name: Deploy into IoT devices
+  - name: Use AZ ML CLI from Command Line
+  - name: Use AZ ML CLI from VS Code
+  - name: Use Git repo for source control
+  - name: How to share project and collaborate with others.
+  - name: End-to-End Examples
+        items:
+  - name: End-to-end examples
+    items:
+    - name: MMLSpark on Adult Census
+    - name: Simple Linear Regression
+    - name: MNIST using TensorFlow
+    - name: Python & PySpark Template
+    - name: MNIST using CNTK
+    - name: Parameter Sweep on Spark
+    - name: Transfer Learning
+    - name: ARIMA Forecasting
+    - name: Deep Learning with Keras and TensorFlow
+    - name: Anomaly detection using IoT
+    - name: How to Apply Azure ML Workbench to Team Data Science Process
+    - name: Infrastructure Capacity Planning
+    - name: Aerial image classification
+    - name: Jabil circuit board failure prediction
+    - name: Kaggle competition using homeland security data
+    - name: Stackoverflow – auto-tagging
+    - name: NLP text classification, Q&A matching 
+    - name: Document level NLP analysis on a large collection of documents 
+    - name: Predictive maintenance with heavy feature engineering, collaboration capabilities 
+    - name: Retail time series forecasting
+    - name: Distributed Hyper Parameter Tuning based on Talking Data Mobile User Demographics on Kaggle Competition.
+    - name: Inventory optimization or supply chain 
+    - name: Fraud detection with graph database in SQL’17 + ML with Azure ML Workbench
+    - name: LSTM on Predictive Maintenance
+    - name: CV toolkit integration with Azure ML Workbench
+    - name: Create a model and show how to deploy to CoreML
+    - name: BigDL sample
+    - name: Tensorframes sample
+    - name: PyTorch sample
+- name: Reference
+  items:
+  - name: Command reference guide CLI
+  - name: API refence 
+  - name: Data Wrangling Reference Guide
+  - name: AZ ML CLI Syntax
+  - name: Known Issues and Troubleshooting
+  - name: Release Notes
+  - name: Frequently Asked Questions
+
+
+
+
+
+
+
+
