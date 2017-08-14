@@ -72,7 +72,7 @@ The URLs for storage accounts in Azure Government are different:
 
 For more information on APIs, see the [Cloud Storage Account Constructor](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.-ctor).
 
-The endpoint suffix to use in these overloads is core.usgovcloudapi.net
+The endpoint suffix to use in these overloads is *core.usgovcloudapi.net*
 
 > [!NOTE]
 > If error 53 "The network path was not found." is returned, while [mounting the file share] (../storage/storage-dotnet-how-to-use-files.md). It could be due to firewall blocking the outbound port. Try mounting the file share on VM that's in the same Azure Subscription as storage account.
@@ -89,7 +89,7 @@ The following information identifies the Azure Government boundary for Azure Sto
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
-| Data entered, stored, and processed within an Azure Storage product can contain export controlled data. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Azure Storage metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter Regulated/controlled data into the following fields:  Resource groups, Deployment names, Resource names, Resource tags |
+| Data entered, stored, and processed within an Azure Storage product can contain export controlled data. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Azure Storage metadata is not permitted to contain controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter regulated/controlled data into the following fields:  Resource groups, Deployment names, Resource names, Resource tags |
 
 ## Azure Import/Export
 
@@ -101,10 +101,11 @@ When creating an Import/Export job for USGov Arizona or USGov Texas the mailing 
 
 ### Consideration
 
-Shipping information and other files will leave the boundary.
+For DoD L5 data, use a DoD region storage acocunt to ensure that data is loaded directly into the DoD regions. 
 
-For DoD L5 data they must use the a DoD region storage acocunt to ensure it is 
-
+| Regulated/controlled data permitted | Regulated/controlled data not permitted |
+| --- | --- |
+| Data copied to the media for transport and the keys used to encrypt that data. | Azure Import/Export metadata is not permitted to contain controlled data. This metadata includes all configuration data entered when creating your Import/Export job and shipping infomration used to transport your media.  Do not enter regulated/controlled data into the following fields:  Job name, Carrier name, Tracking number, Description, Return information (Name, Address, Phone, E-Mail), Export Blob URI, Drive list, Package list, Storage account name, Contianer name |
 
 ## Next Steps
 For supplemental information and updates subscribe to the
