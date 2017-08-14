@@ -22,7 +22,7 @@ ms.author: larryfr
 Learn how to create and use an [Apache Kafka](https://kafka.apache.org) cluster on Azure HDInsight. Kafka is an open-source, distributed streaming platform that is available with HDInsight. It is often used as a message broker, as it provides functionality similar to a publish-subscribe message queue.
 
 > [!NOTE]
-> There are currently two versions of Kafka available with HDInsight; 0.9.0 (HDInsight 3.4) and 0.10.0 (HDInsight 3.5). The steps in this document assume that you are using Kafka on HDInsight 3.5.
+> There are currently two versions of Kafka available with HDInsight; 0.9.0 (HDInsight 3.4) and 0.10.0 (HDInsight 3.5 and 3.6). The steps in this document assume that you are using Kafka on HDInsight 3.6.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -43,19 +43,19 @@ Use the following steps to create a Kafka on HDInsight cluster:
     * **Resource Group**: The resource group to create the cluster in.
     * **Location**: The Azure region to create the cluster in.
    
-    ![Select subscription](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
+ ![Select subscription](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
 
 3. Select **Cluster type**, and then set the following values from **Cluster configuration**:
    
     * **Cluster Type**: Kafka
 
-    * **Version**: Kafka 0.10.0 (HDI 3.5)
+    * **Version**: Kafka 0.10.0 (HDI 3.6)
 
     * **Cluster Tier**: Standard
      
-    Finally, use the **Select** button to save settings.
+ Finally, use the **Select** button to save settings.
      
-    ![Select cluster type](./media/hdinsight-apache-kafka-get-started/set-hdinsight-cluster-type.png)
+ ![Select cluster type](./media/hdinsight-apache-kafka-get-started/set-hdinsight-cluster-type.png)
 
 4. After selecting the cluster type, use the __Select__ button to set the cluster type. Next, use the __Next__ button to finish basic configuration.
 
