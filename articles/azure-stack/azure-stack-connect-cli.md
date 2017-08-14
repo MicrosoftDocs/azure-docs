@@ -146,13 +146,13 @@ Use the following steps to connect to Azure Stack:
    * Login as a **service principal**:
      you must [create the Service Principal through the Azure Portal](azure-stack-create-service-principals.md) or CLI and assign it to a role for the scope you would like for it to have access to. You can then login using the service principal using the following command.
 
-      ```azurecli
-        az login \
-          --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
-          --service-principal \
-          -u <Application Id of the Service Principal> \
-          -p <Key generated for the Service Principal>
-      ```
+   ```azurecli
+     az login \
+       --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
+       --service-principal \
+       -u <Application Id of the Service Principal> \
+       -p <Key generated for the Service Principal>
+   ```
 
 ## Test the connectivity
 
