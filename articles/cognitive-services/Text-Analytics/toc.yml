@@ -11,7 +11,7 @@
 - name: Tutorials
   items:
   - name: Logic Apps & Text Analytics
-    href: 
+    href: text-analytics-tutorial-logic-apps.md
 - name: Concepts
   items:
    - name: Sentiment analysis 
