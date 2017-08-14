@@ -80,7 +80,7 @@ The endpoint suffix to use in these overloads is *core.usgovcloudapi.net*
 >
 
 > [!NOTE]
-> When deploying StorSimple Manager Service, use https://portal.azure.us/ and https://manage.windowsazure.us/ URLs for Azure portal and Classic portal respectively. For deployment instructions for StorSimple Virtual Array, see [StorSimple Virtual Array system requirements] (../storsimple/storsimple-ova-system-requirements.md) and for StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements] (../storsimple/storsimple-system-requirements.md) and go to Deploy section from left navigation. For more information on StorSimple, please see the [StorSimple Documentation] (../storsimple/index.md).
+> When deploying StorSimple Manager Service, use https://portal.azure.us/ and https://manage.windowsazure.us/ URLs for Azure portal and Classic portal respectively. For deployment instructions for StorSimple Virtual Array, see [StorSimple Virtual Array system requirements] (../storsimple/storsimple-ova-system-requirements.md) and for StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements] (../storsimple/storsimple-system-requirements.md) and go to Deploy section from left navigation. For more information on StorSimple, see the [StorSimple Documentation] (../storsimple/index.md).
 >
 >
 
@@ -97,7 +97,7 @@ Import/Export is generally available for Azure Government.  All Azure Government
 
 ### Variation
 
-With Import/Export jobs for USGov Arizona or USGov Texas, the mailing address is for USGov Virginia.  The data will be loaded into selected storage account from the USGov Virginia region.
+With Import/Export jobs for USGov Arizona or USGov Texas, the mailing address is for USGov Virginia.  The data is loaded into selected storage account from the USGov Virginia region.
 
 ### Consideration
 
