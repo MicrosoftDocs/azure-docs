@@ -15,40 +15,37 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 08/09/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ---
 # Transfer ownership of an Azure subscription to another account
 
-You can transfer your subscription to another user for Pay-As-You-Go, Visual Studio, Action Pack, or BizSpark subscriptions in the Account Center. We support the transfer of Azure external services for these subscription types as well.
+You can transfer your subscription to another user in the Account Center. Use this feature to hand over subscription billing ownership to someone else, change the account you use to sign in, or move your subscription to a different directory. To change your subscription to a different offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md).
 
-You might want to transfer ownership of an Azure subscription if you:
+<a id="supported"></a>
 
-* Need to hand over billing ownership of your Azure subscription to someone else.
-* Want to move your Azure subscription from one directory to another.
-* Want to change the account used to sign up for Azure. Perhaps you used your Microsoft Account but meant to use your work or school account instead.
-* Have Azure and Office 365 in different tenants and want to consolidate.
+## What's supported:
 
-To change your subscription to a different offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md).
-
-## Supported offers
-
-| Offer ID     | Offer Name                                                                             |
-|--------------|----------------------------------------------------------------------------------------|
-| MS-AZR-0003P | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      |
-| MS-AZR-0023P | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)             |
-| MS-AZR-0025P | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          |
-| MS-AZR-0059P | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         |
-| MS-AZR-0060P | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    |
-| MS-AZR-0062P | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                     |
-| MS-AZR-0063P | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           |
-| MS-AZR-0064P | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) |
+The table below shows offers, or subscription types, that support self-serve subscription transfer. For transferring other subscriptions, like [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) or support plans, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 > [!IMPORTANT]
-> To transfer subscription ownership for other offers, like [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/), [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
->
+> 
 > Currently we don't support subscription transfers for [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subscriptions. For a workaround, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
+
+| Offer Name                                                                             | Offer Number |
+|----------------------------------------------------------------------------------------|--------------|
+| [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
+| [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
+| [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
+| [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
+| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
+| [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
+| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
+| [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR-0060P        |
+
+\* [Via the EA portal](#EA)
 
 ## Transfer ownership of an Azure subscription
 
@@ -60,7 +57,11 @@ To change your subscription to a different offer, see [Switch your Azure subscri
 
 1. Select the subscription to transfer.
 
-1. Click the **Transfer Subscription** option. See [FAQ](#no-button) if you do not see the button.
+1. Verify that your subscription is eligible for self-serve transfer by checking the **Offer** and **Offer ID** with the [supported offers list](#supported).
+
+   ![Verify offer ID of subscription in Account Center](./media/billing-subscription-transfer/image0.png)
+
+1. Click **Transfer Subscription**.
 
    ![Azure account subscriptions tab](./media/billing-subscription-transfer/image1.png)
 1. Specify the recipient.
@@ -75,6 +76,8 @@ To change your subscription to a different offer, see [Switch your Azure subscri
 
    ![Second subscription transfer web page](./media/billing-subscription-transfer/image5.png)
 1. Success! The subscription is now transferred.
+
+<a id="EA"></a>
 
 ## Transfer subscription ownership for Enterprise Agreement (EA) customers
 
@@ -104,7 +107,7 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
 
 * <a name="whoisaa"></a> **Who is the account administrator of the subscription?**
 
-  The account administrator is the person who signed up for or bought the Azure subscription. They're authorized to access the [Account Center](https://account.windowsazure.com/Home/Index) and perform various management tasks like create subscriptions, cancel subscriptions, change the billing for a subscription, or change the Service Administrator. If you're not sure who the account administrator is for a subscription, use the following steps to find out.
+  The Account Administrator is the person who signed up for or bought the Azure subscription. They're authorized to access the [Account Center](https://account.windowsazure.com/Home/Index) and perform various management tasks like create subscriptions, cancel subscriptions, change the billing for a subscription, or change the Service Administrator. If you're not sure who the account administrator is for a subscription, use the following steps to find out.
 
   1. Visit the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
   1. Select the subscription you want to check, and then look under **Settings**.
@@ -116,10 +119,7 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
 
 * <a id="no-button"></a> **Why don't I see the Transfer Subscription button?**
 
-  The **Transfer Subscription** button isn't visible if:
-
-  * You're still on your first billing period; you must wait for your first billing period to end before you can transfer your subscription.
-  * We don't support subscription transfer for your offer. [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+  The **Transfer Subscription** button isn't visible if we don't support subscription transfer for your offer or country. [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to transfer your subscription.
 
 * **Does a subscription transfer result in any service downtime?**
 
@@ -173,4 +173,5 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
   If you can't transfer subscription ownership, you can manually migrate your resources. See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
 ## Need help? Contact support.
+
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
