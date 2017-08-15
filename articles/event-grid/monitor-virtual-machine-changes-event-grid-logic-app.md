@@ -107,7 +107,7 @@ so that your logic app can receive events from the publisher resource:
    | **Subscription** | The publisher resource's Azure subscription. For this tutorial, select the Azure subscription used for your virtual machine. | 
    | **Resource Type** | The publisher's resource type. For this tutorial, select **Microsoft.Resources.resourceGroups** so that your logic app monitors only resource groups. |
    | **Resource Name** | The publisher resource's name. For this tutorial, select the name of the resource group for your virtual machine. |
-   | For optional settings, choose **Show advanced options**. | * **Prefix Filter**: For this tutorial, leave this setting empty. The default behavior matches all values.    However, you can specify a prefix string as a filter, for example, a path and a parameter for a specific resource. <p>* **Suffix Filter**: For this tutorial, leave this setting empty. The default behavior matches all values. However, you can specify a suffix string as a filter, for example, a file name extension, if you want only specific file types.<p>* **Subscription Name**: Provide a name for your event subscription. |
+   | For optional settings, choose **Show advanced options**. | * **Prefix Filter**: For this tutorial, leave this setting empty. The default behavior matches all values.    However, you can specify a prefix string as a filter, for example, a path and a parameter for a specific resource. <p>* **Suffix Filter**: For this tutorial, leave this setting empty. The default behavior matches all values. However, you can specify a suffix string as a filter, for example, a file name extension, when you want only specific file types.<p>* **Subscription Name**: Provide a name for your event subscription. |
    |||
 
    Your logic app trigger might look like this example:
@@ -126,8 +126,9 @@ So when the resource publishes an event to the event grid,
 that event grid automatically pushes the event to your logic app. 
 This event triggers your logic app, which creates and starts 
 running an instance of the workflow that you define in these next steps. 
-Your logic app is live, but won't do anything interesting 
-unless you add actions to the workflow. 
+
+Your logic app is now live, but doesn't do anything 
+until you add actions to the workflow. 
 
 ## Add a condition that checks for virtual machine changes
 
