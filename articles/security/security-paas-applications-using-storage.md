@@ -20,15 +20,15 @@ ms.author: terrylan
 # Securing PaaS web and mobile applications using Azure Storage
 In this article, we discuss a collection of Azure Storage security best practices for securing your PaaS web and mobile applications. These best practices are derived from our experience with Azure and the experiences of customers like yourself.
 
-The [Azure Storage security guide](../storage/storage-security-guide.md) is a great source for detailed information about Azure Storage and security.  This article will address at a high level some of the concepts found in the security guide and link to the security guide, as well as other sources, for more information.
+The [Azure Storage security guide](../storage/storage-security-guide.md) is a great source for detailed information about Azure Storage and security.  This article addresses at a high level some of the concepts found in the security guide and link to the security guide, as well as other sources, for more information.
 
 ## Azure Storage
 Cloud computing enables new scenarios for applications requiring scalable, durable, and highly available storage for their data – which is exactly why Microsoft developed Azure Storage. In addition to making it possible for you to deploy large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines (Windows and Linux).
 
-Azure storage provides the following four services: Blob storage, Table storage, Queue storage, and File storage. See [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md) to learn more.
+Azure storage provides the following four services: Blob storage, Table storage, Queue storage, and File storage. To learn more, see [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md).
 
 ## Best practices
-This article will address the following best practices:
+This article addresses the following best practices:
 
 - Access protection:
    - Shared Access Signatures (SAS)
@@ -45,7 +45,7 @@ This article will address the following best practices:
 
 In an IaaS solution, usually running Windows Server or Linux virtual machines, files are protected from disclosure and tampering threats using access control mechanisms. On Windows you’d use [access control lists (ACL)](../virtual-network/virtual-networks-acl.md) and on Linux you’d probably use [chmod](https://en.wikipedia.org/wiki/Chmod). Essentially, this is exactly what you would do if you were protecting files on a server in your own data center today.
 
-PaaS is different. One of the most common ways to store files in Microsoft Azure is to use [Azure Blob storage](../storage/storage-dotnet-how-to-use-blobs.md). The big difference between Blob storage and other file storage is the file I/O, and the protection methods that come with file I/O.
+PaaS is different. One of the most common ways to store files in Microsoft Azure is to use [Azure Blob storage](../storage/storage-dotnet-how-to-use-blobs.md). A difference between Blob storage and other file storage is the file I/O, and the protection methods that come with file I/O.
 
 When you [create a storage account](../storage/storage-create-storage-account.md#manage-your-storage-account), Azure generates two 512-bit storage account keys, which are used for authentication when the storage account is accessed. By providing two storage account keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
 
@@ -55,18 +55,18 @@ To permit access to storage resources without giving out your account keys, you 
 
 - The interval over which the SAS is valid, including the start time and the expiry time.
 - The permissions granted by the SAS. For example, a SAS on a blob might grant a user read and write permissions to that blob, but not delete permissions.
-- An optional IP address or range of IP addresses from which Azure Storage will accept the SAS. For example, you might specify a range of IP addresses belonging to your organization. This provides another measure of security for your SAS.
-- The protocol over which Azure Storage will accept the SAS. You can use this optional parameter to restrict access to clients using HTTPS.
+- An optional IP address or range of IP addresses from which Azure Storage accepts the SAS. For example, you might specify a range of IP addresses belonging to your organization. This provides another measure of security for your SAS.
+- The protocol over which Azure Storage accepts the SAS. You can use this optional parameter to restrict access to clients using HTTPS.
 
 SAS lets you grant limited access to objects in your storage account to other clients, without exposing your storage account key. Always using SAS in your application is a secure way to share your storage resources without compromising your storage account keys.
 
-See [Using Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md) (SAS) to learn more. See [Best practices when using SAS](../storage/storage-dotnet-shared-access-signature-part-1.md#best-practices-when-using-sas) to learn more about potential risks and recommendations to mitigate those risks.
+To learn more, see [Using Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md) (SAS). To learn more about potential risks and recommendations to mitigate those risks, see [Best practices when using SAS](../storage/storage-dotnet-shared-access-signature-part-1.md#best-practices-when-using-sas).
 
 ### Use managed disks for VMs
 
 When you choose [Azure Managed Disks](../storage/storage-managed-disks-overview.md), Azure manages the storage accounts that you use for your VM disks. You specify the disk type (Premium or Standard) and the size of the disk that you need. Azure creates and manages the disk for you. You don't have to worry about placing the disks in multiple storage accounts to ensure that you stay within scalability limits for your storage accounts. Azure handles that for you.
 
-See [Frequently Asked Questions about managed and unmanaged premium disks](../storage/storage-faq-for-disks.md) to learn more.
+To learn more, see [Frequently Asked Questions about managed and unmanaged premium disks](../storage/storage-faq-for-disks.md).
 
 ### Use Role-Based Access Control
 
@@ -95,7 +95,7 @@ Azure Disk Encryption is a capability that helps you encrypt your Windows and Li
 See [Azure Disk Encryption for Windows and Linux IaaS VMs](azure-security-disk-encryption.md).
 
 ### Storage Service Encryption
-When [Storage Service Encryption](../storage/storage-service-encryption.md) for File storage is enabled, the data will be encrypted automatically. Microsoft will handle all the encryption, decryption, and key management in a fully transparent fashion. All data will be encrypted using 256-bit AES encryption, also known as AES-256, one of the strongest block ciphers available. Customers will be able to enable this feature on both the LRS and GRS redundancy types of File storage.
+When [Storage Service Encryption](../storage/storage-service-encryption.md) for File storage is enabled, the data is encrypted automatically. Microsoft handles all the encryption, decryption, and key management in a fully transparent fashion. All data is encrypted using 256-bit AES encryption, also known as AES-256, one of the strongest block ciphers available. Customers can enable this feature on both the LRS and GRS redundancy types of File storage.
 
 ## Next steps
 This article introduced you to a collection of Azure Storage security best practices for securing your PaaS web and mobile applications. To learn more about securing your PaaS deployments, see:
