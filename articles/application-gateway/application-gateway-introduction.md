@@ -101,4 +101,4 @@ After learning about Application gateway, you can [create an application gateway
 
 To learn how to create an application gateway using URL-based content routing, go to [Create an application gateway using URL-based routing](application-gateway-create-url-route-arm-ps.md) for more information.
 
-To learn about some of the other key networking capabilities of Azure, see [Azure Networking]((../networking/networking-overview.md).
+To learn about some of the other key networking capabilities of Azure, see [Azure Networking](../networking/networking-overview.md).

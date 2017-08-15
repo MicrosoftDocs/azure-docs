@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Separating telemetry from Development, Test, and Production

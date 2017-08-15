@@ -473,12 +473,12 @@ Updated: June 2017
 
 [This guide can be found here][dbms-guide]
 
-### Using Azure as DR site for an SAP on-premise landscape
-Title: SAP NetWeaver: Building a Hyper-V & Microsoft Azure–based Disaster Recovery Solution 
+### Using Azure Site Recovery for SAP workload
+Title: SAP NetWeaver: Building a Disaster Recovery Solution with Azure Site Recovery 
 
-Summary: This document describes the way how Azure can be used as disaster recovery location for an on-premise SAP landscape using Azure Site Recovery Services. Azure Site Recovery Services are described in a first step. The second step documents the design to use Azure Site Recovery Services to replicate SAP NetWeaver systems into Azure for the purpose of disaster recovery. 
+Summary: This document describes the way how Azure Site Recovery services can be used for the purpose of handling disaster recovery scenarios. Cases where Azure is used as disaster recovery location for an on-premise SAP landscape using Azure Site Recovery Services. Another scenario described in the document is the Aure-to-Azure (A2A) disaster recovery case and how it is managed with Azure Site Recovery.  
 
-Updated: February 2016
+Updated: August 2017
 
 [This guide can be found here](http://aka.ms/asr-sap)
 

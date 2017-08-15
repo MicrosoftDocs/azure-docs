@@ -277,7 +277,7 @@ To set this property, the network interface must exist. Therefore, you need a de
 Several profile elements are used when defining a virtual machine resource. Some are required and some are optional. For example, the hardwareProfile, osProfile, storageProfile, and networkProfile elements are required, but the diagnosticsProfile is optional. These profiles define settings such as:
    
 - [size](sizes.md)
-- [name](../linux/infrastructure-naming-guidelines.md) and credentials
+- [name](/architecture/best-practices/naming-conventions) and credentials
 - disk and [operating system settings](cli-ps-findimage.md)
 - [network interface](../../virtual-network/virtual-networks-multiple-nics.md) 
 - boot diagnostics
