@@ -15,19 +15,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 08/15/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ---
 # Transfer ownership of an Azure subscription to another account
 
-You can transfer your subscription to another user in the Account Center. Use this feature to hand over subscription billing ownership to someone else, change the sign in account, or move subscription to a different directory. To change your subscription to a different offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md).
+You can transfer your subscription to another user in the Account Center. Use this feature to hand over subscription billing ownership to someone else, change the sign-in account, or move subscription to a different directory. To change your subscription to a different offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md).
 
 <a id="supported"></a>
 
 ## What's supported:
 
-Self-serve subscription transfer is availble for the offers or subscription types listed in the following table. For transferring other subscriptions, like [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) or support plans, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Self-serve subscription transfer is available for the offers or subscription types listed in the following table. For transferring other subscriptions, like [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) or support plans, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 > [!IMPORTANT]
 > 
