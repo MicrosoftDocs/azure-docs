@@ -21,14 +21,9 @@ Azure Machine Learning provides two options to help you develop, experiment, and
 
 |   |   |
 | - | - |
-| [![](./media/index/machine-learning-workbench.png)<br>**Azure Machine Learning preview features**](preview/what-are-preview-features.md?toc=/azure/machine-learning/preview/toc.json)| The [preview features](preview/what-are-preview-features.md?toc=/azure/machine-learning/preview/toc.json) consist of five components:<br><ul><li>**Workbench**</li><li>**Experimentation Service**</li><li>**Model Management Service**</li><li>**MMLSpark Library**</li><li>**OpenMind**</li></ul> |
-
-*(currently in public preview)*
-An integrated, end-to-end data science solution for professional data scientists working in Python and the Azure Command-Line Interface.
-
-![](./media/index/machine-learning-studio.png)<br>**[Azure Machine Learning Studio](studio/index.yml?toc=/azure/machine-learning/studio/toc.json)**
-
-A collaborative, drag-and-drop tool that provides predefined machine learning algorithms and push-button model deployment.
+| [![](./media/index/machine-learning-workbench.png)<br>**Azure Machine Learning preview features**](preview/index.yml?toc=/azure/machine-learning/preview/toc.json)| *(currently in public preview)*<br>An integrated, end-to-end data science solution for professional data scientists working in Python and the Azure Command-Line Interface.<p>The [preview features](preview/what-are-preview-features.md?toc=/azure/machine-learning/preview/toc.json) include five components:<br><ul><li>**Workbench**</li><li>**Experimentation Service**</li><li>**Model Management Service**</li><li>**MMLSpark Library**</li><li>**OpenMind**</li></ul> |
+| [![](./media/index/machine-learning-studio.png)<br>**Azure Machine Learning Studio**](studio/index.yml?toc=/azure/machine-learning/studio/toc.json) | A collaborative, drag-and-drop tool that provides predefined machine learning algorithms and push-button model deployment.
+| | |
 
 <br>
 <br>
