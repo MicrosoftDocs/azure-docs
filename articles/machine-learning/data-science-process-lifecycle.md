@@ -19,9 +19,9 @@ ms.author: bradsev;
 ---
 # Team Data Science Process lifecycle
 
-The Team Data Science Process (TDSP) provides a recommended lifecycle that you can use to structure the development of your data science projects. The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. If you are using another data science lifecycle, such as [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) or your organization's own custom process, you can still use the task-based TDSP in the context of those development lifecycles. 
+The Team Data Science Process (TDSP) provides a recommended lifecycle that you can use to structure your data science projects. The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. If you are using another data science lifecycle, such as [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) or your organization's own custom process, you can still use the task-based TDSP with these development lifecycles. 
 
-This lifecycle has been designed for data science projects that are intended to ship as part of intelligent applications. These applications deploy machine learning or artificial intelligence models for predictive analytics. Exploratory data science projects and ad hoc or on-off analytics projects can also benefit from using this process, but in such cases some steps described may not be needed.    
+This lifecycle has been designed for data science projects that are intended to ship as part of intelligent applications. These applications deploy machine learning or artificial intelligence models for predictive analytics. Exploratory data science projects and ad hoc analytics projects can also benefit from using this process. But in such cases some steps described may not be needed.    
 
 Here is a visual representation of the **Team Data Science Process lifecycle**. 
 
@@ -58,7 +58,7 @@ There are two main tasks addressed in this stage:
 
 1. A central objective of this step is to identify the key **business variables** that the analysis needs to predict. These variables are referred to as the **model targets** and the metrics associated with them are used to determine the success of the project. Two examples of such targets are sales forecast or the probability of an order being fraudulent.
 
-2. Define the **project goals** by asking and refining "sharp" questions that are relevant and specific and unambiguous. Data science is the process of using names and numbers to answer such questions. For additional guidance on asking sharp questions, see [How to do Data Science](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blog. Data science / machine learning is typically used to answer five types of questions:
+2. Define the **project goals** by asking and refining "sharp" questions that are relevant and specific and unambiguous. Data science is the process of using names and numbers to answer such questions. For more information on asking sharp questions, see [How to do Data Science](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blog. Data science / machine learning is typically used to answer five types of questions:
  
    * How much or how many? (regression)
    * Which category? (classification)
@@ -147,7 +147,7 @@ There are three main tasks addressed in this stage:
 Feature engineering involves inclusion, aggregation and transformation of raw variables to create the features used in the analysis. If you want insight into what is driving a model, then you need to understand how features are related to each other and how the machine learning algorithms are to use those features. This step requires a creative combination of domain expertise and insights obtained from the data exploration step. This is a balancing act of finding and including informative variables while avoiding too many unrelated variables. Informative variables improve our result; unrelated variables introduce unnecessary noise into the model. You also need to generate these features for any new data obtained during scoring. So the generation of these features can only depend on data that is available at the time of scoring. For technical guidance on feature engineering when using various Azure data technologies, see [Feature engineering in the Data Science Process](machine-learning-data-science-create-features.md). 
 
 #### 3.2 Model Training
-Depending on type of question you are trying answer, there are many modeling algorithms available. For guidance on choosing the algorithms, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md). Although this article is written for Azure Machine Learning, the guidance it provides is useful for any machine learning projects. 
+Depending on type of question that you are trying answer, there are many modeling algorithms available. For guidance on choosing the algorithms, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md). Although this article is written for Azure Machine Learning, the guidance it provides is useful for any machine learning projects. 
 
 The process for model training includes the following steps: 
 
@@ -157,7 +157,7 @@ The process for model training includes the following steps:
 * **Determine the “best” solution** to answer the question by comparing the success metric between alternative methods.
 
 > [!NOTE]
-> **Avoid leakage**: Data leakage can be caused by the inclusion of data from outside the training dataset that allows a model or machine learning algorithm to make unrealistically good predictions. Leakage is a common reason why data scientists get nervous when they get predictive results that seem too good to be true. These dependencies can be hard to detect. To avoid this often requires iterating between building an analysis data set, creating a model, and evaluating the accuracy. 
+> **Avoid leakage**: Data leakage can be caused by the inclusion of data from outside the training dataset that allows a model or machine learning algorithm to make unrealistically good predictions. Leakage is a common reason why data scientists get nervous when they get predictive results that seem too good to be true. These dependencies can be hard to detect. To avoid leakage often requires iterating between building an analysis data set, creating a model, and evaluating the accuracy. 
 > 
 > 
 
@@ -202,13 +202,13 @@ There are two main tasks addressed in this stage:
 * **System validation**: confirm the deployed model and pipeline are meeting customer needs.
 * **Project hand-off**: to the entity that is to run the system in production.
 
-The customer should validate that the system meets their business needs and the answers the questions with acceptable accuracy to deploy the system to production for use by their client application. All the documentation is finalized and reviewed. A hand-off of the project to the entity responsible for operations is completed. This could be, for example, an IT or customer data science team or an agent of the customer that is responsible for running the system in production. 
+The customer should validate that the system meets their business needs and the answers the questions with acceptable accuracy to deploy the system to production for use by their client application. All the documentation is finalized and reviewed. A hand-off of the project to the entity responsible for operations is completed. This entity could be, for example, an IT or customer data science team or an agent of the customer that is responsible for running the system in production. 
 
 ### Artifacts
 The main artifact produced in this final stage is the **Exit Report of Project for Customer**. This is the technical report containing all details of the project that useful to learn about and operate the system. An [Exit Report](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) template is provided by TDSP that can be used as is or customized for specific client needs. 
 
 ## Summary
-The [Team Data Science Process lifecycle](http://aka.ms/datascienceprocess) is modeled as a sequence of iterated steps that provide guidance on the tasks needed to use predictive models. These models can be deployed in a production environment to be leveraged to build intelligent applications. The goal of this process lifecycle is to continue to move a data science project forward towards a clear engagement end point. While it is true that data science is an exercise in research and discovery, being able to clearly communicate this to your team and your customers using a well defined set of artifacts that employees standardized templates can help avoid misunderstanding and increase the chance of a successful completion of a complex data science project.
+The [Team Data Science Process lifecycle](http://aka.ms/datascienceprocess) is modeled as a sequence of iterated steps that provide guidance on the tasks needed to use predictive models. These models can be deployed in a production environment to be leveraged to build intelligent applications. The goal of this process lifecycle is to continue to move a data science project forward towards a clear engagement end point. While it is true that data science is an exercise in research and discovery, being able to clearly communicate these tasks to your team and your customers using a well defined set of artifacts that employees standardized templates can help avoid misunderstanding and increase the chance of a successful completion of a complex data science project.
 
 ## Next steps
 Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) topic.
