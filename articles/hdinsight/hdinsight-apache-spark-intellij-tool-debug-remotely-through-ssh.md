@@ -1,6 +1,6 @@
 ---
-title: Azure Toolkit for IntelliJ – Debug Spark applications remotely through ssh | Microsoft Docs
-description: Step-by-step guidance on how to use the HDInsight Tools in Azure Toolkit for IntelliJ to debug applications remotely on HDInsight clusters through ssh
+title: 'Azure Toolkit for IntelliJ: Debug Spark applications remotely through SSH | Microsoft Docs'
+description: Step-by-step guidance on how to use the HDInsight Tools in Azure Toolkit for IntelliJ to debug applications remotely on HDInsight clusters through SSH
 keywords: debug remotely intellij, remote debugging intellij, ssh, intellij, hdinsight, debug intellij, debugging
 services: hdinsight
 documentationcenter: ''
@@ -22,67 +22,81 @@ ms.author: Jenny Jiang
 ---
 # Remotely debug Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH
 
-This article provides step-by-step guidance on how to use the HDInsight Tools in Azure Toolkit for IntelliJ to debug applications remotely on an HDInsight cluster. You can follow a [video](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) to debug your project.
+This article provides step-by-step guidance on how to use the HDInsight tools in Azure Toolkit for IntelliJ to debug applications remotely on an HDInsight cluster. To debug your project, you can also view the [Debug HDInsight Spark applications with Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) video.
 
-**Prerequisites:**
+**Prerequisites**
 
-* **HDInsight Tools in Azure Toolkit for IntelliJ**. This is part of the Azure Toolkit for IntelliJ. For more information, see [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/en-us/azure/azure-toolkit-for-intellij-installation).
-* **Azure Toolkit for IntelliJ**. Use this to create Spark applications for HDInsight cluster. For more information, follow the instructions at [Use Azure Toolkit for IntelliJ to create Spark applications for HDInsight cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
-* **HDInsight SSH service with username and password management.** For more information, see [Connect to HDInsight (Hadoop) using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) and [Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UIs](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
+* HDInsight Tools in Azure Toolkit for IntelliJ. This tool is part of the Azure Toolkit for IntelliJ. For more information, see [Install Azure Toolkit for IntelliJ](https://docs.microsoft.com/en-us/azure/azure-toolkit-for-intellij-installation).
+* Azure Toolkit for IntelliJ. Use this toolkit to create Spark applications for an HDInsight cluster. For more information, follow the instructions at [Use Azure Toolkit for IntelliJ to create Spark applications for an HDInsight cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
+* HDInsight SSH service with username and password management. For more information, see [Connect to HDInsight (Hadoop) by using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) and [Use SSH tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UIs](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
  
 
 ## Create a Spark Scala application and configure it for remote debugging
-1. Launch IntelliJ IDEA, and then create a project. In the new project dialog box, make the following choices, and then click **Next**. This article uses a **Spark on HDInsight Cluster Run Sample (Scala)** as an example.
+1. Start IntelliJ IDEA, and then create a project. In the **New Project** dialog box, do the following:
 
-     ![Create a debug project](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-create-projectfor-debug-remotely.png)
-   - In the left pane, select **HDInsight**.
-   - In the right pane, select a Java or Scala template based on your preference. Choose between the following options: 
+    a. Select **HDInsight**. 
+
+    b. Select a Java or Scala template based on your preference. Select between the following options: 
       - **Spark on HDInsight (Scala)**
       - **Spark on HDInsight (Java)**
       - **Spark on HDInsight Cluster Run Sample (Scala)**
-   - Build tool: Scala project creation wizard support Maven or SBT managing the dependencies and building for scala project. You select one according need.
-2. In the next window, provide the project details.
 
-   ![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-new-project.png)
-   - Provide a project name and project location.
-   - For **Project SDK**, use **Java 1.8** for **Spark 2.x** cluster or **Java 1.7** for **Spark 1.x** cluster.
-   - For **Spark Version**, the Scala project creation wizard integrates the correct version for Spark SDK and Scala SDK. If the spark cluster version is lower than 2.0, choose **Spark 1.x**. Otherwise, select **Spark 2.x.** This article uses **Spark 2.0.2 (Scala 2.11.8)** as an example.
-3. Select **src** > **main** > **scala** to open your code in the project. This article uses the **SparkCore_wasbloTest** script as an example.
-4. To access the **Edit Configurations** menu, select the icon in the upper right corner. From this menu, you can create or edit the configurations for remote debugging.
+        This example uses a **Spark on HDInsight Cluster Run Sample (Scala)** template.
+
+    c. In the **Build tool** list, select either of the following, according to your need: 
+      - **Maven**, for Scala project-creation wizard support
+      - **SBT**, for managing the dependencies and building for the Scala project  
+       ![Create a debug project](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-create-projectfor-debug-remotely.png)
+2. Select **Next**.     
+ 
+3. In the next **New Project** window, do the following:
+
+   ![Select the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-new-project.png)
+
+    a. Enter a project name and project location.
+
+    b. In the **Project SDK** drop-down list, select **Java 1.8** for **Spark 2.x** cluster or select **Java 1.7** for **Spark 1.x** cluster.
+
+    c. In the **Spark Version** drop-down list, Scala project creation wizard integrates the correct version for Spark SDK and Scala SDK. If the spark cluster version is earlier than 2.0, select **Spark 1.x**. Otherwise, select **Spark 2.x.** This example uses **Spark 2.0.2 (Scala 2.11.8)**.
+
+    d. Select **Finish**.
+
+4. Select **src** > **main** > **scala** to open your code in the project. This example uses the **SparkCore_wasbloTest** script.
+5. To access the **Edit Configurations** menu, select the icon in the upper-right corner. From this menu, you can create or edit the configurations for remote debugging.
 
    ![Edit configurations](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-edit-configurations.png) 
-5. In the **Run/Debug Configurations** window, click the plus sign (**+**). Then select the **Submit Spark Job** option.
+6. In the **Run/Debug Configurations** window, select the plus sign (**+**). Then select the **Submit Spark Job** option.
 
-   ![Edit configurations](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-add-new-Configuration.png)
-6. Enter information for **Name**, **Spark cluster**, and **Main class name**. Then select **Advanced configuration**. 
+   ![Add new configuration](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-add-new-Configuration.png)
+7. Enter information for **Name**, **Spark cluster**, and **Main class name**. Then select **Advanced configuration**. 
 
    ![Run debug configurations](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-run-debug-configurations.png)
-7. In the **Spark Submission Advanced Configuration** dialog box, select **Enable Spark remote debug**. Enter the SSH user name or password, or use a private key file. To save it, select **Ok**.
+8. In the **Spark Submission Advanced Configuration** dialog box, select **Enable Spark remote debug**. Enter the SSH user name, and then enter a password or use a private key file. To save the configuration, select **OK**.
 
    ![Enable Spark remote debug](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-enable-spark-remote-debug.png)
-8. The configuration is now saved with the name you provided. To view the configuration details, select the configuration name. To make changes, select **Edit Configurations**. 
-9. After you complete the configurations settings, you can run the project against the remote cluster or perform remote debugging.
+9. The configuration is now saved with the name you provided. To view the configuration details, select the configuration name. To make changes, select **Edit Configurations**. 
+10. After you complete the configurations settings, you can run the project against the remote cluster or perform remote debugging.
 
 ## Learn how to perform remote debugging and remote run
 ### Scenario 1: Perform remote run
 1. To run the project remotely, select the **Run** icon.
 
-   ![Click the run icon](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-run-icon.png)
+   ![Select the run icon](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-run-icon.png)
 
-2. The **HDInsight Spark Submission** window displays the application execution status. You can monitor the progress of the Scala job based on information here.
+2. The **HDInsight Spark Submission** window displays the application execution status. You can monitor the progress of the Scala job based on the information included here.
 
-   ![Click the run icon](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-run-result.png)
+   ![Select the run icon](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-run-result.png)
 
 ### Scenario 2: Perform remote debugging
 1. Set up a breaking point, and then select the **Debug** icon.
 
-    ![Click the debug icon](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debug-icon.png)
-2. When the program execution reaches the breaking point, you  see a **Debugger** tab in the bottom pane. You also see the view parameter and variable information in the **Variable** window. Click the **Step Over** icon to proceed to the next line of code. Then you can further step through the code. Select the **Resume Program** icon to continue running the code. You can review the execution status in the **HDInsight Spark Submission** window. 
+    ![Select the debug icon](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debug-icon.png)
+2. When the program execution reaches the breaking point, you see a **Debugger** tab in the bottom pane. You also see the view parameter and variable information in the **Variable** window. Select the **Step Over** icon to proceed to the next line of code. Then you can further step through the code. Select the **Resume Program** icon to continue to run the code. You can review the execution status in the **HDInsight Spark Submission** window. 
 
    ![Debugging tab](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debugger-tab.png)
 
 ### Scenario 3: Perform remote debugging and bug fixing
-In this section, we show you how to dynamically update the variable value by using the IntelliJ debugging capability for a simple fix. For the following code example, an exception is thrown because the target file already exists.
+In this section, we show you how to dynamically update the variable value by using the IntelliJ debugging capability for a simple fix. In the following code example, an exception is thrown because the target file already exists.
   
         import org.apache.spark.SparkConf
         import org.apache.spark.SparkContext
@@ -109,40 +123,40 @@ In this section, we show you how to dynamically update the variable value by usi
 
 
 #### To perform remote debugging and bug fixing
-1. Set up two breaking points, and then click the **Debug** icon to start the remote debugging process.
+1. Set up two breaking points, and then select the **Debug** icon to start the remote debugging process.
 
-2. The code stops at the first breaking point, and the parameter and variable information are shown in the **Variable** window. 
+2. The code stops at the first breaking point, and the parameter and variable information are shown in the **Variables** window. 
 
-3. Click the **Resume Program** icon to continue. The code stops at the second point. The exception is being caught as expected.
+3. Select the **Resume Program** icon to continue. The code stops at the second point. The exception is caught as expected.
 
   ![Throw error](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-throw-error.png) 
 
-4. Click the **Resume Program** icon again. The **HDInsight Spark Submission** window displays a job run failed error.
+4. Select the **Resume Program** icon again. The **HDInsight Spark Submission** window displays a job run failed error.
 
   ![Error submission](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-error-submission.png) 
 
-5. To dynamically update the variable value using the IntelliJ debugging capability, select **Debug** again. The variable windows appears again. 
+5. To dynamically update the variable value by using the IntelliJ debugging capability, select **Debug** again. The **Variables** windows appears again. 
 
-6. Right-click the target on the **Debug** tab, and then select **Set Value**. Next, input a new value for the variable. Then select **Enter** to save the value. 
+6. Right-click the target on the **Debug** tab, and then select **Set Value**. Next, enter a new value for the variable. Then select **Enter** to save the value. 
 
   ![Set value](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-set-value.png) 
 
-7. Click the **Resume Program** icon to continue running the program. This time, the exception is not being caught. You can see that the project runs successfully without any exceptions.
+7. Select the **Resume Program** icon to continue to run the program. This time, no exception is caught. You can see that the project runs successfully without any exceptions.
 
   ![Debug without exception](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debug-without-exception.png)
 
-## <a name="seealso"></a>See also
+## <a name="seealso"></a>Next steps
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### Demo
-* Create Scala Project (Video): [Create Spark Scala Applications](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Remote Debug (Video): [Use Azure Toolkit for IntelliJ to debug Spark applications remotely on HDInsight Cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+* Create Scala project (Video): [Create Spark Scala Applications](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Remote debug (Video): [Use Azure Toolkit for IntelliJ to debug Spark applications remotely on HDInsight Cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### Scenarios
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark with BI: Perform interactive data analysis by using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark with Machine Learning: Use Spark in HDInsight to analyze building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
+* [Spark Streaming: Use Spark in HDInsight to build real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
@@ -150,8 +164,8 @@ In this section, we show you how to dynamically update the variable value by usi
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Use HDInsight Tools in Azure Toolkit for IntelliJ to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [Use Azure Toolkit for IntelliJ to debug applications remotely on HDInsight Spark through VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use Azure Toolkit for IntelliJ to create Spark applications for HDInsight cluster](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use Azure Toolkit for IntelliJ to debug Spark applications remotely through VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use HDInsight Tools for IntelliJ with Hortonworks Sandbox](hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications](hdinsight-apache-spark-eclipse-tool-plugin.md)
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
@@ -162,4 +176,3 @@ In this section, we show you how to dynamically update the variable value by usi
 ### Manage resources
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
- 
