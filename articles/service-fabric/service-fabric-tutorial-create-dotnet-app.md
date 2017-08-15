@@ -526,22 +526,22 @@ To look at what happens in the code, complete the following steps:
 2. Open the **VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 50).
 
 3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
-    - This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
+    a. This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
     
     ![Add Vote Front-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    - First we construct the URL to the ReverseProxy for our back-end service **(1)**.
-    - Then we send the HTTP PUT Request to the ReverseProxy **(2)**.
-    - Finally the we return the response from the back-end service to the client **(3)**.
+    b. First we construct the URL to the ReverseProxy for our back-end service **(1)**.
+    c. Then we send the HTTP PUT Request to the ReverseProxy **(2)**.
+    d. Finally the we return the response from the back-end service to the client **(3)**.
 
 4. Press **F5** to continue
-    - You are now at the break point in the back-end service.
+    a. You are now at the break point in the back-end service.
     
     ![Add Vote Back-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    - In the first line in the method **(1)** we are using the `StateManager` to get or add a reliable dictionary called `counts`.
-    - All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
-    - In the transaction, we then update the value of the relevant key for the voting option and commits the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
+    b. In the first line in the method **(1)** we are using the `StateManager` to get or add a reliable dictionary called `counts`.
+    c. All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
+    d. In the transaction, we then update the value of the relevant key for the voting option and commits the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
 5. Press **F5** to continue
 
 To stop the debugging session, press **Shift+F5**.
