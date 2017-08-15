@@ -10,7 +10,7 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/11/2017
+ms.date: 08/15/2017
 ---
 
 # Azure Database for PostgreSQL: Use Python to connect and query data
@@ -38,7 +38,6 @@ Install the [psycopg2](http://initd.org/psycopg/docs/install.html) package, whic
     ```
 
 3. Run the following command to install the psycopg2 package:
-
     ```cmd
     pip install psycopg2
     ```
@@ -47,9 +46,9 @@ Install the [psycopg2](http://initd.org/psycopg/docs/install.html) package, whic
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources** and search for the server you just created **mypgserver-20170401**.
+2. From the left-hand menu in Azure portal, click **All resources** and search for **mypgserver-20170401** (the server you just created).
 3. Click the server name **mypgserver-20170401**.
-4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
+4. Select the server's **Overview** page, and then make a note of the **Server name** and **Server admin login name**.
  ![Azure Database for PostgreSQL - Server Admin Login](./media/connect-python/1-connection-string.png)
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
 
@@ -57,10 +56,10 @@ Get the connection information needed to connect to the Azure Database for Postg
 This topic contains a total of four code samples, each of which performs a specific function. The following instructions indicate how to create a text file, insert a code block, and then save the file so that you can run it later. Be sure to create four separate files, one for each code block.
 
 - Using your favorite text editor, create a new file.
-- Copy and paste one of the code samples in the following sections into the text file. Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
+- Copy and paste one of the code samples in the following sections into the text file. Replace the **host**, **dbname**, **user**, and **password** parameters with the values that you specified when you created the server and database.
 - Save the file with the .py extension (for example postgres.py) into your project folder. If you are running the Windows OS, be sure to select UTF-8 encoding when saving the file. 
 - Launch the Command Prompt or Bash shell and then change the directory to your project folder, for example `cd postgres`.
--  To run the code, type the python command followed by the file name, for example `python postgres.py`.
+-  To run the code, type the Python command followed by the file name, for example `Python postgres.py`.
 
 > [!NOTE]
 > Starting in Python version 3, you may see the error `SyntaxError: Missing parentheses in call to 'print'` when running the following code blocks. If that happens, replace each call to the command `print "string"` with a function call using parenthesis, such as `print("string")`.
@@ -106,7 +105,8 @@ conn.close()
 ```
 
 After the code runs successfully, the output appears as follows:
-    ![Command line output](media/connect-python/2-example-python-output.png)
+
+![Command line output](media/connect-python/2-example-python-output.png)
 
 ## Read data
 Use the following code to read the data inserted using [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function with **SELECT** SQL statement. This function accepts a query and returns a result set that can be iterated over with the use of [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
