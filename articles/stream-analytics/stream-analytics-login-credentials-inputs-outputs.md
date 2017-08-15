@@ -4,7 +4,7 @@ description: Learn how to update the credentials for Stream Analytics inputs and
 keywords: login credentials
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Rotate login credentials for inputs and outputs in Stream Analytics Jobs

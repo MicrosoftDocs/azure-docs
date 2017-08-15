@@ -3,7 +3,7 @@ title: Stream Analytics real-time processing for Azure Functions | Microsoft Doc
 description: Learn how to use an Azure Function connected a Service Bus Queue, to populate an Azure Redis Cache from the output of a Stream Analytics job.
 keywords: data stream, redis cache, service bus queue
 services: stream-analytics
-author: ryancrawcour
+author: samacha
 manager: jhubbard
 documentationcenter: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
-ms.author: ryancraw
+ms.author: samacha
 
 ---
 # How to store data from Azure Stream Analytics in an Azure Redis Cache using Azure Functions

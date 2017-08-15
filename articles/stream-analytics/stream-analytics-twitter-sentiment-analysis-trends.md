@@ -4,7 +4,7 @@ description: Learn how to use Stream Analytics for real-time Twitter sentiment a
 keywords: real-time twitter trend analysis, sentiment analysis, social media analysis, trend analysis example
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
-ms.author: jeffstok
+ms.author: samacha
 ---
 
 # Real-time Twitter sentiment analysis in Azure Stream Analytics
