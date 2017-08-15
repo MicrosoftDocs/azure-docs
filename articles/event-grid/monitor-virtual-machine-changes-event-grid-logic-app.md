@@ -52,7 +52,7 @@ you [don't need to do anything else](../event-grid/overview.md).
 [any email provider that's supported by Azure Logic Apps](../connectors/apis-list.md), 
 like Office 365 Outlook, Outlook.com, or Gmail
 
-## Create a logic app that listens to events through an event grid
+## Create a logic app that monitors events through an event grid
 
 First, create a logic app that has an Event grid trigger, 
 and set up that trigger so you can monitor the resource group for your virtual machine. 
@@ -124,12 +124,12 @@ When you save your logic app with an event grid trigger,
 Azure automatically creates an event subscription for the resource that you specified. 
 So when the resource publishes an event to the event grid, 
 that event grid automatically pushes the event to your logic app. 
-Usually, this event creates and starts running an instance 
-of the workflow that you define in these next steps. 
+This event triggers your logic app, which creates and starts 
+running an instance of the workflow that you define in these next steps. 
 Your logic app is live, but won't do anything interesting 
 unless you add actions to the workflow. 
 
-## Add a condition that checks for changes to virtual machines
+## Add a condition that checks for virtual machine changes
 
 To specify that your logic app runs only when a specific event happens, 
 add a condition that checks for virtual machine "write" operations. 
@@ -142,10 +142,10 @@ choose **New step** > **Add a condition**.
    ![Add a condition to your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-add-condition.png)
 
    The Logic App Designer adds a condition to your workflow, 
-   including action paths to follow based whether the condition 
-   evaluates as true or false.
+   including action paths to follow based whether the 
+   condition is true or false.
 
-2. Build the condition criteria. 
+2. Build the condition. 
 
    * In the condition's left box, from the **Dynamic content** list that appears, 
    choose the **Data object** field under **On a resource event**. 
@@ -166,7 +166,7 @@ choose **New step** > **Add a condition**.
 
    ![Condition criteria](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-1.png)
 
-## Send email when your virtual machine is updated
+## Send email when your virtual machine changes
 
 Now add an [*action*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
 so that you get an email when the specified condition is true.
@@ -193,7 +193,7 @@ Then select the "send email" action for your connector.
 4. If you don't already have a connection for your email provider, 
 sign in to your email account when you're asked for authentication.
 
-5. Provide the details for the email action. 
+5. Provide details for the email. 
 When the **Dynamic content** list appears, 
 you can select from fields available in your workflow.
 
@@ -215,8 +215,8 @@ you can select from fields available in your workflow.
    on the email shape, choose the **ellipses** (**...**) button, 
    then choose **Rename**.
 
-   For example, if you're using Office 365 Outlook, 
-   your logic app might look like this workflow:
+   If you're using Office 365 Outlook, 
+   your email action looks like this example:
 
    ![Select outputs to include in email](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email-details.png)
 
@@ -226,7 +226,7 @@ you can select from fields available in your workflow.
    > around the action that references the array. 
    > That way, your logic app performs that action on each array item.
 
-   When you're done, your logic app looks similar to this example:
+   When you're done, your logic app looks liks this example:
 
    ![Finished logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
 
@@ -239,14 +239,13 @@ choose the action's title bar.
    to your virtual machine before doing anything. 
    To test your logic app now, continue to the next section.
 
-## Test your logic app by resizing your virtual machine
+## Test your logic app
 
-To check that your logic app is getting the correct events, 
-update your virtual machine, for example, 
-resize your virtual machine in the Azure portal 
+To check that your logic app is getting the specified events, 
+update your virtual machine. For example, 
+you can resize your virtual machine in the Azure portal 
 or [resize with Azure PowerShell](../virtual-machines/windows/resize-vm.md). 
-After a few minutes, you should get an email about updates to your virtual machine. 
-For example:
+After a few moments, you should get an email. For example:
 
 **[screenshot TBD]**
 
@@ -255,13 +254,18 @@ on your logic app menu, choose **Overview**.
 
 **[screenshot TBD]**
 
-Congratulations, you just created and ran a logic app that monitors events through an event grid and sends you emails when those events happen. You also learned how easily you can create workflows that automate processes and integrate systems, cloud apps, and cloud services.
+Congratulations, you just created and ran a logic app 
+that monitors events from a resource through an event 
+grid and emails you when those events happen. 
+You also learned how easily you can create workflows 
+that automate processes and integrate systems, cloud apps, 
+and cloud services.
 
 > [!IMPORTANT]
-> When you're done testing, make sure that you decommission any test 
-> resources that incur unwanted charges. Also, disable your logic app 
-> to stop sending email. Otherwise, your logic app continues running 
-> until you turn off your app. On your logic app menu, choose **Overview**. 
+> When you're done testing, make sure that you disable any test 
+> resources that incur unwanted charges. For example, disable your 
+> logic app to stop running and sending email. 
+> On your logic app menu, choose **Overview**. 
 > On the toolbar, choose **Disable**.
 >
 > ![Turn off your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
