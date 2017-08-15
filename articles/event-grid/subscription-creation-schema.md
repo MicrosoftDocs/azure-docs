@@ -75,4 +75,3 @@ The article describes the properties and schema for the body of the request.
 ## Next steps
 
 * For an introduction to Event Grid, see [What is Event Grid?](overview.md)
-* To see the available event types, see [Event Grid publisher schema](publisher-registration-schema.md).

@@ -13,9 +13,9 @@ ms.author: babanisa
 
 # Event Grid event schema
 
-This article provides the properties and schema for events. Events consist of a set of five required string properties and a required **data** object. The properties are common to all events from any publisher. The **data** object contains properties that are specific to each publisher. In the case of Azure topics, these will be specific to the resource provider such as Storage or Event Hubs.
+This article provides the properties and schema for events. Events consist of a set of five required string properties and a required **data** object. The properties are common to all events from any publisher. The **data** object contains properties that are specific to each publisher. For system topics, these properties are specific to the resource provider, such as Storage or Event Hubs.
 
-Events are sent to Azure Event Grid in an array which can contain multiple event objects. If there is only a single event it is an array of length 1. 
+Events are sent to Azure Event Grid in an array, which can contain multiple event objects. If there is only a single event, the array has a length of 1. 
  
 ## Event properties
 
@@ -60,7 +60,7 @@ This sample event shows the schema of a storage event raised when a blob is crea
 ]
 ```
 
-The following is an example of an event for a custom topic.
+The following example shows an event for a custom topic:
 ````json
 [
   {
