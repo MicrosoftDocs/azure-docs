@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: djrosanova
 ms.author: darosa
-ms.date: 08/13/2017
+ms.date: 08/15/2017
 ms.topic: hero-article
 ms.service: event-grid
 ---
@@ -20,9 +20,7 @@ When you are finished, you see that the event data has been sent to an endpoint.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+Currently, Event Grid does not support use with Azure Cloud Shell. You must install and use the CLI locally. This article requires that you are running the latest version of Azure CLI (2.0.14 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
  
 ## Create a resource group
 
