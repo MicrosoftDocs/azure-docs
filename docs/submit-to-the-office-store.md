@@ -36,3 +36,26 @@ When the validation process is complete, you will receive a message to let you k
 If you make changes after your submission was approved, it must go through the approval process again.
 
 
+## Validation process<a name="bk_Validation"> </a>
+You've submitted your app or add-in. What happens next?
+
+1. Your submission goes through a series of automated checks to ensure it complies with the [Office Store Validation Policies](https://dev.office.com/officestore/docs/validation-policies)
+
+2. Our Validation team reviews your submission. This can take 3-5 working days, depending on the volume of submissions in the queue
+
+ <b>Note:</b> The Valdiation team test Office Add-ins on all the platforms the add-in is required to support. For details about supported platforms, see the [Office Add-ins host and platform availability page](https://dev.office.com/add-in-availability)
+
+  For a seamless validation experience, help us to help you! Provide detailed test notes with your submission, including:
+ - Information about any sample data your app or add-in needs
+ - Configuration instructions, if required
+ - Information about a test or demo account that your app or add-in needs
+ 
+<b>Note:</b> Our multilingual team is located in multiple time zones. Please don't configure test accounts that require developer interaction before we can test - we're often aware and working when you're not!
+
+3. The team will either approve or reject your submission. 
+- If it's approved, you can expect to see your submission in the Store within 24 hours after you receive the notification email
+- If it's rejected, the Change Request document will be available in your submission listing in the Seller Dashboard
+- Questions about policies or requirements in your report? Engage with the Office Store Valdidation Team via [Stack Overflow](https://stackoverflow.com/search?q=office-store). Don't forget to tag your question with "Office-Store"
+
+
+
