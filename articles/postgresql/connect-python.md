@@ -10,7 +10,7 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/11/2017
+ms.date: 08/15/2017
 ---
 
 # Azure Database for PostgreSQL: Use Python to connect and query data
@@ -38,7 +38,6 @@ Install the [psycopg2](http://initd.org/psycopg/docs/install.html) package, whic
     ```
 
 3. Run the following command to install the psycopg2 package:
-
     ```cmd
     pip install psycopg2
     ```
@@ -47,9 +46,9 @@ Install the [psycopg2](http://initd.org/psycopg/docs/install.html) package, whic
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources** and search for the server you just created **mypgserver-20170401**.
+2. From the left-hand menu in Azure portal, click **All resources** and search for **mypgserver-20170401** (the server you just created).
 3. Click the server name **mypgserver-20170401**.
-4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
+4. Select the server's **Overview** page, and then make a note of the **Server name** and **Server admin login name**.
  ![Azure Database for PostgreSQL - Server Admin Login](./media/connect-python/1-connection-string.png)
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
 

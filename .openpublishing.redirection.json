@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path": "articles/virtual-machines/virtual-machines-scheduled-events.md",
+            "redirect_url": "articles/virtual-machines/windows/scheduled-events.md",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/virtual-machines/virtual-machines-instancemetadataservice-overview.md",
+            "redirect_url": "articles/virtual-machines/windows-instance-metadata-service.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/architecture-overview.md",
             "redirect_url": "/azure/architecture",
             "redirect_document_id": false
@@ -8363,6 +8373,11 @@
         {
             "source_path": "articles/service-fabric/service-fabric-deploy-container.md",
             "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-deploy-container-linux.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers-linux",
             "redirect_document_id": false
         },
         {

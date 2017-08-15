@@ -91,9 +91,9 @@
 #### [Android](guidedsetups/active-directory-android.md)
 #### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
 ### Web apps
-#### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
-#### [ASP.NET web server](guidedsetups/active-directory-aspnetwebapp.md)
-#### [NodeJS web app](active-directory-v2-devquickstarts-node-web.md)
+#### [JavaScript SPA](guidedsetups/active-directory-javascriptspa.md)
+#### [ASP.NET Web Server](guidedsetups/active-directory-aspnetwebapp.md)
+#### [NodeJS Web App](active-directory-v2-devquickstarts-node-web.md)
 ## Guides
 ### [Register an app](active-directory-v2-app-registration.md)
 ## Reference
