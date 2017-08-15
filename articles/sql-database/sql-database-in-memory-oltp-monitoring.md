@@ -19,10 +19,10 @@ ms.author: jodebrui
 
 ---
 # Monitor In-Memory OLTP storage
-When using [In-Memory OLTP](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in In-Memory OLTP storage. Each Premium service tier has a maximum In-Memory OLTP storage size, which is documented in [single database resource limits](sql-database-single-database-resources.md#single-database-service-tiers-performance-levels-and-storage-amounts) and [elastic pool resource limits](sql-database-elastic-pool.md#elastic-pool-service-tiers-performance-levels-and-storage-amounts). Once this limit is exceeded, insert and update operations may start failing (with error 41823). At that point you will need to either delete data to reclaim memory, or upgrade the performance tier of your database.
+When using [In-Memory OLTP](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in In-Memory OLTP storage. Each Premium service tier has a maximum In-Memory OLTP storage size, which is documented in [single database resource limits](sql-database-resource-limits.md#storage-sizes-and-performance-levels-for-a-single-database) and [elastic pool resource limits](sql-database-resource-limits.md#storage-sizes-and-performance-levels-for-an-elastic-pool). Once this limit is exceeded, insert and update operations may start failing (with error 41823). At that point you will need to either delete data to reclaim memory, or upgrade the performance tier of your database.
 
 ## Determine whether data will fit within the in-memory storage cap
-Determine the storage caps of the different Premium service tiers. See [single database resource limits](sql-database-single-database-resources.md#single-database-service-tiers-performance-levels-and-storage-amounts) and [elastic pool resource limits](sql-database-elastic-pool.md#elastic-pool-service-tiers-performance-levels-and-storage-amounts).
+Determine the storage caps of the different Premium service tiers. See [single database resource limits](sql-database-resource-limits.md#storage-sizes-and-performance-levels-for-a-single-database) and [elastic pool resource limits](sql-database-resource-limits.md#storage-sizes-and-performance-levels-for-an-elastic-pool).
 
 Estimating memory requirements for a memory-optimized table works the same way for SQL Server as it does in Azure SQL Database. Take a few minutes to review that topic on [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 
