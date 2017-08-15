@@ -23,11 +23,11 @@ WebHook authentication is not available in the preview release.
 
 ## Event subscription
 
-To subscribe to an event, you must have the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the required resource. The required resource differs based on whether you are subscribing to a system topic or custom topic. Both types are described in this section.
+To subscribe to an event, you must have the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the required resource. You need this permission because you are writing a new subscription at the scope of the resource. The required resource differs based on whether you are subscribing to a system topic or custom topic. Both types are described in this section.
 
 ### System topics (Azure service publishers)
 
-For system topics, you need permission on the resource publishing the event. The format of the resource is:
+For system topics, you need permission to write a new event subscription at the scope of the resource publishing the event. The format of the resource is:
 `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
 For example, to subscribe to an event on a storage account named **myacct**, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:
@@ -35,7 +35,7 @@ For example, to subscribe to an event on a storage account named **myacct**, you
 
 ### Custom topics
 
-For custom topics, you need permission on the Event Grid topic. The format of the resource is:
+For custom topics, you need permission to write a new event subscription at the scope of the Event Grid topic. The format of the resource is:
 `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
 For example, to subscribe to a custom topic named **mytopic**, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:
