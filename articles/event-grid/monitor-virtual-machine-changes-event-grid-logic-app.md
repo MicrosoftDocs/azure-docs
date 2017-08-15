@@ -24,8 +24,8 @@ or [event hubs](../event-hubs/event-hubs-what-is-event-hubs.md) as endpoints.
 As a subscriber, your logic app can wait for those events from the event grid 
 before running automated workflows to perform tasks.
 
-For example, here are some events that an event grid can send 
-from publisher to subscriber:
+For example, here are some events that publishers can send to subscribers 
+through the Azure Event Grid service:
 
 * Create, read, update, or delete a resource
 * New message in a queue
