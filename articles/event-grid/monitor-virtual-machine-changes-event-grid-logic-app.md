@@ -31,11 +31,11 @@ from publisher to subscriber:
 * New message in a queue
 * New tweet
 
-This tutorial shows how you can create a logic app that monitor changes to a virtual machine 
-and sends you email when those changes happen. You 
+This tutorial shows how you can create a logic app that monitors changes in a virtual machine 
+and sends email about about those changes. You 
 [don't need to do anything to make Azure resources publish events](../event-grid/overview.md). 
-After you create and save a logic app that has an event subscription to an Azure resource, 
-events start flowing from that resource to an event grid. The event grid then pushes 
+After you create and save a logic app with an event subscription to an Azure resource, 
+events start flowing from the resource to an event grid. The event grid then pushes 
 those events to subscribers, like your logic app.
 
 ![Overview - monitor virtual machine with event grid and logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
@@ -98,8 +98,8 @@ Select this trigger: **Azure Event Grid - On a resource event**
 
    ![Select this trigger: "Azure Event Grid - On a resource event"](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
-5. Create an event subscription so that your logic app gets events 
-from the publisher resource. Provide these event subscription details:
+5. In the trigger, provide these event subscription details 
+so that your logic app can receive events from the publisher resource:
 
    ![Provide details for event subscription](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details-generic.png)
 
@@ -111,11 +111,13 @@ from the publisher resource. Provide these event subscription details:
    | For optional settings, choose **Show advanced options**. | * **Prefix Filter**: Specify a prefix string as a filter, for example, a path and a parameter for a specific resource. However, for this tutorial, leave this setting empty. The default behavior matches all values. <p>* **Suffix Filter**: Specify a suffix string as a filter, for example, a file name extension, if you want only specific file types. For this tutorial, leave this setting empty. The default behavior matches all values. <p>* **Subscription Name**: Provide a name for your event subscription. |
    |||
 
-   Your event grid trigger might look like this example:
+   Your event grid trigger looks similar to this example:
    
    ![Example event grid trigger details](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
-6. Save your logic app. On the designer toolbar, choose **Save**.
+6. Save your logic app. On the designer toolbar, choose **Save**. 
+To collapse and hide an action's details in your logic app, 
+choose the action's title bar.
 
    ![Save your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save.png)
 
@@ -226,9 +228,10 @@ you can select from fields available in your workflow.
 
    ![Finished logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
 
-5. Save and run your logic app.
+5. Save your logic app. To collapse and hide each action's details in your logic app, 
+choose the action's title bar.
 
-   ![Save and run logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save-run.png)
+   ![Save your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save-completed.png)
 
 ## Run and test your logic app
 
@@ -236,6 +239,8 @@ you can select from fields available in your workflow.
 choose a different size.
 
 ## FAQ
+
+**Q**: What else could I do with an event grid and logic app?
 
 <a name="third-party-resource"></a>
 
