@@ -239,11 +239,12 @@ choose the action's title bar.
    to your virtual machine before doing anything. 
    To test your logic app now, continue to the next section.
 
-## Test your logic app
+## Test your logic app by resizing your virtual machine
 
 To check that your logic app is getting the correct events, 
 update your virtual machine, for example, 
-[resize your virtual machine](../virtual-machines/windows/resize-vm.md). 
+resize your virtual machine in the Azure portal 
+or [resize with Azure PowerShell](../virtual-machines/windows/resize-vm.md). 
 After a few minutes, you should get an email about updates to your virtual machine. 
 For example:
 
