@@ -74,7 +74,7 @@ A maximum size greater than 1 TB for P11 and P15 database is supported in the fo
 
 ## Storage sizes and performance levels for an elastic pool
 
-For SQL Database elastic pools, the following tables show the resources available at each service tier and performance level. You can set the service tier, performance level, and storage amount using the [Azure portal](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-powershell), the [Azure CLI](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-azure-cli), or the [REST API](sql-database-elastic-pool.md#manage-single-databases-elastic-pools-using-the-rest-api).
+For SQL Database elastic pools, the following tables show the resources available at each service tier and performance level. You can set the service tier, performance level, and storage amount using the [Azure portal](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-powershell), the [Azure CLI](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-azure-cli), or the [REST API](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-rest-api).
 
 > [!NOTE]
 > The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier. For example, the max concurrent workers for an S2 database is 120 workers. So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
@@ -105,7 +105,7 @@ The following table describes the properties for pooled databases.
 
 You can increase or decrease the resources available to an elastic pool based on resource needs using the [Azure portal](#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), the [Azure CLI](/cli/azure/sql/elastic-pool#update), or the [REST API](/rest/api/sql/elasticpools#ElasticPools_Update).
 
-- When rescaling pool eDTUs, database connections are briefly dropped. This is the same behavior as occurs when rescaling DTUs for a single database (not in a pool). For details on the duration and impact of dropped connections for a database during rescaling operations, see [Rescaling DTUs for a single database](sql-database-single-database-resources.md#rescaling-dtus-for-a-single-database). 
+- When rescaling pool eDTUs, database connections are briefly dropped. This is the same behavior as occurs when rescaling DTUs for a single database (not in a pool). For details on the duration and impact of dropped connections for a database during rescaling operations, see [Rescaling DTUs for a single database](sql-database-single-database-resources.md#change-storage-size-for-a-single-database). 
 - The duration to rescale pool eDTUs can depend on the total amount of storage space used by all databases in the pool. In general, the rescaling latency averages 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for rescaling the pool is 3 hours or less. In some cases within the Standard or Basic tier, the rescaling latency can be under 5 minutes regardless of the amount of space used.
 - In general, the duration to change the min eDTUs per database or max eDTUs per database is 5 minutes or less.
 - When downsizing pool eDTUs, the pool used space must be smaller than the maximum allowed size of the target service tier and pool eDTUs.
@@ -141,7 +141,7 @@ When encountering high session or worker utilization, mitigation options include
  ## Next steps
 
 - For information about service tiers, see [Service tiers](sql-database-service-tiers.md).
-- For information about single databases, see [Single database resources](sql-database-resources.md).
+- For information about single databases, see [Single database resources](sql-database-resource-limits.md).
 - For information about elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits.md).
-- For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database/sql-database-what-is-a-dtu.md).
+- For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-what-is-a-dtu.md).
