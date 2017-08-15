@@ -255,12 +255,11 @@ update your virtual machine.
 2. To review the runs and trigger history for your logic app, 
 on your logic app menu, choose **Overview**.
 
-Congratulations, you just created and ran a logic app 
-that monitors events from a resource through an event 
+Congratulations, you've now created and run a logic app 
+that monitors resource events through an event 
 grid and emails you when those events happen. 
 You also learned how easily you can create workflows 
-that automate processes and integrate systems, cloud apps, 
-and cloud services.
+that automate processes and integrate systems and cloud services.
 
 > [!IMPORTANT]
 > When you're done testing, make sure that you disable any test 
