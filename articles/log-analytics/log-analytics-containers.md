@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/11/2017
 ms.author: magoedte;banders
 
 ---
@@ -31,18 +31,18 @@ The following diagram shows the relationships between various container hosts an
 ## System requirements
 Before starting, review the following details to verify you meet the prerequisites.
 
-### Container monitoring solution support for Docker Orchestrator and OS platform 
+### Container monitoring solution support for Docker Orchestrator and OS platform
 The following table outlines the Docker orchestration and operating system monitoring support of container inventory, performance, and logs with Log Analytics.   
 
-| | ACS | Linux | Windows | Container<br>Inventory | Image<br>Inventory | Node<br>Inventory | Container<br>Performance | Container<br>Event | Event<br>Log | Container<br>Log | 
+| | ACS | Linux | Windows | Container<br>Inventory | Image<br>Inventory | Node<br>Inventory | Container<br>Performance | Container<br>Event | Event<br>Log | Container<br>Log |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| Kubernetes | Yes | Yes | | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Mesosphere<br>DC/OS | Yes | Yes | | Yes | Yes | Yes | Yes| Yes | Yes | Yes | 
-| Docker<br>Swarm | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | | Yes |
-| Service<br>Fabric | | | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Red Hat Open<br>Shift | | Yes | | Yes | Yes| Yes | Yes | Yes | | Yes | 
-| Windows Server<br>(standalone) | | | Yes | Yes | Yes | Yes | Yes | Yes | | Yes |
-| Linux Server<br>(standalone) | | Yes | | Yes | Yes | Yes | Yes | Yes | | Yes |
+| Kubernetes | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
+| Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
+| Service<br>Fabric | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Red Hat Open<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
+| Windows Server<br>(standalone) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
+| Linux Server<br>(standalone) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
 
 ### Docker versions supported on Linux
@@ -73,7 +73,7 @@ The following table outlines the Docker orchestration and operating system monit
 ### Docker versions supported on Windows
 
 - Docker 1.12 and 1.13
-- Docker 17.03.0 
+- Docker 17.03.0
 
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
@@ -140,8 +140,8 @@ You can run the OMS Agent as a global service on Docker Swarm. Use the following
     ```
 
 ### Configure an OMS Agent for Red Hat OpenShift
-There are three ways to add the OMS Agent to Red Hat OpenShift to start collecting container monitoring data. 
- 
+There are three ways to add the OMS Agent to Red Hat OpenShift to start collecting container monitoring data.
+
 * [Install the OMS Agent for Linux](log-analytics-agent-linux.md) directly on each OpenShift node  
 * [Enable Log Analytics VM Extension](log-analytics-azure-vm-extension.md) on each OpenShift node residing in Azure  
 * Install the OMS Agent as a OpenShift daemon-set  
@@ -159,14 +159,14 @@ In this section we cover the steps required to install the OMS Agent as an OpenS
     oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
-4. To deploy the daemon-set, run the following: 
-    
+4. To deploy the daemon-set, run the following:
+
     `oc create -f ocp-omsagent.yaml`
 
-5. To verify it is configured and working correctly, type the following: 
+5. To verify it is configured and working correctly, type the following:
 
     `oc describe daemonset omsagent`  
-    
+
     and the output should resemble:
 
     ```
@@ -189,7 +189,7 @@ If you want to use secrets to secure your OMS Workspace ID and Primary Key when 
 
 1. Sign on to the OpenShift master node and copy the yaml file [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) and secret generating script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) from GitHub.  This script will generate the secrets yaml file for OMS Workspace ID and Primary Key to secure your secrete information.  
 2. Run the following commands to create a project for OMS and set the user account. The secret generating script asks for your OMS Workspace ID <WSID> and Primary Key <KEY> and upon completion, it creates the ocp-secret.yaml file.  
-    
+
     ```
     oadm new-project omslogging --node-selector='zone=default'  
     oc project omslogging  
@@ -202,12 +202,12 @@ If you want to use secrets to secure your OMS Workspace ID and Primary Key when 
 
     `oc create -f ocp-secret.yaml`
 
-5. Verify deployment by running the following: 
+5. Verify deployment by running the following:
 
     `oc describe secret omsagent-secret`  
 
     and the  output should resemble:  
-    
+
     ```
     [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
     Name:           oms  
@@ -224,14 +224,14 @@ If you want to use secrets to secure your OMS Workspace ID and Primary Key when 
     No events.  
     ```
 
-6. Deploy the OMS Agent daemon-set yaml file by running the following: 
+6. Deploy the OMS Agent daemon-set yaml file by running the following:
 
     `oc create -f ocp-ds-omsagent.yaml`  
-  
-7. Verify deployment by running the following: 
+
+7. Verify deployment by running the following:
 
     `oc describe ds oms`
-  
+
     and the output should resemble:
 
     ```
@@ -240,16 +240,16 @@ If you want to use secrets to secure your OMS Workspace ID and Primary Key when 
     Namespace:      omslogging  
     Labels:         <none>  
     Annotations:    <none>  
-    
+
     Type:   Opaque  
-    
+
      Data  
      ====  
      KEY:    89 bytes  
      WSID:   37 bytes  
     ```
 
-### Secure your secret information for Docker Swarm and Kubernetes 
+### Secure your secret information for Docker Swarm and Kubernetes
 
 You can secure your secret OMS Workspace ID and Primary Keys for Docker Swarm and Kubernetes container services.
 
@@ -434,15 +434,15 @@ The following table shows data collection methods and other details about how da
 
 | platform | [OMS Agent for Linux](log-analytics-linux-agents.md) | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Linux |![Yes](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |every 3 minutes |
+| Linux |&#8226; |  |  |  |  |every 3 minutes |
 
 | platform | [Windows agent](log-analytics-windows-agents.md) | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Yes](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |every 3 minutes |
+| Windows | &#8226; |  |  |  |  |every 3 minutes |
 
 | platform | [Log Analytics VM extension](log-analytics-azure-vm-extension.md) | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Azure |![Yes](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |every 3 minutes |
+| Azure | &#8226; |  |  |  |  |every 3 minutes |
 
 The following table shows examples of data types collected by the Containers solution and the data types that are used in Log Searches and results.
 

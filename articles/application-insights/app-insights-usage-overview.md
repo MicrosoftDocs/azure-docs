@@ -168,6 +168,6 @@ All new TelemetryClients automatically add the property value you specify. Indiv
    - [Users, Sessions, Events](app-insights-usage-segmentation.md)
    - [Funnels](usage-funnels.md)
    - [Retention](app-insights-usage-retention.md)
-   - [Flows](app-insights-usage-flows.md)
+   - [User Flows](app-insights-usage-flows.md)
    - [Workbooks](app-insights-usage-workbooks.md)
    - [Add user context](app-insights-usage-send-user-context.md)
