@@ -101,7 +101,7 @@ Then select _PUT_ to apply the changes to your scale set. This example would wor
 > [!NOTE]
 > When you make a change to a scale set definition such as adding or removing a data disk, it applies to all newly created VMs, but only applies to existing VMs if the _upgradePolicy_ property is set to "Automatic". If it is set to "Manual", you need to manually apply the new model to existing VMs. You can do this in the portal, using the _Update-AzureRmVmssInstance_ PowerShell command, or using the _az vmss update-instances_ CLI command.
 
-## Adding pre-poluated data disks to an existent scale set 
+## Adding pre-populated data disks to an existent scale set 
 > When you add disks to an existent scale set model, by design, the disk will always be created empty. This scenario also includes new instances created by the scale set. This behaviour is because the scaleset definition has an empty data disk. In order to create pre-populated data drives for an existent scale set model, you can choose either of next two options:
 
 * Copy data from the instance 0 VM to the data disk(s) in the other VMs by running a custom script.
