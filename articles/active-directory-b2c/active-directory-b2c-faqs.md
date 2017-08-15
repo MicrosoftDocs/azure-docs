@@ -84,7 +84,7 @@ No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using t
 No, for security reasons, Azure AD B2C pages cannot be opened within an iFrame.  Our service communicates with the browser to prohibit iFrames.  The security community in general and the OAUTH2 specification, recommend against using iFrames for identity experiences due to the risk of click-jacking.
 
 ### Does Azure AD B2C work with CRM systems such as Microsoft Dynamics?
-Basic integration with Microsoft Dynamics 365 Portal is coming soon.
+Integration with Microsoft Dynamics 365 Portal is available.  Please see [this article for configuring Dynamics 365 Portal to use Azure AD B2C for authentication](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### Does Azure AD B2C work with SharePoint on-premises 2016 or earlier?
 Azure AD B2C is not meant for the SharePoint external partner-sharing scenario; see [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) instead.
