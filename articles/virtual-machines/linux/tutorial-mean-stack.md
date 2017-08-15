@@ -44,7 +44,13 @@ The following example uses the Azure CLI to create a resource group named *myRes
 
 ```azurecli-interactive
 az group create --name myResourceGroupMEAN --location eastus
-az vm create --resource-group myResourceGroupMEAN --name myVM --image UbuntuLTS --admin-username azureuser --admin-password 'Azure12345678!' --generate-ssh-keys
+az vm create \
+    --resource-group myResourceGroupMEAN \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --admin-password 'Azure12345678!' \
+    --generate-ssh-keys
 az vm open-port --port 3300 --resource-group myResourceGroupMEAN --name myVM
 ```
 
@@ -340,4 +346,7 @@ In this tutorial, you created a web application that keeps track of book records
 > * Access the routes with AngularJS
 > * Run the application
 
-<next tutorial>
+Advance to the next tutorial to learn how to secure webservers with SSL certificates.
+
+> [!div class="nextstepaction"]
+> [Secure webserver with SSL](tutorial-secure-webserver.md)

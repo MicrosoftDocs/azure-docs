@@ -168,7 +168,7 @@ In this tutorial, you deployed a LEMP server in Azure. You learned how to:
 Advance to the next tutorial to learn more about how to deploy a MEAN (MongoDB, NGINX, Angular, and Node.js) stack.
 
 > [!div class="nextstepaction"]
-> [Deploy MEAN stack]()
+> [Deploy MEAN stack](tutorial-mean-stack.md)
 
 [1]: ./media/tutorial-lemp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
