@@ -6,10 +6,11 @@
 
 # Tutorials
 ## [Resize uploaded images]()
-## [Monitor virtual machine chagnes](monitor-virtual-machine-changes-event-grid-logic-app.md)
+## [Monitor virtual machine changes](monitor-virtual-machine-changes-event-grid-logic-app.md)
 ## [Enable app isolation]()
 
 # Concepts
+## [Event Grid terms](concepts.md)
 ## [Security and authentication](security-authentication.md)
 ## [Delivery and retry](delivery-and-retry.md)
 
