@@ -27,10 +27,12 @@ before running automated workflows to perform tasks.
 For example, here are some events that publishers can send to subscribers 
 through the Azure Event Grid service:
 
-* Create, read, update, or delete a resource.
-* A new message appears in a queue.
+* Create, read, update, or delete a resource. 
+For example, you can monitor changes that might 
+incur charges on your Azure subscription and affect your bill.
 * Your app performs a particular action.
 * Add or remove a person from an Azure subscription.
+* A new message appears in a queue.
 
 This tutorial shows how you can create a logic app so you can monitor 
 changes to a virtual machine and get emails about those changes. 
