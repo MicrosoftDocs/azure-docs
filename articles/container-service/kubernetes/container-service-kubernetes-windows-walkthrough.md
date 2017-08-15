@@ -11,12 +11,12 @@ keywords: ''
 ms.assetid: 
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 
 ---
 
