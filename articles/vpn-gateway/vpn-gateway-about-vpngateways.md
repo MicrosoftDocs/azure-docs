@@ -24,7 +24,7 @@ A VPN gateway is a type of virtual network gateway that sends encrypted traffic 
 
 Each virtual network can have only one VPN gateway, however, you can create multiple connections to the same VPN gateway. An example of this is a Multi-Site connection configuration. When you create multiple connections to the same VPN gateway, all VPN tunnels, including Point-to-Site VPNs, share the bandwidth that is available for the gateway.
 
-### What is a virtual network gateway?
+### <a name="whatis"></a>What is a virtual network gateway?
 
 A virtual network gateway is composed of two or more virtual machines that are deployed to a specific subnet called the GatewaySubnet. The VMs that are located in the GatewaySubnet are created when you create the virtual network gateway. Virtual network gateway VMs are configured to contain routing tables and gateway services specific to the gateway. You can't directly configure the VMs that are part of the virtual network gateway and you should never deploy additional resources to the GatewaySubnet.
 
@@ -34,19 +34,19 @@ When you create a virtual network gateway using the gateway type 'Vpn', it creat
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-## Configuring a VPN Gateway
+## <a name="configuring"></a>Configuring a VPN Gateway
 
 A VPN gateway connection relies on multiple resources that are configured with specific settings. Most of the resources can be configured separately, although they must be configured in a certain order in some cases.
 
-### Settings
+### <a name="settings"></a>Settings
 
 The settings that you chose for each resource are critical to creating a successful connection. For information about individual resources and settings for VPN Gateway, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md). The article contains information to help you understand gateway types, VPN types, connection types, gateway subnets, local network gateways, and various other resource settings that you may want to consider.
 
-### Deployment tools
+### <a name="tools"></a>Deployment tools
 
 You can start out creating and configuring resources using one configuration tool, such as the Azure portal. You can later decide to switch to another tool, such as PowerShell, to configure additional resources, or modify existing resources when applicable. Currently, you can't configure every resource and resource setting in the Azure portal. The instructions in the articles for each connection topology specify when a specific configuration tool is needed. 
 
-### Deployment model
+### <a name="models"></a>Deployment model
 
 When you configure a VPN gateway, the steps you take depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway settings. For more information about deployment models, see [Understanding Resource Manager and classic deployment models](../azure-resource-manager/resource-manager-deployment-model.md).
 
@@ -61,7 +61,7 @@ The following sections contain tables which list:
 
 Use the diagrams and descriptions to help select the connection topology to match your requirements. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as a guideline.
 
-## Site-to-Site and Multi-Site (IPsec/IKE VPN tunnel)
+## <a name="s2smulti"></a>Site-to-Site and Multi-Site (IPsec/IKE VPN tunnel)
 
 ### <a name="S2S"></a>Site-to-Site
 
@@ -139,7 +139,7 @@ You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute,
 
 For more information about gateway SKUs for VPN Gateway, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-## FAQ
+## <a name="faq"></a>FAQ
 
 For frequently asked questions about VPN gateway, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md).
 

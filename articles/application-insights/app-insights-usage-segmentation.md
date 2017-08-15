@@ -66,7 +66,7 @@ The Insights sidebar shows large clusters of users that share common properties.
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Funnels](usage-funnels.md)
     - [Retention](app-insights-usage-retention.md)
-    - [Flows](app-insights-usage-flows.md)
+    - [User Flows](app-insights-usage-flows.md)
     - [Workbooks](app-insights-usage-workbooks.md)
     - [Add user context](app-insights-usage-send-user-context.md)
 

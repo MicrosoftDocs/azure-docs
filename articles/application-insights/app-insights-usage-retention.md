@@ -64,7 +64,7 @@ Or in ASP.NET server code:
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Users, Sessions, Events](app-insights-usage-segmentation.md)
     - [Funnels](usage-funnels.md)
-    - [Flows](app-insights-usage-flows.md)
+    - [User Flows](app-insights-usage-flows.md)
     - [Workbooks](app-insights-usage-workbooks.md)
     - [Add user context](app-insights-usage-send-user-context.md)
 
