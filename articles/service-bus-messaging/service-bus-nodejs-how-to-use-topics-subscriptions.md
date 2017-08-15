@@ -17,7 +17,8 @@ ms.date: 08/10/2017
 ms.author: sethm
 
 ---
-# How to Use Service Bus topics and subscriptions
+# How to Use Service Bus topics and subscriptions with Node.js
+
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 This guide describes how to use Service Bus topics and subscriptions

@@ -33,7 +33,7 @@ Specifically:
 
 A B2B collaboration guest user is added as a user from a partner company, not an employee of your organization or an employee of a different business in your conglomerate. A B2B guest user can sign in with external credentials or credentials owned by your organization as described in this article. 
 
-In other words, B2B licensing is set not by how the user authenticates but rather by the relationship of the user to your organization. If these users are not partners are treated differently in licensing terms. They are not considered to be a B2B collaboration user for licensing purposes even if their UserType is marked as “Guest.” They should be licensed normally, at one license per user. These users include:
+In other words, B2B licensing is set not by how the user authenticates but rather by the relationship of the user to your organization. If these users are not partners, they are treated differently in licensing terms. They are not considered to be a B2B collaboration user for licensing purposes even if their UserType is marked as “Guest.” They should be licensed normally, at one license per user. These users include:
 * Your employees
 * Staff signing in using external identities
 * An employee of a different business in your conglomerate
@@ -57,7 +57,7 @@ The customer who owns the inviting tenant must be the one to determine how many 
 A B2B guest user is one that is invited from a partner organization to work with the host organization. Typically, any other case does not qualify as B2B even it uses B2B features. Let’s look at two cases in particular:
 
 1. If a host invites an employee using a consumer address
-  1. This scenario is not compliant with our licensing policies and is not recommended.
+  * This scenario is not compliant with our licensing policies and is not recommended.
 
 2. If a host organization adds a user from another conglomerate organization
   1. In this case, the user is invited using B2B APIs, but this case is not traditionally B2B. Ideally, we should have these organizations invite the other orgs users as members (our API allows that). In this case, licenses have to be assigned to these members for them to access resources in the inviting organization.

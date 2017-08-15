@@ -17,10 +17,11 @@ ms.date: 08/10/2017
 ms.author: sethm
 
 ---
-# How to use Service Bus queues
+# How to use Service Bus queues with Node.js
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-This article describes how to use Service Bus queues in Node.js. The samples are written in JavaScript and use the Node.js Azure module. The scenarios covered include **creating queues**, **sending and receiving messages**, and **deleting queues**. For more information on queues, see the [Next steps](#next-steps) section.
+This article describes how to use Service Bus queues with Node.js. The samples are written in JavaScript and use the Node.js Azure module. The scenarios covered include **creating queues**, **sending and receiving messages**, and **deleting queues**. For more information on queues, see the [Next steps](#next-steps) section.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
