@@ -151,7 +151,7 @@ Follow these steps so we can collect some sample data to be displayed in Applica
 
 4. Make sure that `autoUpgradeMinorVersion` is set to `true`.
 
-5. Add the new `ApplicationInsightsProfiler` sink instance in the `WadCfg` settings object, as shown in the following example.
+5. Add the new `ApplicationInsightsProfiler` sink instance in the `WadCfg` settings object, as shown in the following example:
 
 ```
 "resources": [
@@ -229,6 +229,7 @@ A Service Fabric cluster can be secure or non-secure. You can set one gateway cl
 
 ### Install the Application Insights SDK in the project and configure the Application Insights key
 Install the Application Insights SDK from the [NuGet package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Make sure that you install a stable version, 2.3 or later. 
+
 For information about configuring Application Insights in your projects, see [Using Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).
 
 ### Add application code to instrument telemetry
