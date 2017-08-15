@@ -99,7 +99,7 @@ For GPU-intensive workloads, check out [NC and NV sizes](https://azure.microsoft
 * [Functions](https://azure.microsoft.com/documentation/services/functions/)
 
 ## Architecture blueprints
-* [HPC and data orchestration using Azure Batch and Azure Data Factory](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) and [article](../data-factory/data-factory-data-processing-using-batch.md)
+* [HPC and data orchestration using Azure Batch and Azure Data Factory](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) and [article](../data-factory/v1/data-factory-data-processing-using-batch.md)
 
 ## Industry solutions
 * [Banking and capital markets](https://finance.azure.com/)

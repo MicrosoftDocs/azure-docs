@@ -33,7 +33,7 @@ ms.author: shlo
 ## Overview
 This article explains data transformation activities in Azure Data Factory that you can use to transform and processes your raw data into predictions and insights. A transformation activity executes in a computing environment such as Azure HDInsight cluster or an Azure Batch. It provides links to articles with detailed information on each transformation activity.
 
-Data Factory supports the following data transformation activities that can be added to [pipelines](concepts-pipelines.md) either individually or chained with another activity.
+Data Factory supports the following data transformation activities that can be added to [pipelines](concepts-pipelines-activities.md) either individually or chained with another activity.
  
 
 ## HDInsight Hive activity
