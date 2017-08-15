@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use PowerShell to manage Azure Event Hubs resources | Microsoft Docs
 description: Use PowerShell module to create and manage Event Hubs
 services: event-hubs
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 08/15/2017
 ms.author: sethm
 
 ---
@@ -34,7 +34,7 @@ Before you begin, you'll need the following:
 
 ## Get started
 
-The first step is to use PowerShell to log in to your Azure account and Azure subscription. Follow the instructions in [Get started with Azure PowerShell cmdlets](/powershell/azure/get-started-azureps) to log in to your Azure account, and retrieve and access the resources in your Azure subscription.
+The first step is to use PowerShell to log in to your Azure account and Azure subscription. Follow the instructions in [Get started with Azure PowerShell cmdlets](/powershell/azure/get-started-azureps) to log in to your Azure account, then retrieve and access the resources in your Azure subscription.
 
 ## Provision an Event Hubs namespace
 
@@ -75,9 +75,9 @@ This part of the script does the following:
     }
     ```
 
-## Create an Event Hub
+## Create an event hub
 
-To create an Event Hub, perform a namespace check using the script in the previous section. Then, use the New-[AzureRmEventHub](/powershell/module/azurerm.eventhub/new-azurermeventhub) cmdlet to create the Event Hub:
+To create an event hub, perform a namespace check using the script in the previous section. Then, use the [New-AzureRmEventHub](/powershell/module/azurerm.eventhub/new-azurermeventhub) cmdlet to create the Event Hub:
 
 ```powershell
 # Check if Event Hub already exists
@@ -101,7 +101,7 @@ else
 
 ### Create a consumer group
 
-To create a consumer group within an Event Hub, perform the namespace and Event Hub checks using the scripts in the previous section. Then, use the [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) cmdlet to create the consumer group within the Event Hub. For example:
+To create a consumer group within an event hub, perform the namespace and event hub checks using the scripts in the previous section. Then, use the [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) cmdlet to create the consumer group within the Event Hub. For example:
 
 ```powershell
 # Check if consumer group already exists
