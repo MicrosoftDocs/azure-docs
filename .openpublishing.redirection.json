@@ -8206,11 +8206,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/sql-database/sql-database-resource-limits.md",
-            "redirect_url": "/azure/sql-database/sql-database-single-database-resources",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/media-services/media-services-rest-connect-programmatically.md",
             "redirect_url": "/azure/media-services/media-services-use-aad-auth-to-access-ams-api",
             "redirect_document_id": false
