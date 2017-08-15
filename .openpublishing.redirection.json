@@ -9089,6 +9089,16 @@
             "source_path": "articles/active-directory/active-directory-branding-custom-signon-azure-portal.md",
             "redirect_url": "/azure/active-directory/customize-branding",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-confluencemicrosoft-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-jiramicrosoft-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": false
         }
     ]
 }
