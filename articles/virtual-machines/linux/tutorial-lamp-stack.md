@@ -123,7 +123,10 @@ In this tutorial, you deployed a LAMP server in Azure. You learned how to:
 > * Verify installation and configuration
 > * Install WordPress on the LAMP server
 
-Advance to the next tutorial to learn about ....
+Advance to the next tutorial to learn more about how to deploy a LEMP (Linux, NGINX, MySQL, and PHP) stack.
+
+> [!div class="nextstepaction"]
+> [Deploy LEMP stack](tutorial-lemp-stack.md)
 
 [1]: ./media/tutorial-lamp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
