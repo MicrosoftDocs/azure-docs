@@ -18,7 +18,7 @@ ms.author: mimig
 ms.custom: mvc
 
 ---
-# Create a MEAN.js app with Azure Cosmos DB - Part 2: Create the Angular project
+# Create a MEAN.js app with Azure Cosmos DB - Part 2: Create the Node app
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
@@ -112,7 +112,7 @@ This tutorial also requires:
 
 5. In Visual Studio Code, in the Explorer pane, right click the server folder, and then click New file. Name the new file routes.js. This code:
     * Refers to the router
-    * Get the heroes
+    * Gets the heroes
 
     ```node
     const express = require('express');
