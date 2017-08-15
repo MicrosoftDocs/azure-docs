@@ -170,7 +170,18 @@ To learn more about partitioning and partition keys, see [Partitioning in Azure 
 ### SDK and query options
 See [Performance Tips](performance-tips.md) and [Performance testing](performance-testing.md) for how to get the best client-side performance from Azure Cosmos DB. This includes using the latest SDKs, configuring platform-specific configurations like default number of connections, frequency of garbage collection, and using lightweight connectivity options like Direct/TCP. 
 
-For queries, tune the `MaxBufferedItemCount` and `MaxDegreeOfParallelism` to identify the best configurations for your application, especially if you perform cross-partition queries (without a filter on the partition-key value).
+For queries, tune the `MaxDegreeOfParallelism` to identify the best configurations for your application, especially if you perform cross-partition queries (without a filter on the partition-key value). `MaxDegreeOfParallelism`  controls the maximum number of parallel tasks, i.e., the maximum of partitions to be visited in parallel. 
+
+Let’s assume that
+* D = Default Maximum number of parallel tasks (= total number of processor in the client machine)
+* P = User-specified maximum number of parallel tasks
+* N = Number of partitions that needs  to be visited for answering a query
+
+Following are implications of how the parallel queries would behave for different values of P.
+* (P == 0) => Serial Mode
+* (P == 1) => Maximum of one task
+* (P > 1) => Min (P, N) parallel tasks 
+* (P < 1) => Min (N, D) parallel tasks
 
 For SDK release notes, and details on implemented classes and methods see [DocumentDB SDKs](documentdb-sdk-dotnet.md)
 
