@@ -38,7 +38,7 @@ To learn more about action groups, see [Create and manage action groups](monitor
 
 For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
 
-## Create an alert on a service health notification for a new action group with the Azure portal
+## Create an alert on a service health notification for a new action group by using the Azure portal
 1. In the [portal](https://portal.azure.com), select **Monitor**.
 
     ![The "Monitor" service](./media/monitoring-activity-log-alerts-on-service-notifications/home-monitor.png)
@@ -82,7 +82,7 @@ For information on the webhook schema for activity log alerts, see [Webhooks for
 >
 >
 
-## Create an alert on a service health notification by using an existing action group with the Azure portal
+## Create an alert on a service health notification for an existing action group by using the Azure portal
 1. In the [portal](https://portal.azure.com), select **Monitor**.
 
     ![The "Monitor" service](./media/monitoring-activity-log-alerts-on-service-notifications/home-monitor.png)
