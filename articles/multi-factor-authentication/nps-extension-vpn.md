@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 08/15/2017
 ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
@@ -84,7 +84,7 @@ If you do not have a working infrastructure in place, you can quickly create thi
 
 The NPS role service provides the RADIUS server and client functionality. This article assumes you have installed the NPS role on a member server or domain controller in your environment. You will configure RADIUS for a VPN configuration in this guide. Install the NPS role on a server _other_ than your VPN server.
 
-For information on installing the NPS role service Windows Server 2012 or higher, see [Install a NAP Health Policy Server](https://technet.microsoft.com/library/dd296890.aspx). Note that Network Access Policy (NAP) is deprecated in Windows Server 2016. For a description of best practices for NPS, including the recommendation to install NPS on a domain controller, see [Best Practices for NPS](https://technet.microsoft.com/library/cc771746).
+For information on installing the NPS role service Windows Server 2012 or higher, see [Install a NAP Health Policy Server](https://technet.microsoft.com/library/dd296890.aspx). Network Access Policy (NAP) is deprecated in Windows Server 2016. For a description of best practices for NPS, including the recommendation to install NPS on a domain controller, see [Best Practices for NPS](https://technet.microsoft.com/library/cc771746).
 
 ### Licenses
 
@@ -151,15 +151,12 @@ You can use a standard (wizard-based) or advanced configuration option to config
  ![New RADIUS Client](./media/nps-extension-vpn/image5.png)
 
 6. Click **OK**, and then **Next**.
-7. On the **Configure Authentication Methods** page, accept the default selection (Microsoft Encrypted Authentication version 2 (MS-CHAPv2), and click **Next**.
+7. On the **Configure Authentication Methods** page, accept the default selection (Microsoft Encrypted Authentication version 2 (MS-CHAPv2) or choose another option, and click **Next**.
 
   >[!NOTE]
-  >Do not configure Extensible Authentication Protocol (EAP). If you configure an EAP protocol, the secondary Azure MFA authentication fails.
-  >
-
- ![Configure Authentication](./media/nps-extension-vpn/image6.png)
+  >If you configure Extensible Authentication Protocol (EAP), you must use either MS CHAPv2 or PEAP. No other EAP is supported.
  
-8. On the Specify User Groups, click **Add** and select an appropriate group, if one exists. Otherwise, leave the selection blank which grants access to all users.
+8. On the Specify User Groups page, click **Add** and select an appropriate group, if one exists. Otherwise, leave the selection blank to grant access to all users.
 
  ![Specify User Groups](./media/nps-extension-vpn/image7.png)
 
