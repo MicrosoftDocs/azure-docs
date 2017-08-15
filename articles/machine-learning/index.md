@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 07/13/2017
+ms.date: 08/14/2017
 ms.author: carolz
 ---
 #Azure Machine Learning Documentation
@@ -19,14 +19,16 @@ Learn how data scientists and developers use Machine Learning to embed predictiv
 
 Azure Machine Learning provides two options to help you develop, experiment, and deploy advanced analytics applications at cloud scale:
 
-|  |  |
-|:--:|:--:|
-| [![](./media/index/machine-learning-workbench.png)<br>**Azure Machine Learning<br>V-Next**](preview/index.yml?toc=%2fazure%2fmachine-learning%2fpreview%2ftoc.json) <br>An integrated, end-to-end data science solution for professional data scientists working in Python and the Azure Command-Line Interface. | [![](./media/index/machine-learning-studio.png)<br>**Azure Machine Learning<br>Studio**](studio/index.yml?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json) <br>A collaborative, drag-and-drop tool that provides predefined machine learning algorithms and push-button model deployment. |
-| | |
+|   |   |
+| - | - |
+| [![](./media/index/machine-learning-workbench.png)<br>**Azure Machine Learning preview features**](preview/what-are-preview-features.md?toc=/azure/machine-learning/preview/toc.json)| The [preview features](preview/what-are-preview-features.md?toc=/azure/machine-learning/preview/toc.json) consist of five components:<br><ul><li>**Workbench**</li><li>**Experimentation Service**</li><li>**Model Management Service**</li><li>**MMLSpark Library**</li><li>**OpenMind**</li></ul> |
 
-In addition, these tools are available to you in Azure Machine Learning:
+*(currently in public preview)*
+An integrated, end-to-end data science solution for professional data scientists working in Python and the Azure Command-Line Interface.
 
-* The [**Data Science Virtual Machine (DSVM)**](./data-science-virtual-machine/data-science-virtual-machine-overview.md?toc=%2fazure%2fmachine-learning%2fdata-science-virtual-machine%2ftoc.json), a customized virtual machine (VM) image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics. 
+![](./media/index/machine-learning-studio.png)<br>**[Azure Machine Learning Studio](studio/index.yml?toc=/azure/machine-learning/studio/toc.json)**
+
+A collaborative, drag-and-drop tool that provides predefined machine learning algorithms and push-button model deployment.
 
 <br>
 <br>

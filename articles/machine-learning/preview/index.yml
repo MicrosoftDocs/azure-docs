@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure Machine Learning Documentation (preview features)
 metadata:
-  title: Azure Machine Learning Preview Documentation
+  title: Azure Machine Learning Documentation (preview features)
   description: Learn how to use Azure Machine Learning public preview features.
   services: machine-learning
   author: carolz
@@ -14,4 +14,4 @@ metadata:
   ms.date: 07/24/2017
   ms.author: carolz
 abstract:
-  description: The preview features of Azure Machine Learning are ...
+  description: The preview features of Azure Machine Learning ...

@@ -1,14 +1,11 @@
 
 - name: Machine Learning preview Documentation
+  href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: Azure Machine Learning
-  - name: Machine Learning Workbench
-  - name: Experimentation Service
-  - name: Model Management Service
-  - name: MMLSpark
-  - name: Open Mind
+  - name: Preview features
+    href: what-are-preview-features.md
 - name: Quick Starts
   items:
   - name: Quick Start
@@ -19,8 +16,12 @@
   - name: Bike Share Forecast
 - name: Concepts
   items:
-  - name: Azure ML Workbench Concepts
-  - name: Conceptual Overview of Operationalization
+  - name: Workbench 
+  - name: Experimentation Service
+  - name: Model Management Service
+  - name: MMLSpark Library
+  - name: OpenMind
+  - name: Operationalization
   - name: Billing
 - name: How-to guides
   items:
