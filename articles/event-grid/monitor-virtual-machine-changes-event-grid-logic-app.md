@@ -244,7 +244,7 @@ make a change to your virtual machine, for example,
 
 ## FAQ
 
-**Q**: What other virtual machine monitoring tasks can I peform with event grids and logic apps? </br>
+**Q**: What other virtual machine monitoring tasks can I perform with event grids and logic apps? </br>
 **A**: You can monitor other configuration changes, like these examples:
 
 * A virtual machine gets role-based access control (RBAC) rights.
