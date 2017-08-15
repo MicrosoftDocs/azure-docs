@@ -4,8 +4,8 @@ description: This provides a comparision of features and guidance on developing 
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: ryansoc
-manager: zakramer
+author: zakramer
+manager: liki
 
 ms.assetid: 83df022b-d791-4efb-9fdf-8afe47a885d5
 ms.service: azure-government
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 12/22/2016
-ms.author: ryansoc
+ms.date: 08/15/2017
+ms.author: zsk0646
 
 ---
 # Azure Government Storage
