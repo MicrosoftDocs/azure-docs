@@ -7,6 +7,7 @@ author: nitinme
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: ec586ecd-1b42-459e-b600-fadbb7b80a9b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
@@ -67,48 +68,25 @@ Your application can directly provide user credentials to Azure AD. This method 
 * Set delegated permissions
 
 
-## Step 1: Create an Active Directory native application
+### End-user authentication for account management
 
-Create and configure an Azure AD native application for end-user authentication with Azure Data Lake Store using Azure Active Directory. For instructions, see [Create an Azure AD application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Use this to authenticate with Azure AD for account management operations (create/delete Data Lake Store account, etc.). You must provide username and password for an Azure AD user. Note that the user should not be configured for multi-factor authentication.
 
-While following the instructions at the above link, make sure you select **Native** for application type, as shown in the screenshot below.
+    user = input('Enter the user to authenticate with that has permission to subscription: ')
+	password = getpass.getpass()
 
-![Create web app](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "Create native app")
+	credentials = UserPassCredentials(user, password)
 
-## Step 2: Get application id and redirect URI
+### End-user authentication for filesystem operations
 
-See [Get the application ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) to retrieve the application id (also called the client ID in the Azure classic portal) of the Azure AD native application.
+Use this to authenticate with Azure AD for filesystem operations (create folder, upload file, etc.). Use this with an existing Azure AD **native client** application. The Azure AD user you provide credentials for should not be configured for multi-factor authentication.
 
-To retrieve the redirect URI, follow the steps below.
+	tenant_id = 'FILL-IN-HERE'
+	client_id = 'FILL-IN-HERE'
+	user = input('Enter the user to authenticate with that has permission to subscription: ')
+	password = getpass.getpass()
 
-1. From the Azure Portal, select **Azure Active Directory**, click **App registrations**, and then find and click the Azure AD native application that you just created.
-
-2. From the **Settings** blade for the application, click **Redirect URIs**.
-
-	![Get Redirect URI](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-redirect-uri.png)
-
-3. Copy the value displayed.
-
-
-## Step 3: Set permissions
-
-1. From the Azure Portal, select **Azure Active Directory**, click **App registrations**, and then find and click the Azure AD native application that you just created.
-
-2. From the **Settings** blade for the application, click **Required permissions**, and then click **Add**.
-
-	![client id](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
-
-3. In the **Add API Access** blade, click **Select an API**, click **Azure Data Lake**, and then click **Select**.
-
-	![client id](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
- 
-4.  In the **Add API Access** blade, click **Select permissions**, select the check box to give **Full access to Data Lake Store**, and then click **Select**.
-
-	![client id](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
-
-	Click **Done**.
-
-5. Repeat the last two steps to grant permissions for **Windows Azure Service Management API** as well.
+	token = lib.auth(tenant_id, user, password, client_id)
    
 ## Next steps
 In this article you created an Azure AD native application and gathered the information you need in your client applications that you author using .NET SDK, Java SDK, REST API, etc. You can now proceed to the following articles that talk about how to use the Azure AD web application to first authenticate with Data Lake Store and then perform other operations on the store.

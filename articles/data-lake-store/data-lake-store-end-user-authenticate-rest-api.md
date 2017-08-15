@@ -7,6 +7,7 @@ author: nitinme
 manager: jhubbard
 editor: cgronlun
 
+ms.assetid: ec586ecd-1b42-459e-b600-fadbb7b80a9b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
@@ -48,67 +49,46 @@ This is the recommended approach if you want an end-user to log in to your appli
 
 The result of having the end-user log in is that your application is given an access token and a refresh token. The access token gets attached to each request made to Data Lake Store or Data Lake Analytics, and it is valid for one hour by default. The refresh token can be used to obtain a new access token, and it is valid for up to two weeks by default, if used regularly. You can use two different approaches for end-user log in.
 
-### Using the OAuth 2.0 pop-up
-Your application can trigger an OAuth 2.0 authorization pop-up, in which the end-user can enter their credentials. This pop-up also works with the Azure AD Two-factor Authentication (2FA) process, if required. 
+### End-user authentication (interactive)
+In this scenario, the application prompts the user to log in and all the operations are performed in the context of the user. Perform the following steps for interactive authentication.
 
-> [!NOTE]
-> This method is not yet supported in the Azure AD Authentication Library (ADAL) for Python or Java.
-> 
-> 
+1. Through your application, redirect the user to the following URL:
+   
+        https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
+   
+   > [!NOTE]
+   > \<REDIRECT-URI> needs to be encoded for use in a URL. So, for https://localhost, use `https%3A%2F%2Flocalhost`)
+   > 
+   > 
+   
+    For the purpose of this tutorial, you can replace the placeholder values in the URL above and paste it in a web browser's address bar. You will be redirected to authenticate using your Azure login. Once you successfully log in, the response is displayed in the browser's address bar. The response will be in the following format:
+   
+        http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>
+2. Capture the authorization code from the response. For this tutorial, you can copy the authorization code from the address bar of the web browser and pass it in the POST request to the token endpoint, as shown below:
+   
+        curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token \
+        -F redirect_uri=<REDIRECT-URI> \
+        -F grant_type=authorization_code \
+        -F resource=https://management.core.windows.net/ \
+        -F client_id=<APPLICATION-ID> \
+        -F code=<AUTHORIZATION-CODE>
+   
+   > [!NOTE]
+   > In this case, the \<REDIRECT-URI> need not be encoded.
+   > 
+   > 
+3. The response is a JSON object that contains an access token (e.g., `"access_token": "<ACCESS_TOKEN>"`) and a refresh token (e.g., `"refresh_token": "<REFRESH_TOKEN>"`). Your application uses the access token when accessing Azure Data Lake Store and the refresh token to get another access token when an access token expires.
+   
+        {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":    "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
+4. When the access token expires, you can request a new access token using the refresh token, as shown below:
+   
+        curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
+             -F grant_type=refresh_token \
+             -F resource=https://management.core.windows.net/ \
+             -F client_id=<APPLICATION-ID> \
+             -F refresh_token=<REFRESH-TOKEN>
 
-### Directly passing in user credentials
-Your application can directly provide user credentials to Azure AD. This method only works with organizational ID user accounts; it is not compatible with personal / “live ID” user accounts, including those ending in @outlook.com or @live.com. Furthermore, this method is not compatible with user accounts that require Azure AD Two-factor Authentication (2FA).
-
-### What do I need to use this approach?
-* Azure AD domain name. This is already listed in the prerequisite of this article.
-* Azure AD **native application**
-* Application ID for the Azure AD native application
-* Redirect URI for the Azure AD native application
-* Set delegated permissions
-
-
-## Step 1: Create an Active Directory native application
-
-Create and configure an Azure AD native application for end-user authentication with Azure Data Lake Store using Azure Active Directory. For instructions, see [Create an Azure AD application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
-
-While following the instructions at the above link, make sure you select **Native** for application type, as shown in the screenshot below.
-
-![Create web app](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "Create native app")
-
-## Step 2: Get application id and redirect URI
-
-See [Get the application ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) to retrieve the application id (also called the client ID in the Azure classic portal) of the Azure AD native application.
-
-To retrieve the redirect URI, follow the steps below.
-
-1. From the Azure Portal, select **Azure Active Directory**, click **App registrations**, and then find and click the Azure AD native application that you just created.
-
-2. From the **Settings** blade for the application, click **Redirect URIs**.
-
-	![Get Redirect URI](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-redirect-uri.png)
-
-3. Copy the value displayed.
-
-
-## Step 3: Set permissions
-
-1. From the Azure Portal, select **Azure Active Directory**, click **App registrations**, and then find and click the Azure AD native application that you just created.
-
-2. From the **Settings** blade for the application, click **Required permissions**, and then click **Add**.
-
-	![client id](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
-
-3. In the **Add API Access** blade, click **Select an API**, click **Azure Data Lake**, and then click **Select**.
-
-	![client id](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
- 
-4.  In the **Add API Access** blade, click **Select permissions**, select the check box to give **Full access to Data Lake Store**, and then click **Select**.
-
-	![client id](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
-
-	Click **Done**.
-
-5. Repeat the last two steps to grant permissions for **Windows Azure Service Management API** as well.
+For more information on interactive user authentication, see [Authorization code grant flow](https://msdn.microsoft.com/library/azure/dn645542.aspx).
    
 ## Next steps
 In this article you created an Azure AD native application and gathered the information you need in your client applications that you author using .NET SDK, Java SDK, REST API, etc. You can now proceed to the following articles that talk about how to use the Azure AD web application to first authenticate with Data Lake Store and then perform other operations on the store.

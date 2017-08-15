@@ -7,15 +7,11 @@
 # Get started
 ## [Using Portal](data-lake-store-get-started-portal.md)
 ## [Using PowerShell](data-lake-store-get-started-powershell.md)
-## [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-## [Using Java SDK](data-lake-store-get-started-java-sdk.md)
-## [Using REST API](data-lake-store-get-started-rest-api.md)
 ## [Using Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-## [Using Node.js](data-lake-store-manage-use-nodejs.md)
-## [Using Python](data-lake-store-get-started-python.md)
+
 
 # How to
-## Copy Data
+## Copy data to Data Lake Store
 ### [Using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
@@ -23,13 +19,36 @@
 ### [Upload data from offline sources](data-lake-store-offline-bulk-data-upload.md)
 ### [Migrate Azure Data Lake Store across regions](data-lake-store-migration-cross-region.md)
 
-## Secure Data
+## Secure data
 ### [Security overview](data-lake-store-security-overview.md)
 ### [Access control in Data Lake Store](data-lake-store-access-control.md)
 ### [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-### [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md)
-### [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
 ### [Encryption](data-lake-store-encryption.md)
+
+## Authenticate with Data Lake Store
+### [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
+#### [Using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
+#### [Using REST API](data-lake-store-end-user-authenticate-rest-api.md)
+#### [Using Python](data-lake-store-end-user-authenticate-python.md)
+### [Service-to-service authentication](data-lake-store-service-to-service-authenticate-using-active-directory.md)
+#### [Using Java](data-lake-store-service-to-service-authenticate-java.md)
+#### [Using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
+#### [Using REST API](data-lake-store-service-to-service-authenticate-rest-api.md)
+#### [Using Python](data-lake-store-service-to-service-authenticate-python.md)
+### [Multi-factor authentication](data-lake-store-multi-factor-authenticate-using-active-directory.md)
+#### [Using Python](data-lake-store-multi-factor-authenticate-python.md)
+
+## Work with Data Lake Store
+### Account manangement operations
+## [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+## [Using Java SDK](data-lake-store-get-started-java-sdk.md)
+## [Using REST API](data-lake-store-get-started-rest-api.md)
+## [Using Python](data-lake-store-get-started-python.md)
+### Data management operations
+## [Using .NET SDK](data-lake-store-data-operations-net-sdk.md)
+## [Using Java SDK](data-lake-store-data-operations-java-sdk.md)
+## [Using REST API](data-lake-store-data-operations-rest-api.md)
+## [Using Python](data-lake-store-data-operations-python.md)
 
 ## Performance
 ### [Performance tuning guidance for Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
