@@ -6,7 +6,7 @@
     href: ../storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: FAQ
     href: storage-files-faq.md
-- name: Get started
+- name: Get started - Files
   items:
   - name: Create a storage account
     href: ../storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -20,7 +20,7 @@
     href: storage-how-to-use-files-linux.md
   - name: Mount on Mac
     href: storage-how-to-use-files-mac.md
-- name: How To  
+- name: How To - Files
   items:
   - name: Developing with Azure File storage
     items:
@@ -44,5 +44,5 @@
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
 
 #include file for the articles that apply to >1 service
-- name: Common
+- name: Articles that apply to multiple services
   href: ../common/toc.yml

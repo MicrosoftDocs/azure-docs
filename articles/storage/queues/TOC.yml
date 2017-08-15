@@ -2,7 +2,7 @@
   items:
   - name: Introduction to Queues
     href: storage-queues-introduction.md
-- name: Get Started
+- name: Get Started - Queues
   items:
   - name: Create a storage account
     href: ../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
@@ -22,10 +22,10 @@
       href: storage-python-how-to-use-queue-storage.md
     - name: Ruby
       href: storage-ruby-how-to-use-queue-storage.md
-- name: How To
+- name: How To - Queues
   items:
   - name: Samples
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=queue
 #include file for the articles that apply to >1 service
-- name: Common
+- name: Articles that apply to multiple services
   href: ../common/toc.yml
