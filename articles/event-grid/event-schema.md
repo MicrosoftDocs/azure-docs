@@ -13,41 +13,35 @@ ms.author: babanisa
 
 # Event Grid event schema
 
-This article provides the properties and schema for events. The **data** object contains properties that are specific to each resource provider.
+This article provides the properties and schema for events. Events consist of a set of five required string properties and a required **data** object. The properties are common to all events from any publisher. The **data** object contains properties that are specific to each publisher. In the case of Azure topics, these will be specific to the resource provider such as Storage or Event Hubs.
 
-The array can contain multiple events objects.  
+Events are sent to Azure Event Grid in an array which can contain multiple event objects. If there is only a single event it is an array of length 1. 
  
 ## Event properties
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| topic | string | Full resource path to the event source. |
+| topic | string | Full resource path to the event source. This field is not writeable. |
 | subject | string | Publisher defined path to the event subject. |
 | eventType | string | One of the registered event types for this event source. |
 | eventTime | string | The time the event is generated based on the provider's UTC time. |
 | id | string | Unique identifier for the event. |
 | data | object | Event data specific to the resource provider. |
 
+When publishing events to custom topics you should consider modeling the subject of your events to aid in routing and filtering.
 
 ## Example event schema
+
+This sample event shows the schema of a storage event raised when a blob is created. 
 
 ```json
 [
   {
     "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount",
     "subject": "/blobServices/default/containers/oc2d2817345i200097container/blobs/oc2d2817345i20002296blob",
-    "eventType": "blobCreated",
+    "eventType": "Microsoft.Storage.BlobCreated",
     "eventTime": "2017-06-26T18:41:00.9584103Z",
     "id": "831e1650-001e-001b-66ab-eeb76e069631",
-
-    // event version (under consideration), controls the A-Schema
-    // "eventVersion": "1.0"
-    // Questions: Should this be a http header? Do we need this to be different from HTTP Rest API version?
-
-    // data version (under consideration), version for B-Schema
-    // "dataVersion": "1.0"
-
-    // 
     "data": {
       "api": "PutBlockList",
       "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
@@ -65,6 +59,24 @@ The array can contain multiple events objects. 
   }
 ]
 ```
+
+The following is an example of an event for a custom topic.
+````json
+[
+  {
+    "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.EventGrid/topics/myeventgridtopic",
+    "subject": "/myapp/vehicles/motorcycles",    
+    "id": "b68529f3-68cd-4744-baa4-3c0498ec19e2",
+    "eventType": "recordInserted",
+    "eventTime": "2017-06-26T18:41:00.9584103Z",
+    "data":{
+      "make": "Ducati",
+      "model": "Monster"
+    }
+  }
+]
+
+````
 
 ## Next steps
 

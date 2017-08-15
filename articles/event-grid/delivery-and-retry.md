@@ -47,13 +47,12 @@ Any other response code or a lack of a response indicates a failure. Event Grid 
 
 Event Grid uses an exponential backoff retry policy for event delivery. If your webhook does not respond or returns a failure code, Event Grid retries delivery on the following schedule:
 
-1. Immediately
-2. 10 seconds
-3. 30 seconds
-4. One minute
-5. Five minutes
-6. 30 minutes
-7. One hour
+1. 10 seconds
+2. 30 seconds
+3. One minute
+4. Five minutes
+5. 30 minutes
+6. One hour
 
 Event Grid adds a small randomization to all retry intervals.
 
