@@ -262,7 +262,7 @@ The following table lists the HTTP status codes that the token issuance endpoint
 | invalid_client |Client authentication failed. |The client credentials are not valid. To fix, the application administrator updates the credentials. |
 | unsupported_grant_type |The authorization server does not support the authorization grant type. |Change the grant type in the request. This type of error should occur only during development and be detected during initial testing. |
 | invalid_resource |The target resource is invalid because it does not exist, Azure AD cannot find it, or it is not correctly configured. |This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
-| interaction_required |The request requires user interaction. For example, an additional authentication step is required. |Retry the request with the same resource. |
+| interaction_required |The request requires user interaction. For example, an additional authentication step is required. | Instead of a non-interactive request, retry with an interactive authorization request for the same resource. |
 | temporarily_unavailable |The server is temporarily too busy to handle the request. |Retry the request. The client application might explain to the user that its response is delayed due to a temporary condition. |
 
 ## Use the access token to access the resource

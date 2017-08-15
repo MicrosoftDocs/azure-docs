@@ -195,6 +195,8 @@
         href: azure-stack-kv-manage-portal.md
       - name: Manage with PowerShell
         href: azure-stack-kv-manage-powershell.md
+      - name: Create a VM with a secret
+        href: azure-stack-kv-deploy-vm-with-secret.md
       - name: Create a VM with a certificate
         href: azure-stack-kv-push-secret-into-vm.md
       - name: Key Vault sample app

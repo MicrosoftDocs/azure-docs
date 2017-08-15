@@ -8,6 +8,8 @@
 
 # Get started
 ## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
+## [Add a custom domain name](add-custom-domain.md)
+## [Configure company branding](customize-branding.md)
 ## [Configure Self-service password reset](active-directory-passwords-getting-started.md)
 ## Manage Azure AD licensing
 ### [Azure portal](active-directory-licensing-get-started-azure-portal.md)
@@ -53,7 +55,6 @@
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 #### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
-
 ### [Add users from other directories (classic portal)](active-directory-create-users-external.md)
 ### [Delete users](active-directory-users-delete-user-azure-portal.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
@@ -142,6 +143,7 @@
 
 
 ## Manage devices
+### [Introduction](device-management-introduction.md)
 ### [Register devices](active-directory-device-registration-overview.md)
 #### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
@@ -238,18 +240,9 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Custom domain names
 #### [Overview](active-directory-add-domain-concepts.md)
-#### Add your domain name
-##### [Azure portal](active-directory-domains-add-azure-portal.md)
-##### [Classic portal](active-directory-add-domain.md)
-##### [With AD FS](active-directory-add-domain-federated.md)
-#### [Assign users](active-directory-add-domain-add-users.md)
 #### Manage domain names
 ##### [Azure portal](active-directory-domains-manage-azure-portal.md)
 ##### [Classic portal](active-directory-add-manage-domain-names.md)
-### Customize the sign-in page
-#### [Azure portal](active-directory-branding-custom-signon-azure-portal.md)
-#### [Language-specific](active-directory-branding-localize-azure-portal.md)
-#### [Classic portal](active-directory-add-company-branding.md)
 ### [Administer your directory](active-directory-administer.md)
 ### [Multiple directories](active-directory-licensing-directory-independence.md)
 ### [O365 directories](active-directory-manage-o365-subscription.md)
@@ -269,6 +262,7 @@
 #### [Self-service sign-up portal sample](active-directory-b2b-self-service-portal.md)
 #### [Invitation email](active-directory-b2b-invitation-email.md)
 #### [Invitation redemption](active-directory-b2b-redemption-experience.md)
+#### [Add B2B users without an invitation](active-directory-b2b-add-user-without-invite.md)
 #### [Conditional access for B2B](active-directory-b2b-mfa-instructions.md)
 #### [B2B sharing policies](active-directory-b2b-delegate-invitations.md)
 #### [Add a B2B user to a role](active-directory-b2b-add-guest-to-role.md)
