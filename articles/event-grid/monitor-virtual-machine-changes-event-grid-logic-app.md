@@ -151,8 +151,8 @@ Enter this expression:
 
    `@equals(triggerBody()?['data']['operationName'], 'Microsoft.Compute/virtualMachines/write')`
 
-   This expression checks an event's `body` for a `data` object 
-   and its `operationName` property for the 
+   This expression checks the event `body` for a 
+   `data` object whose `operationName` property is the 
    `Microsoft.Compute/virtualMachines/write` operation. 
    Learn more about [Event Grid event schema](../event-grid/event-schema.md).
 
