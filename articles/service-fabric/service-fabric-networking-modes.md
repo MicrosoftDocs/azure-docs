@@ -27,7 +27,7 @@ Using the dynamically assigned IP to discover services is not advisable since th
 
 
 > [!WARNING]
-> Only a total of 4096 IPs are allowed per vNET in Azure. Thus, the sum of the number of nodes and the number of container service instances (with `open` networking) cannot exceed 4096 within a vNET. For such high density scenarios,the `nat` networking mode is recommended.
+> Only a total of 4096 IPs are allowed per vNET in Azure. Thus, the sum of the number of nodes and the number of container service instances (with `open` networking) cannot exceed 4096 within a vNET. For such high-density scenarios, the `nat` networking mode is recommended.
 >
 
 ## Setting up open networking mode
@@ -289,14 +289,14 @@ Using the dynamically assigned IP to discover services is not advisable since th
               }
     ```
 
-3. For Windows cluster, set up an NSG rule opening up port UDP/53 for the vNET with the following values:
+3. For Windows clusters only, set up an NSG rule opening up port UDP/53 for the vNET with the following values:
 
-    |Priority  | Name      | Source         | Destination    | Service      | Action |
-    !:--------:|:---------:|:--------------:|:--------------:|:------------:|:------:|
-    |2000 	   |Custom_Dns | VirtualNetwork |	VirtualNetwork | DNS (UDP/53)	| Allow  |
+   | Priority |    Name    |    Source      |  Destination   |   Service    | Action |
+   |:--------:|:----------:|:--------------:|:--------------:|:------------:|:------:|
+   |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | Allow  |
 
 
-4. Specify the networking mode in the app manifest for each service `<NetworkConfig NetworkType="open">`.  The mode `open` results in the service getting a dedicated IP address. If a mode isn't specified, it defaults to the basic `nat` mode. Thus, in the following manifest example, `NodeContainerServicePackage1` and `NodeContainerServicePackage2`, can each listen to the same port (both services are listening on `Endpoint1`).
+4. Specify the networking mode in the app manifest for each service `<NetworkConfig NetworkType="open">`.  The mode `open` results in the service getting a dedicated IP address. If a mode isn't specified, it defaults to the basic `nat` mode. Thus, in the following manifest example, `NodeContainerServicePackage1` and `NodeContainerServicePackage2` can each listen to the same port (both services are listening on `Endpoint1`).
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
