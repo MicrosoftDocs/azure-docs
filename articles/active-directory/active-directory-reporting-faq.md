@@ -100,8 +100,3 @@ For more details, see [Azure Active Directory reporting](active-directory-report
 
 ---
 
-**Q: Why do I have *Users with leaked credentials* when I am sure that the credentials did not leak?**
-
-**A:**: In addition to credentials detected by researchers, [leaked credentials](active-directory-reporting-risk-events.md#risk-event-types) are also reported when unusual sign-in activities have been detected that represent known attack patterns. This means, indicators for unauthorized use of an account are also considered to be a result of leaked credentials.    
-
----
