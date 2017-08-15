@@ -33,11 +33,11 @@ sql-database-single-database-resources.md
 | --- |---:| ---:|---:|---:|---:|---:|
 | Max DTUs | 200 | 400 | 800 | 1600 | 3000 |
 | Storage included | 250 GB| 250 GB | 250 GB | 250 GB | 250 GB |
-| Storage max* | 250 GB| 250 GB | 250 GB | 1 TB |1 TB |
+| Storage max* | 1 TB| 1 TB | 1 TB | 1 TB |1 TB |
 | Max in-memory OLTP storage | N/A | N/A | N/A | N/A |N/A |
-| Max concurrent workers (requests)| 60 | 90 | 120 | 200 |200 |
-| Max concurrent logins | 60 | 90 | 120 | 200 |200 |
-| Max concurrent sessions |600 | 900 | 1200 | 2400 |2400 |
+| Max concurrent workers (requests)| 400 | 800 | 1600 | 3200 |6000 |
+| Max concurrent logins | 400 | 800 | 1600 | 3200 |6000 |
+| Max concurrent sessions |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
 ### Premium service tier 
