@@ -1,10 +1,10 @@
-﻿It’s important for you to keep your virtual machine (VM) secure for the applications that you run. It is also important to be able to monitor the health and actions of your VM to make sure that your applications run as efficiently as possible. This article provides information that enables you to keep your VM secure and to monitor many aspects of it.
+﻿It’s important for you to keep your virtual machine (VM) secure for the applications that you run. To make sure that your applications run as efficiently as possible, it is also important to be able to monitor the health and actions of your VM. This article provides information that enables you to keep your VM secure and to monitor many aspects of it.
 
 ## Secure your VM
 
 ### Antimalware
 
-The modern threat landscape for cloud environments is extremely dynamic, increasing the pressure to maintain effective protection in order to meet compliance and security requirements. [Microsoft Antimalware for Azure](../articles/security/azure-security-antimalware.md) is a free real-time protection capability that helps identify and remove viruses, spyware, and other malicious software, with configurable alerts when known malicious or unwanted software attempts to install itself or run on your VM.
+The modern threat landscape for cloud environments is dynamic, increasing the pressure to maintain effective protection in order to meet compliance and security requirements. [Microsoft Antimalware for Azure](../articles/security/azure-security-antimalware.md) is a free real-time protection capability that helps identify and remove viruses, spyware, and other malicious software. Alerts can be configured to notify you when known malicious or unwanted software attempts to install itself or run on your VM.
 
 ### Azure Security Center
 
@@ -22,7 +22,7 @@ Key vault access policies grant permissions to keys, secrets, and certificates s
 
 ![Create a key vault](./media/virtual-machines-security-monitoring/security-monitoring-key-vault.png)
 
-You can also use the [Azure CLI](https://docs.microsoft.com/cli/azure/keyvault), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0#key_vault), or the [Key Vaul REST APIs](https://docs.microsoft.com/rest/api/keyvault/).
+You can also use the [Azure CLI](https://docs.microsoft.com/cli/azure/keyvault), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0#key_vault), or the [Key Vault REST APIs](https://docs.microsoft.com/rest/api/keyvault/).
 
 When you connect to VMs, you should use public-key cryptography to provide a more secure way to log in to them. This process involves a public and private key exchange using the secure shell (SSH) command to authenticate yourself rather than a username and password. Passwords are vulnerable to brute-force attacks, especially on Internet-facing VMs such as web servers. With a secure shell (SSH) key pair, you can create [Windows VMs](../articles/virtual-machines/linux/ssh-from-windows.md) and [Linux VMs](../articles/virtual-machines/linux/mac-create-ssh-keys.md) that use SSH keys for authentication, eliminating the need for passwords to log in.
 
@@ -40,13 +40,13 @@ You can also use the [Azure CLI](https://docs.microsoft.com/cli/azure/role), [Az
 
 ## Monitor your VM
 
-You can take advantage of many opportunities to monitor your VMs by collecting, viewing, and analyzing diagnostic and log data. To do this, you can use the Azure portal, [Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md), [Application Insights](../articles/application-insights/app-insights-overview.md), [Log Analytics](../articles/log-analytics/log-analytics-overview.md), and [extensions](../articles/virtual-machines/windows/extensions-features.md).
+You can take advantage of many opportunities to monitor your VMs by collecting, viewing, and analyzing diagnostic and log data. To do monitor your VM, you can use the Azure portal, [Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md), [Application Insights](../articles/application-insights/app-insights-overview.md), [Log Analytics](../articles/log-analytics/log-analytics-overview.md), and [extensions](../articles/virtual-machines/windows/extensions-features.md).
 
 ### Diagnostics and metrics 
 
 You can set up and monitor the collection of [diagnostics data](https://docs.microsoft.com/cli/azure/vm/diagnostics) using [metrics](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md) in the Azure portal, the Azure CLI, Azure PowerShell, and programming Applications Programming Interfaces (APIs). For example, you can:
 
-- **Observe basic metrics for the VM.** On the Overview blade of the Azure portal, the basic metrics shown include CPU usage, network usage, total of disk bytes, and disk operations per second:
+- **Observe basic metrics for the VM.** On the Overview screen of the Azure portal, the basic metrics shown include CPU usage, network usage, total of disk bytes, and disk operations per second:
 
     ![View basic metrics](./media/virtual-machines-security-monitoring/security-monitoring-basic-metrics.png)
 
@@ -58,9 +58,9 @@ You can set up and monitor the collection of [diagnostics data](https://docs.mic
 
     If you didn’t enable boot diagnostics when the VM was created, you can always enable it later by using [Azure CLI](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmbootdiagnostics?view=azurermps-4.2.0), or [Azure Resource Manager template](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
 
-- **Enable the collection of guest OS diagnostics data.** When you create a VM, you have the opportunity on the settings bade to enable guest OS diagnostics. When you do this, the [IaaSDiagnostics extension for Linux](../articles/virtual-machines/linux/diagnostic-extension.md) or the [IaaSDiagnostics extension for Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) is added to the VM, which enables you to collect guest OS data in addition to Host OS data.
+- **Enable the collection of guest OS diagnostics data.** When you create a VM, you have the opportunity on the settings bade to enable guest OS diagnostics. When you do enable the collection of diagnostics data, the [IaaSDiagnostics extension for Linux](../articles/virtual-machines/linux/diagnostic-extension.md) or the [IaaSDiagnostics extension for Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) is added to the VM, which enables you to collect guest OS data in addition to Host OS data.
 
-    On the Metrics blade in the Azure portal, when guest OS diagnostics data collection is not enabled, you only see opportunites to view Host data:
+    On the Metrics screen in the Azure portal, when guest OS diagnostics data collection is not enabled, you only see opportunities to view Host data:
 
     ![Host metrics](./media/virtual-machines-security-monitoring/security-monitoring-host-diagnostics.png)
 
@@ -72,7 +72,7 @@ You can set up and monitor the collection of [diagnostics data](https://docs.mic
 
 You can create [alerts](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md) based on specific performance metrics. Alerts can be used to notify you when average CPU usage exceeds a certain threshold or available free disk space drops below a certain amount, for example. Alerts are displayed in the Azure portal or can be sent via email:
 
-![Create an alert](./media/virtual-machines/security-monitoring/security-monitoring-alerts.png)
+![Create an alert](./media/virtual-machines-security-monitoring/security-monitoring-alerts.png)
 
 ### Azure Service Health
 
@@ -84,7 +84,7 @@ You can create [alerts](../articles/monitoring-and-diagnostics/monitoring-overvi
 
 ### Logs
 
-The [Azure Activity Log](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md) is a subscription log that provides insight into subscription-level events that have occurred in Azure. This includes a range of data, from Azure Resource Manager operational data to updates on Service Health events. You can use the Azure portal to view the Activitivity log for your VM:
+The [Azure Activity Log](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md) is a subscription log that provides insight into subscription-level events that have occurred in Azure. The log includes a range of data, from Azure Resource Manager operational data to updates on Service Health events. You can use the Azure portal to view the Activity log for your VM:
 
 ![View activity log](./media/virtual-machines-security-monitoring/security-monitoring-activity-log.png)
 
@@ -97,7 +97,7 @@ Some of the things you can do with the activity log include:
 
 You can also access activity log data by using [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-4.2.0#monitor), the [Azure CLI\(https://docs.microsoft.com/cli/azure/monitor), or [Monitor REST APIs](https://docs.microsoft.com/rest/api/monitor/).
 
-[Azure Diagnostic Logs](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) are logs emitted by your VM that provide rich, frequent data about its operation. Diagnostic logs differ from the activity log by providing insight into operations that were performed within that VM itself.
+[Azure Diagnostic Logs](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) are logs emitted by your VM that provide rich, frequent data about its operation. Diagnostic logs differ from the activity log by providing insight about operations that were performed within the VM.
 
 Some of the things you can do with diagnostics logs include:
 
