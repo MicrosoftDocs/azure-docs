@@ -35,7 +35,7 @@ Before you begin this tutorial:
 - Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md)
 - Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 
-The following procedure creates a single-node (single virtual machine) preview Service Fabric cluster, secured by a self-signed certificate that is created along with the cluster and then placed in a key vault. Single-node clusters cannot be scaled beyond one virtual machine and preview clusters cannot be upgraded to newer versions.
+The following procedure creates a single-node (single virtual machine) preview Service Fabric cluster. The cluster is secured by a self-signed certificate that gets created along with the cluster and then placed in a key vault. Single-node clusters cannot be scaled beyond one virtual machine and preview clusters cannot be upgraded to newer versions.
 
 To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 For more information on creating Service Fabric clusters, see [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
@@ -52,7 +52,7 @@ For more information on creating Service Fabric clusters, see [Create a Service 
    | adminUserName   | The local admin account on the cluster virtual machines. | *Any valid Windows Server username* |
    | adminPassword   | Password of the local admin account on the cluster virtual machines. | *Any valid Windows Server password* |
    | clusterCodeVersion | The Service Fabric version to run. (255.255.X.255 are preview versions). | **255.255.5718.255** |
-   | vmInstanceCount | The number of virtual machines in your cluster (can be 1 or 3-99). | **1** | *For a preview cluster specify only 1 virtual machine* |
+   | vmInstanceCount | The number of virtual machines in your cluster (can be 1 or 3-99). | **1** | *For a preview cluster specify only one virtual machine* |
 
 3. Open a PowerShell console, login to Azure, and select the subscription you want to deploy the cluster in:
 
@@ -80,9 +80,9 @@ For more information on creating Service Fabric clusters, see [Create a Service 
    >[!NOTE]
    >The `-CertificateSubjectName` parameter should align with the clusterName parameter specified in the parameters file, as well as the domain tied to the Azure region you chose, such as: `clustername.eastus.cloudapp.azure.com`.
 
-Once the configuration finishes, it will output information about the cluster created in Azure, as well as copy the cluster certificate to the -CertificateOutputFolder directory on the path you specified for this parameter. You will need this certificate to access Service Fabric Explorer to view the health of your cluster.
+Once the configuration finishes, it outputs information about the cluster created in Azure. It also copies the cluster certificate to the -CertificateOutputFolder directory on the path you specified for this parameter. You need this certificate to access Service Fabric Explorer and view the health of your cluster.
 
-Take note of the URL for your cluster, which will be similar to the following: *https://mycluster.westeurope.cloudapp.azure.com:19080*
+Take note of the URL for your cluster, which may be similar to the following URL: *https://mycluster.westeurope.cloudapp.azure.com:19080*
 
 ## Modify the certificate & access Service Fabric Explorer ##
 
