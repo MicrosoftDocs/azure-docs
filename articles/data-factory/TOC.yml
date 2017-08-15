@@ -139,6 +139,7 @@
       - name: Incremental copy
         href: copy-activity-incremental-copy.md
   - name: Transform data
+    href: data-transformation-activities.md
     items: 
     - name: HdInsight Hive Activity
       href: hive-activity.md

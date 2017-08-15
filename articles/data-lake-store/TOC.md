@@ -16,7 +16,7 @@
 
 # How to
 ## Copy Data
-### [Using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Using Azure Data Factory](../data-factory/azure-datalake-connector.md)
 ### [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Using Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
