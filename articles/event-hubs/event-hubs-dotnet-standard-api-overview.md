@@ -26,10 +26,10 @@ This article summarizes some of the key Event Hubs .NET Standard client APIs. Th
   * This library adds additional functionality that allows for keeping track of processed events, and is the easiest way to read from an event hub.
 
 ## Event Hub client
-[**EventHubClient**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) is the primary object you use to send events, create receivers, and to get run-time information. This client is linked to a particular event hub, and creates a new connection to the Event Hubs endpoint.
+[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) is the primary object you use to send events, create receivers, and to get run-time information. This client is linked to a particular event hub, and creates a new connection to the Event Hubs endpoint.
 
 ### Create an event hub client
-An [**EventHubClient**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) object is created from a connection string. The simplest way to instantiate a new client is shown in the following example:
+An [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) object is created from a connection string. The simplest way to instantiate a new client is shown in the following example:
 
 ```csharp
 var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hub connection string}");
