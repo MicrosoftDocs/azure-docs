@@ -289,7 +289,7 @@ Using the dynamically assigned IP to discover services is not advisable since th
               }
     ```
 
-3. For Windows cluster, set up an NSG rule opening up port UDP/53 for the vNET with the following values:
+3. For Windows clusters only, set up an NSG rule opening up port UDP/53 for the vNET with the following values:
 
    | Priority |    Name    |    Source      |  Destination   |   Service    | Action |
    |:--------:|:----------:|:--------------:|:--------------:|:------------:|:------:|
