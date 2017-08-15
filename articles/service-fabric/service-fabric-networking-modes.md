@@ -19,7 +19,7 @@ ms.author: subramar
 ---
 # Service Fabric container networking modes
 
-The default networking mode offered in the Service Fabric cluster for container services is the `nat` networking mode. With the `nat` networking mode, having more than one containers service listening to the same port results in deployment errors. For running several services that listen on the same port, Service Fabric supports the `open` networking mode (version 5.7 or higher). With the `open` networking mode, each container service gets a dynamically assigned IP address internall hiii w  y allowing multiple services to listen to the same port.   
+The default networking mode offered in the Service Fabric cluster for container services is the `nat` networking mode. With the `nat` networking mode, having more than one containers service listening to the same port results in deployment errors. For running several services that listen on the same port, Service Fabric supports the `open` networking mode (version 5.7 or higher). With the `open` networking mode, each container service gets a dynamically assigned IP address internally allowing multiple services to listen to the same port.   
 
 Thus, with a single service type with a static endpoint defined in the service manifest, new services may be created and deleted without deployment errors using the `open` networking mode. Similarly, one can use the same `docker-compose.yml` file with static port mappings for creating multiple services.
 
