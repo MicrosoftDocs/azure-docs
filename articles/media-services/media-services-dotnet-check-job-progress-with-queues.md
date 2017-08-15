@@ -18,9 +18,7 @@ ms.author: juliako
 
 ---
 # Use Azure Queue storage to monitor Media Services job notifications with .NET
-When you run jobs, you often require a way to track job progress. You can check the progress by using Azure Queue storage to monitor Azure Media Services job notifications (as described in this article). You can also define a **StateChanged** event handler, as described in [Monitor job progress using .NET](media-services-check-job-progress.md).  
-
-When processing media jobs, Media Services can deliver notifications to [Queue storage](../storage/storage-dotnet-how-to-use-queues.md). This topic shows how to get these notification messages from Queue storage.
+When you run jobs, you often require a way to track job progress. Media Services can deliver notifications to [Queue storage](../storage/storage-dotnet-how-to-use-queues.md) and you can check the progress by using Azure Queue storage to monitor Azure Media Services job notifications. You can also define a **StateChanged** event handler, as described in [Monitor job progress using .NET](media-services-check-job-progress.md). This topic shows how to get notification messages from Queue storage.
 
 Messages delivered to Queue storage can be accessed from anywhere in the world. The Queue storage messaging architecture is reliable and highly scalable. Polling Queue storage for messages is recommended over using other methods.
 
@@ -34,7 +32,8 @@ Consider the following when developing Media Services applications that use Queu
 * You can have any number of queues. For more information, see [Queue Service REST API](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API).
 * Queue storage has some limitations and specifics to be aware of. These are described in [Azure Queues and Azure Service Bus Queues Compared and Contrasted](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
-## Code example
+## .NET code example
+
 The code example in this section does the following:
 
 1. Defines the **EncodingJobMessage** class that maps to the notification message format. The code deserializes messages received from the queue into objects of the **EncodingJobMessage** type.
@@ -60,6 +59,8 @@ The code example in this section does the following:
 
 1. Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
 2. Create a new folder (folder can be anywhere on your local drive) and copy an .mp4 file that you want to encode and stream or progressively download. In this example, the "C:\Media" path is used.
+
+### Code
 
 ```
 using System;
