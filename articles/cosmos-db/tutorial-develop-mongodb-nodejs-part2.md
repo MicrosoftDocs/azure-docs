@@ -122,6 +122,7 @@ This tutorial also requires:
      res.send(200, [
          {"id": 10, "name": "Starlord", "saying": "oh yeah"}
      ])
+    });
 
     module.exports=router;
     ```
@@ -142,15 +143,8 @@ This tutorial also requires:
 
 2. Click the Send button and get the json response from the app. This shows the app is up and running. 
 
-    ```json
-    [
-        {
-            "id": 10,
-            "name": "Starlord",
-            "saying": "oh yeah"
-        }
-    ]
-    ```
+    ![Postman showing the request and the response](./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png)
+
 
 ## Next steps
 
