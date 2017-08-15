@@ -26,7 +26,7 @@ This includes information such as SKU, network configuration, and upcoming maint
 Azure's Instance Metadata Service is a REST Endpoint accessible to all IaaS VMs created via the [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). 
 The endpoint is available at a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.
 
-[!IMPORTANT]
+> [!IMPORTANT]
 > This service is  **generally available** in Global Azure Regions. It is in Public preview for Government, China, and German Azure Cloud. It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [data categories](#instance-metadata-data-categories) available.
 
 ## Service availability

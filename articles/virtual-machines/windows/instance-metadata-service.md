@@ -28,8 +28,10 @@ The endpoint is available at a well-known non-routable IP address (`169.254.169.
 
 
 
-[!IMPORTANT]
+> [!IMPORTANT]
 > This service is  **generally available** in Global Azure Regions. It is in Public preview for Government, China, and German Azure Cloud. It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [data categories](#instance-metadata-data-categories) available.
+
+
 
 ## Service Availability
 The service is available in all generally available Global Azure regions. The service is in public preview  in the Government, China, or Germany regions.
