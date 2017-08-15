@@ -1,6 +1,6 @@
 ﻿---
-title: Azure PowerShell Script Sample - Remove application from a cluster| Microsoft Docs
-description: Azure PowerShell Script Sample - Remove an application from a Service Fabric cluster.
+title: Azure PowerShell Script Sample - Open application port in load balancer| Microsoft Docs
+description: Azure PowerShell Script Sample - Open a port in the Azure load balancer for a Service Fabric application.
 services: service-fabric
 documentationcenter: 
 author: rwike77
@@ -13,20 +13,20 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 08/15/2017
 ms.author: ryanwi
 ms.custom: mvc
 ---
 
-# Remove an application from a Service Fabric cluster
+# Open an application port in the Azure load balancer
 
-This sample script deletes a running Service Fabric application instance, unregisters an application type and version from the cluster, and deletes the application package from the cluster image store.  Deleting the application instance also deletes all the running service instances associated with that application. Customize the parameters as needed. 
+This sample script opens a port in an Azure load balancer so that a Service Fabric application can communicate with clients. Customize the parameters as needed. 
 
 If needed, install the Service Fabric PowerShell module with the [Service Fabric SDK](../service-fabric-get-started.md). 
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/service-fabric/remove-application/remove-application.ps1 "Remove an application from a cluster")]
+[!code-powershell[main](../../../powershell_scripts/service-fabric/open-port-in-load-balancer/open-port-in-load-balancer.ps1 "Open a port in the load balancer")]
 
 ## Script explanation
 
@@ -40,6 +40,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Service Fabric PowerShell module, see [Azure PowerShell documentation](/powershell/azure/service-fabric/?view=azureservicefabricps).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
 
 Additional Powershell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).
