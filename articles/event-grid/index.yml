@@ -44,4 +44,4 @@ sections:
     - title: REST APIs
       html: <p><a href="/rest/api/eventgrid">REST</a></p>  
     - title: Schemas
-      html: <p><a href="/azure/event-grid/publisher-registration-schema">Publisher Schema</a></p><p><a href="/azure/event-grid/subscription-creation-schema ">Subscription Schema</a></p><p><a href="/azure/event-grid/event-schema">Event Schema</a></p>
+      html: <p><a href="/azure/event-grid/subscription-creation-schema ">Subscription Schema</a></p><p><a href="/azure/event-grid/event-schema">Event Schema</a></p>

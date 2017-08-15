@@ -24,8 +24,6 @@
   items:
   - name: REST
     href: /rest/api/eventgrid
-  - name: Publisher schema
-    href: publisher-registration-schema.md
   - name: Subscription schema
     href: subscription-creation-schema.md
   - name: Event schema
