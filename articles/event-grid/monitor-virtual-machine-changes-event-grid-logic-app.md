@@ -54,6 +54,13 @@ you [don't need to do anything else](../event-grid/overview.md).
 such as Office 365 Outlook, Outlook.com, or Gmail. 
 This tutorial uses an Office 365 Outlook email account.
 
+> [!IMPORTANT]
+> This tutorial creates and uses resources that 
+> incurs charges on your Azure subscription. 
+> When you're done with the tutorial, 
+> make sure that you disable or delete any resources 
+> where you don't want to incur charges.
+
 ## Create a logic app that monitors events through an event grid
 
 First, create a logic app that has an Event grid trigger, 
