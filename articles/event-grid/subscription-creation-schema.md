@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 07/07/2017
+ms.date: 08/15/2017
 ms.author: babanisa
 ---
 
@@ -75,4 +75,3 @@ The article describes the properties and schema for the body of the request.
 ## Next steps
 
 * For an introduction to Event Grid, see [What is Event Grid?](overview.md)
-* To see the available event types, see [Event Grid publisher schema](publisher-registration-schema.md).
