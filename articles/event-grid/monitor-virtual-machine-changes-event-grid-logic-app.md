@@ -1,6 +1,6 @@
 ---
-title: Monitor changes to virtual machines - Azure Event Grid & Logic Apps | Microsoft Docs
-description: Check for virtual machine config changes with Azure event grids and logic apps
+title: Monitor virtual machine changes - Azure Event Grid & Logic Apps | Microsoft Docs
+description: Check for config changes in virtual machines by using Azure event grids and logic apps
 keywords: logic app, events, trigger, event grid, virtual machine
 services: logic-apps
 author: ecfan
@@ -14,7 +14,7 @@ ms.date: 08/16/2017
 ms.author: LADocs; estfan
 ---
 
-# Monitor changes to virtual machines with event grids and logic apps
+# Monitor virtual machine changes with event grids and logic apps
 
 You can start an automated [logic app workflow](../logic-apps/logic-apps-what-are-logic-apps.md) 
 when specific events happen in Azure resources or third-party resources. 
@@ -34,7 +34,8 @@ from publisher to subscriber:
 This tutorial shows how you can create a logic app so you can monitor 
 changes to a virtual machine and get emails about those changes. 
 When a logic app has an event subscription for an Azure resource, 
-events flow through an event grid from that resource to the logic app.
+events flow from that resource through an event grid to the logic app. 
+Here's the logic app that you can build with this tutorial:
 
 ![Overview - monitor virtual machine with event grid and logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
 
@@ -44,7 +45,8 @@ For this tutorial, you need:
 
 * A Windows virtual machine. 
 [Learn how to create a virtual machine through the Azure portal](../virtual-machines/windows/quick-create-portal.md). 
-You [don't need to do anything else to make an Azure resource publish events](../event-grid/overview.md).
+To make the virtual machine publish events, 
+you [don't need to do anything else](../event-grid/overview.md).
 
 * An email account with 
 [any email provider that's supported by Azure Logic Apps](../connectors/apis-list.md), 
@@ -52,10 +54,8 @@ like Office 365 Outlook, Outlook.com, or Gmail
 
 ## Create a logic app that listens to events through an event grid
 
-First, create a logic app that monitors events in the resource group for your virtual machine. 
-When these events happen, the resource group publishes those events to an event grid, 
-which pushes those events to your logic app. If those events are changes to your virtual machine, 
-your logic app sends you email that your virtual machine was updated. 
+First, create a logic app that has an Event grid trigger, 
+and set up that trigger so you can monitor the resource group for your virtual machine. 
 
 1. In the [Azure portal](https://portal.azure.com), from the main Azure menu, 
 choose **New** > **Enterprise Integration** > **Logic App** as shown:
@@ -83,7 +83,7 @@ choose **New** > **Enterprise Integration** > **Logic App** as shown:
       > Otherwise, you can manually find and open your logic app.
 
 3. Now choose a logic app template. 
-Under **Templates**, choose **Blank Logic App**, 
+Under **Templates**, choose **Blank Logic App** 
 so you can build your logic app from scratch.
 
    The Logic Apps Designer shows you [*connectors*](../connectors/apis-list.md) 
@@ -107,10 +107,10 @@ so that your logic app can receive events from the publisher resource:
    | **Subscription** | The publisher resource's Azure subscription. For this tutorial, select the Azure subscription used for your virtual machine. | 
    | **Resource Type** | The publisher's resource type. For this tutorial, select **Microsoft.Resources.resourceGroups** so that your logic app monitors only resource groups. |
    | **Resource Name** | The publisher resource's name. For this tutorial, select the name of the resource group for your virtual machine. |
-   | For optional settings, choose **Show advanced options**. | * **Prefix Filter**: Specify a prefix string as a filter, for example, a path and a parameter for a specific resource. However, for this tutorial, leave this setting empty. The default behavior matches all values. <p>* **Suffix Filter**: Specify a suffix string as a filter, for example, a file name extension, if you want only specific file types. For this tutorial, leave this setting empty. The default behavior matches all values. <p>* **Subscription Name**: Provide a name for your event subscription. |
+   | For optional settings, choose **Show advanced options**. | * **Prefix Filter**: For this tutorial, leave this setting empty. The default behavior matches all values.    However, you can specify a prefix string as a filter, for example, a path and a parameter for a specific resource. <p>* **Suffix Filter**: For this tutorial, leave this setting empty. The default behavior matches all values. However, you can specify a suffix string as a filter, for example, a file name extension, if you want only specific file types.<p>* **Subscription Name**: Provide a name for your event subscription. |
    |||
 
-   Your event grid trigger looks similar to this example:
+   Your logic app trigger might look like this example:
    
    ![Example event grid trigger details](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
@@ -124,16 +124,17 @@ When you save your logic app with an event grid trigger,
 Azure automatically creates an event subscription for the resource that you specified. 
 So when the resource publishes an event to the event grid, 
 that event grid automatically pushes the event to your logic app. 
-then creates and starts running an instance 
+Usually, this event creates and starts running an instance 
 of the workflow that you define in these next steps. 
-Your logic app is live, but doesn't do anything 
+Your logic app is live, but won't do anything interesting 
 unless you add actions to the workflow. 
 
 ## Add a condition that checks for changes to virtual machines
 
-Now add a condition that checks resource group events for 
-virtual machine "write" operations. If this condition is true, 
-your logic app sends you email with details about the updated virtual machine.
+To specify that your logic app runs only when a specific event happens, 
+add a condition that checks for virtual machine "write" operations. 
+When this condition is true, your logic app sends you email with details 
+about the updated virtual machine.
 
 1. In Logic App Designer, under the event grid trigger, 
 choose **New step** > **Add a condition**.
@@ -168,7 +169,7 @@ choose **New step** > **Add a condition**.
 ## Send email when your virtual machine is updated
 
 Now add an [*action*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
-that sends email when your specified condition is true.
+so that you get an email when the specified condition is true.
 
 1. Under the condition, in the **If true** box, choose **Add an action**.
 
@@ -206,7 +207,7 @@ you can select from fields available in your workflow.
      * **Subject**: Select the **Subject** field so that your email 
      includes the name for the updated resource.
 
-     * **Body**: Select the **Topic*, **Event Time**, and **Event ID** 
+     * **Body**: Select the **Topic**, **Event Time**, and **Event ID** 
      fields so that your email includes the resource group name, 
      event timestamp, and event ID for the update.
 
@@ -234,8 +235,8 @@ choose the action's title bar.
 
    ![Save your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save-completed.png)
 
-   Your logic app is now live, but waits for changes to your virtual machine 
-   before doing anything.
+   Your logic app is now live, but waits for updates 
+   to your virtual machine before doing anything.
 
 ## Test your logic app
 
@@ -261,6 +262,7 @@ like custom APIs? </br>
 **A**: Here are more details for third-party resources that might need 
 configuration for publishing to event grids: 
 
+* [Quckstart: Create and route custom events with Event Grid](../event-grid/custom-event-quickstart.md)
 * [Event Grid publisher schema](../event-grid/publisher-registration-schema.md)
 * [Event Grid event schema](../event-grid/event-schema.md)
 * [Event Grid security and authentication](../event-grid/security-authentication.md)
@@ -268,3 +270,7 @@ configuration for publishing to event grids:
 
 ## Next steps
 
+* [Event Grid Overvew](../event-grid/overview.md)
+* [Event Grid Concepts](../event-grid/concepts.md)
+* [Quckstart: Create and route custom events with Event Grid](../event-grid/custom-event-quickstart.md)
+* [Event Grid event schema](../event-grid/event-schema.md)
