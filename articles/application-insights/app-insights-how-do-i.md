@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # How do I ... in Application Insights?

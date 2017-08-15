@@ -228,6 +228,25 @@ If a client initiates a turn with an audio chunk that does *not* include a valid
 PCM audio **must** be sampled at 16 kHz with 16 bits per sample and one channel (*riff-16khz-16bit-mono-pcm*). The Microsoft Speech Service does not support
 stereo audio streams and will reject audio streams that do not use the specified bit rate, sample rate or number of channels.
 
+### OPUS
+
+Opus is a totally open, royalty-free, highly versatile audio codec. The speech service has support for OPUS at a constant bitrate of `32000` or `16000`. Only the `OGG` container for OPUS is currently supported by the service which is specified by the `audio/ogg` mime type.
+To use OPUS, modify the [JavaScript Sample](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/master/samples/browser/Sample.html#L101) and change the `RecognizerSetup` method to return:
+
+```javascript
+return SDK.CreateRecognizerWithCustomAudioSource(            
+            recognizerConfig,               
+            authentication,              
+            new SDK.MicAudioSource(                    
+                     new SDK.OpusRecorder(                     
+                     {                               
+                         mimeType: "audio/ogg",                               
+                         bitsPerSecond: 32000                      
+                     }                    
+              )                 
+          )); 
+```
+
 ## Detecting End of Speech
 Since humans do not *explicitly* signal when they are finished speaking, any application that accepts speech as input has two choices for handling the end of speech
 in an audio stream -- *service end-of-speech detection* and *client end-of-speech detection*. Of these two choices, *service end-of-speech detection* usually provides
