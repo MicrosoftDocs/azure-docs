@@ -117,7 +117,7 @@ A Security Center solution is installed on the workspace if not present already,
 If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center will not install the Microsoft Monitoring Agent and security monitoring is limited.
 
 ### What should I do if I suspect that the data platform migration broke the connection between one of my VMs and my workspace?
-This should not happen. If it does happen, then [Create an Azure support request](../azure-supportability/how-to-create-azure-support-request) and include the following details:
+This should not happen. If it does happen, then [Create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md) and include the following details:
 
 - The Azure resource ID of the impacted VM
 - The Azure resource ID of the workspace configured on the extension before the connection was broken
@@ -144,6 +144,11 @@ When Security Center installs the Microsoft Monitoring Agent on VMs, it uses the
 ### I already have security solution on my workspaces. What are the billing implications?
 The Security & Audit solution is used to enable Security Center Standard tier features for Azure VMs. If the Security & Audit solution is already installed on a workspace, Security Center uses the existing solution. There is no change in billing.
 
+## Next steps
+To learn more about the Security Center platform migration, see
+
+- [Azure Security Center Platform Migration](security-center-platform-migration.md)
+- [Azure Security Center Troubleshooting Guide](security-center-troubleshooting-guide.md)
 
 <!--Image references-->
 [1]: ./media/security-center-platform-migration-faq/pricing-tier.png
