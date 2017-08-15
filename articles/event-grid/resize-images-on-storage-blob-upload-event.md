@@ -50,7 +50,7 @@ Create a resource group with the [az group create](/cli/azure/group#create). An 
 The following example creates a resource group named `myResourceGroup`.  
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westeurope
+az group create --name myResourceGroup --location westcentralus
 ```
 
 ## Create Azure Storage accounts
@@ -59,14 +59,14 @@ The sample uploads images to a blob container in an Azure Storage account. Creat
 
 Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. 
 
-Because blob storage topics are currently only supported in Blob storage accounts, you need to create two accounts. A Blob storage account to store image and a general storage account required by Azure Functions.
+Because Event Grid currently only supports event subscriptions to Blob storage accounts, you must create two accounts. A Blob storage account used by the sample app to store images and thumbnails and a general storage account required by Azure Functions.
 
 In the following command, substitute your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder. 
 
 ```azurecli-interactive
 az storage account create --name <blob_storage_account> \
 --location westcentralus --resource-group myResourceGroup \
---sku Standard_LRS --kind blobstorage
+--sku Standard_LRS --kind blobstorage --access-tier hot
 ```
 In the following command, substitute your own globally unique name for the general storage account where you see the `<general_storage_account>` placeholder. 
 
@@ -75,7 +75,6 @@ az storage account create --name <general_storage_account> \
 --location westcentralus --resource-group myResourceGroup \
 --sku Standard_LRS --kind storage
 ```
-
 ## Configure storage
 
 The app uses two containers in the Blob storage account. The _images_ container is where  the app uploads full-resolution images. The function uploads resized image thumbnails to the _thumbs_ container. Get the storage account key by using the [storage account keys list](/cli/azure/storage/account/keys#list) command. You then use this key to create two containers using the [az storage container create](/cli/azure/storage/container#create) command. 
@@ -88,10 +87,10 @@ blobStorageAccount=<blob_storage_account>
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv)
 
-az storage container create -n images --account-name $blobStorageAccount \ 
+az storage container create -n images --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey
 
-az storage container create -n thumbs --account-name $blobStorageAccount \ 
+az storage container create -n thumbs --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey
 
 echo "Make a note of your blob storage account key..."
@@ -107,21 +106,22 @@ In the following command, substitute your own unique function app name where you
 
 ```azurecli-interactive
 az functionapp create --name <function_app> --storage-account  <general_storage_account>  \
---resource-group myResourceGroup --consumption-plan-location westeurope
+--resource-group myResourceGroup --consumption-plan-location westcentralus
 ```
 
 Now you must configure the function app to connect to blob storage. 
 
 ## Configure the function app
 
-The function needs the connection string to connect to the blob storage account. In this case, `<blob_storage_account>` is the name of the Blob storage account you created. Add the connection string to the application setting in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) command.
+The function needs the connection string to connect to the blob storage account. In this case, `<blob_storage_account>` is the name of the Blob storage account you created. Get the connection string with the [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) command. Add this connection string to the application setting in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) command.
 
 ```azurecli-interactive
-storageConnectionString=$(az storage account show-connection-string \ 
---resource-group myResourceGroup --name <blob_storage_account> \  
+storageConnectionString=$(az storage account show-connection-string \
+--resource-group myResourceGroup --name <blob_storage_account> \
 --query connectionString --output tsv)
 
-az functionapp config appsettings set --name $functionName --resource-group myResourceGroup \
+az functionapp config appsettings set --name <function_app> \
+--resource-group myResourceGroup \
 --settings BLOB_STORAGE_CONNECTION=$storageConnectionString 
 ```
 
