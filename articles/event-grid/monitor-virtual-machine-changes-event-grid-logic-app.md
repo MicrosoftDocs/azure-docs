@@ -1,6 +1,6 @@
 ---
-title: Monitor virtual machine changes - Azure Event Grid & Logic Apps | Microsoft Docs
-description: Check for virtual machine configuration changes with Azure Event Grid and Logic Apps
+title: Monitor changes to virtual machines - Azure Event Grid & Logic Apps | Microsoft Docs
+description: Check for virtual machine config changes with Azure event grids and logic apps
 keywords: logic app, events, trigger, event grid, virtual machine
 services: logic-apps
 author: ecfan
@@ -14,7 +14,7 @@ ms.date: 08/16/2017
 ms.author: LADocs; estfan
 ---
 
-# Monitor changes to virtual machine configurations with event grids and logic apps
+# Monitor changes to virtual machines with event grids and logic apps
 
 You can start an automated [logic app workflow](../logic-apps/logic-apps-what-are-logic-apps.md) 
 when specific events happen in Azure resources or third-party resources. 
@@ -31,11 +31,10 @@ from publisher to subscriber:
 * New message in a queue
 * New tweet
 
-This tutorial shows how to create a logic app that monitors changes to a virtual machine 
-and sends email about those changes. After you create and save a logic app with an event 
-subscription to an Azure resource, events start flowing from the resource to an event grid. 
-The event grid then pushes those events to subscribers, like your logic app. 
-So beyond this set up, you [don't need to do anything else to make Azure resources publish events](../event-grid/overview.md).
+This tutorial shows how you can create a logic app so you can monitor 
+changes to a virtual machine and get emails about those changes. 
+When a logic app has an event subscription for an Azure resource, 
+events flow through an event grid from that resource to the logic app.
 
 ![Overview - monitor virtual machine with event grid and logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
 
@@ -44,7 +43,8 @@ So beyond this set up, you [don't need to do anything else to make Azure resourc
 For this tutorial, you need:
 
 * A Windows virtual machine. 
-[Learn how to create a virtual machine through the Azure portal](../virtual-machines/windows/quick-create-portal.md).
+[Learn how to create a virtual machine through the Azure portal](../virtual-machines/windows/quick-create-portal.md). 
+You [don't need to do anything else to make an Azure resource publish events](../event-grid/overview.md).
 
 * An email account with 
 [any email provider that's supported by Azure Logic Apps](../connectors/apis-list.md), 
@@ -120,12 +120,14 @@ choose the action's title bar.
 
    ![Save your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save.png)
 
-After you save your logic app, Azure creates an event subscription 
-between your logic app and the resource group. 
-Now when the resource group publishes an event to the event grid, 
+When you save your logic app with an event grid trigger, 
+Azure automatically creates an event subscription for the resource that you specified. 
+So when the resource publishes an event to the event grid, 
 that event grid automatically pushes the event to your logic app. 
-Your logic app then creates and starts running an instance 
-of the workflow that you define in these next steps.
+then creates and starts running an instance 
+of the workflow that you define in these next steps. 
+Your logic app is live, but doesn't do anything 
+unless you add actions to the workflow. 
 
 ## Add a condition that checks for changes to virtual machines
 
@@ -194,19 +196,19 @@ sign in to your email account when you're asked for authentication.
 When the **Dynamic content** list appears, 
 you can select from fields available in your workflow.
 
-   * In the **Body** and **Subject** boxes, 
+   * In the **To** box, enter the recipient's email address. 
+   For testing purposes, use your own email address.
+
+   * In the **Subject** and **Body** boxes, 
    select the fields that you want to include in the email. 
    For this tutorial:
    
-     * **Body**: Select the **Event Time**, **Event ID**, and **Event Type** 
-     fields so that your email includes the event timestamp, ID, 
-     and type for your virtual machine update.
-
      * **Subject**: Select the **Subject** field so that your email 
      includes the name for the updated resource.
 
-   * In the **To** box, enter the recipient's email address. 
-   For testing purposes, use your own email address.
+     * **Body**: Select the **Topic*, **Event Time**, and **Event ID** 
+     fields so that your email includes the resource group name, 
+     event timestamp, and event ID for the update.
 
    * Optional: To provide a description for your email, 
    on the email shape, choose the **ellipses** (**...**) button, 
@@ -238,9 +240,9 @@ choose the action's title bar.
 ## Test your logic app
 
 To check that your logic app is getting the correct events, 
-make a change to your virtual machine, for example, 
-[choose another size for your virtual machine](../virtual-machines/windows/resize-vm.md).
-
+update your virtual machine, for example, 
+[resize your virtual machine](../virtual-machines/windows/resize-vm.md). 
+After a few minutes, you should get an email about updates to your virtual machine.
 
 ## FAQ
 

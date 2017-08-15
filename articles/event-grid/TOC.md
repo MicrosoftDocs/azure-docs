@@ -6,7 +6,7 @@
 
 # Tutorials
 ## [Resize uploaded images]()
-## [Add tags during VM creation]()
+## [Monitor virtual machine chagnes](monitor-virtual-machine-changes-event-grid-logic-app.md)
 ## [Enable app isolation]()
 
 # Concepts
