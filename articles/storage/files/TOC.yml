@@ -3,13 +3,13 @@
   - name: Introduction
     href: storage-files-introduction.md
   - name: Choose Blobs, Files, or Data Disks
-    href: ../storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: FAQ
     href: storage-files-faq.md
 - name: Get started
   items:
   - name: Create a storage account
-    href: ../storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Create a file share
     href: storage-how-to-create-file-share.md
   - name: Manage with the portal
