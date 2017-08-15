@@ -276,16 +276,22 @@
       href: expand-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
+    - name: Back up unmanaged disks
+      href: incremental-snapshots.md
     - name: Convert to Managed Disks
       href: convert-unmanaged-to-managed-disks.md
+    - name: Learn about Managed Disks
+      href: managed-disks-overview.md
     - name: Disks FAQs
-      href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: faq-for-disks.md
     - name: Convert disk between Standard and Premium 
       href: convert-disk-storage.md
     - name: Copy files to a VM
       href: copy-files-to-linux-vm-using-scp.md
     - name: Use File storage
       href: mount-azure-file-storage-on-linux-using-smb.md
+    - name: Deploy disks with template
+      href: using-managed-disks-template-deployments.md
     - name: Optimize performance
       href: optimization.md
       items:
