@@ -19,13 +19,13 @@ ms.author: bradsev;
 ---
 # Team Data Science Process overview
 
-The Team Data Science Process (TDSP) is an agile, iterative data science methodology to deliver predictive analytics solutions and intelligent applications efficiently. TDSP helps improve team collaboration and learning. TDSP is a distillation of the best practices and structures from Microsoft and others in the industry that facilitate the successful implementation of data science initiatives that help companies fully realize the benefits of their analytics program.
+The Team Data Science Process (TDSP) is an agile, iterative data science methodology to deliver predictive analytics solutions and intelligent applications efficiently. TDSP helps improve team collaboration and learning. It contains a distillation of the best practices and structures from Microsoft and others in the industry that facilitate the successful implementation of data science initiatives. The goal is to help companies fully realize the benefits of their analytics program.
 
-This article provides an overview of TDSP and its main components. We provide a generic description of the process here that can be implemented with a variety of tools. In the detailed articles, we also provide guidance on how to implement the TDSP using a specific set of Microsoft tools and infrastructure that we use to implement the TDSP in our teams.
+This article provides an overview of TDSP and its main components. We provide a generic description of the process here that can be implemented with a variety of tools. A more detailed description of the project tasks and roles involved in the lifecycle of the process is provided in additional linked topics. Guidance on how to implement the TDSP using a specific set of Microsoft tools and infrastructure that we use to implement the TDSP in our teams is also provided.
 
 ## Key components of the TDSP
 
-TDSP comprises of the following key components :
+TDSP comprises of the following key components:
 
 - A **data science lifecycle** definition
 - A **standardized project structure**
@@ -35,13 +35,13 @@ TDSP comprises of the following key components :
 
 ## Data Science Lifecycle
 
-The Team Data Science Process (TDSP) provides a recommended lifecycle that you can use to structure the development of your data science projects. The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed.
+The Team Data Science Process (TDSP) provides a lifecycle to structure the development of your data science projects. The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed.
 
 If you are using another data science lifecycle, such as [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) or your organization's own custom process, you can still use the task-based TDSP in the context of those development lifecycles. At a high level, these different methodologies have much in common. 
 
-This lifecycle has been designed for data science projects that are intended to ship as part of intelligent applications. These applications deploy machine learning or artificial intelligence models for predictive analytics. Exploratory data science projects and ad hoc or on-off analytics projects can also benefit from using this process, but in such cases some steps described may not be needed.    
+This lifecycle has been designed for data science projects that ship as part of intelligent applications. These applications deploy machine learning or artificial intelligence models for predictive analytics. Exploratory data science projects or ad hoc analytics projects can also benefit from using this process. But in such cases some of the steps described may not be needed.    
 
-The TDSP lifecycle is composed of five major stages that are executed iteratively. These include:
+The TDSP lifecycle is composed of five major stages that are executed iteratively:
 
 * **Business Understanding**
 * **Data Acquisition and Understanding**
@@ -66,9 +66,9 @@ The following diagram provides a grid view of the tasks (in blue) and artifacts 
 
 ## Standardized project structure
 
-Having all projects share a directory structure and use templates for project documents makes it easy for the team members to find information about their projects. All code and documents are stored in a version control system (VCS) like Git, TFS, or Subversion to enable team collaboration. Tracking tasks and features in an Agile project tracking system like Jira, Rally, Visual Studio Team Services, and optionally linking them to a VCS allows closer tracking of code for individual features and enables teams to obtain better cost estimates. TDSP recommends creating a separate repository for each project on the VCS for versioning, information security, and collaboration. The standardized structure for all projects helps build institutional knowledge across the organization.
+Having all projects share a directory structure and use templates for project documents makes it easy for the team members to find information about their projects. All code and documents are stored in a version control system (VCS) like Git, TFS, or Subversion to enable team collaboration. Tracking tasks and features in an agile project tracking system like Jira, Rally, Visual Studio Team Services allows closer tracking of the code for individual features. Such tracking also enables teams to obtain better cost estimates. TDSP recommends creating a separate repository for each project on the VCS for versioning, information security, and collaboration. The standardized structure for all projects helps build institutional knowledge across the organization.
 
-We provide templates for the folder structure and required documents. The folder structure organizes files such as code for data exploration, feature extraction, and model iterations in standard locations. This makes it easier for team members to understand work done by others and to add new members to teams. It is easy to view and update document templates in markdown format. Use templates to provide checklists with key questions for each project to insure problem is well defined and deliverables meet the quality expected. Examples include:
+We provide templates for the folder structure and required documents in standard locations. This folder structure organizes the files that contain code for data exploration and feature extraction, and that record model iterations. These templates make it easier for team members to understand work done by others and to add new members to teams. It is easy to view and update document templates in markdown format. Use templates to provide checklists with key questions for each project to insure that the problem is well-defined and that deliverables meet the quality expected. Examples include:
 
 - a project charter to document the business problem and scope of the project
 - data reports to document the structure and statistics of the raw data
@@ -82,7 +82,14 @@ The directory structure can be cloned from [Github](https://github.com/Azure/Azu
 
 ## Infrastructure and resources for data science projects
 
-TDSP provides recommendations for managing shared analytics and storage infrastructure such as cloud file systems for storing datasets, databases, Big Data (Hadoop, Spark) clusters, and machine learning services. The analytics and storage infrastructure can be on the cloud or On-premises. This is where raw and processed datasets are stored. This infrastructure enables reproducible analysis. It also avoids duplication, which can lead to inconsistencies and unnecessary infrastructure costs. Tools are provided to provision the shared resources, track them, and allow each team member to connect to those resources securely. It is also a good practice have project members create a consistent compute environment so experiments can be replicated and validated by different team members.
+TDSP provides recommendations for managing shared analytics and storage infrastructure such as:
+
+- cloud file systems for storing datasets, 
+- databases
+- big data (Hadoop or Spark) clusters 
+- machine learning services. 
+
+The analytics and storage infrastructure can be in the cloud or on-premises. This is where raw and processed datasets are stored. This infrastructure enables reproducible analysis. It also avoids duplication, which can lead to inconsistencies and unnecessary infrastructure costs. Tools are provided to provision the shared resources, track them, and allow each team member to connect to those resources securely. It is also a good practice have project members create a consistent compute environment. Different team members can then replicate and validate experiments.
 
 Here is an example of a team working on multiple projects and sharing various cloud analytics infrastructure components.
 
@@ -91,9 +98,9 @@ Here is an example of a team working on multiple projects and sharing various cl
 
 ## Tools and utilities for project execution
 
-Introducing processes in most organizations is challenging. By providing tools to implement the data science process and lifecycle, we not only get the benefits of productivity but also of consistency in its adoption. TDSP provides an initial set of tools and scripts to jump start adoption of TDSP within a team and to automate some of the common tasks in the data science lifecycle such as data exploration and baseline modeling. There is a well-defined structure provided for individuals to contribute shared tools and utilities into their team’s shared code repository. These resources can then be leveraged by other projects within the team or the organization. In future TDSP also plans to enable the contributions of tools and utilities to the whole community. The TDSP utilities can be cloned from [Github](https://github.com/Azure/Azure-TDSP-Utilities).
+Introducing processes in most organizations is challenging. Tools provided to implement the data science process and lifecycle help lower the barriers to and increase the consistency of their adoption. TDSP provides an initial set of tools and scripts to jump-start adoption of TDSP within a team. It also helps automate some of the common tasks in the data science lifecycle such as data exploration and baseline modeling. There is a well-defined structure provided for individuals to contribute shared tools and utilities into their team’s shared code repository. These resources can then be leveraged by other projects within the team or the organization. TDSP also plans to enable the contributions of tools and utilities to the whole community. The TDSP utilities can be cloned from [Github](https://github.com/Azure/Azure-TDSP-Utilities).
 
 
 ## Next Steps
 
-[Team Data Science Process: Roles and tasks](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) This article outlines the key personnel roles and their associated tasks that are handled by a data science team standardizing on this process. 
+[Team Data Science Process: Roles and tasks](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) Outlines the key personnel roles and their associated tasks for a data science team that standardizes on this process. 
