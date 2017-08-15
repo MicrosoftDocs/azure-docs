@@ -25,20 +25,20 @@ This article summarizes some of the key Event Hubs .NET Standard client APIs. Th
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
   * This library adds additional functionality that allows for keeping track of processed events, and is the easiest way to read from an event hub.
 
-## Event Hub client
+## Event Hubs client
 [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) is the primary object you use to send events, create receivers, and to get run-time information. This client is linked to a particular event hub, and creates a new connection to the Event Hubs endpoint.
 
-### Create an event hub client
+### Create an Event Hubs client
 An [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) object is created from a connection string. The simplest way to instantiate a new client is shown in the following example:
 
 ```csharp
-var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hub connection string}");
+var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hubs connection string}");
 ```
 
 To programmatically edit the connection string, you can use the [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) class, and pass the connection string as a parameter to [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
 
 ```csharp
-var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hub connection string}")
+var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hubs connection string}")
 {
     EntityPath = EhEntityPath
 };
@@ -121,7 +121,7 @@ These APIs provide resiliency to worker processes that may become unavailable, b
 
 // Read these connection strings from a secure location
 var ehConnectionString = "{Event Hubs connection string}";
-var ehEntityPath = "{Event Hub path/name}";
+var ehEntityPath = "{event hub path/name}";
 var storageConnectionString = "{Storage connection string}";
 var storageContainerName = "{Storage account container name}";
 
