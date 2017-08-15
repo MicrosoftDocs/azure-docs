@@ -155,7 +155,9 @@ choose **New step** > **Add a condition**.
    choose the **ellipses** (**...**) button on the condition shape, 
    then choose **Rename**.
 
-   Your condition looks similar to this example:
+5. Save your logic app.
+
+   Your logic app condition now looks similar to this example:
 
    ![Condition criteria](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-1.png)
 
