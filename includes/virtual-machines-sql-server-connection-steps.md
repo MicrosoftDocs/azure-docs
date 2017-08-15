@@ -28,19 +28,8 @@
 Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/library/cc646023.aspx).
 
 ### Configure SQL Server to listen on the TCP protocol
-1. While connected to the virtual machine, on the Start page, type **SQL Server Configuration Manager** and hit ENTER.
-   
-    ![Open SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
-2. In SQL Server Configuration Manager, in the console pane, expand **SQL Server Network Configuration**.
-3. In the console pane, click **Protocols for MSSQLSERVER** (he default instance name.) In the details pane, right-click **TCP** and click **Enable** if it is not already enabled.
-   
-    ![Enable TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. In the console pane, click **SQL Server Services**. In the details pane, right-click **SQL Server (*instance name*)** (the default instance is **SQL Server (MSSQLSERVER)**), and then click **Restart**, to stop and restart the instance of SQL Server.
-   
-    ![Restart Database Engine](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
-5. Close SQL Server Configuration Manager.
 
-For more information about enabling protocols for the SQL Server Database Engine, see [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/library/ms191294.aspx).
+[!INCLUDE [Enable TCP](virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ### Configure SQL Server for mixed mode authentication
 The SQL Server Database Engine cannot use Windows Authentication without domain environment. To connect to the Database Engine from another computer, configure SQL Server for mixed mode authentication. Mixed mode authentication allows both SQL Server Authentication and Windows Authentication.
