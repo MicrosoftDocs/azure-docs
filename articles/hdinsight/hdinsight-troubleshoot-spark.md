@@ -98,7 +98,7 @@ These changes are cluster-wide but can be overridden when you submit the Spark j
 
 1. To determine which Spark configurations need to be set and to what values, see [What causes a Spark application OutofMemoryError exception](#what-causes-a-spark-application-outofmemoryerror-exception).
 
-2. In the first cell of the Jupyter notebook, after the `%%configure` directive, specify the Spark configurations in valid JSON format. Change the actual values as necessary:
+2. In the first cell of the Jupyter notebook, after the **%%configure** directive, specify the Spark configurations in valid JSON format. Change the actual values as necessary:
 
     ![Add a configuration](media/hdinsight-troubleshoot-spark/add-configuration-cell.png)
 
