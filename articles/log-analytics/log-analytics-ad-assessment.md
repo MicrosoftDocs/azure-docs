@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
@@ -68,7 +68,7 @@ The following table shows data collection methods for agents, whether Operations
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Yes](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Yes](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![No](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![No](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Yes](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 days |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |7 days |
 
 ## Understanding how recommendations are prioritized
 Every recommendation made is given a weighting value that identifies the relative importance of the recommendation. Only the 10 most important recommendations are shown.

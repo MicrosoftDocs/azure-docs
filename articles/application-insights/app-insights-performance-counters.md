@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # System performance counters in Application Insights

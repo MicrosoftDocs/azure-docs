@@ -154,7 +154,7 @@ Make sure that the following settings are configured correctly for remote deskto
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveEnable" 1 -Type DWord
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveInterval" 1 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp ' -name "KeepAliveTimeout" 1 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "KeepAliveTimeout" 1 -Type DWord
     ```
 6. Reconnect：
     
@@ -261,9 +261,12 @@ Make sure that the following settings are configured correctly for remote deskto
     ```
     Make sure that the report shows a clean and healthy disk.
 
-2. Set the Boot Configuration Data (BCD) settings. Run these commands on an elevated CMD window:
+2. Set the Boot Configuration Data (BCD) settings. 
+
+    > [!Note]
+    > Make sure you run these commands on an elevated CMD window and **NOT** on PowerShell:
    
-   ```PowerShell
+   ```CMD
    bcdedit /set {bootmgr} integrityservices enable
    
    bcdedit /set {default} device partition=C:

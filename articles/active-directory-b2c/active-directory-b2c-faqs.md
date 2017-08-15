@@ -32,7 +32,11 @@ In an Azure AD tenant, users that belong to the tenant sign-in with an email add
 In an Azure AD B2C tenant, most apps want the user to sign-in with any arbitrary email address (for example, joe@comcast.net, bob@gmail.com, sarah@contoso.com, or jim@live.com). This type of account is a local account.  We also support arbitrary user names as local accounts (for example, joe, bob, sarah, or jim). You can choose one of these two local account types by configuring Azure AD B2C in the Azure portal.
 
 ### Which social identity providers do you support now? Which ones do you plan to support in the future?
-We currently support Facebook, Google+, LinkedIn, Microsoft Account, Amazon, Twitter (preview), WeChat (preview), Weibo (preview), and QQ (preview).  We continue to add support for other popular social identity providers based on customer demand.
+We currently support Facebook, Google+, LinkedIn, Amazon, Twitter (preview), WeChat (preview), Weibo (preview), and QQ (Preview). We will add support for other popular social identity providers based on customer demand.
+
+Azure AD B2C has also added support for [custom policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom).  These [custom policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom) allow a developer to create their own policy that with any identity provider that supports [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) or SAML. 
+
+Get started with custom policies by checking out our [custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### Can I configure scopes to gather more information about consumers from various social identity providers?
 No, but this feature is on our roadmap. The default scopes used for our supported set of social identity providers are:
@@ -47,7 +51,7 @@ No, but this feature is on our roadmap. The default scopes used for our supporte
 No, you can host your application anywhere (in the cloud or on-premises). All it needs to interact with Azure AD B2C is the ability to send and receive HTTP requests on publicly accessible endpoints.
 
 ### I have multiple Azure AD B2C tenants. How can I manage them on the Azure portal?
-Each Azure AD B2C tenant has its own B2C features blade on the Azure portal. See [Azure AD B2C: Register your application](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) to learn how you can navigate to a specific tenant's B2C features blade on the Azure portal. Switching between Azure AD B2C directories on the Azure portal does not keep your B2C features blade open on most browsers.
+Each Azure AD B2C tenant has its own B2C features blade on the Azure portal. See [Azure AD B2C: Register your application](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) to learn how you can navigate to a specific tenant's B2C features blade on the Azure portal. Switching between Azure AD B2C directories on the Azure portal does not keep your B2C features blade open on most browsers.
 
 ### How do I customize verification emails (the content and the "From:" field) sent by Azure AD B2C?
 You can use the [company branding feature](../active-directory/active-directory-add-company-branding.md) to customize the content of verification emails. Specifically, these two elements of the email can be customized:
@@ -104,7 +108,7 @@ Not currently. This feature is on our roadmap. Verifying your domain in the **Do
 ### How do I delete my Azure AD B2C tenant?
 Follow these steps to delete your Azure AD B2C tenant:
 
-1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
+1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
 1. Navigate to the **Applications**, **Identity providers**, and **All policies** blades and delete all the entries in each of them.
 1. Now sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. (Use the same work or school account or the same Microsoft account that you used to sign up for Azure.)
 1. Navigate to the Active Directory extension on the left and click your B2C tenant.
