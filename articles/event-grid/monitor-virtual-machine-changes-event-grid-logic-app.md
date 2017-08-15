@@ -14,7 +14,7 @@ ms.date: 08/16/2017
 ms.author: LADocs; estfan
 ---
 
-# Monitor changes in virtual machine configurations with event grids and logic apps
+# Monitor changes to virtual machine configurations with event grids and logic apps
 
 You can start an automated [logic app workflow](../logic-apps/logic-apps-what-are-logic-apps.md) 
 when specific events happen in Azure resources or third-party resources. 
@@ -31,7 +31,7 @@ from publisher to subscriber:
 * New message in a queue
 * New tweet
 
-This tutorial shows how you can create a logic app that monitors changes in a virtual machine 
+This tutorial shows how to create a logic app that monitors changes to a virtual machine 
 and sends email about those changes. After you create and save a logic app with an event 
 subscription to an Azure resource, events start flowing from the resource to an event grid. 
 The event grid then pushes those events to subscribers, like your logic app. 
@@ -48,9 +48,9 @@ For this tutorial, you need:
 
 * An email account with 
 [any email provider that's supported by Azure Logic Apps](../connectors/apis-list.md), 
-like Office 365 Outlook, Outlook.com, or Gmail.
+like Office 365 Outlook, Outlook.com, or Gmail
 
-## Create a logic app that listens to resource group events through an event grid
+## Create a logic app that listens to events through an event grid
 
 First, create a logic app that monitors events in the resource group for your virtual machine. 
 When these events happen, the resource group publishes those events to an event grid, 
@@ -127,7 +127,7 @@ that event grid automatically pushes the event to your logic app.
 Your logic app then creates and starts running an instance 
 of the workflow that you define in these next steps.
 
-## Add a condition that checks for virtual machine changes
+## Add a condition that checks for changes to virtual machines
 
 Now add a condition that checks resource group events for 
 virtual machine "write" operations. If this condition is true, 
@@ -138,8 +138,8 @@ choose **New step** > **Add a condition**.
 
    ![Add a condition to your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-add-condition.png)
 
-   The Logic App Designer adds a condition to your workflow 
-   with action paths to perform based whether the condition 
+   The Logic App Designer adds a condition to your workflow, 
+   including action paths to follow based whether the condition 
    evaluates as true or false.
 
 2. Build the condition criteria. 
@@ -155,11 +155,11 @@ choose **New step** > **Add a condition**.
    * In the right box, enter "Microsoft.Compute/virtualMachines/write" 
    for the operation that you want your logic app to monitor. 
 
-   * Optional - To provide a description for your condition, 
-   on the condition shape, choose the **ellipses** (**...**) button, 
+   * Optional: To provide a description for your condition, 
+   choose the **ellipses** (**...**) button on the condition shape, 
    then choose **Rename**.
 
-   For example, your condition might look like this example:
+   Your condition looks similar to this example:
 
    ![Condition criteria](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-1.png)
 
@@ -239,8 +239,7 @@ choose a different size.
 
 ## FAQ
 
-**Q**: What other virtual machine monitoring tasks can I peform with event grids and logic apps?
-
+**Q**: What other virtual machine monitoring tasks can I peform with event grids and logic apps? </br>
 **A**: You can monitor other configuration changes, including these examples:
 
 * A virtual machine gets role-based access control (RBAC) rights.
@@ -252,7 +251,6 @@ choose a different size.
 
 **Q**: How do I set up publishing to an event grid for a third-party resource, 
 like custom APIs? </br>
-
 **A**: Here are more details for third-party resources that might need 
 configuration for publishing to event grids: 
 
