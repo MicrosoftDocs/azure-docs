@@ -8411,6 +8411,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/linux/create-lamp-stack.md",
+            "redirect_url": "azure/virtual-machines/linux/tutorial-lamp-stack",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/create-lamp-stack-nodejs.md",
+            "redirect_url": "azure/virtual-machines/linux/tutorial-lamp-stack",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/vpn-gateway/vpn-gateway-site-to-site-create.md",
             "redirect_url": "azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic",
             "redirect_document_id": false
