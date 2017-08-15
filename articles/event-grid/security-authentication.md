@@ -19,8 +19,24 @@ Azure Event Grid has three types of authentication:
 * Event publishing
 * WebHook event delivery
 
-WebHook authentication is not available in the preview release.
+## WebHook Event delivery
 
+Webhooks are one of many ways to receive events in real time from Azure Event Grid.
+
+Every time there is a new event ready to be delivered, Event Grid sends an HTTP request with to your WebHook with the event in the body.
+
+When you register your own WebHook endpoint with Event Grid, it sends you a GET request with a simple validation code in order to prove endpoint ownership. Your app needs to respond by echoing back the validation code. Event Grid will not deliver events to WebHook endpoints that have not passed the validation.
+ 
+### Validation details:
+
+* At the time of event subscription creation/update, Event Grid posts a “SubscriptionValidationEvent” event to the target endpoint.
+* The event contains a header value “Event-Type: Validation”.
+* The event body has the same schema as other Event Grid events.
+* The event data includes a “validation_code” property with a randomly generated string e.g. “validation_code: acb13…”.
+
+In order to prove endpoint ownership, echo back the validation code e.g “validation_response: acb13…”.
+
+Finally, it is important to note that Azure Event Grid only supports HTTPS webhook endpoints.
 ## Event subscription
 
 To subscribe to an event, you must have the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the required resource. You need this permission because you are writing a new subscription at the scope of the resource. The required resource differs based on whether you are subscribing to a system topic or custom topic. Both types are described in this section.

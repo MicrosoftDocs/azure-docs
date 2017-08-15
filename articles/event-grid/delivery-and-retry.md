@@ -49,10 +49,11 @@ Event Grid uses an exponential backoff retry policy for event delivery. If your 
 
 1. 10 seconds
 2. 30 seconds
-3. One minute
-4. Five minutes
-5. 30 minutes
-6. One hour
+3. 1 minute
+4. 5 minutes
+5. 10 minutes
+6. 30 minutes
+7. 1 hour
 
 Event Grid adds a small randomization to all retry intervals.
 
