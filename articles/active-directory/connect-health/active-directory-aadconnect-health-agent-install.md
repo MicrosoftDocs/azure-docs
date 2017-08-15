@@ -84,11 +84,11 @@ In order for the Usage Analytics feature to gather and analyze data, the Azure A
 
 #### To enable auditing for AD FS on Windows Server 2008 R2
 1. Click **Start**, point to **Programs**, point to **Administrative Tools**, and then click **Local Security Policy**.
-2. Navigate to the **Security Settings\Local Policies\User Rights Management** folder, and then double-click Generate security audits.
+2. Navigate to the **Security Settings\Local Policies\User Rights Assignment** folder, and then double-click **Generate security audits**.
 3. On the **Local Security Setting** tab, verify that the AD FS 2.0 service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
-4. To enable auditing, open a command prompt with elevated privileges and run the following command: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. Close Local Security Policy, and then open the Management snap-in. To open the Management snap-in, click **Start**, point to **Programs**, point to **Administrative Tools**, and then click AD FS 2.0 Management.
-6. In the Actions pane, click Edit Federation Service Properties.
+4. To enable auditing, open a Command Prompt with elevated privileges and run the following command: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+5. Close **Local Security Policy**, and then open the **AD FS Management** snap-in. To open the AD FS Management snap-in, click **Start**, point to **Programs**, point to **Administrative Tools**, and then click **AD FS 2.0 Management**.
+6. In the **Actions** pane, click **Edit Federation Service Properties**.
 7. In the **Federation Service Properties** dialog box, click the **Events** tab.
 8. Select the **Success audits** and **Failure audits** check boxes.
 9. Click **OK**.
