@@ -1,7 +1,7 @@
 ---
 title: Monitor virtual machine changes - Azure Event Grid & Logic Apps | Microsoft Docs
-description: Check for config changes in virtual machines by using Azure event grids and logic apps
-keywords: logic app, events, trigger, event grid, virtual machine
+description: Check for config changes in virtual machines (VMs) by using Azure Event Grid and Logic Apps
+keywords: logic apps, event grids, virtual machine, VM
 services: logic-apps
 author: ecfan
 manager: anneta
@@ -14,7 +14,7 @@ ms.date: 08/16/2017
 ms.author: LADocs; estfan
 ---
 
-# Monitor changes to virtual machines with Azure Event Grid and Logic Apps
+# Monitor virtual machine changes with Azure Event Grid and Logic Apps
 
 You can start an automated [logic app workflow](../logic-apps/logic-apps-what-are-logic-apps.md) 
 when specific events happen in Azure resources or third-party resources. 
