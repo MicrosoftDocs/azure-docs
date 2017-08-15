@@ -1,0 +1,197 @@
+- name: Data Factory V2 Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: Introduction to Data Factory
+    href: introduction.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create data factory - .NET
+    href: quickstart-create-data-factory-dot-net.md
+  - name: Create data factory - PowerShell
+    href: quickstart-create-data-factory-powershell.md
+  - name: Create data factory - Python
+    href: quickstart-create-data-factory-python.md
+  - name: Create data factory - Java
+    href: quickstart-create-data-factory-java.md
+  - name: Create data factory - REST   
+    href: quickstart-create-data-factory-rest-api.md
+  - name: Create data factory - ARM template
+    href: quickstart-create-data-factory-resource-manager-template.md
+- name: Tutorials
+  items:
+  - name: 1 - Copy data in cloud
+    href: tutorial-copy-data-dot-net.md
+  - name: 2 - Copy on-premises data 
+    href: tutorial-copy-onprem-data-to-cloud.md
+  - name: 3 - Transform data
+    href: tutorial-transform-data-dot-net.md
+  - name: 4 - Copy multiple tables in a loop
+    href: tutorial-copy-multiple-tables-in-loop.md
+  - name: 5 - Branch control flow
+    href: tutorial-branch-control-flow.md
+- name: Samples
+  items:
+  - name: PowerShell
+    href: samples-poweshell.md
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=data-factory
+- name: Concepts
+  items:
+  - name: Pipelines and activities
+    href: concepts-pipelines-activities.md
+  - name: Datasets
+    href: concepts-datasets.md
+  - name: Linked services
+    href: concepts-linked-services.md
+  - name: Triggers
+    href: concepts-triggers.md 
+  - name: Runtime control
+    href: concepts-runtime-control.md
+  - name: Control flow
+    href: concepts-control-flow.md
+  - name: Integration runtime
+    href: concepts-integration-runtime.md
+  - name: SSIS Everest
+    href: concepts-integration-with-sql-server-integration-services.md
+- name: How-to guides
+  items:
+  - name: Move data
+    items: 
+    - name: Copy Activity overview
+      href: copy-activity-overview.md
+    - name: Connectors
+      href: connectors.md
+      items: 
+      - name: Amazon Redshift
+        href: amazon-redshift-connector.md
+      - name: Amazon S3
+        href: amazon-simple-storage-service-connector.md
+      - name: Azure Blob Storage
+        href: azure-blob-connector.md
+      - name: Azure Cosmos DB
+        href: azure-cosmos-db-connector.md
+      - name: Azure Data Lake Store
+        href: azure-datalake-connector.md
+      - name: Azure Search
+        href: azure-search-connector.md
+      - name: Azure SQL DB
+        href: azure-sql-database-connector.md
+      - name: Azure SQL Data Warehouse
+        href: azure-sql-data-warehouse-connector.md
+      - name: Azure Table Storage
+        href: azure-table-connector.md
+      - name: Cassandra
+        href: cassandra-connector.md
+      - name: DB2
+        href: db2-connector.md
+      - name: Dynamics (CRM & 365)
+        href: dynamics-connector.md
+      - name: File System
+        href: file-system-connector.md
+      - name: FTP
+        href: ftp-connector.md
+      - name: HDFS
+        href: hdfs-connector.md
+      - name: HTTP
+        href: http-connector.md
+      - name: MongoDB
+        href: mongodb-connector.md
+      - name: MySQL
+        href: mysql-connector.md
+      - name: OData
+        href: odata-connector.md
+      - name: ODBC
+        href: odbc-connector.md
+      - name: Oracle
+        href: oracle-connector.md
+      - name: PostgreSQL
+        href: postgresql-connector.md
+      - name: Salesforce
+        href: salesforce-connector.md
+      - name: SAP Business Warehouse
+        href: sap-business-warehouse-connector.md
+      - name: SAP HANA
+        href: sap-hana-connector.md
+      - name: SFTP
+        href: sftp-connector.md
+      - name: SQL Server
+        href: sqlserver-connector.md
+      - name: Sybase
+        href: sybase-connector.md
+      - name: Teradata
+        href: teradata-connector.md
+      - name: WebTable
+        href: web-table-connector.md
+      - name: Performance and tuning
+        href: copy-activity-performance.md
+      - name: Fault tolerance
+        href: copy-activity-fault-tolerance.md
+      - name: Security considerations
+        href: copy-activity-security-considerations.md
+      - name: Format support
+        href: copy-activity-format-support.md
+      - name: Schema mapping
+        href: copy-activity-schema-mapping.md
+      - name: Invoke a stored procedure
+        href: copy-activity-invoke-stored-procedure.md
+      - name: Incremental copy
+        href: copy-activity-incremental-copy.md
+  - name: Transform data
+    items: 
+    - name: HdInsight Hive Activity
+      href: hive-activity.md
+    - name: HdInsight Pig Activity
+      href: pig-activity.md
+    - name: HdInsight MapReduce Activity
+      href: map-reduce-activity.md
+    - name: HdInsight Streaming Activity
+      href: hadoop-streaming-activity.md
+    - name: HdInsight Spark Activity
+      href: spark-activity.md
+    - name: ML Batch Execution Activity
+      href: azure-ml-batch-execution-activity.md
+    - name: ML Update Resource Activity
+      href: azure-ml-update-resource-activity.md
+    - name: Stored Procedure Activity
+      href: stored-procedure-activity.md
+    - name: Data Lake U-SQL Activity
+      href: usql-activity.md
+    - name: .NET custom activity
+      href: dot-net-custom-activity.md
+    - name: Invoke R Scripts
+      href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample
+    - name: Azure Analysis Services
+      href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+  - name: Monitor and manage
+    items: 
+    - name: Monitor programmatically
+      href: monitor-programmatically.md
+    - name: Use Azure Monitor
+      href: monitor-using-azure-monitor.md
+- name: Reference
+  items:
+  - name: .NET
+  - name: PowerShell
+    href: /powershell/azure/data-factory
+  - name: REST API
+    href: /rest/api/data-factory
+  - name: Python
+  - name: Java
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=analytics
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/data-factory/
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-data-factory
+  - name: Request a feature
+    href: https://feedback.azure.com/forums/270578-azure-data-factory
+  - name: Region availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Support options
+    href: https://azure.microsoft.com/support/options/
