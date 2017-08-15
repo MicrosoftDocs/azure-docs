@@ -14,7 +14,7 @@ ms.date: 08/16/2017
 ms.author: LADocs; estfan
 ---
 
-# Monitor virtual machine changes with event grids and logic apps
+# Monitor virtual machine changes by using event grids and logic apps
 
 You can start an automated [logic app workflow](../logic-apps/logic-apps-what-are-logic-apps.md) 
 when specific events happen in Azure resources or third-party resources. 
@@ -235,15 +235,35 @@ choose the action's title bar.
 
    ![Save your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save-completed.png)
 
-   Your logic app is now live, but waits for updates 
-   to your virtual machine before doing anything.
+   Your logic app is now live, but waits for changes 
+   to your virtual machine before doing anything. 
+   To test your logic app now, continue to the next section.
 
 ## Test your logic app
 
 To check that your logic app is getting the correct events, 
 update your virtual machine, for example, 
 [resize your virtual machine](../virtual-machines/windows/resize-vm.md). 
-After a few minutes, you should get an email about updates to your virtual machine.
+After a few minutes, you should get an email about updates to your virtual machine. 
+For example:
+
+**[screenshot TBD]**
+
+To review the runs and trigger history for your logic app, 
+on your logic app menu, choose **Overview**.
+
+**[screenshot TBD]**
+
+Congratulations, you just created and ran a logic app that monitors events through an event grid and sends you emails when those events happen. You also learned how easily you can create workflows that automate processes and integrate systems, cloud apps, and cloud services.
+
+> [!IMPORTANT]
+> When you're done testing, make sure that you decommission any test 
+> resources that incur unwanted charges. Also, disable your logic app 
+> to stop sending email. Otherwise, your logic app continues running 
+> until you turn off your app. On your logic app menu, choose **Overview**. 
+> On the toolbar, choose **Disable**.
+>
+> ![Turn off your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
 
 ## FAQ
 
@@ -262,7 +282,7 @@ like custom APIs? </br>
 **A**: Here are more details for third-party resources that might need 
 configuration for publishing to event grids: 
 
-* [Quckstart: Create and route custom events with Event Grid](../event-grid/custom-event-quickstart.md)
+* [Quickstart: Create and route custom events with Event Grid](../event-grid/custom-event-quickstart.md)
 * [Event Grid publisher schema](../event-grid/publisher-registration-schema.md)
 * [Event Grid event schema](../event-grid/event-schema.md)
 * [Event Grid security and authentication](../event-grid/security-authentication.md)
@@ -270,7 +290,8 @@ configuration for publishing to event grids:
 
 ## Next steps
 
-* [Event Grid Overvew](../event-grid/overview.md)
+* [Event Grid Overview](../event-grid/overview.md)
 * [Event Grid Concepts](../event-grid/concepts.md)
-* [Quckstart: Create and route custom events with Event Grid](../event-grid/custom-event-quickstart.md)
+* [Quickstart: Create and route custom events with Event Grid](../event-grid/custom-event-quickstart.md)
 * [Event Grid event schema](../event-grid/event-schema.md)
+* [Create logic app workflows with predefined templates](../logic-apps/logic-apps-use-logic-app-templates.md)
