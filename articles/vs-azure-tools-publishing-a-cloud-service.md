@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 8/14/2017
 ms.author: tarcher
 
 ---
@@ -59,7 +59,7 @@ When you publish your Azure application, you can do one of the following tasks:
    > To remove this deployment environment after it has been deployed, you must use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
    > 
    > 
-4. (Optional) After your role instances have started, Visual Studio automatically shows the deployment environment in the **Cloud Services** node in Server Explorer. From here you can see the status of the individual role instances. See [Managing Azure resources with Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md).The following illustration shows the role instances while they are still in the Initializing state:
+4. (Optional) After your role instances have started, Visual Studio automatically shows the deployment environment in the **Cloud Services** node in Server Explorer. From here, you can see the status of the individual role instances. See [Managing Azure resources with Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md).The following illustration shows the role instances while they are still in the Initializing state:
    
     ![VST_DeployComputeNode](./media/vs-azure-tools-publishing-a-cloud-service/IC744134.png)
 

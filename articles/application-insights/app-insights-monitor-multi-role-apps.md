@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Monitor multi-component applications with Application Insights (preview)
