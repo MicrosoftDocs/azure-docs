@@ -28,7 +28,7 @@ ms.author: arramac
 >  
 > 
 
-Welcome to the Azure Cosmos DB getting started tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
+Welcome to the DocumentDB API for Azure Cosmos DB getting started with .NET Core tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
 We'll cover:
 
@@ -549,7 +549,7 @@ Congratulations! You have successfully deleted an Azure Cosmos DB database.
 ## <a id="Run"></a>Step 11: Run your C# console application all together!
 Press the **DocumentDBGettingStarted** button in Visual Studio to build the application in debug mode.
 
-You should see the output of your get started app. The output will show the results of the queries we added and should match the example text below.
+You should see the output of your get started app in the console window. The output will show the results of the queries we added and should match the example text below.
 
 ```
 Created FamilyDB_oa
@@ -586,12 +586,12 @@ To build the GetStarted solution that contains all the samples in this article, 
 To restore the references to the DocumentDB API for Azure Cosmos DB .NET Core SDK in Visual Studio, right-click the **GetStarted** solution in Solution Explorer, and then click **Enable NuGet Package Restore**. Next, in the Program.cs file, update the EndpointUrl and AuthorizationKey values as described in [Connect to an Azure Cosmos DB account](#Connect).
 
 ## Next steps
-* Want a more complex ASP.NET MVC tutorial? See [Build a web application with ASP.NET MVC using Azure Cosmos DB](documentdb-dotnet-application.md).
-* Want to develop a Xamarin iOS, Android, or Forms application using the DocumentDB API for Azure Cosmos DB .NET Core SDK? See [Developing Xamarin mobile applications using the DocumentDB API](mobile-apps-with-xamarin.md).
-* Want to perform scale and performance testing with Azure Cosmos DB? See [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md)
-* Learn how to [monitor an Azure Cosmos DB account](monitor-accounts.md).
+* Want a more complex ASP.NET MVC tutorial? See [ASP.NET MVC Tutorial: Web application development with Azure Cosmos DB](documentdb-dotnet-application.md).
+* Want to develop a Xamarin iOS, Android, or Forms application using the DocumentDB API for Azure Cosmos DB .NET Core SDK? See [Build mobile applications with Xamarin and Azure Cosmos DB](mobile-apps-with-xamarin.md).
+* Want to perform scale and performance testing with Azure Cosmos DB? See [Performance and scale testing with Azure Cosmos DB](performance-testing.md)
+* Learn how to [Monitor Azure Cosmos DB requests, usage, and storage](monitor-accounts.md).
 * Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
-* Learn more about the programming model in the Develop section of the [Azure Cosmos DB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
+* To learn more about the programming model, see [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 [create-documentdb-dotnet.md#create-account]: create-documentdb-dotnet.md#create-account
 [keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
