@@ -208,6 +208,10 @@
         href: excel-cluster-hpcpack.md
   - name: Manage storage
     items:
+    - name: Learn about Managed Disks
+      href: managed-disks-overview.md
+    - name: Disks FAQs
+      href: faq-for-disks.md
     - name: Add a disk
       items:
       - name: Azure Powershell
@@ -224,10 +228,6 @@
       href: incremental-snapshots.md
     - name: Convert disk between Standard and Premium
       href: convert-disk-storage.md
-    - name: Learn about Managed Disks
-      href: managed-disks-overview.md
-    - name: Disks FAQs
-      href: faq-for-disks.md
     - name: Use File storage
       href: mount-azure-file-storage.md
     - name: Deploy disks with template

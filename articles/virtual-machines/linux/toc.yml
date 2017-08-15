@@ -264,6 +264,10 @@
         href: n-series-driver-setup.md
   - name: Manage storage
     items:
+    - name: Learn about Managed Disks
+      href: managed-disks-overview.md
+    - name: Disks FAQs
+      href: faq-for-disks.md
     - name: Add a disk
       items:
       - name: Azure CLI
@@ -279,11 +283,7 @@
     - name: Back up unmanaged disks
       href: incremental-snapshots.md
     - name: Convert to Managed Disks
-      href: convert-unmanaged-to-managed-disks.md
-    - name: Learn about Managed Disks
-      href: managed-disks-overview.md
-    - name: Disks FAQs
-      href: faq-for-disks.md
+      href: convert-unmanaged-to-managed-disks.md     
     - name: Convert disk between Standard and Premium 
       href: convert-disk-storage.md
     - name: Copy files to a VM
