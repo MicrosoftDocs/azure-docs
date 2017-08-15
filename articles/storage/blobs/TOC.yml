@@ -52,4 +52,4 @@
 
 #include file for the articles that apply to >1 service
 - name: More topics
-  href: ../common/toc.yml
+  href: ../common/toc_blobs.yml

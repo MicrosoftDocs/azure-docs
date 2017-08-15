@@ -28,4 +28,4 @@
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=queue
 #include file for the articles that apply to >1 service
 - name: More topics
-  href: ../common/toc.yml
+  href: ../common/toc_queues.yml
