@@ -144,7 +144,7 @@
 
 ## Manage devices
 ### [Introduction](device-management-introduction.md)
-### [Tasks]
+### Tasks
 ####[Configure hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md) 
 ### [Register devices](active-directory-device-registration-overview.md)
 #### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
