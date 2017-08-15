@@ -9591,11 +9591,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/storage/storage-java-use-blob-storage-on-premises-app.md",
-            "redirect_url": "/azure/storage/blobs/storage-java-use-blob-storage-on-premises-app",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/storage/storage-manage-access-to-resources.md",
             "redirect_url": "/azure/storage/blobs/storage-manage-access-to-resources",
             "redirect_document_id": false
