@@ -52,25 +52,21 @@ Azure offers built-in event support using numerous services, including both publ
 
 ### Publishers
 
-The following Azure services have built-in publisher support for event grid:
+Currently, the following Azure services have built-in publisher support for event grid:
 
 * Resource Groups (management operations)
 * Azure Subscriptions (management operations)
 * Event Hubs
 * Custom Topics
 
-Coming soon: Blob Storage, Azure Automation, Azure Active Directory, API Management, Logic Apps, IoT Hub, Service Bus, Azure Data Lake Store, Cosmos DB
-
 ### Handlers
 
-The following Azure services have built-in handler support for Event Grid: 
+Currently, the following Azure services have built-in handler support for Event Grid: 
 
 * Azure Functions
 * Logic Apps
 * Azure Automation
 * WebHooks
-
-Coming soon: Service Bus, Event Hubs, Azure Data Factory, Storage Queues
 
 ## What can I do with Event Grid?
 
