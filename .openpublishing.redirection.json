@@ -8349,16 +8349,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/storage-create-storage-account-classic-portal.md",
+            "redirect_url": "/azure/storage/common/storage-create-storage-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/storage-e2e-troubleshooting-classic-portal.md",
+            "redirect_url": "/azure/storage/common/storage-e2e-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/storage-enable-and-view-metrics-classic-portal.md",
+            "redirect_url": "/azure/storage/common/storage-enable-and-view-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/storage-java-use-blob-storage-on-premises-app.md",
+            "redirect_url": "/azure/storage/blobs/storage-java-how-to-use-blob-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/storage-monitoring-diagnosing-troubleshooting-classic-portal.md",
+            "redirect_url": "/azure/storage/common/storage-monitoring-diagnosing-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/storage-use-store-apps.md",
+            "redirect_url": "/azure/storage/index",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-deploy-container.md",
             "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers",
             "redirect_document_id": false
         },
-	{
+	    {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-azcopy.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-load",
             "redirect_document_id": false
         },
-	{
+	    {
             "source_path": "articles/application-insights/app-insights-analytics-reference.md",
             "redirect_url": "https://docs.loganalytics.io/",
             "redirect_document_id": false
