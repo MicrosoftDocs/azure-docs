@@ -1,7 +1,7 @@
 <!--
 Used in:
 sql-database-performance-guidance.md 
-sql-database-single-database-resources.md
+sql-database-single-database-resources.md 
 -->
 
 ### Basic service tier
@@ -27,6 +27,18 @@ sql-database-single-database-resources.md
 | Max concurrent logins | 60 | 90 | 120 | 200 |
 | Max concurrent sessions |600 | 900 | 1200 | 2400 |
 ||||||
+
+### Standard service tier (continued)
+| **Performance level** | **S4** | **S6** | **S7** | **S9** | **S12** |
+| --- |---:| ---:|---:|---:|---:|---:|
+| Max DTUs | 200 | 400 | 800 | 1600 | 3000 |
+| Storage included | 250 GB| 250 GB | 250 GB | 250 GB | 250 GB |
+| Storage max* | 250 GB| 250 GB | 250 GB | 1 TB |1 TB |
+| Max in-memory OLTP storage | N/A | N/A | N/A | N/A |N/A |
+| Max concurrent workers (requests)| 60 | 90 | 120 | 200 |200 |
+| Max concurrent logins | 60 | 90 | 120 | 200 |200 |
+| Max concurrent sessions |600 | 900 | 1200 | 2400 |2400 |
+|||||||
 
 ### Premium service tier 
 | **Performance level** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
