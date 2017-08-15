@@ -5,7 +5,7 @@
 ## [Create and route custom events](custom-event-quickstart.md)
 
 # Tutorials
-## [Resize uploaded images]()
+## [Resize uploaded images](resize-images-on-storage-blob-upload-event.md)
 ## [Add tags during VM creation]()
 ## [Enable app isolation]()
 
