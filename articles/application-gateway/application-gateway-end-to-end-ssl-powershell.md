@@ -1,5 +1,5 @@
 ---
-title: Configure end to end SSL with Application Gateway | Microsoft Docs
+title: Configure end to end SSL with Azure Application Gateway | Microsoft Docs
 description: This article describes how to configure end to end SSL with Application Gateway using Azure Resource Manager PowerShell
 services: application-gateway
 documentationcenter: na
@@ -23,7 +23,7 @@ ms.author: gwallace
 
 Application Gateway supports end to end encryption of traffic. Application Gateway does this by terminating the SSL connection at the application gateway. The gateway then applies the routing rules to the traffic, re-encrypts the packet, and forwards the packet to the appropriate backend based on the routing rules defined. Any response from the web server goes through the same process back to the end user.
 
-Another feature that application gateway supports defining custom SSL options. Application Gateway supports disabling the following protocol version; **TLSv1.0**, **TLSv1.1**, and **TLSv1.2** as well defining the which cipher suites to use and the order of preference.  To learn more about configurable SSL options, visit [SSL Policy overview](application-gateway-ssl-policy-overview.md).
+Another feature that application gateway supports defining custom SSL options. Application Gateway supports disabling the following protocol version; **TLSv1.0**, **TLSv1.1**, and **TLSv1.2** as well defining the which cipher suites to use and the order of preference.  To learn more about configurable SSL options, visit [SSL Policy overview](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 and SSL 3.0 are disabled by default and cannot be enabled. They are considered unsecure and are not able to be used with Application Gateway.
@@ -45,7 +45,7 @@ This scenario will:
 
 To configure end to end SSL with an application gateway, a certificate is required for the gateway and certificates are required for the backend servers. The gateway certificate is used to encrypt and decrypt the traffic sent to it using SSL. The gateway certificate needs to be in Personal Information Exchange (pfx) format. This file format allows for the private key to be exported which is required by the application gateway to perform the encryption and decryption of traffic.
 
-For end to end ssl encryption the backend must be whitelisted with application gateway. This is done by uploading the public certificate of the backends to the application gateway. This ensures that the application gateway only communicates with known backend instances. This further secures the end to end communication.
+For end to end SSL encryption the backend must be whitelisted with application gateway. This is done by uploading the public certificate of the backends to the application gateway. This ensures that the application gateway only communicates with known backend instances. This further secures the end to end communication.
 
 This process is described in the following steps:
 
@@ -175,7 +175,7 @@ $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 Configure the certificate for the application gateway. This certificate is used to decrypt and re-encrypt the traffic on the application gateway.
 
 ```powershell
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+$cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
 ```
 
 > [!NOTE]
@@ -183,15 +183,15 @@ $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFil
 
 ### Step 6
 
-Create the HTTP listener for the application gateway. Assign the front-end ip configuration, port, and ssl certificate to use.
+Create the HTTP listener for the application gateway. Assign the front-end ip configuration, port, and SSL certificate to use.
 
 ```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
+$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
 ```
 
 ### Step 7
 
-Upload the certificate to be used on the ssl enabled backend pool resources.
+Upload the certificate to be used on the SSL enabled backend pool resources.
 
 > [!NOTE]
 > The default probe gets the public key from the **default** SSL binding on the back-end's IP address and compares the public key value it receives to the public key value you provide here. The retrieved public key may not necessarily be the intended site to which traffic flows **if** you are using host headers and SNI on the back-end. If in doubt, visit https://127.0.0.1/ on the back-ends to confirm which certificate is used for the **default** SSL binding. Use the public key from that request in this section. If you are using host-headers and SNI on HTTPS bindings and you do not receive a response and certificate from a manual browser request to https://127.0.0.1/ on the back-ends, you must set up a default SSL binding on the back-ends. If you do not do so, probes fail and the back-end is not whitelisted.
@@ -243,7 +243,7 @@ The following values are a list of protocol versions that can be defined.
 Sets the minimum protocol version to **TLSv1_2** and enables **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, and **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** only.
 
 ```powershell
-$sslPolicy = New-AzureRmApplicationGatewaySslPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
+$SSLPolicy = New-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
 ```
 
 ## Create the Application Gateway
@@ -251,12 +251,12 @@ $sslPolicy = New-AzureRmApplicationGatewaySslPolicy -MinProtocolVersion TLSv1_2 
 Using all the preceding steps, create the Application Gateway. The creation of the gateway is a long running process.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgateway -SslCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslPolicy $sslPolicy -AuthenticationCertificates $authcert -Verbose
+$appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
 ## Limit SSL protocol versions on an existing Application Gateway
 
-The preceding steps take you through creating an application with end to end ssl and disabling certain SSL protocol versions. The following example disables certain SSL policies on an existing application gateway.
+The preceding steps take you through creating an application with end to end SSL and disabling certain SSL protocol versions. The following example disables certain SSL policies on an existing application gateway.
 
 ### Step 1
 
@@ -271,13 +271,13 @@ $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName Ad
 Define an SSL policy. In the following example, TLSv1.0 and TLSv1.1 are disabled and the cipher suites **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, and **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** are the only ones allowed.
 
 ```powershell
-Set-AzureRmApplicationGatewaySslPolicy -MinProtocolVersion -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
+Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
 
 ```
 
 ### Step 3
 
-Finally, update the gateway. It is important to note that this last step is a long running task. When it is done, end to end ssl is configured on the application gateway.
+Finally, update the gateway. It is important to note that this last step is a long running task. When it is done, end to end SSL is configured on the application gateway.
 
 ```powershell
 $gw | Set-AzureRmApplicationGateway
@@ -317,4 +317,4 @@ DnsSettings              : {
 
 Learn about hardening the security of your web applications with Web Application Firewall through Application Gateway by visiting [Web Application Firewall Overview](application-gateway-webapplicationfirewall-overview.md)
 
-[scenario]: ./media/application-gateway-end-to-end-ssl-powershell/scenario.png
+[scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png

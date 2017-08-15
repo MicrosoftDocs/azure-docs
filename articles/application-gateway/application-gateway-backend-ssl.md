@@ -1,5 +1,5 @@
 ---
-title: Enabling end to end SSL on Application Gateway | Microsoft Docs
+title: Enabling end to end SSL on Azure Application Gateway | Microsoft Docs
 description: This page provides an overview of the Application Gateway end to end SSL support.
 documentationcenter: na
 services: application-gateway
