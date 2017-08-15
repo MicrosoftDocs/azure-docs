@@ -1,5 +1,5 @@
 ---
-title: Scheduled Events for Windows VMs | Microsoft Docs
+title: Scheduled Events for Windows VMs in Azure | Microsoft Docs
 description: Scheduled events using the Azure Metadata service for on your Windows virtual machines.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
@@ -18,15 +18,15 @@ ms.date: 08/14/2017
 ms.author: zivr
 
 ---
-# Azure Metadata Service - Scheduled Events (Preview) for Windows VMs
+# Azure Metadata Service: Scheduled Events (Preview) for Windows VMs
 
 > [!NOTE] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
 Scheduled Events is one of the subservices under the Azure Metadata Service. It is responsible for surfacing information regarding upcoming events (for example, reboot) so your application can prepare for them and limit disruption. It is available for all Azure Virtual Machine types including PaaS and IaaS. Scheduled Events gives your Virtual Machine time to perform preventive tasks to minimize the effect of an event. 
 
-## Introduction - Why Scheduled Events?
+## Why Scheduled Events?
 
 With Scheduled Events, you can take steps to limit the impact of platform-intiated maintenance or user-initiated actions on your service. 
 
@@ -41,14 +41,14 @@ Azure Metadata Service surfaces Scheduled Events in the following use cases:
 -	User-initiated calls (for example, user restarts or redeploys a VM)
 
 
-## Scheduled Events - The Basics  
+## The basics  
 
 Azure Metadata service exposes information about running Virtual Machines using a REST Endpoint accessible from within the VM. The information is available via a non-routable IP so that it is not exposed outside the VM.
 
 ### Scope
 Scheduled events are surfaced to all Virtual Machines in a cloud service or to all Virtual Machines in an Availability Set. As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
 
-### Discovering the Endpoint
+### Discovering the endpoint
 In the case where a Virtual Machine is created within a Virtual Network (VNet), the metadata service is available from a static non-routable IP, `169.254.169.254`.
 If the Virtual Machine is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the endpoint to use. 
 Refer to this sample to learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
@@ -59,13 +59,13 @@ The Instance Metadata Service is versioned. Versions are mandatory and the curre
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
-### Using Headers
+### Using headers
 When you query the Metadata Service, you must provide the header `Metadata: true` to ensure the request was not unintentionally redirected.
 
 ### Enabling Scheduled Events
 The first time you make a request for scheduled events, Azure implicitly enables the feature on your Virtual Machine. As a result, you should expect a delayed response in your first call of up to two minutes.
 
-### User Initiated Maintenance
+### User initiated maintenance
 User initiated virtual machine maintenance via the Azure portal, API, CLI, or PowerShell results in a scheduled event. This allows you to test the maintenance preparation logic in your application and allows your application to prepare for user initiated maintenance.
 
 Restarting a virtual machine schedules an event with type `Reboot`. Redeploying a virtual machine schedules an event with type `Redeploy`.
@@ -103,7 +103,7 @@ In the case where there are scheduled events, the response contains an array of 
 }
 ```
 
-### Event Properties
+### Event properties
 |Property  |  Description |
 | - | - |
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
@@ -113,7 +113,7 @@ In the case where there are scheduled events, the response contains an array of 
 | Event Status | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided; the event will no longer be returned when the event is completed.
 | NotBefore| Time after which this event may start. <br><br> Example: <br><ul><li> 2016-09-19T18:29:47Z  |
 
-### Event Scheduling
+### Event scheduling
 Each event is scheduled a minimum amount of time in the future based on event type. This time is reflected in an event's `NotBefore` property. 
 
 |EventType  | Minimum Notice |
@@ -122,7 +122,7 @@ Each event is scheduled a minimum amount of time in the future based on event ty
 | Reboot | 15 minutes |
 | Redeploy | 10 minutes |
 
-### Starting an event (expedite)
+### Starting an event 
 
 Once you have learned of an upcoming event and completed your logic for graceful shutdown, you can approve the outstanding event by making a `POST` call to the metadata service with the `EventId`. This indicates to Azure that it can shorten the minimum notification time (when possible). 
 
@@ -134,7 +134,7 @@ curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [
 > Acknowledging an event allows the event to proceed for all `Resources` in the event, not just the virtual machine that acknowledges the event. You may therefore choose to elect a leader to coordinate the acknowledgement, which may be as simple as the first machine in the `Resources` field.
 
 
-## PowerShell Sample 
+## PowerShell sample 
 
 The following sample queries the metadata service for scheduled events and approves each outstanding event.
 
@@ -194,7 +194,7 @@ foreach($event in $scheduledEvents.Events)
 ``` 
 
 
-## C\# Sample 
+## C\# sample 
 
 The following sample is of a simple client that communicates with the metadata service.
 
@@ -326,7 +326,7 @@ public class Program
 }
 ```
 
-## Python Sample 
+## Python sample 
 
 The following sample queries the metadata service for scheduled events and approves each outstanding event.
 
@@ -370,8 +370,8 @@ if __name__ == '__main__':
   sys.exit(0)
 ```
 
-## Next Steps 
+## Next steps 
 
-- Read more about the APIs available in the [instance metadata service](instance-metadata-service.md).
+- Read more about the APIs available in the [Instance Metadata service](instance-metadata-service.md).
 - Learn about [planned maintenance for Windows virtual machines in Azure](planned-maintenance.md).
 

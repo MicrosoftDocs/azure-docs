@@ -17,7 +17,7 @@ ms.date: 08/11/2017
 ms.author: harijay
 ---
 
-# Azure Instance Metadata Service for Windows VMs
+# Azure Instance Metadata service for Windows VMs
 
 
 The Azure Instance Metadata Service provides information about running virtual machine instances that can be used to manage and configure your virtual machines.
@@ -26,19 +26,20 @@ This includes information such as SKU, network configuration, and upcoming maint
 Azure's Instance Metadata Service is a REST Endpoint accessible to all IaaS VMs created via the [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). 
 The endpoint is available at a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.
 
-### Important information
 
-This service is  **generally available** in Global Azure Regions. It is in Public preview for Government, China, and German Azure Cloud. It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [data categories](#instance-metadata-data-categories) available.
+
+[!IMPORTANT]
+> This service is  **generally available** in Global Azure Regions. It is in Public preview for Government, China, and German Azure Cloud. It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [data categories](#instance-metadata-data-categories) available.
 
 ## Service Availability
 The service is available in all generally available Global Azure regions. The service is in public preview  in the Government, China, or Germany regions.
 
 Regions                                        | Availability?
 -----------------------------------------------|-----------------------------------------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/en-us/regions/)     | Generally Available 
-[Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)              | In Preview 
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available 
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | In Preview 
 [Azure China](https://www.azure.cn/)                                                           | In Preview
-[Azure Germany](https://azure.microsoft.com/en-us/overview/clouds/germany/)                    | In Preview
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | In Preview
 
 This table is updated when the service becomes available in other Azure clouds.
 
@@ -54,7 +55,7 @@ The Instance Metadata Service is versioned. Versions are mandatory and the curre
 
 As we add newer versions, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats. However, note that the current preview version(2017-03-01) may not be available once the service is generally available.
 
-### Using Headers
+### Using headers
 When you query the Instance Metadata Service, you must provide the header `Metadata: true` to ensure the request was not unintentionally redirected.
 
 ### Retrieving metadata
@@ -207,7 +208,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 }
 ```
 
-#### Retrieving metadata in Windows Virtual Machine
+#### Retrieving metadata in Windows virtual machine
 
 **Request**
 
@@ -296,7 +297,7 @@ ipv6/ipAddress | Local IPv6 address of the VM
 macAddress | VM mac address 
 scheduledevents | Currently in Public Preview See [scheduledevents](scheduled-events.md)
 
-## Example Scenarios for usage  
+## Example scenarios for usage  
 
 ### Tracking VM running on Azure
 
@@ -314,7 +315,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 5c08b38e-4d57-4c23-ac45-aca61037f084
 ```
 
-### Placement of containers, data-partitions based Fault/Update domain 
+### Placement of containers, data-partitions based fault/update domain 
 
 For certain scenarios, placement of different data replicas is of prime importance. For example, [HDFS replica placement](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)
 or container placement via an [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) may you require to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
@@ -397,6 +398,6 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 
    ![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)
     
-## Next Steps
+## Next steps
 
-- Learn more about the [scheduledevents](scheduled-events.md) API **In Public Preview** provided by the Instance Metadata Service.
+- Learn more about the [Scheduled Events](scheduled-events.md) API **in public preview** provided by the Instance Metadata service.
