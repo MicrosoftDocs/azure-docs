@@ -226,7 +226,7 @@ you can select from fields available in your workflow.
    > around the action that references the array. 
    > That way, your logic app performs that action on each array item.
 
-   When you're done, your logic app looks liks this example:
+   When you're done, your logic app looks like this example:
 
    ![Finished logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
 
