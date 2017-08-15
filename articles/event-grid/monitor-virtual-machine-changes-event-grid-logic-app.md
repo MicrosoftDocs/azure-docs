@@ -232,10 +232,15 @@ choose the action's title bar.
 
    ![Save your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save-completed.png)
 
-## Run and test your logic app
+   Your logic app is now live, but waits for changes to your virtual machine 
+   before doing anything.
 
-1. Update your virtual machine, for example, 
-choose a different size.
+## Test your logic app
+
+To check that your logic app is getting the correct events, 
+make a change to your virtual machine, for example, 
+[choose another size for your virtual machine](../virtual-machines/windows/resize-vm.md).
+
 
 ## FAQ
 
