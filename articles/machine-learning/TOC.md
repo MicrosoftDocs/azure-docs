@@ -1,4 +1,4 @@
-# [Machine Learning V-Next](v-next/index.yml?toc=%2fazure%2fmachine-learning%2fpreview%2ftoc.json)
+# [Machine Learning preview features](preview/index.yml?toc=%2fazure%2fmachine-learning%2fpreview%2ftoc.json)
 
 # [Machine Learning Studio](studio/index.yml?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json)
 
