@@ -151,6 +151,11 @@ Enter this expression:
 
    `@equals(triggerBody()?['data']['operationName'], 'Microsoft.Compute/virtualMachines/write')`
 
+   This expression checks for events where the **Data** object 
+   has an `operationName` that matches the operation, "Microsoft.Compute/virtualMachines/write", 
+   which describes changes to virtual machines. 
+   Learn more about the [Event Grid event schema](../event-grid/event-schema.md).
+
 3. Now choose **Edit in basic mode**.
 To provide a description for your condition, 
 choose the **ellipses** (**...**) button on the condition shape, 
