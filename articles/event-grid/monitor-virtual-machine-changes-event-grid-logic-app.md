@@ -145,20 +145,13 @@ choose **New step** > **Add a condition**.
    including action paths to follow based whether the 
    condition is true or false.
 
-2. Build the condition. 
+2. In the condition box, choose **Edit in advanced mode**.
 
-   * In the condition's left box, from the **Dynamic content** list that appears, 
-   choose the **Data object** field under **On a resource event**. 
-   Close the dynamic content list for now. (Choose **Add dynamic content**)
+3. Enter this expression, then return to **Edit in basic mode**:
 
-     ![Select "Data object"](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-select-comparison-field.png)
+   `@equals(triggerBody()?['data']['operationName'], 'Microsoft.Compute/virtualMachines/write')`
 
-   * In the middle box, choose **contains** for your comparison operator. 
-
-   * In the right box, enter "Microsoft.Compute/virtualMachines/write" 
-   for the operation that you want your logic app to monitor. 
-
-   * Optional: To provide a description for your condition, 
+4. To provide a description for your condition, 
    choose the **ellipses** (**...**) button on the condition shape, 
    then choose **Rename**.
 
@@ -241,18 +234,18 @@ choose the action's title bar.
 
 ## Test your logic app
 
-To check that your logic app is getting the specified events, 
-update your virtual machine. For example, 
-you can resize your virtual machine in the Azure portal 
-or [resize with Azure PowerShell](../virtual-machines/windows/resize-vm.md). 
-After a few moments, you should get an email. For example:
+1. To check that your logic app is getting the specified events, 
+update your virtual machine. 
 
-**[screenshot TBD]**
+   For example, you can resize your virtual machine in the Azure portal 
+   or [resize with Azure PowerShell](../virtual-machines/windows/resize-vm.md). 
 
-To review the runs and trigger history for your logic app, 
+   After a few moments, you should get an email. For example:
+
+   ![Email about virtual machine update](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
+
+2. To review the runs and trigger history for your logic app, 
 on your logic app menu, choose **Overview**.
-
-**[screenshot TBD]**
 
 Congratulations, you just created and ran a logic app 
 that monitors events from a resource through an event 
