@@ -37,7 +37,7 @@ This tutorial covers the following tasks:
 
 ## Next steps
 
-In this video, you've learned the benefits of using Azure Cosmos DB to create MEAN apps and you've learned the steps involved in creating a MEAN.js app for Azure Cosmos DB that are covered in rest of the tutorial series. 
+In this video, you've seen an overview of the steps you'll follow to create a MEAN.js app with Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Create the Node.js and Express App](tutorial-develop-mongodb-nodejs-part2.md)
