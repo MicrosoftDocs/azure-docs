@@ -55,8 +55,8 @@ such as Office 365 Outlook, Outlook.com, or Gmail.
 This tutorial uses an Office 365 Outlook email account.
 
 > [!IMPORTANT]
-> This tutorial creates and uses resources that 
-> incurs charges on your Azure subscription. 
+> This tutorial uses resources and performs actions 
+> that incur charges on your Azure subscription. 
 > When you're done with the tutorial, 
 > make sure that you disable or delete any resources 
 > where you don't want to incur charges.
@@ -97,9 +97,10 @@ so you can build your logic app from scratch.
 
    The Logic Apps Designer shows you [*connectors*](../connectors/apis-list.md) 
    and [*triggers*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
-   that you can use to start your logic app, and actions that follow a trigger to perform tasks. 
-   A trigger is an event that creates a logic app instance and starts your logic app workflow. 
-   Your logic app needs a trigger as the first item.
+   that you can use to start your logic app, 
+   plus actions that you can add after a trigger to perform tasks. 
+   A trigger is an event that creates a logic app instance and 
+   starts your logic app workflow. Your logic app needs a trigger as the first item.
 
 4. In the search box, enter "event grid" as your filter. 
 Select this trigger: **Azure Event Grid - On a resource event**
