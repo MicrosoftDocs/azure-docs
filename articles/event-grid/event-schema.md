@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 08/15/2017
 ms.author: babanisa
 ---
 
