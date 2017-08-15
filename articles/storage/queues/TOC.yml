@@ -27,5 +27,5 @@
   - name: Samples
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=queue
 #include file for the articles that apply to >1 service
-- name: All Services
+- name: Articles that apply to multiple services
   href: ../common/toc.yml
