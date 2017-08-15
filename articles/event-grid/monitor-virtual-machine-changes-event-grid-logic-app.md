@@ -208,7 +208,7 @@ you can select from fields available in your workflow.
    * In the **To** box, enter the recipient's email address. 
    For testing purposes, use your own email address.
 
-   * Optional - To provide a description for your email, 
+   * Optional: To provide a description for your email, 
    on the email shape, choose the **ellipses** (**...**) button, 
    then choose **Rename**.
 
@@ -240,12 +240,12 @@ choose a different size.
 ## FAQ
 
 **Q**: What other virtual machine monitoring tasks can I peform with event grids and logic apps? </br>
-**A**: You can monitor other configuration changes, including these examples:
+**A**: You can monitor other configuration changes, like these examples:
 
 * A virtual machine gets role-based access control (RBAC) rights.
 * Changes are made to a network security group (NSG) on a network interface (NIC).
-* A virtual machine has disks added or removed.
-* A public IP address is assigned to a virtual machine network interface.
+* Disks for a virtual machine are added or removed.
+* A public IP address is assigned to a virtual machine NIC.
 
 <a name="third-party-resource"></a>
 
