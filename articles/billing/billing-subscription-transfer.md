@@ -21,13 +21,13 @@ ms.custom: H1Hack27Feb2017
 ---
 # Transfer ownership of an Azure subscription to another account
 
-You can transfer your subscription to another user in the Account Center. Use this feature to hand over subscription billing ownership to someone else, change the account you use to sign in, or move your subscription to a different directory. To change your subscription to a different offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md).
+You can transfer your subscription to another user in the Account Center. Use this feature to hand over subscription billing ownership to someone else, change the sign in account, or move subscription to a different directory. To change your subscription to a different offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md).
 
 <a id="supported"></a>
 
 ## What's supported:
 
-The table below shows offers, or subscription types, that support self-serve subscription transfer. For transferring other subscriptions, like [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) or support plans, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Self-serve subscription transfer is availble for the offers or subscription types listed in the following table. For transferring other subscriptions, like [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) or support plans, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 > [!IMPORTANT]
 > 
@@ -119,7 +119,7 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
 
 * <a id="no-button"></a> **Why don't I see the Transfer Subscription button?**
 
-  The **Transfer Subscription** button isn't visible if we don't support subscription transfer for your offer or country. [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to transfer your subscription.
+  Self-serve subscription transfer isn't available for your offer or country. To transfer your subscription, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 * **Does a subscription transfer result in any service downtime?**
 
