@@ -14,7 +14,7 @@ ms.date: 08/16/2017
 ms.author: LADocs; estfan
 ---
 
-# Monitor virtual machine changes by using event grids and logic apps
+# Monitor changes to virtual machines with Azure Event Grid and Logic Apps
 
 You can start an automated [logic app workflow](../logic-apps/logic-apps-what-are-logic-apps.md) 
 when specific events happen in Azure resources or third-party resources. 
