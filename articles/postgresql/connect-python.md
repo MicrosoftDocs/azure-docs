@@ -57,10 +57,10 @@ Get the connection information needed to connect to the Azure Database for Postg
 This topic contains a total of four code samples, each of which performs a specific function. The following instructions indicate how to create a text file, insert a code block, and then save the file so that you can run it later. Be sure to create four separate files, one for each code block.
 
 - Using your favorite text editor, create a new file.
-- Copy and paste one of the code samples in the following sections into the text file. Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
+- Copy and paste one of the code samples in the following sections into the text file. Replace the **host**, **dbname**, **user**, and **password** parameters with the values that you specified when you created the server and database.
 - Save the file with the .py extension (for example postgres.py) into your project folder. If you are running the Windows OS, be sure to select UTF-8 encoding when saving the file. 
 - Launch the Command Prompt or Bash shell and then change the directory to your project folder, for example `cd postgres`.
--  To run the code, type the python command followed by the file name, for example `python postgres.py`.
+-  To run the code, type the Python command followed by the file name, for example `Python postgres.py`.
 
 > [!NOTE]
 > Starting in Python version 3, you may see the error `SyntaxError: Missing parentheses in call to 'print'` when running the following code blocks. If that happens, replace each call to the command `print "string"` with a function call using parenthesis, such as `print("string")`.
@@ -106,7 +106,8 @@ conn.close()
 ```
 
 After the code runs successfully, the output appears as follows:
-    ![Command line output](media/connect-python/2-example-python-output.png)
+
+![Command line output](media/connect-python/2-example-python-output.png)
 
 ## Read data
 Use the following code to read the data inserted using [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function with **SELECT** SQL statement. This function accepts a query and returns a result set that can be iterated over with the use of [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
