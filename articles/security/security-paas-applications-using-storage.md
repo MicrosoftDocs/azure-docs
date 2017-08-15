@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 08/27/2017
 ms.author: terrylan
 
 ---
@@ -78,7 +78,7 @@ You can leverage built-in RBAC roles in Azure to assign privileges to users. Con
 
 Organizations that do not enforce data access control by leveraging capabilities such as RBAC may be giving more privileges than necessary for their users. This can lead to data compromise by having some users having access to data that they shouldn’t have in the first place.
 
-You can learn more about Azure RBAC by reading the article [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md). See the [Azure Storage Security Guide](../storage/storage-security-guide.md#how-to-secure-your-storage-account-with-role-based-access-control-(rbac)) for detail on how to secure your storage account with RBAC.
+You can learn more about Azure RBAC by reading the article [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md). See the [Azure Storage Security Guide](../storage/storage-security-guide.md#how-to-secure-your-storage-account-with-role-based-access-control-rbac) for detail on how to secure your storage account with RBAC.
 
 ## Storage encryption
 ### Use client-side encryption for high value data
