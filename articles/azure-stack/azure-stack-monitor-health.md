@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 07/26/2017
 ms.author: chasat
 
 ---
@@ -39,11 +39,8 @@ To view the health state in the portal, click the region that you want to view i
 
 You can click a resource provider or infrastructure role to view more detailed information.
 
-If you click an infrastructure role, and then click the role instance, you’ll see options in the **Role instance** blade to Start, Restart, or Shutdown. (The available options depend on the current state.) Although there is the capability to start, restart, or shut down an infrastructure role instance, we don’t recommend that you do so without guidance from the [Azure Stack forum](https://aka.ms/azurestackforum).
-
 > [!WARNING]
->In an Azure Stack Development Kit environment, there is only one role instance for each infrastructure role. Therefore, if you restart or shut down a role instance, the functionality that the role offers is unavailable until the role instance starts. If you restart or shut down the AzS-Xrp01 role instance (associated with several of the infrastructure roles), you must use Hyper-V Manager to start the virtual machine.
->
+>If you click an infrastructure role, and then click the role instance, there are options in the **Role instance** blade to Start, Restart, or Shutdown. Do **not** use these options in an Azure Stack Development Kit environment. These options are designed only for a multi-node environment, where there is more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the development kit causes system instability. For troubleshooting assistance, please post your issue to the [Azure Stack forum](https://aka.ms/azurestackforum).
 >
  
 ## View alerts

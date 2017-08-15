@@ -105,9 +105,6 @@
     href: consistency-levels.md
   - name: Throughput
     href: request-units.md
-    items:
-    - name: Request units per minute
-      href: request-units-per-minute.md
   - name: Multi-model APIs
     items:
     - name: DocumentDB
@@ -283,8 +280,12 @@
       href: powerbi-visualize.md
     - name: Leverage the ODBC driver for data visualization
       href: odbc-driver.md
+    - name: Use Spring Boot Starter with DocumentDB APIs
+      href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Reference
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db
   - name: DocumentDB APIs
     items:
     - name: Java
