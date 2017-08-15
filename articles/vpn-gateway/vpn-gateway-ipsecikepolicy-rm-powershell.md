@@ -55,22 +55,22 @@ The instructions in this article helps you set up and configure IPsec/IKE polici
 
 ## <a name ="params"></a>Part 2 - Supported cryptographic algorithms & key strengths
 
-The table below lists the supported cryptographic algorithms and key strengths configurable by the customers.
+The following table lists the supported cryptographic algorithms and key strengths configurable by the customers:
 
-| **IPsec/IKEv2**  | **Options**                                                                 |
-| ---              | ---                                                                         |
-| IKEv2 Encryption | AES256, AES192, AES128, DES3, DES                                           |
-| IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5                                                   |
+| **IPsec/IKEv2**  | **Options**    |
+| ---  | --- 
+| IKEv2 Encryption | AES256, AES192, AES128, DES3, DES  
+| IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5  |
 | DH Group         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None |
 | IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None    |
-| IPsec Integrity  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
-| PFS Group        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                            |
-| QM SA Lifetime   | (**Optional**: default values are used if not specified)<br>Seconds (integer; **min. 300**/default 27000 seconds)<br>KBytes (integer; **min. 1024**/default 102400000 KBytes)                                                                                |
-| Traffic Selector | UsePolicyBasedTrafficSelectors** ($True/$False; **Optional**, default $False if not specified)                                                                         |
-|                  |                                                                             |
+| IPsec Integrity  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
+| PFS Group        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None 
+| QM SA Lifetime   | (**Optional**: default values are used if not specified)<br>Seconds (integer; **min. 300**/default 27000 seconds)<br>KBytes (integer; **min. 1024**/default 102400000 KBytes)   |
+| Traffic Selector | UsePolicyBasedTrafficSelectors** ($True/$False; **Optional**, default $False if not specified)    |
+|  |  |
 
 > [!IMPORTANT]
-> 1. **If GCMAES is used as for IPsec Encryption algorithm, you must select the same GCMAES algorithm and key length for IPsec Integrity; e.g., using GCMAES128 for both**
+> 1. **If GCMAES is used as for IPsec Encryption algorithm, you must select the same GCMAES algorithm and key length for IPsec Integrity; for example, using GCMAES128 for both**
 > 2. IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways
 > 3. Setting "UsePolicyBasedTrafficSelectors" to $True on a connection will configure the Azure VPN gateway to connect to policy-based VPN firewall on premises. If you enable PolicyBasedTrafficSelectors, you need to ensure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any. For example, if your on-premises network prefixes are 10.1.0.0/16 and 10.2.0.0/16, and your virtual network prefixes are 192.168.0.0/16 and 172.16.0.0/16, you need to specify the following traffic selectors:
 >    * 10.1.0.0/16 <====> 192.168.0.0/16
@@ -78,9 +78,9 @@ The table below lists the supported cryptographic algorithms and key strengths c
 >    * 10.2.0.0/16 <====> 192.168.0.0/16
 >    * 10.2.0.0/16 <====> 172.16.0.0/16
 
-See [Connect multiple on-premises policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md) for more details regarding policy-based traffic selectors.
+For more information regarding policy-based traffic selectors, see [Connect multiple on-premises policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
-The table below lists the corresponding Diffie-Hellman Groups supported by the custom policy:
+The following table lists the corresponding Diffie-Hellman Groups supported by the custom policy:
 
 | **Diffie-Hellman Group**  | **DHGroup**              | **PFSGroup** | **Key length** |
 | --- | --- | --- | --- |
@@ -102,12 +102,14 @@ This section walks you through the steps of creating a S2S VPN connection with a
 See [Create a S2S VPN connection](vpn-gateway-create-site-to-site-rm-powershell.md) for more detailed step-by-step instructions for creating a S2S VPN connection.
 
 ### <a name="before"></a>Before you begin
+
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* You need to install the Azure Resource Manager PowerShell cmdlets. See [Overview of Azure PowerShell](/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
+* Install the Azure Resource Manager PowerShell cmdlets. See [Overview of Azure PowerShell](/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
 
 ### <a name="createvnet1"></a>Step 1 - Create the virtual network, VPN gateway, and local network gateway
 
 #### 1. Declare your variables
+
 For this exercise, we start by declaring our variables. Be sure to replace the values with your own when configuring for production.
 
 ```powershell
@@ -136,6 +138,7 @@ $LNGIP6        = "131.107.72.22"
 ```
 
 #### 2. Connect to your subscription and create a new resource group
+
 Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
 Open your PowerShell console and connect to your account. Use the following sample to help you connect:
@@ -147,7 +150,8 @@ New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
 
 #### 3. Create the virtual network, VPN gateway, and local network gateway
-The sample below creates the virtual network, TestVNet1, with three subnets, and the VPN gateway. When substituting values, it's important that you always name your gateway subnet specifically GatewaySubnet. If you name it something else, your gateway creation fails.
+
+The following sample creates the virtual network, TestVNet1, with three subnets, and the VPN gateway. When substituting values, it's important that you always name your gateway subnet specifically GatewaySubnet. If you name it something else, your gateway creation fails.
 
 ```powershell
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -169,7 +173,8 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 ### <a name="s2sconnection"></a>Step 2 - Create a S2S VPN connection with an IPsec/IKE policy
 
 #### 1. Create an IPsec/IKE policy
-The sample script below creates an IPsec/IKE policy with the following algorithms and parameters:
+
+The following sample script creates an IPsec/IKE policy with the following algorithms and parameters:
 
 * IKEv2: AES256, SHA384, DHGroup24
 * IPsec: AES256, SHA256, PFS24, SA Lifetime 7200 seconds & 2048KB
@@ -188,6 +193,7 @@ $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA38
 ```
 
 #### 2. Create the S2S VPN connection with the IPsec/IKE policy
+
 Create an S2S VPN connection and apply the IPsec/IKE policy created earlier.
 
 ```powershell
@@ -202,11 +208,12 @@ You can optionally add "-UsePolicyBasedTrafficSelectors $True" to the create con
 > [!IMPORTANT]
 > Once an IPsec/IKE policy is specified on a connection, the Azure VPN gateway will only send or accept
 > the IPsec/IKE proposal with specified cryptographic algorithms and key strengths on that particular
-> connection. You must make sure your on-premises VPN device for the connection uses or accepts the exact
+> connection. Make sure your on-premises VPN device for the connection uses or accepts the exact
 > policy combination, otherwise the S2S VPN tunnel will not establish.
 
 
 ## <a name ="vnet2vnet"></a>Part 4 - Create a new VNet-to-VNet connection with IPsec/IKE policy
+
 The steps of creating a VNet-to-VNet connection with an IPsec/IKE policy are similar to that of a S2S VPN connection. The following sample scripts create the connection as shown in the diagram:
 
 ![v2v-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/v2vpolicy.png)
@@ -216,6 +223,7 @@ See [Create a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md) for more 
 ### <a name="createvnet2"></a>Step 1 - Create the second virtual network and VPN gateway
 
 #### 1. Declare your variables
+
 Be sure to replace the values with the ones that you want to use for your configuration.
 
 ```powershell
@@ -239,6 +247,7 @@ $Connection12 = "VNet1toVNet2"
 ```
 
 #### 2. Create the second virtual network and VPN gateway in the new resource group
+
 ```powershell
 New-AzureRmResourceGroup -Name $RG2 -Location $Location2
 
@@ -257,9 +266,11 @@ New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Locatio
 ```
 
 ### Step 2 - Create a VNet-toVNet connection with the IPsec/IKE policy
+
 Similar to the S2S VPN connection, create an IPsec/IKE policy then apply to policy to the new connection.
 
 #### 1. Create an IPsec/IKE policy
+
 The following sample script creates a different IPsec/IKE policy with the following algorithms and parameters:
 * IKEv2: AES128, SHA1, DHGroup14
 * IPsec: GCMAES128, GCMAES128, PFS14, SA Lifetime 7200 seconds & 4096KB
@@ -269,7 +280,8 @@ $ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 
 ```
 
 #### 2. Create VNet-to-VNet connections with the IPsec/IKE policy
-Create a VNet-to-VNet connection and apply the IPsec/IKE policy created above. In this example, both gateways are in the same subscription. So it is possible to create and configure both connections with the same IPsec/IKE policy in the same PowerShell session.
+
+Create a VNet-to-VNet connection and apply the IPsec/IKE policy you created. In this example, both gateways are in the same subscription. So it is possible to create and configure both connections with the same IPsec/IKE policy in the same PowerShell session.
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
@@ -283,7 +295,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 > [!IMPORTANT]
 > Once an IPsec/IKE policy is specified on a connection, the Azure VPN gateway will only send or accept
 > the IPsec/IKE proposal with specified cryptographic algorithms and key strengths on that particular
-> connection. You must make sure the IPsec policies for both connections are the same, otherwise the
+> connection. Make sure the IPsec policies for both connections are the same, otherwise the
 > VNet-to-VNet connection will not establish.
 
 After completing these steps, the connection is established in a few minutes, and you will have the following network topology as shown in the beginning:
@@ -292,6 +304,7 @@ After completing these steps, the connection is established in a few minutes, an
 
 
 ## <a name ="managepolicy"></a>Part 5 - Update IPsec/IKE policy for a connection
+
 The last section shows you how to manage IPsec/IKE policy for an existing S2S or VNet-to-VNet connection. The exercise below walks you through the following operations on a connection:
 
 1. Show the IPsec/IKE policy of a connection
@@ -304,6 +317,7 @@ The same steps apply to both S2S and VNet-to-VNet connections.
 > IPsec/IKE policy is supported on *Standard* and *HighPerformance* route-based VPN gateways only. It does not work on the Basic gateway SKU or the policy-based VPN gateway.
 
 #### 1. Show the IPsec/IKE policy of a connection
+
 The following example shows how to get the IPsec/IKE policy configured on a connection. The scripts also continue from the exercises above.
 
 ```powershell
@@ -313,7 +327,7 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 $connection6.IpsecPolicies
 ```
 
-The last command lists the current IPsec/IKE policy configured on the connection, if there is any. The sample output shown below for the connection:
+The last command lists the current IPsec/IKE policy configured on the connection, if there is any. The following sample output is for the connection:
 
 ```powershell
 SALifeTimeSeconds   : 3600
@@ -329,6 +343,7 @@ PfsGroup            : PFS24
 If there is no IPsec/IKE policy configured, the command (PS> $connection6.policy) gets an empty return. It does not mean IPsec/IKE is not configured on the connection, but that there is no custom IPsec/IKE policy. The actual connection uses the default policy negotiated between your on-premises VPN device and the Azure VPN gateway.
 
 #### 2. Add or update an IPsec/IKE policy for a connection
+
 The steps to add a new policy or update an existing policy on a connection are the same: create a new policy then apply the new policy to the connection.
 
 ```powershell
@@ -368,7 +383,8 @@ PfsGroup            : None
 ```
 
 #### 3. Remove an IPsec/IKE policy from a connection
-Once you remove the custom policy from a connection, the Azure VPN gateway reverts back to the [default list of IPsec/IKE proposals](vpn-gateway-about-vpn-devices.md) and renegotiate again with your on-premises VPN device.
+
+Once you remove the custom policy from a connection, the Azure VPN gateway reverts back to the [default list of IPsec/IKE proposals](vpn-gateway-about-vpn-devices.md) and renegotiates again with your on-premises VPN device.
 
 ```powershell
 $RG1           = "TestPolicyRG1"
@@ -381,9 +397,10 @@ $connection6.IpsecPolicies.Remove($currentpolicy)
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6
 ```
 
-Again, you can use the same script above to check if the policy has been removed from the connection.
+You can use the same script to check if the policy has been removed from the connection.
 
 ## Next steps
+
 See [Connect multiple on-premises policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md) for more details regarding policy-based traffic selectors.
 
 Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.
