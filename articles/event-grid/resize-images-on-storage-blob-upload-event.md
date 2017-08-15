@@ -122,7 +122,7 @@ storageConnectionString=$(az storage account show-connection-string \
 --query connectionString --output tsv)
 
 az functionapp config appsettings set --name $functionName --resource-group myResourceGroup \
---settings STORAGE_CONNECTION_STRING=$storageConnectionString 
+--settings BLOB_STORAGE_CONNECTION=$storageConnectionString 
 ```
 
 You can now deploy a function code project to this function app.
