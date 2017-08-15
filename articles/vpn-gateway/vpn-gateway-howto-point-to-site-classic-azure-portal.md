@@ -63,7 +63,7 @@ You can use the following values to create a test environment, or refer to these
 * **Size:** Select the gateway SKU that you want to use.
 * **Routing Type: Dynamic**
 
-## <a name="vnetvpn"></a>Section 1 - Create a virtual network and a VPN gateway
+## <a name="vnetvpn"></a>1. Create a virtual network and a VPN gateway
 
 Before beginning, verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 
@@ -124,7 +124,7 @@ In this step, you create a gateway subnet and a Dynamic routing gateway. In the 
   ![Configure routing type](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
 10. On the **New VPN Connection** page, click **OK** at the bottom of the page to begin creating your virtual network gateway. A VPN gateway can take up to 45 minutes to complete, depending on the gateway sku that you select.
 
-## <a name="generatecerts"></a>Section 2 - Create certificates
+## <a name="generatecerts"></a>2. Create certificates
 
 Certificates are used by Azure to authenticate VPN clients for Point-to-Site VPNs. You upload the public key information of the root certificate to Azure. The public key is then considered 'trusted'. Client certificates must be generated from the trusted root certificate, and then installed on each client computer in the Certificates-Current User/Personal certificate store. The certificate is used to authenticate the client when it initiates a connection to the VNet. 
 
@@ -138,7 +138,7 @@ If you use self-signed certificates, they must be created using specific paramet
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-## <a name="upload"></a>Section 3 - Upload the root certificate .cer file
+## <a name="upload"></a>3. Upload the root certificate .cer file
 
 After the gateway has been created, you can upload the .cer file (which contains the public key information) for a trusted root certificate to Azure. You do not upload the private key for the root certificate to Azure. Once a.cer file is uploaded, Azure can use it to authenticate clients that have installed a client certificate generated from the trusted root certificate. You can upload additional trusted root certificate files - up to a total of 20 - later, if needed.  
 
@@ -155,7 +155,7 @@ After the gateway has been created, you can upload the .cer file (which contains
 
   ![Upload certificate](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)<br>
 
-## <a name="vpnclientconfig"></a>Section 4 - Configure the client
+## <a name="vpnclientconfig"></a>4. Configure the client
 
 To connect to a VNet using a Point-to-Site VPN, each client must install a package to configure the native Windows VPN client. The configuration package configures the native Windows VPN client with the settings necessary to connect to the virtual network.
 
@@ -176,7 +176,7 @@ You can use the same VPN client configuration package on each client computer, a
 
 If you want to create a P2S connection from a client computer other than the one you used to generate the client certificates, you need to install a client certificate. When installing a client certificate, you need the password that was created when the client certificate was exported. Typically, this is just a matter of double-clicking the certificate and installing it. For more information, see [Install an exported client certificate](vpn-gateway-certificates-point-to-site.md#install).
 
-## <a name="connect"></a>Section 5 - Connect to Azure
+## <a name="connect"></a>5. Connect to Azure
 
 ### Connect to your VNet
 
