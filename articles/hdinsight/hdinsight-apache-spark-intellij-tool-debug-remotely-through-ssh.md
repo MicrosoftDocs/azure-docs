@@ -36,19 +36,20 @@ This article provides step-by-step guidance on how to use HDInsight tools in Azu
 
     a. Select **HDInsight**. 
 
-    b. Select a Java or Scala template based on your preference. Select between the following options: 
+    b. Select a Java or Scala template based on your preference. Select between the following options:
 
-      - **Spark on HDInsight (Scala)**
-      - **Spark on HDInsight (Java)**
-      - **Spark on HDInsight Cluster Run Sample (Scala)**
-     
-        This example uses a **Spark on HDInsight Cluster Run Sample (Scala)** template.
+    - **Spark on HDInsight (Scala)**
 
-    d. In the **Build tool** list, select either of the following, according to your need:
-    c. In the **Build tool** list, select either of the following, according to your need: 
+    - **Spark on HDInsight (Java)**
 
-      - **Maven**, for Scala project-creation wizard support
-      - **SBT**, for managing the dependencies and building for the Scala project  
+    - **Spark on HDInsight Cluster Run Sample (Scala)**
+
+
+    c. In the **Build tool** list, select either of the following, according to your need:
+
+    - **Maven**, for Scala project-creation wizard support
+
+    -  **SBT**, for managing the dependencies and building for the Scala project 
 
         ![Create a debug project](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-create-projectfor-debug-remotely.png)
 
