@@ -147,20 +147,20 @@ choose **New step** > **Add a condition**.
    condition is true or false.
 
 2. In the condition box, choose **Edit in advanced mode**.
-
-3. Enter this expression, then return to **Edit in basic mode**:
+Enter this expression:
 
    `@equals(triggerBody()?['data']['operationName'], 'Microsoft.Compute/virtualMachines/write')`
 
-4. To provide a description for your condition, 
-   choose the **ellipses** (**...**) button on the condition shape, 
-   then choose **Rename**.
-
-5. Save your logic app.
+3. Now choose **Edit in basic mode**.
+To provide a description for your condition, 
+choose the **ellipses** (**...**) button on the condition shape, 
+then choose **Rename**.
 
    Your logic app condition now looks similar to this example:
 
-   ![Condition criteria](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-1.png)
+   ![Logic app condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-1.png)
+
+4. Save your logic app.
 
 ## Send email when your virtual machine changes
 
