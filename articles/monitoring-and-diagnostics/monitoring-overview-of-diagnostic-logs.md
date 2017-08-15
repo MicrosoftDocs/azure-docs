@@ -13,72 +13,64 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 08/02/2017
 ms.author: johnkem; magoedte
 
 ---
-# Collect and consume diagnostic data from your Azure resources
+# Collect and consume log data from your Azure resources
 
-## What are Azure Diagnostic Logs
-**Azure Diagnostic Logs** are logs emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type. For example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts.
+## What are Azure Resource Diagnostic Logs
+**Azure Resource-Level Diagnostic Logs** are logs emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type. For example, Network Security Group rule counters and Key Vault audits are two categories of resource logs.
 
-Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](monitoring-overview-activity-logs.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
+Resource-level diagnostic logs differ from the [Activity Log](monitoring-overview-activity-logs.md). The Activity Log provides insight into the operations that were performed on resources in your subscription using Resource Manager, for example, creating a virtual machine or deleting a logic app. The Activity Log is a subscription-level log. Resource-level diagnostic logs provide insight into operations that were performed within that resource itself, for example, getting a secret from a Key Vault.
 
-Not all resources support the new type of Diagnostic Logs described here. This article contains a section listing which resource types support the new Diagnostic Logs.
+Resource-level diagnostic logs also differ from guest OS-level diagnostic logs. Guest OS diagnostic logs are those collected by an agent running inside of a virtual machine or other supported resource type. Resource-level diagnostic logs require no agent and capture resource-specific data from the Azure platform itself, while guest OS-level diagnostic logs capture data from the operating system and applications running on a virtual machine.
 
-![Diagnostics Logs vs other types of logs ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
+Not all resources support the new type of resource diagnostic logs described here. This article contains a section listing which resource types support the new resource-level diagnostic logs.
 
-Figure 1: Diagnostics Logs vs other types of logs
+![Resource Diagnostics Logs vs other types of logs ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
 
-## What you can do with Diagnostic Logs
-Here are some of the things you can do with Diagnostic Logs:
+Figure 1: Resource Diagnostics Logs vs other types of logs
 
-![Logical placement of Diagnostic Logs](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
+## What you can do with Resource-Level Diagnostic Logs
+Here are some of the things you can do with resource diagnostic logs:
+
+![Logical placement of Resource Diagnostic Logs](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
 
 
-* Save them to a [**Storage Account**](monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using the **Diagnostic Settings**.
+* Save them to a [**Storage Account**](monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using **Resource Diagnostic Settings**.
 * [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 * Analyze them with [OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
 You can use a storage account or Event Hubs namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
 
-## Diagnostic Settings
-Diagnostic Logs for non-Compute resources are configured using Diagnostic Settings. **Diagnostic Settings** for a resource control:
+## Resource Diagnostic Settings
+Resource diagnostic logs for non-Compute resources are configured using resource diagnostic settings. **Resource Diagnostic Settings** for a resource control:
 
-* Where Diagnostic Logs are sent (Storage Account, Event Hubs, and/or OMS Log Analytics).
-* Which Log Categories are sent.
-* How long each log category should be retained in a Storage Account
+* Where resource diagnostic logs are sent (Storage Account, Event Hubs, and/or OMS Log Analytics).
+* Which log categories are sent.
+* How long each log category should be retained in a storage account
     - A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
     - If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or OMS options are selected), the retention policies have no effect.
     - Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
 
-These settings are easily configured via the Diagnostics blade for a resource in the Azure portal, via Azure PowerShell and CLI commands, or via the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+These settings are easily configured via the diagnostics blade for a resource in the Azure portal, via Azure PowerShell and CLI commands, or via the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 > [!WARNING]
 > Diagnostic logs and metrics for Compute resources (for example, VMs or Service Fabric) use [a separate mechanism for configuration and selection of outputs](../azure-diagnostics.md).
 >
 >
 
-## How to enable collection of Diagnostic Logs
-Collection of Diagnostic Logs can be enabled as part of creating a resource or after a resource is created via the resource’s blade in the Portal. You can also enable Diagnostic Logs at any point using Azure PowerShell or CLI commands, or using the Azure Monitor REST API.
+## How to enable collection of resource diagnostic logs
+Collection of resource diagnostic logs can be enabled [as part of creating a resource in a Resource Manager template](./monitoring-enable-diagnostic-logs-using-template.md) or after a resource is created via the resource’s blade in the portal. You can also enable collection at any point using Azure PowerShell or CLI commands, or using the Azure Monitor REST API.
 
 > [!TIP]
 > These instructions may not apply directly to every resource. See the schema links at the bottom of this page to understand special steps that may apply to certain resource types.
 >
 >
 
-[This article shows how you can use a resource template to enable Diagnostic Settings when creating a resource](monitoring-enable-diagnostic-logs-using-template.md)
-
-### Enable Diagnostic Logs in the portal
-You can enable Diagnostic Logs in the Azure portal when you create compute resource types by enabling the Windows or Linux Azure Diagnostics extension:
-
-1. Go to **New** and choose the resource you are interested in.
-2. After configuring the basic settings and selecting a size, in the **Settings** blade, under **Monitoring**, select **Enabled** and choose a storage account where you would like to store the Diagnostic Logs. You are charged normal data rates for storage and transactions when you send diagnostics to a storage account.
-
-   ![Enable Diagnostic Logs during resource creation](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
-3. Click **OK** and create the resource.
-
-For non-compute resources, you can enable Diagnostic Logs in the Azure portal after a resource has been created by doing the following:
+### Enable collection of resource diagnostic logs in the portal
+You can enable collection of resource diagnostic logs in the Azure portal after a resource has been created by performing the following steps:
 
 1. Go to the blade for the resource and open the **Diagnostics** blade.
 2. Click **On** and pick a Storage Account and/or event hub.
@@ -87,32 +79,32 @@ For non-compute resources, you can enable Diagnostic Logs in the Azure portal af
 3. Under **Logs**, select which **Log Categories** you would like to collect or stream.
 4. Click **Save**.
 
-### Enable Diagnostic Logs via PowerShell
-To enable Diagnostic Logs via the Azure PowerShell Cmdlets, use the following commands.
+### Enable collection of resource diagnostic logs via PowerShell
+To enable collection of resource diagnostic logs via Azure PowerShell, use the following commands:
 
-To enable storage of Diagnostic Logs in a Storage Account, use this command:
+To enable storage of diagnostic logs in a storage account, use this command:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
-The Storage Account ID is the resource id for the storage account to which you want to send the logs.
+The storage account ID is the resource ID for the storage account to which you want to send the logs.
 
-To enable streaming of Diagnostic Logs to an event hub, use this command:
+To enable streaming of diagnostic logs to an event hub, use this command:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
-The Service Bus Rule ID is a string with this format: `{Service Bus resource ID}/authorizationrules/{key name}`.
+The service bus rule ID is a string with this format: `{Service Bus resource ID}/authorizationrules/{key name}`.
 
-To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
+To enable sending of diagnostic logs to a Log Analytics workspace, use this command:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
-You can obtain the resource id of your Log Analytics workspace using the following command:
+You can obtain the resource ID of your Log Analytics workspace using the following command:
 
 ```powershell
 (Get-AzureRmOperationalInsightsWorkspace).ResourceId
@@ -120,26 +112,26 @@ You can obtain the resource id of your Log Analytics workspace using the followi
 
 You can combine these parameters to enable multiple output options.
 
-### Enable Diagnostic Logs via CLI
-To enable Diagnostic Logs via the Azure CLI, use the following commands:
+### Enable collection of resource diagnostic logs via CLI
+To enable collection of resource diagnostic logs via the Azure CLI, use the following commands:
 
-To enable storage of Diagnostic Logs in a Storage Account, use this command:
+To enable storage of diagnostic logs in a Storage Account, use this command:
 
 ```azurecli
 azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
 ```
 
-The Storage Account ID is the resource id for the storage account to which you want to send the logs.
+The storage account ID is the resource ID for the storage account to which you want to send the logs.
 
-To enable streaming of Diagnostic Logs to an event hub, use this command:
+To enable streaming of diagnostic logs to an event hub, use this command:
 
 ```azurecli
 azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
 ```
 
-The Service Bus Rule ID is a string with this format: `{Service Bus resource ID}/authorizationrules/{key name}`.
+The service bus rule ID is a string with this format: `{Service Bus resource ID}/authorizationrules/{key name}`.
 
-To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
+To enable sending of diagnostic logs to a Log Analytics workspace, use this command:
 
 ```azurecli
 azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
@@ -147,17 +139,17 @@ azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource 
 
 You can combine these parameters to enable multiple output options.
 
-### Enable Diagnostic Logs via REST API
+### Enable collection of resource diagnostic logs via REST API
 To change Diagnostic Settings using the Azure Monitor REST API, see [this document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
-## Manage Diagnostic Settings in the portal
+## Manage resource diagnostic settings in the portal
 Ensure that all of your resources are set up with diagnostic settings. Navigate to the **Monitoring** blade in the portal and open the **Diagnostic Logs** blade.
 
 ![Diagnostic Logs blade in the portal](./media/monitoring-overview-of-diagnostic-logs/manage-portal-nav.png)
 
 You may have to click "More services" to find the Monitoring blade.
 
-In this blade, you can view and filter all resources that support Diagnostic Logs to see if they have diagnostics enabled. You can also check which storage account, event hub, and/or Log Analytics workspace those logs are flowing to.
+In this blade, you can view and filter all resources that support diagnostic logs to see if they have diagnostics enabled. You can also check which storage account, event hub, and/or Log Analytics workspace those logs are flowing to.
 
 ![Diagnostic Logs blade results in portal](./media/monitoring-overview-of-diagnostic-logs/manage-portal-blade.png)
 
@@ -172,8 +164,8 @@ Clicking on a resource shows all logs that have been stored in the storage accou
 
 Clicking on the link for **Diagnostic Settings** shows the Diagnostic Settings blade, where you can enable, disable, or modify your diagnostic settings for the selected resource.
 
-## Supported services and schema for Diagnostic Logs
-The schema for Diagnostic Logs varies depending on the resource and log category.   
+## Supported services and schema for resource diagnostic logs
+The schema for resource diagnostic logs varies depending on the resource and log category.   
 
 | Service | Schema & Docs |
 | --- | --- |
@@ -236,6 +228,6 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 
 ## Next Steps
 
-* [Stream Diagnostic Logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [Change Diagnostic Settings using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [Stream resource diagnostic logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Change resource diagnostic settings using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Analyze logs from Azure storage with Log Analytics](../log-analytics/log-analytics-azure-storage.md)

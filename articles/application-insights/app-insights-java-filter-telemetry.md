@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Filter telemetry in your Java web app

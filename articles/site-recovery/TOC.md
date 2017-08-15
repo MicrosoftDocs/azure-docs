@@ -120,7 +120,7 @@
 ### [Dynamics AX](site-recovery-dynamicsax.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
-### [SAP](site-recovery-workload.md#protect-sap)
+### [SAP](site-recovery-sap.md)
 ### [IIS based web applications](site-recovery-iis.md)
 ### [Citrix XenApp and XenDesktop](site-recovery-citrix-xenapp-and-xendesktop.md)
 ### [Other workloads](site-recovery-workload.md#workload-summary)
@@ -129,6 +129,7 @@
 ### [Automate Hyper-V replication to Azure (with VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Automate Hyper-V replication to a secondary site (with VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Manage
+### [Upgrade your Site Recovery vault to Recovery Services vault](upgrade-site-recovery-vaults.md)
 ### [Manage process servers in Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md)
 ### [Manage the configuration server](site-recovery-vmware-to-azure-manage-configuration-server.md)
 ### [Manage scaled-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
@@ -155,4 +156,5 @@
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/site-recovery/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=site-recovery)

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Data collection, retention and storage in Application Insights

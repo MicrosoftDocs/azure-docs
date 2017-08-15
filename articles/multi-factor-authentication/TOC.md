@@ -51,3 +51,4 @@
 ### [NPS extension errors](multi-factor-authentication-nps-errors.md)
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

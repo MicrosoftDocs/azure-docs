@@ -28,6 +28,9 @@ ms.custom: H1Hack27Feb2017
 
 Azure Active Directory (Azure AD) simplifies the process of resetting a user's password if they forget and are locked out, or while performing routine security maintenance. 
 
+> [!IMPORTANT]
+> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. For how to reset a user password in the Azure AD admin center, see [Reset the password for a user in Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
+
 1. Open your directory.
 2. Select the **Users** tab, and then select the display name of the user you want to change.
 3. In the command bar, select **Reset Password**.
