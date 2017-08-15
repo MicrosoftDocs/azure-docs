@@ -33,6 +33,8 @@ Part 3 of the tutorial covers the following tasks:
 > * [Query with Mongoose APIs](tutorial-develop-mongodb-nodejs-part5.md)
 > * [Add PUT, POST, and DELETE commands](tutorial-develop-mongodb-nodejs-part6.md)
 
+## Video walkthrough
+
 > [!VIDEO https://www.youtube.com/embed/sI5hw6KPPXI]
 
 ## Prerequisites

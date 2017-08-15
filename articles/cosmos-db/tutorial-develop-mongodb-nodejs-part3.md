@@ -18,7 +18,7 @@ ms.author: mimig
 ms.custom: mvc
 
 ---
-# Azure Cosmos DB: Create a MEAN.js app - Part 3
+# Create a MEAN.js app with Azure Cosmos DB - Part 3: Build the Angular UI
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
@@ -27,17 +27,49 @@ This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-intr
 Part 3 of the tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * [Create a Node.js app with Express and Angular](tutorial-develop-mongodb-nodejs-part2.md)
-> * [Build an Angular UI](tutorial-develop-mongodb-nodejs-part3.md)
-> * [Create a Cosmos DB account and deply the app](tutorial-develop-mongodb-nodejs-part4.md) 
-> * [Query with Mongoose APIs](tutorial-develop-mongodb-nodejs-part5.md)
-> * [Add PUT, POST, and DELETE commands](tutorial-develop-mongodb-nodejs-part6.md)
+> * Fill out the A in MEAN and build the Angular UI that hits the Express API
+
+## Video walkthrough
 
 > [!VIDEO https://www.youtube.com/embed/MnxHuqcJVoM]
 
 ## Prerequisites
 
 Before starting this part of the tutorial, ensure you've completed the steps in [Part 2](tutorial-develop-mongodb-nodejs-part2.md) of the tutorial.
+
+## 
+
+1. In Visual Studio Code, click the Stop button ![Stop button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png) to stop the Node app.
+
+2. In a Windows Command Prompt or Mac Terminal window, enter the following code to generate a heroes component.
+
+    ```bash
+    ng g c heroes --flat
+    ```
+
+    The terminal window displays confirmation of the new components.
+
+    ```bash
+    installing component
+      create src\client\app\heroes.component.ts
+      update src\client\app\app.module.ts 
+    ```
+
+    Let's take a look at the files that were created and updated. 
+
+3. In Visual Studio Code, navigate to the new src\client\app folder and open the new heroes.component.ts file created by step 2. 
+
+    > ![TIP]
+    > If the app folder doesn't display in Visual Studio Code, enter CMD + SHIFT P on a Mac or Ctrl + Shift + P on Windows to open the Command Palette, and then enter `Reload Window` to pick up the system change.
+
+    ![Open the heroes.component.ts file](./media/tutorial-develop-mongodb-nodejs-part3/open-folder.png)
+
+4. Now open the app.module.ts file, and notice that it added the HeroesComponent to the declarations on line 5 and it imported it as well on line 10.
+
+    ![Open the app-module.ts file](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
+
+
+TODO
 
 ## Next steps
 
