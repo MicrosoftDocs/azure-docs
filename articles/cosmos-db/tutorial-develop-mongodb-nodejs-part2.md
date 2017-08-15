@@ -27,9 +27,11 @@ This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-intr
 Part 2 of the tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Install the angular CLI
-> * Run the angular CLI
+> * Install the Angular CLI
+> * Create a new project using Angular
+> * Test the project in Postman
 
+## Video walkthrough
 
 > [!VIDEO https://www.youtube.com/embed/lIwJIYcGSUg]
 
