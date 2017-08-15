@@ -106,7 +106,7 @@ There are seven outbound port requirements.
 - The remaining port ranges and for internal Redis subnet communications. No subnet NSG rules are required for internal Redis subnet communications.
 
 | Port(s) | Direction | Transport Protocol | Purpose | Local IP | Remote IP |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | 80, 443 |Outbound |TCP |Redis dependencies on Azure Storage/PKI (Internet) | (Redis subnet) |* |
 | 53 |Outbound |TCP/UDP |Redis dependencies on DNS (Internet/VNet) | (Redis subnet) |* |
 | 8443 |Outbound |TCP |Internal communications for Redis | (Redis subnet) | (Redis subnet) |
@@ -121,7 +121,7 @@ There are seven outbound port requirements.
 There are eight inbound port range requirements. Inbound requests in these ranges are either inbound from other services hosted in the same VNET or internal to the Redis subnet communications.
 
 | Port(s) | Direction | Transport Protocol | Purpose | Local IP | Remote IP |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing | (Redis subnet) |Virtual Network, Azure Load Balancer |
 | 8443 |Inbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 | 8500 |Inbound |TCP/UDP |Azure load balancing | (Redis subnet) |Azure Load Balancer |
