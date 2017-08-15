@@ -27,9 +27,10 @@ before running automated workflows to perform tasks.
 For example, here are some events that publishers can send to subscribers 
 through the Azure Event Grid service:
 
-* Create, read, update, or delete a resource
-* New message in a queue
-* New tweet
+* Create, read, update, or delete a resource.
+* A new message appears in a queue.
+* Your app performs a particular action.
+* Add or remove a person from an Azure subscription.
 
 This tutorial shows how you can create a logic app so you can monitor 
 changes to a virtual machine and get emails about those changes. 
@@ -43,14 +44,15 @@ Here's the logic app that you can build with this tutorial:
 
 For this tutorial, you need:
 
-* A Windows virtual machine. 
+* A virtual machine. 
 [Learn how to create a virtual machine through the Azure portal](../virtual-machines/windows/quick-create-portal.md). 
 To make the virtual machine publish events, 
 you [don't need to do anything else](../event-grid/overview.md).
 
 * An email account with 
 [any email provider that's supported by Azure Logic Apps](../connectors/apis-list.md), 
-like Office 365 Outlook, Outlook.com, or Gmail
+such as Office 365 Outlook, Outlook.com, or Gmail. 
+This tutorial uses an Office 365 Outlook email account.
 
 ## Create a logic app that monitors events through an event grid
 
@@ -88,8 +90,8 @@ so you can build your logic app from scratch.
 
    The Logic Apps Designer shows you [*connectors*](../connectors/apis-list.md) 
    and [*triggers*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) 
-   that you can use to start your logic app. A trigger is an event that creates 
-   a logic app instance and starts your logic app workflow. 
+   that you can use to start your logic app, and actions that follow a trigger to perform tasks. 
+   A trigger is an event that creates a logic app instance and starts your logic app workflow. 
    Your logic app needs a trigger as the first item.
 
 4. In the search box, enter "event grid" as your filter. 
@@ -161,7 +163,7 @@ To provide a description for your condition,
 choose the **ellipses** (**...**) button on the condition shape, 
 then choose **Rename**.
 
-   Your logic app condition now looks similar to this example:
+   Now your condition looks like this example:
 
    ![Logic app condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-1.png)
 
@@ -179,15 +181,20 @@ so that you get an email when the specified condition is true.
 2. In the search box, enter "email" as your filter. 
 Based on your email provider, find and select the matching connector. 
 Then select the "send email" action for your connector. 
+For example: 
 
-   For example, if you have an Azure work or school account, 
+   * For an Azure work or school account, 
    select the Office 365 Outlook connector. 
-   For personal Microsoft accounts, 
-   select the Outlook.com connector. 
-   For example, for Gmail accounts, select the Gmail connector. 
 
-   If you're using Office 365 Outlook, 
-   your workflow might look like this example:
+   * For personal Microsoft accounts, 
+   select the Outlook.com connector. 
+
+   * For Gmail accounts, select the Gmail connector. 
+
+   For this tutorial, we're going to continue with the Office 365 Outlook connector. 
+   If you use a different provider, the steps remain the same, but your UI might appear different. 
+   
+   The workflow now looks like this example:
 
    ![Select "send email" action](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email.png)
 
@@ -216,8 +223,7 @@ you can select from fields available in your workflow.
    on the email shape, choose the **ellipses** (**...**) button, 
    then choose **Rename**.
 
-   If you're using Office 365 Outlook, 
-   your email action looks like this example:
+   Your email action might look like this example:
 
    ![Select outputs to include in email](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email-details.png)
 
@@ -227,7 +233,7 @@ you can select from fields available in your workflow.
    > around the action that references the array. 
    > That way, your logic app performs that action on each array item.
 
-   When you're done, your logic app looks like this example:
+   When you're done, your logic app might look like this example:
 
    ![Finished logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
 
@@ -246,7 +252,7 @@ choose the action's title bar.
 update your virtual machine. 
 
    For example, you can resize your virtual machine in the Azure portal 
-   or [resize with Azure PowerShell](../virtual-machines/windows/resize-vm.md). 
+   or [resize your VM with Azure PowerShell](../virtual-machines/windows/resize-vm.md). 
 
    After a few moments, you should get an email. For example:
 
@@ -273,25 +279,12 @@ that automate processes and integrate systems and cloud services.
 ## FAQ
 
 **Q**: What other virtual machine monitoring tasks can I perform with event grids and logic apps? </br>
-**A**: You can monitor other configuration changes, like these examples:
+**A**: You can monitor other configuration changes, for example:
 
 * A virtual machine gets role-based access control (RBAC) rights.
 * Changes are made to a network security group (NSG) on a network interface (NIC).
 * Disks for a virtual machine are added or removed.
 * A public IP address is assigned to a virtual machine NIC.
-
-<a name="third-party-resource"></a>
-
-**Q**: How do I set up publishing to an event grid for a third-party resource, 
-like custom APIs? </br>
-**A**: Here are more details for third-party resources that might need 
-configuration for publishing to event grids: 
-
-* [Quickstart: Create and route custom events with Event Grid](../event-grid/custom-event-quickstart.md)
-* [Event Grid publisher schema](../event-grid/publisher-registration-schema.md)
-* [Event Grid event schema](../event-grid/event-schema.md)
-* [Event Grid security and authentication](../event-grid/security-authentication.md)
-* [Event Grid subscription schema](../event-grid/subscription-creation-schema.md)
 
 ## Next steps
 
