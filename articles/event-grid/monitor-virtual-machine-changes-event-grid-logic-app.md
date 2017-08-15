@@ -32,11 +32,10 @@ from publisher to subscriber:
 * New tweet
 
 This tutorial shows how you can create a logic app that monitors changes in a virtual machine 
-and sends email about about those changes. You 
-[don't need to do anything to make Azure resources publish events](../event-grid/overview.md). 
-After you create and save a logic app with an event subscription to an Azure resource, 
-events start flowing from the resource to an event grid. The event grid then pushes 
-those events to subscribers, like your logic app.
+and sends email about those changes. After you create and save a logic app with an event 
+subscription to an Azure resource, events start flowing from the resource to an event grid. 
+The event grid then pushes those events to subscribers, like your logic app. 
+So beyond this set up, you [don't need to do anything else to make Azure resources publish events](../event-grid/overview.md).
 
 ![Overview - monitor virtual machine with event grid and logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
 
@@ -240,7 +239,14 @@ choose a different size.
 
 ## FAQ
 
-**Q**: What else could I do with an event grid and logic app?
+**Q**: What other virtual machine monitoring tasks can I peform with event grids and logic apps?
+
+**A**: You can monitor other configuration changes, including these examples:
+
+* A virtual machine gets role-based access control (RBAC) rights.
+* Changes are made to a network security group (NSG) on a network interface (NIC).
+* A virtual machine has disks added or removed.
+* A public IP address is assigned to a virtual machine network interface.
 
 <a name="third-party-resource"></a>
 
