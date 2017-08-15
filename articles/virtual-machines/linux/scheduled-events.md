@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2017
+ms.date: 08/14/2017
 ms.author: zivr
 
 ---
@@ -182,5 +182,5 @@ if __name__ == '__main__':
 
 ## Next Steps 
 
-- Read more about the APIs available in the [instance metadata service](../instance-metadata-service.md).
+- Read more about the APIs available in the [instance metadata service](../../instance-metadata-service.md).
 - Learn about [planned maintenance for Linux virtual machines in Azure](planned-maintenance.md).
