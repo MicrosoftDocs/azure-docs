@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
-ms.author: cfreeman
+ms.author: sewhee
 
 ---
 # Monitoring usage and performance in Windows Desktop apps
