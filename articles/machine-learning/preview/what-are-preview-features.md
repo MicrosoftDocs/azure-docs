@@ -21,14 +21,13 @@ ms.author: garye
 Microsoft Azure Machine Learning is an integrated, end-to-end data science solution for professional data scientists to develop, experiment and deploy advanced analytics applications at cloud scale.
 
 The preview features include five components:
-- Workbench - blah
-- Experimentation Service - blah
-- Model Management Service - blah
-- MMLSpark Library - blah
-- OpenMind - blah
+- [Workbench](preview-features-workbench.md)
+- [Experimentation Service](preview-features-experimentation.md)
+- [Model Management Service](preview-features-model-management.md)
+- [MMLSpark Library](preview-features-mmlspark.md)
+- [OpenMind](preview-features-openmind.md)
 
-> [!NOTE]
-> For information about Azure Machine Learning Studio, see [What is Machine Learning Studio?](../studio/what-is-ml-studio.md).
+In addition, you can use **Azure Machine Learning Studio**, a collaborative, drag-and-drop tool that provides predefined machine learning algorithms and push-button model deployment. For more information, see [What is Machine Learning Studio?](../studio/what-is-ml-studio.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

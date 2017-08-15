@@ -14,4 +14,17 @@ metadata:
   ms.date: 07/24/2017
   ms.author: carolz
 abstract:
-  description: The preview features of Azure Machine Learning ...
+  description: Azure Machine Learning is an integrated, end-to-end data science solution for professional data scientists working in Python and the Azure Command-Line Interface.
+sections:
+- title: Preview features
+  items:
+  - type: paragraph
+    text: 'The following features are part of the Azure Machine Learning preview:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="preview-features-workbench">Workbench</a>
+    - html: <a href="preview-features-experimentation">Experimentation Service</a>
+    - html: <a href="preview-features-model-management">Model Management Service</a>
+    - html: <a href="preview-features-mmlspark">MMLSpark Library</a>
+    - html: <a href="preview-features-openmind">OpenMind</a>

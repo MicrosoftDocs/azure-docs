@@ -16,11 +16,16 @@
   - name: Bike Share Forecast
 - name: Concepts
   items:
-  - name: Workbench 
+  - name: Workbench
+    href: preview-features-workbench.md
   - name: Experimentation Service
+    href: preview-features-experimentation.md
   - name: Model Management Service
+    href: preview-features-model-management.md
   - name: MMLSpark Library
+    href: preview-features-mmlspark.md
   - name: OpenMind
+    href: preview-features-openmind.md
   - name: Operationalization
   - name: Billing
 - name: How-to guides
