@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/14/2017
+ms.date: 08/15/2017
 ms.author: terrylan
 
 ---
@@ -23,7 +23,7 @@ In early June 2017, Azure Security Center began using the Microsoft Monitoring A
 ## Data collection, agents, and workspaces
 
 ### How is data collected?
-Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service - to collect security data from your VMs. This includes information about security configurations, which are used to identify vulnerabilities, and security events, which are used to detect threats. Data collected from this agent is stored in either an existing Log Analytics workspace connected to the VM or a new workspace created by Security Center, taking into account the geolocation of the VM.
+Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite, Log Analytics service and System Center Operations Manager (SCOM) - to collect security data from your VMs. This includes information about security configurations, which are used to identify vulnerabilities, and security events, which are used to detect threats. Data collected from this agent is stored in either an existing Log Analytics workspace connected to the VM or a new workspace created by Security Center, taking into account the geolocation of the VM.
 
 When data collection is enabled for the first time or when your subscriptions are migrated, Security Center checks to see if the Microsoft Monitoring Agent is already installed as an Azure extension on each of your VMs. If the Microsoft Monitoring Agent is not installed then Security Center will:
 
@@ -47,7 +47,9 @@ The location of the workspace is based on the location of the VM. See [Data Secu
 No. Workspaces created by Security Center, while configured for OMS per node billing, do not incur OMS charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
 
 - **Free tier** – Security Center installs the 'SecurityCenterFree' solution on the default workspace. You are not billed for the Free tier.
-- **Standard tier** – Security Center installs the 'SecurityCenterFree' and 'Security’ solutions on the default workspace. See [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/) for more information.
+- **Standard tier** – Security Center installs the 'SecurityCenterFree' and 'Security’ solutions on the default workspace.
+
+See [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/) for more information on pricing. The pricing page addresses changes to security data storage and prorated billing starting in June 2017.
 
 > [!NOTE]
 > The OMS pricing tier of workspaces created by Security Center does not affect Security Center billing.
@@ -105,7 +107,7 @@ If a VM already has the Microsoft Monitoring Agent installed as an Azure extensi
 
 A Security Center solution will be installed on the workspace if not present already, and the solution will be applied only to the relevant VMs. When you add a solution, it's automatically deployed by default to all Windows and Linux agents connected to your Log Analytics workspace. [Solution Targeting](../operations-management-suite/operations-management-suite-solution-targeting.md), which is an OMS feature, allows you to apply a scope to your solutions.
 
-If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension) or if the SCOM agent is installed, Security Center will not install the Microsoft Monitoring Agent and security monitoring will be limited.
+If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center will not install the Microsoft Monitoring Agent and security monitoring will be limited.
 
 ### What should I do if I suspect that the data platform migration broke the connection between one of my VMs and my workspace?
 This should not happen. If it does happen, then [Create an Azure support request](../azure-supportability/how-to-create-azure-support-request) and include the following details:
