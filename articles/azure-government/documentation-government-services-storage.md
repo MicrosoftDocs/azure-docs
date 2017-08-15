@@ -103,6 +103,8 @@ With Import/Export jobs for USGov Arizona or USGov Texas, the mailing address is
 
 For DoD L5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions. 
 
+For all jobs, it is recommended to rotate your storage account keys once the job is complete to remove any access granted during the process - [Managing storage account](../storage/storage-create-storage-account.md#manage-your-storage-account)
+
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
 | Data copied to the media for transport and the keys used to encrypt that data. | Azure Import/Export metadata is not permitted to contain controlled data. This metadata includes all configuration data entered when creating your Import/Export job and shipping information used to transport your media.  Do not enter regulated/controlled data into the following fields:  Job name, Carrier name, Tracking number, Description, Return information (Name, Address, Phone, E-Mail), Export Blob URI, Drive list, Package list, Storage account name, Container name |
