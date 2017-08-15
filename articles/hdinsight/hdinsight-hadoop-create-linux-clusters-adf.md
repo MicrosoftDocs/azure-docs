@@ -424,7 +424,7 @@ The [dataset availability](../data-factory/concepts-datasets.md) setting is as f
 In Azure Data Factory, output dataset availability drives the pipeline. In this example, the slice is produced monthly on the last day of month (EndOfInterval). 
 
 #### Data pipeline
-You define a pipeline that transforms data by running Hive script on an on-demand Azure HDInsight cluster. See [Pipeline JSON](../data-factory/concepts-pipelines.md#pipeline-json) for descriptions of JSON elements used to define a pipeline in this example.
+You define a pipeline that transforms data by running Hive script on an on-demand Azure HDInsight cluster. See [Pipeline JSON](../data-factory/concepts-pipelines-activities.md) for descriptions of JSON elements used to define a pipeline in this example.
 
 ```json
 {

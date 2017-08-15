@@ -45,7 +45,7 @@
 ### [HDInsight with Data Lake Store as default storage - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 ### [HDInsight with Data Lake Store as additional storage - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 ### [HDInsight with Data Lake Store - Azure template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
-### [Use with Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Use with Data Factory](../data-factory/azure-datalake-connector.md)
 ### [Use with Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Use with Power BI](data-lake-store-power-bi.md)
 ### [Use with Data Catalog](data-lake-store-with-data-catalog.md)
