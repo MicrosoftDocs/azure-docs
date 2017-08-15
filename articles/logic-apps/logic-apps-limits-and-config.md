@@ -44,7 +44,7 @@ These are limits for a single HTTP request and/or connector call
 
 |Name|Limit|Notes|
 |----|----|----|
-|Retry attempts|4|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Retry attempts|10| Default is 4. Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 |Retry max delay|1 hour|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 |Retry min delay|5 sec|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 
@@ -59,6 +59,8 @@ These are the limits for a single logic app run.
 |Min recurrence interval|1 sec|| 15 seconds for logic apps with App Service Plan
 |Max recurrence interval|500 days||
 
+If you expect to exceed run duration or storage retention limits in normal processing flow please [contact us](mailto://logicappsemail@microsoft.com) so that we can help with your requirements.
+
 
 ### Looping and debatching limits
 
@@ -69,7 +71,7 @@ These are limits for a single logic app run.
 |ForEach items|100,000|You can use the [query action](../connectors/connectors-native-query.md) to filter larger arrays as needed|
 |Until iterations|5,000||
 |SplitOn items|100,000||
-|ForEach Parallelism|20|You can set to a sequential foreach by adding `"operationOptions": "Sequential"` to the `foreach` action|
+|ForEach Parallelism|50| Default is 20. You can set to a sequential foreach by adding `"operationOptions": "Sequential"` to the `foreach` action or speicific level of parallelism using `runtimeConfiguration`|
 
 
 ### Throughput limits
@@ -92,8 +94,8 @@ These are limits for a single logic app definition.
 
 |Name|Limit|Notes|
 |----|----|----|
-|Actions per workflow|250|You can add nested workflows to extend this as needed|
-|Allowed action nesting depth|5|You can add nested workflows to extend this as needed|
+|Actions per workflow|500|You can add nested workflows to extend this as needed|
+|Allowed action nesting depth|8|You can add nested workflows to extend this as needed|
 |Workflows per region per subscription|1000||
 |Triggers per workflow|10||
 |Switch scope cases limit|25||
