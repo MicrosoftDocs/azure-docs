@@ -35,7 +35,7 @@ As you type the name of an event log, Log Analytics provides suggestions of comm
 Log Analytics collects each event that matches a selected severity from a monitored event log as the event is created.  The agent records its place in each event log that it collects from.  If the agent goes offline for a period of time, then Log Analytics collects events from where it last left off, even if those events were created while the agent was offline.  There is a potential for these events to not be collected if the event log wraps with uncollected events being overwritten while the agent is offline.
 
 >[!NOTE]
->Log Analytics does not collect audit events created by SQL Server from source MSSQLSERVER with event ID 18453 that contains keywords - Classic or Audit Success and keyword 0xa0000000000000.
+>Log Analytics does not collect audit events created by SQL Server from source *MSSQLSERVER* with event ID 18453 that contains keywords - *Classic* or *Audit Success* and keyword *0xa0000000000000*.
 >
 
 ## Windows event records properties
