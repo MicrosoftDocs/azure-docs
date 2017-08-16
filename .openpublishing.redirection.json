@@ -27,7 +27,7 @@
         },
 		{
             "source_path": "articles/virtual-machines/virtual-machines-instancemetadataservice-overview.md",
-            "redirect_url": "/articles/virtual-machines/windows-instance-metadata-service",
+            "redirect_url": "/articles/virtual-machines/windows/instance-metadata-service",
             "redirect_document_id": false
         },
         {
