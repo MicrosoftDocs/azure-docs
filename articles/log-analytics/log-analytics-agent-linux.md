@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2017
+ms.date: 08/15/2017
 ms.author: magoedte
 ---
 
@@ -97,7 +97,9 @@ Upgrade from versions earlier than 1.0.0-47 is supported in this release. Perfor
 
 ## Installing the agent
 
-This section describes how to install the OMS Agent for Linux using a bunndle, which contains Debian and RPM packages for each of the agent components and can be installed directly or extracted to retrieve the individual packages.  
+This section describes how to install the OMS Agent for Linux using a bunndle, which contains Debian and RPM packages for each of the agent components.  It can be installed directly or extracted to retrieve the individual packages.  
+
+First you need your OMS workspace ID and key, which you can find by switching to the [OMS classic portal](https://mms.microsoft.com).  On the **Overview** page, from the top menu select **Settings**, and then navigate to **Connected Sources\Linux Servers**.  You see the value to the right of **Workspace ID** and **Primary Key**.  Copy and paste both into your favorite editor.    
 
 1. Download the latest [OMS Agent for Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x64.sh) or [OMS Agent for Linux x86](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x86.sh) from GitHub.  
 2. Transfer the appropriate bundle (x86 or x64) to your Linux computer using scp/sftp.
@@ -238,7 +240,7 @@ Starting with version 1.3.0-1, we register omsagent daemon for each onboarded wo
 sudo sh /opt/microsoft/omsagent/bin/service_control start|stop|restart|enable|disable [<workspace id>]
 ```
 
-The workspace id is an optional parameter. If it is specified, it will only operate on the workspace-specific daemon.  Otherwise, it operates on all daemons.
+The workspace id is an optional parameter. If it is specified, it only operates on the workspace-specific daemon.  Otherwise, it operates on all daemons.
 
 
 ## Agent logs
@@ -290,7 +292,7 @@ The agent packages can be uninstalled using dpkg or rpm, or by running the bundl
 * The OMS Service Endpoints are not whitelistested in your datacenter 
 
 #### Resolutions
-1. Re-onboard to the OMS Service with the OMS Agent for Linux by using the following command with the option `-v` enabled. This allows verbose output of the agent connecting through the proxy to the OMS Service. 
+1. Reonboard to the OMS Service with the OMS Agent for Linux by using the following command with the option `-v` enabled. This allows verbose output of the agent connecting through the proxy to the OMS Service. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
 2. Review the section [Configuring the agent for use with an HTTP proxy server(#configuring the-agent-for-use-with-a-http-proxy-server) to verify you have properly configured the agent to communicate through a proxy server.    
@@ -313,10 +315,10 @@ The agent packages can be uninstalled using dpkg or rpm, or by running the bundl
 
 1. Check the time on your Linux server with the command date. If the time is +/- 15 minutes from current time, then onboarding fails. To correct this update the date and/or timezone of your Linux server. 
 2. Verify you have installed the latest version of the OMS Agent for Linux.  The newest version now notifies you if the time skew is causing the onboarding failure.
-3. Re-onboard using correct Workspace ID and Workspace Key following the installation instructions earlier in this topic.
+3. Reonboard using correct Workspace ID and Workspace Key following the installation instructions earlier in this topic.
 
 ### Issue: You see a 500 and 404 error in the log file right after onboarding
-This is a known issue an occurs on first upload of Linux data into an OMS workspace. This does not affect data being sent or service experience.
+This is a known issue that occurs on first upload of Linux data into an OMS workspace. This does not affect data being sent or service experience.
 
 ### Issue:  You are not seeing any data in the OMS portal
 
@@ -328,7 +330,7 @@ This is a known issue an occurs on first upload of Linux data into an OMS worksp
 
 #### Resolutions
 1. Check if onboarding the OMS Service was successful by checking if the following file exists: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
-2. Re-onboard using the `omsadmin.sh` command line instructions
+2. Reonboard using the `omsadmin.sh` command line instructions
 3. If using a proxy, refer to the proxy resolution steps provided earlier.
 4. In some cases, when the OMS Agent for Linux cannot communicate with the OMS Service, data on the agent is queued to the full buffer size, which is 50 MB. The OMS Agent for Linux should be restarted by running the following command `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
 > [!NOTE]
