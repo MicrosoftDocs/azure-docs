@@ -32,11 +32,11 @@ When you use basic settings and select only a subscription, Cloud Shell creates 
 
 ![The Subscription setting](media/basic-storage.png)
 
-The file share mounts as `clouddrive` in your `$Home` directory. The file share is also used to store a 5GB image that's created for you and that automatically updates and persists your `$Home` directory. This is a one-time action, and the file share mounts automatically in subsequent sessions.
+The file share mounts as `clouddrive` in your `$Home` directory. The file share is also used to store a 5-GB image that's created for you and that automatically updates and persists your `$Home` directory. This is a one-time action, and the file share mounts automatically in subsequent sessions.
 
 ### Use existing resources
 
-By using the advanced option, you can associate existing resources. When the storage setup prompt appears, select **Show advanced settings** to view additional options. Existing file shares receive a 5GB user image to persist your `$Home` directory. The drop-down menus are filtered for your assigned Cloud Shell region and the locally-redundant storage and geo-redundant storage accounts.
+By using the advanced option, you can associate existing resources. When the storage setup prompt appears, select **Show advanced settings** to view additional options. Existing file shares receive a 5-GB user image to persist your `$Home` directory. The drop-down menus are filtered for your assigned Cloud Shell region and the locally-redundant storage and geo-redundant storage accounts.
 
 ![The Resource group setting](media/advanced-storage.png)
 
