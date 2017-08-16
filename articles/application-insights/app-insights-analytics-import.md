@@ -1,4 +1,4 @@
----
+﻿---
 title: Import your data to Analytics in Azure Application Insights | Microsoft Docs
 description: Import static data to join with app telemetry, or import a separate data stream to query with Analytics.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: sewhee
+ms.author: bwren
 
 ---
 # Import data into Analytics
