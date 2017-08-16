@@ -77,7 +77,7 @@ You have now created your IoT hub, and you have the host name and IoT Hub connec
 
 ## Link the DPS to an IoT hub
 
-The next step is to link the DPS and IoT hub. Follow these steps.
+The next step is to link the DPS and IoT hub so that DPS can register devices to that hub. The service can only provision devices to IoT hubs that have been linked to the DPS. Follow these steps.
 
 1. In the **All resources** blade, click the DPS you created previously.
 2. In the DPS blade, click **Linked IoT hubs**.
@@ -87,11 +87,13 @@ The next step is to link the DPS and IoT hub. Follow these steps.
 
 ## Set the allocation policy on DPS
 
-Now, in the DPS blade, click **Manage allocation policy**. Specify how you want to assign devices to hubs:
+The allocation policy is a DPS setting that determines how devices are assigned to an IoT hub. There are three supported allocation policies: 
 
-1. **Lowest latency**: Assigns devices to the linked IoT hub which result in the lowest atency communication pattern between the device and IoT Hub.
-2. **Evenly weighted distribution** (default): Evenly distributes devices across linked IoT hubs.
-3. **Static configuration**: Requires the desired IoT hub to be listed in the enrollment entry for the device being provisioned.  
+1. **Lowest latency**: Devices are provisioned to an IoT hub based on the hub with the lowest latency to the device.
+2. **Evenly weighted distribution** (default): Linked IoT hubs are equally likely to have devices provisioned to them. This is the default setting. If you are provisioning devices to only one IoT hub, you can keep this setting. 
+3. **Static configuration via the enrollment list**: Specification of the desired IoT hub in the enrollment list takes priority over the DPS-level allocation policy.
+
+To set the allocation policy, in the DPS blade click **Manage allocation policy**.
 
 ## Next steps
 
