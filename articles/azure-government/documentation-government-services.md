@@ -5,7 +5,7 @@ services: azure-government
 cloud: gov
 documentationcenter: ''
 author: smichelotti
-manager: liki
+manager: zakramer
 
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
 ms.service: azure-government
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 02/13/2017
+ms.date: 08/15/2017
 ms.author: stemi
 
 ---
@@ -88,6 +88,7 @@ In the following tables, services specified as Resource Manager enabled have res
 | [SQL Database](documentation-government-services-database.md#sql-database) | Yes | Yes |
 | SQL Data Warehouse | Yes | Yes |
 | SQL Server Stretch Database | Yes | Yes |
+| [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db) | Yes | Yes |
 | [Redis Cache](documentation-government-services-database.md#azure-redis-cache) | Yes | Yes |
 
 
