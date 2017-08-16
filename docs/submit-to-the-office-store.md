@@ -48,7 +48,7 @@ After you submit your app or add-in:
         - If the status is **pending approval**, your submission is still being verified. When it is in this state, you can't update or resubmit it.
         - If the status is **approved**, your submission is approved to be listed in the appropriate marketplaces.
         
-        >**Note:**  After your submission is approved in the Seller Dashboard, there might be a delay before it is published in a store. After approval, a submission typically appears in the store within 24 hours.
+        >**Note:**  After your submission is approved in the Seller Dashboard, there might be a delay before it is published to the Store. After approval, a submission typically appears in the Store within 24 hours.
 
         - If the status is  **changes requested**, your submission needs changes in order to be approved. Choose your submission, and then on the summary page, choose  **View the add-in report** for details about the required changes.
 
