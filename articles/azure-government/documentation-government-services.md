@@ -65,9 +65,7 @@ In the following tables, services specified as Resource Manager enabled have res
 | [Storage - Files](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
 | [Storage - Disks](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
 | [StorSimple](documentation-government-services-storage.md) | Yes | Yes |
-| [Backup](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
-| [Site Recovery](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
-| [Import/Export](documentation-government-services-storage.md#azure-storage) | Yes | No |
+| [Import/Export](documentation-government-services-storage.md#azure-importexport) | Yes | Yes |
 
 
 
