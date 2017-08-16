@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 08/16/2017
 ms.author: jeedes
 
 ---
@@ -113,8 +113,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [PlanMyLeave Client support team](mailto:support@planmyleave.com) to get these values. 
  
-
-
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_certificate.png) 
@@ -126,11 +124,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. On the **PlanMyLeave Configuration** section, click **Configure PlanMyLeave** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![PlanMyLeave Configuration](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_configure.png) 
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-
-
 7. In a different web browser window, log into your PlanMyLeave tenant as an administrator.
 
 8. Go to **System Setup**. Then on the **Security Management** section click **Company SAML settings** .
@@ -152,6 +145,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	c. Set "**Is Enable**" to "**Yes**".
 
 	d. Click **Save**. 
+
+> [!TIP]
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### Create an Azure AD test user
 
