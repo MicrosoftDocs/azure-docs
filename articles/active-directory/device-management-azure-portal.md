@@ -45,14 +45,20 @@ To manage your devices using the Azure portal, they need to be either registered
 
 The device settings blade enables you to configure:
 
-- The users who can join devices to Azure AD
-- Additional local administrators on Azure AD joined devices
-- Whether users can register their devices with Azure AD
-- Whether multi-factor authentication is required to join devices
-- The maximum number of devices per user
-- The users who can sync settings and app data across devices 
+- **Users may join devices to Azure AD** - This settings enables you to select the users who can join devices to Azure AD. The default is **All**.
 
+- **Additional local administrators on Azure AD joined devices** - You can select the users that are granted local administrator rights on a device. Users added here are added to the *Device Administrators* role in Azure AD. Global administrators in Azure AD and device owners are granted local administrator rights by default. 
+This option is a premium edition capability available through products such as Azure AD Premium or the Enterprise Mobility Suite (EMS). 
 
+- **Users may register their devices with Azure AD** - You need to configure this setting to allow devices to be registered with Azure AD. If you select **None**, devices are not allowed to register when they are not Azure AD joined or hybrid Azure AD joined. Enrollment with Microsoft Intune or Mobile Device Management (MDM) for Office 365 requires registration. If you have configured either of these services, **ALL** is selected and **NONE** is not available..
+
+- **Require Multi-Factor Auth to join devices** - You can choose whether users are required to provide a second authentication factor to join their device to Azure AD. The default is **No**. We recommend requiring multi-factor authentication when registering a device. Before you enable multi-factor authentication for this service, you must ensure that multi-factor authentication is configured for the users that register their devices. For more information on different Azure multi-factor authentication services, see [getting started with Azure multi-factor authentication](../azure/multi-factor-authentication/multi-factor-authentication-get-started.md). 
+
+- **Maximum number of devices** - This setting enables you to select the maximum number of devices that a user can have in Azure AD. If a user reaches this quota, they are not be able to add additional devices until one or more of the existing devices are removed. The device quote is counted for all devices that are either Azure AD joined or Azure AD registered today. The default value is **20**.
+
+- **Users may sync settings and app data across devices** - By default, this setting is set to **NONE**. Selecting specific users or groups or ALL allows the user’s settings and app data to sync across their Windows 10 devices. Learn more on how sync works in Windows 10.
+This option is a premium capability available through products such as Azure AD Premium or the Enterprise Mobility Suite (EMS).
+ 
 ![Manage an Intune device](./media/device-management-azure-portal/21.png)
 
 
