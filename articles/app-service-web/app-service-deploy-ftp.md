@@ -17,7 +17,12 @@ ms.date: 01/05/2016
 ms.author: cephalin;dariac
 
 ---
+
 # Deploy your app to Azure App Service using FTP/S
+
+> [!WARNING]
+> We are continuously taking steps to improve Microsoft Azure Platform security. As part of this ongoing effort an upgrade of Web Applications is planned for Germany Central and Germany Northeast regions. During this Web Apps will be disabling the use of plain text FTP protocol for deployments. Our recommendation to our customers is to switch to FTPS for deployments. We do not expect any disruption to your service during this upgrade which is planned for 9/5. We appreciate you support in this effort.
+
 This article shows you how to use FTP or FTPS to deploy your web app, mobile app backend, 
 or API app to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
 
