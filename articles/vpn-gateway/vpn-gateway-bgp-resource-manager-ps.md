@@ -126,12 +126,12 @@ $vnet1gw.BgpSettingsText
 The last command shows the corresponding BGP configurations on the Azure VPN Gateway; for example:
 
 ```powershell
-    $vnet1gw.BgpSettingsText
-    {
-        "Asn": 65010,
-        "BgpPeeringAddress": "10.12.255.30",
-        "PeerWeight": 0
-    }
+$vnet1gw.BgpSettingsText
+{
+    "Asn": 65010,
+    "BgpPeeringAddress": "10.12.255.30",
+    "PeerWeight": 0
+}
 ```
 
 Once the gateway is created, you can use this gateway to establish cross-premises connection or VNet-to-VNet connection with BGP. The following sections walk through the steps to complete the exercise.
@@ -208,7 +208,7 @@ The following example lists the parameters you enter into the BGP configuration 
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
-The connection should be established after a few minutes, and the BGP peering session will start once the IPsec connection is established.
+The connection isestablished after a few minutes, and the BGP peering session starts once the IPsec connection is established.
 
 ## <a name ="v2vbgp"></a>Part 3 - Establish a VNet-to-VNet connection with BGP
 
