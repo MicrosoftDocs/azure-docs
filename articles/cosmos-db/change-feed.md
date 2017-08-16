@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 08/15/2017
 ms.author: arramac
 
 ---
