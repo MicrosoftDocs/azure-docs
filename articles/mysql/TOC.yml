@@ -29,6 +29,8 @@
       href: connect-cpp.md
     - name: Go
       href: connect-go.md
+    - name: MySQL Workbench
+      href: connect-workbench.md
 - name: Tutorials
   items:
   - name: 1 - Design a Database
