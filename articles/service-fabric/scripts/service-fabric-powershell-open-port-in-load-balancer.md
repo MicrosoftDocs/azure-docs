@@ -30,7 +30,7 @@ If needed, install the Service Fabric PowerShell module with the [Service Fabric
 
 ## Script explanation
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This script uses the following commands. Each command in the table links to command-specific documentation.
 
 | Command | Notes |
 |---|---|

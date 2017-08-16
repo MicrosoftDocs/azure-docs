@@ -18,7 +18,7 @@ ms.date: 08/16/2017
 ms.author: ryanwi
 ms.custom: mvc
 ---
-# Azure PowerShell Samples
+# Azure PowerShell samples
 
 The following table includes links to PowerShell scripts samples that create and manage Service Fabric clusters, applications, and services.
 
