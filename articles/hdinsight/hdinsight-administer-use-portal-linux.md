@@ -137,7 +137,7 @@ See also [Pause/shut down clusters](#pauseshut-down-clusters).
 
 ## Add additional storage accounts
 
-You can add additional Azure Storage accounts and Azure Data Lake Store accounts after a cluster is created. For more information, see [Add additional storage accounts to HDInsight](,/hdinsight-hadoop-add-storage.md).
+You can add additional Azure Storage accounts and Azure Data Lake Store accounts after a cluster is created. For more information, see [Add additional storage accounts to HDInsight](./hdinsight-hadoop-add-storage.md).
 
 ## Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
