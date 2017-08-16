@@ -66,7 +66,7 @@ Consider an example of a product catalog for an automotive parts supplier. Every
 
 In addition, data stored in Azure Cosmos DB can be integrated with HDInsight for big data analytics via Pig, Hive, or Map/Reduce jobs. For details on the Hadoop Connector for Azure Cosmos DB, see [Run a Hadoop job with Cosmos DB and HDInsight](run-hadoop-with-hdinsight.md).
 
-For processing specifically based on new changes in Cosmos DB, the built in change feed surfaces a persistent, ordered log of changes. To find out more see: [Working with change feed](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
+For processing specifically based on new changes in Cosmos DB, the built-in change feed surfaces a persistent, ordered log of changes. To find out more see: [Working with change feed](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
 
 ## Gaming
 The database tier is a crucial component of gaming applications. Modern games perform graphical processing on mobile/console clients, but rely on the cloud to deliver customized and personalized content like in-game stats, social media integration, and high-score leaderboards. Games often require single-millisecond latencies for reads and writes to provide an engaging in-game experience. A game database needs to be fast and be able to handle massive spikes in request rates during new game launches and feature updates.
