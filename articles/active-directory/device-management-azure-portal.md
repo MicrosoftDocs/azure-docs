@@ -1,6 +1,6 @@
 ---
-title: How to configure hybrid Azure Active Directory joined devices | Microsoft Docs
-description: Learn how to configure hybrid Azure Active Directory joined devices.
+title: Managing devices using the Azure portal | Microsoft Docs
+description: Learn how to use the Azure portal to manage devices.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -20,16 +20,72 @@ ms.reviewer: jairoc
 ---
 # Managing devices using the Azure portal
 
-With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more details, see [Introduction to device management in Azure Active Directory](device-management-introduction.md).
+With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. 
 
-This topic provides you with information about managing your devices using the Azure portal.
+This topic:
+
+- Assumes that you are familiar with the [introduction to device management in Azure Active Directory](device-management-introduction.md)
+
+- Provides you with information about managing your devices using the Azure portal
 
 
+To manage devices in the Azure portal, you need to click **Devices** in the **Manage** section of the the **Azure Active Directory** blade.
+
+![Manage an Intune device](./media/device-management-azure-portal/11.png)
+
+
+
+
+## Configure device settings
+
+To manage your devices using the Azure portal, they need to be either registered or joined to Azure AD. As an administrator, you can fine-tune the process of registering and joining devices by configuring the device settings.
+
+![Manage an Intune device](./media/device-management-azure-portal/22.png)
+
+
+The device settings blade enables you to configure:
+
+- The users who can join devices to Azure AD
+- Additional local administrators on Azure AD joined devices
+- Whether users can register their devices with Azure AD
+- Whether multi-factor authentication is required to join devices
+- The maximum number of devices per user
+- The users who can sync settings and app data across devices 
+
+
+![Manage an Intune device](./media/device-management-azure-portal/21.png)
+
+
+
+
+## Locate devices
+
+As an administrator, in the Azure portal, you have two options to locate registered and joined devices:
+
+- **All devices** in the **Manage** section of the **Devices** blade  
+
+    ![All devices](./media/device-management-azure-portal/41.png)
+
+
+- **Devices** in the **Manage** section of a **User** blade
+ 
+    ![All devices](./media/device-management-azure-portal/43.png)
+
+
+
+with both options, you can get to a view that:
+
+- Provides you with detailed overview of registered and joined devices
+
+- Enables you to perform common device management tasks
+   
+
+![All devices](./media/device-management-azure-portal/51.png)
 
 
 ## Device management tasks
 
-This section provides you with information about common device management tasks.
+As an administrator, you can manage the registered or joined devices. This section provides you with information about common device management tasks.
 
 **Search for a device** - You can search for devices using the display name as filter.
 
