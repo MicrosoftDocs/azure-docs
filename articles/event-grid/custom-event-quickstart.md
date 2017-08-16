@@ -108,3 +108,4 @@ az group delete --name gridResourceGroup
 Now that you know how to create topics and event subscriptions, learn more about what Event Grid can help you do:
 
 - [About Event Grid](overview.md)
+- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)

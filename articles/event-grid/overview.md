@@ -88,7 +88,7 @@ Event Grid allows you to speed automation and simplify policy enforcement. For e
 
 ![Application integration](./media/overview/app_integration.png)
 
-Event Grid connects your app with other services. For example, create an application topic to send your app's event data to Event Grid, and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code. 
+Event Grid connects your app with other services. For example, create a custom topic to send your app's event data to Event Grid, and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code. 
 
 ## How much does Event Grid cost?
 
