@@ -54,14 +54,12 @@
 ### [Web application with Visual Studio](web-app-visual-studio.md)
 ### [RDMA cluster to run MPI applications](rdma-cluster.md)
 ### [How to use the Azure slave plug-in with Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-
-## HPC Pack
-### [Windows RDMA cluster to run MPI apps](hpcpack-cluster.md)
-### [Windows HPC cluster with the HPC Pack IaaS deployment script](hpcpack-cluster-starccm.md)
-### [Manage the number and availability of compute nodes](hpcpack-cluster-powershell-script.md)
-### [Add on-demand nodes](hpcpack-cluster-openfoam.md)
-### [Automatically scale resources](hpcpack-cluster-namd.md)
+### HPC Pack
+#### [Create a cluster for Linux workloads](hpcpack-cluster-powershell-script.md)
+#### [Manage a cluster with Linux nodes](hpcpack-cluster.md)
+#### [Run STAR-CCM+](hpcpack-cluster-starccm.md)
+#### [Run OpenFOAM](hpcpack-cluster-openfoam.md)
+#### [Run NAMD](hpcpack-cluster-namd.md)
 
 ## Troubleshoot
 ### [VM deployments](troubleshoot-deployment-new-vm.md)
