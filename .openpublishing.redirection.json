@@ -9119,6 +9119,11 @@
             "source_path": "articles/active-directory/active-directory-saas-jiramicrosoft-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-conditional-access-automatic-device-registration-setup.md",
+            "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
+            "redirect_document_id": false
+        }    
     ]
 }
