@@ -33,7 +33,7 @@ ms.author: rclaus
 
 ## The differences between an on-premises and Azure implementation 
 
-Following are some important things to keep in mind when migrating on-premises applications to Azure. 
+Following are some important things to keep in mind when you're migrating on-premises applications to Azure. 
 
 One important difference is that in an Azure implementation, resources such as VMs, disks, and virtual networks are shared among other clients. In addition, resources can be throttled based on the requirements. Instead of focusing on avoiding failing (MTBF), Azure is more focused on surviving the failure (MTTR).
 
@@ -42,24 +42,24 @@ The following table lists some of the differences between an on-premises impleme
 > 
 > |  | **On-premises implementation** | **Azure implementation** |
 > | --- | --- | --- |
-> | **Networking** |LAN/WAN  |SDN--Software defined networking|
-> | **Security group** |IP/Port restrictions tools |[Network security group (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
-> | **Resilience** |MTBF (mean time between failure) |MTTR (mean time to recover)|
-> | **Planned maintenance** |Patching/Upgrades|[Availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (patching/upgrades managed by Azure) |
+> | **Networking** |LAN/WAN  |SDN (software-defined networking)|
+> | **Security group** |IP/port restriction tools |[Network Security Group (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
+> | **Resilience** |MTBF (mean time between failures) |MTTR (mean time to recovery)|
+> | **Planned maintenance** |Patching/upgrades|[Availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (patching/upgrades managed by Azure) |
 > | **Resource** |Dedicated  |Shared with other clients|
-> | **Regions** |Data centers |[Region pairs](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
-> | **Storage** |SAN/Physical disks |[Azure-managed storage](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+> | **Regions** |Datacenters |[Region pairs](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
+> | **Storage** |SAN/physical disks |[Azure-managed storage](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 > | **Scale** |Vertical scale |Horizontal scale|
 
 
 ### Requirements
 
 - Determine the database size and growth rate.
-- Determine the IOPS requirements, which can be estimated based on Oracle AWR reports or other network monitoring tools.
+- Determine the IOPS requirements, which you can estimate based on Oracle AWR reports or other network monitoring tools.
 
 ## Configuration options
 
-There are four potential areas that can be tuned to improve performance in an Azure environment.
+There are four potential areas that you can tune to improve performance in an Azure environment:
 
 - Virtual machine size
 - Network throughput
@@ -68,7 +68,7 @@ There are four potential areas that can be tuned to improve performance in an Az
 
 ### Generate an AWR report
 
-If you have an existing an Oracle database and are planning to migrate to Azure, you have several options. You can run the Oracle AWR report to get the metrics (IOPS, Mbps, GiBs, and so on).Then choose the VM based on the metrics that you collected. Or you can contact your infrastructure team to get similar information.
+If you have an existing an Oracle database and are planning to migrate to Azure, you have several options. You can run the Oracle AWR report to get the metrics (IOPS, Mbps, GiBs, and so on). Then choose the VM based on the metrics that you collected. Or you can contact your infrastructure team to get similar information.
 
 You might consider running your AWR report during both regular and peak workloads, so you can compare. Based on these reports, you can size the VMs based on either the average workload or the maximum workload.
 
@@ -133,7 +133,7 @@ The total network throughput is estimated based on the following information:
 
 ![Screenshot of the SQL*Net throughput](./media/oracle-design/sqlnet_info.png)
 
-Based on your network bandwidth requirements, there are various gateway types for you to choose from. These include basic, VpnGw, and ExpressRoute  . For more information, see the [VPN gateway pricing page](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h).
+Based on your network bandwidth requirements, there are various gateway types for you to choose from. These include basic, VpnGw, and Azure ExpressRoute. For more information, see the [VPN gateway pricing page](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h).
 
 **Recommendations**
 
@@ -144,11 +144,11 @@ Based on your network bandwidth requirements, there are various gateway types fo
 
 - *Default OS disks*: These disk types offer persistent data and caching. They are optimized for OS access at startup, and aren't designed for either transactional or data warehouse (analytical) workloads.
 
-- *Unmanaged disks*: With these disk types, you manage the storage accounts that  store the virtual hard disk (VHD) files that correspond to your VM disks. VHD files are stored as page blobs in Azure storage accounts.
+- *Unmanaged disks*: With these disk types, you manage the storage accounts that store the virtual hard disk (VHD) files that correspond to your VM disks. VHD files are stored as page blobs in Azure storage accounts.
 
 - *Managed disks*: Azure manages the storage accounts that you use for your VM disks. You specify the disk type (premium or standard) and the size of the disk that you need. Azure creates and manages the disk for you.
 
-- *Premium storage disks*: These disk types are best suited for production workloads. Premium storage supports VM disks that can be attached to specific size-series VMs, such as DS, DSv2, GS, and F series VMs. The premium disk comes with different sizes, and you can choose between  disks ranging from 32 GB to 4096 GB. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM.
+- *Premium storage disks*: These disk types are best suited for production workloads. Premium storage supports VM disks that can be attached to specific size-series VMs, such as DS, DSv2, GS, and F series VMs. The premium disk comes with different sizes, and you can choose between disks ranging from 32 GB to 4,096 GB. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM.
 
 When you create a new managed disk from the portal, you can choose the **Account type** for the type of disk you want to use. 
 Keep in mind that not all available disks are shown in the drop-down menu. After you choose a particular VM size, the menu shows only the available premium storage SKUs that are based on that VM size.
@@ -159,29 +159,29 @@ For more information, see [High-performance Premium Storage and managed disks fo
 
 After you configure your storage on a VM, you might want to load test the disks before creating a database. Knowing the I/O rate in terms of both latency and throughput can help you determine if the VMs support the expected throughput with latency targets.
 
-There are a number of tools for application load testing, such as Oracle Orion, Sysbench, Fio, and so on.
+There are a number of tools for application load testing, such as Oracle Orion, Sysbench, and Fio.
 
-Run the load test again after you've deployed Oracle database. Start your regular and peak workloads, and the results show you the baseline of your environment.
+Run the load test again after you've deployed an Oracle database. Start your regular and peak workloads, and the results show you the baseline of your environment.
 
-It might be more important to size the storage based on the IOPS rate rather than the storage size. For example, if the required IOPS is 5000, but you only need 200 GB, you might still get the P30 class premium disk even though it comes with more than 200 GB of storage.
+It might be more important to size the storage based on the IOPS rate rather than the storage size. For example, if the required IOPS is 5,000, but you only need 200 GB, you might still get the P30 class premium disk even though it comes with more than 200 GB of storage.
 
 The IOPS rate can be obtained from the AWR report. It's determined by the redo log, physical reads, and writes rate.
 
 ![Screenshot of the AWR report page](./media/oracle-design/awr_report.png)
 
 For example, the redo size is 12,200,000 bytes per second, which is equal to 11.63 MBPs.
-The IOPS is 12,200,000 / 2358 = 5174.
+The IOPS is 12,200,000 / 2,358 = 5,174.
 
 After you have a clear picture of the I/O requirements, you can choose a combination of drives that are best suited to meet those requirements.
 
 **Recommendations**
 
 - For data tablespace, spread the I/O workload across a number of disks by using managed storage or Oracle ASM.
-- As the I/O block size increases for read- and write-intensive operations, add more data disks.
+- As the I/O block size increases for read-intensive and write-intensive operations, add more data disks.
 - Increase the block size for large sequential processes.
 - Use data compression to reduce I/O (for both data and indexes).
 - Separate redo logs, system, and temps, and undo TS on separate data disks.
-- Don't put any application files on default OS disks (/dev/sda). These disks aren't optimized for fast VM boot times, and might not provide good performance for your application.
+- Don't put any application files on default OS disks (/dev/sda). These disks aren't optimized for fast VM boot times, and they might not provide good performance for your application.
 
 ### Disk cache settings
 
@@ -203,7 +203,7 @@ For more information, see [Premium Storage for Linux VMs](https://docs.microsoft
 
 - For OS disks, use default **Read/Write** caching.
 - For SYSTEM, TEMP, and UNDO use **None** for caching.
-- For DATA, use **None** for caching, but if your database is read-only or read-intensive, use **Read-only** caching.
+- For DATA, use **None** for caching. But if your database is read-only or read-intensive, use **Read-only** caching.
 
 After your data disk setting is saved, you can't change the host cache setting unless you unmount the drive at the OS level and then remount it after you've made the change.
 
