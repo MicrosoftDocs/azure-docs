@@ -19,25 +19,11 @@ In order for your submission to be approved:
 - It must be stable and functional.
 - Any material that you associate with your apps or add-ins, such as descriptions and support documentation, must be accurate. Use correct spelling, capitalization, punctuation, and grammar in your descriptions and materials.
 - If you want a tailored experience for users in regional store, you can add additional languages so that your add-in appears in another language store with localized metadata. Your service and your add-in manifest must be updated appropriately. You must also provide descriptions for each language you add.
-- **Office Add-ins** - Your add-in must work on all applications and platforms specified in the **Host** and **Requirements** elements in your manifest. For a list of APIs that Office applications support on each platform, see [Office Add-in host and platform availability](https://dev.office.com/add-in-availability).
 
 For more details about Office Store requirements, see [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md).
 
-When the validation process is complete, you will receive a message to let you know that either your submission is approved, or you need to make changes and resubmit it. You can also follow these steps to check the approval status in the Seller Dashboard:
-
-1. Sign in to the  [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605).
-2. On the **manage** tab, your submission status appears under the submission name.
-    - If the status is **pending approval**, your submission is still being verified. When it is in this state, you can't update or resubmit it.
-    - If the status is **approved**, your submission is approved to be listed in the appropriate marketplaces.
-    
-    >**Note:**  After your submission is approved in the Seller Dashboard, there might be a delay before it is published in a store. After approval, a submission typically appears in the store within 24 hours.
-
-    - If the status is  **changes requested**, your submission needs changes in order to be approved. Choose your submission, and then on the summary page, choose  **View the add-in report** for details about the required changes.
-
-If you make changes after your submission was approved, it must go through the approval process again.
-
-
-## Validation process<a name="bk_Validation"> </a>
+## Validation process
+<a name="bk_Validation"> </a>
 
 After you submit your app or add-in:
 
@@ -55,21 +41,16 @@ After you submit your app or add-in:
     
     >**Note:** Because our team is located in multiple time zones, we request that you do not configure test accounts that require developer interaction before we can test.
 
-3. The Validation team will either approve or reject your submission. 
+3. When the validation process is complete, you will receive a message to let you know that either your submission is approved, or you need to make changes and resubmit it. You can also follow these steps to check the approval status in the Seller Dashboard:
 
- - If your submission is approved, you can expect to see it in the Store within 24 hours after you receive the notification email.
- - If your submission is rejected, the Change Request document will be available in your submission listing in the Seller Dashboard.
+    1. Sign in to the  [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605).
+    2. On the **manage** tab, your submission status appears under the submission name.
+        - If the status is **pending approval**, your submission is still being verified. When it is in this state, you can't update or resubmit it.
+        - If the status is **approved**, your submission is approved to be listed in the appropriate marketplaces.
+        
+        >**Note:**  After your submission is approved in the Seller Dashboard, there might be a delay before it is published in a store. After approval, a submission typically appears in the store within 24 hours.
 
-When the validation process is complete, you will receive a message to let you know that either your submission is approved, or you need to make changes and resubmit it. You can also follow these steps to check the approval status in the Seller Dashboard:
-
-1. Sign in to the  [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605).
-2. On the **manage** tab, your submission status appears under the submission name.
-    - If the status is **pending approval**, your submission is still being verified. When it is in this state, you can't update or resubmit it.
-    - If the status is **approved**, your submission is approved to be listed in the appropriate marketplaces.
-    
-    >**Note:**  After your submission is approved in the Seller Dashboard, there might be a delay before it is published in a store. After approval, a submission typically appears in the store within 24 hours.
-
-    - If the status is  **changes requested**, your submission needs changes in order to be approved. Choose your submission, and then on the summary page, choose  **View the add-in report** for details about the required changes.
+        - If the status is  **changes requested**, your submission needs changes in order to be approved. Choose your submission, and then on the summary page, choose  **View the add-in report** for details about the required changes.
 
 If you make changes after your submission was approved, it must go through the approval process again.
 
