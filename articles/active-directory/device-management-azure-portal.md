@@ -59,7 +59,7 @@ This option is a premium edition capability available through products such as A
 - **Users may sync settings and app data across devices** - By default, this setting is set to **NONE**. Selecting specific users or groups or ALL allows the user’s settings and app data to sync across their Windows 10 devices. Learn more on how sync works in Windows 10.
 This option is a premium capability available through products such as Azure AD Premium or the Enterprise Mobility Suite (EMS).
  
-![Manage an Intune device](./media/device-management-azure-portal/21.png)
+    ![Manage an Intune device](./media/device-management-azure-portal/21.png)
 
 
 
@@ -141,10 +141,49 @@ You can either select “…” to delete the device or click on the device for 
 
 
 
+## Audit logs
 
 
+The device activities are available through the activity logs. This includes activities triggered by the device registration service or by the user:
+
+- Device creation and adding owners/users on the device
+- Changes to device settings
+- Device operations such as deleting or updating a device
+ 
+Your entry point to the auditing data is **Audit logs** in the **Activity** section of the **Devices* blade.
+
+![Audit logs](./media/device-management-azure-portal/61.png)
 
 
+An audit log has a default list view that shows:
+
+- the date and time of the occurrence
+
+- the targets
+
+- the initiator / actor (who) of an activity
+
+- the activity (what)
+
+![Audit logs](./media/device-management-azure-portal/63.png)
+
+You can customize the list view by clicking **Columns** in the toolbar.
+ 
+![Audit logs](./media/device-management-azure-portal/64.png)
+
+
+To narrow down the reported data to a level that works for you, you can filter the audit data using the following fields:
+
+- Catergory
+- Activity resource type
+- Activity
+- Date range
+- Target
+- Initiated By (Actor)
+
+In addition to the filters, you can search for specific entries.
+
+![Audit logs](./media/device-management-azure-portal/65.png)
 
 ## Next steps
 
@@ -152,5 +191,3 @@ You can either select “…” to delete the device or click on the device for 
 
 
 
-<!--Image references-->
-[1]: ./media/active-directory-conditional-access-automatic-device-registration-setup/12.png
