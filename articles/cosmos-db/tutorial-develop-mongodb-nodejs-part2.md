@@ -42,6 +42,7 @@ Before starting this part of the tutorial, ensure you've watched the [introducti
 This tutorial also requires: 
 * [Node.js](https://nodejs.org/download/current/) version 8.3.0 or above.
 * [Postman](https://www.getpostman.com/)
+* [Visual Studio Code](https://code.visualstudio.com/) or your favorite Node IDE.
 
 ## Install the Angular and Azure CLIs
 

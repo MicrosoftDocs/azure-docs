@@ -88,8 +88,8 @@ Now that you have your Heroes component, create a new file for the heroes compon
     templateUrl: './heroes.component.html',
     ```
  
-    > ![TIP]
-    > You can use John Papa's Angular Essentials extenstions and snippets for Visual Studio Code to speed up your development. Simply click the Extensions button ![Visual Studio Code Extensions button](./media/tutorial-develop-mongodb-nodejs-part3/extensions-button.png) and type angular essentials in the search box, or go to [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). After installing click the Reload button to use the new extensions.
+    > [!TIP]
+    > You can use John Papa's Angular Essentials extenstions and snippets for Visual Studio Code to speed up your development. Click the Extensions button ![Visual Studio Code Extensions button](./media/tutorial-develop-mongodb-nodejs-part3/extensions-button.png) and type angular essentials in the search box, or go to [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). After installing click the Reload button to use the new extensions.
     >
     > ![Angular Essentials extension](./media/tutorial-develop-mongodb-nodejs-part3/angular-essentials-extension.png)
 
@@ -397,7 +397,19 @@ Now that we have the component set, how do we get it to show up on the screen? F
     `
     })
     ```
-3. There are other components in heroes.components.ts that we're referring to, like the Hero component, so we need to go create that. In the Angular CLI command prompt, type `ng g cl hero` to craete a hero model.
+3. There are other components in heroes.components.ts that we're referring to, like the Hero component, so we need to go create that. In the Angular CLI command prompt, type `ng g cl hero` to create a hero model and a file named hero.ts.
+
+4. In Visual Studio Code, open src\client\app\hero.ts.
+
+5. In hero.ts, copy in the following code to add a Hero class with an id, a name, and a saying. 
+
+    ```
+    export class Hero {
+    id: number;
+    name: string;
+    saying: string;
+    }
+    ```
 
 TODO
 
