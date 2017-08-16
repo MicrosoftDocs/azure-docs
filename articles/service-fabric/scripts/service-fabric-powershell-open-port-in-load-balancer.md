@@ -20,7 +20,7 @@ ms.custom: mvc
 
 # Open an application port in the Azure load balancer
 
-This sample script opens a port in an Azure load balancer so that a Service Fabric application can communicate with clients. Customize the parameters as needed. 
+A Service Fabric application running in Azure sits behind the Azure load balancer. This sample script opens a port in an Azure load balancer so that a Service Fabric application can communicate with external clients. Customize the parameters as needed. 
 
 If needed, install the Service Fabric PowerShell module with the [Service Fabric SDK](../service-fabric-get-started.md). 
 
