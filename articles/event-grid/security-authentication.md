@@ -208,6 +208,12 @@ To create a custom role, use:
 
     azure role create --inputfile <file path>
 
+#### Assign the role to a user
+
+
+    azure role assignment create --signInName  <user email address> --roleName "<name of role>" --resourceGroup <resource group name>
+
+
 ## Next steps
 
 * For an introduction to Event Grid, see [About Event Grid](overview.md)
