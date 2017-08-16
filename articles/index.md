@@ -700,7 +700,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <li>
                                             <a href="/azure/storage/">
                                                 <img src="media/index/Storage.svg" alt="" />
-                                                <p>Storage Overview</p>
+                                                <p>Storage</p>
                                             </a>
                                         </li>
                                         <li>
@@ -710,13 +710,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storage/blobs/storage-files-introduction/">
+                                            <a href="/azure/storage/files/storage-files-introduction/">
                                                 <img src="media/index/logo_azure-storage-file.svg" alt="" />
                                                 <p>File Storage</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storage/blobs/blobs/storage-queues-introduction/">
+                                            <a href="/azure/storage/queues/storage-queues-introduction/">
                                                 <img src="media/index/logo_azure-storage-q.svg" alt="" />
                                                 <p>Queue Storage</p>
                                             </a>
