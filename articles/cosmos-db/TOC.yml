@@ -214,7 +214,7 @@
         href: mongodb-robomongo.md
       - name: MEAN.js tutorial series
         items:
-        - name: Part 2 - Create Node.js app
+        - name: Part 2 - Node.js app
           href: tutorial-develop-mongodb-nodejs-part2.md
         - name: Part 3 - Angular UI
           href: tutorial-develop-mongodb-nodejs-part3.md
