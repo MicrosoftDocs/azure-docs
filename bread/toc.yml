@@ -165,6 +165,9 @@
   - name: DNS
     tocHref: /azure/dns/
     topicHref: /azure/dns/
+  - name: Event Grid
+    tocHref: /azure/event-grid/
+    topicHref: /azure/event-grid
   - name: Event Hubs
     tocHref: /azure/event-hubs/
     topicHref: /azure/event-hubs/
