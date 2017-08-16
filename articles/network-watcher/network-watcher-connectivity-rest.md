@@ -458,7 +458,7 @@ null
 
 ### Response
 
-The following example is the response response from running the previous API call. As the check is successful, the `connectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
+The following example is the response from running the previous API call. As the check is successful, the `connectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
 
 ```json
 {
