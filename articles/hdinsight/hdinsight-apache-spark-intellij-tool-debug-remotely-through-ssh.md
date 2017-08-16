@@ -44,6 +44,8 @@ This article provides step-by-step guidance on how to use HDInsight tools in Azu
 
     - **Spark on HDInsight Cluster Run Sample (Scala)**
 
+    This example uses a **Spark on HDInsight Cluster Run Sample (Scala)** template.
+
     c. In the **Build tool** list, select either of the following, according to your need:
 
     - **Maven**, for Scala project-creation wizard support
