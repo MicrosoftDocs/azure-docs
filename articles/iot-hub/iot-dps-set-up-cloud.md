@@ -103,22 +103,7 @@ In this tutorial, you learned how to:
 > * Link the IoT hub to DPS
 > * Set the allocation policy on DPS
 
-
 Advance to the next tutorial to learn how to set up your device.
 
 > [!div class="nextstepaction"]
 > [Set up device](iot-dps-set-up-device.md)
-
-<---! 
-Rules for screenshots:
-- Use default Public Portal colors
-- Browser included in the first shot (especially) but all shots if possible
-- Resize the browser to minimize white space
-- Include complete blades in the screenshots
-- Linux: Safari – consider context in images
-Guidelines for outlining areas within screenshots:
-	- Red outline #ef4836
-	- 3px thick outline
-	- Text should be vertically centered within the outline.
-	- Length of outline should be dependent on where it sits within the screenshot. Make the shape fit the layout of the screenshot.
--->
