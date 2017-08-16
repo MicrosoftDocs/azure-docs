@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
-ms.author: cgronlun;tedway;olgali
+ms.author: cgronlun
 
 ---
 # Introduction to Machine Learning in the Azure cloud
