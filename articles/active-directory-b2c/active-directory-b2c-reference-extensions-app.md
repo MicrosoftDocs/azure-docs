@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 8/17/2017
-ms.author: parakhj
+ms.author: parja
 
 ---
 # Azure AD B2C: Extensions app
