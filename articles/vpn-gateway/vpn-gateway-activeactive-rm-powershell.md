@@ -260,7 +260,7 @@ Similarly, below lists the parameters you will enter into the second VPN device:
 - Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
 - Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
 - Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
-                       Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+                         Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
@@ -332,7 +332,7 @@ $gw2ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW2IPconf2 -Subnet
 Create the VPN gateway with the AS number and the "EnableActiveActiveFeature" flag. Note that you must override the default ASN on your Azure VPN gateways. The ASNs for the connected VNets must be different to enable BGP and transit routing.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1,$gw2ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku Vpn1Gw1 -Asn $VNet2ASN -EnableActiveActiveFeature
+New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1,$gw2ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet2ASN -EnableActiveActiveFeature
 ```
 
 ### Step 2 - Connect the TestVNet1 and TestVNet2 gateways
