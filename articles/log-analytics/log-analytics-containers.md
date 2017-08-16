@@ -104,7 +104,7 @@ You need the following settings configured on your container hosts before you ca
 
 ## Linux container hosts
 
-After you've installed Docker, use the following settings for your container host to configure the agent for use with Docker. First you need your OMS workspace ID and key, which you can find by switching to the [OMS classic portal](https://mms.microsoft.com).  On the **Overview** page, from the top menu select **Settings**, and then navigate to **Connected Sources\Windows Servers**.  You will see the value to the right of **Workspace ID** and **Primary Key**.  Copy and paste both into your favorite editor.    
+After you've installed Docker, use the following settings for your container host to configure the agent for use with Docker. First you need your OMS workspace ID and key, which you can find by switching to the [OMS classic portal](https://mms.microsoft.com).  On the **Overview** page, from the top menu select **Settings**, and then navigate to **Connected Sources\Linux Servers**.  You will see the value to the right of **Workspace ID** and **Primary Key**.  Copy and paste both into your favorite editor.    
 
 ### For all Linux container hosts except CoreOS
 

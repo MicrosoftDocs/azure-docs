@@ -1,23 +1,23 @@
 ---
-title: Azure Instance Metadata Service Overview | Microsoft Docs
-description: RESTful interface to get information about VM's compute, network and upcoming maintenance events.
-services: virtual-machines-windows, virtual-machines-linux,virtual-machines-scale-sets, cloud-services
-documentationcenter: virtual-machines
+title: Azure Instance Metadata Service for Linux VMs | Microsoft Docs
+description: RESTful interface to get information about Linux VM's compute, network and upcoming maintenance events.
+services: virtual-machines-linux
+documentationcenter: ''
 author: harijay
 manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
-ms.date: 03/27/2017
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 08/11/2017
 ms.author: harijay
 ---
 
-# Azure Instance Metadata Service 
+# Azure Instance Metadata service for Linux VMs
 
 
 The Azure Instance Metadata Service provides information about running virtual machine instances that can be used to manage and configure your virtual machines.
@@ -26,19 +26,18 @@ This includes information such as SKU, network configuration, and upcoming maint
 Azure's Instance Metadata Service is a REST Endpoint accessible to all IaaS VMs created via the [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). 
 The endpoint is available at a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.
 
-### Important information
+> [!IMPORTANT]
+> This service is  **generally available** in Global Azure Regions. It is in Public preview for Government, China, and German Azure Cloud. It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [data categories](#instance-metadata-data-categories) available.
 
-This service is  **generally available** in Global Azure Regions. It is in Public preview for Government, China, and German Azure Cloud. It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [data categories](#instance-metadata-data-categories) available.
-
-## Service Availability
+## Service availability
 The service is available in all generally available Global Azure regions. The service is in public preview  in the Government, China, or Germany regions.
 
 Regions                                        | Availability?
 -----------------------------------------------|-----------------------------------------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/en-us/regions/)     | Generally Available 
-[Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)              | In Preview 
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available 
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | In Preview 
 [Azure China](https://www.azure.cn/)                                                           | In Preview
-[Azure Germany](https://azure.microsoft.com/en-us/overview/clouds/germany/)                    | In Preview
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | In Preview
 
 This table is updated when the service becomes available in other Azure clouds.
 
@@ -54,7 +53,7 @@ The Instance Metadata Service is versioned. Versions are mandatory and the curre
 
 As we add newer versions, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats. However, note that the current preview version(2017-03-01) may not be available once the service is generally available.
 
-### Using Headers
+### Using headers
 When you query the Instance Metadata Service, you must provide the header `Metadata: true` to ensure the request was not unintentionally redirected.
 
 ### Retrieving metadata
@@ -284,19 +283,19 @@ publisher | Publisher of the VM image
 sku | Specific SKU for the VM image  
 version | Version of the VM image 
 osType | Linux or Windows 
-platformUpdateDomain |  [Update domain](virtual-machines-windows-manage-availability.md) the VM is running in
-platformFaultDomain | [Fault domain](virtual-machines-windows-manage-availability.md) the VM is running in
+platformUpdateDomain |  [Update domain](manage-availability.md) the VM is running in
+platformFaultDomain | [Fault domain](manage-availability.md) the VM is running in
 vmId | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM
-vmSize | [VM size](virtual-machines-windows-sizes.md)
+vmSize | [VM size](sizes.md)
 ipv4/privateIpAddress | Local IPv4 address of the VM 
 ipv4/publicIpAddress | Public IPv4 address of the VM
 subnet/address | Subnet address of the VM
 subnet/prefix | Subnet prefix, example 24
 ipv6/ipAddress | Local IPv6 address of the VM
 macAddress | VM mac address 
-scheduledevents | Currently in Public Preview See [scheduledevents](virtual-machines-scheduled-events.md)
+scheduledevents | Currently in Public Preview See [scheduledevents](scheduled-events.md)
 
-## Example Scenarios for usage  
+## Example scenarios for usage  
 
 ### Tracking VM running on Azure
 
@@ -314,7 +313,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 5c08b38e-4d57-4c23-ac45-aca61037f084
 ```
 
-### Placement of containers, data-partitions based Fault/Update domain 
+### Placement of containers, data-partitions based fault/update domain 
 
 For certain scenarios, placement of different data replicas is of prime importance. For example, [HDFS replica placement](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)
 or container placement via an [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) may you require to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
@@ -385,7 +384,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 2. Why am I not getting compute information for my VM?
    * Currently the Instance Metadata Service only supports instances created with Azure Resource Manager. In the future, we may add support for Cloud Service VMs.
 3. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
-   * For any VMs created after Sep 2016, add a [Tag](../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
+   * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
 4. Why am I getting the error `500 Internal Server Error`?
    * Please retry your request based on exponential back off system. If the issue persists contact  Azure support.
 5. Where do I share additional questions/comments?
@@ -395,8 +394,8 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 6. How do I get support for the service?
    * To get support for the service, create a support issue in Azure portal for the VM where you are not able to get metadata response after long retries 
 
-   ![Instance Metadata Support](./media/virtual-machines-instancemetadataservice-overview/InstanceMetadata-support.png)
+   ![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)
     
-## Next Steps
+## Next steps
 
-- Learn more about the [scheduledevents](virtual-machines-scheduled-events.md) API **In Public Preview** provided by the Instance Metadata Service.
+- Learn more about the [Scheduled Events](scheduled-events.md) API **in public preview** provided by the Instance Metadata service.
