@@ -80,7 +80,7 @@ Run the following script to return a virtual machine. This information is needed
 
 The following code needs values for the following variables:
 
-- **subscriptionId** - The subscription Id to use.
+- **subscriptionId** - The subscription ID to use.
 - **resourceGroupName** - The name of a resource group that contains virtual machines.
 
 ```powershell
@@ -90,7 +90,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-From the following output, the id of the virtual machine is used in the following example:
+From the following output, the ID of the virtual machine is used in the following example:
 
 ```json
 ...
@@ -458,7 +458,7 @@ null
 
 ### Response
 
-The following is the example response from running the previous API call. As the check is successful, the `connectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
+The following example is the response response from running the previous API call. As the check is successful, the `connectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
 
 ```json
 {
