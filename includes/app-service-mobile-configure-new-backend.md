@@ -5,11 +5,11 @@
 
 2. If a database connection is not configured, create one by doing the following:
 
-    ![Azure portal with Mobile Apps Connect to BD][connect]
+    ![Azure portal with Mobile Apps Connect to database][connect]
 
     a. Create a new SQL Database and server.
 
-    ![Azure Portal with Mobile Apps create new BD and server][server]
+    ![Azure portal with Mobile Apps create new database and server][server]
 
     b. Wait until the data connection is successfully created.
 
@@ -25,7 +25,7 @@
     This action creates a new to-do item table in your database. 
 
     >[!IMPORTANT]
-    > Switching an existing back end to Node.js will overwrite all contents. To create a .NET back end instead, see [Work with the .NET back-end server SDK for Azure Mobile Apps][instructions].
+    > Switching an existing back end to Node.js overwrites all contents. To create a .NET back end instead, see [Work with the .NET back-end server SDK for Azure Mobile Apps][instructions].
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
