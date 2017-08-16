@@ -4,11 +4,11 @@
     href: storage-blobs-introduction.md
   - name: Choose Blobs, Files, or Data Disks
     href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-- name: Get Started - Blobs
+- name: Get started
   items:
   - name: Create a storage account
     href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Develop with blobs
+  - name: Develop
     items:
     - name: .NET
       href: storage-dotnet-how-to-use-blobs.md
@@ -29,10 +29,10 @@
     - name: Xamarin
       href: storage-xamarin-blob-storage.md
 
-- name: How To - Blobs
+- name: How to
   items:
   - name: Searching Blob storage with Azure Search
-    href: ../../search/search-blob-storage-integration.md
+    href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Hot and cool tiers
     href: storage-blob-storage-tiers.md
   - name: Encrypt and decrypt blobs using Azure Key Vault
@@ -46,10 +46,10 @@
   - name: Anonymous access to blobs
     href: storage-manage-access-to-resources.md
   - name: Manage blobs with Storage Explorer
-    href: ../../vs-azure-tools-storage-explorer-blobs.md 
+    href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Samples
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=blob
 
 #include file for the articles that apply to >1 service
-- name: Articles that apply to multiple services
-  href: ../common/toc.yml
+- name: More topics
+  href: ../tocblobs/toc.yml
