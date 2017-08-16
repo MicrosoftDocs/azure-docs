@@ -2516,7 +2516,7 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])
 ```  
   
 ####  <a name="bk_array_slice"></a> ARRAY_SLICE  
- Returns a Boolean indicating ...  
+ Returns part of an array expression.
   
  **Syntax**  
   
