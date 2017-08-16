@@ -146,12 +146,12 @@ Hub](https://azure.microsoft.com/services/event-hubs/) events to
 The [Azure Data
 Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 service orchestrates the movement and processing of data. In the Demand Forecasting for Energy Solution Template the data factory is made up of twelve
-[pipelines](data-factory/data-factory-create-pipelines.md)
+[pipelines](data-factory/concepts-pipelines-activities.md)
 that move and process the data using various technologies.
 
   You can access your data factory by opening the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. This will take you to the data factory on your Azure management portal. If you see errors under your datasets, you can ignore those as they are due to data factory being deployed before the data generator was started. Those errors do not prevent your data factory from functioning.
 
-This section discusses the necessary [pipelines](data-factory/data-factory-create-pipelines.md) and [activities](data-factory/data-factory-create-pipelines.md) contained in the [Azure Data
+This section discusses the necessary [pipelines](data-factory/concepts-pipelines-activities.md) and [activities](data-factory/concepts-pipelines-activities.md) contained in the [Azure Data
 Factory](https://azure.microsoft.com/documentation/services/data-factory/). Below is the diagram view of the solution.
 
 ![](media/cortana-analytics-technical-guide-demand-forecast/ADF2.png)
@@ -173,9 +173,9 @@ requirements.
 
 #### *AggregateDemandDataTo1HrPipeline*
 This
-[pipeline](data-factory/data-factory-create-pipelines.md)
+[pipeline](data-factory/concepts-pipelines-activities.md)
 pipeline contains a single activity - an
-[HDInsightHive](data-factory/data-factory-hive-activity.md)
+[HDInsightHive](data-factory/hive-activity.md)
 activity using a
 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)
 that runs a
@@ -187,29 +187,29 @@ The
 script for this partitioning task is ***AggregateDemandRegion1Hr.hql***
 
 #### *LoadHistoryDemandDataPipeline*
-This [pipeline](data-factory/data-factory-create-pipelines.md) contains two activities:
+This [pipeline](data-factory/concepts-pipelines-activities.md) contains two activities:
 
-* [HDInsightHive](data-factory/data-factory-hive-activity.md) activity using a [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) that runs a  Hive script to aggregate the hourly history demand data in substation level to hourly region level and put in Azure Storage during the Azure Stream Analytics job
+* [HDInsightHive](data-factory/hive-activity.md) activity using a [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) that runs a  Hive script to aggregate the hourly history demand data in substation level to hourly region level and put in Azure Storage during the Azure Stream Analytics job
 * [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the aggregated data from Azure Storage blob to the Azure SQL Database that was provisioned as part of the solution template installation.
 
 The [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script for this task is ***AggregateDemandHistoryRegion.hql***.
 
 #### *MLScoringRegionXPipeline*
-These [pipelines](data-factory/data-factory-create-pipelines.md) contain several activities and whose end result is the scored predictions from the Azure Machine Learning experiment associated with this solution template. They are almost identical except each of them only handles the different region which is being done by different RegionID passed in the ADF pipeline and the hive script for each region.  
+These [pipelines](data-factory/concepts-pipelines-activities.md) contain several activities and whose end result is the scored predictions from the Azure Machine Learning experiment associated with this solution template. They are almost identical except each of them only handles the different region which is being done by different RegionID passed in the ADF pipeline and the hive script for each region.  
 The activities contained in this are:
 
-* [HDInsightHive](data-factory/data-factory-hive-activity.md) activity using a [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) that runs a  Hive script to perform aggregations and feature engineering necessary for the Azure Machine Learning experiment. The Hive scripts for this task are respective ***PrepareMLInputRegionX.hql***.
-* [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the results from the [HDInsightHive](data-factory/data-factory-hive-activity.md) activity to a single Azure Storage blob that can be access by the  [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) activity.
+* [HDInsightHive](data-factory/hive-activity.md) activity using a [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) that runs a  Hive script to perform aggregations and feature engineering necessary for the Azure Machine Learning experiment. The Hive scripts for this task are respective ***PrepareMLInputRegionX.hql***.
+* [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the results from the [HDInsightHive](data-factory/hive-activity.md) activity to a single Azure Storage blob that can be access by the  [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) activity.
 * [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) activity that calls the Azure Machine Learning experiment which results in the results being put in a single Azure Storage blob.
 
 #### *CopyScoredResultRegionXPipeline*
-These [pipelines](data-factory/data-factory-create-pipelines.md) contain a single activity - a [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the results of the Azure Machine Learning experiment from the respective ***MLScoringRegionXPipeline*** to the Azure SQL Database that was provisioned as part of the solution template installation.
+These [pipelines](data-factory/concepts-pipelines-activities.md) contain a single activity - a [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the results of the Azure Machine Learning experiment from the respective ***MLScoringRegionXPipeline*** to the Azure SQL Database that was provisioned as part of the solution template installation.
 
 #### *CopyAggDemandPipeline*
-This [pipelines](data-factory/data-factory-create-pipelines.md) contain a single activity - a [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the aggregated ongoing demand data from ***LoadHistoryDemandDataPipeline*** to the Azure SQL Database that was provisioned as part of the solution template installation.
+This [pipelines](data-factory/concepts-pipelines-activities.md) contain a single activity - a [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the aggregated ongoing demand data from ***LoadHistoryDemandDataPipeline*** to the Azure SQL Database that was provisioned as part of the solution template installation.
 
 #### *CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
-These [pipelines](data-factory/data-factory-create-pipelines.md) contain a single activity - a [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the reference data of Region/Substation/Topologygeo that are uploaded to Azure Storage blob as part of the solution template installation to the Azure SQL Database that was provisioned as part of the solution template installation.
+These [pipelines](data-factory/concepts-pipelines-activities.md) contain a single activity - a [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the reference data of Region/Substation/Topologygeo that are uploaded to Azure Storage blob as part of the solution template installation to the Azure SQL Database that was provisioned as part of the solution template installation.
 
 ### Azure Machine Learning
 The [Azure Machine
