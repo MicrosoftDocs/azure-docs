@@ -215,8 +215,7 @@ foreach ($tableSchema in $databaseSchema.Tables)
             if ((-not $addAllColumns) -and $tableSchema.HasError)
             {
                 Write-Host "Can't add column $fullColumnName to the sync schema" -foregroundcolor "Red"
-                Write-Host $tableSchema.ErrorId -foregroundcolor "Red"
-            }
+                Write-Host $tableSchema.ErrorId -foregroundcolor "Red"c            }
             elseif ((-not $addAllColumns) -and $columnSchema.HasError)
             {
                 Write-Host "Can't add column $fullColumnName to the sync schema" -foregroundcolor "Red"
@@ -256,7 +255,7 @@ Update-AzureRmSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
                             -Name $SyncGroupName `
                             -Schema $TempFile
 
-$SyngStartTime = Get-Date
+$SyncStartTime = Get-Date
 
 # Trigger sync manually
 Write-Host "Trigger sync manually"
