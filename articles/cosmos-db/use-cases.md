@@ -66,7 +66,7 @@ Consider an example of a product catalog for an automotive parts supplier. Every
 
 ![Azure Cosmos DB retail catalog reference architecture](./media/use-cases/product-catalog.png)
 
-Azure Cosmos DB is often used for event sourcing to power event driven architectures using its [change feed](change-feed.md) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (e.g. order events) made to an Azure Cosmos DB. This functionality can be leveraged to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices.
+Azure Cosmos DB is often used for event sourcing to power event driven architectures using its [change feed](change-feed.md) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (e.g. order events) made to an Azure Cosmos DB. This functionality can be leveraged to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices (which can be implemented as [serverless Azure Functions](http://www.azure.com/serverless)).
 
 ![Azure Cosmos DB ordering pipeline reference architecture](./media/use-cases/event-sourcing.png)
 
