@@ -167,7 +167,7 @@ Once [restore disks operation is completed](#Track-the-restore-operation), you c
 To get the template generated as part of restore disks option,
 
 1. Go to restore job details corresponding to the job. 
-2. On the restore job details creen, click on *Deploy Template* button to initiate template deployment. 
+2. On the restore job details screen, click on *Deploy Template* button to initiate template deployment. 
 
      ![restore job drill-down](./media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
    
