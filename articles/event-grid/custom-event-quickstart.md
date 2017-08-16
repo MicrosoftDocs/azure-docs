@@ -63,7 +63,7 @@ Now, let's trigger an event to see how Event Grid distributes the message to you
 
 ```azurecli
 endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)
-key=$(az eventgrid topic show-keys --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
+key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
 ```
 
 To simplify this article, we have set up sample event data to send to the topic. Typically, an application or Azure service would send the event data. The following example gets the event data:
