@@ -25,7 +25,7 @@ or API app to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 The FTP/S endpoint for your app is already active. No configuration is necessary to enable FTP/S deployment.
 
-> [!WARNING]
+> [!IMPORTANT]
 > We are continuously taking steps to improve Microsoft Azure Platform security. As part of this ongoing effort an upgrade of Web Applications is planned for Germany Central and Germany Northeast regions. During this Web Apps will be disabling the use of plain text FTP protocol for deployments. Our recommendation to our customers is to switch to FTPS for deployments. We do not expect any disruption to your service during this upgrade which is planned for 9/5. We appreciate you support in this effort.
 
 <a name="step1"></a>
