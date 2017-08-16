@@ -79,29 +79,25 @@ For more details, see [Azure Active Directory reporting](active-directory-report
 
 **Q: Do I see last month's data after getting an Azure AD premium license?**
 
-**A:**: If you have recently switched to a Premium version (including a trial version), you can see data up to 7 days initially. When data accumulates, you will see up to 30 days.
+**A:** If you have recently switched to a Premium version (including a trial version), you can see data up to 7 days initially. When data accumulates, you will see up to 30 days.
 
 ---
 
 **Q: There is a risk event in Identity Protection but I’m not seeing corresponding sign-in in the all sign-ins. Is this expected?**
-**A:**: Yes, Identity Protection evaluates risk for all authentication flows whether if be interactive or non-interactive. However, all sign-ins only report shows only the interactive sign-ins.
+
+**A:** Yes, Identity Protection evaluates risk for all authentication flows whether if be interactive or non-interactive. However, all sign-ins only report shows only the interactive sign-ins.
 
 ---
 
 **Q: How can I download the “Users flagged for risk” report in Azure portal?**
 
-**A:**: The option to download *Users flagged for risk* report will be added soon.
+**A:** The option to download *Users flagged for risk* report will be added soon.
 
 ---
 
 **Q: How do I know why a sign-in or a user was flagged risky in the Azure portal?**
 
-**A:**: Premium edition customers can learn more about the underlying risk events by clicking on the user in “Users flagged for risk” or by clicking on the “Risky sign-ins”. Free and Basic edition customers get to see the at-risk users and sign-ins without the underlying risk event information.
+**A:** Premium edition customers can learn more about the underlying risk events by clicking on the user in “Users flagged for risk” or by clicking on the “Risky sign-ins”. Free and Basic edition customers get to see the at-risk users and sign-ins without the underlying risk event information.
 
 ---
 
-**Q: Why do I have *Users with leaked credentials* when I am sure that the credentials did not leak?**
-
-**A:**: In addition to credentials detected by researchers, [leaked credentials](active-directory-reporting-risk-events.md#risk-event-types) are also reported when unusual sign-in activities have been detected that represent known attack patterns. This means, indicators for unauthorized use of an account are also considered to be a result of leaked credentials.    
-
----
