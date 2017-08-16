@@ -75,6 +75,9 @@ As an administrator, in the Azure portal, you have two options to locate registe
 
 with both options, you can get to a view that:
 
+
+- Enables you to search for devices using the display name as filter.
+
 - Provides you with detailed overview of registered and joined devices
 
 - Enables you to perform common device management tasks
@@ -86,9 +89,6 @@ with both options, you can get to a view that:
 ## Device management tasks
 
 As an administrator, you can manage the registered or joined devices. This section provides you with information about common device management tasks.
-
-**Search for a device** - You can search for devices using the display name as filter.
-
 
 
 **Manage an Intune device** - If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**. An administrator can see additional device 
