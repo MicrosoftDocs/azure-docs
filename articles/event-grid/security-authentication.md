@@ -111,6 +111,103 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 }
 ```
 
+## Management Access Control
+
+Azure Event Grid allows you to control the level of access given to different users to do various management operations such as list event subscriptions, create new ones, and generate keys. Event Grid utilizes Azure's Role Based Access Check (RBAC) for this.
+
+### Operation types
+
+Azure event grid supports the following actions:
+
+* Microsoft.EventGrid/*/read 
+* Microsoft.EventGrid/*/write 
+* Microsoft.EventGrid/*/delete 
+* Microsoft.EventGrid/eventSubscriptions/getFullUrl/action 
+* Microsoft.EventGrid/topics/listKeys/action 
+* Microsoft.EventGrid/topics/regenerateKey/action
+
+The last three operations return potentially secret information which gets filtered out of normal read operations. It is best practice for you to restrict access to these operations. Custom roles can be created using [Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md), [Azure Command-Line Interface (CLI)](../active-directory/role-based-access-control-manage-access-azure-cli.md), and the [REST API](../active-directory/role-based-access-control-manage-access-rest.md).
+
+### Enforcing Role Based Access Check (RBAC)
+
+Use the following steps to enforce RBAC for different users:
+
+#### Create a custom role definition file (.json)
+
+The following are sample Event Grid role definitions which allow users to perform different sets of actions.
+
+**EventGridReadOnlyRole.json**: Only allow read only operations.
+```json
+{ 
+  "Name": "Event grid read only role", 
+  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856", 
+  "IsCustom": true, 
+  "Description": "Event grid read only role", 
+  "Actions": [ 
+    "Microsoft.EventGrid/*/read" 
+  ], 
+  "NotActions": [ 
+  ], 
+  "AssignableScopes": [ 
+    "/subscriptions/<Subscription Id>" 
+  ] 
+}
+```
+
+**EventGridNoDeleteListKeysRole.json**: Allow restricted post actions but disallow delete actions.
+```json
+{ 
+  "Name": "Event grid No Delete Listkeys role", 
+  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174", 
+  "IsCustom": true, 
+  "Description": "Event grid No Delete Listkeys role", 
+  "Actions": [     
+    "Microsoft.EventGrid/*/write", 
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action" 
+    "Microsoft.EventGrid/topics/listkeys/action", 
+    "Microsoft.EventGrid/topics/regenerateKey/action" 
+  ], 
+  "NotActions": [ 
+    "Microsoft.EventGrid/*/delete" 
+  ], 
+  "AssignableScopes": [ 
+    "/subscriptions/<Subscription id>" 
+  ] 
+}
+```
+ 
+**EventGridContributorRole.json**: Allows all event grid actions.  
+```json
+{ 
+  "Name": "Event grid contributor role", 
+  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514", 
+  "IsCustom": true, 
+  "Description": "Event grid contributor role", 
+  "Actions": [ 
+    "Microsoft.EventGrid/*/write", 
+    "Microsoft.EventGrid/*/delete", 
+    "Microsoft.EventGrid/topics/listkeys/action", 
+    "Microsoft.EventGrid/topics/regenerateKey/action", 
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action" 
+  ], 
+  "NotActions": [], 
+  "AssignableScopes": [ 
+    "/subscriptions/d48566a8-2428-4a6c-8347-9675d09fb851" 
+  ] 
+} 
+```
+
+#### Install and login to Azure CLI
+
+* Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure CLI](../cli-install-nodejs.md).
+* Azure Resource Manager in Azure CLI. Go to [Using the Azure CLI with the Resource Manager](../xplat-cli-azure-resource-manager.md) for more details.
+
+#### Create a custom role
+
+To create a custom role, use:
+
+    azure role create --inputfile <file path>
+
 ## Next steps
 
-* For an introduction to Event Grid, see [About Event Grid?](overview.md)
+* For an introduction to Event Grid, see [About Event Grid](overview.md)
