@@ -24,7 +24,7 @@ In this tutorial, you learn how to integrate Help Scout with Azure Active Direct
 You get the following benefits from integrating Help Scout with Azure AD:
 
 - In Azure AD, you can control who has access to Help Scout.
-- You can automatically sign in your users to Help Scout by using single-sign-on and a user's Azure AD account.
+- You can automatically sign in your users to Help Scout by using single sign-on and a user's Azure AD account.
 - You can manage your accounts in one, central location, the Azure portal.
 
 To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -45,15 +45,15 @@ Recommendations for testing the steps in this tutorial:
 - If you don't have an Azure AD trial environment, you can [get a one-month free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-In this tutorial, you test Azure AD single-sign-on in a test environment. 
+In this tutorial, you test Azure AD single sign-on in a test environment. 
 
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Add Help Scout from the gallery.
-2. Set up and test Azure AD single-sign-on.
+2. Set up and test Azure AD single sign-on.
 
 ## Add Help Scout from the gallery
-To set up the integration of Help Scout with Azure AD, add Help Scout from the gallery to your list of managed SaaS apps.
+To set up the integration of Help Scout with Azure AD, in the gallery, add Help Scout to your list of managed SaaS apps.
 
 To add Help Scout from the gallery:
 
@@ -63,13 +63,13 @@ To add Help Scout from the gallery:
 
 2. Select **Enterprise applications**, and then select **All applications**.
 
-	![The Enterprise applications blade][2]
+	![The Enterprise applications page][2]
 	
 3. To add a new application, select **New application**.
 
 	![The New application button][3]
 
-4. In the search box, type **Help Scout**. In the search results, select **Help Scout**, and then select **Add**.
+4. In the search box, enter **Help Scout**. In the search results, select **Help Scout**, and then select **Add**.
 
 	![Help Scout in the results list](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_addfromgallery.png)
 
@@ -105,20 +105,18 @@ To set up Azure AD single sign-on with Help Scout:
 
 3. Under **Help Scout Domain and URLs**, if you want to set up the application in IDP-initiated mode, complete the following steps:
 
-	![Help Scout Domain and URLs single sign-on information](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_url.png)
-
     1. In the **Identifier** box, enter a URL that has the following pattern: `urn:auth0:helpscout:<instancename>`
 
 	2. In the **Reply URL** box, enter a URL that has the following pattern: `https://helpscout.auth0.com/login/callback?connection=<instancename>`
 
-4. If you want to set up the application in SP-initiated mode, select the **Show advanced URL settings** check box, and then complete the following step:
+	![Help Scout Domain and URLs single sign-on information](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_url.png)
 
-    * In the **Sign on URL** box, enter a URL that has the following format: `https://secure.helpscout.net/members/login/`
+4. If you want to set up the application in SP-initiated mode, select the **Show advanced URL settings** check box, and then do the following:
+
+	* In the **Sign on URL** box, enter a URL that has the following format: `https://secure.helpscout.net/members/login/`
 
 	![Help Scout Domain and URLs single sign-on information](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_url1.png)
-
-
-	 
+ 
 	> [!NOTE] 
 	> The values in these URLs are for demonstration only. Update the values with the actual identifier URL and reply URL. To get these values, contact [Help Scout support team](mailto:help@helpscout.com). 
 
@@ -157,9 +155,9 @@ To create a test user in Azure AD:
 
 4. In the **User** dialog box, complete the following steps:
 
-    1. In the **Name** box, type **BrittaSimon**.
+    1. In the **Name** box, enter **BrittaSimon**.
 
-    2. In the **User name** box, type the email address of user Britta Simon.
+    2. In the **User name** box, enter the email address of user Britta Simon.
 
     3. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
@@ -172,7 +170,7 @@ To create a test user in Azure AD:
 
 The object of this section is to create a user named Britta Simon in Help Scout. Help Scout supports just-in-time (JIT) provisioning, which is turned on by default.
 
-There is no action item for you in this section. If a user doesn't already exist in Help Scout, a new one is created when you attempt to access Help Scout.
+In this section, there's no action or task to complete. If a user doesn't already exist in Help Scout, a new one is created when you attempt to access Help Scout.
 
 ### Assign the Azure AD test user
 
@@ -210,7 +208,7 @@ In this section, you test your Azure AD single sign-on configuration by using th
 
 When you select the Help Scout tile in the access panel, you should be automatically signed-in to your Help Scout application.
 
-For more information about the access panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
