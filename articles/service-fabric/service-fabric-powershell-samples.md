@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 06/26/2017
+ms.date: 08/16/2017
 ms.author: ryanwi
 ms.custom: mvc
 ---
@@ -31,3 +31,4 @@ The following table includes links to PowerShell scripts samples that create and
 | **Manage applications** ||
 | [Deploy an application](./scripts/service-fabric-powershell-deploy-application.md)| Deploy an application to a cluster.|
 | [Remove an application](./scripts/service-fabric-powershell-remove-application.md)| Remove an application from a cluster.|
+| [Open a port in the load balancer](service-fabric-powershell-open-port-in-load-balancer.md) | Open an application port in the Azure load balancer. |
