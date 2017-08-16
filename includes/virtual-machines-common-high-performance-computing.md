@@ -11,7 +11,7 @@ Sample HPC solution architectures in Azure include the following:
 
 * Run HPC applications entirely in Azure virtual machines or VM scale sets, using a Linux or Windows cluster or grid manager of your choice [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-cluster/)
 * Create hybrid solutions that extend an on-premises HPC cluster to offload ("burst") peak workloads to Azure VMs [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-on-prem-burst/)
-* Use a managed and scalable Azure compute service such as [Batch](https://azure.microsoft.com/documentation/services/batch/) to run compute-intensive workloads, without managing underlying infrastructure [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
+* Use a managed and scalable Azure compute service such as [Batch](../articles/batch/) to run compute-intensive workloads, without managing underlying infrastructure [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
 
 
 
@@ -30,7 +30,7 @@ Use Azure Resource Manager templates to deploy HPC cluster solutions on Linux VM
 * [PBS Professional](https://github.com/xpillons/azure-hpc/tree/master/Compute-Grid-Infra)
 
 ### Microsoft HPC Pack
-[HPC Pack](https://technet.microsoft.com/library/cc514029(v=ws.11).aspx) is Microsoft's free HPC solution built on Microsoft Azure and Windows Server technologies, capable of running Windows and Linux HPC workloads. Learn more about running HPC Pack on clusters of Azure [Linux](../virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Windows](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) virtual machines. 
+[HPC Pack](https://technet.microsoft.com/library/cc514029(v=ws.11).aspx) is Microsoft's free HPC solution built on Microsoft Azure and Windows Server technologies, capable of running Windows and Linux HPC workloads. Learn more about running HPC Pack on clusters of Azure [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) virtual machines. 
 
 
 
@@ -48,19 +48,28 @@ Microsoft partners with leading grid managers to make their solutions supported 
 
 
 ## Azure Batch
-[Batch](https://azure.microsoft.com/documentation/services/batch/) is a platform service that makes it easy to cloud-enable your Linux and Windows applications and run jobs without setting up and managing a cluster and job scheduler. Use the Batch SDKs to integrate client applications with Azure, stage data to Azure, and build job execution pipelines.
+[Batch](../articles/batch/) is a platform service that makes it easy to cloud-enable your Linux and Windows applications and run jobs without setting up and managing a cluster and job scheduler. Use the Batch SDKs to integrate client applications with Azure, stage data to Azure, and build job execution pipelines.
 
-## HPC and GPU VM options
-Azure offers a range of sizes for [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) VMs, including sizes for HPC workloads. Learn more about , including [compute-intensive H-series](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) instances capable of connecting to a back-end RDMA network, to run your Linux and Windows HPC workloads. 
+## HPC and GPU VM fzies
+Azure offers a range of sizes for [Linux](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Windows](../articles/virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) VMs, including sizes designed for HPC and GPU workloads. Some VM sizes can connect to a back-end RDMA network, to run MPI applications. For specs and background, see:
 
-* [Set up a Linux RDMA cluster to run MPI applications](../virtual-machines/linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Set up a Windows RDMA cluster with Microsoft HPC Pack to run MPI applications](../virtual-machines/windows/classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* High performance compute VM sizes ([Linux](../articles/virtual-machines/linux/sizes-hpc.md), [Windows](../articles/virtual-machines/windows/sizes-hpc.md)) 
+
+* GPU-enabled VM sizes ([Linux](../articles/virtual-machines/linux/sizes-gpu.md), [Windows](../articles/virtual-machines/windows/sizes-gpu.md)) 
+
+Learn how to:
+
+* [Set up a Linux RDMA cluster to run MPI applications](../articles/virtual-machines/linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Set up a Windows RDMA cluster with Microsoft HPC Pack to run MPI applications](../articles/virtual-machines/windows/classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Use compute-intensive VMs in Batch pools](../articles/batch/batch-pool-compute-intensive-sizes.md)
 
 For GPU-intensive workloads, check out NC and NV sizes available for both Windows and Linux VMs.
 
 > [!NOTE]
-> Take advantage of the Azure [compute-intensive instances such as the H-series](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to improve the performance and scalability of HPC workloads. These instances also support parallel MPI applications that require a low-latency and high-throughput application network. Also available are [N-series](../virtual-machines/windows/sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) VMs with NVIDIA GPUs to expand the range of computing and visualization scenarios in Azure.  
+> Take advantage of the Azure [compute-intensive instances such as the H-series](../articles/virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to improve the performance and scalability of HPC workloads. These instances also support parallel MPI applications that require a low-latency and high-throughput application network. Also available are [N-series](../articles/virtual-machines/windows/sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) VMs with NVIDIA GPUs to expand the range of computing and visualization scenarios in Azure.  
 ## HPC applications
+> [!IMPORTANT]
+> Check with the vendor of any commercial application for licensing or other restrictions for running in the cloud. Not all vendors offer pay-as-you-go licensing. You might need to plan for a licensing server in the cloud for your solution, or connect to an on-premises license server.
 
 ### Engineering applications
 
@@ -86,37 +95,35 @@ Learn more about using Azure for [engineering simulation](https://simulation.azu
 * [Test drive SUSE Linux Enterprise Server for HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
 
 
-> [!IMPORTANT]
-> Check with the vendor of any commercial application for licensing or other restrictions for running in the cloud. Not all vendors offer pay-as-you-go licensing. You might need to plan for a licensing server in the cloud for your solution, or connect to an on-premises license server.
 
 ## Related Azure services
 
 ### Compute
 
-* [Virtual Machine Scale Sets](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/)
-* [Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/)
-* [App Service](https://azure.microsoft.com/documentation/services/app-service/)
-* [Functions](https://azure.microsoft.com/documentation/services/functions/)
+* [Virtual Machine Scale Sets](../articles/virtual-machine-scale-sets/)
+* [Cloud Services](../articles/cloud-services/)
+* [App Service](../articles/app-service/)
+* [Functions](../articles/functions/)
 
 
 ### Data and analysis
-* [Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
+* [Data Factory](../articles/data-factory/)
 * [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)
-* [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
-* [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
-* [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+* [Machine Learning](../articles/machine-learning/)
+* [HDInsight](../articles/hdinsight/)
+* [SQL Database](../articles/sql-database/)
 
 ### Networking
-* [Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/)
-* [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)
+* [Virtual Network](../articles/virtual-network/)
+* [ExpressRoute](../articles/expressroute/)
 ### Storage
 
 
-* [Media Services](https://azure.microsoft.com/documentation/services/media-services/)
+* [Media Services](../articles/media-services/)
 
 
-* [Service Bus](https://azure.microsoft.com/documentation/services/service-bus/)
-* [Storage](https://azure.microsoft.com/documentation/services/storage/)
+* [Service Bus](../articles/service-bus/)
+* [Storage](../articles/storage/)
 
 
 
@@ -176,11 +183,5 @@ Cycle Computing, Rescale, and UberCloud.
 
 ## Next steps
 * For the latest announcements, see the [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/) and the [Azure blog](https://azure.microsoft.com/blog/tag/hpc/).
-* Also see [what's new in Batch](https://azure.microsoft.com/updates/?service=batch) or subscribe to the [RSS feed](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!--Image references-->
-[parallel]: ./media/virtual-machines-common-high-performance-computing/parallel.png
-[coupled]: ./media/virtual-machines-common-high-performance-computing/coupled.png
-[iaas_cluster]: ./media/virtual-machines-common-high-performance-computing/iaas_cluster.png
-[burst_cluster]: ./media/virtual-machines-common-high-performance-computing/burst_cluster.png
-[batch_proc]: ./media/virtual-machines-common-high-performance-computing/batch_proc.png
+
