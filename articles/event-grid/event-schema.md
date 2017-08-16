@@ -161,7 +161,7 @@ This sample event shows the schema of an Event Hubs event raised when Capture st
 
 ## Azure Blob Storage
 
-Azure Blob Storage will be available soon for integration with Event Grid.
+Azure Blob Storage in private preview with sign-up for integration with Event Grid.
 
 ### Available event types
 
