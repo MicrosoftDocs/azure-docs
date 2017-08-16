@@ -4,7 +4,7 @@ description: Overview of the elastic query feature
 services: sql-database
 documentationcenter: ''
 manager: jhubbard
-author: torsteng
+author: MladjoA
 
 ms.assetid: a8bf0e2c-bc74-44d0-9b1e-bcc9a6aa2e33
 ms.service: sql-database
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
-ms.author: torsteng
+ms.author: mlandzic
 
 ---
 # Azure SQL Database elastic query overview (preview)

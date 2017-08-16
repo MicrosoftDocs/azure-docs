@@ -133,11 +133,12 @@
 ### Build a container service
 #### [Create a Windows container application](service-fabric-get-started-containers.md)
 #### [Create a Linux container application](service-fabric-get-started-containers-linux.md)
-#### [Deploy Linux container](service-fabric-deploy-container-linux.md)
+#### [Container security](service-fabric-securing-containers.md)
 #### [Docker compose (preview)](service-fabric-docker-compose.md)
 #### [Resource governance for containers and services](service-fabric-resource-governance.md)
 #### [Volume and logging drivers](service-fabric-containers-volume-logging-drivers.md)
 #### [Services inside containers](service-fabric-services-inside-containers.md)
+#### [Container networking modes](service-fabric-networking-modes.md)
 
 ### Build a Reliable Services service
 #### [Overview](service-fabric-reliable-services-introduction.md)
