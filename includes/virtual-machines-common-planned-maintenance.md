@@ -6,7 +6,7 @@ Azure periodically performs updates to improve the reliability, performance, and
 
 This page describes how Microsoft Azure performs both types of maintenance. For more information about unplanned events (outages), see Manage the availability of virtual machines for [Windows] (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Applications running in a virtual machine can gather information about upcoming updates by using the [Azure Metadata Service](../articles/virtual-machines/instance-metadata-service.md).
+Applications running in a virtual machine can gather information about upcoming updates by using the Azure Metadata Service for [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) or [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
 
 ## In-place VM migration
 
