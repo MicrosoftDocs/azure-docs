@@ -47,7 +47,7 @@ The configuration steps set up the BGP parameters of the Azure VPN gateway as sh
 
 ### Before you begin
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* Install the Azure Resource Manager PowerShell cmdlets. for more information about installing the PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). 
+* Install the Azure Resource Manager PowerShell cmdlets. For more information about installing the PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). 
 
 ### Step 1 - Create and configure VNet1
 #### 1. Declare your variables
@@ -208,7 +208,7 @@ The following example lists the parameters you enter into the BGP configuration 
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
-The connection isestablished after a few minutes, and the BGP peering session starts once the IPsec connection is established.
+The connection is established after a few minutes, and the BGP peering session starts once the IPsec connection is established.
 
 ## <a name ="v2vbgp"></a>Part 3 - Establish a VNet-to-VNet connection with BGP
 
