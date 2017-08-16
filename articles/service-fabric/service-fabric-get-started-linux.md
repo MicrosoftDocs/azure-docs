@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/27/2017
+ms.date: 8/10/2017
 ms.author: subramar
 
 ---
@@ -59,6 +59,7 @@ To install the SDK and the associated runtime package via the apt-get command-li
 5. Add the official Docker GPG key to your APT keyring.
 
     ```bash
+    sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
