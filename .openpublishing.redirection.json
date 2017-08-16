@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path": "articles/virtual-machines/virtual-machines-scheduled-events.md",
+            "redirect_url": "articles/virtual-machines/windows/scheduled-events.md",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/virtual-machines/virtual-machines-instancemetadataservice-overview.md",
+            "redirect_url": "articles/virtual-machines/windows-instance-metadata-service.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/architecture-overview.md",
             "redirect_url": "/azure/architecture",
             "redirect_document_id": false
@@ -2463,6 +2473,11 @@
         {
             "source_path": "articles/hdinsight/hdinsight-storm-iot-eventhub-documentdb.md",
             "redirect_url": "https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hdinsight-debug-jobs.md",
+            "redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
             "redirect_document_id": false
         },
         {
