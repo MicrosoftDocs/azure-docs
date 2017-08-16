@@ -73,7 +73,7 @@ As an administrator, in the Azure portal, you have two options to locate registe
 
 
 
-with both options, you can get to a view that:
+With both options, you can get to a view that:
 
 
 - Enables you to search for devices using the display name as filter.
