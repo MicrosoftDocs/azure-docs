@@ -19,6 +19,8 @@ Events are sent to Azure Event Grid in an array, which can contain multiple even
  
 ## Event properties
 
+All events will contain the same following top level data.
+
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | topic | string | Full resource path to the event source. This field is not writeable. |
@@ -28,9 +30,56 @@ Events are sent to Azure Event Grid in an array, which can contain multiple even
 | id | string | Unique identifier for the event. |
 | data | object | Event data specific to the resource provider. |
 
-When publishing events to custom topics you should consider modeling the subject of your events to aid in routing and filtering.
+## Available event sources
 
-## Example event schema
+The following event sources publish events for consumption via Event Grid:
+
+* Resource Groups (management operations)
+* Azure Subscriptions (management operations)
+* Event Hubs
+* Custom Topics
+
+## Azure Subscriptions
+
+### Available event types
+
+| Property | Type | Description |
+|
+
+### Example event schema
+
+### Available event types
+
+## Resource Groups
+
+| Property | Type | Description |
+|
+
+### Example event schema
+
+
+
+
+## Event Hubs
+
+### Available event types
+
+**Microsoft.EventHub.CaptureFileCreated**: Raised when a capture file is created.
+
+| Property | Type | Description |
+|
+
+### Example event schema
+
+
+## Azure Blob Storage
+
+### Available event types
+
+| Property | Type | Description |
+|
+
+### Example event schema
 
 This sample event shows the schema of a storage event raised when a blob is created. 
 
@@ -59,6 +108,11 @@ This sample event shows the schema of a storage event raised when a blob is crea
   }
 ]
 ```
+## Custom Topics
+
+The data payload of your custom events is defined by you and can be any well formated JSON. The top level data should contain the same fields as standard resource defined events. When publishing events to custom topics you should consider modeling the subject of your events to aid in routing and filtering.
+
+### Example event schema
 
 The following example shows an event for a custom topic:
 ````json
