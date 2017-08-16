@@ -16,7 +16,7 @@ ms.date: 08/14/2017
 ms.author: davidmu
 ---
 
-# Overview of securing and monitoring virtual machines in Azure
+# Secure and monitor Windows and Linux virtual machines in Azure
 
 [!INCLUDE [virtual-machines-security-monitoring](../../../includes/virtual-machines-security-monitoring.md)]
 

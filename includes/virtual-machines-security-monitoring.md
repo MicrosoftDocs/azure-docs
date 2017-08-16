@@ -12,7 +12,9 @@ The modern threat landscape for cloud environments is dynamic, increasing the pr
 
 ### Encryption
 
-For enhanced [Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) and [Linux VM](../articles/virtual-machines/linux/encrypt-disks.md) security and compliance, virtual disks in Azure can be encrypted. Disks are encrypted using cryptographic keys that are secured in a key vault. You control these cryptographic keys and can audit their use.
+For enhanced [Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) and [Linux VM](../articles/virtual-machines/linux/encrypt-disks.md) security and compliance, virtual disks in Azure can be encrypted. Virtual disks on Windows VMs are encrypted at rest using Bitlocker. Virtual disks on Linux VMs are encrypted at rest using dm-crypt. 
+
+There is no charge for encrypting virtual disks in Azure. Cryptographic keys are stored in Azure Key Vault using software-protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. These cryptographic keys are used to encrypt and decrypt virtual disks attached to your VM. You retain control of these cryptographic keys and can audit their use. An Azure Active Directory service principal provides a secure mechanism for issuing these cryptographic keys as VMs are powered on and off.
 
 ### Key Vault and SSH Keys
 
@@ -58,7 +60,7 @@ You can set up and monitor the collection of [diagnostics data](https://docs.mic
 
     If you didn’t enable boot diagnostics when the VM was created, you can always enable it later by using [Azure CLI](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmbootdiagnostics?view=azurermps-4.2.0), or [Azure Resource Manager template](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
 
-- **Enable the collection of guest OS diagnostics data.** When you create a VM, you have the opportunity on the settings bade to enable guest OS diagnostics. When you do enable the collection of diagnostics data, the [IaaSDiagnostics extension for Linux](../articles/virtual-machines/linux/diagnostic-extension.md) or the [IaaSDiagnostics extension for Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) is added to the VM, which enables you to collect guest OS data in addition to Host OS data.
+- **Enable the collection of guest OS diagnostics data.** When you create a VM, you have the opportunity on the settings screen to enable guest OS diagnostics. When you do enable the collection of diagnostics data, the [IaaSDiagnostics extension for Linux](../articles/virtual-machines/linux/diagnostic-extension.md) or the [IaaSDiagnostics extension for Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) is added to the VM, which enables you to collect guest OS data in addition to Host OS data.
 
     On the Metrics screen in the Azure portal, when guest OS diagnostics data collection is not enabled, you only see opportunities to view Host data:
 
@@ -95,7 +97,7 @@ Some of the things you can do with the activity log include:
 - Analyze it in PowerBI using the [PowerBI content pack](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Save it to a storage account](../articles/monitoring-and-diagnostics/monitoring-archive-activity-log.md) for archival or manual inspection. You can specify the retention time (in days) using the Log Profile.
 
-You can also access activity log data by using [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-4.2.0#monitor), the [Azure CLI\(https://docs.microsoft.com/cli/azure/monitor), or [Monitor REST APIs](https://docs.microsoft.com/rest/api/monitor/).
+You can also access activity log data by using [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-4.2.0#monitor), the [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), or [Monitor REST APIs](https://docs.microsoft.com/rest/api/monitor/).
 
 [Azure Diagnostic Logs](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) are logs emitted by your VM that provide rich, frequent data about its operation. Diagnostic logs differ from the activity log by providing insight about operations that were performed within the VM.
 
