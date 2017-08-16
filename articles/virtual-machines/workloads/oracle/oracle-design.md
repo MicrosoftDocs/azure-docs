@@ -189,7 +189,7 @@ There are three options for host caching:
 
 - *Read-only*: All requests are cached for future reads. All writes are persisted directly to Azure Blob storage.
 
-- *Read-write*: This is a “read-ahead” algorithm. The reads and writes are cached for future reads. Non-write-through writes are persisted to the local cache first. For SQL Server, writes are persisted to WA storage because it uses write-through. It also provides the lowest disk latency for light workloads.
+- *Read-write*: This is a “read-ahead” algorithm. The reads and writes are cached for future reads. Non-write-through writes are persisted to the local cache first. For SQL Server, writes are persisted to Azure Storage because it uses write-through. It also provides the lowest disk latency for light workloads.
 
 - *None* (disabled): By using this option, you can bypass the cache. All the data is transferred to disk and persisted to Azure Storage. This method gives you the highest I/O rate for I/O intensive workloads. You also need to take “transaction cost” into consideration.
 
