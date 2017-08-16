@@ -60,7 +60,6 @@ To connect to Azure MySQL server using the GUI tool MySQL Workbench:
     > SSL is enforced by default on your server, and requires extra configuration in order to connect successfully. See [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md).  If you want to disable SSL for this Quickstart, visit the Azure portal and click the Connection security page to disable the Enforce SSL connection toggle button.
 
 ## Create a table, insert data, read data, update data, delete data
-
 1. Copy and paste the sample SQL code into a blank SQL tab to illustrate some sample data.
 
     This code creates an empty database named quickstartdb, and then creates a sample table named inventory. It inserts some rows, then reads the rows. It changes the data with an update statement, and reads the rows again. Finally it deletes a row, and reads the rows again.
@@ -90,13 +89,14 @@ To connect to Azure MySQL server using the GUI tool MySQL Workbench:
     SELECT * FROM inventory;
     ```
 
+    The screenshot shows an example of the SQL code in SQL Workbench and the output after it has been run.
     ![MySQL Workbench SQL Tab to run sample SQL code](media/connect-workbench/3-workbench-sql-tab.png)
 
-2. To run the sample SQL Code, click the lightening bolt icon in the toolbar above the Query tab.
+2. To run the sample SQL Code, click the lightening bolt icon in the toolbar of the SQL File tab.
 3. Notice the three tabbed results in the Result Set section in the middle of the page. 
 4. Notice the Output list at the bottom of the page. The status of each command is shown. 
 
-Now, you have connected to Azure Database for MySQL using the MySQL Workbench, and have queried data using the SQL language.
+Now, you have connected to Azure Database for MySQL using MySQL Workbench, and have queried data using the SQL language.
 
 ## Next steps
 > [!div class="nextstepaction"]
