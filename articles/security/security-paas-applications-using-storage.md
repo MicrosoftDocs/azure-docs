@@ -3,7 +3,7 @@ title: Securing PaaS applications using Azure Storage | Microsoft Docs
 description: " Learn about Azure Storage security best practices for securing your PaaS web and mobile applications. "
 services: security
 documentationcenter: na
-author: TomSh
+author: TomShinder
 manager: MBaldwin
 editor: ''
 
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2017
-ms.author: terrylan
+ms.author: TomShinder
 
 ---
 # Securing PaaS web and mobile applications using Azure Storage
 In this article, we discuss a collection of Azure Storage security best practices for securing your PaaS web and mobile applications. These best practices are derived from our experience with Azure and the experiences of customers like yourself.
 
-The [Azure Storage security guide](../storage/storage-security-guide.md) is a great source for detailed information about Azure Storage and security.  This article addresses at a high level some of the concepts found in the security guide and link to the security guide, as well as other sources, for more information.
+The [Azure Storage security guide](../storage/storage-security-guide.md) is a great source for detailed information about Azure Storage and security.  This article addresses at a high level some of the concepts found in the security guide and links to the security guide, as well as other sources, for more information.
 
 ## Azure Storage
 Cloud computing enables new scenarios for applications requiring scalable, durable, and highly available storage for their data – which is exactly why Microsoft developed Azure Storage. In addition to making it possible for you to deploy large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines (Windows and Linux).
@@ -47,11 +47,11 @@ In an IaaS solution, usually running Windows Server or Linux virtual machines, f
 
 PaaS is different. One of the most common ways to store files in Microsoft Azure is to use [Azure Blob storage](../storage/storage-dotnet-how-to-use-blobs.md). A difference between Blob storage and other file storage is the file I/O, and the protection methods that come with file I/O.
 
-When you [create a storage account](../storage/storage-create-storage-account.md#manage-your-storage-account), Azure generates two 512-bit storage account keys, which are used for authentication when the storage account is accessed. By providing two storage account keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
+When you [create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account), Azure generates two 512-bit storage account keys, which are used for authentication when the storage account is accessed. By providing two storage account keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
 
 You should avoid sharing your storage account keys with anyone else. Why? Giving out your storage account key grants complete access. Someone could use your keys to replace your files with virus-infected versions, or steal your data.
 
-To permit access to storage resources without giving out your account keys, you can use a [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) (SAS). An SAS provides access to a resource in your account for an interval that you define and with the permissions that you specify. An SAS gives you granular control over what type of access you grant to clients who have the SAS, including:
+To permit access to storage resources without giving out your account keys, you can use a [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) (SAS). A SAS provides access to a resource in your account for an interval that you define and with the permissions that you specify. A SAS gives you granular control over what type of access you grant to clients who have the SAS, including:
 
 - The interval over which the SAS is valid, including the start time and the expiry time.
 - The permissions granted by the SAS. For example, a SAS on a blob might grant a user read and write permissions to that blob, but not delete permissions.
@@ -74,9 +74,9 @@ Earlier we discussed using Shared Access Signature (SAS) to grant limited access
 
 Another way to manage access is to use [Azure Role-Based Access Control](../active-directory/role-based-access-control-what-is.md) (RBAC). With RBAC, you focus on giving employees the exact permissions they need, based on the need to know and least privilege security principles. Too many permissions can expose an account to attackers. Too few permissions means that employees can't get their work done efficiently. RBAC helps address this problem by offering fine-grained access management for Azure. This is imperative for organizations that want to enforce security policies for data access.
 
-You can leverage built-in RBAC roles in Azure to assign privileges to users. Consider using Storage Account Contributor for cloud operators that need to manage storage accounts and Classic Storage Account Contributor role to manage classic storage accounts. For cloud operators that needs to manage VMs and storage account, consider adding them to Virtual Machine Contributor role.
+You can leverage built-in RBAC roles in Azure to assign privileges to users. Consider using Storage Account Contributor for cloud operators that need to manage storage accounts and Classic Storage Account Contributor role to manage classic storage accounts. For cloud operators that need to manage VMs and storage account, consider adding them to the Virtual Machine Contributor role.
 
-Organizations that do not enforce data access control by leveraging capabilities such as RBAC may be giving more privileges than necessary for their users. This can lead to data compromise by having some users having access to data that they shouldn’t have in the first place.
+Organizations that do not enforce data access control by leveraging capabilities such as RBAC may be giving more privileges than necessary for their users. This can lead to data compromise by allowing some users access to data they shouldn’t have in the first place.
 
 You can learn more about Azure RBAC by reading the article [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md). See the [Azure Storage Security Guide](../storage/storage-security-guide.md#how-to-secure-your-storage-account-with-role-based-access-control-rbac) for detail on how to secure your storage account with RBAC.
 
