@@ -27,7 +27,21 @@ If you want to enable the **Bring Your Own Device (BYOD)** scenario, you can acc
 
 ## Before you begin
 
+To register a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to registering devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. 
 
+## What you should know
+
+When registering a device, you should keep the following in mind:
+
+- Windows registers the device in the organization’s directory in Azure AD
+
+- You might be required to go through multi-factor authentication challenge. This challenge is configurable by your IT administrator.
+
+- Azure AD checks whether the device requires mobile device management enrollment and enrolls it if applicable.
+
+- If you are a managed user, Windows takes you to the desktop through the automatic sign-in.
+
+- If you are a federated user, you will be taken to a Windows sign-in screen to enter your credentials.
 
 
 ## Registering a device
@@ -52,21 +66,22 @@ If you want to enable the **Bring Your Own Device (BYOD)** scenario, you can acc
     ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/04.png)
 
 
-5. On the  **Set up a work or school account dialog**, enter your account name (someone@example.com), and then click **Next**.
+5. On the  **Set up a work or school account** dialog, enter your account name (e.g.: someone@example.com), and then click **Next**.
+
+    ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/06.png)
+
+
+6. On the  **Enter password** dialog, enter your password, and then click **Next**.
+
+    ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/05.png)
+
+
+7. On the **You're all set** dialog, click **Done**.
+
+    ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/07.png)
 
 
 
-**Remarks**
-
-- You might be required to go through multi-factor authentication challenge. This challenge is configurable by your IT administrator.
-
-- Windows registers the device in the organization’s directory in Azure AD
-
-- Azure AD checks whether the device requires mobile device management enrollment and enrolls it if applicable.
-
-- If you are a managed user, Windows takes you to the desktop through the automatic sign-in.
-
-- If you are a federated user, you will be taken to a Windows sign-in screen to enter your credentials.
 
 
 
