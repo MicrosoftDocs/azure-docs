@@ -63,13 +63,13 @@ To learn about mapping public Azure and SQL Database endpoints to Azure Governme
 | Publish Settings File Url | https://manage.windowsazure.us/publishsettings/index |
 
 ### Azure Government and Office 365 GCC
-While Azure Goverment has its own Active Directory instance and API endpoints, the [Office 365 Government Community Cloud (GCC)](https://technet.microsoft.com/en-us/library/mt774967.aspx) does not.
+While Azure Government has its own Active Directory instance and API endpoints, the [Office 365 Government Community Cloud (GCC)](https://technet.microsoft.com/en-us/library/mt774967.aspx) does not.
 
 This means that government customers that have both Azure Government and Office 365 subscriptions will have two Active Directories and two sets of user accounts.
 
 If you are building an application that interacts with both Azure Government and Office 365 GCC, your application will need allow the user to sign-in with two different identities:
 
-* Sign in with their Azure Goverment account via the Azure Government Active Directory endpoint to interact with Azure Government APIs
+* Sign in with their Azure Government account via the Azure Government Active Directory endpoint to interact with Azure Government APIs
 * Sign in with their Office 365 GCC account via the normal Active Directory endpoint to interact with the normal Office 365 and Microsoft Graph APIs.
 
 ## Next steps
