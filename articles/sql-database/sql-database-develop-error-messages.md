@@ -35,14 +35,15 @@ The following table covers the SQL error codes for connection loss errors, and o
 ### Most common database connection errors and transient fault errors
 The Azure infrastructure has the ability to dynamically reconfigure servers when heavy workloads arise in the SQL Database service.  This dynamic behavior might cause your client program to lose its connection to SQL Database. This kind of error condition is called a *transient fault*.
 
-If your client program has retry logic, it can try to reestablish a connection after giving the transient fault time to correct itself.  We recommend that you delay for 5 seconds before your first retry. Retrying after a delay shorter than 5 seconds risks overwhelming the cloud service. For each subsequent retry the delay should grow exponentially, up to a maximum of 60 seconds.
+It is strongly recommended that your client program has retry logic so that it could reestablish a connection after giving the transient fault time to correct itself.  We recommend that you delay for 5 seconds before your first retry. Retrying after a delay shorter than 5 seconds risks overwhelming the cloud service. For each subsequent retry the delay should grow exponentially, up to a maximum of 60 seconds.
 
 Transient fault errors typically manifest as one of the following error messages from your client programs:
 
-* Database <db_name> on server <Azure_instance> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <session_id>
-* Database <db_name> on server <Azure_instance> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <session_id>. (Microsoft SQL Server, Error: 40613)
+* Database &lt;db_name&gt; on server &lt;Azure_instance&gt; is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of &lt;session_id&gt;
+* Database &lt;db_name&gt; on server &lt;Azure_instance&gt; is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of &lt;session_id&gt;. (Microsoft SQL Server, Error: 40613)
 * An existing connection was forcibly closed by the remote host.
 * System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: A transport-level error has occurred when receiving results from the server. (provider: Session Provider, error: 19 - Physical connection is not usable)
+* An connection attempt to a secondary database failed because the database is in the process of reconfguration and it is busy applying new pages while in the middle of an active transation on the primary database. 
 
 For code examples of retry logic, see:
 
@@ -63,6 +64,7 @@ The following errors are transient, and should be retried in application logic
 | 49918 |16 |Cannot process request. Not enough resources to process request.<br/><br/>The service is currently busy. Please retry the request later. |
 | 49919 |16 |Cannot process create or update request. Too many create or update operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple create or update requests for your subscription or server. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for pending operations. Wait till pending create or update requests are complete or delete one of your pending requests and retry your request later. |
 | 49920 |16 |Cannot process request. Too many operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple requests for this subscription. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for operation status. Wait until pending requests are complete or delete one of your pending requests and retry your request later. |
+| 4221 |16 |Login to read-secondary failed due to long wait on 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'. The replica is not available for login because row versions are missing for transactions that were in-flight when the replica was recycled. The issue can be resolved by rolling back or committing the active transactions on the primary replica. Occurrences of this condition can be minimized by avoiding long write transactions on the primary. |
 
 ## Database copy errors
 The following errors can be encountered while copying a database in Azure SQL Database. For more information, see [Copy an Azure SQL Database](sql-database-copy.md).
