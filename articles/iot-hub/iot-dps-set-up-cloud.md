@@ -16,27 +16,15 @@ ms.custom: mvc
 
 ---
 
-<!-------------------
-Definition of Tutorial: 
-- Prescriptive end-to-end how-to content which describes how to build and manage with a particular 
-service.  
-- Tutorials should be cross-service and represent the top 80% of use cases for the products. 
-- The different tutorials should build upon eachother.  
-- The first Tutorial should include Quickstart information to make sure customers 
-don't get lost. 
-- Rules for screenshots at the end of this template
-- Metadata for this article should have ms.topic: tutorial; ms.custom: mvc
--->
-
 # Set up cloud for device provisioning
 
-This tutorial walks through how to set up the cloud for automatic device provisioning using the Device Provisioning Service (DPS). In this tutorial, you learn how to:
+This tutorial shows how to set up the cloud for automatic device provisioning using the Device Provisioning Service (DPS). In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Use the Azure portal to create a DPS and get the scope ID
 > * Create an IoT hub
 > * Link the IoT hub to DPS
-> * Set the allocation policy on DPS
+> * Set the allocation policy on the DPS
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -49,7 +37,6 @@ To complete this tutorial, make sure you have installed:
 ## Log in to the Azure portal
 
 Log in to the [Azure portal](https://portal.azure.com/).
-
 
 ## Create a DPS and get the scope ID
 
@@ -103,7 +90,7 @@ In this tutorial, you learned how to:
 > * Use the Azure portal to create a DPS and get the scope ID
 > * Create an IoT hub
 > * Link the IoT hub to DPS
-> * Set the allocation policy on DPS
+> * Set the allocation policy on the DPS
 
 Advance to the next tutorial to learn how to set up your device.
 
