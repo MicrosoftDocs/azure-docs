@@ -25,21 +25,21 @@
   - name: Develop
     items:
     - name: .NET
-      href: ../storage-dotnet-how-to-use-files.md
+      href: storage-dotnet-how-to-use-files.md
     - name: Java
-      href: ../storage-java-how-to-use-file-storage.md
+      href: storage-java-how-to-use-file-storage.md
     - name: C++
-      href: ../storage-c-plus-plus-how-to-use-files.md
+      href: storage-c-plus-plus-how-to-use-files.md
     - name: Python
-      href: ../storage-python-how-to-use-file-storage.md
+      href: storage-python-how-to-use-file-storage.md
     - name: PowerShell
-      href: //storage-how-to-use-files-powershell.md
+      href: storage-how-to-use-files-powershell.md
   - name: Using Storage Explorer with Azure File storage
     href: ../../vs-azure-tools-storage-explorer-files.md
   - name: Troubleshoot Azure Files - Windows
-    href: ../storage-troubleshoot-windows-file-connection-problems.md
+    href: storage-troubleshoot-windows-file-connection-problems.md
   - name: Troubleshoot Azure Files - Linux
-    href: ../storage-troubleshoot-linux-file-connection-problems.md
+    href: storage-troubleshoot-linux-file-connection-problems.md
   - name: Samples
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
 

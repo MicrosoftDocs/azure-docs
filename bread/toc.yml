@@ -299,9 +299,6 @@
       - name: Blobs
         tocHref: /azure/storage/blobs/
         topicHref: /azure/storage/blobs/storage-blobs-introduction
-      - name: Blobs
-        tocHref: /azure/storage/tocblobs/
-        topicHref: /azure/storage/blobs/storage-blobs-introduction
       - name: Files
         tocHref: /azure/storage/files/
         topicHref: /azure/storage/files/storage-files-introduction 
