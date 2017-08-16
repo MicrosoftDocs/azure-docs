@@ -1,5 +1,25 @@
 {
     "redirections": [
+       {
+            "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
+            "redirect_url": "articles/virtual-machines/linux/planned-maintenance.md",
+            "redirect_document_id": false
+        },
+       {
+            "source_path": "articles/virtual-machines/linux/maintenance-in-place.md",
+            "redirect_url": "articles/virtual-machines/linux/planned-maintenance.md",
+            "redirect_document_id": false
+        },
+		       {
+            "source_path": "articles/virtual-machines/windows/impactful-maintenance.md",
+            "redirect_url": "articles/virtual-machines/windows/planned-maintenance.md",
+            "redirect_document_id": false
+        },
+       {
+            "source_path": "articles/virtual-machines/windows/preserving-maintenance.md",
+            "redirect_url": "articles/virtual-machines/windows/planned-maintenance.md",
+            "redirect_document_id": false
+        },		
         {
             "source_path": "articles/virtual-machines/virtual-machines-scheduled-events.md",
             "redirect_url": "articles/virtual-machines/windows/scheduled-events.md",
