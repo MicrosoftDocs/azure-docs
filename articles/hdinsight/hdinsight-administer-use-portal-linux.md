@@ -80,33 +80,33 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
 
     **Overview menu:**
 
-       * **Dashboard**: Opens the cluster dashboard, which is Ambari Web for Linux-based clusters.
-       * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
-       * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
-       * **Delete**: Deletes the cluster.
+    * **Dashboard**: Opens the cluster dashboard, which is Ambari Web for Linux-based clusters.
+    * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
+    * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
+    * **Delete**: Deletes the cluster.
 
     **Left menu:**
 
-       * **Activity logs**: Show and query activity logs.
-       * **Access control (IAM)**: Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
-       * **Tags**: Allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.
-       * **Diagnose and solve problems**: Display troubleshooting information.
-       * **Locks**: Add lock to prevent the cluster being modified or deleted.
-       * **Automation script**: Display and export the Azure Resource Manager template for the cluster. Currently, you can only export the dependent Azure storage account. See [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
-       * **Quick Start**:  Displays information that helps you get started using HDInsight.
-       * **Tools for HDInsight**: Help information for HDInsight related tools.
-       * **Cluster Login**: Display the cluster login information.
-       * **Subscription Core Usage**: Display the used and available cores for your subscription.
-       * **Scale Cluster**: Increase and decrease the number of cluster worker nodes. See[Scale clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
-       * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-       * **HDInsight Partner**: Add/remove the current HDInsight Partner.
-       * **External Metastores**: View the Hive and Oozie metastores. The metastores can only be configured during the cluster creation process. See [use Hive/Oozie metastore](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
-       * **Script Actions**: Run Bash scripts on the cluster. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
-       * **Applications**: Add/remove HDInsight applications.  See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
-       * **Properties**: View the cluster properties.
-       * **Storage accounts**: View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.
-       * **Cluster AAD Identity**:
-       * **New support request**: Allows you to create a support ticket with Microsoft support.
+    * **Activity logs**: Show and query activity logs.
+    * **Access control (IAM)**: Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
+    * **Tags**: Allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.
+    * **Diagnose and solve problems**: Display troubleshooting information.
+    * **Locks**: Add lock to prevent the cluster being modified or deleted.
+    * **Automation script**: Display and export the Azure Resource Manager template for the cluster. Currently, you can only export the dependent Azure storage account. See [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+    * **Quick Start**:  Displays information that helps you get started using HDInsight.
+    * **Tools for HDInsight**: Help information for HDInsight related tools.
+    * **Cluster Login**: Display the cluster login information.
+    * **Subscription Core Usage**: Display the used and available cores for your subscription.
+    * **Scale Cluster**: Increase and decrease the number of cluster worker nodes. See[Scale clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
+    * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    * **HDInsight Partner**: Add/remove the current HDInsight Partner.
+    * **External Metastores**: View the Hive and Oozie metastores. The metastores can only be configured during the cluster creation process. See [use Hive/Oozie metastore](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
+    * **Script Actions**: Run Bash scripts on the cluster. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+    * **Applications**: Add/remove HDInsight applications.  See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+    * **Properties**: View the cluster properties.
+    * **Storage accounts**: View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.
+    * **Cluster AAD Identity**:
+    * **New support request**: Allows you to create a support ticket with Microsoft support.
     
 6. Click **Properties**:
 
