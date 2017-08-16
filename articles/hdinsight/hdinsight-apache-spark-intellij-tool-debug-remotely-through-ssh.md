@@ -44,7 +44,6 @@ This article provides step-by-step guidance on how to use HDInsight tools in Azu
 
     - **Spark on HDInsight Cluster Run Sample (Scala)**
 
-
     c. In the **Build tool** list, select either of the following, according to your need:
 
     - **Maven**, for Scala project-creation wizard support
@@ -101,6 +100,7 @@ This article provides step-by-step guidance on how to use HDInsight tools in Azu
 1. Set up a breaking point, and then select the **Debug** icon.
 
     ![Select the debug icon](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debug-icon.png)
+
 2. When the program execution reaches the breaking point, you see a **Debugger** tab in the bottom pane. You also see the view parameter and variable information in the **Variables** pane. Select the **Step Over** icon to proceed to the next line of code. Then you can further step through the code. Select the **Resume Program** icon to continue to run the code. You can review the execution status in the **HDInsight Spark Submission** window. 
 
    ![Debugging tab](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debugger-tab.png)
