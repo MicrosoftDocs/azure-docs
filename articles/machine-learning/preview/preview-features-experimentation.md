@@ -20,7 +20,7 @@ ms.author: garye
 
 The Azure Machine Learning Experimentation Service is one of the preview features of Azure Machine Learning.
 
-The Experimentation Service is ...
+The Experimentation Service is ... ...
 
 For other preview features, see:
 - [Workbench](preview-features-workbench.md)
