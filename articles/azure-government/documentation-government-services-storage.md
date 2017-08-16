@@ -43,18 +43,18 @@ To view the current secondary region of your storage account through the Azure p
 
 | Feature | USGov Virginia | USGov Iowa | USGov Arizona | USGov Texas | USDoD East | USDoD Central| 
 | --- | --- | --- | --- | --- | --- | --- |
-| [Blob Storage] (../storage/storage-introduction.md#blob-storage) |GA |GA |GA |GA |GA |GA |
-| -- Locally-redundant Storage (LRS) |GA |GA |GA |GA |GA |GA |
-| -- Geo-redundant Storage (GRS) |GA |GA |GA |GA |GA |GA |
-| -- Read Access geo-redundant Storage (RA-GRS) |GA |GA |GA |GA |GA |GA |
-| -- Zone-redundant Storage (ZRS) |- |GA |GA |GA |GA |GA |
-| [Table Storage] (../storage/storage-introduction.md#table-storage) |GA  |GA |GA |GA |GA |GA |
-| [Queue Storage] (../storage/storage-introduction.md#queue-storage) |GA |GA |GA |GA |GA |GA |
-| [File Storage] (../storage/storage-introduction.md#file-storage) |GA |GA |GA |GA |GA |GA |
-| [Hot/Cool Blob Storage] (../storage/storage-blob-storage-tiers.md) |- |- |GA |GA |- |- |
-| [Storage Service Encryption] (../storage/storage-service-encryption.md) |GA |GA |GA |GA |GA |GA |
-| [Premium Storage] (../storage/storage-premium-storage.md) |GA |- |GA |GA |GA |GA | 
-| [StorSimple] (../storsimple/storsimple-ova-overview.md) |GA |GA |GA |GA |GA |GA |
+| [Blob Storage](../storage/storage-introduction.md#blob-storage) |GA |GA |GA |GA |GA |GA |
+| [Table Storage](../storage/storage-introduction.md#table-storage) |GA  |GA |GA |GA |GA |GA |
+| [Queue Storage](../storage/storage-introduction.md#queue-storage) |GA |GA |GA |GA |GA |GA |
+| [File Storage](../storage/storage-introduction.md#file-storage) |GA |GA |GA |GA |GA |GA |
+| [Hot/Cool Blob Storage](../storage/storage-blob-storage-tiers.md) |- |- |GA |GA |- |- |
+| [Locally-redundant Storage (LRS)](../storage/storage-introduction.md#replication-for-durability-and-high-availability) |GA |GA |GA |GA |GA |GA |
+| [Geo-redundant Storage (GRS)](../storage/storage-introduction.md#replication-for-durability-and-high-availability) |GA |GA |GA |GA |GA |GA |
+| [Read Access geo-redundant Storage (RA-GRS)](../storage/storage-introduction.md#replication-for-durability-and-high-availability) |GA |GA |GA |GA |GA |GA |
+| [Zone-redundant Storage (ZRS)](../storage/storage-introduction.md#replication-for-durability-and-high-availability) |- |GA |GA |GA |GA |GA |
+| [Storage Service Encryption](../storage/storage-service-encryption.md) |GA |GA |GA |GA |GA |GA |
+| [Premium Storage](../storage/storage-premium-storage.md) |GA |- |GA |GA |GA |GA | 
+| [StorSimple](../storsimple/storsimple-ova-overview.md) |GA |GA |GA |GA |GA |GA |
 
 ### Variations
 The URLs for storage accounts in Azure Government are different:
