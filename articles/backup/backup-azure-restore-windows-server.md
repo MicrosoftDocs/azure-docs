@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/14/2017
+ms.date: 8/16/2017
 ms.author: saurse;trinadhk;markgal;
 
 ---
@@ -119,6 +119,7 @@ The terminology used in these steps includes:
 
     If the vault credential file is invalid (or expired), download a new vault credential file from the *Sample vault* in the Azure portal. Once you provide a valid vault credential, the name of the corresponding Backup Vault appears.
 
+
 6. On the **Select Backup Server** pane, select the *Source machine* from the list of displayed machines and provide the passphrase. Then click **Next**.
 
     ![List of machines](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
@@ -152,30 +153,33 @@ The terminology used in these steps includes:
     >
 
 ## Troubleshooting
-If Azure Backup does not successfully mount the recovery volume even after several mins of clicking **Mount** or fails to mount the recovery volume with an error, follow the steps below to begin recovering normally.
+If Azure Backup does not successfully mount the recovery volume even after several minutes of clicking **Mount** or fails to mount the recovery volume with an error, follow the steps below to begin recovering normally.
 
 1. Ensure that you are on the latest version of the Azure Backup agent. You can download the latest version from [here](https://go.microsoft.com/fwLink/?LinkID=288905)
 
-2. Cancel the ongoing mount process in case it has been running for several minutes
+2. Cancel the ongoing mount process in case it has been running for several minutes.
 
 3. Go to **Task Manager** -> **Services (Local)** -> **Microsoft iSCSI Initiator Service**. If you cannot find the service, go to Step 6 below.
 
     ![Encryption](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
     
-4. Restart the Microsoft iSCSI Initiator service by right-clicking on the service, clicking on **Stop** and further right clicking again and clicking on **Start**
+4. Restart the Microsoft iSCSI Initiator service by right-clicking on the service, clicking on **Stop** and further right clicking again and clicking on **Start**.
 
 5.	Retry recovering using Instant Restore. If the problem persists, try the steps below.
 
-6.	Go to **Device Manager** -> **Storage Controllers**. 
+6.	Go to **Device Manager** -> **Storage Controllers**.
+
 7.	Check to see if you can find an entry called **Unknown Device** with Hardware ID **ROOT\ISCSIPRT**. 
-8.	Right click on **Unknown Device** and select **Update Driver Software**
+
+8.	Right click on **Unknown Device** and select **Update Driver Software**.
+
 9.	Update the driver by selecting the option to  **Search automatically for updated driver software**. Completion of the update should change **Unknown Device** to **Microsoft iSCSI Initiator** as shown below. 
 
     ![Encryption](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 
-10. Retry recovering using Instant Restore
+10. Retry recovering using Instant Restore.
 
-If the recovery still fails, reboot your server/client. If that is not desirable or the recovery still fails even after rebooting the server, try recovering from an Alternate Machibe and contact Azure Support by going to [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and submitting a support request.
+If the recovery still fails, reboot your server/client. If that is not desirable or the recovery still fails even after rebooting the server, try recovering from an Alternate Machine and contact Azure Support by going to [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and submitting a support request.
 
 ## Next steps
 * Now that you've recovered your files and folders, you can [manage your backups](backup-azure-manage-windows-server.md).
