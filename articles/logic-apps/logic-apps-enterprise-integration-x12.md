@@ -311,17 +311,8 @@ If a character set isn't specified for a given message schema, then the default 
 | Segment Terminator |To indicate the end of an EDI segment, enter a single character. |
 | Suffix |Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix. |
 
-    > [!Tip]
-	> To provide special character values, edit the agreement as JSON and provide the ASCII value for the special character.
-
-
-
-
-
-    > [!TIP]
-    > To provide special character values, edit the agreement as JSON and provide the ASCII value for the special character.
-
-
+> [!TIP]
+> To provide special character values, edit the agreement as JSON and provide the ASCII value for the special character.
 
 ### Validation
 
