@@ -38,26 +38,40 @@ If you make changes after your submission was approved, it must go through the a
 
 
 ## Validation process<a name="bk_Validation"> </a>
-You've submitted your app or add-in. What happens next?
 
-1. Your submission goes through a series of automated checks to ensure that it complies with the [Office Store validation policies](validation-policies.md)
+After you submit your app or add-in:
 
-2. Our Validation team reviews your submission. This can take 3-5 working days, depending on the volume of submissions in the queue.
+1. Your submission goes through a series of automated checks to ensure that it complies with the [Office Store validation policies](validation-policies.md).
 
->**Note:** The Valdiation team tests Office Add-ins on all the platforms the add-in is required to support. For details about supported platforms, see the [Office Add-ins host and platform availability page](https://dev.office.com/add-in-availability).
+2. The Validation team reviews your submission. This can take 3-5 working days, depending on the volume of submissions in the queue.
 
-For a seamless validation experience, provide detailed test notes with your submission, including:
+    >**Note:** The Valdiation team tests Office Add-ins on all the platforms the add-in is required to support. For details about supported platforms, see the [Office Add-ins host and platform availability page](https://dev.office.com/add-in-availability).
 
- - Information about any sample data your app or add-in needs
- - Configuration instructions, if required
- - Information about a test or demo account that your app or add-in needs
- 
->**Note:** Because our team is located in multiple time zones, we request that you do not configure test accounts that require developer interaction before we can test.
+    For a seamless validation experience, provide detailed test notes with your submission, including:
 
-3. The team will either approve or reject your submission. 
+    - Information about any sample data your app or add-in needs
+    - Configuration instructions, if required
+    - Information about a test or demo account that your app or add-in needs
+    
+    >**Note:** Because our team is located in multiple time zones, we request that you do not configure test accounts that require developer interaction before we can test.
+
+3. The Validation team will either approve or reject your submission. 
 
  - If your submission is approved, you can expect to see it in the Store within 24 hours after you receive the notification email.
  - If your submission is rejected, the Change Request document will be available in your submission listing in the Seller Dashboard.
+
+When the validation process is complete, you will receive a message to let you know that either your submission is approved, or you need to make changes and resubmit it. You can also follow these steps to check the approval status in the Seller Dashboard:
+
+1. Sign in to the  [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605).
+2. On the **manage** tab, your submission status appears under the submission name.
+    - If the status is **pending approval**, your submission is still being verified. When it is in this state, you can't update or resubmit it.
+    - If the status is **approved**, your submission is approved to be listed in the appropriate marketplaces.
+    
+    >**Note:**  After your submission is approved in the Seller Dashboard, there might be a delay before it is published in a store. After approval, a submission typically appears in the store within 24 hours.
+
+    - If the status is  **changes requested**, your submission needs changes in order to be approved. Choose your submission, and then on the summary page, choose  **View the add-in report** for details about the required changes.
+
+If you make changes after your submission was approved, it must go through the approval process again.
 
 If you have questions about policies or requirements in your report, you can engage with the Office Store Valdidation Team via [Stack Overflow](https://stackoverflow.com/search?q=office-store). Tag your question with "Office-Store".
 
