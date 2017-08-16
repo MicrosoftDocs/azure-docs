@@ -9,6 +9,7 @@
 # Get started
 ## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
 ## [Add a custom domain name](add-custom-domain.md)
+## [Configure company branding](customize-branding.md)
 ## [Configure Self-service password reset](active-directory-passwords-getting-started.md)
 ## Manage Azure AD licensing
 ### [Azure portal](active-directory-licensing-get-started-azure-portal.md)
@@ -142,7 +143,10 @@
 
 
 ## Manage devices
-### [Register devices](active-directory-device-registration-overview.md)
+### [Introduction](device-management-introduction.md)
+### Tasks
+#### [Configure hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md) 
+### Register devices
 #### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
 #### [FAQs](active-directory-device-registration-faq.md)
@@ -241,10 +245,6 @@
 #### Manage domain names
 ##### [Azure portal](active-directory-domains-manage-azure-portal.md)
 ##### [Classic portal](active-directory-add-manage-domain-names.md)
-### Customize the sign-in page
-#### [Azure portal](active-directory-branding-custom-signon-azure-portal.md)
-#### [Language-specific](active-directory-branding-localize-azure-portal.md)
-#### [Classic portal](active-directory-add-company-branding.md)
 ### [Administer your directory](active-directory-administer.md)
 ### [Multiple directories](active-directory-licensing-directory-independence.md)
 ### [O365 directories](active-directory-manage-o365-subscription.md)
