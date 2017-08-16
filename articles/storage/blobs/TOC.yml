@@ -32,7 +32,7 @@
 - name: How to
   items:
   - name: Searching Blob storage with Azure Search
-    href: ../../search/search-blob-storage-integration.md
+    href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Hot and cool tiers
     href: storage-blob-storage-tiers.md
   - name: Encrypt and decrypt blobs using Azure Key Vault
@@ -46,7 +46,7 @@
   - name: Anonymous access to blobs
     href: storage-manage-access-to-resources.md
   - name: Manage blobs with Storage Explorer
-    href: ../../vs-azure-tools-storage-explorer-blobs.md 
+    href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Samples
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=blob
 
