@@ -531,6 +531,8 @@ Devices that were previously workplace-joined to Azure AD (for example for Intun
 
 - You can use a Group Policy object to control the rollout of automatic registration of Windows 10 and Windows Server 2016 domain-joined computers.
 
+- For the Windows versions newer than Windows 10 November 2015 Update, Group Policy settings mentioned below are not required. The device registration will work automatically after you completed Steps 1-3.
+
 - Windows 10 November 2015 Update automatically registers with Azure AD **only** if the rollout Group Policy object is set.
 
 - To rollout the automatic registration of Windows down-level computers, you can deploy a [Windows Installer package](#windows-installer-packages-for-non-windows-10-computers) to computers that you select.
