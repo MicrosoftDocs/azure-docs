@@ -3081,7 +3081,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/event_grid/">
+                                <a href="/azure/event-grid/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
