@@ -34,9 +34,9 @@ incur charges on your Azure subscription and affect your bill.
 * Your app performs a particular action.
 * A new message appears in a queue.
 
-This tutorial shows how you can create a logic app so you can monitor 
-changes to a virtual machine and get emails about those changes. 
-When a logic app has an event subscription for an Azure resource, 
+This tutorial creates a logic app that monitors changes 
+to a virtual machine and sends emails about those changes. 
+When you create a logic app with an event subscription for an Azure resource, 
 events flow from that resource through an event grid to the logic app. 
 The tutorial walks you through building this logic app:
 
@@ -73,20 +73,20 @@ choose **New** > **Enterprise Integration** > **Logic App**.
 
    ![Create logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
-2. Create your logic app with the settings 
+3. Create your logic app with the settings 
 specified in the following table:
 
    ![Provide logic app details](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
-   |Setting|Suggested value|Description| 
-   |:------|:--------------|:----------| 
-   |**Name**|*{your-logic-app-name}*|Provide a unique logic app name.| 
-   |**Subscription**|*{your-Azure-subscription}*|Select the same Azure subscription for all services in this tutorial.| 
-   |**Resource group**|*{your-Azure-resource-group}*|Select the same Azure resource group for all services in this tutorial.| 
-   |**Location**|*{your-Azure-region}*|Select the same region for all services in this tutorial.| 
-   ||| 
+   | Setting | Suggested value | Description | 
+   | ------- | --------------- | ----------- | 
+   | **Name** | *{your-logic-app-name}* | Provide a unique logic app name. | 
+   | **Subscription** | *{your-Azure-subscription}* | Select the same Azure subscription for all services in this tutorial. | 
+   | **Resource group** | *{your-Azure-resource-group}* | Select the same Azure resource group for all services in this tutorial. | 
+   | **Location** | *{your-Azure-region}* | Select the same region for all services in this tutorial. | 
+   | | | 
 
-3. When you're ready, select **Pin to dashboard**, and choose **Create**.
+4. When you're ready, select **Pin to dashboard**, and choose **Create**.
 
    You've now created an Azure resource for your logic app. 
    After Azure deploys your logic app, the Logic Apps Designer 
@@ -97,7 +97,7 @@ specified in the following table:
    > your logic app automatically opens in Logic Apps Designer. 
    > Otherwise, you can manually find and open your logic app.
 
-4. Now choose a logic app template. 
+5. Now choose a logic app template. 
 Under **Templates**, choose **Blank Logic App** 
 so you can build your logic app from scratch.
 
@@ -110,12 +110,12 @@ so you can build your logic app from scratch.
    a logic app instance and starts your logic app workflow. 
    Your logic app needs a trigger as the first item.
 
-5. In the search box, enter "event grid" as your filter. 
+6. In the search box, enter "event grid" as your filter. 
 Select this trigger: **Azure Event Grid - On a resource event**
 
    ![Select this trigger: "Azure Event Grid - On a resource event"](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
-6. When prompted, sign in to Azure Event Grid 
+7. When prompted, sign in to Azure Event Grid 
 with your Azure credentials.
 
    ![Sign in with your Azure credentials](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
@@ -129,25 +129,25 @@ with your Azure credentials.
    > that's associated with your Azure subscription, for example, 
    > *user-name*@emailoutlook.onmicrosoft.com.
 
-7. Now subscribe your logic app to publisher events. 
+8. Now subscribe your logic app to publisher events. 
 Provide the details for your event subscription 
 as specified in the following table:
 
    ![Provide details for event subscription](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details-generic.png)
 
-   |Setting|Suggested value|Description| 
-   |:------|:--------------|:----------| 
-   |**Subscription**|*{virtual-machine-Azure-subscription}*|Select the event publisher's Azure subscription. For this tutorial, select the Azure subscription for your virtual machine.| 
-   |**Resource Type**|Microsoft.Resources.resourceGroups|Select the event publisher's resource type. For this tutorial, select the specified value so your logic app monitors only resource groups.| 
-   |**Resource Name**|*{virtual-machine-resource-group-name}*|Select the publisher's resource name. For this tutorial, select the name of the resource group for your virtual machine.| 
-   |For optional settings, choose **Show advanced options**.|*{see descriptions}*|* **Prefix Filter**: For this tutorial, leave this setting empty. The default behavior matches all values. However, you can specify a prefix string as a filter, for example, a path and a parameter for a specific resource. <p>* **Suffix Filter**: For this tutorial, leave this setting empty. The default behavior matches all values. However, you can specify a suffix string as a filter, for example, a file name extension, when you want only specific file types.<p>* **Subscription Name**: Provide a unique name for your event subscription. |
-   |||
+   | Setting | Suggested value | Description | 
+   | ------- | --------------- | ----------- | 
+   | **Subscription** | *{virtual-machine-Azure-subscription}* | Select the event publisher's Azure subscription. For this tutorial, select the Azure subscription for your virtual machine. | 
+   | **Resource Type** | Microsoft.Resources.resourceGroups | Select the event publisher's resource type. For this tutorial, select the specified value so your logic app monitors only resource groups. | 
+   | **Resource Name** | *{virtual-machine-resource-group-name}* | Select the publisher's resource name. For this tutorial, select the name of the resource group for your virtual machine. | 
+   | For optional settings, choose **Show advanced options**. | *{see descriptions}* | * **Prefix Filter**: For this tutorial, leave this setting empty. The default behavior matches all values. However, you can specify a prefix string as a filter, for example, a path and a parameter for a specific resource. <p>* **Suffix Filter**: For this tutorial, leave this setting empty. The default behavior matches all values. However, you can specify a suffix string as a filter, for example, a file name extension, when you want only specific file types.<p>* **Subscription Name**: Provide a unique name for your event subscription. |
+   | | | 
 
    When you're done, your event grid trigger might look like this example:
    
    ![Example event grid trigger details](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
-7. Save your logic app. On the designer toolbar, choose **Save**. 
+9. Save your logic app. On the designer toolbar, choose **Save**. 
 To collapse and hide an action's details in your logic app, 
 choose the action's title bar.
 
@@ -240,23 +240,23 @@ For example:
 sign in to your email account when you're asked for authentication.
 
 4. Provide details for the email 
-as specified in the following table. 
+as specified in the following table:
 
    ![Empty email action](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-empty-email-action.png)
 
-   > ![TIP]
+   > [!TIP]
    > To select from fields available in your workflow, 
-   > click in a edit box so that the **Dynamic content** list opens, 
+   > click in an edit box so that the **Dynamic content** list opens, 
    > or choose **Add dynamic content**. 
    > For more fields, choose **See more** for each section in the list. 
    > To close the **Dynamic content** list, choose **Add dynamic content**.
 
-   |Setting|Suggested value|Description| 
-   |:------|:--------------|:----------| 
-   |**To**|*{recipient-email-address}*|Enter the recipient's email address. For testing purposes, you can use your own email address.|
-   |**Subject**|Resource updated: **Subject**|Enter the content for the email's subject. For this tutorial, enter the suggested text and select the event's **Subject** field. Here, your email subject includes the name for the updated resource (virtual machine).| 
-   |**Body**|Resource group: **Topic** <p>Event type: **Event Type**<p>Event ID: **ID**<p>Time: **Event Time**|Enter the content for the email's body. For this tutorial, enter the suggested text and select the event's **Topic**, **Event Type**, **ID**, and **Event Time** fields so that your email includes the resource group name, event type, event timestamp, and event ID for the update. <p>To add blank lines in your content, press Shift + Enter.| 
-   |||
+   | Setting | Suggested value | Description | 
+   | ------- | --------------- | ----------- | 
+   | **To** | *{recipient-email-address}* |Enter the recipient's email address. For testing purposes, you can use your own email address. | 
+   | **Subject** | Resource updated: **Subject**| Enter the content for the email's subject. For this tutorial, enter the suggested text and select the event's **Subject** field. Here, your email subject includes the name for the updated resource (virtual machine). | 
+   | **Body** | Resource group: **Topic** <p>Event type: **Event Type**<p>Event ID: **ID**<p>Time: **Event Time** | Enter the content for the email's body. For this tutorial, enter the suggested text and select the event's **Topic**, **Event Type**, **ID**, and **Event Time** fields so that your email includes the resource group name, event type, event timestamp, and event ID for the update. <p>To add blank lines in your content, press Shift + Enter. | 
+   | | | 
 
    > [!NOTE] 
    > If you select a field that represents an array, 
@@ -300,11 +300,13 @@ To view more details about a run, choose the row for that run.
    ![Logic app runs history](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history.png)
 
 3. To view the inputs and outputs for each step, 
-expand the step that you want to review.
+expand the step that you want to review. 
+This information can help you diagnose and debug 
+problems in your logic app.
  
    ![Logic app run history details](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history-details.png)
 
-Congratulations, you've now created and run a logic app 
+Congratulations, you've created and run a logic app 
 that monitors resource events through an event 
 grid and emails you when those events happen. 
 You also learned how easily you can create workflows 
