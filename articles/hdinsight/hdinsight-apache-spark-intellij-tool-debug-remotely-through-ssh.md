@@ -32,19 +32,20 @@ This article provides step-by-step guidance on how to use HDInsight tools in Azu
  
 
 ## Create a Spark Scala application and configure it for remote debugging
+
 1. Start IntelliJ IDEA, and then create a project. In the **New Project** dialog box, do the following:
 
    a. Select **HDInsight**. 
 
    b. Select a Java or Scala template based on your preference. Select between the following options:
 
-   - **Spark on HDInsight (Scala)**
+    - **Spark on HDInsight (Scala)**
 
-   - **Spark on HDInsight (Java)**
+    - **Spark on HDInsight (Java)**
 
-   - **Spark on HDInsight Cluster Run Sample (Scala)**
+    - **Spark on HDInsight Cluster Run Sample (Scala)**
 
-   This example uses a **Spark on HDInsight Cluster Run Sample (Scala)** template.
+    This example uses a **Spark on HDInsight Cluster Run Sample (Scala)** template.
 
    c. In the **Build tool** list, select either of the following, according to your need:
 
@@ -54,7 +55,7 @@ This article provides step-by-step guidance on how to use HDInsight tools in Azu
 
      ![Create a debug project](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-create-projectfor-debug-remotely.png)
 
-2. Select **Next**.     
+   d. Select **Next**.     
  
 3. In the next **New Project** window, do the following:
 
