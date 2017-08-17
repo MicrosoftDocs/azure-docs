@@ -15,7 +15,7 @@ ms.author: cahann
 # Train and test your app
 
 ## Train to teach your app
-You should continuously work on your application to refine it and improve its language understanding. If you make updates by adding, editing or deleting entities, intents or utterances in your current model, you need to train your app before testing and publishing. When you train a LUIS app, LUIS generalizes from the examples you have labeled, and learns to recognize the relevant intents and entities in the future, which improves its classification accuracy. 
+You should continuously work on your application to refine it and improve its language understanding. If you make updates by adding, editing, or deleting entities, intents, or utterances in your current model, you need to train your app before testing and publishing. When you train a LUIS app, LUIS generalizes from the examples you have labeled, and learns to recognize the relevant intents and entities in the future, which improves its classification accuracy. 
 
 ### Train your current model
 
@@ -27,10 +27,10 @@ You should continuously work on your application to refine it and improve its la
     ![Train & Test App page](./Images/Train_Test-app.JPG)
 
     >[!NOTE]
-    >If you have one or more intents in your app which do not contain example utterances, you'll not be able to train your app until you add utterances for all your intents. For more information, see [Add example utterances](Add-example-utterances.md).
+    >If you have one or more intents in your app that do not contain example utterances, you cannot train your app until you add utterances for all your intents. For more information, see [Add example utterances](Add-example-utterances.md).
 
 ## Test your app
-LUIS provides two types of testing; interactive testing and batch testing. You can use any of them by using the corresponding tab on the **Test App** page.
+LUIS provides two types of testing: interactive testing and batch testing. You can use either of them by using the corresponding tab on the **Test App** page.
 
 ### Access the Test App page
 
