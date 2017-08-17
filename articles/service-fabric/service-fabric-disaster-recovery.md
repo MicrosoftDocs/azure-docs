@@ -20,7 +20,7 @@ ms.author: masnider
 # Disaster recovery in Azure Service Fabric
 A critical part of delivering high-availability is ensuring that services can survive all different types of failures. This is especially important for failures that are unplanned and outside of your control. This article describes some common failure modes that could be disasters if not modeled and managed correctly. It also discuss mitigations and actions to take if a disaster happened anyway. The goal is to limit or eliminate the risk of downtime or data loss when they occur failures, planned or otherwise, occur.
 
-## Avoiding Disaster
+## Avoiding disaster
 Service Fabric's primary goal is to help you model both your environment and your services in such a way that common failure types are not disasters. 
 
 In general there are two types of disaster/failure scenarios:
@@ -46,7 +46,7 @@ The best ways to avoid these types of operational faults are to
 
 Service Fabric provides some mechanisms to prevent operational faults, such as providing [role-based](service-fabric-cluster-security-roles.md) access control for cluster operations. However, most of these operational faults require organizational efforts and other systems. Service Fabric does provide some mechanism for surviving operational faults, most notably backup and restore for stateful services.
 
-## Managing Failures
+## Managing failures
 The goal of Service Fabric is almost always automatic management of failures. However, in order to handle some types of failures, services must have additional code. Other types of failures should _not_ be automatically addressed because of safety and business continuity reasons. 
 
 ### Handling single failures
@@ -83,7 +83,7 @@ You can visualize the layout of your cluster using the cluster map provided in [
 Above we talked about single failures. As you can see, are easy to handle for both stateless and stateful services just by keeping more copies of the code (and state) running across fault and upgrade domains. Multiple simultaneous random failures can also happen. These are more likely to lead to an actual disaster.
 
 
-### Random Failures Leading to Service Failures
+### Random failures leading to service failures
 Let's say that the service had an `InstanceCount` of 5, and several nodes running those instances all failed at the same time. Service Fabric responds by automatically creating replacement instances on other nodes. It will continue creating replacements until the service is back to its desired instance count. As another example, let's say there was a stateless service with an `InstanceCount`of -1, meaning it runs on all valid nodes in the cluster. Let's say that some of those instances were to fail. In this case, Service Fabric notices that the service is not in its desired state, and tries to create the instances on the nodes where they are missing. 
 
 For stateful services the situation depends on whether the service has persisted state or not. It also depends on how many replicas the service had and how many failed. Determining whether a disaster occurred for a stateful service and managing it follows three stages:
@@ -115,7 +115,7 @@ If you find out that the remaining replicas are insufficient to continue from in
 > System services can also suffer quorum loss, with the impact being specific to the service in question. For instance, quorum loss in the naming service impacts name resolution, whereas quorum loss in the failover manager service blocks new service creation and failovers. While the Service Fabric system services follow the same pattern as your services for state management, it is not recommended that you should attempt to move them out of Quorum Loss and into potential dataloss. The recommendation is instead to [seek support](service-fabric-support.md) to determine a solution that is targeted to your specific situation.  Usually it is preferable to simply wait until the down replicas return.
 >
 
-## Availability of the Service Fabric Cluster
+## Availability of the Service Fabric cluster
 Generally speaking, the Service Fabric cluster itself is a highly distributed environment with no single points of failure. A failure of any one node will not cause availability or reliability issues for the cluster, primarily because the Service Fabric system services follow the same guidelines provided earlier: they always run with three or more replicas by default, and those system services that are stateless run on all nodes. The underlying Service Fabric networking and failure detection layers are fully distributed. Most system services can be rebuilt from metadata in the cluster, or know how to resynchronize their state from other places. The availability of the cluster can become compromised if system services get into quorum loss situations like those described above. In these cases you may not be able to perform certain operations on the cluster like starting an upgrade or deploying new services, but the cluster itself is still up. Services on already running will remain running in these conditions unless they require writes to the system services to continue functioning. For example, if the Failover Manager is in quorum loss all services will continue to run, but any services that fail will not be able to automatically restart, since this requires the involvement of the Failover Manager. 
 
 ### Failures of a datacenter or Azure region
@@ -126,12 +126,12 @@ There's two different strategies for surviving the permanent or sustained failur
 1. Run separate Service Fabric clusters in multiple such regions, and utilize some mechanism for failover and fail-back between these environments. This sort of multi-cluster active-active or active-passive model requires additional management and operations code. This also requires coordination of backups from the services in one datacenter or region so that they are available in other datacenters or regions when one fails. 
 2. Run a single Service Fabric cluster that spans multiple datacenters or regions. The minimum supported configuration for this is three datacenters or regions. The recommended number of regions or datacenters is five. This requires a more complex cluster topology. However, the benefit of this model is that failure of one datacenter or region is converted from a disaster into a normal failure. These failures can be handled by the mechanisms that work for clusters within a single region. Fault domains, upgrade domains, and Service Fabric's placement rules ensure workloads are distributed so that they tolerate normal failures. For more information on policies that can help operate services in this type of cluster, read up on [placement policies](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
 
-### Random Failures Leading to Cluster Failures
+### Random failures leading to cluster failures
 Service Fabric has the concept of Seed Nodes. These are nodes that maintain the availability of the underlying cluster. These nodes help to ensure the cluster remains up by establishing leases with other nodes and serving as tiebreakers during certain kinds of network failures. If random failures remove a majority of the seed nodes in the cluster and they are not brought back, the cluster automatically shuts down. In Azure, Seed Nodes are automatically managed: they are distributed over the available fault and upgrade domains, and if a single seed node is removed from the cluster another one will be created in its place. 
 
 In both standalone Service Fabric clusters and Azure, the "Primary Node Type" is the one that runs the seeds. When defining a primary node type, Service Fabric will automatically take advantage of the number of nodes provided by creating up to 9 seed nodes and 9 replicas of each of the system services. If a set of random failures takes out a majority of those system service replicas simultaneously, the system services will enter quorum loss, as we described above. If a majority of the seed nodes are lost, the cluster will shut down soon after.
 
-## Next Steps
+## Next steps
 - Learn how to simulate various failures using the [testability framework](service-fabric-testability-overview.md)
 - Read other disaster-recovery and high-availability resources. Microsoft has published a large amount of guidance on these topics. While some of these documents refer to specific techniques for use in other products, they contain many general best practices you can apply in the Service Fabric context as well:
   - [Availability checklist](../best-practices-availability-checklist.md)
