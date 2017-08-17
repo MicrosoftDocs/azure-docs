@@ -28,7 +28,7 @@ This script creates a managed disk from a snapshot. Use it to restore a virtual 
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/storage/create-managed-disk-from-snapshot/create-managed-disk-from-snapshot.ps1 "Create managed disk from snapshot")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-managed-disk-from-snapshot/create-managed-disk-from-snapshot.ps1 "Create managed disk from snapshot")]
 
 
 ## Script explanation
