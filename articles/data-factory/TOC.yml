@@ -21,7 +21,7 @@
     href: quickstart-create-data-factory-resource-manager-template.md
 - name: Tutorials
   items:
-  - name: 1 - Copy data in cloud
+  - name: 1 - Copy data 
     href: tutorial-copy-data-dot-net.md
   - name: 2 - Copy on-premises data 
     href: tutorial-copy-onprem-data-to-cloud.md
@@ -34,7 +34,7 @@
 - name: Samples
   items:
   - name: PowerShell
-    href: samples-poweshell.md
+    href: powershell-samples.md
   - name: Code samples
     href: https://azure.microsoft.com/en-us/resources/samples/?service=data-factory
 - name: Concepts
@@ -62,68 +62,68 @@
     - name: Copy Activity overview
       href: copy-activity-overview.md
     - name: Connectors
-      href: connectors.md
+      href: connect-to-data-stores.md
       items: 
       - name: Amazon Redshift
-        href: amazon-redshift-connector.md
+        href: copy-data-from-amazon-redshift.md
       - name: Amazon S3
-        href: amazon-simple-storage-service-connector.md
+        href: copy-data-from-amazon-simple-storage-service.md
       - name: Azure Blob Storage
-        href: azure-blob-connector.md
+        href: copy-data-to-from-azure-blob-storage.md
       - name: Azure Cosmos DB
-        href: azure-cosmos-db-connector.md
+        href: copy-data-to-from-azure-cosmos-db.md
       - name: Azure Data Lake Store
-        href: azure-datalake-connector.md
+        href: copy-data-to-from-azure-datalake-store.md
       - name: Azure Search
-        href: azure-search-connector.md
+        href: copy-data-to-azure-search-index.md
       - name: Azure SQL DB
-        href: azure-sql-database-connector.md
+        href: copy-data-to-from-azure-sql-database.md
       - name: Azure SQL Data Warehouse
-        href: azure-sql-data-warehouse-connector.md
+        href: copy-data-to-from-azure-sql-data-warehouse.md
       - name: Azure Table Storage
-        href: azure-table-connector.md
+        href: copy-data-to-from-azure-table-storage.md
       - name: Cassandra
-        href: cassandra-connector.md
+        href: copy-data-from-cassandra.md
       - name: DB2
-        href: db2-connector.md
+        href: copy-data-from-cassandra.md
       - name: Dynamics (CRM & 365)
-        href: dynamics-connector.md
+        href: copy-data-from-dynamics-crm-office-365.md
       - name: File System
-        href: file-system-connector.md
+        href: copy-data-to-from-file-system.md
       - name: FTP
-        href: ftp-connector.md
+        href: copy-data-from-ftp-server.md
       - name: HDFS
-        href: hdfs-connector.md
+        href: copy-data-from-hadoop-distributed-file-system.md
       - name: HTTP
-        href: http-connector.md
+        href: copy-data-from-http-end-point.md
       - name: MongoDB
-        href: mongodb-connector.md
+        href: copy-data-from-mongodb.md
       - name: MySQL
-        href: mysql-connector.md
+        href: copy-data-from-mysql.md
       - name: OData
-        href: odata-connector.md
+        href: copy-data-from-odata-sources.md
       - name: ODBC
-        href: odbc-connector.md
+        href: copy-data-from-odbc-sources.md
       - name: Oracle
-        href: oracle-connector.md
+        href: copy-data-from-odbc-sources.md
       - name: PostgreSQL
-        href: postgresql-connector.md
+        href: copy-data-from-postgresql.md
       - name: Salesforce
-        href: salesforce-connector.md
+        href: copy-data-from-salesforce.md
       - name: SAP Business Warehouse
-        href: sap-business-warehouse-connector.md
+        href: copy-data-from-sap-business-warehouse.md
       - name: SAP HANA
-        href: sap-hana-connector.md
+        href: copy-data-from-sap-hana.md
       - name: SFTP
-        href: sftp-connector.md
+        href: copy-data-from-sftp-server.md
       - name: SQL Server
-        href: sqlserver-connector.md
+        href: copy-data-to-from-sql-server.md
       - name: Sybase
-        href: sybase-connector.md
+        href: copy-data-from-sybase.md
       - name: Teradata
-        href: teradata-connector.md
+        href: copy-data-from-teradata.md
       - name: WebTable
-        href: web-table-connector.md
+        href: copy-data-from-web-table.md
       - name: Performance and tuning
         href: copy-activity-performance.md
       - name: Fault tolerance
@@ -133,38 +133,52 @@
       - name: Format support
         href: copy-activity-format-support.md
       - name: Schema mapping
-        href: copy-activity-schema-mapping.md
+        href: copy-activity-map-schemas.md
       - name: Invoke a stored procedure
         href: copy-activity-invoke-stored-procedure.md
       - name: Incremental copy
-        href: copy-activity-incremental-copy.md
+        href: copy-data-incrementally-using-copy-activity.md
   - name: Transform data
-    href: data-transformation-activities.md
+    href: transform-data.md
     items: 
     - name: HdInsight Hive Activity
-      href: hive-activity.md
+      href: transform-data-using-hadoop-hive.md
     - name: HdInsight Pig Activity
-      href: pig-activity.md
+      href: transform-data-using-hadoop-pig.md
     - name: HdInsight MapReduce Activity
-      href: map-reduce-activity.md
+      href: transform-data-using-hadoop-map-reduce.md
     - name: HdInsight Streaming Activity
-      href: hadoop-streaming-activity.md
+      href: transform-data-using-hadoop-streaming.md
     - name: HdInsight Spark Activity
-      href: spark-activity.md
+      href: transform-data-using-spark.md
     - name: ML Batch Execution Activity
-      href: azure-ml-batch-execution-activity.md
+      href: transform-data-using-machine-learning.md
     - name: ML Update Resource Activity
-      href: azure-ml-update-resource-activity.md
+      href: update-machine-learning-models.md
     - name: Stored Procedure Activity
-      href: stored-procedure-activity.md
+      href: transform-data-using-stored-procedure.md
     - name: Data Lake U-SQL Activity
-      href: usql-activity.md
+      href: transform-data-using-data-lake-analytics.md
     - name: .NET custom activity
-      href: dot-net-custom-activity.md
+      href: transform-data-using-dotnet-custom-activity.md
     - name: Invoke R Scripts
       href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample
     - name: Azure Analysis Services
       href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+  - name: Control flow
+    items: 
+    - name: Web Activity
+      href: control-flow-web-activity.md     
+    - name: Lookup Activity
+      href: control-flow-lookup-activity.md     
+    - name: Get Metadata Activity
+      href: control-flow-get-metadata-activity.md     
+    - name: Script Activity
+      href: control-flow-script-activity.md     
+    - name: For Each Activity
+      href: control-flow-for-each-activity.md  
+    - name: Expression Language         
+      href: control-flow-expression-language.md
   - name: Monitor and manage
     items: 
     - name: Monitor programmatically

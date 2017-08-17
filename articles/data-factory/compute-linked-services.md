@@ -22,11 +22,11 @@ The following table provides a list of compute environments supported by Data Fa
 
 | Compute environment | activities |
 | --- | --- |
-| [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) |[DotNet](dot-net-custom-activity.md), [Hive](hive-activity.md), [Pig](pig-activity.md), [MapReduce](map-reduce-activity.md), [Hadoop Streaming](hadoop-streaming-activity.md) |
-| [Azure Batch](#azure-batch-linked-service) |[DotNet](dot-net-custom-activity.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) |[Machine Learning activities: Batch Execution and Update Resource](azure-ml-batch-execution-activity.md) |
-| [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](usql-activity.md) |
-| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) |[Stored Procedure](stored-procedure-activity.md) |
+| [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) |[DotNet](transform-data-using-dotnet-custom-activity.md), [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
+| [Azure Batch](#azure-batch-linked-service) |[DotNet](transform-data-using-dotnet-custom-activity.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) |[Machine Learning activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) |
+| [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
+| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) |[Stored Procedure](transform-data-using-stored-procedure.md) |
 
 ## Supported HDInsight versions in Azure Data Factory
 Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. Microsoft keeps updating the list of supported versions of HDInsight to provide latest Hadoop ecosystem components and fixes. The HDInsight 3.2 is deprecated on April 1, 2017. For detailed information, see [supported HDInsight versions](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
@@ -451,11 +451,11 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 See [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), and [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) topics for details about the Data Factory classes used in the code. Add a reference to: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll for the WindowsFormsWebAuthenticationDialog class. 
 
 ## Azure SQL Linked Service
-You create an Azure SQL linked service and use it with the [Stored Procedure Activity](stored-procedure-activity.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Connector](azure-sql-database-connector.md) article for details about this linked service.
+You create an Azure SQL linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Connector](copy-data-to-from-azure-sql-database.md) article for details about this linked service.
 
 ## Azure SQL Data Warehouse Linked Service
-You create an Azure SQL Data Warehouse linked service and use it with the [Stored Procedure Activity](stored-procedure-activity.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Data Warehouse Connector](azure-sql-data-warehouse-connector.md) article for details about this linked service.
+You create an Azure SQL Data Warehouse linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Data Warehouse Connector](copy-data-to-from-azure-sql-data-warehouse.md) article for details about this linked service.
 
 ## SQL Server Linked Service
-You create a SQL Server linked service and use it with the [Stored Procedure Activity](stored-procedure-activity.md) to invoke a stored procedure from a Data Factory pipeline. See [SQL Server connector](sqlserver-connector.md) article for details about this linked service.
+You create a SQL Server linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [SQL Server connector](copy-data-to-from-sql-server.md) article for details about this linked service.
 

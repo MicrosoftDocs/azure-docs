@@ -16,7 +16,7 @@
 
 # How to
 ## Copy Data
-### [Using Azure Data Factory](../data-factory/azure-datalake-connector.md)
+### [Using Azure Data Factory](../data-factory/copy-data-to-from-azure-datalake-store.md)
 ### [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Using Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -45,7 +45,7 @@
 ### [HDInsight with Data Lake Store as default storage - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 ### [HDInsight with Data Lake Store as additional storage - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 ### [HDInsight with Data Lake Store - Azure template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
-### [Use with Data Factory](../data-factory/azure-datalake-connector.md)
+### [Use with Data Factory](../data-factory/copy-data-to-from-azure-datalake-store.md)
 ### [Use with Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Use with Power BI](data-lake-store-power-bi.md)
 ### [Use with Data Catalog](data-lake-store-with-data-catalog.md)

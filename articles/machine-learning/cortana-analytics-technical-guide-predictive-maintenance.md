@@ -230,7 +230,7 @@ requirements.
 This
 [pipeline](../data-factory/concepts-pipelines-activities.md)
 contains a single activity - an
-[HDInsightHive](../data-factory/hive-activity.md)
+[HDInsightHive](../data-factory/transform-data-using-hadoop-hive.md)
 activity using a
 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)
 that runs a
@@ -255,7 +255,7 @@ experiment associated with this solution template.
 
 The activities contained in this are:
 
-* [HDInsightHive](../data-factory/hive-activity.md)
+* [HDInsightHive](../data-factory/transform-data-using-hadoop-hive.md)
   activity using an
   [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)
   that runs a
@@ -268,7 +268,7 @@ The activities contained in this are:
   script for this partitioning task is ***PrepareMLInput.hql***.
 * [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx)
   activity that moves the results from the
-  [HDInsightHive](../data-factory/hive-activity.md)
+  [HDInsightHive](../data-factory/transform-data-using-hadoop-hive.md)
   activity to a single [Azure
   Storage](https://azure.microsoft.com/services/storage/) blob
   that can be access by the

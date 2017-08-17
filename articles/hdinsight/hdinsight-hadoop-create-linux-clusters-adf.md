@@ -28,7 +28,7 @@ ms.author: spelluru
 - You can create a workflow using a Data Factory pipeline. For example, you can have the pipeline to copy data from an on-premises SQL Server to an Azure blob storage, process the data by running a Hive script and a Pig script on an on-demand HDInsight Hadoop cluster. Then, copy the result data to an Azure SQL Data Warehouse for BI applications to consume.
 - You can schedule the workflow to run periodically (hourly, daily, weekly, monthly, etc.).
 
-In Azure Data Factory, a data factory can have one or more data pipelines. A data pipeline has one or more activities. There are two types of activities: [Data Movement Activities](../data-factory/copy-activity-overview.md) and [Data Transformation Activities](../data-factory/data-transformation-activities.md). You use data movement activities (currently, only Copy Activity) to move data from a source data store to a destination data store. You use data transformation activities to transform/process data. HDInsight Hive Activity is one of the transformation activities supported by Data Factory. You use the Hive transformation activity in this tutorial.
+In Azure Data Factory, a data factory can have one or more data pipelines. A data pipeline has one or more activities. There are two types of activities: [Data Movement Activities](../data-factory/copy-activity-overview.md) and [Data Transformation Activities](../data-factory/transform-data.md). You use data movement activities (currently, only Copy Activity) to move data from a source data store to a destination data store. You use data transformation activities to transform/process data. HDInsight Hive Activity is one of the transformation activities supported by Data Factory. You use the Hive transformation activity in this tutorial.
 
 You can configure a hive activity to use your own HDInsight Hadoop cluster or an on-demand HDInsight Hadoop cluster. In this tutorial, the Hive activity in the data factory pipeline is configured to use an on-demand HDInsight cluster. Therefore, when the activity runs to process a data slice, here is what happens:
 
@@ -58,7 +58,7 @@ adfgetstarted/partitioneddata/year=2014/month=2/000000_0
 adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 ```
 
-For a list of Data Factory data transformation activities in addition to Hive activity, see [Transform and analyze using Azure Data Factory](../data-factory/data-transformation-activities.md).
+For a list of Data Factory data transformation activities in addition to Hive activity, see [Transform and analyze using Azure Data Factory](../data-factory/transform-data.md).
 
 > [!NOTE]
 > Currently, you can only create HDInsight cluster version 3.2 from Azure Data Factory.
@@ -274,7 +274,7 @@ The following Data Factory entities are defined in the JSON template:
 * [Data pipeline with a copy activity](#data-pipeline)
 
 #### Azure Storage linked service
-The Azure Storage linked service links your Azure storage account to the data factory. In this tutorial, the same storage account is used as the default HDInsight storage account, input data storage, and output data storage. Therefore, you define only one Azure Storage linked service. In the linked service definition, you specify the name and key of your Azure storage account. See [Azure Storage linked service](../data-factory/azure-blob-connector.md) for details about JSON properties used to define an Azure Storage linked service.
+The Azure Storage linked service links your Azure storage account to the data factory. In this tutorial, the same storage account is used as the default HDInsight storage account, input data storage, and output data storage. Therefore, you define only one Azure Storage linked service. In the linked service definition, you specify the name and key of your Azure storage account. See [Azure Storage linked service](../data-factory/copy-data-to-from-azure-blob-storage.md) for details about JSON properties used to define an Azure Storage linked service.
 
 ```json
 {
@@ -332,7 +332,7 @@ See [On-demand HDInsight Linked Service](../data-factory/compute-linked-services
 > As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
 
 #### Azure blob input dataset
-In the input dataset definition, you specify the names of blob container, folder, and file that contains the input data. See [Azure Blob dataset properties](../data-factory/azure-blob-connector.md) for details about JSON properties used to define an Azure Blob dataset.
+In the input dataset definition, you specify the names of blob container, folder, and file that contains the input data. See [Azure Blob dataset properties](../data-factory/copy-data-to-from-azure-blob-storage.md) for details about JSON properties used to define an Azure Blob dataset.
 
 ```json
 
@@ -374,7 +374,7 @@ Notice the following specific settings in the JSON definition:
 ```
 
 #### Azure Blob output dataset
-In the output dataset definition, you specify the names of blob container and folder that holds the output data. See [Azure Blob dataset properties](../data-factory/azure-blob-connector.md) for details about JSON properties used to define an Azure Blob dataset.  
+In the output dataset definition, you specify the names of blob container and folder that holds the output data. See [Azure Blob dataset properties](../data-factory/copy-data-to-from-azure-blob-storage.md) for details about JSON properties used to define an Azure Blob dataset.  
 
 ```json
 
