@@ -90,7 +90,7 @@ Any entity that reads event data from an event hub is an *event consumer*. All E
 
 The publish/subscribe mechanism of Event Hubs is enabled through *consumer groups*. A consumer group is a view (state, position, or offset) of an entire event hub. Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets.
 
-In a stream processing architecture, each downstream application equates to a consumer group. If you want to write event data to long-term storage, then that storage writer application is a consumer group. Complex event processing can then be performed by another, separate consumer group. You can only access partitions through a consumer group. Each partition can only have one active reader **from a given consumer group** at a time. There is always a default consumer group in an event hub, and you can create up to 20 consumer groups for a Standard tier event hub.
+In a stream processing architecture, each downstream application equates to a consumer group. If you want to write event data to long-term storage, then that storage writer application is a consumer group. Complex event processing can then be performed by another, separate consumer group. You can only access partitions through a consumer group. There can be at most 5 concurrent readers on a partition per consumer group; however **it is recommended that there is only one active receiver on a partition per consumer group**. There is always a default consumer group in an event hub, and you can create up to 20 consumer groups for a Standard tier event hub.
 
 The following are examples of the consumer group URI convention:
 
@@ -117,7 +117,7 @@ If a reader disconnects from a partition, when it reconnects it begins reading a
 
 ### Common consumer tasks
 
-All Event Hubs consumers connect via an AMQP 1.0 session and state-aware bidirectional communication channel. Each partition has an AMQP 1.0 session that facilitates the transport of events segregated by partition.
+All Event Hubs consumers connect via an AMQP 1.0 session, a state-aware bidirectional communication channel. Each partition has an AMQP 1.0 session that facilitates the transport of events segregated by partition.
 
 #### Connect to a partition
 

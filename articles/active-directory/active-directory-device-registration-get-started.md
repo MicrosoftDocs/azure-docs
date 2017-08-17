@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: jairoc
 
 ---
 # Get started with Azure Active Directory device registration

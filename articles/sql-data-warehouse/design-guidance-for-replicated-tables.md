@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 07/13/2017
+ms.date: 07/14/2017
 ms.author: rortloff;barbkess
 
 ---
@@ -39,7 +39,7 @@ A replicated table has a full copy of the table accessible on each Compute node.
 
 The following diagram shows a replicated table that is accessible on each Compute node. In SQL Data Warehouse, the replicated table is fully copied to a distribution database on each Compute node. 
 
-![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table")  
+![Replicated table](media/guidance-for-using-replicated-tables/replicated-table.png "Replicated table")  
 
 Replicated tables work well for small dimension tables in a star schema. Dimension tables are usually of a size that makes it feasible to store and maintain multiple copies. Dimensions store descriptive data that changes slowly, such as customer name and address, and product details. The slowly changing nature of the data leads to fewer rebuilds of the replicated table. 
 
@@ -84,8 +84,7 @@ If you already have round-robin tables, we recommend converting them to replicat
 
 This example uses [CTAS](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) to change the DimSalesTerritory table to a replicated table. This example works regardless of whether DimSalesTerritory is hash-distributed or round-robin.
 
-```
--- Change DimSalesTerritory to a replicated table
+```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]   
 WITH   
   (   
@@ -103,12 +102,10 @@ CREATE STATISTICS [SalesTerritoryCountry] ON [DimSalesTerritory_REPLICATE] ([Sal
 CREATE STATISTICS [SalesTerritoryGroup] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryGroup]);
 
 -- Switch table names
-
 RENAME OBJECT [dbo].[DimSalesTerritory] to [DimSalesTerritory_old];
 RENAME OBJECT [dbo].[DimSalesTerritory_REPLICATE] TO [DimSalesTerritory];
 
 DROP TABLE [dbo].[DimSalesTerritory_old];
-
 ```  
 
 ### Query performance example for round-robin versus replicated 
@@ -183,13 +180,13 @@ This query uses the [sys.pdw_replicated_table_cache_state](https://docs.microsof
 
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
-FROM sys.tables t  
+  FROM sys.tables t  
   JOIN sys.pdw_replicated_table_cache_state c  
     ON c.object_id = t.object_id 
   JOIN sys.pdw_table_distribution_properties p 
     ON p.object_id = t.object_id 
-  WHERE c.[state] = 'Not built' 
-    AND p.[distribution_policy_desc] = 'Replicate'
+  WHERE c.[state] = 'NotReady'
+    AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
  
 To force a rebuild, run the following statement on each table in the preceding output. 

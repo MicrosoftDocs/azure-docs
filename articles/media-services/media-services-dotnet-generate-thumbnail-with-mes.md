@@ -205,6 +205,8 @@ The following code example uses Media Services .NET SDK to perform the following
 * Add an event handler to check the job progress.
 * Submit the job.
 
+See the [Media Services development with .NET](media-services-dotnet-how-to-use.md) topic for directions on how to set up your dev environment.
+
 	    using System;
 	    using System.Configuration;
 	    using System.IO;

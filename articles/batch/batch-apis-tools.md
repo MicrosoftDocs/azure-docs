@@ -2,16 +2,10 @@
 title: Use Azure Batch APIs and tools to develop large-scale parallel processing solutions | Microsoft Docs
 description: Learn about the APIs and tools available for developing solutions with the Azure Batch service.
 services: batch
-documentationcenter: ''
 author: tamram
 manager: timlt
-editor: ''
 
-ms.assetid: 93e37d44-7585-495e-8491-312ed584ab79
 ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
@@ -43,7 +37,7 @@ Your applications and services can issue direct REST API calls or use one or mor
 | API | API reference | Download | Tutorial | Code samples | More Info |
 | --- | --- | --- | --- | --- | --- |
 | **Batch REST** |[MSDN][batch_rest] |N/A |- |- | [Supported Versions](https://docs.microsoft.com/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Tutorial](batch-dotnet-get-started.md) |[GitHub][api_sample_net] | [Release Notes](https://github.com/Azure/azure-sdk-for-net/blob/AutoRest/src/Batch/Client/changelog.md) |
+| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Tutorial](batch-dotnet-get-started.md) |[GitHub][api_sample_net] | [Release Notes](http://aka.ms/batch-net-dataplane-changelog) |
 | **Batch Python** |[readthedocs.io][api_python] |[PyPI][api_python_pypi] |[Tutorial](batch-python-tutorial.md)|[GitHub][api_sample_python] | [Readme](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
 | **Batch Node.js** |[github.io][api_nodejs] |[npm][api_nodejs_npm] |- |- | [Readme](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Batch Java** |[github.io][api_java] |[Maven][api_java_jar] |- |[Readme][api_sample_java] | [Readme](https://github.com/Azure/azure-batch-sdk-for-java)|

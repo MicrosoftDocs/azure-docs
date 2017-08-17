@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -32,6 +32,8 @@ Even if SSPR is not enabled users still a "contact your administrator" link on t
 3. If neither of the previous roles were assigned, then **Global administrators** are notified
 
 In all cases, a maximum of 100 recipients are notified.
+
+To find out more about the different administrator roles and how to assign them see the document [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md)
 
 ### Disable contact your administrator emails
 

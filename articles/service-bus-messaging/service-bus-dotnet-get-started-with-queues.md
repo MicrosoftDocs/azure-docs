@@ -35,7 +35,7 @@ This tutorial covers the following steps:
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## 1. Create a namespace using the Azure portal
-If you have already created a Service Bus Messaging namespace, jump to the [Create a queue using the Azure portal](#2-create-a-queue-using-the-azure-portal) section.
+If you've already created a Service Bus Messaging namespace, jump to the [Create a queue using the Azure portal](#2-create-a-queue-using-the-azure-portal) section.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -72,7 +72,6 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
     var message = new BrokeredMessage("This is a test message!");
 
-    Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
     Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
     client.Send(message);
@@ -103,7 +102,6 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
                 var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
                 var message = new BrokeredMessage("This is a test message!");
 
-                Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
                 Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
                 client.Send(message);

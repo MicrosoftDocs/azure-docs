@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
+ms.date: 08/02/2017
 ms.author: markvi
+ms.reviewer: calebb
 
 ---
 # Conditional access in Azure Active Directory
@@ -109,6 +110,7 @@ By selecting cloud apps, you define the scope of cloud apps your policy applies 
 
 - **How** - As long as access to your apps is performed under conditions you can control, there might be no need for imposing additional controls on how your cloud apps are accessed by your users. However, things might look different if access to your cloud apps is performed, for example, from networks that are not trusted or devices that are not compliant. In a condition statement, you can define certain access conditions that have additional requirements for how access to your apps is performed.
 
+	![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
 
 
 ## Conditions
@@ -121,7 +123,6 @@ In the current implementation of Azure Active Directory, you can define conditio
 - Client apps
 
 ![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
-
 
 ### Sign-in risk
 
@@ -138,35 +139,30 @@ To use device platforms in the policy, first change the configure toggles to **Y
 
 ![Conditions](./media/active-directory-conditional-access-azure-portal/02.png)
 
-
 ### Locations
 
-The location is identified by the IP address of the client you have used to connect to Azure Active Directory. This condition requires you to be familiar with **named locations (preview)** and **trusted IPs**.
+The location is identified by the IP address of the client you have used to connect to Azure Active Directory. This condition requires you to be familiar with **named locations** and **MFA trusted IPs**.  
 
-**Named locations** is a feature of Azure Active Directory that enables you to label trusted IP address ranges in your organization. The number of locations you can configure is constrained by the size of the related object in Azure AD. You can configure:
+**Named locations** is a feature of Azure Active Directory which allows you to label trusted IP address ranges in your organizations. In your environment, you can use named locations in the context of the detection of [risk events](active-directory-reporting-risk-events.md) as well as conditional access. For more details about configuring named locations in Azure Active Directory, see [named locations in Azure Active Directory](active-directory-named-locations.md).
 
-- One named location with up to 500 IP ranges
-- A maximum of 60 named locations (preview) with one IP range assigned to each of them
-
-For more details about configuring named locations in Azure Active Directory, see [Named locations in Azure Active Directory](active-directory-named-locations.md). 
+The number of locations you can configure is constrained by the size of the related object in Azure AD. You can configure:
  
-    
-**Trusted IPs** is a feature of multi-factor authentication that enables you to define trusted IP address ranges representing your organization's local intranet. When you configure a location conditions, Trusted IPs enables you to distinguish between connections made from your organization's network and all other locations. For more details, see [Trusted IPs](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
-
-When configuring locations, you can either include all locations or select specific locations and you can exclude specific locations.
-
-![Conditions](./media/active-directory-conditional-access-azure-portal/25.png)
-
-The **Select** blade provides you with a list of your configured named locations and the option to select your trusted IPs.
-
-![Conditions](./media/active-directory-conditional-access-azure-portal/24.png)
-
-While you can select named locations (preview) and trusted IPs in your location condition, we recommend that you use named locations (preview) because it provides better manageability and scalability.
+ - One named location with up to 500 IP ranges
+ - A maximum of 60 named locations (preview) with one IP range assigned to each of them 
 
 
-### Client apps
+**MFA trusted IPs** is a feature of multi-factor authentication that enables you to define trusted IP address ranges representing your organization's local intranet. When you configure a location conditions, Trusted IPs enables you to distinguish between connections made from your organization's network and all other locations. For more details, see [trusted IPs](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
 
-The client apps can be either on a generic level the app (web browser, mobile app, desktop client) you have used to connect to Azure Active Directory or you can specifically select Exchange Active Sync.  
+
+
+You can either include all locations or all trusted IPs and you can exclude all trusted IPs.
+
+![Conditions](./media/active-directory-conditional-access-azure-portal/03.png)
+
+
+### Client app
+
+The client app can be either on a generic level the app (web browser, mobile app, desktop client) you have used to connect to Azure Active Directory or you can specifically select Exchange Active Sync.  
 Legacy authentication refers to clients using basic authentication such as older Office clients that don’t use modern authentication. Conditional access is currently not supported with legacy authentication.
 
 ![Conditions](./media/active-directory-conditional-access-azure-portal/04.png)
