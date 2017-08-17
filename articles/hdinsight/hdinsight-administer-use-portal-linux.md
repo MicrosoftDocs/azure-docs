@@ -85,7 +85,8 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
     * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
     * **Delete**: Deletes the cluster.
 
-  **Left menu:**
+
+    **Left menu:**
 
     * **Activity logs**: Show and query activity logs.
     * **Access control (IAM)**: Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
