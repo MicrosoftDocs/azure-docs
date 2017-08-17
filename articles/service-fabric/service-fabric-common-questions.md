@@ -30,22 +30,22 @@ Yes.
 
 The core Service Fabric clustering technology can be used to combine machines running anywhere in the world, so long as they have network connectivity to each other. However, building and running such a cluster can be complicated.
 
-If you are interested in this scenario we encourage you to get in contact either through the [Service Fabric Github Issues List](https://github.com/azure/service-fabric-issues) or through your support representative who can put you in touch with the Service Fabric team for additional guidance. We are working to provide additional clarity, guidance, and recommendations for this scenario. 
+If you are interested in this scenario, we encourage you to get in contact either through the [Service Fabric Github Issues List](https://github.com/azure/service-fabric-issues) or through your support representative in order to obtain additional guidance. The Service Fabric team is working to provide additional clarity, guidance, and recommendations for this scenario. 
 
 Some things to consider: 
 
-1. The Service Fabric cluster resource in Azure is regional today, as are the virtual machine scale sets that the cluster is built on.  This means that in the event of a regional failure you may lose the ability to manage the cluster via ARM or the Azure Portal (even though the cluster remains running and you'd be able to interact with it directly). In addition, Azure today does not offer the ability to have a single virtual network that is usable across regions. This complicates the topology of the cluster by requiring either [Public IP Addresses for each VM in the VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) or [Azure VPN Gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V). These networking choices will have different impacts on costs, performance, and to some degree application design, so careful analysis and planning is required before standing up such an environment.
-2. The maintenance, management, and monitoring of these machines can become complicated, especially when spanned across _types_ of environments (i.e. between different cloud providers or between on-premises resources and Azure). Care must be taken to ensure that upgrades, monitoring, management, and diagnostics are understood for both the cluster and the applications before running production workloads in such an environment. If you already have lots of experience solving these problems in Azure or within your own datacenters, then it is likely that those same solutions can be applied when building out or running your Service Fabric cluster. 
+1. The Service Fabric cluster resource in Azure is regional today, as are the virtual machine scale sets that the cluster is built on. This means that in the event of a regional failure you may lose the ability to manage the cluster via the Azure Resource Manager or the Azure Portal. This can happen even though the cluster remains running and you'd be able to interact with it directly. In addition, Azure today does not offer the ability to have a single virtual network that is usable across regions. This means that a multi-region cluster in Azure requires either [Public IP Addresses for each VM in the VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) or [Azure VPN Gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md). These networking choices have different impacts on costs, performance, and to some degree application design, so careful analysis and planning is required before standing up such an environment.
+2. The maintenance, management, and monitoring of these machines can become complicated, especially when spanned across _types_ of environments, such as between different cloud providers or between on-premises resources and Azure. Care must be taken to ensure that upgrades, monitoring, management, and diagnostics are understood for both the cluster and the applications before running production workloads in such an environment. If you already have lots of experience solving these problems in Azure or within your own datacenters, then it is likely that those same solutions can be applied when building out or running your Service Fabric cluster. 
 
 ### Do Service Fabric nodes automatically receive OS updates?
 
-Not today, but this is also a common request that we intend to deliver.
+Not today, but this is also a common request that Azure intends to deliver.
+
+In the interim, we have [provided an application](service-fabric-patch-orchestration-application.md) that the operating systems underneath your Service Fabric nodes stay patched and up to date.
 
 The challenge with OS updates is that they typically require a reboot of the machine, which results in temporary availability loss. By itself, that is not a problem, since Service Fabric will automatically redirect traffic for those services to other nodes. However, if OS updates are not coordinated across the cluster, there is the potential that many nodes go down at once. Such simultaneous reboots can cause complete availability loss for a service, or at least for a specific partition (for a stateful service).
 
 In the future, we plan to support an OS update policy that is fully automated and coordinated across update domains, ensuring that availability is maintained despite reboots and other unexpected failures.
-
-In the interim, we have [provided a script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) that a cluster administrator can use to manually kick off patching of each node in a safe manner.
 
 ### Can I use Large Virtual Machine Scale Sets in my SF cluster? 
 
@@ -123,7 +123,7 @@ Keeping in mind that each object must be stored three times (one primary and two
 
 Note that this calculation also assumes:
 
-- That the distribution of data across the partitions is roughly uniform or that you're reporting load metrics to the cluster Resource Manager. By default, Service Fabric will load balance based on replica count. In our example above, that would put 10 primary replicas and 20 secondary replicas on each node in the cluster. That works well for load that is evenly distributed across the partitions. If load is not even, you must report load so that the Resource Manager can pack smaller replicas together and allow larger replicas to consume more memory on an individual node.
+- That the distribution of data across the partitions is roughly uniform or that you're reporting load metrics to the Cluster Resource Manager. By default, Service Fabric will load balance based on replica count. In our example above, that would put 10 primary replicas and 20 secondary replicas on each node in the cluster. That works well for load that is evenly distributed across the partitions. If load is not even, you must report load so that the Resource Manager can pack smaller replicas together and allow larger replicas to consume more memory on an individual node.
 
 - That the reliable service in question is the only one storing state in the cluster. Since you can deploy multiple services to a cluster, you need to be mindful of the resources that each will need to run and manage its state.
 

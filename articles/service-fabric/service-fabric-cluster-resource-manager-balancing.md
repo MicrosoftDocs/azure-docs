@@ -198,7 +198,7 @@ The Cluster Resource Manager automatically figures out what services are related
 </center>
 
 ## Next steps
-* Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about them and how to configure them, check out [this article](service-fabric-cluster-resource-manager-metrics.md)
+* Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about metrics and how to configure them, check out [this article](service-fabric-cluster-resource-manager-metrics.md)
 * Movement Cost is one way of signaling to the Cluster Resource Manager that certain services are more expensive to move than others. For more about movement cost, refer to [this article](service-fabric-cluster-resource-manager-movement-cost.md)
 * The Cluster Resource Manager has several throttles that you can configure to slow down churn in the cluster. They're not normally necessary, but if you need them you can learn about them [here](service-fabric-cluster-resource-manager-advanced-throttling.md)
 

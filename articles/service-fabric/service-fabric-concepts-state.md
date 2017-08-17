@@ -18,18 +18,18 @@ ms.author: masnider
 
 ---
 # Service state
-**Service state** refers to the in memory or on disk data that a service requires to function. It includes, for example, the data structures and member variables that the service reads and writes to do work. Depending on how the service is architected, it could also include files or other resources that are stored on disk (for example, the files a database would use to store data and transaction logs).
+**Service state** refers to the in-memory or on disk data that a service requires to function. It includes, for example, the data structures and member variables that the service reads and writes to do work. Depending on how the service is architected, it could also include files or other resources that are stored on disk. For example, the files a database would use to store data and transaction logs.
 
-As an example service, let's consider a calculator. A basic calculator service takes two numbers and returns their sum. This involves no member variables or other information.
+As an example service, let's consider a calculator. A basic calculator service takes two numbers and returns their sum. Performing this calculation involves no member variables or other information.
 
-Now consider the same calculator, but in addition to computing sum, it also has a method for storing and returning the last sum it has computed. This service is now stateful - it contains some state that it writes to (when it computes a new sum) and reads from (when it is aked to return the last computed sum).
+Now consider the same calculator, but with an additional method for storing and returning the last sum it has computed. This service is now stateful. Stateful means it contains some state that it writes to when it computes a new sum and reads from when you ask it to return the last computed sum.
 
 In Azure Service Fabric, the first service is called a stateless service. The second service is called a stateful service.
 
 ## Storing service state
-State can be either externalized or co-located with the code that is manipulating the state. Externalization of state is typically done by using an external database or other data store that runs on different machines over the network or out of process on the same machine. In our calculator example, this could be a SQL database or instance of Azure Table Store in which the current result is stored in a table. Every request to compute the sum performs an update on this row, and requests to the service to return the value result in the current value being fetched from the store. 
+State can be either externalized or co-located with the code that is manipulating the state. Externalization of state is typically done by using an external database or other data store that runs on different machines over the network or out of process on the same machine. In our calculator example, the data store could be a SQL database or instance of Azure Table Store. Every request to compute the sum performs an update on this data, and requests to the service to return the value result in the current value being fetched from the store. 
 
-State can also be co-located with the code that manipulates the state. Stateful services in Service Fabric are typically built using this model. Service Fabric provides the infrastructure to ensure that this state is highly available, consistent, and durable in the event of a failure.
+State can also be co-located with the code that manipulates the state. Stateful services in Service Fabric are typically built using this model. Service Fabric provides the infrastructure to ensure that this state is highly available, consistent, and durable, and that the services built this way can easily scale.
 
 ## Next steps
 For more information on Service Fabric concepts, see the following articles:

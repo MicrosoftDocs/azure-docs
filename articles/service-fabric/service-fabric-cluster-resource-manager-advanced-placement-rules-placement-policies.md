@@ -96,7 +96,7 @@ Powershell:
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("PreferredPrimaryDomain,fd:/EastUS")
 ```
 
-## Requiring replicas to be distributed among all domains and disallowing packing
+## Requiring replica distribution and disallowing packing
 Replicas are _normally_ distributed across fault and upgrade domains when the cluster is healthy. However, there are cases where more than one replica for a given partition may end up temporarily packed into a single domain. For example, let's say that the cluster has nine nodes in three fault domains, fd:/0, fd:/1, and fd:/2. Let's also say that your service has three replicas. Let's say that the nodes that were being used for those replicas in fd:/1 and fd:/2 went down. Normally the Cluster Resource Manager would prefer other nodes in those same fault domains. In this case, let's say due to capacity issues none of the other nodes in those domains were valid. If the Cluster Resource Manager builds replacements for those replicas, it would have to choose nodes in fd:/0. However, doing _that_ creates a situation where the Fault Domain constraint is violated. Packing replicas increases the chance that the whole replica set could go down or be lost. 
 
 > [!NOTE]

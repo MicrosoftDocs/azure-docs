@@ -35,7 +35,7 @@ What to do? Well, you could try turning on affinity.
 ## How to configure affinity
 To set up affinity, you define an affinity relationship between two different services. You can think of affinity as “pointing” one service at another and saying “This service can only run where that service is running.” Sometimes we refer to affinity as a parent/child relationship (where you point the child at the parent). Affinity ensures that the replicas or instances of one service are placed on the same nodes as those of another service.
 
-``` csharp
+```csharp
 ServiceCorrelationDescription affinityDescription = new ServiceCorrelationDescription();
 affinityDescription.Scheme = ServiceCorrelationScheme.Affinity;
 affinityDescription.ServiceName = new Uri("fabric:/otherApplication/parentService");
