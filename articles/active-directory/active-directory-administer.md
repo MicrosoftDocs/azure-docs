@@ -12,7 +12,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/25/2017
+ms.date: 08/18/2017
 ms.author: curtand
 
 ms.reviewer: jeffsta
