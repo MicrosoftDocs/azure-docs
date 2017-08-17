@@ -56,9 +56,10 @@ In this tutorial, you learn how to:
 such as Office 365 Outlook, Outlook.com, or Gmail, for sending notifications. 
 This tutorial uses Office 365 Outlook.
 
-* A [virtual machine](https://azure.microsoft.com/services/virtual-machines/). 
+* A [virtual machine](https://azure.microsoft.com/services/virtual-machines). 
 If you haven't already done so, create a virtual machine through a 
-[Create a VM tutorial](../virtual-machines/). To make the virtual machine publish events, 
+[Create a VM tutorial](https://docs.microsoft.com/azure/virtual-machines). 
+To make the virtual machine publish events, 
 you [don't need to do anything else](../event-grid/overview.md).
 
 ## Create a logic app that monitors events from an event grid
