@@ -29,7 +29,7 @@ This script creates a managed disk from a VHD file in a storage account in the s
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/storage/create-managed-data-disks-from-vhd/create-managed-data-disks-from-vhd.sh "Create managed disk from VHD")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-managed-data-disks-from-vhd/create-managed-data-disks-from-vhd.sh "Create managed disk from VHD")]
 
 
 ## Script explanation

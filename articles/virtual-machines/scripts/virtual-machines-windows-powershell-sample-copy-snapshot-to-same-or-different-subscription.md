@@ -28,7 +28,7 @@ This script creates a copy of a snapshot in the same same subscription or differ
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/storage/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.ps1 "Copy snapshot")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.ps1 "Copy snapshot")]
 
 
 ## Script explanation
