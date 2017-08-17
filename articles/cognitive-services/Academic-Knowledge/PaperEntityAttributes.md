@@ -15,7 +15,7 @@ ms.author: alch
 # Paper Entity
 
 <sub>
-*Below attributes are specific to paper entity. (Ty = '1')
+*Below attributes are specific to paper entity. (Ty = '0')
 </sub>
 
 

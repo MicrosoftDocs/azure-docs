@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/02/2017
+ms.date: 07/19/2017
 ms.author: yurid
 
 ---
@@ -61,7 +61,7 @@ Organizations that do not enforce data-access control by taking advantage of cap
 
 ## VM availability and network access
 
-If your VM runs critical applications that need to have high availability, we strongly recommend that you use multiple VMs. For better availability, create at least two VMs in the [availability set](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+If your VM runs critical applications that need to have high availability, we strongly recommend that you use multiple VMs. For better availability, create at least two VMs in the [availability set](../virtual-machines/windows/tutorial-availability-sets.md).
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) also requires that load-balanced VMs belong to the same availability set. If these VMs must be accessed from the Internet, you must configure an [Internet-facing load balancer](../load-balancer/load-balancer-internet-overview.md).
 

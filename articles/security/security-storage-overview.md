@@ -48,7 +48,7 @@ Learn more:
 * [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md)
 
 ## Delegated access to storage objects
-A shared access signature (SAS) provides delegated access to resources in your storage account. The SAS means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions. You can grant these limited permissions without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method.
+A shared access signature (SAS) provides delegated access to resources in your storage account. The SAS means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions. You can grant these limited permissions without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to provide the SAS to the appropriate constructor or method.
 
 Learn more:
 
@@ -59,7 +59,7 @@ Learn more:
 Encryption in transit is a mechanism of protecting data when it is transmitted across networks. With Azure Storage you can secure data using:
 
 * [Transport-level encryption](../storage/storage-security-guide.md#encryption-in-transit), such as HTTPS when you transfer data into or out of Azure Storage.
-* [Wire encryption](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), such as SMB 3.0 encryption for Azure File Shares.
+* [Wire encryption](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), such as SMB 3.0 encryption for Azure File shares.
 * [Client-side encryption](../storage/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
 
 Learn more about client-side encryption:

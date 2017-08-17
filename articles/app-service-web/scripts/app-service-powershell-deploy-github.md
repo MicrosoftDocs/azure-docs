@@ -12,9 +12,10 @@ ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
+ms.custom: mvc
 ---
 
 # Create a web app and deploy code from GitHub

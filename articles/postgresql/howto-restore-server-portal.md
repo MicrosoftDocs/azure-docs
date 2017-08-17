@@ -5,12 +5,10 @@ services: postgresql
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
-ms.devlang: na
 ms.topic: article
+ms.date: 07/20/2017
 ---
 
 # How To Backup and Restore a server in Azure Database for PostgreSQL using the Azure portal

@@ -5,7 +5,7 @@ keywords: credit alert,billing alert
 services: ''
 documentationcenter: ''
 author: vikdesai
-manager: vikdesai
+manager: tonguyen
 editor: ''
 tags: billing
 

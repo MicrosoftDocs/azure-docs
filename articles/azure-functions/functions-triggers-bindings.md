@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/14/2017
+ms.date: 05/30/2017
 ms.author: donnam
 
 ---
@@ -185,6 +185,23 @@ let Run(input: WorkItem, log: TraceWriter) =
     json
 ```
 
+## Binding dataType property
+
+In .NET, use the types to define the data type for input data. For instance, use `string` to bind to the text of a queue trigger and a byte array to read as binary.
+
+For languages that are dynamically typed such as JavaScript, use the `dataType` property in the binding definition. For example, to read the content of an HTTP request in binary format, use the type `binary`:
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Other options for `dataType` are `stream` and `string`.
+
 ## Resolving app settings
 As a best practice, secrets and connection strings should be managed using app settings, rather than configuration files. This limits access to these secrets and makes it safe to store *function.json* in a public source control repository.
 
@@ -302,6 +319,19 @@ Azure Functions provides a convenience syntax for generating GUIDs in your bindi
 }
 ```
 
+### Current time
+
+You can use the binding expression `DateTime`, which resolves to `DateTime.UtcNow`.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
 ## Bind to custom input properties in a binding expression
 
 Binding expressions can also reference properties that are defined in the trigger payload itself. For example, you may want to dynamically bind to a blob storage file from a filename provided in a webhook.
@@ -372,6 +402,10 @@ module.exports = function (context, info) {
     context.done();
 }
 ```
+
+## Configuring binding data at runtime
+
+In C# and other .NET languages, you can use an imperative binding pattern, as opposed to the declarative bindings in *function.json*. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. To learn more, see [Binding at runtime via imperative bindings](functions-reference-csharp.md#imperative-bindings) in the C# developer reference.
 
 ## Next steps
 For more information on a specific binding, see the following articles:

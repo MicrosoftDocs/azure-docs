@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # v2.0 Protocols - OAuth 2.0 & OpenID Connect

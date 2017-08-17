@@ -1,5 +1,5 @@
 ---
-title: Run Hive queries using HDInsight .NET SDK | Microsoft Docs
+title: Run Hive queries using HDInsight .NET SDK - Azure | Microsoft Docs
 description: Learn how to submit Hadoop jobs to Azure HDInsight Hadoop using HDInsight .NET SDK.
 editor: cgronlun
 manager: jhubbard

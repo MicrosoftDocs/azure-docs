@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
 
 ---
@@ -45,7 +45,7 @@ When deciding which deployment model to use for your resources, there are three 
 2. The service supports Resource Manager but provides two types - one for Resource Manager and one for classic. This scenario applies only to virtual machines, storage accounts, and virtual networks.
 3. The service does not support Resource Manager.
 
-To discover whether a service supports Resource Manager, see [Resource Manager supported providers](resource-manager-supported-services.md).
+To discover whether a service supports Resource Manager, see [Resource providers and types](resource-manager-supported-services.md).
 
 If the service you wish to use does not support Resource Manager, you must continue using classic deployment.
 

@@ -3,7 +3,7 @@ title: Log Analytics log search REST API | Microsoft Docs
 description: This guide provides a basic tutorial describing how you can use the Log Analytics search REST API in the Operations Management Suite (OMS) and it provides examples that show you how to use the commands.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: b4e9ebe8-80f0-418e-a855-de7954668df7
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
-ms.author: banders
+ms.author: bwren
 
 ---
 # Log Analytics log search REST API

@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning automated data pipeline cheat sheet | Microsoft Docs
-description: A printable cheat sheet that shows you how to set up an automated data pipeline to your Azure Machine Learning web service whether your data is on-premise, streaming, in Azure, or in a third-party cloud service.
+description: A printable cheat sheet that shows you how to set up an automated data pipeline to your Azure Machine Learning web service whether your data is on-premises, streaming, in Azure, or in a third-party cloud service.
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -37,7 +37,7 @@ Download the cheat sheet here: **[Microsoft Azure Machine Learning automated dat
 ## More help with Machine Learning Studio
 * For an overview of Microsoft Azure Machine Learning, see [Introduction to machine learning on Microsoft Azure](machine-learning-what-is-machine-learning.md).
 * For an explanation of how to deploy a scoring web service, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
-* For a discussion of how to consume a scoring web service, see [How to consume an Azure Machine Learning web service that has been deployed from a Machine Learning experiment](machine-learning-consume-web-services.md).
+* For a discussion of how to consume a scoring web service, see [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

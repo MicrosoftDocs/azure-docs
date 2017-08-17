@@ -12,9 +12,10 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/29/2017
 ms.author: cephalin
+ms.custom: mvc
 
 ---
 # Add custom domain and SSL to an Azure web app
@@ -50,17 +51,9 @@ To see what possible values you can use for `---location`, use the `az appservic
 
 ## Create an App Service plan
 
-Create a Linux-based App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command. 
+Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command. 
 
-> [!NOTE] 
-> An App Service plan represents the collection of physical resources used to host your apps. All applications assigned to an App Service plan share the resources defined by it allowing you to save cost when hosting multiple apps. 
-> 
-> App Service plans define: 
-> * Region (North Europe, East US, Southeast Asia) 
-> * Instance Size (Small, Medium, Large) 
-> * Scale Count (one, two or three instances, etc.) 
-> * SKU (Free, Shared, Basic, Standard, Premium) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 The following example creates an App Service plan named `myAppServicePlan` using the **Basic** pricing tier.
 

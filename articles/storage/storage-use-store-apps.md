@@ -22,7 +22,7 @@ ms.author: marsma
 This guide shows how to get started with developing a Windows Store app that makes use of Azure Storage.
 
 ## Download required tools
-* [Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) makes it easy to build, debug, localize, package, and deploy Windows Store apps. Visual Studio 2012 or later is required.
+* [Visual Studio](https://www.visualstudio.com/downloads/) makes it easy to build, debug, localize, package, and deploy Windows Store apps. Visual Studio 2012 or later is required.
 * The [Azure Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage) provides a Windows Runtime class library for working with Azure Storage.
 * [WCF Data Services Tools for Windows Store Apps](http://www.microsoft.com/download/details.aspx?id=30714) extends the Add Service Reference experience with client-side OData support for Windows Store apps in Visual Studio.
 

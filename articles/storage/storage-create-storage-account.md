@@ -13,6 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+f1_keywords: 
+  - "sql13.swb.windowsazurestorage.connect.f1"
 ms.date: 01/23/2017
 ms.author: robinsh
 
@@ -84,7 +86,7 @@ You can also configure a custom domain name to use with your storage account. Fo
 
 ## Manage your storage account
 ### Change your account configuration
-After you create your storage account, you can modify its configuration, such as changing the replication option used for the account or changing the access tier for a Blob storage account. In the [Azure portal](https://portal.azure.com), navigate to your storage account, click **All settings** and then click **Configuration** to view and/or change the account configuration.
+After you create your storage account, you can modify its configuration, such as changing the replication option used for the account or changing the access tier for a Blob storage account. In the [Azure portal](https://portal.azure.com), navigate to your storage account, find and click **Configuration** under **SETTINGS** to view and/or change the account configuration.
 
 > [!NOTE]
 > Depending on the performance tier you chose when creating the storage account, some replication options may not be available.
@@ -102,7 +104,7 @@ When you create a storage account, Azure generates two 512-bit storage access ke
 > We recommend that you avoid sharing your storage access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) for more information.
 > 
 > 
-
+<a id="view-and-copy-storage-access-keys"/></a>
 #### View and copy storage access keys
 In the [Azure portal](https://portal.azure.com), navigate to your storage account, click **All settings** and then click **Access keys** to view, copy, and regenerate your account access keys. The **Access Keys** blade also includes pre-configured connection strings using your primary and secondary keys that you can copy to use in your applications.
 

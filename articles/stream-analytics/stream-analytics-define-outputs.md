@@ -4,7 +4,7 @@ description: Learn about targeting Stream Analytics data outputs options includi
 keywords: data transformation, analysis results, data storage options
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
 documentationcenter: ''
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Stream Analytics outputs: Options for storage, analysis
@@ -27,7 +27,7 @@ In order to enable a variety of application patterns, Azure Stream Analytics has
 Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). This storage enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. Further, Stream Analytics needs to be authorized to access the Data Lake Store. Details on authorization and how to sign up for the Data Lake Store (if needed) are discussed in the [Data Lake output article](stream-analytics-data-lake-output.md).
 
 ### Authorize an Azure Data Lake Store
-When Data Lake Storage is selected as an output in the Azure Management portal, you will be prompted to authorize a connection to an existing Data Lake Store.  
+When Data Lake Storage is selected as an output in the Azure portal, you will be prompted to authorize a connection to an existing Data Lake Store.  
 
 ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
@@ -184,7 +184,7 @@ There are a few parameters that are needed to configure Event Hub data streams a
 [Power BI](https://powerbi.microsoft.com/) can be used as an output for a Stream Analytics job to provide for a rich visualization experience of analysis results. This capability can be used for operational dashboards, report generation and metric driven reporting.
 
 ### Authorize a Power BI account
-1. When Power BI is selected as an output in the Azure Management portal, you will be prompted to authorize an existing Power BI User or to create a new Power BI account.  
+1. When Power BI is selected as an output in the Azure portal, you will be prompted to authorize an existing Power BI User or to create a new Power BI account.  
    
    ![Authorize Power BI User](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 2. Create a new account if you don’t yet have one, then click Authorize Now.  A screen like the following is presented.  
@@ -319,7 +319,7 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 ## Next steps
 You've been introduced to Stream Analytics, a managed service for streaming analytics on data from the Internet of Things. To learn more about this service, see:
 
-* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
@@ -328,6 +328,6 @@ You've been introduced to Stream Analytics, a managed service for streaming anal
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
+[stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301

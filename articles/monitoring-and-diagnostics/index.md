@@ -191,7 +191,7 @@ Learn how to use Azure monitoring and diagnostics services to track performance,
                         <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema">Azure Diagnostics extension schema</a></p>
                         <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0">Azure Diagnostics extension schema 1.0</a></p>
                         <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2">Azure Diagnostics extension schema 1.2</a></p>
-                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later">Azure Diagnostics extension schema 1.3 to 1.7</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later">Azure Diagnostics extension schema 1.3 and later</a></p>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 # Schema updates for Azure Logic Apps - June 1, 2016
@@ -28,7 +28,7 @@ more reliable and easier to use:
 * More precise ordering for running actions with the `runAfter` property, replacing `dependsOn`
 
 To upgrade your logic apps from the August 1, 2015 preview schema to the June 1, 2016 schema, 
-[check out the upgrade section](#upgrading-to-2016-06-01-schema).
+[check out the upgrade section](##upgrade-your-schema).
 
 <a name="scopes"></a>
 ## Scopes

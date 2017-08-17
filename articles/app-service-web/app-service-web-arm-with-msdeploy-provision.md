@@ -120,7 +120,7 @@ Now you will notice that the MSDeploy resource takes a **packageUri** property w
 
 This **packageUri** takes the storage account uri which points to the storage account where you will upload your package zip to. The Azure Resource Manager will leverage [Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md) to pull the package down locally from the storage account when you deploy the template. This process will be automated via a PowerShell script that will upload the package and call the Azure Management API to create the keys required and pass those into the template as parameters (*_artifactsLocation* and *_artifactsLocationSasToken*). You will need to define parameters for the folder and filename the package is uploaded to under the storage container.
 
-Next you need to add in another nested resource to setup the hostname bindings to leverage a custom domain. You will first need to ensure that you own the hostname and set it up to be verified by Azure that you own it - see [Configure a custom domain name in Azure App Service](web-sites-custom-domain-name.md). Once that is done you can add the following to your template under the Microsoft.Web/sites resource section:
+Next you need to add in another nested resource to setup the hostname bindings to leverage a custom domain. You will first need to ensure that you own the hostname and set it up to be verified by Azure that you own it - see [Configure a custom domain name in Azure App Service](app-service-web-tutorial-custom-domain.md). Once that is done you can add the following to your template under the Microsoft.Web/sites resource section:
 
     {
         "apiVersion": "2015-08-01",

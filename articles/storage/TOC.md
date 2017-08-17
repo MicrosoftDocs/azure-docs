@@ -1,6 +1,7 @@
-﻿# Overview
+# Overview
 
 ## [Introduction](storage-introduction.md)
+## [Choose Blobs, Files, or Data Disks](storage-decide-blobs-files-disks.md)
 
 # Get Started
 
@@ -36,13 +37,18 @@
 ### [Python](storage-python-how-to-use-table-storage.md)
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
-## File Storage
-### [Windows, .NET, PowerShell](storage-dotnet-how-to-use-files.md)
+## [File Storage](storage-files-introduction.md)
+### [Portal](storage-file-how-to-use-files-portal.md)
+### [.NET](storage-dotnet-how-to-use-files.md)
+### [PowerShell](storage-file-how-to-use-files-powershell.md)
+### [Windows](storage-file-how-to-use-files-windows.md)
 ### [Linux](storage-how-to-use-files-linux.md)
+### [Mac](storage-file-how-to-use-files-mac.md)  
 ### [Java](storage-java-how-to-use-file-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
-
+### [Create a file share](storage-file-how-to-create-file-share.md)
+### [FAQ](storage-files-faq.md)
 ## Disk Storage 
 ### [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 ### [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md)
@@ -50,6 +56,7 @@
 ### [Add a managed disk to a Linux VM](../virtual-machines/linux/add-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [Using managed disks in Resource Manager templates](storage-using-managed-disks-template-deployments.md)
 
 # How To
 ## [Create a storage account](storage-create-storage-account.md)
@@ -70,7 +77,8 @@
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Use files
 ### [Overview](/rest/api/storageservices/File-Service-Concepts)
-### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
+### [Troubleshoot Azure Files - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+### [Troubleshoot Azure Files - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Use disks
 ### [Disks and VHDs for Windows VMs](storage-about-disks-and-vhds-windows.md)
@@ -109,27 +117,30 @@
 ## Secure
 ### [Security guide](storage-security-guide.md)
 ### [Encryption for data at rest](storage-service-encryption.md)
-### [Shared key authentication](https://msdn.microsoft.com/library/dd179428.aspx)
+### [Encryption at rest with customer keys](storage-service-encryption-customer-managed-keys.md)
+### [Shared key authentication](/rest/api/storageservices/Authentication-for-the-Azure-Storage-Services)
 ### [Shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Tutorial: Encrypt and decrypt blobs using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
+### [Require secure transfer](storage-require-secure-transfer.md)
 ### Client-side encryption
 #### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## Monitor and troubleshoot
+### [Disaster recovery guidance](storage-disaster-recovery-guidance.md)
+### [Backup and DR for IAAS disks](storage-backup-and-disaster-recovery-for-azure-iaas-disks.md)
+### [Troubleshoot Storage Explorer](storage-explorer-troubleshooting.md)
 ### Metrics and logging
 #### [Storage Analytics](storage-analytics.md)
 #### [Enable and view metrics](storage-enable-and-view-metrics.md)
 #### [Monitor, diagnose, and troubleshoot](storage-monitoring-diagnosing-troubleshooting.md)
 #### [Troubleshooting tutorial](storage-e2e-troubleshooting.md)
-### Troubleshoot disk deletion errors
-#### [In a Resource Manager deployment](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
-#### [In a classic deployment](storage-cannot-delete-storage-account-container-vhd.md)
+### [Troubleshoot disk deletion errors](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 ### [Troubleshoot File storage](storage-troubleshoot-file-connection-problems.md)
-### [Disaster recovery guidance](storage-disaster-recovery-guidance.md)
 ## Transfer Data
 ### [Move data to and from Storage](storage-moving-data.md)
-### [AzCopy command-line utility](storage-use-azcopy.md)
+### [AzCopy on Windows](storage-use-azcopy.md)
+### [AzCopy on Linux](storage-use-azcopy-linux.md)
 ### [Using the Import/Export service](storage-import-export-service.md)
 ### [Using the Import/Export Tool](storage-import-export-tool-how-to.md)
 #### [Setting up the Import/Export Tool](storage-import-export-tool-setup.md)
@@ -168,6 +179,7 @@
 #### [Backing up drive manifests](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnostics and error recovery for Import/Export jobs](storage-import-export-diagnostics-and-error-recovery.md)
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=storage)
 ## [PowerShell](/powershell/module/azure.storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
@@ -195,17 +207,20 @@
 ### [Troubleshooting tutorial](storage-e2e-troubleshooting-classic-portal.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=storage)
 ## [Azure Storage client tools](storage-explorers.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+## [Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=storage)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=storage)
 
 ## Azure Storage Explorer
 ### [Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Manage blobs with Storage Explorer (Preview)](../vs-azure-tools-storage-explorer-blobs.md)
 ### [Using Storage Explorer (Preview) with Azure file storage](../vs-azure-tools-storage-explorer-files.md)
+### [Storage Explorer (Preview) release notes](../vs-azure-tools-storage-explorer-relnotes.md)
 
 ## NuGet packages
 ### [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

@@ -1,4 +1,4 @@
----
+﻿---
 title: Get started with Azure log integration | Microsoft Docs
 description: Learn how to install the Azure log integration service and integrate logs from Azure storage, Azure Audit Logs and Azure Security Center alerts.
 services: security
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 05/16/2017
+ms.date: 07/26/2017
 ms.author: TomSh
+ms.custom: azlog
 
 ---
 # Azure log integration with Azure Diagnostics Logging and Windows Event Forwarding
@@ -37,6 +38,8 @@ The physical or virtual machine running the Azure Log Integration service requir
 At a minimum, the installation of AzLog requires the following items:
 * An **Azure subscription**. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 * A **storage account** that can be used for Windows Azure diagnostic logging (you can use a pre-configured storage account, or create a new one – will we demonstrate how to configure the storage account later in this article)
+  >[!NOTE]
+  Depending on your scenario a storage account may not be required. For the Azure diagnostics scenario covered in this article one is needed.
 * **Two systems**: a machine that will run the Azure Log Integration service, and a machine that will be monitored and have its logging information sent to the Azlog service machine.
    * A machine you want to monitor – this is a VM running as an [Azure Virtual Machine](../virtual-machines/virtual-machines-windows-overview.md)
    * A machine that will run the Azure log integration service; this machine will collect all the log information that will later be imported into your SIEM.
@@ -128,7 +131,7 @@ Perform the following steps to obtain the storage key:
  ![More Services](./media/security-azure-log-integration-get-started/more-services.png)
  3. Enter **Storage** in the **Filter** text box. Click **Storage accounts** (this will appear after you enter **Storage**)
 
-  ![filter box](./media/security-azure-log-integration-get-started/filter.png)
+   ![filter box](./media/security-azure-log-integration-get-started/filter.png)
  4. A list of storage accounts will appear, double click on the account that you assigned to Log storage.
 
    ![list of storage accounts](./media/security-azure-log-integration-get-started/storage-accounts.png)
@@ -176,7 +179,7 @@ To learn more about Azure Log Integration, see the following documents:
 
 * [Microsoft Azure Log Integration for Azure logs](https://www.microsoft.com/download/details.aspx?id=53324) – Download Center for details, system requirements, and install instructions on Azure log integration.
 * [Introduction to Azure log integration](security-azure-log-integration-overview.md) – This document introduces you to Azure log integration, its key capabilities, and how it works.
-* [Partner configuration steps](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – This blog post shows you how to configure Azure log integration to work with partner solutions Splunk, HP ArcSight, and IBM QRadar.
+* [Partner configuration steps](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – This blog post shows you how to configure Azure log integration to work with partner solutions Splunk, HP ArcSight, and IBM QRadar. This is our current guidance on how to configure the SIEM components. Please check with your SIEM vendor first for additional details.
 * [Azure log Integration frequently asked questions (FAQ)](security-azure-log-integration-faq.md) - This FAQ answers questions about Azure log integration.
-* [Integrating Security Center alerts with Azure log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md) – This document shows you how to sync Security Center alerts, along with virtual machine security events collected by Azure Diagnostics and Azure Audit Logs, with your log analytics or SIEM solution.
+* [Integrating Security Center alerts with Azure log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md) – This document shows you how to sync Security Center alerts, along with virtual machine security events collected by Azure Diagnostics and Azure Activity Logs, with your log analytics or SIEM solution.
 * [New features for Azure diagnostics and Azure Audit Logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) – This blog post introduces you to Azure Audit Logs and other features that help you gain insights into the operations of your Azure resources.

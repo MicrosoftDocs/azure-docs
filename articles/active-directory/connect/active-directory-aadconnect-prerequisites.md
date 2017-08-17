@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 07/12/2017
 ms.author: billmath
 
 ---
@@ -58,7 +58,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 ### SQL Server used by Azure AD Connect
 * Azure AD Connect requires a SQL Server database to store identity data. By default a SQL Server 2012 Express LocalDB (a light version of SQL Server Express) is installed. SQL Server Express has a 10GB size limit that enables you to manage approximately 100,000 objects. If you need to manage a higher volume of directory objects, you need to point the installation wizard to a different installation of SQL Server.
 * If you use a separate SQL Server, then these requirements apply:
-  * Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with latest Service Pack) to SQL Server 2016. Microsoft Azure SQL Database is **not supported** as a database.
+  * Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with latest Service Pack) to SQL Server 2016 SP1. Microsoft Azure SQL Database is **not supported** as a database.
   * You must use a case-insensitive SQL collation. These collations are identified with a \_CI_ in their name. It is **not supported** to use a case-sensitive collation, identified by \_CS_ in their name.
   * You can only have one sync engine per SQL instance. It is **not supported** to share a SQL instance with FIM/MIM Sync, DirSync, or Azure AD Sync.
 
@@ -150,8 +150,8 @@ When using Azure AD Connect to deploy Active Directory Federation Services or th
   * On the target machine (WAP machine):
     * Ensure the winrm (Windows Remote Management / WS-Management) service is running via the Services snap-in
     * In an elevated PSH command window, use command `Enable-PSRemoting –force`
-      * On the machine on which the wizard is running (if the target machine is non-domain joined or untrusted domain):
-      * In an elevated PSH command window, use the command `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
+  * On the machine on which the wizard is running (if the target machine is non-domain joined or untrusted domain):
+    * In an elevated PSH command window, use the command `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
     * In Server Manager:
       * add DMZ WAP host to machine pool (server manager -> Manage -> Add Servers...use DNS tab)
       * Server Manager All Servers tab: right click WAP server and choose Manage As..., enter local (not domain) creds for the WAP machine

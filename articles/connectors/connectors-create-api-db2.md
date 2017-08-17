@@ -21,11 +21,6 @@ ms.author: plarsen; ladocs
 # Get started with the DB2 connector
 Microsoft connector for DB2 connects Logic Apps to resources stored in an IBM DB2 database. This connector includes a Microsoft client to communicate with remote DB2 server computers across a TCP/IP network. This includes cloud databases, such as IBM Bluemix dashDB or IBM DB2 for Windows running in Azure virtualization, and on-premises databases using the on-premises data gateway. See the [supported list](connectors-create-api-db2.md#supported-db2-platforms-and-versions) of IBM DB2 platforms and versions (in this topic).
 
-> [!NOTE]
-> This version of the article applies to Logic Apps general availability (GA). 
-> 
-> 
-
 The DB2 connector supports the following database operations:
 
 * List database tables
@@ -278,8 +273,9 @@ This connector supports the following IBM DB2 platforms and versions, as well as
 * IBM DB2 for LUW 11
 * IBM DB2 for LUW 10.5
 
-## View the swagger
-See the [swagger details](/connectors/db2/). 
+## Connector-specific details
+
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/db2/). 
 
 ## Next steps
 [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).

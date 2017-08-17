@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 05/22/2017
 ms.author: cynthn
-
+ms.custom: mvc
 ---
 
 # How to use availability sets
@@ -31,7 +31,10 @@ In this tutorial, you learn how to:
 > * Create a VM in an availability set
 > * Check available VM sizes
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Availability set overview
 
@@ -39,21 +42,21 @@ An Availability Set is a logical grouping capability that you can use in Azure t
 
 Let’s consider a typical VM-based solution where you might have 4 front-end web servers and use 2 back-end VMs that host a database. With Azure, you’d want to define two availability sets before you deploy your VMs: one availability set for the “web” tier and one availability set for the “database” tier. When you create a new VM you can then specify the availability set as a parameter to the az vm create command, and Azure will automatically ensure that the VMs you create within the available set are isolated across multiple physical hardware resources. This means that if the physical hardware that one of your Web Server or Database Server VMs is running on has a problem, you know that the other instances of your Web Server and Database VMs will remain running fine because they are on different hardware.
 
-You should always use Availability Sets when you want to deploy reliable VM based solutions within Azure.
+You should always use Availability Sets when you want to deploy reliable VM-based solutions within Azure.
 
 
 ## Create an availability set
 
-You can create an availability set using [az vm availability-set create](/cli/azure/availability-set#create). In this example, we set both the number of update and fault domains at *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
+You can create an availability set using [az vm availability-set create](/cli/azure/vm/availability-set#create). In this example, we set both the number of update and fault domains at *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
 
 Create a resource group.
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroupAvailability --location eastus
 ```
 
 
-```azurecli
+```azurecli-interactive 
 az vm availability-set create \
     --resource-group myResourceGroupAvailability \
     --name myAvailabilitySet \
@@ -69,7 +72,7 @@ VMs must be created within the availability set to make sure they are correctly 
 
 When you create a VM using [az vm create](/cli/azure/vm#create) you specify the availability set using the `--availability-set` parameter to specify the name of the availability set.
 
-```azurecli
+```azurecli-interactive 
 for i in `seq 1 2`; do
    az vm create \
      --resource-group myResourceGroupAvailability \
@@ -91,7 +94,7 @@ One thing you may encounter as you add VMs is that a particular VM size is no lo
 
 You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware. Use [az vm availability-set list-sizes](/cli/azure/availability-set#list-sizes) to list all the available sizes on the hardware cluster for the availability set.
 
-```azurecli
+```azurecli-interactive 
 az vm availability-set list-sizes \
      --resource-group myResourceGroupAvailability \
      --name myAvailabilitySet \
