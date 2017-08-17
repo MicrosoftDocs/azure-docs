@@ -35,7 +35,7 @@ An on-premises data gateway is required when one or more Azure Analysis Services
 
 **Important considerations:**
 
-* During setup, when registering your gateway with Azure, the default region for your subscription is selected. You can select a different region if you have servers in that region. If you have servers in more than one region, you must install a gateway for each region. 
+* During setup, when registering your gateway with Azure, the default region for your subscription is selected. You can choose a different region. If you have servers in more than one region, you must install a gateway for each region. 
 * The gateway cannot be installed on a domain controller.
 * Only one gateway can be installed on a single computer.
 * Install the gateway on a computer that remains on and does not go to sleep.
@@ -57,18 +57,18 @@ An on-premises data gateway is required when one or more Azure Analysis Services
 
    ![Choose type of gateway](media/analysis-services-gateway-install/aas-gateway-installer-shared.png)
 
-4. Enter an account to sign in to Azure. The account must be in your tenant's Azure Active Directory. This account will be the gateway administrator. 
+4. Enter an account to sign in to Azure. The account must be in your tenant's Azure Active Directory. This account is used for the gateway administrator. 
 
-   ![Enter account to sign in](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+   ![Enter an account to sign in to Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
 ## Register
-In order to create a gateway resource in Azure, you must  register the local instance you just installed with the Gateway Cloud Service. 
+In order to create a gateway resource in Azure, you must register the local instance you installed with the Gateway Cloud Service. 
 
 1.  Select **Register a new gateway on this computer**.
 
     ![Register](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
-2. Type a name and recovery key for your gateway. By default, the gateway will use your subscription's default region. If you need to select a different region, select **Change Region**.
+2. Type a name and recovery key for your gateway. By default, the gateway uses your subscription's default region. If you need to select a different region, select **Change Region**.
 
    ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
@@ -79,7 +79,7 @@ After you've installed and registered your gateway, you need to create a gateway
 1. In Azure portal, click **Create a new service** > **Enterprise Integration** > **On-premises data gateway** > **Create**.
 ![Create a gateway resource](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
-2. On the Create connection gateway blade, enter the following:
+2. In **Create connection gateway**, enter these settings:
 
     * **Name**: Enter a name for your gateway resource. 
 
@@ -101,15 +101,15 @@ After you've installed and registered your gateway, you need to create a gateway
 
 ## Connect servers to the gateway resource
 
-1. In your Azure Analysis Services server blade, click **On-Premises Data Gateway**.
+1. In your Azure Analysis Services server overview, click **On-Premises Data Gateway**.
 
    ![Connect server to gateway](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
 
-2. In the connect blade > **Pick an On-Premises Data Gateway to connect**, select your gateway resource, and then click **Connect selected gateway**.
+2. In **Pick an On-Premises Data Gateway to connect**, select your gateway resource, and then click **Connect selected gateway**.
 
    ![Connect server to gateway resource](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 
-That's it. You should be good to go. If you need to open ports or do any troubleshooting, be sure to check out [On-premises data gateway](analysis-services-gateway.md).
+That's it. If you need to open ports or do any troubleshooting, be sure to check out [On-premises data gateway](analysis-services-gateway.md).
 
 ## Next steps
 * [Manage Analysis Services](analysis-services-manage.md)   

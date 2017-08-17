@@ -22,21 +22,21 @@ ms.author: owend
 The On-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same region with a single gateway. 
 
 
- Azure Analysis Services requires a a gateway resource in the same region. For example, if you have Azure Analysis Services servers in the East US 2 region, you need a gateway resource in the East US 2 region. Multiple servers in East US 2 can use the same gateway.
+ Azure Analysis Services requires a gateway resource in the same region. For example, if you have Azure Analysis Services servers in the East US 2 region, you need a gateway resource in the East US 2 region. Multiple servers in East US 2 can use the same gateway.
 
 Getting setup with the gateway the first time is a four-part process:
 
 - **Download and run setup** - This step installs a gateway service on a computer in your organization.
 
-- **Register your gateway** - In this step, you specify a name and recovery key for your gateway, and select a region. This registers your gateway with the Gateway Cloud Service.
+- **Register your gateway** - In this step, you specify a name and recovery key for your gateway, and select a region, registering your gateway with the Gateway Cloud Service.
 
 - **Create a gateway resource in Azure** - In this step, you create a gateway resource in your Azure subscription.
 
 - **Connect your servers to your gateway resource** - Once you have a gateway resource in your subscription, you can begin connecting your servers to it.
 
-Once you have a gateway resource configured for your subscription, you can connect multiple servers, and other services to it. You will only need to install a different gateway and create additional gateway resources if you have servers or other services in a different region.
+Once you have a gateway resource configured for your subscription, you can connect multiple servers, and other services to it. You only need to install a different gateway and create additional gateway resources if you have servers or other services in a different region.
 
-To get started right away, see [Install and configure on-premises data gateway](analysis-services-gateway-install.md)
+To get started right away, see [Install and configure on-premises data gateway](analysis-services-gateway-install.md).
 
 ## How it works
 The gateway you install on a computer in your organization runs as a Windows service, **On-premises data gateway**. This local service is registered with the Gateway Cloud Service through Azure Service Bus. You then create a gateway resource Gateway Cloud Service for your Azure subscription. Your Azure Analysis Services servers are then connected to your gateway resource. When models on your server need to connect to your on-premises data sources for queries or processing, a query and data flow traverses the gateway resource, Azure Service Bus, the local on-premises data gateway service, and your data sources. 
@@ -60,7 +60,7 @@ If you encounter issues with your proxy server due to authentication, you may wa
 ## Ports
 The gateway creates an outbound connection to Azure Service Bus. It communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 through 9354.  The gateway does not require inbound ports.
 
-It's recommended you whitelist the IP addresses for your data region in your firewall. You can download the [Microsoft Azure Datacenter IP list](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated weekly.
+We recommend you whitelist the IP addresses for your data region in your firewall. You can download the [Microsoft Azure Datacenter IP list](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated weekly.
 
 > [!NOTE]
 > The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. For example, 10.0.0.0/24 does not mean 10.0.0.0 through 10.0.0.24. Learn more about the [CIDR notation](http://whatismyipaddress.com/cidr).
