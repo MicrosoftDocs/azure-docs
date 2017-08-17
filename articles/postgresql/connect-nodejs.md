@@ -205,51 +205,43 @@ Replace the host, dbname, user, and password parameters with the values that you
 ```javascript
 const pg = require('pg');
 
-var config =
-{
-	host: 'mypgserver-20170401.postgres.database.azure.com',
-	user: 'mylogin@mypgserver-20170401',
-	password: '<server_admin_password>',
-	database: 'mypgsqldb',
-	port: 5432,
-	ssl: true
+const config = {
+  host: '<your-db-server-name>.postgres.database.azure.com',
+  // Do not hard code your username and password.
+  // Consider using Node environment variables.
+  user: '<your-db-username>',     
+  password: '<your-password>',
+  database: '<name-of-database>',
+  port: 5432,
+  ssl: true
 };
 
 const client = new pg.Client(config);
 
-client.connect(function (err)
-{
-	if (err)
-		throw err;
-	else
-	{
-		queryDatabase();
-	}	
+client.connect(err => {
+  if (err) {
+    throw err;
+  } else {
+    queryDatabase();
+  }
 });
 
-function queryDatabase()
-{
-	client.query('DELETE FROM inventory WHERE name=\'apple\';', function (err, result)
-	{
-  		console.log("Connection established");
-  		
-  		if (err)
-  			throw err;
-  		else
-  		{
-			client.end(function (err)
-			{
-	      		if (err)
-	      			throw err;
-	      		
-	      		// Else closing connection finished without error
-  				console.log("Closed client connection");
-	    	});
+function queryDatabase() {
+  const query = `
+    DELETE FROM inventory 
+    WHERE name = 'apple';
+  `;
 
-	  		console.log("Finished execution, exiting now");
-	  		process.exit()	    	
-  		}
-  	});	
+  client
+    .query(query)
+    .then(result => {
+      console.log('Delete completed');
+      console.log(`Rows affected: ${result.rowCount}`);
+    })
+    .catch(err => {
+      console.log(err);
+      throw err;
+    });
 }
 ```
 
