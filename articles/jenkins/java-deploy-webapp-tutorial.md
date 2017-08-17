@@ -13,7 +13,7 @@ ms.author: routlaw
 ms.custom: Jenkins
 ---
 
-# Create a Jenkins CI/CD for your web apps to Azure App Service 
+# Set up CI/CD to Azure App Service with Jenkins
 
 This tutorial sets up continuous integration of a sample Java web app developed with the [Spring Boot](http://projects.spring.io/spring-boot/) framework to [Azure App Service Web App on Linux](/azure/app-service-web/app-service-linux-intro) using Jenkins.
 
