@@ -17,46 +17,90 @@ ms.date: 04/21/2017
 ms.author: nitinme
 
 ---
-# Service-to-service authentication with Data Lake Store using Azure Active Directory
+# Service-to-service authentication with Data Lake Store using Python
 > [!div class="op_single_selector"]
-> * [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md)
-> * [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
+> * [Using Java](data-lake-store-service-to-service-authenticate-java.md)
+> * [Using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
+> * [Using Python](data-lake-store-service-to-service-authenticate-python.md)
+> * [Using REST API](data-lake-store-service-to-service-authenticate-rest-api.md)
 > 
-> 
+>  
 
-Azure Data Lake Store uses Azure Active Directory for authentication. Before authoring an application that works with Azure Data Lake Store or Azure Data Lake Analytics, you must first decide how you would like to authenticate your application with Azure Active Directory (Azure AD). The two main options available are:
-
-* End-user authentication 
-* Service-to-service authentication (this article) 
-
-Both these options result in your application being provided with an OAuth 2.0 token, which gets attached to each request made to Azure Data Lake Store or Azure Data Lake Analytics.
-
-This article talks about how create an **Azure AD web application for service-to-service authentication**. For instructions on Azure AD application configuration for end-user authentication see [End-user authentication with Data Lake Store using Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+In this article, you learn about how to use the Python SDK to do service-to-service authentication with Azure Data Lake Store. For end-user authentication with Data Lake Store using Python, see [End-user authentication with Data Lake Store using Python](data-lake-store-end-user-authenticate-python.md).
 
 ## Prerequisites
-* An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-### Service-to-service authentication with client secret for account management
+* **Python**. You can download Python from [here](https://www.python.org/downloads/). This article uses Python 3.5.2.
 
-Use this to authenticate with Azure AD for account management operations (create/delete Data Lake Store account, etc.). The following snippet can be used to authenticate your application non-interactively, using the client secret for an application / service principal. Use this with an existing Azure AD "Web App" application.
+* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+
+* **Create an Azure Active Directory "Web" Application**. You must have completed the steps in [Service-to-service authentication with Data Lake Store using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+
+## Install the modules
+
+To work with Data Lake Store using Python, you need to install three modules.
+
+* The `azure-mgmt-resource` module. This includes Azure modules for Active Directory, etc..
+* The `azure-mgmt-datalake-store` module. This includes the Azure Data Lake Store account management operations. For more information on this module, see [Azure Data Lake Store Management module reference](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
+* The `azure-datalake-store` module. This includes the Azure Data Lake Store filesystem operations. For more information on this module, see [Azure Data Lake Store Filesystem module reference](http://azure-datalake-store.readthedocs.io/en/latest/).
+
+Use the following commands to install the modules.
+
+```
+pip install azure-mgmt-resource
+pip install azure-mgmt-datalake-store
+pip install azure-datalake-store
+```
+
+## Create a new Python application
+
+1. In the IDE of your choice create a new Python application, for example, **mysample.py**.
+
+2. Add the following lines to import the required modules
+
+	```
+	## Use this only for Azure AD service-to-service authentication
+	from azure.common.credentials import ServicePrincipalCredentials
+
+	## Use this only for Azure AD end-user authentication
+	from azure.common.credentials import UserPassCredentials
+
+	## Use this only for Azure AD multi-factor authentication
+	from msrestazure.azure_active_directory import AADTokenCredentials
+
+	## Required for Azure Data Lake Store account management
+	from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+	from azure.mgmt.datalake.store.models import DataLakeStoreAccount
+
+	## Required for Azure Data Lake Store filesystem management
+	from azure.datalake.store import core, lib, multithread
+
+	# Common Azure imports
+	from azure.mgmt.resource.resources import ResourceManagementClient
+	from azure.mgmt.resource.resources.models import ResourceGroup
+
+	## Use these as needed for your application
+	import logging, getpass, pprint, uuid, time
+	```
+
+3. Save changes to mysample.py.
+
+## Service-to-service authentication with client secret for account management
+
+Use this to authenticate with Azure AD for account management operations on Data Lake Store such as create Data Lake Store account, delete Data Lake Store account, etc. The following snippet can be used to authenticate your application non-interactively, using the client secret for an application / service principal. Use this with an existing Azure AD "Web App" application.
 
     credentials = ServicePrincipalCredentials(client_id = 'FILL-IN-HERE', secret = 'FILL-IN-HERE', tenant = 'FILL-IN-HERE')
 
-### Service-to-service authentication with client secret for filesystem operations
+## Service-to-service authentication with client secret for filesystem operations
 
-Use this to authenticate with Azure AD for filesystem operations (create folder, upload file, etc.). The following snippet can be used to authenticate your application non-interactively, using the client secret for an application / service principal. Use this with an existing Azure AD "Web App" application.
+Use this to authenticate with Azure AD for filesystem operations on Data Lake Store such as create folder, upload file, etc. The following snippet can be used to authenticate your application non-interactively, using the client secret for an application / service principal. Use this with an existing Azure AD "Web App" application.
 
     token = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE')  
 
 ## Next steps
-In this article you created an Azure AD web application and gathered the information you need in your client applications that you author using .NET SDK, Java SDK, etc. You can now proceed to the following articles that talk about how to use the Azure AD web application to first authenticate with Data Lake Store and then perform other operations on the store.
+In this article you learned how to use service-to-service authentication to authenticate with Azure Data Lake Store using Python. You can now look at the following articles that talk about how to use Python to work with Azure Data Lake Store.
 
-* [Get started with Azure Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Get started with Azure Data Lake Store using Java SDK](data-lake-store-get-started-java-sdk.md)
-
-This article walked you through the basic steps needed to get a user principal up and running for your application. You can look at the following articles to get further information:
-* [Use PowerShell to create service principal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Use certificate authentication for service principal authentication](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal#create-service-principal-with-certificate)
-* [Other methods to authenticate to Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-authentication-scenarios)
+* [Account management operations on Data Lake Store using Python](data-lake-store-get-started-python.md)
+* [Data operations on Data Lake Store using Python](data-lake-store-data-operations-python.md)
 
 

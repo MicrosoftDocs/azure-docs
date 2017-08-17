@@ -17,21 +17,15 @@ ms.date: 04/21/2017
 ms.author: nitinme
 
 ---
-# End-user authentication with Data Lake Store using Azure Active Directory
+# End-user authentication with Data Lake Store using REST API
 > [!div class="op_single_selector"]
-> * [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md)
-> * [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
+> * [Using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
+> * [Using Python](data-lake-store-end-user-authenticate-python.md)
+> * [Using REST API](data-lake-store-end-user-authenticate-rest-api.md)
 > 
 > 
 
-Azure Data Lake Store uses Azure Active Directory for authentication. Before authoring an application that works with Azure Data Lake Store or Azure Data Lake Analytics, you must first decide how you would like to authenticate your application with Azure Active Directory (Azure AD). The two main options available are:
-
-* End-user authentication (this article)
-* Service-to-service authentication
-
-Both these options result in your application being provided with an OAuth 2.0 token, which gets attached to each request made to Azure Data Lake Store or Azure Data Lake Analytics.
-
-This article talks about how create an **Azure AD native application for end-user authentication**. For instructions on Azure AD application configuration for service-to-service authentication see [Service-to-service authentication with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+In this article, you learn about how to use the REST API to do end-user authentication with Azure Data Lake Store. For service-to-service authentication with Data Lake Store using REST API, see [Service-to-service authentication with Data Lake Store using REST API](data-lake-store-service-to-service-authenticate-rest-api.md).
 
 ## Prerequisites
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).

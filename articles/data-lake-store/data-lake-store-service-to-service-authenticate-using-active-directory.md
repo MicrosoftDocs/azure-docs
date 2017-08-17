@@ -19,10 +19,10 @@ ms.author: nitinme
 ---
 # Service-to-service authentication with Data Lake Store using Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md)
 > * [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
+> * [Service-to-service authentication](data-lake-store-service-to-service-authenticate-using-active-directory.md)
 > 
-> 
+>  
 
 Azure Data Lake Store uses Azure Active Directory for authentication. Before authoring an application that works with Azure Data Lake Store or Azure Data Lake Analytics, you must first decide how you would like to authenticate your application with Azure Active Directory (Azure AD). The two main options available are:
 
@@ -89,14 +89,11 @@ When programmatically logging in, you need the id for your application. If the a
 	![OAuth token endpoint](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "OAuth token endpoint")   
 
 ## Next steps
-In this article you created an Azure AD web application and gathered the information you need in your client applications that you author using .NET SDK, Java SDK, etc. You can now proceed to the following articles that talk about how to use the Azure AD web application to first authenticate with Data Lake Store and then perform other operations on the store.
+In this article you created an Azure AD web application and gathered the information you need in your client applications that you author using .NET SDK, Java, Python, REST API, etc. You can now proceed to the following articles that talk about how to use the Azure AD native application to first authenticate with Data Lake Store and then perform other operations on the store.
 
-* [Get started with Azure Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Get started with Azure Data Lake Store using Java SDK](data-lake-store-get-started-java-sdk.md)
-
-This article walked you through the basic steps needed to get a user principal up and running for your application. You can look at the following articles to get further information:
-* [Use PowerShell to create service principal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Use certificate authentication for service principal authentication](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal#create-service-principal-with-certificate)
-* [Other methods to authenticate to Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-authentication-scenarios)
+* [Service-to-service authentication with Data Lake Store using Java](data-lake-store-service-to-service-authenticate-java.md)
+* [Service-to-service authentication with Data Lake Store using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
+* [Service-to-service authentication with Data Lake Store using Python](data-lake-store-service-to-service-authenticate-python.md)
+* [Service-to-service authentication with Data Lake Store using REST API](data-lake-store-service-to-service-authenticate-rest-api.md)
 
 

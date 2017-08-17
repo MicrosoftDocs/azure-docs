@@ -18,8 +18,8 @@ ms.author: nitinme
 ---
 # End-user authentication with Data Lake Store using Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md)
 > * [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
+> * [Service-to-service authentication](data-lake-store-service-to-service-authenticate-using-active-directory.md)
 > 
 > 
 
@@ -30,7 +30,7 @@ Azure Data Lake Store uses Azure Active Directory for authentication. Before aut
 
 Both these options result in your application being provided with an OAuth 2.0 token, which gets attached to each request made to Azure Data Lake Store or Azure Data Lake Analytics.
 
-This article talks about how create an **Azure AD native application for end-user authentication**. For instructions on Azure AD application configuration for service-to-service authentication see [Service-to-service authentication with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+This article talks about how create an **Azure AD native application for end-user authentication**. For instructions on Azure AD application configuration for service-to-service authentication see [Service-to-service authentication with Data Lake Store using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## Prerequisites
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
@@ -111,9 +111,9 @@ To retrieve the redirect URI, follow the steps below.
 5. Repeat the last two steps to grant permissions for **Windows Azure Service Management API** as well.
    
 ## Next steps
-In this article you created an Azure AD native application and gathered the information you need in your client applications that you author using .NET SDK, Java SDK, REST API, etc. You can now proceed to the following articles that talk about how to use the Azure AD web application to first authenticate with Data Lake Store and then perform other operations on the store.
+In this article you created an Azure AD native application and gathered the information you need in your client applications that you author using .NET SDK, Python, REST API, etc. You can now proceed to the following articles that talk about how to use the Azure AD native application to first authenticate with Data Lake Store and then perform other operations on the store.
 
-* [Get started with Azure Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Get started with Azure Data Lake Store using Java SDK](data-lake-store-get-started-java-sdk.md)
-* [Get started with Azure Data Lake Store using REST API](data-lake-store-get-started-rest-api.md)
+* [End-user authentication with Data Lake Store using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
+* [End-user authentication with Data Lake Store using Python](data-lake-store-end-user-authenticate-python.md)
+* [End-user authentication with Data Lake Store using REST API](data-lake-store-end-user-authenticate-rest-api.md)
 
