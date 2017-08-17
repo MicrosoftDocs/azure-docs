@@ -15,9 +15,9 @@ ms.author: cahann
 # Train and test your app
 
 ## Train to teach your app
-You should continuously work on your application to refine it and improve its language understanding. Whenever you make updates by adding, editing or deleting entities, intents or utterances in your current model, you’ll need to train your app before testing and publishing. When you "train" a model, LUIS generalizes from the examples you have labeled, and builds model to recognize the relevant intents and entities in the future, thus improving its classification accuracy. 
+You should continuously work on your application to refine it and improve its language understanding. If you make updates by adding, editing or deleting entities, intents or utterances in your current model, you need to train your app before testing and publishing. When you train a LUIS app, LUIS generalizes from the examples you have labeled, and learns to recognize the relevant intents and entities in the future, which improves its classification accuracy. 
 
-**To train your current model:**
+### Train your current model
 
 1. Access your app by clicking its name on **My Apps** page. 
 
@@ -32,20 +32,20 @@ You should continuously work on your application to refine it and improve its la
 ## Test your app
 LUIS provides two types of testing; interactive testing and batch testing. You can use any of them by using the corresponding tab on the **Test App** page.
 
-**To access the Test App page:**
+### Access the Test App page
 
 1. Access your app  by clicking its name on **My Apps** page, 
 2. Click **Train & Test** in your application's left panel to access the **Test App** page. 
 
-- If you haven't already trained your current model on recent updates, then your test page will look like this screenshot:
+- If you haven't already trained your current model on recent updates, then your test page looks like this screenshot:
 
     ![Train app before testing](./Images/TestApp-trainfirst.JPG)
-- If your model is trained, your test page will look like this screenshot:
+- If your model is trained, your test page looks like this screenshot:
 
     ![Train & Test App page](./Images/Train_Test-app.JPG)
 
  
-### Interactive Testing
+## Interactive Testing
 Interactive testing enables you to test both the current and published versions of your app and compare their results in one screen. Interactive testing runs by default on the current trained model only. For a published model, interactive testing is disabled and needs your action to enable it, because it is counted in hits and will be deducted from your key balance. 
 
 The **Interactive Testing** tab is divided into two sections (as in the screenshot):
@@ -58,7 +58,7 @@ The **Interactive Testing** tab is divided into two sections (as in the screensh
 
 In an interactive test, you submit individual test utterances and view the returned result for each utterance separately. 
 
-**To perform interactive testing on the current model:**
+### Perform interactive testing on the current model
 
 - On the **Test App** page, **Interactive Testing** tab, type "book me a flight to Boston tomorrow" as your test utterance in the text box and press Enter. You'll get the following result:
 
@@ -66,7 +66,7 @@ In an interactive test, you submit individual test utterances and view the retur
 
  The testing result includes the top scoring intent identified in the utterance, with its certainty score, as well as other intents existing in your model with their certainty scores. The identified entities will also be displayed within the utterance and you can control their view by selecting your preferred view from the **Labels view** list at the top of the test console.
 
-**To perform interactive testing on current and published models:**
+### Perform interactive testing on current and published models
 
 1. On the **Test App** page, **Interactive Testing** tab, click **Enable published model** check box and then click **Yes** in the following confirmation message:
 
@@ -78,7 +78,7 @@ In an interactive test, you submit individual test utterances and view the retur
 2. Type "book me a flight to Boston tomorrow" as your test utterance and press Enter. The result view on the right side will be split horizontally into two parts (as in the following screenshot) to display results of the test utterance in both the current and published models. 
 
     ![Interactive testing of both current & published models](./Images/TestApp-interactive-both.JPG)
-3. To view the test result of your published app in JSON format, click **Raw JSON view**. This will look like the following screenshot.
+3. To view the test result of your published app in JSON format, click **Raw JSON view**. This looks like the following screenshot.
 
     ![Published model test result in JSON format](./Images/TestApp-JSON-result.JPG)
 
@@ -94,14 +94,14 @@ In case of interactive testing on both trained and published models together, an
  >- To clear all the entered test utterances and their results from the test console, click **Reset Console** on the top right corner of the console. 
 
 
-### Batch Testing
+## Batch Testing
 Batch testing enables you to run a comprehensive test on your current trained model to measure its performance in language understanding. In batch testing, you submit a large number of test utterances collectively in a batch file, known as a *dataset*. The dataset file should be written in JSON format and contains a maximum of 1000 utterances. All you need to do is to import this file to your app and run it to perform the test. Your LUIS app will return the result, enabling you to access detailed analysis of all utterances included in the batch.
 
 You can import up to 10 dataset files to a single LUIS app. It is recommended that the utterances included in the dataset should be different from the example utterances you previously added while building your app. 
  
 The following procedures will guide you on how to import a dataset file, run a batch test on your current trained app using the imported dataset, and finally to access the test results in a detailed visualized view.
 
-**To import a dataset file:**
+### Import a dataset file
 
 1. On the **Test App** page, click **Batch Testing**, and then click **Import dataset**. The **Import dataset** dialog box appears.
 
@@ -119,7 +119,7 @@ The following procedures will guide you on how to import a dataset file, run a b
 
 5. To rename, delete or download the imported dataset, you can use these buttons respectively: **Rename Dataset** ![Rename Dataset button](./Images/Rename-Intent-btn.JPG), **Delete Dataset** ![Delete Dataset button](./Images/trashbin-button.JPG) and **Download Dataset JSON** ![Download Dataset button](./Images/BatchTest-downloadDataset.JPG).
 
-**To run a batch test on your trained app:**
+### Run a batch test on your trained app
 
 - Click **Test** next to the dataset you've just imported. Soon, the test result of the dataset will be displayed.
 
@@ -132,7 +132,7 @@ The following procedures will guide you on how to import a dataset file, run a b
     - **Last Test Date** is the date of the latest test run for this dataset. 
     - **Last Test Success** displays the percentage of correct predictions resulting from the test.
 
-**To access test result details in a visualized view:**
+### Access test result details in a visualized view
  
 1. Click the **See results** link that appears as a result of running the test (see the above screenshot). A scatter graph (confusion matrix) is displayed, where the data points represent the utterances in the dataset. Green points indicate correct prediction and red ones indicate incorrect prediction. 
 
@@ -164,3 +164,10 @@ The following procedures will guide you on how to import a dataset file, run a b
     ![Visualized Batch Test Result](./Images/BatchTest-resultgraph3.JPG) 
   
 Thus, a batch test helps you view the performance of each intent and entity in your current trained model on a specific set of utterances. This helps you take appropriate actions, when required, to improve performance, such as adding more example utterances to an intent if your app frequently fails to identify it.
+
+## Next steps
+
+If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can try to improve your LUIS app's performance by labeling more utterances or adding features. 
+
+* [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
+* [Use features to improve your LUIS app's performance](Add-Features.md) 
