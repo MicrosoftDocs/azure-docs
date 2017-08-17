@@ -24,15 +24,15 @@ ms.author: tomsh
 This Azure Service Fabric Security overview article focuses on the following areas:
 
 -	Securing your cluster
--	Understanding monitoring and diagnostics
--	Creating more secure environments by using certificates
--	Using role-based access control (RBAC)
--	Securing clusters by using Windows security
--	Configuring application security in Service Fabric
--	Securing communication for services in Azure Service Fabric 
+-	Understanding monitoring and diagnostics.
+-	Creating more secure environments by using certificates.
+-	Using role-based access control (RBAC).
+-	Securing clusters by using Windows security.
+-	Configuring application security in Service Fabric.
+-	Securing communication for services in Azure Service Fabric. 
 
 ## Secure your cluster
-Azure Service Fabric orchestrates services across a cluster of machines, Clusters must be secured to prevent unauthorized users from connecting to them, especially when it has production workloads running. Although it's possible to create an unsecured cluster, doing so allows anonymous users to connect to it, if it exposes management endpoints to the public Internet.
+Azure Service Fabric orchestrates services across a cluster of machines, Clusters must be secured to prevent unauthorized users from connecting to them, especially when they are running production workloads. Although it's possible to create an unsecured cluster,this could anonymous users to connect to it (if it exposes management endpoints to the public Internet).
 
 This section provides an overview of the security scenarios for clusters that are running either standalone or on Azure. It also describes the various technologies that are used to implement those scenarios. The cluster security scenarios are:
 
@@ -48,7 +48,7 @@ Clusters that are running on Azure or standalone clusters that are running on Wi
 
 Service Fabric uses X.509 server certificates that you specify as a part of the node-type configurations when you create a cluster. For a quick overview of what these certificates are and how you can acquire or create them, see [Working with certificates](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates).
 
-You configure certificate security when you create the cluster, either through the Azure portal, Azure Resource Manager templates,or a standalone JSON template. You can specify a primary certificate and an optional secondary certificate that is used for certificate rollovers. The primary and secondary certificates you specify should be different than the admin client and read-only client certificates you specify for [Client-to-node security](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-security).
+You configure certificate security when you create the cluster, either through the Azure portal, Azure Resource Manager templates, or a standalone JSON template. You can specify a primary certificate and an optional secondary certificate that is used for certificate rollovers. The primary and secondary certificates you specify should be different than the admin client and read-only client certificates you specify for [Client-to-node security](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-security).
 
 ### Client-to-node security
 You configure client-to-node security by using client identities. To establish trust between a client and a cluster, you must configure the cluster to know which client identities it can trust. This can be done in two different ways:
@@ -61,7 +61,7 @@ Service Fabric supports two different access control types for clients that are 
 -	Administrator
 -	User
 
-Access control provides the ability for the cluster administrator to limit access to certain types of cluster operations for different groups of users. This makes the cluster more secure.
+By using access control, cluster administrators can limit access to certain types of cluster operations. This makes the cluster more secure.
 
  Administrators have full access to management capabilities (including read/write capabilities). Users, by default, have only read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services.
 
@@ -85,15 +85,15 @@ A Service Fabric cluster offers several entry points to its management functiona
 
 For Azure clusters, we recommend that you use Azure AD security to authenticate clients and certificates for node-to-node security.
 
-For standalone Windows Server clusters, we recommend that you use Windows security with group managed accounts if you have Windows Server 2012 R2 and Active Directory. Otherwise, use Windows security with Windows accounts.
+For standalone Windows Server clusters with Windows Server 2012 R2 and Active Directory, we recommend that you use Windows security with group managed accounts.  Otherwise, use Windows security with Windows accounts.
 
 ## Understand monitoring and diagnostics in Azure Service Fabric
-[Monitoring and diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview) are critical to developing, testing, and deploying applications and services in any environment. Service Fabric solutions work best when you plan and implement monitoring and diagnostics that help ensure that applications and services are working as expected in a local development environment or in production.
+[Monitoring and diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview) are critical to developing, testing, and deploying applications and services in any environment. Service Fabric solutions work best when you plan and implement monitoring and diagnostics to ensure that applications and services work as expected in a local development environment or in production.
 
 From a security perspective, the main goals of monitoring and diagnostics are:
 
 -	Detect and diagnose hardware and infrastructure issues that might be caused by a security event.
--	Detect software and app issues which could be an indicator of compromise (IoC).
+-	Detect software and app issues that could be an indicator of compromise (IoC).
 -	Understand resource consumption to help prevent inadvertent denial of service.
 
 The overall workflow of monitoring and diagnostics consists of three steps:
@@ -110,7 +110,7 @@ A watchdog is a separate service that can watch health, load across services, an
 Watchdogs are also a good place to host code that performs remedial actions without user interaction (for example, cleaning up log files in storage at certain time intervals). You can find a sample watchdog service implementation at [Azure Service Fabric watchdog sample](https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/).
 
 ## Understand how to secure communication by using certificates
-Certificates help you secure the communication between the various nodes of your standalone Windows cluster. By using X.509 certificates, you can also authenticate clients that are connecting to this cluster. This ensures that only authorized users can access the cluster. We recommend that certificate be enabled on the cluster when you create it.
+Certificates help you secure the communication between the various nodes of your standalone Windows cluster. By using X.509 certificates, you can also authenticate clients that are connecting to this cluster. This ensures that only authorized users can access the cluster. We recommend that you enable a certificate on the cluster when you create it.
 
 ### X.509 certificates and Service Fabric
 X.509 digital certificates are commonly used to authenticate clients and servers and to encrypt and digitally sign messages.
@@ -135,7 +135,7 @@ Access control allows the cluster administrator to limit access to certain clust
 
 Administrators have full access to management capabilities (including read/write capabilities). Users, by default, have only read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services.
 
-You specify the administrator and user client roles at the time of cluster creation by providing separate identities (including certificates) for each. For more information about the default access control settings and how to change the default settings, see [Role based access control for Service Fabric clients](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles).
+You specify the administrator and user client roles at the time of cluster creation by providing separate identities (including certificates) for each. For more information about the default access control settings and how to change the default settings, see [Role-based access control for Service Fabric clients](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles).
 
 ## Secure standalone cluster by using Windows security
 To prevent unauthorized access to a Service Fabric cluster, you must secure the cluster. Security is especially important when the cluster runs production workloads. It describes how to configure node-to-node and client-to-node security by using Windows security in the ClusterConfig.JSON file.
@@ -187,5 +187,5 @@ Security is one of the most important aspects of communication. The Reliable Ser
 -	[Help secure a service when you're using a WCF-based communication stack](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-secure-communication#help-secure-a-service-when-youre-using-a-wcf-based-communication-stack)
 
 ## Next steps
-- For conceptual information about cluster security, see [Create a Service Fabric cluster by using Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) and [Azure portal](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal).
-- Learn more about, see [Service Fabric cluster security](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
+- For conceptual information about cluster security, see [Create a Service Fabric cluster by using Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) and [Azure portal](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
+- Learn more about, see [Service Fabric cluster security](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)
