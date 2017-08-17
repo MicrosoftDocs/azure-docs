@@ -9114,6 +9114,11 @@
             "source_path": "articles/active-directory/active-directory-saas-jiramicrosoft-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/kubernetes/container-service-kubernetes-service-principal.md",
+            "redirect_url": "/articles/container-service/kubernetes/container-service-kubernetes-walkthrough.md",
+            "redirect_document_id": false
         }
     ]
 }
