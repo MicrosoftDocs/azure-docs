@@ -415,7 +415,7 @@ For more information, see the following resources.
 * [Azure Storage Team Blog][Azure Storage Team Blog]
 * [Azure Storage SDK for Node][Azure Storage SDK for Node] repository on GitHub
 * [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/)
-* [Transfer data with the AzCopy command-line utility](../common/storage-use-azcopy.md)
+* [Transfer data with the AzCopy command-line utility](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 
