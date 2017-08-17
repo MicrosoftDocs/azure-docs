@@ -1,6 +1,6 @@
 ---
 title: Triggers in Azure Data Factory | Microsoft Docs
-description: 'Learn what Azure Data Factory is: A cloud data integration service that orchestrates and automates movement and transformation of data.'
+description: 'Learn about how to trigger pipelines in Azure Data Factory.'
 keywords: data integration, cloud data integration, what is azure data factory
 services: data-factory
 documentationcenter: ''

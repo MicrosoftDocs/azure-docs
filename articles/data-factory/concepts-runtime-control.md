@@ -1,6 +1,6 @@
 ---
 title: Pipeline runtime control in Azure Data Factory | Microsoft Docs
-description: 'Learn what Azure Data Factory is: A cloud data integration service that orchestrates and automates movement and transformation of data.'
+description: 'Learn how to control pipeline runtime in Azure Data Factory.'
 keywords: data integration, cloud data integration, what is azure data factory
 services: data-factory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2017
+ms.date: 08/17/2017
 ms.author: shlo
 
 ---
