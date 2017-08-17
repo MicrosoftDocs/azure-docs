@@ -18,6 +18,7 @@ ms.date: 08/14/2017
 ms.author: zivr
 
 ---
+
 # Azure Metadata Service: Scheduled Events (Preview) for Linux VMs
 
 > [!NOTE] 
