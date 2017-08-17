@@ -78,16 +78,10 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
 
     ![Azure portal HDInsight cluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
 
-    **Overview menu:**
-
     * **Dashboard**: Opens the cluster dashboard, which is Ambari Web for Linux-based clusters.
     * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
     * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
     * **Delete**: Deletes the cluster.
-
-
-    **Left menu:**
-
     * **Activity logs**: Show and query activity logs.
     * **Access control (IAM)**: Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
     * **Tags**: Allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.
