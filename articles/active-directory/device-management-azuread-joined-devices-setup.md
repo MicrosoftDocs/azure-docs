@@ -31,9 +31,9 @@ To join a Windows 10 device, the device registration service must be configured 
 
 ## What you should know
 
-When registering a device, you should keep the following in mind:
+When joining a device, you should keep the following in mind:
 
-- Windows registers the device in the organization’s directory in Azure AD
+- Windows joins the device in the organization’s directory in Azure AD
 
 - You might be required to go through multi-factor authentication challenge. This challenge is configurable by your IT administrator.
 
@@ -44,14 +44,14 @@ When registering a device, you should keep the following in mind:
 - If you are a federated user, you will be taken to a Windows sign-in screen to enter your credentials.
 
 
-## Registering a device
+## Joining a device
 
 This section provides you with the steps to join your Windows 10 device to your Azure AD.
 
 ![Connected](./media/device-management-azuread-joined-devices-setup/13.png)
 
 
-**To register your Windows 10 device:**
+**To join your Windows 10 device:**
 
 1. In the **Start** menu, click **Settings**.
 
