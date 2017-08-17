@@ -1,6 +1,6 @@
 ﻿---
 title: 'Azure Active Directory B2C: Add Microsoft Account (MSA) as an identity provider using Custom Policies'
-description: Sample usign Microsoft as identity provider using OpenID Connect (OIDC) protocol
+description: Sample using Microsoft as identity provider using OpenID Connect (OIDC) protocol
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
@@ -17,7 +17,7 @@ ms.date: 08/04/2017
 ms.author: yoelh
 ---
 
-# Azure Active Directory B2C: Add Microsoft accounts as an identity provider using Custom policies
+# Azure Active Directory B2C: Add Microsoft Account (MSA) as an identity provider using custom policies
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -73,23 +73,23 @@ To use Microsoft account as an identity provider in Azure Active Directory (Azur
     ![Microsoft account - Live SDK support](media/active-directory-b2c-custom-setup-ms-account-idp/msa-live-sdk-support.png)
 
 ## Add the Microsoft account application key to Azure AD B2C
-Federation with Microsoft accounts requires a client secret for Microsoft account to trust Azure AD B2C on behalf of the application. You need to store the Contoso B2C application key in your Azure AD B2C tenant:   
+Federation with Microsoft accounts requires a client secret for Microsoft account to trust Azure AD B2C on behalf of the application. You need to store your Microsoft account application secert in Azure AD B2C tenant:   
 
 1.  Go to your Azure AD B2C tenant, and select **B2C Settings** > **Identity Experience Framework**
 2.  Select **Policy Keys** to view the keys available in your tenant.
-3.  Select **+Add**.
+3.  Click **+Add**.
 4.  For **Options**, use **Manual**.
 5.  For **Name**, use `MSASecret`.  
     The prefix `B2C_1A_` might be added automatically.
 6.  In the **Secret** box, enter your Microsoft application secret from https://apps.dev.microsoft.com
 7.  For **Key usage**, use **Signature**.
-8.  Select **Create** and confirm creation.
+8.  Click **Create**
 9.  Confirm that you've created the key `B2C_1A_MSASecret`.
 
 ## Add a claims provider in your extension policy
 If you want users to sign in by using Microsoft Account, you need to define Microsoft Account as a claims provider. In other words, you need to specify an endpoint that Azure AD B2C communicates with. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
-You can define Microsoft Account as a claims provider by adding Microsoft Account to the `<ClaimsProvider>` node in the base file of your policy:
+Define Microsoft Account as a claims provider, by adding `<ClaimsProvider>` node in your extension policy file:
 
 1.  Open the extension policy file (TrustFrameworkExtensions.xml) from your working directory. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
 2.  Find the `<ClaimsProviders>` section
@@ -153,11 +153,11 @@ At this point, the identity provider has been set up, but it’s not available i
 4.  Paste the entire content of `<UserJournesy>` node that you copied as a child of the `<UserJourneys>` element.
 
 ### Display the "button"
-The `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up/sign-in screen. If you add a `<ClaimsProviderSelection>` element for Microsoft Account, a new button shows up when a user lands on the page. To add this element:
+The `<ClaimsProviderSelections>` element defines the list of claims provider selection options and their order.  `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up/sign-in page. If you add a `<ClaimsProviderSelection>` element for Microsoft account, a new button shows up when a user lands on the page. To add this element:
 
 1.  Find the `<UserJourney>` node that includes `Id="SignUpOrSignIn"` in the user journey that you copied.
 2.  Locate the `<OrchestrationStep>` node that includes `Order="1"`
-3.  Add this element:
+3.  Add following XML snippet under `<ClaimsProviderSelections>` node:
 
 ```xml
 <ClaimsProviderSelection TargetClaimsExchangeId="MSAExchange" />
@@ -167,7 +167,7 @@ The `<ClaimsProviderSelection>` element is analogous to an identity provider but
 Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with Microsoft Account to receive a token. Link the button to an action by linking the technical profile for your Microsoft Account claims provider:
 
 1.  Find the `<OrchestrationStep>` that includes `Order="2"` in the `<UserJourney>` node.
-2.  Add this element:
+2.  Add following XML snippet under `<ClaimsExchanges>` node:
 
 ```xml
 <ClaimsExchange Id="MSAExchange" TechnicalProfileReferenceId="MSA-OIDC" />
@@ -204,7 +204,7 @@ You may want to add the Microsoft Account identity provider also to your user `P
 1.  Open the extension file of your policy (for example, TrustFrameworkExtensions.xml).
 2.  Find the `<UserJourney>` node that includes `Id="ProfileEdit"` in the user journey that you copied.
 3.  Locate the `<OrchestrationStep>` node that includes `Order="1"`
-4.  Add this element:
+4.  Add following XML snippet under `<ClaimsProviderSelections>` node:
 
 ```xml
 <ClaimsProviderSelection TargetClaimsExchangeId="MSAExchange" />
@@ -212,7 +212,7 @@ You may want to add the Microsoft Account identity provider also to your user `P
 
 ### Link the button to an action
 1.  Find the `<OrchestrationStep>` that includes `Order="2"` in the `<UserJourney>` node.
-2.  Add th is element:
+2.  Add following XML snippet under `<ClaimsExchanges>` node:
 
 ```xml
 <ClaimsExchange Id="MSAExchange" TechnicalProfileReferenceId="MSA-OIDC" />

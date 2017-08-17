@@ -1,6 +1,6 @@
 ﻿---
-title: 'Azure Active Directory B2C: Add Google+ accounts as an identity provider using Custom policies| Microsoft Docs'
-description: 
+title: 'Azure Active Directory B2C: Add Google+ as an OAuth2 identity provider using Custom policies'
+description: Sample usign Google+ as identity provider using OAuth2 protocol
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
@@ -17,7 +17,7 @@ ms.date: 08/04/2017
 ms.author: yoelh
 ---
 
-# Azure Active Directory B2C: Add Google+ accounts as an identity provider
+# Azure Active Directory B2C: Add Google+ as an OAuth2 identity provider using Custom policies
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -87,24 +87,24 @@ To use Google+ as an identity provider in Azure Active Directory (Azure AD) B2C,
 ![Google+ - Copy the values of client Id and Client secret](media/active-directory-b2c-custom-setup-goog-idp/goog-client-secret.png)
 
 ## Add the Google+ account application key to Azure AD B2C
-Federation with Google+ accounts requires a client secret for Google+ account to trust Azure AD B2C on behalf of the application. You need to store the Contoso B2C application key in your Azure AD B2C tenant:  
+Federation with Google+ accounts requires a client secret for Google+ account to trust Azure AD B2C on behalf of the application. You need to store your Google+ application secret in Azure AD B2C tenant:  
 
 1.  Go to your Azure AD B2C tenant, and select **B2C Settings** > **Identity Experience Framework**
 2.  Select **Policy Keys** to view the keys available in your tenant.
-3.  Select **+Add**.
+3.  Click **+Add**.
 4.  For **Options**, use **Manual**.
 5.  For **Name**, use `GoogleSecret`.  
     The prefix `B2C_1A_` might be added automatically.
 6.  In the **Secret** box, enter your Microsoft application secret from https://apps.dev.microsoft.com
 7.  For **Key usage**, use **Signature**.
-8.  Select **Create** and confirm creation.
+8.  Click **Create**
 9.  Confirm that you've created the key `B2C_1A_GoogleSecret`.
 
 ## Add a claims provider in your extension policy
 
 If you want users to sign in by using Google+ account, you need to define Google+ account as a claims provider. In other words, you need to specify an endpoint that Azure AD B2C communicates with. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
-Define Google+ account as a claims provider by adding Google+ account to the `<ClaimsProvider>` node in the base file of your policy:
+Define Google+ Account as a claims provider, by adding `<ClaimsProvider>` node in your extension policy file:
 
 1.  Open the extension policy file (TrustFrameworkExtensions.xml) from your working directory. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
 2.  Find the `<ClaimsProviders>` section
@@ -126,7 +126,7 @@ Define Google+ account as a claims provider by adding Google+ account to the `<C
         <Item Key="scope">email</Item>
         <Item Key="HttpBinding">POST</Item>
         <Item Key="UsePolicyInRedirectUri">0</Item>
-        <Item Key="client_id">56136686612-a44202vkgnakch6gvp8g0133lu3anh4g.apps.googleusercontent.com</Item>
+        <Item Key="client_id">Your Google+ application ID</Item>
         </Metadata>
         <CryptographicKeys>
         <Key Id="client_secret" StorageReferenceId="B2C_1A_GoogleSecret" />
@@ -152,7 +152,7 @@ Define Google+ account as a claims provider by adding Google+ account to the `<C
             <ErrorResponseFormat>json</ErrorResponseFormat>
             <ResponseMatch>$[?(@@.error == 'invalid_grant')]</ResponseMatch>
             <Action>Reauthenticate</Action>
-            <!--In case of authroziation code used error, we don't want the user to select his account again.-->
+            <!--In case of authorization code used error, we don't want the user to select his account again.-->
             <!--AdditionalRequestParameters Key="prompt">select_account</AdditionalRequestParameters-->
         </ErrorHandler>
         </ErrorHandlers>
@@ -179,11 +179,11 @@ The identity provider has been set up.  However, it is not available in any of t
 4.  Paste the entire content of `<UserJournesy>` node that you copied as a child of the `<UserJourneys>` element.
 
 ### Display the "button"
-The `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up/sign-in screen. If you add a `<ClaimsProviderSelection>` element for Google+ account, a new button shows up when a user lands on the page. To add this element:
+The `<ClaimsProviderSelections>` element defines the list of claims provider selection options and their order.  `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up/sign-in page. If you add a `<ClaimsProviderSelection>` element for Google+ account, a new button shows up when a user lands on the page. To add this element:
 
 1.  Find the `<UserJourney>` node that includes `Id="SignUpOrSignIn"` in the user journey that you copied.
 2.  Locate the `<OrchestrationStep>` node that includes `Order="1"`
-3.  Add this element:
+3.  Add following XML snippet under `<ClaimsProviderSelections>` node:
 
 ```xml
 <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
@@ -193,7 +193,7 @@ The `<ClaimsProviderSelection>` element is analogous to an identity provider but
 Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with Google+ account to receive a token.
 
 1.  Find the `<OrchestrationStep>` that includes `Order="2"` in the `<UserJourney>` node.
-2.  Add this element:
+2.  Add following XML snippet under `<ClaimsExchanges>` node:
 
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
@@ -231,7 +231,7 @@ You may want to add the Google+ account identity provider also to your user `Pro
 1.  Open the extension file of your policy (for example, TrustFrameworkExtensions.xml).
 2.  Find the `<UserJourney>` node that includes `Id="ProfileEdit"` in the user journey that you copied.
 3.  Locate the `<OrchestrationStep>` node that includes `Order="1"`
-4.  Add this element:
+4.  Add following XML snippet under `<ClaimsProviderSelections>` node:
 
 ```xml
 <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
@@ -239,7 +239,7 @@ You may want to add the Google+ account identity provider also to your user `Pro
 
 ### Link the button to an action
 1.  Find the `<OrchestrationStep>` that includes `Order="2"` in the `<UserJourney>` node.
-2.  Add this element:
+2.  Add following XML snippet under `<ClaimsExchanges>` node:
 
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />

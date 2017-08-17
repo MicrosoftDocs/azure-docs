@@ -16,7 +16,7 @@ ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
 ---
-# Azure Active Directory B2C: Creating and using custom attributes in a custom profile edit policy.
+# Azure Active Directory B2C: Creating and using custom attributes in a custom profile edit policy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -268,13 +268,14 @@ The  id token sent back to your application includes the new extension property 
 
 ## Next steps
 
-### Add the new claim to the flows for social account logins by changing the TechnicalProfiles listed. These two TechnicalProfiles are used by social/federated account logins to write and read the user data using the alternativeSecurityId as the locator of the user object.
+Add the new claim to the flows for social account logins by changing the TechnicalProfiles listed. These two TechnicalProfiles are used by social/federated account logins to write and read the user data using the alternativeSecurityId as the locator of the user object.
 ```
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
 ```
-### Using the same extension attributes between built-in and custom policies
+
+Using the same extension attributes between built-in and custom policies.
 When you add extension attributes (aka custom attributes) via the portal experience, those attributes are registered using the **b2c-extensions-app that exists in every b2c tenant.  To use these extension attributes in your custom policy:
 1. Within your b2c tenant in portal.azure.com, navigate to **Azure Active Directory** and select **App registrations**
 2. Find your **b2c-extensions-app** and select it

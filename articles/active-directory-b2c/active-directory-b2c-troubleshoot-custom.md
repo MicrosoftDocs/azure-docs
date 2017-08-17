@@ -110,4 +110,6 @@ You can learn more about the Analytics tool [here](https://docs.microsoft.com/az
 
 
 
+## Next Steps
 
+Explore the data in Application Insights to help you understand how the Identity Experience Framework underlying B2C works to deliver your own identity experiences.
