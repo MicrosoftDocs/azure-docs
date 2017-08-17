@@ -51,7 +51,7 @@ IoT use cases commonly share some patterns in how they ingest, process, and stor
 
 ![Azure Cosmos DB IoT reference architecture](./media/use-cases/iot.png)
 
-Bursts of data can be ingested by Azure Event Hubs as it offers high throughput data ingestion with low latency. Data ingested that needs to be processed for real-time insight can be funneled to Azure Stream Analytics for real-time analytics. Data can be loaded into Azure Cosmos DB for adhoc querying. Once the data is loaded into Azure Cosmos DB, the data is ready to be queried.  The data in Azure Cosmos DB can be used as reference data as part of real-time analytics. In addition, data can further be refined and processed by connecting Azure Cosmos DB data to HDInsight for Pig, Hive or Map/Reduce jobs.  Refined data is then loaded back to Azure Cosmos DB for reporting.   
+Bursts of data can be ingested by Azure Event Hubs as it offers high throughput data ingestion with low latency. Data ingested that needs to be processed for real-time insight can be funneled to Azure Stream Analytics for real-time analytics. Data can be loaded into Azure Cosmos DB for adhoc querying. Once the data is loaded into Azure Cosmos DB, the data is ready to be queried. In addition, new data and changes to existing data can be read on change feed. Change feed is a persistent, append only log that stores changes to Cosmos DB collections in sequential order. The all data or just changes to data in Azure Cosmos DB can be used as reference data as part of real-time analytics. In addition, data can further be refined and processed by connecting Azure Cosmos DB data to HDInsight for Pig, Hive or Map/Reduce jobs.  Refined data is then loaded back to Azure Cosmos DB for reporting.   
 
 For a sample IoT solution using Azure Cosmos DB, EventHubs and Storm, see the [hdinsight-storm-examples repository on GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
@@ -64,7 +64,9 @@ Consider an example of a product catalog for an automotive parts supplier. Every
 
 ![Azure Cosmos DB retail catalog reference architecture](./media/use-cases/product-catalog.png)
 
- In addition, data stored in Azure Cosmos DB can be integrated with HDInsight for big data analytics via Pig, Hive, or Map/Reduce jobs. For details on the Hadoop Connector for Azure Cosmos DB, see [Run a Hadoop job with Cosmos DB and HDInsight](run-hadoop-with-hdinsight.md).
+In addition, data stored in Azure Cosmos DB can be integrated with HDInsight for big data analytics via Pig, Hive, or Map/Reduce jobs. For details on the Hadoop Connector for Azure Cosmos DB, see [Run a Hadoop job with Cosmos DB and HDInsight](run-hadoop-with-hdinsight.md).
+
+For processing specifically based on new changes in Cosmos DB, the built-in change feed surfaces a persistent, ordered log of changes. To find out more see: [Working with change feed](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
 
 ## Gaming
 The database tier is a crucial component of gaming applications. Modern games perform graphical processing on mobile/console clients, but rely on the cloud to deliver customized and personalized content like in-game stats, social media integration, and high-score leaderboards. Games often require single-millisecond latencies for reads and writes to provide an engaging in-game experience. A game database needs to be fast and be able to handle massive spikes in request rates during new game launches and feature updates.
