@@ -71,8 +71,6 @@ If the application is deleted, those Extension properties along with any data co
 
 ## Modifying your custom policy to add the `ApplicationObjectId`
 
-For every TechnicalProfile that reads or writes extension attributes you must add a `<Metadata>` element with the two Items: ApplicationObjectId and ClientId that were obtained in earlier steps.
-
 ```xml
     <ClaimsProviders>
     	<ClaimsProvider>

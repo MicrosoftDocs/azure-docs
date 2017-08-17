@@ -1,4 +1,4 @@
----
+﻿---
 title: Using Analytics - the powerful search tool of Azure Application Insights | Microsoft Docs
 description: 'Using the Analytics, the powerful diagnostic search tool of Application Insights. '
 services: application-insights
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Using Analytics in Application Insights
 [Analytics](app-insights-analytics.md) is the powerful search feature of 
 [Application Insights](app-insights-overview.md). These pages describe the
- Analytics query language.
+ Log Analytics query language.
 
 * **[Watch the introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
@@ -37,7 +37,7 @@ There's a [more extensive tour here](app-insights-analytics-tour.md).
 ### Write a query
 ![Schema display](./media/app-insights-analytics-using/150.png)
 
-Begin with the names of any of the tables listed on the left (or the [range](app-insights-analytics-reference.md#range-operator) or [union](app-insights-analytics-reference.md#union-operator) operators). Use `|` to create a pipeline of [operators](app-insights-analytics-reference.md#queries-and-operators). 
+Begin with the names of any of the tables listed on the left (or the [range](https://docs.loganalytics.io/queryLanguage/query_language_rangeoperator.html) or [union](https://docs.loganalytics.io/queryLanguage/query_language_unionoperator.html) operators). Use `|` to create a pipeline of [operators](https://docs.loganalytics.io/learn/cheatsheets/useful_operators.html). 
 
 IntelliSense prompts you with the operators and the expression elements that you can use. Click the information icon (or press CTRL+Space) to get a longer description and examples of how to use each element.
 
@@ -48,7 +48,7 @@ See the [Analytics language tour](app-insights-analytics-tour.md) and [language 
 
 1. You can use single line breaks in a query.
 2. Put the cursor inside or at the end of the query you want to run.
-3. Check the time range of your query. (You can change it, or override it by including your own [`where...timestamp...`](app-insights-analytics-tour.md#time-range) clause in your query.)
+3. Check the time range of your query. (You can change it, or override it by including your own [`where...timestamp...`](https://docs.loganalytics.io/concepts/concepts_datatypes_timespan.html) clause in your query.)
 3. Click Go to run the query.
 4. Don't put blank lines in your query. You can keep several separated queries in one query tab by separating them with blank lines. Only the query that has the cursor runs.
 
@@ -70,7 +70,7 @@ You can sort, filter, paginate, and group the results returned from your query.
 > [!NOTE]
 > Sorting, grouping, and filtering in the browser don't re-run your query. They only rearrange the results that were returned by your last query. 
 > 
-> To perform these tasks in the server before the results are returned, write your query with the [sort](app-insights-analytics-reference.md#sort-operator), [summarize](app-insights-analytics-reference.md#summarize-operator) and [where](app-insights-analytics-reference.md#where-operator) operators.
+> To perform these tasks in the server before the results are returned, write your query with the [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html), [summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) and [where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) operators.
 > 
 > 
 
@@ -98,7 +98,7 @@ If you think you're not seeing all the results you expected, there are a couple 
 
     However, you can change the time range filter by using the drop-down menu.
 
-    Or you can override the automatic range by including your own [`where  ... timestamp ...` clause](app-insights-analytics-reference.md#where-operator) into your query. For example:
+    Or you can override the automatic range by including your own [`where  ... timestamp ...` clause](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) into your query. For example:
 
     `requests | where timestamp > ago('2d')`
 
@@ -106,10 +106,10 @@ If you think you're not seeing all the results you expected, there are a couple 
 
     It's good practice to avoid hitting the limit. Use the time range filter, or use operators such as:
 
-  * [top 100 by timestamp](app-insights-analytics-reference.md#top-operator) 
-  * [take 100](app-insights-analytics-reference.md#take-operator)
-  * [summarize ](app-insights-analytics-reference.md#summarize-operator) 
-  * [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
+  * [top 100 by timestamp](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) 
+  * [take 100](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html)
+  * [summarize ](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) 
+  * [where timestamp > ago(3d)](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html)
 
 (Want more than 10k rows? Consider using [Continuous Export](app-insights-export-telemetry.md) instead. Analytics is designed for analysis, rather than retrieving raw data.)
 
@@ -120,7 +120,7 @@ Select the type of diagram you'd like:
 
 If you have several columns of the right types, you can choose the x and y axes, and a column of dimensions to split the results by.
 
-By default, results are initially displayed as a table, and you select the diagram manually. But you can use the [render directive](app-insights-analytics-reference.md#render-directive) at the end of a query to select a diagram.
+By default, results are initially displayed as a table, and you select the diagram manually. But you can use the [render directive](https://docs.loganalytics.io/queryLanguage/query_language_renderoperator.html) at the end of a query to select a diagram.
 
 ### Analytics diagnostics
 

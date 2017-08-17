@@ -60,4 +60,5 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Contact us](active-directory-ds-contact-us.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=active-directory-ds)

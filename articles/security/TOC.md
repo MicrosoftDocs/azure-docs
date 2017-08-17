@@ -3,11 +3,13 @@
 ## [Database security](azure-database-security-overview.md)
 ## [Storage security](security-storage-overview.md)
 ## [Compute security](security-virtual-machines-overview.md)
+## [Operational security](azure-operational-security-overview.md)
 ## [Security management and monitoring](security-management-and-monitoring-overview.md)
+## [Service Fabric security](azure-service-fabric-security-overview.md)
 ## [Identity management](security-identity-management-overview.md)
 ## [IoT security](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Security architecture](azure-security-architecture-overview.md)
-### [Operational security](azure-operational-security.md)
+### [Enabling operational security](azure-operational-security.md)
 ### [Advanced threat detection](azure-threat-detection.md)
 ### [Logging and auditing](azure-log-audit.md)
 ### [Isolation in the public cloud](azure-isolation.md)
@@ -35,7 +37,12 @@
 ### [Best practices for IaaS workloads ](azure-security-iaas.md)
 ### [Microsoft Antimalware](azure-security-antimalware.md)
 ### [Disk encryption for IaaS VMs](azure-security-disk-encryption.md)
+#### [Disk encryption FAQ](azure-security-disk-encryption-faq.md)
+#### [Disk encryption troubleshooting](azure-security-disk-encryption-tsg.md)
 ### [Encrypt an Azure VM](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
+
+## Operational security
+### [Best practices for operational security](azure-operational-security-best-practices.md)
 
 ## Security management and monitoring
 ### [Security management](azure-security-management.md)
@@ -47,14 +54,20 @@
 #### [Integrate logs from Key Vault using Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [FAQ](security-azure-log-integration-faq.md)
 
+## Service Fabric
+### [Service Fabric best practices](azure-service-fabric-security-best-practices.md)
+### [Service Fabric checklist](azure-service-fabric-security-checklist.md)
+
 ## Identity management
 ### [Identity management security best practices](azure-security-identity-management-best-practices.md)
 
 ## PaaS services
 ### [Securing PaaS deployments](security-paas-deployments.md)
 #### [Securing PaaS web and mobile applications using SQL](security-paas-applications-using-sql.md)
-#### [SQL Database best practices](azure-database-security-best-practices.md)
+#### [SQL Database security best practices](azure-database-security-best-practices.md)
+#### [SQL Database security checklist](azure-database-security-checklist.md)
 #### [Securing PaaS web and mobile applications using App Services](security-paas-applications-using-app-services.md)
+####[Operational security checklist](azure-operational-security-checklist.md)
 
 ## Internet of Things
 ### [Secure your IoT deployment](../iot-suite/iot-suite-security-deployment.md)
@@ -79,6 +92,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Azure security MVP program](azure-security-mvp.md)
 ## [Cybersecurity consulting](azure-security-cyber-services.md)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Security and Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
 ## [Security courses from Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Security videos on Channel 9](security-channel-nine.md)
