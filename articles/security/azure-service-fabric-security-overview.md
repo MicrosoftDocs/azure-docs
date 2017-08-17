@@ -23,7 +23,7 @@ ms.author: tomsh
 
 This Azure Service Fabric Security overview article focuses on the following areas:
 
--	Securing your cluster
+-	Securing your cluster.
 -	Understanding monitoring and diagnostics.
 -	Creating more secure environments by using certificates.
 -	Using role-based access control (RBAC).
@@ -32,7 +32,7 @@ This Azure Service Fabric Security overview article focuses on the following are
 -	Securing communication for services in Azure Service Fabric. 
 
 ## Secure your cluster
-Azure Service Fabric orchestrates services across a cluster of machines, Clusters must be secured to prevent unauthorized users from connecting to them, especially when they are running production workloads. Although it's possible to create an unsecured cluster,this could anonymous users to connect to it (if it exposes management endpoints to the public Internet).
+Azure Service Fabric orchestrates services across a cluster of machines, Clusters must be secured to prevent unauthorized users from connecting to them, especially when they are running production workloads. Although it's possible to create an unsecured cluster,this could allow anonymous users to connect to it (if it exposes management endpoints to the public Internet).
 
 This section provides an overview of the security scenarios for clusters that are running either standalone or on Azure. It also describes the various technologies that are used to implement those scenarios. The cluster security scenarios are:
 
@@ -46,9 +46,9 @@ Clusters that are running on Azure or standalone clusters that are running on Wi
 
 **Understand node-to-node certificate security**
 
-Service Fabric uses X.509 server certificates that you specify as a part of the node-type configurations when you create a cluster. For a quick overview of what these certificates are and how you can acquire or create them, see [Working with certificates](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates).
+Service Fabric uses X.509 server certificates that you specify when you create a cluster. For a quick overview of what these certificates are and how you can acquire or create them, see [Working with certificates](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates).
 
-You configure certificate security when you create the cluster, either through the Azure portal, Azure Resource Manager templates, or a standalone JSON template. You can specify a primary certificate and an optional secondary certificate that is used for certificate rollovers. The primary and secondary certificates you specify should be different than the admin client and read-only client certificates you specify for [Client-to-node security](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-security).
+You configure certificate security when you create the cluster, either through the Azure portal, Azure Resource Manager templates, or a standalone JSON template. You can specify a primary certificate and an optional secondary certificate that is used for certificate rollovers. The primary and secondary certificates you specify should be different than the admin client and read-only client certificates that you specify for [Client-to-node security](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-security).
 
 ### Client-to-node security
 You configure client-to-node security by using client identities. To establish trust between a client and a cluster, you must configure the cluster to know which client identities it can trust. This can be done in two different ways:
@@ -77,18 +77,18 @@ To learn how to configure certificate security in a cluster, see [Set up a clust
 
 **Understand client-to-node Azure Active Directory security on Azure**
 
-Clusters that are running on Azure can also secure access to the management endpoints by using Azure Active Directory (Azure AD). For information about how to create the necessary Azure Active Directory artifacts, how to populate them during cluster creation, and how to connect to those clusters afterwards, see [Set up a cluster by using an Azure Resource Manager template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm).
+Clusters that are running on Azure can also secure access to the management endpoints by using Azure Active Directory (Azure AD). For information about how to create the necessary Azure Active Directory artifacts, how to populate them during cluster creation, and how to connect to those clusters, see [Set up a cluster by using an Azure Resource Manager template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm).
 
 Azure AD enables organizations (known as tenants) to manage user access to applications. There are applications with a web-based sign-in UI, and applications with a native client experience.
 
-A Service Fabric cluster offers several entry points to its management functionality, including the web-based Service Fabric Explorer and Visual Studio. As a result, you create two Azure AD applications to control access to the cluster, one web application, and one native application.
+A Service Fabric cluster offers several entry points to its management functionality, including the web-based Service Fabric Explorer and Visual Studio. As a result, you create two Azure AD applications to control access to the cluster: one web application, and one native application.
 
 For Azure clusters, we recommend that you use Azure AD security to authenticate clients and certificates for node-to-node security.
 
 For standalone Windows Server clusters with Windows Server 2012 R2 and Active Directory, we recommend that you use Windows security with group managed accounts.  Otherwise, use Windows security with Windows accounts.
 
 ## Understand monitoring and diagnostics in Azure Service Fabric
-[Monitoring and diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview) are critical to developing, testing, and deploying applications and services in any environment. Service Fabric solutions work best when you plan and implement monitoring and diagnostics to ensure that applications and services work as expected in a local development environment or in production.
+[Monitoring and diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview) are critical to developing, testing, and deploying applications and services in any environment. Service Fabric solutions work best when you implement monitoring and diagnostics to ensure that applications and services work as expected in a local development environment or in production.
 
 From a security perspective, the main goals of monitoring and diagnostics are:
 
@@ -101,7 +101,8 @@ The overall workflow of monitoring and diagnostics consists of three steps:
 -	**Event generation:** Event generation includes events (logs, traces, custom events) at both the infrastructure (cluster) and application/service level. Read more about [infrastructure-level events](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-infra) and [application-level events](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) to understand what is provided and how to add further instrumentation.
 
 -	**Event aggregation:** Generated events need to be collected and aggregated before they can be displayed. We typically recommend using [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (similar to agent-based log collection) or [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (in-process log collection).
--	**Analysis:** Events need to be visualized and accessible in some format, to allow for analysis and display as needed. There are several great platforms that exist in the market for the analysis and visualization of monitoring and diagnostics data. The two that we recommend are [OMS](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) and [Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) due to their good integration with Service Fabric.
+
+-	**Analysis:** Events need to be visualized and accessible in some format, to allow for analysis and display. There are several platforms for the analysis and visualization of monitoring and diagnostics data. The two that we recommend are [OMS](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) and [Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) due to their good integration with Service Fabric.
 
 You can also use [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) to monitor many of the Azure resources on which a Service Fabric cluster is built.
 
@@ -113,14 +114,14 @@ Watchdogs are also a good place to host code that performs remedial actions with
 Certificates help you secure the communication between the various nodes of your standalone Windows cluster. By using X.509 certificates, you can also authenticate clients that are connecting to this cluster. This ensures that only authorized users can access the cluster. We recommend that you enable a certificate on the cluster when you create it.
 
 ### X.509 certificates and Service Fabric
-X.509 digital certificates are commonly used to authenticate clients and servers and to encrypt and digitally sign messages.
+X.509 digital certificates are commonly used to authenticate clients and servers. They are also used to encrypt and digitally sign messages.
 
 The following table lists the certificates that you need on your cluster setup:
 
 |Certificate information setting |Description|
 |-------------------------------|-----------|
-|ClusterCertificate|	This certificate is required to secure the communication between the nodes on a cluster. You can use two different certificates--a primary certificate, and a secondary for upgrade.|
-|ServerCertificate|	This certificate is presented to the client when it tries to connect to this cluster. You can use two different server certificates--a primary certificate, and a secondary for upgrade.|
+|ClusterCertificate|	This certificate is required to secure the communication between the nodes on a cluster. You can use two different certificates: a primary certificate, and a secondary for upgrade.|
+|ServerCertificate|	This certificate is presented to the client when it tries to connect to this cluster. You can use two different server certificates: a primary certificate, and a secondary for upgrade.|
 |ClientCertificateThumbprints|	This is a set of certificates to install on the authenticated clients.|
 |ClientCertificateCommonNames|	This is the common name of the first client certificate for the CertificateCommonName. The CertificateIssuerThumbprint is the thumbprint for the issuer of this certificate.|
 |ReverseProxyCertificate|	This is an optional certificate that can be specified to secure your [Reverse Proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy).|
@@ -128,7 +129,7 @@ The following table lists the certificates that you need on your cluster setup:
 For more information about securing certificates, see [Secure a standalone cluster on Windows using X.509 certificates](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security).
 
 ## Understand role-based access control (RBAC)
-Access control allows the cluster administrator to limit access to certain cluster operations for different groups of users, making the cluster more secure. Two different access control types are supported for clients that are connecting to a cluster: 
+Access control allows the cluster administrator to limit access to certain cluster operations for different groups of users, thus making the cluster more secure. Two different access control types are supported for clients that are connecting to a cluster: 
 
 - Administrator role
 - User role
@@ -142,15 +143,15 @@ To prevent unauthorized access to a Service Fabric cluster, you must secure the 
 
 **Configure Windows security by using gMSA**
 
-You configure node-to-node security by setting [ClustergMSAIdentity](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security) when Service Fabric needs to run under gMSA. To build trust relationships between nodes, they must be made aware of each other.
+when Service Fabric needs to run under gMSA, you configure node-to-node security by setting [ClustergMSAIdentity](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security). To build trust relationships between nodes, they must be made aware of each other.
 
-You configure client-to-node security by using ClientIdentities. To establish trust between a client and the cluster, you must configure the cluster to know which client identities  it can trust.
+You configure client-to-node security by using ClientIdentities. To establish trust between a client and the cluster, you must configure the cluster to recognize which client identities it can trust.
 
 **Configure Windows security by using a machine group**
 
 If you want to use a machine group within an Active Directory domain, you configure node-to-node security by setting ClusterIdentity  For more information, see [Create a machine group in Active Directory](https://msdn.microsoft.com/library/aa545347).
 
-You configure client-to-node security by using ClientIdentities. To establish trust between a client and the cluster, you must configure the cluster to know the client identities that the cluster can trust. You can establish trust in two different ways:
+You configure client-to-node security by using ClientIdentities. To establish trust between a client and the cluster, you must configure the cluster to recognize the client identities that the cluster can trust. You can establish trust in two different ways:
 
 -	Specify the domain group users that can connect.
 -	Specify the domain node users that can connect.
@@ -162,7 +163,7 @@ This method helps manage secrets in a Service Fabric application. Secrets can be
 This approach uses [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) to manage keys and secrets. However, using secrets in an application is cloud platform-agnostic. This means that applications can be deployed to a cluster that's hosted anywhere. There are four main steps in this flow:
 
 -	Obtain a data encipherment certificate.
--	Install the certificate in your cluster.
+-	Install the certificate on your cluster.
 -	Encrypt secret values when deploying an application with the certificate and inject them into a service's Settings.xml configuration file.
 -	Read encrypted values out of Settings.xml by decrypting them with the same encipherment certificate.
 
@@ -187,5 +188,6 @@ Security is one of the most important aspects of communication. The Reliable Ser
 -	[Help secure a service when you're using a WCF-based communication stack](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-secure-communication#help-secure-a-service-when-youre-using-a-wcf-based-communication-stack)
 
 ## Next steps
-- For conceptual information about cluster security, see [Create a Service Fabric cluster by using Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) and [Azure portal](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
-- Learn more about, see [Service Fabric cluster security](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)
+- For conceptual information about cluster security, see [Create a Service Fabric cluster by using Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) and [Azure portal](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal).
+
+- To learn more about cluster security in Service Fabric, see [Service Fabric cluster security](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
