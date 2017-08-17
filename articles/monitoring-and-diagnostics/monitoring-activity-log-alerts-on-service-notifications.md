@@ -78,7 +78,7 @@ Within a few minutes, the alert is active and begins to trigger based on the con
 For information on the webhook schema for activity log alerts, see [Webhooks for Azure activity log alerts](monitoring-activity-log-alerts-webhook.md).
 
 >[!NOTE]
->The action group defined in these steps is reusable as an existing action group, for all future alert definitions.
+>The action group defined in these steps is reusable as an existing action group for all future alert definitions.
 >
 >
 

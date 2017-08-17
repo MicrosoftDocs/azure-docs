@@ -75,10 +75,10 @@ To learn more about service health notifications, see [Receive activity log aler
 
 7. Optionally, select an **Event category** to modify the additional filters that are shown. For Administrative events, the filters include **Resource group**, **Resource**, **Resource type**, **Operation name**, **Level**, **Status**, and **Event initiated by**. These values identify which events this alert should monitor.
 
->[!NOTE]
->You must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
->
->
+    >[!NOTE]
+    >You must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
+    >
+    >
 
 8. Enter a name in the **Action group name** box, and enter a name in the **Short name** box. The short name is used in place of a full action group name when notifications are sent using this group.
 
@@ -97,7 +97,7 @@ The alert takes a few minutes to fully propagate and then become active. It trig
 For more information, see [Understand the webhook schema used in activity log alerts](monitoring-activity-log-alerts-webhook.md).
 
 >[!NOTE]
->The action group defined in these steps is reusable as an existing action group, for all future alert definitions.
+>The action group defined in these steps is reusable as an existing action group for all future alert definitions.
 >
 >
 
