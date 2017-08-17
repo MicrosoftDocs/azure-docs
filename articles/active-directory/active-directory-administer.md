@@ -8,11 +8,11 @@ manager: femila
 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
-ms.workload: infrastructure-services
+ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/18/2017
+ms.date: 08/17/2017
 ms.author: curtand
 
 ms.reviewer: jeffsta
@@ -64,8 +64,8 @@ If you don’t yet have a subscription to a Microsoft cloud service, use one of 
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0%20)
 
-### Manage an Azure-provisioned Default directory
-Today, a directory is automatically created when you sign up for Azure and your subscription is associated with that directory. But if you originally signed up for Azure before October 2013, a directory was not automatically created. In that case, Azure may have “backfilled” for your account by provisioning a Default directory for it. Your subscription was then associated with that Default directory.
+### Manage the default directory
+When you sign up for Azure, a directory is automatically created and your subscription is associated with that directory. But if you originally signed up for Azure before October 2013, a directory was not automatically created. In that case, Azure may have “backfilled” for your account by provisioning a Default directory for it. Your subscription was then associated with that Default directory.
 
 Backfilling of directories was done in October 2013 as part of an overall improvement to the security model for Azure. It helps offer organizational identity features to all Azure customers and ensures that all Azure resources are accessed in the context of a user in directory. You cannot use Azure without a directory. To achieve that, any user who was signed up prior to July 7, 2013 but did not have a directory had to have one created. If you had already created a directory, then your subscription was associated with that directory.
 
@@ -74,7 +74,7 @@ There are no costs for using Azure AD. The directory is a free resource. There i
 To change the display name of your directory, click the directory in the portal and click **Configure**. As explained later in this topic, you can add a new directory or delete a directory that you no longer need. To associate your subscription with a different directory, click the **Settings** extension in the left navigation, and at the bottom of the **Subscriptions** page, click **Edit Directory**. You can also create a custom domain using a DNS name that you have registered instead of the default *.onmicrosoft.com domain, which may be preferable with a service such as SharePoint Online.
 
 ## How can I manage directory data
-As an administrator of one or more Microsoft cloud service subscriptions, you can either use the [Azure AD admin center](https://aad.portal.azure.com), the Microsoft Intune account portal, or the Office 365 Admin Center to manage your organizations directory data. You can also download and run [Microsoft Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) cmdlets to help you manage data stored in Azure AD.
+To administer one or more Microsoft cloud service subscriptions, you can either use the [Azure AD admin center](https://aad.portal.azure.com), the Microsoft Intune account portal, or the [Office 365 Admin Center](https://portal.office.com/) to manage your organization's directory data. You can also download and run [Microsoft Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) cmdlets to help you manage data stored in Azure AD.
 
 From either of these portals (or cmdlets), you can:
 
@@ -125,14 +125,13 @@ The following conditions are checked:
 
 * The only user in the directory is the global administrator who will delete the directory. Any other users must be deleted before the directory can be deleted. If users are synchronized from on-premises, then sync will need to be turned off, and the users must be deleted in the cloud directory by using the Management Portal or the Azure module for Windows PowerShell. There is no requirement to delete groups or contacts, such as contacts added from the Office 365 Admin Center.
 * There can be no applications in the directory. Any applications must be deleted before the directory can be deleted.
-* There can be no subscriptions for any Microsoft Online Services such as Microsoft Azure, Office 365, or Azure AD Premium associated with the directory. For example, if a default directory was created for you in Azure, you cannot delete this directory if your Azure subscription still relies on this directory for authentication. Similarly, you cannot delete a directory if another user has associated a subscription with it. To associate your subscription with a different directory, sign in to the Azure Management Portal and click **Settings** in the left navigation. Then on the bottom of the **Subscriptions** page, click **Edit Directory**. For more information about Azure subscriptions, see [How Azure subscriptions are associated with Azure AD](active-directory-how-subscriptions-associated-directory.md).
+* No multi-factor authentication providers can be linked to the directory.
+* There can be no subscriptions for any Microsoft Online Services such as Microsoft Azure, Office 365, or Azure AD Premium associated with the directory. For example, if a default directory was created for you in Azure, you cannot delete this directory if your Azure subscription still relies on this directory for authentication. Similarly, you cannot delete a directory if another user has associated a subscription with it. 
 
-> [!NOTE]
-> If the user is signed in with a work or school account, the user must not be attempting to delete his or her home directory. For example, if the user is signed in as joe@contoso.onmicrosoft.com, that user cannot delete the directory that has contoso.onmicrosoft.com as its default domain.
-> 
-> 
+### To associate your subscription with a different directory
+1. Sign in to [the Azure portal](https://portal.azure.com) and select **Subscriptions**.
+2. Select a directory. However, if you are signed in with a work or school account, you can't delete your home directory (where you're "homed"). For example, if you are signed in as joe@contoso.onmicrosoft.com, you can't delete the directory that has contoso.onmicrosoft.com as its default domain.
 
-* No Multi-Factor Authentication providers can be linked to the directory.
 
 ## Additional Resources
 * [Azure AD Forum](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
