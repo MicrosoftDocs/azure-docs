@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/15/2017
 ms.author: byvinyal
 
 ---
@@ -48,6 +48,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Application Gateway](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [Automation](#automation-limits)
+* [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Azure RemoteApp](#azure-remoteapp-limits)
 * [Backup](#backup-limits)
@@ -239,6 +240,9 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### Active Directory limits
 [!INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
+
+### Azure Event Grid limits
+[!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
 
 ### Azure RemoteApp limits
 [!INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]

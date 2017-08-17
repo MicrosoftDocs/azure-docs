@@ -1,5 +1,35 @@
 {
     "redirections": [
+       {
+            "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
+            "redirect_document_id": false
+        },
+       {
+            "source_path": "articles/virtual-machines/linux/maintenance-in-place.md",
+            "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
+            "redirect_document_id": false
+        },
+		       {
+            "source_path": "articles/virtual-machines/windows/impactful-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/windows/planned-maintenance",
+            "redirect_document_id": false
+        },
+       {
+            "source_path": "articles/virtual-machines/windows/preserving-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/windows/planned-maintenance",
+            "redirect_document_id": false
+        },		
+        {
+            "source_path": "articles/virtual-machines/virtual-machines-scheduled-events.md",
+            "redirect_url": "/azure/virtual-machines/windows/scheduled-events",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/virtual-machines/virtual-machines-instancemetadataservice-overview.md",
+            "redirect_url": "/azure/virtual-machines/windows/instance-metadata-service",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/architecture-overview.md",
             "redirect_url": "/azure/architecture",
@@ -2463,6 +2493,11 @@
         {
             "source_path": "articles/hdinsight/hdinsight-storm-iot-eventhub-documentdb.md",
             "redirect_url": "https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hdinsight-debug-jobs.md",
+            "redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
             "redirect_document_id": false
         },
         {
@@ -8241,6 +8276,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cloud-services/cloud-services-faq.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-application-and-service-availability-faq",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cloud-services/cloud-services-continuous-delivery-use-vso.md",
             "redirect_url": "/azure/cloud-services/cloud-services-dotnet-continuous-delivery",
             "redirect_document_id": false
@@ -8358,6 +8398,11 @@
         {
             "source_path": "articles/service-fabric/service-fabric-deploy-container.md",
             "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-deploy-container-linux.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers-linux",
             "redirect_document_id": false
         },
         {
@@ -9052,23 +9097,53 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-add-domain-federated.md",
-            "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
+            "redirect_url": "/azure/active-directory/add-custom-domain",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-add-domain.md",
-            "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
+            "redirect_url": "/azure/active-directory/add-custom-domain",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-domains-add-azure-portal.md",
-            "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
+            "redirect_url": "/azure/active-directory/add-custom-domain",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-add-domain-add-users.md",
-            "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
+            "redirect_url": "/azure/active-directory/add-custom-domain",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-branding-localize-azure-portal.md",
+            "redirect_url": "/azure/active-directory/customize-branding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-add-company-branding.md",
+            "redirect_url": "/azure/active-directory/customize-branding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-branding-custom-signon-azure-portal.md",
+            "redirect_url": "/azure/active-directory/customize-branding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-confluencemicrosoft-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-jiramicrosoft-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-conditional-access-automatic-device-registration-setup.md",
+            "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
+            "redirect_document_id": false
+        }    
     ]
 }
