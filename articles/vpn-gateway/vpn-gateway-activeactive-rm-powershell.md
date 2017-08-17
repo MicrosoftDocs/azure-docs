@@ -37,7 +37,7 @@ You can combine these together to build a more complex, highly available network
 > [!IMPORTANT]
 > Please note that the active-active mode uses only the following SKUs: 
   * VpnGw1, VpnGw2, VpnGw3
-  * HighPerformance (for legacy SKUs)
+  * HighPerformance (for old legacy SKUs)
 > 
 > 
 
@@ -370,7 +370,7 @@ The last section will describe how you can configure an existing Azure VPN gatew
 > [!IMPORTANT]
 > Please note that the active-active mode uses only the following SKUs: 
   * VpnGw1, VpnGw2, VpnGw3
-  * HighPerformance (for legacy SKUs)
+  * HighPerformance (for old legacy SKUs)
 > 
 > 
 
