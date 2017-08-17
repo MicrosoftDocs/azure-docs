@@ -164,8 +164,8 @@ $sqlfqdn = ($sqlserver + '.database.windows.net')
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName $resourceGroup `
     -VMName $vmName `
     -Location $location `
-    -FileUri https://github.com/cynthn/samples/blob/master/musicstoreinstall.ps1 `
-    -Run "musicstoreinstall.ps1 -user $user -password $password -sqlserver $sqlfqdn" `
+    -FileUri https://github.com/MicrosoftDocs/MusicStoreSample/blob/master/support-scripts/create-music-store.ps1 `
+    -Run "create-music-store.ps1 -user $user -password $password -sqlserver $sqlfqdn" `
     -Name MusicStoreExtension
 ```
 
