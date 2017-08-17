@@ -61,6 +61,6 @@ In conclusion, this "Get Started" introduction and the provided example applicat
  * [Get Started with Bing Speech Recognition in C Sharp for .Net on Windows Desktop](GetStartedCSharpDesktop.md)
  * [Get Started with Bing Speech Recognition in Java on Android](GetStartedJavaAndroid.md)
  * [Get Started with Bing Speech Recognition in Objective C on iOS](Get-Started-ObjectiveC-iOS.md)
- * [Get Started with Bing Speech API in JavaScript](GetStartedJS.md)
+ * [Get started with Bing Speech API in JavaScript(Web Sockets)](GetStartedJSWebsockets.md)
  * [Get Started with Bing Speech API in cURL](GetStarted-cURL.md)
 
