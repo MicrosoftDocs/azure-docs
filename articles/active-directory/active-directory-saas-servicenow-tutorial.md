@@ -142,11 +142,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
     ![Configure Single Sign-On](./media/active-directory-saas-servicenow-tutorial/endpoint.png)
      
-    d. Now go to **ServiceNow** properties and copy the **Application Id** using **Copy** button and paste it into notepad.
+    d. Now go to **ServiceNow** properties and copy the **Application ID** using **Copy** button and paste it into notepad.
  
     ![Configure Single Sign-On](./media/active-directory-saas-servicenow-tutorial/appid.png)
 
-    e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
+    e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.
+    Copy the generated value in notepad as this metadata URL will be used later in the tutorial.
 
 7. One click configure service is provided for ServiceNow that is, to have Azure AD automatically configure ServiceNow for SAML-based authentication. To enable this service go to **ServiceNow Configuration** section, click **Configure ServiceNow** to open Configure sign-on window. 
 
@@ -228,7 +229,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 19. On the SAML2 Update1 Properties dialog, perform the following steps:
     
-        
      ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/idp.png "Configure single sign-on")
 
     a. Select **URL** option in **Import Identity Provider Metadata** dialogue box.
