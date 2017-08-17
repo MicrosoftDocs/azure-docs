@@ -95,4 +95,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to set up your device.
 
 > [!div class="nextstepaction"]
-> [Set up device](iot-dps-set-up-device.md)
+> [Set up device](/azure/iot-hub/)
