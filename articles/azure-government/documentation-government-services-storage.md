@@ -89,7 +89,7 @@ The following information identifies the Azure Government boundary for Azure Sto
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
-| Data entered, stored, and processed within an Azure Storage product can contain export-controlled data. This data includes static authenticators, such as passwords and smartcard PINs for access to Azure platform components. It also includes private keys of certificates used to manage Azure platform components. And it includes other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Azure Storage metadata cannot contain controlled data. This metadata includes all configuration data entered when you're creating and maintaining your storage product. Do not enter regulated/controlled data in the following fields: **Resource groups**, **Deployment names**, **Resource names**, **Resource tags**. |
+| Data that's entered, stored, and processed within an Azure Storage product can contain export-controlled data. This data includes static authenticators, such as passwords and smartcard PINs for access to Azure platform components. It also includes private keys of certificates used to manage Azure platform components. And it includes other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Azure Storage metadata cannot contain controlled data. This metadata includes all configuration data that's entered when you're creating and maintaining your storage product. Do not enter regulated/controlled data in the following fields: **Resource groups**, **Deployment names**, **Resource names**, **Resource tags**. |
 
 ## Azure Import/Export
 
@@ -107,7 +107,7 @@ For all jobs, we recommend that you rotate your storage account keys after the j
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
-| Data copied to the media for transport and the keys used to encrypt that data. | Azure Import/Export metadata cannot contain controlled data. This metadata includes all configuration data entered when you're creating your Import/Export job and shipping information used to transport your media. Do not enter regulated/controlled data in the following fields:  **Job name**, **Carrier name**, **Tracking number**, **Description**, **Return information (Name, Address, Phone, E-Mail)**, **Export Blob URI**, **Drive list**, **Package list**, **Storage account name**, **Container name**. |
+| Data copied to the media for transport and the keys used to encrypt that data. | Azure Import/Export metadata cannot contain controlled data. This metadata includes all configuration data that's entered when you're creating your Import/Export job and shipping information that's used to transport your media. Do not enter regulated/controlled data in the following fields:  **Job name**, **Carrier name**, **Tracking number**, **Description**, **Return information (Name, Address, Phone, E-Mail)**, **Export Blob URI**, **Drive list**, **Package list**, **Storage account name**, **Container name**. |
 
 ## Next steps
 For supplemental information and updates, subscribe to the
