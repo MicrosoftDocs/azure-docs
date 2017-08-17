@@ -75,17 +75,17 @@ The first step is to create the managed application package that contains the ma
 	  "contentVersion": "1.0.0.0",
 	  "parameters": {
 		  "storageAccountName": {
-			  "type": "String"
+			  "type": "string"
 		  },
 		  "applianceDefinitionId": {
-			  "type": "String"
+			  "type": "string"
 		  },
 		  "managedByResourceGroup": {
-			  "type": "String"
+			  "type": "string"
 		  },
 		  "applianceName": {
-			  "type": "String"
-		  },
+			  "type": "string"
+		  }
 	  },
 	  "variables": {			
 	  },
@@ -96,7 +96,7 @@ The first step is to create the managed application package that contains the ma
 		  "location": "[resourceGroup().location]",
 		  "kind": "ServiceCatalog",
 		  "properties": {
-			  "ManagedResourceGroupId": "[parameters('managedByResourceGroup')]",
+			  "managedResourceGroupId": "[parameters('managedByResourceGroup')]",
 			  "applianceDefinitionId": "[parameters('applianceDefinitionId')]",
 			  "Parameters": {
 				  "storageAccountName": {
