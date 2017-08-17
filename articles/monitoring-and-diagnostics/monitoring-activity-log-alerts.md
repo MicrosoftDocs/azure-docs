@@ -52,7 +52,7 @@ When an activity log alert is activated, it uses an action group to generate act
 
 To learn more about action groups, see [Create and manage action groups in the Azure portal](monitoring-action-groups.md).
 
-To learn more about activity log alerts for service health notifications, see [here](monitoring-activity-log-alerts-on-service-notifications.md).
+To learn more about service health notifications, see [Receive activity log alerts on service health notifications](monitoring-activity-log-alerts-on-service-notifications.md).
 
 ## Create an alert on an activity log event with a new action group by using the Azure portal
 1. In the [portal](https://portal.azure.com), select **Monitor**.
@@ -67,11 +67,11 @@ To learn more about activity log alerts for service health notifications, see [h
 
     ![The "Add activity log alert" command](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
 
-5. The **Subscription** box autofills with your current subscription. This subscription is used to save the activity log alert. The alert resource is deployed to this subscription and monitors activity log events from it.
+5. The **Subscription** box autofills with your current subscription. This subscription is the one in which the action group is saved. The alert resource is deployed to this subscription and monitors activity log events from it.
 
     ![The "Add activity log alert" dialog box](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
 
-6. Select the **Resource group** in which this alert resource is created. This group is not the resource group that's monitored *by* the alert. Instead, it's the group where the *alert resource itself is deployed.*
+6. Select the **Resource group** in which the alert resource is created. This is not the resource group that's monitored by the alert. Instead, it's the resource group where the alert resource is located.
 
 7. Optionally, select an **Event category** to modify the additional filters that are shown. For Administrative events, the filters include **Resource group**, **Resource**, **Resource type**, **Operation name**, **Level**, **Status**, and **Event initiated by**. These values identify which events this alert should monitor.
 
@@ -80,7 +80,7 @@ To learn more about activity log alerts for service health notifications, see [h
 >
 >
 
-8. Enter a name in the **Action group name** box, and enter a name in the **Short name** box. The short name is referenced in notifications that are sent when this alert is activated.
+8. Enter a name in the **Action group name** box, and enter a name in the **Short name** box. The short name is used in place of a full action group name when notifications are sent using this group.
 
 9.	Define a list of actions by providing the action’s:
 
@@ -94,7 +94,7 @@ To learn more about activity log alerts for service health notifications, see [h
 
 The alert takes a few minutes to fully propagate and then become active. It triggers when new events match the alert's criteria.
 
-[See this document for details on the webhook schema for activity log alerts](monitoring-activity-log-alerts-webhook.md).
+For more information, see [Understand the webhook schema used in activity log alerts](monitoring-activity-log-alerts-webhook.md).
 
 >[!NOTE]
 >The action group defined in these steps is reusable as an existing action group, for all future alert definitions.
@@ -102,27 +102,11 @@ The alert takes a few minutes to fully propagate and then become active. It trig
 >
 
 ## Create an alert on an activity log event for an existing action group by using the Azure portal
-1. In the [portal](https://portal.azure.com), select **Monitor**.
+1. Follow steps 1 through 7 in the previous section to create your activity log alert.
 
-    ![The "Monitor" service](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. In the **Activity log** section, select **Alerts**.
+2. Under **Notify via**, select the **Existing** action group button. Select an existing action group from the list.
 
-    ![The "Alerts" tab](./media/monitoring-activity-log-alerts/alerts-blades.png)
-3. Select **Add activity log alert**, and fill in the fields.
-
-4. Enter a name in the **Activity log alert name** box, and select a **Description**. The name and description appear in the notifications that are sent when this alert fires.
-
-    ![The "Add activity log alert" command](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
-5. The **Subscription** box autofills with your current subscription. This subscription is used to save the activity log alert. The alert resource is deployed to this subscription and monitors activity log events from it.
-
-    ![The "Add activity log alert" dialog box](./media/monitoring-activity-log-alerts/activity-log-alert-existing-action-group.png)
-6. Select the **Resource group** in which this alert resource is created. This group is not the resource group that's monitored *by* the alert. Instead, it's the resource group where the *alert resource itself is deployed.*
-
-7. Optionally, select an **Event category** to modify the additional filters that are shown. For Administrative events, the filters include **Resource group**, **Resource**, **Resource type**, **Operation name**, **Level**, **Status**, and **Event initiated by**. These values identify which events this alert should monitor.
-
-8. Under **Notify via**, select the **Existing** action group button. Select an existing action group from the list.
-
-9. Select **OK** to create the alert.
+3. Select **OK** to create the alert.
 
 The alert takes a few minutes to fully propagate and then become active. It triggers when new events match the alert's criteria.
 

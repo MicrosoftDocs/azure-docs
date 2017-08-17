@@ -1,6 +1,6 @@
 ---
 title: Create action groups with Resource Manager templates | Microsoft Docs
-description: Use action groups to notify email or SMS or call webhooks when certain events occur.
+description: Learn how to create an action group by using an Azure Resource Manager template.
 author: anirudhcavale
 manager: orenr
 editor: ''
@@ -19,13 +19,13 @@ ms.author: ancav
 ---
 
 # Create an action group with a Resource Manager template
-This article shows you how to use an [Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to configure action groups. By using templates, you can automatically set up action groups on your resources when they're created. You can ensure that all the correct parties are notified when an alert is triggered.
+This article shows you how to use an [Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to configure action groups. By using templates, you can automatically set up action groups that can be reused in certain types of alerts. These action groups ensure that all the correct parties are notified when an alert is triggered.
 
 The basic steps are:
 
 1. Create a template as a JSON file that describes how to create the action group.
 
-2. [Deploy the template by using any deployment method](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+2. Deploy the template by using [any deployment method](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
  First, we describe how to create a Resource Manager template for an action group where the action definitions are hard-coded in the template. Second, we describe how to create a template that takes the webhook configuration information as input parameters when the template is deployed.
 

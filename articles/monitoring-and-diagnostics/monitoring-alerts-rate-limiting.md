@@ -1,6 +1,6 @@
 ---
 title: Rate limiting for SMS, emails, and webhooks | Microsoft Docs
-description: Be notified via SMS, webhook, and email when certain events occur in the activity log.
+description: Understand how Azure limits the number of possible SMS, email, or webhook notifications from an action group.
 author: anirudhcavale
 manager: orenr
 editor: ''
@@ -18,7 +18,7 @@ ms.author: ancav
 
 ---
 
-# Rate limiting for SMS, emails, and webhooks
+# Rate limiting for SMS messages, emails, and webhook posts
 Rate limiting is a suspension of notifications that occurs when too many notifications are sent to a particular phone number or email address. Rate limiting ensures that alerts are manageable and actionable.
 
 The rules for SMS and email are the same. The rate limit threshold is:

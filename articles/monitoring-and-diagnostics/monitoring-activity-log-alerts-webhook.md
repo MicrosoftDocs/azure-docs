@@ -1,6 +1,6 @@
 ---
-title: Receive activity log alerts on Azure service notifications | Microsoft Docs
-description: Get notified via SMS, email, or webhook when issues in an Azure service occur.
+title: Understand the webhook schema used in activity log alerts | Microsoft Docs
+description: Learn about the schema of the JSON that is posted to a webhook URL when an activity log alert activates.
 author: johnkemnetz
 manager: orenr
 editor: ''
@@ -25,7 +25,7 @@ For more information on activity log alerts, see how to [create Azure activity l
 For information on action groups, see how to [create action groups](monitoring-action-groups.md).
 
 ## Authenticate the webhook
-The webhook can authenticate by using token-based authorization. The webhook URI is saved with a token ID, for example, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
+The webhook can optionally use token-based authorization for authentication. The webhook URI is saved with a token ID, for example, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
 
 ## Payload schema
 The JSON payload contained in the POST operation differs based on the payload's data.context.activityLog.eventSource field.
@@ -137,7 +137,7 @@ For specific schema details on all other activity log alerts, see [Overview of t
 | properties |Set of `<Key, Value>` pairs (that is, `Dictionary<String, String>`) that includes details about the event. |
 | event |Element that contains metadata about the event. |
 | authorization |The Role-Based Access Control properties of the event. These properties usually include the action, the role, and the scope. |
-| category |Category of the event. Supported values include Administrative, Alert, Security, Service Health, and Recommendation. |
+| category |Category of the event. Supported values include Administrative, Alert, Security, ServiceHealth, and Recommendation. |
 | caller |Email address of the user who performed the operation, UPN claim, or SPN claim based on availability. Can be null for certain system calls. |
 | correlationId |Usually a GUID in string format. Events with correlationId belong to the same larger action and usually share a correlationId. |
 | eventDescription |Static text description of the event. |

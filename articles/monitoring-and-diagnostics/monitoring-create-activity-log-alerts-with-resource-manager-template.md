@@ -18,7 +18,7 @@ ms.author: ancav
 
 ---
 # Create an activity log alert with a Resource Manager template
-This article shows you how to use an [Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) to configure activity log alerts. By using templates, you can automatically set up alerts on your resources when they're created as part of your automated deployment process.
+This article shows you how to use an [Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) to configure activity log alerts. By using templates, you can easily set up many alerts that activate based on specific activity log event conditions as part of your automated deployment process.
 
 The basic steps are:
 
@@ -95,7 +95,7 @@ To create an activity log alert by using a Resource Manager template, you create
 }
 ```
 
-[Visit our Azure Quickstart gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights) for some examples of activity log alert templates.
+Visit our [Azure Quickstart gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights) for some examples of activity log alert templates.
 
 ## Next steps
 - Learn more about [alerts](monitoring-overview-alerts.md).

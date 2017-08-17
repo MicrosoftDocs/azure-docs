@@ -55,11 +55,11 @@ For information on how to configure service health notification alerts by using 
 
     ![The "Add activity log alert" dialog box](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-service-notification-new-action-group.png)
 
-5. The **Subscription** box autofills with your current subscription. This subscription is used to save the activity log alert. The alert resource is deployed to this subscription and monitors it.
+5. The **Subscription** box autofills with your current subscription. This subscription is used to save the activity log alert. The alert resource is deployed to this subscription and monitors events in the activity log for it.
 
-6. Select the **Resource group** this alert is associated with.
+6. Select the **Resource group** in which the alert resource is created. This isn't the resource group that's monitored by the alert. Instead, it's the resource group where the alert resource is located.
 
-7. In the **Event category** box, select **Service Health**. Select the **Service**, **Region**, **Type**, **Status**, and **Level** of service health notifications that you want to receive.
+7. In the **Event category** box, select **Service Health**. Optionally, select the **Service**, **Region**, **Type**, **Status**, and **Level** of service health notifications that you want to receive.
 
 8. Under **Alert via**, select the **New** action group button. Enter a name in the **Action group name** box, and enter a name in the **Short name** box. The short name is referenced in the notifications that are sent when this alert fires.
 
@@ -73,7 +73,7 @@ For information on how to configure service health notification alerts by using 
 
 10.	Select **OK** to create the alert.
 
-Within a few minutes, the alert is active and triggers.
+Within a few minutes, the alert is active and begins to trigger based on the conditions you specified during creation.
 
 For information on the webhook schema for activity log alerts, see [Webhooks for Azure activity log alerts](monitoring-activity-log-alerts-webhook.md).
 
@@ -83,33 +83,18 @@ For information on the webhook schema for activity log alerts, see [Webhooks for
 >
 
 ## Create an alert on a service health notification for an existing action group by using the Azure portal
-1. In the [portal](https://portal.azure.com), select **Monitor**.
 
-    ![The "Monitor" service](./media/monitoring-activity-log-alerts-on-service-notifications/home-monitor.png)
-2. In the **Activity log** section, select **Alerts**.
+1. Follow steps 1 through 7 in the previous section to create your service health notification. 
 
-    ![The "Alerts" tab](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades.png)
-3. Select **Add activity log alert**, and fill in the fields.
+2. Under **Alert via**, select the **Existing** action group button. Select the appropriate action group.
 
-    ![The "Add activity log alert" command](./media/monitoring-activity-log-alerts-on-service-notifications/add-activity-log-alert.png)
-4. Enter a name in the **Activity log alert name** box, and select a **Description**.
+3. Select **OK** to create the alert.
 
-    ![The "Add activity log alert" dialog box](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-service-notification-existing-action-group.png)
-5. The **Subscription** box autofills with your current subscription. This subscription is used to save the activity log alert. The alert resource is deployed to this subscription and monitors it.
-
-6. Select the **Resource group** this alert is associated with.
-
-7. In the **Event category** box, select **Service Health**. Select the **Service**, **Region**, **Type**, **Status**, and **Level** of service health notifications you want to receive.
-
-8. Under **Alert via**, select the **Existing** action group button. Select the appropriate action group.
-
-9. Select **OK** to create the alert.
-
-Within a few minutes, the alert is active and triggers as previously described.
+Within a few minutes, the alert is active and begins to trigger based on the conditions you specified during creation.
 
 ## Manage your alerts
 
-After you create an alert, it's visible in the **Alerts** section of the **Monitor** service. Select the alert you want to manage to:
+After you create an alert, it's visible in the **Alerts** section of the **Monitor** blade. Select the alert you want to manage to:
 
 * Edit it.
 * Delete it.

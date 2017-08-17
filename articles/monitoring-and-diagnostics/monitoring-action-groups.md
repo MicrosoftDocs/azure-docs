@@ -1,6 +1,6 @@
 ---
 title: Create and manage action groups in the Azure portal | Microsoft Docs
-description: Learn how to create and manage action groups in the Azure portal
+description: Learn how to create and manage action groups in the Azure portal.
 author: anirudhcavale
 manager: orenr
 editor: ''
@@ -21,9 +21,9 @@ ms.author: ancav
 ## Overview ##
 This article shows you how to create and manage action groups in the Azure portal.
 
-You can configure a list of actions with action groups. These groups then can be used when you define activity log alerts. Create action groups to ensure that a particular group is invoked when the activity log alert is triggered.
+You can configure a list of actions with action groups. These groups then can be used when you define activity log alerts. These groups can then be reused by each activity log alert you define, ensuring that the same actions are taken each time the activity log alert is triggered.
 
-An action group can have up to 10 of each action type. An action is defined by combining the following options:
+An action group can have up to 10 of each action type. Each action is made up of the following properties:
 
 * **Name**: A unique identifier within the action group.  
 * **Action type**: Send an SMS, send an email, or call a webhook.  
@@ -41,17 +41,17 @@ For information on how to use Azure Resource Manager templates to configure acti
 3. Select **Add action group**, and fill in the fields.
 
     ![The "Add action group" command](./media/monitoring-action-groups/add-action-group.png)
-4. Enter a name in the **Action group name** box, and enter a name in the **Short name** box. The short name is referenced in notifications sent to this group.
+4. Enter a name in the **Action group name** box, and enter a name in the **Short name** box. The short name is used in place of a full action group name when notifications are sent using this group.
 
       ![The Add action group" dialog box](./media/monitoring-action-groups/action-group-define.png)
 
-5. The **Subscription** box autofills with your current subscription. This subscription is used to save the action group.
+5. The **Subscription** box autofills with your current subscription. This subscription is the one in which the action group is saved.
 
-6. Select the **Resource group** this alert is associated with.
+6. Select the **Resource group** in which the action group is saved.
 
-7. Define a list of actions by providing the action's:
+7. Define a list of actions by providing each action's:
 
-    a. **Name**: Enter a unique identifier within the action group.
+    a. **Name**: Enter a unique identifier for this action.
 
     b. **Action Type**: Select SMS, email, or webhook.
 
@@ -60,7 +60,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 8. Select **OK** to create the action group.
 
 ## Manage your action groups ##
-After you create an action group, it's visible in the **Action groups** section of the **Monitor** service. Select the action group you want to manage to:
+After you create an action group, it's visible in the **Action groups** section of the **Monitor** blade. Select the action group you want to manage to:
 
 * Add, edit, or remove actions.
 * Delete the action group.
