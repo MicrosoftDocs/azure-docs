@@ -84,7 +84,6 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
     * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
     * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
     * **Delete**: Deletes the cluster.
-
     **Left menu:**
 
     * **Activity logs**: Show and query activity logs.
