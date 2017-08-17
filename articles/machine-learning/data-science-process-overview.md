@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process overview | Microsoft Docs
+title: Azure Team Data Science Process overview | Microsoft Docs
 description: Provides a data science methodology to deliver predictive analytics solutions and intelligent applications.
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 08/17/2017
 ms.author: bradsev;
 
 ---
@@ -33,7 +33,7 @@ TDSP comprises of the following key components:
 - **Tools and utilities** for project execution
 
 
-## Data Science Lifecycle
+## Data science lifecycle
 
 The Team Data Science Process (TDSP) provides a lifecycle to structure the development of your data science projects. The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed.
 
@@ -101,6 +101,6 @@ Here is an example of a team working on multiple projects and sharing various cl
 Introducing processes in most organizations is challenging. Tools provided to implement the data science process and lifecycle help lower the barriers to and increase the consistency of their adoption. TDSP provides an initial set of tools and scripts to jump-start adoption of TDSP within a team. It also helps automate some of the common tasks in the data science lifecycle such as data exploration and baseline modeling. There is a well-defined structure provided for individuals to contribute shared tools and utilities into their team’s shared code repository. These resources can then be leveraged by other projects within the team or the organization. TDSP also plans to enable the contributions of tools and utilities to the whole community. The TDSP utilities can be cloned from [Github](https://github.com/Azure/Azure-TDSP-Utilities).
 
 
-## Next Steps
+## Next steps
 
 [Team Data Science Process: Roles and tasks](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) Outlines the key personnel roles and their associated tasks for a data science team that standardizes on this process. 

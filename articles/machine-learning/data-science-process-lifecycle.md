@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process Lifecycle | Microsoft Docs
+title: Azure Team Data Science Process Lifecycle | Microsoft Docs
 description: Steps needed to execute your data science projects.
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 08/17/2017
 ms.author: bradsev;
 
 ---
@@ -42,7 +42,7 @@ For each stage, we provide the following information:
 * **Artifacts**: the deliverables and the support for producing them.
 
 
-## 1. Business Understanding
+## 1. Business understanding
 
 ### Goals
 * The **key variables** are specified that are to serve as the **model targets** and whose related metrics are used determine the success for the project.
@@ -54,7 +54,7 @@ There are two main tasks addressed in this stage:
 * **Define Objectives**: Work with your customer and other stakeholders to understand and identify the business problems. Formulate questions that define the business goals and that data science techniques can target.
 * **Identify data sources**: Find the relevant data that helps you answer the questions that define the objectives of the project.
 
-#### 1.1 Define Objectives
+#### 1.1 Define objectives
 
 1. A central objective of this step is to identify the key **business variables** that the analysis needs to predict. These variables are referred to as the **model targets** and the metrics associated with them are used to determine the success of the project. Two examples of such targets are sales forecast or the probability of an order being fraudulent.
 
@@ -77,7 +77,7 @@ There are two main tasks addressed in this stage:
    * **R**elevant 
    * **T**ime-bound 
 
-#### 1.2 Identify Data Sources
+#### 1.2 Identify data sources
 Identify data sources that contain known examples of answers to your sharp questions. Look for the following data:
 
 * Data that is **Relevant** to the question. Do we have measures of the target and features that are related to the target?
@@ -93,7 +93,7 @@ Here are the deliverables in this stage:
 * [**Data Dictionaries**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/DataDictionaries): This document provides descriptions of the data that is provided by the client. These descriptions include information about the schema (data types, information on validation rules, if any) and the entity-relation diagrams if available.
 
 
-## 2. Data Acquisition and Understanding
+## 2. Data acquisition and understanding
 
 ### Goals
 * A clean, high-quality dataset whose relations to the target variables are understood that are located in the appropriate analytics environment, ready to model.
@@ -143,10 +143,10 @@ There are three main tasks addressed in this stage:
 * **Model training**: find the model that answers the question most accurately by comparing their success metrics.
 * Determine if your model is **suitable for production**.
 
-#### 3.1 Feature Engineering
+#### 3.1 Feature engineering
 Feature engineering involves inclusion, aggregation and transformation of raw variables to create the features used in the analysis. If you want insight into what is driving a model, then you need to understand how features are related to each other and how the machine learning algorithms are to use those features. This step requires a creative combination of domain expertise and insights obtained from the data exploration step. This is a balancing act of finding and including informative variables while avoiding too many unrelated variables. Informative variables improve our result; unrelated variables introduce unnecessary noise into the model. You also need to generate these features for any new data obtained during scoring. So the generation of these features can only depend on data that is available at the time of scoring. For technical guidance on feature engineering when using various Azure data technologies, see [Feature engineering in the Data Science Process](machine-learning-data-science-create-features.md). 
 
-#### 3.2 Model Training
+#### 3.2 Model training
 Depending on type of question that you are trying answer, there are many modeling algorithms available. For guidance on choosing the algorithms, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md). Although this article is written for Azure Machine Learning, the guidance it provides is useful for any machine learning projects. 
 
 The process for model training includes the following steps: 
@@ -191,7 +191,7 @@ Once you have a set of models that perform well, they can be operationalized for
 * Final modeling report with deployment details.
 * Final solution architecture document.
 
-## 5. Customer Acceptance
+## 5. Customer acceptance
 
 ### Goal
 * **Finalize the project deliverables**: confirm that the pipeline, the model, and their deployment in a production environment are satisfying customer objectives.
