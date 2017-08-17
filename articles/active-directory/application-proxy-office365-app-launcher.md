@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/17/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -22,9 +22,13 @@ ms.custom: it-pro
 
 This article discusses how to configure apps to direct users to a custom home page. When you publish an application with Application Proxy, you set an internal URL but sometimes that's not the page your users should see first. Set a custom home page so that your users go to the right page when they access the apps from the Azure Active Directory Access Panel or the Office 365 app launcher.
 
-When users launch the app, they're directed by default to the root domain URL for the published app. The landing page is typically set as the home page URL. For example, consider an application with an internal URL *http://ExpenseApp* that is published with an external URL *https://expenseApp-contoso.msappproxy.net*. By default, the home page URL is set as *https://expenseApp-contoso.msappproxy.net*.
+When users launch the app, they're directed by default to the root domain URL for the published app. The landing page is typically set as the home page URL. Use the Azure AD PowerShell module to define custom home page URLs when you want app users to land on a specific page within the app. 
 
-Use the Azure AD PowerShell module to define custom home page URLs when you want app users to land on a specific page within the app (for example, *https://expenseApp-contoso.msappproxy.net/login/login.aspx*).
+For example:
+- Inside your corporate network, users go to *https://ExpenseApp/login/login.aspx* to sign in and access your app.
+- Because you have other assets like images that Application Proxy needs to access at the top level of the folder structure, you publish the app with *https://ExpenseApp* as the internal URL.
+- The default external URL is *https://ExpenseApp-contoso.msappproxy.net*, which doesn't take your users to the sign in page.  
+- Set *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* as the home page URL to give your users a seamless experience. 
 
 >[!NOTE]
 >When you give users access to published apps, the apps are displayed in the [Azure AD Access Panel](active-directory-saas-access-panel-introduction.md) and the [Office 365 app launcher](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
@@ -54,14 +58,14 @@ Before you set the home page URL, keep in mind the following requirements:
 
 ### Install the Azure AD PowerShell module
 
-Before you define a custom home page URL by using PowerShell, install a nonstandard package of the Azure AD PowerShell module. You can download the package from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/1.1.23.0), which uses the Graph API endpoint. 
+Before you define a custom home page URL by using PowerShell, install the Azure AD PowerShell module. You can download the package from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), which uses the Graph API endpoint. 
 
 To install the package, follow these steps:
 
 1. Open a standard PowerShell window, and then run the following command:
 
     ```
-     Install-Module -Name AzureAD -RequiredVersion 1.1.23.0
+     Install-Module -Name AzureAD
     ```
     If you're running the command as a non-admin, use the `-scope currentuser` option.
 2. During the installation, select **Y** to install two packages from Nuget.org. Both packages are required. 

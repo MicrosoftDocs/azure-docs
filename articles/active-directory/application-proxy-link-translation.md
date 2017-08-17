@@ -29,11 +29,13 @@ If you can't use custom domains in your tenant, then the link translation featur
 >[!NOTE]
 >The link translation feature is for tenants that, for whatever reason, can't use custom domains to have the same internal and external URLs for their apps. Before you enable this feature, see if [custom domains in Azure AD Application Proxy](active-directory-application-proxy-custom-domains.md) can work for you.
 >
->Or, if the application you need to configure with link translation is SharePoint, see  for another approach to mapping links.
+>Or, if the application you need to configure with link translation is SharePoint, see [Configure alternate access mappings for SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) for another approach to mapping links.
 
 ## How link translation works
 
 After authentication, when the proxy server passes the application data to the user, Application Proxy scans the application for hardcoded links and replaces them with their respective, published external URLs.
+
+Application Proxy assumes that applications are encoded in UTF-8. If that's not the case, specify the encoding type in an http response header, like `Content-Type:text/html;charset=utf-8`.
 
 ### Which links are affected?
 
