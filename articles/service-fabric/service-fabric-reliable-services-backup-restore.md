@@ -25,14 +25,15 @@ Azure Service Fabric is a high-availability platform that replicates the state a
 > 
 > 
 
-For example, a service may want to back up data in the following scenarios:
+For example, a service may want to back up data in order to protect from the following scenarios:
 
-* In the event of the permanent loss of an entire Service Fabric cluster or all nodes that are running a given partition.
-* Administrative errors whereby the state accidentally gets deleted or corrupted. For example, this may happen if an administrator with sufficient privilege erroneously deletes the service.
-* Bugs in the service that cause data corruption. For example, this may happen when a service code upgrade starts writing faulty data to a Reliable Collection. In such a case, both the code and the data may have to be reverted to an earlier state.
-* Offline data processing. It might be convenient to have offline processing of data for business intelligence that happens separately from the service that generates the data.
+- In the event of the permanent loss of an entire Service Fabric cluster.
+- Permanent loss of a majority of the replicas of a service partition
+- Administrative errors whereby the state accidentally gets deleted or corrupted. For example, this may happen if an administrator with sufficient privilege erroneously deletes the service.
+- Bugs in the service that cause data corruption. For example, this may happen when a service code upgrade starts writing faulty data to a Reliable Collection. In such a case, both the code and the data may have to be reverted to an earlier state.
+- Offline data processing. It might be convenient to have offline processing of data for business intelligence that happens separately from the service that generates the data.
 
-The Backup/Restore feature allows services built on the Reliable Services API to create and restore backups. The backup APIs provided by the platform allow to take backup(s) of a service partition's state, without blocking read or write operations. The restore APIs allow a service partition's state to be restored from a chosen backup.
+The Backup/Restore feature allows services built on the Reliable Services API to create and restore backups. The backup APIs provided by the platform allow backup(s) of a service partition's state, without blocking read or write operations. The restore APIs allow a service partition's state to be restored from a chosen backup.
 
 ## Types of Backup
 There are two backup options: Full and Incremental.
@@ -41,12 +42,12 @@ Since it has the checkpoints and the log, a full backup can be restored by itsel
 
 The problem with full backups arises when the checkpoints are large.
 For example, a replica that has 16 GB of state will have checkpoints that add up approximately to 16 GB.
-If we have an Recovery Point Objective of 5 minutes, the replica needs to be backed up every 5 minutes.
-Each time it backs up it will need to copy 16 GB of checkpoints in addition to 50 MB (configurable using `CheckpointThresholdInMB`) worth of logs.
+If we have a Recovery Point Objective of five minutes, the replica needs to be backed up every five minutes.
+Each time it backs up it needs to copy 16 GB of checkpoints in addition to 50 MB (configurable using `CheckpointThresholdInMB`) worth of logs.
 
 ![Full Backup Example.](media/service-fabric-reliable-services-backup-restore/FullBackupExample.PNG)
 
-The solution to this problem is incremental backups, where only the log records since the last backup are backed up.
+The solution to this problem is incremental backups, where backup only contains the changed log records since the last backup.
 
 ![Incremental Backup Example.](media/service-fabric-reliable-services-backup-restore/IncrementalBackupExample.PNG)
 
@@ -60,7 +61,7 @@ The service author has full control of when to make backups and where backups wi
 To start a backup, the service needs to invoke the inherited member function `BackupAsync`.  
 Backups can be made only from primary replicas, and they require write status to be granted.
 
-As shown below, `BackupAsync` takes in a `BackupDescription` object, where one can specify a full or incremental backup, as well as a callback function, `Func<< BackupInfo, CancellationToken, Task<bool>>>` which is invoked when the backup folder has been created locally and is ready to be moved out to some external storage.
+As shown below, `BackupAsync` takes in a `BackupDescription` object, where one can specify a full or incremental backup, as well as a callback function, `Func<< BackupInfo, CancellationToken, Task<bool>>>` that is invoked when the backup folder has been created locally and is ready to be moved out to some external storage.
 
 ```csharp
 
@@ -70,14 +71,14 @@ await this.BackupAsync(myBackupDescription);
 
 ```
 
-Request to take an incremental backup can fail with `FabricMissingFullBackupException` which indicates that either
+Request to take an incremental backup can fail with `FabricMissingFullBackupException`. This exception indicates that one of the following things is happening:
 
-* the replica has never taken a full backup since it has become primary,
-* some of the log records since the last backup has been truncated or
-* replica passed the `MaxAccumulatedBackupLogSizeInMB` limit.
+- the replica has never taken a full backup since it has become primary,
+- some of the log records since the last backup has been truncated or
+- replica passed the `MaxAccumulatedBackupLogSizeInMB` limit.
 
 Users can increase the likelihood of being able to do incremental backups by configuring `MinLogSizeInMB` or `TruncationThresholdFactor`.
-Note that increasing these values will increase the per replica disk usage.
+Note that increasing these values increases the per replica disk usage.
 For more information, see [Reliable Services Configuration](service-fabric-reliable-services-configuration.md)
 
 `BackupInfo` provides information regarding the backup, including the location of the folder where the runtime saved the backup (`BackupInfo.Directory`). The callback function can move the `BackupInfo.Directory` to an external store or another location.  This function also returns a bool that indicates whether it was able to successfully move the backup folder to its target location.
@@ -95,19 +96,19 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, Cancellation
 }
 ```
 
-In the above example, `ExternalBackupStore` is the sample class that is used to interface with Azure Blob storage, and `UploadBackupFolderAsync` is the method that compresses the folder and places it in the Azure Blob store.
+In the preceeding example, `ExternalBackupStore` is the sample class that is used to interface with Azure Blob storage, and `UploadBackupFolderAsync` is the method that compresses the folder and places it in the Azure Blob store.
 
 Note that:
 
-* There can be only one backup operation in-flight per replica at any given time. More than one `BackupAsync` call at a time will throw `FabricBackupInProgressException` to limit inflight backups to one.
-* If a replica fails over while a backup is in progress, the backup may not have been completed. Thus, once the failover finishes, it is the service's responsibility to restart the backup by invoking `BackupAsync` as necessary.
+  - There can be only one backup operation in-flight per replica at any given time. More than one `BackupAsync` call at a time will throw `FabricBackupInProgressException` to limit inflight backups to one.
+  - If a replica fails over while a backup is in progress, the backup may not have been completed. Thus, once the failover finishes, it is the service's responsibility to restart the backup by invoking `BackupAsync` as necessary.
 
 ## Restore Reliable Services
 In general, the cases when you might need to perform a restore operation fall into one of these categories:
 
-* The service partition lost data. For example, the disk for two out of three replicas for a partition (including the primary replica) gets corrupted or wiped. The new primary may need to restore data from a backup.
-* The entire service is lost. For example, an administrator removes the entire service and thus the service and the data need to be restored.
-* The service replicated corrupt application data (e.g., because of an application bug). In this case, the service has to be upgraded or reverted to remove the cause of the corruption, and non-corrupt data has to be restored.
+  - The service partition lost data. For example, the disk for two out of three replicas for a partition (including the primary replica) gets corrupted or wiped. The new primary may need to restore data from a backup.
+  - The entire service is lost. For example, an administrator removes the entire service and thus the service and the data need to be restored.
+  - The service replicated corrupt application data (e.g., because of an application bug). In this case, the service has to be upgraded or reverted to remove the cause of the corruption, and non-corrupt data has to be restored.
 
 While many approaches are possible, we offer some examples on using `RestoreAsync` to recover from the above scenarios.
 
@@ -116,11 +117,11 @@ In this case, the runtime would automatically detect the data loss and invoke th
 
 The service author needs to perform the following to recover:
 
-* Override the virtual base class method `OnDataLossAsync`.
-* Find the latest backup in the external location that contains the service's backups.
-* Download the latest backup (and uncompress the backup into the backup folder if it was compressed).
-* The `OnDataLossAsync` method provides a `RestoreContext`. Call the `RestoreAsync` API on the provided `RestoreContext`.
-* Return true if the restoration was a success.
+  - Override the virtual base class method `OnDataLossAsync`.
+  - Find the latest backup in the external location that contains the service's backups.
+  - Download the latest backup (and uncompress the backup into the backup folder if it was compressed).
+  - The `OnDataLossAsync` method provides a `RestoreContext`. Call the `RestoreAsync` API on the provided `RestoreContext`.
+  - Return true if the restoration was a success.
 
 Following is an example implementation of the `OnDataLossAsync` method:
 
@@ -164,12 +165,12 @@ The first thing to do after you detect such an egregious bug that causes data co
 
 If you are not sure which backups are corrupt, you could deploy a new Service Fabric cluster and restore the backups of affected partitions just like the above "Deleted or lost service" scenario.  For each partition, start restoring the backups from the most recent to the least. Once you find a backup that does not have the corruption, move/delete all backups of this partition that were more recent (than that backup). Repeat this process for each partition. Now, when `OnDataLossAsync` is called on the partition in the production cluster, the last backup found in the external store will be the one picked by the above process.
 
-Now, steps in the "Deleted or lost service" section can be used to restore the state of the service to the state before the buggy code corrupted the state.
+Now, the steps in the "Deleted or lost service" section can be used to restore the state of the service to the state before the buggy code corrupted the state.
 
 Note that:
 
-* When you restore, there is a chance that the backup being restored is older than the state of the partition before the data was lost. Because of this, you should restore only as a last resort to recover as much data as possible.
-* The string that represents the backup folder path and the paths of files inside the backup folder can be greater than 255 characters, depending on the FabricDataRoot path and Application Type name's length. This can cause some .NET methods, like `Directory.Move`, to throw the `PathTooLongException` exception. One workaround is to directly call kernel32 APIs, like `CopyFile`.
+  - When you restore, there is a chance that the backup being restored is older than the state of the partition before the data was lost. Because of this, you should restore only as a last resort to recover as much data as possible.
+  - The string that represents the backup folder path and the paths of files inside the backup folder can be greater than 255 characters, depending on the FabricDataRoot path and Application Type name's length. This can cause some .NET methods, like `Directory.Move`, to throw the `PathTooLongException` exception. One workaround is to directly call kernel32 APIs, like `CopyFile`.
 
 ## Backup and restore Reliable Actors
 
@@ -215,8 +216,8 @@ class MyCustomActorService : ActorService
 
 After incremental backup has been enabled, taking an incremental backup can fail with FabricMissingFullBackupException for one of following reasons and you will need to take a full backup before taking incremental backup(s):
 
-* The replica has never taken a full backup since it became primary.
-* Some of the log records were truncated since last backup was taken.
+  - The replica has never taken a full backup since it became primary.
+  - Some of the log records were truncated since last backup was taken.
 
 When incremental backup is enabled, `KvsActorStateProvider` does not use circular buffer to manage its log records and periodically truncates it. If no backup is taken by user for a period of 45 minutes, the system automatically truncates the log records. This interval can be configured by specifying `logTrunctationIntervalInMinutes` in `KvsActorStateProvider` constructor (similar to when enabling incremental backup). The log records may also get truncated if primary replica need to build another replica by sending all its data.
 
@@ -230,7 +231,7 @@ When doing restore from a backup chain, similar to Reliable Services, the Backup
 It is important to ensure that critical data is being backed up, and can be restored from. This can be done by invoking the `Invoke-ServiceFabricPartitionDataLoss` cmdlet in PowerShell that can induce data loss in a particular partition to test whether the data backup and restore functionality for your service is working as expected.  It is also possible to programmatically invoke data loss and restore from that event as well.
 
 > [!NOTE]
-> You can find a sample implementation of backup and restore functionality in the Web Reference App on GitHub. Please look at the Inventory.Service service for more details.
+> You can find a sample implementation of backup and restore functionality in the Web Reference App on GitHub. Please look at the `Inventory.Service` service for more details.
 > 
 > 
 
@@ -259,9 +260,9 @@ As part of the recovery process, operations starting from the "starting point" t
 This step ensures that the recovered state is consistent.
 
 ## Next steps
-* [Reliable Collections](service-fabric-work-with-reliable-collections.md)
-* [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
-* [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
-* [Reliable Services configuration](service-fabric-reliable-services-configuration.md)
-* [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  - [Reliable Collections](service-fabric-work-with-reliable-collections.md)
+  - [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
+  - [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
+  - [Reliable Services configuration](service-fabric-reliable-services-configuration.md)
+  - [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
