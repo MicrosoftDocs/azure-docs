@@ -1,19 +1,19 @@
 ---
 title: Azure AD tiered password security | Microsoft Docs
-description: Explains how Azure AD enforces strong passwords and protects users passwords from cyber criminals, 
+description: Explains how Azure AD enforces strong passwords and protects users passwords from cyber criminals,
 services: active-directory
 documentationcenter: ''
-author: MicrosoftGuyJFlo
+author: barlanmsft
 manager: femila
 
-ms.assetid: 
+ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: joflore
+ms.author: barlan
 
 ---
 # A multi-tiered approach to Azure AD password security
@@ -82,5 +82,3 @@ For information about password reset in Azure Active Directory, see the topic [A
 * [How to update your own password](active-directory-passwords-update-your-own-password.md)
 * [The fundamentals of Azure identity management](fundamentals-identity.md)
 * [Report on password reset activity](active-directory-passwords-reporting.md)
-
-
