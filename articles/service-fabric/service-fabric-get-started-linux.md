@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/10/2017
+ms.date: 8/17/2017
 ms.author: subramar
 
 ---
@@ -75,7 +75,7 @@ To install the SDK and the associated runtime package via the apt-get command-li
     sudo apt-get update
     ```
 
-## Install and set up the SDK for containers and guest executables
+## Install and set up the SDK for local cluster setup
 
 After you have updated your sources, you can install the SDK.
 
@@ -91,24 +91,56 @@ After you have updated your sources, you can install the SDK.
 	>   echo "servicefabric servicefabric/accepted-eula-v1 select true" | sudo debconf-set-selections
 	>   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | sudo debconf-set-selections
 	>   ```
-	
-2. Run the SDK setup script.
 
-    ```bash
-    sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
-    ```
+## Set up a local cluster
+  If the installation is successful, you should be able to start a local cluster.
 
-After you have installed the common SDK package, you should be able to create apps with guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer`. You might need to set your $NODE_PATH environment variable to the location of the node modules. 
+  1. Run the cluster setup script.
+
+      ```bash
+      sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+      ```
+
+  2. Open a web browser and go to [Service Fabric Explorer](http://localhost:19080/Explorer). If the cluster has started, you should see the Service Fabric Explorer dashboard.
+
+      ![Service Fabric Explorer on Linux][sfx-linux]
+
+  At this point, you can deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables. To build new services by using the Java or .NET Core SDKs, follow the optional setup steps that are provided in subsequent sections.
+
+
+  > [!NOTE]
+  > Standalone clusters aren't supported in Linux. The preview supports only one-box and Azure Linux multi-machine clusters.
+  >
+
+## Install and set up the generators for containers and guest-executables
+
+1. Install nodejs and NPM on your machine
+
+  ```bash
+  sudo apt-get install npm
+  sudo apt install nodejs-legacy
+  ```
+2. Install Yeo template generator on your machine from NPM
+  ```bash
+  sudo npm install -g yo
+  ```
+3. Install the Service Fabric Yeo container generator and guest execuatble generator from NPM
+  ```bash
+  sudo npm install -g generator-azuresfcontainer
+  sudo npm install -g generator-azuresfguest
+  ```
+
+After you have installed the above generators, you should be able to create apps with guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer` respectively. You might need to set your $NODE_PATH environment variable to the location of the node modules.
 
 
 ```bash
-    export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules 
+    export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules
 ```
 
 If you are using the environment as root, you might need to set the variable with the following command:
 
 ```bash
-    export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules 
+    export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules
 ```
 
 
@@ -152,40 +184,13 @@ As an alternative to the XPlat CLI, there is now a Service Fabric command module
 
 For more information about installing Azure CLI 2.0 and using the Service Fabric commands, see [Get started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md).
 
-## Set up a local cluster
-If the installation is successful, you should be able to start a local cluster.
 
-1. Run the cluster setup script.
-
-    ```bash
-    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
-    ```
-
-2. Open a web browser and go to [Service Fabric Explorer](http://localhost:19080/Explorer). If the cluster has started, you should see the Service Fabric Explorer dashboard.
-
-    ![Service Fabric Explorer on Linux][sfx-linux]
-
-At this point, you can deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables. To build new services by using the Java or .NET Core SDKs, follow the optional setup steps that are provided in subsequent sections.
-
-
-> [!NOTE]
-> Standalone clusters aren't supported in Linux. The preview supports only one-box and Azure Linux multi-machine clusters.
->
-
-## Install the Java SDK (optional, if you want to use the Java programming models)
-The Java SDK provides the libraries and templates that are required to build Service Fabric services by using Java.
-
-1. Install the Java SDK package.
-
-    ```bash
-    sudo apt-get install servicefabricsdkjava
-    ```
-
-2. Run the SDK setup script.
-
-    ```bash
-    sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
-    ```
+## Install the required Java artifacts (optional, if you want to use the Java programming models)
+Service Fabric Java dependencies get fetched from Maven. To build and work on the Service Fabric Java applications locally, install JDK(openjdk-8-jdk) and Gradle.
+  ```bash
+  sudo apt-get install openjdk-8-jdk-headless
+  sudo apt-get install gradle
+  ```
 
 ## Install the Eclipse Neon plug-in (optional)
 
@@ -235,7 +240,7 @@ To update to the latest version of the SDK and runtime, run the following comman
 
 ```bash
 sudo apt-get update
-sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
+sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp
 ```
 
 
