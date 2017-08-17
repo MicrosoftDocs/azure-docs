@@ -135,9 +135,8 @@ In the following command, `<function_app>` is the same function app you created 
 
 ```azurecli-interactive
 az functionapp deployment source config --name <function_app> \
- --resource-group myResourceGroup \
- --repo-url https://github.com/Azure-Samples/function-image-upload-resize \
- --branch master --manual-integration
+--resource-group myResourceGroup --branch master --manual-integration \
+--repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
 The function code is deployed directly from the public sample repo. To learn more about deployment options for Azure Functions, see [Continuous deployment for Azure Functions](../azure-functions/functions-continuous-deployment.md).
@@ -147,15 +146,17 @@ The function code is deployed directly from the public sample repo. To learn mor
 An event subscription tells Event Grid which events you want to send to your function. Create an event subscription by using the `az eventgrid resource event-subscription create` command. In the following command, `<function_app>` is the function app you created and `<blob_storage_account>` is your storage account. 
 
 ```azurecli-interactive
-az eventgrid resource event-subscription create -g myResourceGroup \  
---provider-namespace Microsoft.Storage --resource-type storageAccounts \  
---resource-name <blob_storage_account> --name myFuncSub  --subject-begins-with images \  
---endpoint https://<function_app>.azurewebsites.net/api/imageresizefunc \ 
+az eventgrid resource event-subscription create -g myResourceGroup \
+--provider-namespace Microsoft.Storage --resource-type storageAccounts \
+--resource-name <blob_storage_account> --name myFuncSub  \
+--included-event-types Microsoft.Storage.BlobCreated \
+--subject-begins-with /blobServices/default/containers/images/blobs/ \
+--endpoint https://<function_app>.azurewebsites.net/api/imageresizefunc 
 ```
 
-The prefix filter value `image` filters storage events to only those on the **images** container.  
+The prefix filter value `/blobServices/default/containers/images/blobs/` filters storage events to only those on the **images** container.  
 
-Now that the backend services are configured, you can publish the sample web app to Azure. 
+Now that the backend services are configured, you publish the sample web app to Azure. 
 
 ## Create an App Service plan
 
@@ -184,9 +185,8 @@ App Service supports several ways to deploy content to a web app. In this tutori
 
 ```azurecli-interactive
 az webapp deployment source config --name <web_app>  
---resource-group myResourceGroup \  
---repo-url https://github.com/Azure-Samples/integration-image-upload-resize-storage-functions \ 
---branch master --manual-integration
+--resource-group myResourceGroup --branch master --manual-integration \
+--repo-url https://github.com/Azure-Samples/integration-image-upload-resize-storage-functions
 ```
 
 ## Configure web app settings
@@ -197,10 +197,10 @@ In the following command, `<blob_storage_account>` is the name of your Blob stor
 
 ```azurecli-interactive
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
---settings AzureStorageConfig__AccountName=<blob_storage_account> \  
-AzureStorageConfig__AccountKey=<blob_storage_key> \  
-AzureStorageConfig__ImageContainer=images  \  
-AzureStorageConfig__ThumbnailContainer=thumbs
+--settings AzureStorageConfig__AccountName=<blob_storage_account> \
+AzureStorageConfig__ImageContainer=images  \
+AzureStorageConfig__ThumbnailContainer=thumbs \
+AzureStorageConfig__AccountKey=<blob_storage_key> 
 ```
 After the web app is deployed and configured, you can test the entire image upload and resizing functionality in the app.  
 
