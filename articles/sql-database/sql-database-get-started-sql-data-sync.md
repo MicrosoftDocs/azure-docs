@@ -4,7 +4,7 @@ description: This tutorial helps you get started with Azure SQL Data Sync (Previ
 services: sql-database
 documentationcenter: ''
 author: douglaslms
-manager: jhubbard
+manager: craigg
 editor: ''
 
 ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
@@ -25,8 +25,12 @@ This tutorial assumes that you have at least some prior experience with SQL Data
 
 For an overview of SQL Data Sync, see [Sync data](sql-database-sync-data.md).
 
+For complete PowerShell examples that show how to configure SQL Data Sync, see the following articles:
+-   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
+-   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+
 > [!NOTE]
-> The complete technical documentation set for Azure SQL Data Sync, formerly located on MSDN, is available as a .pdf. Download it [here](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
+> The complete technical documentation set for Azure SQL Data Sync, formerly located on MSDN, is available as a .PDF document. Download it [here](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
 
 ## Step 1 - Create sync group
 

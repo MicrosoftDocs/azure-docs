@@ -7,7 +7,7 @@ author: rwike77
 manager: timlt
 editor: 'vturecek'
 
-ms.assetid: 
+ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -31,14 +31,14 @@ A development computer running:
 * [Service Fabric SDK and tools](service-fabric-get-started.md).
 *  Docker for Windows.  [Get Docker CE for Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). After installing and starting Docker, right-click on the tray icon and select **Switch to Windows containers**. This is required to run Docker images based on Windows.
 
-A Windows cluster with three or more nodes running on Windows Server 2016 with Containers- [Create a cluster](service-fabric-cluster-creation-via-portal.md) or [try Service Fabric for free](https://aka.ms/tryservicefabric). 
+A Windows cluster with three or more nodes running on Windows Server 2016 with Containers- [Create a cluster](service-fabric-cluster-creation-via-portal.md) or [try Service Fabric for free](https://aka.ms/tryservicefabric).
 
-A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription. 
+A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription.
 
 ## Define the Docker container
-Build an image based on the [Python image](https://hub.docker.com/_/python/) located on Docker Hub. 
+Build an image based on the [Python image](https://hub.docker.com/_/python/) located on Docker Hub.
 
-Define your Docker container in a Dockerfile. The Dockerfile contains instructions for setting up the environment inside your container, loading the application you want to run, and mapping ports. The Dockerfile is the input to the `docker build` command, which creates the image. 
+Define your Docker container in a Dockerfile. The Dockerfile contains instructions for setting up the environment inside your container, loading the application you want to run, and mapping ports. The Dockerfile is the input to the `docker build` command, which creates the image.
 
 Create an empty directory and create the file *Dockerfile* (with no file extension). Add the following to *Dockerfile* and save your changes:
 
@@ -82,13 +82,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    
+
     return 'Hello World!'
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
+<a id="Build-Containers"></a>
 ## Build the image
 Run the `docker build` command to create the image that runs your web application. Open a PowerShell window and navigate to the directory containing the Dockerfile. Run the following command:
 
@@ -102,7 +103,7 @@ Once the build command completes, run the `docker images` command to see informa
 
 ```
 $ docker images
-    
+
 REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
 helloworldapp                 latest              8ce25f5d6a79        2 minutes ago       10.4 GB
 ```
@@ -137,6 +138,7 @@ Delete the container from your development machine:
 docker rm my-web-site
 ```
 
+<a id="Push-Containers"></a>
 ## Push the image to the container registry
 After you verify that the container runs on your development machine, push the image to your registry in Azure Container Registry.
 
@@ -166,7 +168,7 @@ The Service Fabric SDK and tools provide a service template to help you create a
 1. Start Visual Studio.  Select **File** > **New** > **Project**.
 2. Select **Service Fabric application**, name it "MyFirstContainer", and click **OK**.
 3. Select **Guest Container** from the list of **service templates**.
-4. In **Image Name** enter "myregistry.azurecr.io/samples/helloworldapp", the image you pushed to your container repository. 
+4. In **Image Name** enter "myregistry.azurecr.io/samples/helloworldapp", the image you pushed to your container repository.
 5. Give your service a name, and click **OK**.
 
 ## Configure communication
@@ -179,8 +181,8 @@ The containerized service needs an endpoint for communication. Add an `Endpoint`
   </Endpoints>
 </Resources>
 ```
-    
-By defining an endpoint, Service Fabric publishes the endpoint to the Naming service.  Other services running in the cluster can resolve this container.  You can also perform container-to-container communication using the [reverse proxy](service-fabric-reverseproxy.md).  Communication is performed by providing the reverse proxy HTTP listening port and the name of the services that you want to communicate with as environment variables. 
+
+By defining an endpoint, Service Fabric publishes the endpoint to the Naming service.  Other services running in the cluster can resolve this container.  You can also perform container-to-container communication using the [reverse proxy](service-fabric-reverseproxy.md).  Communication is performed by providing the reverse proxy HTTP listening port and the name of the services that you want to communicate with as environment variables.
 
 ## Configure and set environment variables
 Environment variables can be specified for each code package in the service manifest. This feature is available for all services irrespective of whether they are deployed as containers or processes or guest executables. You can override environment variable values in the application manifest or specify them during deployment as application parameters.
@@ -207,7 +209,7 @@ These environment variables can be overridden in the application manifest:
 ```
 
 ## Configure container port-to-host port mapping and container-to-container discovery
-Configure a host port used to communicate  with the container. The port binding maps the port on which the service is listening inside the container to a port on the host. Add a `PortBinding` element in `ContainerHostPolicies` element of the ApplicationManifest.xml file.  For this article, `ContainerPort` is 80 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "Guest1TypeEndpoint" (the endpoint previously defined in the service manifest).  Incoming requests to the service on port 8081 are mapped to port 80 on the container. 
+Configure a host port used to communicate  with the container. The port binding maps the port on which the service is listening inside the container to a port on the host. Add a `PortBinding` element in `ContainerHostPolicies` element of the ApplicationManifest.xml file.  For this article, `ContainerPort` is 80 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "Guest1TypeEndpoint" (the endpoint previously defined in the service manifest).  Incoming requests to the service on port 8081 are mapped to port 80 on the container.
 
 ```xml
 <Policies>
@@ -308,7 +310,7 @@ Save all your changes and build the application. To publish your application, ri
 
 In **Connection Endpoint**, enter the management endpoint for the cluster.  For example, "containercluster.westus2.cloudapp.azure.com:19000". You can find the client connection endpoint in the Overview blade for your cluster in the [Azure portal](https://portal.azure.com).
 
-Click **Publish**. 
+Click **Publish**.
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a web-based tool for inspecting and managing applications and nodes in a Service Fabric cluster. Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ and follow the application deployment.  The application deploys but is in an error state until the image is downloaded on the cluster nodes (which can take some time, depending on the image size):
 ![Error][1]
@@ -358,17 +360,17 @@ Here are the complete service and application manifests used in this article.
       <EnvironmentVariable Name="HttpGatewayPort" Value=""/>
       <EnvironmentVariable Name="BackendServiceName" Value=""/>
     </EnvironmentVariables>
-    
+
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
   <Resources>
     <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
+      <!-- This endpoint is used by the communication listener to obtain the port on which to
+           listen. Please note that if your service is partitioned, this port is shared with
            replicas of different partitions that are placed in your code. -->
       <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
     </Endpoints>
@@ -386,8 +388,8 @@ Here are the complete service and application manifests used in this article.
   <Parameters>
     <Parameter Name="Guest1_InstanceCount" DefaultValue="-1" />
   </Parameters>
-  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
-       should match the Name and Version attributes of the ServiceManifest element defined in the 
+  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion
+       should match the Name and Version attributes of the ServiceManifest element defined in the
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
@@ -409,10 +411,10 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
-    <!-- The section below creates instances of service types, when an instance of this 
-         application type is created. You can also create one or more instances of service type using the 
+    <!-- The section below creates instances of service types, when an instance of this
+         application type is created. You can also create one or more instances of service type using the
          ServiceFabric PowerShell module.
-         
+
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="Guest1">
       <StatelessService ServiceTypeName="Guest1Type" InstanceCount="[Guest1_InstanceCount]">
@@ -422,6 +424,46 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
   </DefaultServices>
 </ApplicationManifest>
 ```
+
+## Configure time interval before container is force terminated
+
+You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.   For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The following cluster manifest snippet shows how to set the wait interval:
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+            "ContainerDeactivationTimeout": "10",
+	      ...
+          }
+        ]
+}
+```
+The default time interval is set to 10 seconds. Since this configuration is dynamic, a config only upgrade on the cluster updates the timeout. 
+
+
+## Configure the runtime to remove unused container images
+
+You can configure the Service Fabric cluster to remove unused container images from the node. This configuration allows disk space to be recaptured if too many container images are present on the node.  To enable this feature, update the `Hosting` section in the cluster manifest as shown in the following snippet: 
+
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+	        "PruneContainerImages": “True”,
+            "ContainerImagesToSkip": "microsoft/windowsservercore|microsoft/nanoserver|…",
+	      ...
+          }
+        ]
+} 
+```
+
+For images that should not be deleted, you can specify them under the `ContainerImagesToSkip` parameter. 
+
+
 
 ## Next steps
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).

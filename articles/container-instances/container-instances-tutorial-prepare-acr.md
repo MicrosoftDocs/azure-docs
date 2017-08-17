@@ -12,11 +12,12 @@ keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: seanmck
+ms.custom: mvc
 ---
 
 # Deploy and use Azure Container Registry
@@ -56,7 +57,7 @@ Throughout the rest of this tutorial, we use `<acrname>` as a placeholder for th
 
 ## Get Azure Container Registry information
 
-Once the container registry is created, you can query its login server and password. The following code returns these values. Note each value down, they are referenced throughout this tutorial.
+Once the container registry is created, you can query its login server and password. The following code returns these values. Note each value for login server and password, as they are referenced throughout this tutorial.
 
 Container registry login server (update with your registry name):
 
@@ -64,15 +65,19 @@ Container registry login server (update with your registry name):
 az acr show --name <acrName> --query loginServer
 ```
 
+Throughout the rest of this tutorial, we use `<acrLoginServer>` as a placeholder for the container registry login server value.
+
 Container registry password:
 
 ```azurecli
-az acr credential show --name <acrName> --query passwords[0].value
+az acr credential show --name <acrName> --query "passwords[0].value"
 ```
+
+Throughout the rest of this tutorial, we use `<acrPassword>` as a placeholder for the container registry password value.
 
 ## Login to the container registry
 
-You must login to your container registry instance before pushing images to it. Use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command to complete the operation. When running docker login, you need to provide th registry login server name and credentials.
+You must login to your container registry instance before pushing images to it. Use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command to complete the operation. When running docker login, you need to provide the registry login server name and credentials.
 
 ```bash
 docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
@@ -82,7 +87,7 @@ The command returns a 'Login Succeeded’ message once completed.
 
 ## Tag container image
 
-In order to deploy a container image from a private registry, the image needs to be tagged with the `loginServer` name of the registry.
+To deploy a container image from a private registry, the image needs to be tagged with the `loginServer` name of the registry.
 
 To see a list of current images, use the `docker images` command.
 
