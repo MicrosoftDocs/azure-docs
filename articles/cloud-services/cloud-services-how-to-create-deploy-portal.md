@@ -65,14 +65,13 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 2. Click **New > Compute**, and then scroll down to and click **Cloud Service**.
 
     ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. At the bottom of the information page that displays, click **Create**.
-4. In the new **Cloud Service** blade, enter a value for the **DNS name**.
-5. Create a new **Resource Group** or select an existing one.
-6. Select a **Location**.
-7. Click **Package**. This will open the **Upload a package** blade. Fill in the required fields. If any of your roles contain a single instance, ensure **Deploy even if one or more roles contain a single instance** is selected.
-8. Make sure that **Start deployment** is selected.
-9. Click **OK** which will close the **Upload a package** blade.
-10. If you do not have any certificates to add, click **Create**.
+3. In the new **Cloud Service** blade, enter a value for the **DNS name**.
+4. Create a new **Resource Group** or select an existing one.
+5. Select a **Location**.
+6. Click **Package**. This will open the **Upload a package** blade. Fill in the required fields. If any of your roles contain a single instance, ensure **Deploy even if one or more roles contain a single instance** is selected.
+7. Make sure that **Start deployment** is selected.
+8. Click **OK** which will close the **Upload a package** blade.
+9. If you do not have any certificates to add, click **Create**.
 
     ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 

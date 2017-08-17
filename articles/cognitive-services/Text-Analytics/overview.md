@@ -28,7 +28,7 @@ Automatically extract key phrases to quickly identify the main points. We employ
 
 For example, for the input text ‘The food was delicious and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’.
 
-## Topic Detection
+## Topic Detection (To be deprecated August 24, 2017)
 
 This service returns topics that have been detected in multiple text articles. The service is designed to work well for short, human written text such as reviews and user feedback. It can help you to understand the main issues or suggestions that customers are mentioning.
 
@@ -46,7 +46,7 @@ The service can be used to detect which language the input text is written in. 1
 | English     | `en` | ✔ | ✔ | ✔ |
 | Spanish     | `es` | ✔ | ✔ |   |
 | Finnish     | `fi` | ✔ \* |  |   |
-| French      | `fr` | ✔ |  |   |
+| French      | `fr` | ✔ | ✔ \* |   |
 | Japanese    | `ja` |  | ✔ |   |
 | Italian     | `it` | ✔ \* |  |   |
 | Dutch       | `nl` | ✔ \* |  |   |
@@ -58,3 +58,11 @@ The service can be used to detect which language the input text is written in. 1
 | Turkish     | `tr` | ✔ \* |  |   |
 
 \* indicates language support in preview
+
+## Scoring large number of records
+You can send several records in a single call, but keep in mind the following limits:
+Max request size: 1MB (for sentiment, KP and language)
+Max number of documents per request: 1000
+Max size of a single document: 10KB 
+
+If you need more than 1000 records analyzed, break up your content into several calls. You can make up to 100 API calls per minute -- effectively allowing you to score 100,000 records per minute.

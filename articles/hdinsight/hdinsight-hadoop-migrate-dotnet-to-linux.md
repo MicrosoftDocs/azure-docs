@@ -15,7 +15,7 @@ ms.devlang: 'dotnet'
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 04/12/2017
+ms.date: 07/12/2017
 ms.author: larryfr
 
 ---
@@ -67,7 +67,6 @@ Once you have modified your solution using the recommendations from the .NET Por
 
 For more information on accessing logs, see the following documents:
 
-* [Analyze HDInsight logs](hdinsight-debug-jobs.md)
 * [Access YARN application logs on Linux-based HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## Next steps

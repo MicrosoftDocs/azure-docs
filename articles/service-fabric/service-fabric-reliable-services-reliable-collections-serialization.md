@@ -51,7 +51,7 @@ Reliable State Manager has built-in serializer for following types:
 ## Custom Serialization
 
 Custom serializers are commonly used to increase performance or to encrypt the data over the wire and on disk. 
-Among other reasons, custom serializers are commonly more efficient than generic serializer since they need to serialize information about the type. 
+Among other reasons, custom serializers are commonly more efficient than generic serializer since they don't need to serialize information about the type. 
 
 [IReliableStateManager.TryAddStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) is used to register a custom serializer for the given type T.
 This registration should happen in the construction of the StatefulServiceBase to ensure that before recovery starts, all Reliable Collections have access to the relevant serializer to read their persisted data.

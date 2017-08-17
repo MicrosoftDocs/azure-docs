@@ -32,9 +32,9 @@ You can get started by creating a logic app now, see [Create a logic app](../log
 > 
 > 
 
-## View the swagger
+## Connector-specific details
 
-See the [swagger details](/connectors/microsofttranslator/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/microsofttranslator/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).

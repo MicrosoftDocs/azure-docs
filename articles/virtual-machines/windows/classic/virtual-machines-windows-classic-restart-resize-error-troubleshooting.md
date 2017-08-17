@@ -13,7 +13,7 @@ ms.service: virtual-machines-windows
 ms.topic: support-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: required
-ms.date: 01/10/2017
+ms.date: 06/13/2017
 ms.devlang: na
 ms.author: delhan
 
@@ -51,7 +51,7 @@ The request to start the stopped VM has to be attempted at the original cluster 
 * Recreate the VM in the new cloud service by using the disks.
 * Start the re-created VM.
 
-If you get an error when trying to create a new cloud service, either retry at a later time or change the region for the cloud service.
+If you get an error when trying to create a new cloud service, either retry later or change the region for the cloud service.
 
 > [!IMPORTANT]
 > The new cloud service will have a new name and VIP, so you will need to change that information for all the dependencies that use that information for the existing cloud service.
@@ -79,5 +79,5 @@ You can consolidate all your VMs in the same cloud service. If your existing clo
 If the existing cloud service is not associated with a region-based virtual network, then you have to delete the VMs in the existing cloud service, and recreate them in the new cloud service from their disks. However, it is important to remember that the new cloud service will have a new name and VIP, so you will need to update these for all the dependencies that currently use this information for the existing cloud service.
 
 ## Next steps
-If you encounter issues when you create a new Windows VM in Azure, see [Troubleshoot deployment issues with creating a new Windows virtual machine in Azure](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+If you encounter issues when you create a Windows VM in Azure, see [Troubleshoot deployment issues with creating a Windows virtual machine in Azure](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

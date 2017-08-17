@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/27/2017
 ms.author: dobett
 
 ---
@@ -22,7 +22,7 @@ ms.author: dobett
 
 The IoT Suite connected factory [preconfigured solution][lnk-preconfigured-solutions] is an implementation of an end-to-end industrial solution that:
 
-* Connects to both simulated industrial devices running OPC UA servers in simulated factory production lines, and real OPC UA server devices.
+* Connects to both simulated industrial devices running OPC UA servers in simulated factory production lines, and real OPC UA server devices. For more information about OPC UA, see the [FAQ][lnk-faq].
 * Shows operational KPIs and OEE of those devices and production lines.
 * Demonstrates how a cloud-based application could be used to interact with OPC UA server systems.
 * Enables you to connect your own OPC UA server devices.
@@ -42,6 +42,13 @@ This article walks you through some of the key elements of the connected factory
 The following diagram outlines the logical components of the preconfigured solution:
 
 ![Connected factory logical architecture][connected-factory-logical]
+
+## Communication patterns
+
+The solution uses the [OPC UA Pub/Sub specification](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/) to send OPC UA telemetry data to IoT Hub in JSON format. The solution uses the [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) IoT Edge module for this purpose.
+
+The solution also has an OPC UA client integrated into a web application that can establish connections with on-premises OPC UA servers. The client uses a [reverse-proxy](https://wikipedia.org/wiki/Reverse_proxy) and receives help from IoT Hub to make the connection without requiring open ports in the on-premises firewall. This communication pattern is called [service-assisted communication](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/). The solution uses the [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge module for this purpose.
+
 
 ## Simulation
 
@@ -127,3 +134,4 @@ You can continue getting started with IoT Suite by reading the following article
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
+[lnk-faq]: iot-suite-faq.md

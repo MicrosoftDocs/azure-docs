@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Create a VM with Docker
@@ -34,7 +35,7 @@ This script creates a virtual machine with Docker enabled and starts a Docker co
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

@@ -12,9 +12,10 @@ ms.assetid: 356f5af9-f62e-411c-8b24-deba05214103
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
+ms.custom: mvc
 ---
 
 # Assign a custom domain to a web app

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
-ms.author: padmavc; ladocs
+ms.author: LADocs; padmavc
 
 ---
 # Exchange X12 messages for enterprise integration with logic apps
@@ -310,6 +310,9 @@ If a character set isn't specified for a given message schema, then the default 
 | Replacement Character |Enter a replacement character used for replacing all separator characters in the payload data when generating the outbound X12 message. |
 | Segment Terminator |To indicate the end of an EDI segment, enter a single character. |
 | Suffix |Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix. |
+
+> [!TIP]
+> To provide special character values, edit the agreement as JSON and provide the ASCII value for the special character.
 
 ### Validation
 

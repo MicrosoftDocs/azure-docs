@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2017
+ms.date: 06/13/2017
 ms.author: yuemlu 
 
 ---
@@ -28,7 +28,7 @@ This article will focus on the use of standard storage for VM Disks. For more in
 There are two ways to create standard disks for Azure VMs:
 
 **Unmanaged disks**: 
-This is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. Unmanaged disks can be attached to any Azure VM size, including the VMs that primarily use Premium Storage, such as the DSv2 and GS series. Azure VMs support attaching several standard disks, allowing up to 64 TB of storage per VM.
+This is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. Unmanaged disks can be attached to any Azure VM size, including the VMs that primarily use Premium Storage, such as the DSv2 and GS series. Azure VMs support attaching several standard disks, allowing up to 256 TB of storage per VM.
 
 [**Azure Managed Disks**](storage-managed-disks-overview.md):
 This feature manages the storage accounts used for the VM disks for you. You specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. You don't have to worry about placing the disks across multiple storage accounts in order to ensure you stay within the scalability limits for the storage accounts -- Azure handles that for you.
@@ -47,7 +47,7 @@ For information on how to create a VM with Managed Disks, please see one of the 
 Let's take a look at some of the features of Standard Storage. For more details, please see [Introduction to Azure
 Storage](storage-introduction.md).
 
-**Standard Storage**: Azure Standard Storage supports Azure Disks, Azure Blobs, Azure Files, Azure Tables, and Azure Queues. To use Standard Storage services, start with [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account).
+**Standard Storage**: Azure Standard Storage supports Azure Disks, Azure Blobs, Azure File storage, Azure Tables, and Azure Queues. To use Standard Storage services, start with [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account).
 
 **Standard storage disks:** Standard storage disks can be attached to all Azure VMs including size-series VMs used with Premium Storage such as the DSv2 and GS series. A standard storage disk can only be attached to one VM. However, you can attach one or more of these disks to a VM, up to the maximum disk count defined for that VM size. In the following section on Standard Storage Scalability and Performance Targets, we will describe the specifications in more detail. 
 
@@ -84,7 +84,7 @@ Unlike Premium Disks, the input/output operations per second (IOPS) and throughp
 
 | **VM Tier**            | **Basic Tier VM** | **Standard Tier VM** |
 |------------------------|-------------------|----------------------|
-| Max Disk size          | 1023 GB           | 1023 GB              |
+| Max Disk size          | 4095 GB           | 4095 GB              |
 | Max 8 KB IOPS per disk | Up to 300         | Up to 500            |
 | Max Bandwidth per disk | Up to 60 MB/s     | Up to 60 MB/s        |
 
@@ -122,7 +122,7 @@ When using Standard Storage, the following billing considerations apply:
 * Outbound data transfers
 * Transactions
 
-**Unmanaged storage data and disk size:** For unmanaged disks and other data (blobs, tables, queues, and files), you are charged only for the amount of space you are using. For example, if you have a VM whose page blob is provisioned as 127 GB, but the VM is really only using 10 GB of space, you will be billed for 10 GB of space. 
+**Unmanaged storage data and disk size:** For unmanaged disks and other data (blobs, tables, queues, and files), you are charged only for the amount of space you are using. For example, if you have a VM whose page blob is provisioned as 127 GB, but the VM is really only using 10 GB of space, you will be billed for 10 GB of space. We support Standard storage up to 8191 GB, and Standard unmanaged disks up to 4095 GB. 
 
 **Managed disks:** Managed disks are billed on the provisioned size. If your disk is provisioned as a 10 GB disk and you are only using 5 GB, you will still be charged for the provision size of 10 GB.
 

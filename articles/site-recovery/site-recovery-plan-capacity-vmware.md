@@ -1,6 +1,6 @@
 ---
-title: Plan capacity and scaling for VMware replication to Azure | Microsoft Docs
-description: Use this article to plan capacity and scale when replicating VMware VMs to Azure
+title: Plan capacity and scaling for VMware replication to Azure with Azure Site Recovery | Microsoft Docs
+description: Use this article to plan capacity and scale when replicating VMware VMs to Azure with Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/05/2017
+ms.date: 05/24/2017
 ms.author: rayne
 
 ---
 # Plan capacity and scaling for VMware replication with Azure Site Recovery
 
-Use this article to figure out how to plan capacity and scaling when replicating on-premises VMware VMs and physical servers to Azure, with [Azure Site Recovery](site-recovery-overview.md).
+Use this article to figure out planning for capacity and scaling, when replicating on-premises VMware VMs and physical servers to Azure with [Azure Site Recovery](site-recovery-overview.md).
 
 ## How do I start capacity planning?
 
-Gather information about your replication environment by using the [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc). This includes information about the number of virtual machines that are compatible and incompatible, disks per VM, and data churn per disk. It also covers the network bandwidth requirement, and required Azure infrastructure for successful replication and test failover.
+Gather information about your replication environment by running the [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) for VMware replication. [Learn more](site-recovery-deployment-planner.md) about this tool. You'll gather information about compatible and incompatible VMs, disks per VM, and data churn per disk. The tool also covers network bandwidth requirements, and the Azure infrastructure needed for successful replication and test failover.
 
 ## Capacity considerations
 
@@ -75,7 +75,7 @@ The way in which you scale your servers depends on your preference for a scale-u
 
 ## Control network bandwidth
 
-You can use [the deployment planner tool](https://aka.ms/asr-deployment-planner-doc) to calculate the bandwidth you need for replication (including the initial replication, and then the delta). To control the amount of bandwidth used for replication, you have a few options:
+After you've used the [the Deployment Planner tool](site-recovery-deployment-planner.md) to calculate the bandwidth you need for replication (the initial replication and then delta), you can control the amount of bandwidth used for replication using a couple of options:
 
 * **Throttle bandwidth**: VMware traffic that replicates to Azure goes through a specific process server. You can throttle bandwidth on the machines running as process servers.
 * **Influence bandwidth**: You can influence the bandwidth used for replication by using a couple of registry keys:
@@ -83,6 +83,7 @@ You can use [the deployment planner tool](https://aka.ms/asr-deployment-planner-
   * The **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DownloadThreadsPerVM** specifies the number of threads used for data transfer during failback.
 
 ### Throttle bandwidth
+
 1. Open the Azure Backup MMC snap-in on the machine acting as the process server. By default, a shortcut for Backup is available on the desktop, or in the following folder: C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
 2. In the snap-in, click **Change Properties**.
 
@@ -136,8 +137,6 @@ If you have to scale out your deployment beyond 200 source machines, or you have
 3. In **Select target process server**, select the new process server you want to use, and then select the virtual machines that the server will handle. Click the information icon to get information about the server. To help you make load decisions, the average space that's needed to replicate each selected virtual machine to the new process server is displayed. Click the check mark to start replicating to the new process server.
 
 
+## Next steps
 
-
-
-
-
+Download and run the [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner)

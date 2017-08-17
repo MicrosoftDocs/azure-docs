@@ -1,8 +1,8 @@
 ---
 title: Get started with auto scale by custom metric in Azure | Microsoft Docs
 description: Learn how to scale your resource by custom metric in Azure.
-author: rajram
-manager: rboucher
+author: anirudhcavale
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: rajram
+ms.author: ancav
 
 ---
 # Get started with auto scale by custom metric in Azure
@@ -23,7 +23,7 @@ This article describes how to scale your resource by a custom metric in Azure po
 Azure Monitor auto scale applies only to Virtual Machine Scale Sets (VMSS), cloud services, app service plans and app service environments. 
 
 # Lets get started
-This article assumes that you have a web app configured with application insights configured. If you don't have one already, you can [set up Application Insights for your ASP.NET website][1]
+This article assumes that you have a web app with application insights configured. If you don't have one already, you can [set up Application Insights for your ASP.NET website][1]
 
 - Open [Azure portal][2]
 - Click on Azure Monitor icon in the left navigation pane.

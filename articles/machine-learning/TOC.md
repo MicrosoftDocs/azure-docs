@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 
 ## [What's Machine Learning?](machine-learning-what-is-machine-learning.md)
 
@@ -155,7 +155,7 @@
 #### [Retrain an existing web service](machine-learning-retrain-existing-resource-manager-based-web-service.md)
 #### [Troubleshoot](machine-learning-troubleshooting-retraining-models.md)
 ### Consume models
-#### [Overview](machine-learning-connect-to-azure-machine-learning-web-service.md)
+#### [Overview](machine-learning-consume-web-services.md)
 #### [Use Excel](machine-learning-consuming-from-excel.md)
 #### [Use Excel add-in](machine-learning-excel-add-in-for-web-services.md)
 #### [Use web app template](machine-learning-consume-web-service-with-web-app-template.md)
@@ -173,6 +173,7 @@
 
 # Reference
 
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=machine-learning)
 ## [PowerShell module (New)](/powershell/module/azurerm.machinelearning)
 ## [PowerShell module (Classic)](machine-learning-powershell-module.md)
 ## [Algorithm & Module reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
@@ -193,6 +194,10 @@
 ### [Collections](machine-learning-gallery-collections.md)
 ### [Custom Modules](machine-learning-gallery-custom-modules.md)
 
+## Cortana Intelligence Partner Solutions
+### [Cortana Intelligence publishing guide](cortana-intelligence-appsource-publishing-guide.md)
+### [Cortana Intelligence solution evaluation tool](cortana-intelligence-appsource-evaluation-tool.md)
+
 ## Cortana Analytics
 ### APIs
 #### [Anomaly detection](machine-learning-apps-anomaly-detection-api.md)
@@ -207,9 +212,11 @@
 ##### [Setup](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 
 ## [Net# Neural Networks Language](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)

@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/05/2017
+ms.date: 07/27/2017
 ms.author: cynthn
+ms.custom: mvc
 ---
 # Back up Windows virtual machines in Azure
 
@@ -75,7 +76,7 @@ In this example, we show how to recover the image file that is used in the defau
 5. On your local computer, open a new tab and go the the [Azure portal](https://portal.azure.com).
 6. In the menu on the left, select **Virtual machines** and select the VM form the list.
 8. On the VM blade, in the **Settings** section, click **Backup**. The **Backup** blade opens. 
-9. In the menu at the top of the blade, select **File Recovery (Preview)**. The **File Recovery (Preview) blade opens.
+9. In the menu at the top of the blade, select **File Recovery**. The **File Recovery** blade opens.
 10. In **Step 1: Select recovery point**, select a recovery point from the drop-down.
 11. In **Step 2: Download script to browse and recover files**, click the **Download Executable** button. Save the file to your **Downloads** folder.
 12. On your local computer, open **File Explorer** and navigate to your **Downloads** folder and copy the downloaded .exe file. The filename will be prefixed by your VM name. 

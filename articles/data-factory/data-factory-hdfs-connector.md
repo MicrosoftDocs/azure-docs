@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/20/2017
 ms.author: jingwang
 
 ---
@@ -180,7 +180,7 @@ The sample copies data from an on-premises HDFS to an Azure blob every hour. The
 As a first step, set up the data management gateway. The instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
 **HDFS linked service:**
-This example uses the Windows authentication. See [HDFS linked service](#linked-service) section for different types of authentication you can use.
+This example uses the Windows authentication. See [HDFS linked service](#linked-service-properties) section for different types of authentication you can use.
 
 ```JSON
 {
@@ -423,7 +423,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
               REALM.COM = .
              }
 
-        **Restart** the KDC service after configuration.
+  **Restart** the KDC service after configuration.
 
 2.	Prepare a principal named **krbtgt/REALM.COM@AD.COM** in KDC server with the following command:
 
@@ -477,7 +477,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 **In Azure Data Factory:**
 
-* Configure the HDFS connector using **Windows authentication** together with either your Domain Account or Kerberos Principal to connect to the HDFS data source. Check [HDFS Linked Service properties](#linked-service) section on configuration details.
+* Configure the HDFS connector using **Windows authentication** together with either your Domain Account or Kerberos Principal to connect to the HDFS data source. Check [HDFS Linked Service properties](#linked-service-properties) section on configuration details.
 
 > [!NOTE]
 > To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
-
+ms.custom: mvc
 ---
 # Azure PowerShell Samples
 

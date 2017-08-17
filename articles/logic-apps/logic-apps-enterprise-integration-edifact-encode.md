@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc; ladocs
+ms.author: LADocs; padmavc
 
 ---
 # Encode EDIFACT messages for Azure Logic Apps with the Enterprise Integration Pack
