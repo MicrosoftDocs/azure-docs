@@ -151,12 +151,13 @@ SQL Data Warehouse grants more memory to queries running in higher resource clas
 ### Allocation and consumption of concurrency slots
 | DWU | Maximum concurrent queries | Concurrency slots allocated | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|
-| DW100 |4 |4 |1 |2 |4 |4 |
+| DW100 |4 |4 |1 |1 |2 |4 |
 | DW200 |8 |8 |1 |2 |4 |8 |
 | DW300 |12 |12 |1 |2 |4 |8 |
-| DW400 |16 |16 |1 |4 |8 | |
+| DW400 |16 |16 |1 |4 |8 |16 |
 | DW500 |20 |20 |1 |4 |8 |16 |
-| DW600 |24 |24 |1 |4 |8 |16 || DW1000 |32 |40 |1 |8 |16 |32 |
+| DW600 |24 |24 |1 |4 |8 |16 |
+| DW1000 |32 |40 |1 |8 |16 |32 |
 | DW1200 |32 |48 |1 |8 |16 |32 |
 | DW1500 |32 |60 |1 |8 |16 |32 |
 | DW2000 |32 |80 |1 |16 |32 |64 |
