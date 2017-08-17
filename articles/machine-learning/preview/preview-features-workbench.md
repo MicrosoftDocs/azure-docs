@@ -31,7 +31,7 @@ For other preview features, see:
 
 
 > [!NOTE]
-> For information about Azure Machine Learning Studio, see [What is Machine Learning Studio?](../studio/what-is-ml-studio.md).
+> For information about Azure Machine Learning Studio, see [What is Machine Learning Studio?](../studio/what-is-ml-studio.md)
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
