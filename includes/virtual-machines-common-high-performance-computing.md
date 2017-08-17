@@ -1,14 +1,14 @@
 
-Organizations have large-scale computing, or Big Compute, workloads: engineering design and analysis, image rendering, complex modeling, Monte Carlo simulations, financial risk calculations, and more. With Azure, you can run your high performance computing (HPC) and batch workloads on clusters of Azure virtual machines, using either Azure infrastructure services or managed services. Azure offers the flexibility to scale compute resources to thousands of VMs or cores and then scale down when you need fewer resources. 
+Organizations have large-scale computing, or Big Compute, workloads: engineering design and analysis, image rendering, complex modeling, Monte Carlo simulations, financial risk calculations, and more. With Azure, you can run your high performance computing (HPC) and batch workloads on clusters of Azure virtual machines, using either Azure infrastructure services or managed services. Azure gives you the flexibility to scale compute resources to thousands of VMs or cores and then scale down when you need fewer resources. 
 
-Azure HPC solutions efficiently run compute-intensive Linux and Windows workloads, from parallel batch jobs to traditional HPC simulations. Leading HPC applications are supported to run in Azure, and you can take advantage of specialized VM sizes and images designed for compute-intensive jobs. 
+Azure HPC solutions efficiently run compute-intensive Linux and Windows workloads, from parallel batch jobs to traditional HPC simulations. Leading HPC applications are supported to run in Azure VMs, and you can take advantage of specialized VM sizes and images designed for compute-intensive jobs. 
 
 
 ## Solution architectures
 
-Sample compute-intensive solution architectures in Azure include the following:
+Sample compute-intensive solution architectures in Azure include:
 
-* Run HPC applications entirely in Azure virtual machines or VM scale sets, using a Linux or Windows cluster or grid manager of your choice [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-cluster/)
+* Run HPC applications entirely in Azure VMs or VM scale sets, using a Linux or Windows cluster or grid manager of your choice [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-cluster/)
 * Create hybrid solutions that extend an on-premises HPC cluster to offload ("burst") peak workloads to Azure VMs [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-on-prem-burst/)
 * Use the managed and scalable Azure [Batch](../articles/batch/) service to run compute-intensive workloads, without managing underlying infrastructure [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
 
@@ -16,14 +16,14 @@ Sample compute-intensive solution architectures in Azure include the following:
 Deploy or extend familiar HPC workload management tools to Azure virtual machines and run your compute-intensive workloads. Options include open-source tools such as the [Slurm workload manager](https://slurm.schedmd.com/), and cluster or grid managers from Microsoft and other publishers.
 
 ### Linux and OSS cluster solutions
-Use Azure Resource Manager templates to deploy HPC cluster solutions on Linux VMs:
+Use Azure Resource Manager templates to deploy Linux HPC cluster solutions, including:
 
 * [Slurm](https://azure.microsoft.com/documentation/templates/slurm/)
 * [Torque](https://azure.microsoft.com/documentation/templates/torque-cluster/)
 * [PBS Professional](https://github.com/xpillons/azure-hpc/tree/master/Compute-Grid-Infra)
 
 ### Grid managers
-Microsoft partners with leading grid managers to make their solutions available in Azure virtual machines. Examples include:
+Microsoft partners with commercial grid managers to make their solutions available in Azure VMs Examples include:
 
 * [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/)
 * [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/) 
@@ -31,7 +31,7 @@ Microsoft partners with leading grid managers to make their solutions available 
 * [Univa Grid Engine](http://www.univa.com/products/grid-engine)
 
 ### Microsoft HPC Pack
-[HPC Pack](https://technet.microsoft.com/library/cc514029(v=ws.11).aspx) is Microsoft's free HPC solution built on Microsoft Azure and Windows Server technologies. HPC Pack offers several options to run in [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)  and [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  virtual machines. 
+[HPC Pack](https://technet.microsoft.com/library/cc514029(v=ws.11).aspx) is Microsoft's free HPC solution built on Microsoft Azure and Windows Server technologies. HPC Pack offers several options to run in [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)  and [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VMs. 
 
 Learn how to:
 
@@ -40,7 +40,7 @@ Learn how to:
 
 
 ## Azure Batch
-[Batch](../articles/batch/) is a platform service for running large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure Batch schedules compute-intensive work to run on a managed pool of virtual machines, and can automatically scale compute resources to meet the needs of your jobs. Use the Batch SDKs and tools to integrate HPC applications or container workloads with Azure, stage data to Azure, and build job execution pipelines. Batch also lets you use surplus Azure VM capacity at a [reduced price](https://azure.microsoft.com/pricing/details/batch/), significantly reducing the cost of running some batch and HPC workloads.
+[Batch](../articles/batch/) is a platform service for running large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure Batch schedules compute-intensive work to run on a managed pool of virtual machines, and can automatically scale compute resources to meet the needs of your jobs. Use the Batch SDKs and tools to integrate HPC applications or container workloads with Azure, stage data to Azure, and build job execution pipelines. You can also use surplus (low-priority) Azure VM capacity at a [reduced price](https://azure.microsoft.com/pricing/details/batch/), significantly reducing the cost of running some workloads in Batch.
 
 Learn how to:
 
@@ -107,7 +107,7 @@ Run custom or commercial HPC applications in Azure. Many are benchmarked or can 
 
 Partners who develop or deliver batch and HPC applications in Azure include:
 
-* [Cycle Computing](https://cyclecomputing.com/) - now [joined with Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)
+* [Cycle Computing](https://cyclecomputing.com/) (now [joined with Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/))
 * [Rescale](https://www.rescale.com/azure/)
 * [UberCloud](https://www.theubercloud.com/)
 
@@ -119,26 +119,17 @@ Learn more:
 
 * [Parallel file systems for HPC storage on Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
 
-## Samples and demos
-
-* [Batch Shipyard](https://azure.github.io/batch-shipyard/) toolkit for easy deployment of batch-style Dockerized workloads to Azure Batch
-* [doAzureParallel](http://www.github.com/Azure/doAzureParallel) R package, built on top of Azure Batch
-
-
-
-
 
 ## Related Azure services
 
-### Compute
+Azure VMs, VM scale sets, Batch, and related compute services are the foundation of most Azure HPC solutions. However, your solution can take advantage of many related Azure services. Here is a partial list:
 
-* [Virtual Machine Scale Sets](../articles/virtual-machine-scale-sets/)
-* [Cloud Services](../articles/cloud-services/)
-* [App Service](../articles/app-service/)
-* [Functions](../articles/functions/)
+### Storage
 
+* [Blob, table, and queue storage](../articles/storage/)
+* [File storage](../articles/storage/storage-files-introduction.md/)
 
-### Data and analysis
+### Data and analytics
 * [Data Factory](../articles/data-factory/)
 * [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)
 * [Machine Learning](../articles/machine-learning/)
@@ -149,13 +140,15 @@ Learn more:
 * [Virtual Network](../articles/virtual-network/)
 * [ExpressRoute](../articles/expressroute/)
 
-
+### Containers
+* [Container Service](../articles/container-service/)
+* [Container Registry](../articles/container-registry/)
 
 
 
 ## Customer stories
 
-Examples of customers that have solved business problems with Azure HPC solutions:
+Here are examples of customers that have solved business problems with Azure HPC solutions:
 
 * [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
 * [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
@@ -168,36 +161,6 @@ Examples of customers that have solved business problems with Azure HPC solution
 * [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
 * [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Architecture blueprints
-* [HPC and data orchestration using Azure Batch and Azure Data Factory](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) and [article](../data-factory/data-factory-data-processing-using-batch.md)
-
 
 
 ## Next steps
