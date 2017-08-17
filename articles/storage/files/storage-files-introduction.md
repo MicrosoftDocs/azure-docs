@@ -71,7 +71,7 @@ Managing Azure File shares is much simpler than managing file shares on-premises
 
 ![File Structure](./media/storage-files-introduction/files-concepts.png)
 
-* **Storage Account** All access to Azure Storage is done through a storage account. See [Scalability and Performance Targets](../common/storage-scalability-targets.md) for details about storage account capacity.
+* **Storage Account** All access to Azure Storage is done through a storage account. See [Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for details about storage account capacity.
 
 * **Share** A File Storage share is an SMB file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the 5 TB total capacity of the file share.
 
@@ -100,9 +100,8 @@ Managing Azure File shares is much simpler than managing file shares on-premises
 * [Azure File storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 
 ### Tooling support for Azure File storage
-* [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md)
-* [How to use AzCopy with Microsoft Azure Storage](../common/storage-use-azcopy.md)
-* [Using the Azure CLI with Azure Storage](../common/storage-azure-cli.md#create-and-manage-file-shares)
+* [How to use AzCopy with Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* [Using the Azure CLI with Azure Storage](../common/storage-azure-cli.md#create-and-manage-file-shares?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
 ### Blog posts
 * [Azure File storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
