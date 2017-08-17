@@ -52,10 +52,10 @@ In this tutorial, you learned how to:
 > * Automate domain mapping with scripts
 
 Advance to the next tutorial to learn how to bind a custom SSL certificate to it.
-
+<!-- Replace this .md
 > [!div class="nextstepaction"]
 > [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
-
+-->
 <---! 
 Rules for screenshots:
 - Use default Public Portal colors

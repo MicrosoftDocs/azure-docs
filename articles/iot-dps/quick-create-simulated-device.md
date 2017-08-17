@@ -30,6 +30,9 @@ Minimize the use of screenshots in Quickstart articles (rules for screenshots be
 - Metadata for this article should have ms.topic: hero-article; ms.custom: mvc
 -->
 
+
+
+
 *EXAMPLE*: 
 # Create a Windows virtual machine with the Azure portal
 <---! # Page heading (H1) - Unique, starts with "Create"
@@ -60,13 +63,13 @@ Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **Compute**, select **Windows Server 2016 Datacenter**, and ensure that **Resource Manager** is the selected deployment model. Click the **Create** button. 
 
 3. Enter the virtual machine information. The user name and password entered here is used to log in to the virtual machine. When complete, click **OK**.
-
+<!-- Replace this media file
     ![Enter basic information about your VM in the portal blade](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
-
+-->
 4. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. 
-
+<!-- Replace this media file
     ![Screenshot that shows VM sizes](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
-
+-->
 5. On the settings blade, select **Yes** under **Use managed disks**, keep the defaults for the rest of the settings, and click **OK**.
 
 6. On the summary page, click **Ok** to start the virtual machine deployment.
@@ -94,9 +97,10 @@ Other quick starts in this collection build upon this quick start. If you plan t
 *EXAMPLE*:
 In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server. To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.
 
+<!-- Replace this .md
 > [!div class="nextstepaction"]
 > [Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)
-
+-->
 <---!
 Rules for screenshots:
 - Use default Public Portal colors​

@@ -7,11 +7,13 @@ Metadata for Overview article should go here.
 
 *Select one of the following disclaimers depending on your scenario. If your article is deployment model agnostic, ignore this.*
 
+<!-------------------
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [!INCLUDE [learn-about-deployment-models](../../learn-about-deployment-models-both-include.md)]
+--->
 
 [Opening paragraph]
 

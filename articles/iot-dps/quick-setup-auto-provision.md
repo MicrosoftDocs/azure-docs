@@ -1,114 +1,87 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Intent and product brand in a unique string of 43-59 chars including spaces | Microsoft Docs 
-description: 115-145 characters including spaces. Edit the intro para describing article intent to fit here. This abstract displays in the search result.
-services: service-name-with-dashes-AZURE-ONLY 
-keywords: Don’t add or edit keywords without consulting your SEO champ.
-author: github-alias
-ms.author: MSFT-alias-person-or-DL
-ms.date: 08/10/2017
-ms.topic: article-type-from-white-list
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-# ms.service: service-name-from-white-list
-# product-name-from-white-list
+title: Azure Quick Start - Set up DPS in Portal | Microsoft Docs
+description: Azure Quick Start - Set up Azure IoT Hub Device Provisioning Service in Azure Portal
+services: iot-dps
+keywords: 
+author: dsk-2015
+ms.author: dkshir
+ms.date: 08/15/2017
+ms.topic: hero-article
+ms.service: iot-dps
 
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
-# manager: MSFT-alias-manager-or-PM-counterpart
+documentationcenter: ''
+manager: timlt
+ms.devlang: na
+ms.custom: mvc
 ---
 
-<---!
-Definition of Quickstart: 
-Fundamental, Day 1 instructions for new customers to use an Azure subscription to quickly use a specific product/service 
-(zero to Wow in < 10 minutes). Include short, simple info and steps that require a new customer to have an Azure subscription and interact with your Azure service. 
-Minimize the use of screenshots in Quickstart articles (rules for screenshots below)
+# Set up IoT Hub Device Provisioning Service with the Azure portal
 
-- Metadata for this article should have ms.topic: hero-article; ms.custom: mvc
--->
+These steps show how to set up the Azure cloud resources in the portal for provisioning your devices. This includes creating your IoT hub, creating a new IoT Hub Device Provisioning Service (or DPS) and linking the two services together. 
 
-*EXAMPLE*: 
-# Create a Windows virtual machine with the Azure portal
-<---! # Page heading (H1) - Unique, starts with "Create"
--->
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-<---! Intro paragraph: 
-1. 1-2 sentences that explain what customers will do and why it is useful.  Also, mention any relevant versioning information that the article is based on.
-2. Use an include to make sure Azure CLI, PowerShell or Portal are installed and configured correctly-->
-
-*EXAMPLE 1*:
-Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This Quickstart steps through creating a virtual machine and installing a webserver on the VM.
-
-*REQUIRED*:
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Log in to the Azure portal
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
-<---! The next set of H2s describes the steps. Each H2 outlines the steps to completion ("Create a virtual machine", "Create a SQL Database"). 
--->
-
-*EXAMPLE*:
-## Create virtual machine
+## Create an IoT hub
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-2. Select **Compute**, select **Windows Server 2016 Datacenter**, and ensure that **Resource Manager** is the selected deployment model. Click the **Create** button. 
+2. Select **Internet of Things**, select **IoT Hub**, and click the **Create** button. 
 
-3. Enter the virtual machine information. The user name and password entered here is used to log in to the virtual machine. When complete, click **OK**.
+3. **Name** your IoT hub. Select from available options for pricing, enter the [IoT Hub units](https://azure.microsoft.com/pricing/details/iot-hub/), select the number of partitions for device-to-cloud messages and the subscription that would be used for this resource. Enter the name of a new or existing resource group and select the location. When complete, click **Create**.
 
-    ![Enter basic information about your VM in the portal blade](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
+    ![Enter basic information about your IoT hub in the portal blade](./media/quick-setup-auto-provision/create-iot-hub-portal.png)  
 
-4. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. 
+4. Once the IoT hub is successfully deployed, the hub summary blade automatically opens.
 
-    ![Screenshot that shows VM sizes](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
-
-5. On the settings blade, select **Yes** under **Use managed disks**, keep the defaults for the rest of the settings, and click **OK**.
-
-6. On the summary page, click **Ok** to start the virtual machine deployment.
-
-7. The VM will be pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary blade automatically opens.
 
 <---!
-All quickstarts need to include a section to clean up resources or delete work to avoid unnecessary charges.  
+Need for a string pass in the last week of August or when portal is ready. 
+ - a single instance of the DPS might not be called a tenant. Nicole is finding out from Leandro the acceptable terms to use. 
+ - a few other portal strings might also change. 
 -->
 
-*REQUIRED*:
+## Create a new tenant for IoT device provisioning service
+
+1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+
+2. *Search the Marketplace* for **Device provisioning service**. Select **IoT Device Provisioning Service (preview)** and click the **Create** button. 
+
+3. **Name** your DPS tenant. Select the subscription that would be used for this tenant and name a new or existing resource group. Select the location. When complete, click **Create**.
+
+    ![Enter basic information about your DPS tenant in the portal blade](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
+
+4. Once the DPS tenant is successfully deployed, its summary blade automatically opens.
+
+
+## Link the IoT hub and the DPS tenant
+
+1. Click the **All resources** button from on the left-hand menu of the Azure portal. Select the DPS tenant that you created in above section.  
+
+2. On the DPS summary blade, select **Linked IoT hubs**. Click the **+ Add** button seen at the top. 
+
+3. In the **Add link to IoT hub or pool** portal blade, select either the current subscription or enter the name and connection string for another subscription. Select *IoT hub* as the **Resource type** and select the name of the hub from the drop-down list. When complete, click **Save**. 
+
+    ![Link the hub name to link to the DPS tenant in the portal blade](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
+
+3. Now you should see the selected hub under the **Linked IoT hubs** blade. 
+
+
+
 ## Clean up resources
 
 Other quick starts in this collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
 
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**. 
-2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
+1. From the left-hand menu in the Azure portal, click **All resources** and then select your DPS tenant. Click the **Delete** button from at the top of the **All resources** blade.  
+2. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. Click the **Delete** button from at the top of the **All resources** blade.  
 
-<---! A simple of list of articles that link to logical next steps.  This is probabLy a tutorial that is a superset of this QuickStart. Include no more than 3 next steps. Make sure to include syntax to highlight your next steps [!div class="nextstepaction"]
--->
-
-*REQUIRED*:
 ## Next steps
 
-*EXAMPLE*:
-In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server. To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.
+In this quick start, you’ve deployed an IoT hub and a DPS tenant, and linked the two resources. To learn how to use this set up to provision a simple simulated device, continue to the quick start for creating simulated device.
 
 > [!div class="nextstepaction"]
-> [Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)
-
-<---!
-Rules for screenshots:
-- Use default Public Portal colors​
-- Remove personally identifiable information​
-- Browser included in the first shot of the article​
-- Resize the browser to minimize white space​
-- Include complete blades in the screenshots​
-- Linux: Safari – consider context in images​
-
-Guidelines for outlining areas within screenshots:
-- Red outline #ef4836
-- 3px thick outline
-- Text should be vertically centered within the outline.
-- Length of outline should be dependent on where it sits within the screenshot. Make the shape fit the layout of the screenshot.
--->
+> [Quick start to create simulated device](./quick-create-simulated-device.md)
