@@ -83,6 +83,7 @@
 ## [Enable billing](active-directory-b2c-how-to-enable-billing.md)
 ## [Threat management](active-directory-b2c-reference-threat-management.md)
 ## [Issues when creating a directory](active-directory-b2c-support-create-directory.md)
+## [Extensions app](active-directory-b2c-reference-extensions-app.md)
 
 # Related
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
@@ -93,6 +94,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Frequently asked questions](active-directory-b2c-faqs.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 ## [Support](active-directory-b2c-support.md)

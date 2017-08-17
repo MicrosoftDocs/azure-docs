@@ -12,11 +12,12 @@ keywords:
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 08/01/2017
 ms.author: seanmck
+ms.custom: mvc
 ---
 
 # Mounting an Azure file share with Azure Container Instances
@@ -46,7 +47,7 @@ az storage share create -n $ACI_PERS_SHARE_NAME
 
 ## Acquire storage account access details
 
-The mount an Azure file share as a volume in Azure Container Instances, you need three values: the storage account name, the share name, and the storage access key. 
+To mount an Azure file share as a volume in Azure Container Instances, you need three values: the storage account name, the share name, and the storage access key. 
 
 If you used the script above, the storage account name was created with a random value at the end. To query the final string (including the random portion), use the following commands:
 
@@ -108,28 +109,39 @@ To define the volumes you want to make available for mounting, add a `volumes` a
     "properties": {
       "containers": [{
         "name": "hellofiles",
-        "image": "seanmckenna/aci-hellofiles",
-        "resources": {
-          "request": {
-            "cpu": 1,
-            "memoryInGb": 1.5
-          }
-        },
-        "volumeMounts": [{
-          "name": "myvolume",
-          "mountPath": "/aci/logs/"
-        }]
+        "properties": {
+          "image": "seanmckenna/aci-hellofiles",
+          "resources": {
+            "requests": {
+              "cpu": 1,
+              "memoryInGb": 1.5
+            }
+          },
+          "ports": [{
+            "port": 80
+          }],
+          "volumeMounts": [{
+            "name": "myvolume",
+            "mountPath": "/aci/logs/"
+          }]
+        }  
       }],
       "osType": "Linux",
+      "ipAddress": {
+        "type": "Public",
+        "ports": [{
+          "protocol": "tcp",
+          "port": "80"
+        }]
+      },
       "volumes": [{
-          "name": "myvolume",
-          "azureFile": {
-              "shareName": "acishare",
-              "storageAccountName": "[parameters('storageaccountname')]",
-              "storageAccountKey": "[parameters('storageaccountkey')]"
-          }
+        "name": "myvolume",
+        "azureFile": {
+          "shareName": "acishare",
+          "storageAccountName": "[parameters('storageaccountname')]",
+          "storageAccountKey": "[parameters('storageaccountkey')]"
         }
-      ]
+      }]
     }
   }]
 }
@@ -173,7 +185,13 @@ With the template defined, you can create the container and mount its volume usi
 az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
 ```
 
-Once the container starts up, you can manage files in the share at the mount path that you specified.
+Once the container starts up, you can use the simple web app deployed via the **seanmckenna/aci-hellofiles** image, to the manage files in the Azure file share at the mount path that you specified. Obtain the ip address for the web app via the following:
+
+```azurecli-interactive
+az container show --resource-group myResourceGroup --name hellofiles -o table
+```
+
+You can use a tool like the [Microsoft Azure Storage Explorer](http://storageexplorer.com) to retrieve and inspect the file writen to the file share.
 
 >[!NOTE]
 > To learn more about using Azure Resource Manager templates, parameter files, and deploying with the Azure CLI, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).

@@ -12,22 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ---
 
 # Azure Active Directory Seamless Single Sign-On: Quick start
 
+## How to deploy Seamless SSO
+
 Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate desktops connected to your corporate network. It provides your users easy access to your cloud-based applications without needing any additional on-premises components.
 
-## How to deploy Azure AD Seamless SSO
+>[!IMPORTANT]
+>The Seamless SSO feature is currently in preview.
 
 To deploy Seamless SSO, you need to follow these steps:
-1. *Check prerequisites*: Set up your tenant and on-premises environment correctly before you enable the feature.
-2. *Enable the feature*: Turn on Seamless SSO on your tenant using Azure AD Connect.
-3. *Roll out the feature*: Use Group Policy to roll out the feature to some or all your users.
-4. *Test the feature*: Test user sign-in using Seamless SSO.
-5. *Roll over keys*: Frequently roll over computer accounts' Kerberos decryption keys.
 
 ## Step 1: Check prerequisites
 
@@ -57,6 +55,15 @@ After completion of the wizard, Seamless SSO is enabled on your tenant.
 
 >[!NOTE]
 > The Domain Administrator credentials are not stored in Azure AD Connect or in Azure AD, but are only used to enable the feature.
+
+Follow these instructions to verify that you have enabled Seamless SSO correctly:
+
+1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with the Global Administrator credentials for your tenant.
+2. Select **Azure Active Directory** on the left-hand navigation.
+3. Select **Azure AD Connect**.
+4. Verify that the **Seamless Single Sign-On** feature shows as **Enabled**.
+
+![Azure portal - Azure AD Connect blade](./media/active-directory-aadconnect-sso/sso10.png)
 
 ## Step 3: Roll out the feature
 
@@ -112,6 +119,9 @@ Using third-party Active Directory Group Policy extensions to roll out the Azure
 #### Known limitations
 
 Seamless SSO doesn't work in private browsing mode on Firefox and Edge browsers. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protection mode.
+
+>[!IMPORTANT]
+>We recently rolled back support for Edge to investigate customer-reported issues.
 
 ## Step 4: Test the feature
 

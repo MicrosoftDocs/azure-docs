@@ -83,7 +83,25 @@ This section shows how to achieve interaction between a **Cognitive Insights** w
 
 
 2. Instantiate Azure Media Player with the Video Indexer plugin.
+		// Init Source
+		function initSource() {
+		    var tracks = [{
+			kind: 'captions',
+			// Here is how to load vtt from VI, you can replace it with your vtt url.
+			src: this.getSubtitlesUrl("c4c1ad4c9a", "English"),
+			srclang: 'en',
+			label: 'English'
+		    }];
 
+		    myPlayer.src([
+			{
+			    "src": "//amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest",
+			    "type": "application/vnd.ms-sstr+xml"
+			}
+		    ], tracks);
+		}
+
+		// Init your AMP instance
 		var myPlayer = amp('vid1', { /* Options */
 		    "nativeControlsForTouch": false,
 		    autoplay: true,
@@ -92,30 +110,19 @@ This section shows how to achieve interaction between a **Cognitive Insights** w
 		    height: "400",
 		    poster: "",
 		    plugins: {
-		        videobreakedown: {}
+			videobreakedown: {}
 		    }
 		}, function () {
 		    // Activate the plugin
-		    this.videobreakdown({syncTranscript:true, syncLanguage:true});
+		    this.videobreakdown({
+			videoId: "c4c1ad4c9a",
+			syncTranscript: true,
+			syncLanguage: true
+		    });
+
+		    // Set the source dynamically
+		    initSource.call(this);
 		});
-		
-		// Optional subtitles
-		var breakdownId = "15f91358fb"; 
-		var language = "English";
-		
-		var tracks = [{
-		    kind: 'captions',
-		    src: myPlayer.getSubtitlesUrl(breakdownId , language),
-		    srclang: 'en',
-		    label: 'English'
-		}];
-		
-		myPlayer.src([
-		    {
-		        "src": "//amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest",
-		        "type": "application/vnd.ms-sstr+xml"
-		    }
-		], tracks);
 
 3. Copy the **Cognitive Insights** embed code.
 
@@ -174,6 +181,33 @@ For more information, see [this demo](https://videobreakdown.portal.azure-api.ne
 ## Adding subtitles
 
 If you embed Video Indexer insights with your own AMP player, you can use the **GetVttUrl** method to get closed captions (subtitles). You can also use call a javascript method from the Video Indexer AMP plugin **getSubtitlesUrl** (as shown earlier). 
+
+## Customizing embeddable widgets
+
+### Cognitive insights widget
+You can choose the types of insights you want by specifying them as a value to the  following URL parameter added to the the embed code you get (from API or from the web application):
+
+**&widgets=**<list of wanted widgets>
+
+The possible values are: people, keywords, sentiments, transcript, search.
+
+For example, if you want to embed widget containing only people and search insights the iframe embed URL will look like this:
+https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?widgets=people,search
+
+### Player widget
+If you embed Video Indexer player you can choose the size of the player by specifying the size of the iframe.
+
+For example :
+<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/{id}” frameborder="0" allowfullscreen />
+
+By default Video Indexer player will have auto generated closed captions based on the transcript of the video that was extracted from the video with the source language that was selected when the video was uploaded.
+
+If you want to embed with a different language you can add **&captions=< Language | ”all” | “false” >** to the embed player URL or put “all” as the value if you want to have all available languages captions.
+If you want the captions to be dispalyed by defualt you can pass **&showCaptions=true**
+
+The embed URL then will look like this : https://www.videoindexer.ai/embed/player/9a296c6ec3/?captions=italian. If you want to disable captions you can pass “false” as value for captions parameter.
+
+Auto play – by default the player will start playing the video. you can choose not to by passing &autoplay=false to the embed URL above.
 
 ## Next steps
 

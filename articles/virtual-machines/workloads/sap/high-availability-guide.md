@@ -361,7 +361,7 @@ ms.custom: H1Hack27Feb2017
 
 [sap-ha-guide-figure-6003]:media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azureps-cmdlets-docs
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
@@ -411,13 +411,8 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../../virtual-machines-windows-ps-create.md
 [virtual-machines-sizes]:../../virtual-machines-windows-sizes.md
-[./windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
-[./windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener]:../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[./windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
-[./windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md
-[./windows/sql/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[./windows/sql/virtual-machines-sql-server-infrastructure-services]:../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[./windows/sql/virtual-machines-sql-server-performance-best-practices]:../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
+[virtual-machines-windows-portal-sql-alwayson-int-listener]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
