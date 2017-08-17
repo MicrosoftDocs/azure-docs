@@ -1,3 +1,6 @@
 - name: Files
   tocHref: /azure/storage/files/
   topicHref: /azure/storage/files/storage-files-introduction
+- name: Files
+  tocHref: /azure/storage/common/
+  topicHref: /azure/storage/files/storage-files-introduction
