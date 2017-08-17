@@ -1,11 +1,11 @@
 ---
 title: HDInsight Tools - Use the Azure HDInsight Tools for Visual Studio Code | Microsoft Docs
 description: 'Learn how to use the Azure HDInsight Tools for Visual Studio Code to create, submit scripts. '
-Keywords: VScode,Azure HDInsight Tools
+Keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop
 services: data-lake-analytics
 documentationcenter: ''
 author: jejiang
-manager: jhubbard
+manager: 
 editor: cgronlun
 tags: azure-portal
 
@@ -80,11 +80,12 @@ Install **Python 0.7.0**
 3. Click **Install** next to **Python 0.7.0**. After a few seconds, the **Install** button will be changed to **Reload**.
 4. Click **Reload** to activate the **Python 0.7.0** extension.
 5. Click **Reload Window** to confirm. You can see **Python 0.7.0** in the Extensions pane.
-    ![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
+
+     ![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
 
 
 ## Activate Azure Data Lake Tools
-Please create a new .hql, .py file or open an existing .hql, .py file to activate the extension. 
+Please create a new .hql, .hive, .py file or open an existing .hql, .hive, .py file to activate the extension. 
 
 ## Connect to Azure
 
@@ -111,16 +112,7 @@ Before you can submit scripts to cluster, you must connect to your Azure account
     > If your account has two factors enabled, it is recommended to use phone authentication instead of Pin.
 
 To sign off, use the command **HDInsight: Logout**
-
-## List HDInsight clusters
-
-To test the connection, you can list your HDInsight clusters:
-
-**To list HDInsight cluster under your Azure subscription**
-
-1. Open the command palette by pressing **CTRL+SHIFT+P**.
-2. Type **HDInsight: List Cluster**.  The clusters appear in the **Output** pane.
-
+ 
 ## Work with HDInsight project
 
 You need open either a Hive file, a pyspark file or a folder to work with project.
@@ -131,10 +123,7 @@ You need open either a Hive file, a pyspark file or a folder to work with projec
 2. Specify or Create a new folder, and then click **Select Folder**.
 3. Click the **File** menu, and then click **New File**. An **Untilted-1** file is shown in the right pane.
 4. Save the file as .hql or .py in the opened folder. Notice an **XXXX_hdi_settings.json** configuration file is also added to the project.
-4. Open **XXXX_hdi_settings.json**, when you submit script to cluster, you can configure it according to the sample in the file. You also can leave the remaining parameters empty.     
-4. Open and configure **XXXX_hdi_settings.json** when you submit script to cluster, you can according to the sample in the file. You also can leave the remaining parameters empty.     
-    ![Data Lake Tools for Visual Studio Code configuration file](./media/hdinsight-for-vscode/hdinsight-vscode-configuration-file.png)
-
+5. Open **XXXX_hdi_settings.json** from **EXPLORER** ,or right click on script editor to select **Set Configuration**. You can configure login entry, default cluster and job submission parameters, according to the sample in the file. You also can leave the remaining parameters empty.         
 **To submit Hive Script**
 1. New a file in your current folder and named **xxx.hql**.
 2. Copy and paste the following code into **xxx.hql**, then save it.
@@ -178,18 +167,39 @@ Make sure the test.csv is already existed in your container.
 
 The OUTPUT panel at the bottom of the window should start displaying the progress.After submitting a python job, submission logs is shown in output window in VSCode. If the submission is successful, the job URL is shown as well. You can open the job URL in a web browser to track real-time job status.
 
+## List HDInsight clusters
+
+To test the connection, you can list your HDInsight clusters:
+
+**To list HDInsight cluster under your Azure subscription**
+
+1. Open the command palette by pressing **CTRL+SHIFT+P**.
+2. Enter **HDInsight: List Cluster**.  The clusters appear in the **Output** pane.
+
+## Set Default Cluster
+1. Open the command palette by pressing **CTRL+SHIFT+P**.
+2. Enter **HDInsight: Set Default Cluster**, or right click on script editor to select **Set Default Cluster**.
+3. Select a cluster as default cluster for the current script file. 
+4. Meanwhile, our tool is arleady save what you selected default clusters into **XXXX_hdi_settings.json**. Of course you also directly update it in this configuration file. 
+   ![set default cluster configuration](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
+
+## Set Azure Environment 
+1. Open the command palette by pressing **CTRL+SHIFT+P**.
+2. Enter **HDInsight: Set Azure Environment**.
+3. Select one way from Azure and AzureChina as your default login entry.
+4. Meanwhile, our tool is arleady save what you selected default login entry into **XXXX_hdi_settings.json**. Of course you also directly update it in this configuration file. 
+   ![set default login entry configuration](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
+
+
 ## Additional features
 
 The Data Lake Tools for VSCode supports the following features:
 
 -	IntelliSense auto-complete. Suggestions are popped up around keyword, method, variables, etc. Different icons represent different types of the objects:
-
--	IntelliSense error marker. The Data Lake Tools underline the editing errors for hive script and python script. 
-
-    ![HDInsight Tools for Visual Studio Code IntelliSense object types](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
+![HDInsight Tools for Visual Studio Code IntelliSense object types](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
+-	IntelliSense error marker. The Data Lake Tools underline the editing errors for hive script.     
 -	Syntax highlights. The Data Lake Tools use different color to differentiate variables, keywords, data type, functions, etc. 
-
-    ![HDInsight Tools for Visual Studio Code syntax highlights](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
+![HDInsight Tools for Visual Studio Code syntax highlights](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
 
 
