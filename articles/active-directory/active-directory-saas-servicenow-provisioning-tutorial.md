@@ -1,10 +1,11 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ServiceNow | Microsoft Docs'
+title: 'Tutorial: Configuring ServiceNow for Automatic User Provisioning | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ServiceNow.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 
 ms.assetid: 4d6f06dd-a798-4c22-b84f-8a11f1b8592a
 ms.service: active-directory
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 08/25/2017
 ms.author: jeedes
 
 ---
@@ -25,7 +26,7 @@ The objective of this tutorial is to show you the steps you need to perform in S
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 *   An Azure Active directory tenant.
-*   You must have a valid tenant for ServiceNow for Work or ServiceNow for Education. You may use a free trial     account for either service.
+*   You must have a valid tenant for ServiceNow for Work or ServiceNow for Education. You may use a free trial account for either service.
 *   A user account in ServiceNow with Team Admin permissions.
 
 ## Assigning users to ServiceNow
@@ -33,23 +34,21 @@ The scenario outlined in this tutorial assumes that you already have the followi
 Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Azure AD is synchronized.
 
 Before configuring and enabling the provisioning service, you need to decide what users and/or groups in Azure AD represent the users who need access to your ServiceNow app. Once decided, you can assign these users to your ServiceNow app by following the instructions here:
-
 [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### Important tips for assigning users to ServiceNow
 
-*   It is recommended that a single Azure AD user is assigned to ServiceNow to test the provisioning configuration. Additional users and/or groups may be assigned later.
+> [!IMPORTANT]
+>*   It is recommended that a single Azure AD user is assigned to ServiceNow to test the provisioning configuration. Additional users and/or groups may be assigned later.
+>*   When assigning a user to ServiceNow, you must select a valid user role. The "Default Access" role does not work for provisioning.
 
-*   When assigning a user to ServiceNow, you must select a valid user role. The "Default Access" role does not work for provisioning.
-
-## Enable Automated User Provisioning
+## Enable automated user provisioning
 
 This section guides you through connecting your Azure AD to ServiceNow's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in ServiceNow based on user and group assignment in Azure AD.
 
->[!Tip]
+> [!TIP]
 >You may also choose to enabled SAML-based Single Sign-On for ServiceNow, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
-### To configure automatic user account provisioning:
+### Configure automatic user account provisioning
 
 1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications** section.
 
