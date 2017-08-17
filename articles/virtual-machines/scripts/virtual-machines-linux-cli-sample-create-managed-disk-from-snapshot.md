@@ -29,7 +29,7 @@ This script creates a managed disk from a snapshot. Use it to restore a virtual 
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/storage/create-managed-disks-from-snapshot/create-managed-disks-from-snapshot.sh "Create managed disk from snapshot")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-managed-disks-from-snapshot/create-managed-disks-from-snapshot.sh "Create managed disk from snapshot")]
 
 
 ## Script explanation
