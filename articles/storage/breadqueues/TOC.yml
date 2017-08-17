@@ -1,6 +1,0 @@
-- name: Queues
-  tocHref: /azure/storage/queues/
-  topicHref: /azure/storage/queues/storage-queues-introduction
-- name: Queues
-  tocHref: /azure/storage/common/
-  topicHref: /azure/storage/queues/storage-queues-introduction

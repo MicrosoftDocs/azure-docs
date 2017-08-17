@@ -1,6 +1,0 @@
-- name: Blobs
-  tocHref: /azure/storage/blobs/
-  topicHref: /azure/storage/blobs/storage-blobs-introduction
-- name: Blobs
-  tocHref: /azure/storage/common/
-  topicHref: /azure/storage/blobs/storage-blobs-introduction
