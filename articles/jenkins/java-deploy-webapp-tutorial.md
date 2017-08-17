@@ -110,11 +110,11 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
 
     ```json
     {
-        "appId": "9257e114-7412-4c8c-802d-5c80fc1b493d",
+        "appId": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee",
         "displayName": "jenkins_sp",
         "name": "http://jenkins_sp",
         "password": "secure_password",
-        "tenant": "67ab7f0c-b1d4-4b79-af8b-17a6ed3b3db2"
+        "tenant": "ffffffff-gggg-hhhh-iiii-jjjjjjjjjj"
     }
     ```
 6. Enter the credentials from the service principal into the **Add credentials** dialog. If you don't know your Azure subscription ID, you can query it from the CLI:
