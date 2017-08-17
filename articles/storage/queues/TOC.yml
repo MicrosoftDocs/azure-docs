@@ -27,5 +27,5 @@
   - name: Samples
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=queue
 #include file for the articles that apply to >1 service
-- name: More topics
+- name: Storage guidance
   href: ../tocqueues/toc.yml
