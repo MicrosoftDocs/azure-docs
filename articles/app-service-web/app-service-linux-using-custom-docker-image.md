@@ -1,11 +1,11 @@
 ---
-title: How to use a custom Docker image for Azure Web App on Linux | Microsoft Docs
+title: Use a custom Docker image for Azure Web App on Linux | Microsoft Docs
 description: How to use a custom Docker image for Azure Web App on Linux.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
 documentationcenter: ''
-author: naziml
-manager: erikre
+author: rachelap
+manager: wpickett
 editor: ''
 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
@@ -14,110 +14,564 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2017
-ms.author: naziml;wesmc
+ms.date: 08/15/2017
+ms.author: rachelap
 
 ---
 
-# Using a custom Docker image for Azure Web App on Linux #
+# Use a custom Docker image for Azure Web App on Linux #
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
+[App Service](https://azure.microsoft.com/services/app-service/) provides pre-defined application stacks on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. App Service on Linux uses [Docker](https://docs.docker.com) containers to host these pre-built application stacks. You can also use a custom [Docker image](https://docs.docker.com/engine/reference/commandline/images/) to deploy your web app to an application stack that is not already defined in Azure. Custom images hosted by Docker can be either a public or private repository.
 
-App Service provides pre-defined application stacks on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. App Service on Linux uses Docker containers to host these pre-built application stacks. You can also use a custom Docker image to deploy your web app to an application stack that is not already defined in Azure. Custom Docker images can be hosted on either a public or private Docker repository.
+## Prerequisites
+
+To complete this tutorial:
+
+* [Git](https://git-scm.com/downloads)
+* [Docker](https://docs.docker.com/get-started/#setup) 
+* A [Docker Hub account](https://docs.docker.com/docker-id/)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* An [active Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
+
+ [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
+
+## Download the sample
+
+In a terminal window, run the following command to clone the sample app repository to your local machine:
+
+```bash
+git clone https://github.com/Azure-Samples/use-custom-docker-image.git
+```
+Change to the directory that contains the sample code.
+
+## Build the image from the Docker file
+
+A Docker file is a text file named `Dockerfile`, which contains the commands that define a Docker Image. Docker images are snapshots of the application and its environment that you want to deploy. Examining the Dockerfile in the following sample reveals it is hosting the latest version of  `Python` for the web app along with related files and configuration. Additionally, the image sets up an [SSH](https://www.ssh.com/ssh/protocol/) server.
+
+```docker
+# Use an official Python runtime as a parent image
+FROM python
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+ADD . /app
+
+# Run python's package manager and install the flask package
+RUN pip install flask
+
+# Configure ports
+EXPOSE 2222 82 
+
+# Run apt-get, to install the SSH server
+ RUN apt-get update \ 
+ 	&& apt-get install -y --no-install-recommends openssh-server \
+ 	&& echo "root:Docker!" | chpasswd
+
+ #Copy the sshd_config file to its new location
+ COPY sshd_config /etc/ssh/
+
+# Start the SSH service
+ RUN #!/bin/bash
+ RUN service ssh start
+
+# Copy init_container.sh to the /bin directory
+ COPY init_container.sh /bin/
+	
+# Run the chmod command to change permissions on above file in the /bin directory
+ RUN chmod 755 /bin/init_container.sh 
+
+# run commands in init_container.sh			
+ CMD ["/bin/init_container.sh"]
+
+# Run app.py when the container launches
+CMD ["python", "app.py"]
+```
+
+To build the Docker image, run the `docker build` command, and provide a name, `mydockerimage`, and tag, `v1`, as shown here:
+
+```bash
+docker build --tag {docker-id}/mydockerimage:v1 .
+```
+
+The command produces output similar to the following:
+
+> [!NOTE]
+> The output from the commands in this article has been shortened for brevity.
+> 
+
+```bash
+Sending build context to Docker daemon  23.04kB
+Step 1/13 : FROM python
+ ---> 968120d8cbe8
+Step 2/13 : WORKDIR /app
+ ---> Using cache
+ ---> dd6fdca5aa65
+Step 3/13 : ADD . /app
+ ---> e05c8f4beeae
+Get:1 http://security.debian.org jessie/updates InRelease [63.1 kB]
+Ign http://deb.debian.org jessie InRelease
+Get:2 http://deb.debian.org jessie-updates InRelease [145 kB]
+Get:3 http://deb.debian.org jessie Release.gpg [2373 B]
+Fetched 9988 kB in 7s (1266 kB/s)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  init-system-helpers libwrap0 openssh-sftp-server
+Suggested packages:
+  ssh-askpass rssh molly-guard ufw monkeysphere
+Recommended packages:
+  tcpd xauth ncurses-term
+The following NEW packages will be installed:
+  init-system-helpers libwrap0 openssh-server openssh-sftp-server
+0 upgraded, 4 newly installed, 0 to remove and 3 not upgraded.
+Need to get 442 kB of archives.
+After this operation, 1138 kB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian/ jessie/main libwrap0 amd64 7.6.q-25 [58.5 kB]
+Creating SSH2 RSA key; this may take some time ...
+2048 f0:e9:fb:69:de:62:a4:5c:a3:7c:b3:41:e9:2e:96:a3 /etc/ssh/ssh_host_rsa_key.pub (RSA)
+Creating SSH2 DSA key; this may take some time ...
+1024 4a:5e:89:bd:aa:2d:71:bb:0e:3a:32:94:fb:c0:b1:4d /etc/ssh/ssh_host_dsa_key.pub (DSA)
+Processing triggers for systemd (215-17+deb8u7) ...
+ ---> 5b416a7dcdca
+Removing intermediate container 283b3b4623d7
+Step 13/13 : CMD python app.py
+ ---> Running in 1c776e5e0772
+ ---> 1bfc1bbc968d
+Removing intermediate container 1c776e5e0772
+Successfully built 1bfc1bbc968d
+Successfully tagged {docker-id}/myDockerImage:v1
+```
+
+Test that the build works by running the Docker container. You do this by issuing the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command and passing the name and tags of the image to it, as well as specifying the port for web app access. The `-p` argument specifies the port in the image and the host that is exposed when the container runs. 
+
+```bash
+docker run -p 80:2222 {docker-ID}/mydockerimage:v1
+```
+
+Verify the image is running by browsing the web app locally.
+
+![Test web app locally](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
 
 
-## How to: set a custom Docker image for a web app
-You can set the custom Docker image for both new and existing webs apps. When you create a web app on Linux in the [Azure portal](https://portal.azure.com/#create/Microsoft.AppSvcLinux), click **Configure container** to set a custom Docker image:
+## Push Docker image  
 
-![Custom Docker Image for a new web app on Linux][1]
-
-
-## How to: use a custom Docker image from Docker Hub ##
-To use a custom Docker image from Docker Hub:
-
-1. In the [Azure portal](https://portal.azure.com), locate your web app on Linux, then in **Settings** click **Docker Container**.
-
-2.  Select **Docker Hub** as the **Image source**, then click either **Public** or **Private** and type the **Image and optional tag name**, such as `node:4.5`. The **Startup command** is set automatically based on what is defined in the Docker image file, but you can set your own commands.  
-
-    ![Configure Docker Hub public repository image][2]
-
-    When your image is from a private repository, you also need to enter the Docker Hub credentials as (**Login username** and **Password**) for the private Docker Hub repository.
-
-    ![Configure Docker Hub private repository image][3]
-
-3. After you have configured the container, click **Save**.
-
-## How to use a Docker image from a private image registry ##
-To use a custom Docker image from a private image registry:
-
-1. In the [Azure portal](https://portal.azure.com), locate your web app on Linux, then in **Settings** click **Docker Container**.
-
-2.  Click **Private registry** as the **Image source**. Enter the **Image and optional tag name**, **Server URL** for the private registry, along with the credentials (**Login username** and **Password**). Click **Save**.
-
-	![Configure Docker image from private registry][4]
+A registry is an application that hosts images and provides services image and container services. In order to share your image, you must push it to a registry, for example, `Public Docker Hub`, `Private Docker Hub`, or at a private registry using [Azure Container Registry](https://azure.microsoft.com/services/container-registry/). 
 
 
-## How to: set the port used by your Docker image ##
+# [Docker Hub](#tab/docker-hub) 
 
-When you use a custom Docker image for your web app, you can use the `WEBSITES_PORT` environment variable in your Dockerfile, which gets added to the generated container. Consider the following example of a docker file for a Ruby application:
+Docker Hub is a registry for Docker images that allows you to host your own repositories, either public or private. To push a custom Docker image to the public Docker Hub, use the [docker push](https://docs.docker.com/engine/reference/commandline/push/) command and provide a full image name and tag. A full image name and tag looks like the following sample:
 
-	FROM ruby:2.2.0
-	RUN mkdir /app
-	WORKDIR /app
-	ADD . /app
-	RUN bundle install
-	CMD bundle exec puma config.ru -p WEBSITES_PORT -e production
+```bash
+{docker-id}/image-name:tag
+```
 
-On last line of the command, you can see that the WEBSITES_PORT environment variable is passed at runtime. Remember that casing matters in commands.
+If you haven't logged into Docker Hub, do so using the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command before attempting to push an image.
 
-Previously the platform was using `PORT` app setting, we are planning to deprecate the use this app setting and move to using `WEBSITES_PORT` exclusively.
+```bash
+docker login --username {docker-id} --password {docker-hub-password}
+```
 
-When you use an existing Docker image built by someone else, you may need to specify a port other than port 80 for the application. To configure the port, add an application setting named `WEBSITES_PORT` with the value as shown below:
+A "login succeeded" message confirms that you are logged in. Once logged in, you can push the image to Docker Hub using the [docker push](https://docs.docker.com/engine/reference/commandline/push/) command. 
 
-![Configure PORT app setting for custom Docker image][6]
+```bash
+docker push {docker-id}/mydockerimage:v1 .
+```
+
+Verify that the push succeeded by examining the command's output. 
+
+```bash
+The push refers to a repository [docker.io/{docker-id}/python-flask]
+e9aa2c6d0f34: Pushed
+0fdcb490aeec: Pushed
+08ae61c7869c: Pushed
+2548e7db2a94: Mounted from library/python
+325b9d6f2920: Pushed
+815acdffadff: Mounted from library/python
+97108d083e01: Mounted from library/python
+5616a6292c16: Mounted from library/python
+f3ed6cb59ab0: Mounted from library/python
+654f45ecb7e3: Mounted from library/python
+2c40c66f7667: Mounted from library/python
+v1: digest: sha256:a910d5b77e6960c01745a87c35f3d1a13ba73231ac9a4664c5011b1422d59b60 size: 2632
+```
+
+# [Azure Container Registry](#tab/azure-container-registry) 
+
+Azure Container Registry is a managed Docker service for hosting private images. The deployments may be any type, including [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/), and Azure app service containers. 
+
+Use the [az acr create](https://docs.microsoft.com/cli/azure/acr#create) command to create an Azure Container Registry. Pass in the name, resource group, and `Basic` for the SKU. Available SKUs are `Classic`, `Basic`, `Standard`, and `Premium`.
+
+```AzureCLI
+az acr create --name myAzureContainerRegistry --resource-group myResourceGroup --sku Basic --admin-enabled true
+```
+
+Creating a container produces the following output:
+
+```bash
+ - Finished ..
+Create a new service principal and assign access:
+  az ad sp create-for-rbac --scopes /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myAzureContainerRegistry --role Owner --password <password>
+
+Use an existing service principal and assign access:
+  az role assignment create --scope /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myAzureContainerRegistry --role Owner --assignee <app-id>
+{
+  "adminUserEnabled": false,
+  "creationDate": "2017-08-09T04:21:09.654153+00:00",
+  "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myAzureContainerRegistry",
+  "location": "westeurope",
+  "loginServer": "myazurecontainerregistry.azurecr.io",
+  "name": "myAzureContainerRegistry",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "storageAccount": {
+    "name": "myazurecontainerre042025"
+  },
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries"
+}
+```
+
+In order to push an image to the registry, you need to supply credentials so the registry will accept the push. You can retrieve these credentials by using the [az acr show](https://docs.microsoft.com/cli/azure/acr/credential#show) command. 
+
+```bash
+az acr credential show --name myAzureContainerRegistry
+```
+
+The commands reveal two passwords that can be used with the user name. 
+
+```json
+{
+  "passwords": [
+    {
+      "name": "password",
+      "value": "{password}"
+    },
+    {
+      "name": "password2",
+      "value": "{password}"
+    }
+  ],
+  "username": "myAzureContainerRegistry"
+}
+```
+
+Now that you have the necessary credentials, log into the Azure Container Registry using the `docker login` command. The URL for the registry is required to log in. Use the format `http://{azure-container-registry-name}.azureacr.io`.
+
+```bash
+docker login --username myAzureContainerRegistry --password {password} myAzureContainerRegistry.azureacr.io
+```
+
+Confirm the login succeeded and push the image by using the `docker push` command and tagging the image with the full URL of the registry followed by your image name and tag.
+
+```bash
+docker push http://myazurecontainerregistry.azureacr.io/mydockerimage:v1
+```
+
+Verify that the push successfully added a container to the registry by listing the ACR repositories. 
+
+```bash
+az acr repository list -n myAzureContainerRegistry
+```
+
+Listing the images in `myAzureContainerRegistry` reveals that `mydockerimage` is in the registry.
+
+```json
+[
+  "mydockerimage"
+]
+```
+
+## Create Web App on Linux 
+
+You can host native Linux applications in the cloud by using Azure Web Apps. To create a web app on Linux, you must run Azure CLI commands that create a group, then a service plan, and finally the web app itself. First, run the [az group create](https://docs.microsoft.com/cli/azure/group#create) command, and pass in a location and unique name.
+
+```AzureCLI
+az group create --location "West Europe" --name myResourceGroup
+``` 
+
+You see output similar to the sample shown here:
+
+```json
+{
+  "id": "/subscriptions/432849d3e4-4f90-a782-87c11e-5e59d6dd/resourceGroups/myResourceGroup",
+  "location": "westeurope",
+  "managedBy": null,
+  "name": "myResourceGroup",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
+```
+
+Use the name of the group to help create an app service plan by using the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) command. You also need to name it a unique name and set the `--is-linux` flag.
+
+```AzureCLI
+az appservice plan create --name myServicePlan --resource-group myResourceGroup --is-linux
+```
+
+Creating a service plan produces results similar to the following:
+
+```json
+{- Starting ..
+  "adminSiteName": null,
+  "appServicePlanName": "myServicePlan",
+  "geoRegion": "West Europe",
+  "hostingEnvironmentProfile": null,
+  "id": "/subscriptions/resourceGroups/myResourceGroup/provide
+rs/Microsoft.Web/serverfarms/myServicePlan",
+  "kind": "linux",
+  "location": "West Europe", 
+  "resourceGroup": "myResourceGroup",
+  "sku": {
+    "capabilities": null,
+    "capacity": 1,
+    "tier": "Basic"
+  },
+  "status": "Ready",
+  "subscription": "",
+  "tags": null,
+  "type": "Microsoft.Web/serverfarms",
+  "workerTierName": null
+}
+
+```AzureCLI
+az webapp create -g myResourceGroup -p myServicePlan -n myWebApp --runtime "python|3.4" 
+```
+
+The command to create a web app produces the output shown here:
+
+```json
+{- Starting ..
+  "availabilityState": "Normal",
+   "enabled": true,
+  "enabledHostNames": [
+    "mywebapp.azurewebsites.net",
+    "mywebapp.scm.azurewebsites.net"
+  ],
+  "ftpPublishingUrl": "ftp://waws-prod-am2-085.ftp.azurewebsites.windows.net/site/wwwroot",
+  "gatewaySiteName": null,
+  "hostNameSslStates": [
+    {
+      "hostType": "Standard",
+      "name": "mywebapp.azurewebsites.net",
+    },
+  ],
+  "hostNames": [
+    "mywebapp.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "id": "/subscriptions/5e59d6dd-d3e4-4f90-a782-43284987c11e/resourceGroups/myResourceGroup/providers/Microsoft.
+Web/sites/myWebApp",
+  "lastModifiedTimeUtc": "2017-08-08T21:09:33.693333",
+  "location": "West Europe",
+  "name": "myWebApp",
+  "outboundIpAddresses": "13.81.108.99,52.232.76.83,52.166.73.203,52.233.173.39,52.233.159.48",
+  "resourceGroup": "myResourceGroup"  
+}
+
+```
+
+Most web apps have application settings that need to be configured. Additionally, if you are using an existing Docker image built by someone else, you may need to specify a port other than port 80 for the application. To set the `WEBSITES_PORT`, run the [az webapp config](https://docs.microsoft.com/cli/azure/webapp/config/appsettings) command, as shown in the following code sample: 
+
+```AzureCLI
+az webapp config appsettings set --resource-group myResourceGroup --name myWebApp --settings WEBSITES_PORT=2222
+```
+
+> [!NOTE]
+> Application settings are case sensitive. 
+> 
+
+Verify that the web app works by browsing it. 
+
+![Test web app port configuration](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
 
-## How to: Switch back to using a built-in image ##
+## Configure Web App to use Docker container
 
-To switch from using a custom image to using a built-in image:
+The [az webapp config](https://docs.microsoft.com/cli/azure/webapp/config) command allows you to configure your web app so that it uses a Docker image from a public Docker registry, a private Docker registry, or a private Azure Container Registry.
 
-1. In the [Azure portal](https://portal.azure.com), locate your web app on Linux, then in **Settings** click **App Service**.
+# [Public Docker Hub](#tab/register-docker-hub-public) 
 
-2. Select your **Runtime Stack** to use for the built-in image, then click **Save**. 
+To configure the web app so that it uses a container from the public Docker registry, pass the name of the app, the resource group, and the image name and URL to the [az webapp config container set](https://docs.microsoft.com/en-us/cli/azure/webapp/config/container#set) command. 
 
-![Configure Built-In Docker image][5]
+```AzureCLI
+az webapp config container set --name myWebApp --resource-group myResourceGroup --docker-custom-image-name mydockerimage
+--docker-registry-server-url {docker-id}/myContainerRegistry 
+```
 
+A successful configuration change returns general information about the container. 
 
-## Troubleshooting ##
+```bash
+[
+  {
+    "name": "DOCKER_CUSTOM_IMAGE_NAME",
+    "slotSetting": false,
+    "value": "{docker-id}/mydockerimage:v1"
+  },
+  {
+    "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+    "slotSetting": false,
+    "value": "{docker-id}"
+  },
+  {
+    "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+    "slotSetting": false,
+    "value": null
+  }
+]
+```
 
-When your application fails to start with your custom Docker image, check the Docker logs in the LogFiles directory. You can access this directory either through your SCM site or via FTP.
-To log the `stdout` and `stderr` from your container, you need to enable **Docker Container logging** under **Diagnostics Logs**.
+# [Azure Container Registry](#tab/register-azure-container-registry) 
 
-![Enabling Logging][8]
+You can configure web apps on Linux so that they run a container stored in the Azure Container Registry.
 
-![Using Kudu to view Docker logs][7]
+The [az acr credential show](https://docs.microsoft.com/en-us/cli/azure/acr/credential#show) command displays the passwords for the container registry. Copy the username and one of the passwords so you can use it to configure the web app in the next step.
 
-You can access the SCM site from **Advanced Tools** in the **Development Tools** menu.
+```bash
+az acr credential show --name myAzureContainerRegistry
+``
+
+``json
+{
+  "passwords": [
+    {
+      "name": "password",
+      "value": "password"
+    },
+    {
+      "name": "password2",
+      "value": "password2"
+    }
+  ],
+  "username": "myAzureContainerRegistry"
+}
+```
+
+Run the [az webapp config container set](https://docs.microsoft.com/en-us/cli/azure/webapp/config/container#set) command to assign the custom Docker image to the web app. Notice that you need a URL that is in the format `http://{your-registry-username}.azurecr.io`. Additionally, the web app needs the user name and password obtained in a previous step in order to access the container registry. 
+
+```AzureCLI
+az webapp config container set --name myWebApp --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url http://myazurecontainerregistry.azurecr.io --docker-registry-server-user {your-registry-username} --docker-registry-server-password {password} 
+```
+
+> [!NOTE] The `http` in the registry's URL is required.
+>
+>
+
+The command reveals output similar to the following, showing that the configuration change succeeded:
+
+```bash
+[
+  {
+    "name": "DOCKER_CUSTOM_IMAGE_NAME",
+    "slotSetting": false,
+    "value": "mydockerimage"
+  },
+  {
+    "name": "DOCKER_REGISTRY_SERVER_URL",
+    "slotSetting": false,
+    "value": "mycontainerregistry.azurecr.io"
+  },
+  {
+    "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+    "slotSetting": false,
+    "value": "myAzureContainerRegistry"
+  },
+  {
+    "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+    "slotSetting": false,
+    "value": null
+  }
+]
+```
+-----
+
+## Test the Application in Azure
+
+Before testing, you must restart the web app using the [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#restart) for the configuration changes to take effect. 
+
+```AzureCLI
+az webapp restart --name myWebApp --resource-group myResourceGroup 
+```
+
+The restart command quietly restarts the web app, so you see no feedback in the terminal. Once the web app is running, test the web app by browsing its URL at `http://{username}.azurewebsites.net`. Verify that the app displays the new welcome message.
+
+![Test web app in Azure](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
+ 
+## Change web app and redeploy
+
+A Python file named `app.py` exists in the `using-custom-docker-image` directory. This file contains a few lines of code, and one of them displays the message "Hello World!". Change the line so it displays the message `Hello World of Web Apps running in Docker Containers!`.
+
+```python
+return "Hello World of Web Apps running in Docker Containers!"
+```
+
+Once you've modified the Python file and saved it, you must rebuild and push the new Docker image. Then restart the web app for the changes to take effect. Use the same commands that you have previously used in this tutorial to [build the image from the Docker file](#build-the-image-from-the-docker-file) and [push the Docker image](#push-docker-image). Test the web app by following the instructions in [Test the Application in Azure](#tTest-the-application-in-azure)
+
+## Connect to Web App on Linux SSH
+
+SSH enables secure communication between a container and a client. In order for a custom Docker image to support SSH, you must build it into a Dockerfile. 
+
+Include the `openssh-server` installation in [RUN instruction](https://docs.docker.com/engine/reference/builder/#run) in the Dockerfile for your image and set the password for the root account to `"Docker!"`.
+
+> [!NOTE] 
+> This configuration does not allow external connections to the container. SSH can only
+> be accessed via the Kudu / SCM Site, which is authenticated using the publishing
+> credentials.
+
+```docker
+RUN apt-get update \ 
+	&& apt-get install -y --no-install-recommends openssh-server \
+	&& echo "root:Docker!" | chpasswd
+``` 
+
+Add a [COPY instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy the [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on our [sshd_config file](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config) in the Azure-App-Service GitHub repository.
+
+> [!NOTE] 
+> The *sshd_config* file must include the following or the connection fails: 
+> * `Ciphers` must include at least one of the following: `aes128-cbc,3des-cbc,aes256-cbc`.
+> * `MACs` must include at least one of the following: `hmac-sha1,hmac-sha1-96`.
+
+```docker
+COPY sshd_config /etc/ssh/
+```
+
+Include port 2222 in the [EXPOSE instruction](https://docs.docker.com/engine/reference/builder/#expose) for the Dockerfile. Although the root password is known, port 2222 cannot be accessed from the internet. It is an internal port accessible only by containers within the bridge network of a private virtual network.
+
+```docker
+EXPOSE 2222 80
+```
+
+Start the ssh service. 
+
+```bash
+RUN #!/bin/bash
+RUN service ssh start
+```
+
+The `init_container.sh` file in the sample code contains instructions on how to initialize the container. The Dockerfile uses the [CMD instruction](https://docs.docker.com/engine/reference/builder/#cmd) to run the script.
+
+```docker
+COPY init_container.sh /bin/
+	
+RUN chmod 755 /bin/init_container.sh 
+			
+CMD ["/bin/init_container.sh"]
+```
+
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-cli.md)]
 
 ## Next Steps ##
 
-Follow the following links to get started with Web App on Linux.   
-
-* [Introduction to Azure Web App on Linux](./app-service-linux-intro.md)
-* [Creating Web Apps in Azure Web App on Linux](./app-service-linux-how-to-create-web-app.md)
-* [Using PM2 Configuration for Node.js in Azure Web App on Linux](./app-service-linux-using-nodejs-pm2.md)
-* [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
-
-Post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
-
-
-<!--Image references-->
-[1]: ./media/app-service-linux-using-custom-docker-image/new-configure-container.png
-[2]: ./media/app-service-linux-using-custom-docker-image/existingapp-configure-dockerhub-public.png
-[3]: ./media/app-service-linux-using-custom-docker-image/existingapp-configure-dockerhub-private.png
-[4]: ./media/app-service-linux-using-custom-docker-image/existingapp-configure-privateregistry.png
-[5]: ./media/app-service-linux-using-custom-docker-image/existingapp-configure-builtin.png
-[6]: ./media/app-service-linux-using-custom-docker-image/setting-port.png
-[7]: ./media/app-service-linux-using-custom-docker-image/kudu-docker-logs.png
-[8]: ./media/app-service-linux-using-custom-docker-image/logging.png
+[Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
