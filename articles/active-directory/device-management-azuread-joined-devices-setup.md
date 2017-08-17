@@ -27,7 +27,7 @@ If you want to bring work-owned Windows 10 devices under the control of Azure AD
 
 ## Before you begin
 
-To register a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to registering devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. 
+To join a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to joining devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. 
 
 ## What you should know
 
@@ -46,39 +46,54 @@ When registering a device, you should keep the following in mind:
 
 ## Registering a device
 
+This section provides you with the steps to join your Windows 10 device to your Azure AD.
+
+![Connected](./media/device-management-azuread-joined-devices-setup/13.png)
+
+
 **To register your Windows 10 device:**
 
 1. In the **Start** menu, click **Settings**.
 
-    ![Settings](./media/device-management-azuread-registered-devices-windows10-setup/01.png)
+    ![Settings](./media/device-management-azuread-joined-devices-setup/01.png)
 
 2. Click **Accounts**.
 
-    ![Accounts](./media/device-management-azuread-registered-devices-windows10-setup/02.png)
+    ![Accounts](./media/device-management-azuread-joined-devices-setup/02.png)
 
 
 3. Click **Access work or school**.
 
-    ![Access work or school](./media/device-management-azuread-registered-devices-windows10-setup/03.png)
+    ![Access work or school](./media/device-management-azuread-joined-devices-setup/03.png)
 
 4. On the **Access work or school** dialog, click **Connect**.
 
-    ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/04.png)
+    ![Connect](./media/device-management-azuread-joined-devices-setup/04.png)
 
 
-5. On the  **Set up a work or school account** dialog, enter your account name (e.g.: someone@example.com), and then click **Next**.
+5. On the  **Set up a work or school account** dialog, click **Join this device to Azure Active Directory**.
 
-    ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/06.png)
-
-
-6. On the  **Enter password** dialog, enter your password, and then click **Next**.
-
-    ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/05.png)
+    ![Connect](./media/device-management-azuread-joined-devices-setup/08.png)
 
 
-7. On the **You're all set** dialog, click **Done**.
+6. On the **Let's get you signed in** dialog, enter your account name (e.g.: someone@example.com), and then click **Next**.
 
-    ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/07.png)
+    ![Let's get you signed in](./media/device-management-azuread-joined-devices-setup/10.png)
+
+
+6. On the  **Enter password** dialog, enter your password, and then click **Sign in**.
+
+    ![Enter password](./media/device-management-azuread-joined-devices-setup/05.png)
+
+
+7. On the  **Make sure this is your organization** dialog, click **Join**.
+
+    ![Make sure this is your organization](./media/device-management-azuread-joined-devices-setup/11.png)
+
+
+8. On the **You're all set** dialog, click **Done**.
+
+    ![You're all set](./media/device-management-azuread-joined-devices-setup/12.png)
 
 
 
