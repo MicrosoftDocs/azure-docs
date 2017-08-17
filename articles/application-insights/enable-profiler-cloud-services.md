@@ -1,4 +1,4 @@
----
+﻿---
 title: Enable Azure Application Insights Profiler on a Cloud Services resource | Microsoft Docs
 description: Learn how to set up the profiler on an ASP.NET application hosted by an Azure Cloud Services resource.
 services: application-insights
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
-ms.author: sewhee
+ms.author: bwren
 
 ---
 

@@ -79,10 +79,14 @@ This public preview is currently only available in the following regions:
 * East US
 * West Europe
 * North Europe
+* South Central US
+* North Central US
 * Southeast Asia
+* East Asia
 * Australia East
 * Japan East
 * Brazil South
+* South India
 
 Web Apps on Linux is only supported in the Dedicated app service plans and does not have a Free or Shared tier. Also, App Service plans for regular and Linux web apps are mutually exclusive, so you cannot create a Linux web app in a non-Linux app service plan.
 

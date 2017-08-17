@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
@@ -172,13 +172,6 @@ After the next scheduled assessment runs, by default every 7 days, the specified
 *How long does it take for data to be collected?*
 
 * The actual data collection on the server takes about 1 hour. It may take longer on servers that have a large number of Active Directory servers.
-
-*What type of data is collected?*
-
-* The following types of data are collected:
-  * WMI
-  * Registry
-  * Performance counters
 
 *Is there a way to configure when data is collected?*
 

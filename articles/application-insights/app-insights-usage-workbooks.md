@@ -1,4 +1,4 @@
----
+﻿---
 title: Investigate and share usage data with interactive Workbooks in Azure Application Insights | Microsoft docs
 description: Demographic analysis of users of your web app.
 services: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
-ms.author: sewhee
+ms.author: bwren
 ---
 
 # Investigate and share usage data with interactive workbooks in Application Insights
