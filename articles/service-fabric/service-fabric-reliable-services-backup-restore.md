@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 6/29/2017
+ms.date: 08/18/2017
 ms.author: mcoskun
 
 ---
