@@ -2,12 +2,11 @@
 # Quickstarts
 ## [Deploy Jenkins master on VM](/azure/jenkins/install-jenkins-solution-template)
 # Tutorials
+## [CI/CD to App Service](/azure/jenkins/java-deploy-webapp-tutorial)
 ## [CI/CD with VSTS](https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins)
 ## [Integrate Jenkins and Kubernetes](/azure/container-service/container-service-kubernetes-jenkins)
 ## [Jenkins and Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline)
 ## [Docker, GitHub, and Jenkins](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
-## [CI/CD to App Service]
-### [Java](/azure/jenkins/jenkins-java-deploy-tutorial)
 # How-to guides
 ## [Secure Jenkins on Azure](https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/)
 ## [App Service Plugin](/azure/jenkins/deploy-Jenkins-app-service-plugin)

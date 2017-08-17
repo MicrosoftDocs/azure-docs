@@ -1,30 +1,31 @@
 ---
-title: Deploy Java apps to Azure with Jenkins | Microsoft Docs
-description: Set up a CI pipeline to Azure App Service for your Java web apps with Jenkins and Docker.
+title: Use Jenkins to deploy your web apps to Azure | Microsoft Docs
+description: Set up continuous integration from GitHub to Azure App Service for your Java web apps using Jenkins and Docker.
+author: rloutlaw
 manager: douge
 ms.service: jenkins
+ms.search.scope:
 ms.devlang: java
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins
 ---
 
-# Create a Java app deployment pipeline to Azure with Jenkins
+# Create a Jenkins CI/CD for your web apps to Azure App Service 
 
-This tutorial walks you through the steps to set up a Jenkins continuous integration and deployment (CI/CD) pipeline to Azure. The tutorial forks a sample [Spring Boot](https://spring.pivotal.io) Java app in GitHub and deploys it to a new [App Service Web App on Linux](/azure/app-service-web/app-service-linux-intro).
+This tutorial sets up continuous integration of a sample Java web app developed with the [Spring Boot](http://projects.spring.io/spring-boot/) framework to [Azure App Service Web App on Linux](/azure/app-service-web/app-service-linux-intro) using Jenkins.
 
 You will perform the following tasks in this tutorial:
 
 > [!div class="checklist"]
-> * Install the Jenkins plug-ins needed to deploy to Azure.
-> * Create a Jenkins job to build Docker images from a sample GitHub repo. 
-> * Define a new Azure Web App for Linux and configure it to run Docker images.
+> * Install the Jenkins plug-ins needed to deploy to Azure App Service.
+> * Define a Jenkins job to build Docker images from a GitHub repo when a new commit is pushed.
+> * Define a new Azure Web App for Linux and configure it to deploy Docker images pushed to Azure Container registry.
 > * Configure the Azure App Service Jenkins plug-in.
-> * Deploy the sample app to Azure.
-> * Verify GitHub commits trigger a new Jenkins build and update the app in Azure.
+> * Deploy the sample app to Azure App Service with a manual build.
+> * Trigger a Jenkins build and update the web app by pushing changes to GitHub.
 
 ## Before you begin
 
