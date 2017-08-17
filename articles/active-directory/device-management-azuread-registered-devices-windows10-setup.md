@@ -46,6 +46,11 @@ When registering a device, you should keep the following in mind:
 
 ## Registering a device
 
+This section provides you with the steps to register your Windows 10 device to your Azure AD.
+
+![Register](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
+
+
 **To register your Windows 10 device:**
 
 1. In the **Start** menu, click **Settings**.
