@@ -1,9 +1,9 @@
 ---
-title: PowerShell example-Sync between multiple Azure SQL Databases | Microsoft Docs
-description: Azure PowerShell example script to sync between multiple Azure SQL Databases
+title: PowerShell example-Sync between multiple Azure SQL databases | Microsoft Docs
+description: Azure PowerShell example script to sync between multiple Azure SQL databases
 services: sql-database
 documentationcenter: sql-database
-author: douglaslms
+author: jognanay
 manager: jhubbard
 editor: ''
 tags:
@@ -18,9 +18,9 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: douglasl
 ---
-# Use PowerShell to sync between multiple Azure SQL Databases
+# Use PowerShell to sync between multiple Azure SQL databases
  
-This PowerShell example configures Data Sync to sync between multiple Azure SQL Databases.
+This PowerShell example configures Data Sync to sync between multiple Azure SQL databases.
 
 This sample requires the Azure PowerShell module version 4.2 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps).
  
@@ -40,21 +40,21 @@ using namespace System.Collections.Generic
 
 # Hub database info
 # Subscription id for hub database
-$SubscriptionId = "44fefc06-f7c7-4326-9471-1852e148b8bb"
+$SubscriptionId = "subscription_guid"
 # Resrouce group name for hub database
-$ResourceGroupName = "xiwudefault-vm"
+$ResourceGroupName = "ResourceGroup"
 # Server name for hub database
-$ServerName = "xiwumigration"
+$ServerName = "Server"
 # Database name for hub database
 $DatabaseName = "AdventureWorks"
 
 # Sync database info
 # Resource group name for sync database
-$SyncDatabaseResourceGroupName = "xiwudefault-vm"
+$SyncDatabaseResourceGroupName = "ResourceGroup"
 # Server name for sync database
-$SyncDatabaseServerName = "xiwumigration"
+$SyncDatabaseServerName = "Server"
 # Sync database name
-$SyncDatabaseName = "xiwutest"
+$SyncDatabaseName = "SyncDatabase"
 
 # Sync group info
 # Sync group name
@@ -68,9 +68,9 @@ $IntervalInSeconds = 300
 # Member name
 $SyncMemberName = "member"
 # Member server name
-$MemberServerName = "xiwumigrationwu2.database.windows.net"
+$MemberServerName = "MemberServer"
 # Member database name
-$MemberDatabaseName = "xiwutest1"
+$MemberDatabaseName = "SyncDatabase1"
 # Member database type. Value can be AzureSqlDatabase or SqlServerDatabase
 $MemberDatabaseType = "AzureSqlDatabase"
 # Sync direction. Value can be Bidirectional, Onewaymembertohub, Onewayhubtomember
@@ -94,8 +94,8 @@ select-azurermsubscription -SubscriptionId $SubscriptionId
 
 # Use this section if it is safe to show password in the script.
 # Otherwise, use the PromptForCredential
-# $User = "cloudsa"
-# $PWord = ConvertTo-SecureString -String "Yukon900Yukon900" -AsPlainText -Force
+# $User = "username"
+# $PWord = ConvertTo-SecureString -String "Password" -AsPlainText -Force
 # $Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $User, $PWord
 
 $Credential = $Host.ui.PromptForCredential("Need credential", 
@@ -116,8 +116,8 @@ New-AzureRmSqlSyncGroup   -ResourceGroupName $ResourceGroupName `
                             -DatabaseCredential $Credential
 
 # Use this section if it is safe to show password in the script.
-#$User = "cloudsa"
-#$Password = ConvertTo-SecureString -String "Yukon900Yukon900" -AsPlainText -Force
+#$User = "username"
+#$Password = ConvertTo-SecureString -String "password" -AsPlainText -Force
 #$Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $User, $Password
 
 $Credential = $Host.ui.PromptForCredential("Need credential", 
@@ -134,7 +134,7 @@ New-AzureRmSqlSyncMember   -ResourceGroupName $ResourceGroupName `
                             -Name $SyncMemberName `
                             -MemberDatabaseCredential $Credential `
                             -MemberDatabaseName $MemberDatabaseName `
-                            -MemberServerName $MemberServerName `
+                            -MemberServerName ($MemberServerName + ".database.windows.net" `
                             -MemberDatabaseType $MemberDatabaseType `
                             -SyncDirection $SyncDirection
 
@@ -155,8 +155,8 @@ $timer=0
 $timeout=90
 # Check the log and see if refresh has gone through
 Write-Host "Check for successful refresh"
-$IsSucceeded = "false"
-While ($IsSucceeded -eq "False")
+$IsSucceeded = $false
+While ($IsSucceeded -eq $false)
 {
     Start-Sleep -s 10
     $timer=$timer+1
@@ -215,8 +215,7 @@ foreach ($tableSchema in $databaseSchema.Tables)
             if ((-not $addAllColumns) -and $tableSchema.HasError)
             {
                 Write-Host "Can't add column $fullColumnName to the sync schema" -foregroundcolor "Red"
-                Write-Host $tableSchema.ErrorId -foregroundcolor "Red"
-            }
+                Write-Host $tableSchema.ErrorId -foregroundcolor "Red"c            }
             elseif ((-not $addAllColumns) -and $columnSchema.HasError)
             {
                 Write-Host "Can't add column $fullColumnName to the sync schema" -foregroundcolor "Red"
@@ -256,7 +255,7 @@ Update-AzureRmSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
                             -Name $SyncGroupName `
                             -Schema $TempFile
 
-$SyncLogStartTime = Get-Date
+$SyncStartTime = Get-Date
 
 # Trigger sync manually
 Write-Host "Trigger sync manually"

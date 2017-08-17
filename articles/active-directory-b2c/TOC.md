@@ -83,6 +83,7 @@
 ## [Enable billing](active-directory-b2c-how-to-enable-billing.md)
 ## [Threat management](active-directory-b2c-reference-threat-management.md)
 ## [Issues when creating a directory](active-directory-b2c-support-create-directory.md)
+## [Extensions app](active-directory-b2c-reference-extensions-app.md)
 
 # Related
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
