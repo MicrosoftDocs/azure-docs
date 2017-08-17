@@ -1,6 +1,6 @@
 ---
-title: Azure Quick Start - Set up cloud for DPS in portal | Microsoft Docs
-description: Azure Quick Start - Set up cloud for IoT Hub Device Provisioning Service in Azure Portal
+title: Set up cloud for DPS in portal | Microsoft Docs
+description: IoT Hub automatic device provisioning in Azure Portal
 services: iot-dps
 keywords: 
 author: sethmanheim
