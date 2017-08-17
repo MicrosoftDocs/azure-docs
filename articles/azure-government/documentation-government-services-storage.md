@@ -1,6 +1,6 @@
 ---
 title: Azure Government storage | Microsoft Docs
-description: This provides a comparison of features and guidance on developing applications for Azure Government
+description: This article provides a comparison of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -39,9 +39,9 @@ To view the current secondary region of your geo-redundant storage or read-acces
 ![Storage account overview](./media/documentation-government-services-storage-accountoverview.png)
 
 
-### Storage feature availability by Azure Government region
+### Storage service and feature availability by Azure Government region
 
-| Feature | USGov Virginia | USGov Iowa | USGov Arizona | USGov Texas | USDoD East | USDoD Central| 
+| Service or feature | USGov Virginia | USGov Iowa | USGov Arizona | USGov Texas | USDoD East | USDoD Central| 
 | --- | --- | --- | --- | --- | --- | --- |
 | [Blob storage](../storage/storage-introduction.md#blob-storage) |GA |GA |GA |GA |GA |GA |
 | [Table storage](../storage/storage-introduction.md#table-storage) |GA  |GA |GA |GA |GA |GA |
@@ -67,7 +67,7 @@ These are the URLs for storage accounts in Azure Government:
 | File storage |*.file.core.windows.net |*.file.core.usgovcloudapi.net | 
 
 > [!NOTE]
-> All your scripts and code needs to account for the appropriate endpoints. See [Configure Azure Storage Connection Strings](../storage/storage-configure-connection-string.md). 
+> All your scripts and code need to account for the appropriate endpoints. See [Configure Azure Storage Connection Strings](../storage/storage-configure-connection-string.md). 
 >
 >
 
@@ -76,11 +76,11 @@ For more information on APIs, see the [Cloud Storage Account Constructor](/dotne
 The endpoint suffix to use in these overloads is *core.usgovcloudapi.net*.
 
 > [!NOTE]
-> If error 53 ("The network path was not found") is returned while you're [mounting the file share] (../storage/storage-dotnet-how-to-use-files.md), a firewall might be blocking the outbound port. Try mounting the file share on VM that's in the same Azure subscription as the storage account.
+> If error 53 ("The network path was not found") is returned while you're [mounting the file share](../storage/storage-dotnet-how-to-use-files.md), a firewall might be blocking the outbound port. Try mounting the file share on VM that's in the same Azure subscription as the storage account.
 >
 >
 
-When you're deploying the StorSimple Manager service, use the https://portal.azure.us/ and https://manage.windowsazure.us/ URLs for the Azure portal and the Azure classic portal, respectively. For deployment instructions for StorSimple Virtual Array, see [StorSimple Virtual Array system requirements] (../storsimple/storsimple-ova-system-requirements.md). For the StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements] (../storsimple/storsimple-system-requirements.md) and go to the **Deploy** section from the left menu. For more information on StorSimple, see the [StorSimple documentation] (../storsimple/index.md).
+When you're deploying the StorSimple Manager service, use the https://portal.azure.us/ and https://manage.windowsazure.us/ URLs for the Azure portal and the Azure classic portal, respectively. For deployment instructions for StorSimple Virtual Array, see [StorSimple Virtual Array system requirements](../storsimple/storsimple-ova-system-requirements.md). For the StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements](../storsimple/storsimple-system-requirements.md) and go to the **Deploy** section from the left menu. For more information on StorSimple, see the [StorSimple documentation](../storsimple/index.md).
 >
 >
 
@@ -89,7 +89,7 @@ The following information identifies the Azure Government boundary for Azure Sto
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
-| Data entered, stored, and processed within an Azure Storage product can contain export-controlled data. This data includes static authenticators, such as passwords and smartcard PINs for access to Azure platform components. It also includes private keys of certificates used to manage Azure platform components. And it includes other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Azure Storage metadata cannot contain controlled data. This metadata includes all configuration data entered when you're creating and maintaining your storage product. Do not enter regulated/controlled data into the following fields: **Resource groups**, **Deployment names**, **Resource names**, **Resource tags**. |
+| Data entered, stored, and processed within an Azure Storage product can contain export-controlled data. This data includes static authenticators, such as passwords and smartcard PINs for access to Azure platform components. It also includes private keys of certificates used to manage Azure platform components. And it includes other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Azure Storage metadata cannot contain controlled data. This metadata includes all configuration data entered when you're creating and maintaining your storage product. Do not enter regulated/controlled data in the following fields: **Resource groups**, **Deployment names**, **Resource names**, **Resource tags**. |
 
 ## Azure Import/Export
 
@@ -107,7 +107,7 @@ For all jobs, we recommend that you rotate your storage account keys after the j
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
-| Data copied to the media for transport and the keys used to encrypt that data. | Azure Import/Export metadata cannot contain controlled data. This metadata includes all configuration data entered when you're creating your Import/Export job and shipping information used to transport your media. Do not enter regulated/controlled data into the following fields:  **Job name**, **Carrier name**, **Tracking number**, **Description**, **Return information (Name, Address, Phone, E-Mail)**, **Export Blob URI**, **Drive list**, **Package list**, **Storage account name**, **Container name**. |
+| Data copied to the media for transport and the keys used to encrypt that data. | Azure Import/Export metadata cannot contain controlled data. This metadata includes all configuration data entered when you're creating your Import/Export job and shipping information used to transport your media. Do not enter regulated/controlled data in the following fields:  **Job name**, **Carrier name**, **Tracking number**, **Description**, **Return information (Name, Address, Phone, E-Mail)**, **Export Blob URI**, **Drive list**, **Package list**, **Storage account name**, **Container name**. |
 
 ## Next steps
 For supplemental information and updates, subscribe to the

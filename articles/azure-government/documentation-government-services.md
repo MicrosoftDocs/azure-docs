@@ -18,7 +18,7 @@ ms.author: stemi
 
 ---
 # Available services in Azure Government
-Azure Government is continually expanding its services. These services are deployed through the same code that is used in Azure Public. This section documents the services that are currently available in Azure Government, including two key types of information:
+Azure Government is continually expanding its services. These services are deployed through the same code that is used in Azure public. This section documents the services that are currently available in Azure Government, including two key types of information:
 
 * **Variations**: Variations due to features that have not been deployed yet or properties (for example, URLs) that are unique to the government environment.  
 * **Considerations**: Government-specific implementation detail to ensure that data stays within your compliance boundary.
@@ -36,7 +36,6 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 | Batch | Yes | Yes |
 | Cloud Services | Yes | Yes |
 | Service Fabric | Yes | Yes |
-| Virtual machine scale sets | Yes | Yes |
 
 
 ## [Networking](documentation-government-networking.md)
@@ -102,7 +101,7 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 | --- | --- | --- |
 | [IoT Hub](documentation-government-services-iot-hub.md#azure-iot-hub) | Yes | Yes |
 | Event Hubs | Yes | Yes |
-| Notification Hubs | No | No (go to the [legacy portal](https://manage.windowsazure.us/)) |
+| Notification Hubs | No | No (go to the [Azure classic portal](https://manage.windowsazure.us/)) |
 
 
 ## Enterprise integration
