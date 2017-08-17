@@ -25,7 +25,7 @@ As a subscriber, your logic app can wait for those events from the event grid
 before running automated workflows to perform tasks - without you writing code.
 
 For example, here are some events that publishers can send 
-o subscribers through the Azure Event Grid service:
+to subscribers through the Azure Event Grid service:
 
 * Create, read, update, or delete a resource. 
 For example, you can monitor changes that might 
