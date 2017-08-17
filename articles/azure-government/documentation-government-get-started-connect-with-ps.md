@@ -57,6 +57,8 @@ There is one catch.  The Azure Government region display names have different fo
 | --- | --- | --- |
 | US Gov Virginia |`USGov Virginia` | `usgovvirginia` |
 | US Gov Iowa |`USGov Iowa` | `usgoviowa` |
+| US Gov Arizona |`USGov Arizona` | `usgovarizona` |
+| US Gov Texas |`USGov Texas` | `usgovtexas` |
 | US DoD East |`USDoD East` | `usdodeast` |
 | US DoD Central |`USDoD Central` | `usdodcentral` |
 
