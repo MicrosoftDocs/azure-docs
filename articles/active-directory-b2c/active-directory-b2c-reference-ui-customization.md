@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory B2C: User interface (UI) customization | Microsoft Docs'
+title: 'User interface (UI) customization - Azure AD B2C | Microsoft Docs'
 description: A topic on the user interface (UI) customization features in Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
-author: swkrish
-manager: mbaldwin
+author: saeeda
+manager: krassk
 editor: bryanla
 
 ms.assetid: 99f5a391-5328-471d-a15c-a2fafafe233d
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2017
-ms.author: swkrish
+ms.date: 08/16/2017
+ms.author: saeeda
 
 ---
 # Azure Active Directory B2C: Customize the Azure AD B2C user interface (UI)
