@@ -55,8 +55,8 @@ $pwd = ConvertTo-SecureString `
   -AsPlainText
 
 Export-PfxCertificate `
-  -cert "cert:\localMachine\my\<Your certificate Thumbprint>" `
-  -FilePath "<Fully qualified path to the certificate>" `
+  -cert "cert:\localMachine\my\<Certificate Thumbprint that was created in the previous step>" `
+  -FilePath "<Fully qualified path where the exported certificate can be stored>" `
   -Password $pwd
 
 # Create a key vault and upload the certificate into the key vault as a secret
@@ -64,7 +64,7 @@ $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
 $location = "local"
 $secretName = "servicecert"
-$fileName = "<Fully qualified path to the certificate>"
+$fileName = "<Fully qualified path where the exported certificate can be stored>"
 $certPassword = "<Password used to export the certificate>"
 
 $fileContentBytes = get-content $fileName `
