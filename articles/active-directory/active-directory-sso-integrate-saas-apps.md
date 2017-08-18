@@ -17,6 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: curtand
+ms.reviewer: 
 
 ---
 # Integrate Azure Active Directory single sign-on with SaaS apps
