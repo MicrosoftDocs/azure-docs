@@ -124,7 +124,7 @@ See these links for more information about Azure File storage.
 
 ### Tooling support for Azure File storage
 * [How to use AzCopy with Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Using the Azure CLI with Azure Storage](../common/storage-azure-cli.md#create-and-manage-file-shares?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* [Using the Azure CLI with Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [Troubleshooting Azure File storage problems - Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Troubleshooting Azure File storage problems - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 

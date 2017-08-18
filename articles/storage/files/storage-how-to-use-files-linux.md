@@ -112,6 +112,6 @@ The Azure File storage for Linux users' group provides a forum for you to share 
 See these links for more information about Azure File storage.
 * [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 * [How to use AzCopy with Microsoft Azure storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Using the Azure CLI with Azure storage](../common/storage-azure-cli.md#create-and-manage-file-shares?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* [Using the Azure CLI with Azure storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [FAQ](../storage-files-faq.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Troubleshooting](storage-troubleshoot-linux-file-connection-problems.md)
