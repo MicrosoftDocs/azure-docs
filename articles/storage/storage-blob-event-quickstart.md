@@ -77,11 +77,11 @@ az eventgrid resource event-subscription create \
 
 ## Trigger an event from Blob Storage
 
-Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First,let's configure the name and key for the storage account, then we'll create a container, then create and upload a file. Again, use the values for `<storage_account_name>`,  you created earlier.
+Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First,let's configure the name and key for the storage account, then we'll create a container, then create and upload a file. Again, use the values for `<storage_account_name>` and `<resource_group_name>`  you created earlier.
 
 ```azurecli-interactive
-export AZURE_STORAGE_ACCOUNT=cbrooksstageblob
-export AZURE_STORAGE_ACCESS_KEY="$(az storage account keys list --account-name cbrooksstageblob --resource-group CBrooksStageRG --query "[0].value" --output tsv)"
+export AZURE_STORAGE_ACCOUNT=<storage_account_name>
+export AZURE_STORAGE_ACCESS_KEY="$(az storage account keys list --account-name <storage_account_name> --resource-group <resource_group_name> --query "[0].value" --output tsv)"
 
 az storage container create --name testcontainer
 
