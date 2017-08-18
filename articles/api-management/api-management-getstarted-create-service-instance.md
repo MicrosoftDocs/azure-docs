@@ -37,7 +37,7 @@ This tutorial describes the steps for creating a new API Management service inst
 
     > [!TIP]
     > It usually takes between 20 and 30 minutes to create an API Management instance.
-    > Checking **Pin to dashboard" checkbox makes finding the new service instance easier.
+    > Checking **Pin to dashboard** checkbox makes finding the new service instance easier.
 
 ## Next steps
 [Publish an API with Azure API Management](#api-management-getstarted-publish-api.md)
