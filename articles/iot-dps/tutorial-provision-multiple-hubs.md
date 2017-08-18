@@ -30,32 +30,41 @@ This tutorial shows how to provision devices for multiple, load-balanced IoT hub
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
-<---! Link to the previous Quickstart and provide additional information required for completing the Tutorial
--->
 
-*EXAMPLE*:
-[!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
-
-The resulting function will be used for the rest of this tutorial.
-
-
-<----! Clean up or delete any Azure work that may incur costs --->
+This tutorial builds on the previous [Provision device to a hub](tutorial-provision-device-to-hub.md) tutorial.
 
 ## Use the Azure portal to provision a second device to a second IoT hub
 
-TBD
+Follow the steps in the [Provision device to a hub](tutorial-provision-device-to-hub.md) tutorial to provision a second device to another IoT hub.
 
 ## Add an enrollment list entry to the second device
 
-TBD
+The enrollment list tells the DPS which method of attestation (the method for confirming a device identity) it is using with the device. The next step is to add an enrollment list entry to the second device. 
 
-## Set the DPS allocation policy to **even distribution**
+1. In the blade for your DPS, click **Manage enrollments**. The **Add enrollment list entry** blade appears. 
+2. Complete the fields and then click **Save**.
 
-TBD
+## Set the DPS allocation policy
+
+The allocation policy is a DPS setting that determines how devices are assigned to an IoT hub. There are three supported allocation policies: 
+
+1. **Lowest latency**: Devices are provisioned to an IoT hub based on the hub with the lowest latency to the device.
+2. **Evenly weighted distribution** (default): Linked IoT hubs are equally likely to have devices provisioned to them. This is the default setting. If you are provisioning devices to only one IoT hub, you can keep this setting. 
+3. **Static configuration via the enrollment list**: Specification of the desired IoT hub in the enrollment list takes priority over the DPS-level allocation policy.
+
+1. To set the allocation policy, in the DPS blade click **Manage allocation policy**.
+2. Set the allocation policy to **Evenly weighted distribution**.
+3. Click **Save**.
 
 ## Link the new IoT hub to DPS
 
-TBD
+Link the DPS and IoT hub so that DPS can register devices to that hub.
+
+1. In the **All resources** blade, click the DPS you created previously.
+2. In the DPS blade, click **Linked IoT hubs**.
+3. Click **Add**.
+4. In the **Add link to IoT hub** blade, use the radio buttons to specify whether the linked IoT hub is located in the current subscription, or in a different subscription. Then, choose the name of the IoT hub from the **IoT hub** box.
+5. Click **Save**.
 
 ## Next steps
 
