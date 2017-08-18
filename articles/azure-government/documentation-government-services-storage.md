@@ -44,7 +44,7 @@ To view the current secondary region of your storage account through the Azure p
 | Feature | USGov Virginia | USGov Iowa | USGov Arizona | USGov Texas | USDoD East | USDoD Central| 
 | --- | --- | --- | --- | --- | --- | --- |
 | [Blob Storage](../storage/common/storage-introduction.md#blob-storage) |GA |GA |GA |GA |GA |GA |
-| [Table Storage](../storage/common/age-introduction.md#table-storage) |GA  |GA |GA |GA |GA |GA |
+| [Table Storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |GA |GA |GA |GA |
 | [Queue Storage](../storage/common/storage-introduction.md#queue-storage) |GA |GA |GA |GA |GA |GA |
 | [File Storage](../storage/common/storage-introduction.md#file-storage) |GA |GA |GA |GA |GA |GA |
 | [Hot/Cool Blob Storage](../storage/blobs/storage-blob-storage-tiers.md) |- |- |GA |GA |- |- |
@@ -104,7 +104,7 @@ With Import/Export jobs for USGov Arizona or USGov Texas, the mailing address is
 
 For DoD L5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions. 
 
-For all jobs, it is recommended to rotate your storage account keys once the job is complete to remove any access granted during the process - [Managing storage account](../storage/storage-create-storage-account.md#manage-your-storage-account)
+For all jobs, it is recommended to rotate your storage account keys once the job is complete to remove any access granted during the process - [Managing storage account](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys)
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
