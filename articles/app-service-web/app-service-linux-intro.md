@@ -92,6 +92,17 @@ Web Apps on Linux is only supported in the Dedicated app service plans and does 
 
 Web Apps on Linux must be created in a resource group that does not contain non-Linux web apps in the same region.
 
+## Troubleshooting ##
+
+When your application fails to start or you want to check the logging from your app, check the Docker logs in the LogFiles directory. You can access this directory either through your SCM site or via FTP.
+To log the `stdout` and `stderr` from your container, you need to enable **Docker Container logging** under **Diagnostics Logs**.
+
+![Enabling Logging][2]
+
+![Using Kudu to view Docker logs][1]
+
+You can access the SCM site from **Advanced Tools** in the **Development Tools** menu.
+
 ## Next steps
 See the following links to get started with App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
@@ -105,3 +116,6 @@ See the following links to get started with App Service on Linux. You can post q
 * [Set up staging environments in Azure App Service](./web-sites-staged-publishing.md)
 * [Docker Hub Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md)
 
+<!--Image references-->
+[1]: ./media/app-service-linux-intro/kudu-docker-logs.png
+[2]: ./media/app-service-linux-intro/logging.png

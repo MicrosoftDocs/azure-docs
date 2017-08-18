@@ -9142,7 +9142,7 @@
         },
         {
             "source_path": "articles/container-service/kubernetes/container-service-kubernetes-service-principal.md",
-            "redirect_url": "/articles/container-service/kubernetes/container-service-kubernetes-walkthrough.md",
+            "redirect_url": "/articles/container-service/kubernetes/container-service-kubernetes-walkthrough",
             "redirect_document_id": false
         },
         {
