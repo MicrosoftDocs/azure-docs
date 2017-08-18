@@ -1,19 +1,18 @@
 ---
-title: 'Service-to-service authentication: Data Lake Store with Azure Active Directory | Microsoft Docs'
-description: Learn how to achieve service-to-service authentication with Data Lake Store using Azure Active Directory
+title: 'Service-to-service authentication: .NET SDK with Data Lake Store using Azure Active Directory | Microsoft Docs'
+description: Learn how to achieve service-to-service authentication with Data Lake Store using Azure Active Directory using .NET SDK
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
-ms.assetid: 820b7c5d-4863-4225-9bd1-df4d8f515537
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 08/31/2017
 ms.author: nitinme
 
 ---

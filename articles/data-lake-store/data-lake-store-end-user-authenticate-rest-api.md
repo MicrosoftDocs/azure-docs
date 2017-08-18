@@ -1,19 +1,18 @@
 ---
-title: 'End-user authentication: Data Lake Store with Azure Active Directory | Microsoft Docs'
-description: Learn how to achieve end-user authentication with Data Lake Store using Azure Active Directory
+title: 'End-user authentication: REST API with Data Lake Store using Azure Active Directory | Microsoft Docs'
+description: Learn how to achieve end-user authentication with Data Lake Store using Azure Active Directory using REST API
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 
-ms.assetid: ec586ecd-1b42-459e-b600-fadbb7b80a9b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 08/31/2017
 ms.author: nitinme
 
 ---
@@ -28,15 +27,12 @@ ms.author: nitinme
 In this article, you learn about how to use the REST API to do end-user authentication with Azure Data Lake Store. For service-to-service authentication with Data Lake Store using REST API, see [Service-to-service authentication with Data Lake Store using REST API](data-lake-store-service-to-service-authenticate-rest-api.md).
 
 ## Prerequisites
-* An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* Your subscription ID. You can retrieve it from the Azure Portal. For example, it is available from the Data Lake Store account blade.
-  
-    ![Get subscription ID](./media/data-lake-store-end-user-authenticate-using-active-directory/get-subscription-id.png)
+* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* Your Azure AD domain name. You can retrieve it by hovering the mouse in the top-right corner of the Azure Portal. From the screenshot below, the domain name is **contoso.onmicrosoft.com**, and the GUID within brackets is the tenant ID. 
-  
-    ![Get AAD domain](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
+* **Create an Azure Active Directory "Native" Application**. You must have completed the steps in [End-user authentication with Data Lake Store using Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+
+* **[cURL](http://curl.haxx.se/)**. This article uses cURL to demonstrate how to make REST API calls against a Data Lake Store account.
 
 ## End-user authentication
 This is the recommended approach if you want an end-user to log in to your application via Azure AD. Your application will be able to access Azure resources with the same level of access as the end-user that logged in. Your end-user will need to provide their credentials periodically in order for your application to maintain access.
@@ -85,9 +81,8 @@ In this scenario, the application prompts the user to log in and all the operati
 For more information on interactive user authentication, see [Authorization code grant flow](https://msdn.microsoft.com/library/azure/dn645542.aspx).
    
 ## Next steps
-In this article you created an Azure AD native application and gathered the information you need in your client applications that you author using .NET SDK, Java SDK, REST API, etc. You can now proceed to the following articles that talk about how to use the Azure AD web application to first authenticate with Data Lake Store and then perform other operations on the store.
+In this article you learned how to use service-to-service authentication to authenticate with Azure Data Lake Store using REST API. You can now look at the following articles that talk about how to use the REST API to work with Azure Data Lake Store.
 
-* [Get started with Azure Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Get started with Azure Data Lake Store using Java SDK](data-lake-store-get-started-java-sdk.md)
-* [Get started with Azure Data Lake Store using REST API](data-lake-store-get-started-rest-api.md)
+* [Account management operations on Data Lake Store using REST API](data-lake-store-get-started-rest-api.md)
+* [Data operations on Data Lake Store using REST API](data-lake-store-data-operations-rest-api.md)
 

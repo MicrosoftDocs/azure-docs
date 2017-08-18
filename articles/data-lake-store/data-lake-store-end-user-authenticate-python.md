@@ -1,19 +1,18 @@
 ---
-title: 'End-user authentication: Data Lake Store with Azure Active Directory | Microsoft Docs'
-description: Learn how to achieve end-user authentication with Data Lake Store using Azure Active Directory
+title: 'End-user authentication: Python with Data Lake Store using Azure Active Directory | Microsoft Docs'
+description: Learn how to achieve end-user authentication with Data Lake Store using Azure Active Directory with Python
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 
-ms.assetid: ec586ecd-1b42-459e-b600-fadbb7b80a9b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 08/31/2017
 ms.author: nitinme
 
 ---

@@ -41,12 +41,11 @@
 ## Work with Data Lake Store
 ### Account manangement operations
 #### [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-#### [Using Java SDK](data-lake-store-get-started-java-sdk.md)
 #### [Using REST API](data-lake-store-get-started-rest-api.md)
 #### [Using Python](data-lake-store-get-started-python.md)
-### Data management operations
+### Filesystem operations
 #### [Using .NET SDK](data-lake-store-data-operations-net-sdk.md)
-#### [Using Java SDK](data-lake-store-data-operations-java-sdk.md)
+#### [Using Java SDK](data-lake-store-get-started-java-sdk.md)
 #### [Using REST API](data-lake-store-data-operations-rest-api.md)
 #### [Using Python](data-lake-store-data-operations-python.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Use the .NET SDK to develop applications in Azure Data Lake Store | Microsoft Docs
-description: Use Azure Data Lake Store .NET SDK to create a Data Lake Store account and perform basic operations in the Data Lake Store
+title: '.NET SDK: Account management operations on Azure Data Lake Store | Microsoft Docs'
+description: Use Azure Data Lake Store .NET SDK to perform account management operations in the Data Lake Store
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -13,24 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/09/2017
+ms.date: 08/31/2017
 ms.author: nitinme
 
 ---
-# Get started with Azure Data Lake Store using .NET SDK
+# Account management operations on Azure Data Lake Store using .NET SDK
 > [!div class="op_single_selector"]
-> * [Portal](data-lake-store-get-started-portal.md)
-> * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-> * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
 
-Learn how to use the [Azure Data Lake Store .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet) to perform basic operations such as create folders, upload and download data files, etc. For more information about Data Lake, see [Azure Data Lake Store](data-lake-store-overview.md).
+In this article you learn how to perform account management operations on Data Lake Store using .NET SDK. Account management operations include listing the Data Lake Store account for an Azure subscription, etc.
+
+For instructions on how to perform data management operations on Data Lake Store using .NET SDK, see [Data management operations on Data Lake Store using .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
 ## Prerequisites
 * **Visual Studio 2013, 2015, or 2017**. The instructions below use Visual Studio 2015 Update 2.
@@ -38,8 +35,6 @@ Learn how to use the [Azure Data Lake Store .NET SDK](https://docs.microsoft.com
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Azure Data Lake Store account**. For instructions on how to create an account, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
-
-* **Create an Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Store application with Azure AD. There are different approaches to authenticate with Azure AD, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) or [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md).
 
 ## Create a .NET application
 1. Open Visual Studio and create a console application.
@@ -108,8 +103,8 @@ In the remaining sections of the article, you can see how to use the available .
 
 ## Authentication
 
-* If you want to use end-user authentication for your application, see []().
-* If you want to use service-to-service authentication for your application, see []().
+* For end-user authentication for your application, see [End-user authentication with Data Lake Store using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
+* For service-to-service authentication for your application, see [Service-to-service authentication with Data Lake Store using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 ## Create client objects
 The following snippet creates the Data Lake Store account and filesystem client objects, which are used to issue requests to the service.
@@ -136,11 +131,9 @@ The following snippet lists all Data Lake Store accounts within a given Azure su
         return accounts;
     }
 
-
+## See also
+* [Data management operations on Data Lake Store using .NET SDK](data-lake-store-data-operations-net-sdk.md)
+* [Data Lake Store .NET SDK Reference](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## Next steps
 * [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-* [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Data Lake Store .NET SDK Reference](https://docs.microsoft.com/dotnet/api/?view=azuremgmtdatalakestore-2.1.0-preview&term=DataLake.Store)
-* [Data Lake Store REST Reference](https://msdn.microsoft.com/library/mt693424.aspx)

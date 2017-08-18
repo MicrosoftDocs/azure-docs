@@ -1,6 +1,6 @@
 ---
-title: Use the Java SDK to develop applications in Azure Data Lake Store | Microsoft Docs
-description: Use Azure Data Lake Store Java SDK to create a Data Lake Store account and perform basic operations in the Data Lake Store
+title: 'Java SDK: Data management operations on Azure Data Lake Store | Microsoft Docs'
+description: Use Azure Data Lake Store Java SDK to perform data management operations on Data Lake Store such as create folders, etc.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -13,20 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/28/2017
+ms.date: 08/31/2017
 ms.author: nitinme
 
 ---
-# Get started with Azure Data Lake Store using Java
+# Filesystem operations on Data Lake Store using Java SDK
 > [!div class="op_single_selector"]
-> * [Portal](data-lake-store-get-started-portal.md)
-> * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-> * [Node.js](data-lake-store-manage-use-nodejs.md)
-> * [Python](data-lake-store-get-started-python.md)
+> * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
+> * [Java SDK](data-lake-store-data-operations-java-sdk.md)
+> * [REST API](data-lake-store-data-operations-rest-api.md)
+> * [Python](data-lake-store-data-operations-python.md)
 >
 > 
 
@@ -39,17 +35,6 @@ You can access the Java SDK API docs for Azure Data Lake Store at [Azure Data La
 * Azure Data Lake Store account. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md).
 * [Maven](https://maven.apache.org/install.html). This tutorial uses Maven for build and project dependencies. Although it is possible to build without using a build system like Maven or Gradle, these systems make is much easier to manage dependencies.
 * (Optional) And IDE like [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) or [Eclipse](https://www.eclipse.org/downloads/) or similar.
-
-## How do I authenticate using Azure Active Directory?
-In this tutorial we use a Azure AD application client secret to retrieve an Azure Active Directory token (service-to-service authentication). We use this token to create an Data Lake Store client object to perform operations file and directory operations. For instructions on how to authenticate with Azure Data Lake Store using the client secret, we perform the following high-level steps:
-
-1. Create an Azure AD web application
-2. Retrieve the client ID, client secret, and token endpoint for the Azure AD web application.
-3. Configure access for the Azure AD web application on the Data Lake Store file/folder that you want to access from the Java application you are creating.
-
-For instructions on how to perform these steps, see [Create an Active Directory application](data-lake-store-authenticate-using-active-directory.md).
-
-Azure Active Directory provides other options as well to retrieve a token. You can pick from a number of different authentication mechanisms to suit your scenario, for example, an application running in a browser, an application distributed as a desktop application, or a server application running on-premises or in an Azure virtual machine. You can also pick from different types of credentials like passwords, certificates, 2-factor authentication, etc. In addition, Azure Active Directory allows you to synchronize your on-premises Active Directory users with the cloud. For details, see [Authentication Scenarios for Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md). 
 
 ## Create a Java application
 The code sample available [on GitHub](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/) walks you through the process of creating files in the store, concatenating files, downloading a file, and deleting some files in the store. This section of the article walk you through the main parts of the code.
@@ -72,23 +57,19 @@ The code sample available [on GitHub](https://azure.microsoft.com/documentation/
    
     The first dependency is to use the Data Lake Store SDK (`azure-data-lake-store-sdk`) from the maven repository. The second dependency (`slf4j-nop`) is to specify which logging framework to use for this application. The Data Lake Store SDK uses [slf4j](http://www.slf4j.org/) logging façade, which lets you choose from a number of popular logging frameworks, like log4j, Java logging, logback, etc., or no logging. For this example, we will disable logging, hence we use the **slf4j-nop** binding. To use other logging options in your app, see [here](http://www.slf4j.org/manual.html#projectDep).
 
-### Add the application code
-There are three main parts to the code.
+### Authentication
 
-1. Obtain the Azure Active Directory token
-2. Use the token to create a Data Lake Store client.
-3. Use the Data Lake Store client to perform operations.
-
-#### Authentication
+* For service-to-service authentication for your application, see [Service-to-service authentication with Data Lake Store using Java](data-lake-store-service-to-service-authenticate-java.md).
+* End-user authentication with Data Lake Store using Java SDK is not supported.
 
 
-#### Step 2: Create an Azure Data Lake Store client (ADLStoreClient) object
+## Create an Azure Data Lake Store client (ADLStoreClient) object
 Creating an [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) object requires you to specify the Data Lake Store account name and the token provider you generated in the last step. Note that the Data Lake Store account name needs to be a fully qualified domain name. For example, replace **FILL-IN-HERE** with something like **mydatalakestore.azuredatalakestore.net**.
 
     private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
     ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
 
-### Step 3: Use the ADLStoreClient to perform file and directory operations
+## Use the ADLStoreClient to perform file and directory operations
 The code below contains example snippets of some common operations. You can look at the full [Data Lake Store Java SDK API docs](https://azure.github.io/azure-data-lake-store-java/javadoc/) of the **ADLStoreClient** object to see other operations.
 
 Note that files are read from and written into using standard Java streams. This means that you can layer any of the Java streams on top of the Data Lake Store streams to benefit from standard Java functionality (e.g., Print streams for formatted output, or any of the compression or encryption streams for additional functionality on top, etc.).
@@ -136,13 +117,12 @@ Note that files are read from and written into using standard Java streams. This
     // delete directory along with all the subdirectories and files in it
     client.deleteRecursive("/a");
 
-#### Step 4: Build and run the application
+## Build and run the application
 1. To run from within an IDE, locate and press the **Run** button. To run from Maven, use [exec:exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
 2. To produce a standalone jar that you can run from command-line build the jar with all dependencies included, using the [Maven assembly plugin](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). The pom.xml in the [example source code on github](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) has an example of how to do this.
 
 ## Next steps
 * [Explore JavaDoc for the Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
 * [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-* [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+
 
