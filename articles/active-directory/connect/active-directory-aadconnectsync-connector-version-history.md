@@ -34,7 +34,9 @@ Related links:
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) reference documentation
 * [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
 
+
 ## 1.1.604.0 (AADConnect 1.1.XXX.0)
+
 
 ### Fixed issues:
 
