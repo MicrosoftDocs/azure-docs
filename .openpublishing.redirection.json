@@ -9141,9 +9141,25 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-service/kubernetes/container-service-kubernetes-service-principal.md",
+            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-walkthrough",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-conditional-access-automatic-device-registration-setup.md",
             "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
             "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/active-directory/active-directory-device-registration-get-started.md",
+            "redirect_url": "/azure/active-directory/device-management-introduction",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/active-directory/active-directory-device-registration-faq.md",
+            "redirect_url": "/azure/active-directory/device-management-faq",
+            "redirect_document_id": false
         }    
+    
     ]
 }
