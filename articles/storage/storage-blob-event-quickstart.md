@@ -74,7 +74,7 @@ az eventgrid resource event-subscription create \
 --resource-name <storage_account_name>
 ```
 
-## Send an event to your topic
+## Trigger an event from Blob Storage
 
 Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First, let's get the URL and key for the topic. Again, use the values for `<storage_account_name>`,  you created earlier.
 
