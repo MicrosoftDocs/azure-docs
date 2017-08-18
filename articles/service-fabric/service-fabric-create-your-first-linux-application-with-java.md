@@ -27,16 +27,40 @@ Before you get started, install the Service Fabric SDK, the Azure CLI, and setup
 You will also want to configure the [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) (recommended) or
 [XPlat CLI](service-fabric-azure-cli.md) for deploying your application.
 
+### Install and set up the generators for Java
+1. Install nodejs and NPM on your machine
+
+  ```bash
+  sudo apt-get install npm
+  sudo apt install nodejs-legacy
+  ```
+2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
+  ```bash
+  sudo npm install -g yo
+  ```
+3. Install the Service Fabric Yeo Java application generator from NPM
+  ```bash
+  sudo npm install -g generator-azuresfjava
+  ```
+
 ## Create the application
-A Service Fabric application contains one or more services, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your first service and to add more later.  You can also create, build, and deploy Service Fabric Java applications using a plugin for Eclipse. See [Create and deploy your first Java application using Eclipse](service-fabric-get-started-eclipse.md). For this quick start, use Yeoman to create an application with a single service that stores and gets a counter value.
+A Service Fabric application contains one or more services, each with a specific role in delivering the application's functionality. The generator you installed in the last section, makes it easy to create your first service and to add more later.  You can also create, build, and deploy Service Fabric Java applications using a plugin for Eclipse. See [Create and deploy your first Java application using Eclipse](service-fabric-get-started-eclipse.md). For this quick start, use Yeoman to create an application with a single service that stores and gets a counter value.
 
 1. In a terminal, type ``yo azuresfjava``.
-2. Name your application. 
+2. Name your application.
 3. Choose the type of your first service and name it. For this tutorial, choose a Reliable Actor Service. For more information about the other types of services, see [Service Fabric programming model overview](service-fabric-choose-framework.md).
    ![Service Fabric Yeoman generator for Java][sf-yeoman]
 
 ## Build the application
-The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the application from the terminal. To build and package the application, run the following:
+The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the application from the terminal.
+Service Fabric Java dependencies get fetched from Maven. To build and work on the Service Fabric Java applications, you need to ensure that you have JDK and Gradle installed. If not yet installed, you can run the following to install JDK(openjdk-8-jdk) and Gradle -
+
+  ```bash
+  sudo apt-get install openjdk-8-jdk-headless
+  sudo apt-get install gradle
+  ```
+
+To build and package the application, run the following:
 
   ```bash
   cd myapp

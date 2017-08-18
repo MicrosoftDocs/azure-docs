@@ -120,7 +120,7 @@ After you have updated your sources, you can install the SDK.
   sudo apt-get install npm
   sudo apt install nodejs-legacy
   ```
-2. Install Yeo template generator on your machine from NPM
+2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
   ```bash
   sudo npm install -g yo
   ```
@@ -195,10 +195,6 @@ Service Fabric Java dependencies get fetched from Maven. To build and work on th
 ## Install the Eclipse Neon plug-in (optional)
 
 You can install the Eclipse plug-in for Service Fabric from within the **Eclipse IDE for Java Developers**. You can use Eclipse to create Service Fabric guest executable applications and container applications in addition to Service Fabric Java applications.
-
-> [!NOTE]
-> The Java SDK is a prerequisite to using the Eclipse plug-in, even if you use it only for guest executables and container applications.
->
 
 1. In Eclipse, ensure that you have latest Eclipse Neon and the latest Buildship version (1.0.17 or later) installed. You can check the versions of installed components by selecting **Help** > **Installation Details**. You can update Buildship by using the instructions at [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update].
 
