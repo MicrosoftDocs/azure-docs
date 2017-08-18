@@ -167,11 +167,7 @@
 ### [Sample experiments](machine-learning-sample-experiments.md)
 ### [Sample datasets](machine-learning-use-sample-datasets.md)
 ### [Customer churn example](machine-learning-azure-ml-customer-churn-scenario.md)
-### End-to-end scenarios
-#### [Use Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md)
-#### [Use Hadoop with 1TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-#### [Use SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-#### [Use SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
+
 
 # Reference
 
