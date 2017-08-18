@@ -1,13 +1,33 @@
 {
     "redirections": [
+       {
+            "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
+            "redirect_document_id": false
+        },
+       {
+            "source_path": "articles/virtual-machines/linux/maintenance-in-place.md",
+            "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
+            "redirect_document_id": false
+        },
+		       {
+            "source_path": "articles/virtual-machines/windows/impactful-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/windows/planned-maintenance",
+            "redirect_document_id": false
+        },
+       {
+            "source_path": "articles/virtual-machines/windows/preserving-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/windows/planned-maintenance",
+            "redirect_document_id": false
+        },		
         {
             "source_path": "articles/virtual-machines/virtual-machines-scheduled-events.md",
-            "redirect_url": "articles/virtual-machines/windows/scheduled-events.md",
+            "redirect_url": "/azure/virtual-machines/windows/scheduled-events",
             "redirect_document_id": false
         },
 		{
             "source_path": "articles/virtual-machines/virtual-machines-instancemetadataservice-overview.md",
-            "redirect_url": "articles/virtual-machines/windows-instance-metadata-service.md",
+            "redirect_url": "/azure/virtual-machines/windows/instance-metadata-service",
             "redirect_document_id": false
         },
         {
