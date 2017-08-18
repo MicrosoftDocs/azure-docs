@@ -34,7 +34,7 @@ In Azure Functions, input and output bindings provide a declarative way to conne
  
 1. Expand both your function app and your function.
 
-2. Select **Integrate** and **+ New output**, then select **Azure Queue storage** and select **Select**.
+2. Select **Integrate** and **+ New output**, then choose **Azure Queue storage** and choose **Select**.
     
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
@@ -95,7 +95,7 @@ Next, you can connect to your storage account to verify the new queue and the me
 
 Skip the first three steps if you have already installed Storage Explorer and connected it to your storage account.    
 
-1. In your function, select **Integrate** and the new **Azure Queue storage** output binding, then expand **Documentation**. Copy both **Account name** and **Account key**. You use these credentials to connect to the storage account.
+1. In your function, choose **Integrate** and the new **Azure Queue storage** output binding, then expand **Documentation**. Copy both **Account name** and **Account key**. You use these credentials to connect to the storage account.
  
     ![Get the Storage account connection credentials.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
