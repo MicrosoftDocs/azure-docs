@@ -29,7 +29,7 @@ In this article, you learn about how to use the Python SDK to do end-user authen
 * End-user authentication without multi-factor authencation
 * End-user authentication with multi-factor authentication
 
-Both these options are discussed in this article. For service-to-service authentication with Data Lake Store using Python, see [Service-to-service authentication with Data Lake Store using Python](data-lake-store-service-to-service-authenticate-pythonl.md).
+Both these options are discussed in this article. For service-to-service authentication with Data Lake Store using Python, see [Service-to-service authentication with Data Lake Store using Python](data-lake-store-service-to-service-authenticate-python.md).
 
 ## Prerequisites
 
