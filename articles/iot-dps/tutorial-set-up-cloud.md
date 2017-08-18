@@ -28,12 +28,6 @@ This tutorial shows how to set up the cloud for automatic device provisioning us
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-## Prerequisites
-
-To complete this tutorial, make sure you have installed:
-
-- TBD
-
 ## Log in to the Azure portal
 
 Log in to the [Azure portal](https://portal.azure.com/).
@@ -80,7 +74,7 @@ The allocation policy is a DPS setting that determines how devices are assigned 
 2. **Evenly weighted distribution** (default): Linked IoT hubs are equally likely to have devices provisioned to them. This is the default setting. If you are provisioning devices to only one IoT hub, you can keep this setting. 
 3. **Static configuration via the enrollment list**: Specification of the desired IoT hub in the enrollment list takes priority over the DPS-level allocation policy.
 
-To set the allocation policy, in the DPS blade click **Manage allocation policy**.
+To set the allocation policy, in the DPS blade click **Manage allocation policy**. Make sure the allocation policy is set to **Evenly weighted distribution** (the default).
 
 ## Next steps
 
