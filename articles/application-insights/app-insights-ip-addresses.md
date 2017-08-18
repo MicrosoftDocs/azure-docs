@@ -1,4 +1,4 @@
----
+﻿---
 title: IP addresses used by Application Insights | Microsoft Docs
 description: Server firewall exceptions required by Application Insights
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 8/11/2017
-ms.author: sewhee
+ms.author: bwren
 
 ---
 # IP addresses used by Application Insights

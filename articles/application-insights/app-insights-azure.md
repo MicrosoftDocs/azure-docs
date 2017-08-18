@@ -1,4 +1,4 @@
----
+﻿---
 title: Application Insights for Microsoft Azure apps | Microsoft Docs
 description: Analyze usage and performance of your Azure app with Application Insights.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: sewhee
+ms.author: bwren
 
 ---
 # Application Insights for Microsoft Azure apps
