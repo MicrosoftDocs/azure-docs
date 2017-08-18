@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 08/18/2017
 ms.author: curtand
 ms.reviewer: piotrci
 
@@ -278,14 +278,14 @@ You can also create a rule that selects device objects for membership in a group
  displayName | any string value |(device.displayName -eq "Rob Iphone”)
  deviceOSType | any string value | (device.deviceOSType -eq "IOS")
  deviceOSVersion | any string value | (device.OSVersion -eq "9.1")
- deviceCategory | a valid device category name | (device.deviceCategory -eq "")
- deviceManufacturer | any string value | (device.deviceManufacturer -eq "Microsoft")
- deviceModel | any string value | (device.deviceModel -eq "IPhone 7+")
+ deviceCategory | a valid device category name | (device.deviceCategory -eq "BYOD")
+ deviceManufacturer | any string value | (device.deviceManufacturer -eq "Samsung")
+ deviceModel | any string value | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personal, Company | (device.deviceOwnership -eq "Company")
  domainName | any string value | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Apple Device Enrollment Profile name | (device.enrollmentProfileName -eq "DEP iPhones")
- isRooted | true false | (device.deviceOSType -eq true)
- managementType | MDM for mobile devices, PC for computers managed through the Intune PC agent | (device.managementType -eq "MDM")
+ isRooted | true false | (device.isRooted -eq true)
+ managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
  organizationalUnit | any string value matching the name of the organizational unit set by an on-premises Active Directory | (device.organizationalUnit -eq "US PCs")
  deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | a valid Azure AD object ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
