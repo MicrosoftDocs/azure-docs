@@ -25,7 +25,7 @@ ms.author: gwallace
 > * [**PowerShell**](application-gateway-customize-waf-rules-powershell.md)
 > * [**Azure CLI 2.0**](application-gateway-customize-waf-rules-cli.md)
 
-Azure Application Gateway web application firewall (WAF) provides protection for web applications. These protections are provided by OWASP CRS rulesets. Some rules can cause false positives and block real traffic. For this reason, Application Gateway provides the capability to customize rule groups and rules on a web application firewall-enabled Application Gateway. For more information on the specific rule groups and rules, see [List of web application firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
+Azure Application Gateway web application firewall (WAF) provides protection for web applications. These protections are provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS) set of rules. Some rules can cause false positives and block real traffic. For this reason, Application Gateway provides the capability to customize rule groups and rules on a web application firewall-enabled Application Gateway. For more information on the specific rule groups and rules, see [List of web application firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
 
 ## View rule groups and rules
 
@@ -33,7 +33,7 @@ The following code examples show how to view rules and rule groups that are conf
 
 ### View rule groups
 
-Enter the following example command to view the rules:
+Enter the following example command to view the rule groups:
 
 ```azurecli-interactive
 az network application-gateway waf-config list-rule-sets --type OWASP
@@ -125,7 +125,7 @@ The following output is a truncated response from the preceding command:
 
 ## Disable rules
 
-Enter the following example command to disable rules `910018` and `910017` on an Application Gateway:
+Enter the following example commands to disable rules `910018` and `910017` on an application gateway:
 
 ```azurecli-interactive
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
