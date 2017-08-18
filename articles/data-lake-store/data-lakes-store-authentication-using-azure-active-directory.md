@@ -24,15 +24,13 @@ Azure Data Lake Store uses Azure Active Directory for authentication. Before aut
 
 * **Service-to-service authentication** - Use this option if you want an application to authenticate itself with Data Lake Store. For this scenario, you create an Azure Active Directory (AD) application and use the key from the Azure AD application to authenticate with Data Lake Store. As a result, this authentication mechanism is *non-interactive*. 
 
-The following table illustrates how these two authentication mechanisms are supported for Data Lake Store.
+The following table illustrates how these two authentication mechanisms are supported for Data Lake Store. The symbol ( ✔ ) it is supported.
 
 |Authentication option / SDK                   |.NET         |Java     |PowerShell |Azure CLI 2.0 | Python   |REST     |
 |:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
-|End-user (without MFA)                        |   Sample |    ✔    |    Sample      |       ✔      |    Sample     |    Sample    |
-|End-user (with MFA)                           |    ✔        |         |    ✔      |       Sample      |    Sample     |    ✔    |
-|Service-to-service (using client key)         |    Sample |    Sample    |    ✔      |       ✔      |    Sample     |    Sample    |
-|Service-to-service (using client certificate) |    ✔        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    | 
-
+|End-user (without MFA)                        |   [Sample](data-lake-store-end-user-authenticate-net-sdk.md) |    ✔    |    ✔      |       ✔      |    [Sample](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)     |    [Sample](data-lake-store-end-user-authenticate-rest-api.md)    |
+|Service-to-service (using client key)         |    [Sample](data-lake-store-service-to-service-authenticate-net-sdk.md) |    [Sample](data-lake-store-service-to-service-authenticate-java.md)    |    ✔      |       ✔      |    [Sample](data-lake-store-service-to-service-authenticate-python.md)     |    [Sample](data-lake-store-service-to-service-authenticate-rest-api.md)    |
+|Service-to-service (using client certificate) |    ✔        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
 
 ## Authentication using Azure Active Directory
 
