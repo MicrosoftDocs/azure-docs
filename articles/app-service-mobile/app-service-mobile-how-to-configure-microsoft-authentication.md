@@ -37,7 +37,7 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
    > 
 7. Under "Application Secrets," click **Generate New Password**. Make note of the value that appears. Once you leave the page, it will not be displayed again.
 
-    > [AZURE.IMPORTANT] The password is an important security credential. Do not share the password with anyone or distribute it within a client application.
+    > [!IMPORTANT] The password is an important security credential. Do not share the password with anyone or distribute it within a client application.
 
 ## <a name="secrets"> </a>Add Microsoft Account information to your App Service application
 1. Back in the [Azure portal], navigate to your application, click **Settings** > **Authentication / Authorization**.
