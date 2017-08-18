@@ -77,7 +77,8 @@ In order to create a gateway resource in Azure, you must register the local inst
 After you've installed and registered your gateway, you need to create a gateway resource in your Azure subscription. Sign in to Azure with the same account you used when registering the gateway.
 
 1. In Azure portal, click **Create a new service** > **Enterprise Integration** > **On-premises data gateway** > **Create**.
-![Create a gateway resource](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
+
+   ![Create a gateway resource](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
 2. In **Create connection gateway**, enter these settings:
 
