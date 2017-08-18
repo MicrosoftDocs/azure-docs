@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process execution walkthroughs  | Microsoft Docs
+title: Walkthroughs executing the Team Data Science Process on Azure  | Microsoft Docs
 description: How to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
 services: machine-learning
 documentationcenter: ''
@@ -17,12 +17,13 @@ ms.date: 08/17/2017
 ms.author: bradsev
 
 ---
-# Team Data Science Process execution walkthroughs
+# Walkthroughs executing the Team Data Science Process
+
 These **end-to-end walkthroughs** demonstrate the steps in the Team Data Science Process for specific scenarios. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an **intelligent application**. The walkthroughs are grouped by **platform** that they use. The following menu links to these examples:
 
 [!INCLUDE [tdsp-walkthroughs-by-platform](../../includes/tdsp-walkthroughs-by-platform.md)]
 
-Here are brief descriptions of what these walkthrough examples provide for each platform:
+Here are brief descriptions of what these walkthrough examples provide on their respective platforms:
 
 - [HDInsight Spark walkthroughs using PySpark and Scala](data-science-process-walkthroughs-spark.md) These walkthroughs use PySpark and Scala on an Azure Spark cluster to do predictive analytics. 
 - [HDInsight Hadoop walkthroughs using Hive](data-science-process-walkthroughs-hdinsight-hadoop.md) These walkthroughs use Hive with an HDInsight Hadoop cluster to do predictive analytics.
@@ -33,5 +34,10 @@ Here are brief descriptions of what these walkthrough examples provide for each 
 
 
 ## Next steps
+
+For a discussion of the Key components that comprise the Team Data Science Process, see [Team Data Science Process overview](data-science-process-overview.md).
+
+For a discussion of the Team Data Science Process lifecycle that you can use to structure your data science projects, see [Team Data Science Process lifecycle](data-science-process-lifecycle.md). The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. 
+
 For an overview of topics that walk you through the tasks that comprise the data science process in Azure, see [Data Science Process](http://aka.ms/datascienceprocess). 
 
