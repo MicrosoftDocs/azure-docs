@@ -205,9 +205,9 @@ f3ed6cb59ab0: Mounted from library/python
 v1: digest: sha256:a910d5b77e6960c01745a87c35f3d1a13ba73231ac9a4664c5011b1422d59b60 size: 2632
 ```
 
-# [Azure Container Registry](#tab/azure-container-registry) 
+# [Private Registry](#tab/private-registry) 
 
-Azure Container Registry is a managed Docker service for hosting private images. The deployments may be any type, including [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/), and Azure app service containers. 
+Azure Container Registry is a managed Docker service from Azure for hosting private images. The deployments may be any type, including [Docker Swarm](https://docs.docker.com/engine/swarm/), [Kubernetes](https://kubernetes.io/), and Azure app service containers. Using the Azure Container Registry is just like using any private registry, so if you need to use your own private registry, the steps to complete this task will be similar.
 
 Use the [az acr create](https://docs.microsoft.com/cli/azure/acr#create) command to create an Azure Container Registry. Pass in the name, resource group, and `Basic` for the SKU. Available SKUs are `Classic`, `Basic`, `Standard`, and `Premium`.
 
@@ -441,9 +441,9 @@ A successful configuration change returns general information about the containe
 ]
 ```
 
-# [Azure Container Registry](#tab/azure-container-registry) 
+# [Private Registry](#tab/private-registry) 
 
-You can configure web apps on Linux so that they run a container stored in the Azure Container Registry.
+You can configure web apps on Linux so that they run a container stored in the Azure Container Registry. Using the Azure Container Registry is just like using any private registry, so if you need to use your own private registry, the steps to complete this task will be similar.
 
 The [az acr credential show](https://docs.microsoft.com/en-us/cli/azure/acr/credential#show) command displays the passwords for the container registry. Copy the username and one of the passwords so you can use it to configure the web app in the next step.
 
