@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 08/14/2017
 ms.author: babanisa
 ---
 
@@ -19,26 +19,42 @@ Azure Event Grid has three types of authentication:
 * Event publishing
 * WebHook event delivery
 
-WebHook authentication is not available in the preview release.
+## WebHook Event delivery
 
+Webhooks are one of many ways to receive events in real time from Azure Event Grid.
+
+Every time there is a new event ready to be delivered, Event Grid sends an HTTP request with to your WebHook with the event in the body.
+
+When you register your own WebHook endpoint with Event Grid, it sends you a GET request with a simple validation code in order to prove endpoint ownership. Your app needs to respond by echoing back the validation code. Event Grid will not deliver events to WebHook endpoints that have not passed the validation.
+ 
+### Validation details:
+
+* At the time of event subscription creation/update, Event Grid posts a “SubscriptionValidationEvent” event to the target endpoint.
+* The event contains a header value “Event-Type: Validation”.
+* The event body has the same schema as other Event Grid events.
+* The event data includes a “validation_code” property with a randomly generated string e.g. “validation_code: acb13…”.
+
+In order to prove endpoint ownership, echo back the validation code e.g “validation_response: acb13…”.
+
+Finally, it is important to note that Azure Event Grid only supports HTTPS webhook endpoints.
 ## Event subscription
 
-To subscribe to an event, you must have the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the required resource. The required resource differs based on whether you are subscribing to a system event or topic. Both types are described in this section.
+To subscribe to an event, you must have the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the required resource. You need this permission because you are writing a new subscription at the scope of the resource. The required resource differs based on whether you are subscribing to a system topic or custom topic. Both types are described in this section.
 
-### System event (Azure service publishers)
+### System topics (Azure service publishers)
 
-For system events, you need permission on the resource publishing the event. The format of the resource is:
+For system topics, you need permission to write a new event subscription at the scope of the resource publishing the event. The format of the resource is:
 `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
 For example, to subscribe to an event on a storage account named **myacct**, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:
 `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
 
-### Topics
+### Custom topics
 
-For topics, you need permission on the Event Grid topic. The format of the resource is:
+For custom topics, you need permission to write a new event subscription at the scope of the Event Grid topic. The format of the resource is:
 `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
-For example, to subscribe to a topic named **mytopic**, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:
+For example, to subscribe to a custom topic named **mytopic**, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:
 `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
 ## Topic publishing

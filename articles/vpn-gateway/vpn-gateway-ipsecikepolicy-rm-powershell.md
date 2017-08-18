@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections: Azure Resource Manager: PowerShell | Microsoft Docs'
 description: This article walks you through configuring IPsec/IKE policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using Azure Resource Manager and PowerShell.
 services: vpn-gateway
@@ -22,7 +22,7 @@ ms.author: yushwang
 
 This article walks you through the steps to configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections using the Resource Manager deployment model and PowerShell.
 
-## About IPsec and IKE policy parameters for Azure VPN gateways
+## <a name="about"></a>About IPsec and IKE policy parameters for Azure VPN gateways
 IPsec and IKE protocol standard supports a wide range of cryptographic algorithms in various combinations. Refer to [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) to see how this can help ensuring cross-premises and VNet-to-VNet connectivity satisfy your compliance or security requirements.
 
 This article provides instructions to create and configure an IPsec/IKE policy and apply to a new or existing connection:
@@ -102,11 +102,11 @@ This section walks you through the steps of creating a S2S VPN connection with a
 
 Please see [Create a S2S VPN connection](vpn-gateway-create-site-to-site-rm-powershell.md) for more detailed step-by-step instructions for creating a S2S VPN connection.
 
-### Before you begin
+### <a name="before"></a>Before you begin
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 * You'll need to install the Azure Resource Manager PowerShell cmdlets. See [Overview of Azure PowerShell](/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
 
-### Step 1 - Create the virtual network, VPN gateway, and local network gateway
+### <a name="createvnet1"></a>Step 1 - Create the virtual network, VPN gateway, and local network gateway
 
 #### 1. Declare your variables
 For this exercise, we'll start by declaring our variables. Be sure to replace the values with your own when configuring for production.
@@ -167,7 +167,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Locatio
 New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
 ```
 
-### Step 2 - Creat a S2S VPN connection with an IPsec/IKE policy
+### <a name="s2sconnection"></a>Step 2 - Creat a S2S VPN connection with an IPsec/IKE policy
 
 #### 1. Create an IPsec/IKE policy
 The sample script below creates an IPsec/IKE policy with the following algorithms and parameters:
@@ -214,7 +214,7 @@ The steps of creating a VNet-to-VNet connection with an IPsec/IKE policy are sim
 
 Please see [Create a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md) for more detailed steps for creating a VNet-to-VNet connection. You must complete [Part 3](#crossprem) to create and configure TestVNet1 and the VPN Gateway. 
 
-### Step 1 - Create the second virtual network and VPN gateway
+### <a name="createvnet2"></a>Step 1 - Create the second virtual network and VPN gateway
 
 #### 1. Declare your variables
 Be sure to replace the values with the ones that you want to use for your configuration.

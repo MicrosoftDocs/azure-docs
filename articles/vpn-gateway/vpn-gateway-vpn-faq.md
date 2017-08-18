@@ -53,7 +53,7 @@ For more information about VPN gateway connections, see [About VPN Gateway](vpn-
 
 You can configure your virtual network to use both Site-to-Site and Point-to-Site concurrently, as long as you create your Site-to-Site connection using a route-based VPN type for your gateway. Route-based VPN types are called dynamic gateways in the classic deployment model.
 
-## Virtual network gateways
+## <a name="gateways"></a>Virtual network gateways
 
 ### Is a VPN gateway a virtual network gateway?
 
@@ -127,7 +127,7 @@ A VPN gateway is fundamentally a multi-homed device with one NIC tapping into th
 
 For more information, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
-## Site-to-Site connections and VPN devices
+## <a name="s2s"></a>Site-to-Site connections and VPN devices
 
 ### What should I consider when selecting a VPN device?
 
@@ -191,7 +191,7 @@ Yes, Point-to-Site (P2S) VPNs can be used with the VPN gateways connecting to mu
 
 Yes, this is supported. For more information, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-howto-coexist-classic.md).
 
-## IPsec/IKE policy
+## <a name="ipsecike"></a>IPsec/IKE policy
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
 
@@ -200,7 +200,7 @@ Yes, this is supported. For more information, see [Configure ExpressRoute and Si
 
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
-## Cross-premises connectivity and VMs
+## <a name="vms"></a>Cross-premises connectivity and VMs
 
 ### If my virtual machine is in a virtual network and I have a cross-premises connection, how should I connect to the VM?
 
@@ -217,7 +217,7 @@ No. Only the traffic that has a destination IP that is contained in the virtual 
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## Virtual Network FAQ
+## <a name="faq"></a>Virtual Network FAQ
 
 You view additional virtual network information in the [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md).
 
