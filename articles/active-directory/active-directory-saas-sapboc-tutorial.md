@@ -49,7 +49,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Ad SAP Business Object Cloud from the gallery.
+1. Add SAP Business Object Cloud from the gallery.
 2. Set up and test Azure AD single sign-on.
 
 ## Add SAP Business Object Cloud from the gallery
@@ -121,11 +121,11 @@ To set up Azure AD single sign-on with SAP Business Object Cloud:
 	| `<sub-domain>.sapbusinessobjects.cloud` |
 	| `<sub-domain>.sapanalytics.cloud` |
 
+	![SAP Business Object Cloud Domain and URLs page URLs](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_url.png)
+ 
 	> [!NOTE] 
 	> The values in these URLs are for demonstration only. Update the values with the actual sign-on URL and identifier URL. To get the sign-on URL, contact the [SAP Business Object Cloud Client support team](https://www.sap.com/product/analytics/cloud-analytics.support.html). You can get the identifier URL by downloading the SAP Business Object Cloud metadata from the admin console. This is explained later in the tutorial. 
 
-	![SAP Business Object Cloud Domain and URLs page URLs](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_url.png)
- 
 4. Under **SAML Signing Certificate**, select **Metadata XML**. Then, save the metadata file on your computer.
 
 	![Select Metadata XML](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_certificate.png) 
@@ -140,27 +140,27 @@ To set up Azure AD single sign-on with SAP Business Object Cloud:
     
 	![Select Menu, then System, and then Administration](./media/active-directory-saas-sapboc-tutorial/config1.png)
 
-8. On the **Security** tab, select the **pen** (edit) icon.
+8. On the **Security** tab, select the **Edit** (pen) icon.
     
-	![On the Security tab, select the pen icon](./media/active-directory-saas-sapboc-tutorial/config2.png)  
+	![On the Security tab, select the Edit icon](./media/active-directory-saas-sapboc-tutorial/config2.png)  
 
 9. For **Authentication Method**, select **SAML Single Sign-On (SSO)**.
 
 	![Select SAML Single Sign-On for the authentication method](./media/active-directory-saas-sapboc-tutorial/config3.png)  
 
-10. To download the Service Provider metadata, select **Download**. In the metadata file, find and copy the **entityID** value. In the Azure portal, under **SAP Business Object Cloud Domain and URLs**, paste the value in the **Identifier** box.
+10. To download the service provider metadata (Step 1), select **Download**. In the metadata file, find and copy the **entityID** value. In the Azure portal, under **SAP Business Object Cloud Domain and URLs**, paste the value in the **Identifier** box.
 
 	![Copy and paste the entityID value](./media/active-directory-saas-sapboc-tutorial/config4.png)  
 
-11. To upload the metadata file downloaded from the Azure portal, under **Upload Identity Provider metadata**, select **Upload**.  
+11. To upload the service provider metadata (Step 2) in the file that you downloaded from the Azure portal, under **Upload Identity Provider metadata**, select **Upload**.  
 
 	![Under Upload Identity Provider metadata, select Upload](./media/active-directory-saas-sapboc-tutorial/config5.png)
 
-12. From the list, select the **User Attribute** that you want to use for your implementation. This user attribute maps to the identity provider. To enter a custom attribute on the user's page, use the **Custom SAML Mapping** option,  or select either **Email** or **USER ID** as the user attribute. In our example, we selected **Email** because we mapped the user identifier claim with the **userprincipalname** attribute in the **User Attributes** section in the Azure portal. This provides a unique user email, which is sent to the SAP Business Object Cloud application in every successful SAML response.
+12. In the **User Attribute** list, select the user attribute (Step 3) that you want to use for your implementation. This user attribute maps to the identity provider. To enter a custom attribute on the user's page, use the **Custom SAML Mapping** option. Or, you can select either **Email** or **USER ID** as the user attribute. In our example, we selected **Email** because we mapped the user identifier claim with the **userprincipalname** attribute in the **User Attributes** section in the Azure portal. This provides a unique user email, which is sent to the SAP Business Object Cloud application in every successful SAML response.
 
 	![Select User Attribute](./media/active-directory-saas-sapboc-tutorial/config6.png)
 
-13. In the **Login Credential (Email)** box, enter the user's email address. Then, select **Verify Account**. The system adds sign-in credentials to the user account.
+13. To verify the account with the identity provider (Step 4), in the **Login Credential (Email)** box, enter the user's email address. Then, select **Verify Account**. The system adds sign-in credentials to the user account.
 
     ![Enter email, and select Verify Account](./media/active-directory-saas-sapboc-tutorial/config7.png)
 
@@ -230,7 +230,7 @@ To provision a user account:
 
 	5. In the **E-MAIL** box, enter the email address of the user, like **brittasimon@contoso.com**.
 
-	6. On the **Select Roles** page, select the appropriate role for the user, then select **OK**.
+	6. On the **Select Roles** page, select the appropriate role for the user, and then select **OK**.
 
 	  ![Select role](./media/active-directory-saas-sapboc-tutorial/user3.png)
 
