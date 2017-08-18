@@ -1,5 +1,7 @@
 
-Organizations have large-scale computing, or Big Compute, workloads: engineering design and analysis, image rendering, complex modeling, Monte Carlo simulations, financial risk calculations, and more. With Azure, you can run your high performance computing (HPC) and batch workloads on clusters of Azure virtual machines, using either Azure infrastructure services or managed services. Azure gives you the flexibility to scale compute resources to thousands of VMs or cores and then scale down when you need fewer resources. 
+Organizations have large-scale computing needs. These Big Compute workloads include engineering design and analysis, image rendering, complex modeling, Monte Carlo simulations, financial risk calculations, and more. 
+
+With Azure, you can run your high performance computing (HPC) and batch workloads on clusters of Azure virtual machines, using either Azure infrastructure services or managed services. Azure gives you the flexibility to scale compute resources to thousands of VMs or cores and then scale down when you need fewer resources. 
 
 Azure HPC solutions efficiently run compute-intensive Linux and Windows workloads, from parallel batch jobs to traditional HPC simulations. Leading HPC applications are supported to run in Azure VMs, and you can take advantage of specialized VM sizes and images designed for compute-intensive jobs. 
 
@@ -40,7 +42,7 @@ Learn how to:
 
 
 ## Azure Batch
-[Batch](../articles/batch/) is a platform service for running large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure Batch schedules compute-intensive work to run on a managed pool of virtual machines, and can automatically scale compute resources to meet the needs of your jobs. Use the Batch SDKs and tools to integrate HPC applications or container workloads with Azure, stage data to Azure, and build job execution pipelines. You can also use surplus (low-priority) Azure VM capacity at a [reduced price](https://azure.microsoft.com/pricing/details/batch/), significantly reducing the cost of running some workloads in Batch.
+[Batch](../articles/batch/batch-technical-overview.md) is a platform service for running large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure Batch schedules compute-intensive work to run on a managed pool of virtual machines, and can automatically scale compute resources to meet the needs of your jobs. Use the Batch SDKs and tools to integrate HPC applications or container workloads with Azure, stage data to Azure, and build job execution pipelines. You can also use surplus (low-priority) Azure VM capacity at a [reduced price](https://azure.microsoft.com/pricing/details/batch/), significantly reducing the cost of running some workloads in Batch.
 
 Learn how to:
 
@@ -48,7 +50,7 @@ Learn how to:
 * [Use Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
 * [Use low-priority VMs with Batch (preview)](../articles/batch/batch-low-pri-vms.md)
 * [Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
-* [Use Azure Batch with the R language](https://github.com/Azure/doAzureParallel)
+* [Use the R language with Batch](https://github.com/Azure/doAzureParallel)
 
 ## HPC and GPU VM sizes
 Azure offers a range of sizes for [Linux](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Windows](../articles/virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) VMs, including sizes designed for compute-intensive workloads. For example, H16r and H16mr VMs can connect to a high throughput back-end RDMA network. This cloud network can improve the performance of tightly coupled parallel applications running under [Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) or Intel MPI. N-series VMs feature NVIDIA GPUs designed for compute- and graphics-intensive workloads including artificial intelligence (AI) learning and visualization. 
@@ -113,7 +115,7 @@ Partners who develop or deliver batch and HPC applications in Azure include:
 
 ## HPC storage
 
-Batch and HPC workloads often have demands for data storage and access that exceed the capabilities of traditional cloud file systems. You can implement parallel file system solutions in Azure such as [Lustre](http://lustre.org/) and [BeeGFS](http://www.beegfs.com/content/).
+Large-scale Batch and HPC workloads have demands for data storage and access that exceed the capabilities of traditional cloud file systems. You can implement parallel file system solutions in Azure such as [Lustre](http://lustre.org/) and [BeeGFS](http://www.beegfs.com/content/).
 
 Learn more:
 
@@ -126,23 +128,23 @@ Azure VMs, VM scale sets, Batch, and related compute services are the foundation
 
 ### Storage
 
-* [Blob, table, and queue storage](../articles/storage/)
-* [File storage](../articles/storage/storage-files-introduction.md/)
+* [Blob, table, and queue storage](../articles/storage/storage-introduction.md)
+* [File storage](../articles/storage/storage-files-introduction.md)
 
 ### Data and analytics
-* [Data Factory](../articles/data-factory/)
-* [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)
-* [Machine Learning](../articles/machine-learning/)
-* [HDInsight](../articles/hdinsight/)
-* [SQL Database](../articles/sql-database/)
+* [HDInsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) for Hadoop clusters on Azure
+* [Data Factory](../articles/data-factory/data-factory-introduction.md)
+* [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
+* [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
+* [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
 
 ### Networking
-* [Virtual Network](../articles/virtual-network/)
-* [ExpressRoute](../articles/expressroute/)
+* [Virtual Network](../articles/virtual-network/virtual-networks-overview.md)
+* [ExpressRoute](../articles/expressroute/expressroute-introduction.md)
 
 ### Containers
-* [Container Service](../articles/container-service/)
-* [Container Registry](../articles/container-registry/)
+* [Container Service](../articles/container-service/dcos-swarm/container-service-intro.md)
+* [Container Registry](../articles/container-registry/container-registry-intro.md)
 
 
 
