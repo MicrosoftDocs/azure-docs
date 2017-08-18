@@ -46,18 +46,6 @@
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Disaster recovery guidance
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Premium Storage
-      items:
-        - name: High-performance Premium Storage for VM Disks
-        - href: ../common/storage-premium-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Migrating to Premium Storage using Azure Site Recovery
-        - href: ../common/storage-migrate-to-premium-storage-using-azure-site-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Design for high performance
-        - href: ../common/storage-premium-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Standard Storage 
-      items:
-        - name: Cost-effective Standard Storage and unmanaged and managed VM Disks
-        - href: ../common/storage-standard-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Develop
     items:
     - name: Samples
