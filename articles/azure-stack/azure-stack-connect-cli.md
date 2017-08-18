@@ -104,8 +104,9 @@ $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n"
 Write-Host "Adding the certificate content to Python Cert store"
 Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
 
-Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"  
+Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
+---
 
 ## Connect to Azure Stack
 
@@ -167,8 +168,7 @@ Use the following steps to connect to Azure Stack:
 
 4. Sign in to your Azure Stack environment by using the **az login** command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
 
-   * Log in as a **user**:
-   You can either specify the username and password directly within the az login command or authenticate using a browser. You would have to do the latter, if your account has multi-factor authentication enabled.
+   * Sign in as a **user**: You can either specify the username and password directly within the az login command or authenticate using a browser. You would have to do the latter, if your account has multi-factor authentication enabled.
 
    ```azurecli
    az login \
@@ -178,8 +178,7 @@ Use the following steps to connect to Azure Stack:
 
    **Note** If your user account has Multi factor authentication enabled, you can use the az login command without providing the -u parameter. Running the command gives you a URL and a code that you must use to authenticate.
    
-   * Log in as a **service principal**:
-     [Create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it to a role for the scope you would like for it to have access to. Af log in using the service principal using the following command:
+   * Sign in as a **service principal**: Before you sign in, [Create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, log in by using the following command:
 
    ```azurecli
    az login \
