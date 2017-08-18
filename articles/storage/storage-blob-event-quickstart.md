@@ -42,7 +42,7 @@ To use Azure Storage, you need a storage account.  Blob Storage events are avail
 
 A Blob Storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob Storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
 
-For the preview release, Blob Storage events are avilable only for storage accounts in the **westcentralus** location.
+For the preview release, Blob Storage events are available only for storage accounts in the **westcentralus** location.
 
 Replace `<storage_account_name>` with a unique name for your storage account, and `<resource_group_name>` with the resource group you created earlier.
 
@@ -124,7 +124,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-Now that you know how to create topics and event subscriptions, learn more about what Event Grid can help you do:
+Now that you know how to create topics and event subscriptions, learn more about Blob Storage Events and what Event Grid can help you do:
 
-- [About Event Grid](overview.md)
-- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
+- [Reacting to Blob Storage events](storage-blob-events.md)
+- [About Event Grid](../event-grid/overview.md)
