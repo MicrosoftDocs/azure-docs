@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 08/18/2017
 ms.author: babanisa
 ---
 
@@ -17,9 +17,13 @@ Azure Event Grid allows you to easily build applications with event-based archit
 
 You can use filters to route specific events to different endpoints, multicast to multiple endpoints, and make sure your events are reliably delivered. Event Grid also has built in support for custom and third-party events.
 
+For the preview release, Event Grid supports **westus2** and **westcentralus** locations. Other regions will be added.
+
 This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
 
 ![Event Grid functional model](./media/overview/event-grid-functional-model.png)
+
+Currently, Blob Storage is not publicly available as a publisher.
 
 ## Concepts
 
@@ -48,7 +52,7 @@ Here are some of the key features of Azure Event Grid:
 
 ## Built-in publisher and handler integration
 
-Azure offers built-in event support using numerous services, including both publishers and handlers. Many more will be added this year.
+Azure offers built-in event support using numerous services, including both publishers and handlers.
 
 ### Publishers
 
@@ -59,6 +63,8 @@ Currently, the following Azure services have built-in publisher support for even
 * Event Hubs
 * Custom Topics
 
+Other Azure services will be added this year.
+
 ### Handlers
 
 Currently, the following Azure services have built-in handler support for Event Grid: 
@@ -67,6 +73,8 @@ Currently, the following Azure services have built-in handler support for Event 
 * Logic Apps
 * Azure Automation
 * WebHooks
+
+Other Azure services will be added this year.
 
 ## What can I do with Event Grid?
 
