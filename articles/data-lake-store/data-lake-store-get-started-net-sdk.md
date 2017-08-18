@@ -108,14 +108,8 @@ In the remaining sections of the article, you can see how to use the available .
 
 ## Authentication
 
-### If you are using end-user authentication (recommended for this tutorial)
-
-TBD
-
-### If you are using service-to-service authentication
-
-TBD
-
+* If you want to use end-user authentication for your application, see []().
+* If you want to use service-to-service authentication for your application, see []().
 
 ## Create client objects
 The following snippet creates the Data Lake Store account and filesystem client objects, which are used to issue requests to the service.
@@ -142,73 +136,7 @@ The following snippet lists all Data Lake Store accounts within a given Azure su
         return accounts;
     }
 
-## Create a directory
-The following snippet shows a `CreateDirectory` method that you can use to create a directory within a Data Lake Store account.
 
-    // Create a directory
-    public static async Task CreateDirectory(string path)
-    {
-        await _adlsFileSystemClient.FileSystem.MkdirsAsync(_adlsAccountName, path);
-    }
-
-## Upload a file
-The following snippet shows an `UploadFile` method that you can use to upload files to a Data Lake Store account.
-
-    // Upload a file
-    public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
-    {
-        _adlsFileSystemClient.FileSystem.UploadFile(_adlsAccountName, srcFilePath, destFilePath, overwrite:force);
-    }
-
-The SDK supports recursive upload and download between a local file path and a Data Lake Store file path.    
-
-## Get file or directory info
-The following snippet shows a `GetItemInfo` method that you can use to retrieve information about a file or directory available in Data Lake Store.
-
-    // Get file or directory info
-    public static async Task<FileStatusProperties> GetItemInfo(string path)
-    {
-        return await _adlsFileSystemClient.FileSystem.GetFileStatusAsync(_adlsAccountName, path).FileStatus;
-    }
-
-## List file or directories
-The following snippet shows a `ListItem` method that can use to list the file and directories in a Data Lake Store account.
-
-    // List files and directories
-    public static List<FileStatusProperties> ListItems(string directoryPath)
-    {
-        return _adlsFileSystemClient.FileSystem.ListFileStatus(_adlsAccountName, directoryPath).FileStatuses.FileStatus.ToList();
-    }
-
-## Concatenate files
-The following snippet shows a `ConcatenateFiles` method that you use to concatenate files.
-
-    // Concatenate files
-    public static Task ConcatenateFiles(string[] srcFilePaths, string destFilePath)
-    {
-        await _adlsFileSystemClient.FileSystem.ConcatAsync(_adlsAccountName, destFilePath, srcFilePaths);
-    }
-
-## Append to a file
-The following snippet shows a `AppendToFile` method that you use append data to a file already stored in a Data Lake Store account.
-
-    // Append to file
-    public static async Task AppendToFile(string path, string content)
-    {
-        using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(content)))
-        {
-            await _adlsFileSystemClient.FileSystem.AppendAsync(_adlsAccountName, path, stream);
-        }
-    }
-
-## Download a file
-The following snippet shows a `DownloadFile` method that you use to download a file from a Data Lake Store account.
-
-    // Download file
-   	public static void DownloadFile(string srcFilePath, string destFilePath)
-    {
-         _adlsFileSystemClient.FileSystem.DownloadFile(_adlsAccountName, srcFilePath, destFilePath);
-    }
 
 ## Next steps
 * [Secure data in Data Lake Store](data-lake-store-secure-data.md)

@@ -17,60 +17,77 @@ ms.date: 04/21/2017
 ms.author: nitinme
 
 ---
-# End-user authentication with Data Lake Store using Azure Active Directory
+# End-user authentication with Data Lake Store using Python
 > [!div class="op_single_selector"]
-> * [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md)
-> * [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
+> * [Using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
+> * [Using Python](data-lake-store-end-user-authenticate-python.md)
+> * [Using REST API](data-lake-store-end-user-authenticate-rest-api.md)
 > 
 > 
 
-Azure Data Lake Store uses Azure Active Directory for authentication. Before authoring an application that works with Azure Data Lake Store or Azure Data Lake Analytics, you must first decide how you would like to authenticate your application with Azure Active Directory (Azure AD). The two main options available are:
-
-* End-user authentication (this article)
-* Service-to-service authentication
-
-Both these options result in your application being provided with an OAuth 2.0 token, which gets attached to each request made to Azure Data Lake Store or Azure Data Lake Analytics.
-
-This article talks about how create an **Azure AD native application for end-user authentication**. For instructions on Azure AD application configuration for service-to-service authentication see [Service-to-service authentication with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+In this article, you learn about how to use the Python SDK to do end-user authentication with Azure Data Lake Store. For service-to-service authentication with Data Lake Store using Python, see [Service-to-service authentication with Data Lake Store using Python](data-lake-store-service-to-service-authenticate-pythonl.md).
 
 ## Prerequisites
-* An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* Your subscription ID. You can retrieve it from the Azure Portal. For example, it is available from the Data Lake Store account blade.
-  
-    ![Get subscription ID](./media/data-lake-store-end-user-authenticate-using-active-directory/get-subscription-id.png)
+* **Python**. You can download Python from [here](https://www.python.org/downloads/). This article uses Python 3.5.2.
 
-* Your Azure AD domain name. You can retrieve it by hovering the mouse in the top-right corner of the Azure Portal. From the screenshot below, the domain name is **contoso.onmicrosoft.com**, and the GUID within brackets is the tenant ID. 
-  
-    ![Get AAD domain](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
+* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-## End-user authentication
-This is the recommended approach if you want an end-user to log in to your application via Azure AD. Your application will be able to access Azure resources with the same level of access as the end-user that logged in. Your end-user will need to provide their credentials periodically in order for your application to maintain access.
+* **Create an Azure Active Directory "Native" Application**. You must have completed the steps in [End-user authentication with Data Lake Store using Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-The result of having the end-user log in is that your application is given an access token and a refresh token. The access token gets attached to each request made to Data Lake Store or Data Lake Analytics, and it is valid for one hour by default. The refresh token can be used to obtain a new access token, and it is valid for up to two weeks by default, if used regularly. You can use two different approaches for end-user log in.
+## Install the modules
 
-### Using the OAuth 2.0 pop-up
-Your application can trigger an OAuth 2.0 authorization pop-up, in which the end-user can enter their credentials. This pop-up also works with the Azure AD Two-factor Authentication (2FA) process, if required. 
+To work with Data Lake Store using Python, you need to install three modules.
 
-> [!NOTE]
-> This method is not yet supported in the Azure AD Authentication Library (ADAL) for Python or Java.
-> 
-> 
+* The `azure-mgmt-resource` module. This includes Azure modules for Active Directory, etc..
+* The `azure-mgmt-datalake-store` module. This includes the Azure Data Lake Store account management operations. For more information on this module, see [Azure Data Lake Store Management module reference](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
+* The `azure-datalake-store` module. This includes the Azure Data Lake Store filesystem operations. For more information on this module, see [Azure Data Lake Store Filesystem module reference](http://azure-datalake-store.readthedocs.io/en/latest/).
 
-### Directly passing in user credentials
-Your application can directly provide user credentials to Azure AD. This method only works with organizational ID user accounts; it is not compatible with personal / “live ID” user accounts, including those ending in @outlook.com or @live.com. Furthermore, this method is not compatible with user accounts that require Azure AD Two-factor Authentication (2FA).
+Use the following commands to install the modules.
 
-### What do I need to use this approach?
-* Azure AD domain name. This is already listed in the prerequisite of this article.
-* Azure AD **native application**
-* Application ID for the Azure AD native application
-* Redirect URI for the Azure AD native application
-* Set delegated permissions
+```
+pip install azure-mgmt-resource
+pip install azure-mgmt-datalake-store
+pip install azure-datalake-store
+```
+
+## Create a new Python application
+
+1. In the IDE of your choice create a new Python application, for example, **mysample.py**.
+
+2. Add the following lines to import the required modules
+
+	```
+	## Use this only for Azure AD service-to-service authentication
+	from azure.common.credentials import ServicePrincipalCredentials
+
+	## Use this only for Azure AD end-user authentication
+	from azure.common.credentials import UserPassCredentials
+
+	## Use this only for Azure AD multi-factor authentication
+	from msrestazure.azure_active_directory import AADTokenCredentials
+
+	## Required for Azure Data Lake Store account management
+	from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+	from azure.mgmt.datalake.store.models import DataLakeStoreAccount
+
+	## Required for Azure Data Lake Store filesystem management
+	from azure.datalake.store import core, lib, multithread
+
+	# Common Azure imports
+	from azure.mgmt.resource.resources import ResourceManagementClient
+	from azure.mgmt.resource.resources.models import ResourceGroup
+
+	## Use these as needed for your application
+	import logging, getpass, pprint, uuid, time
+	```
+
+3. Save changes to mysample.py.
 
 
 ### End-user authentication for account management
 
-Use this to authenticate with Azure AD for account management operations (create/delete Data Lake Store account, etc.). You must provide username and password for an Azure AD user. Note that the user should not be configured for multi-factor authentication.
+Use this to authenticate with Azure AD for account management operations on Data Lake Store such as create Data Lake Store account, delete Data Lake Store account, etc. You must provide username and password for an Azure AD user. Note that the user should not be configured for multi-factor authentication.
 
     user = input('Enter the user to authenticate with that has permission to subscription: ')
 	password = getpass.getpass()
@@ -79,7 +96,7 @@ Use this to authenticate with Azure AD for account management operations (create
 
 ### End-user authentication for filesystem operations
 
-Use this to authenticate with Azure AD for filesystem operations (create folder, upload file, etc.). Use this with an existing Azure AD **native client** application. The Azure AD user you provide credentials for should not be configured for multi-factor authentication.
+Use this to authenticate with Azure AD for filesystem operations on Data Lake Store such as create folder, upload file, etc. Use this with an existing Azure AD **native** application. The Azure AD user you provide credentials for should not be configured for multi-factor authentication.
 
 	tenant_id = 'FILL-IN-HERE'
 	client_id = 'FILL-IN-HERE'
@@ -89,9 +106,8 @@ Use this to authenticate with Azure AD for filesystem operations (create folder,
 	token = lib.auth(tenant_id, user, password, client_id)
    
 ## Next steps
-In this article you created an Azure AD native application and gathered the information you need in your client applications that you author using .NET SDK, Java SDK, REST API, etc. You can now proceed to the following articles that talk about how to use the Azure AD web application to first authenticate with Data Lake Store and then perform other operations on the store.
+In this article you learned how to use end-user authentication to authenticate with Azure Data Lake Store using Python. You can now look at the following articles that talk about how to use Python to work with Azure Data Lake Store.
 
-* [Get started with Azure Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Get started with Azure Data Lake Store using Java SDK](data-lake-store-get-started-java-sdk.md)
-* [Get started with Azure Data Lake Store using REST API](data-lake-store-get-started-rest-api.md)
+* [Account management operations on Data Lake Store using Python](data-lake-store-get-started-python.md)
+* [Data operations on Data Lake Store using Python](data-lake-store-data-operations-python.md)
 

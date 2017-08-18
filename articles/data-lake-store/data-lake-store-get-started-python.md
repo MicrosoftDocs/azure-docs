@@ -161,28 +161,6 @@ The following snippet first creates the Data Lake Store account client. It uses 
 	for items in result_list:
     	print(items)
 
-## Create a directory
-
-	## Create a directory
-    adlsFileSystemClient.mkdir('/mysampledirectory')
-
-## Upload a file
-
-
-    ## Upload a file
-    multithread.ADLUploader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
-
-
-## Download a file
-
-    ## Download a file
-    multithread.ADLDownloader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt.out', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
-
-## Delete a directory
-
-	## Delete a directory
-	adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
-
 ## See also
 
 - [Secure data in Data Lake Store](data-lake-store-secure-data.md)

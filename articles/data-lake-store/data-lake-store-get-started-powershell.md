@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 08/21/2017
 ms.author: nitinme
 
 ---
@@ -21,12 +21,7 @@ ms.author: nitinme
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-> * [Node.js](data-lake-store-manage-use-nodejs.md)
-> * [Python](data-lake-store-get-started-python.md)
 >
 >
 
@@ -195,6 +190,7 @@ You can continue to tune these settings by changing the **PerFileThreadCount** u
 * **Throttling errors**: You may see throttling errors if your concurrency is too high. If you are seeing throttling errors, you should either reduce the concurrency or contact us.
 
 ## Next steps
+* [Use Azure Data Lake Store for big data requirements](data-lake-store-data-scenarios.md) 
 * [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 * [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/06/2017
+ms.date: 08/21/2017
 ms.author: nitinme
 
 ---
@@ -21,21 +21,11 @@ ms.author: nitinme
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-> * [Node.js](data-lake-store-manage-use-nodejs.md)
-> * [Python](data-lake-store-get-started-python.md)
 >
 > 
 
 Learn how to use the Azure portal to create an Azure Data Lake Store account and perform basic operations such as create folders, upload, and download data files, delete your account, etc. For more information, see [Overview of Azure Data Lake Store](data-lake-store-overview.md).
-
-The following two videos contain the same information as described in this article:
-
-* [Create a Data Lake Store account](https://mix.office.com/watch/1k1cycy4l4gen)
-* [Manage data in Data Lake Store using the Data Explorer](https://mix.office.com/watch/icletrxrh6pc)
 
 ## Prerequisites
 Before you begin this tutorial, you must have the following items:
@@ -68,12 +58,6 @@ Before you begin this tutorial, you must have the following items:
 
 4. Click **Create**. If you chose to pin the account to the dashboard, you are taken back to the dashboard and you can see the progress of your Data Lake Store account provisioning. Once the Data Lake Store account is provisioned, the account blade shows up.
 
-You can also create a Data Lake Store account using Azure Resource Manager templates. These templates are accessible from [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
-
-- Without data encryption: [Deploy Azure Data Lake Store account with no data encryption](https://azure.microsoft.com/en-us/resources/templates/101-data-lake-store-no-encryption/).
-- With data encryption using Data Lake Store: [Deploy Data Lake Store account with encryption(Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
-- With data encryption using Azure Key Vault: [Deploy Data Lake Store account with encryption(Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
-
 ### <a name="assign-permissions-to-azure-key-vault"></a>Assign permissions to Azure Key Vault
 If you used keys from an Azure Key Vault to configure encryption on the Data Lake Store account, you must configure access between the Data Lake Store account and the Azure Key Vault account. Perform the following steps to do so.
 
@@ -84,6 +68,16 @@ If you used keys from an Azure Key Vault to configure encryption on the Data Lak
    
    * In the first option, click **Grant Permission** to configure access. The first option is enabled only when the user that created the Data Lake Store account is also an admin for the Azure Key Vault.
    * The other option is to run the PowerShell cmdlet displayed on the blade. You need to be the owner of the Azure Key Vault or have the ability to grant permissions on the Azure Key Vault. After you have run the cmdlet, come back to the blade and click **Enable** to configure access.
+
+> [!NOTE]
+> You can also create a Data Lake Store account using Azure Resource Manager templates. These templates are accessible from [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
+    - Without data encryption: [Deploy Azure Data Lake Store account with no data encryption](https://azure.microsoft.com/en-us/resources/templates/101-data-lake-store-no-encryption/).
+    - With data encryption using Data Lake Store: [Deploy Data Lake Store account with encryption(Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
+    - With data encryption using Azure Key Vault: [Deploy Data Lake Store account with encryption(Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+> 
+> 
+
+
 
 ## <a name="createfolder"></a>Create folders in Azure Data Lake Store account
 You can create folders under your Data Lake Store account to manage and store data.
@@ -128,8 +122,8 @@ To delete an Azure Data Lake Store account, from your Data Lake Store blade, cli
 ![Delete Data Lake account](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Delete Data Lake account")
 
 ## Next steps
+* [Use Azure Data Lake Store for big data requirements](data-lake-store-data-scenarios.md) 
 * [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 * [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Access diagnostic logs for Data Lake Store](data-lake-store-diagnostic-logs.md)
 
