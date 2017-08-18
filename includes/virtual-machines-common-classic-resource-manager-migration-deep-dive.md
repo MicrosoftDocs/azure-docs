@@ -56,7 +56,8 @@ Validate operation only analyzes the state of the resources in the classic stack
 ### Prepare
 The prepare operation is the second step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from classic to Resource Manager resources and present this side by side for you to visualize.
 
-> [!NOTE] Your Classic resources are not modified during this step. So it's a safe step to run if you're trying out migration. 
+> [!NOTE] 
+> Your Classic resources are not modified during this step. So it's a safe step to run if you're trying out migration. 
 
 You select the virtual network or the cloud service (if it’s not a virtual network) that you want to prepare for migration.
 
