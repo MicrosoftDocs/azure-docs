@@ -28,7 +28,6 @@
       href: storage-ios-how-to-use-blob-storage.md
     - name: Xamarin
       href: storage-xamarin-blob-storage.md
-
 - name: How to
   items:
   - name: Plan and design
@@ -45,6 +44,8 @@
       href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Concurrency
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Disaster recovery guidance
+      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Develop
     items:
     - name: Samples
@@ -105,18 +106,16 @@
       href: storage-https-custom-domain-cdn.md
   - name: Monitor and troubleshoot
     items:
-    - name: Disaster recovery guidance
-      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Troubleshooting tutorial
       href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Monitor, diagnose, and troubleshoot
+      href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Metrics and logging
       items:
       - name: Storage Analytics
         href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Enable and view metrics
         href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Monitor, diagnose, and troubleshoot
-        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Transfer Data
     items:
     - name: Move data to and from Storage
