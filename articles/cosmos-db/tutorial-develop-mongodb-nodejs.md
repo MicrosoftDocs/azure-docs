@@ -29,7 +29,7 @@ This multi-part tutorial covers the following tasks:
 > [!div class="checklist"]
 > * [Create a Node.js app with Express and Angular](tutorial-develop-mongodb-nodejs-part2.md)
 > * [Build an Angular UI](tutorial-develop-mongodb-nodejs-part3.md)
-> * [Create a Cosmos DB account and deply the app](tutorial-develop-mongodb-nodejs-part4.md) 
+> * [Connect to Azure Cosmos DB](tutorial-develop-mongodb-nodejs-part4.md) 
 > * [Query with Mongoose APIs](tutorial-develop-mongodb-nodejs-part5.md)
 > * [Add PUT, POST, and DELETE commands](tutorial-develop-mongodb-nodejs-part6.md)
 

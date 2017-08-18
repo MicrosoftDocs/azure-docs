@@ -58,8 +58,6 @@ This tutorial also requires:
     npm install -g typescript
     ```
 
-3. Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
-
 ## Use Angular CLI to create a new project
 
 1. At the command prompt, run the following code to create a new project with Angular CLI, install the source code in src/client folder (-sd src/client), and use the minimal setup (--minimal).
