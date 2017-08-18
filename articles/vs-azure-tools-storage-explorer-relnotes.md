@@ -126,17 +126,17 @@ Known Issues
 * [Version 0.7.20151116.0](#version-07201511160)
 
 
-## Version 0.8.14
+### Version 0.8.14
 06/22/2017
 
-### New
+#### New
 
 * Updated Electron version to 1.7.2 in order to take advantage of several critical security updates
 * You can now quickly access the online troubleshooting guide from the help menu
 * Storage Explorer Troubleshooting [Guide][2]
 * [Instructions][3] on connecting to an Azure Stack subscription
 
-### Known Issues
+#### Known Issues
 
 * Buttons on the delete folder confirmation dialog don't register with the mouse clicks on Linux. Workaround is to use the Enter key
 * If you choose the wrong PIN/Smartcard certificate then you will need to restart in order to have Storage Explorer forget the decision
