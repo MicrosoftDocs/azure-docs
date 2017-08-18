@@ -24,8 +24,8 @@ These **end-to-end walkthroughs** demonstrate the steps in the Team Data Science
 
 Here are brief descriptions of what these walkthrough examples provide for each platform:
 
-- [HDInsight Spark walkthroughs using PySpark and Scala](data-science-process-walkthrough-spark.md) These walkthroughs use PySpark and Scala on an Azure Spark cluster to do predictive analytics. 
-- [HDInsight Hadoop walkthroughs using Hive](data-science-process-walkthrough-hdinsight-hadoop.md) These walkthroughs use Hive with an HDInsight Hadoop cluster to do predictive analytics.
+- [HDInsight Spark walkthroughs using PySpark and Scala](data-science-process-walkthroughs-spark.md) These walkthroughs use PySpark and Scala on an Azure Spark cluster to do predictive analytics. 
+- [HDInsight Hadoop walkthroughs using Hive](data-science-process-walkthroughs-hdinsight-hadoop.md) These walkthroughs use Hive with an HDInsight Hadoop cluster to do predictive analytics.
 - [Azure Data Lake walkthroughs using U-SQL](data-science-process-walkthroughs-azure-data-lake.md) These walkthroughs use U-SQL with Azure Data Lake to do predictive analytics.
 - [SQL Server](data-science-process-walkthroughs-sql-server.md) These walkthroughs use SQL Server, SQL Server R Services, and SQL Server Python Services to do predictive analytics.
 - [SQL Data Warehouse](data-science-process-walkthroughs-sql-data-warehouse.md) These walkthroughs use of SQL Data Warehouse to do predictive analytics. 
