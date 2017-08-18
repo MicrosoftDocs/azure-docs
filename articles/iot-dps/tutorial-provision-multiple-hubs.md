@@ -52,6 +52,8 @@ The allocation policy is a DPS setting that determines how devices are assigned 
 2. **Evenly weighted distribution** (default): Linked IoT hubs are equally likely to have devices provisioned to them. This is the default setting. If you are provisioning devices to only one IoT hub, you can keep this setting. 
 3. **Static configuration via the enrollment list**: Specification of the desired IoT hub in the enrollment list takes priority over the DPS-level allocation policy.
 
+Follow these steps to set the allocation policy:
+
 1. To set the allocation policy, in the DPS blade click **Manage allocation policy**.
 2. Set the allocation policy to **Evenly weighted distribution**.
 3. Click **Save**.
