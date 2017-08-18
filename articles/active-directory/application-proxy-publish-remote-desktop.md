@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/11/2017
 ms.author: kgremban
 ms.custom: it-pro
+ms.reviewer: harshja
 ---
 
 # Publish Remote Desktop with Azure AD Application Proxy

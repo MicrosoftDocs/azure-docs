@@ -1,5 +1,35 @@
 {
     "redirections": [
+       {
+            "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
+            "redirect_document_id": false
+        },
+       {
+            "source_path": "articles/virtual-machines/linux/maintenance-in-place.md",
+            "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
+            "redirect_document_id": false
+        },
+		       {
+            "source_path": "articles/virtual-machines/windows/impactful-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/windows/planned-maintenance",
+            "redirect_document_id": false
+        },
+       {
+            "source_path": "articles/virtual-machines/windows/preserving-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/windows/planned-maintenance",
+            "redirect_document_id": false
+        },		
+        {
+            "source_path": "articles/virtual-machines/virtual-machines-scheduled-events.md",
+            "redirect_url": "/azure/virtual-machines/windows/scheduled-events",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/virtual-machines/virtual-machines-instancemetadataservice-overview.md",
+            "redirect_url": "/azure/virtual-machines/windows/instance-metadata-service",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/architecture-overview.md",
             "redirect_url": "/azure/architecture",
@@ -2463,6 +2493,11 @@
         {
             "source_path": "articles/hdinsight/hdinsight-storm-iot-eventhub-documentdb.md",
             "redirect_url": "https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hdinsight-debug-jobs.md",
+            "redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
             "redirect_document_id": false
         },
         {
@@ -8395,7 +8430,12 @@
             "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers",
             "redirect_document_id": false
         },
-	    {
+        {
+            "source_path": "articles/service-fabric/service-fabric-deploy-container-linux.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers-linux",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-azcopy.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-load",
             "redirect_document_id": false
@@ -9960,5 +10000,21 @@
             "redirect_url": "/azure/virtual-machines/windows/sizes-hpc",
             "redirect_document_id": false
         }
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-confluencemicrosoft-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-jiramicrosoft-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-conditional-access-automatic-device-registration-setup.md",
+            "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
+            "redirect_document_id": false
+        }    
     ]
 }

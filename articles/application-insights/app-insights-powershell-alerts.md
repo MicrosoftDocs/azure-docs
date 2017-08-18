@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Powershell to set alerts in Application Insights | Microsoft Docs
 description: Automate configuration of Application Insights to get emails about metric changes.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
-ms.author: sewhee
+ms.author: bwren
 
 ---
 # Use PowerShell to set alerts in Application Insights
