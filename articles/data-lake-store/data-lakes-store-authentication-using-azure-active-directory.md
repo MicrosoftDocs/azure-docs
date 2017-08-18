@@ -24,7 +24,7 @@ Azure Data Lake Store uses Azure Active Directory for authentication. Before aut
 
 * **Service-to-service authentication** - Use this option if you want an application to authenticate itself with Data Lake Store. For this scenario, you create an Azure Active Directory (AD) application and use the key from the Azure AD application to authenticate with Data Lake Store. As a result, this authentication mechanism is *non-interactive*. For more information and instructions, see [Service-to-service authentication for Data Lake Store](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
-The following table illustrates how these two authentication mechanisms are supported for Data Lake Store. The symbol ( ✔ ) it is supported.
+The following table illustrates how these two authentication mechanisms are supported for Data Lake Store. The ( ✔ ) symbol for an option means it is supported.
 
 |Use this authentication option with...                   |.NET         |Java     |PowerShell |CLI 2.0 | Python   |REST     |
 |:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
