@@ -20,7 +20,7 @@ ms.author: marsma
 # Manage anonymous read access to containers and blobs
 You can enable anonymous, public read access to a container and its blobs in Azure Blob storage. By doing so, you can grant read-only access to these resources without sharing your account key, and without requiring a shared access signature (SAS).
 
-Public read access is best for scenarios where you want certain blobs to always be available for anonymous read access. For more fine-grained control, you can create a shared access signature. Shared access signatures enable you to provide restricted access using different permissions, for a specific time period. For more information about creating shared access signatures, see [Using shared access signatures (SAS) in Azure Storage](../common/storage-dotnet-shared-access-signature-part-1.md).
+Public read access is best for scenarios where you want certain blobs to always be available for anonymous read access. For more fine-grained control, you can create a shared access signature. Shared access signatures enable you to provide restricted access using different permissions, for a specific time period. For more information about creating shared access signatures, see [Using shared access signatures (SAS) in Azure Storage](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Grant anonymous users permissions to containers and blobs
 By default, a container and any blobs within it may be accessed only by the owner of the storage account. To give anonymous users read permissions to a container and its blobs, you can set the container permissions to allow public access. Anonymous users can read blobs within a publicly accessible container without authenticating the request.
@@ -34,8 +34,8 @@ You can configure a container with the following permissions:
 You can use the following to set container permissions:
 
 * [Azure portal](https://portal.azure.com)
-* [Azure PowerShell](../common/storage-powershell-guide-full.md#how-to-manage-azure-blobs)
-* [Azure CLI 2.0](../common/storage-azure-cli.md#create-and-manage-blobs)
+* [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#how-to-manage-azure-blobs)
+* [Azure CLI 2.0](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * Programmatically, by using one of the storage client libraries or the REST API
 
 ### Set container permissions in the Azure portal
@@ -148,5 +148,5 @@ The following table shows which operations may be called by anonymous users when
 ## Next steps
 
 * [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)
-* [Using Shared Access Signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md)
+* [Using Shared Access Signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx)

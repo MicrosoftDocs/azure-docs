@@ -36,7 +36,7 @@ The Blob service contains the following components:
 ![Blob architecture](./media/storage-blobs-introduction/blob1.png)
 
 * **Storage Account:** All access to Azure Storage is done through a storage account. This storage account can be 
-a **General-purpose storage account** or a **Blob storage account** that is specialized for storing objects/blobs. See [About Azure storage accounts](../common/storage-create-storage-account.md) for more information.
+a **General-purpose storage account** or a **Blob storage account** that is specialized for storing objects/blobs. See [About Azure storage accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for more information.
 
 * **Container:** A container provides a grouping of a set of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs. Note that the container name must be lowercase.
 
@@ -51,4 +51,4 @@ a **General-purpose storage account** or a **Blob storage account** that is spec
 ## Next steps
 
 * [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Getting started with Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
+* [Getting started with Blob storage using .NET](storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

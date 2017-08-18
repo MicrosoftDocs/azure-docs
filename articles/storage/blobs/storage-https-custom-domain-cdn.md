@@ -55,7 +55,7 @@ endpoint:
 
 If your blob storage endpoint is configured to disallow anonymous read access,
 you will need to provide a [Shared Access Signature
-(SAS)](../common/storage-dotnet-shared-access-signature-part-1.md)
+(SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 token in each request you make to your custom domain. By default, blob storage
 endpoints disallow anonymous read access. See [Managing anonymous read access to
 containers and
