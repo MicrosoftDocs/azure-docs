@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 08/18/2017
 ms.author: sdanie
 
 ---
@@ -42,6 +42,11 @@ Redis persistence is configured on the **Redis data persistence** blade. For new
 
 ![Redis settings][redis-cache-settings]
 
+* [Configure RDB persistence](#configure-rdb-persistence)
+* [Configure AOF persistence](#configure-aof-persistence)
+
+### Configure RDB persistence
+
 To enable Redis persistence, click **Enabled** to enable RDB (Redis database) backup. To disable Redis persistence on a previously enabled premium cache, click **Disabled**.
 
 To configure the backup interval, select a **Backup Frequency** from the drop-down list. Choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. This interval starts counting down after the previous backup operation successfully completes and when it elapses a new backup is initiated.
@@ -53,11 +58,15 @@ Click **Storage Account** to select the storage account to use, and choose eithe
 > 
 > 
 
-![Redis persistence][redis-cache-persistence-selected]
+![Redis RDB persistence][redis-cache-rdb-persistence]
 
 Click **OK** to save the persistence configuration.
 
 The next backup (or first backup for new caches) is initiated once the backup frequency interval elapses.
+
+### Configure AOF persistence
+
+![Redis AOF persistence][redis-cache-aof-persistence]
 
 ## Persistence FAQ
 The following list contains answers to commonly asked questions about Azure Redis Cache persistence.
@@ -92,12 +101,12 @@ Learn how to use more premium cache features.
 
 <!-- IMAGES -->
 
-[redis-cache-new-cache-menu]: ./media/cache-how-to-premium-persistence/redis-cache-new-cache-menu.png
-
 [redis-cache-premium-pricing-tier]: ./media/cache-how-to-premium-persistence/redis-cache-premium-pricing-tier.png
 
 [redis-cache-persistence]: ./media/cache-how-to-premium-persistence/redis-cache-persistence.png
 
-[redis-cache-persistence-selected]: ./media/cache-how-to-premium-persistence/redis-cache-persistence-selected.png
+[redis-cache-rdb-persistence]: ./media/cache-how-to-premium-persistence/redis-cache-rdb-persistence.png
+
+[redis-cache-aof-persistence]: ./media/cache-how-to-premium-persistence/redis-cache-aof-persistence.png
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
