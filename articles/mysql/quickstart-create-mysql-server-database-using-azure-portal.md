@@ -161,7 +161,7 @@ There are a number of applications you can use to connect to your Azure Database
 
 7.  Type `\q` and then press ENTER to quit the mysql tool. You can close the Azure Cloud Shell after you are done.
 
-Now you have connected to the Azure Database for MySQL and created a blank user database. Continue to the next section to repeat a similar exercise to connect to the same server using another common tool, My SQL Workbench.
+Now you have connected to the Azure Database for MySQL and created a blank user database. Continue to the next section to repeat a similar exercise to connect to the same server using another common tool, MySQL Workbench.
 
 ## Connect to the server using the MySQL Workbench GUI tool
 To connect to Azure MySQL server using the GUI tool MySQL Workbench:
