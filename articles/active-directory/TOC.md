@@ -143,8 +143,11 @@
 
 
 ## Manage devices
-### [Register devices](active-directory-device-registration-overview.md)
-#### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
+### [Introduction](device-management-introduction.md)
+### [FAQs](device-management-faq.md)
+### Tasks
+#### [Configure hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md) 
+### Register devices
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
 #### [FAQs](active-directory-device-registration-faq.md)
 #### Troubleshoot

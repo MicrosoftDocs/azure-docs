@@ -3,8 +3,8 @@
 ## [What's Machine Learning?](machine-learning-what-is-machine-learning.md)
 
 ## Team Data Science Process
-### [Overview](http://aka.ms/datascienceprocess)
-### [Lifecycle](data-science-process-overview.md)
+### [Overview](data-science-process-overview.md)
+### [Lifecycle](data-science-process-lifecycle.md)
 ### [Walkthroughs](data-science-process-walkthroughs.md)
 ####[Spark with PySpark & Scala](data-science-process-walkthroughs-spark.md)
 ####[Hive with HDInsight Hadoop](data-science-process-walkthroughs-hdinsight-hadoop.md)
