@@ -27,8 +27,8 @@ On initial start, Cloud Shell prompts you to associate a new or existing file sh
 
 When you use basic settings and select only a subscription, Cloud Shell creates three resources on your behalf in the supported region that's nearest to you:
 * Resource group: `cloud-shell-storage-<region>`
-* Storage account: `cs-uniqueGuid`
-* File share: `cs-<user>-<domain>-com-uniqueGuid`
+* Storage account: `cs<uniqueGuid>`
+* File share: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 ![The Subscription setting](media/basic-storage.png)
 
@@ -36,7 +36,7 @@ The file share mounts as `clouddrive` in your `$Home` directory. The file share 
 
 ### Use existing resources
 
-By using the advanced option, you can associate existing resources. When the storage setup prompt appears, select **Show advanced settings** to view additional options. Existing file shares receive a 5-GB user image to persist your `$Home` directory. The drop-down menus are filtered for your assigned Cloud Shell region and the locally redundant storage and geo-redundant storage accounts.
+By using the advanced option, you can associate existing resources. When the storage setup prompt appears, select **Show advanced settings** to view additional options. Existing file shares receive a 5-GB user image to persist your `$Home` directory. The drop-down menus are filtered for your assigned Cloud Shell region and the locally-redundant storage and geo-redundant storage accounts.
 
 ![The Resource group setting](media/advanced-storage.png)
 
@@ -47,7 +47,7 @@ Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usa
 Cloud Shell persists files through both of the following methods:
 * Creating a disk image of your `$Home` directory to persist all contents within the directory. The disk image is saved in your specified file share as `acc_<User>.img` at `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`, and it automatically syncs changes.
 
-* Mounting your specified file share as `clouddrive` in your `$Home` directory for direct file-share interaction. `/Home/<User>/clouddrive` is mapped to `fileshare.storage.windows.net/fileshare`.
+* Mounting your specified file share as `clouddrive` in your `$Home` directory for direct file share interaction. `/Home/<User>/clouddrive` is mapped to `fileshare.storage.windows.net/fileshare`.
  
 > [!NOTE]
 > All files in your `$Home` directory, such as SSH keys, are persisted in your user disk image, which is stored in your mounted file share. Apply best practices when you persist information in your `$Home` directory and mounted file share.
@@ -62,7 +62,7 @@ With Cloud Shell, you can run a command called `clouddrive`, which enables you t
 You can update the file share that's associated with Cloud Shell by using the `clouddrive mount` command.
 
 If you mount an existing file share, the storage accounts must be:
-* Locally redundant storage or geo-redundant storage to support file shares.
+* Locally-redundant storage or geo-redundant storage to support file shares.
 * Located in your assigned region. When you are onboarding, the region you are assigned to is listed in the resource group name `cloud-shell-storage-<region>`.
 
 ### Supported storage regions
