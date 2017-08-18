@@ -27,11 +27,11 @@ Azure Data Lake Store uses Azure Active Directory for authentication. Before aut
 The following table illustrates how these two authentication mechanisms are supported for Data Lake Store.
 
 |Authentication option / SDK                   |.NET         |Java     |PowerShell |Azure CLI 2.0 | Python   |REST     |
-|----------------------------------------------|-------------|---------|-----------|--------------|----------|---------|
-|End-user (without MFA)                        |    See here |    X    |    See here      |       X      |    See here     |    See here    |
-|End-user (with MFA)                           |    X        |         |    X      |       See here      |    See here     |    X    |
-|Service-to-service (using client key)         |    See here |    See here    |    X      |       X      |    See here     |    See here    |
-|Service-to-service (using client certificate) |    X        |    X    |    X      |       X      |    X     |    X    | 
+|:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
+|End-user (without MFA)                        |   Sample |    ✔    |    Sample      |       ✔      |    Sample     |    Sample    |
+|End-user (with MFA)                           |    ✔        |         |    ✔      |       Sample      |    Sample     |    ✔    |
+|Service-to-service (using client key)         |    Sample |    Sample    |    ✔      |       ✔      |    Sample     |    Sample    |
+|Service-to-service (using client certificate) |    ✔        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    | 
 
 
 ## Authentication using Azure Active Directory
