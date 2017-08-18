@@ -101,7 +101,7 @@ Once you have saved your custom image and you know its location, you can create 
   
 To check whether an existing pool is based on a custom image, see the **Operating System** property in the resource summary section of the **Pool** window. If the pool was created from a custom image, it is set to **Custom VM Image**.
 
-All custom VHDs associated with a pool are displayed on the pool's **Properties** window:
+All custom VHDs associated with a pool are displayed on the pool's **Properties** window.
  
 ## Next steps
 
