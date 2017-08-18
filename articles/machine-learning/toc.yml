@@ -4,3 +4,5 @@
   href: studio/index.yml?toc=%2fazure%2fmachine-learning%2fstudio%2ftoc.json
 - name: Data Science Virtual Machine
   href: data-science-virtual-machine/index.yml?toc=%2fazure%2fmachine-learning%2fdata-science-virtual-machine%2ftoc.json
+- name: Team Data Science Process
+  href: team-data-science-process/index.yml?toc=%2fazure%2fmachine-learning%2fteam-data-science-process%2ftoc.json
