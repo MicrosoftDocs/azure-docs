@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 08/18/2017
 ms.author: saysa
 
 ---
@@ -79,16 +79,28 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
 
     ![Service Fabric Explorer viewed from the host Mac][sfx-mac]
 
+
+## Create application on Mac using Yeoman
+1. You need to have Node.js and NPM installed on you mac. If not you can install Node.js and NPM using Homebrew using the following. To check the versions of Node.js and NPM installed on your Mac, you can use the ``-v`` option.
+  ```bash
+  brew install node
+  node -v
+  npm -v
+  ```
+2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
+  ```bash
+  npm install -g yo
+  ```
+3. Install the Yeoman generator you want to use, following the steps in the getting started [documentation](service-fabric-get-started-linux.md).
+4. To build a Service Fabric Java application on Mac, you would need - openjdk-8 and Gradle installed on the machine.
+
+
 ## Install the Service Fabric plugin for Eclipse Neon
 
 Service Fabric provides a plugin for the **Eclipse Neon for Java IDE** that can simplify the process of creating, building, and deploying Java services. You can follow the installation steps mentioned in this general [documentation](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) about installing or updating Service Fabric Eclipse plugin.
 
-## Using Service Fabric Eclipse plugin on Mac
-
-Ensure you have gone through the steps mentioned in the [Service Fabric Eclipse plugin documentation](service-fabric-get-started-eclipse.md). The steps for creating, building, and deploying Service Fabric Java application using vagrant-guest container on a Mac host, is mostly same as the general documentation, apart from the following items:
-
-* Since the Service Fabric libraries are required by your Service Fabric Java application, the eclipse project needs to be created in a shared path. By default, the contents at the path on your host where the ``Vagrantfile`` exists, is shared with the ``/vagrant`` path on the guest.
-* If you have the ``Vagrantfile`` in a path, say, ``~/home/john/allprojects/``, then you need to create your Service Fabric project ``MyActor`` in location ``~/home/john/allprojects/MyActor`` and the path to your eclipse workspace would be ``~/home/john/allprojects``.
+>[!TIP]
+> By default we support the default IP as mentioned in the ``Vagrantfile`` in the ``Local.json`` of the generated application. In case you change that and deploy Vagrant with a different IP, please update the corresponding IP in ``Local.json`` of your application as well.
 
 ## Next steps
 <!-- Links -->

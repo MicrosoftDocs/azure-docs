@@ -33,8 +33,24 @@ Before you get started, make sure that you have [set up your Linux development e
 You will also want to configure the [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) (recommended) or
 [XPlat CLI](service-fabric-azure-cli.md) for deploying your application.
 
+### Install and set up the generators for CSharp
+1. Install nodejs and NPM on your machine
+
+  ```bash
+  sudo apt-get install npm
+  sudo apt install nodejs-legacy
+  ```
+2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
+  ```bash
+  sudo npm install -g yo
+  ```
+3. Install the Service Fabric Yeo Java application generator from NPM
+  ```bash
+  sudo npm install -g generator-azuresfcsharp
+  ```
+
 ## Create the application
-A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your first service and to add more later. Let's use Yeoman to create an application with a single service.
+A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric [Yeoman](http://yeoman.io/) generator for CSharp, which you installed in last step, makes it easy to create your first service and to add more later. Let's use Yeoman to create an application with a single service.
 
 1. In a terminal, type the following command to start building the scaffolding: `yo azuresfcsharp`
 2. Name your application.
@@ -101,7 +117,7 @@ Actor projects do not do anything on their own. They require another service or 
 
 ## Adding more services to an existing application
 
-To add another service to an application already created using `yo`, perform the following steps: 
+To add another service to an application already created using `yo`, perform the following steps:
 1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
 2. Run `yo azuresfcsharp:AddService`
 
