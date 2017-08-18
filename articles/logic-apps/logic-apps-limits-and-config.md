@@ -13,19 +13,19 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 08/18/2017
 ms.author: LADocs; jehollan
 
 ---
 # Logic App limits and configuration
 
-Below are information on the current limits and configuration details for Azure Logic Apps.
+Following is information on the current limits and configuration details for Azure Logic Apps.
 
 ## Limits
 
 ### HTTP request limits
 
-These are limits for a single HTTP request and/or connector call
+Following are limits for a single HTTP request and/or connector call.
 
 #### Timeout
 
@@ -37,7 +37,7 @@ These are limits for a single HTTP request and/or connector call
 
 |Name|Limit|Notes|
 |----|----|----|
-|Message size|100 MB|Some connectors and APIs may not support 100MB |
+|Message size|100 MB|Some connectors and APIs may not support 100 MB |
 |Expression evaluation limit|131,072 characters|`@concat()`, `@base64()`, `string` cannot be longer than this|
 
 #### Retry policy
@@ -50,7 +50,7 @@ These are limits for a single HTTP request and/or connector call
 
 ### Run duration and retention
 
-These are the limits for a single logic app run.
+Following are the limits for a single logic app run.
 
 |Name|Limit|Notes|
 |----|----|----|
@@ -59,24 +59,24 @@ These are the limits for a single logic app run.
 |Min recurrence interval|1 sec|| 15 seconds for logic apps with App Service Plan
 |Max recurrence interval|500 days||
 
-If you expect to exceed run duration or storage retention limits in normal processing flow please [contact us](mailto://logicappsemail@microsoft.com) so that we can help with your requirements.
+If you expect to exceed run duration or storage retention limits in normal processing flow, [contact us](mailto://logicappsemail@microsoft.com) so that we can help with your requirements.
 
 
 ### Looping and debatching limits
 
-These are limits for a single logic app run.
+Following are limits for a single logic app run.
 
 |Name|Limit|Notes|
 |----|----|----|
 |ForEach items|100,000|You can use the [query action](../connectors/connectors-native-query.md) to filter larger arrays as needed|
 |Until iterations|5,000||
 |SplitOn items|100,000||
-|ForEach Parallelism|50| Default is 20. You can set to a sequential foreach by adding `"operationOptions": "Sequential"` to the `foreach` action or speicific level of parallelism using `runtimeConfiguration`|
+|ForEach Parallelism|50| Default is 20. You can set to a sequential foreach by adding `"operationOptions": "Sequential"` to the `foreach` action or specific level of parallelism using `runtimeConfiguration`|
 
 
 ### Throughput limits
 
-These are limits for a single logic app instance. 
+Following are limits for a single logic app instance. 
 
 |Name|Limit|Notes|
 |----|----|----|
@@ -86,16 +86,16 @@ These are limits for a single logic app instance.
 |Runtime endpoint read calls per 5 minutes |60,000|Can distribute workload across multiple apps as needed|
 |Runtime endpoint invoke calls per 5 minutes |45,000|Can distribute workload across multiple apps as needed|
 
-If you expect to exceed this limit in normal processing or wish to run load testing that may exceed this limit for a period of time please [contact us](mailto://logicappsemail@microsoft.com) so that we can help with your requirements.
+If you expect to exceed this limit in normal processing or wish to run load testing that may exceed this limit for a period of time, [contact us](mailto://logicappsemail@microsoft.com) so that we can help with your requirements.
 
 ### Definition limits
 
-These are limits for a single logic app definition.
+Following are limits for a single logic app definition.
 
 |Name|Limit|Notes|
 |----|----|----|
-|Actions per workflow|500|You can add nested workflows to extend this as needed|
-|Allowed action nesting depth|8|You can add nested workflows to extend this as needed|
+|Actions per workflow|500|You can add nested workflows to extend this limit as needed|
+|Allowed action nesting depth|8|You can add nested workflows to extend this limit as needed|
 |Workflows per region per subscription|1000||
 |Triggers per workflow|10||
 |Switch scope cases limit|25||
@@ -109,12 +109,12 @@ These are limits for a single logic app definition.
 
 ### Integration Account limits
 
-These are limits for artifacts added to integration Account
+Following are limits for artifacts added to integration Account
 
 |Name|Limit|Notes|
 |----|----|----|
-|Schema|8MB|You can use [blob URI](logic-apps-enterprise-integration-schemas.md) to upload files larger than 2 MB |
-|Map (XSLT file)|2MB| |
+|Schema|8 MB|You can use [blob URI](logic-apps-enterprise-integration-schemas.md) to upload files larger than 2 MB |
+|Map (XSLT file)|2 MB| |
 |Runtime endpoint read calls per 5 minutes |60,000|Can distribute workload across multiple accounts as needed|
 |Runtime endpoint invoke calls per 5 minutes |45,000|Can distribute workload across multiple accounts as needed|
 |Runtime endpoint tracking calls per 5 minutes |45,000|Can distribute workload across multiple accounts as needed|
@@ -122,13 +122,13 @@ These are limits for artifacts added to integration Account
 
 ### B2B protocols (AS2, X12, EDIFACT) message size
 
-These are the limits for B2B protocols
+Following are the limits for B2B protocols
 
 |Name|Limit|Notes|
 |----|----|----|
-|AS2|50MB|Applicable to decode and encode|
-|X12|50MB|Applicable to decode and encode|
-|EDIFACT|50MB|Applicable to decode and encode|
+|AS2|50 MB|Applicable to decode and encode|
+|X12|50 MB|Applicable to decode and encode|
+|EDIFACT|50 MB|Applicable to decode and encode|
 
 ## Configuration
 
@@ -136,7 +136,7 @@ These are the limits for B2B protocols
 
 #### Logic App Service
 
-Calls made from a logic app directly (i.e. via [HTTP](../connectors/connectors-native-http.md) or [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)) or other HTTP requests will come from the IP Address specified below:
+Calls made from a logic app directly (that is, via [HTTP](../connectors/connectors-native-http.md) or [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)) or other HTTP requests come from the IP Address specified in the following list.
 
 |Logic App Region|Outbound IP|
 |-----|----|
@@ -165,7 +165,7 @@ Calls made from a logic app directly (i.e. via [HTTP](../connectors/connectors-n
 
 #### Connectors
 
-Calls made from a [connector](../connectors/apis-list.md) will come from the IP Address specified below:
+Calls made from a [connector](../connectors/apis-list.md) come from the IP Address specified in the following list.
 
 |Logic App Region|Outbound IP|
 |-----|----|
@@ -195,7 +195,7 @@ Calls made from a [connector](../connectors/apis-list.md) will come from the IP 
 
 ## Next Steps  
 
-- To get started with Logic Apps, follow the [create a Logic App](../logic-apps/logic-apps-create-a-logic-app.md) tutorial.  
+- To get started with Logic Apps, follow the [Create a Logic App](../logic-apps/logic-apps-create-a-logic-app.md) tutorial.  
 - [View common examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
 - [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
 - [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
