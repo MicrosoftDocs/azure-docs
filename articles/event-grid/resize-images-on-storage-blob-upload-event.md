@@ -10,7 +10,7 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 08/17/2017
 ms.author: glenga
 ms.custom: mvc
 ---
@@ -42,6 +42,40 @@ To complete this tutorial:
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 If you are not using Cloud Shell, you must first sign in using `az login`.
+
+## Register for the Storage event subscriptions preview
+
+During the Event Grid preview, the ability to subscribe to storage events requires a separate registration. Register for the Event Grid provider with the `az provider show` command.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.EventGrid  
+```
+After the registration request, the Azure CLI shows information similar to the following example:
+
+```Bash
+Registering is still on-going. You can monitor using 'az provider show -n Microsoft.EventGrid'
+```
+Verify that you are registered for Event Grid with the `az provider show` command.
+
+```azurecli-interactive
+az provider show -n Microsoft.EventGrid --query registrationState
+```
+This command returns a `Registered` value when you are registered with the Event Grid provider. 
+
+You must also request access to the event subscriptions functionality for Azure Storage. Request access to Storage event subscriptions with the `az feature register` command.
+
+```azurecli-interactive
+az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
+```
+> [!IMPORTANT]  
+> In the current preview of Event Grid, there may be a delay in granting access to the Storage event subscriptions feature. 
+
+Check the status of your event subscription access request with the `az feature show` command.
+
+```azurecli-interactive
+az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid --query properties.state
+```
+This command returns a `Registered` value after you have been granted access to the Storage event subscriptions preview.
 
 ## Create a resource group
 
