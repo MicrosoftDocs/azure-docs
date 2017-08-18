@@ -63,13 +63,13 @@ Windows and Linux virtual machines can be protected using [Azure Disk Encryption
 
 Encryption keys and secrets are safeguarded in your [Azure Key Vault](../key-vault/key-vault-whatis.md) subscription. You can back up and restore encrypted VMs that are encrypted with the KEK configuration using the Azure Backup service.
 
-### Azure Storage Service Encryption
+### Azure Storage service encryption
 
 Data at rest in Azure storage (both Blob and File) can be encrypted in both server-side and client-side scenarios.
 
 [Azure Storage Service Encryption](../storage/storage-service-encryption.md) (SSE) can automatically encrypt data before it is stored and automatically decrypts it when you retrieve it, making the process completely transparent users. Storage Service Encryption uses 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), which is one of the strongest block ciphers available, and handles encryption, decryption, and key management in a transparent fashion.
 
-### Client-side Encryption of Azure Blobs
+### Client-side encryption of Azure blobs
 
 Client-side encryption of Azure blobs can be performed in different ways.
 
@@ -83,17 +83,17 @@ To learn more about client-side encryption with Azure Key Vault and get started 
 
 Finally, you can also use the Azure Storage Client Library for Java to perform client-side encryption before uploading data to Azure Storage, and to decrypt the data when downloading it to the client. This library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
 
-### Encryption of data at rest with Azure SQL Database
+### Encryption of data at rest with Azure SQL database
 
 [Azure SQL Database](../sql-database/sql-database-technical-overview.md) is a general-purpose relational database service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. Azure SQL supports both server-side encryption via the Transparent Data Encryption (TDE) feature and client-side encryption via the Always Encrypted feature.
 
-#### Transparent Data Encryption
+#### Transparent data encryption
 
 [TDE Transparent data encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) is used to encrypt [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../sql-database/sql-database-technical-overview.md), and [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) data files in real time, using a database encryption key (DEK), which is stored in the database boot record for availability during recovery.
 
 TDE protects data and log files, using AES and 3DES encryption algorithms. Encryption of the database file is performed at the page level; the pages in an encrypted database are encrypted before they are written to disk and are decrypted when they’re read into memory. TDE is now enabled by default on newly created Azure SQL databases.
 
-#### Always Encrypted
+#### Always encrypted
 
 The [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) feature in Azure SQL enables you to encrypt data within client applications prior to storing in Azure SQL Database and allows you to enable delegation of on-premises database administration to third parties and maintain separation between those who own and can view the data and those who manage it but should not have access to it.
 
@@ -103,7 +103,7 @@ Azure SQL Database enables you to apply symmetric encryption to a column of data
 
 CLE has built-in functions that you can use to encrypt data using either symmetric or asymmetric keys, with the public key of a certificate, or with a passphrase using 3DES.
 
-### Cosmos DB database encryption 
+### Cosmos DB database encryption
 
 [Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md) is Microsoft's globally distributed, multi-model database. User data stored in Cosmos DB in non-volatile storage (solid-state drives) is encrypted by default; there are no controls to turn it on or off. Encryption at rest is implemented by using a number of security technologies, including secure key storage systems, encrypted networks, and cryptographic APIs. Encryption keys are managed by Microsoft and are rotated per Microsoft’s internal guidelines.
 
@@ -117,7 +117,7 @@ Three types of keys are used in encrypting and decrypting data: the Master Encry
 
 Azure offers many mechanisms for keeping data private as it moves from one location to another.
 
-### TLS/SSL Encryption in Azure
+### TLS/SSL encryption in Azure
 
 Microsoft uses the [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) protocol to protect data when it’s traveling between the cloud services and customers. Microsoft’s data centers negotiate a TLS connection with client systems that connect to Azure services. TLS provides strong authentication, message privacy, and integrity (enabling detection of message tampering, interception, and forgery), interoperability, algorithm flexibility, ease of deployment and use.
 
@@ -129,13 +129,13 @@ When you interact with Azure Storage through the Azure portal, all transactions 
 
 Shared Access Signatures ([SAS](../storage/storage-dotnet-shared-access-signature-part-1.md)), which can be used to delegate access to Azure Storage objects, include an option to specify that only the HTTPS protocol can be used when using Shared Access Signatures. This ensures that anybody sending out links with SAS tokens uses the proper protocol.
 
-[SMB 3.0](https://technet.microsoft.com/en-us/library/dn551363(v=ws.11).aspx#BKMK_SMBEncryption) used to access Azure File Shares supports encryption, and it's available in Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10, allowing cross-region access, and even access on the desktop.
+[SMB 3.0](https://technet.microsoft.com/library/dn551363(v=ws.11).aspx#BKMK_SMBEncryption) used to access Azure File Shares supports encryption, and it's available in Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10, allowing cross-region access, and even access on the desktop.
 
 Client-side encryption encrypts the data before it’s sent to Azure Storage, so that it’s encrypted as it travels across the network.
 
 ### SMB Encryption over Azure Virtual Networks 
 
-[SMB 3.0](https://support.microsoft.com/en-us/help/2709568/new-smb-3-0-features-in-the-windows-server-2012-file-server) in Azure VMs running Windows Server 2012 and above gives you the ability to make data transfers secure by encrypting data in transit over Azure Virtual Networks, to protect against tampering and eavesdropping attacks. Administrators can enable SMB Encryption for the entire server, or just specific shares.
+[SMB 3.0](https://support.microsoft.com/help/2709568/new-smb-3-0-features-in-the-windows-server-2012-file-server) in Azure VMs running Windows Server 2012 and above gives you the ability to make data transfers secure by encrypting data in transit over Azure Virtual Networks, to protect against tampering and eavesdropping attacks. Administrators can enable SMB Encryption for the entire server, or just specific shares.
 
 By default, once SMB Encryption is turned on for a share or server, only SMB 3 clients are allowed to access the encrypted shares.
 
@@ -145,7 +145,7 @@ Data in transit to, from, and between Azure VMs running Windows is encrypted in 
 
 ### RDP sessions
 
-You can connect and log on to an Azure VM using the [Remote Desktop Protocol](https://msdn.microsoft.com/en-us/library/aa383015(v=vs.85).aspx) (RDP) from a Windows client computer, or from a Mac with an RDP client installed. Data in transit over the network in RDP sessions can be protected by TLS.
+You can connect and log on to an Azure VM using the [Remote Desktop Protocol](https://msdn.microsoft.com/library/aa383015(v=vs.85).aspx) (RDP) from a Windows client computer, or from a Mac with an RDP client installed. Data in transit over the network in RDP sessions can be protected by TLS.
 
 You can also use Remote Desktop to connect to a Linux VM in Azure.
 
@@ -153,7 +153,7 @@ You can also use Remote Desktop to connect to a Linux VM in Azure.
 
 You can use [Secure Shell](../virtual-machines/linux/ssh-from-windows.md) (SSH) to connect to Linux VMs running in Azure for remote management. SSH is an encrypted connection protocol that allows secure logins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure. By using SSH keys for authentication, you eliminate the need for passwords to log in. SSH uses a public/private key pair (asymmetric encryption) for authentication.
 
-## Azure VPN Encryption 
+## Azure VPN encryption
 
 You can connect to Azure through a virtual private network that creates a secure tunnel to protect the privacy of the data being sent across the network.
 
@@ -163,7 +163,7 @@ You can connect to Azure through a virtual private network that creates a secure
 
 Site-to-site VPN uses [IPsec](https://en.wikipedia.org/wiki/IPsec) for transport encryption. Azure VPN gateways use a set of default proposals. You can configure Azure VPN gateways to use a custom IPsec/IKE policy with specific cryptographic algorithms and key strengths, rather than the Azure default policy sets.
 
-### Point-to-site VPN 
+### Point-to-site VPN
 
 Point-to-Site VPNs allow individual client computers access to an Azure Virtual Network. [The Secure Socket Tunneling Protocol](https://technet.microsoft.com/library/2007.06.cableguy.aspx) (SSTP) is used to create the VPN tunnel and can traverse firewalls (the tunnel appears as an HTTPS connection). You can use your own internal PKI root CA for point-to-site connectivity.
 
