@@ -72,6 +72,38 @@ The VM must be able to access key vault. Refer to guidance on access to key faul
 ### Linux package management behind firewall
 At run time, Azure Disk Encryption for Linux relies on the target distribution’s package management system to install needed prerequisite components prior to enabling encryption.  If firewall settings prevent the VM from being able to download and install these components, then subsequent failures are expected.    The steps to configure this may vary by distribution.  On Red Hat, when a proxy is required, ensuring that subscription-manager and yum are set up properly is vital.  See [this](https://access.redhat.com/solutions/189533) Red Hat support article on this topic.  
 
+## Troubleshooting Windows Server 2016 Server Core
+
+On Windows Server 2016 Server Core, the bdehdcfg component is not available by default. This component is required by Azure Disk Encryption.
+
+To workaround this issue, copy the following 4 files from a Windows Server 2016 Data Center VM to the c:\windows\system32 folder of the Server Core image:
+
+```
+bdehdcfg.exe
+bdehdcfglib.dll
+bdehdcfglib.dll.mui
+bdehdcfg.exe.mui
+```
+
+Then, run the following command:
+
+```
+bdehdcfg.exe -target default
+```
+
+This will create a 550MB system partition and then after a reboot, you can use Diskpart to check the volumes, and proceed.  
+
+For example:
+
+```
+DISKPART> list vol
+
+  Volume ###  Ltr  Label        Fs     Type        Size     Status     Info
+  ----------  ---  -----------  -----  ----------  -------  ---------  --------
+  Volume 0     C                NTFS   Partition    126 GB  Healthy    Boot
+  Volume 1                      NTFS   Partition    550 MB  Healthy    System
+  Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
+```
 ## See also
 In this document, you learned more about some common issues in Azure disk encryption, and how to troubleshoot. For more information about this service and its capability read:
 
