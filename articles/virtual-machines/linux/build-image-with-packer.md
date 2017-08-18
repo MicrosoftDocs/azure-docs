@@ -25,7 +25,7 @@ Each virtual machine (VM) in Azure is created from an image that defines the Lin
 ## Create Azure resource group
 During the build process, Packer creates temporary Azure resources as it builds the source VM. To capture that source VM for use as an image, you must define a resource group. The output from the Packer build process is stored in this resource group.
 
-First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -63,12 +63,14 @@ To build images, you create a template as a JSON file. In the template, you defi
 
 Create a file named *ubuntu.json* and paste the following content. Enter your own values for the following:
 
-| Parameter       | Where to obtain |
-|-----------------|----------------------------------------------------|
-| *client_id*      | First line of output from `az ad sp` create command - *appId* |
-| *client_secret*  | Second line of output from `az ad sp` create command - *password* |
-| *tenant_id*      | Third line of output from `az ad sp` create command - *tenant* |
-| *subscription_id* | Output from `az account show` command |
+| Parameter                           | Where to obtain |
+|-------------------------------------|----------------------------------------------------|
+| *client_id*                         | First line of output from `az ad sp` create command - *appId* |
+| *client_secret*                     | Second line of output from `az ad sp` create command - *password* |
+| *tenant_id*                         | Third line of output from `az ad sp` create command - *tenant* |
+| *subscription_id*                   | Output from `az account show` command |
+| *managed_image_resource_group_name* | Name of resource group you created in the first step |
+| *managed_image_name*                | Name for the managed disk image that is created |
 
 
 ```json

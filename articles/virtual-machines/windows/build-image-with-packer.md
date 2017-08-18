@@ -24,7 +24,7 @@ Each virtual machine (VM) in Azure is created from an image that defines the Win
 ## Create Azure resource group
 During the build process, Packer creates temporary Azure resources as it builds the source VM. To capture that source VM for use as an image, you must define a resource group. The output from the Packer build process is stored in this resource group.
 
-First, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -59,13 +59,15 @@ To build images, you create a template as a JSON file. In the template, you defi
 
 Create a file named *windows.json* and paste the following content. Enter your own values for the following:
 
-| Parameter       | Where to obtain |
-|-----------------|----------------------------------------------------|
-| *client_id*      | View service principal ID with `$sp.applicationId` |
-| *client_secret*  | Password you specified in `$securePassword` |
-| *tenant_id*      | Output from `$sub.TenantId` command |
-| *subscription_id* | Output from `$sub.SubscriptionId` command |
-| *object_id*       | View service principal object ID with `$sp.Id` |
+| Parameter                           | Where to obtain |
+|-------------------------------------|----------------------------------------------------|
+| *client_id*                         | View service principal ID with `$sp.applicationId` |
+| *client_secret*                     | Password you specified in `$securePassword` |
+| *tenant_id*                         | Output from `$sub.TenantId` command |
+| *subscription_id*                   | Output from `$sub.SubscriptionId` command |
+| *object_id*                         | View service principal object ID with `$sp.Id` |
+| *managed_image_resource_group_name* | Name of resource group you created in the first step |
+| *managed_image_name*                | Name for the managed disk image that is created |
 
 ```json
 {
