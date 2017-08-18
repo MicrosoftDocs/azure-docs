@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/18/2017
 ms.author: mimig
 
 ---
@@ -25,7 +25,7 @@ This article discusses database security best practices and key features offered
  
 ## What's new in Azure Cosmos DB security?
 
-Encryption at rest is now available for documents stored in Azure Cosmos DB in all Azure regions except government regions, Azure in China, and Azure in Germany. The remaining regions will be enabled next week, along with encryption at rest on backups. Encryption at rest is applied automatically for both new and existing customers in these regions. There is no need to configure anything; and you get the same great latency, throughput, availability, and functionality as before with the benefit of knowing your data is safe and secure with encryption at rest.
+Encryption at rest is now available for documents and backups stored in Azure Cosmos DB in all Azure regions. Encryption at rest is applied automatically for both new and existing customers in these regions. There is no need to configure anything; and you get the same great latency, throughput, availability, and functionality as before with the benefit of knowing your data is safe and secure with encryption at rest.
 
 ## How do I secure my database? 
 
