@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/23/2017
+ms.date: 8/15/2017
 ms.author: markgal;
 
 ---
