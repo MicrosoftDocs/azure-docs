@@ -38,7 +38,7 @@ We understand that there’s pain in any transition, and we aren’t just changi
 - **Advanced Analytics portal.**  The Advanced Analytics portal offers analysis features not available in the Log Analytics portal including multiline editing of queries, additional visualizations, and advanced diagnostics.
 - **Consistency with other applications.**  The new language and the Advanced Analytics Portal are already used for analytics in Application Insights.  Implementing it for Log Analytics provides consistency across Azure services.
 - **Better integration with Power BI.** Queries in the new language can be exported to Power BI Desktop, so you can utilize its rich data transformation capabilities.
-- **Much more.** Refer to the [Azure Log Analytics Query Language](https://docs.loganalytics.io/index.html) site for complete details and tutorials on the new language.
+- **Much more.** Refer to the [Azure Log Analytics Query Language](https://docs.loganalytics.io) site for complete details and tutorials on the new language.
 
 
 ## When can I upgrade?
@@ -67,7 +67,7 @@ You can upgrade your workspace when you see the purple banner at the top of the 
 If you encounter an issue that causes the upgrade to fail, you can go to the [discussion forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) and post your question or [create a support request](../azure-supportability/how-to-create-azure-support-request.md) from the Azure portal.
 
 ## How do I learn the new language?
-Since it's used by multiple services we've created an [external site to host the documentation](https://docs.loganalytics.io/) for the new language.  This includes tutorials, samples, and a complete reference to help you come up to speed. You can walk through a tutorial of the new language at [Getting Started with Queries](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) and access the language reference at [Log Analytics query langauge](https://docs.loganalytics.io/queryLanguage/query_language.html).  
+Since it's used by multiple services we've created an [external site to host the documentation](https://docs.loganalytics.io/) for the new language.  This includes tutorials, samples, and a complete reference to help you come up to speed. You can walk through a tutorial of the new language at [Getting Started with Queries](https://https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries) and access the language reference at [Log Analytics query langauge](https://docs.loganalytics.io/docs/Language-Reference).  
 
 If you're already familiar with the legacy Log Analytics query language though, then you can use the language converter which is added to your workspace as part of the upgrade.
 
@@ -77,6 +77,6 @@ Just type in your legacy query and then click **Convert** to see the translated 
 
 
 ## Next steps
-- Check out a [tutorial on the new language](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).
+- Check out a [tutorial on the new language](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries).
 - Walk through a [tutorial on using the Log Search portal](log-analytics-log-search-log-search-portal.md) with the new query language.
-- Get an introduction to the new [Advanced Analytics portal](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html).
+- Get an introduction to the new [Advanced Analytics portal](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-the-Analytics-portal).
