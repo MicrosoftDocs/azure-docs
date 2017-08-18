@@ -273,7 +273,7 @@ You can create a group containing all direct reports of a manager. When the mana
 You can also create a rule that selects device objects for membership in a group. The following device attributes can be used.
 
  Device attribute  | Values | Example
- ----- | ---------- | ----------------
+ ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | any string value |(device.displayName -eq "Rob Iphone”)
  deviceOSType | any string value | (device.deviceOSType -eq "IOS")
