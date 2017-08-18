@@ -32,7 +32,7 @@ In this article, you learn about how to use the REST API to do service-to-servic
 
 * **Create an Azure Active Directory "Web" Application**. You must have completed the steps in [Service-to-service authentication with Data Lake Store using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
-### Service-to-service authentication (non-interactive)
+## Service-to-service authentication (non-interactive)
 In this scenario, the the application provides its own credentials to perform the operations. For this, you must issue a POST request like the one shown below. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \

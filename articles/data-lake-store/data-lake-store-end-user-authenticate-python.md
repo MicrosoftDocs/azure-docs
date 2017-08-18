@@ -88,9 +88,9 @@ pip install azure-datalake-store
 
 3. Save changes to mysample.py.
 
-### End-user authentication without multi-factor authentication
+## End-user authentication without multi-factor authentication
 
-#### For account management
+### For account management
 
 Use this to authenticate with Azure AD for account management operations on Data Lake Store such as create Data Lake Store account, delete Data Lake Store account, etc. You must provide username and password for an Azure AD user. Note that the user should not be configured for multi-factor authentication.
 
@@ -99,7 +99,7 @@ Use this to authenticate with Azure AD for account management operations on Data
 
 	credentials = UserPassCredentials(user, password)
 
-#### For filesystem operations
+### For filesystem operations
 
 Use this to authenticate with Azure AD for filesystem operations on Data Lake Store such as create folder, upload file, etc. Use this with an existing Azure AD **native** application. The Azure AD user you provide credentials for should not be configured for multi-factor authentication.
 
@@ -110,9 +110,9 @@ Use this to authenticate with Azure AD for filesystem operations on Data Lake St
 
 	token = lib.auth(tenant_id, user, password, client_id)
 
-### End-user authentication with multi-factor authentication
+## End-user authentication with multi-factor authentication
 
-#### For account management
+### For account management
 
 Use this to authenticate with Azure AD for account management operations (create/delete Data Lake Store account, etc.). The following snippet can be used to authenticate your application using multi-factor authentication. Use this with an existing Azure AD "Web App" application.
 
@@ -129,7 +129,7 @@ Use this to authenticate with Azure AD for account management operations (create
 	mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
 	credentials = AADTokenCredentials(mgmt_token, client_id)
 
-#### For filesystem operations
+### For filesystem operations
 
 Use this to authenticate with Azure AD for filesystem operations (create folder, upload file, etc.). The following snippet can be used to authenticate your application using multi-factor authentication. Use this with an existing Azure AD "Web App" application.
 
