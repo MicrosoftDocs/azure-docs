@@ -155,7 +155,7 @@ Note: it is recommended to use only one of the keys in all of your applications 
 ## Data Plane Security
 Data Plane Security refers to the methods used to secure the data objects stored in Azure Storage – the blobs, queues, tables, and files. We've seen methods to encrypt the data and security during transit of the data, but how do you go about allowing access to the objects?
 
-There are basically two methods for controlling access to the data objects themselves. The first is by controlling access to the storage account keys, and the second is using Shared Access Signatures to grant access to specific data objects for a specific amount of time.
+There are three methods for controlling access to the data objects themselves. The first is by controlling access to the storage account keys, the second is using Shared Access Signatures to grant access to specific data objects for a specific amount of time, the third is using Network Security to limit access to the storage account by subnet or IP-range.
 
 One exception to note is that you can allow public access to your blobs by setting the access level for the container that holds the blobs accordingly. If you set access for a container to Blob or Container, it will allow public read access for the blobs in that container. This means anyone with a URL pointing to a blob in that container can open it in a browser without using a Shared Access Signature or having the storage account keys.
 
