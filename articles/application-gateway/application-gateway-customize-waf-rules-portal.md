@@ -1,6 +1,6 @@
 ---
 title: Customize web application firewall rules in Azure Application Gateway--Azure portal | Microsoft Docs
-description: This page provides information on how to customize web application firewall rules in Application Gateway with the Aure portal.
+description: This article provides information on how to customize web application firewall rules in Application Gateway with the Azure portal.
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -26,10 +26,10 @@ ms.author: gwallace
 > * [**PowerShell**](application-gateway-customize-waf-rules-powershell.md)
 > * [**Azure CLI 2.0**](application-gateway-customize-waf-rules-cli.md)
 
-Azure Application Gateway web application firewall (WAF) provides protection for web applications. These protections are provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS) set of generic attack detection rules. Some rules can cause false positives and block real traffic. For this reason, Application Gateway provides the capability to customize rule groups and rules on a web application firewall-enabled Application Gateway. For more information on the specific rule groups and rules, see [List of web application firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
+Azure Application Gateway web application firewall (WAF) provides protection for web applications. These protections are provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS) set of rules. Some rules can cause false positives and block real traffic. For this reason, Application Gateway provides the capability to customize rule groups and rules on a web application firewall-enabled Application Gateway. For more information on the specific rule groups and rules, see [List of web application firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
 
 >[!NOTE]
-> If your application gateway is not using the WAF tier, you are given the option to upgrade the application gateway to the WAF tier as shown in the following image:
+> If your application gateway is not using the WAF tier, the option to upgrade the application gateway to the WAF tier appears in the right pane. 
 
 ![Enable WAF][fig1]
 
@@ -38,13 +38,13 @@ Azure Application Gateway web application firewall (WAF) provides protection for
 **To view rule groups and rules**
    1. Navigate to an application gateway, and then select **Web application firewall**.  
    2. Select **Advanced rule configuration**.  
-   This view shows a table on the page of all the rule groups provided with the chosen rule set. All of the rules are checked.
+   This view shows a table on the page of all the rule groups provided with the chosen rule set. All of the rule's check boxes are selected.
 
 ![Configure disabled rules][1]
 
 ## Search for rules to disable
 
-The **Web application firewall settings** blade provides the capability to filter the rules through a text search. The result displays only the rule groups and rules that contain the searched for text.
+The **Web application firewall settings** blade provides the capability to filter the rules through a text search. The result displays only the rule groups and rules that contain the text you searched for.
 
 ![Search for rules][2]
 
@@ -55,8 +55,8 @@ When disabling rules, you can disable an entire rule group or specific rules und
 **To disable rule groups or specific rules**
 
    1. Search for the rules or rule groups that you want to disable.
-   2. Uncheck the rules that you want to disable. 
-   2. Select **Save**. This step saves the changes to the application gateway.
+   2. Clear the check boxes for the rules that you want to disable. 
+   2. Select **Save**. 
 
 ![Save changes][3]
 
