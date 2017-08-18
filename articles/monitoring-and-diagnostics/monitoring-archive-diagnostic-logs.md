@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2016
+ms.date: 08/21/2017
 ms.author: johnkem
 
 ---
@@ -24,19 +24,30 @@ In this article, we show how you can use the Azure portal, PowerShell Cmdlets, C
 Before you begin, you need to [create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) to which you can archive your Diagnostic Logs. We highly recommend that you do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. However, if you are also archiving your Activity Log and diagnostic metrics to a storage account, it may make sense to use that storage account for your Diagnostic Logs as well to keep all monitoring data in a central location. The storage account you use must be a general purpose storage account, not a blob storage account.
 
 ## Diagnostic Settings
-To archive your Diagnostic Logs using any of the methods below, you set a **Diagnostic Setting** for a particular resource. A diagnostic setting for a resource defines the categories of logs that are that are stored or streamed and the outputs—storage account and/or event hub. It also defines the retention policy (number of days to retain) for events of each log category stored in a storage account. If a retention policy is set to zero, events for that log category are stored indefinitely (that is to say, forever). A retention policy can otherwise be any number of days between 1 and 2147483647. [You can read more about diagnostic settings here](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy will be deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted
+To archive your Diagnostic Logs using any of the methods below, you set a **Diagnostic Setting** for a particular resource. A diagnostic setting for a resource defines the categories of logs and metric data sent to a destination (storage account, Event Hubs namespace, or Log Analytics). It also defines the retention policy (number of days to retain) for events of each log category and metric data stored in a storage account. If a retention policy is set to zero, events for that log category are stored indefinitely (that is to say, forever). A retention policy can otherwise be any number of days between 1 and 2147483647. [You can read more about diagnostic settings here](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy will be deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted
 
 ## Archive Diagnostic Logs using the portal
-1. In the portal, click into the resource blade for the resource on which you would like to enable archival of Diagnostic Logs.
-2. In the **Monitoring** section of the resource settings menu, select **Diagnostics**.
+1. In the portal, navigate to the Azure Monitor blade and click on **Diagnostic Settings**
+
+    ![Monitoring section of Azure Monitor blade](media/monitoring-archive-diagnostic-logs/diagnostic-settings-blade.png)
+
+2. Optionally filter the list by resource group or resource type, then click on the resource for which you would like to set a diagnostic setting.
+
+3. If no settings exist on the resource you have selected, you are prompted to create a setting. Click "Turn on diagnostics."
+
+   ![Add diagnostic setting - no existing settings](media/monitoring-archive-diagnostic-logs/diagnostic-settings-none.png)
+
+   If there are existing settings on the resource, you will see a list of settings already configured on this resource. Click "Add diagnostic setting."
+
+   ![Add diagnostic setting - existing settings](media/monitoring-archive-diagnostic-logs/diagnostic-settings-multiple.png)
+
+3. In the blade that appears, give your setting a name and check the box for **Export to Storage Account**, then select a storage account. Optionally, set a number of days to retain these logs by using the **Retention (days)** sliders. A retention of zero days stores the logs indefinitely.
    
-    ![Monitoring section of resource menu](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-sec.png)
-3. Check the box for **Export to Storage Account**, then select a storage account. Optionally, set a number of days to retain these logs by using the **Retention (days)** sliders. A retention of zero days stores the logs indefinitely.
-   
-    ![Diagnostic Logs blade](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-blade.png)
+   ![Add diagnostic setting - existing settings](media/monitoring-archive-diagnostic-logs/diagnostic-settings-configure.png)
+    
 4. Click **Save**.
 
-Diagnostic Logs are archived to that storage account as soon as new event data is generated.
+After a few moments, the new setting appears in your list of settings for this resource, and diagnostic logs are archived to that storage account as soon as new event data is generated.
 
 ## Archive Diagnostic Logs via the PowerShell Cmdlets
 ```
@@ -65,7 +76,7 @@ azure insights diagnostic set --resourceId /subscriptions/s1id1234-5679-0123-456
 | enabled |Yes |Boolean indicating whether diagnostics are enabled or disabled on this resource. |
 
 ## Archive Diagnostic Logs via the REST API
-[See this document](https://msdn.microsoft.com/library/azure/dn931931.aspx) for information on how you can set up a diagnostic setting using the Azure Monitor REST API.
+[See this document](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings) for information on how you can set up a diagnostic setting using the Azure Monitor REST API.
 
 ## Schema of Diagnostic Logs in the storage account
 Once you have set up archival, a storage container is created in the storage account as soon as an event occurs in one of the log categories you have enabled. The blobs within the container follow the same format across Diagnostic Logs and the Activity Log. The structure of these blobs is:
