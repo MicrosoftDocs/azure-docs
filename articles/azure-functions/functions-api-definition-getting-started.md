@@ -40,8 +40,9 @@ This document guides you through the step by step process of creating an OpenAPI
   1. This step will simplify your API definition later on.
 
 ## <a name="enable"></a>Enabling API Definition Support
-1. Navigate to `your function name` > `API Definition (preview)`
-1. Set `API Definition Source` to `Function`
+1. Navigate to `your function name` > `Platform Features` > `API Definition`
+![Definition Tab](./media/functions-api-definition-getting-started/definitiontab.png)
+1. Set `API Definition Source` to `Function (preview)`
   1. This step enables a suite of OpenAPI options for your Function App, including an endpoint to host an OpenAPI file from your Function App's domain, an inline copy of the [OpenAPI Editor](http://editor.swagger.io), and a quickstart definition generator.
 ![Enabled Definition](./media/functions-api-definition-getting-started/enabledefinition.png)
 
@@ -103,7 +104,7 @@ There are testing tools built in to the UI view of the imbedded API definition e
 1. Copy your function API key
   1. The API key can be found in your HTTP Trigger Function under `function name` > `Keys` > `Function Keys`
   ![Function key](./media/functions-api-definition-getting-started/functionkey.png)
-1. Navigate to the `API Definition (preview)` page.
+1. Navigate to the `API Definition` page.
   1. Click `Authenticate` and add your Function API key to the security object at the top.
   ![OpenAPI key](./media/functions-api-definition-getting-started/definitionTest auth.png)
 1. select `/api/yourfunctionroute` > `POST`
