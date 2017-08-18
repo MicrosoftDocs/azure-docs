@@ -38,11 +38,12 @@ az group create --name <resource_group_name> --location westcentralus
 
 ## Create a Blob Storage Account
 
-To use Azure Storage, you need a storage account.  Blob Storage events are available today only in Blob Storage accounts.
+To use Azure Storage, you need a storage account.  Blob Storage events are currently available today only in Blob Storage accounts.
 
 A Blob Storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob Storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
 
-For the preview release, Blob Storage events are available only for storage accounts in the **westcentralus** location.
+> [!NOTE]
+> For the preview release, Blob Storage events are available only for storage accounts in the **westcentralus** location.
 
 Replace `<storage_account_name>` with a unique name for your storage account, and `<resource_group_name>` with the resource group you created earlier.
 
@@ -76,15 +77,15 @@ az eventgrid resource event-subscription create \
 
 ## Trigger an event from Blob Storage
 
-Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First, let's get the URL and key for the topic. Again, use the values for `<storage_account_name>`,  you created earlier.
+Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First,let's configure the name and key for the storage account, then we'll create a container, then create and upload a file. Again, use the values for `<storage_account_name>`,  you created earlier.
 
 ```azurecli-interactive
 export AZURE_STORAGE_ACCOUNT=cbrooksstageblob
 export AZURE_STORAGE_ACCESS_KEY="$(az storage account keys list --account-name cbrooksstageblob --resource-group CBrooksStageRG --query "[0].value" --output tsv)"
 
-touch testfile.txt
-
 az storage container create --name testcontainer
+
+touch testfile.txt
 az storage blob upload --file testfile.txt --container-name testcontainer --name testfile.txt
 ```
 
