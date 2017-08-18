@@ -285,7 +285,7 @@ You can also create a rule that selects device objects for membership in a group
 | deviceCategory          | any string value                | (device.deviceCategory -eq "")                              |
 | deviceManufacturer      | any string value                | (device.deviceManufacturer -eq "Microsoft")                 |
 | deviceModel             | any string value                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | any string value                | (device.deviceOwnership -eq "")                             |
+| deviceOwnership         | 'Company';'Personal';'Unknown'  | (device.deviceOwnership -eq "Company")                      |
 | domainName              | any string value                | (device.domainName -eq "contoso.com")                       |
 | enrollmentProfileName   | any string value                | (device.enrollmentProfileName -eq "")                       |
 | isRooted                | true false                      | (device.deviceOSType -eq true)                              |
