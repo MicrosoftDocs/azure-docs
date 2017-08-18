@@ -1,4 +1,4 @@
----
+﻿---
 title: User retention analysis for web applications with Azure Application Insights | Microsoft docs
 description: How many users return to your app?
 services: application-insights
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
+ms.author: bwren
 ---
 
 # User retention analysis for web applications with Application Insights
 
-The retention blade in [Azure Application Insights](app-insights-overview.md) helps you analyze how many users return to your app, and how often they perform particular tasks or achieve goals. For example, if you run a game site, you could compare the numbers of users who return to the site after losing a game with the number who return after winning. This knowledge can help you improve both your user experience and your business strategy.
+The retention feature in [Azure Application Insights](app-insights-overview.md) helps you analyze how many users return to your app, and how often they perform particular tasks or achieve goals. For example, if you run a game site, you could compare the numbers of users who return to the site after losing a game with the number who return after winning. This knowledge can help you improve both your user experience and your business strategy.
 
 ## Get started
 
-If you don't yet see data in the retention blade in the Application Insights portal, [learn how to get started with the usage tools](app-insights-usage-overview.md).
+If you don't yet see data in the retention tool in the Application Insights portal, [learn how to get started with the usage tools](app-insights-usage-overview.md).
 
 ## The Retention tool
 
@@ -32,8 +32,11 @@ If you don't yet see data in the retention blade in the Application Insights por
 3. Add one or more filters on properties. For example, you can focus on users in a particular country or region. Click **Update** after setting the filters. 
 4. The overall retention chart shows a summary of user retention across the selected time period. 
 5. The grid shows the number of users retained according to the query builder in #2. Each row represents a cohort of users who performed any event in the time period shown. Each cell in the row shows how many of that cohort returned at least once in a later period. Some users may return in more than one period. 
-6. The insights cards show top 5 initiating events, and top 5 returned events to give users a better understanding of their retention report. 
+6. The insights cards show top five initiating events, and top five returned events to give users a better understanding of their retention report. 
 
+![Retention mouse hover](./media/app-insights-usage-retention/hover.png)
+
+Users can hover over cells on the retention tool to access the analytics button and tool tips explaining what the cell means. The Analytics button takes users to the Analytics tool with a pre-populated query to generate users from the cell. 
 
 ## Use business events to track retention
 
@@ -61,5 +64,8 @@ Or in ASP.NET server code:
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Users, Sessions, Events](app-insights-usage-segmentation.md)
     - [Funnels](usage-funnels.md)
+    - [User Flows](app-insights-usage-flows.md)
     - [Workbooks](app-insights-usage-workbooks.md)
     - [Add user context](app-insights-usage-send-user-context.md)
+
+

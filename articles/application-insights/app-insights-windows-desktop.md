@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitoring usage and performance for Windows desktop apps
 description: Analyze usage and performance of your Windows desktop app with HockeyApp and Application Insights.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Monitoring usage and performance in Windows Desktop apps
