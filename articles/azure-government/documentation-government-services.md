@@ -122,7 +122,7 @@ In the following tables, services specified as Resource Manager enabled have res
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
 | Azure Active Directory | Yes | Yes |
-| [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | Yes | No (Coming soon) |
+| [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | Yes | Yes |
 | Multi-Factory Authentication | Yes | Yes |
 
 
