@@ -18,11 +18,11 @@ ms.author: cfowler
 ---
 # Create a Node.js Application on Web App
 
-This quickstart tutorial walks through how to develop and deploy a Node.js app to Azure. In this tutorial, you will learn how to run the app using a Linux-based Azure App Service, then create and configure the new web app  using the Azure CLI. Finally, you'll use Git to deploy your Node.js app to Azure.
+This quickstart tutorial walks through how to develop and deploy a Node.js app to Azure. In this tutorial, you learn how to run the app using a Linux-based Azure App Service. Then you create and configure the new web app  using the Azure CLI. Finally, you use Git to deploy your Node.js app to Azure.
 
 ![hello-world-in-browser](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-Follow the steps below using a Mac, Windows or Linux machine. 
+Follow the steps in this article using a Mac, Windows, or Linux machine. 
 
 ## Prerequisites
 
@@ -81,8 +81,7 @@ az login
 For FTP and local Git it is necessary to have a deployment user configured on the server to authenticate your deployment. Creating a deployment user is a one time configuration, so record the username and password to use in later steps.
 
 > [!NOTE]
-> A deployment user is required for FTP and Local Git deployment to a Web App.
-> The user name and password are account-level and are different from your Azure Subscription credentials. These credentials are only required to be created once.
+> A deployment user is required for FTP and Local Git deployment. The user name and password are account-level and are different from your Azure Subscription credentials. These credentials are only required to be created once.
 >
 
 Use the [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) command to create your account-level credentials.
@@ -141,13 +140,13 @@ When the App Service Plan has been created, the Azure CLI shows information simi
 
 Now that an App Service plan has been created, create a web app within the `quickStartPlan` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the Web App.
 
-In the command below, substitute your own unique app name where you see the <app_name> placeholder. The <app_name> will be used as the default DNS site for the web app, and so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users.
+In the following command, substitute your own unique app name where you see the <app_name> placeholder. The <app_name> is used as the default DNS site for the web app, and so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
 ```
 
-When the Web App has been created, the Azure CLI shows information similar to the following example.
+When the Web App has been created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
@@ -182,7 +181,7 @@ We’ve now created an empty new Web App in Azure. Let’s now configure our Web
 Use the [az appservice web config update](/cli/azure/app-service/web/config#update) command to configure the Web App to use Node.js version `6.9.3`.
 
 > [!TIP]
-> Setting the node.js version this way uses a default container provided by the platform, if you would like to use your own container refer to the CLI reference for the [az appservice web config container update](/cli/azure/appservice/web/config/container#update) command.
+> Setting the Node.js version using the Azure CLI uses a default container provided by the platform. If you wish use your own container, refer to the CLI reference for the [az appservice web config container update](/cli/azure/appservice/web/config/container#update) command.
 
 ```azurecli
 az appservice web config update --linux-fx-version "NODE|6.9.3" --startup-file process.json --name <app_name> --resource-group myResourceGroup
@@ -198,7 +197,7 @@ Use the [az appservice web source-control config-local-git](/cli/azure/appservic
 az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
 ```
 
-Copy the output from the terminal as it will be used in the next step.
+Copy the output from the terminal as it is used in the next step.
 
 ```bash
 https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
@@ -212,13 +211,13 @@ Add an Azure remote to your local Git repository.
 git remote add azure <paste-previous-command-output-here>
 ```
 
-Push to the Azure remote to deploy your application. You will be prompted for the password you supplied earlier as part of the creation of the deployment user.
+Push to the Azure remote to deploy your application. You are prompted for the password you supplied earlier when you created the deployment user.
 
 ```azurecli
 git push azure master
 ```
 
-During deployment, Azure App Service will communicate it's progress with Git.
+During deployment, Azure App Service communicates it's progress with Git.
 
 ```bash
 Counting objects: 23, done.
@@ -279,13 +278,13 @@ git commit -am "updated output"
 git push azure master
 ```
 
-Once deployment has completed, switch back to the browser window that opened in the [Browse to the app](Browse-to-the-app) step, then select refresh.
+Once deployment has completed, switch back to the browser window that opened in the [Browse to the app](#Browse-to-the-app) step, then select refresh.
 
 ![hello-world-in-browser](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
 ## Manage your new Azure web app
 
-Go to the [https://portal.azure.com](https://portal.azure.com) to see the web app you just created.
+Go to the [https://portal.azure.com](https://portal.azure.com) to see the web app you created.
 
 From the left menu, select **App Service**, then select the name of your Azure web app.
 
