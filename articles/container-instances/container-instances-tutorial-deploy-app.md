@@ -12,11 +12,12 @@ keywords:
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: seanmck
+ms.custom: mvc
 ---
 
 # Deploy a container to Azure Container Instances
@@ -56,9 +57,11 @@ Within a few seconds, you will receive an initial response from Azure Resource M
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
 ```
 
-When the state changes from *pending*, we can proceed.
+We can continue running this command until the state changes from *pending* to *running*. Then we can proceed.
 
-The output includes the public IP address that you can use to access the app in the browser. You can show just the IP address by running the following command:
+## View the application and container logs
+
+Once the deployment succeeds, open your browser to the IP address shown in the output of the following command:
 
 ```bash
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
@@ -67,10 +70,6 @@ az container show --name aci-tutorial-app --resource-group myResourceGroup --que
 ```json
 "13.88.176.27"
 ```
-
-## View the application and container logs
-
-Once the deployment succeeds, you can open your browser to the IP address shown in the output of `az container show`.
 
 ![Hello world app in the browser][aci-app-browser]
 

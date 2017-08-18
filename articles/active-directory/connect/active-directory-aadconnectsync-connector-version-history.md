@@ -3,7 +3,7 @@ title: Connector Version Release History | Microsoft Docs
 description: This topic lists all releases of the Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manager (MIM)
 services: active-directory
 documentationcenter: ''
-author: AndKjell
+author: fimguy
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
-ms.author: billmath
+ms.date: 08/17/2017
+ms.author: fimguy
 
 ---
 # Connector Version Release History
@@ -33,6 +33,15 @@ Related links:
 * [Web Services Connector](http://go.microsoft.com/fwlink/?LinkID=226245) reference documentation
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) reference documentation
 * [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
+
+## 1.1.604.0 (AADConnect 1.1.604.0)
+
+### Fixed issues:
+
+* Generic Web Services:
+  * SOAP project could not be created if created form scratch and there are two endpoints or more then empty cloneconfig cause the problem
+* Generic SQL:
+  * In the operation of import the GSQL was not converting time correctly, when saved to connector space. The default date and time format for connector space of the GSQL was changed from 'yyyy-MM-dd hh:mm:ssZ' to 'yyyy-MM-dd HH:mm:ssZ'
 
 ## 1.1.551.0 (AADConnect 1.1.553.0)
 
