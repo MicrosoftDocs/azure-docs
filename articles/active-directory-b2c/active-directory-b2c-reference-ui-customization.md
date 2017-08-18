@@ -19,10 +19,10 @@ ms.author: saeeda
 ---
 # Azure Active Directory B2C: Customize the Azure AD B2C user interface (UI)
 
-User experience is paramount in a consumer-facing application.  Grow your customer base by crafting user experiences with the look and feel of your brand. Azure Active Directory B2C (Azure AD B2C) lets you customize sign-up, sign-in, profile editing, and password reset pages with pixel-perfect control.
+User experience is paramount in a customer facing application.  Grow your customer base by crafting user experiences with the look and feel of your brand. Azure Active Directory B2C (Azure AD B2C) lets you customize sign-up, sign-in, profile editing, and password reset pages with pixel-perfect control.
 
 > [!NOTE]
-> The page UI customization feature described in this article does not apply to the sign-in only page, its accompanying password reset page, and verification emails.  These features use the [company branding feature](../active-directory/active-directory-add-company-branding.md) instead.
+> The page UI customization feature described in this article does not apply to the sign-in only policy, its accompanying password reset page, and verification emails.  These features use the [company branding feature](../active-directory/active-directory-add-company-branding.md) instead.
 >
 
 This article covers the following topics:
@@ -34,25 +34,17 @@ This article covers the following topics:
 
 ## The page UI customization feature
 
-You can customize the look and feel of consumer sign-up, sign-in, password reset, and profile-editing pages (by configuring [policies](active-directory-b2c-reference-policies.md)). Your consumers get a seamless experience when navigating between your application and pages served by Azure AD B2C.
+You can customize the look and feel of customer sign-up, sign-in, password reset, and profile-editing pages (by configuring [policies](active-directory-b2c-reference-policies.md)). Your customers get a seamless experience when navigating between your application and pages served by Azure AD B2C.
 
-Unlike other services where UI options are limited or are only available via APIs, Azure AD B2C uses a simple and modern approach to UI customization.
+Unlike other services where UI options, Azure AD B2C uses a simple and modern approach to UI customization.
 
-Here's how it works: Azure AD B2C runs code in your consumer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/).  At run-time, content is loaded from a URL that you specify in a policy. You can specify different URLs for different pages. After content loaded from your URL is merged with UI elements from Azure AD B2C, the page is displayed to your consumer. All you need to do is:
+Here's how it works: Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/).  At run-time, content is loaded from a URL that you specify in a policy. You can specify different URLs for different pages. After content loaded from your URL is merged with UI elements from Azure AD B2C, the page is displayed to your customer. All you need to do is:
 
-1. Create well-formed HTML5 content with a `<div id="api"></div>` element (needs to be an empty element) located somewhere in the `<body>`. This element marks where the Azure AD B2C content is inserted.
+1. Create well-formed HTML5 content with an empty `<div id="api"></div>` element located somewhere in the `<body>`. This element marks where the Azure AD B2C content is inserted.
 1. Host your content on an HTTPS endpoint (with CORS allowed). Note both GET and OPTIONS request methods must be enabled when configuring CORS.
 1. Use CSS to style the UI elements that Azure AD B2C inserts.
 
-## Test out the UI customization feature
-
-Want to try out the UI customization feature by using our sample HTML and CSS content?  We've provided you [a simple helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) that uploads and configures sample content on your Azure Blob storage.
-
-> [!NOTE]
-> You can host your UI content anywhere: on web servers, CDNs, AWS S3, file sharing systems, etc. As long as the content is hosted on a publicly available HTTPS endpoint with CORS enabled, you are good to go. We are using Azure Blob storage for illustrative purposes only.
->
-
-### The most basic HTML content for testing
+### A basic example of customized HTML
 
 The following example is the most basic HTML content that you can use to test this capability. Use the same helper tool provided earlier to upload and configure this content on your Azure Blob storage. You can then verify that the basic, non-stylized buttons & form fields on each page are displayed and functional.
 
@@ -67,6 +59,14 @@ The following example is the most basic HTML content that you can use to test th
     </body>
 </html>
 ```
+
+## Test out the UI customization feature
+
+Want to try out the UI customization feature by using our sample HTML and CSS content?  We've provided you [a simple helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) that uploads and configures sample content on your Azure Blob storage.
+
+> [!NOTE]
+> You can host your UI content anywhere: on web servers, CDNs, AWS S3, file sharing systems, etc. As long as the content is hosted on a publicly available HTTPS endpoint with CORS enabled, you are good to go. We are using Azure Blob storage for illustrative purposes only.
+>
 
 ## The core UI elements in each type of page
 
@@ -219,7 +219,7 @@ This page may appear when signing up using an existing account from a social ide
 
 ### Azure AD B2C content inserted into the "Unified sign-up or sign-in page"
 
-This page handles both sign-up & sign-in of consumers, who can use social identity providers such as Facebook or Google+, or local accounts.
+This page handles both sign-up & sign-in of customers, who can use social identity providers such as Facebook or Google+, or local accounts.
 
 ```HTML
 <div id="api" data-name="Unified">
