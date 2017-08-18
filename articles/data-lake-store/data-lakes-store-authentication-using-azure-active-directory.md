@@ -20,13 +20,13 @@ ms.author: nitinme
 
 Azure Data Lake Store uses Azure Active Directory for authentication. Before authoring an application that works with Azure Data Lake Store or Azure Data Lake Analytics, you must first decide how you would like to authenticate your application with Azure Active Directory (Azure AD). The two main options available are:
 
-* **End-user authentication** - An end-user's Azure credentials are used to authenticate with the Data Lake Store. The application you create to work with Data Lake Store prompts you for these user credentials. As a result, this authentication mechanism is *interactvie* and the application runs in the logged in user's context. 
+* **End-user authentication** - An end-user's Azure credentials are used to authenticate with the Data Lake Store. The application you create to work with Data Lake Store prompts you for these user credentials. As a result, this authentication mechanism is *interactvie* and the application runs in the logged in user's context. For more information and instructions, see [End-user authentication for Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **Service-to-service authentication** - Use this option if you want an application to authenticate itself with Data Lake Store. For this scenario, you create an Azure Active Directory (AD) application and use the key from the Azure AD application to authenticate with Data Lake Store. As a result, this authentication mechanism is *non-interactive*. 
+* **Service-to-service authentication** - Use this option if you want an application to authenticate itself with Data Lake Store. For this scenario, you create an Azure Active Directory (AD) application and use the key from the Azure AD application to authenticate with Data Lake Store. As a result, this authentication mechanism is *non-interactive*. For more information and instructions, see [Service-to-service authentication for Data Lake Store](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 The following table illustrates how these two authentication mechanisms are supported for Data Lake Store. The symbol ( ✔ ) it is supported.
 
-|Authentication option / SDK                   |.NET         |Java     |PowerShell |Azure CLI 2.0 | Python   |REST     |
+|Use this authentication option with...                   |.NET         |Java     |PowerShell |CLI 2.0 | Python   |REST     |
 |:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
 |End-user (without MFA)                        |   [Sample](data-lake-store-end-user-authenticate-net-sdk.md) |    ✔    |    ✔      |       ✔      |    [Sample](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)     |    [Sample](data-lake-store-end-user-authenticate-rest-api.md)    |
 |End-user (with MFA)                           |    ✔        |         |    ✔      |       [Sample](data-lake-store-get-started-cli-2.0.md)      |    [Sample](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)     |    ✔    |
@@ -39,11 +39,8 @@ Azure Active Directory provides other options as well to retrieve a token. You c
 
 
 ## Next steps
-In this article you created an Azure AD web application and gathered the information you need in your client applications that you author using .NET SDK, Java, Python, REST API, etc. You can now proceed to the following articles that talk about how to use the Azure AD native application to first authenticate with Data Lake Store and then perform other operations on the store.
 
-* [Service-to-service authentication with Data Lake Store using Java](data-lake-store-service-to-service-authenticate-java.md)
-* [Service-to-service authentication with Data Lake Store using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
-* [Service-to-service authentication with Data Lake Store using Python](data-lake-store-service-to-service-authenticate-python.md)
-* [Service-to-service authentication with Data Lake Store using REST API](data-lake-store-service-to-service-authenticate-rest-api.md)
+* [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
+* [Service-to-service authentication](data-lake-store-service-to-service-authenticate-using-active-directory.md)
 
 
