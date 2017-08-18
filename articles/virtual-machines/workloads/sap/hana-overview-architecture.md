@@ -139,7 +139,9 @@ As of July 2017, SAP HANA on Azure (Large Instances) is available in several con
 |---| SAP HANA on Azure S960<br /> – 20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 CPU cores and 960 CPU threads |  20.0 TB |  46 TB | Ready to Order |
 
 CPU cores = sum of non-hyperthreaded CPU cores of the sum of the processors of the server unit.
+
 CPU threads = sum of hyperthreaded CPU cores as deployed with the server unit. 
+
 
 The different configurations above which are Available or are 'Not offered anymore' are referenced in [SAP Support Note #2316233 – SAP HANA on Microsoft Azure (Large Instances)](https://launchpad.support.sap.com/#/notes/2316233/E). The configurations, which are marked  as 'Ready to Order' will find their entry into the SAP Note soon. Though, those instance SKUs can be ordered already for the six different Azure regions the HANA Large Instance service is available.
 
