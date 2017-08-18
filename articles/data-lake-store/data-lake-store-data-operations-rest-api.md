@@ -1,71 +1,45 @@
 ---
-title: Use the REST API to get started with Data Lake Store | Microsoft Docs
-description: Use WebHDFS REST APIs to perform operations on Data Lake Store
+title: 'REST API: Data management operations on Azure Data Lake Store | Microsoft Docs'
+description: Use WebHDFS REST APIs to perform data management operations on Data Lake Store
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 
-ms.assetid: 57ac6501-cb71-4f75-82c2-acc07c562889
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 08/31/2017
 ms.author: nitinme
 
 ---
-# Get started with Azure Data Lake Store using REST APIs
+# Filesystem operations on Azure Data Lake Store using REST API
 > [!div class="op_single_selector"]
-> * [Portal](data-lake-store-get-started-portal.md)
-> * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-> * [Node.js](data-lake-store-manage-use-nodejs.md)
-> * [Python](data-lake-store-get-started-python.md)
+> * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
+> * [Java SDK](data-lake-store-data-operations-java-sdk.md)
+> * [REST API](data-lake-store-data-operations-rest-api.md)
+> * [Python](data-lake-store-data-operations-python.md)
 >
 > 
 
-In this article, you will learn how to use WebHDFS REST APIs and Data Lake Store REST APIs to perform account management as well as filesystem operations on Azure Data Lake Store. Azure Data Lake Store exposes its own REST APIs for account management operations. However, because Data Lake Store is compatible with HDFS and Hadoop ecosystem, it supports using WebHDFS REST APIs for filesystem operations.
+In this article, you will learn how to use WebHDFS REST APIs and Data Lake Store REST APIs to perform filesystem operations on Azure Data Lake Store. 
 
-> [!NOTE]
-> For detailed information on the REST API support for Data Lake Store, see [Azure Data Lake Store REST API Reference](https://msdn.microsoft.com/library/mt693424.aspx).
-> 
-> 
+For instructions on how to perform account management operations on Data Lake Store using REST API, see [Account management operations on Data Lake Store using REST API](data-lake-store-get-started-rest-api.md).
 
 ## Prerequisites
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Create an Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Store application with Azure AD. There are different approaches to authenticate with Azure AD, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) or [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md).
-* [cURL](http://curl.haxx.se/). This article uses cURL to demonstrate how to make REST API calls against a Data Lake Store account.
+
+* **[cURL](http://curl.haxx.se/)**. This article uses cURL to demonstrate how to make REST API calls against a Data Lake Store account.
 
 ## How do I authenticate using Azure Active Directory?
 You can use two approaches to authenticate using Azure Active Directory.
 
-### End user authentication (interactive)
+* For end-user authentication for your application (interactive), see [End-user authentication with Data Lake Store using .NET SDK](data-lake-store-end-user-authenticate-rest-api.md).
+* For service-to-service authentication for your application (non-interactive), see [Service-to-service authentication with Data Lake Store using .NET SDK](data-lake-store-service-to-service-authenticate-rest-api.md).
 
-### Service-to-service authentication (non-interactive)
-
-
-## Create a Data Lake Store account
-This operation is based on the REST API call defined [here](https://msdn.microsoft.com/library/mt694078.aspx).
-
-Use the following cURL command. Replace **\<yourstorename>** with your Data Lake Store name.
-
-    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
-
-In the above command, replace \<`REDACTED`\> with the authorization token you retrieved earlier. The request payload for this command is contained in the **input.json** file that is provided for the `-d` parameter above. The contents of the input.json file resemble the following:
-
-    {
-    "location": "eastus2",
-    "tags": {
-        "department": "finance"
-        },
-    "properties": {}
-    }    
 
 ## Create folders in a Data Lake Store account
 This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
@@ -195,6 +169,10 @@ You should see an output like the following:
     ...
     ...
 
+## Next steps
+* [Account management operations on Data Lake Store using REST API](data-lake-store-get-started-rest-api.md).
+
 ## See also
+* [Azure Data Lake Store REST API Reference](https://docs.microsoft.com/rest/api/datalakestore/)
 * [Open Source Big Data applications compatible with Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
