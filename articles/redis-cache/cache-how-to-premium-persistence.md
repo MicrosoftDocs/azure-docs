@@ -23,9 +23,12 @@ Azure Redis Cache has different cache offerings which provide flexibility in the
 For information on other premium cache features, see [Introduction to the Azure Redis Cache Premium tier](cache-premium-tier-intro.md).
 
 ## What is data persistence?
-Redis persistence allows you to persist data stored in Redis. You can also take snapshots and back up the data, which you can load in case of a hardware failure. This is a huge advantage over Basic or Standard tier where all the data is stored in memory and there can be potential data loss in case of a failure where Cache nodes are down. 
+[Redis persistence](https://redis.io/topics/persistence) allows you to persist data stored in Redis. You can also take snapshots and back up the data, which you can load in case of a hardware failure. This is a huge advantage over Basic or Standard tier where all the data is stored in memory and there can be potential data loss in case of a failure where Cache nodes are down. 
 
-Azure Redis Cache offers Redis persistence using the [RDB model](http://redis.io/topics/persistence), where the data is stored in an Azure storage account. When persistence is configured, Azure Redis Cache persists a snapshot of the Redis cache in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot.
+Azure Redis Cache offers Redis persistence using the following models:
+
+* **RDB persistence** - When RDB (Redis database) persistence is configured, Azure Redis Cache persists a snapshot of the Redis cache in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot. Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages)and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
+* **AOF persistence** - When AOF persistence is cofigured, Azure Redis Cache saves every write operation to a log, that is saved at least once per second into an Azure Storage account. Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages)and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
 
 Persistence can be configured from the **New Redis Cache** blade during cache creation and on the **Resource menu** for existing premium caches.
 
@@ -35,9 +38,10 @@ Once a premium pricing tier is selected, click **Redis persistence**.
 
 ![Redis persistence][redis-cache-persistence]
 
-The steps in the following section describe how to configure Redis persistence on your new premium cache. Once Redis persistence is configured, click **Create** to create your new premium cache with Redis persistence.
+The steps in the next section describe how to configure Redis persistence on your new premium cache. Once Redis persistence is configured, click **Create** to create your new premium cache with Redis persistence.
 
-## Configure Redis persistence
+# Configure Redis persistence
+
 Redis persistence is configured on the **Redis data persistence** blade. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Redis data persistence** blade is accessed from the **Resource menu** for your cache.
 
 ![Redis settings][redis-cache-settings]
@@ -47,7 +51,7 @@ Redis persistence is configured on the **Redis data persistence** blade. For new
 
 ### Configure RDB persistence
 
-To enable Redis persistence, click **Enabled** to enable RDB (Redis database) backup. To disable Redis persistence on a previously enabled premium cache, click **Disabled**.
+To enable RDB persistence, click **Enabled**. To disable RDB persistence on a previously enabled premium cache, click **Disabled**.
 
 To configure the backup interval, select a **Backup Frequency** from the drop-down list. Choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. This interval starts counting down after the previous backup operation successfully completes and when it elapses a new backup is initiated.
 
