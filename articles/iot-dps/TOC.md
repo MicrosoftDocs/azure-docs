@@ -8,7 +8,7 @@
 ### [Create simulated device](quick-create-simulated-device.md)
 
 ## Tutorials
-### [1 - Setup cloud](tutorial-setup-cloud.md)
+### [1 - Setup cloud](tutorial-set-up-cloud.md)
 ### [2 - Setup device](tutorial-setup-device.md)
 ### [3 - Provision a device to a hub](tutorial-provision-device-to-hub.md)
 ### [4 - Provision devices to multiple hubs](tutorial-provision-multiple-hubs.md)
