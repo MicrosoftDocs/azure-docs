@@ -20,7 +20,7 @@ ms.author: bradsev
 
 # SQL Data Warehouse data science walkthroughs using T-SQL and Python on Azure
 
-These walkthroughs use of SQL Data Warehouse to do predictive analytics. They follow the steps outlined in the Team Data Science Process. For an overview of the Team Data Science Process, see [Data Science Process](data-science-process-overview.md). For an introduction to Azure Data Lake, see [Introduction to Azure HDInsight, the Hadoop technology stack, and Hadoop clusters](hdinsight-hadoop-introduction.md).
+These walkthroughs use of SQL Data Warehouse to do predictive analytics. They follow the steps outlined in the Team Data Science Process. For an overview of the Team Data Science Process, see [Data Science Process](data-science-process-overview.md). For an introduction to SQL Data Warehouse, see [What is Azure SQL Data Warehouse?](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
 
 ## Predict taxi tips using T-SQL and IPython notebooks with SQL Data Warehouse
