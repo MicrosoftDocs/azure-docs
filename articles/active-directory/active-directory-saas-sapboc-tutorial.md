@@ -25,7 +25,7 @@ You get the following benefits when you integrate SAP Business Object Cloud with
 
 - In Azure AD, you can control who has access to SAP Business Object Cloud.
 - You can automatically sign in your users to SAP Business Object Cloud by using single sign-on and a user's Azure AD account.
-- You can manage your accounts in one, central location, the Azure portal
+- You can manage your accounts in one, central location, the Azure portal.
 
 To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -69,9 +69,9 @@ To add SAP Business Object Cloud from the gallery:
 
 	![The New application button][3]
 
-4. In the search box, type **SAP Business Object Cloud**.
+4. In the search box, enter **SAP Business Object Cloud**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_search.png)
+	![The search box](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_search.png)
 
 5. In the results panel, select **SAP Business Object Cloud**, and then select **Add**.
 
@@ -101,11 +101,11 @@ To set up Azure AD single sign-on with SAP Business Object Cloud:
 
 1. In the Azure portal, on the **SAP Business Object Cloud** application integration page, select **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+	![Select Single Sign-On][4]
 
 2. On the **Single sign-on** page, for **Mode**, select **SAML-based Sign-on**.
  
-	![Configure Single Sign-On](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_samlbase.png)
+	![Select SAML-based Sign-on](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_samlbase.png)
 
 3. Under **SAP Business Object Cloud Domain and URLs**, complete the following steps:
 
@@ -124,9 +124,9 @@ To set up Azure AD single sign-on with SAP Business Object Cloud:
 	> [!NOTE] 
 	> The values in these URLs are for demonstration only. Update the values with the actual sign-on URL and identifier URL. To get the sign-on URL, contact the [SAP Business Object Cloud Client support team](https://www.sap.com/product/analytics/cloud-analytics.support.html). You can get the identifier URL by downloading the SAP Business Object Cloud metadata from the admin console. This is explained later in the tutorial. 
 
-	![Configure Single Sign-On](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_url.png)
+	![SAP Business Object Cloud Domain and URLs page URLs](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_url.png)
  
-4. Under **SAML Signing Certificate**, select **Metadata XML**, and then, save the metadata file on your computer.
+4. Under **SAML Signing Certificate**, select **Metadata XML**. Then, save the metadata file on your computer.
 
 	![Select Metadata XML](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_certificate.png) 
 
@@ -138,15 +138,15 @@ To set up Azure AD single sign-on with SAP Business Object Cloud:
 
 7. Select **Menu** > **System** > **Administration**.
     
-    ![Select Menu, then System, and then Administration](./media/active-directory-saas-sapboc-tutorial/config1.png)
+	![Select Menu, then System, and then Administration](./media/active-directory-saas-sapboc-tutorial/config1.png)
 
-8. On the **Security** tab, select **[Edit – pen icon]**.
+8. On the **Security** tab, select the **pen** (edit) icon.
     
-    ![On the Security tab, select Edit-pen icon](./media/active-directory-saas-sapboc-tutorial/config2.png)  
+	![On the Security tab, select the pen icon](./media/active-directory-saas-sapboc-tutorial/config2.png)  
 
 9. For **Authentication Method**, select **SAML Single Sign-On (SSO)**.
 
-    ![Select SAML Single Sign-On for the authentication method](./media/active-directory-saas-sapboc-tutorial/config3.png)  
+	![Select SAML Single Sign-On for the authentication method](./media/active-directory-saas-sapboc-tutorial/config3.png)  
 
 10. To download the Service Provider metadata, select **Download**. In the metadata file, find and copy the **entityID** value. In the Azure portal, under **SAP Business Object Cloud Domain and URLs**, paste the value in the **Identifier** box.
 
@@ -156,15 +156,15 @@ To set up Azure AD single sign-on with SAP Business Object Cloud:
 
 	![Under Upload Identity Provider metadata, select Upload](./media/active-directory-saas-sapboc-tutorial/config5.png)
 
-12. From the list, select the **User Attribute** that you want to use for your implementation. This user attribute maps to the identity provider. To enter a custom attribute in the user's page, use the **Custom SAML Mapping** option,  or select either **Email** or **USER ID** as the user Attribute. In our example, we selected **Email** because we have mapped the user identifier claim with the **userprincipalname** attribute in the **"User Attributes"** section in the Azure portal. This provides a unique user email, which is sent to the SAP Business Object Cloud application in every successful SAML response.
+12. From the list, select the **User Attribute** that you want to use for your implementation. This user attribute maps to the identity provider. To enter a custom attribute on the user's page, use the **Custom SAML Mapping** option,  or select either **Email** or **USER ID** as the user attribute. In our example, we selected **Email** because we mapped the user identifier claim with the **userprincipalname** attribute in the **User Attributes** section in the Azure portal. This provides a unique user email, which is sent to the SAP Business Object Cloud application in every successful SAML response.
 
 	![Select User Attribute](./media/active-directory-saas-sapboc-tutorial/config6.png)
 
-13. In the **Login Credential (Email)** box, enter your email address. Then, select **Verify Account**. The system adds your sign-in credentials to your account.
+13. In the **Login Credential (Email)** box, enter the user's email address. Then, select **Verify Account**. The system adds sign-in credentials to the user account.
 
     ![Enter email, and select Verify Account](./media/active-directory-saas-sapboc-tutorial/config7.png)
 
-14. Select **Save icon**.
+14. Select the **Save** icon.
 
 	![Save icon](./media/active-directory-saas-sapboc-tutorial/save.png)
 
@@ -173,8 +173,6 @@ To set up Azure AD single sign-on with SAP Business Object Cloud:
 
 ### Create an Azure AD test user
 In this section, you create a test user named Britta Simon in the Azure portal.
-
-![Create Azure AD User][100]
 
 To create a test user in Azure AD:
 
@@ -194,7 +192,7 @@ To create a test user in Azure AD:
  
     1. In the **Name** box, enter **BrittaSimon**.
 
-    2. In the **User name** box, enter the email address of user Britta Simon.
+    2. In the **User name** box, enter the email address of the user Britta Simon.
 
 	3. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
@@ -202,10 +200,11 @@ To create a test user in Azure AD:
 
 		![The User dialog box](./media/active-directory-saas-sapboc-tutorial/create_aaduser_04.png) 
 
- 
+	![Create Azure AD User][100]
+
 ### Create an SAP Business Object Cloud test user
 
-So Azure AD users must be provisioned in SAP Business Object Cloud before they can sign in to SAP Business Object Cloud. In SAP Business Object Cloud, provisioning is a manual task.
+Azure AD users must be provisioned in SAP Business Object Cloud before they can sign in to SAP Business Object Cloud. In SAP Business Object Cloud, provisioning is a manual task.
 
 To provision a user account:
 
@@ -215,9 +214,11 @@ To provision a user account:
 
     ![Add Employee](./media/active-directory-saas-sapboc-tutorial/user1.png)
 
-3. On the **Users** page, to add new user details, select **+**. Then, complete the following steps:
+3. On the **Users** page, to add new user details, select **+**. 
 
-	![Invite People](./media/active-directory-saas-sapboc-tutorial/user4.png)
+	![Add Users page](./media/active-directory-saas-sapboc-tutorial/user4.png)
+
+	Then, complete the following steps:
 
 	1. In the **USER ID** box, enter the user ID of the user, like **Britta**.
 
@@ -229,11 +230,11 @@ To provision a user account:
 
 	5. In the **E-MAIL** box, enter the email address of the user, like **brittasimon@contoso.com**.
 
-	6. Select the appropriate role for the user.
+	6. On the **Select Roles** page, select the appropriate role for the user, then select **OK**.
 
-	  ![Role](./media/active-directory-saas-sapboc-tutorial/user3.png)
+	  ![Select role](./media/active-directory-saas-sapboc-tutorial/user3.png)
 
-	7. Select **Save icon**.	
+	7. Select the **Save** icon.	
 
 
 ### Assign the Azure AD test user
@@ -252,11 +253,11 @@ To assign Britta Simon to SAP Business Object Cloud:
 
 3. In the left menu, select **Users and groups**.
 
-	![Assign User][202] 
+	![Select Users and groups][202] 
 
 4. Select **Add**. Then, on the **Add Assignment** page, select **Users and groups**.
 
-	![Assign User][203]
+	![The Add Assignment page][203]
 
 5. On the **Users and groups** page, in the list of users, select **Britta Simon**.
 
