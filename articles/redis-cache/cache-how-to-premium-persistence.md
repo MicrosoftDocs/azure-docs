@@ -40,7 +40,7 @@ Once a premium pricing tier is selected, click **Redis persistence**.
 
 The steps in the next section describe how to configure Redis persistence on your new premium cache. Once Redis persistence is configured, click **Create** to create your new premium cache with Redis persistence.
 
-# Enable Redis persistence
+## Enable Redis persistence
 
 Redis persistence is configured on the **Redis data persistence** blade. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Redis data persistence** blade is accessed from the **Resource menu** for your cache.
 
