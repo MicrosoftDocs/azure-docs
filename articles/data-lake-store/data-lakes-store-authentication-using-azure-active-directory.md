@@ -29,6 +29,7 @@ The following table illustrates how these two authentication mechanisms are supp
 |Authentication option / SDK                   |.NET         |Java     |PowerShell |Azure CLI 2.0 | Python   |REST     |
 |:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
 |End-user (without MFA)                        |   [Sample](data-lake-store-end-user-authenticate-net-sdk.md) |    ✔    |    ✔      |       ✔      |    [Sample](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)     |    [Sample](data-lake-store-end-user-authenticate-rest-api.md)    |
+|End-user (with MFA)                           |    ✔        |         |    ✔      |       [Sample](data-lake-store-get-started-cli-2.0.md)      |    [Sample](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)     |    ✔    |
 |Service-to-service (using client key)         |    [Sample](data-lake-store-service-to-service-authenticate-net-sdk.md) |    [Sample](data-lake-store-service-to-service-authenticate-java.md)    |    ✔      |       ✔      |    [Sample](data-lake-store-service-to-service-authenticate-python.md)     |    [Sample](data-lake-store-service-to-service-authenticate-rest-api.md)    |
 |Service-to-service (using client certificate) |    ✔        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
 
