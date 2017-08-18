@@ -65,8 +65,8 @@
 ### [Securing PaaS deployments](security-paas-deployments.md)
 #### [Securing PaaS web and mobile applications using App Services](security-paas-applications-using-app-services.md)
 #### [Securing PaaS web and mobile applications using SQL](security-paas-applications-using-sql.md)
-#### [SQL Database security best practices](azure-database-security-best-practices.md)
-#### [SQL Database security checklist](azure-database-security-checklist.md)
+##### [SQL Database security best practices](azure-database-security-best-practices.md)
+##### [SQL Database security checklist](azure-database-security-checklist.md)
 ####[Operational security checklist](azure-operational-security-checklist.md)
 #### [Securing PaaS web and mobile applications using Azure Storage](security-paas-applications-using-storage.md)
 
