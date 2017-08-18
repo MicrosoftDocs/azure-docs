@@ -42,7 +42,7 @@ The steps in the next section describe how to configure Redis persistence on you
 
 ## Enable Redis persistence
 
-Redis persistence is configured on the **Redis data persistence** blade. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Redis data persistence** blade is accessed from the **Resource menu** for your cache.
+Redis persistence is enabled on the **Redis data persistence** blade by choosing either **RDB** or **AOF** persistence. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Redis data persistence** blade is accessed from the **Resource menu** for your cache.
 
 ![Redis settings][redis-cache-settings]
 
@@ -51,7 +51,7 @@ Redis persistence is configured on the **Redis data persistence** blade. For new
 
 ## Configure RDB persistence
 
-To enable RDB persistence, click **Enabled**. To disable RDB persistence on a previously enabled premium cache, click **Disabled**.
+To enable RDB persistence, click **RDB**. To disable RDB persistence on a previously enabled premium cache, click **Disabled**.
 
 To configure the backup interval, select a **Backup Frequency** from the drop-down list. Choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. This interval starts counting down after the previous backup operation successfully completes and when it elapses a new backup is initiated.
 
@@ -69,6 +69,8 @@ Click **OK** to save the persistence configuration.
 The next backup (or first backup for new caches) is initiated once the backup frequency interval elapses.
 
 ## Configure AOF persistence
+
+To enable AOF persistence, click **AOF**. To disable AOF persistence on a previously enabled premium cache, click **Disabled**.
 
 ![Redis AOF persistence][redis-cache-aof-persistence]
 
