@@ -40,7 +40,7 @@ Once a premium pricing tier is selected, click **Redis persistence**.
 
 The steps in the next section describe how to configure Redis persistence on your new premium cache. Once Redis persistence is configured, click **Create** to create your new premium cache with Redis persistence.
 
-# Configure Redis persistence
+# Enable Redis persistence
 
 Redis persistence is configured on the **Redis data persistence** blade. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Redis data persistence** blade is accessed from the **Resource menu** for your cache.
 
@@ -49,7 +49,7 @@ Redis persistence is configured on the **Redis data persistence** blade. For new
 * [Configure RDB persistence](#configure-rdb-persistence)
 * [Configure AOF persistence](#configure-aof-persistence)
 
-### Configure RDB persistence
+## Configure RDB persistence
 
 To enable RDB persistence, click **Enabled**. To disable RDB persistence on a previously enabled premium cache, click **Disabled**.
 
@@ -68,7 +68,7 @@ Click **OK** to save the persistence configuration.
 
 The next backup (or first backup for new caches) is initiated once the backup frequency interval elapses.
 
-### Configure AOF persistence
+## Configure AOF persistence
 
 ![Redis AOF persistence][redis-cache-aof-persistence]
 
