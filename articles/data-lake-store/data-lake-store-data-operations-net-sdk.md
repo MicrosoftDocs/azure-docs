@@ -1,6 +1,6 @@
 ---
-title: '.NET SDK: Data management operations on Azure Data Lake Store | Microsoft Docs'
-description: Use Azure Data Lake Store .NET SDK to perform data management operations on Data Lake Store such as create folders, etc.
+title: '.NET SDK: Filesystem operations on Azure Data Lake Store | Microsoft Docs'
+description: Use Azure Data Lake Store .NET SDK to perform filesystem operations on Data Lake Store such as create folders, etc.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme

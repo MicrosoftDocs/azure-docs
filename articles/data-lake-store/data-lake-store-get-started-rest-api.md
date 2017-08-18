@@ -72,7 +72,7 @@ You should see an output like the following:
     ...
 
 ## Next steps
-* [Data management operations on Data Lake Store using REST API](data-lake-store-data-operations-rest-api.md).
+* [Filesystem operations on Data Lake Store using REST API](data-lake-store-data-operations-rest-api.md).
 
 ## See also
 * [Azure Data Lake Store REST API Reference](https://docs.microsoft.com/rest/api/datalakestore/)

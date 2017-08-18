@@ -35,8 +35,6 @@
 #### [Using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
 #### [Using REST API](data-lake-store-service-to-service-authenticate-rest-api.md)
 #### [Using Python](data-lake-store-service-to-service-authenticate-python.md)
-### [Multi-factor authentication](data-lake-store-multi-factor-authenticate-using-active-directory.md)
-#### [Using Python](data-lake-store-multi-factor-authenticate-python.md)
 
 ## Work with Data Lake Store
 ### Account manangement operations

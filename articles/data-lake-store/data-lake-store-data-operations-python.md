@@ -1,38 +1,32 @@
 ---
-title: Use the Python SDK to get started with Azure Data Lake Store | Microsoft Docs
-description: Learn how to use Python SDK to work with Data Lake Store accounts and the file system.
+title: 'Python: Filesystem operations on Azure Data Lake Store | Microsoft Docs'
+description: Learn how to use Python SDK to work with Data Lake Store file system.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 
-ms.assetid: 75f6de6f-6fd8-48f4-8707-cb27d22d27a6
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 08/31/2017
 ms.author: nitinme
 
 ---
 
-# Get started with Azure Data Lake Store using Python
-
+# Filesystem operations on Azure Data Lake Store using REST API
 > [!div class="op_single_selector"]
-> * [Portal](data-lake-store-get-started-portal.md)
-> * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
+> * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-> * [Node.js](data-lake-store-manage-use-nodejs.md)
-> * [Python](data-lake-store-get-started-python.md)
+> * [REST API](data-lake-store-data-operations-rest-api.md)
+> * [Python](data-lake-store-data-operations-python.md)
 >
->
+> 
 
-Learn how to use the Python SDK for Azure and Azure Data Lake Store to perform basic operations such as create folders, upload and download data files, etc. For more information about Data Lake, see [Azure Data Lake Store](data-lake-store-overview.md).
+In this article, you will learn how to use Python SDK to perform filesystem operations on Azure Data Lake Store. For instructions on how to perform account management operations on Data Lake Store using Python, see [Account management operations on Data Lake Store using Python](data-lake-store-get-started-python.md).
 
 ## Prerequisites
 
@@ -40,7 +34,7 @@ Learn how to use the Python SDK for Azure and Azure Data Lake Store to perform b
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Create an Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Store application with Azure AD. There are different approaches to authenticate with Azure AD, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) or [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md).
+* **Azure Data Lake Store account**. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md).
 
 ## Install the modules
 
@@ -95,17 +89,8 @@ pip install azure-datalake-store
 
 In this section, we talk about the different ways to authenticate with Azure AD. The options available are:
 
-* End-user authentication
-* Service-to-service authentication
-* Multi-factor authentication
-
-You must use these authentication options for both account management and filesystem management modules.
-
-### End user authentication
-
-### Service-to-service authentication
-
-### Multi-factor authentication
+* For end-user authentication for your application, see [End-user authentication with Data Lake Store using Python](data-lake-store-end-user-authenticate-python.md).
+* For service-to-service authentication for your application, see [Service-to-service authentication with Data Lake Store using Python](data-lake-store-service-to-service-authenticate-python.md).
 
 ## Create an Azure Resource Group
 
@@ -130,7 +115,7 @@ Use the following code snippet to create an Azure Resource Group:
 	    )
 	)
 
-## Create clients and Data Lake Store account
+## Create clients
 
 The following snippet first creates the Data Lake Store account client. It uses the client object to create a Data Lake Store account. Finally, the snippet creates a filesystem client object.
 
@@ -141,25 +126,8 @@ The following snippet first creates the Data Lake Store account client. It uses 
 	## Create management client object
 	adlsAcctClient = DataLakeStoreAccountManagementClient(credentials, subscriptionId)
 
-	## Create a Data Lake Store account
-	adlsAcctResult = adlsAcctClient.account.create(
-		resourceGroup,
-		adlsAccountName,
-		DataLakeStoreAccount(
-			location=location
-		)
-	).wait()
-
 	## Create a filesystem client object
     adlsFileSystemClient = core.AzureDLFileSystem(token, store_name=adlsAccountName)
-
-## List the Data Lake Store accounts
-
-	## List the existing Data Lake Store accounts
-	result_list_response = adlsAcctClient.account.list()
-	result_list = list(result_list_response)
-	for items in result_list:
-    	print(items)
 
 ## Create a directory
 
@@ -183,10 +151,10 @@ The following snippet first creates the Data Lake Store account client. It uses 
 	## Delete a directory
 	adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
 
-## See also
+## Next steps
+* [Account management operations on Data Lake Store using Python](data-lake-store-get-started-python.md).
 
-- [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-- [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-- [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Data Lake Store .NET SDK Reference](https://msdn.microsoft.com/library/mt581387.aspx)
-- [Data Lake Store REST Reference](https://msdn.microsoft.com/library/mt693424.aspx)
+## See also
+* [Azure Data Lake Store Python (Account management) Reference](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+* [Azure Data Lake Store Python (Filesystem) Reference](http://azure-datalake-store.readthedocs.io/en/latest)
+* [Open Source Big Data applications compatible with Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)

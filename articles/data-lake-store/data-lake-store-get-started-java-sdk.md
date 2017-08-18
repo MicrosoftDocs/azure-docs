@@ -1,6 +1,6 @@
 ---
-title: 'Java SDK: Data management operations on Azure Data Lake Store | Microsoft Docs'
-description: Use Azure Data Lake Store Java SDK to perform data management operations on Data Lake Store such as create folders, etc.
+title: 'Java SDK: Filesystem operations on Azure Data Lake Store | Microsoft Docs'
+description: Use Azure Data Lake Store Java SDK to perform filesystem operations on Data Lake Store such as create folders, etc.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme

@@ -27,7 +27,7 @@ ms.author: nitinme
 
 In this article you learn how to perform account management operations on Data Lake Store using .NET SDK. Account management operations include listing the Data Lake Store account for an Azure subscription, etc.
 
-For instructions on how to perform data management operations on Data Lake Store using .NET SDK, see [Data management operations on Data Lake Store using .NET SDK](data-lake-store-data-operations-net-sdk.md).
+For instructions on how to perform data management operations on Data Lake Store using .NET SDK, see [Filesystem operations on Data Lake Store using .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
 ## Prerequisites
 * **Visual Studio 2013, 2015, or 2017**. The instructions below use Visual Studio 2015 Update 2.
@@ -132,7 +132,7 @@ The following snippet lists all Data Lake Store accounts within a given Azure su
     }
 
 ## See also
-* [Data management operations on Data Lake Store using .NET SDK](data-lake-store-data-operations-net-sdk.md)
+* [Filesystem operations on Data Lake Store using .NET SDK](data-lake-store-data-operations-net-sdk.md)
 * [Data Lake Store .NET SDK Reference](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## Next steps
