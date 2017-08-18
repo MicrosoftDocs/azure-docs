@@ -19,17 +19,62 @@ ms.author: cawa
 ---
 # Microsoft Azure Storage Explorer (Preview) release notes
 
-This article contains the release notes for Azure Storage Explorer 0.8.15 (Preview) release, as well as release notes for previous versions.
+This article contains the release notes for Azure Storage Explorer 0.8.16 (Preview) release, as well as release notes for previous versions.
 
 [Microsoft Azure Storage Explorer (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
+
+## Version 0.8.16 (Preview)
+8/21/2017
+
+### Download Azure Storage Explorer 0.8.16 (Preview)
+- [Azure Storage Explorer 0.8.16 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 0.8.16 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 0.8.16 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### New
+* When you open a blob, Storage Explorer will prompt you to upload the downloaded file if a change is detected
+* Enhanced Azure Stack sign-in experience
+* Improved the performance of uploading/downloading many small files at the same time
+
+
+### Fixes
+* For some blob types, choosing to "replace" during an upload conflict would sometimes result in the upload being restarted. 
+* In version 0.8.15, uploads would sometimes stall at 99%.
+* When uploading files to a file share, if you chose to upload to a directory which did not yet exist, your upload would fail.
+* Storage Explorer was incorrectly generating time stamps for shared access signatures and table queries.
+
+
+Known Issues
+* Using a name and key connection string does not currently work. It will be fixed in the next release. Until then you can use attach with name and key.
+* If you try to open a file with an invalid Windows file name, the download will result in a file not found error.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is a limitation of the Azure Storage Node library.
+* After completing a blob upload, the tab which initiated the upload is refreshed. This is a change from previous behavior, and will also cause you to be taken back to the root of the container you are in.
+* If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
+* The account settings panel may show that you need to reenter credentials to filter subscriptions.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
+* Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
+* For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+	```
+
+* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo apt-get install libgconf-2-4
+	```
 
 ## Version 0.8.15 (Preview)
 7/13/2017
 
 ### Download Azure Storage Explorer 0.8.15 (Preview)
-- [Azure Storage Explorer 0.8.15 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 0.8.15 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 0.8.15 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Download Azure Storage Explorer 0.8.15 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Download Azure Storage Explorer 0.8.15 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Download Azure Storage Explorer 0.8.15 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### New
 
@@ -47,20 +92,42 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 (Previ
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * Ubuntu 14.04 install needs gcc version updated or upgraded – steps to upgrade are below: 
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine: 
-    * sudo apt-get install libgconf-2-4
 
-## Version 0.8.14 (Preview)
+	```
+	sudo apt-get install libgconf-2-4
+	```
+
+## Previous releases
+
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
+* [Version 0.8.9 / 0.8.8](#version-089--088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
+
+
+## Version 0.8.14
 06/22/2017
-
-### Download Azure Storage Explorer 0.8.14 (Preview)
-* [Download Azure Storage Explorer 0.8.14 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Download Azure Storage Explorer 0.8.14 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Download Azure Storage Explorer 0.8.14 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### New
 
@@ -82,24 +149,6 @@ This article contains the release notes for Azure Storage Explorer 0.8.15 (Previ
     * sudo apt-get update
     * sudo apt-get upgrade
     * sudo apt-get dist-upgrade
-
-## Previous releases
-
-* [Version 0.8.13](#version-0813)
-* [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Version 0.8.9 / 0.8.8](#version-089--088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
 
 ### Version 0.8.13
 05/12/2017
