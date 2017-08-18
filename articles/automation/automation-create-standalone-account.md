@@ -83,4 +83,4 @@ The following table summarizes resources for the Classic Run As account.<br>
 ## Next steps
 * To learn more about Graphical Authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
 * To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md).
-* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook(automation-first-runbook-textual.md).
+* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md).
