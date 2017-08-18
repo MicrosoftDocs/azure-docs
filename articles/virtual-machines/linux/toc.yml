@@ -59,8 +59,6 @@
     href: azure-vm-network-overview.md
   - name: VM Scale Sets
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
-  - name: Instance Metadata Service
-    href: ../virtual-machines-instancemetadataservice-overview.md
   - name: Containers
     href: containers.md
   - name: Resource Manager
@@ -78,11 +76,6 @@
     href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Planned maintenance
     href: planned-maintenance.md
-    items:
-    - name: Preserving maintenance
-      href: maintenance-in-place.md
-    - name: Restarting maintenance
-      href: impactful-maintenance.md
   - name: VM sizes
     items:
     - name: VM sizes overview
@@ -167,6 +160,10 @@
         href: agent-user-guide.md
       - name: Agent update
         href: update-agent.md
+    - name: Scheduled events
+      href: scheduled-events.md
+    - name: Monitor metadata
+      href: instance-metadata-service.md
   - name: Use Images
     items:
     - name: Find and use images

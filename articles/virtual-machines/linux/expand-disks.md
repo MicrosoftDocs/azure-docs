@@ -72,7 +72,7 @@ In the following samples, replace example parameter names with your own values. 
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-5. . To use the expanded disk, you need to expand the underlying partition and filesystem.
+5. To use the expanded disk, you need to expand the underlying partition and filesystem.
 
     a. If already mounted, unmount the disk:
 
