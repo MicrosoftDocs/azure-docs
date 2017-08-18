@@ -28,14 +28,6 @@ ms.author: nitinme
 In this article, you learn about how to use the Python SDK to do service-to-service authentication with Azure Data Lake Store. For end-user authentication with Data Lake Store using Python, see [End-user authentication with Data Lake Store using Python](data-lake-store-end-user-authenticate-python.md).
 
 
-|Authentication option / SDK  |.NET  |Java  |PowerShell  |Azure CLI 2.0 | Python |REST
-|-----------------------------|---------|---------|---------|---------|----------|---------|
-|End-user (without MFA)       |    X    |    X    |    X    |    X    |    X     |    X    |
-|End-user (with MFA)          |    X    |         |    X    |    X    |    X     |    X    |
-|Service-to-service           |    X    |    X    |    X    |    X    | **You are here** |  X  | 
-
-
-
 ## Prerequisites
 
 * **Python**. You can download Python from [here](https://www.python.org/downloads/). This article uses Python 3.5.2.
