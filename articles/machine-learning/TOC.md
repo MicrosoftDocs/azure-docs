@@ -3,10 +3,13 @@
 ## [What's Machine Learning?](machine-learning-what-is-machine-learning.md)
 
 ## Team Data Science Process
-### [Overview](data-science-process-overview.md)
-### [Lifecycle](data-science-process-lifecycle.md)
+### [Overview](http://aka.ms/datascienceprocess)
+### [Lifecycle](data-science-process-overview.md)
 ### [Walkthroughs](data-science-process-walkthroughs.md)
 ####[Spark with PySpark & Scala](data-science-process-walkthroughs-spark.md)
+##### [Explore data](machine-learning-data-science-spark-data-exploration-modeling.md)
+##### [Score models](machine-learning-data-science-spark-model-consumption.md)
+##### [Advanced data exploration](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
 ####[Hive with HDInsight Hadoop](data-science-process-walkthroughs-hdinsight-hadoop.md)
 ####[U-SQL with Azure Data Lake](data-science-process-walkthroughs-azure-data-lake.md)
 ####[R, Python & T-SQL with SQL Server](data-science-process-walkthroughs-sql-server.md)
@@ -104,12 +107,6 @@
 ##### [Use Azure Data Lake](machine-learning-data-science-process-data-lake-walkthrough.md)
 ##### [Use SQL VM](machine-learning-data-science-process-sql-server-virtual-machine.md)
 ##### [Use data pipeline](machine-learning-automated-data-pipeline-cheat-sheet.md)
-#### Process data with Spark
-##### [Overview](machine-learning-data-science-spark-overview.md)
-##### [Explore data](machine-learning-data-science-spark-data-exploration-modeling.md)
-##### [Score models](machine-learning-data-science-spark-model-consumption.md)
-##### [Advanced data exploration](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-##### [Use Scala and Spark](machine-learning-data-science-process-scala-walkthrough.md)
 
 ## Develop models
 ### Engineer and select features
