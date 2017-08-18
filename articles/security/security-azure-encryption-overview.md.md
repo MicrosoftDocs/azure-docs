@@ -20,12 +20,6 @@ ms.author: barclayn
 
 This article provides an overview of how encryption is used in Microsoft Azure. It covers the major areas of encryption, including encryption at rest, encryption in flight, and key management with key vault. Each section includes links for more detailed information.
 
-[Encryption of data at rest](#encryption-of-data-at-rest)
-
-[Encryption of data in transit](#_Encryption_of_data_1)
-
-[Key Management with Azure Key Vault](#_Key_management_with)
-
 ## Encryption of data at rest
 
 Data at rest includes information that resides in persistent storage on physical media, in any digital format. This includes files on magnetic or optical media, archived data, and data backups. Microsoft Azure offers a variety of data storage solutions to meet different needs, including file, disk, blob, and table storage. Microsoft also provides encryption to protect [Azure SQL Database](../sql-database/sql-database-technical-overview.md), [CosmosDB](../cosmos-db/introduction.md), and Azure Data Lake.
