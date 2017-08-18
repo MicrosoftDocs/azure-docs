@@ -1,4 +1,3 @@
-
 Organizations have large-scale computing needs. These Big Compute workloads include engineering design and analysis, image rendering, complex modeling, Monte Carlo simulations, financial risk calculations, and more. 
 
 With Azure, you can run your high performance computing (HPC) and batch workloads on clusters of Azure virtual machines, using your choice of Azure infrastructure services or managed services. Azure gives you the flexibility to scale compute resources to thousands of VMs or cores and then scale down when you need fewer resources. 
@@ -18,14 +17,16 @@ Sample compute-intensive solution architectures in Azure include:
 Deploy or extend familiar HPC workload management tools to Azure virtual machines and run your compute-intensive workloads. Options include open-source tools such as the [Slurm workload manager](https://slurm.schedmd.com/), and cluster or grid managers from Microsoft and other publishers.
 
 ### Linux and OSS cluster solutions
-Use Azure Resource Manager templates to deploy Linux HPC cluster solutions, including:
+Use Azure Resource Manager templates to deploy Linux HPC cluster solutions in Azure VMs or VM scale sets, including:
 
 * [Slurm](https://azure.microsoft.com/documentation/templates/slurm/)
 * [Torque](https://azure.microsoft.com/documentation/templates/torque-cluster/)
 * [PBS Professional](https://github.com/xpillons/azure-hpc/tree/master/Compute-Grid-Infra)
 
+Also see the collection of [5-click templates](https://github.com/tanewill/5clickTemplates).
+
 ### Grid managers
-Microsoft partners with commercial grid managers to make their solutions available in Azure VMs Examples include:
+Microsoft partners with commercial grid managers to make their solutions available in Azure VMs. Examples include:
 
 * [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/)
 * [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/) 
@@ -39,6 +40,8 @@ Learn how to:
 
 * [Create an HPC Pack 2016 cluster in Azure](https://github.com/MsHpcPack/HPCPack2016)
 * [Burst to Azure with HPC Pack](https://technet.microsoft.com/library/gg481749(v=ws.11).aspx)
+
+
 
 
 ## Azure Batch
@@ -107,7 +110,7 @@ Run custom or commercial HPC applications in Azure. Several are benchmarked to s
 * [Deep learning toolkit for Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Batch Shipyard recipes for deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
-### Partner solutions
+### Solution providers
 
 Partners who develop or deliver batch and HPC applications in Azure include:
 
