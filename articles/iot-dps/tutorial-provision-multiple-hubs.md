@@ -1,30 +1,33 @@
-<!-------------------
-Definition of Tutorial: 
-- Prescriptive end-to-end how-to content which describes how to build and manage with a particular 
-service.  
-- Tutorials should be cross-service and represent the top 80% of use cases for the products. 
-- The different tutorials should build upon eachother.  
-- The first Tutorial should include Quickstart information to make sure customers 
-don't get lost. 
-- Rules for screenshots at the end of this template
-- Metadata for this article should have ms.topic: tutorial; ms.custom: mvc
--->
+---
+title: Use DPS to provision devices across load balanced IoT hubs | Microsoft Docs
+description: DPS automatic device provisioning across load balanced IoT hubs in Azure Portal
+services: iot-dps
+keywords: 
+author: sethmanheim
+ms.author: sethm
+ms.date: 08/15/2017
+ms.topic: tutorial
+ms.service: iot-dps
 
-*EXAMPLE*:
-# Create a serverless API using Azure Functions
-<---! # Page heading (H1) - Unique, complements the page title, and 100 characters or fewer including 
-spaces --->
+documentationcenter: ''
+manager: timlt
+ms.devlang: na
+ms.custom: mvc
+
+---
 
 
-In this tutorial you will learn how Azure Functions allows you to build highly-scalable APIs. 
-Azure Functions comes with a collection of built-in HTTP triggers and bindings which make it easy 
-to author an endpoint in a variety of languages, including Node.JS, C#, and more. 
-In this tutorial, you will customize an HTTP trigger to handle specific actions in your API design. 
-You will also prepare for growing your API by integrating it with Azure Functions Proxies and 
-setting up mock APIs. All of this is accomplished on top of the Functions serverless 
-compute environment, so you don't have to worry about scaling resources - you can just focus on 
-your API logic.
-<---! Intro sentence describing the steps outlined in the article --->
+# Provision devices across load-balanced IoT hubs
+
+This tutorial shows how to provision devices for multiple, load-balanced IoT hubs using the Device Provisioning Service (DPS). In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Use the Azure portal to provision a second device to a second IoT hub 
+> * Add an enrollment list entry to the second device
+> * Set the DPS allocation policy to **even distribution**
+> * Link the new IoT hub to DPS
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 <---! Link to the previous Quickstart and provide additional information required for completing the Tutorial
@@ -38,34 +41,34 @@ The resulting function will be used for the rest of this tutorial.
 
 <----! Clean up or delete any Azure work that may incur costs --->
 
-*REQUIRED*:
-## Next steps
-<---! Summarize what you learned and use the required syntax for formatting consistency: [!div class="checklist"] and [!div class="nextstepaction"] 
+## Use the Azure portal to provision a second device to a second IoT hub
 
-*EXAMPLE*:
+TBD
+
+## Add an enrollment list entry to the second device
+
+TBD
+
+## Set the DPS allocation policy to **even distribution**
+
+TBD
+
+## Link the new IoT hub to DPS
+
+TBD
+
+## Next steps
+
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Map a subdomain by using a CNAME record
-> * Map a root domain by using an A record
-> * Map a wildcard domain by using a CNAME record
-> * Automate domain mapping with scripts
+> * Use the Azure portal to provision a second device to a second IoT hub 
+> * Add an enrollment list entry to the second device
+> * Set the DPS allocation policy to **even distribution**
+> * Link the new IoT hub to DPS
 
-Advance to the next tutorial to learn how to bind a custom SSL certificate to it.
+Advance to the next tutorial to learn how to 
 <!-- Replace this .md
 > [!div class="nextstepaction"]
 > [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
--->
-<---! 
-Rules for screenshots:
-- Use default Public Portal colors
-- Browser included in the first shot (especially) but all shots if possible
-- Resize the browser to minimize white space
-- Include complete blades in the screenshots
-- Linux: Safari – consider context in images
-Guidelines for outlining areas within screenshots:
-	- Red outline #ef4836
-	- 3px thick outline
-	- Text should be vertically centered within the outline.
-	- Length of outline should be dependent on where it sits within the screenshot. Make the shape fit the layout of the screenshot.
 -->
