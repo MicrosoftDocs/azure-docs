@@ -21,7 +21,7 @@ This Microsoft FAQ is a list of commonly asked questions about Log Analytics in 
 
 ## General
 
-### Q. Does Azure Security Center use the same agent as Log Analytics?
+### Q. Does Log Analytics use the same agent as Azure Security Center?
 
 A. In early June 2017, Azure Security Center began using the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration FAQ](../security-center/security-center-platform-migration-faq.md).
 
