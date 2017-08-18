@@ -23,7 +23,7 @@ This article provides an overview of Azure Event Grid. If you want to get starte
 
 ![Event Grid functional model](./media/overview/event-grid-functional-model.png)
 
-Blob Storage is currently not publicly available as a publisher.
+Currently, Blob Storage is not publicly available as a publisher.
 
 ## Concepts
 
