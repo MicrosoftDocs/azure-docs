@@ -38,7 +38,7 @@ Following are limits for a single HTTP request and/or connector call.
 |Name|Limit|Notes|
 |----|----|----|
 |Message size|100 MB|Some connectors and APIs may not support 100 MB |
-|Expression evaluation limit|131,072 characters|`@concat()`, `@base64()`, `string` cannot be longer than this|
+|Expression evaluation limit|131,072 characters|`@concat()`, `@base64()`, `string` cannot be longer than this limit|
 
 #### Retry policy
 
@@ -55,7 +55,7 @@ Following are the limits for a single logic app run.
 |Name|Limit|Notes|
 |----|----|----|
 |Run duration|90 days||
-|Storage retention|90 days|This is from the run start time|
+|Storage retention|90 days|Starting from the run start time|
 |Min recurrence interval|1 sec|| 15 seconds for logic apps with App Service Plan
 |Max recurrence interval|500 days||
 
@@ -136,7 +136,7 @@ Following are the limits for B2B protocols
 
 #### Logic App Service
 
-Calls made from a logic app directly (that is, via [HTTP](../connectors/connectors-native-http.md) or [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)) or other HTTP requests come from the IP Address specified in the following list.
+Calls made from a logic app directly (that is, via [HTTP](../connectors/connectors-native-http.md) or [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)) or other HTTP requests come from the IP Address specified in the following list:
 
 |Logic App Region|Outbound IP|
 |-----|----|
@@ -165,7 +165,7 @@ Calls made from a logic app directly (that is, via [HTTP](../connectors/connecto
 
 #### Connectors
 
-Calls made from a [connector](../connectors/apis-list.md) come from the IP Address specified in the following list.
+Calls made from a [connector](../connectors/apis-list.md) come from the IP Address specified in the following list:
 
 |Logic App Region|Outbound IP|
 |-----|----|
