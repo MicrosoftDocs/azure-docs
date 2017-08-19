@@ -20,14 +20,14 @@ ms.author: sngun
 
 # Get up and running with PowerShell in Azure Stack
 
-This article is a quick start to install and configure PowerShell for Azure Stack. This script provided in this article is scoped to use within the **cloud administrative** environment only.
+This article is a quick start to install and configure Azure Stack environment with PowerShell. This script provided in this article is scoped to by the **Azure Stack operator** only.
 
-This article is a condensed version of the steps described in the [Install PowerShell]( azure-stack-powershell-install.md), [Download tools]( azure-stack-powershell-download.md), [Configure PowerShell]( azure-stack-powershell-configure.md) articles. By using the scripts in this topic, you can set up PowerShell for Azure Stack environments deployed by using Azure Active Directory or Active Directory Federation Services.  
+This article is a condensed version of the steps described in the [Install PowerShell]( azure-stack-powershell-install.md), [Download tools]( azure-stack-powershell-download.md), [Configure PowerShell]( azure-stack-powershell-configure.md) articles. By using the scripts in this topic, you can set up PowerShell for Azure Stack environments that are deployed with Azure Active Directory or Active Directory Federation Services.  
 
 
-## Azure Stack deployed by using AAD 
+## Set up PowerShell for AAD based deployments
 
-To install and configure PowerShell, sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session and run the following script:
+Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session and run the following script:
 
 ```powershell
 # Specify Azure Active Directory tenant name
@@ -79,15 +79,15 @@ Import-Module `
 # Configure the cloud administrator’s PowerShell environment.
 Add-AzureRMEnvironment `
   -Name "AzureStackAdmin" `
-  -ArmEndpoint https://adminmanagement.local.azurestack.external
+  -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
 Set-AzureRmEnvironment `
   -Name "AzureStackAdmin" `
   -GraphAudience "https://graph.windows.net/"
 
 $TenantID = Get-AzsDirectoryTenantId `
-  -ADFS `
-  -EnvironmentName "AzureStackAdmin"
+  -AADTenantName $TenantName `
+  -EnvironmentName AzureStackAdmin
 
 # Sign-in to the administrative portal.
 Login-AzureRmAccount `
@@ -96,13 +96,11 @@ Login-AzureRmAccount `
 
 ```
 
-## Azure Stack deployed by using AD FS
+## Set up PowerShell for AD FS based deployments 
 
-To install and configure PowerShell, sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session and run the following script:
+Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session and run the following script:
 
 ```powershell
-# Specify Azure Active Directory tenant name
-$TenantName = "<mydirectory>.onmicrosoft.com"
 
 # Set the module repository and the execution policy
 Set-PSRepository `
@@ -150,7 +148,7 @@ Import-Module `
 # Configure the cloud administrator’s PowerShell environment.
 Add-AzureRMEnvironment `
   -Name "AzureStackAdmin" `
-  -ArmEndpoint https://adminmanagement.local.azurestack.external
+  -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
 Set-AzureRmEnvironment `
   -Name "AzureStackAdmin" `
@@ -158,8 +156,8 @@ Set-AzureRmEnvironment `
   -EnableAdfsAuthentication:$true
 
 $TenantID = Get-AzsDirectoryTenantId `
-  -AADTenantName $TenantName `
-  -EnvironmentName AzureStackAdmin
+  -ADFS `
+  -EnvironmentName "AzureStackAdmin"
 
 # Sign-in to the administrative portal.
 Login-AzureRmAccount `
