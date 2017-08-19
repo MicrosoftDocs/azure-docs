@@ -3,8 +3,8 @@ title: Configure a custom domain name for a web app in Azure App Service that us
 description: Use a custom domain name for an a web app in Azure App Service that includes Traffic Manager for load balancing.
 services: app-service\web
 documentationcenter: ''
-author: rmcmurray
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: ''
 
 ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
+ms.date: 08/17/2016
+ms.author: cephalin
 
 ---
 # Configuring a custom domain name for a web app in Azure App Service using Traffic Manager
