@@ -1,5 +1,5 @@
 ﻿---
-title: 'Azure Active Directory B2C: Add Microsoft Account (MSA) as an identity provider using Custom Policies'
+title: 'Azure Active Directory B2C: Add Microsoft Account (MSA) as an identity provider using custom Policies'
 description: Sample using Microsoft as identity provider using OpenID Connect (OIDC) protocol
 services: active-directory-b2c
 documentationcenter: ''
@@ -95,7 +95,7 @@ Define Microsoft Account as a claims provider, by adding `<ClaimsProvider>` node
 2.  Find the `<ClaimsProviders>` section
 3.  Add following XML snippet under the `ClaimsProviders` element:
 
-```xml
+    ```xml
 <ClaimsProvider>
     <Domain>live.com</Domain>
     <DisplayName>Microsoft Account</DisplayName>
@@ -152,7 +152,7 @@ At this point, the identity provider has been set up, but it’s not available i
 3.  Open the extension file (for example, TrustFrameworkExtensions.xml) and find the `<UserJourneys>` element. If the element doesn't exist, add one.
 4.  Paste the entire content of `<UserJournesy>` node that you copied as a child of the `<UserJourneys>` element.
 
-### Display the "button"
+### Display the button
 The `<ClaimsProviderSelections>` element defines the list of claims provider selection options and their order.  `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up/sign-in page. If you add a `<ClaimsProviderSelection>` element for Microsoft account, a new button shows up when a user lands on the page. To add this element:
 
 1.  Find the `<UserJourney>` node that includes `Id="SignUpOrSignIn"` in the user journey that you copied.
@@ -189,18 +189,16 @@ Now that you have a button in place, you need to link it to an action. The actio
 ## Test the custom policy by using Run Now
 
 1.  Open **Azure AD B2C Settings** and go to **Identity Experience Framework**.
-
 > [!NOTE]
 >
 >**Run now** requires at least one application to be preregistered on the tenant. To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started.md) article or the [Application registration](active-directory-b2c-app-registration.md) article.
-
 2.  Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded. Select **Run now**.
 3.  You should be able to sign in using Microsoft account.
 
 ## [Optional] Register the Microsoft Account claims provider to Profile-Edit user journey
 You may want to add the Microsoft Account identity provider also to your user `ProfileEdit` user journey. To make it available, we repeat the last two steps:
 
-### Display the "button"
+### Display the button
 1.  Open the extension file of your policy (for example, TrustFrameworkExtensions.xml).
 2.  Find the `<UserJourney>` node that includes `Id="ProfileEdit"` in the user journey that you copied.
 3.  Locate the `<OrchestrationStep>` node that includes `Order="1"`
