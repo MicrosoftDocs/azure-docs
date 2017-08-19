@@ -195,8 +195,7 @@ Extension properties exist only in the context of a registered  Application in t
           <IncludeTechnicalProfile ReferenceId="AAD-Common" />
         </TechnicalProfile>
 ```
-7. Add claim in TechnicalProfile "AAD-UserReadUsingObjectId" to read the value of the extension attribute every time a user logs in.
-NOTE: Thus far the TechnicalProfiles have been changed in the flow of local accounts only.  If the new attribute is desired in the flow of a social/federated account, a different set of TechnicalProfiles needs to be changed. See next steps.
+7. Add claim in TechnicalProfile "AAD-UserReadUsingObjectId" to read the value of the extension attribute every time a user logs in. Thus far the TechnicalProfiles have been changed in the flow of local accounts only.  If the new attribute is desired in the flow of a social/federated account, a different set of TechnicalProfiles needs to be changed. See Next Steps.
 ```xml
 <!-- The following technical profile is used to read data after user authenticates. -->
      <TechnicalProfile Id="AAD-UserReadUsingObjectId">
@@ -280,7 +279,7 @@ When you add extension attributes (aka custom attributes) via the portal experie
               </Metadata>
 ```
 
-5. To keep consistency with the portal experience, create these attributes using the portal UI *before* you use them in your custom policies.  When you create an attribute "ActivationStatus" in the portal, you must refer to it as follows:
+To keep consistency with the portal experience, create these attributes using the portal UI *before* you use them in your custom policies.  When you create an attribute "ActivationStatus" in the portal, you must refer to it as follows:
 
 ```
 extension_ActivationStatus in the custom policy
