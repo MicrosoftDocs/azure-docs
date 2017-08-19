@@ -13,38 +13,34 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 08/18/2017
 ms.author: sngun
 
 ---
 
-# Configure PowerShell in Azure Stack for the user environment
+# Configure the Azure Stack user's PowerShell environment
 
-This article describes the steps required to connect to an Azure Stack Development Kit instance by using PowerShell. After you connect, you can access the portal and deploy resources through PowerShell. This topic is scoped to use with the user environments only, if you want to set up PowerShell for the cloud operator environment, refer to the [Configure PowerShell for the cloud operator environment](azure-stack-powershell-configure-admin.md) topic. You can use the steps described in this article either from the development kit, or from a Windows-based external client if you are connected through VPN. 
-
-This article has detailed instructions to configure PowerShell for Azure Stack. However, if you want to quickly install and configure PowerShell, you can use the script provided in the [Get up and running with PowerShell](azure-stack-powershell-configure-quickstart.md) topic. 
+As an Azure Stack user, you can configure your Azure Stack Development Kit's PowerShell environment by using the script provided in this topic. After you connect, you can use PowerShell to deploy resources or automate portal tasks. This topic is scoped to use with the user environments only, if you want to set up PowerShell for the cloud operator environment, refer to the [Configure PowerShell for the cloud operator environment](azure-stack-powershell-configure-admin.md) topic. 
 
 ## Prerequisites
 
+Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN]((azure-stack-connect-azure-stack.md#connect-with-vpn):
+
 * Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
+* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md). 
 
-## Import the Connect PowerShell module
-
-After you download the required tools, navigate to the downloaded folder and import the **Connect** PowerShell module. To import the Connect module, run the following command in an elevated PowerShell session:
-
-```powershell
-Set-ExecutionPolicy RemoteSigned
-Import-Module .\Connect\AzureStack.Connect.psm1
-```
-
-## Configure the PowerShell environment and sign in to Azure Stack
+## Configure the user environment and sign in to Azure Stack
 
 Based on the type of deployment (Azure AD or AD FS), run one of the following script to configure PowerShell for Azure Stack:
 
-* **Azure Active Directory (Azure AD)**
+### Azure Active Directory (AAD) based deployments
        
   ```powershell
+
+  # Navigate to the downloaded folder and import the **Connect** PowerShell module
+  Set-ExecutionPolicy RemoteSigned
+  Import-Module .\Connect\AzureStack.Connect.psm1
+
   # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackUser" `
@@ -66,9 +62,14 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
     -TenantId $TenantID 
    ```
 
-* **Active Directory Federation Services**
+### Active Directory Federation Services (AD FS) based deployments
           
   ```powershell
+
+  # Navigate to the downloaded folder and import the **Connect** PowerShell module
+  Set-ExecutionPolicy RemoteSigned
+  Import-Module .\Connect\AzureStack.Connect.psm1
+
   # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackUser" `
@@ -102,6 +103,14 @@ foreach($s in (Get-AzureRmSubscription)) {
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
 Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -Force
     } 
+```
+
+## Test the connectivity
+
+Now that we've got everything set up, let's use PowerShell to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named "MyResourceGroup":
+
+```powershell
+New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
 ## Next steps
