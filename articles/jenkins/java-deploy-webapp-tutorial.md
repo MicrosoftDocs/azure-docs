@@ -154,6 +154,7 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
 
 1. From your Github fork, browse on the web to  `complete/src/main/java/Hello/Application.java`. Select the **Edit this file** link from the right-hand side of the GitHub interface.
 2. Make the following change to the `home()` method and commit the change to the repo's master branch.
+   
     ```java
     return "Hello Docker World on Azure";
     ```
