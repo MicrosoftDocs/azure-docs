@@ -1,6 +1,6 @@
 ---
 title: SQL Server data science walkthroughs using R, Python and T-SQL  | Microsoft Docs
-description: Examples that walkthrough the use R, Python and T-SQL in SQL Server to do predictive analytics.
+description: Examples that walk through the use R, Python and T-SQL in SQL Server to do predictive analytics.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
@@ -29,14 +29,12 @@ Additional data science walkthroughs that execute the Team Data Science Process 
 
 ## Predict taxi tips using Python and SQL queries with SQL Server 
 
-The [Use SQL Server](machine-learning-data-science-process-sql-walkthrough.md) walkthrough shows you build and deploy machine learning classification and regression models using SQL Server and a publicly available NYC taxi trip and fare dataset.
+The [Use SQL Server](machine-learning-data-science-process-sql-walkthrough.md) walkthrough shows how you build and deploy machine learning classification and regression models using SQL Server and a publicly available NYC taxi trip and fare dataset.
 
 
 ## Predict taxi tips using Microsoft R with SQL Server 
 
 The [Use SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) walkthrough provides data scientists with a combination of R code, SQL Server data, and custom SQL functions to build and deploy an R model to SQL Server. The walkthrough is designed to introduce R developers to R Services (In-Database).
-
-Azure SQL Server virtual machine
 
 
 ## Predict taxi tips using R from T-SQL or stored procedures with SQL Server
@@ -51,6 +49,6 @@ The [Use T-SQL with SQL Server Python Services](https://docs.microsoft.com/en-us
 
 ## Next steps
 
-For a discussion of the Key components that comprise the Team Data Science Process, see [Team Data Science Process overview](data-science-process-overview.md).
+For a discussion of the key components that comprise the Team Data Science Process, see [Team Data Science Process overview](data-science-process-overview.md).
 
 For a discussion of the Team Data Science Process lifecycle that you can use to structure your data science projects, see [Team Data Science Process lifecycle](data-science-process-lifecycle.md). The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. 

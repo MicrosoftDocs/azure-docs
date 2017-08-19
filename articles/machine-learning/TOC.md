@@ -6,14 +6,14 @@
 ### [Overview](http://aka.ms/datascienceprocess)
 ### [Lifecycle](data-science-process-overview.md)
 ### [Walkthroughs](data-science-process-walkthroughs.md)
-####[Spark with PySpark & Scala](data-science-process-walkthroughs-spark.md)
+####[Spark with PySpark and Scala](data-science-process-walkthroughs-spark.md)
 ##### [Explore data](machine-learning-data-science-spark-data-exploration-modeling.md)
 ##### [Score models](machine-learning-data-science-spark-model-consumption.md)
 ##### [Advanced data exploration](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
 ####[Hive with HDInsight Hadoop](data-science-process-walkthroughs-hdinsight-hadoop.md)
 ####[U-SQL with Azure Data Lake](data-science-process-walkthroughs-azure-data-lake.md)
-####[R, Python & T-SQL with SQL Server](data-science-process-walkthroughs-sql-server.md)
-####[T-SQL & Python with SQL DW](data-science-process-walkthroughs-sql-data-warehouse.md)
+####[R, Python and T-SQL with SQL Server](data-science-process-walkthroughs-sql-server.md)
+####[T-SQL and Python with SQL DW](data-science-process-walkthroughs-sql-data-warehouse.md)
 
 ## Machine Learning Studio
 ### [What's the Studio?](machine-learning-what-is-ml-studio.md)

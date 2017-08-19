@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake data science walkthroughs using U-SQL  | Microsoft Docs
-description: Examples that walkthrough the use of U-SQL on Azure Data Lake to do predictive analytics.
+description: Examples that walk through the use of U-SQL on Azure Data Lake to do predictive analytics.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
@@ -27,13 +27,13 @@ Additional data science walkthroughs that execute the Team Data Science Process 
 [!INCLUDE [tdsp-walkthroughs-by-platform](../../includes/tdsp-walkthroughs-by-platform.md)]
 
 
-## Predict taxi tips using USQL with Azure Data Lake
+## Predict taxi tips using U-SQL with Azure Data Lake
 
-- The [Use Azure Data Lake for data science](machine-learning-data-science-process-data-lake-walkthrough.md) shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi dataset to predict whether or not a tip is paid by a customer. 
+The [Use Azure Data Lake for data science](machine-learning-data-science-process-data-lake-walkthrough.md) walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi dataset to predict whether or not a tip is paid by a customer. 
 
 
 ## Next steps
 
-For a discussion of the Key components that comprise the Team Data Science Process, see [Team Data Science Process overview](data-science-process-overview.md).
+For a discussion of the key components that comprise the Team Data Science Process, see [Team Data Science Process overview](data-science-process-overview.md).
 
 For a discussion of the Team Data Science Process lifecycle that you can use to structure your data science projects, see [Team Data Science Process lifecycle](data-science-process-lifecycle.md). The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. 

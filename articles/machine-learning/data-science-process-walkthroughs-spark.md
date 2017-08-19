@@ -1,6 +1,6 @@
 ---
 title: HDInsight Spark walkthroughs using PySpark and Scala on Azure | Microsoft Docs
-description: Examples of the Team Data Science Process that walkthrough the use of PySpark and Scala on an Azure HDInsight Spark to do predictive analytics. 
+description: Examples of the Team Data Science Process that walk through the use of PySpark and Scala on an Azure HDInsight Spark to do predictive analytics. 
 services: machine-learning
 documentationcenter: ''
 author: bradsev
@@ -48,7 +48,7 @@ The [Use Scala with Spark on Azure](machine-learning-data-science-process-scala-
 
 ## Next steps
 
-For a discussion of the Key components that comprise the Team Data Science Process, see [Team Data Science Process overview](data-science-process-overview.md).
+For a discussion of the key components that comprise the Team Data Science Process, see [Team Data Science Process overview](data-science-process-overview.md).
 
 For a discussion of the Team Data Science Process lifecycle that you can use to structure your data science projects, see [Team Data Science Process lifecycle](data-science-process-lifecycle.md). The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. 
 

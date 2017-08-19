@@ -23,19 +23,22 @@ These **end-to-end walkthroughs** demonstrate the steps in the Team Data Science
 
 [!INCLUDE [tdsp-walkthroughs-by-platform](../../includes/tdsp-walkthroughs-by-platform.md)]
 
+
+## Walkthrough descriptions
+
 Here are brief descriptions of what these walkthrough examples provide on their respective platforms:
 
 - [HDInsight Spark walkthroughs using PySpark and Scala](data-science-process-walkthroughs-spark.md) These walkthroughs use PySpark and Scala on an Azure Spark cluster to do predictive analytics. 
 - [HDInsight Hadoop walkthroughs using Hive](data-science-process-walkthroughs-hdinsight-hadoop.md) These walkthroughs use Hive with an HDInsight Hadoop cluster to do predictive analytics.
 - [Azure Data Lake walkthroughs using U-SQL](data-science-process-walkthroughs-azure-data-lake.md) These walkthroughs use U-SQL with Azure Data Lake to do predictive analytics.
 - [SQL Server](data-science-process-walkthroughs-sql-server.md) These walkthroughs use SQL Server, SQL Server R Services, and SQL Server Python Services to do predictive analytics.
-- [SQL Data Warehouse](data-science-process-walkthroughs-sql-data-warehouse.md) These walkthroughs use of SQL Data Warehouse to do predictive analytics. 
+- [SQL Data Warehouse](data-science-process-walkthroughs-sql-data-warehouse.md) These walkthroughs use SQL Data Warehouse to do predictive analytics. 
 
 
 
 ## Next steps
 
-For a discussion of the Key components that comprise the Team Data Science Process, see [Team Data Science Process overview](data-science-process-overview.md).
+For a discussion of the key components that comprise the Team Data Science Process, see [Team Data Science Process overview](data-science-process-overview.md).
 
 For a discussion of the Team Data Science Process lifecycle that you can use to structure your data science projects, see [Team Data Science Process lifecycle](data-science-process-lifecycle.md). The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. 
 

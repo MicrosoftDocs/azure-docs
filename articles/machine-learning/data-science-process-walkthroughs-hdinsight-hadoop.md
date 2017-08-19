@@ -1,6 +1,6 @@
 ---
 title: HDInsight Hadoop data science walkthroughs using Hive on Azure  | Microsoft Docs
-description: Examples of the Team Data Science Process that walkthrough the use of Hive on Azure HDInsight Hadoop to do predictive analytics.
+description: Examples of the Team Data Science Process that walk through the use of Hive on Azure HDInsight Hadoop to do predictive analytics.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
@@ -31,8 +31,8 @@ Additional data science walkthroughs that execute the Team Data Science Process 
 
 The [Use HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md) walkthrough uses data from New York taxis to predict: 
 
-- whether a tip is paid 
-- the distribution of tip amounts
+- Whether a tip is paid 
+- The distribution of tip amounts
 
 The scenario is implemented using Hive with an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/). You learn how to store, explore, and feature engineer data from a publicly available NYC taxi trip and fare dataset. You also use Azure Machine Learning to build and deploy the models.
 
@@ -43,7 +43,7 @@ The [Use Azure HDInsight Hadoop Clusters on a 1-TB dataset](machine-learning-dat
 
 ## Next steps
 
-For a discussion of the Key components that comprise the Team Data Science Process, see [Team Data Science Process overview](data-science-process-overview.md).
+For a discussion of the key components that comprise the Team Data Science Process, see [Team Data Science Process overview](data-science-process-overview.md).
 
 For a discussion of the Team Data Science Process lifecycle that you can use to structure your data science projects, see [Team Data Science Process lifecycle](data-science-process-lifecycle.md). The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. 
 
