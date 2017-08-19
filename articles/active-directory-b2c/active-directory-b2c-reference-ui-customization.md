@@ -38,7 +38,7 @@ You can customize the look and feel of customer sign-up, sign-in, password reset
 
 Unlike other services where UI options, Azure AD B2C uses a simple and modern approach to UI customization.
 
-Here's how it works: Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/).  At run-time, content is loaded from a URL that you specify in a policy. You can specify different URLs for different pages. After content loaded from your URL is merged with a HTML fragment inserted from Azure AD B2C, the page is displayed to your customer. All you need to do is:
+Here's how it works: Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/).  At run-time, content is loaded from a URL that you specify in a policy. You can specify different URLs for different pages. After content loaded from your URL is merged with an HTML fragment inserted from Azure AD B2C, the page is displayed to your customer. All you need to do is:
 
 1. Create well-formed HTML5 content with an empty `<div id="api"></div>` element located somewhere in the `<body>`. This element marks where the Azure AD B2C content is inserted.
 1. Host your content on an HTTPS endpoint (with CORS allowed). Note both GET and OPTIONS request methods must be enabled when configuring CORS.
@@ -46,7 +46,7 @@ Here's how it works: Azure AD B2C runs code in your customer's browser and uses 
 
 ### A basic example of customized HTML
 
-The following example is the most basic HTML content that you can use to test this capability. Use the [simple helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) to upload and configure this content on your Azure Blob storage. You can then verify that the basic, non-stylized buttons & form fields on each page are displayed and functional.
+The following example is the most basic HTML content that you can use to test this capability. Use the [helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) to upload and configure this content on your Azure Blob storage. You can then verify that the basic, non-stylized buttons & form fields on each page are displayed and functional.
 
 ```HTML
 <!DOCTYPE html>
@@ -62,7 +62,7 @@ The following example is the most basic HTML content that you can use to test th
 
 ## Test out the UI customization feature
 
-Want to try out the UI customization feature by using our sample HTML and CSS content?  We've provided you [a simple helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) that uploads and configures sample content on your Azure Blob storage.
+Want to try out the UI customization feature by using our sample HTML and CSS content?  We've provided you [a helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) that uploads and configures sample content on your Azure Blob storage.
 
 > [!NOTE]
 > You can host your UI content anywhere: on web servers, CDNs, AWS S3, file sharing systems, etc. As long as the content is hosted on a publicly available HTTPS endpoint with CORS enabled, you are good to go. We are using Azure Blob storage for illustrative purposes only.
@@ -70,9 +70,9 @@ Want to try out the UI customization feature by using our sample HTML and CSS co
 
 ## The UI fragments embedded by Azure AD B2C
 
-The following sections list the HTML5 fragments that Azure AD B2C merges into the `<div id="api"></div>` element located in your content. **Do not insert these fragments in your HTML 5 content.** The Azure AD B2C service inserts them in at run-time. Use these as a reference when designing your own Cascading Style Sheets (CSS).
+The following sections list the HTML5 fragments that Azure AD B2C merges into the `<div id="api"></div>` element located in your content. **Do not insert these fragments in your HTML 5 content.** The Azure AD B2C service inserts them in at run-time. Use these fragments as a reference when designing your own Cascading Style Sheets (CSS).
 
-### Azure AD B2C content inserted into the "Identity provider selection page"
+### Fragment inserted into the "Identity provider selection page"
 
 This page contains a list of identity providers that the user can choose from during sign-up or sign-in. These buttons include social identity providers such as Facebook and Google+, or local accounts (based on email address or user name).
 
@@ -98,7 +98,7 @@ This page contains a list of identity providers that the user can choose from du
 </div>
 ```
 
-### Azure AD B2C content inserted into the "Local account sign-up page"
+### Fragment inserted into the "Local account sign-up page"
 
 This page contains a form for local account sign-up based on an email address or a user name. The form can contain different input controls such as text input box, password entry box, radio button, single-select drop-down boxes, and multi-select check boxes.
 
@@ -213,11 +213,11 @@ This page contains a form for local account sign-up based on an email address or
 </div>
 ```
 
-### Azure AD B2C content inserted into the ""Social account sign-up page"
+### Fragment inserted into the ""Social account sign-up page"
 
 This page may appear when signing up using an existing account from a social identity provider such as Facebook or Google+.  It is used when additional information must be collected from the end user using a sign-up form. This page is similar to the local account sign-up page (shown in the previous section) with the exception of the password entry fields.
 
-### Azure AD B2C content inserted into the "Unified sign-up or sign-in page"
+### Fragment inserted into the "Unified sign-up or sign-in page"
 
 This page handles both sign-up & sign-in of customers, who can use social identity providers such as Facebook or Google+, or local accounts.
 
@@ -270,7 +270,7 @@ This page handles both sign-up & sign-in of customers, who can use social identi
 </div>
 ```
 
-### Azure AD B2C content inserted into the "Multi-factor authentication page"
+### Fragment inserted into the "Multi-factor authentication page"
 
 On this page, users can verify their phone numbers (using text or voice) during sign-up or sign-in.
 
@@ -314,7 +314,7 @@ On this page, users can verify their phone numbers (using text or voice) during 
 </div>
 ```
 
-### Azure AD B2C content inserted into the ""Error page"
+### Fragment inserted into the ""Error page"
 
 ```HTML
 <div id="api" class="error-page-content" data-name="GlobalException">
@@ -338,7 +338,6 @@ You can localize your HTML content by turning on ['Language customization'](acti
 If you are planning to use the page UI customization feature, review the following best practices:
 
 * Don't copy the Azure AD B2C's default content and attempt to modify it. It is best to build your HTML5 content from scratch and to use default content as reference.
-* In all the pages (except the Error pages) served by the Sign-in, Sign-up and Profile-editing policies, style sheets that you provide need to override the default style sheets that we add into these pages in the <head> fragments. In all the pages served by the Sign-up or Sign-in and Password reset policies, and the Error pages on all policies, you need to provide all the styling yourself.
 * For security reasons, we don't allow you to include any JavaScript in your content. Most of what you need should be available out of the box. If not, use [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) to request new functionality.
 * Supported browser versions:
   * Internet Explorer 11, 10, Edge
