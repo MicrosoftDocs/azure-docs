@@ -108,7 +108,7 @@ Define Google+ Account as a claims provider, by adding `<ClaimsProvider>` node i
 
 1.  Open the extension policy file (TrustFrameworkExtensions.xml) from your working directory. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
 2.  Find the `<ClaimsProviders>` section
-3.  Add following XML snippet under the `ClaimsProviders` element:  
+3.  Add the following XML snippet under the `ClaimsProviders` element and replace `client_id` value with your Google+ account application client ID before saving the file.  
 
 ```xml
 <ClaimsProvider>
@@ -160,8 +160,6 @@ Define Google+ Account as a claims provider, by adding `<ClaimsProvider>` node i
     </TechnicalProfiles>
 </ClaimsProvider>
 ```
-4.  Replace `client_id` value with your Google+ account application client ID
-5.  Save the file.
 
 ## Register the Google+ account claims provider to Sign up or Sign in user journey
 
