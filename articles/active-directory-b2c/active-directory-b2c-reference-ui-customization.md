@@ -5,7 +5,7 @@ services: active-directory-b2c
 documentationcenter: ''
 author: saeedakhter-msft
 manager: krassk
-editor: bryanla
+editor: parakhj
 
 ms.assetid: 99f5a391-5328-471d-a15c-a2fafafe233d
 ms.service: active-directory-b2c
