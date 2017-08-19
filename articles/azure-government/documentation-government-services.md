@@ -53,8 +53,6 @@ In the following tables, services specified as Resource Manager enabled have res
 | Application Gateway | Yes | Yes |
 | ExpressRoute | Yes | Yes |
 
-
-
 ## [Storage](documentation-government-services-storage.md)
 
 | Service | Resource Manager Enabled | Portal |
@@ -67,8 +65,6 @@ In the following tables, services specified as Resource Manager enabled have res
 | [StorSimple](documentation-government-services-storage.md) | Yes | Yes |
 | [Import/Export](documentation-government-services-storage.md#azure-importexport) | Yes | Yes |
 
-
-
 ## [Web + Mobile](documentation-government-services-webandmobile.md)
 
 | Service | Resource Manager Enabled | Portal |
@@ -77,7 +73,6 @@ In the following tables, services specified as Resource Manager enabled have res
 | [App Service - API Apps](documentation-government-services-webandmobile.md#app-services) | Yes | Yes |
 | [App Service - Mobile Apps](documentation-government-services-webandmobile.md#app-services) | Yes | Yes |
 | Media Services | Yes | Yes |
-
 
 ## [Databases](documentation-government-services-database.md)
 
@@ -89,14 +84,12 @@ In the following tables, services specified as Resource Manager enabled have res
 | [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db) | Yes | Yes |
 | [Redis Cache](documentation-government-services-database.md#azure-redis-cache) | Yes | Yes |
 
-
 ## [Intelligence + Analytics](documentation-government-services-intelligenceandanalytics.md)
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
 | [HDInsights](documentation-government-services-intelligenceandanalytics.md) | Yes | Yes |
 | [Power BI Pro](documentation-government-services-intelligenceandanalytics.md) | No | No (Office 365 Admin Portal) |
-
 
 ## [Internet of Things](documentation-government-services-iot-hub.md)
 
@@ -106,7 +99,6 @@ In the following tables, services specified as Resource Manager enabled have res
 | Event Hubs | Yes | Yes |
 | Notification Hubs | No | No (Go to [Legacy portal](https://manage.windowsazure.us/)) |
 
-
 ## Enterprise Integration
 
 | Service | Resource Manager Enabled | Portal |
@@ -114,8 +106,6 @@ In the following tables, services specified as Resource Manager enabled have res
 | Service Bus | Yes | Yes |
 | [StorSimple](documentation-government-services-storage.md) | Yes | Yes |
 | SQL Server Stretch Database | Yes | Yes |
-
-
 
 ## [Security + Identity](documentation-government-services-securityandidentity.md)
 
@@ -125,16 +115,6 @@ In the following tables, services specified as Resource Manager enabled have res
 | [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | Yes | Yes |
 | Multi-Factory Authentication | Yes | Yes |
 
-
-## Intelligence + Analytics
-
-| Service | Resource Manager Enabled | Portal |
-| --- | --- | --- |
-| Power BI | Yes | No |
-| HDInsight | Yes | Yes |
-
-
-
 ## [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
 
 | Service | Resource Manager Enabled | Portal |
@@ -143,11 +123,8 @@ In the following tables, services specified as Resource Manager enabled have res
 | [Backup](documentation-government-services-backup.md) | Yes | Yes |
 | [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) | Yes | Yes |
 | [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | Yes | Yes |
-| Scheduler | Yes | No |
+| Scheduler | Yes | Yes |
 | Monitoring and Diagnostics | Yes | Yes |
-
-
-
 
 ## Next steps
 For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
