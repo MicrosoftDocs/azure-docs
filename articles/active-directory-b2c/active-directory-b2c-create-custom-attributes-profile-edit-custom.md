@@ -34,18 +34,15 @@ Your Azure Active Directory (Azure AD) B2C directory comes with a built-in set o
 
 With Azure AD B2C, you can extend the set of attributes stored on each user account. You can also read and write these attributes by using the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
->[!NOTE]
->Extension properties extend the schema of the user objects in the directory.  The terms extension property, custom attribute and custom claim refer to the same thing in the context of this article and the name varies depending on the context (application, object, policy).
+Extension properties extend the schema of the user objects in the directory.  The terms extension property, custom attribute and custom claim refer to the same thing in the context of this article and the name varies depending on the context (application, object, policy).
 
->[!NOTE]
->Extension properties can only be registered on an Application object even though they may contain data for a User. The property is attached to the application. The Application object must be granted write access to register an extension property. 100 Extension properties (across ALL types and ALL applications) can be written to any single object. Extension properties are added to the target directory type and becomes immediately accessible in the Azure AD B2C directory tenant.
+Extension properties can only be registered on an Application object even though they may contain data for a User. The property is attached to the application. The Application object must be granted write access to register an extension property. 100 Extension properties (across ALL types and ALL applications) can be written to any single object. Extension properties are added to the target directory type and becomes immediately accessible in the Azure AD B2C directory tenant.
 If the application is deleted, those Extension properties along with any data contained in them for all users are also removed. If an extension property is deleted by the Application, it is removed on the target directory objects, and the values deleted.
 
->[!NOTE]
->Extension properties exist only in the context of a registered  Application in the tenant. The object id of that Application must be included in the TechnicalProfile that use it
+Extension properties exist only in the context of a registered  Application in the tenant. The object id of that Application must be included in the TechnicalProfile that use it.
 
 >[!NOTE]
->The Azure AD B2C directory typically includes a Web App named `b2c-extensions-app`.  This application is primarily used by the b2c built-in  policies for the custom claims created via the Azure portal.  Using this application to register extensions for b2c custom policies is recommended only for advanced users.  Instructions for this are included in the `NEXT STEPS` section in this article.
+>The Azure AD B2C directory typically includes a Web App named `b2c-extensions-app`.  This application is primarily used by the b2c built-in  policies for the custom claims created via the Azure portal.  Using this application to register extensions for b2c custom policies is recommended only for advanced users.  Instructions for this are included in the Next Steps section in this article.
 
 
 ## Creating a new application to store the extension properties
@@ -69,7 +66,7 @@ If the application is deleted, those Extension properties along with any data co
 
 
 
-## Modifying your custom policy to add the `ApplicationObjectId`
+## Modifying your custom policy to add the ApplicationObjectId
 
 ```xml
     <ClaimsProviders>
@@ -95,11 +92,7 @@ If the application is deleted, those Extension properties along with any data co
 ```
 
 >[!NOTE]
->The <TechnicalProfile Id="AAD-Common"> is referred to as "common" because its elements are reused in all the Azure Active Directory TechnicalProfiles by using the element:
-
-```
-      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-```
+>The <TechnicalProfile Id="AAD-Common"> is referred to as "common" because its elements are included in and reused in all the Azure Active Directory TechnicalProfiles by using the element: `<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
 
 >[!NOTE]
 >When the TechnicalProfile writes for the first time to the newly created extension property, you may experience a one-time error.  The extension property is created the first time it is used.  
