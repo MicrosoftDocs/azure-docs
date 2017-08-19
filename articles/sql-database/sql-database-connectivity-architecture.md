@@ -105,34 +105,54 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 The following PowerShell script shows how to change the connection policy.
 
 ```powershell
-import-module azureRm
-Login-AzureRmAccount
+Add-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionName <Subscription Name>
 
-$tenantId =  #your AAD tenant ID
-$subscriptionId = #Azure SubscriptionID
-$uri = #AAD uri
+# Azure Active Directory ID
+$tenantId = "<Azure Active Directory GUID>"
 $authUrl = "https://login.microsoftonline.com/$tenantId"
-$serverName = #sqldb server name 
-$resourceGroupName=#sqldb resource group
-$AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
 
-$result = $AuthContext.AcquireToken("https://management.core.windows.net/",
+# Subscription ID
+$subscriptionId = "<Subscription GUID>"
+
+# Create an App Registration in Azure Active Directory.  Ensure the application type is set to NATIVE
+# Under Required Permissions, add the API:  Windows Azure Service Management API
+
+# Specify the redirect URL for the app registration
+$uri = "<NATIVE APP - REDIRECT URI>"
+
+# Specify the application id for the app registration
+$clientId = "<NATIVE APP - APPLICATION ID>"
+
+# Logical SQL Server Name
+$serverName = "<LOGICAL DATABASE SERVER - NAME>"
+
+# Resource Group where the SQL Server is located
+$resourceGroupName= "<LOGICAL DATABASE SERVER - RESOURCE GROUP NAME>"
+
+
+# Login and acquire a bearer token
+$AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
+$result = $AuthContext.AcquireToken(
+"https://management.core.windows.net/",
 $clientId,
 [Uri]$uri, 
-[Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto)
+[Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
+)
 
 $authHeader = @{
 'Content-Type'='application\json; '
 'Authorization'=$result.CreateAuthorizationHeader()
 }
 
-#getting the current connection property
+#Get current connection Policy
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method GET -Headers $authHeader
 
-#setting the property to ‘Proxy’
-$connectionType=”Proxy” <#Redirect / Default are other options#>
+#Set connection policy to Proxy
+$connectionType="Proxy" <#Redirect / Default are other options#>
 $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 
+# Apply Changes
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
