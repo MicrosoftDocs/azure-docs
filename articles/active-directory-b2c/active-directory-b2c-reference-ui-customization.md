@@ -38,7 +38,7 @@ You can customize the look and feel of customer sign-up, sign-in, password reset
 
 Unlike other services where UI options, Azure AD B2C uses a simple and modern approach to UI customization.
 
-Here's how it works: Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/).  At run-time, content is loaded from a URL that you specify in a policy. You can specify different URLs for different pages. After content loaded from your URL is merged with UI elements from Azure AD B2C, the page is displayed to your customer. All you need to do is:
+Here's how it works: Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/).  At run-time, content is loaded from a URL that you specify in a policy. You can specify different URLs for different pages. After content loaded from your URL is merged with a HTML fragment inserted from Azure AD B2C, the page is displayed to your customer. All you need to do is:
 
 1. Create well-formed HTML5 content with an empty `<div id="api"></div>` element located somewhere in the `<body>`. This element marks where the Azure AD B2C content is inserted.
 1. Host your content on an HTTPS endpoint (with CORS allowed). Note both GET and OPTIONS request methods must be enabled when configuring CORS.
@@ -46,7 +46,7 @@ Here's how it works: Azure AD B2C runs code in your customer's browser and uses 
 
 ### A basic example of customized HTML
 
-The following example is the most basic HTML content that you can use to test this capability. Use the same helper tool provided earlier to upload and configure this content on your Azure Blob storage. You can then verify that the basic, non-stylized buttons & form fields on each page are displayed and functional.
+The following example is the most basic HTML content that you can use to test this capability. Use the [simple helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) to upload and configure this content on your Azure Blob storage. You can then verify that the basic, non-stylized buttons & form fields on each page are displayed and functional.
 
 ```HTML
 <!DOCTYPE html>
@@ -68,7 +68,7 @@ Want to try out the UI customization feature by using our sample HTML and CSS co
 > You can host your UI content anywhere: on web servers, CDNs, AWS S3, file sharing systems, etc. As long as the content is hosted on a publicly available HTTPS endpoint with CORS enabled, you are good to go. We are using Azure Blob storage for illustrative purposes only.
 >
 
-## The core UI elements in each type of page
+## The UI fragments embedded by Azure AD B2C
 
 The following sections list the HTML5 fragments that Azure AD B2C merges into the `<div id="api"></div>` element located in your content. **Do not insert these fragments in your HTML 5 content.** The Azure AD B2C service inserts them in at run-time. Use these as a reference when designing your own Cascading Style Sheets (CSS).
 
