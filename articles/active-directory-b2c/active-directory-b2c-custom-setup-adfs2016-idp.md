@@ -107,7 +107,7 @@ Define ADFS as a claims provider, by adding `<ClaimsProvider>` node in your exte
 
 1. Open the extension policy file (TrustFrameworkExtensions.xml) from your working directory. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
 2. Find the `<ClaimsProviders>` section
-3. Add following XML snippet under the `ClaimsProviders` element:  
+3. Add the following XML snippet under the `ClaimsProviders` element and replace `identityProvider` with your DNS (Arbitrary value that indicates your domain), and save the file. 
 
 ```xml
 <ClaimsProvider>
@@ -147,8 +147,6 @@ Define ADFS as a claims provider, by adding `<ClaimsProvider>` node in your exte
     </TechnicalProfiles>
 </ClaimsProvider>
 ```
-4. Replace `identityProvider` default value with your DNS (Arbitrary value that indicates your domain).
-5. Save the file.
 
 ## Register the ADFS account claims provider to Sign up or Sign in user journey
 At this point, the identity provider has been set up.  However, it is not available in any of the sign-up/sign-in screens. Now you need to add the ADFS account identity provider to your user `SignUpOrSignIn` user journey. To make it available, we create a duplicate of an existing template user journey.  Then, we modify it so it includes the ADFS identity provider:
