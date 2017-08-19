@@ -75,7 +75,7 @@
 #### [Collect logs using Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Reference
 ### [Release notes](active-directory-b2c-developer-notes-custom.md)
-### [Trustframeworks Definition](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
+### [Trust Framework definition](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glossary
