@@ -38,7 +38,7 @@ In the following tables, services specified as Resource Manager enabled have res
 | Batch | Yes | Yes |
 | Cloud Services | Yes | Yes |
 | Service Fabric | Yes | Yes |
-| VM Scale Sets | Yes | Yes |
+| Virtual Machine Scale Sets | Yes | Yes |
 
 
 ## [Networking](documentation-government-networking.md)
