@@ -160,7 +160,6 @@ Define Google+ Account as a claims provider, by adding `<ClaimsProvider>` node i
     </TechnicalProfiles>
 </ClaimsProvider>
 ```
-
 4.  Replace `client_id` value with your Google+ account application client ID
 5.  Save the file.
 
