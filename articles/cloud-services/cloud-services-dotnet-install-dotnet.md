@@ -81,7 +81,7 @@ You can use startup tasks to perform operations before a role starts. Installing
 
 2. Create a file named **install.cmd** and add the following install script to the file.
 
-    The script checks whether the specified version of the .NET Framework is already installed on the machine by querying the registry. If the .NET version is not installed, then the .NET web installer is opened. To help troubleshoot any issues, the script logs all activity to the file startuptasklog-<current date and time>.txt that is stored in **InstallLogs** local storage.
+    The script checks whether the specified version of the .NET Framework is already installed on the machine by querying the registry. If the .NET version is not installed, then the .NET web installer is opened. To help troubleshoot any issues, the script logs all activity to the file startuptasklog-(current date and time).txt that is stored in **InstallLogs** local storage.
 
     > [!IMPORTANT]
     > Use a basic text editor like Windows Notepad to create the install.cmd file. If you use Visual Studio to create a text file and change the extension to .cmd, the file might still contain a UTF-8 byte order mark. This mark can cause an error when the first line of the script is run. To avoid this error, make the first line of the script a REM statement that may be skipped by the byte order processing. 
