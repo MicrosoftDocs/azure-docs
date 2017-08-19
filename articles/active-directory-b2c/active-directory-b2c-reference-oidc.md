@@ -3,9 +3,9 @@ title: 'Web sign-in with OpenID Connect - Azure AD B2C | Microsoft Docs'
 description: Building web applications by using the Azure Active Directory implementation of the OpenID Connect authentication protocol
 services: active-directory-b2c
 documentationcenter: ''
-author: saeeda
+author: saeedakhter-msft
 manager: krassk
-editor: parja
+editor: parakhj
 
 ms.assetid: 21d420c8-3c10-4319-b681-adf2e89e7ede
 ms.service: active-directory-b2c
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeeda
+ms.author: saeedakhter-msft
 
 ---
 # Azure Active Directory B2C: Web sign-in with OpenID Connect
