@@ -49,11 +49,11 @@
     - name: Premium Storage
       items:
         - name: High-performance Premium Storage for VM Disks
-        - href: ../common/storage-premium-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../common/storage-premium-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Migrating to Premium Storage using Azure Site Recovery
-        - href: ../common/storage-migrate-to-premium-storage-using-azure-site-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../common/storage-migrate-to-premium-storage-using-azure-site-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Design for high performance
-        - href: ../common/storage-premium-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../common/storage-premium-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Standard Storage 
       items:
         - name: Cost-effective Standard Storage and unmanaged and managed VM Disks
@@ -289,3 +289,27 @@
       href: https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/
     - name: Azure Configuration Manager
       href: https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/
+  - name: Source code
+    items:
+    - name: .NET
+      items:
+      - name: Blob, queue, table, and file
+        href: https://github.com/Azure/azure-storage-net
+      - name: Data movement
+        href: https://github.com/Azure/azure-storage-net-data-movement
+      - name: Resource provider
+        href: https://github.com/Azure/azure-sdk-for-net
+    - name: Node.js
+      href: http://azure.github.io/azure-storage-node/
+    - name: Java
+      href: https://github.com/Azure/azure-storage-java
+    - name: C++
+      href: https://github.com/Azure/azure-storage-cpp
+    - name: PHP
+      href: https://github.com/Azure/azure-storage-php
+    - name: Python
+      href: https://github.com/Azure/azure-storage-python
+    - name: Ruby
+      href: https://github.com/Azure/azure-storage-ruby
+    - name: iOS
+      href: https://github.com/Azure/azure-storage-ios
