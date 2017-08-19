@@ -147,7 +147,7 @@ The following namespaces are automatically imported and are therefore optional:
 * `System.Net.Http`
 * `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
-* `Microsoft.Azure.WebJobs.Host`.
+* `Microsoft.Azure.WebJobs.Host`
 
 ## Referencing External Assemblies
 For framework assemblies, add references by using the `#r "AssemblyName"` directive.
@@ -173,7 +173,7 @@ The following assemblies are automatically added by the Azure Functions hosting 
 * `Microsoft.Azure.WebJobs.Host`
 * `Microsoft.Azure.WebJobs.Extensions`
 * `System.Web.Http`
-* `System.Net.Http.Formatting`.
+* `System.Net.Http.Formatting`
 
 The following assemblies may be referenced by simple-name (for example, `#r "AssemblyName"`):
 
