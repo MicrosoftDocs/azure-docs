@@ -1,6 +1,6 @@
 ﻿---
-title: 'Azure Active Directory B2C: Add AD-FS as a SAML identity provider using Custom policies'
-description: A How-To article on setting up ADFS 2016 using SAML protocol and Custom policies
+title: 'Azure Active Directory B2C: Add ADFS as a SAML identity provider using custom policies'
+description: A How-To article on setting up ADFS 2016 using SAML protocol and custom policies
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
@@ -17,7 +17,7 @@ ms.date: 08/04/2017
 ms.author: yoelh
 ---
 
-# Azure Active Directory B2C: Add AD-FS as a SAML identity provider using Custom policies
+# Azure Active Directory B2C: Add ADFS as a SAML identity provider using Custom policies
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -43,7 +43,7 @@ To add a new relying party trust by using the AD FS Management snap-in and manua
 
 Membership in **Administrators**, or equivalent, on the local computer is the minimum required to complete this procedure. Review details about using the appropriate accounts and group memberships at [Local and Domain Default Groups](http://go.microsoft.com/fwlink/?LinkId=83477)
 
-1.  In Server Manager, click **Tools**, and then select **AD FS Management**.
+1.  In Server Manager, click **Tools**, and then select **ADFS Management**.
 
 2.  Click on **Add Relying Party Trust**
 
@@ -118,8 +118,8 @@ Membership in **Administrators**, or equivalent, on the local computer is the mi
 
 ![Set secure hash algorithm to SHA-1](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-4.png)
 
-## Add the AD-FS account application key to Azure AD B2C
-Federation with AD-FS accounts requires a client secret for AD-FS account to trust Azure AD B2C on behalf of the application. You need to store your AD-FS certificate in your Azure AD B2C tenant. 
+## Add the ADFS account application key to Azure AD B2C
+Federation with ADFS accounts requires a client secret for ADFS account to trust Azure AD B2C on behalf of the application. You need to store your ADFS certificate in your Azure AD B2C tenant. 
 
 1.  Go to your Azure AD B2C tenant, and select **B2C Settings** > **Identity Experience Framework**
 2.  Select **Policy Keys** to view the keys available in your tenant.
@@ -135,9 +135,9 @@ Federation with AD-FS accounts requires a client secret for AD-FS account to tru
 8.  Confirm that you've created the key `B2C_1A_ADFSSamlCert`.
 
 ## Add a claims provider in your extension policy
-If you want users to sign in by using AD-FS account, you need to define AD-FS account as a claims provider. In other words, you need to specify an endpoint that Azure AD B2C communicates with. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
+If you want users to sign in by using ADFS account, you need to define ADFS account as a claims provider. In other words, you need to specify an endpoint that Azure AD B2C communicates with. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
-Define AD-FS as a claims provider, by adding `<ClaimsProvider>` node in your extension policy file:
+Define ADFS as a claims provider, by adding `<ClaimsProvider>` node in your extension policy file:
 
 1.  Open the extension policy file (TrustFrameworkExtensions.xml) from your working directory. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
 2.  Find the `<ClaimsProviders>` section
@@ -186,8 +186,8 @@ Define AD-FS as a claims provider, by adding `<ClaimsProvider>` node in your ext
 
 5.  Save the file.
 
-## Register the AD-FS account claims provider to Sign up or Sign in user journey
-At this point, the identity provider has been set up.  However, it is not available in any of the sign-up/sign-in screens. Now you need to add the AD-FS account identity provider to your user `SignUpOrSignIn` user journey. To make it available, we create a duplicate of an existing template user journey.  Then, we modify it so it includes the AD-FS identity provider:
+## Register the ADFS account claims provider to Sign up or Sign in user journey
+At this point, the identity provider has been set up.  However, it is not available in any of the sign-up/sign-in screens. Now you need to add the ADFS account identity provider to your user `SignUpOrSignIn` user journey. To make it available, we create a duplicate of an existing template user journey.  Then, we modify it so it includes the ADFS identity provider:
 
 > [!NOTE]
 >If you previously copied the `<UserJourneys>` element from base file of your policy to the extension file (TrustFrameworkExtensions.xml) you can skip this section.
@@ -197,8 +197,8 @@ At this point, the identity provider has been set up.  However, it is not availa
 3.  Open the extension file (for example, TrustFrameworkExtensions.xml) and find the `<UserJourneys>` element. If the element doesn't exist, add one.
 4.  Paste the entire content of `<UserJournesy>` node that you copied as a child of the `<UserJourneys>` element.
 
-### Display the "button"
-The `<ClaimsProviderSelections>` element defines the list of claims provider selection options and their order.  `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up/sign-in page. If you add a `<ClaimsProviderSelection>` element for  AD-FS account, a new button shows up when a user lands on the page. To add this element:
+### Display the button
+The `<ClaimsProviderSelections>` element defines the list of claims provider selection options and their order.  `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up/sign-in page. If you add a `<ClaimsProviderSelection>` element for  ADFS account, a new button shows up when a user lands on the page. To add this element:
 
 1.  Find the `<UserJourney>` node that includes `Id="SignUpOrSignIn"` in the user journey that you copied.
 2.  Locate the `<OrchestrationStep>` node that includes `Order="1"`
@@ -209,7 +209,7 @@ The `<ClaimsProviderSelections>` element defines the list of claims provider sel
 ```
 ### Link the button to an action
 
-Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with AD-FS account to receive a token. Link the button to an action by linking the technical profile for your AD-FS account claims provider:
+Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with ADFS account to receive a token. Link the button to an action by linking the technical profile for your ADFS account claims provider:
 
 1.  Find the `<OrchestrationStep>` that includes `Order="2"` in the `<UserJourney>` node.
 2.  Add following XML snippet under `<ClaimsExchanges>` node:
@@ -233,12 +233,12 @@ Now that you have a button in place, you need to link it to an action. The actio
 ## Test the custom policy by using Run Now
 1.  Open **Azure AD B2C Settings** and go to **Identity Experience Framework**.
 2.  Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded. Select **Run now**.
-3.  You should be able to sign in using AD-FS account.
+3.  You should be able to sign in using ADFS account.
 
-## [Optional] Register the AD-FS account claims provider to Profile-Edit user journey
-You may want to add the AD-FS account identity provider also to your user `ProfileEdit` user journey. To make it available, we repeat the last two steps:
+## [Optional] Register the ADFS account claims provider to Profile-Edit user journey
+You may want to add the ADFS account identity provider also to your user `ProfileEdit` user journey. To make it available, we repeat the last two steps:
 
-### Display the "button"
+### Display the button
 1.  Open the extension file of your policy (for example, TrustFrameworkExtensions.xml).
 2.  Find the `<UserJourney>` node that includes `Id="ProfileEdit"` in the user journey that you copied.
 3.  Locate the `<OrchestrationStep>` node that includes `Order="1"`
@@ -259,7 +259,7 @@ You may want to add the AD-FS account identity provider also to your user `Profi
 ### Test the custom Profile-Edit policy by using Run Now
 1.  Open **Azure AD B2C Settings** and go to **Identity Experience Framework**.
 2.  Open **B2C_1A_ProfileEdit**, the relying party (RP) custom policy that you uploaded. Select **Run now**.
-3.  You should be able to sign in using AD-FS account.
+3.  You should be able to sign in using ADFS account.
 
 ## Download the complete policy files
 Optional: We recommend you build your scenario using your own Custom policy files after completing the Getting Started with Custom Policies walk through. [Policy sample files for reference only](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-adfs2016-app)
