@@ -20,7 +20,9 @@ ms.author: sngun
 
 # Configure the Azure Stack operator's PowerShell environment
 
-As an Azure Stack user, you can configure your Azure Stack Development Kit's PowerShell environment by using the script provided in this topic. After you connect, you can use PowerShell to deploy resources or automate portal tasks. This topic is scoped to use with the cloud operator environments only, if you want to set up PowerShell for the user environment, refer to [Configure PowerShell for the user environment](azure-stack-powershell-configure-user.md) topic. 
+As an Azure Stack operator, you can configure your Azure Stack Development Kit's PowerShell environment. After you configure, you can use PowerShell to manage Azure Stack resources such as creating offers, plans, quotas, managing alerts, etc. 
+
+This topic provides you a script to configure the Azure Stack operator's PowerShell environment.  This topic is scoped to use with the cloud operator environments only, if you want to set up PowerShell for the user environment, refer to [Configure PowerShell for the user environment](azure-stack-powershell-configure-user.md) topic. 
 
 ## Prerequisites
 
