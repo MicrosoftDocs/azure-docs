@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 11/14/2016
+ms.date: 08/19/2017
 ms.author: zsk0646
 
 ---
