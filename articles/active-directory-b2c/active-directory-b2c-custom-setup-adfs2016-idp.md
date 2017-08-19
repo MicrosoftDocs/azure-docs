@@ -73,39 +73,27 @@ Membership in **Administrators**, or equivalent, on the local computer is the mi
 >For example the URL could be: https://login.microsoftonline.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**
 
 ![Relying party SAML 2.0 SSO service URL](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-6.png)
-
-
-8.  On the **Configure Identifiers** page, specify the same URL as the previous step, click **Add** to add them to the list, and then click **Next**.
+8. On the **Configure Identifiers** page, specify the same URL as the previous step, click **Add** to add them to the list, and then click **Next**.
 ![Relying party trust identifiers](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-7.png)
-
 9.  On the **Choose Access Control Policy** select a policy and click **Next**.
 ![Choose Access Control Policy](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-8.png)
-
 10.  On the **Ready to Add Trust** page, review the settings, and then click **Next** to save your relying party trust information.
 ![Save your relying party trust information](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-9.png)
-
 11.  On the **Finish** page, click **Close**. This action automatically displays the **Edit Claim Rules** dialog box.
 ![Edit Claim Rules](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-10.png)
-
-12.  Click **Add Rule**
+12.  Click **Add Rule**.
 ![Add new rule](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-claims-1.png)
-
-13.  In **Claim rule template**, select **Send LDAP attributes as claims**
+13.  In **Claim rule template**, select **Send LDAP attributes as claims**.
 ![Select Send LDAP attributes as claims template rule](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-claims-2.png)
-
-14.  Provide **Claim rule name**. For the **Attribute store** select **Select Active Directory** Add the following claims, then click **Finish** and **OK**
+14.  Provide **Claim rule name**. For the **Attribute store** select **Select Active Directory** Add the following claims, then click **Finish** and **OK**.
 ![Set rule properties](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-claims-3.png)
-
-15.  In Server Manager, select **Relying Party Trusts** then select the relying party trust you created and click **Properties**
+15.  In Server Manager, select **Relying Party Trusts** then select the relying party trust you created and click **Properties**.
 ![Relying party edit properties](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-1.png)
-
-16.  One the relying party trust (B2C Demo) properties window click **Signature** tab and click **Add**
+16.  One the relying party trust (B2C Demo) properties window click **Signature** tab and click **Add**.
 ![Set signature](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-2.png)
-
-17.  Add your signature certificate (.cert file, without private key)
+17.  Add your signature certificate (.cert file, without private key).
 ![Add your signature certificate](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-3.png)
-
-18.  On the relying party trust (B2C Demo) properties window click **Advanced** tab and change the **Secure hash algorithm** to **SHA-1**, Click **Ok**
+18.  On the relying party trust (B2C Demo) properties window click **Advanced** tab and change the **Secure hash algorithm** to **SHA-1**, Click **Ok**.
 ![Set secure hash algorithm to SHA-1](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-4.png)
 
 ## Add the ADFS account application key to Azure AD B2C
@@ -127,9 +115,9 @@ If you want users to sign in by using ADFS account, you need to define ADFS acco
 
 Define ADFS as a claims provider, by adding `<ClaimsProvider>` node in your extension policy file:
 
-1.  Open the extension policy file (TrustFrameworkExtensions.xml) from your working directory. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
-2.  Find the `<ClaimsProviders>` section
-3.  Add following XML snippet under the `ClaimsProviders` element:  
+1. Open the extension policy file (TrustFrameworkExtensions.xml) from your working directory. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
+2. Find the `<ClaimsProviders>` section
+3. Add following XML snippet under the `ClaimsProviders` element:  
 
 ```xml
 <ClaimsProvider>
@@ -170,9 +158,8 @@ Define ADFS as a claims provider, by adding `<ClaimsProvider>` node in your exte
 </ClaimsProvider>
 ```
 
-4.  Replace `identityProvider` default value with your DNS (Arbitrary value that indicates your domain)
-
-5.  Save the file.
+4. Replace `identityProvider` default value with your DNS (Arbitrary value that indicates your domain).
+5. Save the file.
 
 ## Register the ADFS account claims provider to Sign up or Sign in user journey
 At this point, the identity provider has been set up.  However, it is not available in any of the sign-up/sign-in screens. Now you need to add the ADFS account identity provider to your user `SignUpOrSignIn` user journey. To make it available, we create a duplicate of an existing template user journey.  Then, we modify it so it includes the ADFS identity provider:
