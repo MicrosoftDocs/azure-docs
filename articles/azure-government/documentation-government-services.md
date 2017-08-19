@@ -124,7 +124,7 @@ In the following tables, services specified as Resource Manager enabled have res
 | [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) | Yes | Yes |
 | [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | Yes | Yes |
 | Scheduler | Yes | Yes |
-| Monitoring and Diagnostics | Yes | Yes |
+| [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor) | Yes | Yes |
 
 ## Next steps
 For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
