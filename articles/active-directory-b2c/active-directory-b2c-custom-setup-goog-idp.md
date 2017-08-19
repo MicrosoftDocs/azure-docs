@@ -1,6 +1,6 @@
 ﻿---
-title: 'Azure Active Directory B2C: Add Google+ as an OAuth2 identity provider using Custom policies'
-description: Sample usign Google+ as identity provider using OAuth2 protocol
+title: 'Azure Active Directory B2C: Add Google+ as an OAuth2 identity provider using custom policies'
+description: Sample using Google+ as identity provider using OAuth2 protocol
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
@@ -17,7 +17,7 @@ ms.date: 08/04/2017
 ms.author: yoelh
 ---
 
-# Azure Active Directory B2C: Add Google+ as an OAuth2 identity provider using Custom policies
+# Azure Active Directory B2C: Add Google+ as an OAuth2 identity provider using custom policies
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -64,27 +64,27 @@ To use Google+ as an identity provider in Azure Active Directory (Azure AD) B2C,
 8.  Click **API Manager** and then click **Credentials** in the left navigation.
 9.  Click the **OAuth consent screen** tab at the top.
 
-![Google+ account - Set OAuth consent screen](media/active-directory-b2c-custom-setup-goog-idp/goog-add-cred.png)
+    ![Google+ account - Set OAuth consent screen](media/active-directory-b2c-custom-setup-goog-idp/goog-add-cred.png)
 
 10.  Select or specify a valid **Email address**, provide a **Product name**, and click **Save**.
 
-![Google+ - Application credentials](media/active-directory-b2c-custom-setup-goog-idp/goog-consent-screen.png)
+    ![Google+ - Application credentials](media/active-directory-b2c-custom-setup-goog-idp/goog-consent-screen.png)
 
 11.  Click **New credentials** and then choose **OAuth client ID**.
 
-![Google+ - Create new application credentials](media/active-directory-b2c-custom-setup-goog-idp/goog-add-oauth2-client-id.png)
+    ![Google+ - Create new application credentials](media/active-directory-b2c-custom-setup-goog-idp/goog-add-oauth2-client-id.png)
 
 12.  Under **Application type**, select **Web application**.
 
-![Google+ - Select application type](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
+    ![Google+ - Select application type](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
 
 13.  Provide a **Name** for your application, enter `https://login.microsoftonline.com` in the **Authorized JavaScript origins** field, and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized redirect URIs** field. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com). The **{tenant}** value is case-sensitive. Click **Create**.
 
-![Google+ - Provide Authorized JavaScript origins and redirect URIs](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
+    ![Google+ - Provide Authorized JavaScript origins and redirect URIs](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
 
 14.  Copy the values of **Client Id** and **Client secret**. You need both to configure Google+ as an identity provider in your tenant. **Client secret** is an important security credential.
 
-![Google+ - Copy the values of client Id and Client secret](media/active-directory-b2c-custom-setup-goog-idp/goog-client-secret.png)
+    ![Google+ - Copy the values of client Id and Client secret](media/active-directory-b2c-custom-setup-goog-idp/goog-client-secret.png)
 
 ## Add the Google+ account application key to Azure AD B2C
 Federation with Google+ accounts requires a client secret for Google+ account to trust Azure AD B2C on behalf of the application. You need to store your Google+ application secret in Azure AD B2C tenant:  
@@ -162,7 +162,6 @@ Define Google+ Account as a claims provider, by adding `<ClaimsProvider>` node i
 ```
 
 4.  Replace `client_id` value with your Google+ account application client ID
-
 5.  Save the file.
 
 ## Register the Google+ account claims provider to Sign up or Sign in user journey
@@ -178,7 +177,7 @@ The identity provider has been set up.  However, it is not available in any of t
 3.  Open the extension file (for example, TrustFrameworkExtensions.xml) and find the `<UserJourneys>` element. If the element doesn't exist, add one.
 4.  Paste the entire content of `<UserJournesy>` node that you copied as a child of the `<UserJourneys>` element.
 
-### Display the "button"
+### Display the button
 The `<ClaimsProviderSelections>` element defines the list of claims provider selection options and their order.  `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up/sign-in page. If you add a `<ClaimsProviderSelection>` element for Google+ account, a new button shows up when a user lands on the page. To add this element:
 
 1.  Find the `<UserJourney>` node that includes `Id="SignUpOrSignIn"` in the user journey that you copied.
@@ -227,7 +226,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 ## [Optional] Register the Google+ account claims provider to Profile-Edit user journey
 You may want to add the Google+ account identity provider also to your user `ProfileEdit` user journey. To make it available, we repeat the last two steps:
 
-### Display the "button"
+### Display the button
 1.  Open the extension file of your policy (for example, TrustFrameworkExtensions.xml).
 2.  Find the `<UserJourney>` node that includes `Id="ProfileEdit"` in the user journey that you copied.
 3.  Locate the `<OrchestrationStep>` node that includes `Order="1"`
