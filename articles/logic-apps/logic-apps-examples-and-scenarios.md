@@ -38,7 +38,7 @@ your workflow can start with a schedule event,
 a manual invocation, or an event from an external system, 
 such as the "when a file is added to an FTP server" trigger. 
 Azure Logic Apps currently supports over 100 ready-to-use connectors, 
-ranging from on-premises SAP to Azure Cognitive Services. 
+ranging from on-premises SAP to Microsoft Cognitive Services. 
 For systems and services that might not have published connectors, 
 you can also extend logic apps.
 
