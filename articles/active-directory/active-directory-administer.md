@@ -1,6 +1,6 @@
 ---
-title: Administer your Azure AD directory | Microsoft Docs
-description: Explains what an Azure AD tenant is, and how to manage Azure through Azure Active Directory
+title: How to use an Azure Active Direcory tenant directory overview | Microsoft Docs
+description: Explains what an Azure AD tenant is, and how to manage Azure using Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -12,19 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/18/2017
+ms.date: 08/20/2017
 ms.author: curtand
 
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
 
 ---
-# Administer your Azure AD directory
+# Manage your Azure AD directory
 
 ## What is an Azure AD tenant?
-In the physical workplace, the word tenant can be defined as a group or company that occupies a building. For instance, your organization may own office space in a building. This building may be on a street with several other organizations. Your organization would be considered a tenant of that building. This building is an asset of your organization and provides security and ensures that you can conduct business safely. It also is separated from the other businesses on your street. This ensures that your organization and the assets therein are isolated from other organizations.
-
-In the cloud-enabled workplace, a tenant can be defined as a client or organization that owns and manages a specific instance of that cloud service. With the identity platform provided by Microsoft Azure, a tenant is simply a dedicated instance of Azure Active Directory (Azure AD) that your organization receives and owns when it signs up for a Microsoft cloud service such as Azure or Office 365.
+With the identity platform provided by Microsoft Azure, a tenant is simply a dedicated instance of Azure Active Directory (Azure AD) that your organization receives and owns when it signs up for a Microsoft cloud service such as Azure or Office 365.
 
 Each Azure AD directory is distinct and separate from other Azure AD directories. Just like a corporate office building is a secure asset specific to only your organization, an Azure AD directory was also designed to be a secure asset for use by only your organization. The Azure AD architecture isolates customer data and identity information from co-mingling. This means that users and administrators of one Azure AD directory cannot accidentally or maliciously access data in another directory.
 
@@ -59,9 +57,12 @@ If you don’t yet have a subscription to a Microsoft cloud service, use one of 
 * [Microsoft Intune](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0%20)
 
 ### Manage the default directory in Azure
-When you sign up for Azure, a default Azure AD directory is associated with your subscription. There are no costs for using Azure AD. The directory is a free resource. There is are additional Azure Active Directory licenses Premium tier that is licensed separately and provides additional features such as company branding and self-service password reset.
+When you sign up for Azure, a default Azure AD directory is associated with your subscription. There are no costs for using Azure AD and your directories are a free resource. There are paid Azure AD services that are licensed separately and provide additional functionality such as company branding at sign-in, and self-service password reset.
 
-To change the display name of your directory, click the directory in the portal and click **Configure**. As explained later in this topic, you can add a new directory or delete a directory that you no longer need. To associate your subscription with a different directory, click the **Settings** extension in the left navigation, and at the bottom of the **Subscriptions** page, click **Edit Directory**. You can also create a custom domain using a DNS name that you have registered instead of the default *.onmicrosoft.com domain, which may be preferable with a service such as SharePoint Online.
+How do you change the default directory for a subscription?
+Is his where to put that, or in its own article?
+
+You can also create a custom domain using a DNS name that you have registered instead of the default *.onmicrosoft.com domain, which may be preferable with a service such as SharePoint Online.
 
 ## How can I manage directory data?
 To administer one or more Microsoft cloud service subscriptions, you can use the [Azure AD admin center](https://aad.portal.azure.com), the Microsoft Intune account portal, or the [Office 365 Admin Center](https://portal.office.com/) to manage your organization's directory data. You can also use [Azure Active Directory PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/active-directory) to help you manage data stored in Azure AD.
@@ -117,7 +118,10 @@ The following conditions are checked:
 
 ### To associate your subscription with a different directory
 1. Sign in to [the Azure portal](https://portal.azure.com) and select **Subscriptions**.
-2. Select a directory. However, if you are signed in with a work or school account, you can't delete your home directory (where you're "homed"). For example, if you are signed in as joe@contoso.onmicrosoft.com, you can't delete the directory that has contoso.onmicrosoft.com as its default domain.
+2. Select your sign-in profile in the corner of the browser window, and select an Azure AD directory to manage.
+
+> [!NOTE]
+> If you are signed in with a work or school account, you can't delete your home directory (where you're "homed"). For example, if you are signed in as joe@contoso.onmicrosoft.com, you can't delete the directory that has contoso.onmicrosoft.com as its default domain.
 
 
 ## Next steps
