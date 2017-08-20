@@ -76,8 +76,8 @@ You can do the exercises or just use the information as a guideline for working 
     In order to search for and identify personal data with Azure Data Catalog, you need to register your data source/assets first. Once you sign in, you’ll launch the registration tool, choose a data source to register and register specific data objects. You can also add tags to help enable search. </br>
     ![Microsoft Azure Data catalog](media/how-to-discover-classify-personal-data-azure/azure-catalog.png) </br>
     Once registered, the data source or asset remains in its existing location, but a copy of the metadata is added to Azure Data Catalog, which allows the user to more easily discover personal data. You can categorize data assets that contain personal information during registration with a tag that distinguishes them as such. You can tag customer and employee personal data separately, too. For example, tag “name,” “Social Security number,” “ID number,” and any others as “customer personal data,” “employee personal information,” or “sensitive customer data.” Then they’ll be discoverable with a Data Catalog search. Tags are not preset. You can use any tag name you want. </br>
-    To learn how to register your data assets, follow the instructions in the [Register data assets](../data-catalog/data-catalog-get-started#register-data-assets) section of the tutorial.
-    There is also a how-to page that provides more information about registering, discovering, annotating and searching data in Azure Data Catalog. For more information, visit [Register data sources in Azure Data Catalog](../data-catalog/data-catalog-how-to-register), which is part of a larger documentation site for the service (the full tutorial can be found under [Get Started with Azure Data Catalog](../data-catalog/data-catalog-get-started) on this same site).
+    To learn how to register your data assets, follow the instructions in the [Register data assets](../data-catalog/data-catalog-get-started-register-data-assets.md) section of the tutorial.
+    There is also a how-to page that provides more information about registering, discovering, annotating and searching data in Azure Data Catalog. For more information, visit [Register data sources in Azure Data Catalog](../data-catalog/data-catalog-how-to-register.md), which is part of a larger documentation site for the service (the full tutorial can be found under [Get Started with Azure Data Catalog](../data-catalog/data-catalog-get-started) on this same site).
     Once you’ve registered your data sources/assets/objects, you can further tag (annotate) them and discover/search for them.
 
 2. **Annotate data sources/assets**
@@ -85,15 +85,15 @@ You can do the exercises or just use the information as a guideline for working 
     In addition, you can add information that shows users how to request access to the data source/asset and documentation for your assets.</br>
     ![Catalog Image with highlighted areas](media/how-to-discover-classify-personal-data-azure/azure-catalog-highlighted.png)
     >[!NOTE]
-To learn how to annotate/tag your data assets, follow the instructions in the [Annotate data assets](../data-catalog/data-catalog-get-started#annotate-data-assets) section of the tutorial. For more information, visit [How to nnotate data sources](../data-catalog/data-catalog-how-to-annotate.md).
+To learn how to annotate/tag your data assets, follow the instructions in the [Annotate data assets](../data-catalog/data-catalog-get-started-annotate-data-assets.md) section of the tutorial. For more information, visit [How to nnotate data sources](../data-catalog/data-catalog-how-to-annotate.md).
 
 3. **Discover/search for data sources/assets**
 Personal data assets can be discovered in Azure Data Catalog through searching and filtering. Basic search will match terms and annotations (tags), and filtering allows you to choose tags, source type, and other specific identifiers to complement the basic search.
 
     ![](media/how-to-discover-classify-personal-data-azure/discovery-search.png)
 
-    To learn how to discover data, follow the instructions in the [Discover data assets](../data-catalog/data-catalog-get-started#discover-data-assets.md) section of the tutorial. You can find personal data by doing a search for the specific tag(s) you set up to identify it, for example “customer personal data,” “employee personal information,” or “sensitive customer data.”
-    For more information, visit [How to discover data sources in Azure Data Catalog](../data-catalog/data-catalog-how-to-discover).
+    To learn how to discover data, follow the instructions in the [Discover data assets](../data-catalog/data-catalog-get-started-discover-data-assets.md) section of the tutorial. You can find personal data by doing a search for the specific tag(s) you set up to identify it, for example “customer personal data,” “employee personal information,” or “sensitive customer data.”
+    For more information, visit [How to discover data sources in Azure Data Catalog](../data-catalog/data-catalog-how-to-discover.md).
 
     Azure Data Catalog doesn’t allow you to access your data, it just helps you track and locate it. Once you’ve located your data, you can connect to it by using the application or tool of your choice, such as Excel or SQL Server Management Studio. For more information, visit the [Connect to data assets](../data-catalog/data-catalog-get-started#connect-to-data-assets) section of the tutorial.
 
@@ -107,7 +107,7 @@ Personal data assets can be discovered in Azure Data Catalog through searching a
 
 [Get started with Azure Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-get-started)
 
-[Supported data sources in Azure Data Catalog](../data-catalog/data-catalog-dsr#list-of-supported-data-sources)
+[Supported data sources in Azure Data Catalog](../data-catalog/data-catalog-dsr#list-of-supported-data-sources.md)
 
 **How do I register, tag (annotate), and discover/search personal data sources,
 assets, and objects using the Azure Data Catalog REST API?**
@@ -149,26 +149,17 @@ This is particularly helpful if you want to find or change personal data for a s
 
 ## Azure SQL Database: data discovery
 
-[Azure SQL
-Database](https://azure.microsoft.com/services/sql-database/?v=16.50) is a
-cloud database that helps developers build and maintain applications. Personal
-data can be found in [Azure SQL
-Database](https://azure.microsoft.com/en-us/services/sql-database/?v=16.50)
-using standard SQL queries. Azure SQL elastic query (preview) enables users to
-perform cross-database queries.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50) is a cloud database that helps developers build and maintain applications. Personal data can be found in [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50)
+using standard SQL queries. Azure SQL elastic query (preview) enables users to perform cross-database queries.
 
-A detailed [SQL
-database](../sql-database/sql-database-technical-overview)
-tutorial explains many aspects of using a SQL database, including how to build
-one and how to run data queries. The following is a summary of the information
-available in the tutorial with links to specific sections.
+A detailed [SQL database](../sql-database/sql-database-technical-overview.md) tutorial explains many aspects of using a SQL database, including how to build one and how to run data queries. The following is a summary of the information available in the tutorial with links to specific sections.
 
 ### How do I build a SQL database?
 
 There are three ways to do it:
 
 -  An Azure SQL database can be created in the [Azure portal](https://portal.azure.com/). In the tutorial, you’ll use a specific
-    set of compute and storage resources within a resource group and logical server. You’ll use sample data from a fictitious company called AdventureWorks. You’ll also create a server-level firewall rule. To learn how to do this, visit the [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started-portal)
+    set of compute and storage resources within a resource group and logical server. You’ll use sample data from a fictitious company called AdventureWorks. You’ll also create a server-level firewall rule. To learn how to do this, visit the [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started-portal.md)
     tutorial.
 
   ![Create Azure SQL Database](media/how-to-discover-classify-personal-data-azure/create-database.png)
@@ -209,16 +200,15 @@ If your database was called MyTable, a sample query for personal information mig
 You’d run the query and then see the results in the **Results** pane.
 
 For more information on how to query a SQL database in the Azure portal, visit
-the [Query the SQL database](../sql-database/sql-database-get-started-portal#query-the-sql-database.md) section of the tutorial.
+the [Query the SQL database](../sql-database/sql-database-get-started-portal-query-the-sql-database.md) section of the tutorial.
 
 ### How do I search for data in SQL database with tools such as SQL Server Management Studio, Visual Studio Code, .NET, Python or others?
 
-You can search for data with your preferred tool using the Azure portal, Azure CLI, or Azure PowerShell. For more information, visit the [Next steps](../sql-database/sql-database-get-started-portal#next-steps) section of the tutorial, choose your preferred tool, and then choose the Azure resource management tool you’d like to use.
+You can search for data with your preferred tool using the Azure portal, Azure CLI, or Azure PowerShell. For more information, visit the [Next steps](../sql-database/sql-database-get-started-portal-next-steps.md) section of the tutorial, choose your preferred tool, and then choose the Azure resource management tool you’d like to use.
 
 ### How do I search for data across multiple databases?
 
-SQL elastic query (preview) enables you to perform cross-database and multiple database queries and return a single result. The [tutorial overview](../sql-database/sql-database-elastic-query-overview#why-use-elastic-queries) includes a detailed description of scenarios and explains the difference between vertical and horizontal database partitioning. Horizontal partitioning is called
-“sharding.”
+SQL elastic query (preview) enables you to perform cross-database and multiple database queries and return a single result. The [tutorial overview](../sql-database/sql-database-elastic-query-overview-why-use-elastic-queries.md) includes a detailed description of scenarios and explains the difference between vertical and horizontal database partitioning. Horizontal partitioning is called “sharding.”
 
   ![Vertical partitioning](media/how-to-discover-classify-personal-data-azure/vertical-partition.png)
 
@@ -226,10 +216,10 @@ SQL elastic query (preview) enables you to perform cross-database and multiple d
 
 The [Next steps](../sql-database/sql-database-elastic-query-overview#next-steps.md) section includes links to more detailed tutorials that explain how to get started, syntax, and sample queries for both types of elastic queries.
 
-To get started, visit the [Azure SQL Database elastic query overview (preview)](../sql-database/sql-database-elastic-query-overview#why-use-elastic-queries.md) page.
+To get started, visit the [Azure SQL Database elastic query overview (preview)](../sql-database/sql-database-elastic-query-overview-why-use-elastic-queries.md) page.
 
 For more detailed tutorials and additional information, visit the tutorial’s [Next
-steps](../sql-database/sql-database-elastic-query-overview#next-steps.md) section.
+steps](../sql-database/sql-database-elastic-query-overview-next-steps.md) section.
 
 Learn more: [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50) (marketing page)
 
@@ -247,7 +237,7 @@ Personal data associated with Hadoop clusters in Azure HDInsight can be imported
 
 #### How do I use Excel Power Query to import Hadoop clusters in Azure HDInsight into Excel?
 
-An HDInsight tutorial will walk you through this entire process. It explains prerequisites, and includes a link to a [Get started with Azure HDInsight](../hdinsight/hdinsight-hadoop-linux-tutorial-get-started) tutorial. Instructions cover Excel 2016 as well as 2013 and 2010 (steps are slightly different for the older versions of Excel). If you don’t have the Excel Power Query add-in, the tutorial shows you how to get it. You’ll start the tutorial in Excel and will need to have an Azure Blob storage account associated
+An HDInsight tutorial will walk you through this entire process. It explains prerequisites, and includes a link to a [Get started with Azure HDInsight](../hdinsight/hdinsight-hadoop-linux-tutorial-get-started.md) tutorial. Instructions cover Excel 2016 as well as 2013 and 2010 (steps are slightly different for the older versions of Excel). If you don’t have the Excel Power Query add-in, the tutorial shows you how to get it. You’ll start the tutorial in Excel and will need to have an Azure Blob storage account associated
 with your cluster.
 
   ![Query in Excel](media/how-to-discover-classify-personal-data-azure/excel.png)
@@ -259,8 +249,7 @@ Source: [Connect Excel to Hadoop by using Power Query](../hdinsight/hdinsight-co
 ## Azure Information Protection: personal data classification for documents and
 email
 
-[Azure Information Protection](https://www.microsoft.com/en-us/cloud-platform/azure-information-protection)
-can help Azure customers apply labels to classify and ensure the protection of internally or externally shared documents and email communications that contain customer or employee personal information. Rules and conditions can be defined automatically or manually, by administrators or by users. For example, if a user is saving a document that includes credit card information, he or she would see a label recommendation that was configured by the administrator.
+[Azure Information Protection](https://www.microsoft.com/en-us/cloud-platform/azure-information-protection) can help Azure customers apply labels to classify and ensure the protection of internally or externally shared documents and email communications that contain customer or employee personal information. Rules and conditions can be defined automatically or manually, by administrators or by users. For example, if a user is saving a document that includes credit card information, he or she would see a label recommendation that was configured by the administrator.
 
 ### How do I try it?
 
@@ -268,9 +257,7 @@ If you’d like to give Azure Information Protection a try to see if it might be
 
 ### How do I deploy it?
 
-If you’d like to deploy Azure Information Protection for your organization,
-visit the [deployment roadmap for classification, labelling, and
-protection](https://docs.microsoft.com/en-us/information-protection/plan-design/deployment-roadmap).
+If you’d like to deploy Azure Information Protection for your organization, visit the [deployment roadmap for classification, labelling, and protection](https://docs.microsoft.com/information-protection/plan-design/deployment-roadmap).
 
 ### Is there anything else I should know?
 
@@ -321,9 +308,9 @@ An introduction to the service
 
 ### Azure Search documentation links:
 
-[What is Azure Search?](../search/search-what-is-azure-search)
+[What is Azure Search?](../search/search-what-is-azure-search.md)
 
-[How full text search works in Azure Search](../search/search-lucene-query-architecture)
+[How full text search works in Azure Search](../search/search-lucene-query-architecture.md)
 
 [Simple query syntax in Azure Search](https://docs.microsoft.com/en-us/rest/api/searchservice/simple-query-syntax-in-azure-search)
 
@@ -339,7 +326,7 @@ DB and data with SQL to find customer and employee personal information.
 
 ## How do I use SQL to query data?
 
-To begin with the basics, visit the [Azure CosmosD DB: How to query using SQL](../cosmos-db/tutorial-query-documentdb)
+To begin with the basics, visit the [Azure CosmosD DB: How to query using SQL](../cosmos-db/tutorial-query-documentdb.md)
 tutorial. The tutorial provides a sample document and two sample SQL queries and results.
 
 For more in-depth guidance on building SQL queries, visit [SQL queries for Azure Cosmos DB Document DB
