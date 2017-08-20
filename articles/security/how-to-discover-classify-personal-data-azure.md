@@ -76,8 +76,8 @@ You can do the exercises or just use the information as a guideline for working 
     In order to search for and identify personal data with Azure Data Catalog, you need to register your data source/assets first. Once you sign in, you’ll launch the registration tool, choose a data source to register and register specific data objects. You can also add tags to help enable search. </br>
     ![Microsoft Azure Data catalog](media/how-to-discover-classify-personal-data-azure/azure-catalog.png) </br>
     Once registered, the data source or asset remains in its existing location, but a copy of the metadata is added to Azure Data Catalog, which allows the user to more easily discover personal data. You can categorize data assets that contain personal information during registration with a tag that distinguishes them as such. You can tag customer and employee personal data separately, too. For example, tag “name,” “Social Security number,” “ID number,” and any others as “customer personal data,” “employee personal information,” or “sensitive customer data.” Then they’ll be discoverable with a Data Catalog search. Tags are not preset. You can use any tag name you want. </br>
-    To learn how to register your data assets, follow the instructions in the [Register data assets](../data-catalog/data-catalog-get-started-register-data-assets.md) section of the tutorial.
-    There is also a how-to page that provides more information about registering, discovering, annotating and searching data in Azure Data Catalog. For more information, visit [Register data sources in Azure Data Catalog](../data-catalog/data-catalog-how-to-register.md), which is part of a larger documentation site for the service (the full tutorial can be found under [Get Started with Azure Data Catalog](../data-catalog/data-catalog-get-started) on this same site).
+    To learn how to register your data assets, follow the instructions in the [Register data assets](../data-catalog/data-catalog-get-started-register.md) section of the tutorial.
+    There is also a how-to page that provides more information about registering, discovering, annotating and searching data in Azure Data Catalog. For more information, visit [Register data sources in Azure Data Catalog](../data-catalog/data-catalog-how-to-register.md), which is part of a larger documentation site for the service (the full tutorial can be found under [Get Started with Azure Data Catalog](../data-catalog/data-catalog-get-started.md) on this same site).
     Once you’ve registered your data sources/assets/objects, you can further tag (annotate) them and discover/search for them.
 
 2. **Annotate data sources/assets**
@@ -85,7 +85,7 @@ You can do the exercises or just use the information as a guideline for working 
     In addition, you can add information that shows users how to request access to the data source/asset and documentation for your assets.</br>
     ![Catalog Image with highlighted areas](media/how-to-discover-classify-personal-data-azure/azure-catalog-highlighted.png)
     >[!NOTE]
-To learn how to annotate/tag your data assets, follow the instructions in the [Annotate data assets](../data-catalog/data-catalog-get-started-annotate-data-assets.md) section of the tutorial. For more information, visit [How to nnotate data sources](../data-catalog/data-catalog-how-to-annotate.md).
+To learn how to annotate/tag your data assets, follow the instructions in the [Annotate data assets section](../data-catalog/data-catalog-get-started.md) section of the tutorial. For more information, visit [How to nnotate data sources](../data-catalog/data-catalog-how-to-annotate.md).
 
 3. **Discover/search for data sources/assets**
 Personal data assets can be discovered in Azure Data Catalog through searching and filtering. Basic search will match terms and annotations (tags), and filtering allows you to choose tags, source type, and other specific identifiers to complement the basic search.
@@ -107,7 +107,7 @@ Personal data assets can be discovered in Azure Data Catalog through searching a
 
 [Get started with Azure Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-get-started)
 
-[Supported data sources in Azure Data Catalog](../data-catalog/data-catalog-dsr#list-of-supported-data-sources.md)
+[Supported data sources in Azure Data Catalog](../data-catalog/data-catalog-dsr.md)
 
 **How do I register, tag (annotate), and discover/search personal data sources,
 assets, and objects using the Azure Data Catalog REST API?**
@@ -200,15 +200,15 @@ If your database was called MyTable, a sample query for personal information mig
 You’d run the query and then see the results in the **Results** pane.
 
 For more information on how to query a SQL database in the Azure portal, visit
-the [Query the SQL database](../sql-database/sql-database-get-started-portal-query-the-sql-database.md) section of the tutorial.
+the [Query the SQL database](../sql-database/sql-database-get-started-portal.md) section of the tutorial.
 
 ### How do I search for data in SQL database with tools such as SQL Server Management Studio, Visual Studio Code, .NET, Python or others?
 
-You can search for data with your preferred tool using the Azure portal, Azure CLI, or Azure PowerShell. For more information, visit the [Next steps](../sql-database/sql-database-get-started-portal-next-steps.md) section of the tutorial, choose your preferred tool, and then choose the Azure resource management tool you’d like to use.
+You can search for data with your preferred tool using the Azure portal, Azure CLI, or Azure PowerShell. For more information, visit the [Next steps](../sql-database/sql-database-get-started-portal-next.md) section of the tutorial, choose your preferred tool, and then choose the Azure resource management tool you’d like to use.
 
 ### How do I search for data across multiple databases?
 
-SQL elastic query (preview) enables you to perform cross-database and multiple database queries and return a single result. The [tutorial overview](../sql-database/sql-database-elastic-query-overview-why-use-elastic-queries.md) includes a detailed description of scenarios and explains the difference between vertical and horizontal database partitioning. Horizontal partitioning is called “sharding.”
+SQL elastic query (preview) enables you to perform cross-database and multiple database queries and return a single result. The [tutorial overview](../sql-database/sql-database-elastic-query-overview.md) includes a detailed description of scenarios and explains the difference between vertical and horizontal database partitioning. Horizontal partitioning is called “sharding.”
 
   ![Vertical partitioning](media/how-to-discover-classify-personal-data-azure/vertical-partition.png)
 
@@ -216,10 +216,10 @@ SQL elastic query (preview) enables you to perform cross-database and multiple d
 
 The [Next steps](../sql-database/sql-database-elastic-query-overview#next-steps.md) section includes links to more detailed tutorials that explain how to get started, syntax, and sample queries for both types of elastic queries.
 
-To get started, visit the [Azure SQL Database elastic query overview (preview)](../sql-database/sql-database-elastic-query-overview-why-use-elastic-queries.md) page.
+To get started, visit the [Azure SQL Database elastic query overview (preview)](../sql-database/sql-database-elastic-query-overview.md) page.
 
 For more detailed tutorials and additional information, visit the tutorial’s [Next
-steps](../sql-database/sql-database-elastic-query-overview-next-steps.md) section.
+steps](../sql-database/sql-database-elastic-query-overview.md) section.
 
 Learn more: [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50) (marketing page)
 
