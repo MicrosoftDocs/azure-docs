@@ -273,7 +273,7 @@ To build on this sample, you can learn more about the [Storage SDK for Java] to 
 <a name="see-also"></a>
 
 ## See Also
-For more information about using Azure with Java, see the [Azure Java Developer Center].
+For more information about using Azure with Java, visit [Azure for Java developers](/java/azure).
 
 <!-- URL List -->
 
