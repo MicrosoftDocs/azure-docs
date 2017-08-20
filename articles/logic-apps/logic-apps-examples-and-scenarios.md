@@ -104,6 +104,10 @@ for example, REST and SOAP.
 * [Scenario: Trigger logic apps with Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Blog: Call SOAP endpoints from logic apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
+## End-to-end scenarios
+
+* [Whitepaper: Enterprise integration end-to-end case management with Azure services, like Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+
 ## Next steps
 
 - [Handle errors and exceptions in logic apps](../logic-apps/logic-apps-exception-handling.md)
