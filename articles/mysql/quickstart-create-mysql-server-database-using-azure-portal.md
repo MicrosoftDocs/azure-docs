@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create Azure Database for MySQL server - Azure portal | Microsoft Docs'
+title: 'Quickstart: Create Azure database for MySQL server - Azure portal | Microsoft Docs'
 description: This article steps you through using the Azure portal to quickly create a sample Azure Database for MySQL server in about five minutes. 
 services: mysql
 author: v-chenyh
@@ -13,25 +13,24 @@ ms.date: 08/15/2017
 ---
 
 # Create an Azure Database for MySQL server by using the Azure portal
-Azure Database for MySQL is a managed service that enables you to run, manage, and scale highly available MySQL databases in the cloud. This Quickstart shows you how to create an Azure Database for MySQL server by using the Azure portal. The process takes about five minutes. 
+Azure Database for MySQL is a managed service that you can use to run, manage, and scale highly available MySQL databases in the cloud. This Quickstart shows you how to create an Azure database for MySQL server in about  five minutes by using the Azure portal.  
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Sign in to Azure
-Open your web browser, and then go to the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+Open your web browser, and then go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ## Create an Azure database for MySQL server
 You create Azure database for MySQL server with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). You create the server within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
 Follow these steps to create an Azure database for MySQL server:
 
-1. In the upper left corner of the Azure portal, select the **New** button (+).
+1. Select the **New** button (+) in the upper-left corner of the  portal.
 
-2. On the **New** page, select **Databases**. 
+2. Select **Databases** > **Azure Database for MySQL**. You can also type **MySQL** in the search box to find the service.
 
-3. On the **Databases** page, select **Azure Database for MySQL**. You can also type **MySQL** in the search box to find the service.
 
-![Azure portal--new--database--MySQL](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
+![Azure database for MySQL option](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
 
 4. Fill out the new server details form with the following information, as shown in the preceding image:
 
@@ -49,24 +48,24 @@ Follow these steps to create an Azure database for MySQL server:
     Pin to dashboard | Check | Enables easy tracking of your server on the front dashboard page of your Azure portal.
 
     > [!IMPORTANT]
-    > The server admin sign-in and password that you specify here are required to sign in to the server and its databases later in this Quickstart. Note this information for later use.
+    > The server admin sign-in and password that you specify here are required to sign in to the server and its databases later in this Quickstart. Remember or record this information for later use.
     > 
 
     ![Azure portal--create MySQL by providing the required form input](./media/quickstart-create-mysql-server-database-using-azure-portal/3_create-server.png)
 
-4.	To provision the server, select **Create**. Provisioning can take up to 20 minutes.
+4.	Select **Create** to provision the server. Provisioning can take up to 20 minutes.
    
-5.	To monitor the deployment process, select **Notifications** on the toolbar (the bell icon).
+5.	Select **Notifications** on the toolbar (the bell icon) to monitor the deployment process.
 
 ## Configure a server-level firewall rule
 
-The Azure Database for MySQL service creates a firewall at the server level. This firewall prevents external applications and tools from connecting to the server and any databases on the server, unless a firewall rule is created to open the firewall for specific IP addresses. 
+The Azure Database for MySQL service creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless a firewall rule is created to open the firewall for specific IP addresses. 
 
-1.	Locate your server after the deployment has finished. If necessary, you can search for it. For example, select **All Resources** from the menu on the left, and type in the server name (such as the example **myserver4demo**) to search for your newly created server. Select the server name that's listed in the search result. The **Overview** page for your server opens and provides options for further configuration.
+1.	 After the deployment finishes, locate your server. If necessary, you can search for it. For example, select **All Resources** from the menu on the left, and type in the server name (such as the example **myserver4demo**) to search for your newly created server. Select the server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
 
 2. On the server page, select **Connection security**.
 
-3.	Under **Firewall rules**, select the blank text box in the **Rule Name** column to begin creating the firewall rule. 
+3.	Under the **Firewall rules** heading, select the blank text box in the **Rule Name** column to begin creating the firewall rule. 
 
     For this Quickstart, let's allow all IP addresses into the server by filling in boxes in each column with the following values:
 
@@ -74,10 +73,10 @@ The Azure Database for MySQL service creates a firewall at the server level. Thi
     ---|---|---
     AllowAllIps |  0.0.0.0 | 255.255.255.255
 
-4. On the upper toolbar of the **Connection security** page, select **Save**. Before you continue, wait until you see the notification showing that the update has finished successfully. 
+4. On the upper toolbar of the **Connection security** page, select **Save**. Wait until the notification appears stating that the update has finished successfully before you continue. 
 
     > [!NOTE]
-    > Connections to Azure Database for MySQL communicate over port 3306. If you're trying to connect from within a corporate network, outbound traffic over port 3306 might not be allowed. If this is the case, you won't be able to connect to your server unless your IT department opens port 3306.
+    > Connections to Azure Database for MySQL communicate over port 3306. If you try to connect from within a corporate network, outbound traffic over port 3306 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 3306.
     > 
 
 ## Get the connection information
@@ -87,12 +86,12 @@ To find these, take the following steps:
 
 1. Open your server's **Overview** page. Make a note of the **Server name** and **Server admin login name**. 
 
-2. Hover your cursor over each field, and the copy icon appears to the right of the text. Click the copy icon as needed to copy the values.
+2. Hover your cursor over each field, and the copy icon appears to the right of the text. Select the copy icon as needed to copy the values.
 
 In this example, the server name is **myserver4demo.mysql.database.azure.com**, and the server admin login is **myadmin@myserver4demo**.
 
 ## Connect to MySQL by using the mysql command-line tool
-There are a number of applications you can use to connect to your Azure Database for MySQL server. 
+There are a number of applications you can use to connect to your Azure database for MySQL server. 
 
 Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) command-line tool to illustrate how to connect to the server. You can also use a web browser and Azure Cloud Shell as described here without installing additional software. If you have the mysql utility installed locally, you can connect from there as well.
 
@@ -102,9 +101,9 @@ Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 
 
     ![Command prompt--mysql command-line example](./media/quickstart-create-mysql-server-database-using-azure-portal/7_connect-to-server.png)
 
-3. At the Cloud Shell prompt, connect to your Azure Database for MySQL server by typing the mysql command line.
+3. At the Cloud Shell prompt, connect to your Azure database for MySQL server by typing the mysql command line at the green prompt.
 
-    Use the following format to connect to an Azure Database for MySQL server with the mysql utility:
+    To connect to an Azure database for MySQL server with the mysql utility, use the following format:
 
     ```bash
     mysql --host <yourserver> --user <server admin login> --password
@@ -122,7 +121,7 @@ Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 
     --user | *server admin login name* |The server admin login username that you supplied when you created the Azure Database for MySQL earlier. If you don't remember the username, follow the steps in the previous section to get the connection information  The format is *username@servername*.
     --password | *wait until prompted* |The same password that you provided when you created the server.  Note that the typed password characters are not shown on the bash prompt when you type them. After you've entered the password, select **Enter.**
 
-   After it's connected, the mysql utility displays a `mysql>` prompt at which you tcan type commands. 
+   After it's connected, the mysql utility displays a `mysql>` prompt at which you can type commands. 
 
    Following is example mysql output:
 
@@ -171,14 +170,14 @@ Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 
     SHOW DATABASES;
     ```
 
-7.  Type `\q`, and then press **Enter** to quit the mysql tool. You can close Azure Cloud Shell after you are done.
+7.  Type `\q`, and then press the **Enter** key to quit the mysql tool. You can close Azure Cloud Shell after you are done.
 
 Now you have connected to the Azure database for MySQL and created a blank user database. Continue to the next section to for a similar exercise. The next exercise connects to the same server by using another common tool, MySQL Workbench.
 
 ## Connect to the server by using the MySQL Workbench GUI tool
 To connect to the server by using the GUI tool MySQL Workbench, take the following steps:
 
-1.	Launch the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
+1.	Open the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
 2.	In the **Setup New Connection** dialog box, enter the following information on the **Parameters** tab:
 
@@ -186,20 +185,20 @@ To connect to the server by using the GUI tool MySQL Workbench, take the followi
 
             | **Setting** | **Suggested value** | **Field description** |
             |---|---|---|
-            |	Connection Name | Demo Connection | A label for this connection. |
-            | Connection Method | Standard (TCP/IP) | Standard (TCP/IP) is sufficient. |
-            | Hostname | *server name* | The server name value that you used when you created the Azure database for MySQL earlier. Our example server is **myserver4demo.mysql.database.azure.com**. Use the fully qualified domain name (**\*.mysql.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information.|
+            |	Connection name | Demo connection | A label for this connection. |
+            | Connection method | Standard (TCP/IP) | Standard (TCP/IP) is sufficient. |
+            | Hostname | *Server name* | The server name value that you used when you created the Azure database for MySQL earlier. Our example server is **myserver4demo.mysql.database.azure.com**. Use the fully qualified domain name (**\*.mysql.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information.|
             | Port | 3306 | The port to use when connecting to Azure Database for MySQL. |
-            | Username |  *server admin login name* | The server admin sign-in information that you supplied when you created the Azure Database for MySQL earlier. Our example username is **myadmin@myserver4demo**. If you don't remember the username, follow the steps in the previous section to get the connection information . The format is *username@servername*.
-            | Password | your password | Select the **Store in Vault...** button to save the password. |
+            | Username |  *Server admin login name* | The server admin sign-in information that you supplied when you created the Azure Database for MySQL earlier. Our example username is **myadmin@myserver4demo**. If you don't remember the username, follow the steps in the previous section to get the connection information . The format is *username@servername*.
+            | Password | *Your password* | Select the **Store in Vault...** button to save the password. |
 
 3. Select **Test Connection** to test whether all parameters are  configured correctly. Then select **OK** to save the connection. 
 
     > [!NOTE]
-    > SSL is enforced by default on your server, and requires extra configuration  to connect successfully. For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md). To disable SSL for this Quickstart, visit the Azure portal. Then select the Connection security page to disable the **Enforce SSL** connection toggle button.
+    > SSL is enforced by default on your server and requires extra configuration  to connect successfully. For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md). To disable SSL for this Quickstart, visit the Azure portal. Then select the Connection security page to disable the **Enforce SSL** connection toggle button.
 
 ## Clean up resources
-You can clean up the resources that  you created in the Quickstart in two ways. You can either delete the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. Or you can delete one server resource if you want to keep the other resources intact.
+Clean up the resources that  you created in the Quickstart in two ways. You can either delete the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. Or  if you want to keep the other resources intact, delete only the one server resource.
 
 > [!TIP]
 > Other Quickstarts in this collection build on this Quickstart. If you plan to continue working Quickstarts, don't clean up the resources that you created in this Quickstart. If you don't plan to continue, use the following steps to delete all the resources that you created with this Quickstart.
@@ -207,18 +206,19 @@ You can clean up the resources that  you created in the Quickstart in two ways. 
 
 To delete the entire resource group including the newly created server, take the following steps:
 
-1.	Locate your resource group in the Azure portal. From the left-hand menu in the Azure portal, select **Resource groups**, and then select the name of your resource group (such as our example, **myresourcegroup**).
+1.	Locate your resource group in the Azure portal. On the menu on the left, select **Resource groups**, and then select the name of your resource group (such as our example, **myresourcegroup**).
 
 2.	On your resource group page, select **Delete**. Then type the name of your resource group (such as our example **myresourcegroup**) in the box to confirm deletion, and then select **Delete**.
 
 Instead, to delete the newly created server, take the following steps:
 
-1.	Locate your server in the Azure portal (if you don't already have it open). From the menu on the left in the Azure portal, select **All resources**, and then search for the server you created.
+1.	Locate your server in the Azure portal if you don't already have it open. From the menu on the left in the Azure portal, select **All resources**. Then search for the server you created.
 
-2.	On the **Overview** page, select the **Delete** button on the top pane.
+2.	On the **Overview** page, select **Delete**. 
+
 ![Azure Database for MySQL--Delete server](./media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
 
-3.	Confirm the name of the server that you want to delete, and show the databases under it that are affected. Type your server name in the box (such as our example **myserver4demo**), and then select **Delete**.
+3.	Confirm the name of the server that you want to delete, and show the databases under it that are affected. Type your server name in the box (such as our example **myserver4demo**). Select **Delete**.
 
 ## Next steps
 
