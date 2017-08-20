@@ -165,7 +165,6 @@
 ### [Media Processing](media-services-scale-media-processing-overview.md)
 #### [Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Streaming Endpoints
 #### [Portal](media-services-portal-scale-streaming-endpoints.md)
 
