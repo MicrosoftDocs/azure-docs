@@ -135,7 +135,7 @@ The following code sample uses a `CloudTable` object to add a single entity to t
             tableBinding.Execute(insertOperation);
         }
 
-For more information about how to use the `CloudTable` object, see [How to use Table Storage from .NET](../storage/storage-dotnet-how-to-use-tables.md). 
+For more information about how to use the `CloudTable` object, see [How to use Table Storage from .NET](../cosmos-db/table-storage-how-to-use-dotnet.md). 
 
 ## <a id="queues"></a>Related topics covered by the queues how-to article
 For information about how to handle table processing triggered by a queue message, or for WebJobs SDK scenarios not specific to table processing, see [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
