@@ -272,8 +272,7 @@
 ### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 
-### [Manage a cluster using XPlat CLI](service-fabric-azure-cli.md)
-### [Manage a cluster using Azure CLI 2.0 commands](service-fabric-azure-cli-2-0.md)
+### [Manage a cluster using Service Fabric CLI](service-fabric-cli.md)
 ### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
 ### Manage and orchestrate cluster resources

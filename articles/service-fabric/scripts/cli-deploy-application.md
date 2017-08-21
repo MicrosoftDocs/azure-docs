@@ -1,6 +1,6 @@
 ﻿---
-title: Azure CLI Script Sample - Deploy application to a cluster
-description: Azure CLI Script Sample - Deploy an application to a Service Fabric cluster.
+title: Service Fabric CLI Script Sample - Deploy application to a cluster
+description: Service Fabric CLI Script Sample - Deploy an application to a Service Fabric cluster.
 services: service-fabric
 documentationcenter: 
 author: Thraka
@@ -22,7 +22,7 @@ ms.custom: mvc
 
 This sample script copies an application package to a cluster image store, registers the application type in the cluster, and creates an application instance from the application type.  If any default services were defined in the application manifest of the target application type, then those services are created at this time.
 
-If needed, install the [Azure CLI](../service-fabric-azure-cli-2-0.md).
+If needed, install the [Service Fabric CLI](../service-fabric-cli.md).
 
 ## Sample script
 
@@ -39,13 +39,13 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [sf cluster select](/cli/azure/sf/cluster#select) | Selects the cluster to work with. |
-| [sf application upload](/cli/azure/sf/application#upload) | Upload the app files and manifests. |
-| [sf application provision](/cli/azure/sf/application#provision) | Register the application on the cluster.|
-| [sf application create](/cli/azure/sf/application#create) | Create an instance of the application and deploy any defined services to the nodes. |
+| [sfctl cluster select](/cli/azure/sf/cluster#select) | Selects the cluster to work with. |
+| [sfctl application upload](/cli/azure/sf/application#upload) | Upload the app files and manifests. |
+| [sfctl application provision](/cli/azure/sf/application#provision) | Register the application on the cluster.|
+| [sfctl application create](/cli/azure/sf/application#create) | Create an instance of the application and deploy any defined services to the nodes. |
 
 ## Next steps
 
-For more information, see the [Azure CLI documentation](../service-fabric-azure-cli-2-0.md).
+For more information, see the [Service Fabric CLI documentation](../service-fabric-cli.md).
 
-Additional Azure CLI samples for Azure Service Fabric can be found in the [Azure CLI samples](../samples-cli.md).
+Additional Azure CLI samples for Azure Service Fabric can be found in the [Service Fabric CLI samples](../samples-cli.md).

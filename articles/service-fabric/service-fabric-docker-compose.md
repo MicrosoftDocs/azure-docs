@@ -115,5 +115,4 @@ Although this model offers flexibility, we are also planning to support a simple
 
 ## Related articles
 
-* [Get started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Get started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+* [Get started with Service Fabric CLI](service-fabric-cli.md)

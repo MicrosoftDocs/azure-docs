@@ -226,4 +226,4 @@ packages), so use password authentication instead.
 
 ## Related articles
 
-* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Getting started with Service Fabric CLI](service-fabric-cli.md)

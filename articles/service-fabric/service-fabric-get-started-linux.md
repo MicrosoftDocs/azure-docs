@@ -116,41 +116,15 @@ If you are using the environment as root, you might need to set the variable wit
 > You might want to add these commands to your ~/.bashrc file so that you don't have to set the environment variable at every login.
 >
 
-## Set up the XPlat Service Fabric CLI
-The [XPlat CLI][azure-xplat-cli-github] includes commands for interacting with Service Fabric entities, including clusters and applications. It is based on Node.js, so [ensure that you have installed Node][install-node] before you proceed with the following instructions:
+## Set up the Service Fabric CLI
 
-1. Clone the GitHub repo to your development machine.
+The [Service Fabric CLI](service-fabric-cli.md) has commands for interacting with Service Fabric entities,
+including clusters and applications. It is based on python, so be sure to have python and pip installed before you
+proceed with the following command:
 
-    ```bash
-    git clone https://github.com/Azure/azure-xplat-cli.git
-    ```
-
-2. Switch to the cloned repo and install the CLI dependencies by using the node package manager (npm).
-
-    ```bash
-    cd azure-xplat-cli
-    npm install
-    ```
-
-3. Create a symlink from the `bin/azure` folder of the cloned repo to `/usr/bin/azure`.
-
-    ```bash
-    sudo ln -s $(pwd)/bin/azure /usr/bin/azure
-    ```
-
-4. Finally, enable auto-completion Service Fabric commands.
-
-    ```bash
-    azure --completion >> ~/azure.completion.sh
-    echo 'source ~/azure.completion.sh' >> ~/.bash_profile
-    source ~/azure.completion.sh
-    ```
-
-### Set up Azure CLI 2.0
-
-As an alternative to the XPlat CLI, there is now a Service Fabric command module included in Azure CLI.
-
-For more information about installing Azure CLI 2.0 and using the Service Fabric commands, see [Get started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md).
+```bash
+pip install sfctl
+```
 
 ## Set up a local cluster
 If the installation is successful, you should be able to start a local cluster.
@@ -252,8 +226,7 @@ sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp
 
 ## Related articles
 
-* [Get started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Get started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+* [Get started with Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Links -->
 

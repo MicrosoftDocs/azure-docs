@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Samples - Service Fabric | Microsoft Docs
-description: Azure CLI Samples - Service Fabric
+title: Service Fabric CLI Samples - Service Fabric | Microsoft Docs
+description: Service Fabric CLI Samples - Service Fabric
 services: service-fabric
 documentationcenter: service-fabric
 author: Thraka
@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Azure PowerShell Samples
 
-The following table includes links to [Azure CLI](service-fabric-azure-cli-2-0.md) scripts samples that manage Service Fabric clusters, applications, and services.
+The following table includes links to [Service Fabric CLI](service-fabric-cli.md) scripts samples that manage Service Fabric clusters, applications, and services.
 
 | | |
 |-|-|
