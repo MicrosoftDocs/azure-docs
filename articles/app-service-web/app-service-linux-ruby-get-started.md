@@ -54,7 +54,7 @@ rails server
 	
 Using your web browser, navigate to `http://localhost:3000` to test the app locally.	
 
-    ![Hello-world](./media/app-service-linux-ruby-get-started/hello-world.png)
+![Hello-world](./media/app-service-linux-ruby-get-started/hello-world.png)
 
 ## Modify app to display welcome message
 
@@ -73,15 +73,15 @@ Open *~/workspace/hello-world/app/controllers/application_controller.rb* for edi
 
 Your app is now configured. Using your web browser, navigate to `http://localhost:3000` to confirm the root landing page.
 
-	![Hello World configured](./media/app-service-linux-ruby-get-started/hello-world-configured.png)
+![Hello World configured](./media/app-service-linux-ruby-get-started/hello-world-configured.png)
 
 ## Create a Ruby web app on Azure
 
-Use the `az appservice create` command to create an app service plan for your web app. Then `az webapp create` command creates the web app that uses the newly created service plan. 
+Use the `az appservice create` command to create an app service plan for your web app. Then `az webapp create` command creates the web app that uses the newly created service plan. When following the tutorial, replace `<app name>` with a unique app name.
  
 ```AzureCLI
   az appservice create --name myAppServicePlan --resource-group myResourceGroup --is-linux
-  az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name hello-world --runtime "ruby|2.3" --deployment-local-git
+  az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "ruby|2.3" --deployment-local-git
 ```
 
 Once the web app is created, an **Overview** page is available to view. Navigate to it. The following splash page is displayed:
@@ -94,14 +94,15 @@ Once the web app is created, an **Overview** page is available to view. Navigate
 Use Git to deploy the Ruby application to Azure. The web app already has a Git deployment configured. You can retrieve the deployment URL by issuing an `az webapp deployment` command.  
 
 ```bash
-az webapp deployment source show --name myWebApp --resource-group myResourceGroup
+az webapp deployment source show --name <app name> --resource-group myResourceGroup
 ```
 
 Notice that the Git URL has the following form based on your web app name:
 
 https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 
-> [!NOTE] The deployment credentials are already set up for this tutorial. Review the document showing how to  [configure deployment credentials](./app-service-deployment-credentials) for more information.
+> [!NOTE] The deployment credentials are already set up for this tutorial. 
+> Review the document showing how to [configure deployment credentials](./app-service-deployment-credentials.md) for more information.
 >
 
 Run the following commands to deploy the local application to your Azure website:
@@ -126,13 +127,13 @@ remote: Running post deployment command(s)...
 remote: Deployment successful.
 To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
   579ccb....2ca5f31  master -> master
-myuser@ubuntu1234:~workspace/hello-world$
+myuser@ubuntu1234:~workspace/<app name>$
 ```
 
 Once the deployment has completed, restart your web app for the deployment to take effect by using the `az webapp restart` command, as shown here:
 
 ```AzureCLI 
-az webapp restart --name "hello-world" --resource-group "myResourceGroup"
+az webapp restart --name <app name> --resource-group myResourceGroup
 ```
 
 Navigate to your site and verify the results.
