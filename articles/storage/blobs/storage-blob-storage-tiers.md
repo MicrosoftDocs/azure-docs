@@ -21,7 +21,7 @@ ms.author: mihauss
 
 ## Overview
 
-Azure Storage offers three storage tiers for Blob object storage so that you can store your data most cost-effectively depending on how you use it. The Azure **hot storage tier** is optimized for storing data that is accessed frequently. The Azure **cool storage tier** is optimized for storing data that is infrequently accessed and stored for at least a month. The [archive storage tier (preview)](https://azure.microsoft.com/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering) is optimized for storing data that is rarely accessed and stored for at least six months with flexible latency requirements (on the order of hours). The *archive* storage tier can only be used on the blob level at this time, and not on the whole storage account. Data in the cool storage tier can tolerate slightly lower availability, but still requires high durability and similar time-to-access and throughput characteristics as hot data. For cool and archive data, a slightly lower availability SLA and higher access costs are acceptable trade-offs for much lower storage costs.
+Azure Storage offers three storage tiers for Blob object storage so that you can store your data most cost-effectively depending on how you use it. The Azure **hot storage tier** is optimized for storing data that is accessed frequently. The Azure **cool storage tier** is optimized for storing data that is infrequently accessed and stored for at least a month. The [archive storage tier (preview)](https://azure.microsoft.com/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering) is optimized for storing data that is rarely accessed and stored for at least six months with flexible latency requirements (on the order of hours). The *archive* storage tier can only be used on the blob level, and not on the whole storage account. Data in the cool storage tier can tolerate slightly lower availability, but still requires high durability and similar time-to-access and throughput characteristics as hot data. For cool and archive data, a slightly lower availability SLA and higher access costs are acceptable trade-offs for much lower storage costs.
 
 Today, data stored in the cloud is growing at an exponential pace. To manage costs for your expanding storage needs, it's helpful to organize your data based on attributes like frequency-of-access and planned retention period. Data stored in the cloud can be different in terms of how it is generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime. Some data is accessed frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored.
 
@@ -34,7 +34,7 @@ Each of these data access scenarios benefits from a differentiated tier of stora
 > [!NOTE]
 > Blob storage accounts support only block and append blobs, and not page blobs.
 
-Blob storage accounts expose the **Access Tier** attribute, which allows you to specify the storage tier as **Hot** or **Cool** depending on the data stored in the account. If there is a change in the usage pattern of your data, you can also switch between these storage tiers at any time. The new Archive tier can only be applied at the blob level at this time.
+Blob storage accounts expose the **Access Tier** attribute, which allows you to specify the storage tier as **Hot** or **Cool** depending on the data stored in the account. If there is a change in the usage pattern of your data, you can also switch between these storage tiers at any time. The new Archive tier can only be applied at the blob level.
 
 > [!NOTE]
 > Changing the storage tier may result in additional charges. See the [Pricing and Billing](#pricing-and-billing) section for more details.
@@ -319,7 +319,7 @@ For more details, see [Get Started with Azure Blob storage](storage-dotnet-how-t
 
 4. **Can I store objects in both storage tiers in the same account?**
    
-    The *'Access Tier'* attribute indicates the value of the storage tier set at an account level and applies to all objects in that account. You cannot set the access tier attribute at an object level.
+    The *'Access Tier'* attribute indicates the value of the storage tier set at an account level and applies to all objects in that account. However, the new blob-level tiering feature will allow you to set the access tier on specific blobs, and this will override the setting on the account. 
 
 5. **Can I change the storage tier of my Blob storage account?**
    
