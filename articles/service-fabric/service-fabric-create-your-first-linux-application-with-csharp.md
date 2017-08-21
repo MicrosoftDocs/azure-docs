@@ -41,10 +41,12 @@ Service Fabric provides scaffolding tools which will help you create a Service F
   sudo apt install nodejs-legacy
   ```
 2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
+
   ```bash
   sudo npm install -g yo
   ```
 3. Install the Service Fabric Yeo Java application generator from NPM
+
   ```bash
   sudo npm install -g generator-azuresfcsharp
   ```
