@@ -41,7 +41,7 @@ Alternatively, you could look in the [Azure Quickstart Templates GitHub repo](ht
 
 ## Next steps
 
-For more information on managed disks in general, see [this article](../storage/storage-managed-disks-overview.md).
+For more information on managed disks in general, see [this article](../virtual-machines/windows/managed-disks-overview.md).
 
 To see how to convert a Resource Manager template to provision scale sets with managed disks, see [this article](./virtual-machine-scale-sets-convert-template-to-md.md). The same modifications to the Resource Manager templates apply to the Azure REST API as well.
 

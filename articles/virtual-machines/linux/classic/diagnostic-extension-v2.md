@@ -149,7 +149,7 @@ Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExten
 
 ## Review your data
 
-The performance and diagnostic data are stored in an Azure Storage table. Review [How to use Azure Table Storage from Ruby](../../../storage/storage-ruby-how-to-use-table-storage.md) to learn how to access the data in the storage table by using Azure CLI scripts.
+The performance and diagnostic data are stored in an Azure Storage table. Review [How to use Azure Table Storage from Ruby](../../../cosmos-db/table-storage-how-to-use-ruby.md) to learn how to access the data in the storage table by using Azure CLI scripts.
 
 In addition, you can use following UI tools to access the data:
 
