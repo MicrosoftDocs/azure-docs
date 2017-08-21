@@ -62,7 +62,7 @@ az vm show -n $vmName -g $rgName --query storageProfile.dataDisks[*].managedDisk
 
 #Update the sku of the OS disk
 az vm show -n $vmName -g $rgName --query storageProfile.osDisk.managedDisk -o tsv \
-| awk -v sku=$sku '{system("az disk update --sku "sku" --ids "$1)}
+| awk -v sku=$sku '{system("az disk update --sku "sku" --ids "$1)}'
 
 az vm start --name $vmName --resource-group $rgName
 

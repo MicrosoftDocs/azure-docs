@@ -79,7 +79,7 @@ This console app connects to your IoT Hub to invoke the direct method and read t
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
       <type>jar</type>
     </dependency>
     ```
@@ -220,7 +220,7 @@ In this section, you create a Java console app that simulates a device. The app 
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     ```
 

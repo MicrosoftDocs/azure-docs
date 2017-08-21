@@ -240,14 +240,14 @@ ms.custom: H1Hack27Feb2017
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-3-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
-[storage-azure-cli]:../../../storage/storage-azure-cli.md
-[storage-azure-cli-copy-blobs]:../../../storage/storage-azure-cli.md#copy-blobs
-[storage-introduction]:../../../storage/storage-introduction.md
-[storage-powershell-guide-full-copy-vhd]:../../../storage/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../../storage/storage-premium-storage.md
-[storage-redundancy]:../../../storage/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/storage-scalability-targets.md
-[storage-use-azcopy]:../../../storage/storage-use-azcopy.md
+[storage-azure-cli]:../../../storage/common/storage-azure-cli.md
+[storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
+[storage-introduction]:../../../storage/common/storage-introduction.md
+[storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
+[storage-premium-storage-preview-portal]:../../../storage/common/storage-premium-storage.md
+[storage-redundancy]:../../../storage/common/storage-redundancy.md
+[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
@@ -519,7 +519,7 @@ Azure Resource Manager allows you to provision your applications using a declara
 
 More information about using Resource Manager templates can be found here:
 
-* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI][virtual-machines-linux-cli-deploy-templates]
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI][../../linux/create-ssh-secured-vm-from-template.md]
 * [Manage virtual machines using Azure Resource Manager and PowerShell][virtual-machines-deploy-rmtemplates-powershell]
 * <https://azure.microsoft.com/documentation/templates/>
 
@@ -844,7 +844,7 @@ the same functionality found in the Azure portal.
 For information about installation, configuration and how to use CLI commands to accomplish Azure tasks see
 
 * [Install the Azure CLI][xplat-cli]
-* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI][virtual-machines-linux-cli-deploy-templates]
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI][../../linux/create-ssh-secured-vm-from-template.md]
 * [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 Also read chapter [Azure CLI for Linux VMs][deployment-guide-4.5.2] in the [Deployment Guide][planning-guide] on how to use Azure CLI to deploy the Azure Monitoring Extension for SAP.
