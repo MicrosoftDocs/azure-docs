@@ -30,7 +30,7 @@
 
 ## Storage security
 ### [Data security and encryption best practices](azure-security-data-encryption-best-practices.md)
-### [Storage security guide](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [Storage security guide](../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Compute security
 ### [Best practices for Azure VMs](azure-security-best-practices-vms.md)

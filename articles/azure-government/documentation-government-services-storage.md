@@ -43,17 +43,17 @@ To view the current secondary region of your storage account through the Azure p
 
 | Feature | USGov Virginia | USGov Iowa | USGov Arizona | USGov Texas | USDoD East | USDoD Central| 
 | --- | --- | --- | --- | --- | --- | --- |
-| [Blob Storage](../storage/storage-introduction.md#blob-storage) |GA |GA |GA |GA |GA |GA |
-| [Table Storage](../storage/storage-introduction.md#table-storage) |GA  |GA |GA |GA |GA |GA |
-| [Queue Storage](../storage/storage-introduction.md#queue-storage) |GA |GA |GA |GA |GA |GA |
-| [File Storage](../storage/storage-introduction.md#file-storage) |GA |GA |GA |GA |GA |GA |
-| [Hot/Cool Blob Storage](../storage/storage-blob-storage-tiers.md) |- |- |GA |GA |- |- |
-| [Locally-redundant Storage (LRS)](../storage/storage-introduction.md#replication-for-durability-and-high-availability) |GA |GA |GA |GA |GA |GA |
-| [Geo-redundant Storage (GRS)](../storage/storage-introduction.md#replication-for-durability-and-high-availability) |GA |GA |GA |GA |GA |GA |
-| [Read Access geo-redundant Storage (RA-GRS)](../storage/storage-introduction.md#replication-for-durability-and-high-availability) |GA |GA |GA |GA |GA |GA |
-| [Zone-redundant Storage (ZRS)](../storage/storage-introduction.md#replication-for-durability-and-high-availability) |- |GA |GA |GA |GA |GA |
-| [Storage Service Encryption](../storage/storage-service-encryption.md) |GA |GA |GA |GA |GA |GA |
-| [Premium Storage](../storage/storage-premium-storage.md) |GA |- |GA |GA |GA |GA | 
+| [Blob Storage](../storage/common/storage-introduction.md#blob-storage) |GA |GA |GA |GA |GA |GA |
+| [Table Storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |GA |GA |GA |GA |
+| [Queue Storage](../storage/common/storage-introduction.md#queue-storage) |GA |GA |GA |GA |GA |GA |
+| [File Storage](../storage/common/storage-introduction.md#file-storage) |GA |GA |GA |GA |GA |GA |
+| [Hot/Cool Blob Storage](../storage/blobs/storage-blob-storage-tiers.md) |- |- |GA |GA |- |- |
+| [Locally-redundant Storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) |GA |GA |GA |GA |GA |GA |
+| [Geo-redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) |GA |GA |GA |GA |GA |GA |
+| [Read Access geo-redundant Storage (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) |GA |GA |GA |GA |GA |GA |
+| [Zone-redundant Storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) |- |GA |GA |GA |GA |GA |
+| [Storage Service Encryption](../storage/common/storage-service-encryption.md) |GA |GA |GA |GA |GA |GA |
+| [Premium Storage](../storage/common/storage-premium-storage.md) |GA |- |GA |GA |GA |GA | 
 | [StorSimple](../storsimple/storsimple-ova-overview.md) |GA |GA |GA |GA |GA |GA |
 
 ### Variations
@@ -67,7 +67,7 @@ The URLs for storage accounts in Azure Government are different:
 | File Storage |*.file.core.windows.net |*.file.core.usgovcloudapi.net | 
 
 > [!NOTE]
-> All your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage/storage-configure-connection-string.md). 
+> All your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage/common/storage-configure-connection-string.md). 
 >
 >
 
@@ -104,7 +104,7 @@ With Import/Export jobs for USGov Arizona or USGov Texas, the mailing address is
 
 For DoD L5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions. 
 
-For all jobs, it is recommended to rotate your storage account keys once the job is complete to remove any access granted during the process - [Managing storage account](../storage/storage-create-storage-account.md#manage-your-storage-account)
+For all jobs, it is recommended to rotate your storage account keys once the job is complete to remove any access granted during the process - [Managing storage account](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys)
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
