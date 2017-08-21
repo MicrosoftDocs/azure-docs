@@ -1,5 +1,5 @@
 ---
-title: Customize web application firewall rules in Azure Application Gateway--PowerShell | Microsoft Docs
+title: Customize web application firewall rules in Azure Application Gateway - PowerShell | Microsoft Docs
 description: This article provides information on how to customize web application firewall rules in Application Gateway with PowerShell.
 documentationcenter: na
 services: application-gateway
@@ -25,7 +25,7 @@ ms.author: gwallace
 > * [**PowerShell**](application-gateway-customize-waf-rules-powershell.md)
 > * [**Azure CLI 2.0**](application-gateway-customize-waf-rules-cli.md)
 
-Azure Application Gateway web application firewall (WAF) provides protection for web applications. These protections are provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS) set of rules. Some rules can cause false positives and block real traffic. For this reason, Application Gateway provides the capability to customize rule groups and rules on a WAF-enabled application gateway. For more information on the specific rule groups and rules, see [List of web application firewall CRS Rule groups and rules](application-gateway-crs-rulegroups-rules.md).
+Azure Application Gateway web application firewall (WAF) provides protection for web applications. These protections are provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). Some rules can cause false positives and block real traffic. For this reason, Application Gateway provides the capability to customize rule groups and rules on a WAF-enabled application gateway. For more information on the specific rule groups and rules, see [List of web application firewall CRS Rule groups and rules](application-gateway-crs-rulegroups-rules.md).
 
 ## View rule groups and rules
 
@@ -39,7 +39,7 @@ Enter the following example command to view the rule groups:
 Get-AzureRmApplicationGatewayAvailableWafRuleSets
 ```
 
-The following is a truncated response from the preceding command:
+The following output is a truncated response from the preceding command:
 
 ```
 OWASP (Ver. 3.0):
@@ -79,7 +79,7 @@ OWASP (Ver. 2.2.9):
 
 ## Disable rules
 
-Enter the following example command to disable rules `910018` and `910017` on an application gateway:
+Enter the following example commands to disable rules `910018` and `910017` on an application gateway:
 
 ```azurecli
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
