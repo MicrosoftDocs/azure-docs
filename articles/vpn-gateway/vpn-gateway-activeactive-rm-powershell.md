@@ -371,6 +371,8 @@ The last section will describe how you can configure an existing Azure VPN gatew
 > Please note that the active-active mode uses only the following SKUs: 
   * VpnGw1, VpnGw2, VpnGw3
   * HighPerformance (for old legacy SKUs)
+  
+  This example shows how to upgrade one of the legacy (old SKUs) of an already created VPN gateway to HighPerformance in order to create an active-active gateway.
 > 
 > 
 
