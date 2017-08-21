@@ -49,56 +49,33 @@
     href: cli-samples.md
 - name: Concepts
   items:
+  - name: Azure Resource Manager
+    href: resource-manager.md
   - name: Regions and availability
     href: regions-and-availability.md
+  - name: VM types and sizes
+    item: sizes.md
+  - name: Maintenance and updates
+    href: maintenance-and-updates.md
   - name: Storage
-    href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    href: azure-vm-storage-overview.md
   - name: Networking
-    href: network-overview.md
-  - name: VM Scale Sets
-    href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    href: azure-vm-network-overview.md
+  - name: Auto-scale applications
+    href: auto-scale-overview.md
+  - name: Infrastructure automation
+    href: infrastructure-automation.md
   - name: Containers
     href: containers.md
-  - name: Resource Manager
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    items:
-    - name: Deployment models
-      href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Templates for VMs
-      href: template-description.md
-  - name: Azure Windows agent
-    href: agent-user-guide.md
-  - name: Azure Security Center
-    href: ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Disaster recovery
-    href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Planned maintenance
-    href: planned-maintenance.md
-  - name: VM sizes
-    href: sizes.md
-    items:
-    - name: General purpose
-      href: sizes-general.md
-    - name: Compute optimized
-      href: sizes-compute.md
-    - name: Memory optimized
-      href: sizes-memory.md
-    - name: Storage optimized
-      href: sizes-storage.md
-    - name: GPU optimized
-      href: sizes-gpu.md
-      items:
-      - name: GPU drivers
-        href: n-series-driver-setup.md
-    - name: High performance compute
-      href: sizes-hpc.md
-    - name: Azure compute units (ACU)
-      href: acu.md
-    - name: Compute benchmark scores
-      href: compute-benchmark-scores.md
+  - name: Security
+    href: security.md
+  - name: Backup and recovery
+    href: backups-recovery.md
+  - name: High performance computing
+    href: hpc.md
   - name: Deployment considerations
     items:
-    - name: Example basic deployment
+    - name: Infrastructure guidelines
       href: infrastructure-example.md
 - name: How-to guides
   items:
