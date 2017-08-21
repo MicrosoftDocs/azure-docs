@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: functions
 ms.date: 04/11/2017
-ms.author: cfowler, glenga
+ms.author: glenga
 ms.custom: mvc
 ---
 # Azure CLI Samples

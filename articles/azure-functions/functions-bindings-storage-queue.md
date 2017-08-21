@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: donnam, glenga
+ms.author: glenga
 
 ---
 # Azure Functions Queue Storage bindings
