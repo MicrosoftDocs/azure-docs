@@ -1,53 +1,30 @@
 ---
-title: Create your first Jenkins Master on a Linux (Ubuntu) VM on Azure
-description: Leverage the solution template to deploy Jenkins.
-services: app-service\web
-documentationcenter: ''
+title: Create a Jenkins server on Azure
+description: Install Jenkins on an Azure Linux virtual machine from the Jenkins solution template.
 author: mlearned
 manager: douge
-editor: ''
-
-ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: multiple
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: hero-article
-ms.date: 6/7/2017
+ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ---
 
-# Create your first Jenkins Master on a Linux (Ubuntu) VM on Azure
+# Create a Jenkins server on an Azure Linux VM using the Azure Portal
 
-This quickstart shows how to install the latest stable Jenkins version on a Linux (Ubuntu 14.04 LTS) VM along with the tools and plugins configured to work with Azure. The tools include:
-<ul>
-<li>Git for source control</li>
-<li>Azure credential plugin for connecting securely</li>
-<li>Azure VM Agents plugin for elastic build, test, and continuous integration</li>
-<li>Azure Storage plugin for storing artifacts</li>
-<li>Azure CLI to deploy apps using scripts</li>
-</ul>
+This quickstart shows how to install Jenkins on an Ubuntu Linux VM with the tools and plugins configured to work with Azure. When you're finished, you'll have a Jenkins server running in Azure building code from a [GitHub](https://github.com).
 
-In this tutorial you learn how to:
+## Prerequisites
 
-> [!div class="checklist"]
-> * Create a free Azure account.
-> * Create a Jenkins Master on an Azure VM with a solution template. 
-> * Perform the initial configuration for Jenkins.
-> * Install suggested plugins.
+* An Azure subscription
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create the VM in Azure by deploying the solution template for Jenkins
+## Create the Jenkins VM from the solution template
 
-Azure quickstart templates allow you to quickly and reliably deploy complex technology on Azure.  Azure Resource Manager allows you to provision your applications using a [declarative template.](https://azure.microsoft.com/en-us/resources/templates/?term=jenkins) In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application during every stage of the application lifecycle.
-
-View [plans and pricing](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview) information for this template to understand cost options.
-
-Go to [The marketplace image for Jenkins](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview), click **GET IT NOW**  
-
-In the Azure portal, click **Create**.  This template requires the use of Resource Manager so the template model dropdown is disabled.
+Go to [The marketplace image for Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview) and select  **GET IT NOW** from the left hand side of the page. Review the pricing details and select **Continue** to open the configuration page in the Azure portal. Select **Create** to start configuring the Jenkins VM. 
    
 ![Azure portal dialog](./media/install-jenkins-solution-template/ap-create.png)
 
@@ -55,63 +32,26 @@ In the **Configure basic settings** tab:
 
 ![Configure basic settings](./media/install-jenkins-solution-template/ap-basic.png)
 
-* Provide a name to your Jenkins instance.
-* Select a VM disk type.  For production workloads, choose a larger VM and SSD for better performance.  You can read more about Azure disk types [here.](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage)
-* User name: must meet length requirements, and must not include reserved words or unsupported characters. Names like "admin" are not allowed.  For more information, see [here](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq) for user name and password requirements.
-* Authentication type: create an instance that is secured by a password or [SSH public key](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). If you use a password, it must satisfy 3 of the following requirements: one lower case character, one upper case character, one number, and one special character.
-* Keep Jenkins release type as **LTS**
-* Select a subscription.
-* Create a resource group or use an existing one that is emplty. 
-* Select a location.
+* Use **Jenkins** for the name of your server.
+* Select **SSD** for VM disk type.
+* **User name**: must meet length requirements, and must not include reserved words or unsupported characters. Names like "admin" are not allowed.  For more information, see [here](/azure/virtual-machines/windows/faq) for user name and password requirements.
+* Select **Password** as the **Authentication type** and enter a password. The password must have an upper case character, a number, and one special character.
+* Use **myJenkinsResourceGroup** for the **Resource Group**.
+* Choose the **East US** [Azure region](https://azure.microsoft.com/regions/) from the **Location** drop-down.
 
-In the **Configure additional options** tab:
+Select **OK** to proceed to the **Configure additional options** tab.
 
 ![Set up additional options](./media/install-jenkins-solution-template/ap-addtional.png)
 
-* Provide a domain name label to uniquely identify the Jenkins master.
+* Enter a unique domain name to identify the Jenkins server in DNS.
 
-Click **OK** to go to the next step. 
+Select **OK**. Once validation passes, select **OK** again from the **Summary** tab. Finally, select **Purchase** to create the Jenkins VM. When your server is ready, you'll get a notification in the Portal:   
 
-Once validation passes, click **OK** to download the template and parameters. 
-
-Next, select **Purchase** to provision all the resources.
-
-## Setup SSH port forwarding
-
-By default the Jenkins instance is using the http protocol and listens on port 8080. Users shouldn't authenticate over unsecured protocols.
-	
-Set up port forwarding to view the Jenkins UI on your local machine.
-
-### If you are using Windows:
-
-Install PuTTY and run this command if you use password to secure Jenkins:
-```
-putty.exe -ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
-```
-* To log in, enter the password.
-
-![To log in, enter the password.](./media/install-jenkins-solution-template/jenkins-pwd.png)
-
-If you use SSH, run this command:
-```
-putty -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
-```
-
-### If you are using Linux or Mac:
-
-If you use a password to secure your Jenkins master, run this command:
-```
-ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
-```
-* To log in, enter the password.
-
-If you use SSH, run this command:
-```
-ssh -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
-```
+![Jenkins is ready notification](./media/install-jenkins-solution-template/jenkins-deploy-notification-ready.png)
 
 ## Connect to Jenkins
-After you have started your tunnel, navigate to http://localhost:8080/ on your local machine.
+
+Navigate to http://<jenkins_domain>.eastus.cloudapp.azure.com:8080/ on from your web browser.
 
 Unlock the Jenkins dashboard for the first time with the initial admin password.
 
