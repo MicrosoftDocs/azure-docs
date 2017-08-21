@@ -4,7 +4,7 @@ description: Description of Microsoft Azure Active Directory licensing, how it w
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
-author: curtand
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/24/2017
-ms.author: curtand
+ms.author: jeffgilb
 
 ms.custom: oldportal;it-pro;H1Hack27Feb2017
 
