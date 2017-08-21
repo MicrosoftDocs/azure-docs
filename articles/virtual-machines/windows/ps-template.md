@@ -196,11 +196,11 @@ Deploy the template using the parameters:
 ```powershell
 $templatePath = "https://" + $storageName + ".blob.core.windows.net/templates/CreateVMTemplate.json"
 $parametersPath = "https://" + $storageName + ".blob.core.windows.net/templates/Parameters.json"
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "myDeployment" -TemplateUri $templatePath -TemplateParameterUri $parameterPath 
+New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "myDeployment" -TemplateUri $templatePath -TemplateParameterUri $parametersPath 
 ```
 
 > [!NOTE]
-> You can also deploy templates and parameters from local files. To learn more, see [Using Azure PowerShell with Azure Storage](../../storage/storage-powershell-guide-full.md).
+> You can also deploy templates and parameters from local files. To learn more, see [Using Azure PowerShell with Azure Storage](../../storage/common/storage-powershell-guide-full.md).
 
 ## Next Steps
 

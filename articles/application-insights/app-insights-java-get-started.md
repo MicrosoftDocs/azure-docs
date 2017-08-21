@@ -1,4 +1,4 @@
----
+﻿---
 title: Java web app analytics with Azure Application Insights | Microsoft Docs
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Get started with Application Insights in a Java web project
@@ -383,7 +383,7 @@ You'll get charts of response times, plus email notifications if your site goes 
 * Write [custom telemetry](app-insights-api-custom-events-metrics.md) to track usage in the browser or at the server.
 * Create [dashboards](app-insights-dashboards.md) to bring together the key charts for monitoring your system.
 * Use  [Analytics](app-insights-analytics.md) for powerful queries over telemetry from your app
-* For more information, see the [Java Developer Center](/develop/java/).
+* For more information, visit [Azure for Java developers](/java/azure).
 
 <!--Link references-->
 

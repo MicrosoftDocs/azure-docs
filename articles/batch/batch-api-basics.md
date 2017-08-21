@@ -42,7 +42,7 @@ The following high-level workflow is typical of nearly all applications and serv
 The following sections discuss these and the other resources of Batch that enable your distributed computational scenario.
 
 > [!NOTE]
-> You need a [Batch account](#account) to use the Batch service. Most Batch solutions also use an [Azure Storage][azure_storage] account for file storage and retrieval. Batch currently supports only the **general-purpose** storage account type, as described in step 5 of [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
+> You need a [Batch account](#account) to use the Batch service. Most Batch solutions also use an [Azure Storage][azure_storage] account for file storage and retrieval. Batch currently supports only the **general-purpose** storage account type, as described in step 5 of [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 >
 >
 
@@ -94,22 +94,23 @@ To decide which pool allocation mode to use, consider which best fits your scena
 
 The following table compares the Batch Service and User Subscription pool allocation modes.
 
-| **Pool allocation mode:**                 | **Batch Service**                                                                                       | **User Subscription**                                                              |
+| **Pool allocation mode**                 | **Batch Service**                                                                                       | **User Subscription**                                                              |
 |-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Pools are allocated in:**               | An Azure-managed subscription                                                                           | The user subscription in which the Batch account is created                        |
-| **Supported configurations:**             | <ul><li>Cloud Service Configuration</li><li>Virtual Machine Configuration (Linux and Windows)</li></ul> | <ul><li>Virtual Machine Configuration (Linux and Windows)</li></ul>                |
-| **Supported VM images:**                  | <ul><li>Azure Marketplace images</li></ul>                                                              | <ul><li>Azure Marketplace images</li><li>Custom images</li></ul>                   |
-| **Supported compute node types:**         | <ul><li>Dedicated nodes</li><li>Low-priority nodes</li></ul>                                            | <ul><li>Dedicated nodes</li></ul>                                                  |
-| **Supported authentication:**             | <ul><li>Shared Key</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
-| **Azure Key Vault required:**             | No                                                                                                      | Yes                                                                                |
-| **Core quota:**                           | Determined by Batch core quota                                                                          | Determined by subscription core quota                                              |
-| **Azure Virtual Network (Vnet) support:** | Pools created with the Cloud Service Configuration                                                      | Pools created with the Virtual Machine Configuration                               |
-| **Vnet deployment model supported:**      | Vnets created with classic deployment model                                                             | Vnets created with either the classic deployment model or Azure   Resource Manager |
+| **Pools are allocated in**               | An Azure-managed subscription                                                                           | The user subscription in which the Batch account is created                        |
+| **Supported configurations**             | <ul><li>Cloud Service Configuration</li><li>Virtual Machine Configuration (Linux and Windows)</li></ul> | <ul><li>Virtual Machine Configuration (Linux and Windows)</li></ul>                |
+| **Supported VM images**                  | <ul><li>Azure Marketplace images</li></ul>                                                              | <ul><li>Azure Marketplace images</li><li>Custom images</li></ul>                   |
+| **Supported compute node types**         | <ul><li>Dedicated nodes</li><li>Low-priority nodes</li></ul>                                            | <ul><li>Dedicated nodes</li></ul>                                                  |
+| **Supported authentication**             | <ul><li>Shared Key</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
+| **Azure Key Vault required**             | No                                                                                                      | Yes                                                                                |
+| **Core quota**                           | Determined by Batch core quota                                                                          | Determined by subscription core quota                                              |
+| **Azure Virtual Network (Vnet) support** | Pools created with the Cloud Service Configuration                                                      | Pools created with the Virtual Machine Configuration                               |
+| **Vnet deployment model supported**      | Vnets created with classic deployment model                                                             | Vnets created with either the classic deployment model or Azure   Resource Manager |
+
 ## Azure Storage account
 
 Most Batch solutions use Azure Storage for storing resource files and output files.  
 
-Batch currently supports only the general-purpose storage account type, as described in step 5 of [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md). Your Batch tasks (including standard tasks, start tasks, job preparation tasks, and job release tasks) must specify resource files that reside in general-purpose storage accounts.
+Batch currently supports only the general-purpose storage account type, as described in step 5 of [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/common/storage-create-storage-account.md). Your Batch tasks (including standard tasks, start tasks, job preparation tasks, and job release tasks) must specify resource files that reside in general-purpose storage accounts.
 
 
 ## Compute node
@@ -167,6 +168,8 @@ When you create a Batch pool, you can specify the Azure virtual machine configur
     * As with worker roles within Cloud Services, you can specify an *OS Version* (for more information on worker roles, see the [Tell me about cloud services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) section in the [Cloud Services overview](../cloud-services/cloud-services-choose-me.md)).
     * As with worker roles, we recommend that you specify `*` for the *OS Version* so that the nodes are automatically upgraded, and there is no work required to cater to newly released versions. The primary use case for selecting a specific OS version is to ensure application compatibility, which allows backward compatibility testing to be performed before allowing the version to be updated. After validation, the *OS Version* for the pool can be updated and the new OS image can be installed--any running tasks are interrupted and requeued.
 
+When you create a pool, you need to select the appropriate **nodeAgentSkuId**, depending on the OS of the base image of your VHD. You can get a mapping of available node agent SKU ID's to their OS Image references by calling the [List Supported Node Agent SKUs](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) operation.
+
 See the [Account](#account) section for information on setting the pool allocation mode when you create a Batch account.
 
 #### Custom images for Virtual Machine pools
@@ -191,8 +194,6 @@ Make sure that your storage accounts meet the following criteria:
 - Only standard general-purpose storage accounts are currently supported. Azure Premium storage will be supported in the future.
 - You can specify one storage account with multiple custom VHD blobs or multiple storage accounts each having a single blob. We recommend you to use multiple storage accounts to get a better performance.
 - One unique custom image VHD blob can support up to 40 Linux VM instances or 20 Windows VM instances. You will need to create copies of the VHD blob to create pools with more VMs. For example, a pool with 200 Windows VMs needs 10 unique VHD blobs specified for the **osDisk** property.
-
-When you create a pool, you need to select the appropriate **nodeAgentSkuId**, depending on the OS of the base image of your VHD. You can get a mapping of available node agent SKU ID's to their OS Image references by calling the [List Supported Node Agent SKUs](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) operation.
 
 To create a pool from a custom image using the Azure portal:
 
