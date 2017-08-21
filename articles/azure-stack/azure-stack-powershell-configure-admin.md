@@ -1,6 +1,6 @@
 ---
-title: Configure PowerShell for use with Azure Stack | Microsoft Docs
-description: Learn how to configure PowerShell for Azure Stack.
+title: Configure the Azure Stack operator's PowerShell environment | Microsoft Docs
+description: Learn how to Configure the Azure Stack operator's PowerShell environment.
 services: azure-stack
 documentationcenter: ''
 author: SnehaGunda
