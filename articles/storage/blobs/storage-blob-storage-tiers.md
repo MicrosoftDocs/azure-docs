@@ -29,7 +29,7 @@ Each of these data access scenarios benefits from a differentiated tier of stora
 
 ## Blob storage accounts
 
-**Blob storage accounts** are specialized storage accounts for storing your unstructured data as blobs (objects) in Azure Storage. With Blob storage accounts, you can now choose between hot and cool storage tiers based on access patterns. Store your rarely accessed cold data at the lowest storage cost, less frequently accessed cool data at a lower storage cost than hot, and store more frequently accessed hot data at the lowest access cost. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today, including 100% API consistency for block blobs and append blobs.
+**Blob storage accounts** are specialized storage accounts for storing your unstructured data as blobs (objects) in Azure Storage. With Blob storage accounts, you can now choose between hot and cool storage tiers at account level, or hot, cool, and archive tiers at the blob level, based on access patterns. Store your rarely accessed cold data at the lowest storage cost, less frequently accessed cool data at a lower storage cost than hot, and store more frequently accessed hot data at the lowest access cost. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today, including 100% API consistency for block blobs and append blobs.
 
 > [!NOTE]
 > Blob storage accounts support only block and append blobs, and not page blobs.
@@ -54,7 +54,7 @@ Example usage scenarios for the cool storage tier include:
 * Older media content not viewed frequently anymore but is expected to be available immediately when accessed.
 * Large data sets that need to be stored cost effectively while more data is being gathered for future processing. (*for example*, long-term storage of scientific data, raw telemetry data from a manufacturing facility)
 
-### Archive access tier (preview)
+### New archive access tier (preview)
 
 [Archive storage](https://azure.microsoft.com/en-us/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering) has the lowest storage cost and higher data retrieval costs compared to hot and cool storage.
 
@@ -112,11 +112,11 @@ The following table shows a comparison of the hot and cool storage tiers. The ar
 | ---- | ----- | ----- |
 | **Availability** | 99.9% | 99% |
 | **Availability** <br> **(RA-GRS reads)**| 99.99% | 99.9% |
-| Usage charges | Higher storage costs, lower access and transaction costs | Lower storage costs, higher access and transaction costs |
+| **Usage charges** | Higher storage costs, lower access and transaction costs | Lower storage costs, higher access and transaction costs |
 | **Minimum object size** | N/A | N/A |
 | **Minimum storage duration** | N/A | N/A |
 | **Latency** <br> **(Time to first byte)** | milliseconds | milliseconds |
-| **Scalability and performance targets** | Same as general-purpose storage accounts |
+| **Scalability and performance targets** | Same as general-purpose storage accounts | Same as general-purpose storage accounts |
 
 > [!NOTE]
 > Blob storage accounts support the same performance and scalability targets as general-purpose storage accounts. See [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for more information.
@@ -319,7 +319,7 @@ For more details, see [Get Started with Azure Blob storage](storage-dotnet-how-t
 
 4. **Can I store objects in both storage tiers in the same account?**
    
-    The *'Access Tier'* attribute indicates the value of the storage tier set at an account level and applies to all objects in that account. However, the new blob-level tiering feature will allow you to set the access tier on specific blobs, and this will override the setting on the account. 
+    The *'Access Tier'* attribute indicates the value of the storage tier set at an account level and applies to all objects in that account. However, the new blob-level tiering feature will allow you to set the access tier on specific blobs, and this will override the access tier setting on the account. 
 
 5. **Can I change the storage tier of my Blob storage account?**
    
