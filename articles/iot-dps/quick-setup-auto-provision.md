@@ -39,7 +39,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 4. Once the IoT hub is successfully deployed, the hub summary blade automatically opens.
 
 
-<--!
+<!--
 Need for a string pass in the last week of August or when portal is ready. 
  - a single instance of the DPS might not be called a tenant. Nicole is finding out from Leandro the acceptable terms to use. 
  - a few other portal strings might also change. 
