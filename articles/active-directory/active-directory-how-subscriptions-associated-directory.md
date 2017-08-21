@@ -28,16 +28,14 @@ Having a trust relationship with an Azure AD means that it trusts the directory 
 
 This trust relationship that a subscription has with a directory is unlike the relationship that a subscription has with all other resources in Azure (websites, databases, and so on), which are more like child resources of a subscription. If a subscription expires, then access to those other resources associated with the subscription also stops. But the directory remains in Azure, and you can associate a different subscription with that directory and continue to manage the directory users.
 
-Similarly, the Azure AD you see in your subscription doesn’t work like the other extensions in the Azure portal. Other Azure services are completely subordinate to the Azure subscription. What you see in Azure AD does not vary based on subscription. It allows acess to directories based on the signed-in user.
+![how subscriptions are associated diagram](./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png)
+
+The Azure AD you see in your subscription doesn’t work like the other sevices in the Azure portal. Other Azure services are subordinate to the Azure subscription. But what you see in Azure AD does not vary based on subscription. It allows acess to directories based on the signed-in user.
 
 All users have a single home directory that authenticates them, but they can also be guests in other directories. In Azure AD, you can see only the directories in which your user account is a member. A directory can also be synchronized with on-premises Active Directory.
 
-This diagram shows a subscription for Michael Smith after he signed up by using a work account for Contoso.
-
-![how subscriptions are associated diagram](./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png)
-
-## Tips if you manage both a subscription and a directory
-The administrative roles for an Azure subscription manage resources tied to the Azure subscription. These roles and the best practices for managing your subscription are covered at [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
+## Suggestions to manage both a subscription and a directory
+The administrative roles for an Azure subscription manage resources tied to the Azure subscription. This section explains the differences between Azure subscription admins and Azure AD directory admins. Administrative roles and other suggestions for using them to manage your subscription are covered at [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
 
 By default, you are assigned the Service Administrator role when you sign up. If others need to sign in and access services using the same subscription, you can add them as co-administrators. 
 
