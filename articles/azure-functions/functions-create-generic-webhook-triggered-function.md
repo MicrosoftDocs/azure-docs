@@ -11,11 +11,12 @@ tags: ''
 ms.assetid: fafc10c0-84da-4404-b4fa-eea03c7bf2b1
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/12/2017
 ms.author: glenga
+ms.custom: mvc
 
 ---
 # Create a function triggered by a generic webhook

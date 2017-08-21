@@ -289,7 +289,7 @@ For more information about using Azure with Java, visit [Azure for Java develope
 [Microsoft Azure]: https://azure.microsoft.com/
 [Online Swagger Editor]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
-[Storage SDK for Java]: ../storage/storage-java-how-to-use-blob-storage.md
+[Storage SDK for Java]:../storage/blobs/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
 [Swagger Editor]: http://editor.swagger.io/
 [Visual Studio Code]: https://code.visualstudio.com

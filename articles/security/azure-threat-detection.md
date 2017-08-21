@@ -27,7 +27,7 @@ Microsoft has developed a series of White Papers, Security Overviews, Best Pract
 
 ### Azure Platform
 
-Azure is an open and flexible cloud service platform that supports the broadest selection of operating systems, programming languages, frameworks, tools, databases, and devices.
+Azure is a public cloud service platform that supports the broadest selection of operating systems, programming languages, frameworks, tools, databases, and devices.
 It supports the following programming languages:
 -	Run Linux containers with Docker integration.
 -	Build apps with JavaScript, Python, .NET, PHP, Java, and Node.js
