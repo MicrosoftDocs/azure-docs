@@ -88,7 +88,7 @@ We currently collect the following log types:
  
 To identify all the logs that get collected from all the components, refer to the `<Logs>` tags in the customer configuration file located at `C:\EceStore\<Guid>\<GuidWithMaxFileSize>`.
  
-### To run Get-AzureStackLog
+**To run Get-AzureStackLog**
 1.	Log in as AzureStack\AzureStackAdmin on the host.
 2.	Open a PowerShell window as an administrator.
 3.	Run `Get-AzureStackLog`.  
@@ -147,6 +147,16 @@ A few things to note:
 > [!NOTE]
 > We are enforcing size and age limits to the logs collected as it is essential to ensure efficient utilization of your storage space to make sure it doesn't get flooded with logs. Having said that, when diagnosing a problem you will often need logs that might not exist anymore due to these limits being enforced. Hence, it is **highly recommended** that you offload your logs to an external storage space (a storage account in public Azure, an additional on-prem storage device etc.) every 8 to 12 hours and keep them there for 1 - 3 months depending on your requirements.
 
+### Multi-node considerations
+If you want to collect logs in a multi-node environment, note the following differences:
+* The `get-date` function is not white-listed in multinode environments. So, you must explicitly specify a date. For example:
+
+   `-FromDate "Friday, August 18, 2017 6:34:48 AM" -ToDate "Friday, August 18, 2017 7:35:25 AM"`
+* You must specify a UNC path for the output to a shared folder on the hardware lifecycle host. For example:
+
+   `Get-AzureStackLog -OutputSharePath \\10.193.128.250\logs -OutputShareCredential $sharecred`
+
+   The `-OutputShareCredential` parameter prompts you for credentials to access the shared folder.
 
 ## Next steps
 [Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md)
