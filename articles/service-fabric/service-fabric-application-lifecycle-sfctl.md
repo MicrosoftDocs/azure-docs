@@ -37,7 +37,7 @@ To remove an existing application, complete these steps:
 
 ## Deploy a new application
 
-To deploy a new application, complete the following tasks.
+To deploy a new application, complete the following tasks:
 
 ### Upload a new application package to the image store
 
@@ -88,8 +88,7 @@ sfctl service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-t
 
 ## Verify application deployment and health
 
-To verify that an application and service were successfully deployed, check that the application and service are
-listed:
+To verify everything is healthy, use the following health commands:
 
 ```azurecli
 sfctl application list
@@ -108,7 +107,7 @@ Healthy services and applications have a `HealthState` value of `Ok`.
 
 ## Remove an existing application
 
-To remove an application, complete the following tasks.
+To remove an application, complete the following tasks:
 
 ### Delete the application
 
@@ -162,16 +161,16 @@ It is recommended then to perform a monitored automatic upgrade, launch the upgr
 sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"test\":\"value\"}" --mode Monitored
 ```
 
-Upgrades will override existing parameters with whatever set is specified. Therefore, if the application was
-created with any parameters previously, they should be passed in again as arguments to the upgrade command.
+Upgrades override existing parameters with whatever set is specified. Application parameters should be passed as
+arguments to the upgrade command, if necessary. Application parameters should be encoded as a JSON object.
 
 To retrieve any parameters previously specified, you can use the `sfctl application info` command.
 
 When an application upgrade is in progress, the status can be retrieved using the
 `sfctl application upgrade-status` command.
 
-Finally, if an upgrade is in progress and needs to be cancelled, it can forced to roll back using
-`sfctl application upgrade-rollback`.
+Finally, if an upgrade is in progress and needs to be canceled, you can use
+the `sfctl application upgrade-rollback` to roll back the upgrade.
 
 ## Related articles
 

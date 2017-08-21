@@ -13,9 +13,9 @@ ms.author: edwardsa
 ---
 # Azure Service Fabric command line
 
-The Azure Service Fabric CLI or sfctl, is a command line utility for interacting and managing Azure Service
-Fabric entities such as clusters, applications and services. It can be used with either Windows or Linux clusters,
-and runs on any platform where Python is supported.
+The Azure Service Fabric CLI (sfctl) is a command-line utility for interacting and managing Azure Service
+Fabric entities. Sfctl can be used with either Windows or Linux clusters. Sfctl runs on any platform where
+python is supported.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ After installation, run `sfctl -h` to get information about available commands.
 Commands are prefixed always with `sfctl`. For general information about all commands you can use, use `sfctl -h`. For
 help with a single command, use `sfctl <command> -h`.
 
-Commands follow a repeatable structure, with the target of the command preceeding the verb or action:
+Commands follow a repeatable structure, with the target of the command preceding the verb or action:
 
 ```azurecli
 sfctl <object> <action>
@@ -63,8 +63,8 @@ sfctl cluster select --endpoint http://testcluster.com:19080
 The cluster endpoint must be prefixed by `http` or `https`. It must include the port for the HTTP gateway. The port and
 address are the same as the Service Fabric Explorer URL.
 
-For clusters that are secured with a certificate, you can use either unencrypted .pem files, or .crt and .key files.
-For example:
+For clusters that are secured with a certificate, you can specify a PEM encoded certificate. The certificate can be
+specified as a single file or cert and key pair.
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -111,7 +111,7 @@ The command results in the following output:
 
 ## Tips and troubleshooting
 
-You might find the following information helpful if you run into issues while using sfctl
+Some suggestions and tips for solving common issues.
 
 ### Convert a certificate from PFX to PEM format
 

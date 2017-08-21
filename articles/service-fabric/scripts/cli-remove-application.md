@@ -28,19 +28,8 @@ If needed, install the [Service Fabric CLI](../service-fabric-cli.md).
 
 [!code-sh[main](../../../cli_scripts/service-fabric/remove-application/remove-application.sh "Remove an application from a cluster")]
 
-## Script explanation
-
-This script uses the following commands. Each command in the table links to command specific documentation.
-
-| Command | Notes |
-|---|---|
-| [sfctl cluster select](/cli/azure/sf/cluster#select) | Selects the cluster to work with. |
-| [sfctl application delete](/cli/azure/sf/application#delete) | Deletes the application instance from the cluster. |
-| [sfctl application unprovision](/cli/azure/sf/application#unprovision) | Unregisters a Service Fabric application type and version from the cluster.|
-| [sfctl application package-delete](/cli/azure/sf/application#package-delete) | Removes a Service Fabric application package from the image store. |
-
 ## Next steps
 
-For more information, see the [Service Fabric CLI documentation](../service-fabric-cli.md.md).
+For more information, see the [Service Fabric CLI documentation](../service-fabric-cli.md).
 
 Additional Service Fabric CLI samples for Azure Service Fabric can be found in the [Service Fabric CLI samples](../samples-cli.md).
