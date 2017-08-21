@@ -41,7 +41,7 @@ You select the virtual network or a cloud service (if it’s not in a virtual ne
 
 #### Checks not done in Validate
 
-Validate operation only analyzes the state of the resources in the classic deploment model. It can check for all failures and unsupported scenarios due to various configurations in the classic deploment model. It is not possible to check for all issues that the Azure Resource Manager stack might impose on the resources during migration. These issues are only checked when the resources undergo transformation in the next step of migration i.e. Prepare. The table below lists all the issues not checked in Validate
+Validate operation only analyzes the state of the resources in the classic deploment model. It can check for all failures and unsupported scenarios due to various configurations in the classic deploment model. It is not possible to check for all issues that the Azure Resource Manager stack might impose on the resources during migration. These issues are only checked when the resources undergo transformation in the next step of migration, that is, Prepare. The table below lists all the issues not checked in Validate.
 
 
 |Networking checks not in Validate|
@@ -49,7 +49,7 @@ Validate operation only analyzes the state of the resources in the classic deplo
 |A Virtual Network having both ER and VPN gateways|
 |Virtual Network gateway connection in disconnect state|
 |All ER circuits are pre-migrated to Azure Resource Manager stack|
-|Azure Resource Manager quota checks for Networking resources i.e. Static Public IP, Dynamic Public IPs, Load Balancer, Network Security Groups, Route Tables, Network Interfaces |
+|Azure Resource Manager quota checks for Networking resources, that is, Static Public IP, Dynamic Public IPs, Load Balancer, Network Security Groups, Route Tables, Network Interfaces |
 | Check that all load balancer rules are valid across deployment/VNET |
 | Check for conflicting private IPs between stop-deallocated VMs in the same VNET |
 
@@ -77,13 +77,12 @@ Here are two screens that show the result after a succesful Prepare operation. F
 
 ![Screenshot that shows Portal Azure Resource Manager resources in Prepare](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
 
-Here is behind the scenes look at your resources after the completion of Prepare phase. Note that the resource is the data plane is the same. It's represented in both the management/control planes (Classic deploment model & Azure Resource Manager)
+Here is a behind-the-scenes look at your resources after the completion of Prepare phase. Note that the resource is the data plane is the same. It's represented in both the management plane (classic deployment model) and the control plane (Resource Manager).
 
 ![Behind the scenes in Prepare phase](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
 
 > [!NOTE]
-> Virtual Machines that are not in a classic Virtual Network are stopped deallocated in this phase of migration.
->
+> Virtual Machines that are not in a classic Virtual Network are stopped-deallocated in this phase of migration.
 >
 
 ### Check (manual or scripted)
