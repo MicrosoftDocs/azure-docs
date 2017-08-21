@@ -23,7 +23,7 @@ ms.author: alkohli
 
 This tutorial explains how to install Update 5 on a StorSimple device running an earlier software version via the Azure portal and using the hotfix method. The hotfix method is used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.
 
-Update 5 includes device software, Storport and Spaceport, OS security updates and OS updates, and disk firmware updates.  The device software, Spaceport, Storport, security, and other OS updates are non-disruptive updates. The non-disruptive or regular updates can be applied via the Azure portal or via the hotfix method. The disk firmware updates are disruptive updates and are applied when the deivce is in maintenance mode via the hotfix method using the Windows PowerShell interface of the device.
+Update 5 includes device software, Storport and Spaceport, OS security updates and OS updates, and disk firmware updates.  The device software, Spaceport, Storport, security, and other OS updates are non-disruptive updates. The non-disruptive or regular updates can be applied via the Azure portal or via the hotfix method. The disk firmware updates are disruptive updates and are applied when the device is in maintenance mode via the hotfix method using the Windows PowerShell interface of the device.
 
 > [!IMPORTANT]
 > * A set of manual and automatic pre-checks are done prior to the install to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure  portal.
