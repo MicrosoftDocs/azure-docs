@@ -139,34 +139,33 @@ JSON\_TUPLE uses the [lateral view](https://cwiki.apache.org/confluence/display/
 ### Use custom SerDe
 SerDe is the best choice for parsing nested JSON documents, it allows you to define the JSON schema, and use the schema to parse the documents. In this tutorial, you use one of the more popular SerDe that has been developed by [Roberto Congiu](https://github.com/rcongiu).
 
-**To use the custom SerDe:**
+**To use the custom SerDe**
 
-1. Install [Java SE Development Kit 7u55 JDK 1.7.0_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Choose the Windows X64 version of the JDK if you are going to be using the Windows deployment of HDInsight
+1. Install [Java SE Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/index.html). Choose the Windows X64 version of the JDK if you are going to be using the Windows deployment of HDInsight
    
    > [!WARNING]
    > JDK 1.8 doesn't work with this SerDe.
    > 
-   > 
    
-    After the installation is completed, add a new user environment variable:
-   
-   1. Open **View advanced system settings** from the Windows screen.
-   2. Click **Environment Variables**.  
-   3. Add a new **JAVA_HOME** environment variable is pointing to **C:\Program Files\Java\jdk1.7.0_55** or wherever your JDK is installed.
+    After the installation is completed, add a new user environment variable **JAVA_HOME** pointing to **C:\Program Files\Java\jdk1.8.0_144** or wherever your JDK is installed.
       
       ![Setting up correct config values for JDK][image-hdi-hivejson-jdk]
-2. Install [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip)
+2. Install [Apache Maven](https://maven.apache.org/). Maven 3.5.0 was last tested.
    
-    Add the bin folder to your path by going to Control Panel-->Edit the System Variables for your account Environment variables. The following screenshot shows you how to do this.
+    Add the bin folder to the Path environment variable.
    
     ![Setting up Maven][image-hdi-hivejson-maven]
-3. Clone the project from [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) github site. You can do this by clicking on the “Download Zip” button as shown in the following screenshot.
+3. Download the [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) project.
    
     ![Cloning the project][image-hdi-hivejson-serde]
 
-4: Go to the folder where you have downloaded this package and then type “mvn package”. This should create the necessary jar files that you can then copy over to the cluster.
+4. Open a command prompt, and then run the following command in the folder where you downloaded the Serde package
 
-5: Go to the target folder under the root folder where you downloaded the package. Upload the json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar file to head-node of your cluster. I usually put it under the hive binary folder: C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin or something similar.
+        mvn package
+
+    This command creates the jar files that you can then copy over to the cluster.
+
+5.  Go to the target folder under the root folder where you downloaded the package. Upload the json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar file to head-node of your cluster. I usually put it under the hive binary folder: C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin or something similar.
 
 6: In the hive prompt, type “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”. Since in my case, the jar is in the C:\apps\dist\hive-0.13.x\bin folder, I can directly add the jar with the name as shown:
 
