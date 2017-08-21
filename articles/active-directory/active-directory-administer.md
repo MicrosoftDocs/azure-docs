@@ -22,7 +22,7 @@ ms.custom: it-pro;oldportal
 # Manage your Azure AD directory
 
 ## What is an Azure AD tenant?
-In Azure Active Directory (Azure AD), a tenant is simply a dedicated instance of an Azure AD difretory that your organization receives and owns when it signs up for a Microsoft cloud service such as Azure or Office 365. Each Azure AD directory is distinct and separate from other Azure AD directories. Just like a corporate office building is a secure asset specific to only your organization, an Azure AD directory was also designed to be a secure asset for use by only your organization. The Azure AD architecture isolates customer data and identity information so that users and administrators of one Azure AD directory cannot accidentally or maliciously access data in another directory.
+In Azure Active Directory (Azure AD), a tenant is simply a dedicated instance of an Azure AD directory that your organization receives and owns when it signs up for a Microsoft cloud service such as Azure or Office 365. Each Azure AD directory is distinct and separate from other Azure AD directories. Just like a corporate office building is a secure asset specific to only your organization, an Azure AD directory was also designed to be a secure asset for use by only your organization. The Azure AD architecture isolates customer data and identity information so that users and administrators of one Azure AD directory cannot accidentally or maliciously access data in another directory.
 
 ![Manage Azure Active Directory](./media/active-directory-administer/aad_portals.png)
 
