@@ -22,7 +22,7 @@ ms.custom: it-pro;oldportal
 # Manage your Azure AD directory
 
 ## What is an Azure AD tenant?
-In Azure Active Directory (Azure AD), a tenant is simply a dedicated instance of Azure AD that your organization receives and owns when it signs up for a Microsoft cloud service such as Azure or Office 365. Each Azure AD directory is distinct and separate from other Azure AD directories. Just like a corporate office building is a secure asset specific to only your organization, an Azure AD directory was also designed to be a secure asset for use by only your organization. The Azure AD architecture isolates customer data and identity information so that users and administrators of one Azure AD directory cannot accidentally or maliciously access data in another directory.
+In Azure Active Directory (Azure AD), a tenant is simply a dedicated instance of an Azure AD difretory that your organization receives and owns when it signs up for a Microsoft cloud service such as Azure or Office 365. Each Azure AD directory is distinct and separate from other Azure AD directories. Just like a corporate office building is a secure asset specific to only your organization, an Azure AD directory was also designed to be a secure asset for use by only your organization. The Azure AD architecture isolates customer data and identity information so that users and administrators of one Azure AD directory cannot accidentally or maliciously access data in another directory.
 
 ![Manage Azure Active Directory](./media/active-directory-administer/aad_portals.png)
 
@@ -54,7 +54,7 @@ If you don’t yet have a subscription to a Microsoft cloud service, you can use
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0%20)
 
-### change the default directory for a subscription
+### How to change the default directory for a subscription
 
 1. Sign in to the [Azure Account Center](https://account.windowsazure.com/Home/Index) with an account that is the Account Administrator of the subscription to transfer subscription ownership.
 2. Ensure that the user who you want to be the subscription owner is in the targeted directory.
@@ -96,7 +96,7 @@ You can manage each directory as a fully independent resource: each directory is
 
 Unlike other Azure resources, your directories are not child resources of an Azure subscription. So if you cancel or allow your Azure subscription to expire, you can still access your directory data using Azure AD PowerShell, the Azure Graph API, or other interfaces such as the Office 365 Admin Center. You can also associate another subscription with the directory.
 
-## How can I delete an Azure AD directory?
+## How should I prepare to delete an Azure AD directory?
 A global administrator can delete an Azure AD directory from the portal. When a directory is deleted, all resources contained in the directory are also deleted; so you should be sure you don’t need the directory before you delete it.
 
 > [!NOTE]
