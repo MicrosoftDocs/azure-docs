@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/03/2017
+ms.date: 08/22/2017
 ms.author: alkohli
 
 ---
@@ -23,7 +23,7 @@ ms.author: alkohli
 
 The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 5. They also contain a list of the StorSimple software updates included in this release.
 
-Update 5 can be applied to any StorSimple device running Update 0.1 through Update 4. The device version associated with Update 5 is 6.3.9600.17838.
+Update 5 can be applied to any StorSimple device running Update 0.1 through Update 4. The device version associated with Update 5 is 6.3.9600.17845.
 
 Review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
@@ -36,6 +36,8 @@ Review the information contained in the release notes before you deploy the upda
 The following key improvements and bug fixes have been made in Update 5.
 
 * **Azure Active Directory (AAD) integration with StorSimple Device Manager service** – From Update 5 onwards, Azure Active Directory is used to authenticate with the StorSimple Device Manager service. The old authentication mechanism will be deprecated by December 2017. All the users must include the new authentication URLs in their firewall rules. For more information, go to [authentication URLs listed in the networking requirements for your StorSimple device](storsimple-8000-system-requirements.md#url-patterns-for-azure-portal).
+
+If the authentication URL is not included in the firewall rules, the users will see a critical alert that their StorSimple device could not authenticate with the service. If the users see this alert, they need to include the new authentication URL. For more information, go to [StorSimple networking alerts](storsimple-8000-manage-alerts.md#networking-alerts).
 
 * **New version of StorSimple Snapshot Manager** - A new version of StorSimple Snapshot Manager is released with Update 5. We recommend that you update to this version. This version is compatible with all the StorSimple devices that are running Update 3 or later. For more information, go to [deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 

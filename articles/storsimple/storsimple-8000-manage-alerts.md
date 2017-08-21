@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/31/2017
+ms.date: 08/22/2017
 ms.author: alkohli
 
 ---
@@ -198,12 +198,13 @@ If cloud connectivity fails on your StorSimple production device, then depending
 | Could not start StorSimple service(s). |Datapath error |If the problem persists, contact Microsoft Support. |
 | Duplicate IP address detected for 'Data0'. | |The system has detected a conflict for IP address '10.0.0.1'. The network resource 'Data0' on the device *<device1>* is offline. Ensure that this IP address is not used by any other entity in this network. To troubleshoot network issues, go to [Troubleshoot with the Get-NetAdapter cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Contact your network administrator for help resolving this issue. If the problem persists, contact Microsoft Support. |
 | IPv4 (or IPv6) address for 'Data0' is offline. | |The network resource 'Data0' with IP address '10.0.0.1.' and prefix length '22' on the device *<device1>* is offline. Ensure that the switch ports to which this interface is connected are operational. To troubleshoot network issues, go to [Troubleshoot with the Get-NetAdapter cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Could not connect to the authentication service. |Datapath error |The URLthat is used to authenticate is not reachable. Ensure that your firewall rules include the URL patterns specified for the StorSimple device. For more information on URL patterns in Azure portal, go to https://aka.ms/ss-8000-network-reqs. If using Azure Government Cloud, go to the URL patterns in https://aka.ms/ss8000-gov-network-reqs.|
 
 ### Performance alerts
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-| The device load has exceeded <*threshold*>. |Slower than expected response times. |Your device reports utilization under a heavy input/output load. This could cause your device to not work as well as it should. Review the workloads that you have attached to the device, and determine if there are any that could be moved to another device or that are no longer necessary.<br>To understand the current status, go to [Use the StorSimple Device Manager service to monitor your device](storsimple-monitor-device.md) |
+| The device load has exceeded <*threshold*>. |Slower than expected response times. |Your device reports utilization under a heavy input/output load. This could cause your device to not work as well as it should. Review the workloads that you have attached to the device, and determine if there are any that could be moved to another device or that are no longer necessary.| Could not start StorSimple service(s). |Datapath error |If the problem persists, contact Microsoft Support. |and the current status, go to [Use the StorSimple Device Manager service to monitor your device](storsimple-monitor-device.md) |
 
 ### Security alerts
 

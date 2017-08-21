@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 08/03/17-->
+<!--author=alkohli last changed: 08/21/17-->
 
 #### To download hotfixes
 
@@ -88,7 +88,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     You should see the following versions:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 5.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17838`
+   *  `HcsSoftwareVersion: 6.3.9600.17845`
    
     If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) for further assistance.
      
@@ -102,7 +102,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 
     After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
     
-    * `CisAgentVersion:  1.0.9687.0`
+    * `CisAgentVersion:  1.0.9724.0`
     * `MdsAgentVersion: 35.2.2.0`
     * `Lsisas2Version: 2.0.78.00`
 
@@ -172,7 +172,7 @@ To place the controller in maintenance mode, type:
        -----------------------MAINTENANCE MODE------------------------
        Microsoft Azure StorSimple Appliance Model 8600
        Name: Update4-8600-mystorsimple
-       Software Version: 6.3.9600.17838
+       Software Version: 6.3.9600.17845
        Copyright (C) 2014 Microsoft Corporation. All rights reserved.
        You are connected to Controller1
        ---------------------------------------------------------------
