@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 08/21/2017
 ms.author: byvinyal
 
 ---
@@ -61,7 +61,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [DNS](#dns-limits)
-* [Cosmos DB](#cosmos-db-limits)
+* [Azure Cosmos DB](#cosmos-db-limits)
 * [Event Hubs](#event-hubs-limits)
 * [IoT Hub](#iot-hub-limits)
 * [Key Vault](#key-vault-limits)
