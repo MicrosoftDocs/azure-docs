@@ -149,7 +149,7 @@ A few things to note:
 
 ### Multi-node considerations
 If you want to collect logs in a multi-node environment, note the following differences:
-* The `get-date` function is not white-listed in multinode environments. So, you must explicitly specify a date. For example:
+* The `get-date` function is not white-listed in multi-node environments. So, you must explicitly specify a date. For example:
 
    `-FromDate "Friday, August 18, 2017 6:34:48 AM" -ToDate "Friday, August 18, 2017 7:35:25 AM"`
 * You must specify a UNC path for the output to a shared folder on the hardware lifecycle host, or any other shared folder that you can access. For example:
