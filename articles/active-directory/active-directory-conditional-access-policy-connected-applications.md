@@ -70,5 +70,5 @@ If you have an on-premises Active Directory (AD) footprint, you might consider d
 
 ## Next steps
 
-Before configuring a device-based conditional access policy in your environment, you should familiarize yourself with the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices).
+Before configuring a device-based conditional access policy in your environment, you should take a look at the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md).
 
