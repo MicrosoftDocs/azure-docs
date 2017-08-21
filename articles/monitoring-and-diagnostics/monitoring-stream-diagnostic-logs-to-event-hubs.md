@@ -52,9 +52,9 @@ You can enable streaming of Diagnostic Logs programmatically, via the portal, or
 The Service Bus or Event Hubs namespace does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 ## Stream Diagnostic Logs using the portal
-1. In the portal, navigate to the Azure Monitor blade and click on **Diagnostic Settings**
+1. In the portal, navigate to Azure Monitor and click on **Diagnostic Settings**
 
-    ![Monitoring section of Azure Monitor blade](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
+    ![Monitoring section of Azure Monitor](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
 
 2. Optionally filter the list by resource group or resource type, then click on the resource for which you would like to set a diagnostic setting.
 
@@ -66,7 +66,7 @@ The Service Bus or Event Hubs namespace does not have to be in the same subscrip
 
    ![Add diagnostic setting - existing settings](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-multiple.png)
 
-3. In the blade that appears, give your setting a name and check the box for **Stream to an event hub**, then select an Event Hubs namespace.
+3. Give your setting a name and check the box for **Stream to an event hub**, then select an Event Hubs namespace.
    
    ![Add diagnostic setting - existing settings](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
     
