@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 08/21/2017
 ms.author: erikje
 
 ---
@@ -33,7 +33,7 @@ Every Marketplace item has:
 * Metadata, like strings, icons, and other marketing collateral
 * Formatting information to display the item in the portal
 
-Every item published to the Marketplace uses a format called the Azure Gallery Package (azpkg). Deployment or runtime resources (like code, zip files with software, or virtual machine images) should be added to Azure Stack separately, not as part of the Marketplace Item. 
+Every item published to the Marketplace uses a format called the Azure Gallery Package (azpkg). Add deployment or runtime resources (like code, zip files with software, or virtual machine images) to Azure Stack separately, not as part of the Marketplace Item. 
 
 ## Next steps
 [Create and publish a marketplace item](azure-stack-create-and-publish-marketplace-item.md)
