@@ -35,6 +35,9 @@ We have recently moved Service Fabric Java binaries from the Service Fabric Java
  ```
 4. Update the install/uninstall scripts of your application to use the new Service Fabric Azure CLI following the steps mentioned [here](service-fabric-application-lifecycle-azure-cli-2-0.md). You can refer to our getting-started [examples](https://github.com/Azure-Samples/service-fabric-java-getting-started) for reference.
 
+>[!TIP]
+> After uninstalling the Service Fabric Java SDK, Yeoman will not work. Please follow the Prerequisites mentioned [here](service-fabric-create-your-first-linux-application-with-java.md) to have Service Fabric Yeoman Java template generator up and working.
+
 ## Migrating Service Fabric Stateless Service
 To be able to build your existing Service Fabric stateless Java service using Service Fabric dependencies fetched from Maven, you need to update the ``build.gradle`` file inside the Service. Previously it used to be like as follows -
 ```

@@ -95,7 +95,13 @@ Service Fabric provides scaffolding tools which will help you create a Service F
   ```bash
   npm install -g yo
   ```
-3. Install the Yeoman generator you want to use, following the steps in the getting started [documentation](service-fabric-get-started-linux.md).
+3. Install the Yeoman generator you want to use, following the steps in the getting started [documentation](service-fabric-get-started-linux.md). To create Service Fabric Applications using Yeoman, follow the steps -
+
+  ```bash
+  npm install -g generator-azuresfjava       # for Service Fabric Java Applications
+  npm install -g generator-azuresfguest      # for Service Fabric Guest executables
+  npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
+  ```
 4. To build a Service Fabric Java application on Mac, you would need - JDK 1.8 and Gradle installed on the machine.
 
 
