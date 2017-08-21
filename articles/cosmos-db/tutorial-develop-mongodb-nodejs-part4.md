@@ -59,12 +59,12 @@ Now that you're logged in, create a [resource group](../azure-resource-manager/r
 If you are using Azure Cloud Shell, click **Try It**, follow the onscreen prompts to login, then copy the following code into the command prompt.
 
 ```azurecli-interactive
-az group create -n myResourceGroup -l "East US"
+az group create -n <my-resource-group> -l "East US"
 ```
 
 * [group create](/cli/azure/group#create) = Creates a resource group.
-* -n = Choose a unique name for your resource group. 
-* -l = Location that indicates the [Azure region](https://azure.microsoft.com/regions/) in which to create your resource group. 
+* -n <my-resource-group> = Choose a unique name for your resource group. Substitute your own resource group name where you see the `<my-resource-group>` placeholder. 
+* -l "East US" = Location that indicates the [Azure region](https://azure.microsoft.com/regions/) in which to create your resource group. 
 
 After the resource group is created, the command prompt displays the new resource group information.    
 
@@ -73,16 +73,15 @@ After the resource group is created, the command prompt displays the new resourc
 Create an Azure Cosmos DB account with the [az cosmosdb create](/cli/azure/cosmosdb#create) command.
 
 ```azurecli-interactive
-az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
+az cosmosdb create --name <cosmosdb-name> --resource-group <my-resource-group> --kind MongoDB
 ```
 
 * cosmosdb create = Creates a new Azure Cosmos DB account.
-* --name = Substitute your own new unique Azure Cosmos DB account name where you see the `<cosmosdb-name>` placeholder. This unique name is used as part of your Azure Cosmos DB endpoint (`https://<cosmosdb-name>.documents.azure.com/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure.
-* --myResourceGroup = The name of the resource group you just created. 
+* --name = Substitute your own new unique Azure Cosmos DB account name where you see the `<my-cosmosdb-acct>` placeholder. This unique name is used as part of your Azure Cosmos DB endpoint (`https://<my-cosmosdb-acct>.documents.azure.com/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure.
+* --myResourceGroup = Substitute your own resource group where you see the `<my-resource-group>` placeholder. The name of the resource group you just created. 
 * --kind MongoDB = This parameter enables MongoDB client connections.
 
-
-This tells Azure that in that resource group I just created, go ahead and spin up an Azure Cosmos DB instance with a MongoDB database.
+This tells Azure that in that resource group I just created, go ahead and spin up an Azure Cosmos DB instance with a MongoDB database. It may take a minute or two for the command to complete. When it's done, the terminal window displays information about the new account. 
 
 You can now go see this new database in the Azure portal, so open a new browser window and go to [https://portal.azure.com](https://portal.azure.com), click the Azure Cosmos DB logo ![Azure Cosmos DB icon in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png) on the left bar, and it will show you all the Azure Cosmos DB accounts you have.
 
@@ -90,7 +89,7 @@ Now click on the account and scroll down and it shows you where it's located.
 
 ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png)
 
-Now scroll down on the left navidation and click **Replicate data globally**, now you can hover over the map and see what areas you can replicate into. For example if you have a lot of customers in Australia, you can click Australia and replicate your data to Australia, or any of the other regions available. We'll actually do the replication in a later tutorial.
+Now scroll down on the left navigation and click **Replicate data globally**, now you can hover over the map and see what areas you can replicate into. For example if you have a lot of customers in Australia, you can click Australia and replicate your data to Australia, or any of the other regions available. We'll actually do the replication in a later tutorial.
 
 ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png)
 

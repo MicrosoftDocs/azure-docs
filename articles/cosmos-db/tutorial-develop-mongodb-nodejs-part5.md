@@ -94,11 +94,136 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
       cosmosPort
     };
     ```
- TODO - Complete
+
+## Get the connection string information
+
+1. In environment.js, change the value of cosmosPort to 10255.
+
+   ```
+   const cosmosPort = 10255;
+   ```
+
+2. In environment.js, change the value of dbName to the Azure Cosmos DB account name you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md). This is the `<my-cosmosdb-acct>` name from Step 4. 
+
+3. Retrieve the primary key for the Azure Cosmos DB account by using the following CLI command in the terminal window: 
+
+    ```azure-cli-interactive
+    az cosmosdb list-keys --name <my-cosmosdb-acct> -g <my-resource-group>"
+    ```    
+    
+    * Substitute your own Azure Cosmos DB account name where you see the `<my-cosmosdb-acct>` placeholder. This is the account you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md).
+    * Substitute your own resource group name where you see the `<my-resource-group>` placeholder. This is the account you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md). 
+
+4. Copy the primary key value from the terminal window into the environment.js window into the `key` value. The value should be surrounded by double quotes.
+
+    Your app now has all the information it needs to connect to Azure Cosmos DB. This information can also be retrieved in the portal, see [Get the MongoDB connection string to customize](connect-mongodb-account.md#GetCustomConnection) for more information. The Username in the portal equates to the dbName in environments.js. 
+
+## Create a Hero model
+
+1.  In the Explorer pane, right click the server folder, click New File, and name the new file hero.model.js.
+
+2. Copy the following code into hero.model.js. This code:
+    * Requires Mongoose.
+    * Create a new schema with an id, name, and saying, and pull it in
+    * Create a model using the schema
+    * Export the model 
+    * Name the collection Heroes (instead of Heros, which would be the default name of the collection based on Mongoose plural naming rules)
+
+
+    ```javascript
+    const mongoose = require('mongoose');
+
+    const Schema = mongoose.Schema;
+
+    const heroSchema = new Schema(
+      {
+        id: { type: Number, required: true, unique: true },
+        name: String,
+        saying: String
+      },
+      {
+        collection: 'Heroes'
+      }
+    );
+
+    const Hero = mongoose.model('Hero', heroSchema);
+
+    module.exports = Hero;
+    ```
+
+## Create a Hero service
+
+1.  In the Explorer pane, right click the server folder, click New File, and name the new file hero.service.js.
+
+2. Copy the following code into hero.service.js. This code:
+    * Go get the model you just created
+    * Connect to the database
+    * Create a docquery variable that uses the hero.find method to define a query that returns all heroes
+    * Run a query with the docquery.exec with a promise to get a list of all heroes, where the response status is 200 
+    * If the status is 500, send back the error message
+    * Because we're using modules, get the heroes 
+
+    ```
+    const Hero = require('./hero.model');
+
+    require('./mongo').connect();
+
+    function getHeroes() {
+      const docquery = Hero.find({});
+      docquery
+        .exec()
+        .then(heroes => {
+          res.status(200).json(heroes);
+        })
+        .catch(error => {
+          res.status(500).send(error);
+          return;
+        });
+    }
+
+    module.exports = {
+      getHeroes
+    };
+    ```
+
+## Add hero service to routes.js
+
+1. In Visual Studio Code, in routes.js, comment out the res.send function that sent the sample hero data and call the heroService.getHeroes function instead.
+
+    ```javascript
+    router.get('/heroes', (req, res) => {
+      heroService.getHeroes(req, res);
+    //  res.send(200, [
+    //      {"id": 10, "name": "Starlord", "saying": "oh yeah"}
+    //  ])
+    });
+    ```
+
+2. In routes.js add a const to get the hero service:
+
+    const heroService = require('./hero.service'): 
+
+3. In hero.service.js, update the getHeroes function to take the request and response as parameters as follows:
+
+    ```
+    function getHeroes(req, res) {
+    ```
+
+Let's review and walk through the chain here. First we come into the index, which sets up the node server, and notice that's setting up and defining our routes. Our routes file then talks to the hero service and says lets go get our functions like getHeroes and pass request and response. Here hero.service.js is going to grab the model, and connect to Mongo, and then it's going to execute getHeroes when we call it, and return back a response of 200. Then it will bubble back out through the chain. 
+
+## Run the app
+
+1. Now lets run the app again. In Visual Studio Code, save all your changes, click the Debug button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) on the left side, then click the Start Debugging button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
+
+3. Now lets flip over to the browser and navigate to localhost:3000 and there's our application.
+
+    ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
+
+   Now there are no heroes listed in the app yet, but in our next step we'll add the inserts, updates, and deletes with our Mongoose connections to our Azure Cosmos DB database. 
 
 ## Next steps
 
-In this video, you've learned the benefits of using Azure Cosmos DB to create MEAN apps and you've learned the steps involved in creating a MEAN.js app for Azure Cosmos DB that are covered in rest of the tutorial series. 
+In this video, you've learned how to use Mongoose APIs to connect your heroes app to Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Add PUT, POST, and DELETE commands](tutorial-develop-mongodb-nodejs-part6.md)
