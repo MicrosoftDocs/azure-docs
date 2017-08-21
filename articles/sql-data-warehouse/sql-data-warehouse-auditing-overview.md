@@ -68,7 +68,9 @@ Before setting up audit auditing check if you are using a ["Downlevel Client"](s
 3. Next, enable auditing by clicking the **ON** button.
    
     ![][3]
-4. In the auditing configuration blade, select **STORAGE DETAILS** to open the Audit Logs Storage Blade. Select the Azure storage account where logs will be saved and, the retention period. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
+4. In the auditing configuration blade, select **STORAGE DETAILS** to open the Audit Logs Storage Blade. Select the Azure storage account where logs will be saved and, the retention period. 
+>[!TIP]
+>Use the same storage account for all audited databases to get the most out of the pre-configured reports templates.
    
     ![][4]
 5. Click the **OK** button to save the storage details configuration.
@@ -83,10 +85,11 @@ A preconfigured dashboard report template is available as a <a href="http://go.m
 
 The template has fictional sample data in it, and you can set up Power Query to import your audit log directly from your Azure storage account.
 
-## <a id="subheading-4"></a>Storage Key Regeneration
+## <a id="subheading-4"></a>Storage key regeneration
 In production you are likely to refresh your storage keys periodically. When refresh your keys you need to re-save the policy. The process is as follows:.
 
 1. In the auditing configuration blade (described above in the set up auditing section) switch the **Storage Access Key** from *Primary* to *Secondary* and **SAVE**.
+
    ![][4]
 2. Go to the storage configuration blade and **regenerate** the *Primary Access Key*.
 3. Go back to the auditing configuration blade, switch the **Storage Access Key** from *Secondary* to *Primary* and press **SAVE**.
