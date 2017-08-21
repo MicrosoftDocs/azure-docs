@@ -4,8 +4,6 @@
   items:
   - name: About Azure Cosmos DB
     href: introduction.md
-  - name: Welcome DocumentDB customers
-    href: https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
 - name: Quickstarts
   expanded: true
   items:
@@ -105,9 +103,6 @@
     href: consistency-levels.md
   - name: Throughput
     href: request-units.md
-    items:
-    - name: Request units per minute
-      href: request-units-per-minute.md
   - name: Multi-model APIs
     items:
     - name: DocumentDB
