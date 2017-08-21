@@ -8,6 +8,7 @@
 ## [Service Fabric security](azure-service-fabric-security-overview.md)
 ## [Identity management](security-identity-management-overview.md)
 ## [IoT security](../iot-suite/iot-security-architecture.md#security-in-iot)
+## [Azure encryption overview](security-azure-encryption-overview.md)
 ## [Security architecture](azure-security-architecture-overview.md)
 ### [Enabling operational security](azure-operational-security.md)
 ### [Advanced threat detection](azure-threat-detection.md)

@@ -367,12 +367,8 @@ After completing these steps, the connection will be establish in a few minutes,
 ## <a name ="aaupdate"></a>Part 4 - Update existing gateway between active-active and active-standby
 The last section will describe how you can configure an existing Azure VPN gateway from active-standby to active-active mode, or vice versa.
 
-> [!IMPORTANT]
-> Please note that the active-active mode uses only the following SKUs: 
-  * VpnGw1, VpnGw2, VpnGw3
-  * HighPerformance (for old legacy SKUs)
-  
-  This example shows how to upgrade one of the legacy (old SKUs) of an already created VPN gateway to HighPerformance in order to create an active-active gateway.
+> [!NOTE]
+> This section includes the steps to resize a legacy SKU (old SKU) of an already created VPN gateway from Standard to HighPerformance. These steps do not upgrade an old legacy SKU to one of the new SKUs.
 > 
 > 
 
@@ -401,7 +397,7 @@ Add-AzureRmVirtualNetworkGatewayIpConfig -VirtualNetworkGateway $gw -Name $GWIPc
 ```
 
 #### 3. Enable active-active mode and update the gateway
-You must set the gateway object in PowerShell to trigger the actual update. The SKU of the gateway object must also be changed to HighPerformance since it was created previously as Standard.
+You must set the gateway object in PowerShell to trigger the actual update. The SKU of the virtual network gateway must also be changed (resized) to HighPerformance since it was created previously as Standard.
 
 ```powershell
 Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeature -GatewaySku HighPerformance
