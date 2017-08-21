@@ -22,7 +22,7 @@ ms.custom: it-pro;oldportal
 # Manage your Azure AD directory
 
 ## What is an Azure AD tenant?
-In Azure Active Directory (Azure AD), a tenant is simply a dedicated instance of an Azure AD directory that your organization receives and owns when it signs up for a Microsoft cloud service such as Azure or Office 365. Each Azure AD directory is distinct and separate from other Azure AD directories. Just like a corporate office building is a secure asset specific to only your organization, an Azure AD directory was also designed to be a secure asset for use by only your organization. The Azure AD architecture isolates customer data and identity information so that users and administrators of one Azure AD directory cannot accidentally or maliciously access data in another directory.
+In Azure Active Directory (Azure AD), a tenant is a dedicated instance of an Azure AD directory that your organization receives when it signs up for a Microsoft cloud service such as Azure or Office 365. Each Azure AD directory is distinct and separate from other Azure AD directories. Just like a corporate office building is a secure asset specific to only your organization, an Azure AD directory was also designed to be a secure asset for use by only your organization. The Azure AD architecture isolates customer data and identity information so that users and administrators of one Azure AD directory cannot accidentally or maliciously access data in another directory.
 
 ![Manage Azure Active Directory](./media/active-directory-administer/aad_portals.png)
 
@@ -75,7 +75,7 @@ From any one of these portals (or cmdlets), you can:
 * Manage related cloud services for your organization's subscriptions
 * Set up on-premises integration with Azure AD identity and authentication services
 
-The Azure AD admin center, Office 365 Admin Center, Microsoft Intune account portal, and the Azure AD cmdlets all read from and write to a single shared instance of Azure AD that is associated with your organization’s directory. Each of those tools act as a front-end interface that pulls in or changes your directory data.
+The Azure AD admin center, Office 365 Admin Center, Microsoft Intune account portal, and the Azure AD cmdlets all read from and write to a single shared instance of Azure AD that is associated with your organization’s directory. Each of those tools acts as a front-end interface that pulls in or changes your directory data.
 
 When you change your organization's data using any of the portals or cmdlets while signed in under the context of one of these services, the changes are also shown in the other portals the next time you sign in. This data is shared across the Microsoft cloud services to which you subscribe.
 
@@ -97,7 +97,7 @@ You can manage each directory as a fully independent resource: each directory is
 Unlike other Azure resources, your directories are not child resources of an Azure subscription. So if you cancel or allow your Azure subscription to expire, you can still access your directory data using Azure AD PowerShell, the Azure Graph API, or other interfaces such as the Office 365 Admin Center. You can also associate another subscription with the directory.
 
 ## How to prepare to delete an Azure AD directory
-A global administrator can delete an Azure AD directory from the portal. When a directory is deleted, all resources contained in the directory are also deleted; so you should be sure you don’t need the directory before you delete it.
+A global administrator can delete an Azure AD directory from the portal. When a directory is deleted, all resources that are contained in the directory are also deleted. Verify thar you don’t need the directory before you delete it.
 
 > [!NOTE]
 > If the user is signed in with a work or school account, the user must not be attempting to delete their home directory. For example, if the user is signed in as joe@contoso.onmicrosoft.com, that user cannot delete the directory that has contoso.onmicrosoft.com as its default domain.
@@ -106,10 +106,10 @@ Azure AD requires that certain conditions are met to delete a directory. This re
 
 The following conditions are checked:
 
-* The only user in the directory is the global administrator who will delete the directory. Any other users must be deleted before the directory can be deleted. If users are synchronized from on-premises, then sync will need to be turned off, and the users must be deleted in the cloud directory by using the Management Portal or the Azure module for Windows PowerShell. There is no requirement to delete groups or contacts, such as contacts added from the Office 365 Admin Center.
+* The only user in the directory should be the global administrator who is to delete the directory. Any other users must be deleted before the directory can be deleted. If users are synchronized from on-premises, then sync must be turned off, and the users must be deleted in the cloud directory by using the Azure portal or Azure PowerShell cmdlets. There is no requirement to delete groups or contacts, such as contacts added from the Office 365 Admin Center.
 * There can be no applications in the directory. Any applications must be deleted before the directory can be deleted.
 * No multi-factor authentication providers can be linked to the directory.
-* There can be no subscriptions for any Microsoft Online Services such as Microsoft Azure, Office 365, or Azure AD Premium associated with the directory. For example, if a default directory was created for you in Azure, you cannot delete this directory if your Azure subscription still relies on this directory for authentication. Similarly, you cannot delete a directory if another user has associated a subscription with it. 
+* There can be no subscriptions for any Microsoft Online Services such as Microsoft Azure, Office 365, or Azure AD Premium associated with the directory. For example, if a default directory was created for you in Azure, you cannot delete this directory if your Azure subscription still relies on this directory for authentication. Similarly, you can't delete a directory if another user has associated a subscription with it. 
 
 
 ## Next steps
