@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 08/21/2017
 ms.author: erikje
 
 ---
@@ -38,8 +38,8 @@ ms.author: erikje
    > All four icon sizes (small, medium, large, wide) are required for building the Marketplace item correctly.
    > 
    > 
-8. In the **manifest.json** file, change the information for **name** to the name of your Marketplace item and the information for **publisher** to your name or company.
-9. Under **artifacts**, change the information for **name** and **path** to the correct information for the Azure Resource Manager template that you included.
+8. In the **manifest.json** file, change **name** to the name of your Marketplace item. Also change **publisher** to your name or company.
+9. Under **artifacts**, change **name** and **path** to the correct information for the Azure Resource Manager template that you included.
    
          "artifacts": [
             {
@@ -65,7 +65,7 @@ ms.author: erikje
 
 ## Publish a Marketplace item
 1. Use PowerShell or Azure Storage Explorer to upload your Marketplace item (.azpkg) to Azure Blob storage. You can upload to local Azure Stack storage or upload to Azure Storage. (It's a temporary location for the package.) Make sure that the blob is publicly accessible.
-2. On the client virtual machine in the Microsoft Azure Stack environment, ensure that your PowerShell session is set up with your service administrator credentials. You can find instructions for how to authenticate PowerShell in Azure Stack in [Deploy a template with PowerShell](azure-stack-deploy-template-powershell.md).
+2. On the client virtual machine in the Microsoft Azure Stack environment, make sure that your PowerShell session is set up with your service administrator credentials. You can find instructions for how to authenticate PowerShell in Azure Stack in [Deploy a template with PowerShell](azure-stack-deploy-template-powershell.md).
 3. Use the **Add-AzureRMGalleryItem** PowerShell cmdlet to publish the Marketplace item to Azure Stack. For example:
    
        Add-AzureRMGalleryItem -GalleryItemUri `
@@ -73,7 +73,7 @@ ms.author: erikje
    
    | Parameter | Description |
    | --- | --- |
-   | SubscriptionID |Admin subscription ID. You can retrieve it by using PowerShell or, in the Azure Stack portal, by going to the provider subscription and copying the subscription ID. |
+   | SubscriptionID |Admin subscription ID. You can retrieve it by using PowerShell. If you'd prefer to get it in the portal, go to the provider subscription and copy the subscription ID. |
    | GalleryItemUri |Blob URI for your gallery package that has already been uploaded to storage. |
    | Apiversion |Set as **2015-04-01**. |
 4. Go to the portal. You can now see the Marketplace item in the portal--as an admin or as a tenant.
