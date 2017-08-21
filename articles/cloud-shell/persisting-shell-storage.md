@@ -36,7 +36,7 @@ The file share mounts as `clouddrive` in your `$Home` directory. The file share 
 
 ### Use existing resources
 
-By using the advanced option, you can associate existing resources. When the storage setup prompt appears, select **Show advanced settings** to view additional options. Existing file shares receive a 5-GB user image to persist your `$Home` directory. The drop-down menus are filtered for your assigned Cloud Shell region and the locally-redundant storage and geo-redundant storage accounts.
+By using the advanced option, you can associate existing resources. When the storage setup prompt appears, select **Show advanced settings** to view additional options. Existing file shares receive a 5-GB user image to persist your `$Home` directory. The drop-down menus are filtered for your Cloud Shell region and for local-redundant & geo-redundant storage accounts.
 
 ![The Resource group setting](media/advanced-storage.png)
 
@@ -89,7 +89,7 @@ To view more details, run `clouddrive mount -h`, as shown here:
 ![Running the `clouddrive mount`command](media/mount-h.png)
 
 ## Unmount `clouddrive`
-You can unmount a file share that's mounted to Cloud Shell at any time. However, because Cloud Shell requires a mounted file share, you will be prompted to create and mount a new file share at the next session if it has been removed.
+You can unmount a file share that's mounted to Cloud Shell at any time. Once your file share is unmounted, you will be prompted to mount a new file share prior to your next session.
 
 To remove a file share from Cloud Shell:
 1. Run `clouddrive unmount`.
@@ -102,12 +102,12 @@ To view more details, run `clouddrive unmount -h`, as shown here:
 ![Running the `clouddrive unmount`command](media/unmount-h.png)
 
 > [!WARNING]
-> Although running this command will not delete any resources, manually deleting a resource group, storage account, or file share that's mapped to Cloud Shell will erase your `$Home` directory disk image and any files in your file share. This action cannot be undone.
+> Running this command will not delete any resources. Manually deleting a resource group, storage account, or file share that is mapped to Cloud Shell will permanently delete your `$Home` directory image and any other files in your file share. This action cannot be undone.
 
 ## List `clouddrive` file shares
 To discover which file share is mounted as `clouddrive`, run the following `df` command. 
 
-The file path to clouddrive will show your storage account name and file share in the URL. For example, `//storageaccountname.file.core.windows.net/filesharename`
+The file path to clouddrive shows your storage account name and file share in the URL. For example, `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df

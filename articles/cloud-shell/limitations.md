@@ -18,7 +18,7 @@ ms.author: juluk
 ---
 
 # Limitations of Azure Cloud Shell
-Azure Cloud Shell has the following known limitations.
+Azure Cloud Shell has the following known limitations:
 
 ## System state and persistence
 The machine that provides your Cloud Shell session is temporary, and it is recycled after your session is inactive for 20 minutes. Cloud Shell requires a file share to be mounted. As a result, your subscription must be able to set up storage resources to access Cloud Shell. Other considerations include:
@@ -45,10 +45,10 @@ Take caution when editing .bashrc, doing so can cause unexpected errors in Cloud
 Your history of bash commands may be inconsistent because of Cloud Shell session disruption or concurrent sessions.
 
 ## Usage limits
-Cloud Shell is intended for interactive use cases. As a result, any long-running non-interactive sessions will be ended without warning.
+Cloud Shell is intended for interactive use cases. As a result, any long-running non-interactive sessions are ended without warning.
 
 ## Network connectivity
-Any latency in Cloud Shell is subject to local internet connectivity, Cloud Shell will continue to attempt to carry out any instructions sent.
+Any latency in Cloud Shell is subject to local internet connectivity, Cloud Shell continues to attempt to carry out any instructions sent.
 
 ## Next steps
 [Cloud Shell Quickstart](quickstart.md)
