@@ -47,8 +47,8 @@
     href: tutorial-lemp-stack.md
   - name: 14c - Create MEAN stack
     href: tutorial-mean-stack.md
-  - name: 15 - Secure webserver with SSL
-    href: tutorial-secure-webserver.md
+  - name: 15 - Secure web server with SSL
+    href: tutorial-secure-web-server.md
 - name: Samples
   items:
   - name: Azure CLI

@@ -57,7 +57,7 @@ New-AzureRmKeyVault -VaultName $keyvaultName `
     -EnabledForDeployment
 ```
 
-## Generate certificate and store in Key Vault
+## Generate a certificate and store in Key Vault
 For production use, you should import a valid certificate signed by trusted provider with [Import-​Azure​Key​Vault​Certificate](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate). For this tutorial, the following example shows how you can generate a self-signed certificate with [Add-AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificate) that uses the default certificate policy from [New-AzureKeyVaultCertificatePolicy](/powershell/module/azurerm.keyvault/new-azurekeyvaultcertificatepolicy). 
 
 ```powershell
@@ -74,7 +74,7 @@ Add-AzureKeyVaultCertificate `
 ```
 
 
-## Create virtual machine
+## Create a virtual machine
 Set an administrator username and password for the VM with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```powershell
@@ -169,7 +169,7 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 It takes a few minutes for the VM to be created. The last step uses the Azure Custom Script Extension to install the IIS web server with [Set-AzureRmVmExtension](/powershell/module/azurerm.compute/set-azurermvmextension).
 
 
-## Add certificate to VM from Key Vault
+## Add a certificate to VM from Key Vault
 To add the certificate from Key Vault to a VM, obtain the ID of your certificate with [Get-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret). Add the certificate to the VM with [Add-AzureRmVMSecret](/powershell/module/azurerm.compute/add-azurermvmsecret):
 
 ```powershell
@@ -183,7 +183,7 @@ Update-AzureRmVM -ResourceGroupName $resourceGroup -VM $vm
 ```
 
 
-## Configure IIS to use certificate
+## Configure IIS to use the certificate
 Use the Custom Script Extension again with [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) to update the IIS configuration. This update applies the certificate injected from Key Vault to IIS and configures the web binding:
 
 ```powershell
@@ -203,7 +203,7 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 ```
 
 
-### Test secure web app
+### Test the secure web app
 Obtain the public IP address of your VM with [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for `myPublicIP` created earlier:
 
 ```powershell
@@ -212,11 +212,11 @@ Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIP" 
 
 Now you can open a web browser and enter `https://<myPublicIP>` in the address bar. To accept the security warning if you used a self-signed certificate, select **Details** and then **Go on to the webpage**:
 
-![Accept web browser security warning](./media/tutorial-secure-webserver/browser-warning.png)
+![Accept web browser security warning](./media/tutorial-secure-web-server/browser-warning.png)
 
 Your secured IIS website is then displayed as in the following example:
 
-![View running secure IIS site](./media/tutorial-secure-webserver/secured-iis.png)
+![View running secure IIS site](./media/tutorial-secure-web-server/secured-iis.png)
 
 
 ## Next steps

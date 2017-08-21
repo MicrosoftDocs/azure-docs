@@ -1,6 +1,6 @@
 
 ---
-title: Secure web server with SSL certificates in Azure | Microsoft Docs
+title: Secure a web server with SSL certificates in Azure | Microsoft Docs
 description: Learn how to secure the NGINX web server with SSL certificates on a Linux VM in Azure 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -20,7 +20,7 @@ ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Secure web server with SSL certificates on a Linux virtual machine in Azure
+# Secure a web server with SSL certificates on a Linux virtual machine in Azure
 To secure web servers, a Secure Sockets Later (SSL) certificate can be used to encrypt web traffic. These SSL certificates can be stored in Azure Key Vault, and allow secure deployments of certificates to Linux virtual machines (VMs) in Azure. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -57,7 +57,7 @@ az keyvault create \
     --enabled-for-deployment
 ```
 
-## Generate certificate and store in Key Vault
+## Generate a certificate and store in Key Vault
 For production use, you should import a valid certificate signed by trusted provider with [az keyvault certificate import](/cli/azure/certificate#import). For this tutorial, the following example shows how you can generate a self-signed certificate with [az keyvault certificate create](/cli/azure/certificate#create) that uses the default certificate policy:
 
 ```azurecli-interactive 
@@ -67,7 +67,7 @@ az keyvault certificate create \
     --policy "$(az keyvault certificate get-default-policy)"
 ```
 
-### Prepare certificate for use with VM
+### Prepare a certificate for use with a VM
 To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](/cli/azure/keyvault/secret#list-versions). Convert the certificate with [az vm format-secret](/cli/azure/vm#format-secret). The following example assigns the output of these commands to variables for ease of use in the next steps:
 
 ```azurecli-interactive 
@@ -78,12 +78,12 @@ secret=$(az keyvault secret list-versions \
 vm_secret=$(az vm format-secret --secret "$secret")
 ```
 
-### Create cloud-init config to secure NGINX
+### Create a cloud-init config to secure NGINX
 [Cloud-init](https://cloudinit.readthedocs.io) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, there are no additional steps or required agents to apply your configuration.
 
 When you create a VM, certificates and keys are stored in the protected */var/lib/waagent/* directory. To automate adding the certificate to the VM and configuring the web server, use cloud-init. In this example, we install and configure the NGINX web server. You can use the same process to install and configure Apache. 
 
-Create a file named *cloud-init-webserver.txt* and paste the following configuration:
+Create a file named *cloud-init-web-server.txt* and paste the following configuration:
 
 ```yaml
 #cloud-config
@@ -107,7 +107,7 @@ runcmd:
   - service nginx restart
 ```
 
-### Create secure VM
+### Create a secure VM
 Now create a VM with [az vm create](/cli/azure/vm#create). The certificate data is injected from Key Vault with the `--secrets` parameter. You pass in the cloud-init config with the `--custom-data` parameter:
 
 ```azurecli-interactive 
@@ -117,7 +117,7 @@ az vm create \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --custom-data cloud-init-webserver.txt \
+    --custom-data cloud-init-web-server.txt \
     --secrets "$vm_secret"
 ```
 
@@ -133,14 +133,14 @@ az vm open-port \
 ```
 
 
-### Test secure web app
+### Test the secure web app
 Now you can open a web browser and enter *https://<publicIpAddress>* in the address bar. Provide your own public IP address from the VM create process. Accept the security warning if you used a self-signed certificate:
 
-![Accept web browser security warning](./media/tutorial-secure-webserver/browser-warning.png)
+![Accept web browser security warning](./media/tutorial-secure-web-server/browser-warning.png)
 
 Your secured NGINX site is then displayed as in the following example:
 
-![View running secure NGINX site](./media/tutorial-secure-webserver/secured-nginx.png)
+![View running secure NGINX site](./media/tutorial-secure-web-server/secured-nginx.png)
 
 
 ## Next steps

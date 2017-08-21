@@ -8,14 +8,19 @@ The following example creates a resource group named *myResourceGroup* in the *e
 az group create --name myResourceGroup --location eastus
 ```
 
-## Create virtual machine
+## Create a virtual machine
 
 Create a VM with the [az vm create](/cli/azure/vm#create) command. 
 
 The following example creates a VM named *myVM* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
 ```azurecli-interactive 
-az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys
 ```
 
 When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAddress`. This address is used to access the VM.
@@ -23,7 +28,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 ```azurecli-interactive 
 {
   "fqdns": "",
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
   "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
@@ -55,6 +60,6 @@ az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 Use the following command to create an SSH session with the virtual machine. Substitute the correct public IP address of your virtual machine. In this example, the IP address is *40.68.254.142*.
 
 ```bash
-ssh 40.68.254.142
+ssh azureuser@40.68.254.142
 ```
 
