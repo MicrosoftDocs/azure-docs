@@ -56,7 +56,7 @@ When one of these thresholds is met, new queries are queued and executed on a fi
 
 ## Resource classes
 Resource classes help you control memory allocation and CPU cycles given to a query. You can assign two types of resource classes to a user in the form of database roles. The two types of resource classes are as follows:
-1. Dynamic Resource Classes (**smallrc, mediumrc, largerc, xlargerc**) allocate a variable amount of memory depending on the current DWU. This means that when you scale up to a larger DWU, your queries will automatically get more memory. 
+1. Dynamic Resource Classes (**smallrc, mediumrc, largerc, xlargerc**) allocate a variable amount of memory depending on the current DWU. This means that when you scale up to a larger DWU, your queries automatically get more memory. 
 2. Static Resource Classes (**staticrc10, staticrc20, staticrc30, staticrc40, staticrc50, staticrc60, staticrc70, staticrc80**) allocate the same amount of memory regardless of the current DWU (provided that the DWU itself has enough memory). This means that on larger DWUs, you can run more queries in each resource class concurrently.
 
 Users in **smallrc** and **staticrc10** are given a smaller amount of memory and can take advantage of higher concurrency. In contrast, users assigned to **xlargerc** or **staticrc80** are given large amounts of memory, and therefore fewer of their queries can run
@@ -71,7 +71,7 @@ EXEC sp_addrolemember 'largerc', 'loaduser'
 
 ### Queries that do not honor resource classes
 
-There are a few types of queries that do not benefit from a larger memory allocation. The system will ignore their resource class allocation and always run these queries in the small resource class instead. If these queries always run in the small resource class, they can run when concurrency slots are under pressure and they won't consume more slots than needed. See [Resource class exceptions](#query-exceptions-to-concurrency-limits) for more information.
+There are a few types of queries that do not benefit from a larger memory allocation. The system ignores their resource class allocation and always run these queries in the small resource class instead. If these queries always run in the small resource class, they can run when concurrency slots are under pressure and they won't consume more slots than needed. See [Resource class exceptions](#query-exceptions-to-concurrency-limits) for more information.
 
 ## Details on resource class assignment
 
@@ -79,14 +79,14 @@ There are a few types of queries that do not benefit from a larger memory alloca
 A few more details on resource class:
 
 * *Alter role* permission is required to change the resource class of a user.
-* Although you can add a user to one or more of the higher resource classes, dynamic resource classes will take precedence over static resource classes. That is, if a user is assigned to both **mediumrc**(dynamic) and **staticrc80**(static), **mediumrc** is the resource class that will be honored.
- * When a user is assigned to more than one resource class in a specific resource class type (more than one dynamic resource class or more than one static resource class), the highest resource class will be honored. That is, if a user is assigned to both mediumrc and largerc, the higher resource class i.e., largerc will be honored. And if a user is assigned to both **staticrc20** and **statirc80**, **staticrc80** will be honored.
+* Although you can add a user to one or more of the higher resource classes, dynamic resource classes take precedence over static resource classes. That is, if a user is assigned to both **mediumrc**(dynamic) and **staticrc80**(static), **mediumrc** is the resource class that is honored.
+ * When a user is assigned to more than one resource class in a specific resource class type (more than one dynamic resource class or more than one static resource class), the highest resource class is honored. That is, if a user is assigned to both mediumrc and largerc, the higher resource class (largerc) is honored. And if a user is assigned to both **staticrc20** and **statirc80**, **staticrc80** is honored.
 * The resource class of the system administrative user cannot be changed.
 
 For a detailed example, see [Changing user resource class example](#changing-user-resource-class-example).
 
 ## Memory allocation
-There are pros and cons to increasing a user's resource class. Increasing a resource class for a user will give their queries access to more memory, which may mean queries execute faster.  However, higher resource classes also reduce the number of concurrent queries that can run. This is the trade-off between allocating large amounts of memory to a single query or allowing other queries, which also need memory allocations, to run concurrently. If one user is given high allocations of memory for a query, other users will not have access to that same memory to run a query.
+There are pros and cons to increasing a user's resource class. Increasing a resource class for a user, gives their queries access to more memory, which may mean queries execute faster.  However, higher resource classes also reduce the number of concurrent queries that can run. This is the trade-off between allocating large amounts of memory to a single query or allowing other queries, which also need memory allocations, to run concurrently. If one user is given high allocations of memory for a query, other users will not have access to that same memory to run a query.
 
 The following table maps the memory allocated to each distribution by DWU and resource class.
 
@@ -106,7 +106,7 @@ The following table maps the memory allocated to each distribution by DWU and re
 | DW3000 |100 |1,600 |3,200 |6,400 |
 | DW6000 |100 |3,200 |6,400 |12,800 |
 
-The following table maps the memory allocated to each distribution by DWU and static resource class. Note that the highter resource classes have their memory reduced to honor the global DWU limits.
+The following table maps the memory allocated to each distribution by DWU and static resource class. Note that the higher resource classes have their memory reduced to honor the global DWU limits.
 
 ### Memory allocations per distribution for static resource classes (MB)
 | DWU | staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
@@ -146,9 +146,10 @@ From this table of system-wide memory allocations, you can see that a query runn
 
 The same calculation applies to static resource classes.
  
-## Concurrency slot consumption
-SQL Data Warehouse grants more memory to queries running in higher resource classes. Memory is a fixed resource.  Therefore, the more memory allocated per query, the fewer concurrent queries can execute. The following table reiterates all of the previous concepts in a single view that shows the number of concurrency slots available by DWU and the slots consumed by each resource class.
-### Allocation and consumption of concurrency slots
+## Concurrency slot consumption  
+SQL Data Warehouse grants more memory to queries running in higher resource classes. Memory is a fixed resource.  Therefore, the more memory allocated per query, the fewer concurrent queries can execute. The following table reiterates all of the previous concepts in a single view that shows the number of concurrency slots available by DWU and the slots consumed by each resource class.  
+
+### Allocation and consumption of concurrency slots  
 | DWU | Maximum concurrent queries | Concurrency slots allocated | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |1 |2 |4 |
@@ -182,16 +183,16 @@ SQL Data Warehouse grants more memory to queries running in higher resource clas
 
 From these tables, you can see that SQL Data Warehouse running as DW1000 allocates a maximum of 32 concurrent queries and a total of 40 concurrency slots. If all users are running in smallrc, 32 concurrent queries would be allowed because each query would consume 1 concurrency slot. If all users on a DW1000 were running in mediumrc, each query would be allocated 800 MB per distribution for a total memory allocation of 47 GB per query, and concurrency would be limited to 5 users (40 concurrency slots / 8 slots per mediumrc user).
 
-## Selecting proper resource class
+## Selecting proper resource class  
 A good practice is to permanently assign users to a resource class rather than changing their resource classes. For example, loads to clustered columnstore tables create higher-quality indexes when allocated more memory. To ensure that loads have access to higher memory, create a user specifically for loading data and permanently assign this user to a higher resource class.
-There are a couple of best practices to follow here. As mentioned above, SQL DW supports two kind of resource class types: static resource classes and dynamic resource classes.
+There are a couple of best practices to follow here. As mentioned above, SQL DW supports two kinds of resource class types: static resource classes and dynamic resource classes.
 ### Loading best practices
 1.	If the expectations are loads with regular amount of data, a static resource class is a good choice. Later, when scaling up to get more computational power, the data warehouse will be able to run more concurrent queries out-of-the-box, as the load user does not consume more memory.
 2.	If the expectations are bigger loads in some occasions, a dynamic resource class is a good choice. Later, when scaling up to get more computational power, the load user will get more memory out-of-the-box, hence allowing the load to perform faster.
 
 The memory needed to process loads efficiently depends on the nature of the table loaded and the amount of data processed. For instance, loading data into CCI tables requires some memory to let CCI rowgroups reach optimality. For more details, see the Columnstore indexes - data loading guidance.
 
-As a best practice, we advise to use at least 200MB of memory for loads.
+As a best practice, we advise you to use at least 200MB of memory for loads.
 
 ### Querying best practices
 Queries have different requirements depending on their complexity. Increasing memory per query or increasing the concurrency are both valid ways to augment overall throughput depending on the query needs.
@@ -200,10 +201,10 @@ Queries have different requirements depending on their complexity. Increasing me
 
 Selecting proper memory grant depending on the need of your query is non-trivial, as it depends on many factors, such as the amount of data queried, the nature of the table schemas, and various join, selection, and group predicates. From a general standpoint, allocating more memory will allow queries to complete faster, but would reduce the overall concurrency. If concurrency is not an issue, over-allocating memory does not harm. To fine-tune throughput, trying various flavors of resource classes may be required.
 
-You can use the following stored procedure to figure out concurrency and memory grant per resouce class at a given SLO and the closest best resource class for memory intensed CCI operations on non-partitioned CCI table at a given resource class.
+You can use the following stored procedure to figure out concurrency and memory grant per resource class at a given SLO and the closest best resource class for memory intensive CCI operations on non-partitioned CCI table at a given resource class.
 
 Description:  
-       There are two purpose of this storedproc as mentioned below.  
+       There are two purposes of this stored procedure as mentioned below.  
        
        1. To help user find out concurrency and memory grant per resource class at a given SLO. User need to provide NULL for both schema and tablename for this as shown in the example below.
        2. To help user find out the closest best resoruce class for the memory intensed CCI operations (load, copy table, rebuild index, etc.) on non partitioned CCI table at a given resource class. 
@@ -224,7 +225,7 @@ If you are not getting output after executing stored procedure with parameters p
 For example, at DW100, highest memory grant available is 400MB and if table schema is wide enough to cross the requirement of 400MB.  
       
 Usage example:
-Syntax :  
+Syntax:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
 1. @DWU: Either provide a NULL parameter to extract the current DWU from the DW DB or provide any supported DWU in the form of 'DW100'
 2. @SCHEMA_NAME: Provide a schema name of the table
@@ -427,9 +428,9 @@ WHERE   up1 = up2
 AND     up1 = up3
 ;
 -- Getting current info about workload groups.
-WITH
-dmv
-AS
+WITH  
+dmv  
+AS  
 (
   SELECT
           rp.name                                           AS rp_name
