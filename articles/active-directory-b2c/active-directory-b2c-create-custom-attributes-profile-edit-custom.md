@@ -242,9 +242,9 @@ NOTE: Thus far the TechnicalProfiles have been changed in the flow of local acco
 
 ## Test the custom policy using "Run Now"
 
-     1. Open the **Azure AD B2C Blade** and navigate to **Identity Experience Framework > Custom policies**.
-     2. Select the custom policy that you uploaded, and click the **Run now** button.
-     3. You should be able to sign up using an email address.
+1. Open the **Azure AD B2C Blade** and navigate to **Identity Experience Framework > Custom policies**.
+1. Select the custom policy that you uploaded, and click the **Run now** button.
+1. You should be able to sign up using an email address.
 
 The  id token sent back to your application will include the new extension property as a custom claim preceded by extension_loyaltyId. See example.
 
