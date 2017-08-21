@@ -37,7 +37,7 @@ This script uses following commands to generate SAS URI for a managed snapshot a
 
 | Command | Notes |
 |---|---|
-| [Grant-AzureRmSnapshotAccess](/powershell/module/azurerm.compute/New-AzureRmDisk) | Generates SAS URI for a snapshot that is used to copy it to a storage account. |
+| [Grant-AzureRmSnapshotAccess](/powershell/module/azurerm.compute/grant-azurermsnapshotaccess) | Generates SAS URI for a snapshot that is used to copy it to a storage account. |
 | [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Creates a storage account context using the account name and key. This context can be used to perform read/write operations on the storage account. |
 | [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | Copies the underlying VHD of a snapshot to a storage account |
 
