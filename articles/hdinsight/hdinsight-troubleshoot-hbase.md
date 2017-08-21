@@ -129,83 +129,83 @@ The HDInsight cluster has been scaled down to a very few nodes. The number of no
 
 1. Get the status of the HDFS on the HDInsight cluster by running the following commands:
 
-        ```apache
-        hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
-        ```
+   ```apache
+   hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+   ```
 
-        ```apache
-        hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
-        Safe mode is ON
-        Configured Capacity: 3372381241344 (3.07 TB)
-        Present Capacity: 3138625077248 (2.85 TB)
-        DFS Remaining: 3102710317056 (2.82 TB)
-        DFS Used: 35914760192 (33.45 GB)
-        DFS Used%: 1.14%
-        Under replicated blocks: 0
-        Blocks with corrupt replicas: 0
-        Missing blocks: 0
-        Missing blocks (with replication factor 1): 0
+   ```apache
+   hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+   Safe mode is ON
+   Configured Capacity: 3372381241344 (3.07 TB)
+   Present Capacity: 3138625077248 (2.85 TB)
+   DFS Remaining: 3102710317056 (2.82 TB)
+   DFS Used: 35914760192 (33.45 GB)
+   DFS Used%: 1.14%
+   Under replicated blocks: 0
+   Blocks with corrupt replicas: 0
+   Missing blocks: 0
+   Missing blocks (with replication factor 1): 0
 
-        -------------------------------------------------
-        Live datanodes (8):
+   -------------------------------------------------
+   Live datanodes (8):
 
-        Name: 10.0.0.17:30010 (10.0.0.17)
-        Hostname: 10.0.0.17
-        Decommission Status : Normal
-        Configured Capacity: 421547655168 (392.60 GB)
-        DFS Used: 5288128512 (4.92 GB)
-        Non DFS Used: 29087272960 (27.09 GB)
-        DFS Remaining: 387172253696 (360.58 GB)
-        DFS Used%: 1.25%
-        DFS Remaining%: 91.85%
-        Configured Cache Capacity: 0 (0 B)
-        Cache Used: 0 (0 B)
-        Cache Remaining: 0 (0 B)
-        Cache Used%: 100.00%
-        Cache Remaining%: 0.00%
-        Xceivers: 2
-        Last contact: Wed Apr 05 16:22:00 UTC 2017
-        ...
+   Name: 10.0.0.17:30010 (10.0.0.17)
+   Hostname: 10.0.0.17
+   Decommission Status : Normal
+   Configured Capacity: 421547655168 (392.60 GB)
+   DFS Used: 5288128512 (4.92 GB)
+   Non DFS Used: 29087272960 (27.09 GB)
+   DFS Remaining: 387172253696 (360.58 GB)
+   DFS Used%: 1.25%
+   DFS Remaining%: 91.85%
+   Configured Cache Capacity: 0 (0 B)
+   Cache Used: 0 (0 B)
+   Cache Remaining: 0 (0 B)
+   Cache Used%: 100.00%
+   Cache Remaining%: 0.00%
+   Xceivers: 2
+   Last contact: Wed Apr 05 16:22:00 UTC 2017
+   ...
 
-        ```
+   ```
 2. You also can check the integrity of the HDFS on the HDInsight cluster by using the following commands:
 
-        ```apache
-        hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
-        ```
+   ```apache
+   hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
+   ```
 
-        ```apache
-        Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
-        FSCK started by hdiuser (auth:SIMPLE) from /10.0.0.22 for path / at Wed Apr 05 16:40:28 UTC 2017
-        ....................................................................................................
+   ```apache
+   Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
+   FSCK started by hdiuser (auth:SIMPLE) from /10.0.0.22 for path / at Wed Apr 05 16:40:28 UTC 2017
+   ....................................................................................................
 
-        ....................................................................................................
-        ..................Status: HEALTHY
-        Total size:    9330539472 B
-        Total dirs:    37
-        Total files:   2618
-        Total symlinks:                0 (Files currently being written: 2)
-        Total blocks (validated):      2535 (avg. block size 3680686 B)
-        Minimally replicated blocks:   2535 (100.0 %)
-        Over-replicated blocks:        0 (0.0 %)
-        Under-replicated blocks:       0 (0.0 %)
-        Mis-replicated blocks:         0 (0.0 %)
-        Default replication factor:    3
-        Average block replication:     3.0
-        Corrupt blocks:                0
-        Missing replicas:              0 (0.0 %)
-        Number of data-nodes:          8
-        Number of racks:               1
-        FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
+   ....................................................................................................
+   ..................Status: HEALTHY
+   Total size:    9330539472 B
+   Total dirs:    37
+   Total files:   2618
+   Total symlinks:                0 (Files currently being written: 2)
+   Total blocks (validated):      2535 (avg. block size 3680686 B)
+   Minimally replicated blocks:   2535 (100.0 %)
+   Over-replicated blocks:        0 (0.0 %)
+   Under-replicated blocks:       0 (0.0 %)
+   Mis-replicated blocks:         0 (0.0 %)
+   Default replication factor:    3
+   Average block replication:     3.0
+   Corrupt blocks:                0
+   Missing replicas:              0 (0.0 %)
+   Number of data-nodes:          8
+   Number of racks:               1
+   FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
 
-        The filesystem under path '/' is HEALTHY
-        ```
+   The filesystem under path '/' is HEALTHY
+   ```
 
 3. If you determine that there are no missing, corrupt, or under-replicated blocks, or that those blocks can be ignored, run the following command to take the name node out of safe mode:
 
-        ```apache
-        hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
-        ```
+   ```apache
+   hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
+   ```
 
 
 ## How do I fix JDBC or SQLLine connectivity issues with Apache Phoenix
@@ -217,48 +217,47 @@ node. Ensure that the ZooKeeper service to which sqlline.py is trying to connect
 1. Sign in to the HDInsight cluster by using SSH.
 2. Enter the following command:
                 
-        ```apache
-                "/usr/hdp/current/phoenix-client/bin/sqlline.py <IP of machine where Active Zookeeper is running"
-        ```
+   ```apache
+           "/usr/hdp/current/phoenix-client/bin/sqlline.py <IP of machine where Active Zookeeper is running"
+   ```
 
-
-    > [!Note] 
-    > You can get the IP address of the active ZooKeeper node from the Ambari UI. Go to **HBase** > **Quick Links** > **ZK\* (Active)** > **Zookeeper Info**. 
+   > [!Note] 
+   > You can get the IP address of the active ZooKeeper node from the Ambari UI. Go to **HBase** > **Quick Links** > **ZK\* (Active)** > **Zookeeper Info**. 
 
 3. If the sqlline.py connects to Phoenix and does not timeout, run the following command to validate the availability and health of Phoenix:
 
-        ```apache
-                !tables
-                !quit
-        ```      
+   ```apache
+           !tables
+           !quit
+   ```      
 4. If this command works, there is no issue. The IP address provided by the user might be incorrect. However, if the command pauses for an extended time and then displays the following error, continue to step 5.
 
-        ```apache
-                Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings. 
-        ```
+   ```apache
+           Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings. 
+   ```
 
 5. Run the following commands from the head node (hn0) to diagnose the condition of the Phoenix SYSTEM.CATALOG table:
 
-        ```apache
-                hbase shell
+   ```apache
+            hbase shell
                 
-                count 'SYSTEM.CATALOG'
-        ```
+           count 'SYSTEM.CATALOG'
+   ```
 
-     The command should return an error similar to the following: 
+   The command should return an error similar to the following: 
 
-        ```apache
-                ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
-        ```
+   ```apache
+           ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
+   ```
 6. In the Ambari UI, complete the following steps to restart the HMaster service on all ZooKeeper nodes:
 
     1. In the **Summary** section of HBase, go to **HBase** > **Active HBase Master**. 
     2. In the **Components** section, restart the HBase Master service.
     3. Repeat these steps for all remaining **Standby HBase Master** services. 
 
-        It can take up to five minutes for the HBase Master service to stabilize and finish the recovery process. After a few minutes, repeat the sqlline.py commands to confirm that the SYSTEM.CATALOG table is up, and that it can be queried. 
+It can take up to five minutes for the HBase Master service to stabilize and finish the recovery process. After a few minutes, repeat the sqlline.py commands to confirm that the SYSTEM.CATALOG table is up, and that it can be queried. 
 
-        When the SYSTEM.CATALOG table is back to normal, the connectivity issue to Phoenix should be automatically resolved.
+When the SYSTEM.CATALOG table is back to normal, the connectivity issue to Phoenix should be automatically resolved.
 
 
 ## What causes a master server to fail to start
@@ -275,11 +274,11 @@ During startup, HMaster does a basic `list` command on these folders. If at any 
 
 ### Probable cause
 
-In the region server logs, try to identify the timeline of the file creation, and then see if there was a process crash around the time the file was created (contact HBase support to assist you in doing this). This helps us provide more robust mechanisms, so that you can avoid hitting this bug, and ensure graceful process shutdowns.
+In the region server logs, try to identify the timeline of the file creation, and then see if there was a process crash around the time the file was created. (Contact HBase support to assist you in doing this.) This helps us provide more robust mechanisms, so that you can avoid hitting this bug, and ensure graceful process shutdowns.
 
 ### Resolution steps
 
-Check the call stack and try to determine which folder might be causing the problem (for instance, it might be the WALs folder or the .tmp folder). Then, in Cloud Explorer or by using HDFS commands, try to locate the problem file. Usually, this is a \*-renamePending.json file. (The \*-renamePending.json file is a journal file that's used to implement the atomic rename operation in the WASB driver. Due to bugs in this implementation, these files can be left over after process crashes, and so on). Force-delete this file either in Cloud Explorer or by using HDFS commands. 
+Check the call stack and try to determine which folder might be causing the problem (for instance, it might be the WALs folder or the .tmp folder). Then, in Cloud Explorer or by using HDFS commands, try to locate the problem file. Usually, this is a \*-renamePending.json file. (The \*-renamePending.json file is a journal file that's used to implement the atomic rename operation in the WASB driver. Due to bugs in this implementation, these files can be left over after process crashes, and so on.) Force-delete this file either in Cloud Explorer or by using HDFS commands. 
 
 Sometimes, there might also be a temporary file named something like *$$$.$$$* at this location. You have to use HDFS `ls` command to see this file; you cannot see the file in Cloud Explorer. To delete this file, use the HDFS command `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.  
 
@@ -297,13 +296,13 @@ You might see a message on your Linux cluster that indicates that the *hbase: me
 
 1. In the HBase shell, enter the following commands (change actual values as applicable):  
 
-        ```apache
-        > scan 'hbase:meta'  
-        ```
+   ```apache
+   > scan 'hbase:meta'  
+   ```
 
-        ```apache
-        > delete 'hbase:meta','hbase:backup <region name>','<column name>'  
-        ```
+   ```apache
+   > delete 'hbase:meta','hbase:backup <region name>','<column name>'  
+   ```
 
 2. Delete the *hbase: namespace* entry. This entry might be the same error that's being reported when the *hbase: namespace* table is scanned.
 
@@ -311,9 +310,9 @@ You might see a message on your Linux cluster that indicates that the *hbase: me
 
 4. In the HBase shell, to bring up all offline tables, run the following command:
 
-        ```apache 
-        hbase hbck -ignorePreCheckPermission -fixAssignments 
-        ```
+   ```apache 
+   hbase hbck -ignorePreCheckPermission -fixAssignments 
+   ```
 
 ### Additional reading
 
@@ -336,9 +335,9 @@ This is a known issue with the HMaster service. General cluster startup tasks ca
 
 1. In the Ambari UI, go to **HBase** > **Configs**. In the custom hbase-site.xml file, add the following setting: 
 
-        ```apache
-        Key: hbase.master.namespace.init.timeout Value: 2400000  
-        ```
+   ```apache
+   Key: hbase.master.namespace.init.timeout Value: 2400000  
+   ```
 
 2. Restart the required services (HMaster, and possibly other HBase services).  
 
@@ -358,65 +357,65 @@ Here's what's happening behind the scenes:
 3. If your application continues to connect with the region server, the server won't shut down immediately. The 30-second timeout expires before shutdown occurs. 
 4. After 30 seconds, the Ambari agent sends a force-kill (`kill -9`) command to the region server. You can see this in the ambari-agent log (in the /var/log/ directory of the respective worker node):
 
-        ```apache
-                2017-03-21 13:22:09,171 - Execute['/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh --config /usr/hdp/current/hbase-regionserver/conf stop regionserver'] {'only_if': 'ambari-sudo.sh  -H -E t
-                est -f /var/run/hbase/hbase-hbase-regionserver.pid && ps -p `ambari-sudo.sh  -H -E cat /var/run/hbase/hbase-hbase-regionserver.pid` >/dev/null 2>&1', 'on_timeout': '! ( ambari-sudo.sh  -H -E test -
-                f /var/run/hbase/hbase-hbase-regionserver.pid && ps -p `ambari-sudo.sh  -H -E cat /var/run/hbase/hbase-hbase-regionserver.pid` >/dev/null 2>&1 ) || ambari-sudo.sh -H -E kill -9 `ambari-sudo.sh  -H 
-                -E cat /var/run/hbase/hbase-hbase-regionserver.pid`', 'timeout': 30, 'user': 'hbase'}
-                2017-03-21 13:22:40,268 - Executing '! ( ambari-sudo.sh  -H -E test -f /var/run/hbase/hbase-hbase-regionserver.pid && ps -p `ambari-sudo.sh  -H -E cat /var/run/hbase/hbase-hbase-regionserver.pid` >
-                /dev/null 2>&1 ) || ambari-sudo.sh -H -E kill -9 `ambari-sudo.sh  -H -E cat /var/run/hbase/hbase-hbase-regionserver.pid`'. Reason: Execution of 'ambari-sudo.sh su hbase -l -s /bin/bash -c 'export  
-                PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/var/lib/ambari-agent ; /usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh --config /usr/hdp/curre
-                nt/hbase-regionserver/conf stop regionserver was killed due timeout after 30 seconds
-                2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
-                2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
-        ```
- Because of the abrupt shutdown, the port associated with the process might not be released, even though the region server process is stopped. This situation can lead to an AddressBindException when the region server is starting, as shown in the following logs. You can verify this in the region-server.log in the /var/log/hbase directory on the worker nodes where the region server fails to start. 
+   ```apache
+           2017-03-21 13:22:09,171 - Execute['/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh --config /usr/hdp/current/hbase-regionserver/conf stop regionserver'] {'only_if': 'ambari-sudo.sh  -H -E t
+           est -f /var/run/hbase/hbase-hbase-regionserver.pid && ps -p `ambari-sudo.sh  -H -E cat /var/run/hbase/hbase-hbase-regionserver.pid` >/dev/null 2>&1', 'on_timeout': '! ( ambari-sudo.sh  -H -E test -
+           f /var/run/hbase/hbase-hbase-regionserver.pid && ps -p `ambari-sudo.sh  -H -E cat /var/run/hbase/hbase-hbase-regionserver.pid` >/dev/null 2>&1 ) || ambari-sudo.sh -H -E kill -9 `ambari-sudo.sh  -H 
+           -E cat /var/run/hbase/hbase-hbase-regionserver.pid`', 'timeout': 30, 'user': 'hbase'}
+           2017-03-21 13:22:40,268 - Executing '! ( ambari-sudo.sh  -H -E test -f /var/run/hbase/hbase-hbase-regionserver.pid && ps -p `ambari-sudo.sh  -H -E cat /var/run/hbase/hbase-hbase-regionserver.pid` >
+           /dev/null 2>&1 ) || ambari-sudo.sh -H -E kill -9 `ambari-sudo.sh  -H -E cat /var/run/hbase/hbase-hbase-regionserver.pid`'. Reason: Execution of 'ambari-sudo.sh su hbase -l -s /bin/bash -c 'export  
+           PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/var/lib/ambari-agent ; /usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh --config /usr/hdp/curre
+           nt/hbase-regionserver/conf stop regionserver was killed due timeout after 30 seconds
+           2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
+           2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
+   ```
+Because of the abrupt shutdown, the port associated with the process might not be released, even though the region server process is stopped. This situation can lead to an AddressBindException when the region server is starting, as shown in the following logs. You can verify this in the region-server.log in the /var/log/hbase directory on the worker nodes where the region server fails to start. 
 
-        ```apache
+   ```apache
 
-        2017-03-21 13:25:47,061 ERROR [main] regionserver.HRegionServerCommandLine: Region server exiting
-        java.lang.RuntimeException: Failed construction of Regionserver: class org.apache.hadoop.hbase.regionserver.HRegionServer
-        at org.apache.hadoop.hbase.regionserver.HRegionServer.constructRegionServer(HRegionServer.java:2636)
-        at org.apache.hadoop.hbase.regionserver.HRegionServerCommandLine.start(HRegionServerCommandLine.java:64)
-        at org.apache.hadoop.hbase.regionserver.HRegionServerCommandLine.run(HRegionServerCommandLine.java:87)
-        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:76)
-        at org.apache.hadoop.hbase.util.ServerCommandLine.doMain(ServerCommandLine.java:126)
-        at org.apache.hadoop.hbase.regionserver.HRegionServer.main(HRegionServer.java:2651)
+   2017-03-21 13:25:47,061 ERROR [main] regionserver.HRegionServerCommandLine: Region server exiting
+   java.lang.RuntimeException: Failed construction of Regionserver: class org.apache.hadoop.hbase.regionserver.HRegionServer
+   at org.apache.hadoop.hbase.regionserver.HRegionServer.constructRegionServer(HRegionServer.java:2636)
+   at org.apache.hadoop.hbase.regionserver.HRegionServerCommandLine.start(HRegionServerCommandLine.java:64)
+   at org.apache.hadoop.hbase.regionserver.HRegionServerCommandLine.run(HRegionServerCommandLine.java:87)
+   at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:76)
+   at org.apache.hadoop.hbase.util.ServerCommandLine.doMain(ServerCommandLine.java:126)
+   at org.apache.hadoop.hbase.regionserver.HRegionServer.main(HRegionServer.java:2651)
         
-        Caused by: java.lang.reflect.InvocationTargetException
-        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
-        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-        at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
-        at org.apache.hadoop.hbase.regionserver.HRegionServer.constructRegionServer(HRegionServer.java:2634)
-        ... 5 more
+   Caused by: java.lang.reflect.InvocationTargetException
+   at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+   at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+   at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+   at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+   at org.apache.hadoop.hbase.regionserver.HRegionServer.constructRegionServer(HRegionServer.java:2634)
+   ... 5 more
         
-        Caused by: java.net.BindException: Problem binding to /10.2.0.4:16020 : Address already in use
-        at org.apache.hadoop.hbase.ipc.RpcServer.bind(RpcServer.java:2497)
-        at org.apache.hadoop.hbase.ipc.RpcServer$Listener.<init>(RpcServer.java:580)
-        at org.apache.hadoop.hbase.ipc.RpcServer.<init>(RpcServer.java:1982)
-        at org.apache.hadoop.hbase.regionserver.RSRpcServices.<init>(RSRpcServices.java:863)
-        at org.apache.hadoop.hbase.regionserver.HRegionServer.createRpcServices(HRegionServer.java:632)
-        at org.apache.hadoop.hbase.regionserver.HRegionServer.<init>(HRegionServer.java:532)
-        ... 10 more
+   Caused by: java.net.BindException: Problem binding to /10.2.0.4:16020 : Address already in use
+   at org.apache.hadoop.hbase.ipc.RpcServer.bind(RpcServer.java:2497)
+   at org.apache.hadoop.hbase.ipc.RpcServer$Listener.<init>(RpcServer.java:580)
+   at org.apache.hadoop.hbase.ipc.RpcServer.<init>(RpcServer.java:1982)
+   at org.apache.hadoop.hbase.regionserver.RSRpcServices.<init>(RSRpcServices.java:863)
+   at org.apache.hadoop.hbase.regionserver.HRegionServer.createRpcServices(HRegionServer.java:632)
+   at org.apache.hadoop.hbase.regionserver.HRegionServer.<init>(HRegionServer.java:532)
+   ... 10 more
         
-        Caused by: java.net.BindException: Address already in use
-        at sun.nio.ch.Net.bind0(Native Method)
-        at sun.nio.ch.Net.bind(Net.java:463)
-        at sun.nio.ch.Net.bind(Net.java:455)
-        at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
-        at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
-        at org.apache.hadoop.hbase.ipc.RpcServer.bind(RpcServer.java:2495)
-        ... 15 more
-        ```
+   Caused by: java.net.BindException: Address already in use
+   at sun.nio.ch.Net.bind0(Native Method)
+   at sun.nio.ch.Net.bind(Net.java:463)
+   at sun.nio.ch.Net.bind(Net.java:455)
+   at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+   at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+   at org.apache.hadoop.hbase.ipc.RpcServer.bind(RpcServer.java:2495)
+   ... 15 more
+   ```
 
 ### Resolution steps
 
 1. Try to reduce the load on the HBase region servers before you initiate a restart. 
 2. Alternatively (if step 1 doesn't help), try to manually restart region servers on the worker nodes by using the following commands:
 
-        ```apache
-        sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"
-        sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
-        ```
+   ```apache
+   sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"
+   sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
+   ```
 
