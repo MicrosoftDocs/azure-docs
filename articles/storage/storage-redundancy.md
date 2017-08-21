@@ -29,7 +29,7 @@ When you create a storage account, you can select one of the following replicati
 * [Geo-redundant storage (GRS)](#geo-redundant-storage)
 * [Read-access geo-redundant storage (RA-GRS)](#read-access-geo-redundant-storage)
 
-Read-access geo-redundant storage (RA-GRS) is the default option when you create a storage account.
+Locally-redundant storage (LRS) is the default option when you create a storage account.
 
 The following table provides a quick overview of the differences between LRS, ZRS, GRS, and RA-GRS, while subsequent sections address each type of replication in more detail.
 
