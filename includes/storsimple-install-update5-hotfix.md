@@ -113,7 +113,8 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 
 Use KB4037263 to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console.
 
-> [!NOTE] If your disk firmware is already up-to-date, you won't need to install these updates. Run the `Get-HcsUpdateAvailability` cmdlet from the device serial console to check if updates are available and whether the updates are disruptive (maintenance mode) or non-disruptive (regular mode) updates.
+> [!NOTE] 
+> If your disk firmware is already up-to-date, you won't need to install these updates. Run the `Get-HcsUpdateAvailability` cmdlet from the device serial console to check if updates are available and whether the updates are disruptive (maintenance mode) or non-disruptive (regular mode) updates.
 
 To install the disk firmware updates, follow the instructions below.
 
