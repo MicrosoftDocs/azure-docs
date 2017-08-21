@@ -27,9 +27,9 @@ Before you begin, you need to [create a storage account](../storage/storage-crea
 To archive your Diagnostic Logs using any of the methods below, you set a **Diagnostic Setting** for a particular resource. A diagnostic setting for a resource defines the categories of logs and metric data sent to a destination (storage account, Event Hubs namespace, or Log Analytics). It also defines the retention policy (number of days to retain) for events of each log category and metric data stored in a storage account. If a retention policy is set to zero, events for that log category are stored indefinitely (that is to say, forever). A retention policy can otherwise be any number of days between 1 and 2147483647. [You can read more about diagnostic settings here](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy will be deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted
 
 ## Archive Diagnostic Logs using the portal
-1. In the portal, navigate to the Azure Monitor blade and click on **Diagnostic Settings**
+1. In the portal, navigate to Azure Monitor and click on **Diagnostic Settings**
 
-    ![Monitoring section of Azure Monitor blade](media/monitoring-archive-diagnostic-logs/diagnostic-settings-blade.png)
+    ![Monitoring section of Azure Monitor](media/monitoring-archive-diagnostic-logs/diagnostic-settings-blade.png)
 
 2. Optionally filter the list by resource group or resource type, then click on the resource for which you would like to set a diagnostic setting.
 
@@ -41,7 +41,7 @@ To archive your Diagnostic Logs using any of the methods below, you set a **Diag
 
    ![Add diagnostic setting - existing settings](media/monitoring-archive-diagnostic-logs/diagnostic-settings-multiple.png)
 
-3. In the blade that appears, give your setting a name and check the box for **Export to Storage Account**, then select a storage account. Optionally, set a number of days to retain these logs by using the **Retention (days)** sliders. A retention of zero days stores the logs indefinitely.
+3. Give your setting a name and check the box for **Export to Storage Account**, then select a storage account. Optionally, set a number of days to retain these logs by using the **Retention (days)** sliders. A retention of zero days stores the logs indefinitely.
    
    ![Add diagnostic setting - existing settings](media/monitoring-archive-diagnostic-logs/diagnostic-settings-configure.png)
     
