@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/20/2017
+ms.date: 08/21/2017
 ms.author: curtand
 
 ms.reviewer: jeffsta
