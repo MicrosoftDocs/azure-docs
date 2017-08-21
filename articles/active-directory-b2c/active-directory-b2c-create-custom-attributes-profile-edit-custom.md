@@ -248,7 +248,7 @@ NOTE: Thus far the TechnicalProfiles have been changed in the flow of local acco
 
 The  id token sent back to your application will include the new extension property as a custom claim preceded by extension_loyaltyId. See example.
 
-```
+```json
 {
   "exp": 1493585187,
   "nbf": 1493581587,
@@ -268,7 +268,7 @@ The  id token sent back to your application will include the new extension prope
 ## Next steps
 
 ### Add the new claim to the flows for social account logins by changing the TechnicalProfiles listed below. These two TechnicalProfiles are used by social/federated account logins to write and read the user data using the alternativeSecurityId as the locator of the user object.
-```
+```xml
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
