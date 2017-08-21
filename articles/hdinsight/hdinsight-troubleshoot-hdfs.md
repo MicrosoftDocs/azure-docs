@@ -86,63 +86,63 @@ The local HDFS is stuck in safe mode on the HDInsight cluster.
 
 Failure occurs when you run the following HDFS command:
 
-    ```apache
-    hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
-    ```
+```apache
+hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
+```
 
 You see the following error when you run the command:
 
-    ```apache
-    hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
-    17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
-    org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
-    It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
-            at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1359)
-            at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.mkdirs(FSNamesystem.java:4010)
-            at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.mkdirs(NameNodeRpcServer.java:1102)
-            at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.mkdirs(ClientNamenodeProtocolServerSideTranslatorPB.java:630)
-            at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
-            at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:640)
-            at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:982)
-            at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2313)
-            at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2309)
-            at java.security.AccessController.doPrivileged(Native Method)
-            at javax.security.auth.Subject.doAs(Subject.java:422)
-            at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1724)
-            at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2307)
-            at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1552)
-            at org.apache.hadoop.ipc.Client.call(Client.java:1496)
-            at org.apache.hadoop.ipc.Client.call(Client.java:1396)
-            at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:233)
-            at com.sun.proxy.$Proxy10.mkdirs(Unknown Source)
-            at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.mkdirs(ClientNamenodeProtocolTranslatorPB.java:603)
-            at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-            at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-            at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-            at java.lang.reflect.Method.invoke(Method.java:498)
-            at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:278)
-            at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:194)
-            at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:176)
-            at com.sun.proxy.$Proxy11.mkdirs(Unknown Source)
-            at org.apache.hadoop.hdfs.DFSClient.primitiveMkdir(DFSClient.java:3061)
-            at org.apache.hadoop.hdfs.DFSClient.mkdirs(DFSClient.java:3031)
-            at org.apache.hadoop.hdfs.DistributedFileSystem$24.doCall(DistributedFileSystem.java:1162)
-            at org.apache.hadoop.hdfs.DistributedFileSystem$24.doCall(DistributedFileSystem.java:1158)
-            at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
-            at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirsInternal(DistributedFileSystem.java:1158)
-            at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirs(DistributedFileSystem.java:1150)
-            at org.apache.hadoop.fs.FileSystem.mkdirs(FileSystem.java:1898)
-            at org.apache.hadoop.fs.shell.Mkdir.processNonexistentPath(Mkdir.java:76)
-            at org.apache.hadoop.fs.shell.Command.processArgument(Command.java:273)
-            at org.apache.hadoop.fs.shell.Command.processArguments(Command.java:255)
-            at org.apache.hadoop.fs.shell.FsCommand.processRawArguments(FsCommand.java:119)
-            at org.apache.hadoop.fs.shell.Command.run(Command.java:165)
-            at org.apache.hadoop.fs.FsShell.run(FsShell.java:297)
-            at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:76)
-            at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:90)
-            at org.apache.hadoop.fs.FsShell.main(FsShell.java:350)
-    mkdir: Cannot create directory /temp. Name node is in safe mode.
-    ```
+```apache
+hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
+17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
+org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
+It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
+        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1359)
+        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.mkdirs(FSNamesystem.java:4010)
+        at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.mkdirs(NameNodeRpcServer.java:1102)
+        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.mkdirs(ClientNamenodeProtocolServerSideTranslatorPB.java:630)
+        at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:640)
+        at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:982)
+        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2313)
+        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2309)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at javax.security.auth.Subject.doAs(Subject.java:422)
+        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1724)
+        at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2307)
+        at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1552)
+        at org.apache.hadoop.ipc.Client.call(Client.java:1496)
+        at org.apache.hadoop.ipc.Client.call(Client.java:1396)
+        at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:233)
+        at com.sun.proxy.$Proxy10.mkdirs(Unknown Source)
+        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.mkdirs(ClientNamenodeProtocolTranslatorPB.java:603)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:278)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:194)
+        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:176)
+        at com.sun.proxy.$Proxy11.mkdirs(Unknown Source)
+        at org.apache.hadoop.hdfs.DFSClient.primitiveMkdir(DFSClient.java:3061)
+        at org.apache.hadoop.hdfs.DFSClient.mkdirs(DFSClient.java:3031)
+        at org.apache.hadoop.hdfs.DistributedFileSystem$24.doCall(DistributedFileSystem.java:1162)
+        at org.apache.hadoop.hdfs.DistributedFileSystem$24.doCall(DistributedFileSystem.java:1158)
+        at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
+        at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirsInternal(DistributedFileSystem.java:1158)
+        at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirs(DistributedFileSystem.java:1150)
+        at org.apache.hadoop.fs.FileSystem.mkdirs(FileSystem.java:1898)
+        at org.apache.hadoop.fs.shell.Mkdir.processNonexistentPath(Mkdir.java:76)
+        at org.apache.hadoop.fs.shell.Command.processArgument(Command.java:273)
+        at org.apache.hadoop.fs.shell.Command.processArguments(Command.java:255)
+        at org.apache.hadoop.fs.shell.FsCommand.processRawArguments(FsCommand.java:119)
+        at org.apache.hadoop.fs.shell.Command.run(Command.java:165)
+        at org.apache.hadoop.fs.FsShell.run(FsShell.java:297)
+        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:76)
+        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:90)
+        at org.apache.hadoop.fs.FsShell.main(FsShell.java:350)
+mkdir: Cannot create directory /temp. Name node is in safe mode.
+```
 
 ### Probable cause
 
