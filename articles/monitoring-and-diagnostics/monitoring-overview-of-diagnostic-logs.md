@@ -54,7 +54,7 @@ Resource diagnostic logs for non-Compute resources are configured using resource
     - If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or OMS options are selected), the retention policies have no effect.
     - Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
 
-These settings are easily configured via the diagnostics blade for a resource in the Azure portal, via Azure PowerShell and CLI commands, or via the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+These settings are easily configured via the diagnostic settings for a resource in the Azure portal, via Azure PowerShell and CLI commands, or via the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 > [!WARNING]
 > Diagnostic logs and metrics for from the guest OS layer of Compute resources (for example, VMs or Service Fabric) use [a separate mechanism for configuration and selection of outputs](../azure-diagnostics.md).
@@ -62,7 +62,7 @@ These settings are easily configured via the diagnostics blade for a resource in
 >
 
 ## How to enable collection of resource diagnostic logs
-Collection of resource diagnostic logs can be enabled [as part of creating a resource in a Resource Manager template](./monitoring-enable-diagnostic-logs-using-template.md) or after a resource is created via the resource’s blade in the portal. You can also enable collection at any point using Azure PowerShell or CLI commands, or using the Azure Monitor REST API.
+Collection of resource diagnostic logs can be enabled [as part of creating a resource in a Resource Manager template](./monitoring-enable-diagnostic-logs-using-template.md) or after a resource is created from that resource's page in the portal. You can also enable collection at any point using Azure PowerShell or CLI commands, or using the Azure Monitor REST API.
 
 > [!TIP]
 > These instructions may not apply directly to every resource. See the schema links at the bottom of this page to understand special steps that may apply to certain resource types.
@@ -70,11 +70,11 @@ Collection of resource diagnostic logs can be enabled [as part of creating a res
 >
 
 ### Enable collection of resource diagnostic logs in the portal
-You can enable collection of resource diagnostic logs in the Azure portal after a resource has been created either by going to the blade for a specific resource or by navigating to the common Azure Monitor blade. To enable this via the common Azure Monitor blade:
+You can enable collection of resource diagnostic logs in the Azure portal after a resource has been created either by going to a specific resource or by navigating to Azure Monitor. To enable this via Azure Monitor:
 
-1. In the [Azure portal](http://portal.azure.com), navigate to the Azure Monitor blade and click on **Diagnostic Settings**
+1. In the [Azure portal](http://portal.azure.com), navigate to Azure Monitor and click on **Diagnostic Settings**
 
-    ![Monitoring section of Azure Monitor blade](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-blade.png)
+    ![Monitoring section of Azure Monitor](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-blade.png)
 
 2. Optionally filter the list by resource group or resource type, then click on the resource for which you would like to set a diagnostic setting.
 
@@ -86,7 +86,7 @@ You can enable collection of resource diagnostic logs in the Azure portal after 
 
    ![Add diagnostic setting - existing settings](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-multiple.png)
 
-3. In the blade that appears, give your setting a name, check the boxes for each destination to which you would like to send data, and configure which resource is used for each destination. Optionally, set a number of days to retain these logs by using the **Retention (days)** sliders (only applicable to the storage account destination). A retention of zero days stores the logs indefinitely.
+3. Give your setting a name, check the boxes for each destination to which you would like to send data, and configure which resource is used for each destination. Optionally, set a number of days to retain these logs by using the **Retention (days)** sliders (only applicable to the storage account destination). A retention of zero days stores the logs indefinitely.
    
    ![Add diagnostic setting - existing settings](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-configure.png)
     
@@ -158,17 +158,17 @@ You can combine these parameters to enable multiple output options.
 To change Diagnostic Settings using the Azure Monitor REST API, see [this document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
 ## Manage resource diagnostic settings in the portal
-Ensure that all of your resources are set up with diagnostic settings. Navigate to the **Monitor** blade in the portal and open the **Diagnostic settings** blade.
+Ensure that all of your resources are set up with diagnostic settings. Navigate to **Monitor** in the portal and open **Diagnostic settings**.
 
 ![Diagnostic Logs blade in the portal](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
 
-You may have to click "More services" to find the Monitor blade.
+You may have to click "More services" to find the Monitor section.
 
-In this blade, you can view and filter all resources that support diagnostic settings to see if they have diagnostics enabled. You can also drill down to see if multiple settings are set on a resource and check which storage account, Event Hubs namespace, and/or Log Analytics workspace that data are flowing to.
+Here you can view and filter all resources that support diagnostic settings to see if they have diagnostics enabled. You can also drill down to see if multiple settings are set on a resource and check which storage account, Event Hubs namespace, and/or Log Analytics workspace that data are flowing to.
 
-![Diagnostic Logs blade results in portal](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-blade.png)
+![Diagnostic Logs results in portal](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-blade.png)
 
-Adding a diagnostic setting brings up the Diagnostic Settings blade, where you can enable, disable, or modify your diagnostic settings for the selected resource.
+Adding a diagnostic setting brings up the Diagnostic Settings view, where you can enable, disable, or modify your diagnostic settings for the selected resource.
 
 ## Supported services, categories, and schemata for resource diagnostic logs
 [See this article](monitoring-diagnostic-logs-schema.md) for a complete list of supported services and the log categories and schemata used by those services.
