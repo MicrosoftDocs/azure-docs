@@ -152,7 +152,7 @@ If you want to collect logs in a multi-node environment, note the following diff
 * The `get-date` function is not white-listed in multinode environments. So, you must explicitly specify a date. For example:
 
    `-FromDate "Friday, August 18, 2017 6:34:48 AM" -ToDate "Friday, August 18, 2017 7:35:25 AM"`
-* You must specify a UNC path for the output to a shared folder on the hardware lifecycle host. For example:
+* You must specify a UNC path for the output to a shared folder on the hardware lifecycle host, or any other shared folder that you can access. For example:
 
    `Get-AzureStackLog -OutputSharePath \\10.193.128.250\logs -OutputShareCredential $sharecred`
 
