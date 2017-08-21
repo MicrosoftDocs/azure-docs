@@ -29,7 +29,7 @@ Azure Application Gateway web application firewall (WAF) provides protection for
 
 ## View rule groups and rules
 
-The following code examples show how to view rules and rule groups that are configurable on a WAF-enabled gateway.
+The following code examples show how to view rules and rule groups that are configurable on a WAF-enabled application gateway.
 
 ### View rule groups
 
@@ -79,7 +79,7 @@ OWASP (Ver. 2.2.9):
 
 ## Disable rules
 
-Enter the following example to disable rules `910018` and `910017` on a gateway:
+Enter the following example to disable rules `910018` and `910017` on an application gateway:
 
 ```azurecli
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
