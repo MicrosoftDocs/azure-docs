@@ -24,7 +24,7 @@ Azure Key Vault's soft delete feature allows recovery of deleted vaults and vaul
 
 >[!NOTE]
 > There is an outdated version of our Key Vault PowerShell output formatting file that may be loaded into your environment instead of the correct version. If you notice you're not seeing the soft-delete enabled property described in this topic, try the following:
-`$vault = Get-AzureRmKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
+> `$vault = Get-AzureRmKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
 > You may also upgrade to version 5.0.0 of Azure PowerShell to address this issue.
 
 For Key Vault specific refernece information for PowerShell, see [Azure Key Vault PowerShell reference](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
