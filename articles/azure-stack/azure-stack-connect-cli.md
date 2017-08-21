@@ -176,7 +176,8 @@ Use the following steps to connect to Azure Stack:
      --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
    ```
 
-   **Note** If your user account has Multi factor authentication enabled, you can use the az login command without providing the -u parameter. Running the command gives you a URL and a code that you must use to authenticate.
+   > [!NOTE]
+   > If your user account has Multi factor authentication enabled, you can use the az login command without providing the -u parameter. Running the command gives you a URL and a code that you must use to authenticate.
    
    * Sign in as a **service principal**: Before you sign in, [Create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, log in by using the following command:
 
