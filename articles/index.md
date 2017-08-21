@@ -745,6 +745,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>Site Recovery</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/virtual-machines/disks/">
+                                                <img src="media/common/placeholder.svg" alt="" />
+                                                <p>Disks</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Data + Analytics</h3>
                                     <ul>
@@ -1597,6 +1603,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
                                                     <p>Orchestrate protection and recovery of private clouds</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-machines/disks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/common/placeholder.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Disks</h3>
+                                                    <p>Simple storage for VMs with Managed Disks</p>
                                                 </div>
                                             </div>
                                         </div>
