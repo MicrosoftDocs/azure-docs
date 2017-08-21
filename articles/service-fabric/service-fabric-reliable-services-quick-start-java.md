@@ -176,4 +176,4 @@ $ ./install.sh
 
 ## Related articles
 
-* [Getting started with Service Fabric CLI](service-fabric-cli.md.md)
+* [Getting started with Service Fabric CLI](service-fabric-cli.md)
