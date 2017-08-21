@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for IntelliJ: Create Spark applications for HDInsight cluster | Microsoft Docs'
+title: 'Azure Toolkit for IntelliJ: Create Spark applications for an HDInsight cluster | Microsoft Docs'
 description: Use the Azure Toolkit for IntelliJ to develop Spark applications written in Scala, and submit them to an HDInsight Spark cluster.
 services: hdinsight
 documentationcenter: ''
@@ -19,9 +19,9 @@ ms.date: 05/10/2017
 ms.author: nitinme
 
 ---
-# Use Azure Toolkit for IntelliJ to create Spark applications for HDInsight cluster
+# Use Azure Toolkit for IntelliJ to create Spark applications for an HDInsight cluster
 
-Use the Azure Toolkit for the IntelliJ plug-in to develop Spark applications written in Scala, and then submit them to an HDInsight Spark cluster directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
+Use the Azure Toolkit for IntelliJ plug-in to develop Spark applications written in Scala, and then submit them to an HDInsight Spark cluster directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
 
 * Develop and submit a Scala Spark application on an HDInsight Spark cluster.
 * Access your Azure HDInsight Spark cluster resources.
@@ -193,7 +193,7 @@ You can perform various operations by using Azure Toolkit for IntelliJ.
 
     ![Job stage details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
 
-4. To view frequently-used logs, such as *Driver Stderr*, *Driver Stdout*, and *Directory Info*, select the **Log** tab.
+4. To view frequently used logs, such as *Driver Stderr*, *Driver Stdout*, and *Directory Info*, select the **Log** tab.
 
     ![Log details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-log-info.png)
 
@@ -297,7 +297,7 @@ In Spark 1.6, if you're using a 32-bit Java SDK during local run, you might enco
         at java.lang.reflect.Method.invoke(Method.java:606)
         at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
 
-These errors happen because the heap size is not large enough for Spark to run. Spark requires at least 471 MB. For more information, see [SPARK-12081](https://issues.apache.org/jira/browse/SPARK-12081)). One simple solution is to use a 64-bit Java SDK. You can also change the JVM settings in IntelliJ by adding the following options:
+These errors happen because the heap size is not large enough for Spark to run. Spark requires at least 471 MB. (For more information, see [SPARK-12081](https://issues.apache.org/jira/browse/SPARK-12081).) One simple solution is to use a 64-bit Java SDK. You can also change the JVM settings in IntelliJ by adding the following options:
 
     -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea
 
