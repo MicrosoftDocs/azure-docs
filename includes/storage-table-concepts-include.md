@@ -29,7 +29,7 @@ The Table service contains the following components:
   You can address Azure tables directly using this address with the
   OData protocol. For more information, see [OData.org][OData.org]
 * **Storage Account:** All access to Azure Storage is done
-  through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account capacity.
+  through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) for details about storage account capacity.
 * **Table**: A table is a collection of entities. Tables don't enforce
   a schema on entities, which means a single table can contain
   entities that have different sets of properties. The number of tables that a 
