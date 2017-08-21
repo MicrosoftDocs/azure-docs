@@ -24,7 +24,7 @@ As an Azure Stack user, you can configure your Azure Stack Development Kit's Pow
 
 ## Prerequisites
 
-Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN]((azure-stack-connect-azure-stack.md#connect-with-vpn):
+Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-with-vpn):
 
 * Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
 * Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md). 
