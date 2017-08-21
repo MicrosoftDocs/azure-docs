@@ -30,6 +30,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/batch/batch-hpc-solutions.md",
+            "redirect_url": "/azure/virtual-machines/linux/high-performance-computing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/batch/big-compute-resources.md",
+            "redirect_url": "/azure/virtual-machines/linux/high-performance-computing",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/architecture-overview.md",
             "redirect_url": "/azure/architecture",
             "redirect_document_id": false

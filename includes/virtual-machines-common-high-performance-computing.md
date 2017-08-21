@@ -110,7 +110,7 @@ Run custom or commercial HPC applications in Azure. Several are benchmarked to s
 * [Deep learning toolkit for Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Batch Shipyard recipes for deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
-### Solution providers
+## Solution providers
 
 Partners who develop or deliver batch and HPC applications in Azure include:
 
@@ -172,7 +172,7 @@ Here are examples of customers that have solved business problems with Azure HPC
 
 ## Next steps
 * Learn more about Big Compute solutions for
- [engineering simulation](https://simulation.azure.com/) and [banking and capital markets](https://finance.azure.com/).
+ [engineering simulation](https://simulation.azure.com/), [rendering](https://simulation.azure.com/), and [banking and capital markets](https://finance.azure.com/).
 * For the latest announcements, see the [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/) and the [Azure blog](https://azure.microsoft.com/blog/tag/hpc/).
 
 
