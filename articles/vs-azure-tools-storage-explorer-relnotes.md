@@ -68,75 +68,22 @@ Known Issues
 	sudo apt-get install libgconf-2-4
 	```
 
-## Version 0.8.15 (Preview)
-7/13/2017
-
-### Download Azure Storage Explorer 0.8.15 (Preview)
-* [Download Azure Storage Explorer 0.8.15 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Download Azure Storage Explorer 0.8.15 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Download Azure Storage Explorer 0.8.15 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
-
-### New
-
-* Improved the performance of blob upload and blob download.
-* Improved the conflicting files experience for blob upload and blob download.
-* Improved displaying of errors in the Activity Log during blob upload and blob download.
-* Increased the maximum size of blob uploads and downloads to 8TB for Page Blobs and ~4.7TB for Block Blobs.
-
-### Known Issues
-
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is a [limitation of the Azure Storage Node library](https://github.com/Azure/azure-storage-node/issues/317).
-* After completing a blob upload, the tab which initiated the upload is refreshed. This is a change from previous behavior, and will also cause you to be taken back to the root of the container you are in. 
-* If you choose the wrong PIN/Smartcard certificate then you will need to restart Storage Explorer in order to have it forget that decision.
-* The account settings panel may show that you need to reenter credentials in order to filter subscriptions.
-* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
-* Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
-* Ubuntu 14.04 install needs gcc version updated or upgraded – steps to upgrade are below: 
-
-    ```
-    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo apt-get dist-upgrade
-    ```
-
-* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine: 
-
-	```
-	sudo apt-get install libgconf-2-4
-	```
-
-## Previous releases
-
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Version 0.8.9 / 0.8.8](#version-089--088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
-
-
-### Version 0.8.14
+## Version 0.8.14 (Preview)
 06/22/2017
 
-#### New
+### Download Azure Storage Explorer 0.8.14 (Preview)
+* [Download Azure Storage Explorer 0.8.14 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Download Azure Storage Explorer 0.8.14 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Download Azure Storage Explorer 0.8.14 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
+
+### New
 
 * Updated Electron version to 1.7.2 in order to take advantage of several critical security updates
 * You can now quickly access the online troubleshooting guide from the help menu
 * Storage Explorer Troubleshooting [Guide][2]
 * [Instructions][3] on connecting to an Azure Stack subscription
 
-#### Known Issues
+### Known Issues
 
 * Buttons on the delete folder confirmation dialog don't register with the mouse clicks on Linux. Workaround is to use the Enter key
 * If you choose the wrong PIN/Smartcard certificate then you will need to restart in order to have Storage Explorer forget the decision
@@ -152,6 +99,27 @@ Known Issues
     sudo apt-get upgrade
     sudo apt-get dist-upgrade
     ```
+
+
+
+
+## Previous releases
+
+* [Version 0.8.13](#version-0813)
+* [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
+* [Version 0.8.9 / 0.8.8](#version-089--088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
 
 
 ### Version 0.8.13
