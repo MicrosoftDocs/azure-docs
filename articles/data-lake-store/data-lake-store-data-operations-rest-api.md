@@ -1,6 +1,6 @@
 ---
-title: 'REST API: Data management operations on Azure Data Lake Store | Microsoft Docs'
-description: Use WebHDFS REST APIs to perform data management operations on Data Lake Store
+title: 'REST API: Filesystem operations on Azure Data Lake Store | Microsoft Docs'
+description: Use WebHDFS REST APIs to perform filesystem operations on Data Lake Store
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -19,7 +19,7 @@ ms.author: nitinme
 # Filesystem operations on Azure Data Lake Store using REST API
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
-> * [Java SDK](data-lake-store-data-operations-java-sdk.md)
+> * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
@@ -31,6 +31,8 @@ For instructions on how to perform account management operations on Data Lake St
 
 ## Prerequisites
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+
+* **Azure Data Lake Store account**. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md).
 
 * **[cURL](http://curl.haxx.se/)**. This article uses cURL to demonstrate how to make REST API calls against a Data Lake Store account.
 

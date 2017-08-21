@@ -34,7 +34,7 @@ In this article, you learn about how to use the REST API to do service-to-servic
 
 * (Optional) And IDE like [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) or [Eclipse](https://www.eclipse.org/downloads/) or similar.
 
-#### Service-to-service authentication
+## Service-to-service authentication
 Use the snippet below in your Java application to obtain token for the Active Directory Web application you created earlier using one of the subclasses of `AccessTokenProvider` (the example below uses `ClientCredsTokenProvider`). The token provider caches the creds used to obtain the token in memory, and automatically renews the token if it is about to expire. It is possible to create your own subclasses of `AccessTokenProvider` so tokens are obtained by your customer code, but for now let's just use the one provided in the SDK.
 
 Replace **FILL-IN-HERE** with the actual values for the Azure Active Directory Web application.

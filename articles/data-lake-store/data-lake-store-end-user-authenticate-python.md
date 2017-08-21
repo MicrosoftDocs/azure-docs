@@ -24,7 +24,12 @@ ms.author: nitinme
 > 
 > 
 
-In this article, you learn about how to use the Python SDK to do end-user authentication with Azure Data Lake Store. For service-to-service authentication with Data Lake Store using Python, see [Service-to-service authentication with Data Lake Store using Python](data-lake-store-service-to-service-authenticate-pythonl.md).
+In this article, you learn about how to use the Python SDK to do end-user authentication with Azure Data Lake Store. End-user authentication can further be split into two categorie:
+
+* End-user authentication without multi-factor authencation
+* End-user authentication with multi-factor authentication
+
+Both these options are discussed in this article. For service-to-service authentication with Data Lake Store using Python, see [Service-to-service authentication with Data Lake Store using Python](data-lake-store-service-to-service-authenticate-python.md).
 
 ## Prerequisites
 
@@ -83,8 +88,9 @@ pip install azure-datalake-store
 
 3. Save changes to mysample.py.
 
+## End-user authentication without multi-factor authentication
 
-### End-user authentication for account management
+### For account management
 
 Use this to authenticate with Azure AD for account management operations on Data Lake Store such as create Data Lake Store account, delete Data Lake Store account, etc. You must provide username and password for an Azure AD user. Note that the user should not be configured for multi-factor authentication.
 
@@ -93,7 +99,7 @@ Use this to authenticate with Azure AD for account management operations on Data
 
 	credentials = UserPassCredentials(user, password)
 
-### End-user authentication for filesystem operations
+### For filesystem operations
 
 Use this to authenticate with Azure AD for filesystem operations on Data Lake Store such as create folder, upload file, etc. Use this with an existing Azure AD **native** application. The Azure AD user you provide credentials for should not be configured for multi-factor authentication.
 
@@ -103,6 +109,31 @@ Use this to authenticate with Azure AD for filesystem operations on Data Lake St
 	password = getpass.getpass()
 
 	token = lib.auth(tenant_id, user, password, client_id)
+
+## End-user authentication with multi-factor authentication
+
+### For account management
+
+Use this to authenticate with Azure AD for account management operations (create/delete Data Lake Store account, etc.). The following snippet can be used to authenticate your application using multi-factor authentication. Use this with an existing Azure AD "Web App" application.
+
+	authority_host_url = "https://login.microsoftonline.com"
+	tenant = "FILL-IN-HERE"
+	authority_url = authority_host_url + '/' + tenant
+	client_id = 'FILL-IN-HERE'
+	redirect = 'urn:ietf:wg:oauth:2.0:oob'
+	RESOURCE = 'https://management.core.windows.net/'
+	
+	context = adal.AuthenticationContext(authority_url)
+	code = context.acquire_user_code(RESOURCE, client_id)
+	print(code['message'])
+	mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
+	credentials = AADTokenCredentials(mgmt_token, client_id)
+
+### For filesystem operations
+
+Use this to authenticate with Azure AD for filesystem operations (create folder, upload file, etc.). The following snippet can be used to authenticate your application using multi-factor authentication. Use this with an existing Azure AD "Web App" application.
+
+	token = lib.auth(tenant_id='FILL-IN-HERE') 
    
 ## Next steps
 In this article you learned how to use end-user authentication to authenticate with Azure Data Lake Store using Python. You can now look at the following articles that talk about how to use Python to work with Azure Data Lake Store.

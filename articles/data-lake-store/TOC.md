@@ -1,8 +1,8 @@
 # Overview
 ## [Overview of Azure Data Lake Store](data-lake-store-overview.md)
 ## [Compare Azure Data Lake Store with Azure Storage](data-lake-store-comparison-with-blob-storage.md)
-## [Use Azure Data Lake Store for big data processing](data-lake-store-data-scenarios.md)
-## [Open source applications that work with Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
+## [Azure Data Lake Store for big data processing](data-lake-store-data-scenarios.md)
+## [Open source applications working with Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
 # Get started
 ## [Using Portal](data-lake-store-get-started-portal.md)
@@ -25,7 +25,7 @@
 ### [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 ### [Encryption](data-lake-store-encryption.md)
 
-## Authenticate with Data Lake Store
+## [Authenticate with Data Lake Store](data-lakes-store-authentication-using-azure-active-directory.md)
 ### [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
 #### [Using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 #### [Using REST API](data-lake-store-end-user-authenticate-rest-api.md)
@@ -35,8 +35,6 @@
 #### [Using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
 #### [Using REST API](data-lake-store-service-to-service-authenticate-rest-api.md)
 #### [Using Python](data-lake-store-service-to-service-authenticate-python.md)
-### [Multi-factor authentication](data-lake-store-multi-factor-authenticate-using-active-directory.md)
-#### [Using Python](data-lake-store-multi-factor-authenticate-python.md)
 
 ## Work with Data Lake Store
 ### Account manangement operations
