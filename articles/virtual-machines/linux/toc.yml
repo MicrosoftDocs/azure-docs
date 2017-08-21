@@ -41,6 +41,14 @@
     href: tutorial-jenkins-github-docker-cicd.md
   - name: 13 - CI/CD with Team Services
     href: tutorial-build-deploy-jenkins.md
+  - name: 14a - Create LAMP stack
+    href: tutorial-lamp-stack.md
+  - name: 14b - Create LEMP stack
+    href: tutorial-lemp-stack.md
+  - name: 14c - Create MEAN stack
+    href: tutorial-mean-stack.md
+  - name: 15 - Secure web server with SSL
+    href: tutorial-secure-web-server.md
 - name: Samples
   items:
   - name: Azure CLI
