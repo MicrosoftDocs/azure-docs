@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
+ms.date: 08/21/2017
 ms.author: joeyong;barbkess;kavithaj
 
 ---
@@ -49,7 +49,7 @@ The following table describes the limits for both concurrent queries and concurr
 
 When one of these thresholds is met, new queries are queued and executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots falls below the limits, queued queries are released. 
 
-> [!NOTE]
+> [!NOTE]  
 > *Select* queries executing exclusively on dynamic management views (DMVs) or catalog views are not governed by any of the concurrency limits. You can monitor the system regardless of the number of queries executing on it.
 > 
 > 
@@ -202,8 +202,6 @@ Selecting proper memory grant depending on the need of your query is non-trivial
 
 You can use the following stored procedure to figure out concurrency and memory grant per resouce class at a given SLO and the closest best resource class for memory intensed CCI operations on non-partitioned CCI table at a given resource class.
 
-```sql
-/* 
 Description: 
        There are two purpose of this storedproc as mentioned below.
        
@@ -225,21 +223,20 @@ Note: If you are not getting output after executing stored procedure with parame
                  For example, at DW100, highest memory grant available is 400MB and if table schema is wide enough to cross the requirement of 400MB
       
 Usage example:
-Syntax :  EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)
+Syntax :  `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
 1. @DWU: Either provide a NULL parameter to extract the current DWU from the DW DB or provide any supported DWU in the form of 'DW100'
 2. @SCHEMA_NAME: Provide a schema name of the table
 3. @TABLE_NAME: Provide a table name of the interest
 
 Examples:
-create a table: create table foobar (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);
-example 1: EXEC dbo.prc_workload_management_by_DWU 'DW2000', 'dbo', 'foobar'
-example 2: EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'foobar'
-example 3: EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL
-example 4: EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL
+create a table: CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`  
+example 1: `EXEC dbo.prc_workload_management_by_DWU 'DW2000', 'dbo', 'Table1';`  
+example 2: `EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';`  
+example 3: `EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;`  
+example 4: `EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;`  
 
+```sql  
  */
--------------------------------------------------------------------------------
-
 -------------------------------------------------------------------------------
 -- Dropping prc_workload_management_by_DWU procedure if it exists.
 -------------------------------------------------------------------------------
@@ -681,7 +678,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - REDISTRIBUTE
 -->
 
-## Change a user resource class example
+##  <a name="changing-user-resource-class-example"></a> Change a user resource class example
 1. **Create login:** Open a connection to your **master** database on the SQL server hosting your SQL Data Warehouse database and execute the following commands.
    
     ```sql
