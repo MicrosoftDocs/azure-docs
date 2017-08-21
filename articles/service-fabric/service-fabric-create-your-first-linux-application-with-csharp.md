@@ -33,6 +33,7 @@ Before you get started, make sure that you have [set up your Linux development e
 You will also want to configure the [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) for deploying your application.
 
 ### Install and set up the generators for CSharp
+Service Fabric provides scaffolding tools which will help you create a Service Fabric CSharp application from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator for CSharp working on your machine.
 1. Install nodejs and NPM on your machine
 
   ```bash
@@ -127,13 +128,12 @@ To add another service to an application already created using `yo`, perform the
 
 ## Next steps
 * [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)
+* [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli-2-0.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
 ## Related articles
 
 * [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png

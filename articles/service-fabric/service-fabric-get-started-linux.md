@@ -121,10 +121,12 @@ After you have updated your sources, you can install the SDK.
   sudo apt install nodejs-legacy
   ```
 2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
+
   ```bash
   sudo npm install -g yo
   ```
 3. Install the Service Fabric Yeo container generator and guest execuatble generator from NPM
+
   ```bash
   sudo npm install -g generator-azuresfcontainer
   sudo npm install -g generator-azuresfguest
@@ -140,7 +142,9 @@ For more information about installing Azure CLI 2.0 and using the Service Fabric
 
 
 ## Install the required Java artifacts (optional, if you want to use the Java programming models)
-Service Fabric Java dependencies get fetched from Maven. To build and work on the Service Fabric Java applications locally, install JDK(openjdk-8-jdk) and Gradle. If not already installed, you can use the following -
+
+To build Service Fabric services using Java, ensure you have JDK 1.8 installed along with Gradle which is used for running build tasks. The following snippet installs Open JDK 1.8 along with Gradle. The Service Fabric Java libraries are pulled from Maven.
+
   ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
@@ -186,7 +190,7 @@ To update to the latest version of the SDK and runtime, run the following comman
 sudo apt-get update
 sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp
 ```
-
+To update the Java SDK binaries from Maven, you need to update the version details of the corresponding binary in the ``build.gradle`` file to point to the latest version. To know exactly where you need to update the version, you can refer to any ``build.gradle`` file in Service Fabric getting-started samples [here](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 > [!NOTE]
 > Updating the packages might cause your local development cluster to stop running. Restart your local cluster after an upgrade by following the instructions on this page.
@@ -196,13 +200,11 @@ sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp
 * [Create and deploy your first Service Fabric Java application on Linux by using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
 * [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
-* [Use the XPlat CLI to manage your Service Fabric applications](service-fabric-azure-cli.md)
 * [Service Fabric Windows/Linux differences](service-fabric-linux-windows-differences.md)
 
 ## Related articles
 
 * [Get started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Get started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
 
 <!-- Links -->
 

@@ -24,10 +24,10 @@ This quickstart helps you create your first Azure Service Fabric Java applicatio
 ## Prerequisites
 Before you get started, install the Service Fabric SDK, the Azure CLI, and setup a development cluster in your [Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux development environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
 
-You will also want to configure the [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) (recommended) or
-[XPlat CLI](service-fabric-azure-cli.md) for deploying your application.
+You will also want to configure the [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) for deploying your application.
 
 ### Install and set up the generators for Java
+Service Fabric provides scaffolding tools which will help you create a Service Fabric Java application from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator for Java working on your machine.
 1. Install nodejs and NPM on your machine
 
   ```bash
@@ -122,19 +122,18 @@ Use the uninstall script provided in the template to delete the application inst
 In Service Fabric explorer you see that the application and application type no longer appear in the **Applications** node.
 
 ## Migrating old Service Fabric Java applications to be used with Maven
-We have recently moved Service Fabric Java binaries from Service Fabric Java SDK to Maven repository. While the new applications you generate using Yeoman or Eclipse, will generate latest updated projects (which will be able to work with Maven), you can update your existing Service Fabric stateless or actor Java applications, which were using the Service Fabric Java SDK earlier, to use the Service Fabric Java dependencies from Maven. Please follow the steps mentioned in this detailed [documentation](service-fabric-migrate-old-javaapp-to-use-maven.md) to ensure your older application works with Maven.
+We have recently moved Service Fabric Java libraries from Service Fabric Java SDK to Maven repository. While the new applications you generate using Yeoman or Eclipse, will generate latest updated projects (which will be able to work with Maven), you can update your existing Service Fabric stateless or actor Java applications, which were using the Service Fabric Java SDK earlier, to use the Service Fabric Java dependencies from Maven. Please follow the steps mentioned [here](service-fabric-migrate-old-javaapp-to-use-maven.md) to ensure your older application works with Maven.
 
 ## Next steps
 * [Create your first Service Fabric Java application on Linux using Eclipse](service-fabric-get-started-eclipse.md)
 * [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Interact with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)
+* [Interact with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli-2-0.md)
 * [Troubleshooting deployment](service-fabric-azure-cli.md#troubleshooting)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
 ## Related articles
 
 * [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png

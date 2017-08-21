@@ -1,5 +1,5 @@
 ---
-title: Set up your development environment on Mac OS X | Microsoft Docs
+title: Set up your development environment on Mac OS X to work with Azure Service Fabric| Microsoft Docs
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications on Mac OS X.
 services: service-fabric
 documentationcenter: java
@@ -81,18 +81,22 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
 
 
 ## Create application on Mac using Yeoman
+Service Fabric provides scaffolding tools which will help you create a Service Fabric application from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator working on your machine.
+
 1. You need to have Node.js and NPM installed on you mac. If not you can install Node.js and NPM using Homebrew using the following. To check the versions of Node.js and NPM installed on your Mac, you can use the ``-v`` option.
+
   ```bash
   brew install node
   node -v
   npm -v
   ```
 2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
+
   ```bash
   npm install -g yo
   ```
 3. Install the Yeoman generator you want to use, following the steps in the getting started [documentation](service-fabric-get-started-linux.md).
-4. To build a Service Fabric Java application on Mac, you would need - openjdk-8 and Gradle installed on the machine.
+4. To build a Service Fabric Java application on Mac, you would need - JDK 1.8 and Gradle installed on the machine.
 
 
 ## Install the Service Fabric plugin for Eclipse Neon
