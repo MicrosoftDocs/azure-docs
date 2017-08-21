@@ -17,7 +17,7 @@ ms.date: 08/21/2017
 ms.author: johnkem
 
 ---
-# Supported services, schemata and categories for Azure Diagnostic Logs
+# Supported services, schemata, and categories for Azure Diagnostic Logs
 
 ## Supported services and schemata for resource diagnostic logs
 The schema for resource diagnostic logs varies depending on the resource and log category.   
