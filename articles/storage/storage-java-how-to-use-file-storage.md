@@ -227,7 +227,7 @@ if ( file.deleteIfExists() ) {
 ## Next steps
 If you would like to learn more about other Azure storage APIs, follow these links.
 
-* [Java Developer Center](http://azure.microsoft.com/develop/java/)
+* [Azure for Java developers](/java/azure)/)
 * [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage SDK for Android](https://github.com/azure/azure-storage-android)
 * [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)

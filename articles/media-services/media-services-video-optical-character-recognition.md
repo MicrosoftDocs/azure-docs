@@ -203,7 +203,6 @@ Set up your development environment and populate the app.config file with connec
 
             // Field for service context.
             private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
 
             static void Main(string[] args)
             {

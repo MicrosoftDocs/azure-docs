@@ -3,7 +3,7 @@ title: PowerShell example-Sync between SQL Database and SQL Server on-premises |
 description: Azure PowerShell example script to sync between an Azure SQL Database and a SQL Server on-premises database
 services: sql-database
 documentationcenter: sql-database
-author: douglaslms
+author: jognanay
 manager: jhubbard
 editor: ''
 tags:
@@ -40,21 +40,21 @@ using namespace System.Collections.Generic
 
 # Hub database info
 # Subscription id for hub database
-$SubscriptionId = "292be86a-9cf1-49a9-99ae-bf3f8ebb1273"
+$SubscriptionId = "subscription_guid"
 # Resrouce group name for hub database
-$ResourceGroupName = "JoshRG"
+$ResourceGroupName = "ResourceGroupName"
 # Server name for hub database
-$ServerName = "joshazure"
+$ServerName = "ServerName"
 # Database name for hub database
 $DatabaseName = "TestHubDatabase"
 
 # Sync database info
 # Resource group name for sync database
-$SyncDatabaseResourceGroupName = "JoshRG"
+$SyncDatabaseResourceGroupName = "ResourceGroupName"
 # Server name for sync database
-$SyncDatabaseServerName = "joshazure"
+$SyncDatabaseServerName = "ServerName"
 # Sync database name
-$SyncDatabaseName = "ContosoMetadata"
+$SyncDatabaseName = "SyncDatabaseName"
 
 # Sync group info
 # Sync group name
@@ -68,7 +68,7 @@ $IntervalInSeconds = 300
 # Member name
 $SyncMemberName = "member"
 # Member server name
-$MemberServerName = "JOGNANAY"
+$MemberServerName = "OnPremiseServer"
 # Member database name
 $MemberDatabaseName = "MemberDatabaseTest"
 # Member database type. Value can be AzureSqlDatabase or SqlServerDatabase
@@ -77,9 +77,9 @@ $MemberDatabaseType = "SqlServerDatabase"
 $SyncDirection = "Bidirectional"
 
 #Sync Agent Info
-$SyncAgentName = "SyncAgentA12"
-$SyncAgentResourceGroupName = "JoshRG"
-$SyncAgentServerName = "joshazure"
+$SyncAgentName = "TestSyncAgent"
+$SyncAgentResourceGroupName = "ResourceGroupName"
+$SyncAgentServerName = "ServerName"
 
 # Other info
 # Temp file to save the sync schema
@@ -99,8 +99,8 @@ select-azurermsubscription -SubscriptionId $SubscriptionId
 
 # Use this section if it is safe to show password in the script.
 # Otherwise, use the PromptForCredential
-# $User = "cloudsa"
-# $PWord = ConvertTo-SecureString -String "Yukon900Yukon900" -AsPlainText -Force
+# $User = "username"
+# $PWord = ConvertTo-SecureString -String "password" -AsPlainText -Force
 # $Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $User, $PWord
 
 $Credential = $Host.ui.PromptForCredential("Need credential", 
@@ -142,8 +142,8 @@ New-AzureRmSqlSyncGroup   -ResourceGroupName $ResourceGroupName `
                             -DatabaseCredential $Credential
 
 # Use this section if it is safe to show password in the script.
-#$User = "cloudsa"
-#$Password = ConvertTo-SecureString -String "Yukon900Yukon900" -AsPlainText -Force
+#$User = "username"
+#$Password = ConvertTo-SecureString -String "password" -AsPlainText -Force
 #$Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $User, $Password
 
 $Credential = $Host.ui.PromptForCredential("Need credential", 
@@ -208,7 +208,7 @@ $databaseSchema = Get-AzureRmSqlSyncSchema   -ResourceGroupName $ResourceGroupNa
                                              -DatabaseName $DatabaseName `
                                              -SyncGroupName $SyncGroupName `
 
-$databaseSchema | ConvertTo-Json -depth 5 -Compress | Out-File "C:\Users\jognanay\AppData\Local\Temp\syncSchema.json"     
+$databaseSchema | ConvertTo-Json -depth 5 -Compress | Out-File "C:\Users\OnPremiseServer\AppData\Local\Temp\syncSchema.json"     
 $newSchema = [AzureSqlSyncGroupSchemaModel]::new()
 $newSchema.Tables = [List[AzureSqlSyncGroupSchemaTableModel]]::new();
 
