@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/18/2016
+ms.date: 08/21/2016
 ms.author: saysa
 
 ---

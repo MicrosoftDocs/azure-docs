@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/17/2017
+ms.date: 8/21/2017
 ms.author: subramar
 
 ---
@@ -130,23 +130,7 @@ After you have updated your sources, you can install the SDK.
   sudo npm install -g generator-azuresfguest
   ```
 
-After you have installed the above generators, you should be able to create apps with guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer` respectively. You might need to set your $NODE_PATH environment variable to the location of the node modules.
-
-
-```bash
-    export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules
-```
-
-If you are using the environment as root, you might need to set the variable with the following command:
-
-```bash
-    export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules
-```
-
-
-> [!TIP]
-> You might want to add these commands to your ~/.bashrc file so that you don't have to set the environment variable at every login.
->
+After you have installed the above generators, you should be able to create apps with guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer` respectively.
 
 ## Set up the XPlat Service Fabric CLI
 The [XPlat CLI][azure-xplat-cli-github] includes commands for interacting with Service Fabric entities, including clusters and applications. It is based on Node.js, so [ensure that you have installed Node][install-node] before you proceed with the following instructions:
@@ -186,7 +170,7 @@ For more information about installing Azure CLI 2.0 and using the Service Fabric
 
 
 ## Install the required Java artifacts (optional, if you want to use the Java programming models)
-Service Fabric Java dependencies get fetched from Maven. To build and work on the Service Fabric Java applications locally, install JDK(openjdk-8-jdk) and Gradle.
+Service Fabric Java dependencies get fetched from Maven. To build and work on the Service Fabric Java applications locally, install JDK(openjdk-8-jdk) and Gradle. If not already installed, you can use the following -
   ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
@@ -222,12 +206,6 @@ The .NET Core SDK provides the libraries and templates that are required to buil
 
    ```bash
    sudo apt-get install servicefabricsdkcsharp
-   ```
-
-2. Run the SDK setup script.
-
-   ```bash
-   sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
    ```
 
 ## Update the SDK and runtime
