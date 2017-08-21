@@ -29,7 +29,7 @@ ms.author: erikje
        /Contoso.TodoList/Strings/
        /Contoso.TodoList/DeploymentTemplates/
 3. [Create an Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) or choose a template from GitHub. The Marketplace item uses this template to create a resource.
-4. Test the template with the Microsoft Azure Stack APIs to make sure that the resource can be deployed successfully.
+4. To make sure that the resource can be deployed successfully, test the template with the Microsoft Azure Stack APIs.
 5. If your template relies on a virtual machine image, follow the instructions to [add a virtual machine image to Azure Stack](azure-stack-add-vm-image.md).
 6. Save your Azure Resource Manager template in the **/Contoso.TodoList/DeploymentTemplates/** folder.
 7. Choose the icons and text for your Marketplace item. Add icons to the **Icons** folder, and add text to the **resources** file in the **Strings** folder. Use the Small, Medium, Large, and Wide naming convention for icons. See [Marketplace item UI reference](#reference-marketplace-item-ui) for a detailed description.
@@ -54,7 +54,7 @@ ms.author: erikje
                  "My Marketplace Items"
               ],
 11. For any further edits to manifest.json, refer to [Reference: Marketplace item manifest.json](#reference-marketplace-item-manifestjson).
-12. Open a command prompt and run the following command to package the folders into an .azpkg file:
+12. To package the folders into an .azpkg file, open a command prompt and run the following command:
     
         AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
     
@@ -88,7 +88,7 @@ ms.author: erikje
         Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
    
    > [!NOTE]
-   > The Marketplace UI may show an error after you remove an item. To fix this, click **Settings** in the portal. Then, select **Discard modifications** under **Portal customization**.
+   > The Marketplace UI may show an error after you remove an item. To fix the error, click **Settings** in the portal. Then, select **Discard modifications** under **Portal customization**.
    > 
    > 
 
@@ -103,15 +103,15 @@ ms.author: erikje
 ### Metadata
 | Name | Required | Type | Constraints | Description |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |Recommendation of 80 characters |If longer than 80, the portal might not display your item name gracefully. |
-| PublisherDisplayName |X |String |Recommendation of 30 characters |If longer than 30, the portal might not display your publisher name gracefully. |
+| DisplayName |X |String |Recommendation of 80 characters |The portal might not display your item name gracefully if it is longer than 80 characters. |
+| PublisherDisplayName |X |String |Recommendation of 30 characters |The portal might not display your publisher name gracefully if it is longer than 30 characters. |
 | PublisherLegalName |X |String |Maximum of 256 characters | |
 | Summary |X |String |60 to 100 characters | |
 | LongSummary |X |String |140 to 256 characters |Not yet applicable in Azure Stack. |
 | Description |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 to 5,000 characters | |
 
 ### Images
-The Marketplace uses the following icons.
+The Marketplace uses the following icons:
 
 | Name | Width | Height | Notes |
 | --- | --- | --- | --- |
@@ -122,7 +122,7 @@ The Marketplace uses the following icons.
 | Screenshot |533 px |32 px |Optional |
 
 ### Categories
-Each Marketplace item should be tagged with a category. This dictates the category where the item appears on the portal UI. You can choose one of the existing categories in Azure Stack (Compute, Data + Storage, etc.) or choose a new one.
+Each Marketplace item should be tagged with a category that identifies where the item appears on the portal UI. You can choose one of the existing categories in Azure Stack (Compute, Data + Storage, etc.) or choose a new one.
 
 ### Links
 Each Marketplace item can include various links to additional content. The links are specified as a list of names and URIs.
@@ -133,7 +133,7 @@ Each Marketplace item can include various links to additional content. The links
 | Uri |X |URI | | |
 
 ### Additional properties
-In addition to the preceding metadata, Marketplace authors can provide custom key/value pair data in the following form.
+In addition to the preceding metadata, Marketplace authors can provide custom key/value pair data in the following form:
 
 | Name | Required | Type | Constraints | Description |
 | --- | --- | --- | --- | --- |
