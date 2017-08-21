@@ -63,36 +63,29 @@ ADD . /app
 
 # Run python's package manager and install the flask package
 RUN pip install flask
-=======
-## How to: set a custom Docker image for a web app
-You can set the custom Docker image for both new and existing webs apps. When you create a web app on Linux in the [Azure portal](https://portal.azure.com/#create/Microsoft.AppSvcLinux), click **Configure container** to set a custom Docker image:
 
 # Configure ports
-EXPOSE 2222 82 
+EXPOSE 2222 80 
 
 # Run apt-get, to install the SSH server
- RUN apt-get update \ 
+RUN apt-get update \ 
  	&& apt-get install -y --no-install-recommends openssh-server \
  	&& echo "root:Docker!" | chpasswd
 
- #Copy the sshd_config file to its new location
- COPY sshd_config /etc/ssh/
+#Copy the sshd_config file to its new location
+COPY sshd_config /etc/ssh/
 
 # Start the SSH service
- RUN #!/bin/bash
- RUN service ssh start
+RUN service ssh start
 
 # Copy init_container.sh to the /bin directory
- COPY init_container.sh /bin/
+COPY init_container.sh /bin/
 	
 # Run the chmod command to change permissions on above file in the /bin directory
- RUN chmod 755 /bin/init_container.sh 
+RUN chmod 755 /bin/init_container.sh 
 
 # run commands in init_container.sh			
- CMD ["/bin/init_container.sh"]
-
-# Run app.py when the container launches
-CMD ["python", "app.py"]
+CMD ["/bin/init_container.sh"]
 ```
 
 To build the Docker image, run the `docker build` command, and provide a name, `mydockerimage`, and tag, `v1`, as shown here:
@@ -529,52 +522,81 @@ Once you've modified the Python file and saved it, you must rebuild and push the
 
 ## Connect to Web App on Linux SSH
 
-SSH enables secure communication between a container and a client. In order for a custom Docker image to support SSH, you must build it into a Dockerfile. 
+SSH enables secure communication between a container and a client. In order for a custom Docker image to support SSH, you must build it into a Dockerfile. You enable SSH in the Docker file itself. Reviewing the sample Docker file exposes the following instructions:
 
-Include the `openssh-server` installation in [RUN](https://docs.docker.com/engine/reference/builder/#run) instruction in the Dockerfile for your image and set the password for the root account to `"Docker!"`.
+* A [RUN](https://docs.docker.com/engine/reference/builder/#run) instruction that calls `apt-get`, then sets the password for the root account to `"Docker!"`.
 
-> [!NOTE] 
-> This configuration does not allow external connections to the container. SSH is available only through the Kudu/SCM Site. The Kudu/SCM site is authenticated with the publishing credentials.
+    ```docker
+    RUN apt-get update \ 
+    	&& apt-get install -y --no-install-recommends openssh-server \
+    	&& echo "root:Docker!" | chpasswd
+    ``` 
+
+    > [!NOTE] 
+    > This configuration does not allow external connections to the container. SSH is available only through the Kudu/SCM Site. The Kudu/SCM site is authenticated with the publishing credentials.
+
+* A [COPY](https://docs.docker.com/engine/reference/builder/#copy) instruction that instructs the Docker engine to copy the [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on our [sshd_config file](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config) in the Azure-App-Service GitHub repository.
+
+    > [!NOTE] 
+    > The *sshd_config* file must include the following items: 
+    > * `Ciphers` must include at least one item in this list: `aes128-cbc,3des-cbc,aes256-cbc`.
+    > * `MACs` must include at least one item in this list: `hmac-sha1,hmac-sha1-96`.
+
+    ```docker
+    #Copy the sshd_config file to its new location
+    COPY sshd_config /etc/ssh/
+    ```
+
+* An [EXPOSE] (https://docs.docker.com/engine/reference/builder/#expose) instruction that exposes port 2222 in the container. Although the root password is known, port 2222 cannot be accessed from the internet. It is an internal port accessible only by containers within the bridge network of a private virtual network. After that, commands copy SSH configuration details and start the `ssh` service. 
+
+    ```docker
+    # Configure ports
+    EXPOSE 2222 80
+    
+    #Copy the sshd_config file to its new location
+    COPY sshd_config /etc/ssh/
+    
+    # Start the SSH service
+    RUN service ssh start
+    ```
+
+The `init_container.sh` file in the sample code contains instructions on how to initialize the container when it runs. The Dockerfile uses the [COPY](https://docs.docker.com/engine/reference/builder/#copy), [RUN](https://docs.docker.com/engine/reference/builder/#run), and [CMD](https://docs.docker.com/engine/reference/builder/#cmd) instructions to launch the `init_container.sh` script properly.
 
 ```docker
-RUN apt-get update \ 
-	&& apt-get install -y --no-install-recommends openssh-server \
-	&& echo "root:Docker!" | chpasswd
-``` 
-
-Add a [COPY](https://docs.docker.com/engine/reference/builder/#copy) instruction to the Dockerfile that instructs the Docker engine to copy the [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on our [sshd_config file](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config) in the Azure-App-Service GitHub repository.
-
-> [!NOTE] 
-> The *sshd_config* file must include the following items: 
-> * `Ciphers` must include at least one item in this list: `aes128-cbc,3des-cbc,aes256-cbc`.
-> * `MACs` must include at least one item in this list: `hmac-sha1,hmac-sha1-96`.
-
-```docker
-COPY sshd_config /etc/ssh/
-```
-
-Include port 2222 in the [EXPOSE] (https://docs.docker.com/engine/reference/builder/#expose) instruction for the Dockerfile. Although the root password is known, port 2222 cannot be accessed from the internet. It is an internal port accessible only by containers within the bridge network of a private virtual network.
-
-```docker
-EXPOSE 2222 80
-```
-
-Start the ssh service. 
-
-```bash
-RUN #!/bin/bash
-RUN service ssh start
-```
-
-The `init_container.sh` file in the sample code contains instructions on how to initialize the container. The Dockerfile uses the [CMD] instruction(https://docs.docker.com/engine/reference/builder/#cmd) to run the script.
-
-```docker
+# Copy init_container.sh to the /bin directory
 COPY init_container.sh /bin/
 	
+# Run the chmod command to change permissions on above file in the /bin directory
 RUN chmod 755 /bin/init_container.sh 
-			
+
+# run commands in init_container.sh			
 CMD ["/bin/init_container.sh"]
 ```
+
+You may wish to verify that certain applications are running in the container. To inspect the container and verify running processes, start by opening a browser and navigate to `https://<app name>.scm.azurewebsites.net/webssh/host`. You are then redirected to a page displaying an interactive console. Issue the `top` command at the prompt.
+
+```bash
+top
+```
+
+The `top` command exposes all running processes.  
+           
+```bash
+PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+ 1 root      20   0  945616  35372  15348 S  0.0  2.1   0:04.63 node
+20 root      20   0   55180   2776   2516 S  0.0  0.2   0:00.00 sshd
+42 root      20   0  944596  33340  15352 S  0.0  1.9   0:05.80 node /opt/s+
+56 root      20   0   59812   5244   4512 S  0.0  0.3   0:00.93 sshd
+58 root      20   0   20228   3128   2664 S  0.0  0.2   0:00.00 bash
+62 root      20   0   21916   2272   1944 S  0.0  0.1   0:03.15 top
+63 root      20   0   59812   5344   4612 S  0.0  0.3   0:00.03 sshd
+65 root      20   0   20228   3140   2672 S  0.0  0.2   0:00.00 bash
+71 root      20   0   59812   5380   4648 S  0.0  0.3   0:00.02 sshd
+73 root      20   0   20228   3160   2696 S  0.0  0.2   0:00.00 bash
+77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
+```
+
+Congratulations! You've configured a custom Docker image for an Azure web app on Linux.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-cli.md)]
 
