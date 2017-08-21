@@ -22,15 +22,15 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 
 ## Managed Disks
 
-Azure VMs are now available using [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), which enables you to create your VMs without creating or managing any [Azure Storage accounts](../../storage/storage-introduction.md) yourself. You specify whether you want Premium or Standard storage and how big the disk should be, and Azure creates the VM disks for you. VMs with Managed Disks have many important features, including:
+Azure VMs are now available using [Azure Managed Disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), which enables you to create your VMs without creating or managing any [Azure Storage accounts](../../storage/common/storage-introduction.md) yourself. You specify whether you want Premium or Standard storage and how big the disk should be, and Azure creates the VM disks for you. VMs with Managed Disks have many important features, including:
 
 - Automatic scalability support. Azure creates the disks and manages the underlying storage to support up to 10,000 disks per subscription.
 - Increased reliability with Availability Sets. Azure ensures that VM disks are isolated from each other within Availability Sets automatically.
 - Increased access control. Managed Disks expose a variety of operations controlled by [Azure Role-Based Access Control (RBAC)](../../active-directory/role-based-access-control-what-is.md).
 
-Pricing for Managed Disks is different than for that of unmanaged disks. For that information, see [Pricing and Billing for Managed Disks](../../storage/storage-managed-disks-overview.md#pricing-and-billing).
+Pricing for Managed Disks is different than for that of unmanaged disks. For that information, see [Pricing and Billing for Managed Disks](../windows/managed-disks-overview.md#pricing-and-billing).
 
-You can convert existing VMs that use unmanaged disks to use managed disks with [az vm convert](/cli/azure/vm#convert). For more information, see [How to convert a Linux VM from unmanaged disks to Azure Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). You cannot convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The following steps detail how to to convert unmanaged disks that are, or have been, in an encrypted storage account:
+You can convert existing VMs that use unmanaged disks to use managed disks with [az vm convert](/cli/azure/vm#convert). For more information, see [How to convert a Linux VM from unmanaged disks to Azure Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). You cannot convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The following steps detail how to to convert unmanaged disks that are, or have been, in an encrypted storage account:
 
 - Copy the virtual hard disk (VHD) with [az storage blob copy start](/cli/azure/storage/blob/copy#start) to a storage account that has never been enabled for Azure Storage Service Encryption.
 - Create a VM that uses managed disks and specify that VHD file during creation with [az vm create](/cli/azure/vm#create), or
@@ -88,7 +88,7 @@ Premium storage features:
 * Premium Storage Disks: Azure Premium Storage supports VM disks that can be attached to DS, DSv2, or GS series Azure VMs.
 * Premium Page Blob: Premium Storage supports Azure Page Blobs, which are used to hold persistent disks for Azure Virtual Machines (VMs).
 * Premium Locally Redundant Storage: A Premium Storage account only supports Locally Redundant Storage (LRS) as the replication option and keeps three copies of the data within a single region.
-* [Premium Storage](../../storage/storage-premium-storage.md)
+* [Premium Storage](../../storage/common/storage-premium-storage.md)
 
 ## Premium Storage supported VMs
 Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series Azure Virtual Machines (VMs). You can use both Standard and Premium storage disks with Premium Storage supported of VMs. But you cannot use Premium Storage disks with VM series, which are not Premium Storage compatible.
@@ -111,7 +111,7 @@ Azure File storage offers file shares in the cloud using the standard SMB protoc
 
 File storage is built on the same technology as Blob, Table, and Queue storage, so File storage offers the availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform. For details about File storage performance targets and limits, see Azure Storage Scalability and Performance Targets.
 
-* [How to use Azure File storage with Linux](../../storage/storage-how-to-use-files-linux.md)
+* [How to use Azure File storage with Linux](../../storage/files/storage-how-to-use-files-linux.md)
 
 ## Hot Storage
 The Azure hot storage tier is optimized for storing data that is accessed frequently.  Hot storage is the default storage type for blob stores.
@@ -151,7 +151,7 @@ Read-access geo-redundant storage (RA-GRS) maximizes availability for your stora
 
 For a deep dive into Azure storage redundancy see:
 
-* [Azure Storage replication](../../storage/storage-redundancy.md)
+* [Azure Storage replication](../../storage/common/storage-redundancy.md)
 
 ## Scalability
 Azure Storage is massively scalable, so you can store and process hundreds of terabytes of data to support the big data scenarios required by scientific, financial analysis, and media applications. Or you can store the small amounts of data required for a small business website. Wherever your needs fall, you pay only for the data you’re storing. Azure Storage currently stores tens of trillions of unique customer objects, and handles millions of requests per second on average.
@@ -193,7 +193,7 @@ This section discusses how to secure data when you transfer it into or out of Az
 ## Encryption at Rest
 We will talk about Storage Service Encryption (SSE), and how you can enable it for a storage account, resulting in your block blobs, page blobs, and append blobs being automatically encrypted when written to Azure Storage. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus SSE versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
 
-* [Azure Storage security guide](../../storage/storage-security-guide.md)
+* [Azure Storage security guide](../../storage/common/storage-security-guide.md)
 
 ## Temporary disk
 Each VM contains a temporary disk. The temporary disk provides short-term storage for applications and processes and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) or when you [redeploy a VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). During a standard reboot of the VM, the data on the temporary drive should persist.

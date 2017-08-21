@@ -167,7 +167,7 @@ In a real-world application, you would typically create separate accounts for ap
 
 4. Set the **Replication** drop-down list to **Locally redundant storage**.
 
-    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover if a major disaster occurs in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/storage-create-storage-account.md).
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover if a major disaster occurs in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-create-storage-account.md).
 
 5. In the **Resource group**, click **Use existing** and select the resource group used for the cloud service.
 6. Set the **Location** drop-down list to the same region you chose for the cloud service.

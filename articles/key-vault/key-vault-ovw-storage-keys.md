@@ -22,6 +22,7 @@ For more general information on Azure Storage Accounts, see [About Azure storage
 
 The Azure Storage Account keys feature is initially available through the REST, .NET/C# and PowerShell interfaces. For more information, see [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
 
+
 ## Storage account keys behavior
 
 ### What Key Vault manages
@@ -59,6 +60,9 @@ var blobClient = storageAccount.CreateCloudBlobClient();
 ### After Azure Key Vault Storage Keys 
 
 ```
+//Please make sure to set storage permissions appropriately on your key vault
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourVault' -ObjectId yourObjectId -PermissionsToStorage all
+
 //Use PowerShell command to get Secret URI 
 
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
