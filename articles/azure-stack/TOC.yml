@@ -59,9 +59,9 @@
         href: azure-stack-powershell-install.md
       - name: Download tools
         href: azure-stack-powershell-download.md
-      - name: Configure PowerShell
       - name: Configure PowerShell - Cloud operator
         href: azure-stack-powershell-configure-admin.md
+      - name: Get up and running with PowerShell
         href: azure-stack-powershell-configure-quickstart.md
       - name: Install and configure CLI
         href: azure-stack-connect-cli.md
