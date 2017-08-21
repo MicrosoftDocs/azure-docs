@@ -3,7 +3,7 @@ title: Publish a custom marketplace item in Azure Stack (service administrator) 
 description: As a service administrator, learn how to publish a custom marketplace item in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: rupisure
+author: ErikjeMS
 manager: byronr
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
-ms.author: rupisure
+ms.author: erikje
 
 ---
 # The Azure Stack Marketplace
