@@ -101,9 +101,8 @@ Notice that the Git URL has the following form based on your web app name:
 
 https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 
-> [!NOTE] The deployment credentials are already set up for this tutorial. 
-> Review the document showing how to [configure deployment credentials](./app-service-deployment-credentials.md) for more information.
->
+The deployment credentials are already set up for this tutorial. Review the document showing how to [configure deployment credentials](./app-service-deployment-credentials.md) for more information.
+
 
 Run the following commands to deploy the local application to your Azure website:
 
