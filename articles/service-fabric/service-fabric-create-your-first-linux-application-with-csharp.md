@@ -97,7 +97,7 @@ To add another service to an application already created using `yo`, perform the
 
 ## Next steps
 * [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)
+* [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-cli.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
 ## Related articles

@@ -221,7 +221,7 @@ sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp
 * [Create and deploy your first Service Fabric Java application on Linux by using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
 * [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
-* [Use the XPlat CLI to manage your Service Fabric applications](service-fabric-azure-cli.md)
+* [Use the Service Fabric CLI to manage your applications](service-fabric-application-lifecycle-sfctl.md)
 * [Service Fabric Windows/Linux differences](service-fabric-linux-windows-differences.md)
 
 ## Related articles

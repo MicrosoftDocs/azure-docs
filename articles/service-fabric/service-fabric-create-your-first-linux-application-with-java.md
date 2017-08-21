@@ -85,8 +85,7 @@ In Service Fabric explorer you see that the application and application type no 
 ## Next steps
 * [Create your first Service Fabric Java application on Linux using Eclipse](service-fabric-get-started-eclipse.md)
 * [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Interact with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)
-* [Troubleshooting deployment](service-fabric-azure-cli.md#troubleshooting)
+* [Interact with Service Fabric clusters using the Azure CLI](service-fabric-cli.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
 ## Related articles

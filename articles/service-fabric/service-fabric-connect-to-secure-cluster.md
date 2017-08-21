@@ -66,7 +66,7 @@ paths, use the `--ca` argument. For example:
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
 ```
 
-After you connect, you should be able to [run other CLI commands](service-fabric-azure-cli.md) to interact
+After you connect, you should be able to [run other sfctl commands](service-fabric-cli.md) to interact
 with the cluster.
 
 <a id="connectsecurecluster"></a>

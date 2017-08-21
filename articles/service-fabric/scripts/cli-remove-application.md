@@ -43,4 +43,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information, see the [Service Fabric CLI documentation](../service-fabric-cli.md.md).
 
-Additional Azure CLI samples for Azure Service Fabric can be found in the [Service Fabric CLI samples](../samples-cli.md).
+Additional Service Fabric CLI samples for Azure Service Fabric can be found in the [Service Fabric CLI samples](../samples-cli.md).

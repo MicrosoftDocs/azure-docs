@@ -142,6 +142,38 @@ sfctl store delete --content-path app_package_dir
 
 `content-path` must be the name of the directory that you uploaded when you created the application.
 
+## Upgrade application
+
+After creating your application, you can repeat the same set of steps to provision a second version of your
+application. Then, with a Service Fabric application upgrade you can transition to running the second version
+of the application. For more information, see the documentation on
+[Service Fabric application upgrades](service-fabric-application-upgrade.md).
+
+To perform an upgrade, first provision the next version of the application using the same commands as before:
+
+```azurecli
+sfctl application upload --path ~/app_package_dir_2
+sfctl application provision --application-type-build-path app_package_dir_2
+```
+
+It is recommended then to perform a monitored automatic upgrade, launch the upgrade by running the following command:
+
+```azurecli
+sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"test\":\"value\"}" --mode Monitored
+```
+
+Upgrades will override existing parameters with whatever set is specified. Therefore, if the application was
+created with any parameters previously, they should be passed in again as arguments to the upgrade command.
+
+To retrieve any parameters previously specified, you can use the `sfctl application info` command.
+
+When an application upgrade is in progress, the status can be retrieved using the
+`sfctl application upgrade-status` command.
+
+Finally, if an upgrade is in progress and needs to be cancelled, it can forced to roll back using
+`sfctl application upgrade-rollback`.
+
 ## Related articles
 
-* [Get started with Service Fabric and Azure CLI 2.0](service-fabric-cli.md)
+* [Get started with Service Fabric CLI](service-fabric-cli.md)
+* [Service Fabric application upgrade](service-fabric-application-upgrade.md)
