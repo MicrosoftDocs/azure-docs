@@ -1,4 +1,4 @@
-## Meaning of migration of IaaS resources from the classic deployment modelto Resource Manager
+## Meaning of migration of IaaS resources from the classic deployment model to Resource Manager
 Before we drill down into the details, let's look at the difference between data-plane and management-plane operations on the IaaS resources.
 
 * *Management/Control plane* describes the calls that come into the management/control plane or the API for modifying resources. For example, operations like creating a VM, restarting a VM, and updating a virtual network with a new subnet manage the running resources. They don't directly affect connecting to the instances.
