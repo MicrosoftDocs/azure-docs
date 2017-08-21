@@ -12,24 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/11/2017
+ms.date: 08/21/2017
 ms.author: larryfr
 
 ---
 
 # Connect HDInsight to your on-premise network
 
-Learn how to connect HDInsight to your on-premises network by using Azure Virtual Networks and a VPN gateway. This document provides the following information:
+Learn how to connect HDInsight to your on-premises network by using Azure Virtual Networks and a VPN gateway. This document provides planning information on:
 
-* How to create an Azure Virtual Network that connects to your on-premises network.
+* Using HDInsight in a Azure Virtual Network that connects to your on-premises network.
 
-* How to enable DNS name resolution between the virtual network and your on-premises network.
+* Configuring DNS name resolution between the virtual network and your on-premises network.
 
-* How to use network security groups to restrict internet access to HDInsight.
+* Configuring network security groups to restrict internet access to HDInsight.
 
-* How to discover the ports provided by HDInsight on the virtual network.
+* Ports provided by HDInsight on the virtual network.
 
 ## Create the Virtual network configuration
+
+> [!IMPORTANT]
+> If you are looking for step by step guidance on connecting HDInsight to your on-premises network using an Azure Virtual Network, see the [Connect HDInsight to your on-premise network](connect-on-premises-network.md) document.
 
 Use the following documents to learn how to create an Azure Virtual Network that is connected to your on-premises network:
     
