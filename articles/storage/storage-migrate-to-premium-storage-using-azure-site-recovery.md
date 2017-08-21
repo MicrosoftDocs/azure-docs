@@ -1,23 +1,24 @@
-﻿---
-  title: Migrating to Azure Premium Storage using Azure Site Recovery | Microsoft Docs
-  description: Migrate your existing virtual machines to Azure Premium Storage using Site Recovery. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
-  services: storage
-  cloud: Azure
-  documentationcenter: na
-  author: luywang
-  manager: kavithag
-
-  ms.assetid:
-  ms.service: storage
-  ms.workload: storage
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: article
-  ms.date: 04/06/2017
-  ms.author: luywang
 
 ---
-# Migrating to Premium Storage using Azure Site Recovery
+title: Migrating to Azure Premium Storage using Azure Site Recovery (unmanaged disks) | Microsoft Docs
+description: Migrate your existing virtual machines to Azure Premium Storage using Site Recovery (unmanaged disks). 
+services: storage
+documentationcenter: ''
+author: luywang
+manager: kavithag
+
+ms.assetid: 
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2017
+ms.author: luywang
+
+---
+
+# Migrating to Premium Storage using Azure Site Recovery (unmanaged disks)
 
 [Azure Premium Storage](storage-premium-storage.md) delivers high-performance, low-latency disk support for virtual machines (VMs) that are running I/O-intensive workloads. The purpose of this guide is to help users migrate their VM disks from a Standard storage account to a Premium storage account by using [Azure Site Recovery](../site-recovery/site-recovery-overview.md).
 
