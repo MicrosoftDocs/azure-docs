@@ -21,25 +21,25 @@ ms.author: gwallace
 # Customize web application firewall rules through the Azure CLI 2.0
 
 > [!div class="op_single_selector"]
-> * [**Azure portal**](application-gateway-customize-waf-rules-portal.md)
-> * [**PowerShell**](application-gateway-customize-waf-rules-powershell.md)
-> * [**Azure CLI 2.0**](application-gateway-customize-waf-rules-cli.md)
+> * [Azure portal](application-gateway-customize-waf-rules-portal.md)
+> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
+> * [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
 
-Azure Application Gateway web application firewall (WAF) provides protection for web applications. These protections are provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). Some rules can cause false positives and block real traffic. For this reason, Application Gateway provides the capability to customize rule groups and rules on a web application firewall-enabled Application Gateway. For more information on the specific rule groups and rules, see [List of web application firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
+Azure Application Gateway web application firewall (WAF) provides protection for web applications. These protections are provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). Some rules can cause false positives and block real traffic. For this reason, Application Gateway provides the capability to customize rule groups and rules. For more information on the specific rule groups and rules, see [List of web application firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
 
 ## View rule groups and rules
 
-The following code examples show how to view rules and rule groups that are configurable on a WAF-enabled Application Gateway.
+The following code examples show how to view rules and rule groups that are configurable.
 
 ### View rule groups
 
-Enter the following example command to view the rule groups:
+Enter the following example to view the rule groups:
 
 ```azurecli-interactive
 az network application-gateway waf-config list-rule-sets --type OWASP
 ```
 
-The following output is a truncated response from the preceding command:
+The following output is a truncated response from the preceding example:
 
 ```
 [
@@ -86,13 +86,13 @@ The following output is a truncated response from the preceding command:
 
 ### View rules in a rule group
 
-Enter the following example command to view the rules in a specified rule group:
+Enter the following example to view the rules in a specified rule group:
 
 ```azurecli-interactive
 az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP-REPUTATION"
 ```
 
-The following output is a truncated response from the preceding command:
+The following output is a truncated response from the preceding example:
 
 ```
 [
@@ -125,7 +125,7 @@ The following output is a truncated response from the preceding command:
 
 ## Disable rules
 
-Enter the following example commands to disable rules `910018` and `910017` on an application gateway:
+Enter the following example to disable rules `910018` and `910017` on an application gateway:
 
 ```azurecli-interactive
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
