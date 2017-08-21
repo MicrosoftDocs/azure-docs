@@ -54,7 +54,7 @@ To get the scripts and libraries that you use to export data out of ZooKeeper an
 
 The lib folder has .jar files that contain the implementation for the export/import operation. The bash folder has an example script that demonstrates how to export data from the ZooKeeper server on the old cluster, and then import it back to the ZooKeeper server on the new cluster.
 
-Run the [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) script from the ZooKeeper nodes to export and then import data. Update the script to the correct Hortonworks Data Platform (HDP) version. (We are working on making these scripts generic in HDInsight. Generic scripts can run from any node on the cluster without modifications by the user).
+Run the [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) script from the ZooKeeper nodes to export and then import data. Update the script to the correct Hortonworks Data Platform (HDP) version. (We are working on making these scripts generic in HDInsight. Generic scripts can run from any node on the cluster without modifications by the user.)
 
 The export command writes the metadata to an Apache Hadoop Distributed File System (HDFS) path (in an Azure Blob Storage or Azure Data Lake Store store) at a location that you set.
 
@@ -123,7 +123,7 @@ Storm worker nodes run the following services:
  
 ## How do I locate Storm event hub spout binaries for development
  
-For more information about using Storm event hub spout .jar files with your topology, see the following resources:
+For more information about using Storm event hub spout .jar files with your topology, see the following resources.
  
 ### Java-based topology
 [Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
@@ -139,7 +139,7 @@ See [examples](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) o
  
 ## How do I locate Storm Log4J configuration files on clusters
  
-To identify Apache Log4J configuration files for Storm services:
+To identify Apache Log4J configuration files for Storm services.
  
 ### On head nodes
 The Nimbus Log4J configuration is read from /usr/hdp/\<HDP version\>/storm/log4j2/cluster.xml.
