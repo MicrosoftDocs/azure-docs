@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 08/22/2017
 ms.author: sdanie
 
 ---
@@ -46,12 +46,12 @@ Redis persistence is enabled on the **Redis data persistence** blade by choosing
 
 ![Redis settings][redis-cache-settings]
 
-* [Configure RDB persistence](#configure-rdb-persistence)
-* [Configure AOF persistence](#configure-aof-persistence)
 
 ## Configure RDB persistence
 
 To enable RDB persistence, click **RDB**. To disable RDB persistence on a previously enabled premium cache, click **Disabled**.
+
+![Redis RDB persistence][redis-cache-rdb-persistence]
 
 To configure the backup interval, select a **Backup Frequency** from the drop-down list. Choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. This interval starts counting down after the previous backup operation successfully completes and when it elapses a new backup is initiated.
 
@@ -61,8 +61,6 @@ Click **Storage Account** to select the storage account to use, and choose eithe
 > If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down.
 > 
 > 
-
-![Redis RDB persistence][redis-cache-rdb-persistence]
 
 Click **OK** to save the persistence configuration.
 
@@ -74,26 +72,27 @@ To enable AOF persistence, click **AOF**. To disable AOF persistence on a previo
 
 ![Redis AOF persistence][redis-cache-aof-persistence]
 
+To configure AOF persistence, specify a **First Storage Account**. This storage account must be in the same region as the cache. You can optionally configure an additional storage account named **Second Storage Account**. If a second storage account is configured, the writes to the replica cache are written to this second storage account.
+
 ## Persistence FAQ
 The following list contains answers to commonly asked questions about Azure Redis Cache persistence.
 
 * [Can I enable persistence on a previously created cache?](#can-i-enable-persistence-on-a-previously-created-cache)
-* RBD persistence FAQs
-  * [Can I change the backup frequency after I create the cache?](#can-i-change-the-backup-frequency-after-i-create-the-cache)
-  * [Why if I have a backup frequency of 60 minutes there is more than 60 minutes between backups?](#why-if-i-have-a-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups)
-  * [What happens to the old backups when a new backup is made?](#what-happens-to-the-old-backups-when-a-new-backup-is-made)
+* [Can I change the RDB backup frequency after I create the cache?](#can-i-change-the-rdb-backup-frequency-after-i-create-the-cache)
+* [Why if I have an RDB backup frequency of 60 minutes there is more than 60 minutes between backups?](#why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups)
+* [What happens to the old RDB backups when a new backup is made?](#what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made)
 * [What happens if I have scaled to a different size and a backup is restored that was made before the scaling operation?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 
 ### Can I enable persistence on a previously created cache?
 Yes, Redis persistence can be configured both at cache creation and on existing premium caches.
 
-### Can I change the backup frequency after I create the cache?
-Yes, you can change the backup frequency of RDB persistence on the **Redis data persistence** blade. For instructions, see [Configure Redis persistence](#configure-redis-persistence).
+### Can I change the RDB backup frequency after I create the cache?
+Yes, you can change the backup frequency for RDB persistence on the **Redis data persistence** blade. For instructions, see [Configure Redis persistence](#configure-redis-persistence).
 
-### Why if I have a backup frequency of 60 minutes there is more than 60 minutes between backups?
+### Why if I have an RDB backup frequency of 60 minutes there is more than 60 minutes between backups?
 The RDB persistence backup frequency interval does not start until the previous backup process has completed successfully. If the backup frequency is 60 minutes and it takes a backup process 15 minutes to successfully complete, the next backup won't start until 75 minutes after the start time of the previous backup.
 
-### What happens to the old backups when a new backup is made?
+### What happens to the old RDB backups when a new backup is made?
 All RDB persistence backups except for the most recent one are automatically deleted. This deletion may not happen immediately but older backups are not persisted indefinitely.
 
 ### What happens if I have scaled to a different size and a backup is restored that was made before the scaling operation?
