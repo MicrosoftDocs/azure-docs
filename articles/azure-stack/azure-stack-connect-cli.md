@@ -64,19 +64,19 @@ sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site
 
 If you are running CLI from a machine outside the Azure Sack environment, you must first set up [VPN connectivity to Azure Stack](azure-stack-connect-azure-stack.md). Now copy the PEM certificate that you exported earlier onto your development workstation and run the following commands depending on your development workstation's OS,:
 
-#[Linux](#tab/linux)
+### Linux
 
 ```bash
 sudo cat PATH_TO_PEM_FILE >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
 ```
 
-#[macOS](#tab/macos)
+### macOS
 
 ```bash
 sudo cat PATH_TO_PEM_FILE >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
 ```
 
-#[Windows](#tab/windows)
+### Windows
 
 ```powershell
 $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -106,7 +106,6 @@ Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-package
 
 Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
----
 
 ## Connect to Azure Stack
 
