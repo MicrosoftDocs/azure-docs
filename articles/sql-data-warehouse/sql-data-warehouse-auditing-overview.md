@@ -52,23 +52,23 @@ You can configure auditing for the following event categories:
 
 For each Event Category, Auditing of **Success** and **Failure** operations are configured separately.
 
-For further details about the activities and events audited, see the <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Audit Log Format Reference (doc file download)</a>.
+For more information about the activities and events audited, see the <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Audit Log Format Reference (doc file download)</a>.
 
 Audit logs are stored in your Azure storage account. You can define an audit log retention period.
 
-An auditing policy can be defined for a specific database or as a default server policy. A default server auditing policy will apply to all databases on a server which do not have a specific overriding database auditing policy defined.
+An auditing policy can be defined for a specific database or as a default server policy. A default server auditing policy applies to all databases on a server, which do not have a specific overriding database auditing policy defined.
 
-Before setting up audit auditing check if you are using a ["Downlevel Client"](sql-data-warehouse-auditing-downlevel-clients.md).
+Before setting up audit auditing check if you are using a ["Downlevel Client."](sql-data-warehouse-auditing-downlevel-clients.md)
 
 ## <a id="subheading-2"></a>Set up auditing for your database
-1. Launch the <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
+1. Launch the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
 2. Go to the **Settings** blade of the SQL Data Warehouse you want to audit. In the **Settings** blade, select **Auditing & Threat detection**.
    
     ![][1]
 3. Next, enable auditing by clicking the **ON** button.
    
     ![][3]
-4. In the auditing configuration blade, select **STORAGE DETAILS** to open the Audit Logs Storage Blade. Select the Azure storage account where logs will be saved and, the retention period. 
+4. In the auditing configuration blade, select **STORAGE DETAILS** to open the Audit Logs Storage blade. Select the Azure storage account where logs will be saved and, the retention period. 
 >[!TIP]
 >Use the same storage account for all audited databases to get the most out of the pre-configured reports templates.
    
@@ -86,9 +86,9 @@ A preconfigured dashboard report template is available as a <a href="http://go.m
 The template has fictional sample data in it, and you can set up Power Query to import your audit log directly from your Azure storage account.
 
 ## <a id="subheading-4"></a>Storage key regeneration
-In production you are likely to refresh your storage keys periodically. When refresh your keys you need to re-save the policy. The process is as follows:.
+In production, you are likely to refresh your storage keys periodically. When refreshing your keys, you need to save the policy. The process is as follows:
 
-1. In the auditing configuration blade (described above in the set up auditing section) switch the **Storage Access Key** from *Primary* to *Secondary* and **SAVE**.
+1. In the auditing configuration blade (described above in the setup auditing section) switch the **Storage Access Key** from *Primary* to *Secondary* and **SAVE**.
 
    ![][4]
 2. Go to the storage configuration blade and **regenerate** the *Primary Access Key*.
