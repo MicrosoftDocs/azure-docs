@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/21/2017
 ms.author: juluk
 ---
 
@@ -66,7 +66,7 @@ If you mount an existing file share, the storage accounts must be:
 * Located in your assigned region. When you are onboarding, the region you are assigned to is listed in the resource group name `cloud-shell-storage-<region>`.
 
 ### Supported storage regions
-The Azure files must reside in the same region as the Cloud Shell machine that you're mounting them to. Cloud Shell machines exist in the following regions:
+The Azure files must reside in the same region as the Cloud Shell machine that you're mounting them to. Cloud Shell clusters currently exist in the following regions:
 |Area|Region|
 |---|---|
 |Americas|East US, South Central US, West US|
@@ -111,14 +111,14 @@ The file path to clouddrive will show your storage account name and file share i
 
 ```
 justin@Azure:~$ df
-Filesystem                                          1K-blocks   Used  Available Use% Mounted on
-overlay                                             29711408 5577940   24117084  19% /
-tmpfs                                                 986716       0     986716   0% /dev
-tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
-/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
-shm                                                    65536       0      65536   0% /dev/shm
-//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
-justin@Azure:~$
+Filesystem                                                                            1K-blocks     Used Available Use% Mounted on
+overlay                                                                               30428648 15585636  14826628  52% /
+tmpfs                                                                                   986704        0    986704   0% /dev
+tmpfs                                                                                   986704        0    986704   0% /sys/fs/cgroup
+/dev/sda1                                                                             30428648 15585636  14826628  52% /etc/hosts
+shm                                                                                      65536        0     65536   0% /dev/shm
+//mystoragename.file.core.windows.net/fileshareName                                    6291456  5242944   1048512  84% /usr/justin/clouddrive
+/dev/loop0                                                                             5160576   601652   4296780  13% /home/justin
 ```
 
 ## Transfer local files to Cloud Shell
