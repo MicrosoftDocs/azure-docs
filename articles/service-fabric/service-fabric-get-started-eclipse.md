@@ -143,6 +143,9 @@ This process creates and saves a run configuration profile you can use at any ti
 
 The application upgrade takes a few minutes. You can monitor the application upgrade in Service Fabric Explorer.
 
+## Migrating old Service Fabric Java applications to be used with Maven
+We have recently moved Service Fabric Java binaries from Service Fabric Java SDK to Maven repository. While the new applications you generate using Eclipse, will generate latest updated projects (which will be able to work with Maven), you can update your existing Service Fabric stateless or actor Java applications, which were using the Service Fabric Java SDK earlier, to use the Service Fabric Java dependencies from Maven. Please follow the steps mentioned in this detailed [documentation](service-fabric-migrate-old-javaapp-to-use-maven.md) to ensure your older application works with Maven.
+
 <!-- Images -->
 
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-eclipse/service-fabric-eclipse-plugin.png

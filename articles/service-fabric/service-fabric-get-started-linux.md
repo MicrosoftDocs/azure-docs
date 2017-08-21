@@ -132,39 +132,9 @@ After you have updated your sources, you can install the SDK.
 
 After you have installed the above generators, you should be able to create apps with guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer` respectively.
 
-## Set up the XPlat Service Fabric CLI
-The [XPlat CLI][azure-xplat-cli-github] includes commands for interacting with Service Fabric entities, including clusters and applications. It is based on Node.js, so [ensure that you have installed Node][install-node] before you proceed with the following instructions:
+### Set up Azure Service Fabric CLI
 
-1. Clone the GitHub repo to your development machine.
-
-    ```bash
-    git clone https://github.com/Azure/azure-xplat-cli.git
-    ```
-
-2. Switch to the cloned repo and install the CLI dependencies by using the node package manager (npm).
-
-    ```bash
-    cd azure-xplat-cli
-    npm install
-    ```
-
-3. Create a symlink from the `bin/azure` folder of the cloned repo to `/usr/bin/azure`.
-
-    ```bash
-    sudo ln -s $(pwd)/bin/azure /usr/bin/azure
-    ```
-
-4. Finally, enable auto-completion Service Fabric commands.
-
-    ```bash
-    azure --completion >> ~/azure.completion.sh
-    echo 'source ~/azure.completion.sh' >> ~/.bash_profile
-    source ~/azure.completion.sh
-    ```
-
-### Set up Azure CLI 2.0
-
-As an alternative to the XPlat CLI, there is now a Service Fabric command module included in Azure CLI.
+[Azure Service Fabric CLI](https://github.com/Azure/service-fabric-cli) includes commands for interacting with Service Fabric entities, including clusters, applications and services. It is based on python, so ensure you have ``python`` and python package-manager ``pip`` installed.
 
 For more information about installing Azure CLI 2.0 and using the Service Fabric commands, see [Get started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md).
 

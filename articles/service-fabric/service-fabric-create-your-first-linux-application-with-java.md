@@ -70,12 +70,12 @@ To build and package the application, run the following:
 ## Deploy the application
 Once the application is built, you can deploy it to the local cluster.
 
-### Using XPlat CLI
+### Using Azure Service Fabric CLI
 
-1. Connect to the local Service Fabric cluster.
+1. Connect to the local Service Fabric cluster using Azure Service Fabric CLI. See [Get started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md) for more details.
 
     ```bash
-    azure servicefabric cluster connect
+    sfctl cluster select --endpoint http://localhost:19080
     ```
 
 2. Run the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
@@ -84,7 +84,7 @@ Once the application is built, you can deploy it to the local cluster.
     ./install.sh
     ```
 
-### Using Azure CLI 2.0
+### More on Azure CLI 2.0
 
 Deploying the built application is the same as any other Service Fabric application. See the documentation on
 [managing a Service Fabric application with the Azure CLI](service-fabric-application-lifecycle-azure-cli-2-0.md) for
@@ -120,6 +120,9 @@ Use the uninstall script provided in the template to delete the application inst
 ```
 
 In Service Fabric explorer you see that the application and application type no longer appear in the **Applications** node.
+
+## Migrating old Service Fabric Java applications to be used with Maven
+We have recently moved Service Fabric Java binaries from Service Fabric Java SDK to Maven repository. While the new applications you generate using Yeoman or Eclipse, will generate latest updated projects (which will be able to work with Maven), you can update your existing Service Fabric stateless or actor Java applications, which were using the Service Fabric Java SDK earlier, to use the Service Fabric Java dependencies from Maven. Please follow the steps mentioned in this detailed [documentation](service-fabric-migrate-old-javaapp-to-use-maven.md) to ensure your older application works with Maven.
 
 ## Next steps
 * [Create your first Service Fabric Java application on Linux using Eclipse](service-fabric-get-started-eclipse.md)
