@@ -36,7 +36,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 Follow these steps to create a new DPS.
 
-1. In the upper left-hand corner of the Azure portal, click the **New** button.
+1. In the upper left-hand corner of the Azure portal, click **New**.
 2. In the Search box, type **device provisioning**. 
 3. Click **IoT Device Provisioning Service**.
 4. Fill out the **IoT Device Provisioning Service** form with the following information:
@@ -47,6 +47,8 @@ Follow these steps to create a new DPS.
    | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
    | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |   
+
+   ![Enter basic information about your DPS tenant in the portal blade](./media/quick-setup-auto-provision/create-iot-dps-portal.png)
 
 5. Click **Create**.
 6. The *scope ID* is used to identify registration IDs, and provides a guarantee that the registration ID is unique. To obtain this value, click **Overview** to open the **Essentials** blade for the DPS. Copy the **Origin namespace** value, which is used as the scope ID, to a temporary location for later use.
@@ -65,6 +67,8 @@ The next step is to link the DPS and IoT hub so that DPS can register devices to
 3. Click **Add**.
 4. In the **Add link to IoT hub** blade, use the radio buttons to specify whether the linked IoT hub is located in the current subscription, or in a different subscription. Then, choose the name of the IoT hub from the **IoT hub** box.
 5. Click **Save**.
+
+   ![Link the hub name to link to the DPS tenant in the portal blade](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)
 
 ## Set the allocation policy on DPS
 
