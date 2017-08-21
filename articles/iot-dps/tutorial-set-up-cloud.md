@@ -84,8 +84,8 @@ To set the allocation policy, in the DPS blade click **Manage allocation policy*
 
 Other tutorials in this collection build upon this tutorial. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this tutorial. If you do not plan to continue, use the following steps to delete all resources created by this tutorial in the Azure portal.
 
-1. From the left-hand menu in the Azure portal, click **All resources** and then select your DPS instance. Click the **Delete** button from at the top of the **All resources** blade.  
-2. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. Click the **Delete** button from at the top of the **All resources** blade.
+1. From the left-hand menu in the Azure portal, click **All resources** and then select your DPS instance. At the top of the **All resources** blade, click **Delete**.  
+2. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. At the top of the **All resources** blade, click **Delete**.
  
 ## Next steps
 
