@@ -25,11 +25,11 @@ When bringing your own image to Azure or even booting one of the platform images
 
 For Linux Virtual Machines, you can easily view the output of your console log from the Portal:
 
-![Azure portal](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
+![Azure portal](./media/boot-diagnostics/screenshot1.png)
  
 However, for both Windows and Linux Virtual Machines, Azure also enables you to see a screenshot of the VM from the hypervisor:
 
-![Error](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
+![Error](./media/boot-diagnostics/screenshot2.png)
 
 Both of these features are supported for Azure Virtual Machines in all regions. Note, screenshots, and output can take up to 10 minutes to appear in your storage account.
 
@@ -42,11 +42,11 @@ Both of these features are supported for Azure Virtual Machines in all regions. 
 ## Enable diagnostics on a new virtual machine
 1. When creating a new Virtual Machine from the Preview Portal, select the **Azure Resource Manager** from the deployment model dropdown:
  
-    ![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
+    ![Resource Manager](./media/boot-diagnostics/screenshot3.jpg)
 
 2. Configure the Monitoring option to select the storage account where you would like to place these diagnostic files.
  
-    ![Create VM](./media/virtual-machines-common-boot-diagnostics/screenshot4.jpg)
+    ![Create VM](./media/boot-diagnostics/screenshot4.jpg)
 
 3. If you are deploying from an Azure Resource Manager template, navigate to your Virtual Machine resource and append the diagnostics profile section. Remember to use the “2015-06-15” API version header.
 
@@ -76,4 +76,4 @@ To deploy a sample Virtual Machine with boot diagnostics enabled, check out our 
 
 To enable boot diagnostics through the Portal, you can also update an existing Virtual Machine through the Portal. Select the Boot Diagnostics option and Save. Restart the VM to take effect.
 
-![Update Existing VM](./media/virtual-machines-common-boot-diagnostics/screenshot5.png)
+![Update Existing VM](./media/boot-diagnostics/screenshot5.png)
