@@ -41,7 +41,7 @@ Follow the steps in the [Provision device to a hub](tutorial-provision-device-to
 
 The enrollment list tells the DPS which method of attestation (the method for confirming a device identity) it is using with the device. The next step is to add an enrollment list entry to the second device. 
 
-1. In the blade for your DPS, click **Manage enrollments**. The **Add enrollment list entry** blade appears. 
+1. In the page for your DPS, click **Manage enrollments**. The **Add enrollment list entry** page appears. 
 2. Complete the fields and then click **Save**.
 
 ## Set the DPS allocation policy
@@ -54,7 +54,7 @@ The allocation policy is a DPS setting that determines how devices are assigned 
 
 Follow these steps to set the allocation policy:
 
-1. To set the allocation policy, in the DPS blade click **Manage allocation policy**.
+1. To set the allocation policy, in the DPS page click **Manage allocation policy**.
 2. Set the allocation policy to **Evenly weighted distribution**.
 3. Click **Save**.
 
@@ -62,10 +62,10 @@ Follow these steps to set the allocation policy:
 
 Link the DPS and IoT hub so that DPS can register devices to that hub.
 
-1. In the **All resources** blade, click the DPS you created previously.
-2. In the DPS blade, click **Linked IoT hubs**.
+1. In the **All resources** page, click the DPS you created previously.
+2. In the DPS page, click **Linked IoT hubs**.
 3. Click **Add**.
-4. In the **Add link to IoT hub** blade, use the radio buttons to specify whether the linked IoT hub is located in the current subscription, or in a different subscription. Then, choose the name of the IoT hub from the **IoT hub** box.
+4. In the **Add link to IoT hub** page, use the radio buttons to specify whether the linked IoT hub is located in the current subscription, or in a different subscription. Then, choose the name of the IoT hub from the **IoT hub** box.
 5. Click **Save**.
 
 ## Next steps
