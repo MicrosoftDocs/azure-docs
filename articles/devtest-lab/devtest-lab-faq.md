@@ -246,7 +246,7 @@ A Microsoft account is what you use for almost everything you do with Microsoft 
 >
 
 ### My artifact failed during VM creation. How do I troubleshoot it?
-Refer to the blog post, [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) – written by one of our MVPs – to learn how to obtain logs regarding your failed artifact.
+Refer to [How to diagnose artifact failures in DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md) to learn how to obtain logs regarding your failed artifact.
 
 ### Why isn't my existing virtual network saving properly?
 One possibility is that your virtual network name contains periods. If so, try removing the periods or replacing them with hyphens, and then try saving the virtual network again.
