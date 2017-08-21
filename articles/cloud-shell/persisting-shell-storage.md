@@ -111,14 +111,14 @@ The file path to clouddrive will show your storage account name and file share i
 
 ```
 justin@Azure:~$ df
-Filesystem                                                                            1K-blocks     Used Available Use% Mounted on
-overlay                                                                               30428648 15585636  14826628  52% /
-tmpfs                                                                                   986704        0    986704   0% /dev
-tmpfs                                                                                   986704        0    986704   0% /sys/fs/cgroup
-/dev/sda1                                                                             30428648 15585636  14826628  52% /etc/hosts
-shm                                                                                      65536        0     65536   0% /dev/shm
-//mystoragename.file.core.windows.net/fileshareName                                    6291456  5242944   1048512  84% /usr/justin/clouddrive
-/dev/loop0                                                                             5160576   601652   4296780  13% /home/justin
+Filesystem                                               1K-blocks     Used Available Use% Mounted on
+overlay                                                   30428648 15585636  14826628  52% /
+tmpfs                                                       986704        0    986704   0% /dev
+tmpfs                                                       986704        0    986704   0% /sys/fs/cgroup
+/dev/sda1                                                 30428648 15585636  14826628  52% /etc/hosts
+shm                                                          65536        0     65536   0% /dev/shm
+//mystoragename.file.core.windows.net/fileshareName        6291456  5242944   1048512  84% /usr/justin/clouddrive
+/dev/loop0                                                 5160576   601652   4296780  13% /home/justin
 ```
 
 ## Transfer local files to Cloud Shell
