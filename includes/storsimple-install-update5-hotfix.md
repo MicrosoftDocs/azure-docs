@@ -39,7 +39,8 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
    
 4 . Supply the password when prompted. A sample output for installing the first order updates is shown below. For the first order update, you need to point to the specific file.
 
->[!NOTE] You should install the _HcsSoftwareUpdate.exe_ first. After this install has completed, then install _CisMdsAgentUpdate.exe_.
+>[!NOTE] 
+> You should install the _HcsSoftwareUpdate.exe_ first. After this install has completed, then install _CisMdsAgentUpdate.exe_.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -98,7 +99,8 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 8. Repeat steps 3-6 to install the _CisMDSAgentupdate.exe_ agent downloaded to your _FirstOrderUpdate_ folder.
 8. Repeat steps 3-6 to install the second order updates. 
 
-    > [!NOTE] For second order updates, multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder.** If an update is already installed, the update logic will detect that and not apply that update.
+    > [!NOTE] 
+    > For second order updates, multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder.** If an update is already installed, the update logic will detect that and not apply that update.
 
     After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
     
@@ -108,6 +110,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 
 
 #### To install and verify maintenance mode hotfixes
+
 Use KB4037263 to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console.
 
 > [!NOTE] If your disk firmware is already up-to-date, you won't need to install these updates. Run the `Get-HcsUpdateAvailability` cmdlet from the device serial console to check if updates are available and whether the updates are disruptive (maintenance mode) or non-disruptive (regular mode) updates.
@@ -116,9 +119,10 @@ To install the disk firmware updates, follow the instructions below.
 
 1. Place the device in the maintenance mode. 
 
-> [!NOTE] Do not use Windows PowerShell remoting when connecting to a device in maintenance mode. Instead run this cmdlet on the device controller when connected through the device serial console.
+    > [!NOTE] 
+    > Do not use Windows PowerShell remoting when connecting to a device in maintenance mode. Instead run this cmdlet on the device controller when connected through the device serial console.
 
-To place the controller in maintenance mode, type:
+    To place the controller in maintenance mode, type:
    
     `Enter-HcsMaintenanceMode`
    

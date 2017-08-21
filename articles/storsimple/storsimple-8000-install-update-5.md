@@ -58,7 +58,8 @@ The software versions that can be upgraded using the hotfix method are:
 * Update 3, 3.1
 * Update 4
 
-> [!NOTE] The recommended method to install Update 5 is via the Azure portal. Use this procedure if you fail the gateway check when trying to install the updates through the Azure portal. The check fails when you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version earlier than Update 1.
+> [!NOTE] 
+> The recommended method to install Update 5 is via the Azure portal. Use this procedure if you fail the gateway check when trying to install the updates through the Azure portal. The check fails when you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version earlier than Update 1.
 
 The hotfix method involves the following three steps:
 
