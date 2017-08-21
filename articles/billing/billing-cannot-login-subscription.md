@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 08/21/2017
 ms.author: genli
 
 ---
@@ -31,28 +31,6 @@ If your internet browser page hangs, try each of the following steps until you c
   A. Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
   
   B. Browse to the [Azure portal](https://portal.azure.com), and then sign in to the portal.
-
-## Error message "No subscriptions found”
-If your account doesn’t have sufficient permissions, you may see a **No subscription found** error message. Make sure you log in as the right administrator. An Account Administrator can only access the [Account Center](https://account.windowsazure.com/Subscriptions). The Service Administrators (SA) and Co-Administrators (CA) only have access to the [Azure portal](https://portal.azure.com) or the Azure classic portal.
-
-**Scenario 1: Error message is received in the [Azure portal](https://portal.azure.com)**
-
-To fix this issue:
-
-* Make sure the right Azure directory is selected by clicking your account at the top right.
-
-![Select the directory at the top right of the Azure portal](./media/billing-cannot-login-subscription/directory-switch.png)
-
-* If the right Azure directory is selected but you still get the error, [have your account added as an Owner](billing-add-change-azure-subscription-administrator.md).
-
-**Scenario 2: Error message is received in the [Azure Account Center](https://account.windowsazure.com/Subscriptions)**
-
-Check whether the account that you used is the account administrator. To verify who the account administrator is, follow these steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, select **Subscription**.
-3. Select the subscription that you want to check, and then select **Settings**.
-4. Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.
 
 ## You are automatically signed in as a different user
 This issue can occur if you use more than one user account in an Internet browser.

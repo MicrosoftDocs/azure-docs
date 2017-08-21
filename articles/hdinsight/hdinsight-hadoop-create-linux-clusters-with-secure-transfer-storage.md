@@ -15,16 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/07/2017
+ms.date: 08/21/2017
 ms.author: jgao
 
 ---
 # Create Hadoop cluster with secure transfer storage accounts in Azure HDInsight
 
 The [Secure transfer required](../storage/storage-require-secure-transfer.md) feature enhances the security of your Azure Storage account by enforcing all requests to your account through a secure connection. This feature and the wasbs scheme are only supported by HDInsight cluster version 3.6 or newer. 
-
->[!NOTE] 
-> Creating clusters with secure transfer enabled storage account using .NET SDK is not currently supported. The workaround is to set "wasbs" in the property "fs.defaultFS" in core-site configuration as part of ClusterCreateParametersExtended.
 
 ## Prerequisites
 Before you begin this tutorial, you must have:
