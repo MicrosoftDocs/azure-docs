@@ -47,16 +47,6 @@ The following sections describe the steps that are required to establish VPN con
 ### Prerequisites
 
 * Install [Azure Stack compatible Azure PowerShell](azure-stack-powershell-install.md) on your local computer.  
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md) to your local computer.  
-
-### Import the Connect PowerShell module
-
-After you download the tools, navigate to the downloaded folder and import the **Connect** PowerShell module onto your local Windows-based computer by using the following command:
-
-```PowerShell
-Set-ExecutionPolicy RemoteSigned
-Import-Module .\Connect\AzureStack.Connect.psm1 
-```
 
 ### Configure VPN to Azure Stack Development Kit
 
@@ -64,9 +54,9 @@ To create a VPN connection to the development kit, run the following steps on yo
 
 1. Add the development kit computer’s host IP address & certificate authority (CA) to the list of trusted hosts on your client computer by running the following script in an elevated PowerShell session:
 
-    ```PowerShell
-    #Change the IP address in the following command to match your Azure Stack host IP address
-    $hostIP = "<Azure Stack host IP address>"
+```PowerShell
+#Change the IP address in the following command to match your Azure Stack host IP address
+$hostIP = "<Azure Stack host IP address>"
     
     # Change the password in the following command to the administrative password that is provided when deploying Azure Stack. 
     $Password = ConvertTo-SecureString `
@@ -78,11 +68,27 @@ To create a VPN connection to the development kit, run the following steps on yo
     Set-Item wsman:\localhost\Client\TrustedHosts `
       -Value $hostIP `
       -Concatenate
-    ```
+
+    Set-ExecutionPolicy RemoteSigned
+
+    Import-Module .\Connect\AzureStack.Connect.psm1 
+
+    Add-AzsVpnConnection `
+      -ServerAddress $hostIP `
+      -Password $Password
+
+    Connect-AzsVpn `
+      -Password $Password
+
+```
 
 2. Create a VPN connection entry for your local user by using the `Add-AzsVpnConnection` command:
 
     ```PowerShell
+    Set-ExecutionPolicy RemoteSigned
+
+    Import-Module .\Connect\AzureStack.Connect.psm1 
+
     Add-AzsVpnConnection `
       -ServerAddress $hostIP `
       -Password $Password
