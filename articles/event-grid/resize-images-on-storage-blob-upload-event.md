@@ -19,7 +19,12 @@ ms.custom: mvc
 Azure Event Grid is an eventing service for the cloud. Event Grid lets you send events raised by Azure services or third-party resources to an endpoint that can respond to the event. Resources that raise events are called _topics_, which are subscribed to by consuming endpoints with _event subscriptions_. In this article, you use Event Grid to have Azure Functions subscribe to Azure Blob storage events to support thumbnail generation for images uploaded from a sample app. You use the Azure CLI to create and configure the application topology. 
 
 > [!WARNING]
-> This tutorial requires Blob storage events. Currently, you must apply for and be granted access to this preview functionality. The section [Request access to event subscriptions for Azure Storage](#request-storage-access) shows you how to request access to Blob storage events using the Azure CLI. You will receive an email response after your account has been granted access to this feature. You cannot complete this tutorial until after access is granted. We cannot provide more specific guidance on how long it takes for your request to be approved. Thanks for your patience.  
+> This tutorial requires Event Grid functionality that is currently in a reduced-access preview. You cannot complete this tutorial until you have been granted access to this functionality.  
+>
+>Before you can successfully complete this topic, you must [request access to Blob storage events](#request-storage-access).  
+>
+>After access is granted, an email is sent to the primary email address on your subscription. If you don't have access to that email account, you can also [check your approval status](#check-access-status) from the Azure CLI.
+
 
 ![Published web app in Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
@@ -48,22 +53,27 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 If you are not using Cloud Shell, you must first sign in using `az login`.
 
-## <a name="request-storage-access"></a>Request access to Blob Storage events
+## <a name="request-storage-access"></a>Request access to Blob storage events
 
-During the preview, you must request access to the Blob storage events feature. You request access to this feature with the `az feature register` command.
+At this time, you must request access to the Blob storage events feature. You request access with the `az feature register` command.
 
 > [!IMPORTANT]  
-> In the preview, you will experience a delay in being granting access to Blob storage events. We are not able to provide estimates on how long you must wait for approval. We apologize for the inconvenience.  
+> You will experience a delay in being granting access to Blob storage events. We are not able to provide estimates on how long you must wait for approval. However, as of `August, 22 2017` there are `XX` accounts waiting for approval. Access was granted to `YY` accounts in the past week.
 
 ```azurecli-interactive
 az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
 ```
-You will receive an email from Microsoft notifying you that you have been granted access to Blob storage events. Verify the status of your access request with the `az feature show` command.
+
+## <a name="check-access-status"></a>Check your approval status
+
+You will receive an email from Microsoft notifying you that you have been granted access to Blob storage events. You can verify the status of your access request at any time with the `az feature show` command.
 
 ```azurecli-interactive
 az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid --query properties.state
 ```
-This command returns a `Registered` value after you have been granted access to the Blob storage events feature. After you are registered, you can continue with this tutorial.
+This command returns a `Registered` value after you have been granted access to the Blob storage events feature. 
+ 
+After you are registered, you can continue with this tutorial.
 
 ## Create a resource group
 
