@@ -10,13 +10,16 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 08/21/2017
 ms.author: glenga
 ms.custom: mvc
 ---
 # Automate the resizing of uploaded images using Event Grid
 
 Azure Event Grid is an eventing service for the cloud. Event Grid lets you send events raised by Azure services or third-party resources to an endpoint that can respond to the event. Resources that raise events are called _topics_, which are subscribed to by consuming endpoints with _event subscriptions_. In this article, you use Event Grid to have Azure Functions subscribe to Azure storage events to support thumbnail generation for images uploaded from a sample app. You use the Azure CLI to create and configure the application topology. 
+
+> [!WARNING]
+> This tutorial uses the event subscriptions preview feature of Azure Storage. Currently, you must apply for and be granted access to this preview functionality. The section [Request access to event subscriptions for Azure Storage](#request-storage-access) shows you how to request access to the event subscriptions preview for Storage using the Azure CLI. You will receive an email response after your account has been granted access to this preview. You cannot complete this tutorial until after access is granted. We cannot provide more specific guidance on how long it takes for your request to be approved. Thanks for your patience.  
 
 ![Published web app in Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
@@ -28,12 +31,14 @@ In this tutorial, you learn how to:
 > * Deploy serverless code using Azure Functions
 > * Create an event subscription in Event Grid
 > * Deploy a web app to Azure
+> * Enable a CORS origin in Storage
 
 ## Prerequisites
 
 To complete this tutorial:
 
 + You must have an active Azure subscription.
++ You must have been granted access to the event subscriptions preview in Azure Storage.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,9 +48,9 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 If you are not using Cloud Shell, you must first sign in using `az login`.
 
-## Register for the Storage event subscriptions preview
+## <a name="request-storage-access"></a>Request access to event subscriptions for Azure Storage
 
-During the Event Grid preview, the ability to subscribe to storage events requires a separate registration. Register for the Event Grid provider with the `az provider show` command.
+During the preview, you must request access to the event subscriptions functionality for Azure Storage. Register the Event Grid provider with the `az provider show` command.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.EventGrid  
@@ -55,27 +60,27 @@ After the registration request, the Azure CLI shows information similar to the f
 ```Bash
 Registering is still on-going. You can monitor using 'az provider show -n Microsoft.EventGrid'
 ```
-Verify that you are registered for Event Grid with the `az provider show` command.
+In a minute or so, verify that you are registered with the Event Grid provider with the `az provider show` command.
 
 ```azurecli-interactive
 az provider show -n Microsoft.EventGrid --query registrationState
 ```
-This command returns a `Registered` value when you are registered with the Event Grid provider. 
+This command returns a `Registered` value when the Event Grid provider is registered for your subscription.
 
-You must also request access to the event subscriptions functionality for Azure Storage. Request access to Storage event subscriptions with the `az feature register` command.
+After your subscription is registered for Event Grid, you request access to Storage event subscriptions with the `az feature register` command.
+
+> [!IMPORTANT]  
+> In the preview, you will experience a delay in being granting access to the Storage event subscriptions feature. We are not able to provide estimates on how long you must wait for approval. We apologize for the inconvenience.  
 
 ```azurecli-interactive
 az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
 ```
-> [!IMPORTANT]  
-> In the current preview of Event Grid, there may be a delay in granting access to the Storage event subscriptions feature. 
-
-Check the status of your event subscription access request with the `az feature show` command.
+You will receive an email from Microsoft notifying you that you have been granted access to the Storage events preview. Verify the status of your event subscription access request with the `az feature show` command.
 
 ```azurecli-interactive
 az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid --query properties.state
 ```
-This command returns a `Registered` value after you have been granted access to the Storage event subscriptions preview.
+This command returns a `Registered` value after you have been granted access to the Storage event subscriptions preview. After you are registered, you can continue with this tutorial.
 
 ## Create a resource group
 
@@ -93,7 +98,9 @@ The sample uploads images to a blob container in an Azure Storage account. Creat
 
 Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. 
 
-Because Event Grid currently only supports event subscriptions to Blob storage accounts, you must create two accounts. A Blob storage account used by the sample app to store images and thumbnails and a general storage account required by Azure Functions.
+> [!IMPORTANT]
+> Event subscriptions for blob Storage are currently only supported for Blob storage accounts. Because of this, you must create two accounts: a Blob storage account used by the sample app to store images and thumbnails, and a general storage account required by Azure Functions.  
+>You are also restricted to Blob storage accounts in the West Central US and 
 
 In the following command, substitute your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder. 
 
@@ -109,7 +116,7 @@ az storage account create --name <general_storage_account> \
 --location westcentralus --resource-group myResourceGroup \
 --sku Standard_LRS --kind storage
 ```
-## Configure storage
+## Create blob storage containers
 
 The app uses two containers in the Blob storage account. The _images_ container is where  the app uploads full-resolution images. The function uploads resized image thumbnails to the _thumbs_ container. Get the storage account key by using the [storage account keys list](/cli/azure/storage/account/keys#list) command. You then use this key to create two containers using the [az storage container create](/cli/azure/storage/container#create) command. 
 
@@ -238,9 +245,20 @@ AzureStorageConfig__AccountKey=<blob_storage_key>
 ```
 After the web app is deployed and configured, you can test the entire image upload and resizing functionality in the app.  
 
+## Enable CORS access from the web app
+
+The web app requests images from a private storage container using shared access signatures. To enable requests from the app, you must add a cross-origin resource sharing (CORS) exception for the web app. Add an origin with the [az storage cors add](/cli/azure/storage/cors#add) command.
+
+In the following command, `<blob_storage_account>` is the name of your Blob storage account.
+
+```azurecli-interactive
+az storage cors add --methods {GET} --exposed-headers content-length \
+--allowed-headers "*" --origins "*.azurewebsites.net" --services b \
+--account-name <blob_storage_account> 
+```
 ## Test the sample app
 
-To test the web app, browse to the URL of your published app as The default URL of the web app is `https://<web_app>.azurewebsites.net>`.
+To test the web app, browse to the URL of your published app. The default URL of the web app is `https://<web_app>.azurewebsites.net>`.
 
 Click the **Upload photos** region to select and upload a file. 
 
