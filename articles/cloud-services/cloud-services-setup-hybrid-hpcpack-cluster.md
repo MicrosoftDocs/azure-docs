@@ -34,7 +34,7 @@ This tutorial assumes no prior experience with compute clusters or HPC Pack. It 
   * The computer must be joined to an Active Directory domain. For test purposes, you can configure the head node computer as a domain controller. To add the Active Directory Domain Services server role and promote the head node computer as a domain controller, see the documentation for Windows Server.
   * To support HPC Pack, the operating system must be installed in one of these languages: English, Japanese, or Chinese (Simplified).
   * Verify that important and critical updates are installed.
-* **HPC Pack 2012 R2** - [Download](http://go.microsoft.com/fwlink/p/?linkid=328024) the installation package for the latest version free of charge and copy the files to the head node computer or to a network location. Choose installation files in the same language as your installation of Windows Server.
+* **HPC Pack 2012 R2** - [Download](http://go.microsoft.com/fwlink/p/?linkid=328024) the installation package for the latest version free of charge and copy the files to the head node computer. Choose installation files in the same language as your installation of Windows Server.
 
     >[!NOTE]
     > If you want to use HPC Pack 2016 instead of HPC Pack 2012 R2, additional configuration is needed. See the [detailed guidance](http://go.microsoft.com/fwlink/p/?LinkID=200493).
@@ -48,17 +48,11 @@ You first install Microsoft HPC Pack on your on-premises computer running Window
 1. Log on to the head node by using a domain account that has local Administrator permissions.
 2. Start the HPC Pack Installation Wizard by running Setup.exe from the HPC Pack installation files.
 3. On the **HPC Pack 2012 R2 Setup** screen, click **New installation or add new features to an existing installation**.
-   
     ![HPC Pack 2012 Setup][install_hpc1]
 4. On the **Microsoft Software User Agreement page**, click **Next**.
 5. On the **Select Installation Type** page, click **Create a new HPC cluster by creating a head node**, and then click **Next**.
-   
-    ![Select Installation Type][install_hpc2]
 6. The wizard runs several pre-installation tests. Click **Next** on the **Installation Rules** page if all tests pass. Otherwise, review the information provided and make any necessary changes in your environment. Then run the tests again or if necessary start the Installation Wizard again.
-   
-    ![Installation Rules][install_hpc3]
-7. On the **HPC DB Configuration** page, make sure **Head Node** is selected for all HPC databases, and then click **Next**.
-   
+7. On the **HPC DB Configuration** page, make sure **Head Node** is selected for all HPC databases, and then click **Next**.  
     ![DB Configuration][install_hpc4]
 8. Accept default selections on the remaining pages of the wizard. On the **Install Required Components** page, click **Install**.
    
@@ -245,8 +239,6 @@ After you try out the cluster, stop the Azure nodes to avoid unnecessary charges
 
 [Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
 [install_hpc1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc1.png
-[install_hpc2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc2.png
-[install_hpc3]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc3.png
 [install_hpc4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc4.png
 [install_hpc6]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc6.png
 [install_hpc7]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc7.png
