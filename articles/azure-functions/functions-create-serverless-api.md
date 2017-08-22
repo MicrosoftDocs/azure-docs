@@ -8,7 +8,7 @@ manager: erikre
 ms.service: functions
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
@@ -187,7 +187,7 @@ Test your mock API by calling the `/api/users/{username}` endpoint using a brows
 
 ## Next steps
 
-In this tutorial, you learned how to build and customize and API on Azure Functions. You also learned how to bring multiple APIs, including mocks, together as a unified API surface. You can use these techniques to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
+In this tutorial, you learned how to build and customize an API on Azure Functions. You also learned how to bring multiple APIs, including mocks, together as a unified API surface. You can use these techniques to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
 
 The following references may be helpful as you develop your API further:
 

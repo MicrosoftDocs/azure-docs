@@ -17,9 +17,9 @@
 ### [Build and deploy a Node.js application](cloud-services-nodejs-develop-deploy-app.md)
 ### [Build a Node.js web application using Express](cloud-services-nodejs-develop-deploy-express-app.md)
 ### Storage and Visual Studio
-#### [Blob storage and connected services](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Queue storage and connected services](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [Table storage and connected services](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Blob storage and connected services](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
+#### [Queue storage and connected services](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
+#### [Table storage and connected services](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### Configure packages for continuous build and deploy
 #### [TFS and Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configure traffic rules for a role](cloud-services-enable-communication-role-instances.md)
@@ -107,14 +107,16 @@
 #### [Deployment FAQ](cloud-services-deployment-faq.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
 ## [Pricing](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

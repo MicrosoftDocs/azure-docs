@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 08/17/2017
 ms.author: arramac
 
 ---
@@ -55,6 +55,10 @@ The following .NET code snippet shows how to set a custom indexing policy during
 > By default, Azure Cosmos DB indexes all string properties within documents consistently with a Hash index, and numeric properties with a Range index.  
 > 
 > 
+
+### Customizing the indexing policy using the portal
+
+You can change the indexing policy of a collection using the Azure portal. Open your Azure Cosmos DB account in the Azure portal, select your collection, in the left navigation menu click **Settings**, and then click **Indexing Policy**. In the **Indexing Policy** blade, change your indexing policy and then click **OK** to save your changes. 
 
 ### <a id="indexing-modes"></a>Database indexing modes
 Azure Cosmos DB supports three indexing modes which can be configured via the indexing policy on an Azure Cosmos DB collection – Consistent, Lazy and None.
@@ -225,7 +229,7 @@ You can choose whether you want the collection to automatically index all docume
 
 With automatic indexing turned off, you can still selectively add only specific documents to the index. Conversely, you can leave automatic indexing on and selectively choose to exclude only specific documents. Indexing on/off configurations are useful when you have only a subset of documents that need to be queried.
 
-For example, the following sample shows how to include a document explicitly using the [DocumentDB API .NET SDK](https://github.com/Azure/azure-documentdb-java) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
+For example, the following sample shows how to include a document explicitly using the [DocumentDB API .NET SDK](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,

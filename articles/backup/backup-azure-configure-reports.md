@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/30/2017
+ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 
@@ -28,7 +28,7 @@ This article talks about steps to configure reports for Azure Backup using Recov
 4. The frequency of scheduled refresh for the reports is 24 hours in Power BI. You can also perform an ad-hoc refresh of the reports in Power BI, in which case latest data in customer storage account is used for rendering reports. 
 
 ## Prerequisites
-1. Create an [Azure storage account](../storage/storage-create-storage-account.md#create-a-storage-account) to configure it for reports. This storage account is used for storing reports related data.
+1. Create an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) to configure it for reports. This storage account is used for storing reports related data.
 2. [Create a Power BI account](https://powerbi.microsoft.com/landing/signin/) to view, customize, and create your own reports using Power BI portal.
 3. Register the resource provider **Microsoft.insights** if not registered already, with the subscription of storage account and also with the subscription of Recovery Services vault to enable reporting data to flow to the storage account. To do the same, you must go to Azure portal > Subscription > Resource providers and check for this provider to register it. 
 
@@ -61,6 +61,11 @@ Use the following steps to configure the storage account for recovery services v
       ![Select storage account step 6](./media/backup-azure-configure-reports/save-configuration.png)
 7. Review all the changes and click **Save** button on top, as shown in the figure above. This action ensures that all your changes are saved and storage account is now configured for storing reporting data.
 
+> [!NOTE]
+> Once you configure reports by saving storage account, you should **wait for 24 hours** for initial data push to complete. You should import Azure Backup content pack in Power BI only after that time. Refer [FAQ section](#frequently-asked-questions) for futher details. 
+>
+>
+
 ## View reports in Power BI 
 After configuring storage account for reports using recovery services vault, it takes around 24 hours for reporting data to start flowing in. After 24 hours of setting up storage account, use the following steps to view reports in Power BI:
 1. [Sign in](https://powerbi.microsoft.com/landing/signin/) to Power BI.
@@ -73,7 +78,7 @@ After configuring storage account for reports using recovery services vault, it 
 4. Enter the storage account name configured in step 5 above and click **Next** button.
 
     ![Enter storage account name](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Enter the storage account key for this storage account. You can [view and copy storage access keys](../storage/storage-create-storage-account.md#manage-your-storage-account) by navigating to your storage account in Azure portal. 
+5. Enter the storage account key for this storage account. You can [view and copy storage access keys](../storage/common/storage-create-storage-account.md#manage-your-storage-account) by navigating to your storage account in Azure portal. 
 
      ![Enter storage account](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      

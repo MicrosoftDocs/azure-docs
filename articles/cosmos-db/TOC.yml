@@ -4,8 +4,6 @@
   items:
   - name: About Azure Cosmos DB
     href: introduction.md
-  - name: Welcome DocumentDB customers
-    href: https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
 - name: Quickstarts
   expanded: true
   items:
@@ -105,9 +103,6 @@
     href: consistency-levels.md
   - name: Throughput
     href: request-units.md
-    items:
-    - name: Request units per minute
-      href: request-units-per-minute.md
   - name: Multi-model APIs
     items:
     - name: DocumentDB
@@ -137,6 +132,8 @@
         href: documentdb-resources.md
       - name: SQL queries
         href: documentdb-sql-query.md
+      - name: SQL query performance
+        href: documentdb-sql-query-metrics.md        
       - name: SQL playground
         href: https://www.documentdb.com/sql/demo
       - name: Partitioning
@@ -222,7 +219,29 @@
     - name: Table API
       items:
       - name: Table storage
-        href: https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
+        href: /rest/api/storageservices/Table-Service-Concepts
+      - name: Table storage design guide
+        href: table-storage-design-guide.md
+      - name: Tutorials
+        items:
+          - name: .NET
+            href: table-storage-how-to-use-dotnet.md
+          - name: F#
+            href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+          - name: Node.js 
+            href: table-storage-cloud-service-nodejs.md
+          - name: Java
+            href: table-storage-how-to-use-java.md
+          - name: Node.js
+            href: table-storage-how-to-use-nodejs.md
+          - name: C++ 
+            href: table-storage-how-to-use-c-plus.md
+          - name: PHP
+            href: table-storage-how-to-use-php.md
+          - name: Python
+            href: table-storage-how-to-use-python.md
+          - name: Ruby
+            href: table-storage-how-to-use-ruby.md
     - name: Change feed
       href: change-feed.md
     - name: Geospatial
@@ -281,8 +300,12 @@
       href: powerbi-visualize.md
     - name: Leverage the ODBC driver for data visualization
       href: odbc-driver.md
+    - name: Use Spring Boot Starter with DocumentDB APIs
+      href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Reference
   items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db
   - name: DocumentDB APIs
     items:
     - name: Java

@@ -54,7 +54,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
    > You must select the sample database on this form because it is used in the remainder of this quick start.
    > 
 
-4. Fill out the SQL server (logical server) form with the following information, as shown on the preceding image:   
+4. Under **Server**, click **Configure required settings** and fill out the SQL server (logical server) form with the following information, as shown on the following image:   
 
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 

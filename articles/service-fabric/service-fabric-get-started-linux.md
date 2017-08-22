@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 8/10/2017
 ms.author: subramar
 
 ---
@@ -40,7 +40,7 @@ To install the SDK and the associated runtime package via the apt-get command-li
 2. Add the Service Fabric repo to your sources list.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
+    sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
 
 3. Add the `dotnet` repo to your sources list.
@@ -59,6 +59,7 @@ To install the SDK and the associated runtime package via the apt-get command-li
 5. Add the official Docker GPG key to your APT keyring.
 
     ```bash
+    sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
@@ -87,8 +88,8 @@ After you have updated your sources, you can install the SDK.
 	>   [!TIP]
 	>   The following commands automate accepting the license for Service Fabric packages:
 	>   ```bash
-	>   echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
-	>   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+	>   echo "servicefabric servicefabric/accepted-eula-v1 select true" | sudo debconf-set-selections
+	>   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | sudo debconf-set-selections
 	>   ```
 	
 2. Run the SDK setup script.

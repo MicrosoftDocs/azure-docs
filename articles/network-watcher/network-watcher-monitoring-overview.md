@@ -50,8 +50,8 @@ Network Watcher currently has the following capabilities:
 Network watcher uses the [Azure Role-Based Access Control (RBAC) model](../active-directory/role-based-access-control-what-is.md). The following permissions are required by the Network Watcher. It is important to make sure that the role used for initiating Network Watcher APIs or using Network Watcher from the portal has the required access.
 
 |Resource| Permission| |
-|---|---| |
-|Microsoft.
+|---|---| 
+|Microsoft.|
 |Microsoft.Storage/ |Read| |
 |Microsoft.Authorization/| Read| |
 |Microsoft.Resources/subscriptions/resourceGroups/| Read| |
@@ -121,6 +121,8 @@ Do a packet capture on your VM by visiting [Variable packet capture in the Azure
 Perform proactive monitoring and diagnostics using [alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md).
 
 Detect security vulnerabilities with [Analyzing packet capture with Wireshark](network-watcher-deep-packet-inspection.md), using open source tools.
+
+Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
 
 <!--Image references-->
 [TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png

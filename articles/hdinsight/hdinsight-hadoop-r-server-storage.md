@@ -33,9 +33,9 @@ When you create an Hadoop cluster in HDInsight, you specify either an **Azure st
 - [Use Azure storage with HDInsight](hdinsight-hadoop-use-blob-storage.md)
 - [Use Data Lake Store with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-store.md). 
 
-For more information on the Azure storage solutions, see [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md). 
+For more information on the Azure storage solutions, see [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md). 
 
-For guidance on selecting the most appropriate storage option to use for your scenario, see [Deciding when to use Azure Blobs, Azure Files, or Azure Data Disks](../storage/storage-decide-blobs-files-disks.md) 
+For guidance on selecting the most appropriate storage option to use for your scenario, see [Deciding when to use Azure Blobs, Azure Files, or Azure Data Disks](../storage/common/storage-decide-blobs-files-disks.md) 
 
 
 ## Use Azure Blob storage accounts with R Server
@@ -72,14 +72,14 @@ If necessary, you can access multiple Azure storage accounts or containers with 
     	#Specify the input file to analyze in HDFS:
         inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
 
-All the directory and file references point to the storage account wasbs://container1@storage1.blob.core.windows.net. This is the **default storage account** that's associated with the HDInsight cluster.
+All the directory and file references point to the storage account wasb://container1@storage1.blob.core.windows.net. This is the **default storage account** that's associated with the HDInsight cluster.
 
 Now, suppose you want to process a file called mySpecial.csv that's located in the  /private directory of **container2** in **storage2**.
 
 In your R code, point the name node reference to the **storage2** storage account.
 
 
-	myNameNode <- "wasbs://container2@storage2.blob.core.windows.net"
+	myNameNode <- "wasb://container2@storage2.blob.core.windows.net"
 	myPort <- 0
 
 	#Location of the data:
@@ -97,14 +97,14 @@ In your R code, point the name node reference to the **storage2** storage accoun
 	#Specify the input file to analyze in HDFS:
 	inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
 
-All of the directory and file references now point to the storage account wasbs://container2@storage2.blob.core.windows.net. This is the **Name Node** that you’ve specified.
+All of the directory and file references now point to the storage account wasb://container2@storage2.blob.core.windows.net. This is the **Name Node** that you’ve specified.
 
 You have to configure the /user/RevoShare/<SSH username> directory on **storage2** as follows:
 
 
-	hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user
-	hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare
-	hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
+	hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
+	hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
+	hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
 
 
@@ -184,8 +184,8 @@ There is also a convenient data storage option for use on the edge node called [
 
 A major benefit of Azure Files is that the file shares can be mounted and used by any system that has a supported OS such as Windows or Linux. For example, it can be used by another HDInsight cluster that you or someone on your team has, by an Azure VM, or even by an on-premises system. For more information, see:
 
-- [How to use Azure File storage with Linux](../storage/storage-how-to-use-files-linux.md)
-- [How to use Azure File storage on Windows](../storage/storage-dotnet-how-to-use-files.md)
+- [How to use Azure File storage with Linux](../storage/files/storage-how-to-use-files-linux.md)
+- [How to use Azure File storage on Windows](../storage/files/storage-dotnet-how-to-use-files.md)
 
 
 ## Next steps
