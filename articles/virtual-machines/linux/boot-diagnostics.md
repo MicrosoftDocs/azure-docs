@@ -70,10 +70,8 @@ Both of these features are supported for Azure Virtual Machines in all regions. 
         }
     ```
 
-To deploy a sample Virtual Machine with boot diagnostics enabled, check out our repo here.
+## Update an existing virtual machine
 
-## Update an existing virtual machine ##
-
-To enable boot diagnostics through the Portal, you can also update an existing Virtual Machine through the Portal. Select the Boot Diagnostics option and Save. Restart the VM to take effect.
+To enable boot diagnostics through the portal, you can also update an existing virtual machine through the portal. Select the Boot Diagnostics option and Save. Restart the VM to take effect.
 
 ![Update Existing VM](./media/boot-diagnostics/screenshot5.png)
