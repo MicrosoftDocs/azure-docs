@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/31/2017
 ms.author: juliako;
 
 ---
@@ -55,7 +55,7 @@ The **analyze** pass of the two-pass workflow takes a video input and produces a
 | Output asset |foo_annotations.json |Annotation data of face locations in JSON format. This can be edited by the user to modify the blurring bounding boxes. See sample below. |
 | Output asset |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |A cropped jpg of each detected face, where the number indicates the labelId of the face |
 
-#### Output Example:
+#### Output example:
 
 	{
 	  "version": 1,
@@ -104,7 +104,7 @@ The **analyze** pass of the two-pass workflow takes a video input and produces a
 
     … truncated
 
-### Redact Mode
+### Redact mode
 The second pass of the workflow takes a larger number of inputs that must be combined into a single asset.
 
 This includes a list of IDs to blur, the original video, and the annotations JSON. This mode uses the annotations to apply blurring on the input video.
@@ -119,7 +119,7 @@ The output from the Analyze pass does not include the original video. The video 
 | Input config |Job configuration preset |{'version':'1.0', 'options': {'mode':'redact'}} |
 | Output asset |foo_redacted.mp4 |Video with blurring applied based on annotations |
 
-#### Example Output
+#### Example output
 This is the output from an IDList with one ID selected.
 
 [view this video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
@@ -129,7 +129,37 @@ Example foo_IDList.txt
      1
      2
      3
+
+## Blur types
+
+In the **Combined** or **Redact** mode, there are 5 different blur modes you can choose from via the JSON input configuration: **Low**, **Med**, **High**, **Debug**, and **Black**. By default **Med** is used.
+
+You can find samples of the blur types below.
+
+### Example JSON:
+
+	{'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+
+#### Low
+
+![Low](./media/media-services-face-redaction/blur1.png)
  
+#### Med
+
+![Med](./media/media-services-face-redaction/blur2.png)
+
+#### High
+
+![High](./media/media-services-face-redaction/blur3.png)
+
+#### Debug
+
+![Debug](./media/media-services-face-redaction/blur4.png)
+
+#### Black
+
+![Black](./media/media-services-face-redaction/blur5.png)
+
 ## Elements of the output JSON file
 
 The Redaction MP provides high precision face location detection and tracking that can detect up to 64 human faces in a video frame. Frontal faces provide the best results, while side faces and small faces (less than or equal to 24x24 pixels) are challenging.
@@ -310,8 +340,7 @@ Set up your development environment and populate the app.config file with connec
 	    }
 	}
 
-## Next step
-Review Media Services learning paths.
+## Next steps
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

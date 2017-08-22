@@ -101,7 +101,7 @@ The FactInternetSales, DimGeography, and DimSalesTerritory table all contain a c
     Notice the Active property for this relationship is False, meaning it's inactive. The FactInternetSales table already has another active relationship.  
   
 ## Hide the EmployeeSecurity Table from client applications  
-In this task, you hide the EmployeeSecurity table, keeping it from appearing in a client application’s field list. Keep in-mind that hiding a table does not secure it. Users can still query EmployeeSecurity table data if they know how. To secure the EmployeeSecurity table data, preventing users from being able to query any of its data, you apply a filter in a later task.  
+In this task, you hide the EmployeeSecurity table, keeping it from appearing in a client application’s field list. Keep in mind that hiding a table does not secure it. Users can still query EmployeeSecurity table data if they know how. To secure the EmployeeSecurity table data, preventing users from being able to query any of its data, you apply a filter in a later task.  
   
 #### To hide the EmployeeSecurity table from client applications  
   

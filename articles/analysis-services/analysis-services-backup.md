@@ -13,14 +13,14 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 08/15/2017
 ms.author: owend
 
 ---
 
 # Backup and restore
 
-Backing up tabular model databases in Azure Analysis Services is much the same as for on-premises Analysis Services. The primary difference is where you store your backup files. Backup files must be saved to a container in an [Azure storage account](../storage/storage-create-storage-account.md). You can use a storage account and container you already have, or they can be created when configuring storage settings for your server.
+Backing up tabular model databases in Azure Analysis Services is much the same as for on-premises Analysis Services. The primary difference is where you store your backup files. Backup files must be saved to a container in an [Azure storage account](../storage/common/storage-create-storage-account.md). You can use a storage account and container you already have, or they can be created when configuring storage settings for your server.
 
 > [!NOTE]
 > Creating a storage account can result in a new billable service. To learn more, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -79,7 +79,7 @@ Before backing up, you need to configure storage settings for your server.
 Use [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet) cmdlet.
 
 ## Restore
-When restoring, your backup file must be in the storage account you've configured for your server. If you need to move a backup file from an on-premises location to your storage account, use [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) or the [AzCopy](../storage/storage-use-azcopy.md) command-line utility. 
+When restoring, your backup file must be in the storage account you've configured for your server. If you need to move a backup file from an on-premises location to your storage account, use [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) or the [AzCopy](../storage/common/storage-use-azcopy.md) command-line utility. 
 
 
 
@@ -108,6 +108,6 @@ Use [Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powers
 
 ## Related information
 
-[Azure storage accounts](../storage/storage-create-storage-account.md)  
+[Azure storage accounts](../storage/common/storage-create-storage-account.md)  
 [High availability](analysis-services-bcdr.md)     
 [Manage Azure Analysis Services](analysis-services-manage.md)

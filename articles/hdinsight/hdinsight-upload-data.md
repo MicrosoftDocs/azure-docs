@@ -1,4 +1,4 @@
-﻿---
+---
 title: Upload data for Hadoop jobs in HDInsight | Microsoft Docs
 description: Learn how to upload and access data for Hadoop jobs in HDInsight using the Azure CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop.
 keywords: etl hadoop, getting data into hadoop, hadoop load data
@@ -149,11 +149,11 @@ For example, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Because the default file system for HDInsight is in Azure Blob storage, /example/data.txt is actually in Azure Blob storage. You can also refer to the file as:
 
-    wasbs:///example/data/data.txt
+    wasb:///example/data/data.txt
 
 or
 
-    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
+    wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
 For a list of other Hadoop commands that work with files, see [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
@@ -280,9 +280,9 @@ Now that you understand how to get data into HDInsight, read the following artic
 [azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
-[azure-create-storage-account]: ../storage/storage-create-storage-account.md
-[azure-azcopy-download]: ../storage/storage-use-azcopy.md
-[azure-azcopy]: ../storage/storage-use-azcopy.md
+[azure-create-storage-account]:../storage/common/storage-create-storage-account.md
+[azure-azcopy-download]:../storage/common/storage-use-azcopy.md
+[azure-azcopy]:../storage/common/storage-use-azcopy.md
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 

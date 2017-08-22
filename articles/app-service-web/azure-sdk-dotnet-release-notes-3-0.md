@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 03/07/2017
-ms.author: juliako;mikhegn
+ms.author: juliako
 
 ---
 # Azure SDK for .NET 3.0 release notes

@@ -1,4 +1,4 @@
----
+﻿---
 title: User, session, and event analysis in Azure Application Insights | Microsoft docs
 description: Demographic analysis of users of your web app.
 services: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
+ms.author: bwren
 ---
 
 # Users, sessions, and events analysis in Application Insights
@@ -62,8 +62,11 @@ The Insights sidebar shows large clusters of users that share common properties.
 
 
 ## Next steps
-
-* [Usage overview](app-insights-usage-overview.md)
-* [Retention](app-insights-usage-retention.md)
-* [Coding custom events](app-insights-api-custom-events-metrics.md)s
+- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- If you already send custom events or page views, explore the Usage tools to learn how users use your service.
+    - [Funnels](usage-funnels.md)
+    - [Retention](app-insights-usage-retention.md)
+    - [User Flows](app-insights-usage-flows.md)
+    - [Workbooks](app-insights-usage-workbooks.md)
+    - [Add user context](app-insights-usage-send-user-context.md)
 

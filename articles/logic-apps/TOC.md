@@ -16,6 +16,7 @@
 ### [Add switch statements](logic-apps-switch-case.md)
 ### [Add custom code with Azure Functions](logic-apps-azure-functions.md)
 ### [Loops, scopes, and data debatching](logic-apps-loops-and-scopes.md)
+### [Batch process messages](logic-apps-batch-process-send-receive-messages.md)
 ### [Author logic app definitions](logic-apps-author-definitions.md)
 ### [Call, trigger, or nest logic apps](logic-apps-http-endpoint.md)
 ### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
@@ -64,6 +65,7 @@
 ### [Manage logic apps with Visual Studio](logic-apps-manage-from-vs.md)
 ### [Manage integration accounts](logic-apps-enterprise-integration-accounts.md)
 ### [Monitor logic app status](logic-apps-monitor-your-logic-apps.md)
+### [Monitor logic app status in OMS with Log Analytics](logic-apps-monitor-your-logic-apps-oms.md)
 ### [Monitor B2B messages](logic-apps-monitor-b2b-message.md)
 #### [Track B2B messages in OMS](logic-apps-track-b2b-messages-omsportal.md)
 #### [Query OMS for B2B messages](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
@@ -140,5 +142,6 @@
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=logic-apps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)
