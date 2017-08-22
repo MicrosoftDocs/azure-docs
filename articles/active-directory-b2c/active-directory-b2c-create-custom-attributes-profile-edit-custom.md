@@ -119,7 +119,7 @@ Extension properties exist only in the context of a registered  Application in t
    </TechnicalProfile>
  </RelyingParty>
  ```
-3. Add a claim definition to the Extension policy file  `TrustFrameworkExtensions.xml` inside the ``<ClaimsSchema>`` element as shown.
+3. Add a claim definition to the Extension policy file  `TrustFrameworkExtensions.xml` inside the `<ClaimsSchema>` element as shown.
 ```xml
 <ClaimsSchema>
 		<ClaimType Id="extension_loyaltyId">
@@ -131,9 +131,7 @@ Extension properties exist only in the context of a registered  Application in t
 </ClaimsSchema>
 ```
 4. Add the same claim definition to the Base policy file `TrustFrameworkBase.xml`.  
->[!NOTE]
 >Adding a `ClaimType` definition in both the base and the extensions file is normally not necessary, however since the next steps will add the extension_loyaltyId to TechnicalProfiles in the Base file, the policy validator will reject the upload of the base file without it.
->[!NOTE]
 >It may be useful to trace the execution of the user journey named "ProfileEdit" in the TrustFrameworkBase.xml file.  Search for the user journey of the same name in your editor and observe that Orchestration Step 5 invokes the TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate".  Search and inspect this TechnicalProfile to familiarize yourself with the flow.
 5. Add loyaltyId as input and output claim in the TechnicalProfile "SelfAsserted-ProfileUpdate"
 ```xml
