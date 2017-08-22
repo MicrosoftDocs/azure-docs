@@ -14,7 +14,7 @@ ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
 ms.date: 07/12/2017
-ms.author: donnam, glenga
+ms.author: glenga
 
 ---
 # Code and test Azure functions locally

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Windows Virtual Machines Overview | Microsoft Docs
 description: Learn about creating and managing Windows virtual machines in Azure.
 services: virtual-machines-windows
@@ -68,7 +68,7 @@ Azure charges an [hourly price](https://azure.microsoft.com/pricing/details/virt
 Your subscription has default [quota limits](../../azure-subscription-service-limits.md) in place that could impact the deployment of many VMs for your project. The current limit on a per subscription basis is 20 VMs per region. Limits can be raised by filing a support ticket requesting an increase.
 
 ### Operating system disks and images
-Virtual machines use [virtual hard disks (VHDs)](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. 
+Virtual machines use [virtual hard disks (VHDs)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. 
 
 Azure provides many [marketplace images](https://azure.microsoft.com/marketplace/virtual-machines/) to use with various versions and types of Windows Server operating systems. Marketplace images are identified by image publisher, offer, sku, and version (typically version is specified as latest). 
 
@@ -97,7 +97,7 @@ The resources in this table are used by the VM and need to exist or be created w
 | Resource | Required | Description |
 | --- | --- | --- |
 | [Resource group](../../azure-resource-manager/resource-group-overview.md) |Yes |The VM must be contained in a resource group. |
-| [Storage account](../../storage/storage-create-storage-account.md) |Yes |The VM needs the storage account to store its virtual hard disks. |
+| [Storage account](../../storage/common/storage-create-storage-account.md) |Yes |The VM needs the storage account to store its virtual hard disks. |
 | [Virtual network](../../virtual-network/virtual-networks-overview.md) |Yes |The VM must be a member of a virtual network. |
 | [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |No |The VM can have a public IP address assigned to it to remotely access it. |
 | [Network interface](../../virtual-network/virtual-network-network-interface.md) |Yes |The VM needs the network interface to communicate in the network. |
