@@ -22,7 +22,7 @@ ms.author: sngun
 
 As an Azure Stack user, you can configure your Azure Stack Development Kit's PowerShell environment. After you configure, you can use PowerShell to manage Azure Stack resources such as subscribe to offers, create virtual machines, deploy Azure Resource Manager templates,  etc. This topic is scoped to use with the user environments only, if you want to set up PowerShell for the cloud operator environment, refer to the [Configure the Azure Stack operator's PowerShell environment](azure-stack-powershell-configure-admin.md) topic. 
 
-## Prerequisites
+## Prerequisites 
 
 Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-with-vpn):
 
