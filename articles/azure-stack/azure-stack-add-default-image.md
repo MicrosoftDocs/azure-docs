@@ -39,28 +39,21 @@ After the download completes, the image is added to the **Marketplace Management
 
 ## Add the image by using PowerShell
 
-1. After deploying Azure Stack, sign in to your Azure Stack Development Kit.
+### Prerequisites 
 
-2. Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location, which is used later in these steps. This step requires internet connectivity.
+Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-with-vpn):
 
-3. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
+* Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
+
+* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
+
+* Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location, which is used later in these steps. This step requires internet connectivity.  
+
+Now run the following steps to add the image to the Azure Stack marketplace:
    
-4. Import the Azure Stack Connect and ComputeAdmin modules by using the following commands:
+1. Import the Azure Stack Connect and ComputeAdmin modules by using the following commands:
 
    ```powershell
-
-   # Download the required tools required to work with Azure Stack
-   cd \
-
-   invoke-webrequest `
-     https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-     -OutFile master.zip
-
-   expand-archive master.zip `
-     -DestinationPath . `
-     -Force
-
-   cd AzureStack-Tools-master
 
    Set-ExecutionPolicy RemoteSigned
 
@@ -70,7 +63,7 @@ After the download completes, the image is added to the **Marketplace Management
 
    ```
 
-5. Sign in to your Azure Stack environment. Run the following script depending on if your Azure Stack environment is deployed by using AAD or AD FS (Make sure to replace the AAD tenant name):  
+2. Sign in to your Azure Stack environment. Run the following script depending on if your Azure Stack environment is deployed by using AAD or AD FS (Make sure to replace the AAD tenant name):  
 
    a. **Azure Active Directory**, use the following cmdlet:
 
@@ -80,6 +73,10 @@ After the download completes, the image is added to the **Marketplace Management
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
      -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
+
+   Set-AzureRmEnvironment `
+    -Name "AzureStackAdmin" `
+    -GraphAudience "https://graph.windows.net/"
 
    $TenantID = Get-AzsDirectoryTenantId `
      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
@@ -99,6 +96,11 @@ After the download completes, the image is added to the **Marketplace Management
      -Name "AzureStackAdmin" `
      -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
+   Set-AzureRmEnvironment `
+     -Name "AzureStackAdmin" `
+     -GraphAudience "https://graph.local.azurestack.external/" `
+     -EnableAdfsAuthentication:$true
+
    $TenantID = Get-AzsDirectoryTenantId `
      -ADFS 
      -EnvironmentName AzureStackAdmin 
@@ -108,7 +110,7 @@ After the download completes, the image is added to the **Marketplace Management
    -TenantId $TenantID 
    ```
    
-6. Add the Windows Server 2016 image to the Azure Stack marketplace (Make sure to replace the *Path_to_ISO* with the path to the WS2016 ISO you downloaded):
+3. Add the Windows Server 2016 image to the Azure Stack marketplace (Make sure to replace the *Path_to_ISO* with the path to the WS2016 ISO you downloaded):
 
    ```PowerShell
    $ISOPath = "<Fully_Qualified_Path_to_ISO>"

@@ -43,6 +43,7 @@ You can establish a split tunnel Virtual Private Network (VPN) connection to an 
 ### Prerequisites
 
 * Install [Azure Stack compatible Azure PowerShell](azure-stack-powershell-install.md) on your local computer.  
+* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md). 
 
 ### Configure VPN connectivity
 
@@ -53,26 +54,10 @@ To create a VPN connection to the development kit, open an elevated PowerShell s
 # Configure winrm if it's not already configured
 winrm quickconfig  
 
-
-# Download the required tools required to work with Azure Stack
-cd \
-
-invoke-webrequest `
-  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-  -OutFile master.zip
-
-expand-archive master.zip `
-  -DestinationPath . `
-  -Force
-
-cd AzureStack-Tools-master
-
 Set-ExecutionPolicy RemoteSigned
-
 
 # Import the Connect module
 Import-Module .\Connect\AzureStack.Connect.psm1 
-
 
 # Add the development kit computer’s host IP address & certificate authority (CA) to the list of trusted hosts. Make sure to update the the IP address and password values for your environment. 
 

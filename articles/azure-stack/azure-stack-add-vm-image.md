@@ -24,21 +24,26 @@ Azure Marketplace UI with the creation of a Marketplace item.
 
 ## Add a VM image to marketplace with PowerShell
 
-You can use the steps described in this article either from the Azure Stack Development Kit, or from a Windows-based external client if you are connected through VPN.
+Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-with-vpn):
 
-1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
+* [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
 
-2. Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX).
+* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
+
+* Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX).
    
    * For Windows images, the article [Upload a Windows VM image to Azure for Resource Manager deployments](../virtual-machines/windows/upload-generalized-managed.md) contains image preparation instructions in the **Prepare the VHD for upload** section.
    * For Linux images, follow the steps to
      prepare the image or use an existing Azure Stack Linux image as described in
      the article [Deploy Linux virtual machines on Azure
-     Stack](azure-stack-linux.md).
-3. Download Azure Stack tools from GitHub, import the Connect and ComputeAdmin modules:
+     Stack](azure-stack-linux.md).  
+
+Now run the following steps to add the image to the Azure Stack marketplace:
+
+1. Download Azure Stack tools from GitHub, import the Connect and ComputeAdmin modules:
    
    ```powershell
-   # Download the required tools required to work with Azure Stack
+   # Download the tools required to work with Azure Stack
    cd \
 
    invoke-webrequest `
@@ -58,7 +63,7 @@ You can use the steps described in this article either from the Azure Stack Deve
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
    ``` 
 
-4. Sign in to your Azure Stack environment. Run the following script depending on if your Azure Stack environment is deployed by using AAD or AD FS (Make sure to replace the AAD tenant name): 
+2. Sign in to your Azure Stack environment. Run the following script depending on if your Azure Stack environment is deployed by using AAD or AD FS (Make sure to replace the AAD tenant name): 
 
    a. **Azure Active Directory**, use the following cmdlet:
 
@@ -68,6 +73,10 @@ You can use the steps described in this article either from the Azure Stack Deve
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
      -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
+
+   Set-AzureRmEnvironment `
+    -Name "AzureStackAdmin" `
+    -GraphAudience "https://graph.windows.net/"
 
    $TenantID = Get-AzsDirectoryTenantId `
      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
@@ -87,6 +96,11 @@ You can use the steps described in this article either from the Azure Stack Deve
      -Name "AzureStackAdmin" `
      -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
+   Set-AzureRmEnvironment `
+     -Name "AzureStackAdmin" `
+     -GraphAudience "https://graph.local.azurestack.external/" `
+     -EnableAdfsAuthentication:$true
+
    $TenantID = Get-AzsDirectoryTenantId `
      -ADFS 
      -EnvironmentName AzureStackAdmin 
@@ -96,7 +110,7 @@ You can use the steps described in this article either from the Azure Stack Deve
    -TenantId $TenantID 
    ```
     
-5. Add the VM image by invoking the `Add-AzsVMImage` cmdlet. In the Add-AzsVMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. See the [Parameters](#parameters) section for information about the allowed parameters. These parameters are used by Azure Resource Manager templates to reference the VM image. Following is an example invocation of the script:
+3. Add the VM image by invoking the `Add-AzsVMImage` cmdlet. In the Add-AzsVMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. See the [Parameters](#parameters) section for information about the allowed parameters. These parameters are used by Azure Resource Manager templates to reference the VM image. Following is an example invocation of the script:
      
      ```powershell
      Add-AzsVMImage `
