@@ -238,7 +238,7 @@ To complete the initial backup, use the Microsoft Azure Recovery Services agent.
 5. If you back up Files and Folders on your server, in addition to the Windows Server System State, the Backup Now wizard will only back up files. To perform an ad hoc System State back up, use the following PowerShell command:
 
     ```
-    PS C:\> Start -OBSystemStateBackup
+    PS C:\> Start-OBSystemStateBackup
     ```
 
   After the initial backup is completed, the **Job completed** status appears in the Backup console.

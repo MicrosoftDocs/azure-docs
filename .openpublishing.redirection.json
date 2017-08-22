@@ -10038,7 +10038,26 @@
             "source_path": "articles/active-directory/active-directory-device-registration-faq.md",
             "redirect_url": "/azure/active-directory/device-management-faq",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-licensing-get-started-azure-portal.md",
+            "redirect_url": "/azure/active-directory/license-users-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-licensing-what-is.md",
+            "redirect_url": "/azure/active-directory/license-users-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-users-create-azure-portal.md",
+            "redirect_url": "/azure/active-directory/add-users-azure-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-create-users.md",
+            "redirect_url": "/azure/active-directory/add-users-azure-active-directory",
+            "redirect_document_id": false
         }    
-    
     ]
 }
