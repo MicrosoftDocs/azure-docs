@@ -59,8 +59,8 @@
         href: azure-stack-powershell-install.md
       - name: Download tools
         href: azure-stack-powershell-download.md
-      - name: Configure PowerShell
-        href: azure-stack-powershell-configure.md
+      - name: Configure PowerShell - Cloud operator
+        href: azure-stack-powershell-configure-admin.md
       - name: Get up and running with PowerShell
         href: azure-stack-powershell-configure-quickstart.md
       - name: Install and configure CLI
@@ -91,6 +91,8 @@
     items:
     - name: Create plans, offers, and quotas
       items:
+      - name: Plan, offer, quota, and subscription overview
+        href: azure-stack-plan-offer-quota-overview.md
       - name: Set quotas
         href: azure-stack-setting-quotas.md
       - name: Create a plan
@@ -211,8 +213,8 @@
         href: azure-stack-powershell-install.md
       - name: Download tools
         href: azure-stack-powershell-download.md
-      - name: Configure PowerShell
-        href: azure-stack-powershell-configure.md
+      - name: Configure PowerShell - User
+        href: azure-stack-powershell-configure-user.md
       - name: Get up and running with PowerShell
         href: azure-stack-powershell-configure-quickstart.md
       - name: Install and configure CLI
