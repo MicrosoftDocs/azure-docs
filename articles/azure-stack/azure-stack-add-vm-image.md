@@ -35,46 +35,68 @@ You can use the steps described in this article either from the Azure Stack Deve
      prepare the image or use an existing Azure Stack Linux image as described in
      the article [Deploy Linux virtual machines on Azure
      Stack](azure-stack-linux.md).
-3. [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md) and then import the Connect and ComputeAdmin modules:
+3. Download Azure Stack tools from GitHub, import the Connect and ComputeAdmin modules:
    
    ```powershell
+   # Download the required tools required to work with Azure Stack
+   cd \
+
+   invoke-webrequest `
+     https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+     -OutFile master.zip
+
+   expand-archive master.zip `
+     -DestinationPath . `
+     -Force
+
+   cd AzureStack-Tools-master
+
+   Set-ExecutionPolicy RemoteSigned
+
+   # import the Connect and ComputeAdmin modules
    Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
    ``` 
 
-4. Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
-   ```powershell
+4. Sign in to your Azure Stack environment. Run the following script depending on if your Azure Stack environment is deployed by using AAD or AD FS (Make sure to replace the AAD tenant name): 
+
+   a. **Azure Active Directory**, use the following cmdlet:
+
+   ```PowerShell
+
+   # Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
      -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
-   ```
 
-5. Get the GUID value of the Active Directory(AD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
+   $TenantID = Get-AzsDirectoryTenantId `
+     -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+     -EnvironmentName AzureStackAdmin
 
-    a. **Azure Active Directory**, use the following cmdlet:
-    
-    ```PowerShell
-    $TenantID = Get-AzsDirectoryTenantId `
-      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-      -EnvironmentName AzureStackAdmin
-    ```
-    b. **Active Directory Federation Services**, use the following cmdlet:
-    
-    ```PowerShell
-    $TenantID = Get-AzsDirectoryTenantId `
-      -ADFS 
-      -EnvironmentName AzureStackAdmin 
-    ```
-    
-6. Sign in to your Azure Stack environment by using the following cmdlet:
-
-   ```PowerShell
    Login-AzureRmAccount `
    -EnvironmentName "AzureStackAdmin" `
    -TenantId $TenantID 
    ```
 
-7. Add the VM image by invoking the `Add-AzsVMImage` cmdlet. In the Add-AzsVMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. See the [Parameters](#parameters) section for information about the allowed parameters. These parameters are used by Azure Resource Manager templates to reference the VM image. Following is an example invocation of the script:
+   b. **Active Directory Federation Services**, use the following cmdlet:
+    
+   ```PowerShell
+
+   # Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
+   Add-AzureRMEnvironment `
+     -Name "AzureStackAdmin" `
+     -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+
+   $TenantID = Get-AzsDirectoryTenantId `
+     -ADFS 
+     -EnvironmentName AzureStackAdmin 
+
+   Login-AzureRmAccount `
+   -EnvironmentName "AzureStackAdmin" `
+   -TenantId $TenantID 
+   ```
+    
+5. Add the VM image by invoking the `Add-AzsVMImage` cmdlet. In the Add-AzsVMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. See the [Parameters](#parameters) section for information about the allowed parameters. These parameters are used by Azure Resource Manager templates to reference the VM image. Following is an example invocation of the script:
      
      ```powershell
      Add-AzsVMImage `

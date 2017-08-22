@@ -68,37 +68,49 @@ After the download completes, the image is added to the **Marketplace Management
    Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
 
+   ```
+
+5. Sign in to your Azure Stack environment. Run the following script depending on if your Azure Stack environment is deployed by using AAD or AD FS (Make sure to replace the AAD tenant name):  
+
+   a. **Azure Active Directory**, use the following cmdlet:
+
+   ```PowerShell
+
    # Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
      -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
 
-   ```
+   $TenantID = Get-AzsDirectoryTenantId `
+     -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+     -EnvironmentName AzureStackAdmin
 
-5. Get the GUID value of the Active Directory(AD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
-
-    a. **Azure Active Directory**, use the following cmdlet:
-    
-    ```PowerShell
-    $TenantID = Get-AzsDirectoryTenantId `
-      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-      -EnvironmentName AzureStackAdmin
-    ```
-    b. **Active Directory Federation Services**, use the following cmdlet:
-    
-    ```PowerShell
-    $TenantID = Get-AzsDirectoryTenantId `
-      -ADFS 
-      -EnvironmentName AzureStackAdmin 
-    ```
-   
-9. Sign in to your Azure Stack environment and add the Windows Server 2016 image to the Azure Stack marketplace (Make sure to replace the *Path_to_ISO* with the path to the WS2016 ISO you downloaded):
-
-   ```PowerShell
    Login-AzureRmAccount `
    -EnvironmentName "AzureStackAdmin" `
    -TenantId $TenantID 
+   ```
 
+   b. **Active Directory Federation Services**, use the following cmdlet:
+    
+   ```PowerShell
+
+   # Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
+   Add-AzureRMEnvironment `
+     -Name "AzureStackAdmin" `
+     -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+
+   $TenantID = Get-AzsDirectoryTenantId `
+     -ADFS 
+     -EnvironmentName AzureStackAdmin 
+
+   Login-AzureRmAccount `
+   -EnvironmentName "AzureStackAdmin" `
+   -TenantId $TenantID 
+   ```
+   
+6. Add the Windows Server 2016 image to the Azure Stack marketplace (Make sure to replace the *Path_to_ISO* with the path to the WS2016 ISO you downloaded):
+
+   ```PowerShell
    $ISOPath = "<Fully_Qualified_Path_to_ISO>"
 
    # Add a Windows Server 2016 Evaluation VM Image.

@@ -54,7 +54,7 @@ To create a VPN connection to the development kit, open an elevated PowerShell s
 winrm quickconfig  
 
 
-# Download the required tools 
+# Download the required tools required to work with Azure Stack
 cd \
 
 invoke-webrequest `
@@ -69,7 +69,8 @@ cd AzureStack-Tools-master
 
 Set-ExecutionPolicy RemoteSigned
 
-# Import the connect module
+
+# Import the Connect module
 Import-Module .\Connect\AzureStack.Connect.psm1 
 
 
