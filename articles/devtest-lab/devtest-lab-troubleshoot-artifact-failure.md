@@ -27,7 +27,9 @@ After you have created an artifact, you can check to see if it succeeded or fail
 To use the Azure portal to diagnose failures during artifact creation, follow these steps:
 
 1) From the list of resources, select your lab.
+
 2) Choose the Windows VM that includes the artifact you want to investigate.
+
 3) In the main blade under **GENERAL**, choose **Artifacts**. A list of artifacts associated with that VM appears, indicating the name of the artifact and its status.
 
    ![Artifact git repo example](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure.png)
@@ -41,6 +43,7 @@ To use the Azure portal to diagnose failures during artifact creation, follow th
 To view the artifact logs from within the virtual machine, follow these steps:
 
 1) Log in to the VM that contains the artifact you want to diagnose.
+
 2) Navigate to C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.9\Status where "1.9 is the CSE version number.
 
    ![Artifact git repo example](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error-vm-status.png)
