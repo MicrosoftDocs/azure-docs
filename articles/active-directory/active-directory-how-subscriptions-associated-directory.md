@@ -34,8 +34,19 @@ Azure AD doesn’t work like the other services in your Azure subscription. Othe
 
 All users have a single home directory that authenticates them, but they can also be guests in other directories. In Azure AD, you can see only the directories in which your user account is a member. A directory can also be synchronized with on-premises Active Directory.
 
-> [!NOTE]
-> If, for example, you signed up for Office 365 using a work or school account and then signed up for Azure using a Microsoft account, then you have two directories: one for your work or school and a default directory that was created when you signed up for Azure. You can add an Azure subscription to an existing directory only while you are signed in with a Microsoft account. If you are signed in with a work or school account, the option to use an existing directory is not available because a work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and which is owned by the work or school). To learn more about how to change administrators for an Azure subscription, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
+## Aure AD and cloud service subscriptions
+Azure AD provides the core directory and identity management capabilities behind most of Microsoft’s cloud services, including:
+
+* Azure
+* Microsoft Office 365
+* Microsoft Dynamics CRM Online
+* Microsoft Intune
+
+You get an Azure AD directory when you sign up for any of these Microsoft cloud services. You can create additional directories as needed. If you sign up for Azure using a Microsoft account and also sign up for another Microsoft cloud service using a work or school account, you then have two Azure AD directories: 
+* One for your work or school account cloud service subscription
+* The other the default directory for your Azure subscription
+
+You can add an Azure subscription to an existing directory only while you are signed in with a Microsoft account. If you are signed in with a work or school account, the option to use an existing directory is not available because a work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and which is owned by the work or school). To learn more about how to change administrators for an Azure subscription, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
 
 ## Suggestions to manage both a subscription and a directory
 The administrative roles for an Azure subscription manage resources tied to the Azure subscription. This section explains the differences between Azure subscription admins and Azure AD directory admins. Administrative roles and other suggestions for using them to manage your subscription are covered at [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
