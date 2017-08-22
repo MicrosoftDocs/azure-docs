@@ -18,7 +18,7 @@ File storage contains the following components:
 ![files-concepts](./media/storage-file-concepts-include/files-concepts.png)
 
 * **Storage Account:** All access to Azure Storage is done
-  through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account capacity.
+  through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) for details about storage account capacity.
 * **Share:** A File storage share is an SMB file share in Azure. 
   All directories and files must be created in a parent share. An account can contain an
   unlimited number of shares, and a share can store an unlimited
