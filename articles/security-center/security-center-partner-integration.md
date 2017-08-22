@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 08/18/2017
 ms.author: yurid
 
 ---
@@ -57,9 +57,9 @@ Based on the setup of your Azure environment and the security policy you defined
 
 ## Manage partner solutions
 
-After deployment, to view information about the health of the solution and perform basic management tasks, on the **Security Center** blade, select the **Partner solutions** tile. For more information about managing partner solutions in Security Center, see [Monitor partner solutions with Azure Security Center](security-center-partner-solutions.md).
+After deployment, to view information about the health of the solution and perform basic management tasks, on the **Security Center** blade, select the **Partner solutions** option. For more information about managing partner solutions in Security Center, see [Monitor partner solutions with Azure Security Center](security-center-partner-solutions.md).
 
-![Partner integration](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
+![Partner integration](./media/security-center-partner-integration/security-center-partner-integration-fig1-new2.png)
 
 > [!NOTE]
 > Symantec endpoint protection support is limited to discovery. No health alerts are available.

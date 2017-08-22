@@ -56,7 +56,7 @@ A [CentOS](machine-learning-data-science-linux-dsvm-intro.md) image is also avai
 Before you can create a Microsoft Data Science Virtual Machine, you must have the following:
 
 * **An Azure subscription**: To obtain one, see [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **An Azure storage account**: To create one, see [Create an Azure storage account](../storage/storage-create-storage-account.md#create-a-storage-account). Alternatively, the storage account can be created as part of the process of creating the VM if you do not want to use an existing account.
+* **An Azure storage account**: To create one, see [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). Alternatively, the storage account can be created as part of the process of creating the VM if you do not want to use an existing account.
 
 ## Create your Microsoft Data Science Virtual Machine
 Here are the steps to create an instance of the Microsoft Data Science Virtual Machine:

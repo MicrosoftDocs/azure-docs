@@ -17,7 +17,8 @@ ms.date: 08/10/2017
 ms.author: sethm;lmazuel
 
 ---
-# How to use Service Bus queues
+# How to use Service Bus queues with Python
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 This article describes how to use Service Bus queues. The samples are written in Python and use the [Python Azure Service Bus package][Python Azure Service Bus package]. The scenarios covered include **creating queues, sending and receiving messages**, and **deleting queues**.

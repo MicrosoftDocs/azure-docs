@@ -197,7 +197,7 @@ This rule works by returning an HTTP status code of 301 (permanent redirect) whe
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | StorageType - File |
-| References              | [Azure File storage](../storage/storage-files-introduction.md), [How to mount an Azure File share on Windows](../storage/storage-file-how-to-use-files-windows.md) |
+| References              | [Azure File storage](../storage/files/storage-files-introduction.md), [How to mount an Azure File share on Windows](../storage/files/storage-how-to-use-files-windows.md) |
 | Steps | Azure File storage supports HTTPS when using the REST API, but is more commonly used as an SMB file share attached to a VM. SMB 2.1 does not support encryption, so connections are only allowed within the same region in Azure. However, SMB 3.0 supports encryption, and can be used with Windows Server 2016, Windows Server 2012 R2, Windows 8.1, and Windows 10, allowing cross-region access and even access on the desktop. |
 
 ## <a id="cert-pinning"></a>Implement Certificate Pinning
