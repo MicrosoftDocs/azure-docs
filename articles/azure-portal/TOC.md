@@ -5,7 +5,7 @@
 # Concepts
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Keyboard shortcuts](azure-portal-keyboard-shortcuts.md)
-## [Supported browsers and devices](azure-preview-portal-supported-browsers-devices.md)
+## [Supported browsers and devices](../azure-preview-portal-supported-browsers-devices.md)
 # How-to guides
 ## Deploy
 ### [Create Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
