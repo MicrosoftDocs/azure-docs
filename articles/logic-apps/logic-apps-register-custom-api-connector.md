@@ -50,7 +50,7 @@ Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.co
   * An [OpenAPI 2.0 file in JSON format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md), 
   previously known as the Swagger Specification
   * A URL to an OpenAPI definition
-  * A [Postman Collection](https://www.getpostman.com/docs/postman/collections/creating_collections) 
+  * A [Postman collection](https://www.getpostman.com/docs/postman/collections/creating_collections) 
   for your API 
 
   If you don't have any of these, we'll provide guidance for you.
@@ -88,7 +88,7 @@ For Microsoft technologies, we recommend one of these platforms:
 so that Logic Apps can connect to your API:
 
    * An OpenAPI file, also known as a Swagger file
-   * A Postman Collection
+   * A Postman collection
 
    You can also build an OpenAPI file in Step 4 
    as part of the registration process.
@@ -111,7 +111,7 @@ multiple logic app creators.
 
 Assuming that you have an API with some type of authenticated access, 
 you need a way to describe the API so that Logic Apps can connect to your API. 
-For this, you create an OpenAPI file or a Postman Collection, 
+For this, you create an OpenAPI file or a Postman collection, 
 which you can do from any REST API endpoint, including:
 
 * Publicly available connectors, for example, [Spotify](https://developer.spotify.com/), 
@@ -127,7 +127,7 @@ as long as that API is exposed on the public internet
 > Your file size must be less than 1MB.
 
 OpenAPI 2.0, previously known as Swagger, 
-and Postman Collections use different formats, 
+and Postman collections use different formats, 
 but both are language-agnostic machine-readable documents 
 that describe your API's operations and parameters.
 You can generate these documents by using various tools, 
@@ -137,9 +137,9 @@ For an example OpenAPI file, see the
 [Text Analytics API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/export?DocumentFormat=Swagger&ApiName=Azure). 
 
 If you don't already have an OpenAPI file for your API and don't want to create one, 
-you can still easily create a custom connector by using a Postman Collection. 
+you can still easily create a custom connector by using a Postman collection. 
 Logic Apps ultimately uses OpenAPI behind the scenes, 
-parses a Postman Collection, and translates the Collection to an OpenAPI definition file. 
+parses a Postman collection, and translates the Collection to an OpenAPI definition file. 
 For more information, see [Describe custom connectors with Postman](../logic-apps/logic-apps-postman-collection.md).
 
 ### Get started with OpenAPI and Postman
@@ -159,7 +159,7 @@ If you built your API with Azure API Apps or Azure Functions, see
 ## Register your custom connector
 
 Now register your custom connector in Logic Apps by 
-using your OpenAPI file or Postman Collection.
+using your OpenAPI file or Postman collection.
 
 **NEED LOGIC APPS STEPS IN AZURE PORTAL STEPS**
 
