@@ -15,6 +15,11 @@
 ### [4 - Provision devices to multiple hubs](tutorial-provision-multiple-hubs.md)
 
 # How To
+## Concepts
+### [Device concepts](concepts-device.md)
+### [Service concepts](concepts-service.md)
+### [Security concepts](concepts-security.md)
+
 ## How-to guides
 
 # Reference
