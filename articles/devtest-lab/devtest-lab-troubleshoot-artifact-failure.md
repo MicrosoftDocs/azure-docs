@@ -21,7 +21,7 @@ ms.author: tarcher
 After you have created an artifact, you can check to see if it succeeded or failed. Artifact logs in DevTest Labs provide information you can use to diagnose an artifact failure. There are a couple different ways you can view the artifact log information for a Windows VM.
 
 > [!NOTE]
-> To ensure that failures are correctly identified and explained, it is important that the artifact definition file is properly structured. For information about how to correctly construct an artifact definition file, see [Create custom artifacts](devtest-lab-artifact-author.md). And to see an example of a properly structured file, checkout this [artifact JSON file](https://github.com/Azure/azure-devtestlab/blob/master/Artifacts/windows-test-paramtypes/artifactfile.json).
+> To ensure that failures are correctly identified and explained, it is important that the artifact is properly structured. For information about how to correctly construct an artifact, see [Create custom artifacts](devtest-lab-artifact-author.md). And to see an example of a properly structured artifact, checkout this [test parameter types](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes) artifact.
 
 ## Troubleshoot artifact failures using the Azure portal
 To use the Azure portal to diagnose failures during artifact creation, follow these steps:
