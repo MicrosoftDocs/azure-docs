@@ -79,8 +79,6 @@
         href: import-data-from-an-experiment.md
       - name: Use on-prem SQL
         href: use-data-from-an-on-premises-sql-server.md
-      - name: Prepare data
-        href: data-science-prepare-data.md
   - name: Develop models
     items:
     - name: Create and train models
