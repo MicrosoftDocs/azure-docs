@@ -24,49 +24,49 @@ Device provisioning  is a two part process. The first part is establishing the i
 
 This article gives an overview of the provisioning concepts most applicable to managing the *service*. This article is most relevant to personas involved in the [cloud setup step](about-iot-dps.md#cloud-setup-step) of getting a device ready for deployment.
 
-### Service operations endpoint
+## Service operations endpoint
 
 This is the endpoint for managing the DPS service settings and maintaining the enrollment list. This endpoint is only used by the service administrator; it is not used by devices.
 
-### Device provisioning endpoint
+## Device provisioning endpoint
 
 This is the central endpoint all devices talk to for provisioning. The URL is the same for all DPSes to eliminate the need to reflash devices with new connection information in supply chain scenarios. The [ID scope](#id-scope) ensures tenant isolation.
 
-### Linked IoT hubs
+## Linked IoT hubs
 
 DPS can only provision devices to IoT hubs which have been linked to it. Linking an IoT hub to DPS gives DPS read/write permissions to the IoT hub's device registry in order to create a device ID and set the initial configuration in the device twin.
 
 [TODO: picture of how to link a hub]
 
-### Allocation policy
+## Allocation policy
 
 The service-level setting that determines how DPS assigns devices to an IoT hub. There are three supported allocation policies:
 * **Evenly weighted distribution**: linked IoT hubs are equally likely to have devices provisioned to them. The default setting. If you are provisioning devices to only one IoT hub, you can keep this setting.
 * **Lowest latency**: devices are provisioned to an IoT hub based on the hub with the lowest latency to the device. If multiple linked IoT hubs would provide the same lowest latency, DPS hashes devices across those hubs
 * **Static configuration via the enrollment list**: specification of the desired IoT hub in the enrollment list takes priority over the DPS-level allocation policy.
 
-### Enrollment
+## Enrollment
 
 An enrollment is the record of devices or groups of devices that may at some point register. The enrollment record contains the information about the device(s) as part of that enrollment including the attestation method for the device(s), and optionally initial desired configuration, desired IoT hub, and desired device ID. There are two types of enrollments supported by DPS.
 
-#### Enrollment group
+### Enrollment group
 
 An enrollment group is a group of devices that share a specific attestation mechanism, such as all presenting x509 certificates which have been signed by the same root CA. Enrollment groups can only use the x509 attestation mechanism.
 
 > [!TIP]
 > We recommend using an enrollment group for a large number of devices which share a desired initial configuration, or for devices all going to the same tenant.
 
-#### Individual enrollment
+### Individual enrollment
 
 An individual enrollment is an entry for a single device that may register. Individual enrollments may use either x509 certificates or SAS tokens (in a real or virtual TPM) as attestation mechanisms. Individual enrollments may have the desired IoT hub device ID specified.
 
 > [!TIP]
 > We recommend using individual enrollments for devices which require unique initial configurations, or for devices which can only use SAS tokens via TPM or virtual TPM as the attestation mechanism.
 
-### Registration
+## Registration
 
 A registration is the record of a device successfully registering/provisioning to an IoT Hub via DPS and are created automatically. Registration records can be deleted, but they cannot be updated.
 
-### Operations
+## Operations
 
 Operations are the billing unit of DPS. One operation is the successful completion of one instruction to the service. Operations include device registrations and re-registrations; operations also include service-side changes such as adding enrollment list entries, and updating enrollment list entries.
