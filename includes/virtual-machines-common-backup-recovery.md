@@ -5,7 +5,7 @@ For backing up Azure VMs running production workloads, use Azure Backup. Azure B
 
 For a simple, hands-on introduction to Azure Backup for Azure VMs, see the **Back up Windows virtual machines tutorial** for [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) or [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)
 
-For more information on how Azure Backup works, see [Plan your VM backup infrastructure in Azure](../../backup/backup-azure-vms-introduction.md)
+For more information on how Azure Backup works, see [Plan your VM backup infrastructure in Azure](../articles/backup/backup-azure-vms-introduction.md)
 
 
 ## Azure Site Recovery
@@ -22,8 +22,8 @@ In development and test environments, snapshots provide a quick and simple optio
 
 For more information on creating snapshots, see:
 
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 
