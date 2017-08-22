@@ -24,7 +24,7 @@ Updates to **Azure Data Catalog** are released regularly. Not every release incl
 ## What's new for August 2017 
 As of August 2017, the following capabilities have been added to Azure Data Catalog:
 
-*	A new developer sample is available for creating and managing relationship metadata by using the Data Catalog REST API. The Glossary Bulk Import sample is available on the [Data Catalog developer samples page](https://docs.microsoft.com/azure/data-catalog/data-catalog-samples). 
+*	A new developer sample is available for creating and managing relationship metadata by using the Data Catalog REST API. The *Import relationship information into Data Catalog* sample is available on the [Data Catalog code samples page](https://azure.microsoft.com/resources/samples/?service=data-catalog&sort=0). 
 * Support for extracting join relationship metadata from Teradata data sources when registering related tables using the data source registration tool.
 * Support for SQL Server table valued function (TVF) objects when registering SQL Server data sources using the data source registration tool.
 * Multiple updates and refinements to increase the performance and usability of the Data Catalog portal.
