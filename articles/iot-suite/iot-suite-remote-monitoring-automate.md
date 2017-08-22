@@ -13,7 +13,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-# Create and configure operational rules
+# Detect issues using threshold based rules
 
 <!-- See Run Phase scenario 2 in https://microsoft.sharepoint.com/teams/Azure_IoT/_layouts/15/WopiFrame.aspx?sourcedoc=%7B1C5712E7-0B96-4274-BFF0-89E43CC58C17%7D&file=PCS%20Scenarios%20v05.docx&action=default -->
 

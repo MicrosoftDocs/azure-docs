@@ -13,7 +13,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-# Monitor your devices using the remote monitoring solution
+# Perform advanced device monitoring using the remote monitoring solution
 
 This tutorial shows you how to monitor your devices using the the remote monitoring preconfigured solution dashboard.
 
