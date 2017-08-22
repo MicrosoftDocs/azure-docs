@@ -1,6 +1,6 @@
 ---
-title: Create a plan in Azure Stack | Microsoft Docs
-description: As a cloud administrator, create a plan that lets subscribers provision virtual machines.
+title: Plan, offer, quota, and subscription overview | Microsoft Docs
+description: As a cloud operator, I want to understand Azure Stack plans, offers, quotas, and subscriptions.
 services: azure-stack
 documentationcenter: ''
 author: ErikjeMS
