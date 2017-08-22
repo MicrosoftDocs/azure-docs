@@ -278,7 +278,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-Once deployment has completed, switch back to the browser window that opened in the [Browse to the app](#Browse-to-the-app) step, then select refresh.
+Once deployment has completed, switch back to the browser window that opened in the [Browse to the app](#browse-to-the-app) step, then select refresh.
 
 ![hello-world-in-browser](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
