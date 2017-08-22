@@ -383,7 +383,7 @@ You'll get charts of response times, plus email notifications if your site goes 
 * Write [custom telemetry](app-insights-api-custom-events-metrics.md) to track usage in the browser or at the server.
 * Create [dashboards](app-insights-dashboards.md) to bring together the key charts for monitoring your system.
 * Use  [Analytics](app-insights-analytics.md) for powerful queries over telemetry from your app
-* For more information, see the [Java Developer Center](/develop/java/).
+* For more information, visit [Azure for Java developers](/java/azure).
 
 <!--Link references-->
 

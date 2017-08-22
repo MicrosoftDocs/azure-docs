@@ -273,7 +273,7 @@ To build on this sample, you can learn more about the [Storage SDK for Java] to 
 <a name="see-also"></a>
 
 ## See Also
-For more information about using Azure with Java, see the [Azure Java Developer Center].
+For more information about using Azure with Java, visit [Azure for Java developers](/java/azure).
 
 <!-- URL List -->
 
@@ -289,7 +289,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Microsoft Azure]: https://azure.microsoft.com/
 [Online Swagger Editor]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
-[Storage SDK for Java]: ../storage/storage-java-how-to-use-blob-storage.md
+[Storage SDK for Java]:../storage/blobs/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
 [Swagger Editor]: http://editor.swagger.io/
 [Visual Studio Code]: https://code.visualstudio.com
