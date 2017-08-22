@@ -59,11 +59,10 @@ Throughout the rest of this tutorial, we use "acrname" as a placeholder for the 
 
 ## Container registry login
 
-You must log in to your ACR instance before pushing images to it. Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) command to complete the operation. You need to provide the unique name given to the container registry when it was created. In the following example, we use the name myContainerRegistry007.
-
+You must log in to your ACR instance before pushing images to it. Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) command to complete the operation. You need to provide the unique name given to the container registry when it was created.
 
 ```bash
-az acr login --name myContainerRegistry007
+az acr login --name <acrName>
 ```
 
 The command returns a 'Login Succeeded’ message once completed.
@@ -75,10 +74,12 @@ Each container image needs to be tagged with the loginServer name of the registr
 To get the loginServer name, run the following command.
 
 ```azurecli-interactive
-az acr show --name <acrName> --query loginServer
+az acr show --name <acrName> --query loginServer --output table
 ```
 
-Now, tag a container image to be uploaded to the container registry. To see a list of current images, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
+Now, tag a container image to be uploaded to the container registry. 
+
+To see a list of current images, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
 
 ```bash
 docker images
@@ -132,7 +133,7 @@ This takes a couple of minutes to complete.
 To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the ACR instance name.
 
 ```azurecli-interactive
-az acr repository list --name <acrName> --username <acrName> --password <acrPassword> --output table
+az acr repository list --name <acrName> --output table
 ```
 
 Output:
@@ -146,7 +147,7 @@ azure-vote-front
 And then to see the tags for a specific image, use the [az acr repository show-tags](/cli/azure/acr/repository#show-tags) command.
 
 ```azurecli-interactive
-az acr repository show-tags --name <acrName> --username <acrName> --password <acrPassword> --repository azure-vote-front --output table
+az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
 Output:
