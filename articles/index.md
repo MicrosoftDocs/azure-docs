@@ -1501,7 +1501,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>File Storage</h3>
-                                                    <p>Simple, distributed, cross platform file syste</p>
+                                                    <p>Simple, distributed, cross platform file system</p>
                                                 </div>
                                             </div>
                                         </div>
