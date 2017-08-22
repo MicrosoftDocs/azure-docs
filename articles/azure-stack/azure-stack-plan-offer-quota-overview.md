@@ -33,13 +33,9 @@ The diagram below shows a simple example of a user who has subscribed to two off
 
 Plans are groupings of one or more services. As a cloud operator, you [create plans](azure-stack-create-plan.md) to offer to your tenants. In turn, your tenants subscribe to your offers to use the plans and services they include.
 
-![](media/azure-stack-plan-offer-quota-overview/image2.png)
-
 ### Quotas
 
 Each plan can be [set with quotas](azure-stack-setting-quotas.md) to help you manage your cloud capacity. Quotas can include restrictions such as VM, RAM, and CPU limits and are applied per user subscription. Quotas can be differentiated by region. For example, a plan containing compute services from Region A could have a quota of two virtual machines, 4 GB RAM, and 10 CPU cores.
-
-![](media/azure-stack-plan-offer-quota-overview/image3.png)
 
 ### Base plan
 
@@ -55,7 +51,6 @@ Offers are groups of one or more plans that you create so that users can subscri
 
 When you [create an offer](azure-stack-create-offer.md), you’ll include a set of base plans, but you can also create add-on plans that tenants can add to their subscription.
 
-![](media/azure-stack-plan-offer-quota-overview/image4.png)
 
 ## Subscriptions
 
