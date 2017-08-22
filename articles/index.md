@@ -747,7 +747,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/virtual-machines/disks/">
-                                                <img src="media/placeholder.svg" alt="" />
+                                                <img src="media/index/placeholder.svg" alt="" />
                                                 <p>Disks</p>
                                             </a>
                                         </li>
@@ -1616,7 +1616,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/placeholder.svg" alt="" />
+                                                        <img src="media/index/placeholder.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
