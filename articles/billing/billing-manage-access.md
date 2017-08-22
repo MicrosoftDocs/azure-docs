@@ -36,7 +36,7 @@ The Account Administrator must opt in using the [Azure portal](https://portal.az
 
     ![Screenshot shows on-off to delegate access to invoice](./media/billing-manage-access/AA-optinAllow.png)
 
-Opting in allows Service Administrator, Co-administrator, Owner, Contributor, Reader, and Billing Reader on the subscription to download PDF invoices in the Azure portal. However, invoices older than December 2016 are available only to the Account Administrtor for now.
+Opting in allows Service Administrator, Co-administrator, Owner, Contributor, Reader, and Billing Reader on the subscription to download PDF invoices in the Azure portal. However, invoices older than December 2016 are available only to the Account Administrator for now.
 
 The Account Administrator can also configure to have invoices sent via email. To learn more, see [Get your invoice in email](billing-download-azure-invoice-daily-usage-date.md).
 
