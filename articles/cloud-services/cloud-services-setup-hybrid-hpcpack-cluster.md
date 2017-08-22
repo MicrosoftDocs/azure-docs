@@ -46,17 +46,26 @@ This tutorial assumes no prior experience with compute clusters or HPC Pack. It 
 You first install Microsoft HPC Pack on your on-premises computer running Windows Server. This computer becomes the head node of the cluster.
 
 1. Log on to the head node by using a domain account that has local Administrator permissions.
+
 2. Start the HPC Pack Installation Wizard by running Setup.exe from the HPC Pack installation files.
+
 3. On the **HPC Pack 2012 R2 Setup** screen, click **New installation or add new features to an existing installation**.
+
     ![HPC Pack 2012 Setup][install_hpc1]
+
 4. On the **Microsoft Software User Agreement page**, click **Next**.
+
 5. On the **Select Installation Type** page, click **Create a new HPC cluster by creating a head node**, and then click **Next**.
+
 6. The wizard runs several pre-installation tests. Click **Next** on the **Installation Rules** page if all tests pass. Otherwise, review the information provided and make any necessary changes in your environment. Then run the tests again or if necessary start the Installation Wizard again.
-7. On the **HPC DB Configuration** page, make sure **Head Node** is selected for all HPC databases, and then click **Next**.  
+7. On the **HPC DB Configuration** page, make sure **Head Node** is selected for all HPC databases, and then click **Next**. 
+
     ![DB Configuration][install_hpc4]
+
 8. Accept default selections on the remaining pages of the wizard. On the **Install Required Components** page, click **Install**.
    
     ![Install][install_hpc6]
+
 9. After the installation completes, uncheck **Start HPC Cluster Manager** and then click **Finish**. (You start HPC Cluster Manager in a later step.)
    
     ![Finish][install_hpc7]
@@ -72,9 +81,11 @@ Perform the following steps in the [Azure portal](https://portal.azure.com) with
 HPC Pack installs a self-signed certificate on the head node, called the Default Microsoft HPC Azure Management certificate, that you can upload as an Azure management certificate. This certificate is provided for testing and proof-of-concept deployments to secure the connection between the head node and Azure.
 
 1. From the head node computer, sign in to the [Azure portal](https://portal.azure.com).
-2. Click **Subscriptions** > *your_sucscription_name*.
-3. Click **Management certificates** > **Upload**.
-4. Browse on the head node for the file C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer. Then, click **Upload**.
+
+2. Click **Subscriptions** > *your_subscription_name*.
+
+3. Click **Management certificates** > **Upload**.4. Browse on the head node for the file C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer. Then, click **Upload**.
+
    
 The **Default HPC Azure Management** certificate appears in the list of management certificates.
 
@@ -85,37 +96,46 @@ The **Default HPC Azure Management** certificate appears in the list of manageme
 > 
 
 1. In the portal, click **Cloud services (classic)** > **+Add**.
-2. Type a DNS name for the service, choose a resource group and a location, and then click **Create**.
+
+2.  Type a DNS name for the service, choose a resource group and a location, and then click **Create**.
 
 
 ### Create an Azure storage account
 1. In the portal, click **Storage accounts (classic)** > **+Add**.
+
 2. Type a name for the account, and select the **Classic** deployment model.
+
 3. Choose a resource group and a location, and leave other settings at default values. Then click **Create**.
 
 ## Configure the head node
 To use HPC Cluster Manager to deploy Azure nodes and to submit jobs, first perform some required cluster configuration steps.
 
 1. On the head node, start HPC Cluster Manager. If the **Select Head Node** dialog box appears, click **Local Computer**. The **Deployment To-do List** appears.
+
 2. Under **Required deployment tasks**, click **Configure your network**.
    
     ![Configure Network][config_hpc2]
+
 3. In the Network Configuration Wizard, select **All nodes only on an enterprise network** (Topology 5). This network configuration is the simplest for demonstration purposes.
    
     ![Topology 5][config_hpc3]
    
 4. Click **Next** to accept default values on the remaining pages of the wizard. Then, on the **Review** tab, click **Configure** to complete the network configuration.
+
 5. In the **Deployment To-do List**, click **Provide installation credentials**.
+
 6. In the **Installation Credentials** dialog box, type the credentials of the domain account that you used to install HPC Pack. Then click **OK**. 
    
     ![Installation Credentials][config_hpc6]
    
 7. In the **Deployment To-do List**, click **Configure the naming of new nodes**.
+
 8. In the **Specify Node Naming Series** dialog box, accept the default naming series and click **OK**. Complete this step even though the Azure nodes you add in this tutorial are named automatically.
    
     ![Node Naming][config_hpc8]
    
 9. In the **Deployment To-do List**, click **Create a node template**. Later in the tutorial, you use the node template to add Azure nodes to the cluster.
+
 10. In the Create Node Template Wizard, do the following:
     
     a. On the **Choose Node Template Type** page, click **Windows Azure node template**, and then click **Next**.
@@ -147,9 +167,11 @@ Follow these steps to add two Small nodes.
 1. In HPC Cluster Manager, click **Node Management** (called **Resource Management** in current versions of HPC Pack) > **Add Node**.
    
     ![Add Node][add_node1]
+
 2. In the Add Node Wizard, on the **Select Deployment Method** page, click **Add Windows Azure nodes**, and then click **Next**.
    
     ![Add Azure Node][add_node1_1]
+
 3. On the **Specify New Nodes** page, select the Azure node template you created previously (called by default **Default AzureNode Template**). Then specify **2** nodes of size **Small**, and then click **Next**.
    
     ![Specify Nodes][add_node2]
@@ -164,6 +186,7 @@ Follow these steps to add two Small nodes.
 When you want to use the cluster resources in Azure, use HPC Cluster Manager to start (provision) the Azure nodes and bring them online.
 
 1. In HPC Cluster Manager, click **Node Management** (called **Resource Management** in current versions of HPC Pack), and select the Azure nodes.
+
 2. Click **Start**, and then click **OK**.
    
    ![Start Nodes][add_node4]
@@ -171,7 +194,9 @@ When you want to use the cluster resources in Azure, use HPC Cluster Manager to 
     The nodes transition to the **Provisioning** state. View the provisioning log to track the provisioning progress.
    
     ![Provision Nodes][add_node6]
+
 3. After a few minutes, the Azure nodes finish provisioning and are in the **Offline** state. In this state, the role instances are running but cannot yet accept cluster jobs.
+
 4. To confirm that the role instances are running, in the Azure portal, click **Cloud Services (classic)** > *your_cloud_service_name*.
    
    You should see two **HpcWorkerRole** instances (nodes) running in the service. HPC Pack also automatically deploys two **HpcProxy** instances (size Medium) to handle communication between the head node and Azure.
@@ -188,9 +213,11 @@ When you want to use the cluster resources in Azure, use HPC Cluster Manager to 
 To check the installation, use the HPC Pack **clusrun** command to run a command or application on one or more cluster nodes. As a simple example, use **clusrun** to get the IP configuration of the Azure nodes.
 
 1. On the head node, open a command prompt as an administrator.
+
 2. Type the following command:
    
     `clusrun /nodes:azurecn* ipconfig`
+
 3. If prompted, enter your cluster administrator password. You should see command output similar to the following.
    
     ![Clusrun][clusrun1]
@@ -201,13 +228,17 @@ Now submit a test job that runs on the hybrid cluster. This example is a simple 
 1. In HPC Cluster Manager, click **Job Management** > **New Parametric Sweep Job**.
    
     ![New Job][test_job1]
+
 2. In the **New Parametric Sweep Job** dialog box, in **Command line**, type `set /a *+*` (overwriting the default command line that appears). Leave default values for the remaining settings, and then click **Submit** to submit the job.
    
     ![Parametric Sweep][param_sweep1]
+
 3. When the job is finished, double-click the **My Sweep Task** job.
+
 4. Click **View Tasks**, and then click a subtask to view the calculated output of that subtask.
    
     ![Task Results][view_job361]
+
 5. To see which node performed the calculation for that subtask, click **Allocated Nodes**. (Your cluster might show a different node name.)
    
     ![Task Results][view_job362]
@@ -218,6 +249,7 @@ After you try out the cluster, stop the Azure nodes to avoid unnecessary charges
 1. In HPC Cluster Manager, in **Node Management** (called **Resource Management** in previous versions of HPC Pack), select both Azure nodes. Then, click **Stop**.
    
     ![Stop Nodes][stop_node1]
+
 2. In the **Stop Windows Azure nodes** dialog box, click **Stop**. 
    
 3. The nodes transition to the **Stopping** state. After a few minutes, HPC Cluster Manager shows that the nodes are **Not-Deployed**.
