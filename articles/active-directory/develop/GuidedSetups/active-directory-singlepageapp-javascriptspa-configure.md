@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na       
 ms.workload: identity       
 ms.date: 06/01/2017     
 ms.author: andret       
----
 
+---
 ## Register your application
 
 There are multiple ways to create an application, please select one of them:
