@@ -54,7 +54,7 @@
   - name: Regions and availability
     href: regions-and-availability.md
   - name: VM types and sizes
-    item: sizes.md
+    href: sizes.md
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Storage
