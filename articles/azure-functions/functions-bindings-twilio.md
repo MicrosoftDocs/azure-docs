@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/20/2016
-ms.author: wesmc, glenga
+ms.author: wesmc
 
 ms.custom: H1Hack27Feb2017
 

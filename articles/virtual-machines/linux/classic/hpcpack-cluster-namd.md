@@ -83,7 +83,7 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 > 
 
 ## Set up a file share for Linux nodes
-Now set up an SMB file share, and mount the shared folder on all Linux nodes to allow the Linux nodes to access NAMD files with a common path. Following are steps to mount a shared folder on the head node. A share is recommended for distributions such as CentOS 6.6 that currently don’t support the Azure File service. If your Linux nodes support an Azure File share, see [How to use Azure File storage with Linux](../../../storage/storage-how-to-use-files-linux.md). For additional file sharing options with HPC Pack, see [Get started with Linux compute nodes in an HPC Pack Cluster in Azure](hpcpack-cluster.md).
+Now set up an SMB file share, and mount the shared folder on all Linux nodes to allow the Linux nodes to access NAMD files with a common path. Following are steps to mount a shared folder on the head node. A share is recommended for distributions such as CentOS 6.6 that currently don’t support the Azure File service. If your Linux nodes support an Azure File share, see [How to use Azure File storage with Linux](../../../storage/files/storage-how-to-use-files-linux.md). For additional file sharing options with HPC Pack, see [Get started with Linux compute nodes in an HPC Pack Cluster in Azure](hpcpack-cluster.md).
 
 1. Create a folder on the head node, and share it to Everyone by setting Read/Write privileges. In this example, \\\\CentOS66HN\Namd is the name of the folder, where CentOS66HN is the host name of the head node.
 2. Create a subfolder named namd2 in the shared folder. In namd2, create another subfolder named namdsample.

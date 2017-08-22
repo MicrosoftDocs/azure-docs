@@ -12,10 +12,9 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: quickstart
+ms.topic: article
 ms.date: 02/13/2017
 ms.author: cephalin
-ms.custom: mvc
 
 ---
 # Deploy a WordPress app in the Azure portal in five minutes

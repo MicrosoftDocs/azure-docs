@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
@@ -68,7 +68,7 @@ The following table shows data collection methods for agents, whether Operations
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Yes](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Yes](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![No](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![No](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Yes](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 days |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |7 days |
 
 ## Understanding how recommendations are prioritized
 Every recommendation made is given a weighting value that identifies the relative importance of the recommendation. Only the 10 most important recommendations are shown.
@@ -172,13 +172,6 @@ After the next scheduled assessment runs, by default every 7 days, the specified
 *How long does it take for data to be collected?*
 
 * The actual data collection on the server takes about 1 hour. It may take longer on servers that have a large number of Active Directory servers.
-
-*What type of data is collected?*
-
-* The following types of data are collected:
-  * WMI
-  * Registry
-  * Performance counters
 
 *Is there a way to configure when data is collected?*
 
