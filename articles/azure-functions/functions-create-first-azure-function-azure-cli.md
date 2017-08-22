@@ -78,7 +78,7 @@ After the storage account has been created, the Azure CLI shows information simi
 
 ## Create a function app
 
-You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as a logic unit for easier management, deployment and sharing of resources. Create a function app by using the [az functionapp create](/cli/azure/functionapp#create) command. 
+You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](/cli/azure/functionapp#create) command. 
 
 In the following command, substitute your own unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. 
 
@@ -146,7 +146,7 @@ curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
 
 ![Function response shown in a browser.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-curl.png)  
 
-If you don't have cURL available in your command line, simply enter the same URL in the address of your web browser. Again, replace the `<app_name>` placeholder with the name of your function ap, and append the query string `&name=<yourname>` to the URL and execute the request. 
+If you don't have cURL available in your command line, enter the same URL in the address of your web browser. Again, replace the `<app_name>` placeholder with the name of your function app, and append the query string `&name=<yourname>` to the URL and execute the request. 
 
     http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
    
