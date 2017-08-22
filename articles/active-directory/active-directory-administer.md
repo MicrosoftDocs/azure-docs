@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/21/2017
+ms.date: 08/22/2017
 ms.author: curtand
 
 ms.reviewer: jeffsta
@@ -45,7 +45,7 @@ For example, if you sign up for a Microsoft Intune subscription and then further
 For more information about integrating your on-premises directory with Azure AD, see [Directory integration with Azure AD Connect](active-directory-aadconnect.md).
 
 ### Associate an existing Azure AD directory with a new Azure subscription
-You can associate a new Azure subscription with the same directory that authenticates sign-in for an existing Office 365 or Microsoft Intune subscription. For more information on that scenario, see [Manage the directory for your Office 365 subscription in Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
+You can associate a new Azure subscription with the same directory that authenticates sign-in for an existing Office 365 or Microsoft Intune subscription. For more information on that scenario, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
 
 ### Create an Azure AD directory by signing up for a Microsoft cloud service as an organization
 If you don’t yet have a subscription to a Microsoft cloud service, you can use one of the following links to sign up. Signing up for your first service creates an Azure AD directory automatically.
