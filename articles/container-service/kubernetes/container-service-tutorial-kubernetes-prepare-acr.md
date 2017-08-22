@@ -71,13 +71,7 @@ The command returns a 'Login Succeeded’ message once completed.
 
 Each container image needs to be tagged with the loginServer name of the registry. This tag is used for routing when pushing container images to an image registry.
 
-To get the loginServer name, run the following command.
-
-```azurecli-interactive
-az acr show --name <acrName> --query loginServer --output table
-```
-
-Now, tag a container image to be uploaded to the container registry. To see a list of current images, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
+To see a list of current images, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
 
 ```bash
 docker images
@@ -92,7 +86,13 @@ redis                        latest              a1b99da73d05        7 days ago 
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
-Tag the *azure-vote-front* image with the loginServer of the container registry. Also, add `:redis-v1` to the end of the image name. This tag indicates the image version.
+To get the loginServer name, run the following command.
+
+```azurecli-interactive
+az acr show --name <acrName> --query loginServer --output table
+```
+
+Now, tag the *azure-vote-front* image with the loginServer of the container registry. Also, add `:redis-v1` to the end of the image name. This tag indicates the image version.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
