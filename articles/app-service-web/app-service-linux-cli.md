@@ -32,7 +32,7 @@ You can start using the new version of the CLI in two ways:
 
 ## Create a Linux App Service Plan
 
-To create a Linux App Service Plan, you can use the following command.
+To create a Linux App Service Plan, you can use the following command:
 
 ```azurecli-interactive
 az appservice plan create -n appname -g rgname --islinux -l "South Central US" --sku S1 --number-of-workers 1
@@ -40,7 +40,7 @@ az appservice plan create -n appname -g rgname --islinux -l "South Central US" -
 
 ## Create a custom Docker container Web App
 
-To create a web app and configuring it to run a custom Docker container, you can use the following command
+To create a web app and configuring it to run a custom Docker container, you can use the following command:
 
 ```azurecli-interactive
 az webapp create -n sname -g rgname -p pname -i elnably/dockerimagetest
@@ -48,7 +48,7 @@ az webapp create -n sname -g rgname -p pname -i elnably/dockerimagetest
  
 ## Change the custom Docker container for an existing Web App on Linux App
 
-To change a previously created app, from the current Docker image to a new image, you can use the following command
+To change a previously created app, from the current Docker image to a new image, you can use the following command:
 
 ```azurecli-interactive
 az webapp config container set -n sname -g rgname -c apurvajo/mariohtml5
@@ -56,7 +56,7 @@ az webapp config container set -n sname -g rgname -c apurvajo/mariohtml5
 
 ## Using Docker images from a private registry
 
-You can configure your app to use images from a private registry. You need to provide the url for your registry, user name, and password. This can be achieved using the following command.
+You can configure your app to use images from a private registry. You need to provide the url for your registry, user name, and password. This can be achieved using the following command:
 
 ```azurecli-interactive
 az webapp config container set -n sname1 -g rgname -c <container name> -r <server url> -u <username> -p <password>
@@ -80,7 +80,7 @@ az webapp create -n sname -g rgname -p pname -r "php|5.6"
 
 ## Change framework version for an existing Web App on Linux App
 
-To change a previously created app, from the current framework version to Node.js 6.11, you can use the following command.
+To change a previously created app, from the current framework version to Node.js 6.11, you can use the following command:
 
 ```azurecli-interactive
 az webapp config set -n sname -g rgname --linux-fx-version "node|6.11"
@@ -88,7 +88,7 @@ az webapp config set -n sname -g rgname --linux-fx-version "node|6.11"
 
 ## Set up Git deployments for your Web App
 
-To set up Git deployments for your app, you can use the following command.
+To set up Git deployments for your app, you can use the following command:
 
 ```azurecli-interactive
 az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> --branch <branch>
