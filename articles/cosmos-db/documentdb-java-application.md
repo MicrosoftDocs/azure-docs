@@ -27,9 +27,9 @@ ms.author: denlee
 > 
 > 
 
-This Java web application tutorial shows you how to use the [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service to store and access data from a Java application hosted on Azure Web Sites. In this topic, you will learn:
+This Java web application tutorial shows you how to use the [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service to store and access data from a Java application hosted on Azure App Service Web Apps. In this topic, you will learn:
 
-* How to build a basic JSP application in Eclipse.
+* How to build a basic JavaServer Pages (JSP) application in Eclipse.
 * How to work with the Azure Cosmos DB service using the [Azure Cosmos DB Java SDK](https://github.com/Azure/azure-documentdb-java).
 
 This Java application tutorial shows you how to create a web-based task-management application that enables you to create, retrieve, and mark tasks as complete, as shown in the following image. Each of the tasks in the ToDo list are stored as JSON documents in Azure Cosmos DB.
@@ -95,20 +95,20 @@ To do this, you will need to convert your project to a maven project by completi
 4. On the **Dependencies** tab, in the **Dependencies** pane, click **Add**.
 5. In the **Select Dependency** window, do the following:
    
-   * In the **GroupId** box, enter com.microsoft.azure.
-   * In the **Artifact Id** box enter azure-documentdb.
-   * In the **Version** box enter 1.5.1.
+   * In the **Group Id** box, enter com.microsoft.azure.
+   * In the **Artifact Id** box, enter azure-documentdb.
+   * In the **Version** box, enter 1.5.1.
      
-    ![Install DocumentDB Java Application SDK](./media/documentdb-java-application/image13.png)
+   ![Install DocumentDB Java Application SDK](./media/documentdb-java-application/image13.png)
      
-   * Or add the dependency XML for GroupId and ArtifactId directly to the pom.xml via a text editor:
+   * Or add the dependency XML for Group Id and Artifact Id directly to the pom.xml via a text editor:
      
         <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-documentdb</artifactId>
             <version>1.9.1</version>
         </dependency>
-6. Click **Ok** and Maven will install the DocumentDB Java SDK.
+6. Click **OK** and Maven will install the DocumentDB Java SDK.
 7. Save the pom.xml file.
 
 ## <a id="UseService"></a>Step 4: Using the Azure Cosmos DB service in a Java application
@@ -453,7 +453,7 @@ Now that we've finished the fun bits - all that's left is to build a quick user 
                 doGet(request, response);
             }
         }
-3. We'll need a Web User Interface to display to the user. Let's re-write the index.jsp we created earlier:
+3. We'll need a web user interface to display to the user. Let's re-write the index.jsp we created earlier:
     ```html
         <html>
         <head>
@@ -755,6 +755,6 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 19. On the **Add and Remove** window, move **azure-documentdb-java-sample** to the **Configured** box, and then click **Finish**.
 20. In the **Servers** tab, right-click **Tomcat v7.0 Server at localhost**, and then click **Restart**.
 21. In a browser, navigate to http://localhost:8080/azure-documentdb-java-sample/ and start adding to your task list. Note that if you changed your default port values, change 8080 to the value you selected.
-22. To deploy your project to an Azure web site, see [Step 6. Deploy your application to Azure Websites](#Deploy).
+22. To deploy your project to an Azure web site, see [Step 6. Deploy your application to Azure Web Sites](#Deploy).
 
 [1]: media/documentdb-java-application/keys.png
