@@ -1,26 +1,30 @@
 ---
 title: Azure Monitoring REST API Walkthrough | Microsoft Docs
-description: How to authenticate requests to and use the Azure Monitoring REST API.
+description: How to authenticate requests and use the Azure Monitor REST API to retrieve availble metric definitions and metric values.
 author: mcollier
 manager: 
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 
 ms.assetid: 565e6a88-3131-4a48-8b82-3effc9a3d5c6
 ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload:
+ms.tgt_pltfrm: 
+ms.devlang: 
+ms.search.region:
+ms.search.scope:
+ms.search.validFrom:
+ms.dyn365.ops.version:
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 08/18/2017
 ms.author: mcollier
 
 ---
 # Azure Monitoring REST API Walkthrough
 This article shows you how to perform authentication so your code can use the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
 
-The Azure Monitor API makes it possible to programmatically retrieve the available default metric definitions (the type of metric such as CPU Time, Requests, etc.), granularity, and metric values. Once retrieved, the data can be saved in a separate data store such as Azure SQL Database, Azure Cosmos DB, or Azure Data Lake. From there additional analysis can be performed as needed.
+The Azure Monitor API makes it possible to programmatically retrieve the available default metric definitions, granularity, and metric values. The data can be saved in a separate data store such as Azure SQL Database, Azure Cosmos DB, or Azure Data Lake. From there additional analysis can be performed as needed.
 
 Besides working with various metric data points, as this article demonstrates, the Monitor API makes it possible to list alert rules, view activity logs, and much more. For a full list of available operations, see the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -32,7 +36,6 @@ All the tasks executed against the Azure Monitor API use the Azure Resource Mana
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
 $resourceGroupName = "{resource-group-name}"
-$location = "centralus"
 
 # Authenticate to a specific Azure subscription.
 Login-AzureRmAccount -SubscriptionId $subscriptionId
@@ -56,7 +59,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) (ADAL) to help get the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Monitor REST API.
+To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) (ADAL) to obtain the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Monitor REST API.
 
 ```PowerShell
 $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -80,27 +83,35 @@ $authHeader = @{
 }
 ```
 
-Once the authentication setup step is complete, queries can then be executed against the Azure Monitor REST API. There are two helpful queries:
+After authenticating, queries can then be executed against the Azure Monitor REST API. There are two helpful queries:
 
 1. List the metric definitions for a resource
 2. Retrieve the metric values
 
 ## Retrieve Metric Definitions
+Use the [Azure Monitor Metric definitions REST API](https://msdn.microsoft.com/library/mt743621.aspx) to access the list of metrics that are available for a service.
+
+**Method**: GET
+
+**Request URI**: https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/${resourceProviderNamespace}/${resourceType}/${resourceName}/providers/microsoft.insights/metricDefinitions?api-version=${apiVersion}
+
+For example, to retrieve the metric definitions for an Azure Logic App, the request would appear as follows:
+
+```PowerShell
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01"
+
+Invoke-RestMethod -Uri $request `
+                  -Headers $authHeader `
+                  -Method Get `
+                  -OutFile ".\contostweets-metricdef-results.json" `
+                  -Verbose
+```
 > [!NOTE]
 > To retrieve metric definitions using the Azure Monitor REST API, use "2016-03-01" as the API version.
 >
 >
 
-```PowerShell
-$apiVersion = "2016-03-01"
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/${resourceProviderNamespace}/${resourceType}/${resourceName}/providers/microsoft.insights/metricDefinitions?api-version=${apiVersion}"
-
-Invoke-RestMethod -Uri $request `
-                  -Headers $authHeader `
-                  -Method Get `
-                  -Verbose
-```
-For an Azure Logic App, the metric definitions would appear similar to the following screenshot:
+The resulting JSON response body would be similar to the following screenshot:
 
 ![Alt "JSON view of metric definition response."](./media/monitoring-rest-api-walkthrough/available_metric_definitions_logic_app_json_response_clean.png)
 
@@ -110,7 +121,7 @@ For more information, see the [List the metric definitions for a resource in Azu
 Once the available metric definitions are known, it is then possible to retrieve the related metric values. Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filtering requests (for example, retrieve the ‘CpuTime’ and ‘Requests’ metric data points). If no filters are specified, the default metric is returned.
 
 > [!NOTE]
-> To retrieve metric values using the Azure Monitor REST API, use "2016-06-01" as the API version.
+> To retrieve metric values using the Azure Monitor REST API, use "2016-09-01" as the API version.
 >
 >
 
@@ -121,38 +132,41 @@ Once the available metric definitions are known, it is then possible to retrieve
 For example, to retrieve the RunsSucceeded metric data points for the given time range and for a time grain of 1 hour, the request would be as follows:
 
 ```PowerShell
-$apiVersion = "2016-06-01"
-$filter = "(name.value eq 'RunsSucceeded') and aggregationType eq 'Total' and startTime eq 2016-09-23 and endTime eq 2016-09-24 and timeGrain eq duration'PT1H'"
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/${resourceProviderNamespace}/${resourceType}/${resourceName}/providers/microsoft.insights/metrics?`$filter=${filter}&api-version=${apiVersion}"
-(Invoke-RestMethod -Uri $request `
-                   -Headers $authHeader `
-                   -Method Get `
-                   -Verbose).Value | ConvertTo-Json
+$filter = "(name.value eq 'RunsSucceeded') and aggregationType eq 'Total' and startTime eq 2017-08-18T19:00:00 and endTime eq 2017-08-18T23:00:00 and timeGrain eq duration'PT1H'"
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metrics?$filter=${filter}&api-version=2016-09-01"
+Invoke-RestMethod -Uri $request `
+    -Headers $authHeader `
+    -Method Get `
+    -OutFile ".\contostweets-metrics-results.json" `
+    -Verbose
 ```
 
-The result would appear similar to the example following screenshot:
+The resulting JSON response body would be similar to the following screenshot:
 
-![Alt "JSON response showing Average Response Time metric value"](./media/monitoring-rest-api-walkthrough/available_metrics_logic_app_json_response.png)
+![Alt "JSON response showing Average Response Time metric value"](./media/monitoring-rest-api-walkthrough/available_metrics_logic_app_json_response_clean.png)
 
 To retrieve multiple data or aggregation points, add the metric definition names and aggregation types to the filter, as seen in the following example:
 
 ```PowerShell
-$apiVersion = "2016-06-01"
-$filter = "(name.value eq 'ActionsCompleted' or name.value eq 'RunsSucceeded') and (aggregationType eq 'Total' or aggregationType eq 'Average') and startTime eq 2016-09-23T13:30:00Z and endTime eq 2016-09-23T14:30:00Z and timeGrain eq duration'PT1M'"
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/${resourceProviderNamespace}/${resourceType}/${resourceName}/providers/microsoft.insights/metrics?`$filter=${filter}&api-version=${apiVersion}"
-(Invoke-RestMethod -Uri $request `
-                   -Headers $authHeader `
-                   -Method Get `
-                   -Verbose).Value | ConvertTo-Json
+$filter = "(name.value eq 'ActionsCompleted' or name.value eq 'RunsSucceeded') and (aggregationType eq 'Total' or aggregationType eq 'Average') and startTime eq 2017-08-18T21:00:00 and endTime eq 2017-08-18T21:30:00 and timeGrain eq duration'PT1M'"
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metrics?$filter=${filter}&api-version=2016-09-01"
+Invoke-RestMethod -Uri $request `
+    -Headers $authHeader `
+    -Method Get `
+    -OutFile ".\contostweets-metrics-multiple-results.json" `
+    -Verbose
 ```
+The resulting JSON response body would be similar to the following screenshot:
+![Alt "JSON response showing Average Response Time metric value"](./media/monitoring-rest-api-walkthrough/available_metrics_logic_app_multiple_json_response_clean.png)
+
 
 ### Use ARMClient
-An alternative to using PowerShell (as shown above), is to use [ARMClient](https://github.com/projectkudu/ARMClient) on your Windows machine. ARMClient handles the Azure AD authentication (and resulting JWT token) automatically. The following steps outline use of ARMClient for retrieving metric data:
+An additional approach is to use [ARMClient](https://github.com/projectkudu/armclient) on your Windows machine. ARMClient handles the Azure AD authentication (and resulting JWT token) automatically. The following steps outline use of ARMClient for retrieving metric data:
 
-1. Install [Chocolatey](https://chocolatey.org/) and [ARMClient](https://github.com/projectkudu/ARMClient).
-2. In a terminal window, type *armclient.exe login*. This prompts you to log in to Azure.
+1. Install [Chocolatey](https://chocolatey.org/) and [ARMClient](https://github.com/projectkudu/armclient).
+2. In a terminal window, type *armclient.exe login*. Doing so prompts you to log in to Azure.
 3. Type *armclient GET [your_resource_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01*
-4. Type *armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-06-01*
+4. Type *armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-09-01*
 
 ![Alt "Using ARMClient to work with the Azure Monitoring REST API"](./media/monitoring-rest-api-walkthrough/armclient_metricdefinitions.png)
 
@@ -181,31 +195,37 @@ To find the resource ID for a desired resource, one helpful approach is to use t
 ![Alt "Azure Resource Explorer"](./media/monitoring-rest-api-walkthrough/azure_resource_explorer.png)
 
 ### Azure portal
-The resource ID can also be obtained from the Azure portal. To do so, navigate to the desired resource and then select Properties. The Resource ID is displayed in the Properties blade, as seen in the following screenshot:
+The resource ID can also be obtained from the Azure portal. To do so, navigate to the desired resource and then select Properties. The Resource ID is displayed in the Properties section, as seen in the following screenshot:
 
 ![Alt "Resource ID displayed in the Properties blade in the Azure portal"](./media/monitoring-rest-api-walkthrough/resourceid_azure_portal.png)
 
 ### Azure PowerShell
-The resource ID can be retrieved using Azure PowerShell cmdlets as well. For example, to obtain the resource ID for an Azure Web App, execute the Get-AzureRmWebApp cmdlet, as in the following screenshot:
+The resource ID can be retrieved using Azure PowerShell cmdlets as well. For example, to obtain the resource ID for an Azure Logic App, execute the Get-AzureLogicApp cmdlet, as in the following screenshot:
 
 ![Alt "Resource ID obtained via PowerShell"](./media/monitoring-rest-api-walkthrough/resourceid_powershell.png)
 
 ### Azure CLI
-To retrieve the resource ID using the Azure CLI, execute the 'azure webapp show' command, specifying the '--json' option, as shown in the following screenshot:
+To retrieve the resource ID for an Azure Storage account using the Azure CLI, execute the 'az storage account show' command, as shown in the following screenshot:
 
 ![Alt "Resource ID obtained via PowerShell"](./media/monitoring-rest-api-walkthrough/resourceid_azurecli.png)
 
+> [!NOTE]
+> Azure Logic Apps are not yet available via the Azure CLI, thus an Azure Storage account is shown in the preceding example.
+>
+>
+
 ## Retrieve Activity Log Data
-In addition to working with metric definitions and related values, it is also possible to retrieve additional interesting insights related to Azure resources. As an example, it is possible to query [activity log](https://msdn.microsoft.com/library/azure/dn931934.aspx) data. The following sample demonstrates using the Azure Monitor REST API to query activity log data within a specific date range for an Azure subscription:
+In addition to metric definitions and related values, it is also possible to use the Azure Monitor REST API to retrieve additional interesting insights related to Azure resources. As an example, it is possible to query [activity log](https://msdn.microsoft.com/library/azure/dn931934.aspx) data. The following sample demonstrates using the Azure Monitor REST API to query activity log data within a specific date range for an Azure subscription:
 
 ```PowerShell
-$apiVersion = "2014-04-01"
-$filter = "eventTimestamp ge '2016-09-23' and eventTimestamp le '2016-09-24'and eventChannels eq 'Admin, Operation'"
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/providers/microsoft.insights/eventtypes/management/values?api-version=${apiVersion}&`$filter=${filter}"
-(Invoke-RestMethod -Uri $request `
-                   -Headers $authHeader `
-                   -Method Get `
-                   -Verbose).Value | ConvertTo-Json
+$apiVersion = "2015-04-01"
+$filter = "eventTimestamp ge '2017-08-18' and eventTimestamp le '2017-08-19'and eventChannels eq 'Admin, Operation'"
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/microsoft.insights/eventtypes/management/values?api-version=${apiVersion}&$filter=${filter}"
+Invoke-RestMethod -Uri $request `
+    -Headers $authHeader `
+    -Method Get `
+    -OutFile ".\contostweets-eventtypes_results.json" `
+    -Verbose
 ```
 
 ## Next steps
