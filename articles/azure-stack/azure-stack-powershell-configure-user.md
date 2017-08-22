@@ -62,7 +62,7 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
     -TenantId $TenantID 
    ```
 
-### Active Directory Federation Services (AD FS) based deployments
+### Active Directory Federation Services (AD FS) based deployments 
           
   ```powershell
 
