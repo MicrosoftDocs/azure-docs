@@ -1,6 +1,6 @@
 ---
 
-title: Add new users to Azure AD | Microsoft Docs
+title: Add new users to Azure Active Directory | Microsoft Docs
 description: Explains how to add new users in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -22,14 +22,11 @@ ms.custom: it-pro
 This article explains how to add new users in your organization in the Azure Active Directory (Azure AD) one at a time using the Azure portal or by synchronizing your on-premises Windows Server AD user account data. 
 
 ## Add cloud-based users
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
-
-   ![Opening users and groups](./media/add-users-azure-active-directory/create-users-user-management.png)
-3. On the **Users and groups** blade, select **All users**, and then select **Add**.
-
-   ![Selecting the Add command](./media/add-users-azure-active-directory/create-users-add-command.png)
-4. Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must either be the initial default domain name "foo.onmicrosoft.com" domain name, or a verified, non-federated domain name such as "contoso.com."
+1. Sign in to the [Azure Active Directory admin center](aad.portal.azure.com) with an account that's a global admin for the directory.
+2. Select **Users and groups**.
+3. On the **Users and groups** blade, select **All users**, and then select **New user**.
+   ![Selecting the Add command](./media/add-users-azure-active-directory/add-user.png)
+4. Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must either be the initial default domain name "[domain name].onmicrosoft.com" or a verified, non-federated [custom domain name](add-custom-domain.md) such as "contoso.com."
 5. Copy or otherwise note the generated user password so that you can provide it to the user after this process is complete.
 6. Optionally, you can open and fill out the information in the **Profile** blade, the **Groups** blade, or the **Directory role** blade for the user. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md).
 7. On the **User** blade, select **Create**.
