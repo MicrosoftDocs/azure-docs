@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -61,7 +61,7 @@ Throughout the rest of this tutorial, we use "acrname" as a placeholder for the 
 
 You must log in to your ACR instance before pushing images to it. Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) command to complete the operation. You need to provide the unique name given to the container registry when it was created.
 
-```bash
+```azurecli-interactive
 az acr login --name <acrName>
 ```
 
@@ -77,9 +77,7 @@ To get the loginServer name, run the following command.
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Now, tag a container image to be uploaded to the container registry. 
-
-To see a list of current images, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
+Now, tag a container image to be uploaded to the container registry. To see a list of current images, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
 
 ```bash
 docker images
