@@ -25,7 +25,7 @@ Your users consume your services by subscribing to an offer that you create. If 
 
 Users can subscribe to as many offers as they want. Offers contain one or more plans, and each plan can have one or more services. By creating plans and combining them into different offers, you control:
 - which resources users can consume
-- how amount of those resources avialable to the users
+- how amount of those resources available to the users
 - which free trial offers are available
 - and so on
 
