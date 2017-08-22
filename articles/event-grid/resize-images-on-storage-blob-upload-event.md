@@ -56,7 +56,7 @@ If you are not using Cloud Shell, you must first sign in using `az login`.
 At this time, you must request access to the Blob storage events feature. You request access with the `az feature register` command.
 
 > [!IMPORTANT]  
-> You will experience a delay in being granting access to Blob storage events. We are not able to provide estimates on how long you must wait for approval. However, as of `August, 22 2017` there are `XX` accounts waiting for approval. Access was granted to `YY` accounts in the past week.
+> You will experience a delay in being granted access to Blob storage events. We are not able to provide estimates on how long you must wait for approval. However, as of `August, 22 2017` there are `XX` accounts waiting for approval. Access was granted to `YY` accounts in the past week.
 
 ```azurecli-interactive
 az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
