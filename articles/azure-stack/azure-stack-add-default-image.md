@@ -43,27 +43,39 @@ After the download completes, the image is added to the **Marketplace Management
 
 2. Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location, which is used later in these steps. This step requires internet connectivity.
 
-3. Open PowerShell ISE as an administrator.
-
-4. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
-
-5. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md). Make sure that you download and extract the Azure Stack tool repository to a folder that is NOT under the C:\Windows\System32 directory.  
+3. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
    
-6. Import the Azure Stack Connect and ComputeAdmin modules by using the following commands:
+4. Import the Azure Stack Connect and ComputeAdmin modules by using the following commands:
 
    ```powershell
+
+   # Download the required tools required to work with Azure Stack
+   cd \
+
+   invoke-webrequest `
+     https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+     -OutFile master.zip
+
+   expand-archive master.zip `
+     -DestinationPath . `
+     -Force
+
+   cd AzureStack-Tools-master
+
+   Set-ExecutionPolicy RemoteSigned
+
+   # import the Connect and ComputeAdmin modules   
    Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
-   ```
-7. Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
 
-   ```powershell
+   # Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
      -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
+
    ```
 
-8. Get the GUID value of the Active Directory(AD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
+5. Get the GUID value of the Active Directory(AD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
 
     a. **Azure Active Directory**, use the following cmdlet:
     
@@ -80,24 +92,22 @@ After the download completes, the image is added to the **Marketplace Management
       -EnvironmentName AzureStackAdmin 
     ```
    
-9. Sign in to your Azure Stack environment by using the following cmdlet:
+9. Sign in to your Azure Stack environment and add the Windows Server 2016 image to the Azure Stack marketplace (Make sure to replace the *Path_to_ISO* with the path to the WS2016 ISO you downloaded):
 
    ```PowerShell
    Login-AzureRmAccount `
    -EnvironmentName "AzureStackAdmin" `
    -TenantId $TenantID 
-   ```
 
-10. Add the Windows Server 2016 image to the Azure Stack marketplace by running the `New-AzsServer2016VMImage` cmdlet. Replace *Path_to_ISO* with the path to the WS2016 ISO you downloaded. See the [Parameters](#parameters) section for information about the allowed parameters.
-
-   ```powershell
    $ISOPath = "<Fully_Qualified_Path_to_ISO>"
 
    # Add a Windows Server 2016 Evaluation VM Image.
    New-AzsServer2016VMImage `
      -ISOPath $ISOPath
+
    ```
-   To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the `IncludeLatestCU` parameter when running the previous cmdlet. It takes about an hour to publish the image to the Azure Stack marketplace.
+
+To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the `IncludeLatestCU` parameter when running the `New-AzsServer2016VMImage` cmdlet. See the [Parameters](#parameters) section for information about allowed parameters for the `New-AzsServer2016VMImage` cmdlet. It takes about an hour to publish the image to the Azure Stack marketplace. 
 
 ## Parameters
 
