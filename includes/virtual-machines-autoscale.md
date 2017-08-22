@@ -1,4 +1,4 @@
-﻿[Automatic scaling](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) of [virtual machines (VMs)](../articles/virtual-machines/windows/overview.md) is accomplished using a combination of [virtual machine scale sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) and the [autoscaling feature of Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Your VMs need to be members of a scale set to be automatically scaled. This article provides information that enables you to better understand how to configure the automatic scaling of VMs in a scale set.
+﻿You can easily [Automatically scale](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) [virtual machines (VMs)](../articles/virtual-machines/windows/overview.md) using [virtual machine scale sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) and the [autoscaling feature of Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Your VMs need to be members of a scale set to be automatically scaled. This article provides information that enables you to better understand how to configure the automatic scaling of VMs in a scale set.
 
 ## Horizontal or vertical scaling
 
@@ -16,7 +16,7 @@ If your application needs to scale based on more advanced performance counters, 
 
 ## Configure autoscale for a scale set
 
-Automatic scaling provides the right amount of VMs to handle the load on your application. It enables you to add VMs to handle increases in load and save money by removing VMs that are sitting idle. You specify a minimum and maximum number of VMs to run based on a set of rules. Having a minimum makes sure your application is always running even under no load. Having a maximum value limits your total possible hourly cost.
+Automatic scaling provides the right number of VMs to handle the load on your application. It enables you to add VMs to handle increases in load and save money by removing VMs that are sitting idle. You specify a minimum and maximum number of VMs to run based on a set of rules. Having a minimum makes sure your application is always running even under no load. Having a maximum value limits your total possible hourly cost.
 
 You can enable autoscale when you create the scale set using [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) or [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). You can also enable it after the scale set is created. You can create a scale set, install the extension, and configure autoscale using an [Azure Resource Manager template](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). In the Azure portal, enable autoscale from Azure Monitor, or enable autoscale from the scale set settings.
 
