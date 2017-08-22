@@ -88,18 +88,12 @@ In this section, you enable Azure AD SSO in the Azure portal, and configure SSO 
 
 3. In the **Workplace by Facebook Domain and URLs** section, do the following:
 
-	![Domain and URLs single sign-on information](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_url.png)
+    a. In the **Sign-on URL** textbox, type a URL that uses the following pattern: `https://<company subdomain>.facebook.com`
 
+    b. In the **Identifier** text box, type a URL that uses the following pattern: `https://www.facebook.com/company/<scim company id>`
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company subdomain>.facebook.com`
-
-
-	b. In the **Identifier** text box, type a URL that uses the following pattern: `https://www.facebook.com/company/<scim company id>`
-
-	> [!NOTE] 
-
-	> These values are an example only. Update these values with the actual Sign-On URL and Identifier. Contact the [Workplace by Facebook Client support team](https://workplace.fb.com/faq/) to get these values. 
-
+	> [!NOTE]
+	> These values are an example only. Update these values with the actual sign-on URL and identifier. Contact the [Workplace by Facebook Client support team](https://workplace.fb.com/faq/) to get these values. 
 
 4. In the **SAML Signing Certificate** section, select **Certificate (Base64)**, and then save the certificate file on your computer.
 
