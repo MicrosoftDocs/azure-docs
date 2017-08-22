@@ -50,24 +50,7 @@ If you are not using Cloud Shell, you must first sign in using `az login`.
 
 ## <a name="request-storage-access"></a>Request access to event subscriptions for Azure Storage
 
-During the preview, you must request access to the event subscriptions functionality for Azure Storage. Register the Event Grid provider with the `az provider show` command.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.EventGrid  
-```
-After the registration request, the Azure CLI shows information similar to the following example:
-
-```Bash
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.EventGrid'
-```
-In a minute or so, verify that you are registered with the Event Grid provider with the `az provider show` command.
-
-```azurecli-interactive
-az provider show -n Microsoft.EventGrid --query registrationState
-```
-This command returns a `Registered` value when the Event Grid provider is registered for your subscription.
-
-After your subscription is registered for Event Grid, you request access to Storage event subscriptions with the `az feature register` command.
+During the preview, you must request access to the event subscriptions functionality for Azure Storage. You request access to Storage event subscriptions with the `az feature register` command.
 
 > [!IMPORTANT]  
 > In the preview, you will experience a delay in being granting access to the Storage event subscriptions feature. We are not able to provide estimates on how long you must wait for approval. We apologize for the inconvenience.  
