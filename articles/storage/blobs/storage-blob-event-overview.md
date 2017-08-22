@@ -14,7 +14,7 @@ ms.service: storage
 
 Azure Blob Storage events allow applications to react to the creation and deletion of blobs using modern serverless architectures and without the need for complicated code or expensive and inefficient polling services.  Instead, events are pushed through [Azure Event Grid](https://azure.microsoft.com/en-us/services/event-grid/) to subscribers such as [Azure Functions](https://azure.microsoft.com/en-us/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/en-us/services/logic-apps/), or even to your own custom http listener, and you only pay for what you use.
 
-Common blob storage scenarios include image or video processing, search indexing, or any file oriented workflow.  Asynchronous file uploads are a great fit for events.  When changes are infrequent, but your scenario requires immediate responsiveness, and event-based architecture can be especially efficient.
+Common blob storage scenarios include image or video processing, search indexing, or any file-oriented workflow.  Asynchronous file uploads are a great fit for events.  When changes are infrequent, but your scenario requires immediate responsiveness, and event-based architecture can be especially efficient.
 
 ![Event Grid Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
@@ -26,7 +26,7 @@ Blob Storage Events are available for preview.  Users may request to join the pr
 az provider register --namespace  Microsoft.EventGrid
 az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
 ```
-Subscriptions will be added to the Preview Program as capacity is available.  Request status can be monitored by issuing the following command:
+Subscriptions are added to the Preview Program as capacity is available.  Request status can be monitored by issuing the following command:
 ```azurecli-interactive
 az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid
 ```
@@ -36,7 +36,7 @@ Once your registration state changes to “Registered”, you have been admitted
 Blob Storage events are available in Blob Storage accounts (and not in General Purpose storage accounts).  A Blob Storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob Storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
 
 ## Available Blob Storage events
-Event subscriptions can include 2 types of Blob Storage events:  
+Event subscriptions can include two types of Blob Storage events:  
 
 > [!div class="mx-tdBreakAll"]
 > |Event Name|Description|
@@ -45,24 +45,24 @@ Event subscriptions can include 2 types of Blob Storage events:
 > |Microsoft.Storage.BlobDeleted|Fired when a blob is deleted through a DeleteBlob operation|
 
 ## Event Schema
-Blob Storage events contain all the information you need to respond to changes in your data.  You can identify a Blob Storage event because the eventType property will start with “Microsoft.Storage”.  
+Blob Storage events contain all the information you need to respond to changes in your data.  You can identify a Blob Storage event because the eventType property starts with “Microsoft.Storage.”  
 Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema]((../../event-grid/event-schema#azure-blob-storage)).  
 
 > [!div class="mx-tdBreakAll"]
 > |Field|Field JSON Datatype|Description|
 > |-----|-------------------|-----------|
 > |topic|string|Full Azure Resource Manager id of the storage account that emits the event.|
-> |subject|string|The relative resource path to the object that is the subject of the event, using the same “extended ARM” format that we use to describe storage accounts, services, and containers for Azure RBAC.  This format includes a case-preserving blobname.|
-> |eventTime|string|Date/time that the event was generated, in ISO 8601 format.|
-> |eventType|string|“Microsoft.Storage.BlobCreated” or “Microsoft.Storage.BlobDeleted”.|
-> |Id|string|Unique identifier if this event.|
-> |data|object|Collection of blob storage specific event data.|
-> |data.contentType|string|The content type of the blob, as would be returned in the Content-Type header from the blob.|
-> |data.contentLength|number|The size of the blob as in integer representing a number of bytes, as would be returned in the Content-Length header from the blob.  Sent with blobCreated event, but not with blobDeleted.|
-> |data.url|string|The url of the object that is the subject of the event.|
+> |subject|string|The relative resource path to the object that is the subject of the event, using the same extended Azure Resource Manager format that we use to describe storage accounts, services, and containers for Azure RBAC.  This format includes a case-preserving blob name.|
+> |eventTime|string|Date/time that the event was generated, in ISO 8601 format|
+> |eventType|string|“Microsoft.Storage.BlobCreated” or “Microsoft.Storage.BlobDeleted”|
+> |Id|string|Unique identifier if this event|
+> |data|object|Collection of blob storage-specific event data|
+> |data.contentType|string|The content type of the blob, as would be returned in the Content-Type header from the blob|
+> |data.contentLength|number|The size of the blob as in integer representing a number of bytes, as would be returned in the Content-Length header from the blob.  Sent with BlobCreated event, but not with BlobDeleted.|
+> |data.url|string|The url of the object that is the subject of the event|
 > |data.eTag|string|The etag of the object when this event fired.  Not available for the BlobDeleted event.|
-> |data.api|string|The name of the api operation that triggered this event.  For BlobCreated events, this may be “PutBlob”, “PutBlockList”, “CopyBlob”.  For BlobDeleted events, this will be “DeleteBlob”.  These are the same api names that are present in the Azure Storage diagnostic logs.  See [Logged Operations and Status Messages](https://docs.microsoft.com/en-us/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
-> |data.sequencer|string|An opaque string value representing the logical sequence of events for any particular blob name.  Users can use standard string comparison to understand the relative sequence of 2 events on the same blob name.|
+> |data.api|string|The name of the api operation that triggered this event.  For BlobCreated events, this value is “PutBlob”, “PutBlockList”, or “CopyBlob”.  For BlobDeleted events, this value is “DeleteBlob”.  These values are the same api names that are present in the Azure Storage diagnostic logs.  See [Logged Operations and Status Messages](https://docs.microsoft.com/en-us/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
+> |data.sequencer|string|An opaque string value representing the logical sequence of events for any particular blob name.  Users can use standard string comparison to understand the relative sequence of two events on the same blob name.|
 > |data.requestId|string|Service-generated request id for the storage API operation.  Can be used to correlate to Azure Storage diagnostic logs using the “request-id-header” field in the logs and is returned from initiating API call in the 'x-ms-request-id' header. See [Log Format](https://docs.microsoft.com/en-us/rest/api/storageservices/storage-analytics-log-format).|
 > |data.clientRequestId|string|Client-provided request id for the storage API operation.  Can be used to correlate to Azure Storage diagnostic logs using the “client-request-id” field in the logs, and can be provided in client requests using the “x-ms-client-request-id” header. See [Log Format](https://docs.microsoft.com/en-us/rest/api/storageservices/storage-analytics-log-format).|
 > |data.storageDiagnostics|object|Diagnostic data occasionally included by the Azure Storage service.  When present, should be ignored by event consumers.|
@@ -90,11 +90,11 @@ Here is an example of a BlobCreated event:
 
 ```
 
-See the [Blob Storage Events schema](https://docs.microsoft.com/en-us/azure/event-grid/event-schema#azure-blob-storage) for additional details.
+For more information, see [Blob Storage Events schema](https://docs.microsoft.com/en-us/azure/event-grid/event-schema#azure-blob-storage).
 
 ## Filtering Events
-Event Subscriptions can also be filtered based on the container name and blob name of the object that was created or deleted using a subject filter.  Subject filters in Event Grid work based on a “prefix match” and “suffix match”, so that events with a subject that “starts with” the subject filter will be delivered to the subscriber.
-The subject of blob storage events use the format:
+Event Subscriptions can also be filtered based on the container name and blob name of the object that was created or deleted using a subject filter.  Subject filters in Event Grid work based on a “prefix match” and “suffix match”, so that events with a subject that “starts with” the subject filter are delivered to the subscriber.
+The subject of blob storage events uses the format:
 ```json
 /blobServices/default/containers/<containername>/blobs/<blobname>
 ```
@@ -114,15 +114,15 @@ To match events from blobs created in specific container sharing a blob name pre
 
 To match events from blobs created in specific container sharing a blob suffix, use a suffix filter like “.log” or “.jpg”
 
-## Best practices when consuming events
-Applications that handle Blob Storage events should follow a few best practices:
+## Practices for consuming events
+Applications that handle Blob Storage events should follow a few recommended practices:
 > [!div class="checklist"]
 > * As multiple subscriptions can be configured to route events to the same event handler, it is important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the storage account you are expecting.
 > * Similarly, check that the eventType is one you are prepared to process, and do not assume that all events you receive will be the types you expect.
 > * As messages can arrive out of order and after some delay, use the etag fields to understand if your information about objects is still up-to-date.  Also, use the sequencer fields to understand the order of events on any particular object.
 > * Use the blobType field to understand what type of operations are allowed on the blob, and which client library types you should use to access the blob.
 > * Use the url field with the CloudBlockBlob and CloudAppendBlob constructors to access the blob.
-> * Ignore fields you don’t understand.  This will help keep you resilient to new features that might be added in the future.
+> * Ignore fields you don’t understand.  This practice will help keep you resilient to new features that might be added in the future.
 
 
 ## Next steps
