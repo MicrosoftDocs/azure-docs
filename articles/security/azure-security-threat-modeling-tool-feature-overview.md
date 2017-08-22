@@ -20,7 +20,7 @@ ms.author: rodsan
 
 # Threat Modeling Tool Feature Overview
 
-We are glad you chose to use the Threat Modeling Tool for your threat modeling needs! If you haven’t done so, visit **[Getting Started with the Threat Modeling Tool](./azure-security-threat-modeling-tool-getting-started)** to learn the basics.
+We are glad you chose to use the Threat Modeling Tool for your threat modeling needs! If you haven’t done so, visit **[Getting Started with the Threat Modeling Tool](./azure-security-threat-modeling-tool-getting-started.md)** to learn the basics.
 
 > Our tool is updated often, so check this guide often to see our latest features and improvements.
 
@@ -28,9 +28,7 @@ We are glad you chose to use the Threat Modeling Tool for your threat modeling n
 
 ![Blank Start Page](./media/azure-security-threat-modeling-tool/tmtstart.png)
 
-Check out **[Building Your First Threat Model with the Threat Modeling Tool](./azure-security-threat-modeling-tool-building-your-first-threat-model)** to learn how to build your first diagram.
-
-Using the threat model created by our team in the **[Getting Started](./azure-security-threat-modeling-tool-getting-started)** example, let’s check out all the features available in the tool today.
+Using the threat model created by our team in the **[Getting Started](./azure-security-threat-modeling-tool-getting-started.md)** example, let’s check out all the features available in the tool today.
 
 ![Basic Threat Model](./media/azure-security-threat-modeling-tool/basictmt.png)
 
@@ -82,7 +80,7 @@ The space where you drag and drop elements into. Drag and drop is the quickest a
 
 ### Stencils
 
-Where you can find all stencils available to use based on the template selected. If you can’t find the right elements, try using another template, or modify one to fit your needs. Check out **[Building Your First Threat Model Template](./azure-security-threat-modeling-tool-building-your-first-template.md)** using the Threat Modeling Tool to get started. Generally, you should be able to find a combination of categories like the ones below:
+Where you can find all stencils available to use based on the template selected. If you can’t find the right elements, try using another template, or modify one to fit your needs. Generally, you should be able to find a combination of categories like the ones below:
 
 | Stencil Name                               | Details      |
 | --------------------------------------- | ------------ |
