@@ -30,12 +30,12 @@ ms.author: rachelap
 To complete this tutorial:
 
 * [Git](https://git-scm.com/downloads)
-* [Docker](https://docs.docker.com/get-started/#setup) 
-* A [Docker Hub account](https://docs.docker.com/docker-id/)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
-* An [active Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
+* An active [Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
+* [Docker](https://docs.docker.com/get-started/#setup)
+* A [Docker Hub account](https://docs.docker.com/docker-id/)
 
- [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 
@@ -573,13 +573,13 @@ RUN chmod 755 /bin/init_container.sh
 CMD ["/bin/init_container.sh"]
 ```
 
-You may wish to verify that certain applications are running in the container. To inspect the container and verify running processes, start by opening a browser and navigate to `https://<app name>.scm.azurewebsites.net/webssh/host`. You are then redirected to a page displaying an interactive console. Issue the `top` command at the prompt.
+You may wish to verify that certain applications are running in the container. To inspect the container and verify running processes, start by opening a browser and navigate to `https://<app name>.scm.azurewebsites.net/webssh/host`. You are then redirected to a page displaying an interactive console. Issue the `top` command at the prompt. 
 
 ```bash
 top
 ```
 
-The `top` command exposes all running processes.  
+The `top` command exposes all running processes in a container.  
            
 ```bash
 PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
