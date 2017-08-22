@@ -9,7 +9,7 @@ Azure HPC solutions efficiently run compute-intensive Linux and Windows workload
 
 Sample compute-intensive solution architectures in Azure include:
 
-* Run HPC applications entirely in Azure VMs or VM scale sets, using a Linux or Windows cluster or grid manager of your choice [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-cluster/)
+* Run HPC applications in virtual machines or virtual machine scale sets, using a Linux or Windows cluster or grid manager of your choice [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-cluster/)
 * Create hybrid solutions that extend an on-premises HPC cluster to offload ("burst") peak workloads to Azure VMs [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-on-prem-burst/)
 * Use the managed and scalable Azure [Batch](https://azure.microsoft.com/services/batch/) service to run compute-intensive workloads, without managing underlying infrastructure [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
 
@@ -17,7 +17,7 @@ Sample compute-intensive solution architectures in Azure include:
 Deploy or extend familiar HPC workload management tools to Azure virtual machines and run your compute-intensive workloads. Options include open-source tools such as the [Slurm workload manager](https://slurm.schedmd.com/), and cluster or grid managers from Microsoft and other publishers.
 
 ### Linux and OSS cluster solutions
-Use Azure Resource Manager templates to deploy Linux HPC cluster solutions in Azure VMs or VM scale sets, including:
+Use Azure Resource Manager templates to deploy Linux HPC cluster solutions in virtual machines or virtual machine scale sets, including:
 
 * [Slurm](https://azure.microsoft.com/documentation/templates/slurm/)
 * [Torque](https://azure.microsoft.com/documentation/templates/torque-cluster/)
@@ -110,7 +110,7 @@ Run custom or commercial HPC applications in Azure. Several are benchmarked to s
 * [Deep learning toolkit for Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Batch Shipyard recipes for deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
-## Solution providers
+## Solution partners
 
 Partners who develop or deliver batch and HPC applications in Azure include:
 
@@ -129,7 +129,7 @@ Learn more:
 
 ## Related Azure services
 
-Azure VMs, VM scale sets, Batch, and related compute services are the foundation of most Azure HPC solutions. However, your solution can take advantage of many related Azure services. Here is a partial list:
+Azure virtual machines, virtual machine scale sets, Batch, and related compute services are the foundation of most Azure HPC solutions. However, your solution can take advantage of many related Azure services. Here is a partial list:
 
 ### Storage
 
