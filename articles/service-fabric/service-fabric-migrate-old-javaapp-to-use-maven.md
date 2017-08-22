@@ -27,6 +27,7 @@ We have recently moved Service Fabric Java binaries from the Service Fabric Java
   sudo dpkg -r servicefabricsdkjava
   ```
 2. Install the latest Service Fabric Azure CLI following the steps mentioned [here](service-fabric-azure-cli-2-0.md).
+
 3. To build and work on the Service Fabric Java applications, you need to ensure that you have JDK 1.8 and Gradle installed. If not yet installed, you can run the following to install JDK 1.8 (openjdk-8-jdk) and Gradle -
 
  ```bash
@@ -39,6 +40,7 @@ We have recently moved Service Fabric Java binaries from the Service Fabric Java
 > After uninstalling the Service Fabric Java SDK, Yeoman will not work. Follow the Prerequisites mentioned [here](service-fabric-create-your-first-linux-application-with-java.md) to have Service Fabric Yeoman Java template generator up and working.
 
 ## Migrating Service Fabric Stateless Service
+
 To be able to build your existing Service Fabric stateless Java service using Service Fabric dependencies fetched from Maven, you need to update the ``build.gradle`` file inside the Service. Previously it used to be like as follows -
 ```
 dependencies {
@@ -128,6 +130,7 @@ task copyDeps <<{
 In general, to get an overall idea about how the build script would look like for a Service Fabric stateless Java service, you can refer to any sample from our getting-started examples. Here is the [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/Services/EchoServer/EchoServer1.0/EchoServerService/build.gradle) for the EchoServer sample.
 
 ## Migrating Service Fabric Actor Service
+
 To be able to build your existing Service Fabric Actor Java application using Service Fabric dependencies fetched from Maven, you need to update the ``build.gradle`` file inside the interface package and in the Service package. If you have a TestClient package, you need to update that as well. So, for your actor ``Myactor``, the following would be the places where you need to update -
 ```
 ./Myactor/build.gradle
@@ -136,6 +139,7 @@ To be able to build your existing Service Fabric Actor Java application using Se
 ```
 
 #### Updating build script for the interface project
+
 Previously it used to be like as follows -
 ```
 dependencies {
@@ -174,7 +178,9 @@ compileJava.dependsOn(explodeDeps)
 .
 .
 ```
+
 #### Updating build script for the actor project
+
 Previously it used to be like as follows -
 ```
 dependencies {
@@ -271,7 +277,9 @@ task copyDeps<< {
       }
 }
 ```
+
 #### Updating build script for the test client project
+
 Changes here are similar to the changes discussed in previous section, that is, the actor project. Previously the Gradle script used to be like as follows -
 ```
 dependencies {
@@ -371,3 +379,9 @@ task copyDeps<< {
         }
 }
 ```
+
+## Next steps
+
+* [Create and deploy your first Service Fabric Java application on Linux by using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
+* [Create and deploy your first Service Fabric Java application on Linux by using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
+* [Interact with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli-2-0.md)
