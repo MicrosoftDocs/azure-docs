@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: hpc-pack
 
-ms.assetid: b11f3e1b-b9e1-4b0d-8455-6607b88814e9
+ms.assetid: 
 ms.service: cloud-services
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -63,7 +63,7 @@ You first install Microsoft HPC Pack on your on-premises computer running Window
 8. Accept default selections on the remaining pages of the wizard. On the **Install Required Components** page, click **Install**.
    
     ![Install][install_hpc6]
-9. After the installation completes, uncheck **Start HPC Cluster Manager** and then click **Finish**. (You  start HPC Cluster Manager in a later step.)
+9. After the installation completes, uncheck **Start HPC Cluster Manager** and then click **Finish**. (You start HPC Cluster Manager in a later step.)
    
     ![Finish][install_hpc7]
 
@@ -79,7 +79,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com) with
 HPC Pack installs a self-signed certificate on the head node, called the Default Microsoft HPC Azure Management certificate, that you can upload as an Azure management certificate. This certificate is provided for testing and proof-of-concept deployments to secure the connection between the head node and Azure.
 
 1. From the head node computer, sign in to the [Azure portal](https://portal.azure.com).
-2. Click **Subscriptions**  *your_sucscription_name*.
+2. Click **Subscriptions** > *your_sucscription_name*.
 3. Click **Management certificates** > **Upload**.
 4. Browse on the head node for the file C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer. Then, click **Upload**.
    
@@ -117,7 +117,7 @@ To use HPC Cluster Manager to deploy Azure nodes and to submit jobs, first perfo
    
     ![Installation Credentials][config_hpc6]
    
-   7. In the **Deployment To-do List**, click **Configure the naming of new nodes**.
+7. In the **Deployment To-do List**, click **Configure the naming of new nodes**.
 8. In the **Specify Node Naming Series** dialog box, accept the default naming series and click **OK**. Complete this step even though the Azure nodes you add in this tutorial are named automatically.
    
     ![Node Naming][config_hpc8]
