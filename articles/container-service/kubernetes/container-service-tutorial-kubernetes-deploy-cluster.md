@@ -12,11 +12,12 @@ keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 ms.assetid: 
 ms.service: container-service
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2017
+ms.date: 08/21/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Deploy a Kubernetes cluster in Azure Container Service
@@ -39,7 +40,7 @@ In previous tutorials, a container image was created and uploaded to an Azure Co
 In the [previous tutorial](./container-service-tutorial-kubernetes-prepare-acr.md), a resource group named *myResourceGroup* was created. If you have not done so, create this resource group now.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westeurope
 ```
 
 Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
@@ -90,7 +91,7 @@ k8s-agent-98dc3136-2    Ready                      5m        v1.6.2
 k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.6.2
 ```
 
-At tutorial competition, you have an ACS Kubernetes cluster ready for workloads. In subsequent tutorials, a multi-container application is deployed to this cluster, scaled out, updated, and monitored.
+At tutorial completion, you have an ACS Kubernetes cluster ready for workloads. In subsequent tutorials, a multi-container application is deployed to this cluster, scaled out, updated, and monitored.
 
 ## Next steps
 

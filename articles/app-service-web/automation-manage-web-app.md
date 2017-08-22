@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
-ms.author: magoedte;csand
+ms.author: magoedte
 
 ---
 # Managing Azure Web App using Azure Automation

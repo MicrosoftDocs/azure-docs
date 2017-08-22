@@ -1,4 +1,4 @@
----
+﻿---
 title: Usage analysis for web applications with Azure Application Insights | Microsoft docs
 description: Understand your users and what they do with your web app.
 services: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
+ms.author: bwren
 ---
 
 # Usage analysis for web applications with Application Insights
@@ -165,8 +165,9 @@ In the web app initializer such as Global.asax.cs:
 All new TelemetryClients automatically add the property value you specify. Individual telemetry events can override the default values.
 
 ## Next steps
-
-* [Users and sessions](app-insights-usage-segmentation.md)
-* [Retention](app-insights-usage-retention.md)
-* [Coding custom events](app-insights-api-custom-events-metrics.md)
-
+   - [Users, Sessions, Events](app-insights-usage-segmentation.md)
+   - [Funnels](usage-funnels.md)
+   - [Retention](app-insights-usage-retention.md)
+   - [User Flows](app-insights-usage-flows.md)
+   - [Workbooks](app-insights-usage-workbooks.md)
+   - [Add user context](app-insights-usage-send-user-context.md)

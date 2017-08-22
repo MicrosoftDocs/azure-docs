@@ -1,4 +1,4 @@
----
+﻿---
 title: Overview of Azure Application Insights for DevOps | Microsoft Docs
 description: Learn how to use Application Insights in a Dev Ops environment.
 author: CFreemanwa
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Overview of Application Insights for DevOps
