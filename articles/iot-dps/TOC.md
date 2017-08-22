@@ -1,5 +1,6 @@
 # Overview
 ## [About Azure IoT DPS](about-iot-dps.md)
+## [Core concepts in device provisioning](about-core-concepts.md)
 
 # Get Started
 
