@@ -52,7 +52,7 @@
   - name: Regions and availability
     href: regions-and-availability.md
   - name: Storage
-    href: about-disks-and-vhds-windows.md
+    href: about-disks-and-vhds.md
   - name: Networking
     href: network-overview.md
   - name: VM Scale Sets
