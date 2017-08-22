@@ -50,7 +50,7 @@
 - name: Concepts
   items:
   - name: Azure Resource Manager
-    href: resource-manager.md
+    href: ../../azure-resource-manager/resource-group-overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Regions and availability
     href: regions-and-availability.md
   - name: VM types and sizes
