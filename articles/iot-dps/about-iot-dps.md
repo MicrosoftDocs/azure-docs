@@ -32,7 +32,7 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 
 All these scenarios can be done using DPS for zero-touch provisioning with the same flow. Many of the manual steps traditionally involved in provisioning are automated with DPS to reduce the time to deploy IoT devices and lower the risk of manual error. The following is a description of what's going on behind the scenes to get a device provisioned. The first step is manual, all following steps are automated.
 
-![][./media/about-iot-dps/dps-provisioning-flow.png]
+    ![][./media/about-iot-dps/dps-provisioning-flow.png]
 
 1. Device manufacturer adds the device registration information to the enrollment list in the Azure portal.
 2. Device contacts the DPS endpoint set at the factory. The device passes DPS its identifying information to prove its identity.
@@ -82,7 +82,7 @@ The Device Provisioning Service has many features which make it ideal for provis
 * **Monitoring and diagnostics logs** to make sure everything is working properly.
 * **Multi-hub support** which allows DPS to assign devices to more than one IoT hub. DPS can talk to hubs across multiple Azure subscriptions.
 
-You can learn more about the concepts and features involved in device provisioning in [Core concepts in device provisioning](TODO LINK to other about article).
+You can learn more about the concepts and features involved in device provisioning in [Core concepts in device provisioning](about-core-concepts.md).
 
 ## Cross-platform support
 DPS, like all Azure IoT services, works cross-platform with a variety of operating systems. The public preview supports a limited set of languages/protocols supported, though many more will be available when DPS is generally available. For the public preview, DPS only supports HTTPS connections for both device and service operations. The device SDK is in C, and the service SDK is in C#.
