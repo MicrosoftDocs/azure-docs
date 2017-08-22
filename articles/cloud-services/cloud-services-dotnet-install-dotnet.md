@@ -34,11 +34,11 @@ To download the web installer for the .NET Framework, choose the version that yo
 * [.NET 4.6.1 web installer](http://go.microsoft.com/fwlink/?LinkId=671729)
 
 To add the installer for a *web* role:
-  1. In **Solution Explorer**, under **Roles** in your cloud service project, right-click on your *web* role and select **Add** > **New Folder**. Create a folder named **bin**.
-  2. Right-click on the bin folder and select **Add** > **Existing Item**. Select the .NET installer and add it to the bin folder.
+  1. In **Solution Explorer**, under **Roles** in your cloud service project, right-click your *web* role and select **Add** > **New Folder**. Create a folder named **bin**.
+  2. Right-click the bin folder and select **Add** > **Existing Item**. Select the .NET installer and add it to the bin folder.
   
 To add the installer for a *worker* role:
-* Right-click on your *worker* role and select **Add** > **Existing Item**. Select the .NET installer and add it to the role. 
+* Right-click your *worker* role and select **Add** > **Existing Item**. Select the .NET installer and add it to the role. 
 
 When files are added in this way to the role content folder, they're automatically added to your cloud service package. The files are then deployed to a consistent location on the virtual machine. Repeat this process for each web and worker role in your cloud service so that all roles have a copy of the installer.
 
@@ -84,7 +84,7 @@ You can use startup tasks to perform operations before a role starts. Installing
     The script checks whether the specified version of the .NET Framework is already installed on the machine by querying the registry. If the .NET version is not installed, then the .NET web installer is opened. To help troubleshoot any issues, the script logs all activity to the file startuptasklog-(current date and time).txt that is stored in **InstallLogs** local storage.
 
     > [!IMPORTANT]
-    > Use a basic text editor like Windows Notepad to create the install.cmd file. If you use Visual Studio to create a text file and change the extension to .cmd, the file might still contain a UTF-8 byte order mark. This mark can cause an error when the first line of the script is run. To avoid this error, make the first line of the script a REM statement that may be skipped by the byte order processing. 
+    > Use a basic text editor like Windows Notepad to create the install.cmd file. If you use Visual Studio to create a text file and change the extension to .cmd, the file might still contain a UTF-8 byte order mark. This mark can cause an error when the first line of the script is run. To avoid this error, make the first line of the script a REM statement that can be skipped by the byte order processing. 
     > 
     >
    
@@ -204,7 +204,7 @@ To configure Diagnostics, open the diagnostics.wadcfgx file and add the followin
 This XML configures Diagnostics to transfer the files in the log directory in the **NETFXInstall** resource to the Diagnostics storage account in the **netfx-install** blob container.
 
 ## Deploy your cloud service
-When you deploy your cloud service, the startup tasks install the .NET Framework if it's not already installed. Your cloud service roles are in the *busy* state while the framework is installing. If the framework installation requires a restart, the service roles might also restart. 
+When you deploy your cloud service, the startup tasks install the .NET Framework if it's not already installed. Your cloud service roles are in the *busy* state while the framework is being installed. If the framework installation requires a restart, the service roles might also restart. 
 
 ## Additional resources
 * [Installing the .NET Framework][Installing the .NET Framework]
