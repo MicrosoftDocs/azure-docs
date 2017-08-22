@@ -6,9 +6,9 @@ author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 08/10/2017
 ---
 
