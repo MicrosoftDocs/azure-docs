@@ -1,5 +1,5 @@
 ---
-title: Blob Storage events for Azure Event Grid | Microsoft Docs
+title: Route Blob Storage Events to a custom Web Endpoint | Microsoft Docs
 description: Use Azure Event Grid to subscribe to Blob Storage events. 
 services: storage,event-grid 
 keywords: 
@@ -12,7 +12,12 @@ ms.service: storage
 
 # Route Blob Storage Events to a custom Web Endpoint
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to create a custom topic, subscribe to the topic, and trigger the event to view the result. Typically, you send events to an endpoint that responds to the event, such as, a webhook or Azure Function. However, to simplify this article, you send the events to a URL that merely collects the messages. You create this URL by using an open source, third-party tool called [RequestBin](https://requestb.in/).
+Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to subscribe to Blob Storage events, and trigger the event to view the result. 
+
+> [!IMPORTANT]
+> You must be registered for the Blob Storage events preview to complete this tutorial.  Learn more about the preview program [here](storage-blob-event-overview.md).
+
+Typically, you send events to an endpoint that responds to the event, such as, a webhook or Azure Function. However, to simplify this article, you send the events to a URL that merely collects the messages. You create this URL by using an open source, third-party tool called [RequestBin](https://requestb.in/).
 
 When you are finished, you see that the event data has been sent to an endpoint.
 
