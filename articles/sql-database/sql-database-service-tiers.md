@@ -27,7 +27,7 @@ ms.author: carlrab
 
 Choosing a service tier depends primarily on business continuity, storage, and performance requirements.
 | | **Basic** | **Standard** |**Premium** |**Premium RS** |
-| ---: | ---: |---:| ---:| ---:| 
+| :---| ---: |---:| ---:| ---:| 
 |Target workload|Development and production|Development and production|Development and production|Workload that can tolerate data loss up to 5-minutes due to service failures|
 |Uptime SLA|99.99%|99.99%|99.99%|N/A while in preview|
 |Backup retention|7 days|35 days|35 days|35 days|
