@@ -45,7 +45,7 @@ The following table shows how the solutions map to specific IoT features:
 
 | Solution | Data ingestion | Device identity | Device management | Edge processing | Command and control | Rules and actions | Predictive analytics |
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
-| [Remote monitoring](todo)                                    |Yes |Yes |Yes |-   |Yes |Yes |-   |
+| [Remote monitoring](iot-suite-remote-monitoring-explore.md)  |Yes |Yes |Yes |-   |Yes |Yes |-   |
 | [Predictive maintenance](iot-suite-predictive-overview.md)   |Yes |Yes |-   |-   |Yes |Yes |Yes |
 | [Connected factory](iot-suite-connected-factory-overview.md) |Yes |Yes |Yes |Yes |Yes |Yes |-   |
 
@@ -58,7 +58,7 @@ The following table shows how the solutions map to specific IoT features:
 
 ## Microservices architecture
 
-The version 2 preconfigured solutions use a microservices architecture. These preconfigured solutions are composed of multiple microservices such as an *IoT Hub manager* and a *Storage manager*.  Both Java and .NET versions of each microservice are available to download, along with related developer documentation. For more information about the microservices, see [Remote monitoring architecture](todo).
+The version 2 preconfigured solutions use a microservices architecture. These preconfigured solutions are composed of multiple microservices such as an *IoT Hub manager* and a *Storage manager*.  Both Java and .NET versions of each microservice are available to download, along with related developer documentation. For more information about the microservices, see [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md).
 
 This microservices architecture is a proven pattern for cloud solutions that:
 
@@ -89,7 +89,7 @@ For an overview of the architecture of a typical IoT solution, see [Microsoft Az
 
 Now that you have an overview of the IoT Suite preconfigured solutions here are suggested next steps:
 
-* [Deploy the remote monitoring preconfigured solution](todo).
+* [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md).
 * [Predictive maintenance preconfigured solution overview](iot-suite-predictive-overview.md).
 * [Get started with the connected factory preconfigured solution](iot-suite-connected-factory-overview.md).
 

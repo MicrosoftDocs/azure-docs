@@ -83,6 +83,6 @@ This tutorial, showed you how to:
 > * Analyze and acknowledge the alarm
 > * Remediate the issue
 
-Now that you have learned how to maintain your solution, the suggested next step is to learn how to [TODO](todo).
+Now that you have learned how to maintain your solution, the suggested next step is to learn how to [TODO].
 
 <!-- Next tutorials in the sequence -->

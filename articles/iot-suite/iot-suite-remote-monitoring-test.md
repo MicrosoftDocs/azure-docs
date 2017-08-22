@@ -62,6 +62,6 @@ This tutorial, showed you how to:
 > * Change the behavior of a device
 > * Apply other customizations
 
-Now that you have learned how to use the device simulation service, the suggested next step is to learn how to [TODO](todo).
+Now that you have learned how to use the device simulation service, the suggested next step is to learn how to [TODO].
 
 <!-- Next tutorials in the sequence -->
