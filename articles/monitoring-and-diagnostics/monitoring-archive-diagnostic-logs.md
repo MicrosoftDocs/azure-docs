@@ -141,4 +141,3 @@ Within the PT1H.json file, each event is stored in the “records” array, foll
 * [Download blobs for analysis](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
 * [Stream diagnostic logs to an Event Hubs namespace](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Read more about diagnostic logs](monitoring-overview-of-diagnostic-logs.md)
-

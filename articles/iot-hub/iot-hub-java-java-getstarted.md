@@ -177,16 +177,13 @@ In this section, you create a Java console app that reads device-to-cloud messag
 
 3. Using a text editor, open the pom.xml file in the read-d2c-messages folder and add the following dependency to the **dependencies** node. This dependency enables you to use the eventhubs-client package in your app to read from the Event Hub-compatible endpoint:
 
-    ```java
+    ```xml
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
         <version>0.13.0</version> 
     </dependency>
     ```
-
-    > [!NOTE]
-    > You can check for the latest version of **azure-eventhubs** using [Maven search][lnk-maven-eventhubs-search].
 
 4. Save and close the pom.xml file.
 

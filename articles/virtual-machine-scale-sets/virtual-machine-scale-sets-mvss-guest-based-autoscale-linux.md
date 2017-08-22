@@ -26,7 +26,7 @@ There are two types of metrics in Azure that are gathered from VMs and scale set
 
 Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), and our template for deploying the Linux scale set with guest-based autoscale can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/guest-based-autoscale-linux/azuredeploy.json). Let's examine the diff used to create this template (`git diff minimum-viable-scale-set existing-vnet`) piece by piece:
 
-First, we add parameters for `storageAccountName` and `storageAccountSasToken`. The diagnostics agent will store metric data in a [table](../storage/storage-dotnet-how-to-use-tables.md) in this storage account. As of the Linux Diagnostics Agent version 3.0, using a storage access key is no longer supported. We must use a [SAS Token](../storage/storage-dotnet-shared-access-signature-part-1.md).
+First, we add parameters for `storageAccountName` and `storageAccountSasToken`. The diagnostics agent will store metric data in a [table](../cosmos-db/table-storage-how-to-use-dotnet.md) in this storage account. As of the Linux Diagnostics Agent version 3.0, using a storage access key is no longer supported. We must use a [SAS Token](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ```diff
      },
