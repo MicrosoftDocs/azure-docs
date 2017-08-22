@@ -49,7 +49,7 @@ Change to the directory that contains the sample code.
 
 ## Build the image from the Docker file
 
-A Docker file is a text file named `Dockerfile`, which contains the commands that define a Docker Image. Docker images are snapshots of the application and its environment that you want to deploy. Examining the Dockerfile in the following sample reveals it is hosting the latest version of  `Python` for the web app along with related files and configuration. Additionally, the image sets up an [SSH](https://www.ssh.com/ssh/protocol/) server for secure communication between the container and the host.
+A Docker file is a text file named `Dockerfile`, which contains the commands that define a Docker Image. Docker images are snapshots of the application and its environment that you want to deploy. Examining the Dockerfile in the following sample reveals it contains instructions to build an image with latest version of  `Python`, along with related files and configuration. Additionally, the image ets up an [SSH](https://www.ssh.com/ssh/protocol/) server for secure communication between the container and the host.
 
 ```docker
 # Use an official Python runtime as a parent image
@@ -88,7 +88,7 @@ RUN chmod 755 /bin/init_container.sh
 CMD ["/bin/init_container.sh"]
 ```
 
-To build the Docker image, run the `docker build` command, and provide a name, `mydockerimage`, and tag, `v1`, as shown here:
+To build the Docker image, run the `docker build` command, and provide a name, `mydockerimage`, and tag, `v1`. Replace `{docker-id}` with your Docker Hub account ID.
 
 ```bash
 docker build --tag {docker-id}/mydockerimage:v1 .
@@ -144,13 +144,13 @@ Successfully built 1bfc1bbc968d
 Successfully tagged {docker-id}/myDockerImage:v1
 ```
 
-Test that the build works by running the Docker container. Issuing the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command and passing the name and tags of the image to it, as well as specifying the port for web app access will start the container. The `-p` argument specifies the port in the image and the host that is exposed when the container runs. 
+Test that the build works by running the Docker container. Issue the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command and pass the name and tag of the image to it. You must also  specify the port using `-p` argument. The following sample demonstrates the `docker run` command:
 
 ```bash
 docker run -p 80:2222 {docker-ID}/mydockerimage:v1
 ```
 
-Verify the image is running by browsing the web app locally.
+Verify the web app and container are functioning correctly by browsing the web app locally.
 
 ![Test web app locally](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
 
