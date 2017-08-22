@@ -10026,12 +10026,17 @@
         },
         {
             "source_path": "articles/virtual-machines/linux/planned-maintenance.md",
-            "redirect_url": "/azure/virtual-machines/linux/maintenance-and-updates.md",
+            "redirect_url": "/azure/virtual-machines/linux/maintenance-and-updates",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/windows/planned-maintenance.md",
-            "redirect_url": "/azure/virtual-machines/windows/maintenance-and-updates.md",
+            "redirect_url": "/azure/virtual-machines/windows/maintenance-and-updates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/azure-vm-network-overview.md",
+            "redirect_url": "/azure/virtual-machines/linux/network-overview",
             "redirect_document_id": false
         },
         {

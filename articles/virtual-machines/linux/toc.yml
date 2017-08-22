@@ -70,7 +70,7 @@
   - name: Storage
     href: azure-vm-storage-overview.md
   - name: Networking
-    href: azure-vm-network-overview.md
+    href: network-overview.md
   - name: Auto-scale applications
     href: auto-scale-overview.md
   - name: Infrastructure automation
