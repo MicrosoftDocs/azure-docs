@@ -220,10 +220,7 @@ To change the cluster size, use the slider or type a number between 1 and 10 in 
 
 
 ### Redis data persistence
-Click **Redis data persistence** to enable, disable, or configure data persistence for your premium cache. Azure Redis Cache offers Redis persistence using the following models:
-
-* **RDB persistence** - When RDB (Redis database) persistence is configured, Azure Redis Cache persists a snapshot of the Redis cache in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot. Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages)and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
-* **AOF persistence** - When AOF persistence is cofigured, Azure Redis Cache saves every write operation to a log, that is saved at least once per second into an Azure Storage account. Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages)and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
+Click **Redis data persistence** to enable, disable, or configure data persistence for your premium cache. Azure Redis Cache offers Redis persistence using either [RDB persistence](cache-how-to-premium-persistence.md#configure-rdb-persistence) or [AOF persistence](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 For more information, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
 
