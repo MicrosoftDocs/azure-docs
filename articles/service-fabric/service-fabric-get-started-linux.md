@@ -77,20 +77,18 @@ To install the SDK and the associated runtime package via the apt-get command-li
 
 ## Install and set up the SDK for local cluster setup
 
-After you have updated your sources, you can install the SDK.
-
-1. Install the Service Fabric SDK package, confirm the installation, and agree to the license agreement.
+After you have updated your sources, you can install the SDK. Install the Service Fabric SDK package, confirm the installation, and agree to the license agreement.
 
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
 
-	>   [!TIP]
-	>   The following commands automate accepting the license for Service Fabric packages:
-	>   ```bash
-	>   echo "servicefabric servicefabric/accepted-eula-v1 select true" | sudo debconf-set-selections
-	>   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | sudo debconf-set-selections
-	>   ```
+>   [!TIP]
+>   The following commands automate accepting the license for Service Fabric packages:
+>   ```bash
+>   echo "servicefabric servicefabric/accepted-eula-v1 select true" | sudo debconf-set-selections
+>   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | sudo debconf-set-selections
+>   ```
 
 ## Set up a local cluster
   If the installation is successful, you should be able to start a local cluster.
@@ -174,9 +172,7 @@ For more information, see [Service Fabric plug-in for Eclipse Java application d
 
 
 ## Install the .NET Core SDK (optional, if you want to use the .NET Core programming models)
-The .NET Core SDK provides the libraries and templates that are required to build Service Fabric services with .NET Core.
-
-1. Install the .NET Core SDK package.
+The .NET Core SDK provides the libraries and templates that are required to build Service Fabric services with .NET Core. Install the .NET Core SDK package by running the following -
 
    ```bash
    sudo apt-get install servicefabricsdkcsharp
