@@ -17,10 +17,11 @@ ms.date: 08/10/2017
 ms.author: sethm
 
 ---
-# How to use Service Bus queues
+# How to use Service Bus queues with Node.js
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-This article describes how to use Service Bus queues in Node.js. The samples are written in JavaScript and use the Node.js Azure module. The scenarios covered include **creating queues**, **sending and receiving messages**, and **deleting queues**. For more information on queues, see the [Next steps](#next-steps) section.
+This article describes how to use Service Bus queues with Node.js. The samples are written in JavaScript and use the Node.js Azure module. The scenarios covered include **creating queues**, **sending and receiving messages**, and **deleting queues**. For more information on queues, see the [Next steps](#next-steps) section.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -188,6 +189,6 @@ To learn more about queues, see the following resources.
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Create and deploy a Node.js application to an Azure Website]: ../app-service-web/app-service-web-get-started-nodejs.md
-[Node.js Cloud Service with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
-[Node.js Web Application with Storage]: ../storage/storage-nodejs-how-to-use-table-storage.md
+[Node.js Cloud Service with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
+[Node.js Web Application with Storage]:../cosmos-db/table-storage-how-to-use-nodejs.md
 [Service Bus quotas]: service-bus-quotas.md

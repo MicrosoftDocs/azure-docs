@@ -49,7 +49,7 @@ If exiting a session, be sure to exit from each session window as each process r
 * Scroll with your mouse or touchpad to move terminal text.
 
 ## Exit command
-Running `exit` terminates the active session. This behavior occurs by default after 10 minutes without interaction.
+Running `exit` terminates the active session. This behavior occurs by default after 20 minutes without interaction.
 
 ## Next steps
 [Cloud Shell Quickstart](quickstart.md)

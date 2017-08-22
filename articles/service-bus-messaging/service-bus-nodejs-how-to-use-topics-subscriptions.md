@@ -17,7 +17,8 @@ ms.date: 08/10/2017
 ms.author: sethm
 
 ---
-# How to Use Service Bus topics and subscriptions
+# How to Use Service Bus topics and subscriptions with Node.js
+
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 This guide describes how to use Service Bus topics and subscriptions
@@ -434,4 +435,4 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Create and deploy a Node.js application to an Azure Web Site]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Node.js Web Application with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
+[Node.js Web Application with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
