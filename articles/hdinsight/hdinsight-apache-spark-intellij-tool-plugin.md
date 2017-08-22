@@ -169,13 +169,7 @@ For installation instructions, see [Install Azure Toolkit for IntelliJ](../azure
 We also recommend another way of submitting the Spark application to the cluster. You can do so by setting the parameters in the **Run/Debug configurations** IDE. For more information, see [Remotely debug Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
 ## Choose Azure Data Lake Store as Spark Scala application storage
-To submit an application to Azure Data Lake Store, choose **Interactive** mode during the Azure sign-in process. 
-
-![Interactive option at sign-in](./media/hdinsight-apache-spark-intellij-tool-plugin/authentication-interactive.png)
-
-If you select **Automated** mode, you get the following error:
-
-![Sign-in error](./media/hdinsight-apache-spark-intellij-tool-plugin/authentication-error.png)
+We also support running a Spark Scala application on a cluster with Azure Data Lake as primary data storage. You just choose an **Azure Data Lake cluster** to submit your application.
 
 ## Access and manage HDInsight Spark clusters by using Azure Toolkit for IntelliJ
 You can perform various operations by using Azure Toolkit for IntelliJ.

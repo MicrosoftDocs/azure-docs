@@ -137,7 +137,7 @@ When you open the Intellij, the HDInsight Tools auto detects whether you install
       
        ![Spark Submission window](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
 
-## Run a Spark Scala application on an Azure Data Lake Store cluster
+## Choose Azure Data Lake Store as Spark Scala application storage
 We also support running a Spark Scala application on a cluster with Azure Data Lake as primary data storage. You just choose an **Azure Data Lake cluster** to submit your application.
 
 ## Access and manage HDInsight Spark clusters by using HDInsight Tools in Azure Toolkit for Eclipse
