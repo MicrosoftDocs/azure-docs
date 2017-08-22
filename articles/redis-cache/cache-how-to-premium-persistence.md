@@ -27,7 +27,7 @@ For information on other premium cache features, see [Introduction to the Azure 
 
 Azure Redis Cache offers Redis persistence using the following models:
 
-* **RDB persistence** - When RDB (Redis database) persistence is configured, Azure Redis Cache persists a snapshot of the Redis cache in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot. Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages)and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
+* **RDB persistence** - When RDB (Redis database) persistence is configured, Azure Redis Cache persists a snapshot of the Redis cache in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot. Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages) and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
 * **AOF persistence** - When AOF persistence is cofigured, Azure Redis Cache saves every write operation to a log, that is saved at least once per second into an Azure Storage account. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the stored write operations. Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages)and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
 
 Persistence can be configured from the **New Redis Cache** blade during cache creation and on the **Resource menu** for existing premium caches.
@@ -84,6 +84,7 @@ When AOF persistence is enabled, write operations to the cache are saved to the 
 The following list contains answers to commonly asked questions about Azure Redis Cache persistence.
 
 * [Can I enable persistence on a previously created cache?](#can-i-enable-persistence-on-a-previously-created-cache)
+* [Can I enable AOF and RDB persistence at the same time?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
 * [Which persistence model should I choose?](#which-persistence-model-should-i-choose)
 
 ### RDB persistence FAQ
@@ -100,6 +101,10 @@ The following list contains answers to commonly asked questions about Azure Redi
 
 ### Can I enable persistence on a previously created cache?
 Yes, Redis persistence can be configured both at cache creation and on existing premium caches.
+
+### Can I enable AOF and RDB persistence at the same time?
+
+No, you can enable only RDB or AOF, but not both at the same time.
 
 ### Which persistence model should I choose?
 
