@@ -55,7 +55,7 @@ The registration ID is used to uniquely identify a device in DPS. The device ID 
 
 ### Device ID
 
-The device ID is the ID as it appears in IoT Hub. The desired device ID may be set in the enrollment entry, but it is not required to be set. If no desired device ID is specified in DPS, the registration ID is used as the device ID when registering the device. Learn more about [device IDs in IoT Hub](./iot-hub/iot-hub-devguide-identity-registry.md).
+The device ID is the ID as it appears in IoT Hub. The desired device ID may be set in the enrollment entry, but it is not required to be set. If no desired device ID is specified in DPS, the registration ID is used as the device ID when registering the device. Learn more about [device IDs in IoT Hub](../iot-hub/iot-hub-devguide-identity-registry.md).
 
 ### ID scope
 
