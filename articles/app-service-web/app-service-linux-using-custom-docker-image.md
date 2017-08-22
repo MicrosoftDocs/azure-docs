@@ -520,7 +520,7 @@ return "Hello World of Web Apps running in Docker Containers!"
 
 Once you've modified the Python file and saved it, you must rebuild and push the new Docker image. Then restart the web app for the changes to take effect. Use the same commands that you have previously used in this tutorial. You can refer to the [build the image from the Docker file](#build-the-image-from-the-docker-file) and [push the Docker image](#push-docker-image) sections. Test the web app by following the instructions in [Test the Application in Azure](#tTest-the-application-in-azure)
 
-## Connect to Web App on Linux SSH
+## Connect to Web App on Linux using SSH
 
 SSH enables secure communication between a container and a client. In order for a custom Docker image to support SSH, you must build it into a Dockerfile. You enable SSH in the Docker file itself. Reviewing the sample Docker file exposes the following instructions:
 
