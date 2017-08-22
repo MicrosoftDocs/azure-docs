@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: kgremban
 ms.custom: end-user
-experimental: ture
+experimental: true
 experiment_id: 429acb56-5fd8-49
 ---
 # What are App Passwords in Azure Multi-Factor Authentication?
