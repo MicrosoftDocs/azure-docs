@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure Diagnostic Logs | Microsoft Docs
-description: Learn what Azure Diagnostic Logs are and how you can use them to understand events occurring within an Azure resource.
+description: Learn what Azure diagnostic logs are and how you can use them to understand events occurring within an Azure resource.
 author: johnkemnetz
 manager: orenr
 editor: ''
@@ -19,8 +19,8 @@ ms.author: johnkem; magoedte
 ---
 # Collect and consume log data from your Azure resources
 
-## What are Azure Resource Diagnostic Logs
-**Azure Resource-Level Diagnostic Logs** are logs emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type. For example, Network Security Group rule counters and Key Vault audits are two categories of resource logs.
+## What are Azure resource diagnostic logs
+**Azure resource-level diagnostic logs** are logs emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type. For example, Network Security Group rule counters and Key Vault audits are two categories of resource logs.
 
 Resource-level diagnostic logs differ from the [Activity Log](monitoring-overview-activity-logs.md). The Activity Log provides insight into the operations that were performed on resources in your subscription using Resource Manager, for example, creating a virtual machine or deleting a logic app. The Activity Log is a subscription-level log. Resource-level diagnostic logs provide insight into operations that were performed within that resource itself, for example, getting a secret from a Key Vault.
 
@@ -28,24 +28,22 @@ Resource-level diagnostic logs also differ from guest OS-level diagnostic logs. 
 
 Not all resources support the new type of resource diagnostic logs described here. This article contains a section listing which resource types support the new resource-level diagnostic logs.
 
-![Resource Diagnostics Logs vs other types of logs ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
+![Resource diagnostics logs vs other types of logs ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
 
-Figure 1: Resource Diagnostics Logs vs other types of logs
-
-## What you can do with Resource-Level Diagnostic Logs
+## What you can do with resource-level diagnostic logs
 Here are some of the things you can do with resource diagnostic logs:
 
 ![Logical placement of Resource Diagnostic Logs](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
 
 
-* Save them to a [**Storage Account**](monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using **Resource Diagnostic Settings**.
+* Save them to a [**Storage Account**](monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using **resource diagnostic settings**.
 * [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 * Analyze them with [OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
 You can use a storage account or Event Hubs namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
 
-## Resource Diagnostic Settings
-Resource diagnostic logs for non-Compute resources are configured using resource diagnostic settings. **Resource Diagnostic Settings** for a resource control:
+## Resource diagnostic settings
+Resource diagnostic logs for non-Compute resources are configured using resource diagnostic settings. **Resource diagnostic settings** for a resource control:
 
 * Where resource diagnostic logs and metrics are sent (Storage Account, Event Hubs, and/or OMS Log Analytics).
 * Which log categories are sent and whether metric data is also sent.
@@ -155,7 +153,7 @@ azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource 
 You can combine these parameters to enable multiple output options.
 
 ### Enable collection of resource diagnostic logs via REST API
-To change Diagnostic Settings using the Azure Monitor REST API, see [this document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+To change diagnostic settings using the Azure Monitor REST API, see [this document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
 ## Manage resource diagnostic settings in the portal
 Ensure that all of your resources are set up with diagnostic settings. Navigate to **Monitor** in the portal and open **Diagnostic settings**.
@@ -170,10 +168,10 @@ Here you can view and filter all resources that support diagnostic settings to s
 
 Adding a diagnostic setting brings up the Diagnostic Settings view, where you can enable, disable, or modify your diagnostic settings for the selected resource.
 
-## Supported services, categories, and schemata for resource diagnostic logs
-[See this article](monitoring-diagnostic-logs-schema.md) for a complete list of supported services and the log categories and schemata used by those services.
+## Supported services, categories, and schemas for resource diagnostic logs
+[See this article](monitoring-diagnostic-logs-schema.md) for a complete list of supported services and the log categories and schemas used by those services.
 
-## Next Steps
+## Next steps
 
 * [Stream resource diagnostic logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Change resource diagnostic settings using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
