@@ -14,9 +14,9 @@ ms.author: heidist
 
 # Welcome to Text Analytics API in Microsoft Cognitive Services
 
-[Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a collection of machine learning and AI technologies in the cloud, exposed through APIs so that you can leverage state-of-the-art technology in your development projects.
+[Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a collection of machine learning and AI technologies in the cloud, exposed through APIs so that you can consume state-of-the-art technology in your development projects.
 
- Within Cognitive Services, **Text Analytics API** provides capabilities for sentiment analysis, key phrase extraction, and language detection. Our sentiment analyzer is pretrained. To run any workload, all you need to do is provide your data for scoring or analysis.
+ Within Cognitive Services, **Text Analytics API** provides capabilities for sentiment analysis, key phrase extraction, and language detection. Our models are pretrained. To run any workload, all you need to do is upload your data for scoring and analysis.
 
 ## Capabilities in Text Analytics
 
@@ -29,14 +29,14 @@ Text analysis can mean different things, but in Cognitive Services, APIs are exp
 |[Language Detection](text-analytics-concept-language-detection.md) | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br/>  [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) <br/>[Android](https://github.com/Microsoft/Cognitive-TextAnalytics-Android)|  For up to 120 languages, the service can detect which language the input text is written in and report a single language code for every document submitted on the request. The code is paired with a score indicating the strength of the score. Typically, the score is either 1.0 for a positive identification, 0.5 for mixed languages or content that is only. |
 
 > [!Note] 
-> Machine learning algorithms in Cognitive services are trained and refined on a continuous development cycle. For this reason, we do not document the implementation details or internal architecture of specific technologies. 
+> Text Analytics API is available for consumption scenarios rather than custom development projects. For this reason, we do not document the implementation details or internal architecture of specific technologies. 
 
 
 <a name="data-limits"></a>
 
  ## Typical workflow
 
- The workflow is simple: you can control data inputs and handle outputs. The analyzers can be consumed as-is, with no additional configuration or customization.
+ The workflow is simple: you submit data for analysis and handle outputs in your code. Analyzers are consumed as-is, with no additional configuration or customization.
  
 1. [Sign up](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) for the **Text Analytics API** when creating a Cognitive Services account. As with most Azure Services, there is a free version so that you can experiment at no cost.
 

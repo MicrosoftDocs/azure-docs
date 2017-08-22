@@ -10,8 +10,8 @@
     href: quick-start.md
 - name: Tutorials
   items:
-  - name: Logic Apps & Text Analytics
-    href: text-analytics-tutorial-logic-apps.md
+  - name: Text Analytics & Power BI
+    href: text-analytics-tutorial-power-bi.md
 - name: Concepts
   items:
    - name: Sentiment analysis 

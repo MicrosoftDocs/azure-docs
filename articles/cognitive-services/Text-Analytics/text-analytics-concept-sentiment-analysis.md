@@ -16,7 +16,7 @@ ms.author: heidist
 ---
 # Sentiment analysis in Text Analytics API
 
-The [sentiment analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) evaluates text input and for each document returns a sentiment score along a positive-negative continuum, ranging from 0 to 1.
+The [sentiment analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) evaluates text input and for each document returns a sentiment score ranging from 0 to 1, from negative to positive.
 
 ## Common use cases
 

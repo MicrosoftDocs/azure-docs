@@ -24,7 +24,7 @@ To complete this Quickstart, you need an interactive tool for sending HTTP reque
 > [!Tip]
 > For one-off interactions, we recommend the built-in console. There is no setup and user requirements consist only of the access key and the JSON documents you paste into the request. 
 >
-> For ongoing experimentation, we suggest a web API testing tool like Postman or Fiddler. A tool persists your request headers and content. You can make incremental changes, including switching to another operation, with less copy-and-paste.
+> For ongoing experimentation, we suggest a web API testing tool like Postman or Fiddler. A tool persists your request headers and content. You can make incremental changes, including switching to another operation, without having to start over with each new request.
 
 ## Before you begin
 
