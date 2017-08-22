@@ -138,7 +138,7 @@ When the App Service Plan has been created, the Azure CLI shows information simi
 
 ## Create a web app
 
-Now that an App Service plan has been created, create a web app within the `quickStartPlan` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the Web App.
+Now that an App Service plan has been created, create a web app within the `quickStartPlan` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the web app.
 
 In the following command, substitute your own unique app name where you see the <app_name> placeholder. The <app_name> is used as the default DNS site for the web app, and so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users.
 
@@ -146,7 +146,7 @@ In the following command, substitute your own unique app name where you see the 
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
 ```
 
-When the Web App has been created, the Azure CLI shows information similar to the following example:
+When the web app has been created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
@@ -166,7 +166,7 @@ When the Web App has been created, the Azure CLI shows information similar to th
 }
 ```
 
-Browse to the site to see your newly created Web App.
+Browse to the site to see your newly created web app.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -174,11 +174,11 @@ http://<app_name>.azurewebsites.net
 
 ![app-service-web-service-created](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
-We’ve now created an empty new Web App in Azure. Let’s now configure our Web App to use Node.js and deploy our app to it.
+We’ve now created an empty new web app in Azure. Let’s now configure our web app to use Node.js and deploy our app to it.
 
-## Configure to use Node.js
+## Configure web app to use Node.js
 
-Use the [az appservice web config update](/cli/azure/app-service/web/config#update) command to configure the Web App to use Node.js version `6.9.3`.
+Use the [az appservice web config update](/cli/azure/app-service/web/config#update) command to configure the web app to use Node.js version `6.9.3`.
 
 > [!TIP]
 > Setting the Node.js version using the Azure CLI uses a default container provided by the platform. If you wish use your own container, refer to the CLI reference for the [az appservice web config container update](/cli/azure/appservice/web/config/container#update) command.
@@ -189,9 +189,9 @@ az appservice web config update --linux-fx-version "NODE|6.9.3" --startup-file p
 
 ## Configure local git deployment
 
-You can deploy to your Web App in a variety of ways including FTP, local Git and GitHub, Visual Studio Team Services, or Bitbucket.
+You can deploy to your web app in a variety of ways including FTP, local Git and GitHub, Visual Studio Team Services, or Bitbucket.
 
-Use the [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) command to configure local git access to the Web App.
+Use the [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) command to configure local git access to the web app.
 
 ```azurecli
 az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
@@ -294,7 +294,7 @@ You have landed in your web app's page.
 
 By default, your web app displays its **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks such as browse, stop, start, restart, and delete. The tabs on the left side of the page shows more configuration pages you can open.
 
-![App Service blade in Azure portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
+![App Service page in Azure portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
 These tabs in the page show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
 
