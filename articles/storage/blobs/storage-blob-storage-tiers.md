@@ -56,7 +56,7 @@ Example usage scenarios for the cool storage tier include:
 
 ### Archive access tier (preview)
 
-[Archive storage](https://azure.microsoft.com/en-us/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering) has the lowest storage cost and higher data retrieval costs compared to hot and cool storage.
+[Archive storage](https://azure.microsoft.com/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering) has the lowest storage cost and higher data retrieval costs compared to hot and cool storage.
 
 While a blob is in archive storage, it cannot be read, copied, overwritten, or modified. Nor can you take snapshots of a blob in archive storage. However, you may use existing operations to delete, list, get blob properties/metadata, or change the tier of your blob. To read data in archive storage, you must first change the tier of the blob to hot or cool. This process is known as rehydration and can take up to 15 hours to complete for blobs less than 50 GB. Additional time required for larger blobs varies with the blob throughput limit.
 
@@ -88,9 +88,9 @@ For applications requiring only block or append blob storage, we recommend using
 
 ## Blob-level tiering feature (preview)
 
-Blob-level tiering now allows you to change the tier of your data at the object level using a single operation called [Set Blob Tier](https://docs.microsoft.com/en-us/rest/api/storageservices/set-blob-tier). You can easily change the access tier of a blob among the hot, cool, or archive tiers as usage patterns change, without having to move data between accounts. All tier changes happen immediately except when a blob is rehydrating from archive. Blobs in all three storage tiers can co-exist within the same account. Any blob that does not have an explicitly assigned tier inherits the tier from the account access tier setting.
+Blob-level tiering now allows you to change the tier of your data at the object level using a single operation called [Set Blob Tier](/rest/api/storageservices/set-blob-tier). You can easily change the access tier of a blob among the hot, cool, or archive tiers as usage patterns change, without having to move data between accounts. All tier changes happen immediately except when a blob is rehydrating from archive. Blobs in all three storage tiers can co-exist within the same account. Any blob that does not have an explicitly assigned tier inherits the tier from the account access tier setting.
 
-To use these features in preview, follow the instructions in the [Azure Archive and Blob-Level Tiering blog announcement](https://azure.microsoft.com/en-us/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering).
+To use these features in preview, follow the instructions in the [Azure Archive and Blob-Level Tiering blog announcement](https://azure.microsoft.com/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering).
 
 The follow lists some restrictions that apply during preview for blob-level tiering:
 
