@@ -32,7 +32,7 @@ The trust relationship that a subscription has with a directory is unlike the re
 
 Azure AD doesn’t work like the other services in your Azure subscription. Other Azure services are subordinate to the Azure subscription. But what you see in Azure AD does not vary based on subscription. It allows access to directories based on the signed-in user.
 
-All users have a single home directory that authenticates them (where they're "homed"), but they can also be guests in other directories. In Azure AD, you can see only the directories in which your user account is a member. A directory can also be synchronized with on-premises Active Directory.
+All users have a single home directory that authenticates them, but they can also be guests in other directories. In Azure AD, you can see only the directories of which your user account is a member. A directory can also be synchronized with on-premises Active Directory.
 
 ## Azure AD and cloud service subscriptions
 Azure AD provides the core directory and identity management capabilities behind most of Microsoft’s cloud services, including:
