@@ -9,7 +9,7 @@
 # How-to guides
 ## Deploy
 ### [Create Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
-## [Deploy with Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md)
+### [Deploy with Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md)
 ### [Create and share Azure dashboard](azure-portal-dashboards.md)
 ## Manage
 ### [Use portal to manage resources](../azure-resource-manager/resource-group-portal.md)
