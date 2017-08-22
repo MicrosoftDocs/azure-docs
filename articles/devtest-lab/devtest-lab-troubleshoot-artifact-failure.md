@@ -27,16 +27,12 @@ After you have created an artifact, you can check to see if it succeeded or fail
 To use the Azure portal to diagnose failures during artifact creation, follow these steps:
 
 1) From the list of resources, select your lab.
-1) Choose the Windows VM that includes the artifact you want to investigate.
-1) In the main blade under **GENERAL**, choose **Artifacts**.
-
-   A list of artifacts associated with that VM appears, indicating the name of the artifact and its status.
+2) Choose the Windows VM that includes the artifact you want to investigate.
+3) In the main blade under **GENERAL**, choose **Artifacts**. A list of artifacts associated with that VM appears, indicating the name of the artifact and its status.
 
    ![Artifact git repo example](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure.png)
 
-1) Choose an artifact that shows a status of **Failed**.
-
-   This opens the artifact and shows an extension message that includes details about the failure of the artifact.
+4) Choose an artifact that shows a status of **Failed**. This opens the artifact and shows an extension message that includes details about the failure of the artifact.
 
    ![Artifact git repo example](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error.png)
 
@@ -45,12 +41,12 @@ To use the Azure portal to diagnose failures during artifact creation, follow th
 To view the artifact logs from within the virtual machine, follow these steps:
 
 1) Log in to the VM that contains the artifact you want to diagnose.
-1) Navigate to C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.9\Status where "1.9 is the CSE version number.
+2) Navigate to C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.9\Status where "1.9 is the CSE version number.
 
    ![Artifact git repo example](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error-vm-status.png)
 
 
-1) Open the **status** file to view information that will help diagnose artifact failures for that VM.
+3) Open the **status** file to view information that will help diagnose artifact failures for that VM.
 
 
 
