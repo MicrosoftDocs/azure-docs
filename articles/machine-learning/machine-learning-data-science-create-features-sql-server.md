@@ -32,7 +32,7 @@ This **menu** links to topics that describe how to create features for data in v
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 * Stored your data in SQL Server. If you have not, see [Move data to an Azure SQL Database for Azure Machine Learning](machine-learning-data-science-move-sql-azure.md) for instructions on how to move the data there.
 
 ## <a name="sql-featuregen"></a>Feature Generation with SQL

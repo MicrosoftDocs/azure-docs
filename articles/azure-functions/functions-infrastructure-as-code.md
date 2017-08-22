@@ -12,11 +12,11 @@ keywords: azure functions, functions, serverless architecture, infrastructure as
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
 ms.devlang: multiple
-ms.topic:
+ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
-ms.author: donnam;glenga
+ms.author: glenga
 
 ---
 

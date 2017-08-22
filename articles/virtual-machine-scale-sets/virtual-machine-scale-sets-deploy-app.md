@@ -42,7 +42,7 @@ Do the following steps:
 
 4. Create a [Virtual Machine Scale Set][vmss-create] with the image URI you captured in the previous step.
 
-For more information about disks, see [Managed Disks Overview](../storage/storage-managed-disks-overview.md) and [Use Attached Data Disks](virtual-machine-scale-sets-attached-disks.md).
+For more information about disks, see [Managed Disks Overview](../virtual-machines/windows/managed-disks-overview.md) and [Use Attached Data Disks](virtual-machine-scale-sets-attached-disks.md).
 
 ## Install when the scale set is provisioned
 

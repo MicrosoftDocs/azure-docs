@@ -84,7 +84,7 @@ The first part you as the admin do. Then, we have some steps for your users.
 1. Start by publishing the command line interface (cmd.exe). In the **Publishing** tab, select **cmd**, and then click **Publish > Publish program using path**.
 2. Enter the name of the app and the path. For our purpose, use "File Explorer" as the name and "%SYSTEMDRIVE%\windows\explorer.exe" as the path.
    ![Publish the cmd.exe file.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. Now you need to create an Azure [storage account](../storage/storage-create-storage-account.md). We named ours "accessstorage," so pick a name that's meaningful to you. (To misquote Highlander, there can be only one "accessstorage.")
+3. Now you need to create an Azure [storage account](../storage/common/storage-create-storage-account.md). We named ours "accessstorage," so pick a name that's meaningful to you. (To misquote Highlander, there can be only one "accessstorage.")
    ![Our Azure storage account](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Now go back to your dashboard so you can get the path to your storage (endpoint location). You'll use this in a bit, so make sure you copy it somewhere.
    ![The storage account path](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)

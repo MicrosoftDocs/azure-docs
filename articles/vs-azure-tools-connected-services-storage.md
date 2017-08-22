@@ -65,7 +65,7 @@ When you finish the dialog, Visual Studio adds references and modifies certain c
 - ASP.NET project - [What happened – ASP.NET Projects](http://go.microsoft.com/fwlink/p/?LinkId=513126)
 - ASP.NET Core project - [What happened – ASP.NET 5 Projects](http://go.microsoft.com/fwlink/p/?LinkId=513124) 
 - Cloud service project (web roles and worker roles) - [What happened – Cloud Service projects](http://go.microsoft.com/fwlink/p/?LinkId=516965)
-- WebJob project - [What happened - WebJob projects](storage/vs-storage-webjobs-what-happened.md)
+- WebJob project - [What happened - WebJob projects](visual-studio/vs-storage-webjobs-what-happened.md)
 
 ## Next steps
 - [MSDN Forum: Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)

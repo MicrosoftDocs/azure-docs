@@ -206,7 +206,7 @@ You can use the Azure portal to browse the data. You can also use the Table API 
 ### Which tools work with the Table API (Preview)? 
 You can use the older version of Azure Explorer (0.8.9).
 
-Tools with the flexibility to take a connection string in the format specified previously can support the new Table API (Preview). A list of table tools is provided on the [Azure Storage Client Tools](../storage/storage-explorers.md) page. 
+Tools with the flexibility to take a connection string in the format specified previously can support the new Table API (Preview). A list of table tools is provided on the [Azure Storage Client Tools](../storage/common/storage-explorers.md) page. 
 
 ### Do PowerShell or Azure CLI work with the new Table API (Preview)?
 We plan to add support for PowerShell and Azure CLI for Table API (Preview). 
