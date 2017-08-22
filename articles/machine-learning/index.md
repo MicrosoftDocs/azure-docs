@@ -25,6 +25,12 @@ Azure Machine Learning provides two options to help you develop, experiment, and
 | [![](./media/index/machine-learning-studio.png)<br>**Azure Machine Learning Studio**](studio/index.yml?toc=/azure/machine-learning/studio/toc.json) | A collaborative, drag-and-drop tool that provides predefined machine learning algorithms and push-button model deployment.
 | | |
 
+These additional data science tools can help you with your machine learning work:
+
+- [**Data Science Virtual Machine**](data-science-virtual-machine/index.yml?toc=/azure/machine-learning/data-science-virtual-machine/toc.json) - The Data Science Virtual Machine (DSVM) is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics. 
+
+- [**Team Data Science Process**](team-data-science-process/index.yml?toc=/azure/machine-learning/team-data-science-process/toc.json) - The Team Data Science Process provides a recommended lifecycle that you can use to structure your data science projects. The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. 
+
 <br>
 <br>
 <br>

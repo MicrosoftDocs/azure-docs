@@ -1,8 +1,9 @@
 # Overview
 ## Team Data Science Process
-### [Overview](http://aka.ms/datascienceprocess)
-### [Lifecycle](data-science-process-overview.md)
+### [Overview](data-science-process-overview.md)
+### [Lifecycle](data-science-process-lifecycle.md)
 ### [Walkthroughs](data-science-process-walkthroughs.md)
+### [With Azure ML](http://aka.ms/datascienceprocess)
 # Get Started
 # How To
 ## Set up tools and utilities
