@@ -29,8 +29,7 @@ Offers contain one or more plans, and each plan includes one or more services. B
 When you deliver a service, you'll follow these high-level steps:
 
 1. Add a service that you want to deliver to your users.
-2. Create a plan that contains one or more services.
-  - When creating a plan, you will select or create quotas that define the resource limits of each service in the plan.
+2. Create a plan that contains one or more services. When creating a plan, you will select or create quotas that define the resource limits of each service in the plan.
 3. Create an offer that contains one or more plans (including base plans and optional add-on plans).
 
 After you have created the offer, your users can subscribe to it to access the services and resources it provides. Users can subscribe to as many offers as they want. The following diagram shows a simple example of a user who has subscribed to two offers. Each offer has a plan or two, and each plan gives them access to services.
