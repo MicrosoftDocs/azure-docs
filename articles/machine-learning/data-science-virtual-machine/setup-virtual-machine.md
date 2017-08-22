@@ -117,17 +117,17 @@ Your virtual machine is now ready to use in your data science exercises. The vir
 
 The next steps in the Team Data Science Process are mapped in the [Learning Path](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
 
-[15]: ../media/machine-learning-data-science-setup-virtual-machine/vmshutdown.png
-[17]: ../media/machine-learning-data-science-setup-virtual-machine/add-endpoints-after-creation.png
-[18]: ../media/machine-learning-data-science-setup-virtual-machine/sample-ipnbs.png
-[19]: ../media/machine-learning-data-science-setup-virtual-machine/dns-name-and-host-name.png
-[20]: ../media/machine-learning-data-science-setup-virtual-machine/browser-warning-ie.png
-[21]: ../media/machine-learning-data-science-setup-virtual-machine/browser-warning.png
-[22]: ../media/machine-learning-data-science-setup-virtual-machine/upload-ipnb-1.png
-[23]: ../media/machine-learning-data-science-setup-virtual-machine/upload-ipnb-2.png
-[24]: ../media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-1.png
-[25]: ../media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-2.png
-[26]: ../media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-3.png
-[27]: ../media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-4.png
-[28]: ../media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
-[29]: ../media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
+[15]: ./media/setup-virtual-machine/vmshutdown.png
+[17]: ./media/setup-virtual-machine/add-endpoints-after-creation.png
+[18]: ./media/setup-virtual-machine/sample-ipnbs.png
+[19]: ./media/setup-virtual-machine/dns-name-and-host-name.png
+[20]: ./media/setup-virtual-machine/browser-warning-ie.png
+[21]: ./media/setup-virtual-machine/browser-warning.png
+[22]: ./media/setup-virtual-machine/upload-ipnb-1.png
+[23]: ./media/setup-virtual-machine/upload-ipnb-2.png
+[24]: ./media/setup-virtual-machine/create-virtual-machine-1.png
+[25]: ./media/setup-virtual-machine/create-virtual-machine-2.png
+[26]: ./media/setup-virtual-machine/create-virtual-machine-3.png
+[27]: ./media/setup-virtual-machine/create-virtual-machine-4.png
+[28]: ./media/setup-virtual-machine/create-virtual-machine-5.png
+[29]: ./media/setup-virtual-machine/create-virtual-machine-6.png

@@ -353,18 +353,18 @@ Your virtual machine is now ready to use in your data science exercises. The vir
 
 The next steps in the data science process are mapped in the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
 
-[1]: ../media/machine-learning-data-science-setup-sql-server-virtual-machine/selectsqlvmimg.png
-[2]: ../media/machine-learning-data-science-setup-sql-server-virtual-machine/4vm-config.png
-[3]: ../media/machine-learning-data-science-setup-sql-server-virtual-machine/sqlvmports.png
-[4]: ../media/machine-learning-data-science-setup-sql-server-virtual-machine/vmpostopts.png
-[5]:../media/machine-learning-data-science-setup-sql-server-virtual-machine/searchssms.png
-[6]: ../media/machine-learning-data-science-setup-sql-server-virtual-machine/19connect-to-server.png
-[7]: ../media/machine-learning-data-science-setup-sql-server-virtual-machine/20server-properties.png
-[8]: ../media/machine-learning-data-science-setup-sql-server-virtual-machine/21mixed-mode.png
-[9]: ../media/machine-learning-data-science-setup-sql-server-virtual-machine/22restart2.png
-[10]: ../media/machine-learning-data-science-setup-sql-server-virtual-machine/23new-login.png
-[11]: ../media/machine-learning-data-science-setup-sql-server-virtual-machine/24test-login.png
-[12]: ../media/machine-learning-data-science-setup-sql-server-virtual-machine/25sysadmin.png
-[13]: ../media/machine-learning-data-science-setup-sql-server-virtual-machine/amlreader.png
-[15]: ../media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
+[1]: ./media/setup-sql-server-virtual-machine/selectsqlvmimg.png
+[2]: ./media/setup-sql-server-virtual-machine/4vm-config.png
+[3]: ./media/setup-sql-server-virtual-machine/sqlvmports.png
+[4]: ./media/setup-sql-server-virtual-machine/vmpostopts.png
+[5]:./media/setup-sql-server-virtual-machine/searchssms.png
+[6]: ./media/setup-sql-server-virtual-machine/19connect-to-server.png
+[7]: ./media/setup-sql-server-virtual-machine/20server-properties.png
+[8]: ./media/setup-sql-server-virtual-machine/21mixed-mode.png
+[9]: ./media/setup-sql-server-virtual-machine/22restart2.png
+[10]: ./media/setup-sql-server-virtual-machine/23new-login.png
+[11]: ./media/setup-sql-server-virtual-machine/24test-login.png
+[12]: ./media/setup-sql-server-virtual-machine/25sysadmin.png
+[13]: ./media/setup-sql-server-virtual-machine/amlreader.png
+[15]: ./media/setup-sql-server-virtual-machine/vmshutdown.png
 
