@@ -18,7 +18,7 @@ ms.author: mimig
 ms.custom: mvc
 
 ---
-# Azure Cosmos DB: Create a MEAN.js app - Part 4: Connect to Azure Cosmos DB
+# Azure Cosmos DB: Create a MEAN.js app - Part 4: Create an Azure Cosmos DB account using the Azure CLI
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
