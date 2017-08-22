@@ -62,7 +62,7 @@ Before you can create a Microsoft Data Science Virtual Machine, you must have th
 Here are the steps to create an instance of the Microsoft Data Science Virtual Machine:
 
 1. Navigate to the virtual machine listing on [Azure portal](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
-2. Select the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](../media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
+2. Select the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
 3. The wizard used to create the Microsoft Data Science Virtual Machine requires **inputs** for each of the **five steps** enumerated on the right of this figure. Here are the inputs needed to configure each of these steps:
    
    1. **Basics**

@@ -145,7 +145,7 @@ And then create a decision tree to classify the emails.
 
 Here is the result:
 
-![1](../media/machine-learning-data-science-linux-dsvm-walkthrough/decision-tree.png)
+![1](./media/linux-dsvm-walkthrough/decision-tree.png)
 
 To determine how well it performs on the training set, use the following code:
 
@@ -181,9 +181,9 @@ Let's also try a random forest model. Random forests train a multitude of decisi
 
 To deploy the decision tree code from the previous section, you need to sign in to Azure Machine Learning Studio. You need your workspace ID and an authorization token to sign in. To find these values and initialize the AzureML variables with them:
 
-Select **Settings** on the left-hand menu. Note your **WORKSPACE ID**. ![2](../media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-id.png)
+Select **Settings** on the left-hand menu. Note your **WORKSPACE ID**. ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
 
-Select **Authorization Tokens** from the overhead menu and note your **Primary Authorization Token**.![3](../media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-token.png)
+Select **Authorization Tokens** from the overhead menu and note your **Primary Authorization Token**.![3](./media/linux-dsvm-walkthrough/workspace-token.png)
 
 Load the **AzureML** package and then set values of the variables with your token and workspace ID in your R session on the DSVM:
 

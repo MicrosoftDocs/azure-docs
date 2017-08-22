@@ -56,7 +56,7 @@ For Python, you can use an IDE like Visual Studio Community Edition which has th
 
 Here is what the custom environment setup looks like in Visual Studio.
 
-![PTVS Setup](../media/machine-learning-data-science-vm-do-ten-things/PTVSSetup.png)
+![PTVS Setup](./media/vm-do-ten-things/PTVSSetup.png)
 
 See the [PTVS documentation](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) for additional details on how to create Python Environments.
 
@@ -247,7 +247,7 @@ To download code from a GitHub repository you use the ```git clone``` command. F
 
 In Visual Studio, you can do the same clone operation. The  following screen-shot shows how to access Git and GitHub tools in Visual Studio.
 
-![Git in Visual Studio](../media/machine-learning-data-science-vm-do-ten-things/VSGit.PNG)
+![Git in Visual Studio](./media/vm-do-ten-things/VSGit.PNG)
 
 You can find more information on using Git to work with your GitHub repository from several resources available on github.com. The [cheat sheet](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) is a useful reference.
 
@@ -259,12 +259,12 @@ Azure blob is a reliable, economical cloud storage for data big and small. Let u
 
 * **Create your Azure Blob storage account from [Azure portal](https://portal.azure.com).**
 
-![Create_Azure_Blob](../media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
+![Create_Azure_Blob](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Confirm that the pre-installed command-line AzCopy tool is found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. You can add the directory containing the azcopy.exe to your PATH environment variable to avoid typing the full command path when running this tool. For more info on AzCopy tool please refer to [AzCopy documentation](../storage/storage-use-azcopy.md)
 * Start the Azure Storage Explorer tool. It can be downloaded from [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
 
-![AzureStorageExplorer_v4](../media/machine-learning-data-science-vm-do-ten-things/AzureStorageExplorer_v4.png)
+![AzureStorageExplorer_v4](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
 **Move data from VM to Azure Blob: AzCopy**
 
@@ -274,7 +274,7 @@ To move data between your local files and blob storage, you can use AzCopy in co
 
 Replace **C:\myfolder** to the path where your file is stored, **mystorageaccount** to your blob storage account name, **mycontainer** to the container name, **storage account key** to your blob storage access key. You can find your storage account credentials in [Azure portal](https://portal.azure.com).
 
-![StorageAccountCredential_v2](../media/machine-learning-data-science-vm-do-ten-things/StorageAccountCredential_v2.png)
+![StorageAccountCredential_v2](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
 
 Run AzCopy command in PowerShell or from a command prompt. Here is some example usage of AzCopy command:
 
@@ -289,20 +289,20 @@ Run AzCopy command in PowerShell or from a command prompt. Here is some example 
 
 Once you run your AzCopy command to copy to an Azure blob you see your file shows up in Azure Storage Explorer shortly.
 
-![AzCopy_run_finshed_Storage_Explorer_v3](../media/machine-learning-data-science-vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
+![AzCopy_run_finshed_Storage_Explorer_v3](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
 **Move data from VM to Azure Blob: Azure Storage Explorer**
 
 You can also upload data from the local file in your VM using Azure Storage Explorer:
 
-* To upload data to a container, select the target container and click the **Upload** button.![Upload in Storage Explorer](../media/machine-learning-data-science-vm-do-ten-things/storage-accounts.png)
-* Click on the **...** to the right of the **Files** box, select one or multiple files to upload from the file system and click **Upload** to begin uploading the files.![Upload files to blob](../media/machine-learning-data-science-vm-do-ten-things/upload-files-to-blob.png)
+* To upload data to a container, select the target container and click the **Upload** button.![Upload in Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
+* Click on the **...** to the right of the **Files** box, select one or multiple files to upload from the file system and click **Upload** to begin uploading the files.![Upload files to blob](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 **Read data from Azure Blob: Machine Learning reader module**
 
 In Azure Machine Learning Studio you can use an **Import Data module** to read data from your blob.
 
-![AML_ReaderBlob_Module_v3](../media/machine-learning-data-science-vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
+![AML_ReaderBlob_Module_v3](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 
 **Read data from Azure Blob: Python ODBC**
 
@@ -350,7 +350,7 @@ Then plug in your Azure Blob account credentials and read data from Blob:
 
 The data is read in as a data frame:
 
-![IPNB_data_readin](../media/machine-learning-data-science-vm-do-ten-things/IPNB_data_readin.PNG)
+![IPNB_data_readin](./media/vm-do-ten-things/IPNB_data_readin.PNG)
 
 ### Azure Data Lake
 Azure Data Lake Storage is a hyper-scale repository for big data analytics workloads and compatible with Hadoop Distributed File System (HDFS). It works with both the Hadoop ecosystem and the Azure Data Lake Analytics. We show how you can move data into the Azure Data Lake Store and run analytics using Azure Data Lake Analytics.
@@ -359,17 +359,17 @@ Azure Data Lake Storage is a hyper-scale repository for big data analytics workl
 
 * Create your Azure Data Lake Analytics in [Azure portal](https://portal.azure.com).
 
-![Azure_Data_Lake_Create_v2](../media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
+![Azure_Data_Lake_Create_v2](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
 * The  **Azure Data Lake Tools** in **Visual Studio** found at this  [link](https://www.microsoft.com/download/details.aspx?id=49504) is already installed on the Visual Studio Community Edition which is on the virtual machine. After starting Visual Studio and logging in your Azure subscription, you should see your Azure Data Analytics account and storage in the left panel of Visual Studio.
 
-![Azure_Data_Lake_PlugIn_v2](../media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
+![Azure_Data_Lake_PlugIn_v2](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
 **Move data from VM to Data Lake: Azure Data Lake Explorer**
 
 You can use **Azure Data Lake Explorer** to upload data from the local files in your Virtual Machine to Data Lake storage.
 
-![Azure_Data_Lake_UploadData](../media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
+![Azure_Data_Lake_UploadData](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
 
 You can also build a data pipeline to productionize your data movement to or from Azure Data Lake using the [Azure Data Factory(ADF)](https://azure.microsoft.com/services/data-factory/). We refer you to this [article](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) to guide you through the steps to build the data pipelines.
 
@@ -377,11 +377,11 @@ You can also build a data pipeline to productionize your data movement to or fro
 
 If your data resides in Azure Blob storage, you can directly read data from Azure storage blob in U-SQL query. Before composing your U-SQL query, make sure your blob storage account is linked to your Azure Data Lake. Go to **Azure portal**, find your Azure Data Lake Analytics dashboard, click **Add Data Source**, select storage type to **Azure Storage** and plug in your Azure Storage Account Name and Key. Then you are able to reference the data stored in the storage account.
 
-![Enter storage account and key](../media/machine-learning-data-science-vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
+![Enter storage account and key](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 In Visual Studio, you can read data from blob storage, do some data manipulation, feature engineering, and output the resulting data to either Azure Data Lake or Azure Blob Storage. When you reference the data in blob storage, use **wasb://**; when you reference the data in Azure Data Lake, use **swbhdfs://**
 
-![Data frame](../media/machine-learning-data-science-vm-do-ten-things/USQL_Read_Blob_v2.PNG)
+![Data frame](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 You may use the following U-SQL queries in Visual Studio:
 
@@ -427,7 +427,7 @@ You may use the following U-SQL queries in Visual Studio:
 
 After your query is submitted to the server, a diagram showing the status of your job is displayed.
 
-![Job status diagram](../media/machine-learning-data-science-vm-do-ten-things/USQL_Job_Status.PNG)
+![Job status diagram](./media/vm-do-ten-things/USQL_Job_Status.PNG)
 
 **Query data in Data Lake: U-SQL**
 
@@ -435,11 +435,11 @@ After the dataset is ingested into Azure Data Lake, you can use [U-SQL language]
 
 After the query is submitted to server, tripdata_summary.CSV can be found shortly in **Azure Data Lake Explorer**, you may preview the data by right-click the file.
 
-![File in Azure Data Lake Explorer](../media/machine-learning-data-science-vm-do-ten-things/USQL_create_summary.png)
+![File in Azure Data Lake Explorer](./media/vm-do-ten-things/USQL_create_summary.png)
 
 To see the file information:
 
-![File summary](../media/machine-learning-data-science-vm-do-ten-things/USQL_tripdata_summary.png)
+![File summary](./media/vm-do-ten-things/USQL_tripdata_summary.png)
 
 ### HDInsight Hadoop Clusters
 Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on the cloud. You can work easily with Azure HDInsight clusters from the data science virtual machine.
@@ -448,25 +448,25 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
 
 * Create your Azure Blob storage account from [Azure portal](https://portal.azure.com). This storage account is used to store data for HDInsight clusters.
 
-![Create Azure Blob storage account](../media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
+![Create Azure Blob storage account](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Customize Azure HDInsight Hadoop Clusters from [Azure portal](data-science-customize-hadoop-cluster.md)
   
   * You must link the storage account created with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
 
-![Link to storage account created with HDInsight cluster](../media/machine-learning-data-science-vm-do-ten-things/Create_HDI_v4.PNG)
+![Link to storage account created with HDInsight cluster](./media/vm-do-ten-things/Create_HDI_v4.PNG)
 
 * You must enable **Remote Access** to the head node of the cluster after it is created. Remember the remote access credentials you specify here (different from those specified for the cluster at its creation): you need them in the subsequent procedure.
 
-![Enable remote access](../media/machine-learning-data-science-vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
+![Enable remote access](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
 * Create an Azure Machine Learning workspace. Your Machine Learning Experiments are stored in this Machine Learning workspace. Select the highlighted options in Portal as shown in the following screenshot:
 
-![Create an Azure Machine Learning workspace](../media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space.PNG)
+![Create an Azure Machine Learning workspace](./media/vm-do-ten-things/Create_ML_Space.PNG)
 
 * Then enter the parameters for your workspace
 
-![Enter Machine Learning workspace parameters](../media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space_step2_v2.PNG)
+![Enter Machine Learning workspace parameters](./media/vm-do-ten-things/Create_ML_Space_step2_v2.PNG)
 
 * Upload data using IPython Notebook. First import required packages, plug in credentials, create a db in your storage account, then load data to HDI clusters.
 
@@ -577,7 +577,7 @@ Since the data is in Hadoop cluster, you can use the pyodbc package to connect t
     pd.read_sql(queryString,connection)
 
 
-![View existing tables](../media/machine-learning-data-science-vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
+![View existing tables](./media/vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
 
 Let's look at the number of records in each month and the frequencies of tipped or not in the trip table:
 
@@ -594,7 +594,7 @@ Let's look at the number of records in each month and the frequencies of tipped 
     df['trip_count'].plot(kind='bar')
 
 
-![Plot of number of records in each month](../media/machine-learning-data-science-vm-do-ten-things/Exploration_Number_Records_by_Month_v3.PNG)
+![Plot of number of records in each month](./media/vm-do-ten-things/Exploration_Number_Records_by_Month_v3.PNG)
 
     queryString = """
         SELECT tipped, COUNT(*) AS tip_freq
@@ -613,7 +613,7 @@ Let's look at the number of records in each month and the frequencies of tipped 
     df['trip_count'].plot(kind='bar')
 
 
-![Plot of tip frequencies](../media/machine-learning-data-science-vm-do-ten-things/Exploration_Frequency_tip_or_not_v3.PNG)
+![Plot of tip frequencies](./media/vm-do-ten-things/Exploration_Frequency_tip_or_not_v3.PNG)
 
 We can also compute the distance between pickup location and dropoff location and then compare it to the trip distance.
 
@@ -636,7 +636,7 @@ We can also compute the distance between pickup location and dropoff location an
     results.head(5)
 
 
-![Pickup and dropoff table](../media/machine-learning-data-science-vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
+![Pickup and dropoff table](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
 
     results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
                        'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
@@ -645,7 +645,7 @@ We can also compute the distance between pickup location and dropoff location an
     plt.scatter(df['direct_distance'], df['trip_distance'])
 
 
-![Plot of pickup/dropoff distance to trip distance](../media/machine-learning-data-science-vm-do-ten-things/Exploration_direct_distance_trip_distance_v2.PNG)
+![Plot of pickup/dropoff distance to trip distance](./media/vm-do-ten-things/Exploration_direct_distance_trip_distance_v2.PNG)
 
 Now let's prepare a down-sampled (1%) set of data for modeling. We can use this data in Machine Learning reader module.
 
@@ -780,17 +780,17 @@ After a while, you can see the data has been loaded in Hadoop clusters:
     pd.read_sql(queryString,connection)
 
 
-![Table of data](../media/machine-learning-data-science-vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
+![Table of data](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
 **Read data from HDI using Machine Learning: reader module**
 
 You may also use the **reader** module in Machine Learning Studio to access the database in Hadoop cluster. Plug in the credentials of your HDI clusters and Azure Storage Account to enable build ing machine learning models using database in HDI clusters.
 
-![Reader module properties](../media/machine-learning-data-science-vm-do-ten-things/AML_Reader_Hive.PNG)
+![Reader module properties](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
 
 The scored dataset can then be viewed:
 
-![View scored dataset](../media/machine-learning-data-science-vm-do-ten-things/AML_Model_Results.PNG)
+![View scored dataset](./media/vm-do-ten-things/AML_Model_Results.PNG)
 
 ### Azure SQL Data Warehouse & databases
 Azure SQL Data Warehouse is an elastic data warehouse as a service with enterprise-class SQL Server experience.
@@ -838,11 +838,11 @@ Instead of preceding steps, you can paste the following code that scripts out th
 
 You now have the data in your Power BI data model. Your Power BI desktop should appear as follows:
 
-![Power BI desktop](../media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
+![Power BI desktop](./media/vm-do-ten-things/PowerBIVolcanoData.png)
 
 You can start building reports and visualizations using the data model. You can follow the steps in this [Power BI article](../cosmos-db/powerbi-visualize.md#build-the-reports) to build a report. The end result is a report that looks like the following.
 
-![Power BI Desktop Report View - Power BI connector](../media/machine-learning-data-science-vm-do-ten-things/power_bi_connector_pbireportview2.png)
+![Power BI Desktop Report View - Power BI connector](./media/vm-do-ten-things/power_bi_connector_pbireportview2.png)
 
 ## 9. Dynamically scale your DSVM to meet your project needs
 You can scale up and down the DSVM to meet your project needs. If you don't need to use the VM in the evening or weekends, you can just shut down the VM from the [Azure portal](https://portal.azure.com).
@@ -856,7 +856,7 @@ If you need to handle some large-scale analysis and need more CPU and/or memory 
 
 Similarly, if your need for VM processing capacity reduces (for example: you moved a major workload to a Hadoop or a Spark cluster), you can scale down the cluster from the [Azure portal](https://portal.azure.com) and going to the settings of your VM instance. Here is a screenshot.
 
-![VM instance settings](../media/machine-learning-data-science-vm-do-ten-things/VMScaling.PNG)
+![VM instance settings](./media/vm-do-ten-things/VMScaling.PNG)
 
 ## 10. Install additional tools on your virtual machine
 We have packaged several tools that we believe are able to address many of the common data analytics needs and that should save you time by avoiding having to install and configure your environments one by one and save you money by paying only for resources that you use.
