@@ -43,42 +43,27 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 When deploying an Azure Container Registry, you first need a resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region.
+Create a resource group with the [az group create](/cli/azure/group#create) command. In this example, a resource group named *myResourceGroup* is created in the *westeurope* region.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westeurope
 ```
 
-Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**. In the following example, we use the name myContainerRegistry007.
+Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic --admin-enabled true
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
 ```
 
 Throughout the rest of this tutorial, we use "acrname" as a placeholder for the container registry name that you chose.
 
-## Get registry information 
-
-Once the ACR instance has been created, the name, login server name, and authentication password are needed. The following code returns each of these values. Note each value down, they are referenced throughout this tutorial.  
-
-Container registry login server (update with your registry name):
-
-```azurecli-interactive
-az acr show --name <acrName> --query loginServer
-```
-
-Container registry password:
-
-```azurecli-interactive
-az acr credential show --name <acrName> --query passwords[0].value
-```
-
 ## Container registry login
 
-You must log in to your ACR instance before pushing images to it. Use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command to complete the operation. When running docker login, you need to provide th ACR login server name and ACR credentials.
+You must log in to your ACR instance before pushing images to it. Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) command to complete the operation. You need to provide the unique name given to the container registry when it was created. In the following example, we use the name myContainerRegistry007.
+
 
 ```bash
-docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
+az acr login --name myContainerRegistry007
 ```
 
 The command returns a 'Login Succeeded’ message once completed.
@@ -87,7 +72,13 @@ The command returns a 'Login Succeeded’ message once completed.
 
 Each container image needs to be tagged with the loginServer name of the registry. This tag is used for routing when pushing container images to an image registry.
 
-To see a list of current images, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
+To get the loginServer name, run the following command.
+
+```azurecli-interactive
+az acr show --name <acrName> --query loginServer
+```
+
+Now, tag a container image to be uploaded to the container registry. To see a list of current images, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
 
 ```bash
 docker images
