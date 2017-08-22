@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/23/2017
+ms.date: 08/22/2017
 ms.author: denlee
 
 ---
