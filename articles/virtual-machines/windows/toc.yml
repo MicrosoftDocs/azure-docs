@@ -58,7 +58,7 @@
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Storage
-    href: azure-vm-storage-overview.md
+    href: about-disks-and-vhds.md
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
