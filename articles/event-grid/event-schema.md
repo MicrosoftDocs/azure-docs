@@ -138,7 +138,7 @@ This sample event shows the schema of an Event Hubs event raised when Capture st
     {
         "topic": "/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{event-hubs-ns}",
         "subject": "eventhubs/eh1",
-        "eventType": "captureFileCreated",
+        "eventType": "Microsoft.EventHub.CaptureFileCreated",
         "eventTime": "2017-07-11T00:55:55.0120485Z",
         "id": "bd440490-a65e-4c97-8298-ef1eb325673c",
         "data": {
