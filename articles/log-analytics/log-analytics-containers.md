@@ -1,6 +1,6 @@
 ---
-title: Containers Monitoring solution in Azure Log Analytics | Microsoft Docs
-description: The Containers Monitoring solution in Log Analytics helps you view and manage your Docker and Windows container hosts in a single location.
+title: Container Monitoring solution in Azure Log Analytics | Microsoft Docs
+description: The Container Monitoring solution in Log Analytics helps you view and manage your Docker and Windows container hosts in a single location.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
@@ -16,13 +16,13 @@ ms.date: 08/18/2017
 ms.author: magoedte;banders
 
 ---
-# Containers Monitoring solution in Log Analytics
+# Container Monitoring solution in Log Analytics
 
 ![Containers symbol](./media/log-analytics-containers/containers-symbol.png)
 
-This article describes how to set up and use the Containers Monitoring solution in Log Analytics, which helps you view and manage your Docker and Windows container hosts in a single location. Docker is a software virtualization system used to create containers that automate software deployment to their IT infrastructure.
+This article describes how to set up and use the Container Monitoring solution in Log Analytics, which helps you view and manage your Docker and Windows container hosts in a single location. Docker is a software virtualization system used to create containers that automate software deployment to their IT infrastructure.
 
-With the solution, you can see which containers are running on your container hosts and what images are running in the containers. The solution shows which containers are running, what container image they’re running, and where containers are running. You can view detailed audit information showing commands used with containers. And, you can troubleshoot containers by viewing and searching centralized logs without having to remotely view Docker or Windows hosts. You can find containers that may be noisy and consuming excess resources on a host. And, you can view centralized CPU, memory, storage, and network usage and performance information for containers. On computers running Windows, you can centralize and compare logs from Windows Server, Hyper-V, and Docker containers. The solution supports the following container orchestrators:
+The solution shows which containers are running, what container image they’re running, and where containers are running. You can view detailed audit information showing commands used with containers. And, you can troubleshoot containers by viewing and searching centralized logs without having to remotely view Docker or Windows hosts. You can find containers that may be noisy and consuming excess resources on a host. And, you can view centralized CPU, memory, storage, and network usage and performance information for containers. On computers running Windows, you can centralize and compare logs from Windows Server, Hyper-V, and Docker containers. The solution supports the following container orchestrators:
 
 - Docker Swarm
 - DC/OS
@@ -81,12 +81,12 @@ The following table outlines the Docker orchestration and operating system monit
 ### Docker versions supported on Windows
 
 - Docker 1.12 and 1.13
-- Docker 17.03.0
+- Docker 17.03.0 and later
 
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
-1. Add the Containers Monitoring solution to your OMS workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+1. Add the Container Monitoring solution to your OMS workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
 2. Install and use Docker with an OMS agent.  Based on your operating system, you can choose from the following methods:
 
@@ -424,7 +424,7 @@ To enable Windows and Hyper-V container monitoring, install the Microsoft Monito
 
 You can monitor Windows containers running on Service Fabric. However, only [virtual machines running in Azure](log-analytics-azure-vm-extension.md) and [computers running Windows in your on-premises environment](log-analytics-windows-agents.md) are currently supported for Service Fabric.
 
-You can verify that the Containers Monitoring solution is set correctly for Windows. To check whether the management pack was download properly, look for *ContainerManagement.xxx*. The files should be in the C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs folder.
+You can verify that the Container Monitoring solution is set correctly for Windows. To check whether the management pack was download properly, look for *ContainerManagement.xxx*. The files should be in the C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs folder.
 
 
 ## Solution components
@@ -433,8 +433,8 @@ If you are using Windows agents, then the following management pack is installed
 
 - *ContainerManagement.xxx* installed in C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs
 
-## Containers data collection details
-The Containers Monitoring solution collects various performance metrics and log data from container hosts and containers using agents that you enable.
+## Container data collection details
+The Container Monitoring solution collects various performance metrics and log data from container hosts and containers using agents that you enable.
 
 Data is collected every three minutes by the following agent types.
 
@@ -445,22 +445,25 @@ Data is collected every three minutes by the following agent types.
 
 ### Container records
 
-The following table shows examples of records collected by the Containers Monitoring solution and the data types that appear in log search results.
+The following table shows examples of records collected by the Container Monitoring solution and the data types that appear in log search results.
 
 | Data type | Data type in Log Search | Fields |
 | --- | --- | --- |
 | Performance for hosts and containers | `Type=Perf` | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
-| Container inventory | `Type=ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContinerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
+| Container inventory | `Type=ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
 | Container image inventory | `Type=ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
 | Container log | `Type=ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
 | Container service log | `Type=ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
 | Container node inventory | `Type=ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
 | Kubernetes inventory | `Type=KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
-| Container process | `Type=ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, StartTime_s, Cmd_s, Id_s, Name_s, SourceSystem |
+| Container process | `Type=ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
 | Kubernetes events | `Type=KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, Message |
 
+Labels appended to *PodLabel* data types are your own custom labels. The appended PodLabel labels shown in the table are examples. So, `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` will differ in your environment's data set and generically resemble `PodLabel_yourlabel_s`.
+
+
 ## Monitor containers
-After you have the solution enabled in the OMS portal, you'll see the **Containers** tile showing summary information about your container hosts and the containers running in hosts.
+After you have the solution enabled in the OMS portal, the **Containers** tile shows summary information about your container hosts and the containers running in hosts.
 
 ![Containers tile](./media/log-analytics-containers/containers-title.png)
 
@@ -471,12 +474,12 @@ Click the **Containers** tile. From there you'll see views organized by:
 
 - **Container Events** - Shows container status and computers with failed containers.
 - **Container Logs** - Shows a chart of container log files generated over time and a list of computers with the highest number of log files.
-- **Kubernetes Events** - Shows a chart of Kubernetes events generated over time and a list of the reasons why pods generated the events.
-- **Kubernetes Namespace Inventory** - Shows the number of namespaces and pods and shows their hierarchy.
-- **Container Node Inventory** - Shows the number of orchestration types used on container nodes/hosts. The computer nodes/hosts are also listed by the number of containers.
+- **Kubernetes Events** - Shows a chart of Kubernetes events generated over time and a list of the reasons why pods generated the events. *This data set is used only in Linux environments.*
+- **Kubernetes Namespace Inventory** - Shows the number of namespaces and pods and shows their hierarchy. *This data set is used only in Linux environments.*
+- **Container Node Inventory** - Shows the number of orchestration types used on container nodes/hosts. The computer nodes/hosts are also listed by the number of containers. *This data set is used only in Linux environments.*
 - **Container Images Inventory** - Shows the total number of container images used and number of image types. The number of images are also listed by the image tag.
 - **Containers Status** - Shows the total number of container nodes/host computers that have running containers. Computers are also listed by the number of running hosts.
-- **Container Process** - Shows a line chart of container processes running over time. Containers are also listed by running command/process within containers.
+- **Container Process** - Shows a line chart of container processes running over time. Containers are also listed by running command/process within containers. *This data set is used only in Linux environments.*
 - **Container CPU Performance** - Shows a line chart of the average CPU utilization over time for computer nodes/hosts. Also lists the computer nodes/hosts based on average CPU utilization.
 - **Container Memory Performance** - Shows a line chart of memory usage over time. Also lists computer memory utilization based on instance name.
 - **Computer Performance** - Shows line charts of the percent of CPU performance over time, percent of memory usage over time, and megabytes of free disk space over time. You can hover over any line in a chart to view more details.
@@ -530,7 +533,7 @@ When you're troubleshooting a specific error, it can help to see where it is occ
 * Choose an image that you know has failed recently and find the error logs for it. Start by finding a container name that is running that image with a **ContainerInventory** search. For example, search for `Type=ContainerInventory ubuntu Failed`  
     ![Search for Ubuntu containers](./media/log-analytics-containers/search-ubuntu.png)
 
-  Note the name of the container next to **Name**, and search for those logs. In this example, it is `Type=ContainerLog cranky_stonebreaker`.
+  The name of the container next to **Name**, and search for those logs. In this example, it is `Type=ContainerLog cranky_stonebreaker`.
 
 **View performance information**
 
