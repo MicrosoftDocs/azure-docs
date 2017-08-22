@@ -152,7 +152,7 @@ http://<your web app name>.azurewebsites.net
 > While the app is restarting, attempting to browse the site results in an HTTP status code `Error 503 Server unavailable`. It may take a few minutes to fully restart.
 >
 
-[!INCLUDE [Clean-up section](../../includes/cli-script-cleanup.md)]
+[!INCLUDE [Clean-up section](../../includes/cleanup-section-cli.md)]
 
 ## Next steps
 
