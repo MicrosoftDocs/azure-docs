@@ -42,12 +42,16 @@ The steps in the next section describe how to configure Redis persistence on you
 
 ## Enable Redis persistence
 
+When RDB (Redis database) persistence is configured, Azure Redis Cache persists a snapshot of the Redis cache in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot.
+
 Redis persistence is enabled on the **Redis data persistence** blade by choosing either **RDB** or **AOF** persistence. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Redis data persistence** blade is accessed from the **Resource menu** for your cache.
 
 ![Redis settings][redis-cache-settings]
 
 
 ## Configure RDB persistence
+
+When AOF persistence is cofigured, Azure Redis Cache saves every write operation to a log, that is saved at least once per second into an Azure Storage account. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the stored write operations.
 
 To enable RDB persistence, click **RDB**. To disable RDB persistence on a previously enabled premium cache, click **Disabled**.
 
@@ -82,13 +86,13 @@ The following list contains answers to commonly asked questions about Azure Redi
 * [Can I enable persistence on a previously created cache?](#can-i-enable-persistence-on-a-previously-created-cache)
 * [Which persistence model should I choose?](#which-persistence-model-should-i-choose)
 
-### RDB persistence FAQs
+### RDB persistence FAQ
 * [Can I change the RDB backup frequency after I create the cache?](#can-i-change-the-rdb-backup-frequency-after-i-create-the-cache)
 * [Why if I have an RDB backup frequency of 60 minutes there is more than 60 minutes between backups?](#why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups)
 * [What happens to the old RDB backups when a new backup is made?](#what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made)
 * [What happens if I have scaled to a different size and a backup is restored that was made before the scaling operation?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 
-### AOF persistence FAQs
+### AOF persistence FAQ
 * [When should I use a second storage account?](#when-should-i-use-a-second-storage-account)
 * [Does AOF persistence affect throughout, latency, or performance of my cache?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)
 * [How can I remove the second storage account?](#how-can-i-remove-the-second-storage-account)
