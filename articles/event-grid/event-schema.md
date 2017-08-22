@@ -57,7 +57,7 @@ Azure subscriptions can now emit management events from Azure Resource Manager s
 ```json
 [
     {
-    "topic":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}",
+    "topic":"/subscriptions/{subscription-id}",
     "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
     "eventType":"Microsoft.Resources.ResourceWriteSuccess",
     "eventTime":"2017-08-16T03:54:38.2696833Z",
