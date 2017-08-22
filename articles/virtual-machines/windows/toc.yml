@@ -39,7 +39,9 @@
     href: tutorial-azure-security.md
   - name: 12 - Team Services CI/CD
     href: tutorial-vsts-iis-cicd.md
-  - name: 13 - Secure web server with SSL
+  - name: 13 - Instlal a SQL, IIS,.NET Core stack
+    href: tutorial-iis-sql.md
+  - name: 14 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
