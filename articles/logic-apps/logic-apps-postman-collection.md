@@ -13,15 +13,18 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 09/1/2017
 ms.author: LADocs; estfan
 ---
 
 # Describe custom connectors with Postman for logic apps
 
-[Postman](https://www.getpostman.com/) makes your API development faster and easier. 
+[Postman](https://www.getpostman.com/) makes API development faster and easier. 
 This tutorial shows how to create a [Postman collection](https://www.getpostman.com/docs/postman/collections/creating_collections) 
-by using the Azure Cognitive Services [Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/) as our example. This API identifies the language, sentiment, and key phrases in the text that you pass to this API. You can then use your Postman collection to easily create [custom connectors](../logic-apps/logic-apps-register-custom-api-connector.md) 
+by using the Azure Cognitive Services [Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/) as an example. 
+This API identifies the language, sentiment, and key phrases in text that you pass 
+to the API. You can then use your Postman collection to easily create 
+[custom connectors](../logic-apps/logic-apps-register-custom-api-connector.md) 
 for Azure Logic Apps.
 
 ## Prerequisites
@@ -29,12 +32,18 @@ for Azure Logic Apps.
 * If you're new to Postman, 
 [install the Postman app](https://www.getpostman.com/apps).
 
-* A [Cogntive Services account]. Learn how to get started with 
-the [Text Analytics APIs](../cognitive-services/text-analytics/quick-start.md).
+* An Azure subscription. If you don't have a subscription, 
+you can start with a [free Azure account](https://azure.microsoft.com/free/). 
+Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
+
+* If you have an Azure subscription, sign up for the Text Analytics APIs by following the 
+[Task 1 steps here](../cognitive-services/text-analytics/quick-start.md). 
 
 ## Create a Postman collection
 
-Postman collections help you organize and group related API requests.
+Postman collections help you organize and group related API requests. 
+Before you can create a collection, create an HTTP request for your API. 
+For this tutorial, the example uses the [Detect Language API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
 ### Create an HTTP request for your API
 
@@ -46,7 +55,7 @@ for your API endpoint. For more information, see the Postman's [Requests documen
    and select an authorization protocol, if any. 
    When you're ready, choose **Params**.
 
-      For example, use these settings for this tutorial:
+      For this tutorial, you can use these settings in this example:
 
       ![Create request: "HTTP method", "Request URL", "Authorization"](./media/logic-apps-postman-collection/01-create-api-http-request.png)
 
@@ -68,7 +77,7 @@ for your API endpoint. For more information, see the Postman's [Requests documen
       |**Params**|**Key**: "numberOfLanguagesToDetect" </br>**Value**: "1"| 
       ||| 
 
-   3. Now you can enter key-value pairs for the request header. 
+   3. Enter key-value pairs for the request header. 
    For the header name, enter any string you want. For common HTTP headers, 
    you can select from the dropdown list. When you're done, choose **Body**. 
    
@@ -152,4 +161,5 @@ After you export the collection, import the JSON file. **APPLIES TO LOGIC APPS?*
 For more information, see [Register and use custom APIs (connectors) in Logic Apps](../logic-apps/logic-apps-register-custom-api-connector.md).
 
 ## Next steps
+
 
