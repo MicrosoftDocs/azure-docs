@@ -46,7 +46,7 @@ Event subscriptions can include 2 types of Blob Storage events:
 
 ## Event Schema
 Blob Storage events contain all the information you need to respond to changes in your data.  You can identify a Blob Storage event because the eventType property will start with “Microsoft.Storage”.  
-Additional information about the usage of Event Grid event properties is documented here.  
+Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema]((../../event-grid/event-schema#azure-blob-storage)).  
 
 > [!div class="mx-tdBreakAll"]
 > |Field|Field JSON Datatype|Description|
