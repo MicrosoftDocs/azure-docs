@@ -119,7 +119,7 @@ Extension properties exist only in the context of a registered  Application in t
    </TechnicalProfile>
  </RelyingParty>
  ```
-3. Add a claim definition to the Extension policy file  `TrustFrameworkExtensions.xml` inside the ``<ClaimsSchema>`` element as follows:
+3. Add a claim definition to the Extension policy file  `TrustFrameworkExtensions.xml` inside the ``<ClaimsSchema>`` element as shown.
 ```xml
 <ClaimsSchema>
 		<ClaimType Id="extension_loyaltyId">
@@ -130,7 +130,7 @@ Extension properties exist only in the context of a registered  Application in t
 		</ClaimType>
 </ClaimsSchema>
 ```
-4. Add the same claim definition to the Base policy file `TrustFrameworkBase.xml` .  
+4. Add the same claim definition to the Base policy file `TrustFrameworkBase.xml`.  
 >[!NOTE]
 >Adding a `ClaimType` definition in both the base and the extensions file is normally not necessary, however since the next steps will add the extension_loyaltyId to TechnicalProfiles in the Base file, the policy validator will reject the upload of the base file without it.
 >[!NOTE]
@@ -196,6 +196,7 @@ Extension properties exist only in the context of a registered  Application in t
         </TechnicalProfile>
 ```
 7. Add claim in TechnicalProfile "AAD-UserReadUsingObjectId" to read the value of the extension attribute every time a user logs in. Thus far the TechnicalProfiles have been changed in the flow of local accounts only.  If the new attribute is desired in the flow of a social/federated account, a different set of TechnicalProfiles needs to be changed. See Next Steps.
+
 ```xml
 <!-- The following technical profile is used to read data after user authenticates. -->
      <TechnicalProfile Id="AAD-UserReadUsingObjectId">
