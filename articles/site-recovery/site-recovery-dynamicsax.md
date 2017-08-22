@@ -155,10 +155,7 @@ Refer to ‘AD DR Solution ’ and ‘SQL Server DR solution ’ companion guide
 3.	Click on ‘Test Failover’.
 4.	Select the virtual network to start the test fail-over process.
 5.	Once the secondary environment is up, you can perform your validations.
-6.	Once the validations are complete, you can select ‘Validations complete’ and the test failover environment will 
-7.	
-8.	
-9.	be cleaned.
+6.	Once the validations are complete, you can select ‘Validations complete’ and the test failover environment will be cleaned.
 
 Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test failover.
 

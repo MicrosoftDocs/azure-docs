@@ -8,7 +8,7 @@ manager: srinathv
 editor: ''
 
 ms.assetid:
-ms.service: site-recovery- Push installation
+ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -52,7 +52,7 @@ Allow “File and Printer Sharing” and "Windows Management Instrumentation" on
 #### If Source machine is Domain Joined: </br>
 Configure firewall settings using Group Policy Management Console (GPMC).
 1. Login to Active directory domain machine as administrator and open Group Policy Management Console (GPMC.MSC, run from a Start > Run).</br>
-3. If GPMC is not installed, follow the link to [Install the GPMC](https://technet.microsoft.com/en-us/library/cc725932.aspx) </br>
+3. If GPMC is not installed, follow the link to [Install the GPMC](https://technet.microsoft.com/library/cc725932.aspx) </br>
 4. In the GPMC console tree, double-click Group Policy Objects in the forest and domain and navigate to “Default Domain Policy”. </br>
 ![gpmc1](./media/site-recovery-protection-common-errors/gpmc1.png) </br>
 </br>
@@ -143,10 +143,10 @@ Input the credentials of the account used for protection and check if connectivi
   ![Fileshare2](./media/site-recovery-protection-common-errors/fileshare2.png) </br>
   3. If connection is successful, you can view the folders of source machine remotely from Process Server (PS) </br>
   ![Fileshare3](./media/site-recovery-protection-common-errors/fileshare3.png) </br>
-  Note: If connection is unsuccessful, please check whether all pre-requisites are met. </br>
+> [!NOTE] If connection is unsuccessful, please check whether all pre-requisites are met. </br>
 
 
-**Note** - If you don’t want to open “Windows Management Instrumentation”, you can also install mobility service manually on the source machine.</br> [Install Mobility Service manually through GUI](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui) </br>
+If you don’t want to open “Windows Management Instrumentation”, you can also install mobility service manually on the source machine.</br> [Install Mobility Service manually through GUI](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui) </br>
 [Installation through configuration manager guidance](site-recovery-install-mobility-service-using-sccm.md) </br>
 
 ## Next steps
