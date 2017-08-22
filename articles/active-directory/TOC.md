@@ -10,6 +10,7 @@
 ## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
 ## [Add a custom domain name](add-custom-domain.md)
 ## [Configure company branding](customize-branding.md)
+## [Add users to Azure AD](add-users-azure-active-directory.md)
 ## [Assign licenses to users](license-users-groups.md)
 ## [Configure Self-service password reset](active-directory-passwords-getting-started.md)
 
@@ -36,11 +37,6 @@
 #### [Tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Manage users
-### Add users
-#### [Azure portal](active-directory-users-create-azure-portal.md)
-#### [Classic portal](active-directory-create-users.md)
-
-
 ### [Assign licenses using groups](active-directory-licensing-whatis-azure-portal.md)
 #### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)

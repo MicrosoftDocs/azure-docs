@@ -19,7 +19,7 @@ ms.author: muralikk
 ---
 # Using the Azure Import/Export service REST API
 
-The Microsoft Azure Import/Export service exposes a REST API to enable programmatic control of import/export jobs. You can use the REST API to perform all of the import/export operations that you can perform with the [Azure portal](https://portal.azure.com/). Additionally, you can use the REST API to perform certain granular operations, such as querying the percentage completion of a job, which are not currently available in the classic portal.
+The Microsoft Azure Import/Export service exposes a REST API to enable programmatic control of import/export jobs. You can use the REST API to perform all of the import/export operations that you can perform with the [Azure portal](https://portal.azure.com/). Additionally, you can use the REST API to perform certain granular operations, such as querying the percentage completion of a job, which is not currently available in the Azure classic portal.
 
 See [Using the Microsoft Azure Import/Export service to Transfer Data to Blob Storage](../storage-import-export-service.md) for an overview of the Import/Export service and a tutorial that demonstrates how to use the classic portal to create and manage import and export jobs.
 
@@ -45,7 +45,7 @@ Requests to the Import/Export service must specify the `api-version` parameter a
 
 [Enumerating jobs](../storage-import-export-enumerating-jobs.md)
 
-[Cancelling and deleting jobs](../storage-import-export-cancelling-and-deleting-jobs.md)
+[Cancelling and deleting jobs](storage-import-export-cancelling-and-deleting-jobs.md)
 
 [Backing Up drive manifests](../storage-import-export-backing-up-drive-manifests.md)
 
