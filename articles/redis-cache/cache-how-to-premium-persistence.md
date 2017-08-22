@@ -87,13 +87,13 @@ The following list contains answers to commonly asked questions about Azure Redi
 * [Can I enable AOF and RDB persistence at the same time?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
 * [Which persistence model should I choose?](#which-persistence-model-should-i-choose)
 
-### RDB persistence FAQ
+### RDB persistence
 * [Can I change the RDB backup frequency after I create the cache?](#can-i-change-the-rdb-backup-frequency-after-i-create-the-cache)
 * [Why if I have an RDB backup frequency of 60 minutes there is more than 60 minutes between backups?](#why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups)
 * [What happens to the old RDB backups when a new backup is made?](#what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made)
 * [What happens if I have scaled to a different size and a backup is restored that was made before the scaling operation?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 
-### AOF persistence FAQ
+### AOF persistence
 * [When should I use a second storage account?](#when-should-i-use-a-second-storage-account)
 * [Does AOF persistence affect throughout, latency, or performance of my cache?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)
 * [How can I remove the second storage account?](#how-can-i-remove-the-second-storage-account)
