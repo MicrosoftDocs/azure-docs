@@ -26,8 +26,8 @@ ms.author: aelnably
 Using the commands in this article you are able to create and manage a Web App on Linux using Azure CLI 2.0.
 You can start using the new version of the CLI in two ways:
 
-1. [Installing Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine.
-2. Using [Azure Cloud Shell (Preview)](../cloud-shell/overview.md)
+* [Installing Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine.
+* Using [Azure Cloud Shell (Preview)](../cloud-shell/overview.md)
 
 
 ## Create a Linux App Service Plan
