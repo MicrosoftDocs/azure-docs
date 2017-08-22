@@ -53,7 +53,7 @@ Remove-ServiceFabricComposeApplication  -ApplicationName fabric:/TestContainerAp
 
 ### Use Azure Service Fabric CLI (sfctl)
 
-Alternatively, you can use the following Azure CLI command:
+Alternatively, you can use the following Service Fabric CLI command:
 
 ```azurecli
 sfctl compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]

@@ -115,8 +115,9 @@ Some suggestions and tips for solving common issues.
 
 ### Convert a certificate from PFX to PEM format
 
-Azure CLI supports client-side certificates as PEM (.pem extension) files. If you use PFX files from Windows, you must
-convert those certificates to PEM format. To convert a PFX file to a PEM file, use the following command:
+The Service Fabric CLI supports client-side certificates as PEM (.pem extension) files. If you use PFX files from
+Windows, you must convert those certificates to PEM format. To convert a PFX file to a PEM file, use the
+following command:
 
 ```bash
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes

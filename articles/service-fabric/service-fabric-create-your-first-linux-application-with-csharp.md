@@ -89,8 +89,6 @@ Once the application is built, you can deploy it to the local cluster.
     ./install.sh
     ```
 
-### More on Azure CLI 2.0
-
 Deploying the built application is the same as any other Service Fabric application. See the documentation on
 [managing a Service Fabric application with the Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md) for
 detailed instructions.
