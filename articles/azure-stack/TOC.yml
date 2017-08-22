@@ -91,6 +91,8 @@
     items:
     - name: Create plans, offers, and quotas
       items:
+      - name: Plan, offer, quota, and subscription overview
+        href: azure-stack-plan-offer-quota-overview.md
       - name: Set quotas
         href: azure-stack-setting-quotas.md
       - name: Create a plan
