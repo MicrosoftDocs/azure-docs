@@ -86,7 +86,7 @@ configurations {
 
 dependencies {
     compile project(':Interface')
-    azuresf ('com.microsoft.azure.servicefabric:actors-preview:1.0.0')
+    azuresf ('com.microsoft.servicefabric:sf-services-preview:0.10.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
@@ -159,7 +159,7 @@ configurations {
 }
 
 dependencies {
-    azuresf ('com.microsoft.azure.servicefabric:actors-preview:1.0.0')
+    azuresf ('com.microsoft.servicefabric:sf-actors-preview:0.10.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
@@ -232,7 +232,7 @@ configurations {
 
 dependencies {
     compile project(':MyactorInterface')
-    azuresf ('com.microsoft.azure.servicefabric:actors-preview:1.0.0')
+    azuresf ('com.microsoft.servicefabric:sf-actors-preview:0.10.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
@@ -332,7 +332,7 @@ configurations {
 
 dependencies {
     compile project(':MyactorInterface')
-    azuresf ('com.microsoft.azure.servicefabric:actors-preview:1.0.0')
+    azuresf ('com.microsoft.servicefabric:sf-actors-preview:0.10.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
