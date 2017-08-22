@@ -86,11 +86,10 @@ In this section, you use a Resource Manager template to add an edge node to an e
    * **Edge Node Size**: Select one of the VM sizes. The vm size must meet the worker node vm size requirements. For the recommended worker node vm sizes, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
    * **Edge Node Prefix**: The default value is **new**.  Using the default value, the edge node name is **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
 
-
-  >[!IMPORTANT]
-  > Make sure to select the Azure resource group for the existing HDInsight cluster.  Otherwise, you get the error message "Can not perform requested operation on nested resource. Parent resource '<ClusterName>' not found."
-
 4. Check **I agree to the terms and conditions stated above**, and then click  **Purchase** to create the edge node.
+
+>[!IMPORTANT]
+> Make sure to select the Azure resource group for the existing HDInsight cluster.  Otherwise, you get the error message "Can not perform requested operation on nested resource. Parent resource '<ClusterName>' not found."
 
 ## Add an edge node when creating a cluster
 In this section, you use a Resource Manager template to create HDInsight cluster with an edge node.  The Resource Manager template can be found in the [Azure QuickStart Templates gallery](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). The Resource Manager template calls a script action located at https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  It is to demonstrate calling script action from a Resource Manager template.
