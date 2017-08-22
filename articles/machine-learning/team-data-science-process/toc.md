@@ -86,4 +86,3 @@
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-machine-learning)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
-## [Get help from live chat](live-chat.md)
