@@ -41,7 +41,7 @@ Before configuring and enabling the provisioning service, decide what users and 
 
 >[!IMPORTANT]
 >*   Test the provisioning configuration by assigning a single Azure AD user to Workplace by Facebook. Assign additional users and groups later.
->*   When you assign a user to Workplace by Facebook, you must select a valid user role. The "Default Access" role does not work for provisioning.
+>*   When you assign a user to Workplace by Facebook, you must select a valid user role. The Default Access role does not work for provisioning.
 
 ## Enable automated user provisioning
 
@@ -70,7 +70,7 @@ Azure AD supports the ability to automatically synchronize the account details o
 
 7. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the check box.
 
-8. Select **Save.**
+8. Select **Save**.
 
 9. Under the Mappings section, select **Synchronize Azure Active Directory Users to Workplace by Facebook**.
 
@@ -78,7 +78,7 @@ Azure AD supports the ability to automatically synchronize the account details o
 
 11. To enable the Azure AD provisioning service for Workplace by Facebook, in the **Settings** section, change the **Provisioning Status** to **On**.
 
-12. Select **Save.**
+12. Select **Save**.
 
 For more information on how to configure automatic provisioning, see [the Facebook documentation](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers).
 
@@ -86,7 +86,7 @@ You can now create a test account. Wait for up to 20 minutes to verify that the 
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](active-directory-saas-tutorial-list.md)
+* [Managing user account provisioning for enterprise apps](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Configure Single Sign-on](active-directory-saas-facebook-at-work-tutorial.md)
+* [Configure single sign-on](active-directory-saas-facebook-at-work-tutorial.md)
 
