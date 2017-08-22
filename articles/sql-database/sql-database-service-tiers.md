@@ -27,7 +27,7 @@ ms.author: carlrab
 
 Choosing a service tier depends primarily on business continuity, storage, and performance requirements.
 | | **Basic** | **Standard** |**Premium** |**Premium RS** |
-| :---| ---: |---:| ---:| ---:| 
+| :-- | --: |--:| --:| --:| 
 |Target workload|Development and production|Development and production|Development and production|Workload that can tolerate data loss up to 5-minutes due to service failures|
 |Uptime SLA|99.99%|99.99%|99.99%|N/A while in preview|
 |Backup retention|7 days|35 days|35 days|35 days|
@@ -61,9 +61,9 @@ Performance levels are expressed in terms of Database Transaction Units (DTUs) f
 ||||||
 
 > [!IMPORTANT]
-> Storage sizes greater than the amount of storage included are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
-
-In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-resource-limits.md#current-limitations-of-p11-and-p15-databases-with-a-maximum-size-greater-than-1-tb).  
+> Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
+>
+>In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-resource-limits.md#current-limitations-of-p11-and-p15-databases-with-a-maximum-size-greater-than-1-tb).  
 > 
 
 For details on specific performance levels and storage size choices available, see [SQL Database resource limits](sql-database-resource-limits.md).
