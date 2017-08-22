@@ -47,7 +47,7 @@ In an IaaS solution, usually running Windows Server or Linux virtual machines, f
 
 PaaS is different. One of the most common ways to store files in Microsoft Azure is to use [Azure Blob storage](../storage/storage-dotnet-how-to-use-blobs.md). A difference between Blob storage and other file storage is the file I/O, and the protection methods that come with file I/O.
 
-Access control is critical. To help you control access to Azure storage, the system will generate two 512-bit storage account keys (SAKs) when you [create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account). The level of key redundancy makes it possible for you to avoid service interrupt during routine key rotation.
+Access control is critical. To help you control access to Azure storage, the system will generate two 512-bit storage account keys (SAKs) when you [create a storage account](../storage/storage-create-storage-account.md). The level of key redundancy makes it possible for you to avoid service interrupt during routine key rotation.
 
 Storage access keys are high priority secrets and should only be accessible to those responsible for storage access control. If the wrong people get access to these keys, they will have complete control of storage and could replace, delete or add files to storage. This includes malware and other types of content that can potentially compromise your organization or your customers.
 
@@ -60,7 +60,7 @@ You still need a way to provide access to objects in storage. To provide more gr
 
 SAS allows you to share content the way you want to share it without giving away your Storage Account Keys. Always using SAS in your application is a secure way to share your storage resources without compromising your storage account keys.
 
-To learn more, see [Using Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md) (SAS). To learn more about potential risks and recommendations to mitigate those risks, see [Best practices when using SAS](../storage/storage-dotnet-shared-access-signature-part-1.md#best-practices-when-using-sas).
+To learn more, see [Using Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md) (SAS). To learn more about potential risks and recommendations to mitigate those risks, see [Best practices when using SAS](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
 ### Use managed disks for VMs
 
@@ -82,7 +82,7 @@ To learn more about RBAC see:
 
 - [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
 - [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md)
-- [Azure Storage Security Guide](../storage/storage-security-guide.md#how-to-secure-your-storage-account-with-role-based-access-control-rbac) for detail on how to secure your storage account with RBAC
+- [Azure Storage Security Guide](../storage/storage-security-guide.md) for detail on how to secure your storage account with RBAC
 
 ## Storage encryption
 ### Use client-side encryption for high value data
