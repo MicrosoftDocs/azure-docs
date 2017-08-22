@@ -73,18 +73,18 @@ The following steps show you how to create a Hive ODBC Data Source.
    
    | Parameter | Description |
    | --- | --- |
-   |  Use Native Query |When it is selected, the ODBC driver will NOT try to convert TSQL into HiveQL. You shall use it only if you are 100% sure you are submitting pure HiveQL statements. When connecting to SQL Server or Azure SQL Database, you should leave it unchecked. |
+   |  Use Native Query |When it is selected, the ODBC driver does NOT try to convert TSQL into HiveQL. You shall use it only if you are 100% sure you are submitting pure HiveQL statements. When connecting to SQL Server or Azure SQL Database, you should leave it unchecked. |
    |  Rows fetched per block |When fetching a large number of records, tuning this parameter may be required to ensure optimal performances. |
    |  Default string column length, Binary column length, Decimal column scale |The data type lengths and precisions may affect how data is returned. They cause incorrect information to be returned due to loss of precision and/or truncation. |
 
     ![Advanced options](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png "Advanced DSN configuration options")
 
 1. Click **Test** to test the data source. When the data source is configured correctly, it shows *TESTS COMPLETED SUCCESSFULLY!*.
-2. Click **OK** to close the Test dialog. The new data source should now be listed on the **ODBC Data Source Administrator**.
+2. Click **OK** to close the Test dialog. The new data source shall be listed on the **ODBC Data Source Administrator**.
 3. Click **OK** to exit the wizard.
 
 ## Import data into Excel from HDInsight
-The following steps describe the way to import data from a hive table into an Excel workbook using the ODBC data source that you created in the steps above.
+The following steps describe the way to import data from a Hive table into an Excel workbook using the ODBC data source that you created in the previous section.
 
 1. Open a new or existing workbook in Excel.
 2. From the **Data** tab, click **Get Data**, click **From Other Sources**, and then click **From ODBC** to launch the **Data Connection Wizard**.
@@ -93,6 +93,9 @@ The following steps describe the way to import data from a hive table into an Ex
 4. Select the data source name that you created in the last section, and then click **OK**.
 5. Enter Hadoop user name (the default name is admin) and the password, and then click **Connect**.
 6. On Navigator, expand **HIVE**, expand **default**, click **hivesampletable**, and then click **Load**. It takes a few seconds before data gets imported to Excel.
+
+    ![HDInsight Hive ODBC navigator](./media/hdinsight-connect-excel-hive-ODBC-driver/hdinsight.hive.odbc.navigator.png "Open data connection wizard")
+
 
 ## Next steps
 In this article, you learned how to use the Microsoft Hive ODBC driver to retrieve data from the HDInsight Service into Excel. Similarly, you can retrieve data from the HDInsight Service into SQL Database. It is also possible to upload data into an HDInsight Service. To learn more, see:
