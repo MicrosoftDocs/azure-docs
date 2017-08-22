@@ -88,10 +88,10 @@ RUN chmod 755 /bin/init_container.sh
 CMD ["/bin/init_container.sh"]
 ```
 
-To build the Docker image, run the `docker build` command, and provide a name, `mydockerimage`, and tag, `v1`. Replace `{docker-id}` with your Docker Hub account ID.
+To build the Docker image, run the `docker build` command, and provide a name, `mydockerimage`, and tag, `v1`. Replace `<docker-id>` with your Docker Hub account ID.
 
 ```bash
-docker build --tag {docker-id}/mydockerimage:v1 .
+docker build --tag <docker-id>/mydockerimage:v1 .
 ```
 
 The command produces output similar to the following:
@@ -141,13 +141,13 @@ Step 13/13 : CMD python app.py
  ---> 1bfc1bbc968d
 Removing intermediate container 1c776e5e0772
 Successfully built 1bfc1bbc968d
-Successfully tagged {docker-id}/myDockerImage:v1
+Successfully tagged <docker-id>/myDockerImage:v1
 ```
 
 Test that the build works by running the Docker container. Issue the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command and pass the name and tag of the image to it. You must also  specify the port using `-p` argument. The following sample demonstrates the `docker run` command:
 
 ```bash
-docker run -p 80:2222 {docker-ID}/mydockerimage:v1
+docker run -p 80:2222 <docker-ID>/mydockerimage:v1
 ```
 
 Verify the web app and container are functioning correctly by browsing the web app locally.
@@ -165,25 +165,25 @@ A registry is an application that hosts images and provides services image and c
 Docker Hub is a registry for Docker images that allows you to host your own repositories, either public or private. To push a custom Docker image to the public Docker Hub, use the [docker push](https://docs.docker.com/engine/reference/commandline/push/) command and provide a full image name and tag. A full image name and tag looks like the following sample:
 
 ```bash
-{docker-id}/image-name:tag
+<docker-id>/image-name:tag
 ```
 
 If you haven't logged into Docker Hub, do so using the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command before attempting to push an image. 
 
 ```bash
-docker login --username {docker-id} --password {docker-hub-password}
+docker login --username <docker-id> --password <docker-hub-password>
 ```
 
 A "login succeeded" message confirms that you are logged in. Once logged in, you can push the image to Docker Hub using the [docker push](https://docs.docker.com/engine/reference/commandline/push/) command. 
 
 ```bash
-docker push {docker-id}/mydockerimage:v1 .
+docker push <docker-id>/mydockerimage:v1 .
 ```
 
 Verify that the push succeeded by examining the command's output. 
 
 ```bash
-The push refers to a repository [docker.io/{docker-id}/python-flask]
+The push refers to a repository [docker.io/<docker-id>/python-flask]
 e9aa2c6d0f34: Pushed
 0fdcb490aeec: Pushed
 08ae61c7869c: Pushed
@@ -205,7 +205,7 @@ Azure Container Registry is a managed Docker service from Azure for hosting priv
 Use the [az acr create](https://docs.microsoft.com/cli/azure/acr#create) command to create an Azure Container Registry. Pass in the name, resource group, and `Basic` for the SKU. Available SKUs are `Classic`, `Basic`, `Standard`, and `Premium`.
 
 ```AzureCLI
-az acr create --name myAzureContainerRegistry --resource-group myResourceGroup --sku Basic --admin-enabled true
+az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
 ```
 
 Creating a container produces the following output:
@@ -213,17 +213,17 @@ Creating a container produces the following output:
 ```bash
  - Finished ..
 Create a new service principal and assign access:
-  az ad sp create-for-rbac --scopes /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myAzureContainerRegistry --role Owner --password <password>
+  az ad sp create-for-rbac --scopes /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/<azure-container-registry-name> --role Owner --password <password>
 
 Use an existing service principal and assign access:
-  az role assignment create --scope /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myAzureContainerRegistry --role Owner --assignee <app-id>
+  az role assignment create --scope /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/<azure-container-registry-name> --role Owner --assignee <app-id>
 {
   "adminUserEnabled": false,
   "creationDate": "2017-08-09T04:21:09.654153+00:00",
-  "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myAzureContainerRegistry",
+  "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/{azure-container-registry-name>",
   "location": "westeurope",
-  "loginServer": "myazurecontainerregistry.azurecr.io",
-  "name": "myAzureContainerRegistry",
+  "loginServer": "<azure-container-registry-name>.azurecr.io",
+  "name": "<azure-container-registry-name>",
   "provisioningState": "Succeeded",
   "resourceGroup": "myResourceGroup",
   "sku": {
@@ -241,13 +241,13 @@ Use an existing service principal and assign access:
 In order to push an image to the registry, you need to supply credentials so the registry accepts the push. You can retrieve these credentials by using the [az acr show](https://docs.microsoft.com/cli/azure/acr/credential#show) command. 
 
 ```bash
-az acr credential show --name myAzureContainerRegistry
+az acr credential show --name {azure-container-registry-name}
 ```
 
-The commands reveal two passwords that can be used with the user name. 
+The command reveals two passwords that can be used with the user name. 
 
 ```json
-{
+<
   "passwords": [
     {
       "name": "password",
@@ -258,29 +258,29 @@ The commands reveal two passwords that can be used with the user name.
       "value": "{password}"
     }
   ],
-  "username": "myAzureContainerRegistry"
+  "username": "<azure-container-registry-name>"
 }
 ```
 
-Now that you have the necessary credentials, log in to the Azure Container Registry using the `docker login` command. The URL for the registry is required to log in. Use the format `http://{azure-container-registry-name}.azureacr.io`.
+Now that you have the necessary credentials, log in to the Azure Container Registry using the `docker login` command. The URL for the registry is required to log in. Use the format `http://{azure-container-registry-name>.azureacr.io`.
 
 ```bash
-docker login --username myAzureContainerRegistry --password {password} myAzureContainerRegistry.azureacr.io
+docker login <azure-container-registry-name>.azureacr.io --username <azure-container-registry-name> --password <password> 
 ```
 
 Confirm that the login succeeded. Push the image by using the `docker push` command, and tagging the image with the full URL of the registry followed by your image name and tag.
 
 ```bash
-docker push http://myazurecontainerregistry.azureacr.io/mydockerimage:v1
+docker push http://<azure-container-registry-name>.azureacr.io/mydockerimage:v1
 ```
 
 Verify that the push successfully added a container to the registry by listing the ACR repositories. 
 
 ```bash
-az acr repository list -n myAzureContainerRegistry
+az acr repository list -n <azure-container-registry-name>
 ```
 
-Listing the images in `myAzureContainerRegistry` reveals that `mydockerimage` is in the registry.
+Listing the images in the registry confirms that `mydockerimage` is in the registry.
 
 ```json
 [
@@ -347,7 +347,7 @@ rs/Microsoft.Web/serverfarms/myServicePlan",
 Now that the resource group and service plan have been created, you can run the [az webapp create](https://docs.microsoft.com/en-us/cli/azure/webapp#create) command to create the web app. Notice the runtime stack is Python 3.4 and the web app uses the resource group and service plan setup in previous steps.
 
 ```AzureCLI
-az webapp create -g myResourceGroup -p myServicePlan -n myWebApp --runtime "python|3.4" 
+az webapp create -g myResourceGroup -p myServicePlan -n <web-app-name> --runtime "python|3.4" 
 ```
 
 The command to create a web app produces the output shown here:
@@ -357,27 +357,27 @@ The command to create a web app produces the output shown here:
   "availabilityState": "Normal",
    "enabled": true,
   "enabledHostNames": [
-    "mywebapp.azurewebsites.net",
-    "mywebapp.scm.azurewebsites.net"
+    "<web-app-name>.azurewebsites.net",
+    "<web-app-name>.scm.azurewebsites.net"
   ],
   "ftpPublishingUrl": "ftp://waws-prod-am2-085.ftp.azurewebsites.windows.net/site/wwwroot",
   "gatewaySiteName": null,
   "hostNameSslStates": [
     {
       "hostType": "Standard",
-      "name": "mywebapp.azurewebsites.net",
+      "name": "<web-app-name>.azurewebsites.net",
     },
   ],
   "hostNames": [
-    "mywebapp.azurewebsites.net"
+    "<web-app-name>.azurewebsites.net"
   ],
   "hostNamesDisabled": false,
   "hostingEnvironmentProfile": null,
   "id": "/subscriptions/5e59d6dd-d3e4-4f90-a782-43284987c11e/resourceGroups/myResourceGroup/providers/Microsoft.
-Web/sites/myWebApp",
+Web/sites/<web-app-name>",
   "lastModifiedTimeUtc": "2017-08-08T21:09:33.693333",
   "location": "West Europe",
-  "name": "myWebApp",
+  "name": "<web-app-name>",
   "outboundIpAddresses": "13.81.108.99,52.232.76.83,52.166.73.203,52.233.173.39,52.233.159.48",
   "resourceGroup": "myResourceGroup"  
 }
@@ -387,7 +387,7 @@ Web/sites/myWebApp",
 Most web apps have application settings that need to be configured. If you are using an existing Docker image built by someone else, the image may require a port other than port 80 for the application. To set the `WEBSITES_PORT`, run the [az webapp config](https://docs.microsoft.com/cli/azure/webapp/config/appsettings) command, as shown in the following code sample: 
 
 ```AzureCLI
-az webapp config appsettings set --resource-group myResourceGroup --name myWebApp --settings WEBSITES_PORT=2222
+az webapp config appsettings set --resource-group myResourceGroup --name <web-app-name> --settings WEBSITES_PORT=2222
 ```
 
 > [!NOTE]
@@ -408,8 +408,8 @@ The [az webapp config](https://docs.microsoft.com/cli/azure/webapp/config) comma
 To configure the web app to use a public Docker registry, pass the name of the app, the resource group, and the image name and URL to the [az webapp config container set](https://docs.microsoft.com/en-us/cli/azure/webapp/config/container#set) command. 
 
 ```AzureCLI
-az webapp config container set --name myWebApp --resource-group myResourceGroup --docker-custom-image-name mydockerimage
---docker-registry-server-url {docker-id}/myContainerRegistry 
+az webapp config container set --name <web-app-name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage
+--docker-registry-server-url <docker-id>/myContainerRegistry 
 ```
 
 A successful configuration change returns general information about the container. 
@@ -441,7 +441,7 @@ You can configure web apps on Linux so that they run a container stored in the A
 The [az acr credential show](https://docs.microsoft.com/en-us/cli/azure/acr/credential#show) command displays the passwords for the container registry. Copy the username and one of the passwords so you can use it to configure the web app in the next step.
 
 ```bash
-az acr credential show --name myAzureContainerRegistry
+az acr credential show --name <azure-container-registry-name>
 ``
 
 ``json
@@ -456,14 +456,14 @@ az acr credential show --name myAzureContainerRegistry
       "value": "password2"
     }
   ],
-  "username": "myAzureContainerRegistry"
+  "username": "<azure-container-registry-name>"
 }
 ```
 
 Run the [az webapp config container set](https://docs.microsoft.com/en-us/cli/azure/webapp/config/container#set) command. This command assigns the custom Docker image to the web app. Notice that you need a URL that is in the format `http://{your-registry-username}.azurecr.io`. Additionally, the web app needs the user name and password obtained in a previous step in order to access the container registry. 
 
 ```AzureCLI
-az webapp config container set --name myWebApp --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url http://myazurecontainerregistry.azurecr.io --docker-registry-server-user {your-registry-username} --docker-registry-server-password {password} 
+az webapp config container set --name <web-app-name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url http://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <docker-id> --docker-registry-server-password <password> 
 ```
 
 > [!NOTE] 
@@ -487,7 +487,7 @@ The command reveals output similar to the following JSON string, showing that th
   {
     "name": "DOCKER_REGISTRY_SERVER_USERNAME",
     "slotSetting": false,
-    "value": "myAzureContainerRegistry"
+    "value": "{azure-container-registry-name}"
   },
   {
     "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
@@ -503,10 +503,10 @@ The command reveals output similar to the following JSON string, showing that th
 Before testing, you must restart the web app using the [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#restart) for the configuration changes to take effect. 
 
 ```AzureCLI
-az webapp restart --name myWebApp --resource-group myResourceGroup 
+az webapp restart --name <web-app-name> --resource-group myResourceGroup 
 ```
 
-The restart command quietly restarts the web app, so you see no feedback in the terminal. Once the web app is running, test the web app by browsing its URL at `http://{username}.azurewebsites.net`. Verify that the app displays the new welcome message.
+The restart command quietly restarts the web app, so you see no feedback in the terminal. Once the web app is running, test the web app by browsing its URL at `http://<username>.azurewebsites.net`. Verify that the app displays the new welcome message.
 
 ![Test web app in Azure](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
  
