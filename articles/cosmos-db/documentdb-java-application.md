@@ -717,7 +717,7 @@ Now that we've finished the fun bits - all that's left is to build a quick user 
 5. Awesome! Now all that's left is to test the application. Run the application locally, and add some Todo items by filling in the item name and category and clicking **Add Task**.
 6. Once the item appears, you can update whether it's complete by toggling the checkbox and clicking **Update Tasks**.
 
-## <a id="Deploy"></a>Step 6: Deploy your Java application to Azure Websites
+## <a id="Deploy"></a>Step 6: Deploy your Java application to Azure Web Sites
 Azure Web Sites makes deploying Java applications as simple as exporting your application as a WAR file and either uploading it via source control (e.g. Git) or FTP.
 
 1. To export your application as a WAR file, right-click on your project in **Project Explorer**, click **Export**, and then click **WAR File**.
