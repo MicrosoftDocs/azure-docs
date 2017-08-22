@@ -23,9 +23,9 @@ When you are finished, you see that the event data has been sent to an endpoint.
 
 ![Event data](./media/storage-blob-event-quickstart/request-result.png)
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this article requires that you are running the latest version of Azure CLI (2.0.14 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -134,5 +134,5 @@ az group delete --name <resource_group_name>
 
 Now that you know how to create topics and event subscriptions, learn more about Blob Storage Events and what Event Grid can help you do:
 
-- [Reacting to Blob Storage events](storage-blob-events.md)
-- [About Event Grid](../event-grid/overview.md)
+- [Reacting to Blob Storage events](storage-blob-event-overview.md)
+- [About Event Grid](../../event-grid/overview.md)

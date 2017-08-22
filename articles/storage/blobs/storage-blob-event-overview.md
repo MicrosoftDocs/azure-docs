@@ -18,7 +18,7 @@ Common blob storage scenarios include image or video processing, search indexing
 
 ![Event Grid Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Join the preview
 Blob Storage Events are available for preview.  Users may request to join the preview by issuing the following commands against their subscription:
@@ -46,7 +46,7 @@ Event subscriptions can include two types of Blob Storage events:
 
 ## Event Schema
 Blob Storage events contain all the information you need to respond to changes in your data.  You can identify a Blob Storage event because the eventType property starts with “Microsoft.Storage.”  
-Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema]((../../event-grid/event-schema#azure-blob-storage)).  
+Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema]((../../../event-grid/event-schema#azure-blob-storage)).  
 
 > [!div class="mx-tdBreakAll"]
 > |Field|Field JSON Datatype|Description|
@@ -129,5 +129,5 @@ Applications that handle Blob Storage events should follow a few recommended pra
 
 Learn more about Event Grid and give Blob Storage events a try:
 
-- [About Event Grid](../event-grid/overview.md)
+- [About Event Grid](../../event-grid/overview.md)
 - [Route Blob Storage Events to a custom Web Endpoint](storage-blob-event-quickstart.md)
