@@ -16,7 +16,6 @@ ms.workload: identity
 ms.date: 08/14/2017
 ms.author: andret
 ms.custom: aaddev 
-
 ---
 
 [!INCLUDE [1. Introduction](active-directory-singlepageapp-javascriptspa-introduction.md)]
