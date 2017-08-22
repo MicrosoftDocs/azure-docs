@@ -7,7 +7,7 @@ ms.author: sukamat
 manager: jhubbard
 editor: jasonwhowell
 ms.custom: mvc
-ms.service: postgresql-database
+ms.service: postgresql
 ms.topic: overview
 ms.date: 08/01/2017
 ---

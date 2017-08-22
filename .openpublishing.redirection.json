@@ -8490,6 +8490,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/linux/create-lamp-stack.md",
+            "redirect_url": "azure/virtual-machines/linux/tutorial-lamp-stack",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/create-lamp-stack-nodejs.md",
+            "redirect_url": "azure/virtual-machines/linux/tutorial-lamp-stack",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/vpn-gateway/vpn-gateway-site-to-site-create.md",
             "redirect_url": "azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic",
             "redirect_document_id": false
@@ -10038,7 +10048,26 @@
             "source_path": "articles/active-directory/active-directory-device-registration-faq.md",
             "redirect_url": "/azure/active-directory/device-management-faq",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-licensing-get-started-azure-portal.md",
+            "redirect_url": "/azure/active-directory/license-users-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-licensing-what-is.md",
+            "redirect_url": "/azure/active-directory/license-users-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-users-create-azure-portal.md",
+            "redirect_url": "/azure/active-directory/add-users-azure-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-create-users.md",
+            "redirect_url": "/azure/active-directory/add-users-azure-active-directory",
+            "redirect_document_id": false
         }    
-    
     ]
 }
