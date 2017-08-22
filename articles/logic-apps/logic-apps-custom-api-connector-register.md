@@ -1,6 +1,6 @@
 ---
-title: Register and use custom connectors - Azure Logic Apps | Microsoft Docs
-description: Learn how to register custom APIs as connectors for Azure Logic Apps
+title: Register your APIs as connectors - Azure Logic Apps | Microsoft Docs
+description: Register your custom APIs for use as connectors in Azure Logic Apps
 author: ecfan
 manager: anneta
 editor: 
@@ -17,7 +17,7 @@ ms.date: 09/1/2017
 ms.author: LADocs; estfan
 ---
 
-# Register and use custom APIs (connectors) in Azure Logic Apps
+# Register your custom APIs as connectors in logic apps
 
 Logic Apps helps you build workflows without code. 
 But sometimes, you need to extend Logic Apps capabilites, 

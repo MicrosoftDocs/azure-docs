@@ -1,6 +1,6 @@
 ---
-title: Describe custom connectors with Postman - Azure Logic Apps | Microsoft Docs
-description: 
+title: Describe your custom APIs with Postman - Azure Logic Apps | Microsoft Docs
+description: Create Postman collections to describe, group, and organize your custom APIs for use in logic apps
 author: ecfan
 manager: anneta
 editor: 
@@ -17,7 +17,7 @@ ms.date: 09/1/2017
 ms.author: LADocs; estfan
 ---
 
-# Describe custom connectors with Postman for logic apps
+# Describe your custom APIs with Postman for logic apps
 
 [Postman](https://www.getpostman.com/) makes API development faster and easier. 
 This tutorial shows how to create a [Postman collection](https://www.getpostman.com/docs/postman/collections/creating_collections) 
