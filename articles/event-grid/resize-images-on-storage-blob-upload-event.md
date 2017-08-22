@@ -19,11 +19,9 @@ ms.custom: mvc
 Azure Event Grid is an eventing service for the cloud. Event Grid lets you send events raised by Azure services or third-party resources to an endpoint that can respond to the event. Resources that raise events are called _topics_, which are subscribed to by consuming endpoints with _event subscriptions_. In this article, you use Event Grid to have Azure Functions subscribe to Azure Blob storage events to support thumbnail generation for images uploaded from a sample app. You use the Azure CLI to create and configure the application topology. 
 
 > [!WARNING]
-> This tutorial requires Event Grid functionality that is currently in a reduced-access preview. You cannot complete this tutorial until you have been granted access to this functionality.  
+> This tutorial requires Event Grid functionality that is currently in a reduced-access preview. To be able to successfully complete this topic, you must first [request access to Blob storage events](#request-storage-access).  
 >
->Before you can successfully complete this topic, you must [request access to Blob storage events](#request-storage-access).  
->
->After access is granted, an email is sent to the primary email address on your subscription. If you don't have access to that email account, you can also [check your approval status](#check-access-status) from the Azure CLI.
+>After access is granted, an email is sent to the primary email address on your subscription. If you don't have access to that email account, you can also [check your approval status](#check-access-status) from the Azure CLI. After access is granted, you can complete this tutorial.
 
 
 ![Published web app in Edge browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
@@ -43,7 +41,7 @@ In this tutorial, you learn how to:
 To complete this tutorial:
 
 + You must have an active Azure subscription.
-+ You must have applied for and been granted access to the Blob storage events feature.  
++ You must apply for and have been granted access to the Blob storage events functionality. [Request access to Blob storage events](#request-storage-access) before continuing with the other steps in the topic.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
