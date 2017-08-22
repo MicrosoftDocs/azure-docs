@@ -227,7 +227,7 @@ In this tutorial, you created an ASP.NET web application in Team Services and co
 > * Create a release definition to publish new web deploy packages to IIS
 > * Test the CI/CD pipeline
 
-Advance to the next tutorial to learn how to secure a web server with SSL certificates.
+Advance to the next tutorial to learn how to install an Azure SQL, IIS, .NET Core stack on a Windows VM.
 
 > [!div class="nextstepaction"]
-> [Secure web server with SSL](tutorial-secure-web-server.md)
+> [SQL, IIS, .NET Core stack](tutorial-iis-sql.md)
