@@ -39,7 +39,7 @@ Plans are groupings of one or more services. As a cloud operator, you [create pl
 
 ### Quotas
 
-Each plan can be [set with quotas](azure-stack-setting-quotas.md) to help you manage your cloud capacity. Quotas can include restrictions such as VM, RAM, and CPU limits and are applied per user subscription. Quotas can be differentiated by region. For example, a plan containing compute services from Region A could have a quota of two virtual machines, 4-GB RAM, and 10 CPU cores.
+Each plan can be set with quotas to help you manage your cloud capacity. Quotas define the resource limits that a user subscription can provision or consume. For example, a quota might allow a user to create up to five virtual machines. Quotas can include restrictions such as VM, RAM, and CPU limits and are applied per user subscription. Quotas can be configured by region. For example, a plan containing compute services from Region A could have a quota of two virtual machines, 4-GB RAM, and 10 CPU cores. As a cloud operator, you select or create a quota for each service in a plan.
 
 ### Base plan
 
