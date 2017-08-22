@@ -17,12 +17,12 @@ ms.custom: mvc
 ---
 
 # Provisioning IoT devices in Azure
-Microsoft Azure is a growing collection of integrated public cloud services for all your IoT solution needs. The IoT Hub Device Provisioning Service is a helper service for IoT Hub and enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, allowing customers to provision millions of devices in a secure and scalable manner.
+Microsoft Azure provides a rich set of integrated public cloud services for all your IoT solution needs. The IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, allowing customers to provision millions of devices in a secure and scalable manner.
 
 ## When to use DPS
 There are many provisioning scenarios in which DPS is an excellent choice for getting devices connected and configured to IoT Hub, such as:
 
-* Zero-touch provisioning to a single IoT solution without requiring hardcoded IoT Hub connection information in the factory (initial setup)
+* Zero-touch provisioning to a single IoT solution without hardcoding IoT Hub connection information at the factory (initial setup)
 * Load balancing devices across multiple hubs
 * Connecting devices to their owner’s IoT solution based on sales transaction data (multitenancy)
 * Connecting devices to a particular IoT solution depending on use-case (solution isolation)
@@ -49,7 +49,7 @@ There are two distinct steps in the deployment process of a device in which DPS 
 * The **manufacture step** in which the device is created and prepared at the factory, and
 * The **cloud setup step** in which DPS is configured for automated provisioning.
 
-Both these steps fit in seamlessly with the existing manufacturing and deployment process. DPS even simplifies some deployment processes that involve a lot of manual work to get connection information onto the device.
+Both these steps fit in seamlessly with existing manufacturing and deployment processes. DPS even simplifies some deployment processes that involve a lot of manual work to get connection information onto the device.
 
 ### Manufacture step
 This step is all about what happens on the manufacturing line. The roles involved in this step include silicon designer, silicon manufacturer, integrator and/or the end manufacturer of the device. This step is concerned with creating the hardware itself.
@@ -59,7 +59,7 @@ DPS does not introduce a new step in the manufacturing process; rather, it ties 
 Also in this step, the manufacturer supplies the device deployer/operator with identifying key information. This could be as simple as confirming that all devices have an x509 certificate generated from a root CA provided by the device deployer/operator, to extracting the public portion of a TPM endorsement key from each TPM device. These services are offered by many silicon manufacturers today.
 
 ### Cloud setup step
-This step is about configuring the cloud for proper automatic provisioning. Generally there are two types of users involved in the cloud setup step: someone knows how devices need to be initially set up (a device operator), and someone else knows how devices are to be split among the IoT hubs (a solution operator).
+This step is about configuring the cloud for proper automatic provisioning. Generally there are two types of users involved in the cloud setup step: someone who knows how devices need to be initially set up (a device operator), and someone else who knows how devices are to be split among the IoT hubs (a solution operator).
 
 There is a one-time initial setup of the DPS that must occur, and this task is generally handled by the solution operator. Once the DPS is configured, it does not have to be modified unless the use case changes.
 
