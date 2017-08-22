@@ -1,5 +1,5 @@
 ---
-title: Azure Diagnostic Logs Supported Services and Schemata | Microsoft Docs
+title: Azure Diagnostic Logs Supported Services and Schemas | Microsoft Docs
 description: Understand the supported services and event schema for Azure Diagnostic Logs.
 author: johnkemnetz
 manager: orenr
@@ -17,9 +17,11 @@ ms.date: 08/21/2017
 ms.author: johnkem
 
 ---
-# Supported services, schemata, and categories for Azure Diagnostic Logs
+# Supported services, schemas, and categories for Azure Diagnostic Logs
 
-## Supported services and schemata for resource diagnostic logs
+[Azure resource diagnostic logs](monitoring-overview-of-diagnostic-logs.md) are logs emitted by your Azure resources that describe the operation of that resource. These logs are resource-type specific. In this article, we outline the set of supported services and event schema for events emitted by each service. This article also includes a full list of available log categories per resource type.
+
+## Supported services and schemas for resource diagnostic logs
 The schema for resource diagnostic logs varies depending on the resource and log category.   
 
 | Service | Schema & Docs |
