@@ -32,7 +32,7 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 
 All these scenarios can be done using DPS for zero-touch provisioning with the same flow. Many of the manual steps traditionally involved in provisioning are automated with DPS to reduce the time to deploy IoT devices and lower the risk of manual error. The following is a description of what's going on behind the scenes to get a device provisioned. The first step is manual, all following steps are automated.
 
-![][media/about-iot-dps/dps-provisioning-flow.png]
+![][./media/about-iot-dps/dps-provisioning-flow.png]
 
 1. Device manufacturer adds the device registration information to the enrollment list in the Azure portal.
 2. Device contacts the DPS endpoint set at the factory. The device passes DPS its identifying information to prove its identity.
