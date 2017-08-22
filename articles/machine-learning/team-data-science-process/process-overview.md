@@ -104,7 +104,7 @@ Feature engineering involves inclusion, aggregation and transformation of raw va
 #### 3.2 Model Training
 Depending on type of question you are trying answer, there are many modeling algorithms available. For guidance on choosing the algorithms, see [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md). Although this article is written for Azure Machine Learning, the guidance it provides is useful for any machine learning projects. 
 =======
-![TDSP-Lifecycle](./media/data-science-process-overview/tdsp-lifecycle.png) 
+![TDSP-Lifecycle](./media/process-overview/tdsp-lifecycle.png) 
 
 The goals, tasks, and documentation artifacts for each stage of the lifecycle in TDSP are described in the [Team Data Science Process lifecycle](data-science-process-lifecycle.md) topic. These tasks and artifacts are associated with project roles:
 >>>>>>> 8872f10c9756b18e8c7687601aafb164f4453ca7:articles/machine-learning/data-science-process-overview.md
@@ -116,7 +116,7 @@ The goals, tasks, and documentation artifacts for each stage of the lifecycle in
 
 The following diagram provides a grid view of the tasks (in blue) and artifacts (in green) associated with each stage of the lifecycle (on the horizontal axis) for these roles (on the vertical axis). 
 
-![TDSP-roles-and-tasks](./media/data-science-process-overview/tdsp-tasks-by-roles.png)
+![TDSP-roles-and-tasks](./media/process-overview/tdsp-tasks-by-roles.png)
 
 ## Standardized project structure
 
@@ -130,7 +130,7 @@ We provide templates for the folder structure and required documents in standard
 - model performance metrics such as ROC curves or MSE
 
 
-![TDSP-directories](./media/data-science-process-overview/tdsp-dir-structure.png)
+![TDSP-directories](./media/process-overview/tdsp-dir-structure.png)
 
 The directory structure can be cloned from [Github](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
@@ -152,7 +152,7 @@ The analytics and storage infrastructure can be in the cloud or on-premises. Thi
 
 Here is an example of a team working on multiple projects and sharing various cloud analytics infrastructure components.
 
-![TDSP-infrastructure](./media/data-science-process-overview/tdsp-analytics-infra.png)
+![TDSP-infrastructure](./media/process-overview/tdsp-analytics-infra.png)
 
 
 ## Tools and utilities for project execution

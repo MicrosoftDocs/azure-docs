@@ -59,7 +59,7 @@ The example described here use a publicly available dataset -- the [NYC Taxi Tri
 ## Upload data to Azure blob storage
 To move data using the SSIS feature pack from on-premises to Azure blob storage, we use an instance of the [**Azure Blob Upload Task**](https://msdn.microsoft.com/library/mt146776.aspx), shown here:
 
-![configure-data-science-vm](./media/data-science-move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png)
+![configure-data-science-vm](./media/move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png)
 
 The parameters that the task uses are described here:
 
