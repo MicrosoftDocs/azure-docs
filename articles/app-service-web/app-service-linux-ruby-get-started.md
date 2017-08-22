@@ -21,7 +21,7 @@ ms.author: wesmc;rachelap
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application You then deploy it to Azure as a Web App on Linux.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App on Linux.
 
 ![Hello-world](./media/app-service-linux-ruby-get-started/hello-world-updated.png)
 
@@ -41,7 +41,7 @@ In a terminal window, run the following command to clone the sample app reposito
 git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 ```
 
-Use this terminal window to run all the commands in this quickstart.
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
 ## Run the application locally
 
@@ -77,10 +77,15 @@ Your app is now configured. Using your web browser, navigate to `http://localhos
 
 ## Create a Ruby web app on Azure
 
-Use the `az appservice create` command to create an app service plan for your web app. Then `az webapp create` command creates the web app that uses the newly created service plan. When following the tutorial, replace `<app name>` with a unique app name.
+Use the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) command to create an app service plan for your web app. 
  
-```AzureCLI
-  az appservice create --name myAppServicePlan --resource-group myResourceGroup --is-linux
+```azurecli-interactive
+  az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
+```
+
+Next, issue the [az webapp create](https://docs.microsoft.com/cli/azure/webapp) command to create the web app that uses the newly created service plan. Notice that the runtime is set to `ruby|2.3`. Don't forget to replace `<app name>` with a unique app name.
+
+```azurecli-interactive
   az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "ruby|2.3" --deployment-local-git
 ```
 
@@ -91,7 +96,7 @@ Once the web app is created, an **Overview** page is available to view. Navigate
 
 ## Deploy your application
 
-Use Git to deploy the Ruby application to Azure. The web app already has a Git deployment configured. You can retrieve the deployment URL by issuing an `az webapp deployment` command.  
+Use Git to deploy the Ruby application to Azure. The web app already has a Git deployment configured. You can retrieve the deployment URL by issuing an [az webapp deployment](https://docs.microsoft.com/cli/azure/webapp/deployment) command.  
 
 ```bash
 az webapp deployment source show --name <app name> --resource-group myResourceGroup
@@ -99,10 +104,11 @@ az webapp deployment source show --name <app name> --resource-group myResourceGr
 
 Notice that the Git URL has the following form based on your web app name:
 
+```bash
 https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
+```
 
-The deployment credentials are already set up for this tutorial. Review the document showing how to [configure deployment credentials](./app-service-deployment-credentials.md) for more information.
-
+[!INCLUDE [Clean-up section](../../includes/configure-deployment-user-no-h.md)]
 
 Run the following commands to deploy the local application to your Azure website:
 
@@ -129,9 +135,9 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Once the deployment has completed, restart your web app for the deployment to take effect by using the `az webapp restart` command, as shown here:
+Once the deployment has completed, restart your web app for the deployment to take effect by using the [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#restart) command, as shown here:
 
-```AzureCLI 
+```azurecli-interactive 
 az webapp restart --name <app name> --resource-group myResourceGroup
 ```
 
@@ -150,4 +156,4 @@ http://<your web app name>.azurewebsites.net
 
 ## Next steps
 
-[Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-web-app.md)
+[Azure App Service Web App on Linux FAQ](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)
