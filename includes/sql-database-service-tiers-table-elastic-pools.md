@@ -55,8 +55,8 @@ sql-database-elastic-pool.md
 
 | eDTUs per pool | **125** | **250** | **500** | **1000** | **1500**| 
 |:---|---:|---:|---:| ---: | ---: | 
-| Included storage per pool | 250 GB | 500 GB | 750 GB | 1 TB | 1.5 TB*** | 
-| Max storage per pool* | 1 TB | 1 TB | 1 TB | 1 TB | 1.5 TB*** |
+| Included storage per pool | 250 GB | 500 GB | 750 GB | 1 TB | 1.5 TB | 
+| Max storage per pool* | 1 TB | 1 TB | 1 TB | 1 TB | 1.5 TB |
 | Max In-Memory OLTP storage per pool | 1 GB| 2 GB| 4 GB| 10 GB| 12 GB| 
 | Max number DBs per pool | 50 | 100 | 100 | 100 | 100 | 
 | Max concurrent workers per pool (requests) | 200 | 400 | 800 | 1600 | 2400 | 
@@ -71,8 +71,8 @@ sql-database-elastic-pool.md
 
 | eDTUs per pool | **2000** | **2500** | **3000** | **3500** | **4000**|
 |:---|---:|---:|---:| ---: | ---: | 
-| Included storage per pool | 2 TB*** | 2.5 TB*** | 3 TB*** | 3.5 TB*** | 4 TB*** |
-| Max storage per pool* | 2 TB*** | 2.5 TB*** | 3 TB*** | 3.5 TB*** | 4 TB*** |
+| Included storage per pool | 2 TB | 2.5 TB | 3 TB | 3.5 TB | 4 TB |
+| Max storage per pool* | 2 TB | 2.5 TB | 3 TB | 3.5 TB | 4 TB |
 | Max In-Memory OLTP storage per pool | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
 | Max number DBs per pool | 100 | 100 | 100 | 100 | 100 | 
 | Max concurrent workers (requests) per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
@@ -106,4 +106,3 @@ sql-database-elastic-pool.md
 >
 >\*\* Min/max eDTUs per database starting at 200 eDTUs and higher in **Standard** pools are in preview.
 >
->\*\*\* **Premium** pools with more than 1 TB of storage is currently in public preview in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. The max storage per pool for all other regions is currently limited to 1 TB.
