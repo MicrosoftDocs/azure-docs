@@ -1,5 +1,5 @@
 ---
-title: Plan, offer, quota, and subscription overview | Microsoft Docs
+title: Azure Stack plan, offer, quota, and subscription overview | Microsoft Docs
 description: As a cloud operator, I want to understand Azure Stack plans, offers, quotas, and subscriptions.
 services: azure-stack
 documentationcenter: ''
