@@ -6,7 +6,7 @@ author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.topic: article
 ms.date: 07/06/2017
 ---

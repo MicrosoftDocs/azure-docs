@@ -12,7 +12,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 07/07/2016
 ms.author: huvalo
 

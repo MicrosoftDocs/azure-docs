@@ -45,7 +45,7 @@ Due to the Storage services differences between Azure and Azure Stack, there mig
 AzCopy is a command-line utility designed to copy data to and from Microsoft Azure Blob and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts. There are two version of the AzCopy: AzCopy on Windows and AzCopy on Linux. Azure Stack only supports the Windows version. 
  
 ### Download and install AzCopy 
-[Download](https://aka.ms/azcopyforazurestack) the supported Windows version of AzCopy for Azure Stack. You can install and use AzCopy on Azure Stack the same way as Azure. To learn more, see [Transfer data with the AzCopy Command-Line Utility](../storage/storage-use-azcopy.md). 
+[Download](https://aka.ms/azcopyforazurestack) the supported Windows version of AzCopy for Azure Stack. You can install and use AzCopy on Azure Stack the same way as Azure. To learn more, see [Transfer data with the AzCopy Command-Line Utility](../storage/common/storage-use-azcopy.md). 
 
 ### AzCopy command examples for data transfer
 The following examples demonstrate a few typical scenarios for copying data to and from Azure Stack blobs. To learn more, see [Transfer data with the AzCopy Command-Line Utility](../storage/storage-use-azcopy.md). 
@@ -72,7 +72,7 @@ Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Des
 Azure PowerShell is a module that provides cmdlets for managing services on both Azure and Azure Stack. It's a task-based command-line shell and scripting language designed especially for system administration.
 
 ### Install and Configure PowerShell for Azure Stack
-Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. For more information, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) and [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md) to learn more.
+Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. For more information, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) and [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md) to learn more.
 
 ### PowerShell Sample script for Azure Stack 
 This sample assume you have successfully [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). This script will help you conplete the configuration and ask your Azure Stack tenant credentials to add your account to the local PowerShell environemnt. Then, the script will set the default Azure subscription, create a new storage account in Azure, create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will create a new destination directory in your local computer and download the image file.
@@ -227,5 +227,5 @@ For more information about Microsoft Azure Storage Explorer, see [Get started wi
 * [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md)
 * [Get started with Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
-* [Introduction to Microsoft Azure Storage](..\storage\storage-introduction.md)
+* [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md)
 
