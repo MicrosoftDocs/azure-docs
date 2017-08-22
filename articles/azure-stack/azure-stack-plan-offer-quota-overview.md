@@ -17,7 +17,7 @@ ms.date: 8/22/2017
 ms.author: erikje
 
 ---
-# Plans, offers, and quotas overview
+# Plan, offer, quota, and subscription overview
 
 Azure Stack lets you deliver a wide variety of services and applications to your customers. These services can include virtual machines, SQL Server databases, SharePoint, Exchange, and more. You can also provide services from a growing [list of Azure marketplace items](azure-stack-marketplace-azure-items.md).
 
