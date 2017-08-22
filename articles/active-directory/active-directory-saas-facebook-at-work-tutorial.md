@@ -24,10 +24,10 @@ In this tutorial, you learn how to integrate Workplace by Facebook with Azure Ac
 Integrating Workplace by Facebook with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Workplace by Facebook.
-- You can enable your users to automatically get signed-on to Workplace by Facebook (single sign-on) with their Azure AD accounts.
+- You can enable your users to automatically get signed on to Workplace by Facebook (single sign-on) with their Azure AD accounts.
 - You can manage your accounts in one central location: the Azure portal.
 
-For more details about software as a service (SaaS) app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+For more details about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
@@ -51,15 +51,15 @@ The scenario outlined in this tutorial consists of two main building blocks:
 ## Add Workplace by Facebook from the gallery
 To configure the integration of Workplace by Facebook into Azure AD, add Workplace by Facebook from the gallery to your list of managed SaaS apps.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, select **Azure Active Directory**. 
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**. 
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications** > **All applications**.
+2. Browse to **Enterprise applications** > **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add the new application, select **New application** on the top of dialog box.
+3. To add the new application, select **New application** on the top of the dialog box.
 
 	![The New application button][3]
 
@@ -76,19 +76,19 @@ Establish this relationship by assigning the value of the **user name** in Azure
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD SSO in the Azure portal, and configure SSO in your Workplace by Facebook application.
+In this section, you enable Azure AD SSO in the Azure portal, and you configure SSO in your Workplace by Facebook application.
 
 1. In the Azure portal, on the **Workplace by Facebook** application integration page, select **Single sign-on**.
 
 	![Configure Single sign-on link][4]
 
-2. On the **Single sign-on** dialog box, select **Mode** as	**SAML-based Sign-on** to enable SSO.
+2. In the **Single sign-on** dialog box, select **Mode** as **SAML-based Sign-on** to enable SSO.
  
 	![Single sign-on dialog box](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_samlbase.png)
 
 3. In the **Workplace by Facebook Domain and URLs** section, do the following:
 
-    a. In the **Sign-on URL** textbox, type a URL that uses the following pattern: `https://<company subdomain>.facebook.com`
+    a. In the **Sign-on URL** text box, type a URL that uses the following pattern: `https://<company subdomain>.facebook.com`
 
     b. In the **Identifier** text box, type a URL that uses the following pattern: `https://www.facebook.com/company/<scim company id>`
 
@@ -125,17 +125,17 @@ In this section, you enable Azure AD SSO in the Azure portal, and configure SSO 
 
 11. You might need to enter the audience URL, recipient URL, and ACS (Assertion Consumer Service) URL, listed under the **SAML Configuration** section.
 
-12. Scroll to the bottom of the section, and select **Test SSO**. A pop-up window appears, with the Azure AD sign in page. To authenticate, enter your credentials as normal. Ensure the email address returned back from Azure AD is the same as the Workplace account you are logged in with.
+12. Scroll to the bottom of the section, and select **Test SSO**. A pop-up window appears, with the Azure AD sign-in page. To authenticate, enter your credentials as normal. Ensure the email address returned back from Azure AD is the same as the Workplace account you are logged in with.
 
-13. If the test has completed successfully, scroll to the bottom of the page and select **Save**.
+13. If the test has finished successfully, scroll to the bottom of the page and select **Save**.
 
 14. Anyone using Workplace is now presented with Azure AD sign-in page for authentication.
 
-You can choose to configure a SAML sign out URL, which can be used to point at Azure AD's sign out page. When this setting is enabled and configured, the user is no longer directed to the Workplace sign-out page. Instead, the user is redirected to the URL that was added in the SAML sign out redirect setting.
+You can choose to configure a SAML sign out URL, which can be used to point at the Azure AD sign-out page. When this setting is enabled and configured, the user is no longer directed to the Workplace sign-out page. Instead, the user is redirected to the URL that was added in the SAML sign-out redirect setting.
 
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app. After adding this app from the **Active Directory > Enterprise Applications** section, simply select the **Single Sign-On** tab, and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app. After adding this app from the **Active Directory** > **Enterprise Applications** section, simply select the **Single Sign-On** tab, and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature in the [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### Configure reauthentication frequency
 
@@ -152,7 +152,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ![Create Azure AD User][100]
 
-1. In the **Azure portal**, on the left navigation pane, select **Azure Active Directory**.
+1. In the **Azure portal**, in the left pane, select **Azure Active Directory**.
 
 	![The Azure Active Directory button](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_01.png) 
 
@@ -164,7 +164,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 	![The Add button](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_03.png) 
 
-4. On the **User** dialog box, do the following:
+4. In the **User** dialog box, do the following:
  
 	![The User dialog box](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_04.png) 
 
@@ -191,7 +191,7 @@ In this section, you enable Britta Simon to use Azure SSO by granting access to 
 
 ![Assign user][200] 
 
-1. In the Azure portal, open the applications view. Go to the directory view,go to **Enterprise applications**, and then select **All applications**.
+1. In the Azure portal, open the applications view. Go to the directory view, go to **Enterprise applications**, and then select **All applications**.
 
 	![Assign user][201] 
 
@@ -203,15 +203,15 @@ In this section, you enable Britta Simon to use Azure SSO by granting access to 
 
 	![The "Users and groups" link][202] 
 
-4. Select **Add**. Then, on the **Add Assignment** pane, select **Users and groups**.
+4. Select **Add**. Then, in the **Add Assignment** pane, select **Users and groups**.
 
 	![The Add Assignment pane][203]
 
-5. On the **Users and groups** dialog box, select **Britta Simon** in the users list.
+5. In the **Users and groups** dialog box, select **Britta Simon** in the users list.
 
-6. On the **Users and groups** dialog box, select **Select**.
+6. In the **Users and groups** dialog box, select **Select**.
 
-7. On the **Add Assignment** dialog box, select **Assign**.
+7. In the **Add Assignment** dialog box, select **Assign**.
 	
 ### Test single sign-on
 
@@ -222,7 +222,7 @@ For more information, see [Introduction to the Access Panel](active-directory-sa
 ## Next steps
 
 * See the [list of tutorials on how to integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md).
-* Read [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* Read [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 * Learn more about how to [configure user provisioning](active-directory-saas-facebook-at-work-provisioning-tutorial.md).
 
 
