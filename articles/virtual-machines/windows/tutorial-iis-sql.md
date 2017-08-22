@@ -1,6 +1,6 @@
 ---
 title: Create a Windows VM running a .Net Core app with IIS and SQL Azure | Microsoft Docs
-description: Tutorial - create a two-tier .Net Core app that runs on a VM using IIS and SQL.
+description: Tutorial - install a Azure SQL, IIS, .Net Core stack on a Windows virtual machine. Optionally, install a two-tier .Net Core app that runs on the stack ans an example.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/9/2017
+ms.date: 08/21/2017
 ms.author: cynthn
 ms.custom: mvc
 ---
 
-# Tutorial IIS SQL .Net Core 
+# Tutorial install the IIS, SQL,.Net Core stack on an Windows VM
 
-In this tutorial, we deploy a two-tier music store .Net Core application. The application runs on a Windows Azure VM running IIS and connects to an Azure SQL database.
+In this tutorial, we will install an Azure SQL, IIS, ,NET Core stack. Optionally, we will then install a two-tier music store .Net Core application to exercise the stack as an example.
 
 > [!div class="checklist"]
 > * Create an Azure SQL server and database
 > * Create a VM 
-> * Install IIS and the .NET SDK on the VM
-> * Configure the VM to run a sample website 
-> * Connect to the website to see it running
+> * Install IIS and the .NET Core SDK on the VM
+> * Configure the VM to run a sample web app
+> * Connect to the web app to see it running
 
-You can also deploy this entire sample (including the fully configured VM) using an example template. For more information, see [Deploy Two Tier Application on Windows and Azure SQL DB](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-vm-sql-db/README.MD).
+You can explore sources for the Music Store sample app that we use in this tutorial by looking at the public repo on [GitHub](https://github.com/MicrosoftDocs/MusicStoreSample).
 
 ## Create a resource group
 
-Create an [Azure resource group](../../azure-resource-manager/resource-group-overview.md) using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named *myResourceGroup* in the *West US* location.
+Create a [resource group](../../azure-resource-manager/resource-group-overview.md) using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. The following example creates a resource group named *myResourceGroup* in the *West US* location.
 
 ```powershell
 $location = "westus"
@@ -44,7 +44,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## Azure SQL
 
-Define variables for creating the SQL server and database. Replace these pre-defined values as with your own.
+Define variables for creating the SQL server and database. Replace the values as with your own.
 
 ```powershell
 # The logical server name: Use a random value or replace with your own value (do not capitalize)
@@ -77,7 +77,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroup `
 ```
 
 
-Create an empty database named **musicstore** for the application to store data.
+Create an empty database named **musicstore** for an application to store data.
 
 ```powershell
 New-AzureRmSqlDatabase  -ResourceGroupName $resourceGroup `
@@ -139,7 +139,7 @@ When the VM has been created, you can get the IP address by typing: '$pip.IpAddr
 
 ## Install IIS and the .NET Core SDK
 
-Remote into the VM using the IP address. Open a PowerShell prompt inside the VM and run the following cmdlets to install IIS and the .NET Core SDK.
+Connect to the VM using the IP address. Open a PowerShell prompt inside the VM and run the following cmdlets to install IIS and the .NET Core SDK.
 
 ```powershell
 # Create a folder to hold downloaded files 
@@ -157,14 +157,14 @@ Start-Process c:\temp\DotNetCore.WindowsHosting.exe -ArgumentList '/quiet' -Wait
 
 ## Optional: Install a sample .NET application
 
-Use the custom script extension to install a sample app from GitHub. We pass the path to a configuration into [Set-AzureRmVMCustomScriptExtension](/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension) to download and configure the sample application. To configure the .Net application on the VM, we need to provide the full path to the SQL server instance, the user name, and password to the script. 
+Use the custom script extension to install a sample app from GitHub. We pass the path to a configuration file into [Set-AzureRmVMCustomScriptExtension](/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension) to download and configure the sample application. To configure the .Net application on the VM, we need to provide the full path to the SQL server instance, the user name, and password to the script. 
 
 ```powershell
 $sqlfqdn = ($sqlserver + '.database.windows.net')
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName $resourceGroup `
     -VMName $vmName `
     -Location $location `
-    -FileUri https://github.com/MicrosoftDocs/MusicStoreSample/blob/master/support-scripts/create-music-store.ps1 `
+    -FileUri https://raw.githubusercontent.com/MicrosoftDocs/MusicStoreSample/master/support-scripts/create-music-store.ps1 `
     -Run "create-music-store.ps1 -user $user -password $password -sqlserver $sqlfqdn" `
     -Name MusicStoreExtension
 ```
@@ -178,7 +178,7 @@ Get the public IP address from PowerShell.
 $pip.IpAddress
 ```
 
-Open a browser and type in the public IP address for the VM to see the .NET app in action.
+Open a browser and type in the public IP address for the VM to see the .NET Core app in action.
 
 ![Default page for the Music Store .NET Core app](./media/tutorial-iis-sql/musicstore.png) 
 
@@ -191,9 +191,13 @@ In this tutorial, you created a two-tier .Net Core sample music store applicatio
 > [!div class="checklist"]
 > * Create an Azure SQL server and database
 > * Create a VM 
-> * Install IIS and the .NET SDK on the VM
-> * Configure the VM to run a sample website 
-> * Connect to the website to see it running
+> * Install IIS and the .NET Core SDK on the VM
+> * Configure the VM to run a sample web app
+> * Connect to the web app to see it running
 
-You can deploy this entire sample (including the fully configured VM) using an example template. For more information, see [Deploy Two Tier Application on Windows and Azure SQL DB](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-vm-sql-db/README.MD).
+
+Advance to the next tutorial to learn how to secure IIS web server with SSL certificates.
+
+> [!div class="nextstepaction"]
+> [Secure IIS web server with SSL certificates](tutorial-secure-web-server.md)
 
