@@ -22,7 +22,7 @@ ms.custom: it-pro
 This article explains how to add new users in your organization in the Azure Active Directory (Azure AD) one at a time using the Azure portal or by synchronizing your on-premises Windows Server AD user account data. 
 
 ## Add cloud-based users
-1. Sign in to the [Azure Active Directory admin center](aad.portal.azure.com) with an account that's a global admin for the directory.
+1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with an account that's a global admin for the directory.
 2. Select **Users and groups**.
 3. On the **Users and groups** blade, select **All users**, and then select **New user**.
    ![Selecting the Add command](./media/add-users-azure-active-directory/add-user.png)
