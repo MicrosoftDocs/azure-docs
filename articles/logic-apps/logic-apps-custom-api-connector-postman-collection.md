@@ -24,7 +24,7 @@ This tutorial shows how to create a [Postman collection](https://www.getpostman.
 by using the Azure Cognitive Services [Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/) as an example. 
 This API identifies the language, sentiment, and key phrases in text that you pass 
 to the API. You can then use your Postman collection to easily create 
-[custom connectors](../logic-apps/logic-apps-register-custom-api-connector.md) 
+[custom connectors](../logic-apps/logic-apps-custom-api-connector-register.md) 
 for Azure Logic Apps.
 
 ## Prerequisites
@@ -158,7 +158,7 @@ After you export the collection, import the JSON file. **APPLIES TO LOGIC APPS?*
 > such as `Ocp-Apim-Subscription-Key` in the **Security** section **FLOW ONLY? - WHAT SECURITY SECTION?**,
 > and remove them from actions and triggers.
 
-For more information, see [Register and use custom APIs (connectors) in Logic Apps](../logic-apps/logic-apps-register-custom-api-connector.md).
+For more information, see [Register and use custom APIs (connectors) in Logic Apps](../logic-apps/logic-apps-custom-api-connector-register.md).
 
 ## Next steps
 

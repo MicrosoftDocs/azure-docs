@@ -63,7 +63,7 @@ The custom connector process has several steps,
 which we describe briefly below. This article assumes that you 
 already have a RESTful API with some type of authenticated access, 
 so we'll focus on Steps 3-6 in this article. For example of Steps 1 and 2, 
-see [Create a custom Web API (connector) for Logic Apps](../logic-apps/logic-apps-custom-api-web-api-tutorial.md).
+see [Create a custom Web API (connector) for Logic Apps](../logic-apps/logic-apps-custom-api-connector-web-api-tutorial.md).
 
 1. **Build a RESTful API** in your chosen language and platform. 
 For Microsoft technologies, we recommend one of these platforms:
@@ -140,7 +140,7 @@ If you don't already have an OpenAPI file for your API and don't want to create 
 you can still easily create a custom connector by using a Postman collection. 
 Logic Apps ultimately uses OpenAPI behind the scenes, 
 parses a Postman collection, and translates the Collection to an OpenAPI definition file. 
-For more information, see [Describe custom connectors with Postman](../logic-apps/logic-apps-postman-collection.md).
+For more information, see [Describe custom connectors with Postman](../logic-apps/logic-apps-custom-api-connector-postman-collection.md).
 
 ### Get started with OpenAPI and Postman
 
@@ -187,14 +187,6 @@ see [Certify custom connectors in Logic Apps](**NEED LOGIC APPS TOPIC**).
 
 ## Next steps
 
-* [Create a custom Web API (connector) for Logic Apps](../logic-apps/logic-apps-custom-api-web-api-tutorial.md)
-* [Describe custom connectors with Postman](../logic-apps/postman-collection.md)
+* [Create a custom Web API (connector) for Logic Apps](../logic-apps/logic-apps-custom-api-connector-web-api-tutorial.md)
+* [Describe custom connectors with Postman](../logic-apps/logic-apps-custom-api-connector-postman-collection.md)
 * [Custom OpenAPI extensions](../logic-apps/customapi-how-to-swagger.md)
-
-
-
-
-
-
-
-
