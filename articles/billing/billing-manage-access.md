@@ -32,7 +32,7 @@ The Account Administrator must opt in using the [Azure portal](https://portal.az
 
     ![Screenshot shows how to delegate access to invoices](./media/billing-manage-access/AA-optin.png)
 
-1. Turn **On** the access followed by saving the changes to allow users in subscription scoped roles to download invoice.
+1. Turn **On** the access followed by saving the changes, to allow users in subscription scoped roles to download invoice.
 
     ![Screenshot shows on-off to delegate access to invoice](./media/billing-manage-access/AA-optinAllow.png)
 
