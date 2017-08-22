@@ -33,7 +33,7 @@ Learn how to:
 
 
 ## Puppet
-[Puppet](https://www.puppet.com) is an enterprise-ready automation platform that handles the application delivery and deployment process. Agents are installed on target machines to allow Puppet Master to run manifests that define the desired configuration of the Azure infrastructure and VMs. Puppet can integrate with other solutions such as Jenkins and GitHub for an improve devops workflow. For more information, see [How Puppet works](https://puppet.com/product/how-puppet-works).
+[Puppet](https://www.puppet.com) is an enterprise-ready automation platform that handles the application delivery and deployment process. Agents are installed on target machines to allow Puppet Master to run manifests that define the desired configuration of the Azure infrastructure and VMs. Puppet can integrate with other solutions such as Jenkins and GitHub for an improved devops workflow. For more information, see [How Puppet works](https://puppet.com/product/how-puppet-works).
 
 Learn how to:
 
@@ -128,3 +128,4 @@ Learn how to:
 
 
 ## Next steps
+There are many different options to use infrastructure automation tools in Azure. You have the freedom to use the solution that best fits your needs and environment. To get started and try some of the tools built-in to Azure, see how to automate the customization of a [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment) or [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment) VM.
