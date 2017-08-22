@@ -75,7 +75,7 @@ The following procedures are related to Spark 1.6. For  the Spark 2.0 version, u
 
 2.You need a Spark 1.6 cluster to complete this walkthrough. To create one, see the instructions provided in [Get started: create Apache Spark on Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). The cluster type and version is specified from the **Select Cluster Type** menu. 
 
-![Configure cluster](../media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
+![Configure cluster](./media/data-science-spark-overview/spark-cluster-on-portal.png)
 
 <!-- -->
 
@@ -145,11 +145,11 @@ We have taken a 0.1% sample of these files and joined the trip\_data and trip\_f
 ## Execute code from a Jupyter notebook on the Spark cluster
 You can launch the Jupyter Notebook from the Azure portal. Find your Spark cluster on your dashboard and click it to enter management page for your cluster. To open the notebook associated with the Spark cluster, click **Cluster Dashboards** -> **Jupyter Notebook** .
 
-![Cluster dashboards](../media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
+![Cluster dashboards](./media/data-science-spark-overview/spark-jupyter-on-portal.png)
 
 You can also browse to ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** to access the Jupyter Notebooks. Replace the CLUSTERNAME part of this URL with the name of your own cluster. You need the password for your admin account to access the notebooks.
 
-![Browse Jupyter Notebooks](../media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
+![Browse Jupyter Notebooks](./media/data-science-spark-overview/spark-jupyter-notebook.png)
 
 Select PySpark to see a directory that contains a few examples of pre-packaged notebooks that use the PySpark API.The notebooks that contain the code samples for this suite of Spark topic are available at [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
@@ -174,7 +174,7 @@ Now you can:
 > 
 > 
 
-![Logistic regression ROC curve for generic approach](../media/machine-learning-data-science-spark-overview/pyspark-jupyter-autovisualization.png)
+![Logistic regression ROC curve for generic approach](./media/data-science-spark-overview/pyspark-jupyter-autovisualization.png)
 
 ## What's next?
 Now that you are set up with an HDInsight Spark cluster and have uploaded the Jupyter notebooks, you are ready to work through the topics that correspond to the three PySpark notebooks. They show how to explore your data and then how to create and consume models. The advanced data exploration and modeling notebook shows how to include cross-validation, hyper-parameter sweeping, and model evaluation. 

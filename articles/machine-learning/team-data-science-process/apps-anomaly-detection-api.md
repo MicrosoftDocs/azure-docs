@@ -187,6 +187,6 @@ The API runs all detectors on your time series data and returns anomaly scores a
 | NegTrendScore |A floating number representing anomaly score on negative trend |
 | NegTrendAlert |1/0 value indicating there is a negative trend anomaly based on the input sensitivity |
 
-[1]: ../media/machine-learning-apps-anomaly-detection-api/anomaly-detection-score.png
-[2]: ../media/machine-learning-apps-anomaly-detection-api/anomaly-detection-seasonal.png
+[1]: ./media/apps-anomaly-detection-api/anomaly-detection-score.png
+[2]: ./media/apps-anomaly-detection-api/anomaly-detection-seasonal.png
 

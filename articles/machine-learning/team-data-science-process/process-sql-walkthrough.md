@@ -629,24 +629,24 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 •    [FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
 •    [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
-[1]: ../media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
-[2]: ../media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_28_1.png
-[3]: ../media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_35_1.png
-[4]: ../media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_36_1.png
-[5]: ../media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_39_1.png
-[6]: ../media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_42_1.png
-[7]: ../media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_44_1.png
-[8]: ../media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_46_1.png
-[9]: ../media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_71_1.png
-[10]: ../media/machine-learning-data-science-process-sql-walkthrough/azuremltrain.png
-[11]: ../media/machine-learning-data-science-process-sql-walkthrough/azuremlpublish.png
-[12]: ../media/machine-learning-data-science-process-sql-walkthrough/ssmsconnect.png
-[13]: ../media/machine-learning-data-science-process-sql-walkthrough/executescript.png
-[14]: ../media/machine-learning-data-science-process-sql-walkthrough/sqlserverproperties.png
-[15]: ../media/machine-learning-data-science-process-sql-walkthrough/sqldefaultdirs.png
-[16]: ../media/machine-learning-data-science-process-sql-walkthrough/bulkimport.png
-[17]: ../media/machine-learning-data-science-process-sql-walkthrough/amlreader.png
-[18]: ../media/machine-learning-data-science-process-sql-walkthrough/amlscoring.png
+[1]: ./media/data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
+[2]: ./media/data-science-process-sql-walkthrough/sql-walkthrough_28_1.png
+[3]: ./media/data-science-process-sql-walkthrough/sql-walkthrough_35_1.png
+[4]: ./media/data-science-process-sql-walkthrough/sql-walkthrough_36_1.png
+[5]: ./media/data-science-process-sql-walkthrough/sql-walkthrough_39_1.png
+[6]: ./media/data-science-process-sql-walkthrough/sql-walkthrough_42_1.png
+[7]: ./media/data-science-process-sql-walkthrough/sql-walkthrough_44_1.png
+[8]: ./media/data-science-process-sql-walkthrough/sql-walkthrough_46_1.png
+[9]: ./media/data-science-process-sql-walkthrough/sql-walkthrough_71_1.png
+[10]: ./media/data-science-process-sql-walkthrough/azuremltrain.png
+[11]: ./media/data-science-process-sql-walkthrough/azuremlpublish.png
+[12]: ./media/data-science-process-sql-walkthrough/ssmsconnect.png
+[13]: ./media/data-science-process-sql-walkthrough/executescript.png
+[14]: ./media/data-science-process-sql-walkthrough/sqlserverproperties.png
+[15]: ./media/data-science-process-sql-walkthrough/sqldefaultdirs.png
+[16]: ./media/data-science-process-sql-walkthrough/bulkimport.png
+[17]: ./media/data-science-process-sql-walkthrough/amlreader.png
+[18]: ./media/data-science-process-sql-walkthrough/amlscoring.png
 
 
 <!-- Module References -->

@@ -888,32 +888,32 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 •    [FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
 •    [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
-[1]: ../media/machine-learning-data-science-process-sqldw-walkthrough/sql-walkthrough_26_1.png
-[2]: ../media/machine-learning-data-science-process-sqldw-walkthrough/sql-walkthrough_28_1.png
-[3]: ../media/machine-learning-data-science-process-sqldw-walkthrough/sql-walkthrough_35_1.png
-[4]: ../media/machine-learning-data-science-process-sqldw-walkthrough/sql-walkthrough_36_1.png
-[5]: ../media/machine-learning-data-science-process-sqldw-walkthrough/sql-walkthrough_39_1.png
-[6]: ../media/machine-learning-data-science-process-sqldw-walkthrough/sql-walkthrough_42_1.png
-[7]: ../media/machine-learning-data-science-process-sqldw-walkthrough/sql-walkthrough_44_1.png
-[8]: ../media/machine-learning-data-science-process-sqldw-walkthrough/sql-walkthrough_46_1.png
-[9]: ../media/machine-learning-data-science-process-sqldw-walkthrough/sql-walkthrough_71_1.png
-[10]: ../media/machine-learning-data-science-process-sqldw-walkthrough/azuremltrain.png
-[11]: ../media/machine-learning-data-science-process-sqldw-walkthrough/azuremlpublish.png
-[12]: ../media/machine-learning-data-science-process-sqldw-walkthrough/ssmsconnect.png
-[13]: ../media/machine-learning-data-science-process-sqldw-walkthrough/executescript.png
-[14]: ../media/machine-learning-data-science-process-sqldw-walkthrough/sqlserverproperties.png
-[15]: ../media/machine-learning-data-science-process-sqldw-walkthrough/sqldefaultdirs.png
-[16]: ../media/machine-learning-data-science-process-sqldw-walkthrough/bulkimport.png
-[17]: ../media/machine-learning-data-science-process-sqldw-walkthrough/amlreader.png
-[18]: ../media/machine-learning-data-science-process-sqldw-walkthrough/amlscoring.png
-[19]: ../media/machine-learning-data-science-process-sqldw-walkthrough/ps_download_scripts.png
-[20]: ../media/machine-learning-data-science-process-sqldw-walkthrough/ps_load_data.png
-[21]: ../media/machine-learning-data-science-process-sqldw-walkthrough/azcopy-overwrite.png
-[22]: ../media/machine-learning-data-science-process-sqldw-walkthrough/ipnb-service-aml-1.png
-[23]: ../media/machine-learning-data-science-process-sqldw-walkthrough/ipnb-service-aml-2.png
-[24]: ../media/machine-learning-data-science-process-sqldw-walkthrough/ipnb-service-aml-3.png
-[25]: ../media/machine-learning-data-science-process-sqldw-walkthrough/ipnb-service-aml-4.png
-[26]: ../media/machine-learning-data-science-process-sqldw-walkthrough/tip_class_hist_1.png
+[1]: ./media/data-science-process-sqldw-walkthrough/sql-walkthrough_26_1.png
+[2]: ./media/data-science-process-sqldw-walkthrough/sql-walkthrough_28_1.png
+[3]: ./media/data-science-process-sqldw-walkthrough/sql-walkthrough_35_1.png
+[4]: ./media/data-science-process-sqldw-walkthrough/sql-walkthrough_36_1.png
+[5]: ./media/data-science-process-sqldw-walkthrough/sql-walkthrough_39_1.png
+[6]: ./media/data-science-process-sqldw-walkthrough/sql-walkthrough_42_1.png
+[7]: ./media/data-science-process-sqldw-walkthrough/sql-walkthrough_44_1.png
+[8]: ./media/data-science-process-sqldw-walkthrough/sql-walkthrough_46_1.png
+[9]: ./media/data-science-process-sqldw-walkthrough/sql-walkthrough_71_1.png
+[10]: ./media/data-science-process-sqldw-walkthrough/azuremltrain.png
+[11]: ./media/data-science-process-sqldw-walkthrough/azuremlpublish.png
+[12]: ./media/data-science-process-sqldw-walkthrough/ssmsconnect.png
+[13]: ./media/data-science-process-sqldw-walkthrough/executescript.png
+[14]: ./media/data-science-process-sqldw-walkthrough/sqlserverproperties.png
+[15]: ./media/data-science-process-sqldw-walkthrough/sqldefaultdirs.png
+[16]: ./media/data-science-process-sqldw-walkthrough/bulkimport.png
+[17]: ./media/data-science-process-sqldw-walkthrough/amlreader.png
+[18]: ./media/data-science-process-sqldw-walkthrough/amlscoring.png
+[19]: ./media/data-science-process-sqldw-walkthrough/ps_download_scripts.png
+[20]: ./media/data-science-process-sqldw-walkthrough/ps_load_data.png
+[21]: ./media/data-science-process-sqldw-walkthrough/azcopy-overwrite.png
+[22]: ./media/data-science-process-sqldw-walkthrough/ipnb-service-aml-1.png
+[23]: ./media/data-science-process-sqldw-walkthrough/ipnb-service-aml-2.png
+[24]: ./media/data-science-process-sqldw-walkthrough/ipnb-service-aml-3.png
+[25]: ./media/data-science-process-sqldw-walkthrough/ipnb-service-aml-4.png
+[26]: ./media/data-science-process-sqldw-walkthrough/tip_class_hist_1.png
 
 
 <!-- Module References -->

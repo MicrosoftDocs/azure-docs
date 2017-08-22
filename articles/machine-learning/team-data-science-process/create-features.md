@@ -59,11 +59,11 @@ Besides feature set A, which already exist in the original raw data, the other t
 
 In the Azure Machine Learning experiment, these four training datasets are formed via four branches from the pre-processed input dataset. Except the left most branch, each of these branches contains an [Execute R Script](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) module, in which a set of derived features (feature set B, C, and D) are respectively constructed and appended to the imported dataset. The following figure demonstrates the R script used to create feature set B in the second left branch.
 
-![create features](../media/machine-learning-data-science-create-features/addFeature-Rscripts.png)
+![create features](./media/data-science-create-features/addFeature-Rscripts.png)
 
 The comparison of the performance results of the four models are summarized in the following table. The best results are shown by features A+B+C. Note that the error rate decreases when additional feature set are included in the training data. It verifies our presumption that the feature set B, C provide additional relevant information for the regression task. But adding the D feature does not seem to provide any additional reduction in the error rate.
 
-![result comparison](../media/machine-learning-data-science-create-features/result1.png)
+![result comparison](./media/data-science-create-features/result1.png)
 
 ## <a name="example2"></a> Example 2: Creating Features in Text Mining
 Feature engineering is widely applied in tasks related to text mining, such as document classification and sentiment analysis. For example, when we want to classify documents into several categories, a typical assumption is that the word/phrases included in one doc category are less likely to occur in another doc category. In another words, the frequency of the words/phrases distribution is able to characterize different document categories. In text mining applications, because individual pieces of text-contents usually serve as the input data, the feature engineering process is needed to create the features involving word/phrase frequencies.
@@ -76,11 +76,11 @@ In Azure Machine Learning, there is a [Feature Hashing](https://msdn.microsoft.c
 * Second, set the "Hashing bitsize" to 8, which means 2^8=256 features will be created. The word/phase in all the text will be hashed to 256 indices. The parameter "Hashing bitsize" ranges from 1 to 31. The word(s)/phrase(s) are less likely to be hashed into the same index if setting it to be a larger number.
 * Third, set the parameter "N-grams" to 2. This gets the occurrence frequency of unigrams (a feature for every single word) and bigrams (a feature for every pair of adjacent words) from the input text. The parameter "N-grams" ranges from 0 to 10, which indicates the maximum number of sequential words to be included in a feature.  
 
-!["Feature Hashing" module](../media/machine-learning-data-science-create-features/feature-Hashing1.png)
+!["Feature Hashing" module](./media/data-science-create-features/feature-Hashing1.png)
 
 The following figure shows what the these new feature look like.
 
-!["Feature Hashing" example](../media/machine-learning-data-science-create-features/feature-Hashing2.png)
+!["Feature Hashing" example](./media/data-science-create-features/feature-Hashing2.png)
 
 ## Conclusion
 Engineered and selected features increase the efficiency of the training process which attempts to extract the key information contained in the data. They also improve the power of these models to classify the input data accurately and to predict outcomes of interest more robustly. Feature engineering and selection can also combine to make the learning more computationally tractable. It does so by enhancing and then reducing the number of features needed to calibrate or train a model. Mathematically speaking, the features selected to train the model are a minimal set of independent variables that explain the patterns in the data and then predict outcomes successfully.

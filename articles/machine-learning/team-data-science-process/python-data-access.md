@@ -75,7 +75,7 @@ To obtain the authorization token, you can do one of the following:
 
 * Ask for a token from an owner. Owners can access their authorization tokens from the Settings page of their workspace in Studio. Select **Settings** from the left pane and click **AUTHORIZATION TOKENS** to see the primary and secondary tokens.  Although either the primary or the secondary authorization tokens can be used in the code snippet, it is recommended that owners only share the secondary authorization tokens.
 
-![Authorization tokens](../media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
+![Authorization tokens](./media/python-data-access/ml-python-access-settings-tokens.png)
 
 * Ask to be promoted to role of owner.  To do this, a current owner of the workspace needs to first remove you from the workspace then re-invite you to it as an owner.
 
@@ -316,16 +316,16 @@ The `data_type_id`, `name` and `description` parameters are optional and default
 If your data is already serialized, use `update_from_raw_data` instead of `update_from_dataframe`. If you just pass in `raw_data` instead of  `dataframe`, it works in a similar way.
 
 <!-- Images -->
-[security]:../media/machine-learning-python-data-access/security.png
-[dataset-format]:../media/machine-learning-python-data-access/dataset-format.png
-[csv-format]:../media/machine-learning-python-data-access/csv-format.png
-[datasets]:../media/machine-learning-python-data-access/datasets.png
-[dataset-access-code]:../media/machine-learning-python-data-access/dataset-access-code.png
-[ipython-dataset]:../media/machine-learning-python-data-access/ipython-dataset.png
-[experiment]:../media/machine-learning-python-data-access/experiment.png
-[intermediate-dataset-access-code]:../media/machine-learning-python-data-access/intermediate-dataset-access-code.png
-[ipython-intermediate-dataset]:../media/machine-learning-python-data-access/ipython-intermediate-dataset.png
-[ipython-histogram]:../media/machine-learning-python-data-access/ipython-histogram.png
+[security]:./media/python-data-access/security.png
+[dataset-format]:./media/python-data-access/dataset-format.png
+[csv-format]:./media/python-data-access/csv-format.png
+[datasets]:./media/python-data-access/datasets.png
+[dataset-access-code]:./media/python-data-access/dataset-access-code.png
+[ipython-dataset]:./media/python-data-access/ipython-dataset.png
+[experiment]:./media/python-data-access/experiment.png
+[intermediate-dataset-access-code]:./media/python-data-access/intermediate-dataset-access-code.png
+[ipython-intermediate-dataset]:./media/python-data-access/ipython-intermediate-dataset.png
+[ipython-histogram]:./media/python-data-access/ipython-histogram.png
 
 
 <!-- Module References -->

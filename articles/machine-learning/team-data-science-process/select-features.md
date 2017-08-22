@@ -41,19 +41,19 @@ Among others, one widely applied category of feature selection methods in a supe
 
 In Azure Machine Learning Studio, there are modules provided for feature selection. As shown in the following figure, these modules include [Filter-Based Feature Selection][filter-based-feature-selection] and [Fisher Linear Discriminant Analysis][fisher-linear-discriminant-analysis].
 
-![Feature selection example](../media/machine-learning-data-science-select-features/feature-Selection.png)
+![Feature selection example](./media/data-science-select-features/feature-Selection.png)
 
 Consider, for example, the use of the [Filter-Based Feature Selection][filter-based-feature-selection] module. For the purpose of convenience, we continue to use the text mining example outlined above. Assume that we want to build a regression model after a set of 256 features are created through the [Feature Hashing][feature-hashing] module, and that the response variable is the "Col1" and represents a book review ratings ranging from 1 to 5. By setting "Feature scoring method" to be "Pearson Correlation", the "Target column" to be "Col1", and the "Number of desired features" to 50. Then the module [Filter-Based Feature Selection][filter-based-feature-selection] will produce a dataset containing 50 features together with the target attribute "Col1". The following figure shows the flow of this experiment and the input parameters we just described.
 
-![Feature selection example](../media/machine-learning-data-science-select-features/feature-Selection1.png)
+![Feature selection example](./media/data-science-select-features/feature-Selection1.png)
 
 The following figure shows the resulting datasets. Each feature is scored based on the Pearson Correlation between itself and the target attribute "Col1". The features with top scores are kept.
 
-![Feature selection example](../media/machine-learning-data-science-select-features/feature-Selection2.png)
+![Feature selection example](./media/data-science-select-features/feature-Selection2.png)
 
 The corresponding scores of the selected features are shown in the following figure.
 
-![Feature selection example](../media/machine-learning-data-science-select-features/feature-Selection3.png)
+![Feature selection example](./media/data-science-select-features/feature-Selection3.png)
 
 By applying this [Filter-Based Feature Selection][filter-based-feature-selection] module, 50 out of 256 features are selected because they have the most correlated features with the target variable "Col1", based on the scoring method "Pearson Correlation".
 
