@@ -25,7 +25,7 @@ Your users consume your services by subscribing to an offer that you create. If 
 
 Users can subscribe to as many offers as they want. Offers contain one or more plans, and each plan can have one or more services. By creating plans and combining them into different offers, you control:
 - which resources users can consume
-- how amount of those resources available to the users
+- the amount of those resources available to the users
 - which free trial offers are available
 - and so on
 
@@ -39,7 +39,9 @@ Plans are groupings of one or more services. As a cloud operator, you [create pl
 
 ### Quotas
 
-Each plan can be set with quotas to help you manage your cloud capacity. Quotas define the resource limits that a user subscription can provision or consume. For example, a quota might allow a user to create up to five virtual machines. Quotas can include restrictions such as VM, RAM, and CPU limits and are applied per user subscription. Quotas can be configured by region. For example, a plan containing compute services from Region A could have a quota of two virtual machines, 4-GB RAM, and 10 CPU cores. As a cloud operator, you select or create a quota for each service in a plan.
+Each plan can be set with quotas to help you manage your cloud capacity. Quotas define the resource limits that a user subscription can provision or consume. For example, a quota might allow a user to create up to five virtual machines. Quotas can include restrictions such as VM, RAM, and CPU limits.
+
+Quotas can be configured by region. For example, a plan containing compute services from Region A could have a quota of two virtual machines, 4-GB RAM, and 10 CPU cores. As a cloud operator, you select or create a quota for each service in a plan.
 
 ### Base plan
 
@@ -47,7 +49,7 @@ When creating an offer, the service administrator can include a base plan. These
 
 ### Add-on plans
 
-The service administrator can also include add-on plans in an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (with quotas) available in an offer that a subscription owner can add to their subscriptions. For example, you can offer a base plan with limited resources for a trial, and an add-on plan with more substantial resources to customers who decide to adopt the service.
+The service administrator can also include add-on plans in an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (with quotas) available in an offer that a subscriber can add to their subscriptions. For example, you can offer a base plan with limited resources for a trial, and an add-on plan with more substantial resources to customers who decide to adopt the service.
 
 ## Offers
 
