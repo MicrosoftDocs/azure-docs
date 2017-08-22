@@ -246,8 +246,7 @@ To learn how to do this, visit the [Connect Excel to Hadoop by using Power Query
 
 Source: [Connect Excel to Hadoop by using Power Query](../hdinsight/hdinsight-connect-excel-power-query.md)
 
-## Azure Information Protection: personal data classification for documents and
-email
+## Azure Information Protection: personal data classification for documents and email
 
 [Azure Information Protection](https://www.microsoft.com/en-us/cloud-platform/azure-information-protection) can help Azure customers apply labels to classify and ensure the protection of internally or externally shared documents and email communications that contain customer or employee personal information. Rules and conditions can be defined automatically or manually, by administrators or by users. For example, if a user is saving a document that includes credit card information, he or she would see a label recommendation that was configured by the administrator.
 
