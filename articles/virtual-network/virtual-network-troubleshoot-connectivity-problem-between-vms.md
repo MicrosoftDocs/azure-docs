@@ -86,11 +86,11 @@ In some scenarios, the VM is placed behind a Load balance solution that has a de
 
 ## Step 6 Check whether traffic is blocked by ACLs for Classic VM
 
-Need detail steps
+An ACL provides the ability to selectively permit or deny traffic for a virtual machine endpoint. For more information, see [Manage the ACL on an endpoint](../virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
 ## Step 7 Check whether the endpoint is created for Classic VM
 
-All VM that you create in Azure using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on other virtual networks require endpoints to direct the inbound network traffic to a virtual machine. For more information, see [How to set up endpoints](../windows/classic/setup-endpoints.md)
+All VM that you create in Azure using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on other virtual networks require endpoints to direct the inbound network traffic to a virtual machine. For more information, see [How to set up endpoints](../windows/classic/setup-endpoints.md).
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
