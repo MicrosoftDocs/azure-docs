@@ -20,7 +20,7 @@ ms.author: bradsev
 # Move data to or from Azure Blob Storage using SSIS connectors
 The [SQL Server Integration Services Feature Pack for Azure](https://msdn.microsoft.com/library/mt146770.aspx) provides components to connect to Azure, transfer data between Azure and on-premises data sources, and process data stored in Azure.
 
-[!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
+[!INCLUDE [blob-storage-tool-selector](../../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 Once customers have moved on-premises data into the cloud, they can access it from any Azure service to leverage the full power of the suite of Azure technologies. It may be used, for example, in Azure Machine Learning or on an HDInsight cluster.
 
@@ -29,7 +29,7 @@ This is typically be the first step for the [SQL](sql-walkthrough.md) and [HDIns
 For a discussion of canonical scenarios that use SSIS to accomplish business needs common in hybrid data integration scenarios, see [Doing more with SQL Server Integration Services Feature Pack for Azure](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) blog.
 
 > [!NOTE]
-> For a complete introduction to Azure blob storage, refer to [Azure Blob Basics](../storage/blobs/storage-dotnet-how-to-use-blobs.md) and to [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> For a complete introduction to Azure blob storage, refer to [Azure Blob Basics](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) and to [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
 
@@ -37,7 +37,7 @@ For a discussion of canonical scenarios that use SSIS to accomplish business nee
 To perform the tasks described in this article, you must have an Azure subscription and an Azure storage account set up. You must know your Azure storage account name and account key to upload or download data.
 
 * To set up an **Azure subscription**, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-* For instructions on creating a **storage account** and for getting account and key information, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
+* For instructions on creating a **storage account** and for getting account and key information, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
 
 To use the **SSIS connectors**, you must download:
 

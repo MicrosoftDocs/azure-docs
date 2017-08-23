@@ -22,12 +22,12 @@ This topic presents generic Hive queries that create Hive tables and load data f
 
 This **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Team Data Science Process (TDSP).
 
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
+[!INCLUDE [cap-ingest-data-selector](../../../../includes/cap-ingest-data-selector.md)]
 
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
+* Created an Azure storage account. If you need instructions, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
 * Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Customize Azure HDInsight Hadoop clusters for advanced analytics](customize-hadoop-cluster.md).
 * Enabled remote access to the cluster, logged in, and opened the Hadoop Command-Line console. If you need instructions, see [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md#headnode).
 
@@ -117,7 +117,7 @@ If you open the default container of the Hadoop cluster using Azure Storage Expl
 You can also use the Query Console (Hive Editor) by entering a URL of the form *https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* into a web browser. You must be logged in the see this console and so you need your Hadoop cluster credentials here.
 
 ### <a name="ps"></a> 3. Submit Hive queries with Azure PowerShell Commands
-You can also use PowerShell to submit Hive queries. For instructions, see [Submit Hive jobs using PowerShell](../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
+You can also use PowerShell to submit Hive queries. For instructions, see [Submit Hive jobs using PowerShell](../../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
 
 ## <a name="create-tables"></a>Create Hive database and tables
 The Hive queries are shared in the [GitHub repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) and can be downloaded from there.

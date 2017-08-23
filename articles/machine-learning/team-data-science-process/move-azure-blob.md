@@ -18,16 +18,16 @@ ms.author: bradsev;sachouks
 
 ---
 # Move data to and from Azure Blob Storage
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
+[!INCLUDE [cap-ingest-data-selector](../../../../includes/cap-ingest-data-selector.md)]
 
 <!-- just in case, adding this to separate these two include references -->
 
-[!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
+[!INCLUDE [blob-storage-tool-selector](../../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 Which method is best for you depends on your scenario. The [Scenarios for advanced analytics in Azure Machine Learning](plan-sample-scenarios.md) article helps you determine the resources you need for a variety of data science workflows used in the advanced analytics process.
 
 > [!NOTE]
-> For a complete introduction to Azure blob storage, refer to [Azure Blob Basics](../storage/blobs/storage-dotnet-how-to-use-blobs.md) and to [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> For a complete introduction to Azure blob storage, refer to [Azure Blob Basics](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) and to [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
 
@@ -38,11 +38,11 @@ As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/
 * receive the predictive analytics results, and 
 * upload the results to storage. 
 
-For more information, see [Create predictive pipelines using Azure Data Factory and Azure Machine Learning](../data-factory/data-factory-azure-ml-batch-execution-activity.md).
+For more information, see [Create predictive pipelines using Azure Data Factory and Azure Machine Learning](../../data-factory/data-factory-azure-ml-batch-execution-activity.md).
 
 ## Prerequisites
 This document assumes that you have an Azure subscription, a storage account, and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure storage account name and account key.
 
 * To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-* For instructions on creating a storage account and for getting account and key information, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
+* For instructions on creating a storage account and for getting account and key information, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
 

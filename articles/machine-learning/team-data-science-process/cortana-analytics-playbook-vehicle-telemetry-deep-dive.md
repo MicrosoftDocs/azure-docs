@@ -20,7 +20,7 @@ ms.author: bradsev
 # Vehicle telemetry analytics solution playbook: deep dive into the solution
 This **menu** links to the sections of this playbook: 
 
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
+[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 This section drills down into each of the stages depicted in the Solution Architecture with instructions and pointers for customization. 
 
@@ -147,10 +147,10 @@ Once the pipeline executes successfully and "RawCarEventsTable" dataset is marke
 *Figure 9 - PrepareSampleDataPipeline Output*
 
 ### References
-[Azure Event Hub SDK for stream ingestion](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+[Azure Event Hub SDK for stream ingestion](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-[Azure Data Factory data movement capabilities](../data-factory/data-factory-data-movement-activities.md)
-[Azure Data Factory DotNet Activity](../data-factory/data-factory-use-custom-activities.md)
+[Azure Data Factory data movement capabilities](../../data-factory/data-factory-data-movement-activities.md)
+[Azure Data Factory DotNet Activity](../../data-factory/data-factory-use-custom-activities.md)
 
 [Azure Data Factory DotNet activity visual studio solution for preparing sample data](http://go.microsoft.com/fwlink/?LinkId=717077) 
 
@@ -387,7 +387,7 @@ Click [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?LinkId=717
 **To execute the Real-time Dashboard Application**
 1. Extract and save locally ![RealtimeDashboardApp folder](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *Figure 16 – RealtimeDashboardApp folder*  
 2. Execute the application RealtimeDashboardApp.exe
-3. Provide valid Power BI credentials, sign in and click Accept ![Real-time dashboard app sign-in to Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Real-time dashboard app finish sign-in to Power BI](../media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+3. Provide valid Power BI credentials, sign in and click Accept ![Real-time dashboard app sign-in to Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Real-time dashboard app finish sign-in to Power BI](../../media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
 *Figure 17 – RealtimeDashboardApp: Sign-in to Power BI*
 

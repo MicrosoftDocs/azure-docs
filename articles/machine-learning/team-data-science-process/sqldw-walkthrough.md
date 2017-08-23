@@ -67,23 +67,23 @@ To set up your Azure Data Science environment, follow these steps.
 **Create your own Azure blob storage account**
 
 * When you provision your own Azure blob storage, choose a geo-location for your Azure blob storage in or as close as possible to **South Central US**, which is where the NYC Taxi data is stored. The data will be copied using AzCopy from the public blob storage container to a container in your own storage account. The closer your Azure blob storage is to South Central US, the faster this task (Step 4) will be completed.
-* To create your own Azure storage account, follow the steps outlined at [About Azure storage accounts](../storage/common/storage-create-storage-account.md). Be sure to make notes on the values for following storage account credentials as they will be needed later in this walkthrough.
+* To create your own Azure storage account, follow the steps outlined at [About Azure storage accounts](../../storage/common/storage-create-storage-account.md). Be sure to make notes on the values for following storage account credentials as they will be needed later in this walkthrough.
   
   * **Storage Account Name**
   * **Storage Account Key**
   * **Container Name** (which you want the data to be stored in the Azure blob storage)
 
 **Provision your Azure SQL DW instance.**
-Follow the documentation at [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) to provision a SQL Data Warehouse instance. Make sure that you make notations on the following SQL Data Warehouse credentials which will be used in later steps.
+Follow the documentation at [Create a SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) to provision a SQL Data Warehouse instance. Make sure that you make notations on the following SQL Data Warehouse credentials which will be used in later steps.
 
 * **Server Name**: <server Name>.database.windows.net
 * **SQLDW (Database) Name**
 * **Username**
 * **Password**
 
-**Install Visual Studio and SQL Server Data Tools.** For instructions, see [Install Visual Studio 2015 and/or SSDT (SQL Server Data Tools) for SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Install Visual Studio and SQL Server Data Tools.** For instructions, see [Install Visual Studio 2015 and/or SSDT (SQL Server Data Tools) for SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Connect to your Azure SQL DW with Visual Studio.** For instructions, see steps 1 & 2 in [Connect to Azure SQL Data Warehouse with Visual Studio](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+**Connect to your Azure SQL DW with Visual Studio.** For instructions, see steps 1 & 2 in [Connect to Azure SQL Data Warehouse with Visual Studio](../../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
 > [!NOTE]
 > Run the following SQL query on the database you created in your SQL Data Warehouse (instead of the query provided in step 3 of the connect topic,) to **create a master key**.

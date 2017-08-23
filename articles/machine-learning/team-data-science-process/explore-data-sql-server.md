@@ -22,7 +22,7 @@ This document covers how to explore data that is stored in a SQL Server VM on Az
 
 The following **menu** links to topics that describe how to use tools to explore data from various storage environments. This task is a step in the Cortana Analytics Process (CAP).
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+[!INCLUDE [cap-explore-data-selector](../../../../includes/cap-explore-data-selector.md)]
 
 > [!NOTE]
 > The sample SQL statements in this document assume that data is in SQL Server. If it isn't, refer to the cloud data science process map to learn how to move your data to SQL Server.

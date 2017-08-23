@@ -26,7 +26,7 @@ This document links to topics that covers how to sample data that is stored in o
 
 The following **menu** links to the topics that describe how to sample data from each of these Azure storage environments. 
 
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
+[!INCLUDE [cap-sample-data-selector](../../../../includes/cap-sample-data-selector.md)]
 
 This sampling task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 

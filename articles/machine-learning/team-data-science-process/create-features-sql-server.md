@@ -20,7 +20,7 @@ ms.author: bradsev;fashah;garye
 # Create features for data in SQL Server using SQL and Python
 This document shows how to generate features for data stored in a SQL Server VM on Azure that help algorithms learn more efficiently from the data. This can be done by using SQL or by using a programming language like Python, both of which are demonstrated here.
 
-[!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
+[!INCLUDE [cap-create-features-data-selector](../../../../includes/cap-create-features-selector.md)]
 
 This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
@@ -32,7 +32,7 @@ This **menu** links to topics that describe how to create features for data in v
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 * Stored your data in SQL Server. If you have not, see [Move data to an Azure SQL Database for Azure Machine Learning](move-sql-azure.md) for instructions on how to move the data there.
 
 ## <a name="sql-featuregen"></a>Feature Generation with SQL

@@ -22,13 +22,13 @@ This document covers how to explore data that is stored in Azure blob container 
 
 The following **menu** links to topics that describe how to use tools to explore data from various storage environments. This task is a step in the [Data Science Process]().
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+[!INCLUDE [cap-explore-data-selector](../../../../includes/cap-explore-data-selector.md)]
 
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
-* Stored your data in an Azure blob storage account. If you need instructions, see [Moving data to and from Azure Storage](../storage/common/storage-moving-data.md)
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* Stored your data in an Azure blob storage account. If you need instructions, see [Moving data to and from Azure Storage](../../storage/common/storage-moving-data.md)
 
 ## Load the data into a Pandas DataFrame
 To explore and manipulate a dataset, it must first be downloaded from the blob source to a local file, which can then be loaded in a Pandas DataFrame. Here are the steps to follow for this procedure:

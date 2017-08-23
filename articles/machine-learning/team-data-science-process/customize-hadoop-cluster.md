@@ -22,7 +22,7 @@ This article describes how to customize an HDInsight Hadoop cluster by installin
 
 The following menu links to topics that describe how to set up the various data science environments used by the [Team Data Science Process (TDSP)](overview.md).
 
-[!INCLUDE [data-science-environment-setup](../../../includes/cap-setup-environments.md)]
+[!INCLUDE [data-science-environment-setup](../../../../includes/cap-setup-environments.md)]
 
 ## <a name="customize"></a>Customize Azure HDInsight Hadoop Cluster
 To create a customized HDInsight Hadoop cluster, start by logging on to [**Azure classic portal**](https://manage.windowsazure.com/), click **New** at the left bottom corner, and then select DATA SERVICES -> HDINSIGHT -> **CUSTOM CREATE** to bring up the **Cluster Details** window. 

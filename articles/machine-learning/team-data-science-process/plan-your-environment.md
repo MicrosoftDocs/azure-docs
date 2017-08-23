@@ -20,7 +20,7 @@ ms.author: bradsev
 # How to identify scenarios and plan for advanced analytics data processing
 What resources should you plan to include when setting up an environment to do advanced analytics processing on a dataset? This article suggests a series of questions to ask that will help identify the tasks and resources relevant your scenario. The order of high-level steps for predictive analytics is outlined in [What is the Team Data Science Process (TDSP)?](overview.md). Each of these steps will require specific resources for the  tasks relevant to your particular scenario. The key questions to identify your scenario concern data logistics, characteristics, the quality of the datasets, and the tools and languages you prefer to do the analysis.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
 
 ## Logistic questions: data locations and movement
 The logistic questions concern the location of the **data source**, the **target destination** in Azure, and requirements for moving the data, including the schedule, amount and resources involved. The data may need to be moved several times during the analytics process. A common scenario is to move local data into some form of storage on Azure and then into Machine Learning Studio.
@@ -74,7 +74,7 @@ Take the Azure Machine Learning Studio environment for example:
   [Data formats and data types supported](import-data.md#data-formats-and-data-types-supported) section.
 * For information on data limitations for Azure Machine Learning Studio, see the **How large can the data set be for my modules?** section of [Importing and exporting data for Machine Learning](faq.md#machine-learning-studio-questions)
 
-For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md).
+For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md).
 
 ## Data quality questions: exploration and pre-processing
 1. **What do you know about your data?** Explore data when you need to gain an understand its basic characteristics. What patterns or trends it exhibits, what outliers is has or how many values are missing. This step is important for determining the extent of pre-processing needed, for formulating hypotheses that could suggest the most appropriate features or type of analysis, and for formulating plans for additional data collection. Calculating descriptive statistics and plotting visualizations are useful techniques for data inspection. For details of how to explore a dataset in various Azure environments, see [Explore data in the Team Data Science Process](explore-data.md).

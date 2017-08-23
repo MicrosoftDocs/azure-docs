@@ -24,7 +24,7 @@ These walkthroughs use SQL Server, SQL Server R Services, and SQL Server Python 
 
 Additional data science walkthroughs that execute the Team Data Science Process are grouped by the **platform** that they use: 
 
-[!INCLUDE [tdsp-walkthroughs-by-platform](../../includes/tdsp-walkthroughs-by-platform.md)]
+[!INCLUDE [tdsp-walkthroughs-by-platform](../../../includes/tdsp-walkthroughs-by-platform.md)]
 
 
 ## Predict taxi tips using Python and SQL queries with SQL Server 

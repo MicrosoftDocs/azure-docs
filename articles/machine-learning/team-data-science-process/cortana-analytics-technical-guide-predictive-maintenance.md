@@ -199,12 +199,12 @@ Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 service orchestrates the movement and processing of data. In the
 Predictive Maintenance for Aerospace Solution Template the data factory
 is made up of three
-[pipelines](../data-factory/data-factory-create-pipelines.md)
+[pipelines](../../data-factory/data-factory-create-pipelines.md)
 that move and process the data using various technologies.  You can access your data factory by opening the the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. This will take you to the data factory on your Azure portal. If you see errors under your datasets, you can ignore those as they are due to data factory being deployed before the data generator was started. Those errors do not prevent your data factory from functioning.
 
 ![Data Factory dataset errors](./media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
 
-This section discusses the necessary [pipelines](../data-factory/data-factory-create-pipelines.md) and [activities](../data-factory/data-factory-create-pipelines.md) contained in the [Azure Data
+This section discusses the necessary [pipelines](../../data-factory/data-factory-create-pipelines.md) and [activities](../data-factory/data-factory-create-pipelines.md) contained in the [Azure Data
 Factory](https://azure.microsoft.com/documentation/services/data-factory/). Below is the diagram view of the solution.
 
 ![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
@@ -228,9 +228,9 @@ requirements.
 
 #### *AggregateFlightInfoPipeline*
 This
-[pipeline](../data-factory/data-factory-create-pipelines.md)
+[pipeline](../../data-factory/data-factory-create-pipelines.md)
 contains a single activity - an
-[HDInsightHive](../data-factory/data-factory-hive-activity.md)
+[HDInsightHive](../../data-factory/data-factory-hive-activity.md)
 activity using a
 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)
 that runs a
@@ -247,7 +247,7 @@ script for this partitioning task is ***AggregateFlightInfo.hql***
 
 #### *MLScoringPipeline*
 This
-[pipeline](../data-factory/data-factory-create-pipelines.md)
+[pipeline](../../data-factory/data-factory-create-pipelines.md)
 contains several activities and whose end result is the scored
 predictions from the [Azure Machine
 Learning](https://azure.microsoft.com/services/machine-learning/)
@@ -255,7 +255,7 @@ experiment associated with this solution template.
 
 The activities contained in this are:
 
-* [HDInsightHive](../data-factory/data-factory-hive-activity.md)
+* [HDInsightHive](../../data-factory/data-factory-hive-activity.md)
   activity using an
   [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)
   that runs a
@@ -268,7 +268,7 @@ The activities contained in this are:
   script for this partitioning task is ***PrepareMLInput.hql***.
 * [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx)
   activity that moves the results from the
-  [HDInsightHive](../data-factory/data-factory-hive-activity.md)
+  [HDInsightHive](../../data-factory/data-factory-hive-activity.md)
   activity to a single [Azure
   Storage](https://azure.microsoft.com/services/storage/) blob
   that can be access by the
@@ -281,7 +281,7 @@ The activities contained in this are:
 
 #### *CopyScoredResultPipeline*
 This
-[pipeline](../data-factory/data-factory-create-pipelines.md)
+[pipeline](../../data-factory/data-factory-create-pipelines.md)
 contains a single activity - a
 [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx)
 activity that moves the results of the [Azure Machine
@@ -421,7 +421,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 1. Add Power BI output in Azure Stream Analytics (ASA).
    
    * You will need to follow the instructions in
-     [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](../stream-analytics/stream-analytics-power-bi-dashboard.md)
+     [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](../../stream-analytics/stream-analytics-power-bi-dashboard.md)
      to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
    * The ASA query has three outputs which are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. You can view the query by clicking on query tab. Corresponding to each of these tables, you will need to add an output to ASA. When you add the first output (*e.g.* **aircraftmonitor**) make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same (**aircraftmonitor**). Repeat the steps to add outputs for **aircraftalert**, and **flightsbyhour**. Once you have added all three output tables and started the ASA job, you should get a confirmation message (*e.g.*, "Starting Stream Analytics job maintenancesa02asapbi succeeded").
 2. Log in to [Power BI online](http://www.powerbi.com)
