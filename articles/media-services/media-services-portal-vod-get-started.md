@@ -1,6 +1,6 @@
 ---
-title: Get started with delivering VoD using the Azure portal | Microsoft Docs
-description: This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using the Azure portal.
+title: Get started with delivering video-on-demand by using the Azure portal | Microsoft Docs
+description: This tutorial walks you through the steps of implementing a basic video-on-demand content delivery service with an Azure Media Services application in the Azure portal.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -17,50 +17,50 @@ ms.date: 08/07/2017
 ms.author: juliako
 
 ---
-# Get started with delivering content on demand using the Azure portal
+# Get started with delivering content on demand by using the Azure portal
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using the Azure portal.
+This tutorial walks you through the steps of implementing a basic video-on-demand content delivery service with an Azure Media Services application in the Azure portal.
 
 ## Prerequisites
-The following are required to complete the tutorial:
+The following items are required to complete the tutorial:
 
-* An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
-* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
+* An Azure account. For details, see [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
+* A Media Services account. To create a Media Services account, see [How to create a Media Services account](media-services-portal-create-account.md).
 
 This tutorial includes the following tasks:
 
-1. Start streaming endpoint.
+1. Start the streaming endpoint.
 2. Upload a video file.
 3. Encode the source file into a set of adaptive bitrate MP4 files.
-4. Publish the asset and get streaming and progressive download URLs.  
+4. Publish the asset, and get streaming and progressive download URLs.  
 5. Play your content.
 
-## Start streaming endpoints 
+## Start the streaming endpoint
 
-When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming. Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
+One of the most common scenarios when working with Azure Media Services is delivering video via adaptive bitrate streaming. Media Services provides dynamic packaging. With dynamic packaging, you can deliver your adaptive bitrate MP4 encoded content in streaming formats supported by Media Services (MPEG-DASH, Apple HLS, Microsoft Smooth Streaming) just-in-time, without storing prepackaged versions of each of these streaming formats.
 
->[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+> [!NOTE]
+> When you create your Media Services account, a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content, and to take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
-To start the streaming endpoint, do the following:
+To start the streaming endpoint:
 
-1. Log in at the [Azure portal](https://portal.azure.com/).
-2. In the Settings window, click Streaming endpoints. 
-3. Click the default streaming endpoint. 
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. In the **Settings** pane, select **Streaming endpoints**. 
+3. Select the default streaming endpoint. 
 
-	The DEFAULT STREAMING ENDPOINT DETAILS window appears.
+	The **DEFAULT STREAMING ENDPOINT DETAILS** window appears.
 
-4. Click the Start icon.
-5. Click the Save button to save your changes.
+4. Select the **Start** icon.
+5. Select the **Save** button.
 
 ## Upload files
-To stream videos using Azure Media Services, you need to upload the source videos, encode them into multiple bitrates, and publish the result. The first step is covered in this section. 
+To stream videos by using Media Services, you upload the source videos, encode them into multiple bitrates, and then publish the result. The first step is covered in this section. 
 
-1. In the **Setting** window, click **Assets**.
+1. Select **Settings** > **Assets**.
    
     ![Upload files](./media/media-services-portal-vod-get-started/media-services-upload.png)
-2. Click the **Upload** button.
+2. Select the **Upload** button.
    
     The **Upload a video asset** window appears.
    
@@ -68,11 +68,11 @@ To stream videos using Azure Media Services, you need to upload the source video
    > There is no file size limitation.
    > 
    > 
-3. Browse to the desired video on your computer, select it, and hit OK.  
+3. On your computer, go to the video, select it, and then select **OK**.  
    
-    The upload starts and you can see the progress under the file name.  
+    The upload starts. You can see the progress under the file name.  
 
-Once the upload completes, you see the new asset listed in the **Assets** window. 
+When the upload is finished, the new asset is listed in the **Assets** window. 
 
 ## Encode assets
 
@@ -85,9 +85,9 @@ To take advantage of dynamic packaging, you need to encode your source file into
 ### To use the portal to encode
 This section describes the steps you can take to encode your content with Media Encoder Standard.
 
-1. In the **Settings** window, select **Assets**.  
-2. In the **Assets** window, select the asset that you would like to encode.
-3. Press the **Encode** button.
+1. Select **Settings** > **Assets**.  
+2. Select the asset that you want to encode.
+3. Select the **Encode** button.
 4. In the **Encode an asset** window, select the "Media Encoder Standard" processor and a preset. For information about presets, see [auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md) and [Task Presets for MES](media-services-mes-presets-overview.md). If you plan to control which encoding preset is used, keep this in mind: it is important to select the preset that is most appropriate for your input video. For example, if you know your input video has a resolution of 1920x1080 pixels, then you could use the "H264 Multiple Bitrate 1080p" preset. If you have a low resolution (640x360) video, then you should not be using "H264 Multiple Bitrate 1080p" preset.
    
    For easier management, you have an option of editing the name of the output asset, and the name of the job.
