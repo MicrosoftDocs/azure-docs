@@ -82,7 +82,7 @@ The Device Provisioning Service has many features which make it ideal for provis
 * **Monitoring and diagnostics logs** to make sure everything is working properly.
 * **Multi-hub support** which allows DPS to assign devices to more than one IoT hub. DPS can talk to hubs across multiple Azure subscriptions.
 
-You can learn more about the concepts and features involved in device provisioning in [Core concepts in device provisioning](about-core-concepts.md).
+You can learn more about the concepts and features involved in device provisioning in [device concepts](concepts-device.md), [service concepts](concepts-service.md), and [security concepts](concepts-security.md).
 
 ## Cross-platform support
 DPS, like all Azure IoT services, works cross-platform with a variety of operating systems. The public preview supports a limited set of languages/protocols supported, though many more will be available when DPS is generally available. For the public preview, DPS only supports HTTPS connections for both device and service operations. The device SDK is in C, and the service SDK is in C#.
