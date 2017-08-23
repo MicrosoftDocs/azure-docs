@@ -13,21 +13,21 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/11/2017
+ms.date: 08/23/2017
 ms.author: mimig
-ms.custom: mvc
 
 ---
-# Azure Cosmos DB: Create a MEAN.js app - Part 6: Add Post, Put and Delete functions to the app
+# Create a MEAN.js app with Azure Cosmos DB - Part 6: Add Post, Put and Delete functions to the app
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-introduction.md) API app written in Node.js with Express and Angular and connect it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of Mongo, but use the exact same code that you use when you talk to Mongo. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
+This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-introduction.md) API app written in Node.js with Express and Angular and then connect it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the exact same code that you use when you talk to MongoDB. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
 
 Part 6 of the tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Add POST, PUT, and DELETE functions for the hero service
+> * Create Post, Put, and Delete functions for the hero service
+> * Run the app
 
 > [!VIDEO https://www.youtube.com/embed/Y5mdAlFGZjc]
 
@@ -35,7 +35,7 @@ Part 6 of the tutorial covers the following tasks:
 
 Before starting this part of the tutorial, ensure you've completed the steps in [Part 5](tutorial-develop-mongodb-nodejs-part5.md) of the tutorial.
 
-## Add POST functions to hero service
+## Add a Post functions to hero service
 
 1. In Visual Studio Code, open routes.js and hero.service.js side by side. using the Split Editor screen by pressing the Split Editor button ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png).
 
@@ -97,7 +97,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
     Now lets go back and add PUT and DELETE functions.
 
-## Add PUT and DELETE functions
+## Add Put and Delete functions
 
 1. In routes.js, add the put and delete routers.
 
@@ -176,5 +176,7 @@ TODO - Complete
 
 ## Next steps
 
-In this video, you've learned the benefits of using Azure Cosmos DB to create MEAN apps and you've learned the steps involved in creating a MEAN.js app for Azure Cosmos DB that are covered in rest of the tutorial series. 
+In this video, you've learned how to add (Post), update (Put), and delete heroes from the app. 
+
+The final installment of this multi-part tutorial, which involves globally replicating your data, is coming soon. Check back for updates. 
 

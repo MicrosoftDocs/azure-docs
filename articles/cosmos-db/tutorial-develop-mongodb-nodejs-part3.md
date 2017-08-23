@@ -13,22 +13,21 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/11/2017
+ms.date: 08/23/2017
 ms.author: mimig
-ms.custom: mvc
 
 ---
-# Create a MEAN.js app with Azure Cosmos DB - Part 3: Build the Angular UI
+# Create a MEAN.js app with Azure Cosmos DB - Part 3: Build the UI with Angular
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-introduction.md) API app written in Node.js with Express and Angular and connect it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of Mongo, but use the exact same code that you use when you talk to Mongo. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
+This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-introduction.md) API app written in Node.js with Express and Angular and then connect it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the exact same code that you use when you talk to MongoDB. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
 
 Part 3 of the tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Fill out the A in MEAN and build the Angular UI that hits the Express API
 > * Build the Angular UI
+> * Use CSS to set the look and feel
 > * Test the app locally
 
 ## Video walkthrough
@@ -39,7 +38,7 @@ Part 3 of the tutorial covers the following tasks:
 
 Before starting this part of the tutorial, ensure you've completed the steps in [Part 2](tutorial-develop-mongodb-nodejs-part2.md) of the tutorial.
 
-## 
+## Build the UI
 
 1. In Visual Studio Code, click the Stop button ![Stop button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png) to stop the Node app.
 
@@ -57,7 +56,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 3. In Visual Studio Code, navigate to the new src\client\app folder and open the new heroes.component.ts file created by step 2. 
 
-    > ![TIP]
+    > [!TIP]
     > If the app folder doesn't display in Visual Studio Code, enter CMD + SHIFT P on a Mac or Ctrl + Shift + P on Windows to open the Command Palette, and then enter `Reload Window` to pick up the system change.
 
     ![Open the heroes.component.ts file](./media/tutorial-develop-mongodb-nodejs-part3/open-folder.png)
@@ -67,11 +66,11 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     ![Open the app-module.ts file](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
 
 
-Now that you have your Heroes component, create a new file for the heroes component HTML. Because we created a minimal app, it was going to put the HTML in the same file as the typescript file, but we want to break it out and create a separate file.
+    Now that you have your Heroes component, create a new file for the heroes component HTML. Because we created a minimal app, it was going to put the HTML in the same file as the typescript file, but we want to break it out and create a separate file.
 
-1. In the Explorer pane, right click the app folder, click New File, and name the new file heroes.component.ts.
+5. In the Explorer pane, right-click the app folder, click New File, and name the new file heroes.component.ts.
 
-2. In the heroes.component.ts file, delete lines 5 through 9 
+6. In the heroes.component.ts file, delete lines 5 through 9 
 
     ```ts
     template: `
@@ -87,11 +86,11 @@ Now that you have your Heroes component, create a new file for the heroes compon
     ```
  
     > [!TIP]
-    > You can use John Papa's Angular Essentials extenstions and snippets for Visual Studio Code to speed up your development. Click the Extensions button ![Visual Studio Code Extensions button](./media/tutorial-develop-mongodb-nodejs-part3/extensions-button.png) and type angular essentials in the search box, or go to [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). After installing click the Reload button to use the new extensions.
+    > You can use John Papa's Angular Essentials extentions and snippets for Visual Studio Code to speed up your development. Click the Extensions button ![Visual Studio Code Extensions button](./media/tutorial-develop-mongodb-nodejs-part3/extensions-button.png) and type angular essentials in the search box, or go to [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). After installing click the Reload button to use the new extensions.
     >
     > ![Angular Essentials extension](./media/tutorial-develop-mongodb-nodejs-part3/angular-essentials-extension.png)
 
-3. Go back to the heroes.component.html file and copy in this code. The div is the container for the entire page, and then inside we've got a list of items, and we're going to need to have heroes models which we need to create so that when you click on one you can select it and edit it or delete it. Then we've got some styling so you know which one has been selected. And then there's an edit area so that you can add a new hero or edit an existing one. 
+7. Go back to the heroes.component.html file and copy in this code. The div is the container for the entire page, and then inside we've got a list of items, and we're going to need to have heroes models, which we need to create so that when you click on one you can select it and edit it or delete it. Then we've got some styling so you know which one has been selected. And then there's an edit area so that you can add a new hero or edit an existing one. 
 
     ```html
     <div>
@@ -130,7 +129,7 @@ Now that you have your Heroes component, create a new file for the heroes compon
     </div>
     ```
 
-4. Now that we've got the HTML in place we need to add to the heroes.component.ts file so we can interact with the template. First, add some models, add hero flags for a list of heroes. Then fill in the constructor and go and get some heroes, and initialize the hero service component that will go get all the data.
+8. Now that we've got the HTML in place we need to add to the heroes.component.ts file so we can interact with the template. First, add some models, add hero flags for a list of heroes. Then fill in the constructor, get some heroes, and initialize the hero service component to go get all the data.
 
     ```ts
     import { Component, OnInit } from '@angular/core';
@@ -197,7 +196,7 @@ Now that you have your Heroes component, create a new file for the heroes compon
     }
     ```
 
-5. In Explorer, open the app/app.module.ts file and add an import for a Forms module on line 14.
+9. In Explorer, open the app/app.module.ts file and add an import for a Forms module on line 14.
 
     ```
     imports: [
@@ -206,7 +205,7 @@ Now that you have your Heroes component, create a new file for the heroes compon
     ],
     ```
 
-6. Then add an import for that forms module on line 3. 
+10. Then add an import for that forms module on line 3. 
 
     ```
     import { BrowserModule } from '@angular/platform-browser';
@@ -376,11 +375,11 @@ Now that you have your Heroes component, create a new file for the heroes compon
 
 ## Display the component
 
-Now that we have the component set, how do we get it to show up on the screen? For that there are the default components in app.component.ts.
+Now that we have the component set, how do we get it to show up on the screen? There are the default components in app.component.ts.
 
 1. In Visual Studio Code, open app/app.component.ts.
 
-2. In lines 6 through 8 we're going to change the title so its going to say Heroes, and then put the name of the component we just created in heroes.components.ts `<app-heroes></app-heroes>` to refer to that new component.
+2. In lines 6 through 8, we're going to change the title to Heroes, and then put the name of the component we created in heroes.components.ts `<app-heroes></app-heroes>` to refer to that new component.
 
     ```ts
     template: `
@@ -396,7 +395,7 @@ Now that we have the component set, how do we get it to show up on the screen? F
 
 4. In Visual Studio Code, open src\client\app\hero.ts.
 
-5. In hero.ts, replace the content of the file with the following code, which adds a Hero class with an id, a name, and a saying. 
+5. In hero.ts, replace the content of the file with the following code, which adds a Hero class with an ID, a name, and a saying. 
 
     ```ts
     export class Hero {
@@ -406,7 +405,7 @@ Now that we have the component set, how do we get it to show up on the screen? F
     }
     ```
 
-6. In Visual Studio Code, go back to heroes.components.ts. Notice that on the `selectedHero: Hero;` line (line 11), `Hero` has a red line underneath. By clicking Hero, you'll get a lightbulb on the left side of Visual Studio Code. Go click the light bulb and then click **Import Hero from "client/app/hero".**
+6. In Visual Studio Code, go back to heroes.components.ts. Notice that on the `selectedHero: Hero;` line (line 11), `Hero` has a red line underneath. By clicking Hero, you get a lightbulb on the left side of Visual Studio Code. Go click the light bulb and then click **Import Hero from "client/app/hero".**
 
     ![Light bulb in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
 
@@ -496,7 +495,7 @@ Now that we have the component set, how do we get it to show up on the screen? F
 
 1. At the command prompt, type `ng b` (b=build) to compile the angular application. 
 
-    If there are any problems, it will let us know. If it works, everything will be put in the dist folder. Once you've successufully built, go to the dist folder in Visual Studio Code to see the new files.
+    If there are any problems, the terminal window displays the response. If it works, the new files go into the dist folder. Once you've successfully built, go to the dist folder in Visual Studio Code to see the new files.
 
 2. Now lets run the app. Click the Debug button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) on the left side, then click the Start Debugging button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png).
 
@@ -509,4 +508,4 @@ Now that we have the component set, how do we get it to show up on the screen? F
 In this video, you've learned how to build the Angular UI and test the app locally. 
 
 > [!div class="nextstepaction"]
-> [Create a Cosmos DB account and deploy the app](tutorial-develop-mongodb-nodejs-part4.md)
+> [Create an Azure Cosmos DB account using the Azure CLI](tutorial-develop-mongodb-nodejs-part4.md)

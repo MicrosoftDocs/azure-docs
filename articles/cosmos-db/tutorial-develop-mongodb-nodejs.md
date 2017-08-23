@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/11/2017
+ms.date: 08/23/2017
 ms.author: mimig
 ms.custom: mvc
 
@@ -22,16 +22,16 @@ ms.custom: mvc
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-introduction.md) API app written in Node.js with Express and Angular and connect it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of Mongo, but use the exact same code that you use when you talk to Mongo. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
+This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-introduction.md) API app with Express, Angular, and Node.js (MEAN.js), and then connect it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the exact same code that you use when you talk to MongoDB. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
 
 This multi-part tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * [Create a Node.js app with Express and Angular](tutorial-develop-mongodb-nodejs-part2.md)
-> * [Build an Angular UI](tutorial-develop-mongodb-nodejs-part3.md)
-> * [Connect to Azure Cosmos DB](tutorial-develop-mongodb-nodejs-part4.md) 
-> * [Query with Mongoose APIs](tutorial-develop-mongodb-nodejs-part5.md)
-> * [Add PUT, POST, and DELETE commands](tutorial-develop-mongodb-nodejs-part6.md)
+> * [Create a Node.js Express app with the Angular CLI](tutorial-develop-mongodb-nodejs-part2.md)
+> * [Build the UI with Angular](tutorial-develop-mongodb-nodejs-part3.md)
+> * [Create an Azure Cosmos DB account using the Azure CLI](tutorial-develop-mongodb-nodejs-part4.md) 
+> * [Use Mongoose to connect to Azure Cosmos DB](tutorial-develop-mongodb-nodejs-part5.md)
+> * [Add Post, Put and Delete functions to the app](tutorial-develop-mongodb-nodejs-part6.md)
 
 ## Video walkthrough
 
@@ -39,7 +39,7 @@ This multi-part tutorial covers the following tasks:
 
 ## Next steps
 
-In this video, you've seen an overview of the steps you'll follow to create a MEAN.js app with Azure Cosmos DB. 
+In this video, you've seen an overview of the steps you follow to create a MEAN.js app with Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Create the Node.js app](tutorial-develop-mongodb-nodejs-part2.md)
+> [Create a Node.js Express app with the Angular CLI](tutorial-develop-mongodb-nodejs-part2.md)

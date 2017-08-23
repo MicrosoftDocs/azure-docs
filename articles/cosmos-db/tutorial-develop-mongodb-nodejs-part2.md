@@ -13,23 +13,23 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/15/2017
+ms.date: 08/23/2017
 ms.author: mimig
-ms.custom: mvc
 
 ---
-# Create a MEAN.js app with Azure Cosmos DB - Part 2: Create the Node app
+# Create a MEAN.js app with Azure Cosmos DB - Part 2: Create a Node.js Express app with the Angular CLI 
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-introduction.md) API app written in Node.js with Express and Angular and connect it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of Mongo, but use the exact same code that you use when you talk to Mongo. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
+This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-introduction.md) API app written in Node.js with Express and Angular and connect then it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the exact same code that you use when you talk to MongoDB. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
 
 Part 2 of the tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Install the Angular CLI
+> * Install the Angular CLI and Typescript
 > * Create a new project using Angular
-> * Test the project in Postman
+> * Build out the app using the Express framework
+> * Test the app in Postman
 
 ## Video walkthrough
 
@@ -44,7 +44,7 @@ This tutorial also requires:
 * [Postman](https://www.getpostman.com/)
 * [Visual Studio Code](https://code.visualstudio.com/) or your favorite Node IDE.
 
-## Install the Angular, Azure CLIs, and Typescript
+## Install Angular CLI, Azure CLI, and Typescript
 
 1. Open a Windows Command Prompt or Mac Terminal window and install the Angular CLI.
 
@@ -52,13 +52,13 @@ This tutorial also requires:
     npm install -g @angular/cli
     ```
 
-2. Install Typescript by entering the following at the command prompt. 
+2. Install Typescript by entering the following code at the command prompt. 
 
     ```
     npm install -g typescript
     ```
 
-## Use Angular CLI to create a new project
+## Use the Angular CLI to create a new project
 
 1. At the command prompt, run the following code to create a new project with Angular CLI, install the source code in src/client folder (-sd src/client), and use the minimal setup (--minimal).
 
@@ -73,10 +73,10 @@ This tutorial also requires:
     code .
     ```
 
-## Create a server folder
+## Build out the app using the Express framework
 
-1. In Visual Studio Code, in the Explorer pane, right click the src folder, click New Folder, and name the new folder server.
-2. In the Explorer pane, right click the server folder, click New File, and name the new file index.js.
+1. In Visual Studio Code, in the Explorer pane, right-click the src folder, click New Folder, and name the new folder server.
+2. In the Explorer pane, right-click the server folder, click New File, and name the new file index.js.
 3. At the command prompt, install the new folder and file.
 
     ```bash
@@ -86,14 +86,14 @@ This tutorial also requires:
 4. In Visual Studio Code, copy the following code into the index.js file. This code:
     * Creates express
     * Pulls in the body-parser
-    * Use a built in feature called path
+    * Use a built-in feature called path
     * Sets root variables to make it easier to find where our code is located
     * Sets up a port
     * Cranks up express
     * Tells the app how to use the middleware that were going to be using to serve up the server
     * Serves everything that's in the dist folder so all that's going to be static content
     * Serves up the actual application, and does a get on anything that falls through to pass up and serve to index.html
-
+    
     ```node
     const express = require('express');
     const bodyParser = require('body-parser');
@@ -115,7 +115,7 @@ This tutorial also requires:
     app.listen(port, () => console.log(`API running on localhost:${port}`));
     ```
 
-5. In Visual Studio Code, in the Explorer pane, right click the server folder, and then click New file. Name the new file routes.js. This code:
+5. In Visual Studio Code, in the Explorer pane, right-click the server folder, and then click New file. Name the new file routes.js. This code:
     * Refers to the router
     * Gets the heroes
 
@@ -146,7 +146,7 @@ This tutorial also requires:
 
 1. Now open Postman and put `http://localhost:3000/api/heroes` in the GET box. 
 
-2. Click the Send button and get the json response from the app. This shows the app is up and running. 
+2. Click the Send button and get the json response from the app. This response shows the app is up and running. 
 
     ![Postman showing the request and the response](./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png)
 
@@ -156,4 +156,4 @@ This tutorial also requires:
 In this video, you've created a Node.js project using the Angular CLI and you've tested it using Postman. 
 
 > [!div class="nextstepaction"]
-> [Build an Angular UI](tutorial-develop-mongodb-nodejs-part3.md)
+> [Build the UI with Angular](tutorial-develop-mongodb-nodejs-part3.md)
