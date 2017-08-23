@@ -83,6 +83,31 @@ There is currently a size limit of 8 MB for a Log Analytics query that can be ex
 The [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) has not yet been upgraded to the new search language.  Continue to use the legacy query language with this cmdlet, even after you upgrade your workspace.  Updated documentation will become available for the cmdlet when it's updated.
 
 
+## Resource Manager templates
+
+### Question: Can I create an upgraded workspace with a Resource Manager template?
+Yes.  You must use an API version of 2017-03-15-preview and include a **features** section in your template as in the following example.
+
+    "resources": [
+        {
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "apiVersion": "2017-03-15-preview",
+            "name": "[parameters('workspaceName')]",
+            "location": "[parameters('workspaceRegion')]",
+            "properties": {
+                "sku": {
+                    "name": "Free"
+                },
+                "features": {
+                    "legacy": 0,
+                    "searchVersion": 1
+                }
+            }
+        }
+    ],
+
+
+
 ## Solutions
 
 ### Question: Will my solutions continue to work?
