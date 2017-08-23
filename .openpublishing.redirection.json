@@ -10083,14 +10083,11 @@
             "source_path": "articles/active-directory/active-directory-users-delete-user-azure-portal.md",
             "redirect_url": "/azure/active-directory/add-users-azure-active-directory",
             "redirect_document_id": false
-        }
+        },
         {
             "source_path": "articles/azure-stack/azure-stack-setting-quotas.md",
             "redirect_url": "/azure/azure-stack/azure-stack-plan-offer-quota-overview",
             "redirect_document_id": false
-        }
-                     
-                     
-                     
+        }          
     ]
 }
