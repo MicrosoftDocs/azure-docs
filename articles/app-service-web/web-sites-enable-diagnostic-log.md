@@ -67,7 +67,7 @@ The [classic portal](https://manage.windowsazure.com) Web app **Configure** tab 
 * **Retention period** - by default, logs are not automatically deleted from **blob storage**. Select **set retention** and enter the number of days to keep logs if you wish to automatically delete logs.
 
 > [!NOTE]
-> If you [regenerate your storage account's access keys](../storage/storage-create-storage-account.md), you must reset the respective logging configuration to use the updated keys. To do this:
+> If you [regenerate your storage account's access keys](../storage/common/storage-create-storage-account.md), you must reset the respective logging configuration to use the updated keys. To do this:
 >
 > 1. In the **Configure** tab, set the respective logging feature to **Off**. Save your setting.
 > 2. Enable logging to the storage account blob or table again. Save your setting.
