@@ -33,6 +33,7 @@ This article demonstrates how to take advantage of templates to send, in a singl
 To send cross-platform notifications by using templates, do the following:
 
 1. In the Solution Explorer in Visual Studio, expand the **Controllers** folder, and then open the RegisterController.cs file.
+
 2. Locate the block of code in the **Put** method that creates a new registration, and then replace the `switch` content with the following code:
    
         switch (deviceUpdate.Platform)
@@ -62,7 +63,7 @@ To send cross-platform notifications by using templates, do the following:
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
         }
    
-    This code calls the platform-specific method to create a template registration instead of a native registration. You don't need to modify existing registrations because template registrations derive from native registrations.
+    This code calls the platform-specific method to create a template registration instead of a native registration. Because template registrations derive from native registrations, you don't need to modify existing registrations.
 
 3. In the **Notifications** controller, replace the **sendNotification** method with the following code:
    
@@ -77,9 +78,12 @@ To send cross-platform notifications by using templates, do the following:
             return Request.CreateResponse(HttpStatusCode.OK);
         }
    
-    This code sends a notification to all platforms at the same time and without your having to specify a native payload. Notification Hubs builds and delivers the correct payload to every device with the provided *tag* value, as specified in the registered templates.
+    This code sends a notification to all platforms at the same time, without your having to specify a native payload. Notification Hubs builds and delivers the correct payload to every device with the provided *tag* value, as specified in the registered templates.
+
 4. Re-publish your WebApi back-end project.
-5. Run the client app again and verify that the registration has succeeded.
+
+5. Run the client app again, and then verify that the registration has succeeded.
+
 6. (Optional) Deploy the client app to a second device, and then run the app.
     Note that a notification is displayed on each device.
 
