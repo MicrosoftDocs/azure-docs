@@ -19,6 +19,8 @@ ms.author: kumud
 
 # Troubleshoot Azure Load Balancer
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 This page provides troubleshooting information for common Azure Load Balancer questions. When the Load Balancer connectivity is unavailable, the most common symptoms are as follows: 
 - VMs behind the Load Balancer are not responding to health probes 
 - VMs behind the Load Balancer are not responding to the traffic on the configured port

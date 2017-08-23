@@ -19,6 +19,8 @@ ms.author: kumud
 
 # Internet facing load balancer overview
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 Azure load balancer maps the public IP address and port number of incoming traffic to the private IP address and port number of the virtual machine and vice versa for the response traffic from the virtual machine. Load balancing rules allow you to distribute specific types of traffic between multiple virtual machines or services. For example, you can spread the load of web request traffic across multiple web servers or web roles.
 
 For a cloud service that contains instances of web roles or worker roles, you can define a public endpoint in the service definition (.csdef) file.

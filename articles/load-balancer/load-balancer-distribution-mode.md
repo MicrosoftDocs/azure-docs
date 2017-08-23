@@ -18,6 +18,8 @@ ms.author: kumud
 
 # Configure the distribution mode for load balancer
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 ## Hash-based distribution mode
 
 The default distribution algorithm is a 5-tuple (source IP, source port, destination IP, destination port, protocol type) hash to map traffic to available servers. It provides stickiness only within a transport session. Packets in the same session will be directed to the same datacenter IP (DIP) instance behind the load balanced endpoint. When the client starts a new session from the same source IP, the source port changes and causes the traffic to go to a different DIP endpoint.
