@@ -214,15 +214,15 @@
         href: mongodb-robomongo.md
       - name: MEAN.js tutorial series
         items:
-        - name: Part 2 - Create Node.js app
+        - name: Part 2 - Create app
           href: tutorial-develop-mongodb-nodejs-part2.md
-        - name: Part 3 - Create Angular UI
+        - name: Part 3 - Add Angular UI
           href: tutorial-develop-mongodb-nodejs-part3.md
         - name: Part 4 - Create Cosmos DB
           href: tutorial-develop-mongodb-nodejs-part4.md
         - name: Part 5 - Connect to Cosmos DB
           href: tutorial-develop-mongodb-nodejs-part5.md
-        - name: Part 6 - Put, Post, and Delete
+        - name: Part 6 - Write to the app
           href: tutorial-develop-mongodb-nodejs-part6.md
       - name: Additional tutorials
         items:
