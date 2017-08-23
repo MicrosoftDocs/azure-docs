@@ -90,7 +90,7 @@ bdehdcfglib.dll.mui
 bdehdcfg.exe.mui
 ```
 
-   2. Then, enter the following command:
+   2. Enter the following command:
 
 ```
 bdehdcfg.exe -target default
