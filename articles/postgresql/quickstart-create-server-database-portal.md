@@ -147,7 +147,7 @@ There are a number of applications you can use to connect to your Azure database
     > [!TIP]
     > If the firewall is not configured to allow the IP address of Cloud Shell, the following error occurs:
     > 
-    > "psql: FATAL: no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL: SSL connection is required.Specify SSL options and retry.
+    > "psql: FATAL:  no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL: SSL connection is required.Specify SSL options and retry.
     > 
     > To resolve the error, make sure the server configuration matches the steps in the *Configure a server-level firewall rule* section of this article.
 
