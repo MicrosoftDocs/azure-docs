@@ -97,7 +97,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
 2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. 
 
-   ![server name](./media/sql-database-connect-query-dotnet/server-name.png) 
+   ![server name](./media/sql-database-get-started-portal/server-name.png) 
 
 3. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
 
@@ -105,9 +105,9 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
 4. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
-5. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
+   ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
-   ![set server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
+5. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
 6. Click **OK** and then close the **Firewall settings** page.
 
@@ -121,19 +121,19 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 
 Now that you have created a sample database in Azure, let’s use the built-in query tool within the Azure portal to confirm that you can connect to the database and query the data. 
 
-1. On the SQL Database page for your database, click **Tools** on the toolbar. The **Tools** page opens.
+1. On the SQL Database page for your database, click **Tools** on the toolbar and then click **Query editor (preview)**.
 
    ![tools menu](./media/sql-database-get-started-portal/tools-menu.png) 
 
-2. Click **Query editor (preview)**, click the **Preview terms** checkbox, and then click **OK**. The Query editor page opens.
+2. Click , click the **Preview terms** checkbox, and then click **OK**. The Query editor page opens.
 
-3. Click **Login** and then, when prompted, select **SQL server authentication** and then provide the server admin login and password that you created earlier.
+3. Click **Login**, review the login information, and then click **OK** to log in using SQL server authentication with the server admin login and password that you created earlier.
 
    ![login](./media/sql-database-get-started-portal/login.png) 
 
 4. Click **OK** to log in.
 
-5. After you are authenticated, type the following query in the query editor pane.
+5. After you are authenticated as **ServerAdmin**, type the following query in the query editor pane.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -146,11 +146,11 @@ Now that you have created a sample database in Azure, let’s use the built-in q
 
    ![query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
 
-7. Close the **Query editor** page and the **Tools** page.
+7. Close the **Query editor** page, click **OK** to discard your unsaved edits, and then close the **Tools** page.
 
 ## Clean up resources
 
-If you don't need these resources for another quickstart/tutorial (see [Next steps](#next-steps)), you can delete them by doing the following:
+Save these resources if you want to go to [Next steps](#next-steps)) and learn how to connect and query your database using a number of different methods. If, however, you wish to delete the resources that you created in this quick start, use the following steps. 
 
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**. 
