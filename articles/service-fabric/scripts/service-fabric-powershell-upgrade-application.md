@@ -1,5 +1,5 @@
 ﻿---
-title: Azure PowerShell Script Sample - Upgrade an application | Microsoft Docs
+title: Azure PowerShell Script Sample - Upgrade a Service Fabric application | Microsoft Docs
 description: Azure PowerShell Script Sample - Upgrade a Service Fabric application.
 services: service-fabric
 documentationcenter: 
@@ -13,14 +13,14 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 08/23/2017
 ms.author: ryanwi
 ms.custom: mvc
 ---
 
-# Upgrade an application on a Service Fabric cluster
+# Upgrade a Service Fabric application
 
-This sample script deletes a running Service Fabric application instance, unregisters an application type and version from the cluster, and deletes the application package from the cluster image store.  Deleting the application instance also deletes all the running service instances associated with that application. Customize the parameters as needed. 
+This sample script upgrades a running Service Fabric application instance, unregisters an application type and version from the cluster, and deletes the application package from the cluster image store.  Deleting the application instance also deletes all the running service instances associated with that application. Customize the parameters as needed. 
 
 If needed, install the Service Fabric PowerShell module with the [Service Fabric SDK](../service-fabric-get-started.md). 
 
