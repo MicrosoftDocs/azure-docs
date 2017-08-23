@@ -46,11 +46,11 @@ Event subscriptions can include two types of Blob Storage events:
 
 ## Event Schema
 Blob Storage events contain all the information you need to respond to changes in your data.  You can identify a Blob Storage event because the eventType property starts with “Microsoft.Storage.”  
-Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema]((../../../event-grid/event-schema#azure-blob-storage)).  
+Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema]((/en-us/azure/event-grid/event-schema#azure-blob-storage)).  
 
 > [!div class="mx-tdBreakAll"]
-> |Field|Field JSON Datatype|Description|
-> |-----|-------------------|-----------|
+> |Property|Type|Description|
+> |---------------|-------------------|----------------------------------------------------------------------------|
 > |topic|string|Full Azure Resource Manager id of the storage account that emits the event.|
 > |subject|string|The relative resource path to the object that is the subject of the event, using the same extended Azure Resource Manager format that we use to describe storage accounts, services, and containers for Azure RBAC.  This format includes a case-preserving blob name.|
 > |eventTime|string|Date/time that the event was generated, in ISO 8601 format|
@@ -70,7 +70,7 @@ Additional information about the usage of Event Grid event properties is documen
 Here is an example of a BlobCreated event:
 ```json
 [{
-  "topic": "/subscriptions/319a9601-1ec0-4395-aebc-8fe82724c81e/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myaccount",
+  "topic": "/subscriptions/319a9601-1ec0-0000-aebc-8fe82724c81e/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myaccount",
   "subject": "/blobServices/default/containers/testcontainer/blobs/file1.txt",
   "eventType": "Microsoft.Storage.BlobCreated",
   "eventTime": "2017-08-16T01:57:26.005121Z",
@@ -90,7 +90,7 @@ Here is an example of a BlobCreated event:
 
 ```
 
-For more information, see [Blob Storage Events schema](https://docs.microsoft.com/en-us/azure/event-grid/event-schema#azure-blob-storage).
+For more information, see [Blob Storage Events schema](/en-us/azure/event-grid/event-schema#azure-blob-storage).
 
 ## Filtering Events
 Event Subscriptions can also be filtered based on the container name and blob name of the object that was created or deleted using a subject filter.  Subject filters in Event Grid work based on a “prefix match” and “suffix match”, so that events with a subject that “starts with” the subject filter are delivered to the subscriber.
