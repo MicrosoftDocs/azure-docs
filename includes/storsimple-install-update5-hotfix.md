@@ -39,8 +39,8 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
    
 4. Supply the password when prompted. A sample output for installing the first order updates is shown below. For the first order update, you need to point to the specific file.
 
->[!NOTE] 
-> You should install the _HcsSoftwareUpdate.exe_ first. After this install has completed, then install _CisMdsAgentUpdate.exe_.
+    >[!NOTE] 
+    > You should install the _HcsSoftwareUpdate.exe_ first. After this install has completed, then install _CisMdsAgentUpdate.exe_.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
