@@ -1,5 +1,5 @@
 ---
-title: Route Blob Storage Events to a custom Web Endpoint | Microsoft Docs
+title: Route Blob Storage Events to a custom Web Endpoint (preview) | Microsoft Docs
 description: Use Azure Event Grid to subscribe to Blob Storage events. 
 services: storage,event-grid 
 keywords: 
@@ -10,7 +10,7 @@ ms.topic: hero-article
 ms.service: storage
 ---
 
-# Route Blob Storage Events to a custom Web Endpoint
+# Route Blob Storage Events to a custom Web Endpoint (preview)
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to subscribe to Blob Storage events, and trigger the event to view the result. 
 

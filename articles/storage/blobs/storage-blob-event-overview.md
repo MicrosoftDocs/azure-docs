@@ -30,7 +30,7 @@ Subscriptions are added to the Preview Program as capacity is available.  Reques
 ```azurecli-interactive
 az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid
 ```
-Once your registration state changes to “Registered”, you have been admitted to the preview program and you can subscribe to Blob Storage events for accounts in the US West Central location.  Take a look at [Route Blob Storage Events to a custom Web Endpoint](storage-blob-event-quickstart.md) for a quick example.
+Once your registration state changes to “Registered”, you have been admitted to the preview program and you can subscribe to Blob Storage events for accounts in the *West Central US* location.  Take a look at [Route Blob Storage Events to a custom Web Endpoint](storage-blob-event-quickstart.md) for a quick example.
 
 ## Blob Storage accounts
 Blob Storage events are available in Blob Storage accounts (and not in General Purpose storage accounts).  A Blob Storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob Storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
@@ -46,7 +46,7 @@ Event subscriptions can include two types of Blob Storage events:
 
 ## Event Schema
 Blob Storage events contain all the information you need to respond to changes in your data.  You can identify a Blob Storage event because the eventType property starts with “Microsoft.Storage.”  
-Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema]((/en-us/azure/event-grid/event-schema#azure-blob-storage)).  
+Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema](/en-us/azure/event-grid/event-schema#azure-blob-storage).  
 
 > [!div class="mx-tdBreakAll"]
 > |Property|Type|Description|
