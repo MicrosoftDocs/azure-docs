@@ -31,7 +31,7 @@ This problem occurs if your account doesn’t have sufficient permissions.
 
 ## Solution
 
-Make sure that you log in as the correct administrator. An Account Administrator can access only the Account Center. Service Administrators (SA) and Co-Administrators (CA) have access only to the Azure portal or the Azure classic portal.
+Make sure that you log in as the correct administrator. An Account Administrator can access only the Account Center. Service Administrators (SA) and Co-Administrators (CA) have access permission only to the Azure portal or the Azure classic portal.
 
 ### Scenario 1: Error message is received in the [Azure portal](https://portal.azure.com)
 
