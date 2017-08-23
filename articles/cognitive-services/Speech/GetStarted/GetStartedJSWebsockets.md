@@ -39,7 +39,7 @@ and [speech.browser.sdk.js](https://github.com/Azure-Samples/SpeechToText-WebSoc
    Replace '..\..\distrib\speech.browser.sdk.js' with corrected path to the SDK JavaScript file.
    
    > [!NOTE]
-   > To work with Bing Speech Recognition API, all you need is a subscription key. However, the Speech API for JavaScript using web socket also support authentication token. If you have an authentication tokan and preferred to use that then do the following. Replace 'let authentication = new SR.CognitiveSubscriptionKeyAuthentication(subscriptionKey);' statement with this 'let authentication = new SR.CognitiveTokenAuthentication(fetchCallback, fetchOnExpiryCallback);'.
+   > To work with Bing Speech Recognition API, all you need is a subscription key. However, the Speech API for JavaScript using web socket also support authentication token. If you have an authentication token and preferred to use that then do the following. Replace 'let authentication = new SR.CognitiveSubscriptionKeyAuthentication(subscriptionKey);' statement with this 'let authentication = new SR.CognitiveTokenAuthentication(fetchCallback, fetchOnExpiryCallback);'.
 3. Open **Sample.html** in a web browser.
 4. Click the **Start** button. This will initialize the sample and turns on the microphone. Grant the browser access to your microphone if the browser asks for permission. 
 5. Start talking. Your transcribed text appears after the **Current hypothesis:** label. The text area will display the JSON payload of the transcribed audio.
