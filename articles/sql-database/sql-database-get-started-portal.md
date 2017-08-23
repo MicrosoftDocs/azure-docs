@@ -95,11 +95,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170824.database.windows.net**) and provides options for further configuration. 
 
-2. Copy this fully qualified server name for use later.
-
-   > [!IMPORTANT]
-   > You need this fully qualified server name to connect to your server and its databases in subsequent quick starts.
-   > 
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. 
 
    ![server name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
