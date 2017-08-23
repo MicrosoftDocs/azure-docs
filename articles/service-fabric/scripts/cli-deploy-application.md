@@ -1,6 +1,6 @@
 ﻿---
-title: Service Fabric CLI Script Sample - Deploy application to a cluster
-description: Service Fabric CLI Script Sample - Deploy an application to a Service Fabric cluster.
+title: Azure Service Fabric CLI Script Deploy Sample
+description: Deploy an application to a Azure Service Fabric cluster using the Azure Service Fabric CLI
 services: service-fabric
 documentationcenter: 
 author: Thraka

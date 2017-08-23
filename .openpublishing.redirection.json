@@ -10058,6 +10058,21 @@
             "source_path": "articles/active-directory/active-directory-create-users.md",
             "redirect_url": "/azure/active-directory/add-users-azure-active-directory",
             "redirect_document_id": false
-        }    
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-application-lifecycle-azure-cli-2-0.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-application-lifecycle-sfctl",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-azure-cli-2-0.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-cli.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-azure-cli.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-cli.md",
+            "redirect_document_id": false
+        }
     ]
 }
