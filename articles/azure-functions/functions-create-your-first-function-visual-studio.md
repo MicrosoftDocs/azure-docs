@@ -84,7 +84,7 @@ You must have a function app in your Azure subscription before you can publish y
 
 ## Test your function in Azure
 
-1. Copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL. As before, make sure to append the query string `&name=<yourname>` to this URL and execute the request.
+1. Copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL. As before, make sure to append the query string `?name=<yourname>` to this URL and execute the request.
 
     The URL that calls your HTTP triggered function looks like this:
 
