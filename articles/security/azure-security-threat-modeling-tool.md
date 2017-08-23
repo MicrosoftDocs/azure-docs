@@ -37,17 +37,17 @@ Here are some tooling capabilities and innovations, just to name a few:
 * **Designed for Developers and Centered on Software:** many approaches are centered on assets or attackers. We are centered on software. We build on activities that all software developers and architects are familiar with -- such as drawing pictures for their software architecture
 * **Focused on Design Analysis:** The term "threat modeling" can refer to either a requirements or a design analysis technique. Sometimes, it refers to a complex blend of the two. The Microsoft SDL approach to threat modeling is a focused design analysis technique
 
-## Next Steps
+## Next steps
 
 The table below contains important links to get you started with the Threat Modeling Tool:
 
 | Step  | Description                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
 | **1** | [Download the Threat Modeling Tool](https://aka.ms/tmtpreview)                                |
-| **2** | [Read Our Getting Started Guide](./azure-security-threat-modeling-tool-getting-started.md)    |
-| **3** | [Get Familiar with the Features](./azure-security-threat-modeling-tool-feature-overview.md)   |
-| **4** | [Learn About Generated Threat Categories](./azure-security-threat-modeling-tool-threats.md)   |
-| **5** | [Find Mitigations to Generated Threats](./azure-security-threat-modeling-tool-mitigations.md) |
+| **2** | [Read Our getting started guide](./azure-security-threat-modeling-tool-getting-started.md)    |
+| **3** | [Get familiar with the features](./azure-security-threat-modeling-tool-feature-overview.md)   |
+| **4** | [Learn about generated threat categories](./azure-security-threat-modeling-tool-threats.md)   |
+| **5** | [Find mitigations to generated threats](./azure-security-threat-modeling-tool-mitigations.md) |
 
 ## Resources
 

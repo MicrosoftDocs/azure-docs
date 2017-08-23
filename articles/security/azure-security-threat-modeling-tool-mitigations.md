@@ -1,6 +1,6 @@
 ---
 title: Mitigations - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: mitigations page for the Microsoft Threat Modeling Tool highlighting possible solutions to the most exposed generated threats
+description: Mitigations page for the Microsoft Threat Modeling Tool highlighting possible solutions to the most exposed generated threats.
 services: security
 documentationcenter: na
 author: RodSan
@@ -18,11 +18,13 @@ ms.author: rodsan
 
 ---
 
-# Mitigations
+# Microsoft Threat Modeling Tool mitigations
 
 The Threat Modeling Tool is a core element of the Microsoft Security Development Lifecycle (SDL). It allows software architects to identify and mitigate potential security issues early, when they are relatively easy and cost-effective to resolve. As a result, it greatly reduces the total cost of development. Also, we designed the tool with non-security experts in mind, making threat modeling easier for all developers by providing clear guidance on creating and analyzing threat models.
 
-> Visit the **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)** to get started today!
+Visit the **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)** to get started today!
+
+## Mitigation categories
 
 The Threat Modeling Tool mitigations are categorized according to the Web Application Security Frame, which consists of the following:
 
@@ -46,4 +48,6 @@ This helps you identify:
 
 As a result, you use these categories to focus and prioritize your security work, so that if you know the most prevalent security issues occur in the input validation, authentication and authorization categories, you can start there. For more information visit **[this patent link](https://www.google.com/patents/US7818788)**
 
-> Visit **[Threat Modeling Tool Threats](./azure-security-threat-modeling-tool-threats.md)** to learn more about the threat categories the tool uses to generate possible design threats.
+## Next steps
+
+Visit **[Threat Modeling Tool Threats](./azure-security-threat-modeling-tool-threats.md)** to learn more about the threat categories the tool uses to generate possible design threats.

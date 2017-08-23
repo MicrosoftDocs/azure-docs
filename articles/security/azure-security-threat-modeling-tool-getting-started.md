@@ -1,6 +1,6 @@
 ---
 title: Getting Started - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: this is a deeper overview highlighting the Threat Modeling Tool in action
+description: This is a deeper overview highlighting the Threat Modeling Tool in action.
 services: security
 documentationcenter: na
 author: RodSan
@@ -18,7 +18,7 @@ ms.author: rodsan
 
 ---
 
-# Getting Started with the Threat Modeling Tool
+# Getting started with the Threat Modeling Tool
 
 The Cloud and Enterprise Security Tools team released the Threat Modeling Tool Preview earlier this year as a free **[click-to-download](https://aka.ms/tmtpreview)**. The change in delivery mechanism allows us to push the latest improvements and bug fixes to customers each time they open the tool, making it easier to maintain and use.
 This article takes you through the process of getting started with the Microsoft SDL threat modeling approach and shows you how to use the tool to develop great threat models as a backbone of your security process.
@@ -29,13 +29,13 @@ To quickly summarize, the approach involves creating a diagram, identifying thre
 
 ![SDL Process](./media/azure-security-threat-modeling-tool/sdlapproach.png)
 
-## Starting the Threat Modeling Process
+## Starting the threat modeling process
 
 When you launch the Threat Modeling Tool, you'll notice a few things, as seen in the picture:
 
 ![Blank Start Page](./media/azure-security-threat-modeling-tool/tmtstart.png)
 
-### Threat Model Section
+### Threat model section
 
 | Component                                   | Details                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -45,7 +45,7 @@ When you launch the Threat Modeling Tool, you'll notice a few things, as seen in
 | **Open a Model**                            | <p>Opens previously saved threat models. The Recently Opened Models feature is great if you need to open your most recent files. When you hover over the selection, you’ll find 2 ways to open models:</p><p><ul><li>Open From this Computer – classic way of opening a file using local storage</li><li>Open from OneDrive – teams can use folders in OneDrive to save and share all their threat models in a single location to help increase productivity and collaboration</li></ul></p> |
 | **Getting Started Guide**                   | Opens the **[Microsoft Threat Modeling Tool](./azure-security-threat-modeling-tool.md)** main page                                                                                                                                                                                                                                                                                                                                                                                            |
 
-### Template Section
+### Template section
 
 | Component               | Details                                                                                                                                                          |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -54,7 +54,7 @@ When you launch the Threat Modeling Tool, you'll notice a few things, as seen in
 
 The Threat Modeling Tool team is constantly working to improve tool functionality and experience. A few minor changes might take place over the course of the year, but all major changes require rewrites in the guide. Refer to it often to ensure you get the latest announcements.
 
-## Building a Model
+## Building a model
 
 In this section, we follow:
 
@@ -81,7 +81,8 @@ What Ricardo just showed Cristina is a DFD, short for **[Data Flow Diagram](http
 > Cristina: Looks right to me. What about the threats?
 > Ricardo: Let me show you.
 
-## Analyzing Threats
+## Analyzing threats
+
 Once he clicks on the analysis view from the icon menu selection (file with magnifying glass), he is taken to a list of generated threats the Threat Modeling Tool found based on the default template, which uses the SDL approach called **[STRIDE (Spoofing, Tampering, Info Disclosure, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))**. The idea is that software comes under a predictable set of threats, which can be found using these 6 categories.
 
 This approach is like securing your house by ensuring each door and window has a locking mechanism in place before adding an alarm system or chasing after the thief.
@@ -109,7 +110,7 @@ He also thought about information disclosure a bit more and realized that the ba
 
 Threats not applicable to the design due to existing mitigations or security guarantees can be changed to “Not Applicable” from the Status drop-down. There are three other choices: Not Started – default selection, Needs Investigation – used to follow up on items and Mitigated – once it’s fully worked on.
 
-## Reports & Sharing
+## Reports & sharing
 
 Once Ricardo goes through the list with Cristina and adds important notes, mitigations/justifications, priority and status changes, he selects Reports -> Create Full Report -> Save Report, which prints out a nice report for him to go through with colleagues to ensure the proper security work is implemented.
 
@@ -117,7 +118,7 @@ Once Ricardo goes through the list with Cristina and adds important notes, mitig
 
 If Ricardo wants to share the file instead, he can easily do so by saving in his organization’s OneDrive account. Once he does that, he can copy the document link and share it with his colleagues. 
 
-## Threat Modeling Meetings
+## Threat modeling meetings
 
 When Ricardo sent his threat model to his colleague using OneDrive, Ashish, the tester, was underwhelmed. Seemed like Ricardo and Cristina missed quite a few important corner cases, which could be easily compromised. His skepticism is a complement to threat models.
 
@@ -129,7 +130,7 @@ A few minutes later, Ashish and Ricardo got into an extended discussion of how t
 
 In the second meeting, the team walked through the threats, discussed some ways to address them, and signed off on the threat model. They checked the document into source control and continued with development.
 
-## Thinking about Assets
+## Thinking about assets
 
 Some readers who have threat modeled may notice that we haven't talked about assets at all. We've discovered that many software engineers understand their software better than they understand the concept of assets and what assets an attacker may be interested in.
 
@@ -137,4 +138,6 @@ If you're going to threat model a house, you might start by thinking about your 
 
 The approach to threat modeling we've presented here is substantially simpler than what Microsoft has done in the past. We found that the software design approach works well for many teams. We hope that include yours.
 
-> Send your questions, comments and concerns to tmtextsupport@microsoft.com.
+## Next Steps
+
+Send your questions, comments and concerns to tmtextsupport@microsoft.com. **[Download](https://aka.ms/tmtpreview)** the Threat Modeling Tool to get started.

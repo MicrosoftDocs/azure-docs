@@ -1,6 +1,6 @@
 ---
 title: Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: learn all the features available in the Threat Modeling Tool today
+description: Learn about all the features available in the Threat Modeling Tool
 services: security
 documentationcenter: na
 author: RodSan
@@ -18,13 +18,13 @@ ms.author: rodsan
 
 ---
 
-# Threat Modeling Tool Feature Overview
+# Threat Modeling Tool feature overview
 
 We are glad you chose to use the Threat Modeling Tool for your threat modeling needs! If you haven’t done so, visit **[Getting Started with the Threat Modeling Tool](./azure-security-threat-modeling-tool-getting-started.md)** to learn the basics.
 
 > Our tool is updated often, so check this guide often to see our latest features and improvements.
 
-"Create a New Model" takes you to the experience below:
+Clicking on the "Create a New Model" button opens a blank start page, similar to the image below:
 
 ![Blank Start Page](./media/azure-security-threat-modeling-tool/tmtstart.png)
 
@@ -36,7 +36,7 @@ Using the threat model created by our team in the **[Getting Started](./azure-se
 
 Before diving into the built-in features, let’s go over the main components found in the tool
 
-### Menu Items
+### Menu items
 
 The experience should be similar to other Microsoft products. Let’s begin by going through the top-level menu items:
 
@@ -68,13 +68,13 @@ The icons are shortcuts for the top-level menus:
 
 ### Canvas
 
-The space where you drag and drop elements into. Drag and drop is the quickest and most efficient way to build models, shown in Figure 3. You may also right click and select from the menu, which adds generic versions of the elements you’re using, as shown below. 
+The space where you drag and drop elements into. Drag and drop is the quickest and most efficient way to build models. You may also right click and select from the menu, which adds generic versions of the elements you’re using, as shown below.
 
-#### Dropping the Stencil on the Canvas
+#### Dropping the stencil on the canvas
 
 ![Canvas Drop](./media/azure-security-threat-modeling-tool/canvasdrop1.png)
 
-#### Clicking on the Stencil
+#### Clicking on the stencil
 
 ![Element Properties](./media/azure-security-threat-modeling-tool/canvasdrop2.png)
 
@@ -97,7 +97,7 @@ Where you can find all stencils available to use based on the template selected.
 | **Messages** | Internal tool logic that alerts users whenever there is an error, such as no data flows between elements |
 | **Notes** | Manual notes added to the file by engineering teams throughout the design and review process |
 
-### Element Properties
+### Element properties
 
 These vary by the elements selected. Apart from Trust Boundaries, all other elements contain 3 general selections:
 
@@ -109,36 +109,36 @@ These vary by the elements selected. Apart from Trust Boundaries, all other elem
 
 Properties are changed under each element category. Click on each element to inspect the available options, or open the template to learn more. Let’s get into the features.
 
-## Welcome Screen
+## Welcome screen
 
 The welcome screen is the first thing you see when you open the app.
 
-### Open A Model
+### Open A model
 
-Hovering over “Open a Model” button shows you 2 hidden options: “Open From this Computer” and “Open from OneDrive”, seen in Figure 6. The first opens the File Open screen, while the second takes you through the sign in process for OneDrive, allowing you to pick folders and files after a successful authentication.
+Hovering over “Open a Model” button shows you 2 hidden options: “Open From this Computer” and “Open from OneDrive.” The first opens the File Open screen, while the second takes you through the sign in process for OneDrive, allowing you to pick folders and files after a successful authentication.
 
 ![Open Model](./media/azure-security-threat-modeling-tool/openmodel.png)
 
 ![Open From Computer or OneDrive](./media/azure-security-threat-modeling-tool/openmodel2.png)
 
-### Feedback, Suggestions and Issues
+### Feedback, suggestions and issues
 
 Selecting this option will take you to the MSDN Forums for SDL Tools. It’s a great way to check out what other people are saying about the tool, including workarounds and new ideas.
 
 ![Feedback](./media/azure-security-threat-modeling-tool/feedback.png)
 
-## Design View
+## Design view
 
 Whenever you open or create a new model, you’ll be taken to the design view.
 
-### Adding Elements
+### Adding elements
 
 There are 2 ways to add elements on the grid:
 
 - **Drag and Drop** – drag the desired element to the grid, then use the element properties to provide additional information.
 - **Right Click** – right click anywhere on the grid and select from the dropdown menu. A generic representation of that element will appear on the screen.
 
-### Connecting Elements
+### Connecting elements
 
 There are 2 ways to connect elements in the tool:
 
@@ -167,13 +167,13 @@ If you create a threat model and forget to connect data flows to elements, the m
 
 Switching tabs from Messages to Notes allows you to add notes to your diagram to capture all your thoughts
 
-## Analysis View
+## Analysis view
 
 Once you're done building your diagram, switch over to analysis view by going to the top menu selections and choosing the magnifying glass next to the paint palette.
 
 ![Analysis View](./media/azure-security-threat-modeling-tool/analysisview.png)
 
-### Generated Threat Selection
+### Generated threat selection
 
 When you click on a threat, you can leverage three unique functions:
 
@@ -183,13 +183,13 @@ When you click on a threat, you can leverage three unique functions:
 | **Interaction Focus** | <p>Interaction in the diagram belonging to that threat is highlighted</p><p>![Interaction Focus](./media/azure-security-threat-modeling-tool/interactionfocus.png)</p> |
 | **Threat Properties** | <p>Additional information about the threat is populated in the threat properties window</p><p>![Threat Properties](./media/azure-security-threat-modeling-tool/threatproperties.png)</p> |
 
-### Priority Change
+### Priority change
 
 Changing the priority level of each generated threat also changes their colors to make it easy to identify high, medium and low priority threats.
 
 ![Priority Change](./media/azure-security-threat-modeling-tool/prioritychange.png)
 
-### Threat Properties Editable Fields
+### Threat properties editable fields
 
 As seen in the image above, users can change the information generated by the tool an also add information to certain fields, such as justification. These fields are generated by the template, so if you need more information for each threat, you're encouraged to make modifications.
 
@@ -199,9 +199,8 @@ As seen in the image above, users can change the information generated by the to
 
 Once you're done changing priorities and updating the status of each generated threat, you can save the file and/or print out a report by going to "Report" and then "Create Full Report." You'll be asked to name the report, and once you do, you should see something similar to the image below:
 
-
 ![Report](./media/azure-security-threat-modeling-tool/report.png)
 
-## Upcoming Features
+## Next steps
 
-Check back to hear more about exciting features we're working on. To submit a template to the community, please go to our **[GitHub](https://github.com/Microsoft/threat-modeling-templates)** account today!
+To contribute a template for the community, please go to our **[GitHub](https://github.com/Microsoft/threat-modeling-templates)** page. **[Download](https://aka.ms/tmtpreview)** the tool to get started today.

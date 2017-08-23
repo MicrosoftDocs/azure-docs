@@ -1,6 +1,6 @@
 ---
 title: Threats - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: threat category page for the Microsoft Threat Modeling Tool, containing categories for all exposed generated threats
+description: Threat category page for the Microsoft Threat Modeling Tool, containing categories for all exposed generated threats.
 services: security
 documentationcenter: na
 author: RodSan
@@ -18,7 +18,7 @@ ms.author: rodsan
 
 ---
 
-# Threats
+# Microsoft Threat Modeling Tool threats
 
 The Threat Modeling Tool is a core element of the Microsoft Security Development Lifecycle (SDL). It allows software architects to identify and mitigate potential security issues early, when they are relatively easy and cost-effective to resolve. As a result, it greatly reduces the total cost of development. Also, we designed the tool with non-security experts in mind, making threat modeling easier for all developers by providing clear guidance on creating and analyzing threat models.
 
@@ -29,6 +29,8 @@ The Threat Modeling Tool helps you answer certain questions, such as the ones be
 * How can an attacker change the authentication data?
 * What is the impact if an attacker can read the user profile data?
 * What happens if access is denied to the user profile database?
+
+## STRIDE model
 
 To better help you formulate these kinds of pointed questions, Microsoft uses the STRIDE model, which categorizes different types of threats and simplifies the overall security conversations.
 
@@ -41,4 +43,6 @@ To better help you formulate these kinds of pointed questions, Microsoft uses th
 | **Denial of Service** | Denial of service (DoS) attacks deny service to valid users—for example, by making a Web server temporarily unavailable or unusable. You must protect against certain types of DoS threats simply to improve system availability and reliability |
 | **Elevation of Privilege** | An unprivileged user gains privileged access and thereby has sufficient access to compromise or destroy the entire system. Elevation of privilege threats include those situations in which an attacker has effectively penetrated all system defenses and become part of the trusted system itself, a dangerous situation indeed |
 
-> Proceed to **[Threat Modeling Tool Mitigations](./azure-security-threat-modeling-tool-mitigations.md)** to learn the different ways you can mitigate these threats with Azure.
+## Next steps
+
+Proceed to **[Threat Modeling Tool Mitigations](./azure-security-threat-modeling-tool-mitigations.md)** to learn the different ways you can mitigate these threats with Azure.
