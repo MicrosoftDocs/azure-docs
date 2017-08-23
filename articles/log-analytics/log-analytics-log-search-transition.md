@@ -33,7 +33,7 @@ If you're familiar with the legacy Log Analytics query language, the easiest way
 
 ## Cheat sheet
 
-The following table provides a comparison between a variety of common queries to equivalent commands between the new and legacy query language in Azure Log Analytics. 
+The following table provides a comparison between a variety of common queries to equivalent commands between the new and legacy query language in Azure Log Analytics.
 
 | Description | Legacy | new |
 |:--|:--|:--|
@@ -58,5 +58,5 @@ The following table provides a comparison between a variety of common queries to
 
 
 ## Next steps
-- Check out a [tutorial on writing queries](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) using the new query language.
-- Refer to the [Query Language Reference](https://docs.loganalytics.io/queryLanguage/query_language.html) for details on all command, operators, and functions for the new query language.  
+- Check out a [tutorial on writing queries](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries) using the new query language.
+- Refer to the [Query Language Reference](https://docs.loganalytics.io/docs/Language-Reference) for details on all command, operators, and functions for the new query language.  
