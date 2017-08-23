@@ -12,7 +12,7 @@ ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
-ms.topic: hero-article
+ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 

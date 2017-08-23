@@ -13,11 +13,12 @@ keywords: azure functions, functions, event processing, compute, serverless arch
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
 ms.devlang: multiple
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: glenga
+ms.custom: mvc
 
 ---
 # Create your first function using Visual Studio

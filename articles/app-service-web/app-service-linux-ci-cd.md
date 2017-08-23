@@ -28,7 +28,13 @@ In this tutorial, you configure continuous deployment for a custom container ima
 
 Sign in to the Azure portal at http://portal.azure.com
 
-## Step 2 - Enable Docker Hub continuous deployment
+## Step 2 - Enable container continuous deployment feature
+
+You can enable the continuous deployment feature using [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and executing the following command
+
+```azurecli-interactive
+az webapp deployment container config -n sname -g rgname -e true
+``` 
 
 In the **[Azure portal](https://portal.azure.com/)**, click the **App Service** option on the left of the page.
 
@@ -39,6 +45,12 @@ In the **App settings**, add an app setting called `DOCKER_ENABLE_CI` with the v
 ![insert image of app setting](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
 ## Step 3 - Prepare Webhook URL
+
+You can obtain the Webhook URL using [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and executing the following command
+
+```azurecli-interactive
+az webapp deployment container -n sname1 -g rgname -e true --show-cd-url
+``` 
 
 For the Webhook URL, you need to have the following endpoint:
 `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
@@ -80,6 +92,7 @@ When the image gets updated, the web app get updated automatically with the new 
 * [Using Ruby in Azure Web App on Linux](app-service-linux-ruby-get-started.md)
 * [How to use a custom Docker image for Azure Web App on Linux](./app-service-linux-using-custom-docker-image.md)
 * [Azure App Service Web App on Linux FAQ](./app-service-linux-faq.md) 
+* [Manage Web App on Linux using Azure CLI 2.0](./app-service-linux-cli.md)
 
 
 
