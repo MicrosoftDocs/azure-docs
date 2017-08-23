@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: robmcm;asirveda
+ms.author: robmcm
 
 ---
 # Create a basic Azure web app in IntelliJ

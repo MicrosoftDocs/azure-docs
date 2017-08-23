@@ -55,8 +55,8 @@ When your user-traffic volume permits, we recommend the application-specific lea
 
 Custom Decision Service creates a deployment of the entire learning pipeline for your application. You can also access the collected data offline to derive further insights about user preferences.
 
-To use this learning mode, you need to have an [Azure storage account](../../storage/storage-create-storage-account.md) where your data is logged. When you register a new application on the portal, choose **Advanced Options**. Then enter the
-[connection string](../../storage/storage-configure-connection-string.md) for the storage account.
+To use this learning mode, you need to have an [Azure storage account](../../storage/common/storage-create-storage-account.md) where your data is logged. When you register a new application on the portal, choose **Advanced Options**. Then enter the
+[connection string](../../storage/common/storage-configure-connection-string.md) for the storage account.
 
 ## API usage modes
 
