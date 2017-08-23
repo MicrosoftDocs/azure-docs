@@ -20,7 +20,7 @@ ms.author: nachandr
 
 # Patch the Windows operating system in your Service Fabric cluster
 
-The patch orchestration application is a Azure Service Fabric application that automates operating system patching on a Service Fabric cluster on Azure without downtime.
+The patch orchestration application is an Azure Service Fabric application that automates operating system patching on a Service Fabric cluster on Azure without downtime.
 
 The patch orchestration app provides the following:
 

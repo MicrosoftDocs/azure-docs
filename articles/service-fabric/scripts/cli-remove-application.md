@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric CLI Script Remove Sample
-description: Remove an application from a Azure Service Fabric cluster using the Azure Service Fabric CLI
+description: Remove an application from an Azure Service Fabric cluster using the Azure Service Fabric CLI
 services: service-fabric
 documentationcenter: 
 author: thraka
