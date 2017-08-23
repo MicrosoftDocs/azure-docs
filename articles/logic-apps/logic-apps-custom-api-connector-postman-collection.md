@@ -21,7 +21,8 @@ ms.author: LADocs; estfan
 
 [Postman](https://www.getpostman.com/) makes API development faster and easier. 
 This tutorial shows how to create a [Postman collection](https://www.getpostman.com/docs/postman/collections/creating_collections) 
-by using the Azure Cognitive Services [Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/) as an example. 
+for the [Azure Cognitive Services Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/), 
+or more specifically, the [Detect Language API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7). 
 This API identifies the language, sentiment, and key phrases in text that you pass 
 to the API. You can then use your Postman collection to easily create 
 [custom connectors](../logic-apps/logic-apps-custom-api-connector-register.md) 
@@ -36,19 +37,20 @@ for Azure Logic Apps.
 you can start with a [free Azure account](https://azure.microsoft.com/free/). 
 Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-* If you have an Azure subscription, sign up for the Text Analytics APIs by following the 
-[Task 1 steps here](../cognitive-services/text-analytics/quick-start.md). 
+* If you have an Azure subscription, sign up for the Text Analytics APIs by completing 
+[Task 1 here](../cognitive-services/text-analytics/quick-start.md). 
 
 ## Create a Postman collection
 
 Postman collections help you organize and group related API requests. 
-Before you can create a collection, create an HTTP request for your API. 
-For this tutorial, the example uses the [Detect Language API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+Before you can create a collection, create an HTTP request for your API endpoint. 
 
 ### Create an HTTP request for your API
 
-1. Open the Postman app so that you can create an [HTTP request](https://www.getpostman.com/docs/postman/sending_api_requests/requests) 
-for your API endpoint. For more information, see the Postman's [Requests documentation](https://www.getpostman.com/docs/postman/sending_api_requests/requests).
+1. Open the Postman app so that you can create an 
+[HTTP request](https://www.getpostman.com/docs/postman/sending_api_requests/requests) 
+for your API endpoint. For more information, see the Postman's 
+[Requests documentation](https://www.getpostman.com/docs/postman/sending_api_requests/requests).
 
    1. On the **Builder** tab, select the HTTP method, 
    enter the request URL for your API endpoint, 
@@ -143,7 +145,7 @@ That way, the response appears as an example when you load the request later.
    ![Export collection](./media/logic-apps-postman-collection/08-export-http-request.png)
 
 2. Choose the **Collection v1** export format, 
-and browse to the locatio where you want to save the JSON file.
+and browse to the location where you want to save the JSON file.
 
    ![Choose export format: "Collection v1"](./media/logic-apps-postman-collection/09-export-format.png)
    

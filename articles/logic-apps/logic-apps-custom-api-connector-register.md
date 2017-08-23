@@ -1,6 +1,6 @@
 ---
-title: Register your APIs as connectors - Azure Logic Apps | Microsoft Docs
-description: Register your custom APIs for use as connectors in Azure Logic Apps
+title: Register your custom connectors - Azure Logic Apps | Microsoft Docs
+description: Register your custom connectors for Azure Logic Apps
 author: ecfan
 manager: anneta
 editor: 
@@ -17,7 +17,7 @@ ms.date: 09/1/2017
 ms.author: LADocs; estfan
 ---
 
-# Register your custom APIs as connectors in logic apps
+# Register your custom connectors to use with logic apps
 
 Logic Apps helps you build workflows without code. 
 But sometimes, you need to extend Logic Apps capabilites, 
@@ -63,7 +63,7 @@ The custom connector process has several steps,
 which we describe briefly below. This article assumes that you 
 already have a RESTful API with some type of authenticated access, 
 so we'll focus on Steps 3-6 in this article. For example of Steps 1 and 2, 
-see [Create a custom Web API (connector) for Logic Apps](../logic-apps/logic-apps-custom-api-connector-web-api-tutorial.md).
+see [Create a custom Web API (connector) for Logic Apps](../logic-apps/logic-apps-custom-api-connector-web-app-tutorial.md).
 
 1. **Build a RESTful API** in your chosen language and platform. 
 For Microsoft technologies, we recommend one of these platforms:
@@ -187,6 +187,6 @@ see [Certify custom connectors in Logic Apps](**NEED LOGIC APPS TOPIC**).
 
 ## Next steps
 
-* [Create a custom Web API (connector) for Logic Apps](../logic-apps/logic-apps-custom-api-connector-web-api-tutorial.md)
+* [Create a custom Web API (connector) for Logic Apps](../logic-apps/logic-apps-custom-api-connector-web-app-tutorial.md)
 * [Describe custom connectors with Postman](../logic-apps/logic-apps-custom-api-connector-postman-collection.md)
 * [Custom OpenAPI extensions](../logic-apps/customapi-how-to-swagger.md)

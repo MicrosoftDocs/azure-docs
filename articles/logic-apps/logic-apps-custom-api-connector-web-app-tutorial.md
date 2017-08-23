@@ -28,7 +28,8 @@ by building an ASP.NET Web API app.
 
 ## Prerequisites
 
-* [Visual Studio 2013 or later](https://www.visualstudio.com/vs/)
+* [Visual Studio 2013 or later](https://www.visualstudio.com/vs/). 
+This tutorial uses Visual Studio 2015.
 
 * Code for your Web API. If you don't have any, try this tutorial: 
 [Getting Started with ASP.NET Web API 2 (C#)](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api).
@@ -37,34 +38,70 @@ by building an ASP.NET Web API app.
 you can start with a [free Azure account](https://azure.microsoft.com/free/). 
 Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-## Create and deploy an ASP.NET Web API app to Azure
+## Create and deploy an ASP.NET Web App to Azure
 
-1. In Visual Studio, choose **File** > **New Project** 
-so you can create a C# ASP.NET Web API app.
+For this tutorial, create a Visual C# ASP.NET Web Application. 
+For general information about how to create 
 
-2. Select the **Web API** template. 
-If not already selected, select **Host in the cloud**. 
-Choose **Change Authentication**.
+1. Open Visual Studio, then choose **File** > **New Project**.
+
+   1. Expand **Installed**, go to **Templates** > **Visual C#** > **Web**, 
+   and select **ASP.NET Web Application**.
+
+   2. Provide a project name, location, and solution name for your app, 
+   then choose **OK**.
+
+   For example:
+
+   ![Create a Visual C# ASP.NET Web Application](./media/logic-apps-custom-api-connector-web-app-tutorial/visual-studio-new-project-aspnet-web-app.png)
+
+2. In the **New ASP.NET Web Application** box, 
+select the **Web API** template. If not already selected, 
+select **Host in the cloud**. Choose **Change Authentication**.
+
+   ![Select "Web API" template, "Host in the cloud", "Change Authentication"](./media/logic-apps-custom-api-connector-web-app-tutorial/visual-studio-web-api-template.png)
 
 3. Select **No Authentication**, and choose **OK**.
 
-4. When the **New ASP.NET Project** box appears, choose **OK**. 
+   ![Select "No Authentication"](./media/logic-apps-custom-api-connector-web-app-tutorial/visual-studio-change-authentication.png)
 
-5. When the **Configure Microsoft Azure Web App** box appears, 
-review these Web App settings described in the table, make any changes, and choose **OK**.
+4. When the **New ASP.NET Web Application** box reappears, choose **OK**. 
+
+5. In the **Create App Service** box, 
+review the hosting settings described below, make the changes you want, 
+and choose **Create**. 
+
+   An [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) 
+   represents a collection of physical resources used to host your apps in your Azure subscription. Learn more about [App Service](../app-service/app-service-value-prop-what-is.md).
+
+   ![Create App Service](./media/logic-apps-custom-api-connector-web-app-tutorial/visual-studio-create-app-service.png)
 
    |Setting|Suggested value|Description| 
    |:------|:--------------|:----------| 
    |Your Azure work or school account, or your personal Microsoft account| |Select your user account.| 
-   |**Web App name**|*custom-web-api-app-name*, or the default name|Enter the name for your Web API app, which is used in your app's URL.| 
+   |**Web App Name**|*custom-web-api-app-name*, or the default name|Enter the name for your Web API app, which is used in your app's URL: http://.| 
    |**Subscription**|*Azure-subscription-name*|Select the Azure subscription that you want to use.|
-   |**App Service plan**|*App-Service-plan-name*|Select an existing App Service plan, or if you haven't already, create a plan. <p>**Note:** An App Service plan is a web app collection in your Azure subscription.| 
-   |**Resource group**|*Azure-resource-group-name*|Select an existing Azure resource group, or if you haven't already, create a resource group. <p>**Note**: An Azure resource group organizes Azure resources in your Azure subscription.| 
-   |**Region**|*deployment-region*|Select the region for deploying your Web App.| 
-   |**Database server**|*database-server*|If required by your Web API app, select or create an Azure datbase server.|
+   |**Resource Group**|*Azure-resource-group-name*|Select an existing Azure resource group, or if you haven't already, create a resource group. <p>**Note**: An Azure resource group organizes Azure resources in your Azure subscription.| 
+   |**App Service Plan**|*App-Service-plan-name*|Select an existing App Service plan, or if you haven't already, create a plan.|
    ||| 
 
-6. Create or add the code for your Web API app.
+   If you create an App Service Plan, specify these settings:
+
+   |Setting|Suggested value|Description| 
+   |:------|:--------------|:----------| 
+   |**Location**|*deployment-region*|Select the region for deploying your app.| 
+   |**Size**|*app-service-plan-size*|Select your plan size, which determines the cost and computing resource capacity for your service plan.| 
+   ||| 
+
+   To set up any other resources required by your app, choose **Explore additional Azure services**.
+
+   |Setting|Suggested value|Description| 
+   |:------|:--------------|:----------| 
+   |**Resource Type**|*Azure-resource-type*|Select and set up any additional resources required by your app.|
+   ||| 
+
+6. After Visual Studio deploys your project, 
+build the code for your app.
 
 ## Create a Swagger file that describes your Web API
 
@@ -76,13 +113,16 @@ You can write your own OpenAPI definition for your API with the
 but this tutorial uses an open source tool named [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle/blob/master/README.md).
 
 1. If you haven't already, install the Swashbuckle Nuget 
-package in your Visual Studio project. 
+package in your Visual Studio project.
 
-   1. Choose **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+   1. In Visual Studio, choose **Tools** > **NuGet Package Manager** > 
+   **Package Manager Console**.
 
-   2. In the **Package Manager Console**, enter this command: 
+   2. In the **Package Manager Console**, go to your app's project directory if you're not there already (run `Set-Location "project-path"`), and run this PowerShell commandlet: 
    
       `Install-Package Swashbuckle`
+
+      ![Package Manager Console, install Swashbuckle](./media/logic-apps-custom-api-connector-web-app-tutorial/visual-studio-package-manager-install-swashbuckle.png)
 
 2. If you haven't already, run your Web API app.
 
