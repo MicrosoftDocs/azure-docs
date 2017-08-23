@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB global distribution tutorial for Table API | Microsoft Docs
 description: Learn how to setup Azure Cosmos DB global distribution using the Table API.
-services: cosmosdb
+services: cosmos-db
 keywords: global distribution, Table
 documentationcenter: ''
 author: mimig1
@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -28,12 +28,12 @@ This article covers the following tasks:
 > * Configure global distribution using the Azure portal
 > * Configure global distribution using the [Table API](table-introduction.md)
 
-[!INCLUDE [cosmosdb-tutorial-global-distribution-portal](../../includes/cosmosdb-tutorial-global-distribution-portal.md)]
+[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
 ## Connecting to a preferred region using the Table API
 
-In order to take advantage of [global distribution](../documentdb/documentdb-distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the `TablePreferredLocations` configuration value in the app config for the preview Azure Storage SDK. Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the Azure Storage SDK to perform write and read operations.
+In order to take advantage of [global distribution](distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the `TablePreferredLocations` configuration value in the app config for the preview Azure Storage SDK. Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the Azure Storage SDK to perform write and read operations.
 
 The `TablePreferredLocations` should contain a comma-separated list of preferred (multi-homing) locations for reads. Each client instance can specify a subset of these regions in the preferred order for low latency reads. The regions must be named using their [display names](https://msdn.microsoft.com/library/azure/gg441293.aspx), for example, `West US`.
 
@@ -51,7 +51,7 @@ If the `TablePreferredLocations` property is not set, all requests will be serve
     </appSettings>
 ```
 
-That's it, that completes this tutorial. You can learn how to manage the consistency of your globally replicated account by reading [Consistency levels in Azure Cosmos DB](../documentdb/documentdb-consistency-levels.md). And for more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md).
+That's it, that completes this tutorial. You can learn how to manage the consistency of your globally replicated account by reading [Consistency levels in Azure Cosmos DB](consistency-levels.md). And for more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Azure Cosmos DB](distribute-data-globally.md).
 
 ## Next steps
 
@@ -64,4 +64,4 @@ In this tutorial, you've done the following:
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 
 > [!div class="nextstepaction"]
-> [Develop locally with the emulator](../documentdb/documentdb-nosql-local-emulator.md)
+> [Develop locally with the emulator](local-emulator.md)

@@ -11,7 +11,7 @@
 ## [Best practices](sql-data-warehouse-best-practices.md)
 ## [Manage](sql-data-warehouse-overview-manage.md)
 ## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)
-## [Troubleshoot](sql-data-warehouse-troubleshoot.md)
+
 
 # How To
 
@@ -48,7 +48,9 @@
 #### [Data types](sql-data-warehouse-tables-data-types.md)
 #### [Distributed tables](sql-data-warehouse-tables-distribute.md)
 #### [Indexes](sql-data-warehouse-tables-index.md)
+#### [Identity](sql-data-warehouse-tables-identity.md)
 #### [Partitions](sql-data-warehouse-tables-partition.md)
+#### [Replicated tables](design-guidance-for-replicated-tables.md)
 #### [Statistics](sql-data-warehouse-tables-statistics.md)
 #### [Temporary](sql-data-warehouse-tables-temporary.md)
 
@@ -80,18 +82,22 @@
 
 ## Load
 
-### [Overview](sql-data-warehouse-overview-load.md)
-### [Sample data](sql-data-warehouse-load-sample-databases.md)
-### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
-### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
-### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-### [PolyBase guidance](sql-data-warehouse-load-polybase-guide.md)
-### [PolyBase from blob storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [PolyBase from SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-### [RedGate](sql-data-warehouse-load-with-redgate.md)
-### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+### Concepts
+#### [Overview](sql-data-warehouse-overview-load.md)
+#### [PolyBase guidance](sql-data-warehouse-load-polybase-guide.md)
+
+### Tutorials
+#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+
+### How-to guides
+#### [Sample data](sql-data-warehouse-load-sample-databases.md)
+#### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
+#### [BCP](sql-data-warehouse-load-with-bcp.md)
+#### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
+#### [PolyBase from blob storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+#### [PolyBase from SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+#### [RedGate](sql-data-warehouse-load-with-redgate.md)
+#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
 ## Migrate
 
@@ -114,7 +120,7 @@
 
 ### [Overview](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Queries](sql-data-warehouse-manage-monitor.md)
+### [Monitor](sql-data-warehouse-manage-monitor.md)
 ### [Workload](sql-data-warehouse-develop-concurrency.md)
 
 ## Security
@@ -127,6 +133,9 @@
 ### [Encryption with T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Threat detection](sql-data-warehouse-security-threat-detection.md)
 
+## Troubleshoot
+### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
+
 # Reference
 
 ## [Capacity limits](sql-data-warehouse-service-capacity-limits.md)
@@ -136,10 +145,12 @@
 ## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
-## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
-## [Service updates](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Service updates](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partners

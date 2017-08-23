@@ -13,7 +13,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/25/2017
 ms.author: dobett
 
 ---
@@ -53,17 +53,19 @@ You can now download and configure the remote monitoring client application on y
 
 If you haven't already done so, clone the required repositories by running the following commands in a terminal on your Pi:
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git`
-
-`git clone --recursive https://github.com/WiringPi/WiringPi.git`
+```sh
+cd ~
+git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git
+git clone --recursive https://github.com/WiringPi/WiringPi.git
+```
 
 ### Update the device connection string
 
 Open the sample source file in the **nano** editor using the following command:
 
-`nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/basic/remote_monitoring/remote_monitoring.c`
+```sh
+nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/basic/remote_monitoring/remote_monitoring.c
+```
 
 Locate the following lines:
 
@@ -78,19 +80,23 @@ Replace the placeholder values with the device and IoT Hub information you creat
 
 Install the prerequisite packages for the Microsoft Azure IoT Device SDK for C by running the following commands in a terminal on the Raspberry Pi:
 
-`sudo apt-get update`
-
-`sudo apt-get install g++ make cmake git libcurl4-openssl-dev libssl-dev uuid-dev`
+```sh
+sudo apt-get update
+sudo apt-get install g++ make cmake git libcurl4-openssl-dev libssl-dev uuid-dev
+```
 
 You can now build the updated sample solution on the Raspberry Pi:
 
-`chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/basic/build.sh`
-
-`~/iot-remote-monitoring-c-raspberrypi-getstartedkit/basic/build.sh`
+```sh
+chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/basic/build.sh
+~/iot-remote-monitoring-c-raspberrypi-getstartedkit/basic/build.sh
+```
 
 You can now run the sample program on the Raspberry Pi. Enter the command:
 
-  `sudo ~/cmake/remote_monitoring/remote_monitoring`
+```sh
+sudo ~/cmake/remote_monitoring/remote_monitoring
+```
 
 The following sample output is an example of the output you see at the command prompt on the Raspberry Pi:
 
@@ -103,7 +109,6 @@ Press **Ctrl-C** to exit the program at any time.
 ## Next steps
 
 Visit the [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) for more samples and documentation on Azure IoT.
-
 
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-c-get-started-basic/appoutput.png
 

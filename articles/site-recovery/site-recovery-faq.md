@@ -4,16 +4,16 @@ description: This article discusses popular questions about Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
+manager: carmonm
 editor: ''
 
 ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
-ms.service: get-started-article
+ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/21/2017
+ms.date: 05/22/2017
 ms.author: raynew
 
 ---
@@ -22,20 +22,19 @@ This article includes frequently asked questions about Azure Site Recovery. If y
 
 ## General
 ### What does Site Recovery do?
-Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy, by orchestrating and automating replication from on-premises virtual machines and physical servers to Azure, or to a secondary datacenter. [Learn more](site-recovery-overview.md).
+Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy, by orchestrating and automating replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter. [Learn more](site-recovery-overview.md).
 
 ### What can Site Recovery protect?
+* **Azure VMs**: Site Recovery can replicate any workload running on a supported Azure VM
 * **Hyper-V virtual machines**: Site Recovery can protect any workload running on a Hyper-V VM.
 * **Physical servers**: Site Recovery can protect physical servers running Windows or Linux.
 * **VMware virtual machines**: Site Recovery can protect any workload running in a VMware VM.
 
 ### Does Site Recovery support the Azure Resource Manager model?
-In addition to Site Recovery in the Azure classic portal, Site Recovery is available in the Azure portal with support for Resource Manager. For most deployment scenarios Site Recovery in the Azure portal provides a streamlined deployment experience and you can replicate VMs and physical servers into classic storage or Resource Manager storage. Here are the supported deployments:
+Site Recovery is available in the Azure portal with support for Resource Manager. Site Recovery supports legacy deployments in the Azure classic portal. You can't create new vaults in the classic portal, and new features aren't supported.
 
-* [Replicate VMware VMs or physical servers to Azure in the Azure portal](site-recovery-vmware-to-azure.md)
-* [Replicate Hyper-V VMs in VMM clouds to Azure in the Azure portal](site-recovery-vmm-to-azure.md)
-* [Replicate Hyper-V VMs (without VMM) to Azure in the Azure portal](site-recovery-hyper-v-site-to-azure.md)
-* [Replicate Hyper-V VMs in VMM clouds to a secondary site in the Azure portal](site-recovery-vmm-to-vmm.md)
+### Can I replicate Azure VMs?
+Yes, you can replicate supported Azure VMs between Azure regions. [Learn more](site-recovery-azure-to-azure.md).
 
 ### What do I need in Hyper-V to orchestrate replication with Site Recovery?
 For the Hyper-V host server what you need depends on the deployment scenario. Check out the Hyper-V prerequisites in:
@@ -102,7 +101,7 @@ Site Recovery is ISO 27001:2013, 27018, HIPAA, DPA certified, and is in the proc
 Yes. When you create a Site Recovery vault in a region, we ensure that all metadata that we need to enable and orchestrate replication and failover remains within that region's geographic boundary.
 
 ### Does Site Recovery encrypt replication?
-For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and encryption-at-rest (in Azure) are supported.
+For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and [encryption-at-rest (in Azure)](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) are supported.
 
 ## Replication
 
@@ -130,7 +129,7 @@ Yes. You can automate Site Recovery workflows using the Rest API, PowerShell, or
 * [Replicate Hyper-V VMs without VMM to Azure PowerShell Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 
 ### If I replicate to Azure what kind of storage account do I need?
-* **Azure classic portal**: If you're deploying Site Recovery in the Azure classic portal, you'll need a [standard geo-redundant storage account](../storage/storage-redundancy.md#geo-redundant-storage). Premium storage isn't currently supported. The account must be in the same region as the Site Recovery vault.
+* **Azure classic portal**: If you're deploying Site Recovery in the Azure classic portal, you'll need a [standard geo-redundant storage account](../storage/common/storage-redundancy.md#geo-redundant-storage). Premium storage isn't currently supported. The account must be in the same region as the Site Recovery vault.
 * **Azure portal**: If you're deploying Site Recovery in the Azure portal, you'll need an LRS or GRS storage account. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. The account must be in the same region as the Recovery Services vault. Premium storage is now supported for VMware VM, Hyper-V VM, and physical server replication, when you deploy Site Recovery in the Azure portal.
 
 ### How often can I replicate data?
@@ -159,7 +158,7 @@ Yes. You can read more about throttling bandwidth in the deployment articles:
 
 * [Capacity planning for replicating VMware VMs and physical servers](site-recovery-plan-capacity-vmware.md)
 * [Capacity planning for replicating Hyper-V VMs in VMM clouds](site-recovery-vmm-to-azure.md#capacity-planning)
-* [Capacity planning for replicating Hyper-V VMs without VMM](site-recovery-hyper-v-site-to-azure.md#capacity-planning)
+* [Capacity planning for replicating Hyper-V VMs without VMM](site-recovery-hyper-v-site-to-azure.md)
 
 ## Failover
 ### If I'm failing over to Azure, how do I access the Azure virtual machines after failover?

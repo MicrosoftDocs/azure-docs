@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 05/25/2017
 ms.author: sasubram
 
 ---
@@ -30,12 +30,13 @@ In cases where external users are not populated in the list, the object might ta
 
 ## A B2B guest user is not showing up in SharePoint Online/OneDrive people picker 
  
-The ability to search for existing guest users in the SharePoint Online people picker is OFF by default to match legacy behavior.
-You can enable this using the setting 'ShowPeoplePickerSuggestionsForGuestUsers' at the tenant and site collection level. This can be set using the Set-SPOTenant and Set-SPOSite cmdlets, which allow members to search all existing guest users in the directory. Changes in the tenant scope do not affect already provisioned SPO sites.
+The ability to search for existing guest users in the SharePoint Online (SPO) people picker is OFF by default to match legacy behavior.
+
+You can enable this feature by using the setting 'ShowPeoplePickerSuggestionsForGuestUsers' at the tenant and site collection level. You can set the feature using the Set-SPOTenant and Set-SPOSite cmdlets, which allow members to search all existing guest users in the directory. Changes in the tenant scope do not affect already provisioned SPO sites.
 
 ## Invitations have been disabled for directory
 
-If you receive an error message indicating that you do not have permissions to invite users, verify that your user account is authorized to invite external users. This can be done under User Settings:
+If you are notified that you do not have permissions to invite users, verify that your user account is authorized to invite external users under User Settings:
 
 ![](media/active-directory-b2b-troubleshooting/external-user-settings.png)
 
@@ -53,13 +54,13 @@ When inviting users whose organization is using Azure Active Directory, but wher
 
 ### External user does not exist already in a federated domain
 
-In cases where the external user is using a federation solution where authentication is being performed on-premises and the user does not already exist in Azure Active Directory, the user cannot be invited.
+If you are using federation authentication and the user does not already exist in Azure Active Directory, the user cannot be invited.
 
 To resolve this issue, the external user’s admin must synchronize the user’s account to Azure Active Directory.
 
 ## How does ‘\#’, which is not normally a valid character, sync with Azure AD?
 
-“\#” is a reserved character in UPNs for Azure AD B2B collaboration or external users (that is, user@contoso.com invited, becomes user_contoso.com#EXT@fabrikam.onmicrosoft.com) so \# in UPNs coming from on-premises are not allowed to sign in to the Azure portal.
+“\#” is a reserved character in UPNs for Azure AD B2B collaboration or external users, because the invited account user@contoso.com becomes user_contoso.com#EXT@fabrikam.onmicrosoft.com. Therefore, \# in UPNs coming from on-premises aren't allowed to sign in to the Azure portal. 
 
 ## I receive an error when adding external users to a synchronized group
 
@@ -71,7 +72,12 @@ The invitee should check with their ISP or spam filter to ensure that the follow
 
 ## I notice that the custom message does not get included with invitation messages at times
 
-To comply with privacy laws, our APIs do not include custom messages in the email invitation when the inviter doesn’t have an email address in the resource organization (otherwise known as the inviting tenancy) or when an app service principal sends the invitation. If this is an important scenario for you, you can suppress our API sending the invitation email and send it through an email mechanism of your choice. Remember to consult your organization’s legal counsel to make sure any email you send this way also complies with privacy laws.
+To comply with privacy laws, our APIs do not include custom messages in the email invitation when:
+
+- The inviter doesn’t have an email address in the inviting tenant
+- When an appservice principal sends the invitation
+
+If this scenario is important to you, you can suppress our API invitation email, and send it through the email mechanism of your choice. Consult your organization’s legal counsel to make sure any email you send this way also complies with privacy laws.
 
 ## Next steps
 
@@ -83,7 +89,7 @@ Browse our other articles on Azure AD B2B collaboration:
 * [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md)
 * [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B collaboration licensing](active-directory-b2b-licensing.md)
-* [Azure Active Directory B2B collaboration frequently-asked questions (FAQ)](active-directory-b2b-faq.md)
+* [Azure Active Directory B2B collaboration frequently asked questions (FAQ)](active-directory-b2b-faq.md)
 * [Azure Active Directory B2B collaboration API and customization](active-directory-b2b-api.md)
 * [Multi-factor authentication for B2B collaboration users](active-directory-b2b-mfa-instructions.md)
 * [Add B2B collaboration users without an invitation](active-directory-b2b-add-user-without-invite.md)

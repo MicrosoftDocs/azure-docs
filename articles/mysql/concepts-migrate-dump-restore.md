@@ -1,35 +1,55 @@
 ---
 title: Migrate your MySQL database using dump and restore in Azure Database for MySQL | Microsoft Docs
-description: Introduces migrating Azure Database for MySQL.
+description: This article explains two common ways to back up and restore databases in your Azure Database for MySQL, using tools such as mysqldump, MySQL Workbench, and PHPMyAdmin.
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid:
+editor: jasonwhowell
 ms.service: mysql-database
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: portal
-ms.date: 05/17/2017
+ms.date: 06/13/2017
 ---
 
 # Migrate your MySQL database to Azure Database for MySQL using dump and restore
 This article explains two common ways to back up and restore databases in your Azure Database for MySQL
-- Back up and restore from the command-line (using mysqldump) 
-- Back up and restore using PHPMyAdmin 
+- Dump and restore from the command-line (using mysqldump) 
+- Dump and restore using PHPMyAdmin 
 
 ## Before you begin
 To step through this how-to guide, you need to have:
 - [Create Azure Database for MySQL server - Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-- [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) command-line utility installed on a machine
-- MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/), Toad, Navicat or any third-party MySQL tool
+- [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) command-line utility installed on a machine.
+- MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/), Toad, Navicat, or other third-party MySQL tool to do dump and restore commands.
 
 ## Use common tools
-Use common tools such as MySQL Workbench, mysqldump, Toad, or Navicat to remotely connect and restore data into Azure Database for MySQL. Use such tools on your client machine with an internet connection to connect to the Azure Database for MySQL. Use an SSL encrypted connection for best security practices, see also [Configure SSL connectivity in Azure Database for MySQL](concepts-ssl-connection-security.md). You do not need to move the dump files to any special cloud location when migrating to Azure Database for MySQL. 
+Use common utilities and tools such as MySQL Workbench, mysqldump, Toad, or Navicat to remotely connect and restore data into Azure Database for MySQL. Use such tools on your client machine with an internet connection to connect to the Azure Database for MySQL. Use an SSL encrypted connection for best security practices, see also [Configure SSL connectivity in Azure Database for MySQL](concepts-ssl-connection-security.md). You do not need to move the dump files to any special cloud location when migrating to Azure Database for MySQL. 
+
+## Common uses for dump and restore
+You may use MySQL utilities such as mysqldump and mysqlpump to dump and load databases into an Azure MySQL Database in several common scenarios. In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.
+
+- Use database dumps when you are migrating the entire database. This recommendation holds when moving a large amount of MySQL data, or when you want to minimize service interruption for live sites or applications. 
+-  Make sure all tables in the database use the InnoDB storage engine when loading data into Azure Database for MySQL. Azure Database for MySQL supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables are configured with other storage engines, convert them into the InnoDB engine format before migration to Azure Database for MySQL.
+   For example, if you have a WordPress or WebApp using the MyISAM tables, first convert those tables by migrating into InnoDB format before restoring to Azure Database for MySQL. Use the clause `ENGINE=InnoDB` to set the engine used when creating a new table, then transfer the data into the compatible table before the restore. 
+
+   ```sql
+   INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
+   ```
+- To avoid any compatibility issues, ensure the same version of MySQL is used on the source and destination systems when dumping databases. For example, if your existing MySQL server is version 5.7, then you should migrate to Azure Database for MySQL configured to run version 5.7. The `mysql_upgrade` command does not function in an Azure Database for MySQL server, and is not supported. If you need to upgrade across MySQL versions, first dump or export your lower version database into a higher version of MySQL in your own environment. Then run `mysql_upgrade`, before attempting migration into an Azure Database for MySQL.
+
+## Performance considerations
+To optimize performance, take notice of these considerations when dumping large databases:
+-	Use the `exclude-triggers` option in mysqldump when dumping databases. Exclude triggers from dump files to avoid the trigger commands firing during the data restore. 
+-	Avoid the `single-transaction` option in mysqldump when dumping very large databases. Dumping many tables within a single transaction causes extra storage and memory resources to be consumed during restore and may cause performance delays or resource constraints.
+-	Use multi-value inserts when loading with SQL to minimize statement execution overhead when dumping databases. When using dump files generated by mysqldump utility, multi-value inserts are enabled by default. 
+-  Use the `order-by-primary` option in mysqldump when dumping databases, so that the data is scripted in primary key order.
+-	Use the `disable-keys` option in mysqldump when dumping data, to disable foreign key constraints before load. Disabling foreign key checks provides performance gains. Enable the constraints and verify the data after the load to ensure referential integrity.
+-	Use partitioned tables when appropriate.
+-	Load data in parallel. Avoid too much parallelism that would cause you to hit a resource limit, and monitor resources using the metrics available in the Azure portal. 
+-	Use the `defer-table-indexes` option in mysqlpump when dumping databases, so that index creation happens after tables data is loaded.
 
 ## Create a backup file from the command-line using mysqldump
-To back up an existing MySQL database on-prem or in a VM, run the following command: 
+To back up an existing MySQL database on the local on-premises server or in a virtual machine, run the following command: 
 ```bash
 $ mysqldump --opt -u [uname] -p[pass] [dbname] > [backupfile.sql]
 ```
@@ -41,7 +61,7 @@ The parameters to provide are:
 - [backupfile.sql] The filename for your database backup 
 - [--opt] The mysqldump option 
 
-For example, to back up a database named 'testdb' with the username 'testuser' and with no password to a file testdb_backup.sql, use the following command. This command will back up the 'testdb' database into a file called testdb_backup.sql which will contain all the SQL statements needed to re-create the database. 
+For example, to back up a database named 'testdb' on your MySQL server with the username 'testuser' and with no password to a file testdb_backup.sql, use the following command. The command backs up the `testdb` database into a file called `testdb_backup.sql`, which contains all the SQL statements needed to re-create the database. 
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
@@ -60,42 +80,43 @@ To back up all the databases in the server at one time, you should use the --all
 $ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 
-## Create a database on the target Azure MySQL server
-You must create an empty database on the target Azure Database for MySQL server where you want to migrate the data using MySQL Workbench, Toad, Navicat or any third-party tool for MySQL. The database can have the same name as the database that is contained the dumped data or you can create a database with a different name.
+## Create a database on the target Azure Database for MySQL server
+Create an empty database on the target Azure Database for MySQL server where you want to migrate the data. Use a tool such as MySQL Workbench, Toad, or Navicat to create the database. The database can have the same name as the database that is contained the dumped data or you can create a database with a different name.
 
-![Azure Database for MySQL Connection String](./media/concepts-migrate-import-export/p5.png)
+To get connected, locate the connection information on the Properties page in your Azure Database for MySQL.
+![Find the connection information in the Azure portal](./media/concepts-migrate-dump-restore/1_server-properties-name-login.png)
 
-![MySQL Workbench Connection String](./media/concepts-migrate-import-export/p4.png)
+Add the connection information into your MySQL Workbench.
+![MySQL Workbench Connection String](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
 
 
 ## Restore your MySQL database using command-line or MySQL Workbench
 Once you have created the target database, you can use the mysql command or MySQL Workbench to restore the data into the specific newly created database from the dump file.
 ```bash
-mysql -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
+mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
-In this example, we will restore the data to the newly created database testdb3 on target server.
+In this example, restore the data into the newly created database on the target Azure Database for MySQL server.
 ```bash
-$ mysql -u root -p testdb3 < testdb_backup.sql
+$ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p testdb < testdb_backup.sql
 ```
 
 ## Export using PHPMyAdmin
-To export, you can use the common tool phpMyAdmin which you may already have installed locally in your environment. To export your MySQL database using PHPMyAdmin:
+To export, you can use the common tool phpMyAdmin, which you may already have installed locally in your environment. To export your MySQL database using PHPMyAdmin:
 - Open phpMyAdmin.
-- Select your database by clicking the database name in the list on the left of the screen. 
-- Click the Export link. This should bring up a new screen that says View dump of database. 
-- In the Export area, click the Select All link to choose all of the tables in your database. 
-- In the SQL options area, click the right options. 
-- Click on the Save as file option and the corresponding compression option and then click the 'Go' button. A dialog box should appear prompting you to save the file locally.
+- Select your database. Click the database name in the list on the left. 
+- Click the **Export** link. A new page appears to view the dump of database.
+- In the Export area, click the **Select All** link to choose the tables in your database. 
+- In the SQL options area, click the appropriate options. 
+- Click the **Save as file** option and the corresponding compression option and then click the **Go** button. A dialog box should appear prompting you to save the file locally.
 
 ## Import using PHPMyAdmin
 Importing your database is similar to exporting. Do the following actions:
 - Open phpMyAdmin. 
-- Create an appropriately named database and select it by clicking the database name in the list on the left of the screen. If you would like to rewrite the import over an existing database then click on the database name, select all the check boxes next to the table names and select Drop to delete all existing tables in the database. 
-- Click the SQL link. This should bring up a new screen where you can type in SQL commands, or upload your SQL file. 
-- Use the browse button to find the database file. 
-- Click the Go button. This will export the backup, execute the SQL commands and re-create your database.
+- In the phpMyAdmin setup page, click **Add** to add your Azure Database for MySQL server. Provide the connection details and login information.
+- Create an appropriately named database and select it on the left of the screen. To rewrite the existing database, click the database name, select all the check boxes beside the table names, and select **Drop** to delete the  existing tables. 
+- Click the **SQL** link to show the page where you can type in SQL commands, or upload your SQL file. 
+- Use the **browse** button to find the database file. 
+- Click the **Go** button to export the backup, execute the SQL commands, and re-create your database.
 
 ## Next steps
-
-[Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) 
-[Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
+[Connect applications to Azure Database for MySQL](./howto-connection-string.md)

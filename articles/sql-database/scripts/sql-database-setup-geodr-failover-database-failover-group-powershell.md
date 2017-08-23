@@ -1,6 +1,6 @@
 ﻿---
-title: Azure PowerShell Script-Set up geo-replication failover group-single SQL Database | Microsoft Docs
-description: Azure PowerShell Script Sample - Set up active geo-replication for a single Azure SQL database using PowerShell
+title: PowerShell example-geo-replication failover group-single Azure SQL Database | Microsoft Docs
+description: Azure PowerShell example script to set up active geo-replication for a single Azure SQL database 
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -10,24 +10,24 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: sample
+ms.custom: business continuity
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/19/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ---
 
-# Configure an active geo-replication failover group for a single Azure SQL database using PowerShell
+# Use PowerShell to configure an active geo-replication failover group for a single Azure SQL database
 
-This sample PowerShell script configures an active geo-replication failover group for a single database and fails it over to the secondary replica.
+This PowerShell script example configures an active geo-replication failover group for a single Azure SQL database and fails it over to a secondary replica of the Azure SQL database.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample scripts
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover-group.ps1 "Set up failover group for single database")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover-group.ps1?highlight=19-22 "Set up failover group for single database")]
 
 ## Clean up deployment
 

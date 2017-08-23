@@ -636,7 +636,7 @@ Decodes the parameter from a URL encoded string. This function supports paramete
 The following example returns `"https://portal.azure.com/"`:
 
 ```json
-"[encodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
+"[decodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
 ```
 
 ## Math functions
@@ -782,6 +782,6 @@ The following example returns `"1991-01-01T00:59:59.000Z"`:
 "[addHours('1990-12-31T23:59:59Z', 1)]"
 ```
 
-## Next Steps
+## Next steps
 * For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
 

@@ -1,6 +1,6 @@
 ﻿---
-title: Azure PowerShell Script-Import-bacpac-SQL database | Microsoft Docs
-description: Azure PowerShell Script Sample - Import from a bacpac into a SQL database using PowerShell
+title: PowerShell example-import-bacpac file-Azure SQL database | Microsoft Docs
+description: Azure PowerShell example script to import a bacpac tile into a SQL database
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -10,24 +10,24 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: sample
+ms.custom: load & move data
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/19/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ---
 
-# Import from a bacpac into a SQL database using PowerShell
+# Use PowerShell to import a bacpac file into an Azure SQL database
 
-This sample PowerShell script imports a database from a **bacpac** file.  
+This PowerShell script example imports a database from a **bacpac** file into an Azure SQL database.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/import-from-bacpac/import-from-bacpac.ps1 "Create SQL Database")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/import-from-bacpac/import-from-bacpac.ps1?highlight=18-19 "Create SQL Database")]
 
 ## Clean up deployment
 

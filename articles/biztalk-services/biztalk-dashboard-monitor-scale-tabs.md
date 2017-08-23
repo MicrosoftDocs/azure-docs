@@ -18,6 +18,9 @@ ms.author: mandia
 
 ---
 # Review the Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 After you create your BizTalk Service and deploy your application, you can change some of the BizTalk Service settings and monitor the application performance. 
 
 When you open the Azure classic portal, you are automatically placed at the **ALL ITEMS** tab. To view your BizTalk Service, select your BizTalk Service in the **ALL ITEMS** tab or select the **BIZTALK SERVICES** tab; and then select your BizTalk Service name.

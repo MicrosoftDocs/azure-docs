@@ -5,12 +5,11 @@ services: postgresql
 author: kamathsun
 ms.author: sukamat
 manager: jhubbard
-editor: jasonh
-ms.assetid:
-ms.service: postgresql-database
-ms.tgt_pltfrm: portal
+editor: jasonwhowell
+ms.custom: mvc
+ms.service: postgresql
 ms.topic: overview
-ms.date: 05/10/2017
+ms.date: 08/01/2017
 ---
 # What is Azure Database for PostgreSQL?
 
@@ -35,19 +34,20 @@ For a set of Azure CLI and PowerShell samples, see:
 
 Azure Database for PostgreSQL service currently offers two service tiers: Basic, and Standard. Each service tier offers [different levels of performance, IOPS guarantees and capabilities](concepts-service-tiers.md) to support lightweight to heavyweight database workloads. You can build your first app on a small server for a few bucks a month and then [change the performance level](scripts/sample-scale-server-up-or-down.md) within service tier manually or programmatically at any time to meet the needs of your solution. You can do this without downtime to your application or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
-## Monitoring and Alerting
-
+## Monitoring and alerting
 How do you decide when to dial up and down? You use the built-in performance monitoring and alerting features, combined with the performance ratings based on Compute Units. Using these tools, you can quickly assess the impact of scaling Compute Units up or down based on your current or projected performance needs. For details, see [Azure Database for PostgreSQL options and performance: Understand what's available in each service tier](./concepts-service-tiers.md).
 
 ## Keep your app and business running
-
 Azure's industry leading 99.99% availability (not available in preview) service level agreement (SLA), powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. With every Azure Database for PostgreSQL server, you take advantage of built-in security, fault tolerance, and data protection that you would otherwise have to buy or design, build, and manage. With Azure Database for PostgreSQL, each service tier offers a comprehensive set of business continuity features and options that you can use to get up and running and stay that way. You can use [point-in-time restore](howto-restore-server-portal.md) to return a database to an earlier state, as far back as 35 days. In addition, if the datacenter hosting your databases experiences an outage, you can restore databases from geo-redundant copies of recent backups.
 
 ## Secure your data
-
 Azure database services have a tradition of data security that Azure Database for PostgreSQL upholds with features that limit access, protect data at-rest and in-motion, and help you monitor activity. Visit the [Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx) for information about Azure's platform security.
 
-## Next Steps
+The Azure Database for PostgreSQL service uses storage encryption for data at-rest. Data including backups are encrypted on disk (with the exception of temporary files created by the engine while running queries). The service uses AES 256-bit cipher that is included in Azure storage encryption, and the keys are system managed. Storage encryption is always on and cannot be disabled.
+
+By default, the Azure Database for PostgreSQL service is configured to require [SSL connection security](./concepts-ssl-connection-security.md) for data in-motion across the network. Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.  Optionally, you can disable requiring SSL for connecting to your database service if your client application does not support SSL connectivity.
+
+## Next steps
 - See the [pricing page](https://azure.microsoft.com/pricing/details/postgresql/) for cost comparisons and calculators.
 - Get started by [creating your first Azure Database for PostgreSQL](./quickstart-create-server-database-portal.md).
 - Build your first app in Python, PHP, Ruby, C\#, Java, Node.js: [Connection libraries](./concepts-connection-libraries.md)

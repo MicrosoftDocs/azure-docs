@@ -18,6 +18,9 @@ ms.author: mandia
 
 ---
 # BizTalk Services: Throttling
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Azure BizTalk Services implements service throttling based on two conditions: memory usage and the number of simultaneous messages processing. This topic lists the throttling thresholds and describes the Runtime behavior when a throttling condition occurs.
 
 ## Throttling Thresholds

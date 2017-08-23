@@ -3,7 +3,7 @@ title: Azure Relay exceptions and how to resolve them | Microsoft Docs
 description: Get a list of Azure Relay exceptions and suggested actions you can take to help resolve them.
 services: service-bus-relay
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
-ms.author: sethm;jotaub
+ms.author: sethm
 
 ---
 # Azure Relay exceptions

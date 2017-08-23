@@ -13,7 +13,7 @@ ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: getting-started
+ms.topic: get-started-article
 ms.date: 4/4/2017
 ms.author: ryanwi
 

@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: asmalser
+ms.date: 07/13/2017
+ms.author: curyand
 
 ---
 # What is application access and single sign-on with Azure Active Directory?

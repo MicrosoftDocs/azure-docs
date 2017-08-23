@@ -1,6 +1,6 @@
 ---
 
-title: How to migrate from Azure RemoteApp to Citrix XenApp Essentials | Microsoft Docs
+title: Migrate from Azure RemoteApp to Citrix XenApp Essentials | Microsoft Docs
 description: How to migrate from Azure RemoteApp to Citrix XenApp Essentials
 services: remoteapp
 documentationcenter: ''
@@ -18,38 +18,35 @@ ms.author: mbaldwin
 
 ---
 
-# How to migrate from Azure RemoteApp to Citrix XenApp Essentials
+# Migrate from Azure RemoteApp to Citrix XenApp Essentials
 
-There are a few prerequisites for Azure RemoteApp customers wishing to migrate to Citrix XenApp Essentials.  We recommend that you first read Citrix's [step by step technical deployment guide for Citrix XenApp Essentials](https://docs.citrix.com/content/dam/docs/en-us/citrix-cloud/downloads/xenapp-essentials-deployment-guide.pdf), as well as their [online technical library](http://docs.citrix.com/en-us/citrix-cloud/xenapp-and-xendesktop-service/xenapp-essentials.html). 
+If you use Azure RemoteApp and you want to migrate to Citrix XenApp Essentials, there are a few prerequisites to keep in mind. First, read Citrix's [step by step technical deployment guide for Citrix XenApp Essentials](https://docs.citrix.com/content/dam/docs/en-us/citrix-cloud/downloads/xenapp-essentials-deployment-guide.pdf) and its [online technical library](http://docs.citrix.com/en-us/citrix-cloud/xenapp-and-xendesktop-service/xenapp-essentials.html). 
 
-Fortunately you can reuse the majority of the investments you've already made in Azure RemoteApp, but there a few high level prerequisites for deploying XenApp Essentials.
+## Prerequisite steps for migration
 
-## Prerequisites
-
-1. Create a new VNET, or determine which Azure VNET in Azure Resource Manager that you'll deploy Citrix XenApp Essentials into. Azure RemoteApp uses Azure classic; Citrix XenApp Essentials only supports Azure Resource Manager.  
-2. Ensure that VNET you selected has networking access to your domain controller, as Citrix only supports hybrid deployments. If you are using a Cloud deployment of Azure RemoteApp you will need to ensure your VNET has networking access to an Active Directory domain controller and or we recommend you use Azure Active Directly Domain Services (AAD-DS). 
-3. Ensure DNS is properly configured for VNET, so domain join will be successful on your first attempt. You can create a Virtual Machine in the VNET you selected and perform a manual domain join to verify that DNS and domain join works as expected. This will ensure that you are successful the first timer you deploy Citrix XenApp Essentials. 
-4. If needed, create a VNET peering between a Azure classic VNET you are using with Azure RemoteApp and your Azure Resource Manager VNET if they reside in the same region and or use S2S VPN if they are not in order to connect VNET's for networking. 
+1. Create a new virtual network, or determine which Azure virtual network in Azure Resource Manager into which you'll deploy Citrix XenApp Essentials. Azure RemoteApp uses the Azure classic portal; Citrix XenApp Essentials only supports Azure Resource Manager.  
+2. Ensure that the virtual network you selected has networking access to your domain controller, because Citrix only supports hybrid deployments. If you are using a cloud deployment of Azure RemoteApp, ensure that your virtual network has networking access to an Active Directory domain controller. You can also use Azure Active Directory Domain Services (Azure AD DS). 
+3. Ensure that the DNS is properly configured for the virtual network, so that domain join is successful on your first attempt. You can create a virtual machine (VM) in the virtual network you selected, and perform a manual domain join to verify that the DNS and domain join works as expected. This ensures that you are successful the first time you deploy Citrix XenApp Essentials. 
+4. If needed, create a virtual network peering between an Azure classic portal virtual network you are using with Azure RemoteApp, and your Azure Resource Manager virtual network. This peering process works if the two networks reside in the same region. If they do not, use site-to-site VPN to connect the virtual networks for networking. 
 5. If needed, read [How to migrate data into and out of Azure RemoteApp](remoteapp-migrate.md). 
-6. Update your existing Azure RemoteApp image to include the Citrix VDA component, reference Citrix documentation on instructions. 
-7. Go to Azure Marketplace and begin Citrix XenApp Essentials deployment.
+6. Update your existing Azure RemoteApp image to include the Citrix VDA component (for instructions, see the Citrix documentation). 
+7. Go to the Azure Marketplace, and begin Citrix XenApp Essentials deployment.
 
-Good luck, and thank you for using Azure RemoteApp. 
+## Other considerations
 
-## Other considerations:
+Be aware of the following additional considerations when you migrate:
+- Citrix XenApp Essentials only supports hybrid deployments. In other words, it requires network access to a domain controller in order to perform domain join. If you are using a cloud deployment of Azure RemoteApp, either use Azure AD DS or ensure that your virtual network has access to Active Directory for domain join. 
+- To learn how to move user data to Citrix XenApp Essentials, see [How to migrate data into and out of Azure RemoteApp](remoteapp-migrate.md). 
+- Citrix XenApp Essentials only supports Active Directory accounts. It does not support Microsoft accounts (such as outlook.com, msn.com, or hotmail.com). 
 
-- Citrix XenApp Essentials only supports hybrid deployments. In other words, it requires network access to a domain controller in order to perform domain join. If you are using a Cloud deployment of Azure RemoteApp, you will need to either use AAD-DS or ensure your VNET has access to Active Directory for domain join. 
-- To learn how to move user data to CXE, read [How to migrate data into and out of Azure RemoteApp](remoteapp-migrate.md). 
-- Citrix XenApp Essentials only supports Active Directory accounts. It does not support Microsoft Accounts (@outlook.com, @msn.com, @hotmail.com, etc.). 
+## Citrix XenApp Essentials billing
 
-## Understanding billing for Citrix XenApp Essentials 
+For full details on pricing, see the [FAQ](https://www.citrix.com/global-partners/microsoft/resources/xenapp-essentials-faq.html#tab-30699) and [Citrix overview article](https://www.citrix.com/global-partners/microsoft/remote-app.html). There are three billing components to Citrix XenApp Essentials:
 
-Read the [FAQ](https://www.citrix.com/global-partners/microsoft/resources/xenapp-essentials-faq.html#tab-30699) and [Citrix overview article](https://www.citrix.com/global-partners/microsoft/remote-app.html) for full details on pricing. There are three billing components to Citrix XenApp Essentials, they are:
+- The Citrix service charge, which is $12 per user per month. Like all Azure Marketplace purchases, this is billed to the payment method associated with your Azure subscription. For Enterprise Agreement (EA) customers, Azure monetary credits cannot be used. 
+- Remote Data Services (RDS) client access licenses (CALs). Currently, you can purchase the Remote Access Fee that is bundled with the Citrix XenApp Essentials payment for $6.25. If you are an EA customer, you can use Azure monetary credits to pay for this. If you want to use your existing RDS CALs, contact us at [arainfo@microsoft.com](mailto:arainfo@microsoft.com), so we can apply this to your bill. 
+- Azure compute and storage. This is the Azure storage cost and compute consumption for the VMs consumed. Be aware of pricing when selecting your VM size and user density. If you are an EA customer, you can use Azure monetary credits to pay for this.
 
-1. The Citrix $12 per user per month service charge. Like all Azure Marketplace purchases this is billed to the payment method associated to your Azure subscription. For EA customers, Azure monetary credits cannot be used. 
-2. RDS CAL. You must either bring your own RDS CAL (coming soon) or purchase the Remote Access Fee (RAF) that is bundled with the Citrix XenApp Essentials payment for $6.25 USD. For EA customers, Azure monetary credits can be used to pay for this. If you desire to use your existing RDS CALs, please contact us [arainfo@microsoft.com](mailto:arainfo@microsoft.com so we can apply to your bill. 
-3. Azure compute and storage. This is the Azure storage cost and compute consumption for the VM's consumed. Be aware of pricing when selecting your VM size and user density. For EA customers, Azure monetary credits can be used to pay for this
-
-Still have questions, contact us
-1. Email us at [arainfo@microsoft.com](mailto:arainfo@microsoft.com).
-2. [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Start by [opening an Azure support case](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to help with the steps #1 - #5 above. Contact Citrix by opening a support ticket within the Citrix management portal for steps #6-7. 
+If you still have questions, you can:
+- Email us at [arainfo@microsoft.com](mailto:arainfo@microsoft.com).
+- [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Start by [opening an Azure support case](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to help with prerequisite steps 1-5. For steps 6-7, contact Citrix by opening a support ticket within the Citrix management portal. 

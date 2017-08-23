@@ -22,7 +22,8 @@ ms.author: gwallace
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure CLI](dns-operations-recordsets-cli.md)
+> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 This article shows you how to manage record sets and records for your DNS zone by using the Azure portal.
@@ -120,4 +121,4 @@ You cannot delete the SOA and NS record sets at the zone apex (name = "@") that 
 
 * For more information about Azure DNS, see the [Azure DNS overview](dns-overview.md).
 * For more information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
-* For more information about reverse DNS records, see [How to manage reverse DNS records for your services using PowerShell](dns-reverse-dns-record-operations-ps.md).
+* For more information about reverse DNS records, see [Overview of reverse DNS and support in Azure](dns-reverse-dns-overview.md).

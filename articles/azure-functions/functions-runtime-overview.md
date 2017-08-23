@@ -15,7 +15,6 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: anwestg
-
 ---
 
 # Azure Functions Runtime Overview
@@ -32,7 +31,7 @@ The Azure Functions Runtime consists of two pieces:
 
 ## Azure Functions Management Role
 
-The Azure Functions Management Role provides a host for the management of your Functions on-premise. This role performs the following tasks:
+The Azure Functions Management Role provides a host for the management of your Functions on-premises. This role performs the following tasks:
 
 * Hosting of the Azure Functions Management Portal, which is the the same one you see in the [Azure portal](https://portal.azure.com). This lets you develop your functions in the same way as you would in the Azure portal.
 * Distributing functions across multiple Functions workers.

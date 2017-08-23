@@ -45,7 +45,7 @@ NSG rules contain the following properties:
 | --- | --- | --- | --- |
 | **Name** |Name for the rule. |Must be unique within the region.<br/>Can contain letters, numbers, underscores, periods, and hyphens.<br/>Must start with a letter or number.<br/>Must end with a letter, number, or underscore.<br/>Cannot exceed 80 characters. |You may have several rules within an NSG, so make sure you follow a naming convention that allows you to identify the function of your rule. |
 | **Protocol** |Protocol to match for the rule. |TCP, UDP, or * |Using * as a protocol includes ICMP (East-West traffic only), as well as UDP and TCP, and may reduce the number of rules you need.<br/>At the same time, using * might be too broad an approach, so it's recommended that you use * only when necessary. |
-| **Source port range** |Source port range to match for the rule. |Single port number from 1 to 65535, port range (example: 1-65635), or * (for all ports). |Source ports could be ephemeral. Unless your client program is using a specific port, use * in most cases.<br/>Try to use port ranges as much as possible to avoid the need for multiple rules.<br/>Multiple ports or port ranges cannot be grouped by a comma. |
+| **Source port range** |Source port range to match for the rule. |Single port number from 1 to 65535, port range (example: 1-65535), or * (for all ports). |Source ports could be ephemeral. Unless your client program is using a specific port, use * in most cases.<br/>Try to use port ranges as much as possible to avoid the need for multiple rules.<br/>Multiple ports or port ranges cannot be grouped by a comma. |
 | **Destination port range** |Destination port range to match for the rule. |Single port number from 1 to 65535, port range (example: 1-65535), or \* (for all ports). |Try to use port ranges as much as possible to avoid the need for multiple rules.<br/>Multiple ports or port ranges cannot be grouped by a comma. |
 | **Source address prefix** |Source address prefix or tag to match for the rule. |Single IP address (example: 10.10.10.10), IP subnet (example: 192.168.1.0/24), [default tag](#default-tags), or * (for all addresses). |Consider using ranges, default tags, and * to reduce the number of rules. |
 | **Destination address prefix** |Destination address prefix or tag to match for the rule. | Single IP address (example: 10.10.10.10), IP subnet (example: 192.168.1.0/24), [default tag](#default-tags), or * (for all addresses). |Consider using ranges, default tags, and * to reduce the number of rules. |
@@ -178,7 +178,7 @@ As shown in the diagram, the *Web1* and *Web2* VMs are connected to the *FrontEn
 1. Separation of traffic between the WEB and DB servers.
 2. Load balancing rules forward traffic from the load balancer to all web servers on port 80.
 3. Load balancer NAT rules forward traffic coming into the load balancer on port 50001 to port 3389 on the WEB1 VM.
-4. No access to the front-end or back-end VMs from the Internet, except requirements 1 and 3.
+4. No access to the front-end or back-end VMs from the Internet, except requirements 2 and 3.
 5. No outbound Internet access from the WEB or DB servers.
 6. Access from the FrontEnd subnet is allowed to port 3389 of any web server.
 7. Access from the FrontEnd subnet is allowed to port 3389 of any DB server.

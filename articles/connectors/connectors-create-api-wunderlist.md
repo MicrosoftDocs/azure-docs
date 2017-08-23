@@ -35,9 +35,9 @@ After you create the connection, you can use it to execute the actions and liste
 > [!INCLUDE [Steps to create a connection to Wunderlist](../../includes/connectors-create-api-wunderlist.md)]
 > 
 
-## View the swagger
+## Connector-specific details
 
-View any triggers, actions, and limits in the [swagger details](/connectors/wunderlist/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/wunderlist/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).

@@ -1,6 +1,6 @@
 ---
-title: Script action development with Linux-based HDInsight | Microsoft Docs
-description: 'How to customize Linux-based HDInsight clusters with Script Action. Script actions are a way to customize Azure HDInsight clusters by specifying cluster configuration settings or installing additional services, tools, or other software on the cluster. '
+title: Script action development with Linux-based HDInsight - Azure | Microsoft Docs
+description: 'Learn how to use Bash scripts to customize Linux-based HDInsight clusters. The script action feature of HDInsight allows you to run scripts during or after cluster creation. Scripts can be used to change cluster configuration settings or install additional software.'
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 07/31/2017
 ms.author: larryfr
 
 ---
@@ -23,7 +23,7 @@ ms.author: larryfr
 Learn how to customize your HDInsight cluster using Bash scripts. Script actions are a way to customize HDInsight during or after cluster creation.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## What are script actions
 
@@ -57,7 +57,7 @@ When you develop a custom script for an HDInsight cluster, there are several bes
 * [Use retry logic to recover from transient errors](#bps9)
 
 > [!IMPORTANT]
-> Script actions must complete within 60 minutes. If not, the script fails. During node provisioning, the script runs concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
+> Script actions must complete within 60 minutes or the process fails. During node provisioning, the script runs concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
 
 ### <a name="bPS1"></a>Target the Hadoop version
 
@@ -115,11 +115,11 @@ The best practice is to download and archive everything in an Azure Storage acco
 > [!IMPORTANT]
 > The storage account used must be the default storage account for the cluster or a public, read-only container on any other storage account.
 
-For example, the samples provided by Microsoft are stored in the [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage account, which is a public, read-only container maintained by the HDInsight team.
+For example, the samples provided by Microsoft are stored in the [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage account. This is a public, read-only container maintained by the HDInsight team.
 
 ### <a name="bPS4"></a>Use pre-compiled resources
 
-To reduce the time it takes to run the script, avoid operations that compile resources from source code. Pre-compile the resources and store them in Azure Blob storage so that they can be downloaded quickly.
+To reduce the time it takes to run the script, avoid operations that compile resources from source code. For example, pre-compile resources and store them in an Azure Storage account blob in the same data center as HDInsight.
 
 ### <a name="bPS3"></a>Ensure that the cluster customization script is idempotent
 
@@ -129,7 +129,7 @@ For example, a script that modifies configuration files should not add duplicate
 
 ### <a name="bPS5"></a>Ensure high availability of the cluster architecture
 
-Linux-based HDInsight clusters provide two head nodes that are active within the cluster, and script actions are ran for both nodes. If the components you install expect only one head node, do not install the components on both head nodes.
+Linux-based HDInsight clusters provide two head nodes that are active within the cluster, and script actions run on both nodes. If the components you install expect only one head node, do not install the components on both head nodes.
 
 > [!IMPORTANT]
 > Services provided as part of HDInsight are designed to fail over between the two head nodes as needed. This functionality is not extended to custom components installed through script actions. If you need high availability for custom components, you must implement your own failover mechanism.

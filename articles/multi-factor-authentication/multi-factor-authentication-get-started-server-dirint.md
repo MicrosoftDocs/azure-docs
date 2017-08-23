@@ -5,7 +5,6 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: yossib
 
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
@@ -13,9 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 06/16/2017
 ms.author: kgremban
-
+ms.reviewer: yossib
+ms.custom: it-pro
 ---
 # Directory integration between Azure MFA Server and Active Directory
 Use the Directory Integration section of the Azure MFA Server to integrate with Active Directory or another LDAP directory. You can configure attributes to match the directory schema and set up automatic user synchronization.
@@ -91,7 +91,7 @@ Attributes may be entered manually and are not required to match an attribute in
 | Extension |Enter the attribute name of the attribute that contains the phone number extension in a user record.  The value of the extension field is used as the extension to the primary phone number only.  The default is blank. <br><br>If the Extension attribute is not specified, extensions can be included as part of the phone attribute. In this case, precede the extension with an 'x' so that it gets parsed correctly.  For example, 555-123-4567 x890 would result in 555-123-4567 as the phone number and 890 as the extension. |
 | Restore Defaults button |Click **Restore Defaults** to return all attributes back to their default value.  The defaults should work properly with the normal Active Directory or ADAM schema. |
 
-To edit attributes, click **Edit** on the Attributes tab.  This brings up a window where you can edit the attributes. Select the **...** next to any attribute to open a window where you can choose which attributes to display. 
+To edit attributes, click **Edit** on the Attributes tab.  This brings up a window where you can edit the attributes. Select the **...** next to any attribute to open a window where you can choose which attributes to display.
 
 ![Edit Attributes](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
@@ -134,4 +134,3 @@ The Move Up and Move Down buttons allow the administrator to change the order of
 Additional Multi-Factor Auth Servers may be set up to serve as a backup RADIUS proxy, LDAP proxy, or for IIS Authentication. The Synchronization configuration is shared among all the agents. However, only one of these agents may have the Multi-Factor Auth Server service running. This tab allows you to select the Multi-Factor Auth Server that should be enabled for synchronization.
 
 ![Multi-Factor-Auth Servers](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-

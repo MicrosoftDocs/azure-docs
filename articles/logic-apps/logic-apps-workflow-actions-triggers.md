@@ -781,7 +781,7 @@ For example, you can use the compose action to merge outputs of multiple actions
 
 ## Table action
 
-The `table` allows you to convert an array of items into a **CVS** or **HTML** table.
+The `table` allows you to convert an array of items into a **CSV** or **HTML** table.
 
 Suppose @triggerBody() is
 
@@ -811,7 +811,7 @@ The above would produce
 
 <table><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>0</td><td>apples</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>"
 
-In order to cusomize the table, you can specify the columns explicitly. For example:
+In order to customize the table, you can specify the columns explicitly. For example:
 
 ```json
 "ConvertToTable" : {
@@ -839,7 +839,7 @@ If the `from` property value is an empty array, the output is an empty table.
 |Name|Required|Type|Description|
 |--------|------------|--------|---------------|
 |from|Yes|Array|The source array.|
-|format|Yes|String|The format, either **CVS** or **HTML**.|
+|format|Yes|String|The format, either **CSV** or **HTML**.|
 |columns|No|Array|The columns. Allows to override the default shape of the table.|
 |column header|No|String|The header of the column.|
 |column value|Yes|String|The value of the column.|

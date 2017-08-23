@@ -12,9 +12,10 @@ ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
+ms.custom: mvc
 ---
 
 # Upload files to a web app using FTP

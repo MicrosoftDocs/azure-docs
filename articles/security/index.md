@@ -19,7 +19,7 @@ Learn how to use Azure Security to protect services and data in the cloud. Tutor
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/security/azure-security-services-technologies">
+        <a href="/azure/security/azure-security">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

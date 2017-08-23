@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 06/06/2017
 ms.author: sethm
 
 ---
@@ -116,7 +116,8 @@ There are two common causes for this error: incorrect configuration, or a transi
     Sometimes the Service Bus service can experience delays in processing requests; for example, during periods of high traffic. In such cases, you can retry your operation after a delay, until the operation is successful. If the same operation still fails after multiple attempts, please visit the [Azure service status site](https://azure.microsoft.com/status/) to see if there are any known service outages.
 
 ## Next steps
-For the complete Service Bus and Event Hubs .NET API reference, see the [Azure .NET API reference](/dotnet/api/).
+
+For the complete Service Bus .NET API reference, see the [Azure .NET API reference](/dotnet/api/overview/azure/servicebus).
 
 To learn more about [Service Bus](https://azure.microsoft.com/services/service-bus/), see the following topics.
 

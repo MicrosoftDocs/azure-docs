@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: davidmu
+ms.custom: mvc
 ---
 
 # Manage Azure Virtual Networks and Windows Virtual Machines with Azure PowerShell
@@ -241,7 +242,7 @@ $backendVM = Set-AzureRmVMOperatingSystem `
 $backendVM = Set-AzureRmVMSourceImage `
   -VM $backendVM `
   -PublisherName MicrosoftSQLServer `
-  -Offer SQL2016-WS2016 `
+  -Offer SQL2016SP1-WS2016 `
   -Skus Enterprise `
   -Version latest
 $backendVM = Set-AzureRmVMOSDisk `

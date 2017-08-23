@@ -10,11 +10,11 @@ editor: cjgronlund
 
 ms.assetid: 7467f422-b77d-4b60-9cb5-0f1ec17ec565
 ms.service: sql-database
-ms.custom: compare
+ms.custom: DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
 
@@ -61,7 +61,7 @@ The following table summarizes the main characteristics of SQL Database and SQL 
 |  |New cloud-designed applications that have time constraints in development and marketing. |Existing applications that require fast migration to the cloud with minimal changes. Rapid development and test scenarios when you do not want to buy on-premises non-production SQL Server hardware. |
 |  | Teams that need built-in high availability, disaster recovery, and upgrade for the database. |Teams that can configure and manage high availability, disaster recovery, and patching for SQL Server. Some provided automated features dramatically simplify this. | |
 |  | Teams that do not want to manage the underlying operating system and configuration settings. |You need a customized environment with full administrative rights. | |
-|  | Databases of up to 1 TB, or larger databases that can be [horizontally or vertically partitioned](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) using a scale-out pattern. |SQL Server instances with up to 64 TB of storage. The instance can support as many databases as needed. | |
+|  | Databases of up to 4 TB, or larger databases that can be [horizontally or vertically partitioned](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) using a scale-out pattern. |SQL Server instances with up to 64 TB of storage. The instance can support as many databases as needed. | |
 |  | [Building Software-as-a-Service (SaaS) applications](sql-database-design-patterns-multi-tenancy-saas-applications.md). |Migrating and building enterprise and hybrid applications. | |
 |  | | |
 | **Resources:** |You do not want to employ IT resources for configuration and management of the underlying infrastructure, but want to focus on the application layer. |You have some IT resources for configuration and management. Some provided automated features dramatically simplify this. |
@@ -135,7 +135,7 @@ Choose **Azure SQL Database** if:
 
 Choose **SQL Server on Azure VMs** if:
 
-* You have existing on-premises applications that you want to migrate or extend to the cloud, or if you want to build enterprise applications larger than 1 TB. This approach provides the benefit of 100% SQL compatibility, large database capacity, full control over SQL Server and Windows, and secure tunneling to on-premises. This approach minimizes costs for development and modifications of existing applications.
+* You have existing on-premises applications that you want to migrate or extend to the cloud, or if you want to build enterprise applications larger than 4 TB. This approach provides the benefit of 100% SQL compatibility, large database capacity, full control over SQL Server and Windows, and secure tunneling to on-premises. This approach minimizes costs for development and modifications of existing applications.
 * You have existing IT resources and can ultimately own patching, backups, and database high availability. Notice that some automated features dramatically simplify these operations. 
 
 ## Next steps

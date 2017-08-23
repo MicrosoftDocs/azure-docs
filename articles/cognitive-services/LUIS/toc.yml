@@ -85,5 +85,7 @@
       href: https://github.com/Microsoft/Cognitive-LUIS-Windows
 - name: Resources
   items: 
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: LUIS FAQ
     href: luis-resources-faq.md

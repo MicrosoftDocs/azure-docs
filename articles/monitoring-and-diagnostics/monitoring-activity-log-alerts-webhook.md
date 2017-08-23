@@ -1,9 +1,28 @@
+---
+title: Receive Activity Log Alerts on Azure Service Notifications | Microsoft Docs
+description: Get notified via SMS, email, or webhook when issues in an Azure service occur.
+author: johnkemnetz
+manager: orenr
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+
+ms.assetid:
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/31/2017
+ms.author: johnkem
+
+---
 # Webhooks for Azure Activity Log alerts
-As part of the definition of an Action Group you are able to configure Webhook endpoints to receive Activity Log Alerts notifications. Webhooks allow you to route these notifications to other systems for post-processing or custom actions. This article shows what the payload for the HTTP POST to a webhook looks like.
+As part of the definition of an Action Group you are able to configure Webhook endpoints to receive Activity Log Alert notifications. Webhooks allow you to route these notifications to other systems for post-processing or custom actions. This article shows what the payload for the HTTP POST to a webhook looks like.
 
-For information on the setup and schema for Azure Activity Log alerts, [see this page instead](monitoring-activity-log-alerts.md).
+For information on creating Azure Activity Log alerts, [see this page instead](monitoring-activity-log-alerts.md).
 
-For information on the setup and schema for Action Groups, [see this page instead](monitoring-action-groups.md)
+For information on creating Action Groups, [see this page instead](monitoring-action-groups.md)
 
 ## Authenticating the webhook
 The webhook can authenticate using token-based authorization - The webhook URI is saved with a token ID, for example, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
@@ -90,7 +109,7 @@ The JSON payload contained in the POST operation differs based on the payload's 
                     "stage": "Active",
                     "communicationId": "...",
                     "version": "0.1"
-                },
+                }
             }
         },
         "properties": {}

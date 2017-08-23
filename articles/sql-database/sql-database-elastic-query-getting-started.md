@@ -4,17 +4,17 @@ description: how to use cross database database queries
 services: sql-database
 documentationcenter: ''
 manager: jhubbard
-author: ddove
+author: MladjoA
 
 ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: ddove
+ms.author: mlandzic
 
 ---
 # Report across scaled-out cloud databases (preview)

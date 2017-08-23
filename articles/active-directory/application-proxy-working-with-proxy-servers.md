@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/04/2017
 ms.author: kgremban
 
 ---
@@ -71,7 +71,7 @@ Be sure to make copies of the original files, in case you need to revert to the 
 
 Some environments require all outbound traffic to go through an outbound proxy, without exception. As a result, bypassing the proxy is not an option.
 
-You can configure the connector traffic to go through the outbound proxy, as shown in the following diagram.
+You can configure the connector traffic to go through the outbound proxy, as shown in the following diagram:
 
  ![Configuring connector traffic to go through an outbound proxy to Azure AD Application Proxy](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
 
@@ -114,21 +114,17 @@ There are four aspects to consider at the outbound proxy:
 Allow access to the following endpoints for connector service access:
 
 * *.msappproxy.net
-* *.servicebus.microsoft.net
+* *.servicebus.windows.net
 
 For initial registration, allow access to the following endpoints:
 
 * login.windows.net
 * login.microsoftonline.com
 
-The underlying Service Bus control channels that the connector service uses also require connectivity to specific IP addresses. Until Service Bus moves to an FQDN instead, there are two options:
+If you can't allow connectivity by FQDN and need to specify IP ranges instead, use these options:
 
 * Allow the connector outbound access to all destinations.
-* Allow the connector outbound access to [Azure datacenter IP ranges](https://www.microsoft.com/en-gb/download/details.aspx?id=41653).
-
->[!NOTE]
->The challenge with using the list of Azure datacenter IP ranges is that it's updated weekly. You will need to put a process in place to ensure that your access rules are updated accordingly.
->
+* Allow the connector outbound access to [Azure datacenter IP ranges](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). The challenge with using the list of Azure datacenter IP ranges is that it's updated weekly. You need to put a process in place to ensure that your access rules are updated accordingly.
 
 #### Proxy authentication
 
@@ -136,18 +132,15 @@ Proxy authentication is not currently supported. Our current recommendation is t
 
 #### Proxy ports
 
-The connector makes outbound SSL-based connections by using the CONNECT method. This method essentially sets up a tunnel through the outbound proxy. Some proxy servers, by default, allow outbound tunneling to only standard SSL ports such as 443. If this is the case, the proxy server must be configured to allow tunneling to additional ports.
-
-Configure the proxy server to allow tunneling to nonstandard SSL ports 8080, 9090, 9091, and 10100-10120.
+The connector makes outbound SSL-based connections by using the CONNECT method. This method essentially sets up a tunnel through the outbound proxy. Configure the proxy server to allow tunneling to ports 443 and 80.
 
 >[!NOTE]
 >When Service Bus runs over HTTPS, it uses port 443. However, by default, Service Bus attempts direct TCP connections and falls back to HTTPS only if direct connectivity fails.
->
 
 To ensure that the Service Bus traffic is also sent through the outbound proxy server, ensure that the connector cannot directly connect to the Azure services for ports 9350, 9352, and 5671.
 
 #### SSL inspection
-Do not use SSL inspection for the connector traffic, because it will cause problems for the connector traffic.
+Do not use SSL inspection for the connector traffic, because it causes problems for the connector traffic.
 
 ## Troubleshoot connector proxy problems and service connectivity issues
 Now you should see all traffic flowing through the proxy. If you have problems, the following troubleshooting information should help.
@@ -188,13 +181,13 @@ One filter is as follows (where 8080 is the proxy service port):
 
 **(http.Request or http.Response) and tcp.port==8080**
 
-If you enter this filter in the **Display Filter** window and select **Apply**, it will filter the captured traffic based on the filter.
+If you enter this filter in the **Display Filter** window and select **Apply**, it filters the captured traffic based on the filter.
 
-The preceding filter will show just the HTTP requests and responses to/from the proxy port. For a connector startup where the connector is configured to use a proxy server, the filter would show something like this:
+The preceding filter shows just the HTTP requests and responses to/from the proxy port. For a connector startup where the connector is configured to use a proxy server, the filter would show something like this:
 
  ![Example list of filtered HTTP requests and responses](./media/application-proxy-working-with-proxy-servers/http-requests.png)
 
-You're now specifically looking for the CONNECT requests that show communication with the proxy server. Upon success, you'll get an HTTP OK (200) response.
+You're now specifically looking for the CONNECT requests that show communication with the proxy server. Upon success, you get an HTTP OK (200) response.
 
 If you see other response codes, such as 407 or 502, the proxy is requiring authentication or not allowing the traffic for some other reason. At this point, you engage your proxy server support team.
 
@@ -220,7 +213,7 @@ If you see something like the preceding response, the connector is trying to com
 
 Network trace analysis is not for everyone. But it can be a valuable tool to get quick information about what's going on with your network.
 
-If you continue to struggle with connector connectivity issues, please create a ticket with our support team. The team can assist you with further troubleshooting.
+If you continue to struggle with connector connectivity issues, create a ticket with our support team. The team can assist you with further troubleshooting.
 
 For information about resolving errors with Application Proxy Connector, see [Troubleshoot Application Proxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-troubleshoot).
 

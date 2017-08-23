@@ -14,8 +14,10 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
-ms.author: sasubram
+ms.date: 06/27/2017
+ms.author: curtand
+ms.custom: aaddev
+ms.reviewer: sasubram
 
 ---
 
@@ -23,15 +25,15 @@ ms.author: sasubram
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AhwrweCBdsc" frameborder="0" allowfullscreen></iframe>
 
-Azure AD business-to-business (B2B) collaboration capabilities enable any organization using Azure AD to work safely and securely with users from any other organization – small or large; with Azure AD or without; in fact, with an IT organization or without. 
+Azure AD business-to-business (B2B) collaboration capabilities enable any organization using Azure AD to work safely and securely with users from any other organization, small or large. Those organizations can be with Azure AD or without, or even with an IT organization or without. 
 
-Organizations using Azure AD can provide access to documents, resources, and applications to their partners, all while maintaining complete control over corporate data. Developers can use the Azure AD business-to-business APIs to write applications that bring two organizations together in a secure way that is also seamless and intuitive for end users to navigate.
+Organizations using Azure AD can provide access to documents, resources, and applications to their partners, while maintaining complete control over their own corporate data. Developers can use the Azure AD business-to-business APIs to write applications that bring two organizations together in more securely. Also, it's pretty easy for end users to navigate.
 
-A whopping **97%** of our customers have told us Azure AD B2B collaboration is very important to them.
+97% of our customers have told us Azure AD B2B collaboration is very important to them.
 
 ![pie chart](media/active-directory-b2b-what-is-azure-ad-b2b/97-percent-support.png)
 
-As of early April, 2017, we had about 3 million users already using Azure AD B2B collaboration capabilities. And more than 23% of Azure AD organizations that have more than 10 users are already benefiting from these capabilities.
+As of early April 2017, we had about 3 million users already using Azure AD B2B collaboration capabilities. And more than 23% of Azure AD organizations that have more than 10 users are already benefiting from these capabilities.
 
 ## The key benefits of Azure AD B2B collaboration to your organization
 
@@ -47,7 +49,7 @@ As of early April, 2017, we had about 3 million users already using Azure AD B2B
 
 * Provide access to any corporate app or data, while applying sophisticated, Azure AD-powered authorization policies
 
-* Seamless user experiences
+* Easy for users
 
 * Enterprise-grade security for apps and data
 
@@ -63,11 +65,11 @@ As of early April, 2017, we had about 3 million users already using Azure AD B2B
 
 Admins can add B2B collaboration (guest) users in the [Azure portal](https://portal.azure.com).
 
-![pie chart](media/active-directory-b2b-what-is-azure-ad-b2b/adding-b2b-users-admin.png)
+![add guest users](media/active-directory-b2b-what-is-azure-ad-b2b/adding-b2b-users-admin.png)
 
 ### Enable your collaborators to bring their own identity
 
-B2B collaborators can sign in with an identity of their choice. If the user doesn’t have an Microsoft account or and Azure AD account – one is created for them seamlessly at the time for offer redemption.
+B2B collaborators can sign in with an identity of their choice. If the user doesn’t have a Microsoft account or an Azure AD account – one is created for them seamlessly at the time for offer redemption.
 
 ![sign-in identity choice](media/active-directory-b2b-what-is-azure-ad-b2b/sign-in-identity-choice.png)
 
@@ -80,15 +82,17 @@ Application and group owners can add B2B users directly to any application that 
 
 ### Authorization policies protect your corporate content
 
-Admins can establish conditional access policies, like Multi-factor Authentication, can be enforced at the tenant level, the application level, or for specific users to protect corporate apps and data.
+Conditional access policies, such as multi-factor authentication, can be enforced:
+- At the tenant level
+- At the application level
+- For specific users to protect corporate apps and data
 
 ![add member](media/active-directory-b2b-what-is-azure-ad-b2b/add-member.png)
 
 ### Use our APIs and sample code to easily build applications to onboard
 Bring your external partners on board in ways customized to your organization’s needs.
 
-Using the [Azure AD B2B invitation APIs](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation), organizations can deeply customize their onboarding experiences, including creating self-service sign-up portals, sample code for which we provide on Github:
-<https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web>
+Using the [B2B collaboration invitation APIs](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation), you can customize your onboarding experiences, including creating self-service sign-up portals. We provide sample code for a self-service portal [on Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
 ![sign-up portal](media/active-directory-b2b-what-is-azure-ad-b2b/sign-up-portal.png)
 
@@ -100,7 +104,7 @@ With Azure AD B2B collaboration, you can get the full power of Azure AD to prote
 
 * Information worker experiences are available in the [Access Panel](https://myapps.microsoft.com).
 
-* And, as always, connect with the product team for any feedback, discussions and suggestions through our [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
+* And, as always, connect with the product team for any feedback, discussions, and suggestions through our [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
 
 Browse our other articles on Azure AD B2B collaboration:
 

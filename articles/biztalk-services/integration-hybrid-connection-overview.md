@@ -18,6 +18,10 @@ ms.author: ccompy
 
 ---
 # Hybrid Connections overview
+
+> [!IMPORTANT]
+> BizTalk Hybrid Connections is retired, and replaced by App Service Hybrid Connections. For more information, including how to manage your existing BizTalk Hybrid Connections, see [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md).
+
 Introduction to Hybrid Connections, lists the supported configurations, and lists the required TCP ports.
 
 ## What is a hybrid connection

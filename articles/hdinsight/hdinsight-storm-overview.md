@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
 
 ---
-# What is Apache Storm on Azure HDInsight
+# What is Apache Storm on Azure HDInsight?
 
-[Apache Storm](http://storm.apache.org/) is a distributed, fault-tolerant, open-source computation system. You can use a Storm cluster to process streams of data in real time with Hadoop. Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.
+[Apache Storm](http://storm.apache.org/) is a distributed, fault-tolerant, open-source computation system. You can use Storm to process streams of data in real time with Hadoop. Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.
 
 Storm on HDInsight provides the following key benefits:
 

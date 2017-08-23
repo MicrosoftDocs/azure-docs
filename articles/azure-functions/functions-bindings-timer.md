@@ -16,12 +16,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: chrande; glenga
+ms.author: glenga
 
-ms.custom: H1Hack27Feb2017
+ms.custom: 
 
 ---
-# Schedule code execution with Azure Functions
+# Azure Functions timer trigger
+
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code timer triggers in Azure Functions. 

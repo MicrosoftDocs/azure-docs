@@ -5,10 +5,8 @@ services: postgresql
 author: kamathsun
 ms.author: sukamat
 manager: jhubbard
-editor: jasonh
-ms.assetid:
-ms.service: postgresql-database
-ms.tgt_pltfrm: portal
+editor: jasonwhowell
+ms.service: postgresql
 ms.topic: article
 ms.date: 05/23/2017
 ---
@@ -23,9 +21,9 @@ The amount of memory per Compute Unit is optimized for the Basic and Standard pr
 For example, a Standard 800 Compute Units provides 8x more CPU throughput and memory than a Standard 100 Compute Units configuration. However, while Standard 100 Compute Units provide the same CPU throughput compared to Basic 100 Compute Units, the amount of memory that is pre-configured in Standard pricing tier is double the amount of memory configured for Basic pricing tier. Therefore, Standard pricing tier provides better workload performance and lower transaction latency than Basic pricing tier with the same Compute Units selected.
 
 ## How can I determine the number of Compute Units needed for my workload?
-If you are looking to migrate an existing PostgreSQL server running on-premise or on a virtual machine, you can determine the number of Compute Units by estimating how many cores of processing throughput your workload needs. 
+If you are looking to migrate an existing PostgreSQL server running on-premises or on a virtual machine, you can determine the number of Compute Units by estimating how many cores of processing throughput your workload needs. 
 
-If your existing on-premise or virtual machine server is currently utilizing 4 cores (without counting CPU hyperthread), start by configuring 400 Compute Units for your Azure Database for PostgreSQL server. Compute Units can be dynamically scaled up or down depending on your workload needs with virtually no application downtime. 
+If your existing on-premises or virtual machine server is currently utilizing 4 cores (without counting CPU hyperthread), start by configuring 400 Compute Units for your Azure Database for PostgreSQL server. Compute Units can be dynamically scaled up or down depending on your workload needs with virtually no application downtime. 
 
 Monitor the Metrics graph in the Azure portal or write Azure CLI commands -to measure compute units. Relevant metrics to monitor are the Compute Unit percentage and Compute Unit limit.
 

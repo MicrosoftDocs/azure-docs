@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 07/12/2017
 ms.author: larryfr
 
 ---
@@ -24,7 +24,7 @@ ms.author: larryfr
 Azure HDInsight clusters provide Hadoop on a familiar Linux environment, running in the Azure cloud. For most things, it should work exactly as any other Hadoop-on-Linux installation. This document calls out specific differences that you should be aware of.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Prerequisites
 
@@ -123,9 +123,9 @@ When using __Azure Storage__, use one of the following URI schemes:
 
 * `wasb:///`: Access default storage using unencrypted communication.
 
-* `wasbs:///`: Access default storage using encrypted communication.
+* `wasbs:///`: Access default storage using encrypted communication.  The wasbs scheme is supported only from HDInsight version 3.6 onwards.
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
 
 When using __Data Lake Store__, use one of the following URI schemes:
 
@@ -149,7 +149,7 @@ You can use Ambari to retrieve the default storage configuration for the cluster
 
 This command returns a value similar to the following URIs:
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net` if using an Azure Storage account.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` if using an Azure Storage account.
 
     The account name is the name of the Azure Storage account, while the container name is the blob container that is the root of the cluster storage.
 
@@ -193,7 +193,7 @@ If using __Azure Data Lake Store__, see the following links for ways that you ca
 
 * [Web browser](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
-* [Azure CLI](../data-lake-store/data-lake-store-get-started-cli.md)
+* [Azure CLI 2.0](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [WebHDFS REST API](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)

@@ -1,130 +1,249 @@
 ---
 title: 'Tutorial: Azure Active Directory integration with Projectplace | Microsoft Docs'
-description: Learn how to use Projectplace with Azure Active Directory to enable single sign-on, automated provisioning, and more!
+description: Learn how to configure single sign-on between Azure Active Directory and Projectplace.
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 
 ms.assetid: 298059ca-b652-4577-916a-c31393d53d7a
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/23/2017
+ms.date: 06/29/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Projectplace
-The objective of this tutorial is to show the integration of Azure and Projectplace. The scenario outlined in this tutorial assumes that you already have the following items:
 
-* A valid Azure subscription
-* A Projectplace single sign-on enabled (SSO) subscription
+In this tutorial, you learn how to integrate Projectplace with Azure Active Directory (Azure AD).
 
-After completing this tutorial, the Azure AD users you have assigned to Projectplace will be able to single sign into the application at your Projectplace company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Integrating Projectplace with Azure AD provides you with the following benefits:
 
-The scenario outlined in this tutorial consists of the following building blocks:
+- You can control in Azure AD who has access to Projectplace
+- You can enable your users to automatically get signed-on to Projectplace (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure portal
 
-1. Enabling the application integration for Projectplace
-2. Configuring single sign-on (SSO)
-3. Configuring user provisioning
-4. Assigning users
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Scenario](./media/active-directory-saas-projectplace-tutorial/IC790217.png "Scenario")
+## Prerequisites
 
-## Enabling the application integration for Projectplace
-The objective of this section is to outline how to enable the application integration for Projectplace.
+To configure Azure AD integration with Projectplace, you need the following items:
 
-**To enable the application integration for Projectplace, perform the following steps:**
-1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-projectplace-tutorial/IC700993.png "Active Directory")
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-   
-   ![Applications](./media/active-directory-saas-projectplace-tutorial/IC700994.png "Applications")
-4. Click **Add** at the bottom of the page.
-   
-   ![Add application](./media/active-directory-saas-projectplace-tutorial/IC749321.png "Add application")
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-   
-   ![Add an application from gallerry](./media/active-directory-saas-projectplace-tutorial/IC749322.png "Add an application from gallerry")
-6. In the **search box**, type **Projectplace**.
-   
-   ![Application Gallery](./media/active-directory-saas-projectplace-tutorial/IC790218.png "Application Gallery")
-7. In the results pane, select **Projectplace**, and then click **Complete** to add the application.
-   
-   ![ProjectPlace](./media/active-directory-saas-projectplace-tutorial/IC790219.png "ProjectPlace")
-   
-## Configure single sign-on
+- An Azure AD subscription
+- A Projectplace single sign-on enabled subscription
 
-The objective of this section is to outline how to enable users to authenticate to Projectplace with their account in Azure AD using federation based on the SAML protocol.
+> [!NOTE]
+> To test the steps in this tutorial, we do not recommend using a production environment.
 
-**To configure single sign-on, perform the following steps:**
+To test the steps in this tutorial, you should follow these recommendations:
 
-1. In the Azure classic portal, on the **Projectplace** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
-   
-   ![Configure Single SignOn](./media/active-directory-saas-projectplace-tutorial/IC790220.png "Configure Single SignOn")
-2. On the **How would you like users to sign on to Projectplace** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
-   
-   ![Configure Single SignOn](./media/active-directory-saas-projectplace-tutorial/IC790221.png "Configure Single SignOn")
-3. On the **Configure App URL** page, in the **Projectplace Sign On URL** textbox, type your ProjectPlace tenant URL (e.g.: "*http://company.projectplace.com*"), and then click **Next**.
-   
-   ![Configure App URL](./media/active-directory-saas-projectplace-tutorial/IC790222.png "Configure App URL")
-4. On the **Configure single sign-on at Projectplace** page, click **Download metadata**, and then save the metadata file on your computer.
-   
-   ![Configure Single SignOn](./media/active-directory-saas-projectplace-tutorial/IC790223.png "Configure Single SignOn")
-5. Send the metadata file to the Projectplace support team.
-   
-   >[!NOTE]
-   >The single sign-on configuration has to be performed by the Projectplace support team. You will get a notification as soon as the configuration has been completed.
-   > 
-   > 
-6. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
-   
-   ![Configure Single SignOn](./media/active-directory-saas-projectplace-tutorial/IC790227.png "Configure Single SignOn")
-   
-## Configure user provisioning
+- Do not use your production environment, unless it is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+
+## Scenario description
+In this tutorial, you test Azure AD single sign-on in a test environment. 
+The scenario outlined in this tutorial consists of two main building blocks:
+
+1. Adding Projectplace from the gallery
+2. Configuring and testing Azure AD single sign-on
+
+## Adding Projectplace from the gallery
+To configure the integration of Projectplace into Azure AD, you need to add Projectplace from the gallery to your list of managed SaaS apps.
+
+**To add Projectplace from the gallery, perform the following steps:**
+
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+
+	![Active Directory][1]
+
+2. Navigate to **Enterprise applications**. Then go to **All applications**.
+
+	![Applications][2]
+	
+3. To add new application, click **New application** button on the top of dialog.
+
+	![Applications][3]
+
+4. In the search box, type **Projectplace**.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_search.png)
+
+5. In the results panel, select **Projectplace**, and then click **Add** button to add the application.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_addfromgallery.png)
+
+##  Configuring and testing Azure AD single sign-on
+In this section, you configure and test Azure AD single sign-on with Projectplace based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in Projectplace is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Projectplace needs to be established.
+
+In Projectplace, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+
+To configure and test Azure AD single sign-on with Projectplace, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a Projectplace test user](#creating-a-projectplace-test-user)** - to have a counterpart of Britta Simon in Projectplace that is linked to the Azure AD representation of user.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### Configuring Azure AD single sign-on
+
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Projectplace application.
+
+**To configure Azure AD single sign-on with Projectplace, perform the following steps:**
+
+1. In the Azure portal, on the **Projectplace** application integration page, click **Single sign-on**.
+
+	![Configure Single Sign-On][4]
+
+2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+ 
+	![Configure Single Sign-On](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_samlbase.png)
+
+3. On the **Projectplace Domain and URLs** section, perform the following steps:
+
+	![Configure Single Sign-On](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_url.png)
+
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company>.projectplace.com`
+
+	> [!NOTE] 
+	> This value is not real. Update this value with the actual Sign-On URL. Contact [Projectplace Client support team](https://success.planview.com/Projectplace/Support) to get this value. 
+ 
+4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+
+	![Configure Single Sign-On](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_certificate.png) 
+
+5. Click **Save** button.
+
+	![Configure Single Sign-On](./media/active-directory-saas-projectplace-tutorial/tutorial_general_400.png)
+
+7. To configure single sign-on on **Projectplace** side, you need to send the downloaded **Metadata XML** to [Projectplace support team](https://success.planview.com/Projectplace/Support). They set this setting to have the SAML SSO connection set properly on both sides.
+
+>[!NOTE]
+>The single sign-on configuration has to be performed by the [Projectplace support team](https://success.planview.com/Projectplace/Support). You will get a notification as soon as the configuration has been completed.
+
+> [!TIP]
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+
+### Creating an Azure AD test user
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
+
+![Create Azure AD User][100]
+
+**To create a test user in Azure AD, perform the following steps:**
+
+1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-projectplace-tutorial/create_aaduser_01.png) 
+
+2. To display the list of users, go to **Users and groups** and click **All users**.
+	
+	![Creating an Azure AD test user](./media/active-directory-saas-projectplace-tutorial/create_aaduser_02.png) 
+
+3. To open the **User** dialog, click **Add** on the top of the dialog.
+ 
+	![Creating an Azure AD test user](./media/active-directory-saas-projectplace-tutorial/create_aaduser_03.png) 
+
+4. On the **User** dialog page, perform the following steps:
+ 
+	![Creating an Azure AD test user](./media/active-directory-saas-projectplace-tutorial/create_aaduser_04.png) 
+
+    a. In the **Name** textbox, type **BrittaSimon**.
+
+    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+
+	c. Select **Show Password** and write down the value of the **Password**.
+
+    d. Click **Create**.
+ 
+### Creating a Projectplace test user
 
 In order to enable Azure AD users to log into Projectplace, they must be provisioned into Projectplace. In the case of Projectplace, provisioning is a manual task.
 
-**To provision a user accounts, perform the following steps:**
+**To provision a user account, perform the following steps:**
 
 1. Log in to your **Projectplace** company site as an administrator.
+
 2. Go to **People**, and then click **Members**.
    
-   ![People](./media/active-directory-saas-projectplace-tutorial/IC790228.png "People")
+    ![People](./media/active-directory-saas-projectplace-tutorial/ic790228.png "People")
+
 3. Click **Add Member**.
    
-   ![Add Members](./media/active-directory-saas-projectplace-tutorial/IC790232.png "Add Members")
+    ![Add Members](./media/active-directory-saas-projectplace-tutorial/ic790232.png "Add Members")
+
 4. In the **Add Member** section, perform the following steps:
    
-   ![New Members](./media/active-directory-saas-projectplace-tutorial/IC790233.png "New Members")
+    ![New Members](./media/active-directory-saas-projectplace-tutorial/ic790233.png "New Members")
    
-   1. In the **New Members** textbox, type the email address of a valid AAD account you want to provision into the related textboxes.
-   2. Click **Send**.
+    a. In the **New Members** textbox, type the email address of a valid AAD account you want to provision into the related textboxes.
+   
+    b. Click **Send**.
 
-An email including a link to confirm the account before it becomes active is sent to the Azure Active Directory account holder.
-
+   An email including a link to confirm the account before it becomes active is sent to the Azure Active Directory account holder.
 
 >[!NOTE]
 >You can use any other Projectplace user account creation tools or APIs provided by Projectplace to provision AAD user accounts.
-> 
-> 
 
-## Assign users
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+### Assigning the Azure AD test user
 
-**To assign users to Projectplace, perform the following steps:**
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Projectplace.
 
-1. In the Azure classic portal, create a test account.
-2. On the **Projectplace** application integration page, click **Assign users**.
-   
-   ![Assign Users](./media/active-directory-saas-projectplace-tutorial/IC790234.png "Assign Users")
-3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
-   
-   ![Yes](./media/active-directory-saas-projectplace-tutorial/IC767830.png "Yes")
+![Assign User][200] 
 
-If you want to test your SSO settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+**To assign Britta Simon to Projectplace, perform the following steps:**
+
+1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+
+	![Assign User][201] 
+
+2. In the applications list, select **Projectplace**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_app.png) 
+
+3. In the menu on the left, click **Users and groups**.
+
+	![Assign User][202] 
+
+4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+
+	![Assign User][203]
+
+5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+
+6. Click **Select** button on **Users and groups** dialog.
+
+7. Click **Assign** button on **Add Assignment** dialog.
+	
+### Testing single sign-on
+
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the Projectplace tile in the Access Panel, you should get automatically signed-on to your Projectplace application.
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+
+## Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_203.png
 

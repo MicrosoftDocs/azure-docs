@@ -35,7 +35,7 @@ This section uses SQL Server Configuration Manager, which was installed when you
 4. In Object Explorer, if you expand **Databases**, you will see that the new database is created.
 
 ### Create a new SQL Server login and set permissions
-Finally, you will create a new SQL Server login with restricted permissions. Your Azure service will connect to the on-premise SQL Server using this login instead of the built-in sa login, which has full permissions on the server.
+Finally, you will create a new SQL Server login with restricted permissions. Your Azure service will connect to the on-premises SQL Server using this login instead of the built-in sa login, which has full permissions on the server.
 
 1. In SQL Server Management Studio Object Explorer, right-click the **OnPremisesDB** database and click **New Query**.
 2. Paste the following TSQL query into the query window.

@@ -3,8 +3,8 @@ title: How to use the Azure Mobile Apps SDK for Android | Microsoft Docs
 description: How to use the Azure Mobile Apps SDK for Android
 services: app-service\mobile
 documentationcenter: android
-author: adrianhall
-manager: adrianhall
+author: ggailey777
+manager: syntaxc4
 
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: adrianha
+ms.author: glenga
 ---
 # How to use the Azure Mobile Apps SDK for Android
 
@@ -1094,7 +1094,7 @@ dependencies {
 
 1. Add the following code to your application, making the following replacements:
 
-* Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The format should be https://login.windows.net/contoso.onmicrosoft.com.
+* Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The format should be https://login.microsoftonline.com/contoso.onmicrosoft.com.
 * Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain the client ID from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
 * Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
 * Replace **INSERT-REDIRECT-URI-HERE** with your site's */.auth/login/done* endpoint, using the HTTPS scheme. This value should be similar to *https://contoso.azurewebsites.net/.auth/login/done*.

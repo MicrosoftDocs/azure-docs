@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/08/2017
+ms.date: 06/07/2017
 ms.author: alexwun
 
 ---
@@ -41,7 +41,7 @@ Hosting the Image Store in a system service within the cluster itself eliminates
 
 The File System provider is used instead of the Image Store Service for local one-box clusters during development to bootstrap the cluster slightly faster. The difference is typically small, but it's a useful optimization for most folks during development. It's possible to deploy a local one-box cluster with the other storage provider types as well, but there's usually no reason to do so since the develop/test workflow remains the same regardless of provider. Other than this usage, the File System and Azure Storage providers only exist for legacy support.
 
-So while the ImageStoreConnectionString is configurable, you generally just use the default setting. When publishing to Azure through [Visual Studio][12], the parameter is automatically set for you accordingly. For programmatic deployment to clusters hosted in Azure, the connection string is always "fabric:ImageStore". Though when in doubt, its value can always be verified by retrieving the cluster manifest by [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), or [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Both on-premise test and production clusters should always be configured to use the Image Store Service provider as well.
+So while the ImageStoreConnectionString is configurable, you generally just use the default setting. When publishing to Azure through [Visual Studio][12], the parameter is automatically set for you accordingly. For programmatic deployment to clusters hosted in Azure, the connection string is always "fabric:ImageStore". Though when in doubt, its value can always be verified by retrieving the cluster manifest by [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), or [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Both on-premises test and production clusters should always be configured to use the Image Store Service provider as well.
 
 ### Next steps
 [Deploy and remove applications using PowerShell][10]

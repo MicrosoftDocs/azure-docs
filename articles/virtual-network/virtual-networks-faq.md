@@ -57,7 +57,7 @@ You can use the following tools to create or configure a VNet:
 * Azure CLI (for classic and Resource Manager VNets).
 
 ### What address ranges can I use in my VNets?
-You can use public IP address ranges and any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918).
+Any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918). For example, 10.0.0.0/16.
 
 ### Can I have public IP addresses in my VNets?
 Yes. For more information about public IP address ranges, see the [Public IP address space in a virtual network](virtual-networks-public-ip-within-vnet.md) article. Your public IP addresses will not be directly accessible from the Internet.

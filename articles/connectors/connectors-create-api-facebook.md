@@ -37,9 +37,9 @@ When you add this connector to your logic apps, you must authorize logic apps to
 > 
 
 
-## View the swagger
+## Connector-specific details
 
-See the [swagger details](/connectors/facebook/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/facebook/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).

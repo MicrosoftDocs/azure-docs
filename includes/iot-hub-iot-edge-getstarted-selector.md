@@ -8,40 +8,12 @@ This article provides a detailed walkthrough of the [Hello World sample code][ln
 
 This walkthrough covers:
 
-* **Concepts**: A conceptual overview of the components that compose any gateway you create with the IoT Edge.
-* **Hello World sample architecture**: Describes how the concepts apply to the Hello World sample and how the components fit together.
+* **Hello World sample architecture**: Describes how [Azure IoT Edge architectural concepts][lnk-edge-concepts] apply to the Hello World sample and how the components fit together.
 * **How to build the sample**: The steps required to build the sample.
 * **How to run the sample**: The steps required to run the sample. 
 * **Typical output**: An example of the output to expect when you run the sample.
 * **Code snippets**: A collection of code snippets to show how the Hello World sample implements key IoT Edge gateway components.
 
-## Azure IoT Edge concepts
-Before you examine the sample code or create your own field gateway using IoT Edge, you should understand the key concepts that underpin the architecture of IoT Edge.
-
-### IoT Edge modules
-You build a gateway with the Azure IoT Edge by creating and assembling *IoT Edge modules*. Modules use *messages* to exchange data with each other. A module receives a message, performs some action on it, optionally transforms it into a new message, and then publishes it for other modules to process. Some modules might only produce new messages and never process incoming messages. A chain of modules creates a data processing pipeline with each module performing a transformation on the data at one point in that pipeline.
-
-![A chain of modules in gateway built with Azure IoT Edge][1]
-
-IoT Edge contains the following:
-
-* Pre-written modules which perform common gateway functions.
-* The interfaces a developer can use to write custom modules.
-* The infrastructure necessary to deploy and run a set of modules.
-
-The SDK provides an abstraction layer that enables you to build gateways to run on a variety of operating systems and platforms.
-
-![Azure IoT Edge abstraction layer][2]
-
-### Messages
-Although thinking about modules passing messages to each other is a convenient way to conceptualize how a gateway functions, it does not accurately reflect what happens. IoT Edge modules use a broker to communicate with each other, they publish messages to the broker (bus, pubsub, or any other messaging pattern) and then let the broker route the message to the modules connected to it.
-
-A module uses the **Broker_Publish** function to publish a message to the broker. The broker delivers messages to a module by invoking a callback function. A message consists of a set of key/value properties and content passed as a block of memory.
-
-![The role of the Broker in Azure IoT Edge][3]
-
-### Message routing and filtering
-There are two ways of directing messages to the correct IoT Edge modules. A set of links can be passed to the broker so the broker knows the source and sink for each module, or the module can filter on the properties of the message. A module should only act upon a message if the message is intended for it. The links and message filtering is what effectively creates a message pipeline.
 
 ## Hello World sample architecture
 The Hello World sample illustrates the concepts described in the previous section. The Hello World sample implements a IoT Edge gateway that has a pipeline made up of two IoT Edge modules:
@@ -62,12 +34,10 @@ The logger module only consumes messages from the broker, it never publishes new
 The figure above shows the architecture of the Hello World sample and the relative paths to the source files that implement different portions of the sample in the [repository][lnk-iot-edge]. Explore the code on your own, or use the code snippets below as a guide.
 
 <!-- Images -->
-[1]: media/iot-hub-iot-edge-getstarted-selector/modules.png
-[2]: media/iot-hub-iot-edge-getstarted-selector/modules_2.png
-[3]: media/iot-hub-iot-edge-getstarted-selector/messages_1.png
 [4]: media/iot-hub-iot-edge-getstarted-selector/high_level_architecture.png
 [5]: media/iot-hub-iot-edge-getstarted-selector/detailed_architecture.png
 
 <!-- Links -->
 [lnk-helloworld-sample]: https://github.com/Azure/iot-edge/tree/master/samples/hello_world
 [lnk-iot-edge]: https://github.com/Azure/iot-edge
+[lnk-edge-concepts]: ../articles/iot-hub/iot-hub-iot-edge-overview.md

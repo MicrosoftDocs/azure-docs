@@ -13,75 +13,195 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2016
+ms.date: 08/18/2017
 ms.author: sngun
 
 ---
-# Install and configure Azure Stack CLI
+# Install and configure CLI for use with Azure Stack
 
-In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack resources on Linux and Mac client platforms. The following steps required to connect to Azure Stack:
+In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack Development Kit resources from Linux and Mac client platforms. 
 
-* [Install Node.js](#install-nodejs)
-* [Install Azure Stack CLI](#install-azure-stack-cli)
-* [Connect to Azure Stack](#connect-to-azure-stack)
+## Export the Azure Stack CA root certificate
 
-## Install Node.js
-Azure Stack requires the **4.4.6** version of Node.js. Navigate to https://nodejs.org/en/blog/release/v4.4.6/ and install the required version of Node.js for Windows, Mac OS or Linux machines.
+If you are using CLI from a virtual machine that is running within the Azure Stack Development Kit environment, the Azure Stack root certificate is already installed within the virtual machine so you can directly retrieve. Whereas if you are use CLI from a workstation outside the development kit, you must export the Azure Stack CA root certificate from the development kit and add it to the Python certificate store of your development workstation(external Linux or Mac platform). 
 
-## Install Azure Stack CLI
-Azure Stack requires the **0.9.18** version of Azure CLI. Use the following command to install the required version of Azure CLI:
+Sign in to your development kit and run the following script to export the Azure Stack root certificate in PEM format:
 
+```powershell
+   $label = "AzureStackSelfSignedRootCert"
+   Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
+   $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
+   if (-not $root)
+   {
+       Log-Error "Cerficate with subject CN=$label not found"
+       return
+   }
+
+   Write-Host "Exporting certificate"
+   Export-Certificate -Type CERT -FilePath root.cer -Cert $root
+
+   Write-Host "Converting certificate to PEM format"
+   certutil -encode root.cer root.pem
 ```
-npm install -g azure-cli@0.9.18
+
+## Install CLI
+
+Next you should sign in to your development workstation and install CLI. Azure Stack requires the 2.0 version of Azure CLI, which you can install by using the steps described in the [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) article. To verify if the installation was successful, open a terminal or a command prompt window and run the following command:
+
+```azurecli
+az --version
+```
+
+You should see the version of Azure CLI and other dependent libraries that are installed on your computer.
+
+## Trust the Azure Stack CA root certificate
+
+To trust the Azure Stack CA root certificate, you should append it to the existing python certificate. If you are running CLI from a Linux machine that is created within the Azure Stack environment, run the following bash command:
+
+```bash
+sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+```
+
+If you are running CLI from a machine outside the Azure Sack environment, you must first set up [VPN connectivity to Azure Stack](azure-stack-connect-azure-stack.md). Now copy the PEM certificate that you exported earlier onto your development workstation and run the following commands depending on your development workstation's OS,:
+
+### Linux
+
+```bash
+sudo cat PATH_TO_PEM_FILE >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+```
+
+### macOS
+
+```bash
+sudo cat PATH_TO_PEM_FILE >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+```
+
+### Windows
+
+```powershell
+$pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
+
+$root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+$root.Import($pemFile)
+
+Write-Host "Extracting needed information from the cert file"
+$md5Hash=(Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
+$sha1Hash=(Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
+$sha256Hash=(Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
+
+$issuerEntry = [string]::Format("# Issuer: {0}", $root.Issuer)
+$subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
+$labelEntry = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
+$serialEntry = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
+$md5Entry = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
+$sha1Entry  = [string]::Format("# SHA1 Finterprint: {0}", $sha1Hash)
+$sha256Entry = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
+$certText = (Get-Content -Path root.pem -Raw).ToString().Replace("`r`n","`n")
+
+$rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
+$serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
+
+Write-Host "Adding the certificate content to Python Cert store"
+Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
+
+Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
 
 ## Connect to Azure Stack
-Use the following steps to connect to Azure Stack by using Azure CLI:
 
-1. Open a PowerShell session and get the Active Directory Resource Id by running the following PowerShell command:
+Use the following steps to connect to Azure Stack:
 
-   ```
-   PowerShell(Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01 -Method Get).authentication.audiences[0]
-   ```
+1. Register your Azure Stack environment by running the az cloud register command.
    
-2. Open a command prompt window and add the Azure Stack environment by using the following command, make sure to replace the `<Active directory resource ID>` with the value retrieved in the previous step:
-
-   ```
-   azure account env add AzureStack --resource-manager-endpoint-url "https://management.local.azurestack.external" --management-endpoint-url "https://management.local.azurestack.external" --active-directory-endpoint-url  "https://login.windows.net" --portal-url "https://portal.local.azurestack.external" --gallery-endpoint-url "https://portal.local.azurestack.external/" --active-directory-resource-id "<Active directory resource ID>" --active-directory-graph-resource-id "https://graph.windows.net/"  
-   ```
-
-3. Disable the TLS certificate validation by running the following command:
-
-   ```
-   set NODE_TLS_REJECT_UNAUTHORIZED=0
-   ```
+   In order to create virtual machines by using CLI, the cloud administrator should set up a publicly accessible endpoint that contains virtual machine image aliases and register this endpoint with the cloud. The `endpoint-vm-image-alias-doc` parameter in the `az cloud register` command is used for this purpose. Cloud administrators must download the image to the Azure Stack marketplace before they add it to image aliases endpoint.
    
-4. Sign in to the Azure Stack administrator or user account by using the following command, make sure to replace the <username> and the <Password> with your Azure Stack administrator or user Active Directory account name. 
+   For example, Azure contains uses following URI: 
+    https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. The cloud administrator should set up a similar endpoint for Azure Stack with the images that are available in the Azure Stack marketplace.
+
+   a. To register the **cloud administrative** environment, use:
+
+   ```azurecli
+   az cloud register \ 
+     -n AzureStackAdmin \ 
+     --endpoint-resource-manager "https://adminmanagement.local.azurestack.external" \ 
+     --suffix-storage-endpoint "local.azurestack.external" \ 
+     --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
+     --endpoint-active-directory-graph-resource-id "https://graph.windows.net/" \
+     --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+   ```
+
+   b. To register the **user** environment, use:
+
+   ```azurecli
+   az cloud register \ 
+     -n AzureStackUser \ 
+     --endpoint-resource-manager "https://management.local.azurestack.external" \ 
+     --suffix-storage-endpoint "local.azurestack.external" \ 
+     --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
+     --endpoint-active-directory-graph-resource-id "https://graph.windows.net/" \
+     --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+   ```
+
+2. Set the active environment by using the following commands:
+
+   a. For the **cloud administrative** environment, use:
+
+   ```azurecli
+   az cloud set \
+     -n AzureStackAdmin
+   ```
+
+   b. For the **user** environment, use:
+
+   ```azurecli
+   az cloud set \
+     -n AzureStackUser
+   ```
+
+3. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
+
+   ```azurecli
+   az cloud update \
+     --profile 2017-03-09-profile
+   ```
+
+4. Sign in to your Azure Stack environment by using the **az login** command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+
+   * Sign in as a **user**: You can either specify the username and password directly within the az login command or authenticate using a browser. You would have to do the latter, if your account has multi-factor authentication enabled.
+
+   ```azurecli
+   az login \
+     -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> \
+     --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+   ```
+
+   > [!NOTE]
+   > If your user account has Multi factor authentication enabled, you can use the az login command without providing the -u parameter. Running the command gives you a URL and a code that you must use to authenticate.
    
-   ```
-   azure login -e AzureStack -u “<Active directory username>” -p "<Password>"
-   ```
-   For example, an Azure Stack service administrator can sign into their Azure Stack account as follows:
-   
-   ```
-   azure login -e Azure -u "serviceadmin@contoso.onmicrosoft.com
-   ```
-   
-5. Set the Azure configuration mode to Azure Resource Manager by using the following command:
+   * Sign in as a **service principal**: Before you sign in, [Create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, log in by using the following command:
 
-   ```
-   azure config mode arm
+   ```azurecli
+   az login \
+     --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
+     --service-principal \
+     -u <Application Id of the Service Principal> \
+     -p <Key generated for the Service Principal>
    ```
 
-6. After connecting, you can use the Azure CLI commands such as:
+## Test the connectivity
 
-   ```
-   # Get the list of subscriptions in the current account
-   azure account list   
+Now that we've got everything setup, let's use CLI to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named "MyResourceGroup":
 
-   # get the list of resources
-   azure resource list
-   ```
+```azurecli
+az group create \
+  -n MyResourceGroup -l local
+```
+
+If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
+
+![resource group create output](media/azure-stack-connect-cli/image1.png)
+
+There are some known issues when using CLI 2.0 in Azure Stack, to learn about these issues, see the [Known issues in Azure Stack CLI](azure-stack-troubleshooting.md#cli) topic. 
 
 ## Next steps
 

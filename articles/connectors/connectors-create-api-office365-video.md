@@ -36,9 +36,9 @@ When you add this connector to your logic apps, you must sign-in to your Office 
 After you create the connection, you enter the Office 365 video properties, like the tenant name or channel ID. 
 
 
-## View the swagger
+## Connector-specific details
 
-See the [swagger details](/connectors/office365videoconnector/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/office365videoconnector/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).

@@ -1,6 +1,6 @@
 ---
-title: Move data to/from Azure SQL Data Warehouse | Microsoft Docs
-description: Learn how to move data to/from Azure SQL Data Warehouse using Azure Data Factory
+title: Copy data to/from Azure SQL Data Warehouse | Microsoft Docs
+description: Learn how to copy data to/from Azure SQL Data Warehouse using Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 06/04/2017
 ms.author: jingwang
 
 ---
-# Move data to and from Azure SQL Data Warehouse using Azure Data Factory
+# Copy data to and from Azure SQL Data Warehouse using Azure Data Factory
 This article explains how to use the Copy Activity in Azure Data Factory to move data to/from Azure SQL Data Warehouse. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.  
 
 > [!TIP]
@@ -259,7 +259,7 @@ Polybase loads are limited to loading rows both smaller than **1 MB** and cannot
 If you have source data with rows of size greater than 1 MB, you may want to split the source tables vertically into several small ones where the largest row size of each of them does not exceed the limit. The smaller tables can then be loaded using PolyBase and merged together in Azure SQL Data Warehouse.
 
 ### SQL Data Warehouse resource class
-To achieve best possible throughput, consider to assign larger resource class to the user being used to load data into SQL Data Warehouse via PolyBase. Learn how to do that by following [Change a user resource class example](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).
+To achieve best possible throughput, consider to assign larger resource class to the user being used to load data into SQL Data Warehouse via PolyBase. Learn how to do that by following [Change a user resource class example](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
 
 ### tableName in Azure SQL Data Warehouse
 The following table provides examples on how to specify the **tableName** property in dataset JSON for various combinations of schema and table name.
@@ -323,13 +323,13 @@ Data Factory creates the table in the destination store with the same table name
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
-### Type mapping for Azure SQL Data Warehouse
+## Type mapping for Azure SQL Data Warehouse
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
 
-When moving data to & from Azure SQL, SQL server, Sybase the following mappings are used from SQL type to .NET type and vice versa.
+When moving data to & from Azure SQL Data Warehouse, the following mappings are used from SQL type to .NET type and vice versa.
 
 The mapping is same as the [SQL Server Data Type Mapping for ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx).
 

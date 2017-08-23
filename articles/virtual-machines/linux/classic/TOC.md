@@ -1,16 +1,16 @@
-﻿# [Overview](../overview.md)
+# [Overview](../overview.md)
 ## [Images](about-images.md)
 ## [VM extensions](agents-and-extensions.md)
 ## [Availability](configure-availability.md)
 ## [FAQ](faq.md)
 
-# [Get Started](../opensource-links.md)
+# Get Started
 ## [Create a Linux VM with the portal](createportal.md)
 ## [Install Azure CLI](../../../cli-install-nodejs.md)
 ## [Create SSH keys](../mac-create-ssh-keys.md)
 
 # How to
-## [Compute](../intro-on-azure.md)
+## Compute
 ### [Create a custom VM](create-custom.md)
 ### [Capture a VM](capture-image.md)
 ### [Use Remote Desktop with a Linux VM](remote-desktop.md)
@@ -20,6 +20,7 @@
 ### [Monitor VMs using v2.x of the Diagnostic VM Extension](diagnostic-extension-v2.md)
 ### [Inject custom data](inject-custom-data.md)
 ### [Reset Linux passwords or keys, fix SSH, and check disks](reset-access.md)
+### [Maintenance](planned-maintenance-schedule.md)
 ### [Create a Docker host using the CLI](cli-use-docker.md)
 ### [Create a Docker host using the portal](portal-use-docker.md)
 ### [How to use Docker with Swarm](../../virtual-machines-linux-docker-swarm.md)
@@ -53,18 +54,17 @@
 ### [Web application with Visual Studio](web-app-visual-studio.md)
 ### [RDMA cluster to run MPI applications](rdma-cluster.md)
 ### [How to use the Azure slave plug-in with Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-
-## HPC Pack
-### [Windows RDMA cluster to run MPI apps](hpcpack-cluster.md)
-### [Windows HPC cluster with the HPC Pack IaaS deployment script](hpcpack-cluster-starccm.md)
-### [Manage the number and availability of compute nodes](hpcpack-cluster-powershell-script.md)
-### [Add on-demand nodes](hpcpack-cluster-openfoam.md)
-### [Automatically scale resources](hpcpack-cluster-namd.md)
+### HPC Pack
+#### [Create a cluster for Linux workloads](hpcpack-cluster-powershell-script.md)
+#### [Manage a cluster with Linux nodes](hpcpack-cluster.md)
+#### [Run STAR-CCM+](hpcpack-cluster-starccm.md)
+#### [Run OpenFOAM](hpcpack-cluster-openfoam.md)
+#### [Run NAMD](hpcpack-cluster-namd.md)
 
 ## Troubleshoot
 ### [VM deployments](troubleshoot-deployment-new-vm.md)
 ### [Restart or resize a VM](restart-resize-error-troubleshooting.md)
+### [Attach virtual hard disk to troubleshooting VM](troubleshoot-recovery-disks-portal.md)
 
 # Reference
 ## [PowerShell](/powershell/azure/overview)
@@ -78,7 +78,9 @@
 
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Regional availability](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

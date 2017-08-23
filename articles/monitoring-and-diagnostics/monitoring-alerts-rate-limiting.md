@@ -2,7 +2,7 @@
 title: Rate Limiting for SMS, Emails and Webhooks | Microsoft Docs
 description: Be notified via SMS, webhook, and email when certain events occur in the Activity log.
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -19,7 +19,7 @@ ms.author: ancav
 ---
 
 # Rate Limiting for SMS, Emails and Webhooks
-Rate limiting is a suspension of notifications that occurs when too many are sent to a particular phone number or email. Limiting ensures that communication around activity log alerts and service health alerts are manageable and actionable
+Rate limiting is a suspension of notifications that occurs when too many are sent to a particular phone number or email. Rate limiting ensures that alerts and manageable and actionable
 
 The rules for SMS and Email are the same. The rate limit threshold for
  - SMS - 10 messages in an hour
@@ -28,7 +28,7 @@ The rules for SMS and Email are the same. The rate limit threshold for
 ## Rate Limit rules
 - A particular phone number or email is rate limited when it receives more than the threshold
 - A phone number or email can be part of action groups across many subscriptions. Rate limiting applies across all subscriptions, that is, it applies as soon as the threshold is reached even if sent from multiple subscriptions.  
-- When a phone number or email is rate limited, an additional message of the same type is sent to communicate the rate limiting. The SMS or email states when the rate limiting expires.
+- When a phone number or email is rate limited, an additional notification is sent to communicate the rate limiting. The notification states when the rate limiting expires.
 
 ## Rate Limit of Webhooks ##
 There is no rate limiting in place for webhooks today.

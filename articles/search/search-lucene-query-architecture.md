@@ -382,6 +382,8 @@ This article explored full text search in the context of Azure Search. We hope i
 
 + [Configure custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) for either minimal processing or specialized processing on specific fields.
 
++ [Compare standard and English analyzers](http://alice.unearth.ai/)) side-by-side on this demo web site. 
+
 ## See also
 
 [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)

@@ -14,14 +14,20 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 04/09/2017
+ms.date: 06/01/2017
 ms.author: glenga
+ms.custom: mvc
 ---
 # Map a custom domain to a function app
 
 This sample script creates a function app with related resources, and then maps `www.<yourdomain>` to it. To map to a custom domain, your function app must be created in an App Service plan and not in a consumption plan. Azure Functions only supports mapping a custom domain using an A record.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
 
 ## Sample script
 

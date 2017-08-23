@@ -15,3 +15,7 @@
   items:
     - name: Bing Web Search API Use and Display Requirements
       href: https://docs.microsoft.com/azure/cognitive-services/bing-web-search/useanddisplayrequirements
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

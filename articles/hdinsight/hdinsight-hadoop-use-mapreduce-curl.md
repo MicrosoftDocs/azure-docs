@@ -1,5 +1,5 @@
 ---
-title: Use MapReduce and Curl with Hadoop in HDInsight | Microsoft Docs
+title: Use MapReduce and Curl with Hadoop in HDInsight - Azure | Microsoft Docs
 description: Learn how to remotely run MapReduce jobs with Hadoop on HDInsight using Curl.
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/11/2017
+ms.date: 07/12/2017
 ms.author: larryfr
 
 ---
@@ -93,7 +93,7 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
 
 4. When the state of the job has changed to `SUCCEEDED`, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file. In this example, the location is `/example/curl`. This address stores the output of the job in the clusters default storage at `/example/curl`.
 
-You can list and download these files by using the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on working with blobs from the Azure CLI, see the [Using the Azure CLI 2.0 with Azure Storage](../storage/storage-azure-cli.md#create-and-manage-blobs) document.
+You can list and download these files by using the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on working with blobs from the Azure CLI, see the [Using the Azure CLI 2.0 with Azure Storage](../storage/common/storage-azure-cli.md#create-and-manage-blobs) document.
 
 ## <a id="nextsteps"></a>Next steps
 

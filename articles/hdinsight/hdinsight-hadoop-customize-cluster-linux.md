@@ -1,6 +1,6 @@
 ﻿---
-title: Customize HDInsight clusters using script actions | Microsoft Docs
-description: Learn how to add custom components to Linux-based HDInsight clusters using Script Actions. Script Actions are Bash scripts that on the cluster nodes, and can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R.
+title: Customize HDInsight clusters using script actions - Azure | Microsoft Docs
+description: Add custom components to Linux-based HDInsight clusters using Script Actions. Script Actions are Bash scripts  that can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 08/14/2017
 ms.author: larryfr
 
 ---
@@ -26,7 +26,7 @@ HDInsight provides a configuration option called **Script Action** that invokes 
 > [!IMPORTANT]
 > The ability to use script actions on an already running cluster is only available for Linux-based HDInsight clusters.
 >
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 Script actions can also be published to the Azure Marketplace as an HDInsight application. Some of the examples in this document show how you can install an HDInsight application using script action commands from PowerShell and the .NET SDK. For more information on HDInsight applications, see [Publish HDInsight applications into the Azure Marketplace](hdinsight-apps-publish-applications.md).
 
@@ -70,7 +70,7 @@ A Script Action is simply a Bash script that you provide a URI to, and parameter
         For example URIs, see the [Example script action scripts](#example-script-action-scripts) section.
 
         > [!WARNING]
-        > HDInsight only supports __General purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
+        > HDInsight only supports __General-purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
 
 * Can be restricted to **run on only certain node types**, for example head nodes or worker nodes.
 
@@ -79,7 +79,7 @@ A Script Action is simply a Bash script that you provide a URI to, and parameter
 
 * Can be **persisted** or **ad hoc**.
 
-    **Persisted** scripts are applied to worker nodes added to the cluster after the script has ran. For example, when scaling up the cluster.
+    **Persisted** scripts are applied to worker nodes added to the cluster after the script runs. For example, when scaling up the cluster.
 
     A persisted script might also apply changes to another node type, such as a head node.
 
@@ -125,7 +125,7 @@ During cluster creation, you can use multiple script actions at once. These scri
 > [!IMPORTANT]
 > Script actions must complete within 60 minutes, or timeout. During cluster provisioning, the script runs concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
 >
-> To minimize the time it takes to run the script, avoid tasks such as downloading and compiling applications from source. Pre-compile applications and store the binary in Azure Storage. This allows the script to quickly download the application to the cluster.
+> To minimize the time it takes to run the script, avoid tasks such as downloading and compiling applications from source. Pre-compile applications and store the binary in Azure Storage.
 
 
 ### Script action on a running cluster
@@ -133,15 +133,15 @@ During cluster creation, you can use multiple script actions at once. These scri
 Unlike script actions used during cluster creation, a failure in a script ran on an already running cluster does not automatically cause the cluster to change to a failed state. Once a script completes, the cluster should return to a "running" state.
 
 > [!IMPORTANT]
-> This does not mean that your running cluster is immune to scripts that do bad things. For example, a script could delete files needed by the cluster.
+> Even if the cluster has a 'running' state, the failed script may have broken things. For example, a script could delete files needed by the cluster.
 >
 > Scripts actions run with root privileges, so you should make sure that you understand what a script does before applying it to your cluster.
 
 When applying a script to a cluster, the cluster state changes to from **Running** to **Accepted**, then **HDInsight configuration**, and finally back to **Running** for successful scripts. The script status is logged in the script action history, and you can use this information to determine whether the script succeeded or failed. For example, the `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet can be used to view the status of a script. It returns information similar to the following text:
 
     ScriptExecutionId : 635918532516474303
-    StartTime         : 2/23/2016 7:40:55 PM
-    EndTime           : 2/23/2016 7:41:05 PM
+    StartTime         : 8/14/2017 7:40:55 PM
+    EndTime           : 8/14/2017 7:41:05 PM
     Status            : Succeeded
 
 > [!NOTE]
@@ -174,13 +174,13 @@ This section provides examples on the different ways you can use script actions 
 
 ### Use a Script Action during cluster creation from the Azure portal
 
-1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Stop when you reach the __Cluster summary__ blade.
+1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Stop when you reach the __Cluster summary__ section.
 
-2. From the __Cluster summary__ blade, select the __edit__ link for __Advanced settings__.
+2. From the __Cluster summary__ section, select the __edit__ link for __Advanced settings__.
 
     ![Advanced settings link](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
-3. From the __Advanced settings__ blade, select __Script actions__. From the __Script actions__ blade, select __+ Submit new__
+3. From the __Advanced settings__ section, select __Script actions__. From the __Script actions__ section, select __+ Submit new__
 
     ![Submit a new script action](./media/hdinsight-hadoop-customize-cluster-linux/add-script-action.png)
 
@@ -192,25 +192,25 @@ This section provides examples on the different ways you can use script actions 
 
     | Property | Value |
     | --- | --- |
-    | Select a script | Select one of the pre-made script, or __Custom__ to use your own script. |
+    | Select a script | To use your own script, select __Custom__. Otherwise, select one of the provided scripts. |
     | Name |Specify a name for the script action. |
     | Bash script URI |Specify the URI to the script that is invoked to customize the cluster. |
     | Head/Worker/Zookeeper |Specify the nodes (**Head**, **Worker**, or **ZooKeeper**) on which the customization script is run. |
     | Parameters |Specify the parameters, if required by the script. |
 
-    Use the __Persist this script action__ entry to ensure that the script is applied to worker nodes when you scale your cluster.
+    Use the __Persist this script action__ entry to ensure that the script is applied during scaling operations.
 
 5. Select __Create__ to save the script. You can then use __+ Submit new__ to add another script.
 
     ![Multiple script actions](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts.png)
 
-    When you are done adding scripts, use the __Select__ button, and then the __Next__ button to return to the __Cluster summary__ blade.
+    When you are done adding scripts, use the __Select__ button, and then the __Next__ button to return to the __Cluster summary__ section.
 
-3. To create the cluster, select __Create__ from the __Cluster summary__ blade.
+3. To create the cluster, select __Create__ from the __Cluster summary__ selection.
 
 ### Use a Script Action from Azure Resource Manager templates
 
-The examples in this section demonstrate how to use script actions with Azure Resource Manager templates when creating an HDInsight cluster.
+The examples in this section demonstrate how to use script actions with Azure Resource Manager templates.
 
 #### Before you begin
 
@@ -382,12 +382,12 @@ The examples in this section demonstrate how to use script actions with Azure Re
         Id                             Type       ...
         --                             ----
         someone@example.com            User       ...
-3. If you have multiple subscriptions, provide the subscription id you wish to use for deployment.
+3. If you have multiple subscriptions, provide the subscription ID you wish to use for deployment.
 
         Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
     > [!NOTE]
-    > You can use `Get-AzureRmSubscription` to get a list of all subscriptions associated with your account, which includes the subscription Id for each one.
+    > You can use `Get-AzureRmSubscription` to get a list of all subscriptions associated with your account, which includes the subscription ID for each one.
 
 4. If you do not have an existing resource group, create a resource group. Provide the name of the resource group and location that you need for your solution. A summary of the new resource group is returned.
 
@@ -403,7 +403,13 @@ The examples in this section demonstrate how to use script actions with Azure Re
                             *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. To create a deployment for your resource group, run the **New-AzureRmResourceGroupDeployment** command and provide the necessary parameters. The parameters include a name for your deployment, the name of your resource group, and the path or URL to the template you created. If your template requires any parameters, you must pass those parameters as well. In this case, the script action to install R on the cluster does not require any parameters.
+5. To create a deployment for your resource group, run the **New-AzureRmResourceGroupDeployment** command and provide the necessary parameters. The parameters include the following data:
+
+    * A name for your deployment
+    * The name of your resource group
+    * The path or URL to the template you created.
+
+  If your template requires any parameters, you must pass those parameters as well. In this case, the script action to install R on the cluster does not require any parameters.
 
         New-AzureRmResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
 
@@ -414,7 +420,7 @@ The examples in this section demonstrate how to use script actions with Azure Re
           DeploymentName    : mydeployment
           ResourceGroupName : myresourcegroup
           ProvisioningState : Succeeded
-          Timestamp         : 8/17/2015 7:00:27 PM
+          Timestamp         : 8/14/2017 7:00:27 PM
           Mode              : Incremental
           ...
 
@@ -444,14 +450,14 @@ In this section, learn how to apply script actions to a running cluster.
 
 1. From the [Azure portal](https://portal.azure.com), select your HDInsight cluster.
 
-2. From the HDInsight cluster blade, select the **Script Actions** tile.
+2. From the HDInsight cluster overview, select the **Script Actions** tile.
 
     ![Script actions tile](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
 
    > [!NOTE]
-   > You can also select **All settings** and then select **Script Actions** from the Settings blade.
+   > You can also select **All settings** and then select **Script Actions** from the Settings section.
 
-3. From the top of the Script Actions blade, select **Submit new**.
+3. From the top of the Script Actions section, select **Submit new**.
 
     ![Add a script to a running cluster](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
 
@@ -463,13 +469,13 @@ In this section, learn how to apply script actions to a running cluster.
 
     | Property | Value |
     | --- | --- |
-    | Select a script | Select one of the pre-made script, or __Custom__ to use your own script. |
+    | Select a script | To use your own script, select __custom__. Otherwise, select a provided script. |
     | Name |Specify a name for the script action. |
     | Bash script URI |Specify the URI to the script that is invoked to customize the cluster. |
     | Head/Worker/Zookeeper |Specify the nodes (**Head**, **Worker**, or **ZooKeeper**) on which the customization script is run. |
     | Parameters |Specify the parameters, if required by the script. |
 
-    Use the __Persist this script action__ entry to ensure that the script is applied to worker nodes when you scale your cluster.
+    Use the __Persist this script action__ entry to make sure the script is applied during scaling operations.
 
 5. Finally, use the **Create** button to apply the script to the cluster.
 
@@ -481,7 +487,7 @@ The following example demonstrates how to apply a script action to a running clu
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
 
-Once the operation completes, you receive information similar to the following:
+Once the operation completes, you receive information similar to the following text:
 
     OperationState  : Succeeded
     ErrorMessage    :
@@ -496,7 +502,7 @@ Before proceeding, make sure you have installed and configured the Azure CLI. Fo
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-1. Open a shell session, terminal, command-prompt or other command line for your system and use the following command to switch to Azure Resource Manager mode.
+1. To switch to Azure Resource Manager mode, use the following command at the command line:
 
         azure config mode arm
 
@@ -538,22 +544,22 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [https:/
 
 1. From the [Azure portal](https://portal.azure.com), select your HDInsight cluster.
 
-2. From the HDInsight cluster blade, select the **Script Actions** tile.
+2. From the HDInsight cluster overview, select the **Script Actions** tile.
 
     ![Script actions tile](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
 
    > [!NOTE]
-   > You can also select **All settings** and then select **Script Actions** from the Settings blade.
+   > You can also select **All settings** and then select **Script Actions** from the Settings section.
 
-4. A history of scripts for this cluster is displayed on the Script Actions blade. This information includes a list of persisted scripts. In the screenshot below, you can see that the Solr script has been ran on this cluster. The screenshot does not show any persisted scripts.
+4. A history of scripts for this cluster is displayed on the Script Actions section. This information includes a list of persisted scripts. In the screenshot below, you can see that the Solr script has been ran on this cluster. The screenshot does not show any persisted scripts.
 
-    ![Script Actions blade](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
+    ![Script Actions section](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
 
-5. Selecting a script from the history displays the Properties blade for this script. From the top of the blade, you can rerun the script or promote it.
+5. Selecting a script from the history displays the Properties section for this script. From the top of the screen, you can rerun the script or promote it.
 
-    ![Script actions properties blade](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
+    ![Script actions properties](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-6. You can also use the **...** to the right of entries on the Script Actions blade to perform actions.
+6. You can also use the **...** to the right of entries on the Script Actions section to perform actions.
 
     ![Script actions ... usage](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
 
@@ -596,7 +602,7 @@ For an example of using the .NET SDK to retrieve script history from a cluster, 
 
 ## Support for open-source software used on HDInsight clusters
 
-The Microsoft Azure HDInsight service uses an ecosystem of open-source technologies formed around Hadoop. Microsoft Azure provides a general level of support for open-source technologies. For more information, see the **Support Scope** section of the [Azure Support FAQ website](https://azure.microsoft.com/support/faq/). The HDInsight service provides an additional level of support for some of the components, as described below.
+The Microsoft Azure HDInsight service uses an ecosystem of open-source technologies formed around Hadoop. Microsoft Azure provides a general level of support for open-source technologies. For more information, see the **Support Scope** section of the [Azure Support FAQ website](https://azure.microsoft.com/support/faq/). The HDInsight service provides an additional level of support for built-in components.
 
 There are two types of open-source components that are available in the HDInsight service:
 
@@ -606,7 +612,7 @@ There are two types of open-source components that are available in the HDInsigh
 > [!WARNING]
 > Components provided with the HDInsight cluster are fully supported. Microsoft Support helps to isolate and resolve issues related to these components.
 >
-> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
+> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. Microsoft support may be able to resolve the issue OR they may ask you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
 
 The HDInsight service provides several ways to use custom components. The same level of support applies, regardless of how a component is used or installed on the cluster. The following list describes the most common ways that custom components can be used on HDInsight clusters:
 
@@ -638,7 +644,7 @@ You can use Ambari web UI to view information logged by script actions. If the s
 
 ### Access logs from the default storage account
 
-If the cluster creation fails due to a script action error, the logs can be accessed from the default storage account.
+If the cluster creation fails due to a script action error, the logs can be accessed from the cluster storage account.
 
 * The storage logs are available at `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
@@ -663,7 +669,7 @@ If the cluster creation fails due to a script action error, the logs can be acce
 
 * If you create a script action cluster with the same name on the same day, you can use the unique prefix to identify the relevant log files.
 
-* If you create a cluster at the end of the day, it's possible that the log files span across two days. In such cases, you see two different date folders for the same cluster.
+* If you create a cluster near 12:00AM (midnight), it's possible that the log files span across two days. In such cases, you see two different date folders for the same cluster.
 
 * Uploading log files to the default container can take up to 5 mins, especially for large clusters. So, if you want to access the logs, you should not immediately delete the cluster if a script action fails.
 
@@ -672,9 +678,9 @@ If the cluster creation fails due to a script action error, the logs can be acce
 > [!WARNING]
 > Do not change the password for the Ambari Watchdog (hdinsightwatchdog) on your Linux-based HDInsight cluster. Changing the password for this account breaks the ability to run new script actions on the HDInsight cluster.
 
-### Cannot import name BlobService
+### Can't import name BlobService
 
-__Symptoms__: The script action fails, and an error similar to the following example is displayed when you view the operation in Ambari:
+__Symptoms__: The script action fails. Text similar to the following error is displayed when you view the operation in Ambari:
 
 ```
 Traceback (most recent call list):
@@ -695,15 +701,15 @@ For information on connecting to the cluster with SSH, see [Use SSH with HDInsig
 
 ### History doesn't show scripts used during cluster creation
 
-If your cluster was created before March 15th, 2016, you may not see an entry in Script Action history. If you resize the cluster after March 15th, 2016, the scripts using during cluster creation appear in history as they are applied to new nodes in the cluster as part of the resize operation.
+If your cluster was created before March 15, 2016, you may not see an entry in Script Action history. If you resize the cluster after March 15, 2016, the scripts using during cluster creation appear in history as they are applied to new nodes in the cluster as part of the resize operation.
 
 There are two exceptions:
 
-* If your cluster was created before September 1st, 2015. This date is when Script Actions were introduced. Any cluster created before this date could not have used Script Actions for cluster creation.
+* If your cluster was created before September 1, 2015. This date is when Script Actions were introduced. Any cluster created before this date could not have used Script Actions for cluster creation.
 
 * If you used multiple Script Actions during cluster creation, and used the same name for multiple scripts, or the same name, same URI, but different parameters for multiple scripts. In these cases, you receive the following error:
 
-    No new script actions can be executed on this cluster due to conflicting script names in existing scripts. Script names provided at cluster create must be all unique. Existing scripts will still be executed on resize.
+    No new script actions can be ran on this cluster due to conflicting script names in existing scripts. Script names provided at cluster create must be all unique. Existing scripts are ran on resize.
 
 ## Next steps
 

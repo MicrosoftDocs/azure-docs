@@ -45,7 +45,7 @@ RPs in Azure & API version
     Identify availability Azure Government using Resource Explorer in the portal:
 
   1.	Log into Azure Government Portal
-  2.	Launch Resource Explorer, following steps listed here https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services#supported-regions
+  2.	Launch Resource Explorer, following steps listed here https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services#portal
 
   Most commonly used extensions; Availability in Fairfax  
 

@@ -5,7 +5,7 @@ services: azure-government
 cloud: gov
 documentationcenter: ''
 author: smichelotti
-manager: liki
+manager: zakramer
 
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
 ms.service: azure-government
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 02/13/2017
+ms.date: 08/15/2017
 ms.author: stemi
 
 ---
@@ -65,9 +65,7 @@ In the following tables, services specified as Resource Manager enabled have res
 | [Storage - Files](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
 | [Storage - Disks](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
 | [StorSimple](documentation-government-services-storage.md) | Yes | Yes |
-| [Backup](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
-| [Site Recovery](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
-| [Import/Export](documentation-government-services-storage.md#azure-storage) | Yes | No |
+| [Import/Export](documentation-government-services-storage.md#azure-importexport) | Yes | Yes |
 
 
 
@@ -88,6 +86,7 @@ In the following tables, services specified as Resource Manager enabled have res
 | [SQL Database](documentation-government-services-database.md#sql-database) | Yes | Yes |
 | SQL Data Warehouse | Yes | Yes |
 | SQL Server Stretch Database | Yes | Yes |
+| [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db) | Yes | Yes |
 | [Redis Cache](documentation-government-services-database.md#azure-redis-cache) | Yes | Yes |
 
 
@@ -95,14 +94,15 @@ In the following tables, services specified as Resource Manager enabled have res
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
-| [HDInsights](documentation-government-services-intelligenceandanalytics.md#hdinsight) | Yes | Yes |
-| [Power BI Pro](documentation-government-services-intelligenceandanalytics.md#power-bi) | No | No (Office 365 Admin Portal) |
+| [HDInsights](documentation-government-services-intelligenceandanalytics.md) | Yes | Yes |
+| [Power BI Pro](documentation-government-services-intelligenceandanalytics.md) | No | No (Office 365 Admin Portal) |
 
 
-## Internet of Things (IoT)
+## [Internet of Things](documentation-government-services-iot-hub.md)
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
+| [IoT Hub](documentation-government-services-iot-hub.md#azure-iot-hub) | Yes | Yes |
 | Event Hubs | Yes | Yes |
 | Notification Hubs | No | No (Go to [Legacy portal](https://manage.windowsazure.us/)) |
 
@@ -149,6 +149,6 @@ In the following tables, services specified as Resource Manager enabled have res
 
 
 
-## Next Steps
+## Next steps
 For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
 

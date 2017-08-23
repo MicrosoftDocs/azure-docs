@@ -4,7 +4,7 @@ description: Describes how to make payment if your Azure subscription has a past
 services: ''
 documentationcenter: ''
 author: genlin
-manager: narmstr
+manager: jlian
 editor: ''
 tags: billing
 

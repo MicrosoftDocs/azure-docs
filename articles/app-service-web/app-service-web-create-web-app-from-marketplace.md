@@ -16,7 +16,7 @@ ms.date: 12/22/2016
 ms.author: sunbuild
 ms.date: 05/10/2017
 ms.author: sunbuild
-
+ms.custom: mvc
 ---
 # Create a web app from the Azure Marketplace
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->

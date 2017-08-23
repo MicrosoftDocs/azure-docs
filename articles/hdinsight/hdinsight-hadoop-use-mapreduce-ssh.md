@@ -1,5 +1,5 @@
 ---
-title: MapReduce and SSH connection with Hadoop in HDInsight | Microsoft Docs
+title: MapReduce and SSH connection with Hadoop in HDInsight - Azure | Microsoft Docs
 description: Learn how to use SSH to run MapReduce jobs using Hadoop on HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
 
 ---
@@ -33,7 +33,7 @@ Learn how to submit MapReduce jobs from a Secure Shell (SSH) connection to HDIns
 * A Linux-based HDInsight (Hadoop on HDInsight) cluster
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * An SSH client. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -41,11 +41,15 @@ Learn how to submit MapReduce jobs from a Secure Shell (SSH) connection to HDIns
 
 Connect to the cluster using SSH. For example, the following command connects to a cluster named **myhdinsight**:
 
-    ssh admin@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh admin@myhdinsight-ssh.azurehdinsight.net
+```
 
 **If you use a certificate key for SSH authentication**, you may need to specify the location of the private key on your client system, for example:
 
-    ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+```
 
 **If you use a password for SSH authentication**, you need to provide the password when prompted.
 
@@ -88,7 +92,7 @@ For more information on using SSH with HDInsight, see [Use SSH with HDInsight](h
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 
-    This command displays a list of the words that are contained in the **wasbs://example/data/gutenberg/davinci.txt** file and the number of times each word occurred. The following text is an example of the data that is contained in the file:
+    This command displays a list of the words that are contained in the **wasb://example/data/gutenberg/davinci.txt** file and the number of times each word occurred. The following text is an example of the data that is contained in the file:
 
         wreathed        3
         wreathing       1

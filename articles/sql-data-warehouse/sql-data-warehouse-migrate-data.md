@@ -3,7 +3,7 @@ title: Migrate your data to SQL Data Warehouse | Microsoft Docs
 description: Tips for migrating your data to Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: sqlmojo
 manager: jhubbard
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
+ms.date: 06/29/2017
+ms.author: joeyong;barbkess
 
 ---
 # Migrate Your Data
@@ -182,7 +182,7 @@ For more development tips, see [development overview][development overview].
 <!--Image references-->
 
 <!--Article references-->
-[AZCopy]: ../storage/storage-use-azcopy.md
+[AZCopy]:../storage/common/storage-use-azcopy.md
 [ADF Copy]: ../data-factory/data-factory-data-movement-activities.md 
 [ADF samples]: ../data-factory/data-factory-samples.md
 [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md

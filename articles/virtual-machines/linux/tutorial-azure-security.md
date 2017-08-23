@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/07/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 # Monitor virtual machine security by using Azure Security Center
 

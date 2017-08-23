@@ -34,9 +34,9 @@ To create Logic apps with MailChimp, you must first create a **connection** then
 > 
 
 
-## View the swagger
+## Connector-specific details
 
-See the [swagger details](/connectors/mailchimp/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/mailchimp/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 04/24/2017
+ms.date: 06/05/2017
 ms.author: alok;rotimpe
 
 ---
@@ -57,17 +57,19 @@ The web service provides a REST-based API over HTTPS that can be consumed in dif
 In order to call the API, you will need to know the endpoint location and API key.  Both of these, along with sample code for calling the API, are available from the [AzureML web services](https://services.azureml.net/webservices/) page.  Navigate to the desired API, and then click the "Consume" tab to find them.  Note that you can call the API as a Swagger API (i.e. with the URL parameter `format=swagger`) or as a non-Swagger API (i.e. without the `format` URL parameter).  The sample code uses the Swagger format.  Below is an example request and response in non-Swagger format.  These examples are to the seasonality endpoint.  The non-seasonality endpoint is similar.
 
 ### Sample Request Body
-The request contains two objects: `input1` and `GlobalParameters`.  In the example request below, some parameters are sent explicitly while others are not (scroll down for a full list of parameters for each endpoint).  Parameters that are not sent explicitly in the request will use the default values given below.
+The request contains two objects: `Inputs` and `GlobalParameters`.  In the example request below, some parameters are sent explicitly while others are not (scroll down for a full list of parameters for each endpoint).  Parameters that are not sent explicitly in the request will use the default values given below.
 
 	{
-		"input1": {
-			"ColumnNames": ["Time", "Data"],
-			"Values": [
-				["5/30/2010 18:07:00", "1"],
-				["5/30/2010 18:08:00", "1.4"],
-				["5/30/2010 18:09:00", "1.1"]
-			]
-		},
+                "Inputs": {
+                        "input1": {
+                                "ColumnNames": ["Time", "Data"],
+                                "Values": [
+                                        ["5/30/2010 18:07:00", "1"],
+                                        ["5/30/2010 18:08:00", "1.4"],
+                                        ["5/30/2010 18:09:00", "1.1"]
+                                ]
+                        }
+                },
 		"GlobalParameters": {
 			"tspikedetector.sensitivity": "3",
 			"zspikedetector.sensitivity": "3",

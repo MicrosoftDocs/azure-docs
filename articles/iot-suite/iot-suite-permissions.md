@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/16/2017
+ms.date: 06/09/2017
 ms.author: dobett
 
 ---
@@ -38,13 +38,29 @@ The AAD roles control the ability provision preconfigured solutions and manage u
 
 You can find more information about administrator roles in AAD in [Assigning administrator roles in Azure AD][lnk-aad-admin]. The current article focuses on the **Global Administrator** and the **User** directory roles as used by the preconfigured solutions.
 
-**Global Administrator:** There can be many global administrators per AAD tenant. When you create an AAD tenant, you are by default the global administrator of that tenant. The global administrator can provision a preconfigured solution and is assigned an **Admin** role for the application inside their AAD tenant. However, if another user in the same AAD tenant creates an application, the default role granted to the global administrator is **ReadOnly**. Global administrators can assign users to roles for applications using the [Azure portal][lnk-portal].
+### Global administrator
 
-**User:** There can be many domain users per AAD tenant. A domain user can provision a preconfigured solution through the [azureiotsuite.com][lnk-azureiotsuite] site. The default role they are granted for the application they provision is **Admin**. They can create an application using the build.cmd script in the [azure-iot-remote-monitoring][lnk-rm-github-repo] or [azure-iot-predictive-maintenance][lnk-pm-github-repo] repository. However, the default role they are granted is **ReadOnly**, as they do not have permission to assign roles. If another user in the AAD tenant creates an application, they are assigned the **ReadOnly** role by default for that application. They cannot assign roles for applications; therefore they cannot add users or roles for users for an application even if they provisioned it.
+There can be many global administrators per AAD tenant:
 
-**Guest User:** There can be many guest users per AAD tenant. Guest users have a limited set of rights in the AAD tenant. As a result, guest users cannot provision a preconfigured solution in the AAD tenant.
+* When you create an AAD tenant, you are by default the global administrator of that tenant.
+* The global administrator can provision a preconfigured solution and is assigned an **Admin** role for the application inside their AAD tenant.
+* If another user in the same AAD tenant creates an application, the default role granted to the global administrator is **ReadOnly**.
+* A global administrator can assign users to roles for applications using the [Azure portal][lnk-portal].
 
-For more information, see the following resources:
+### Domain user
+
+There can be many domain users per AAD tenant:
+
+* A domain user can provision a preconfigured solution through the [azureiotsuite.com][lnk-azureiotsuite] site. By default, the domain user is granted the **Admin** role in the provisioned application.
+* A domain user can create an application using the build.cmd script in the [azure-iot-remote-monitoring][lnk-rm-github-repo],  [azure-iot-predictive-maintenance][lnk-pm-github-repo], or [azure-iot-connected-factory][lnk-cf-github-repo] repository. However, the default role granted to the domain user is **ReadOnly**, because a domain user does not have permission to assign roles.
+* If another user in the AAD tenant creates an application, the domain user is assigned the **ReadOnly** role by default for that application.
+* A domain user cannot assign roles for applications; therefore a domain user cannot add users or roles for users for an application even if they provisioned it.
+
+### Guest User
+
+There can be many guest users per AAD tenant. Guest users have a limited set of rights in the AAD tenant. As a result, guest users cannot provision a preconfigured solution in the AAD tenant.
+
+For more information about users and roles in AAD, see the following resources:
 
 * [Create users in Azure AD][lnk-create-edit-users]
 * [Assign users to apps][lnk-assign-app-roles]
@@ -53,13 +69,13 @@ For more information, see the following resources:
 
 The Azure admin roles control the ability to map an Azure subscription to an AD tenant.
 
-You can find out more about the Azure Co-Administrator, Service Administrator, and Account Administrator roles in the article [How to add or change Azure Co-Administrator, Service Administrator, and Account Administrator][lnk-admin-roles].
+Find out more about the Azure admin roles in the article [How to add or change Azure Co-Administrator, Service Administrator, and Account Administrator][lnk-admin-roles].
 
 ## Application roles
 
 The application roles control access to devices in your preconfigured solution.
 
-There are two defined and one implicit role defined in the application that is created when you provision a preconfigured solution.
+There are two defined roles and one implicit role defined in a provisioned application:
 
 * **Admin:** Has full control to add, manage, remove devices, and modify settings.
 * **ReadOnly:** Can view devices, rules, actions, jobs, and telemetry.
@@ -94,11 +110,11 @@ You must be an AAD global administrator to change roles for a user:
 
 ### I'm a domain user/member on the AAD tenant and I've created a preconfigured solution. How do I get assigned a role for my application?
 
-Ask a global administrator to assign you as a global administrator on the AAD tenant to get permissions to assign roles to users yourself, or ask a global administrator to assign you a role. If you'd like to change the AAD tenant your preconfigured solution has been deployed to, see the next question.
+Ask a global administrator to make you a global administrator on the AAD tenant and then assign roles to users yourself. Alternatively, ask a global administrator to assign you a role directly. If you'd like to change the AAD tenant your preconfigured solution has been deployed to, see the next question.
 
 ### How do I switch the AAD tenant my remote monitoring preconfigured solution and application are assigned to?
 
-You can run a cloud deployment from <https://github.com/Azure/azure-iot-remote-monitoring> and redeploy with a newly created AAD tenant. Since you are by default a global administrator when you create an AAD tenant, you have permissions to add users and assign roles to those users.
+You can run a cloud deployment from <https://github.com/Azure/azure-iot-remote-monitoring> and redeploy with a newly created AAD tenant. Because you are, by default, a global administrator when you create an AAD tenant, you have permissions to add users and assign roles to those users.
 
 1. Create an AAD directory in the [Azure portal][lnk-portal].
 2. Go to <https://github.com/Azure/azure-iot-remote-monitoring>.
@@ -130,6 +146,7 @@ To continue learning about IoT Suite, see how you can [customize a preconfigured
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
+[lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/

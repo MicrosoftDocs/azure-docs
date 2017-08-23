@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/6/2017
+ms.date: 07/20/2017
 ms.author: pullabhk;markgal
 
 ---
-# Recover files from Azure virtual machine backup (Preview)
+# Recover files from Azure virtual machine backup
 
 Azure backup provides the capability to restore [Azure VMs and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups. Now this article explains how you can recover items such as files and folders from an Azure VM backup.
 
@@ -30,7 +30,7 @@ Azure backup provides the capability to restore [Azure VMs and disks](./backup-a
 
 1. Sign into the [Azure portal](http://portal.Azure.com). Find the relevant Recovery services vault and the required backup item.
 
-2. On the Backup Item blade, click **File Recovery (Preview)**
+2. On the Backup Item blade, click **File Recovery**
 
     ![Open Recovery Services vault backup item](./media/backup-azure-restore-files-from-vm/open-vault-item.png)
 
@@ -44,13 +44,19 @@ Azure backup provides the capability to restore [Azure VMs and disks](./backup-a
 
   The executable/script creates a connection between the local computer and the specified recovery point.
 
-5. On the computer where you want to recover the files, run the executable/script. You must run it with Administrator credentials. If you run the script on a computer with restricted access, ensure there is access to:
+5. You need a password to run the downloaded script/executable. You can copy the password from the portal using the copy button beside the generated password
 
-    - go.microsoft.com
+    ![Generated password](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
+
+6. On the computer where you want to recover the files, run the executable/script. You must run it with Administrator credentials. If you run the script on a computer with restricted access, ensure there is access to:
+
+    - download.microsoft.com
     - Azure endpoints used for Azure VM backups
     - outbound port 3260
 
    For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If those do not exist on the machine where it is run, it asks for permission to install the relevant components and installs them upon consent.
+   
+   Enter the password copied from the portal when prompted. Once the valid password is entered the scripts connects to the recovery point.
       
     ![File recovery blade](./media/backup-azure-restore-files-from-vm/executable-output.png)
     
@@ -116,6 +122,10 @@ In Linux, after the connection to the recovery point is severed, the OS doesn't 
 
 ## Special configurations
 
+### Dynamic Disks
+
+If the Azure VM that was backed up has volumes that span multiple disks (spanned and striped volumes) and/or fault-tolerant volumes (mirrored and RAID-5 volumes) on dynamic disks, then you can't run the executable script on the same VM. Instead, run the executable script on any other machine with a compatible operating system.
+
 ### Windows Storage Spaces
 
 Windows Storage Spaces is a technology in Windows storage that enables you to virtualize storage. With Windows Storage Spaces you can group industry-standard disks into storage pools, and then create virtual disks, called storage spaces, from the available space in those storage pools.
@@ -176,3 +186,4 @@ If you have problems while recovering files from the virtual machines, check the
 | On the machine where the exe is run: The new volumes are not dismounted after the dismount button is clicked |	The ISCSI initiator on the machine is not responding/refreshing its connection to the target and maintaining the cache |	Wait for some mins after the dismount button is pressed. If the new volumes are still not dismounted, please browse through all the volumes. This forces the initiator to refresh the connection and the volume is dismounted with an error message that the disk is not available|
 | Exe output: Script is run successfully but “New volumes attached” is not displayed on the script output |	This is a transient error	| The volumes would have been already attached. Open Explorer to browse. If you are using the same machine for running scripts every time, consider restarting the machine and the list should be displayed in the subsequent exe runs. |
 | Linux specific: Not able to view the desired volumes | The OS of the machine where the script is run may not recognize the underlying filesystem of the backed up VM | Check whether the recovery point is crash consistent or file-consistent. If file consistent, run the script on another machine whose OS recognizes the backed up VM's filesystem |
+| Windows specific: Not able to view the desired volumes | The disks may have been attached but the volumes were not configured | From the disk management screen, identify the additional disks related to the recovery point. If any of these disks are in offline state try making them online by right-clicking on the disk and click 'Online'|

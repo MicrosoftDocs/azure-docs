@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/12/2017
 ms.author: shlo
 
 ---
@@ -112,14 +112,14 @@ The **activities** section can have one or more activities defined within it. Ea
     },
     "policy":
     {
-    }
+    },
     "scheduler":
     {
     }
 }
 ```
 
-Following table describe properties in the activity JSON definition:
+Following table describes properties in the activity JSON definition:
 
 | Tag | Description | Required |
 | --- | --- | --- |

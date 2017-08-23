@@ -25,7 +25,7 @@ The following limits apply only for networking resources managed through Azure R
 | Virtual networks |50 |500 |
 | Subnets per virtual network |1,000 |contact support |
 | DNS Servers per virtual network |9 |25 |
-| Private IP Addresses per virtual network |4096 |4096 |
+| Private IP Addresses per virtual network |4096 |8192 |
 | Private IP Addresses per network interface |50 |contact support |
 | Concurrent TCP connections for a virtual machine or role instance |500K |500K |
 | Network Interfaces (NIC) |300 |10000 |
@@ -43,5 +43,5 @@ The following limits apply only for networking resources managed through Azure R
 | Point-to-Site Root Certificates per VPN Gateway |20 |20 |
 | Secondary IP configurations per virtual network |1000 |contact support |
 
-[Contact support](../articles/azure-supportability/how-to-create-azure-support-request.md) in case you need to increase limits from default.
+[Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
 

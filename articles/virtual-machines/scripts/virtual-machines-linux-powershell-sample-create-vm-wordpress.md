@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Create a WordPress VM with PowerShell

@@ -4,7 +4,7 @@ description: Learn how Stream Analytics can target Azure Cosmos DB for JSON outp
 keywords: JSON output
 documentationcenter: ''
 services: stream-analytics,documentdb
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,13 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Target Azure Cosmos DB for JSON output from Stream Analytics
 Stream Analytics can target [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) for JSON output, enabling data archiving and low-latency queries on unstructured JSON data. This document covers some best practices for implementing this configuration.
 
-For those who are unfamiliar with Cosmos DB, take a look at [Azure Cosmos DB’s learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to get started.
+For those who are unfamiliar with Cosmos DB, take a look at [Azure Cosmos DB’s learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to get started. 
+
+Note: Mongo DB API based Cosmos DB collections is currently not supported. 
 
 ## Basics of Cosmos DB as an output target
 The Azure Cosmos DB output in Stream Analytics enables writing your stream processing results as JSON output into your Cosmos DB collection(s). Stream Analytics does not create collections in your database, instead requiring you to create them upfront. This is so that the billing costs of Cosmos DB collections are transparent to you, and so that you can tune the performance, consistency and capacity of your collections directly using the [Cosmos DB APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx). We recommend using one Cosmos DB Database per streaming job to logically separate your collections for a streaming job.
@@ -37,7 +39,7 @@ Stream Analytics integration with Cosmos DB allows you to insert or update recor
 Stream Analytics utilizes an optimistic Upsert approach, where updates are only done when insert fails due to a Document ID conflict. This update is performed by Stream Analytics as a PATCH, so it enables partial updates to the document, i.e. addition of new properties or replacing an existing property is performed incrementally. Note that changes in the values of array properties in your JSON document result in the entire array getting overwritten, i.e. the array is not merged.
 
 ## Data partitioning in Cosmos DB
-Cosmos DB [partitioned collections](../documentdb/documentdb-partition-data.md#single-partition-and-partitioned-collections) are the recommended approach for partitioning your data. 
+Cosmos DB [partitioned collections](../cosmos-db/partition-data.md) are the recommended approach for partitioning your data. 
 
 For single Cosmos DB collections, Stream Analytics still allows you to partition your data based on both the query patterns and performance needs of your application. Each collection may contain up to 10GB of data (maximum) and currently there is no way to scale up (or overflow) a collection. For scaling out, Stream Analytics allows you to write to multiple collections with a given prefix (see usage details below). Stream Analytics uses the consistent [Hash Partition Resolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) strategy based on the user provided PartitionKey column to partition its output records. The number of collections with the given prefix at the streaming job’s start time is used as the output partition count, to which the job writes to in parallel (Cosmos DB Collections = Output Partitions). For a single collection with lazy indexing doing only inserts, about 0.4 MB/s write throughput can be expected. Using multiple collections can allow you to achieve higher throughput and increased capacity.
 
