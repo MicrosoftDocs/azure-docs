@@ -1,5 +1,5 @@
 ---
-title: Publish a Docker container by using the Azure Toolkit for IntelliJ | Microsoft Docs
+title: Publish a Docker container by using the Azure Toolkit for IntelliJ
 description: Learn how to publish a web app to Microsoft Azure as a Docker container by using the Azure Toolkit for IntelliJ.
 services: ''
 documentationcenter: java
@@ -13,33 +13,44 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 08/20/2017
 ms.author: robmcm
 
 ---
 
 # Publish a web app as a Docker container by using the Azure Toolkit for IntelliJ
 
-Docker containers are a widely used method for deploying web applications. By using Docker containers, developers can consolidate all their project files and dependencies into a single package for deployment to a server. The Azure Toolkit for IntelliJ simplifies this process for Java developers by adding *Publish as Docker Container* features for deployment to Microsoft Azure. This article walks you through the steps required to publish your applications to Azure as Docker containers.
+[Docker] containers are a widely used method for deploying web applications. By using Docker containers, developers can consolidate all their project files and dependencies into a single package for deployment to a server. The Azure Toolkit for IntelliJ simplifies this process for Java developers by adding features for to deploy containers to Microsoft Azure.
 
-> [!NOTE]
->
-> More information about Docker is available on the [Docker website].
->
+This article demonstrates the steps that are required to publish your applications to Azure as Docker containers.
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-## Publish your web app to Azure by using a Docker container
-
-> [!NOTE]
-> * To publish your web app, you must create a deployment-ready artifact. To learn more, see the [Additional information about creating artifacts](#artifacts) section.
->
-> * After you have completed the deployment wizard at least once, most of your settings are used as defaults when you run the wizard again.
->
+## Deploy your web app to Azure in a Docker container
 
 1. Open your web app project in IntelliJ.
 
-2. To start the **Publish as Docker Container** wizard, do either of the following:
+1. Sign in to your Azure account using the steps in the [Sign In Instructions for the Azure Toolkit for IntelliJ] article.
+
+1. To publish your web app, you must create a deployment-ready artifact. After you have completed the deployment wizard at least once, most of your settings are used as defaults when you run the wizard again. To create a deployment-ready artifact, use the following steps:
+
+   a. Open your web app project in IntelliJ.
+
+   b. Click **File**, and then click **Project Structure**.
+
+      ![The Project Structure command][ART01]
+
+   c. To add an artifact, click the green plus sign (**+**), and then click **Web Application: Archive**.
+
+      ![The "Web Application: Archive" command][ART02]
+
+   d. In the **Name** box, enter a name for your artifact (do not include the *.war* extension), and then click **OK**.
+
+      ![The artifact Name box][ART03]
+
+      For more information about creating artifacts in IntelliJ, see [Configuring artifacts] on the JetBrains website.
+
+1. To start the **Publish as Docker Container** wizard, do either of the following:
 
    * In the **Project** tool window, right-click your project, click **Azure**, and then click **Publish as Docker Container**:
 
@@ -52,7 +63,7 @@ Docker containers are a widely used method for deploying web applications. By us
 
    ![The Deploy Docker Container on Azure wizard][PUB03]
 
-3. In the **Type an image name, select the artifact's path and check a Docker host to be used** window, do the following: 
+1. In the **Type an image name, select the artifact's path and check a Docker host to be used** window, do the following: 
 
    a. In the **Docker image name** box, enter a unique name for your Docker host. (The wizard automatically creates a name, but you can modify it.) 
 
@@ -63,7 +74,7 @@ Docker containers are a widely used method for deploying web applications. By us
 
       ![Deploy Docker Container on Azure Wizard][PUB04a]
 
-4. In the **Configure the new virtual machine** window, provide the following information about your Docker host. (The wizard automatically generates most of the information for you, but you can modify any of them.) 
+1. In the **Configure the new virtual machine** window, provide the following information about your Docker host. (The wizard automatically generates most of the information for you, but you can modify any of them.) 
 
    a. In the **Name** box, enter a unique name for the Docker host. (It is not the same as the Docker image name that you specified earlier.) 
     
@@ -87,12 +98,12 @@ Docker containers are a widely used method for deploying web applications. By us
       * **New storage account**: Create a storage account for your host.
       * **Existing storage account**: Specify an existing storage account from your Azure account.
        
-5. Click **Next**.  
+1. Click **Next**.  
      The **Configure log in credentials and port settings** window opens.
 
       ![The Configure log in credentials and port settings window][PUB05]
 
-6. Select one of the following options:
+1. Select one of the following options:
 
       * **Import credentials from Azure Key Vault**: Specify a previously saved set of credentials that are stored in your Azure subscription.
 
@@ -125,17 +136,17 @@ Docker containers are a widely used method for deploying web applications. By us
                    * *cert.pem* and *key.pem*: Contain client certificate and public key which will be used for TLS authentication.
                    * *server.pem* and *server-key.pem*: Contain the client certificate and public key that is used for TLS authentication.
 
-7. After you have entered the required information, click **Finish**.  
+1. After you have entered the required information, click **Finish**.  
     The **Deploy Docker Container on Azure** wizard reappears.
 
    ![Deploy Docker Container on Azure Wizard][PUB07]
 
-8. Click **Next**.  
+1. Click **Next**.  
     The **Configure the Docker container to be created** window opens.
 
    ![The Configure the Docker container to be created window][PUB08]
 
-9. In the **Configure the Docker container to be created** window, provide the following information: 
+1. In the **Configure the Docker container to be created** window, provide the following information: 
 
    a. In the **Docker container name** box, enter a unique name for your Docker container.
 
@@ -153,50 +164,17 @@ Docker containers are a widely used method for deploying web applications. By us
 
    c. In the **Port settings** box, enter the unique TCP port binding for your Docker container. 
 
-10. After you have completed the preceding steps, click **Finish**. 
+1. After you have completed the preceding steps, click **Finish**. 
 
 The Azure Toolkit begins deploying your web app to Azure in a Docker container. Unless you have configured IntelliJ to be deployed in the background, a **Deploying to Azure** progress bar appears. 
 
 ![The deployment progress bar][PUB09]
 
-<a name="artifacts"></a>
-## Additional information about creating artifacts
-
-To create a deployment-ready artifact, do the following:
-
-1. Open your web app project in IntelliJ.
-
-2. Click **File**, and then click **Project Structure**.
-
-   ![The Project Structure command][ART01]
-
-3. To add an artifact, click the green plus sign (**+**), and then click **Web Application: Archive**.
-
-   ![The "Web Application: Archive" command][ART02]
-
-4. In the **Name** box, enter a name for your artifact (do not include the *.war* extension), and then click **OK**.
-
-   ![The artifact Name box][ART03]
-
-For more information about creating artifacts in IntelliJ, see [Configuring artifacts] on the JetBrains website.
-
 ## Next steps
-For more information about the Azure Toolkits for Java IDEs, see the following resources:
 
-* [Azure Toolkit for Eclipse]
-  * [What's new in the Azure Toolkit for Eclipse]
-  * [Installing the Azure Toolkit for Eclipse]
-  * [Sign-in instructions for the Azure Toolkit for Eclipse]
-  * [Create a Hello World web app for Azure in Eclipse]
-* [Azure Toolkit for IntelliJ]
-  * [What's new in the Azure Toolkit for IntelliJ]
-  * [Installing the Azure Toolkit for IntelliJ]
-  * [Sign-in instructions for the Azure Toolkit for IntelliJ]
-  * [Create a Hello World web app for Azure in IntelliJ]
+[!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
-
-For additional resources for Docker, see the official [Docker website].
+For additional resources for Docker, see the official [Docker website][Docker].
 
 <!-- URL List -->
 
@@ -211,10 +189,13 @@ For additional resources for Docker, see the official [Docker website].
 [What's new in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [What's new in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
+[Azure portal]: https://portal.azure.com/
+[Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
+[Create Docker Registry using Azure CLI]: container-registry/container-registry-get-started-azure-cli.md
 
-[Docker website]: https://www.docker.com/
+[Docker]: https://www.docker.com/
 [Configuring artifacts]: https://www.jetbrains.com/help/idea/2016.1/configuring-artifacts.html
 
 <!-- IMG List -->
