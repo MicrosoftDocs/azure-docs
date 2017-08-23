@@ -31,7 +31,7 @@ Part 4 of the tutorial covers the following tasks:
 
 ## Video walkthrough
 
-> [!VIDEO https://www.youtube.com/embed/sI5hw6KPPXI]
+> [!VIDEO https://www.youtube.com/embed/hfUM-AbOh94]
 
 ## Prerequisites
 

@@ -34,7 +34,7 @@ Part 5 of the tutorial covers the following tasks:
 
 ## Video walkthrough
 
-> [!VIDEO https://www.youtube.com/embed/vlZRP0mDabM]
+> [!VIDEO https://www.youtube.com/embed/sl5hw6KPPXl]
 
 ## Prerequisites
 
