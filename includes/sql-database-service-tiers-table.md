@@ -9,7 +9,7 @@ sql-database-single-database-resources.md
 | :--- | --: |
 | Max DTUs | 5 |
 | Included storage (GB) | 2 |
-| Max storage (GB) | 2 |
+| Max storage choices (GB) | 2 |
 | Max in-memory OLTP storage (GB) |N/A |
 | Max concurrent workers (requests) | 30 |
 | Max concurrent logins | 30 |
@@ -21,7 +21,7 @@ sql-database-single-database-resources.md
 | :--- |---:| ---:|---:|---:|---:|
 | Max DTUs | 10 | 20 | 50 | 100 |
 | Included storage (GB) | 250 | 250 | 250 | 250 |
-| Max storage (GB)* | 250 | 250 | 250 | 1024 |
+| Max storage choices (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |
 | Max concurrent workers (requests)| 60 | 90 | 120 | 200 |
 | Max concurrent logins | 60 | 90 | 120 | 200 |
@@ -33,7 +33,7 @@ sql-database-single-database-resources.md
 | :--- |---:| ---:|---:|---:|---:|---:|
 | Max DTUs | 200 | 400 | 800 | 1600 | 3000 |
 | Included storage (GB) | 250 | 250 | 250 | 250 | 250 |
-| Max storage (GB)* | 1024| 1024 | 1024 | 1024 | 1024 |
+| Max storage choices (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |N/A |
 | Max concurrent workers (requests)| 400 | 800 | 1600 | 3200 |6000 |
 | Max concurrent logins | 400 | 800 | 1600 | 3200 |6000 |
@@ -45,7 +45,7 @@ sql-database-single-database-resources.md
 | :--- |---:|---:|---:|---:|---:|---:|
 | Max DTUs | 125 | 250 | 500 | 1000 | 1750 | 4000 |
 | Included storage (GB) | 500 | 500 | 500 | 500 | 4096 | 4096 |
-| Max storage (GB)* | 1024 | 1024 | 1024 | 1024 | 4096 | 4096 |
+| Max storage choices (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
 | Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Max concurrent workers (requests)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Max concurrent logins | 200 | 400 | 800 | 1600 | 2400 | 6400 |
@@ -57,7 +57,7 @@ sql-database-single-database-resources.md
 | :--- |---:|---:|---:|---:|---:|---:|
 | Max DTUs | 125 | 250 | 500 | 1000 |
 | Included storage (GB) | 500 | 500 | 500 | 500 |
-| Max storage (GB)* | 1024 | 1024 | 1024 | 1024 |
+| Max storage choices (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 |
 | Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 |
 | Max concurrent workers (requests)| 200 | 400 | 800 | 1600 |
 | Max concurrent logins | 200 | 400 | 800 | 1600 |

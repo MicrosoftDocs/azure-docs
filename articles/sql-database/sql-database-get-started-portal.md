@@ -37,7 +37,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-2. Select **Databases** from the **New** page, and select **SQL Database** from the **Databases** page.
+2. Select **Databases** from the **New** page, and select **Create** under **SQL Database** on the **New** page.
 
    ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -73,7 +73,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
 5. When you have completed the form, click **Select**.
 
-6. Click **Pricing tier** to specify the service tier and performance level for your new database. Use the slider to select **20 DTUs** and **250** GB of storage. For more information on DTUs, see [What is a DTU?](sql-database-what-is-a-dtu.md).
+6. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. For this quick start tutorial, select the **Standard** service tier and then use the slider to select **20 DTUs** and **40** GB of storage.
 
    ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
@@ -93,7 +93,9 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 > SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170313.database.windows.net**) and provides options for further configuration. Copy this fully qualified server name for use later.
+1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170824.database.windows.net**) and provides options for further configuration. 
+
+2. Copy this fully qualified server name for use later.
 
    > [!IMPORTANT]
    > You need this fully qualified server name to connect to your server and its databases in subsequent quick starts.
@@ -101,17 +103,17 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
    ![server name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-2. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
+3. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
 
    ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
-3. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+4. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
-4. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
+5. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
    ![set server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
-4. Click **OK** and then close the **Firewall settings** page.
+6. Click **OK** and then close the **Firewall settings** page.
 
 You can now connect to the SQL Database server and its databases using SQL Server Management Studio or another tool of your choice from this IP address using the server admin account created previously.
 
