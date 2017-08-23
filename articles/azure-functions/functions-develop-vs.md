@@ -13,7 +13,7 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: glenga, donnam
+ms.author: glenga
 ---
 # Azure Functions Tools for Visual Studio  
 

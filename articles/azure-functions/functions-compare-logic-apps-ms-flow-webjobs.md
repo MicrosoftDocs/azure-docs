@@ -15,7 +15,7 @@ ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/03/2017
-ms.author: chrande; glenga
+ms.author: glenga
 ms.custom: mvc
 ---
 # Choose between Flow, Logic Apps, Functions, and WebJobs

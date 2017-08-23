@@ -167,6 +167,7 @@ groupid=$(az ad group show --group exampleGroupName --query objectId --output ts
 
 Next, you need the role definition ID of the RBAC built-in role you want to grant access to the user, user group, or application. Typically, you use the Owner or Contributor or Reader role. The following command shows how to get the role definition ID for the Owner role:
 
+
 ```azurecli-interactive
 az role definition list --name owner
 ```

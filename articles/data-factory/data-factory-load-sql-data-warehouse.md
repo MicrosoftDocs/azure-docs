@@ -75,7 +75,7 @@ This article provides step-by-step instructions for moving data into Azure SQL D
 
     This experiment loads data into Azure SQL Data Warehouse using `xlargerc` resource class.
 
-    To achieve best possible throughput, copy needs to be performed using a SQL Data Warehouse user belonging to `xlargerc` resource class.  Learn how to do that by following [Change a user resource class example](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).  
+    To achieve best possible throughput, copy needs to be performed using a SQL Data Warehouse user belonging to `xlargerc` resource class.  Learn how to do that by following [Change a user resource class example](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).  
 * Create destination table schema in Azure SQL Data Warehouse database, by running the following DDL statement:
 
 	```SQL  

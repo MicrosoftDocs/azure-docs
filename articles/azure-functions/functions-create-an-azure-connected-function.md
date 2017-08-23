@@ -16,7 +16,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/01/2017
-ms.author: rachelap; glenga
+ms.author: glenga
 ms.custom: mvc
 
 ---
