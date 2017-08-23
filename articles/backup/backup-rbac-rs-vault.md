@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/10/2017
+ms.date: 8/22/2017
 ms.author: trinadhk;markgal
 
 ---
@@ -42,7 +42,7 @@ The following table captures the Backup management actions and corresponding min
 | Create Recovery Services vault | Contributor on Resource group of vault |
 | Enable backup of Azure VMs | Backup Operator on vault, Virtual machine contributor on VMs |
 | On-demand backup of VM | Backup operator |
-| Restore VM | Backup operator, Resource group contributor i|n which VM and Vnets are going to get deployed |
+| Restore VM | Backup operator, Resource group contributor in which VM and Vnets are going to get deployed |
 | Restore disks, individual files from VM backup | Backup operator |
 | Create backup policy for Azure VM backup | Backup contributor |
 | Modify backup policy of Azure VM backup | Backup contributor |
