@@ -1,4 +1,4 @@
----
+﻿---
 title: Performance counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET performance counters in Application Insights.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
-ms.author: sewhee
+ms.author: bwren
 
 ---
 # System performance counters in Application Insights

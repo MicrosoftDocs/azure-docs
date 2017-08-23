@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin;aelnably
+ms.author: cephalin
 
 ---
 # Restore an app in Azure
