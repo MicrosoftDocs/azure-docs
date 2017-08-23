@@ -46,7 +46,7 @@ See [Assigning administrator roles in Azure Active Directory (Azure AD)](https:/
 1. Download and install the Azure CLI following the instructions outlined in [Install the Azure CLI](../../cli-install-nodejs.md).
 2. Once the Azure CLI has been installed, you will be able to use the azure command from your command-line interface (Bash, Terminal, Command prompt) to access the Azure CLI commands. Type the _azure_ command and you should see the following output.
 
-    ![Azure Command Output](../media/storage-azure-cli/azure_command.png)   
+    ![Azure Command Output](./media/storage-azure-cli/azure_command.png)   
 3. In the command-line interface, type `azure storage` to list out all the azure storage commands and get a first impression of the functionalities the Azure CLI provides. You can type command name with **-h** parameter (for example, `azure storage share create -h`) to see details of command syntax.
 4. Now, we'll give you a simple script that shows basic Azure CLI commands to access Azure Storage. The script will first ask you to set two variables for your storage account and key. Then, the script will create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will download the image file to the destination directory which exists on the local computer.
 
