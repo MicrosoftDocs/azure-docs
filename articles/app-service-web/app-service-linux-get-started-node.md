@@ -30,23 +30,20 @@ Before running this sample, install the following prerequisites:
 
 * [Git](https://git-scm.com/)
 * [Node.js and NPM](https://nodejs.org/)
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 
-Clone the Hello World sample app repository to your local machine.
+Clone the Hello World sample app repository to your local machine, and change to the directory that contains the sample code.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
-```
-
-Change to the directory that contains the sample code.
-
-```bash
 cd nodejs-docs-hello-world
 ```
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 
 ## Run the app locally
 
@@ -72,29 +69,17 @@ In your terminal window, press `Ctrl+C` to exit the web server.
 
 We are now going to use the Azure CLI 2.0 in a terminal window to create the resources needed to host our Node.js app in Azure. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
-## Configure a Deployment User
-
-For FTP and local Git it is necessary to have a deployment user configured on the server to authenticate your deployment. Creating a deployment user is a one time configuration, so record the username and password to use in later steps.
-
-> [!NOTE]
-> A deployment user is required for FTP and Local Git deployment. The user name and password are account-level and are different from your Azure Subscription credentials. These credentials are only required to be created once.
->
-
-Use the [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) command to create your account-level credentials.
-
-```azurecli
-az appservice web deployment user set --user-name <username> --password <password>
-```
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
 
 ## Create a resource group
 
 Create a resource group with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources such as web apps, databases, and storage accounts.
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 
@@ -114,7 +99,7 @@ Create a Linux-based App Service Plan with the [az appservice plan create](/cli/
 
 The following example creates an App Service Plan on Linux workers named `quickStartPlan` using the **Standard** pricing tier.
 
-```azurecli
+```azurecli-interactive
 az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku S1 --is-linux
 ```
 
@@ -138,12 +123,12 @@ When the App Service Plan has been created, the Azure CLI shows information simi
 
 ## Create a web app
 
-Now that an App Service plan has been created, create a web app within the `quickStartPlan` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the web app.
+Now that an App Service plan has been created, create a web app within the `quickStartPlan` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) command to create the web app.
 
 In the following command, substitute your own unique app name where you see the <app_name> placeholder. The <app_name> is used as the default DNS site for the web app, and so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users.
 
-```azurecli
-az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
+```azurecli-interactive
+az webapp create --name <app_name> --plan quickStartPlan --resource-group myResourceGroup
 ```
 
 When the web app has been created, the Azure CLI shows information similar to the following example:
@@ -178,23 +163,23 @@ We’ve now created an empty new web app in Azure. Let’s now configure our web
 
 ## Configure web app to use Node.js
 
-Use the [az appservice web config update](/cli/azure/app-service/web/config#update) command to configure the web app to use Node.js version `6.9.3`.
+Use the [az webapp config](/cli/azure/app-service/web/config) command to configure the web app to use Node.js version `8.1`.
 
 > [!TIP]
-> Setting the Node.js version using the Azure CLI uses a default container provided by the platform. If you wish use your own container, refer to the CLI reference for the [az appservice web config container update](/cli/azure/appservice/web/config/container#update) command.
+> Setting the Node.js version using the Azure CLI uses a default container provided by the platform. If you wish use your own container, refer to the CLI reference for the [az webapp config](/cli/azure/app-service/web/config) command.
 
-```azurecli
-az appservice web config update --linux-fx-version "NODE|6.9.3" --startup-file process.json --name <app_name> --resource-group myResourceGroup
+```azurecli-interactive
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.1
 ```
 
 ## Configure local git deployment
 
 You can deploy to your web app in a variety of ways including FTP, local Git and GitHub, Visual Studio Team Services, or Bitbucket.
 
-Use the [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) command to configure local git access to the web app.
+Use the [az webapp deployment source](/cli/azure/webapp/deployment/source#config-local-git) command to configure local git access to the web app.
 
-```azurecli
-az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
+```azurecli-interactive
+az webapp deployment source config-local-git --name <app_name> --resource-group myResourceGroup
 ```
 
 Copy the output from the terminal as it is used in the next step.
@@ -213,7 +198,7 @@ git remote add azure <paste-previous-command-output-here>
 
 Push to the Azure remote to deploy your application. You are prompted for the password you supplied earlier when you created the deployment user.
 
-```azurecli
+```bash
 git push azure master
 ```
 
