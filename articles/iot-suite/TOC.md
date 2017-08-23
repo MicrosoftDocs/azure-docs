@@ -23,7 +23,7 @@
 ### [Manage your devices](iot-suite-remote-monitoring-manage.md)
 ### [Troubleshoot device issues](iot-suite-remote-monitoring-maintain.md)
 ### [Use simulated devices](iot-suite-remote-monitoring-test.md)
-### Connect a generic device
+### Connect a physical device
 #### [C on Windows](iot-suite-connecting-devices.md)
 #### [C on Linux](iot-suite-connecting-devices-linux.md)
 #### [Node.js](iot-suite-connecting-devices-node.md)
