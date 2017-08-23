@@ -27,7 +27,7 @@ This **menu** links to topics that describe how to ingest data into target envir
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
+* Created an Azure storage account. If you need instructions, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 * Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Customize Azure HDInsight Hadoop clusters for advanced analytics](machine-learning-data-science-customize-hadoop-cluster.md).
 * Enabled remote access to the cluster, logged in, and opened the Hadoop Command-Line console. If you need instructions, see [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
