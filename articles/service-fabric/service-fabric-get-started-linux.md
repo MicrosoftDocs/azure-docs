@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/21/2017
+ms.date: 8/23/2017
 ms.author: subramar
 
 ---
@@ -111,6 +111,7 @@ After you have updated your sources, you can install the SDK. Install the Servic
   >
 
 ## Install and set up the generators for containers and guest-executables
+Service Fabric provides scaffolding tools which will help you create a Service Fabric applications from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator for working on your machine.
 
 1. Install nodejs and NPM on your machine
 
@@ -126,8 +127,8 @@ After you have updated your sources, you can install the SDK. Install the Servic
 3. Install the Service Fabric Yeo container generator and guest execuatble generator from NPM
 
   ```bash
-  sudo npm install -g generator-azuresfcontainer
-  sudo npm install -g generator-azuresfguest
+  sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
+  sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
   ```
 
 After you have installed the above generators, you should be able to create apps with guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer` respectively.
@@ -139,7 +140,7 @@ After you have installed the above generators, you should be able to create apps
 For more information about installing Azure CLI 2.0 and using the Service Fabric commands, see [Get started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md).
 
 
-## Install the required Java artifacts (optional, if you want to use the Java programming models)
+## Install the necessary Java artifacts (optional, if you want to use the Java programming models)
 
 To build Service Fabric services using Java, ensure you have JDK 1.8 installed along with Gradle which is used for running build tasks. The following snippet installs Open JDK 1.8 along with Gradle. The Service Fabric Java libraries are pulled from Maven.
 

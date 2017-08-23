@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 08/23/2017
 ms.author: saysa
 
 ---
@@ -55,8 +55,8 @@ Replace ``[REMOTE_FILE_SHARE_LOCATION]`` with the value ``//sfjenkinsstorage1.fi
 Replace ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` with the value ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` from point 3 above.
 
 5. Connect to the cluster and install the container application.
-```sh
-azure servicefabric cluster connect http://PublicIPorFQDN:19080   # Azure CLI cluster connect command
+```bash
+sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # Azure CLI cluster connect command
 bash Scripts/install.sh
 ```
 This installs a Jenkins container on the cluster, and can be monitored by using the Service Fabric Explorer.
