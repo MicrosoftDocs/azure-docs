@@ -187,15 +187,15 @@ The science and art of interpreting these results and tuning the model performan
 - - -
 **Next: [Deploy the web service](walkthrough-5-publish-web-service.md)**
 
-[0]: ../media/machine-learning-walkthrough-4-train-and-evaluate-models/train-model-select-column.png
-[1]: ../media/machine-learning-walkthrough-4-train-and-evaluate-models/experiment-with-train-model.png
-[2]: ../media/machine-learning-walkthrough-4-train-and-evaluate-models/svm-model-added.png
-[3]: ../media/machine-learning-walkthrough-4-train-and-evaluate-models/final-experiment.png
-[4]: ../media/machine-learning-walkthrough-4-train-and-evaluate-models/roc-curves.png
-[5]: ../media/machine-learning-walkthrough-4-train-and-evaluate-models/normalize-data-select-column.png
-[6]: ../media/machine-learning-walkthrough-4-train-and-evaluate-models/score-model-connected.png
-[7]: ../media/machine-learning-walkthrough-4-train-and-evaluate-models/both-score-models-added.png
-[8]: ../media/machine-learning-walkthrough-4-train-and-evaluate-models/evaluate-model-added.png
+[0]: ./media/walkthrough-4-train-and-evaluate-models/train-model-select-column.png
+[1]: ./media/walkthrough-4-train-and-evaluate-models/experiment-with-train-model.png
+[2]: ./media/walkthrough-4-train-and-evaluate-models/svm-model-added.png
+[3]: ./media/walkthrough-4-train-and-evaluate-models/final-experiment.png
+[4]: ./media/walkthrough-4-train-and-evaluate-models/roc-curves.png
+[5]: ./media/walkthrough-4-train-and-evaluate-models/normalize-data-select-column.png
+[6]: ./media/walkthrough-4-train-and-evaluate-models/score-model-connected.png
+[7]: ./media/walkthrough-4-train-and-evaluate-models/both-score-models-added.png
+[8]: ./media/walkthrough-4-train-and-evaluate-models/evaluate-model-added.png
 
 
 <!-- Module References -->

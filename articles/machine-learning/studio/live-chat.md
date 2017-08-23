@@ -22,11 +22,11 @@ ms.author: garye
 
 But sometimes you just need to ask a quick question to unblock you. In [Machine Learning Studio](http://studio.azureml.net/Home) look for the chat icon in the top navigation.  If you see this icon, that means a member of the product team is online to help you in real time.
 
-![Azure ML Chat](../media/machine-learning-live-chat/AzureMLChatNavBar.png)
+![Azure ML Chat](./media/live-chat/AzureMLChatNavBar.png)
 
 Type in your question and get your answers!
 
-![Azure ML Chat Dialog](../media/machine-learning-live-chat/AzureMLChat.png)
+![Azure ML Chat Dialog](./media/live-chat/AzureMLChat.png)
 
 **Don't see the Live Chat Icon?**
 

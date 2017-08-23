@@ -66,7 +66,7 @@ An RRS call is made in these two situations:
 1. The first time a row has content in all of its **PARAMETERS**
 2. Any time any of the **PARAMETERS** changes in a row that had all of its **PARAMETERS** entered.
 
-[1]: ../media/machine-learning-consuming-from-excel/excellink.png
-[2]: ../media/machine-learning-consuming-from-excel/enableeditting.png
-[3]: ../media/machine-learning-consuming-from-excel/enablecontent.png
-[4]: ../media/machine-learning-consuming-from-excel/sampletable.png
+[1]: ./media/consuming-from-excel/excellink.png
+[2]: ./media/consuming-from-excel/enableeditting.png
+[3]: ./media/consuming-from-excel/enablecontent.png
+[4]: ./media/consuming-from-excel/sampletable.png

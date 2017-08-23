@@ -37,7 +37,7 @@ You also can get the complete, current list of installed packages by entering th
 This sends the list of packages to the output port of the [Execute R Script][execute-r-script] module.
 To view the package list, connect a conversion module such as [Convert to CSV][convert-to-csv] to the left output of the [Execute R Script][execute-r-script] module, run the experiment, then click the output of the conversion module and select **Download**. 
 
-![Download output of "Convert to CSV" module](../media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
+![Download output of "Convert to CSV" module](./media/extend-your-experiment-with-r/download-package-list.png)
 
 
 <!--

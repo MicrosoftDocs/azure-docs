@@ -451,13 +451,13 @@ several languages.
 
 <!-- Media -->
 
-[1]: ../media/machine-learning-algorithm-choice/image1.png
-[2]: ../media/machine-learning-algorithm-choice/image2.png
-[3]: ../media/machine-learning-algorithm-choice/image3.png
-[4]: ../media/machine-learning-algorithm-choice/image4.png
-[5]: ../media/machine-learning-algorithm-choice/image5.png
-[6]: ../media/machine-learning-algorithm-choice/image6.png
-[7]: ../media/machine-learning-algorithm-choice/image7.png
-[8]: ../media/machine-learning-algorithm-choice/image8.png
-[9]: ../media/machine-learning-algorithm-choice/image9.png
-[10]: ../media/machine-learning-algorithm-choice/image10.png
+[1]: ./media/algorithm-choice/image1.png
+[2]: ./media/algorithm-choice/image2.png
+[3]: ./media/algorithm-choice/image3.png
+[4]: ./media/algorithm-choice/image4.png
+[5]: ./media/algorithm-choice/image5.png
+[6]: ./media/algorithm-choice/image6.png
+[7]: ./media/algorithm-choice/image7.png
+[8]: ./media/algorithm-choice/image8.png
+[9]: ./media/algorithm-choice/image9.png
+[10]: ./media/algorithm-choice/image10.png

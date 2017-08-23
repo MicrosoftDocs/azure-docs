@@ -75,7 +75,7 @@ For example, suppose you have the experiment run history shown in the previous s
 You can now continue to modify and run this version of your experiment, building a new run history to record your work.
 
 <!-- Images -->
-[runhistory]:../media/machine-learning-manage-experiment-iterations/viewrunhistory.jpg
+[runhistory]:./media/manage-experiment-iterations/viewrunhistory.jpg
 
 
 <!-- Module References -->

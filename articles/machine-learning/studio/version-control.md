@@ -27,11 +27,11 @@ There are two recommended ways to version your experiments. You can either rely 
 ### Experiment snapshots using Run History
 In the execution model of the Azure Machine Learning Studio learning experiment, every time you click the **Run** button in the experiment editor, an immutable snapshot of the experiment is submitted to the job scheduler. You can view this list of snapshots by clicking the **Run History** button on the command bar in the experiment editor view.
 
-![Run History button](../media/machine-learning-version-control/runhistory.png)
+![Run History button](./media/version-control/runhistory.png)
 
 You can then open the snapshot in Locked mode by clicking the name of the experiment at the time the experiment was submitted to run and the snapshot was taken. Notice that only the first item in the list, which represents the current experiment, is in an Editable state. Also notice that each snapshot can be in various Status states as well, including Finished (Partial run), Failed, Failed (Partial run), or Draft.
 
-![Run History list](../media/machine-learning-version-control/runhistorylist.png)
+![Run History list](./media/version-control/runhistorylist.png)
 
 After it's opened, you can save the snapshot experiment as a new experiment and then modify it. If your experiment snapshot contains assets such as a trained model, transform, or dataset that have updated versions, the snapshot retains the references to the original version when the snapshot was taken. If you save the locked snapshot as a new experiment, Azure Machine Learning Studio detects the existence of a newer version of these assets, and automatically updates them in the new experiment.
 

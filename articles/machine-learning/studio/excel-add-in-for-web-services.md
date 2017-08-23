@@ -81,9 +81,9 @@ If you save your workbook, then the API/Primary key for the web services you hav
 
 Ask any questions in the following comment section or on our [forum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 
-[01]: ../media/machine-learning-excel-add-in-for-web-services/image1.png
-[02]: ../media/machine-learning-excel-add-in-for-web-services/image2.png
-[03]: ../media/machine-learning-excel-add-in-for-web-services/image3.png
-[04]: ../media/machine-learning-excel-add-in-for-web-services/image4.png
-[05]: ../media/machine-learning-excel-add-in-for-web-services/image5.png
-[06]: ../media/machine-learning-excel-add-in-for-web-services/image6.png
+[01]: ./media/excel-add-in-for-web-services/image1.png
+[02]: ./media/excel-add-in-for-web-services/image2.png
+[03]: ./media/excel-add-in-for-web-services/image3.png
+[04]: ./media/excel-add-in-for-web-services/image4.png
+[05]: ./media/excel-add-in-for-web-services/image5.png
+[06]: ./media/excel-add-in-for-web-services/image6.png

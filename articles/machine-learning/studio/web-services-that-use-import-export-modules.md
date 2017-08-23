@@ -28,7 +28,7 @@ This topic uses the "Sample 5: Train, Test, Evaluate for Binary Classification: 
 ## Create the training experiment
 When you open the "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" sample it uses the sample Adult Census Income Binary Classification dataset. And the experiment in the canvas will look similar to the following image:
 
-![Initial configuration of the experiment.](../media/machine-learning-web-services-that-use-import-export-modules/initial-look-of-experiment.png)
+![Initial configuration of the experiment.](./media/web-services-that-use-import-export-modules/initial-look-of-experiment.png)
 
 To read the data from the Azure SQL table:
 
@@ -84,7 +84,7 @@ To configure the Web Service Parameters for the import query and the destination
 
 When you are done, your experiment should look similar to the following image:
 
-![Final look of experiment.](../media/machine-learning-web-services-that-use-import-export-modules/experiment-with-import-data-added.png)
+![Final look of experiment.](./media/web-services-that-use-import-export-modules/experiment-with-import-data-added.png)
 
 Now you can deploy the experiment as a web service.
 

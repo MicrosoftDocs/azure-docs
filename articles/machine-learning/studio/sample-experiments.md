@@ -42,11 +42,11 @@ To browse all experiments:
    * **Select filters on the left.** For example, to browse experiments that use a PCA-based anomaly detection algorithm: With **Experiment** selected under **Categories**, click **Show all**. Then, under **Algorithms Used**, choose **PCA-Based Anomaly Detection**. <br></br>
      ![Select filters](./media/machine-learning-sample-experiments/refine-the-view.png)
    * **Use the search box.** For example, to find experiments contributed by Microsoft related to digit recognition that use a two-class support vector machine algorithm, enter "digit recognition" in the search box. Then, select the filters **Experiment**, **Microsoft content only**, and **Two-Class Support Vector Machine**:<br></br>
-     ![Use the search box](../media/machine-learning-sample-experiments/search-for-experiments.png)
+     ![Use the search box](./media/sample-experiments/search-for-experiments.png)
 4. Click an experiment to learn more about it.
 5. To run and/or modify the experiment, click **Open in Studio** on the experiment's page. <br></br>
 
-    ![Example experiment](../media/machine-learning-sample-experiments/example-experiment.png)
+    ![Example experiment](./media/sample-experiments/example-experiment.png)
 
     > [!NOTE]
     > When you open an experiment in Machine Learning Studio for the first time, you can try it for free or buy an Azure subscription. [Learn about the Machine Learning Studio free trial vs. paid service](https://azure.microsoft.com/pricing/details/machine-learning/)

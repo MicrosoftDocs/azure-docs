@@ -55,16 +55,16 @@ You can add an endpoint to your Web service programmatically using the [AddEndpo
 ## Adding an endpoint using the Azure classic portal
 1. Sign in to the [Azure classic portal](http://manage.windowsazure.com), click **Machine Learning** in the left column. Click the workspace which contains the Web service in which you are interested.
    
-    ![Navigate to workspace](../media/machine-learning-create-endpoint/figure-1.png)
+    ![Navigate to workspace](./media/create-endpoint/figure-1.png)
 2. Click **Web Services**.
    
-    ![Navigate to Web services](../media/machine-learning-create-endpoint/figure-2.png)
+    ![Navigate to Web services](./media/create-endpoint/figure-2.png)
 3. Click the Web service you're interested in to see the list of available endpoints.
    
-    ![Navigate to endpoint](../media/machine-learning-create-endpoint/figure-3.png)
+    ![Navigate to endpoint](./media/create-endpoint/figure-3.png)
 4. At the bottom of the page, click **Add Endpoint**. Type a name and description, ensure there are no other endpoints with the same name in this Web service. Leave the throttle level with its default value unless you have special requirements. To learn more about throttling, see [Scaling API Endpoints](scaling-webservice.md).
    
-    ![Create endpoint](../media/machine-learning-create-endpoint/figure-4.png)
+    ![Create endpoint](./media/create-endpoint/figure-4.png)
 
 ## Next Steps
 [How to consume an Azure Machine Learning Web service](consume-web-services.md).

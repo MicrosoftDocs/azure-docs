@@ -37,5 +37,5 @@ Keep in mind that using a high concurrency count can be detrimental if you're no
 The synchronous APIs are typically used in situations where a low latency is desired. Latency here implies the time it takes for the API to complete one request, and doesn't account for any network delays. Let's say you have an API with a 50-ms latency. To fully consume the available capacity with throttle level High and Max Concurrent Calls = 20, you need to call this API 20 * 1000 / 50 = 400 times per second. Extending this further, a Max Concurrent Calls of 200 allows you to call the API 4000 times per second, assuming a 50-ms latency.
 
 <!--Image references-->
-[1]: ../media/machine-learning-scaling-webservice/machlearn-1.png
-[2]: ../media/machine-learning-scaling-webservice/machlearn-2.png
+[1]: ./media/scaling-webservice/machlearn-1.png
+[2]: ./media/scaling-webservice/machlearn-2.png

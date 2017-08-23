@@ -57,5 +57,5 @@ After your workspace is created, open Machine Learning Studio ([https://studio.a
 - - -
 **Next: [Upload existing data](walkthrough-2-upload-data.md)**
 
-[1]: ../media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
-[2]: ../media/machine-learning-walkthrough-1-create-ml-workspace/open-workspace.png
+[1]: ./media/walkthrough-1-create-ml-workspace/create1.png
+[2]: ./media/walkthrough-1-create-ml-workspace/open-workspace.png

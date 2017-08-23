@@ -34,7 +34,7 @@ To create your account, call Microsoft Customer Service and Support (CSS) and pr
 
 After your account is created, you use the Pool Service URL and authorization key to perform pool management operations on your Batch Pool.
 
-![Batch pool service architecture.](../media/machine-learning-dedicated-capacity-for-bes-jobs/pool-architecture.png)
+![Batch pool service architecture.](./media/dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
 You create pools by calling the Create Pool operation on the pool service URL that CSS provided to you. When you create a pool, specify the number of VMs and the URL of the swagger.json of a New Resource Manager based Machine Learning web service. This web service is provided to establish the billing association. The Batch Pool service uses the swagger.json to associate the pool with a billing plan. You can run any BES web service, both New Resource Manager based and classic, you choose on the pool.
 

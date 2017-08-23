@@ -342,33 +342,33 @@ Want to learn more? For a more extensive and detailed walkthrough of the process
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
 <!-- Images -->
-[sign-in-to-studio]: ../media/machine-learning-create-experiment/sign-in-to-studio.png
-[rename-experiment]: ../media/machine-learning-create-experiment/rename-experiment.png
-[visualize-auto-data]:../media/machine-learning-create-experiment/visualize-auto-data.png
-[select-visualize]: ../media/machine-learning-create-experiment/select-visualize.png
-[showing-excluded-column]:../media/machine-learning-create-experiment/showing-excluded-column.png
-[set-remove-entire-row]:../media/machine-learning-create-experiment/set-remove-entire-row.png
-[early-experiment-run]:../media/machine-learning-create-experiment/early-experiment-run.png
-[select-columns-to-include]:../media/machine-learning-create-experiment/select-columns-to-include.png
-[second-experiment-run]:../media/machine-learning-create-experiment/second-experiment-run.png
-[connect-score-model]:../media/machine-learning-create-experiment/connect-score-model.png
-[evaluation-results]:../media/machine-learning-create-experiment/evaluation-results.png
-[complete-linear-regression-experiment]:../media/machine-learning-create-experiment/complete-linear-regression-experiment.png
+[sign-in-to-studio]: ./media/create-experiment/sign-in-to-studio.png
+[rename-experiment]: ./media/create-experiment/rename-experiment.png
+[visualize-auto-data]:./media/create-experiment/visualize-auto-data.png
+[select-visualize]: ./media/create-experiment/select-visualize.png
+[showing-excluded-column]:./media/create-experiment/showing-excluded-column.png
+[set-remove-entire-row]:./media/create-experiment/set-remove-entire-row.png
+[early-experiment-run]:./media/create-experiment/early-experiment-run.png
+[select-columns-to-include]:./media/create-experiment/select-columns-to-include.png
+[second-experiment-run]:./media/create-experiment/second-experiment-run.png
+[connect-score-model]:./media/create-experiment/connect-score-model.png
+[evaluation-results]:./media/create-experiment/evaluation-results.png
+[complete-linear-regression-experiment]:./media/create-experiment/complete-linear-regression-experiment.png
 
 <!-- temporarily switching GIFs to PNGs to remove animation --> 
-[type-automobile]:../media/machine-learning-create-experiment/type-automobile.png
-[type-select-columns]:../media/machine-learning-create-experiment/type-select-columns.png
-[launch-column-selector]:../media/machine-learning-create-experiment/launch-column-selector.png
-[add-comment]:../media/machine-learning-create-experiment/add-comment.png
-[connect-clean-to-select]:../media/machine-learning-create-experiment/connect-clean-to-select.png
+[type-automobile]:./media/create-experiment/type-automobile.png
+[type-select-columns]:./media/create-experiment/type-select-columns.png
+[launch-column-selector]:./media/create-experiment/launch-column-selector.png
+[add-comment]:./media/create-experiment/add-comment.png
+[connect-clean-to-select]:./media/create-experiment/connect-clean-to-select.png
 
-[set-split-data-percentage]:../media/machine-learning-create-experiment/set-split-data-percentage.png
+[set-split-data-percentage]:./media/create-experiment/set-split-data-percentage.png
 
 <!-- temporarily switching GIFs to PNGs to remove animation --> 
-[connect-train-model]:../media/machine-learning-create-experiment/connect-train-model.png
-[select-price-column]:../media/machine-learning-create-experiment/select-price-column.png
+[connect-train-model]:./media/create-experiment/connect-train-model.png
+[select-price-column]:./media/create-experiment/select-price-column.png
 
-[score-model-output]:../media/machine-learning-create-experiment/score-model-output.png
+[score-model-output]:./media/create-experiment/score-model-output.png
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

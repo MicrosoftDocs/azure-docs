@@ -120,12 +120,12 @@ For more information on the complete deployment process, see [Deploy an Azure Ma
 
 
 <!-- Images -->
-[figure1]:../media/machine-learning-convert-training-experiment-to-scoring-experiment/figure1.png
-[figure2]:../media/machine-learning-convert-training-experiment-to-scoring-experiment/figure2.png
-[figure3]:../media/machine-learning-convert-training-experiment-to-scoring-experiment/figure3.png
-[figure4]:../media/machine-learning-convert-training-experiment-to-scoring-experiment/figure4.png
-[figure5]:../media/machine-learning-convert-training-experiment-to-scoring-experiment/figure5.png
-[figure6]:../media/machine-learning-convert-training-experiment-to-scoring-experiment/figure6.png
+[figure1]:./media/convert-training-experiment-to-scoring-experiment/figure1.png
+[figure2]:./media/convert-training-experiment-to-scoring-experiment/figure2.png
+[figure3]:./media/convert-training-experiment-to-scoring-experiment/figure3.png
+[figure4]:./media/convert-training-experiment-to-scoring-experiment/figure4.png
+[figure5]:./media/convert-training-experiment-to-scoring-experiment/figure5.png
+[figure6]:./media/convert-training-experiment-to-scoring-experiment/figure6.png
 
 
 <!-- Module References -->

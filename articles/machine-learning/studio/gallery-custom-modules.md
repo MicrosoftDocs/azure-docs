@@ -29,11 +29,11 @@ Currently, the Gallery offers modules on *time series analytics*, *association r
 ## Discover
 To browse custom modules [in the Gallery](http://gallery.cortanaintelligence.com), under **More**, select **Custom Modules**.
 
-![Select Custom Modules on the Gallery home page](../media/machine-learning-gallery-custom-modules/select-custom-modules-in-gallery.png)
+![Select Custom Modules on the Gallery home page](./media/gallery-custom-modules/select-custom-modules-in-gallery.png)
 
 The **[Custom Modules](https://gallery.cortanaintelligence.com/customModules)** page displays a list of recently added and popular modules. To view all custom modules, select the **See all** button. To search for a specific custom module, select **See all**, and then select filter criteria. You also can enter search terms in the **Search** box at the top of the Gallery page.
 
-![Select "See all" to browse all custom modules](../media/machine-learning-gallery-custom-modules/click-see-all-for-all-custom-modules.png)
+![Select "See all" to browse all custom modules](./media/gallery-custom-modules/click-see-all-for-all-custom-modules.png)
 
 ### Understand
 
@@ -42,9 +42,9 @@ To understand how a published custom module works, select the custom module to o
 ### Comment and share
 On a custom module details page, in the **Comments** section, you can comment, provide feedback, or ask questions about the module. You can even share the module with friends or colleagues on Twitter or LinkedIn. You also can email a link to the module details page, to invite other users to view the page.
 
-![Share this item with friends](../media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
+![Share this item with friends](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
-![Add your own comments](../media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
+![Add your own comments](./media/gallery-how-to-use-contribute-publish/comments.png)
 
 ## Import
 You can import any custom module from the Gallery to your own experiments.
@@ -59,7 +59,7 @@ Cortana Intelligence Gallery offers two ways to import a copy of the module:
 1. In the Gallery, open the module details page. 
 2. Select **Open in Studio**.
    
-    ![Open custom module from the Gallery](../media/machine-learning-gallery-custom-modules/open-custom-module-from-gallery.png)
+    ![Open custom module from the Gallery](./media/gallery-custom-modules/open-custom-module-from-gallery.png)
    
 Each custom module includes a sample experiment that demonstrates how to use the module. When you select **Open in Studio**, the sample experiment opens in your Machine Learning Studio workspace. (If you're not already signed in to Studio, you are prompted to first sign in by using your Microsoft account.)
 
@@ -71,7 +71,7 @@ In addition to the sample experiment, the custom module is copied to your worksp
 2. Select **Module**. You can choose from a list of Gallery modules, or find a specific module by using the **Search** box.
 3. Point your mouse at a module, and then select **Import Module**. (To get information about the module, select **View in Gallery**. This takes you to the module details page in the Gallery.)
    
-    ![Import custom module into Machine Learning Studio](../media/machine-learning-gallery-custom-modules/add-custom-module-in-studio.png)
+    ![Import custom module into Machine Learning Studio](./media/gallery-custom-modules/add-custom-module-in-studio.png)
 
 The custom module is copied to your workspace and placed in your module palette, with your built-in or custom Machine Learning Studio modules. You can now use it in your own experiments, like any other module in your workspace.
 
@@ -84,7 +84,7 @@ To use an imported module:
 1. Create an experiment, or open an existing experiment.
 2. To expand the list of custom modules in your workspace, in the module palette, select **Custom**. The module palette is to the left of the experiment canvas.
    
-    ![Custom module list in Studio palette](../media/machine-learning-gallery-custom-modules/custom-module-in-studio-palette.png)
+    ![Custom module list in Studio palette](./media/gallery-custom-modules/custom-module-in-studio-palette.png)
 3. Select the module that you imported, and drag it to your experiment.
 
 
