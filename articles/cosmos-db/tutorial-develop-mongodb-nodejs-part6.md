@@ -35,7 +35,7 @@ Part 6 of the tutorial covers the following tasks:
 
 Before starting this part of the tutorial, ensure you've completed the steps in [Part 5](tutorial-develop-mongodb-nodejs-part5.md) of the tutorial.
 
-## Add a Post functions to hero service
+## Add a Post function to the hero service
 
 1. In Visual Studio Code, open routes.js and hero.service.js side by side. using the Split Editor screen by pressing the Split Editor button ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png).
 
@@ -45,8 +45,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     
     Let's start by coding up the hero service. 
 
-2. Copy the following code into hero.service.js. This code:
-    
+2. Copy the following code into hero.service.js. This code:  
     * Use the hero model to post a new hero
     * Check the responses to see if there's an error and return a status value of 500
 

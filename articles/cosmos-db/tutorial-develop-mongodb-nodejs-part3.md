@@ -65,7 +65,6 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
     ![Open the app-module.ts file](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
 
-
     Now that you have your Heroes component, create a new file for the heroes component HTML. Because we created a minimal app, it was going to put the HTML in the same file as the typescript file, but we want to break it out and create a separate file.
 
 5. In the Explorer pane, right-click the app folder, click New File, and name the new file heroes.component.ts.
@@ -375,7 +374,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Display the component
 
-Now that we have the component set, how do we get it to show up on the screen? There are the default components in app.component.ts.
+Now that we have the component set, how do we get it to show up on the screen? Let's modify the default components in app.component.ts.
 
 1. In Visual Studio Code, open app/app.component.ts.
 
