@@ -52,7 +52,7 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 The manifest file is found in the following directory of the cloned repo.
 
 ```bash
-/azure-voting-app-redis/kubernetes-manifests/
+/azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yaml
 ```
 
 ## Update manifest file

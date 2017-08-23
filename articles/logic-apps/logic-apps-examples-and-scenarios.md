@@ -38,7 +38,7 @@ your workflow can start with a schedule event,
 a manual invocation, or an event from an external system, 
 such as the "when a file is added to an FTP server" trigger. 
 Azure Logic Apps currently supports over 100 ready-to-use connectors, 
-ranging from on-premises SAP to Azure Cognitive Services. 
+ranging from on-premises SAP to Microsoft Cognitive Services. 
 For systems and services that might not have published connectors, 
 you can also extend logic apps.
 
@@ -103,6 +103,10 @@ for example, REST and SOAP.
 * [Call Azure Functions from logic apps](../logic-apps/logic-apps-azure-functions.md)
 * [Scenario: Trigger logic apps with Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Blog: Call SOAP endpoints from logic apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+
+## End-to-end scenarios
+
+* [Whitepaper: Enterprise integration end-to-end case management with Azure services, like Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
 ## Next steps
 
