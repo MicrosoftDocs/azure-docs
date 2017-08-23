@@ -45,9 +45,8 @@ To create a load balancer rule, you need to collect the following information:
 >[!NOTE]
 >If you need to determine the name of the load balancer, use this command to quickly get a list of all load balancers and the associated resource groups.
 >
->```azurecli
->az network lb list --query "[].{ResourceGroup: resourceGroup, Name: name}"
->```
+>`az network lb list --query "[].{ResourceGroup: resourceGroup, Name: name}"`
+>
 
 It only takes a single command to create a load balancer rule with the **Azure CLI**. You just need to know both the name of the load balancer and resource group to create a new rule.
 
@@ -74,9 +73,7 @@ The Azure CLI command has a few parameters that are described in the following t
 >[!NOTE]
 >If you need to determine the name of the load balancer, use this command to quickly get a list of all load balancers and associated resource groups.
 >
->```powershell
->Get-AzureRmLoadBalancer | Select Name, ResourceGroupName
->```
+>`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
 
 PowerShell is a little more complicated than the Azure CLI. Conceptually, do the following steps to create a rule.
 
