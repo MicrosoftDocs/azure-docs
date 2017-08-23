@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 08/21/2017
+ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 
 ---
@@ -203,14 +203,14 @@ Selecting proper memory grant depending on the need of your query is non-trivial
 
 You can use the following stored procedure to figure out concurrency and memory grant per resource class at a given SLO and the closest best resource class for memory intensive CCI operations on non-partitioned CCI table at a given resource class.
 
-Description:  
+### Description:  
        There are two purposes of this stored procedure as mentioned below.  
        
        1. To help user find out concurrency and memory grant per resource class at a given SLO. User need to provide NULL for both schema and tablename for this as shown in the example below.
        2. To help user find out the closest best resoruce class for the memory intensed CCI operations (load, copy table, rebuild index, etc.) on non partitioned CCI table at a given resource class. 
           The stored proc uses table schema to find out the required memory grant for this.
 
-Dependencies & Restrictions:
+### Dependencies & Restrictions:
        * This stored proc is not designed to calculate memory requirement for partitioned-cci table
           * This stored proc doesn't take memeroy requirement into the account for the SELECT part of CTAS/INSERT-SELECT and assumes it to be a simple SELECT
           * This stored proc using a temp table so this can be used in the session where this stored proc was created
@@ -218,20 +218,17 @@ Dependencies & Restrictions:
        * This stored proc depends on offered concurrency limit and if that changes then this stored proc would not work correctly
        * This stored proc depends on existing resrouce class offerings and if that changes then this stored proc wuold not work correctly
 
-[!NOTE]  
-If you are not getting output after executing stored procedure with parameters provided then there could be two cases.  
-  1. Either DW Parameter contains invalid SLO value  
-  2. OR there are no matching resource class for CCI operation if table name was provided.  
-For example, at DW100, highest memory grant available is 400MB and if table schema is wide enough to cross the requirement of 400MB.  
+>  [!NOTE]  
+>  If you are not getting output after executing stored procedure with parameters provided then there could be two cases. <br />1. Either DW Parameter contains invalid SLO value <br />2. OR there are no matching resource class for CCI operation if table name was provided. <br />For example, at DW100, highest memory grant available is 400MB and if table schema is wide enough to cross the requirement of 400MB.  
       
-Usage example:
+### Usage example:
 Syntax:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
 1. @DWU: Either provide a NULL parameter to extract the current DWU from the DW DB or provide any supported DWU in the form of 'DW100'
 2. @SCHEMA_NAME: Provide a schema name of the table
 3. @TABLE_NAME: Provide a table name of the interest
 
-Examples:  
+### Examples:  
 Create a table:  
 ```sql  
 CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), 
