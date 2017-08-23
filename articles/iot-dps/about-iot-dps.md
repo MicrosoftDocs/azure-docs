@@ -28,15 +28,16 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 * Connecting devices to a particular IoT solution depending on use-case (solution isolation)
 * Connecting a device to the IoT hub with the lowest latency (geo-sharding)
 * Re-provisioning based on a change in the device
-* Rolling the keys used by the device to connect to IoT Hub (for TPM-based devices only)
+* Rolling the keys used by the device to connect to IoT Hub (when not using X.509 certificates to connect)
 
-All these scenarios can be done using DPS for zero-touch provisioning with the same flow. Many of the manual steps traditionally involved in provisioning are automated with DPS to reduce the time to deploy IoT devices and lower the risk of manual error. The following is a description of what's going on behind the scenes to get a device provisioned. The first step is manual, all following steps are automated.
+## Behind the scenes
+All the scenarios listed in the previous section can be done using DPS for zero-touch provisioning with the same flow. Many of the manual steps traditionally involved in provisioning are automated with DPS to reduce the time to deploy IoT devices and lower the risk of manual error. The following is a description of what's going on behind the scenes to get a device provisioned. The first step is manual, all following steps are automated.
 
 ![Basic provisioning flow](./media/about-iot-dps/dps-provisioning-flow.png)
 
 1. Device manufacturer adds the device registration information to the enrollment list in the Azure portal.
 2. Device contacts the DPS endpoint set at the factory. The device passes DPS its identifying information to prove its identity.
-3. DPS validates the identity of the device by validating the registration ID and key against the enrollment list entry using either a nonce challenge (TPM) or standard x509 verification (x509).
+3. DPS validates the identity of the device by validating the registration ID and key against the enrollment list entry using either a nonce challenge ([Trusted Platform Module](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)) or standard X.509 verification (X.509).
 4. The DPS registers the device with an IoT hub and populates the device's [desired twin state](../iot-hub/iot-hub-devguide-device-twins.md).
 5. The IoT hub returns device ID information to the DPS.
 6. The DPS returns the IoT hub connection information to the device. The device can now start sending data directly to the IoT hub.
@@ -54,9 +55,9 @@ Both these steps fit in seamlessly with existing manufacturing and deployment pr
 ### Manufacture step
 This step is all about what happens on the manufacturing line. The roles involved in this step include silicon designer, silicon manufacturer, integrator and/or the end manufacturer of the device. This step is concerned with creating the hardware itself.
 
-DPS does not introduce a new step in the manufacturing process; rather, it ties into an existing step wherein the device has its initial software and (ideally) HSM bestowed upon it. Instead of creating a device ID in this step, the device is simply programmed with the DPS information so it calls DPS to get its connection info/IoT solution assignment when it wakes up.
+DPS does not introduce a new step in the manufacturing process; rather, it ties into the existing step that installs the initial software and (ideally) the HSM on the device. Instead of creating a device ID in this step, the device is simply programmed with the DPS information so it calls DPS to get its connection info/IoT solution assignment when it wakes up.
 
-Also in this step, the manufacturer supplies the device deployer/operator with identifying key information. This could be as simple as confirming that all devices have an x509 certificate generated from a root CA provided by the device deployer/operator, to extracting the public portion of a TPM endorsement key from each TPM device. These services are offered by many silicon manufacturers today.
+Also in this step, the manufacturer supplies the device deployer/operator with identifying key information. This could be as simple as confirming that all devices have an X.509 certificate generated from a root CA provided by the device deployer/operator, to extracting the public portion of a TPM endorsement key from each TPM device. These services are offered by many silicon manufacturers today.
 
 ### Cloud setup step
 This step is about configuring the cloud for proper automatic provisioning. Generally there are two types of users involved in the cloud setup step: someone who knows how devices need to be initially set up (a device operator), and someone else who knows how devices are to be split among the IoT hubs (a solution operator).
@@ -66,7 +67,7 @@ There is a one-time initial setup of the DPS that must occur, and this task is g
 After the DPS has been configured for automatic provisioning, the service must be prepared to enroll devices. This step is done by the device operator, who knows the desired configuration of the device(s) and is in charge of making sure the DPS can properly attest to the device's identity when it comes looking for its IoT hub. The device operator takes the identifying key information from the manufacturer and adds it to the DPS enrollment list. There can be subsequent updates to the enrollment list as new entries are added or existing entries are updated with the latest information about the devices.
 
 ## Registration and provisioning
-"Provisioning" means various things depending on the industry in which the term is used. In the context of provisioning IoT devices to their cloud solution, provisioning is a two part process:
+*Provisioning* means various things depending on the industry in which the term is used. In the context of provisioning IoT devices to their cloud solution, provisioning is a two part process:
 
 1. The first part is establishing the initial connection between the device and the IoT solution by registering the device.
 2. The second part is applying the proper configuration to the device based on the specific requirements of the solution it was registered to.
@@ -76,7 +77,7 @@ Only once both those two steps have been completed can we say that the device ha
 ## Features of the Device Provisioning Service
 The Device Provisioning Service has many features which make it ideal for provisioning devices.
 
-* **Secure attestation** support for both x509 and TPM-based identities.
+* **Secure attestation** support for both X.509 and TPM-based identities.
 * **Enrollment list** containing the complete record of devices/groups of devices that may at some point register. The enrollment list contains information about the desired configuration of the device once it registers, and it can be updated at any time.
 * **Multiple allocation policies** to control how DPS assigns devices to IoT hubs in support of your scenarios.
 * **Monitoring and diagnostics logs** to make sure everything is working properly.
