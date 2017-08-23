@@ -67,7 +67,7 @@ The Data Science Virtual Machine for Linux can ease this burden substantially. U
 There are no software charges for this data science VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine that you provision. More details on the compute fees can be found on the [VM listing page on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
 ## Other Versions of the Data Science Virtual Machine
-A [CentOS](linux-dsvm-intro.md) image is also available, with many of the same tools as the Ubuntu image. A [Windows](data-science-provision-vm.md) image is available as well.
+A [CentOS](linux-dsvm-intro.md) image is also available, with many of the same tools as the Ubuntu image. A [Windows](provision-vm.md) image is available as well.
 
 ## Prerequisites
 Before you can create a Data Science Virtual Machine for Linux, you must have an Azure subscription. To obtain one, see [Get Azure free trial](https://azure.microsoft.com/free/).
