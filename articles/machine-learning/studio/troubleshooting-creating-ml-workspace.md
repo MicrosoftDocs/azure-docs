@@ -20,14 +20,14 @@ ms.author: garye
 # Troubleshooting guide: Create and connect to an Machine Learning workspace
 This guide provides solutions for some frequently encountered challenges when you are setting up Azure Machine Learning workspaces.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
 
 ## Workspace owner
 To open a workspace in Machine Learning Studio, you must be signed in to the Microsoft Account you used to create the workspace, or you need to receive an invitation from the owner to join the workspace. From the Azure portal you can manage the workspace, which includes the ability to configure access.
 
 For more information on managing a workspace, see [Manage an Azure Machine Learning workspace].
 
-[Manage an Azure Machine Learning workspace]: machine-learning-manage-workspace.md
+[Manage an Azure Machine Learning workspace]: manage-workspace.md
 
 ## Allowed regions
 Machine Learning is currently available in a limited number of regions. If your subscription does not include one of these regions, you may see the error message, “You have no subscriptions in the allowed regions.”
@@ -61,9 +61,9 @@ After the cookies are deleted, restart the browser and then go to the [Microsoft
 
 Our goal is to make the Machine Learning experience as seamless as possible. Please post any comments and issues at the [Azure Machine Learning forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) to help us serve you better.
 
-[screen1]:media/machine-learning-troubleshooting-creating-ml-workspace/screen1.png
-[screen2]:media/machine-learning-troubleshooting-creating-ml-workspace/screen2.png
-[screen3]:media/machine-learning-troubleshooting-creating-ml-workspace/screen3.png
-[screen4]:media/machine-learning-troubleshooting-creating-ml-workspace/screen4.png
-[screen5]:media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
-[screen6]:media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
+[screen1]:media/troubleshooting-creating-ml-workspace/screen1.png
+[screen2]:media/troubleshooting-creating-ml-workspace/screen2.png
+[screen3]:media/troubleshooting-creating-ml-workspace/screen3.png
+[screen4]:media/troubleshooting-creating-ml-workspace/screen4.png
+[screen5]:media/troubleshooting-creating-ml-workspace/screen5.png
+[screen6]:media/troubleshooting-creating-ml-workspace/screen6.png

@@ -27,7 +27,7 @@ There are a number of ways to consume the REST API and access the web service. F
 
 But the quickest and easiest way to access your web service is through the Web App Templates available in the [Azure Web App Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
 
 ## The Azure Machine Learning Web App Templates
 The web app templates available in the Azure Marketplace can build a custom web app that knows your web service's input data and expected results. All you need to do is give the web app access to your web service and data, and the template does the rest.
@@ -121,10 +121,10 @@ To learn more about...
 * how to deploy your machine learning experiment as a web service, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md)
 * other ways to access your web service, see [How to consume an Azure Machine Learning Web service](consume-web-services.md)
 
-[image1]: media/machine-learning-consume-web-service-with-web-app-template/rrs-web-template-flow.png
-[image2]: media/machine-learning-consume-web-service-with-web-app-template/bes-web-template-flow.png
-[image3]: media/machine-learning-consume-web-service-with-web-app-template/api-key.png
-[image4]: media/machine-learning-consume-web-service-with-web-app-template/post-uri.png
-[image5]: media/machine-learning-consume-web-service-with-web-app-template/create-web-app.png
-[image6]: media/machine-learning-consume-web-service-with-web-app-template/web-service-info.png
-[image7]: media/machine-learning-consume-web-service-with-web-app-template/storage.png
+[image1]: media/consume-web-service-with-web-app-template/rrs-web-template-flow.png
+[image2]: media/consume-web-service-with-web-app-template/bes-web-template-flow.png
+[image3]: media/consume-web-service-with-web-app-template/api-key.png
+[image4]: media/consume-web-service-with-web-app-template/post-uri.png
+[image5]: media/consume-web-service-with-web-app-template/create-web-app.png
+[image6]: media/consume-web-service-with-web-app-template/web-service-info.png
+[image7]: media/consume-web-service-with-web-app-template/storage.png

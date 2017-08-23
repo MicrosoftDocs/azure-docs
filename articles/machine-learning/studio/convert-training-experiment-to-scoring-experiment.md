@@ -27,7 +27,7 @@ You can see an example of this process in [Walkthrough: Develop a predictive ana
 
 This article takes a deep dive into the details of how a training experiment gets converted into a predictive experiment, and how that predictive experiment is deployed. By understanding these details, you can learn how to configure your deployed model to make it more effective.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
 
 ## Overview 
 
@@ -108,7 +108,7 @@ You can define Web Service Parameters and associate them with one or more module
 
 For more information about what Web Service Parameters are and how to use them, see [Using Azure Machine Learning Web Service Parameters][webserviceparameters].
 
-[webserviceparameters]: machine-learning-web-service-parameters.md
+[webserviceparameters]: web-service-parameters.md
 
 
 ## Deploy the predictive experiment as a web service
@@ -116,7 +116,7 @@ Now that the predictive experiment has been sufficiently prepared, you can deplo
 
 For more information on the complete deployment process, see [Deploy an Azure Machine Learning web service][deploy]
 
-[deploy]: machine-learning-publish-a-machine-learning-web-service.md
+[deploy]: publish-a-machine-learning-web-service.md
 
 
 <!-- Images -->

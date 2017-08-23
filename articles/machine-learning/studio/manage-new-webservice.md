@@ -28,7 +28,7 @@ In the Machine Learning Web Services portal you can:
 * Create, delete, or update billing plans (New only).
 * Add and delete endpoints (Classic only)
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
 
 ## Permissions to manage New Resources Manager based web services
 
@@ -40,7 +40,7 @@ If the user does not have the correct permissions to access resources in the Azu
 
 For more information on creating a workspace, see [Create and share an Azure Machine Learning workspace](create-workspace.md).
 
-For more information on setting access permissions, see [View access assignments for users and groups in the Azure portal - Public preview](../active-directory/role-based-access-control-manage-assignments.md).
+For more information on setting access permissions, see [View access assignments for users and groups in the Azure portal - Public preview](../../active-directory/role-based-access-control-manage-assignments.md).
 
 
 ## Manage New Web services

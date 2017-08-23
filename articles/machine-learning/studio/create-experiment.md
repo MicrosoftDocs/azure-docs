@@ -40,7 +40,7 @@ In this tutorial, we'll walk through how to use Studio for the first time to cre
 
 <!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
 
 ## How does Machine Learning Studio help?
 
@@ -331,15 +331,15 @@ For an example of how to compare multiple models in a single experiment, see [Co
 	> [!TIP]
 	> To copy any iteration of your experiment, use the **SAVE AS** button at the bottom of the page. You can see all the iterations of your experiment by clicking **VIEW RUN HISTORY** at the bottom of the page. For more details, see [Manage experiment iterations in Azure Machine Learning Studio][runhistory].
 
-[runhistory]: machine-learning-manage-experiment-iterations.md
+[runhistory]: manage-experiment-iterations.md
 
 - **Deploy the model as a predictive web service** - When you're satisfied with your model, you can deploy it as a web service to be used to predict automobile prices by using new data. For more details, see [Deploy an Azure Machine Learning web service][publish].
 
-[publish]: machine-learning-publish-a-machine-learning-web-service.md
+[publish]: publish-a-machine-learning-web-service.md
 
 Want to learn more? For a more extensive and detailed walkthrough of the process of creating, training, scoring, and deploying a model, see [Develop a predictive solution by using Azure Machine Learning][walkthrough].
 
-[walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
+[walkthrough]: walkthrough-develop-predictive-solution.md
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/create-experiment/sign-in-to-studio.png

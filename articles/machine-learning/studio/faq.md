@@ -30,7 +30,7 @@ Azure Machine Learning has a forum on MSDN where members of the data science com
 
 Azure Machine Learning is a fully managed service that you can use to create, test, operate, and manage predictive analytic solutions in the cloud. With only a browser, you can sign in, upload data, and immediately start machine-learning experiments. Drag-and-drop predictive modeling, a large pallet of modules, and a library of starting templates make common machine-learning tasks simple and quick. For more information, see the [Azure Machine Learning service overview](https://azure.microsoft.com/services/machine-learning/). For an introduction to machine learning that explains key terminology and concepts, see [Introduction to Azure Machine Learning](what-is-machine-learning.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
 
 **What is Machine Learning Studio?**
 
@@ -82,7 +82,7 @@ You can download data to a Machine Learning Studio experiment in three ways:
 - Use a module to import data from cloud data services
 - Import a dataset saved from another experiment
 
-To learn more about supported file formats, see [Import training data into Machine Learning Studio](data-science-import-data.md).
+To learn more about supported file formats, see [Import training data into Machine Learning Studio](import-data.md).
 
 #### <a id="ModuleLimit"></a>How large can the data set be for my modules?
 Modules in Machine Learning Studio support datasets of up to 10 GB of dense numerical data for common use cases. If a module takes more than one input, the 10 GB value is the total of all input sizes. You can also sample larger datasets by using queries from Hive or Azure SQL Database, or you can use Learning by Counts preprocessing before ingestion.  
@@ -211,7 +211,7 @@ No.
 
 **Is there a baseline latency that is expected for all web services?**
 
-See the [Azure subscription limits](../azure-subscription-service-limits.md).
+See the [Azure subscription limits](../../azure-subscription-service-limits.md).
 
 ### Use
 **When would I want to run my predictive model as a Batch Execution service versus a Request Response service?**

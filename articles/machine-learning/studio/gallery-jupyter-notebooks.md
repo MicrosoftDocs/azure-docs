@@ -18,7 +18,7 @@ ms.author: roopalik;garye
 
 ---
 # Discover Jupyter Notebooks in the Cortana Intelligence Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+[!INCLUDE [machine-learning-gallery-item-selector](../../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Jupyter Notebooks
 **[Jupyter Notebooks](https://gallery.cortanaintelligence.com/notebooks)**
@@ -82,5 +82,5 @@ The notebook will be listed, along with your other notebooks, on the **Notebooks
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
 

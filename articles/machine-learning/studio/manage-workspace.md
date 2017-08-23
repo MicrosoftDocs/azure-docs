@@ -26,7 +26,7 @@ ms.author: garye
 
 You can manage Machine Learning workspaces in either the Azure portal or the Azure classic portal.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
 
 ## Use the Azure portal
 
@@ -46,7 +46,7 @@ To manage the web services associated with this workspace, use the Machine Learn
 > [!NOTE]
 > To deploy or manage New web services you must be assigned a contributor or administrator role on the subscription to which the web service is deployed. If you invite another user to a machine learning workspace, you must assign them to a contributor or administrator role on the subscription before they can deploy or manage web services. 
 > 
->For more information on setting access permissions, see [View access assignments for users and groups in the Azure portal - Public preview](../active-directory/role-based-access-control-manage-assignments.md).
+>For more information on setting access permissions, see [View access assignments for users and groups in the Azure portal - Public preview](../../active-directory/role-based-access-control-manage-assignments.md).
 
 ## Use the Azure classic portal
 

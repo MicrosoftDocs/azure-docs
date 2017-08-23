@@ -19,7 +19,7 @@ ms.author: garye;krishnan
 ---
 # Perform advanced analytics with Azure Machine Learning using data from an on-premises SQL Server database
 
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
+[!INCLUDE [import-data-into-aml-studio-selector](../../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 Often enterprises that work with on-premises data would like to take advantage of the scale and agility of the cloud for their machine learning workloads. But they don't want to disrupt their current business processes and workflows by moving their on-premises data to the cloud. Azure Machine Learning now supports reading your data from an on-premises SQL Server database and then training and scoring a model with this data. You no longer have to manually copy and sync the data between the cloud and your on-premises server. Instead, the **Import Data** module in Azure Machine Learning Studio can now read directly from your on-premises SQL Server database for your training and scoring jobs.
 
@@ -38,7 +38,7 @@ experiments, *etc.*.
 
 <!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
 
 ## Install the Microsoft Data Management Gateway
 To access an on-premises SQL Server database in Azure Machine Learning, you need
@@ -74,7 +74,7 @@ Consider the following when setting up and using a Data Management Gateway:
 
 You can find detailed information on installation prerequisites,
 installation steps, and troubleshooting tips in the article [Data Management
-Gateway](../data-factory/data-factory-data-management-gateway.md).
+Gateway](../../data-factory/data-factory-data-management-gateway.md).
 
 ## <span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Ingress data from your on-premises SQL Server database into Azure Machine Learning
 In this walkthrough, you will set up a Data Management Gateway in an Azure
@@ -115,7 +115,7 @@ on-premises SQL database.
     downloaded and installed the Microsoft Data Management Gateway, then
     click **Download data management gateway**. This takes you to the
     Microsoft Download Center where you can select the gateway version
-    you need, download it, and install it. You can find detailed information on installation prerequisites, installation steps, and troubleshooting tips in the beginning sections of the article [Move data between on-premises sources and cloud with Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
+    you need, download it, and install it. You can find detailed information on installation prerequisites, installation steps, and troubleshooting tips in the beginning sections of the article [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
 7. After the gateway is installed, the Data Management Gateway
     Configuration Manager will open and the **Register gateway** dialog
     is displayed. Paste the **Gateway Registration Key** that you copied
@@ -184,7 +184,7 @@ to your test data sources during development, and a different gateway
 for your production data sources. Azure Machine Learning gives you the
 flexibility to set up multiple gateways depending upon your corporate
 environment. Currently you can’t share a gateway between workspaces and
-only one gateway can be installed on a single computer. For more information, see [Move data between on-premises sources and cloud with Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
+only one gateway can be installed on a single computer. For more information, see [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
 
 ### Step 2: Use the gateway to read data from an on-premises data source
 After you set up the gateway, you can add an **Import Data** module to

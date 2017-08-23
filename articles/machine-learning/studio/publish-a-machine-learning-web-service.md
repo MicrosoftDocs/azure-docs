@@ -26,7 +26,7 @@ From a high-level point-of-view, this is done in three steps:
 * **[Convert it to a predictive experiment]** - Once your model has been trained with existing data and you're ready to use it to score new data, you prepare and streamline your experiment for predictions.
 * **[Deploy it as a web service]** - You can deploy your predictive experiment as a [new] or [classic] Azure web service. Users can send data to your model and receive your model's predictions.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
 
 ## Create a training experiment
 To train a predictive analytics model, you use Azure Machine Learning Studio to create a training experiment where you include various modules to load training data, prepare the data as necessary, apply machine learning algorithms, and evaluate the results. You can iterate on an experiment and try different machine learning algorithms to compare and evaluate the results.
@@ -35,7 +35,7 @@ The process of creating and managing training experiments is covered more thorou
 
 * [Create a simple experiment in Azure Machine Learning Studio](create-experiment.md)
 * [Develop a predictive solution with Azure Machine Learning](walkthrough-develop-predictive-solution.md)
-* [Import your training data into Azure Machine Learning Studio](data-science-import-data.md)
+* [Import your training data into Azure Machine Learning Studio](import-data.md)
 * [Manage experiment iterations in Azure Machine Learning Studio](manage-experiment-iterations.md)
 
 ## Convert the training experiment to a predictive experiment

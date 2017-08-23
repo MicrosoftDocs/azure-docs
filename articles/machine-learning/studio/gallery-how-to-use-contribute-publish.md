@@ -18,11 +18,11 @@ ms.author: roopalik;garye
 
 ---
 # Share and discover resources in the Cortana Intelligence Gallery
-[!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+[!INCLUDE [gallery-item-selector](../../../../includes/machine-learning-gallery-item-selector.md)]
 
 <!-- separating these 2 includes -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
 
 ## What can I find in the Gallery?
 The Cortana Intelligence Gallery contains a variety of resources that you can use to develop your own analytics solutions.

@@ -34,5 +34,5 @@ The Live Chat is staffed by members of the Machine Learning team. If you don't s
 
 You can always post your questions on the [Machine Learning Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning), where they will be seen by members of the Machine Learning team and other knowledgeable data scientists and developers.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
 

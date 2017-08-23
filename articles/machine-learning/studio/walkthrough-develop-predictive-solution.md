@@ -29,7 +29,7 @@ If you've never used **Azure Machine Learning Studio** before, you might want to
 If you're new to the field of machine learning in general, there's a video series that might be helpful to you. It's called [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) and it can give you a great introduction to machine learning using everyday language and concepts.
 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
  
 
 ## The problem

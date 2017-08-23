@@ -25,7 +25,7 @@ The gallery has example experiments by the Microsoft Azure Machine Learning team
 
 To see how to use the gallery, watch the 3-minute video [Copy other people's work to do data science](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) from the series [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
 
 ## Find an experiment to copy in Cortana Intelligence Gallery
 To see what experiments are available, go to the [Gallery](https://gallery.cortanaintelligence.com/) and click **Experiments** at the top of the page.
@@ -40,7 +40,7 @@ To browse all experiments:
 2. On the left-hand side, under **Refine by** in the **Categories** section, select **Experiment** to see all the experiments in the Gallery.
 3. You can find experiments that meet your requirements a couple different ways:
    * **Select filters on the left.** For example, to browse experiments that use a PCA-based anomaly detection algorithm: With **Experiment** selected under **Categories**, click **Show all**. Then, under **Algorithms Used**, choose **PCA-Based Anomaly Detection**. <br></br>
-     ![Select filters](./media/machine-learning-sample-experiments/refine-the-view.png)
+     ![Select filters](./media/sample-experiments/refine-the-view.png)
    * **Use the search box.** For example, to find experiments contributed by Microsoft related to digit recognition that use a two-class support vector machine algorithm, enter "digit recognition" in the search box. Then, select the filters **Experiment**, **Microsoft content only**, and **Two-Class Support Vector Machine**:<br></br>
      ![Use the search box](./media/sample-experiments/search-for-experiments.png)
 4. Click an experiment to learn more about it.
@@ -62,6 +62,6 @@ You also can create a new experiment in Machine Learning Studio using a Gallery 
 A new experiment is created in your Machine Learning Studio workspace using the example experiment as a template.
 
 ## Next steps
-* [Import data from various sources](data-science-import-data.md)
+* [Import data from various sources](import-data.md)
 * [Quickstart tutorial for the R language in Machine Learning](r-quickstart.md)
 * [Deploy a Machine Learning web service](publish-a-machine-learning-web-service.md)

@@ -96,11 +96,11 @@ You can manage datasets that you've uploaded to Studio by clicking the **DATASET
 
 ![Manage datasets][4]
 
-For more information about importing other types of data into an experiment, see [Import your training data into Azure Machine Learning Studio](data-science-import-data.md).
+For more information about importing other types of data into an experiment, see [Import your training data into Azure Machine Learning Studio](import-data.md).
 
 **Next: [Create a new experiment](walkthrough-3-create-new-experiment.md)**
 
-[1]: media/machine-learning-walkthrough-2-upload-data/menu.png
-[2]: media/machine-learning-walkthrough-2-upload-data/add-dataset.png
-[3]: media/machine-learning-walkthrough-2-upload-data/upload-dataset.png
-[4]: media/machine-learning-walkthrough-2-upload-data/dataset-list.png
+[1]: media/walkthrough-2-upload-data/menu.png
+[2]: media/walkthrough-2-upload-data/add-dataset.png
+[3]: media/walkthrough-2-upload-data/upload-dataset.png
+[4]: media/walkthrough-2-upload-data/dataset-list.png

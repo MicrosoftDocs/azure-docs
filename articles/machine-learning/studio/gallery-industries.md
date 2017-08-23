@@ -18,7 +18,7 @@ ms.author: roopalik;garye
 
 ---
 # Discover industry-specific solutions in the Cortana Intelligence Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+[!INCLUDE [machine-learning-gallery-item-selector](../../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Industry-specific Cortana Intelligence solutions
 The
@@ -50,5 +50,5 @@ These resources include experiments, custom modules, APIs, collections, and any 
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
 

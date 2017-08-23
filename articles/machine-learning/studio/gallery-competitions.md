@@ -18,7 +18,7 @@ ms.author: roopalik;garye
 
 ---
 # Discover competitions in the Cortana Intelligence Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+[!INCLUDE [machine-learning-gallery-item-selector](../../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Cortana Intelligence Competitions
 **[Competitions](https://gallery.cortanaintelligence.com/competitions)**
@@ -59,11 +59,11 @@ competition
 ## Enter a competition
 If the competition is open, the status on the details page is **Active**. To enter the competition, click **Enter Competition** and you will be given instructions on the resources you need and the steps you need to take.
 
-![Competition is active](media/machine-learning-gallery-competitions/open-competition.png)
+![Competition is active](media/gallery-competitions/open-competition.png)
 
 If the competition has been completed, then a list of winners is shown.
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
 
