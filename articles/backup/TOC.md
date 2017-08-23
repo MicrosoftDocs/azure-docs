@@ -7,7 +7,7 @@
 ## [Back up Windows Server or Windows computers](backup-try-azure-backup-in-10-mins.md)
 ## [Back up VMware servers](backup-azure-backup-server-vmware.md)
 
-# How to Guides
+# How-to guides
 
 ## Azure Backup Server
 ### [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md)
