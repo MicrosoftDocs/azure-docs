@@ -14,7 +14,7 @@ ms.service: storage
 
 Azure Blob Storage events allow applications to react to the creation and deletion of blobs using modern serverless architectures and without the need for complicated code or expensive and inefficient polling services.  Instead, events are pushed through [Azure Event Grid](https://azure.microsoft.com/en-us/services/event-grid/) to subscribers such as [Azure Functions](https://azure.microsoft.com/en-us/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/en-us/services/logic-apps/), or even to your own custom http listener, and you only pay for what you use.
 
-Common blob storage scenarios include image or video processing, search indexing, or any file-oriented workflow.  Asynchronous file uploads are a great fit for events.  When changes are infrequent, but your scenario requires immediate responsiveness, and event-based architecture can be especially efficient.
+Common Blob Storage event scenarios include image or video processing, search indexing, or any file-oriented workflow.  Asynchronous file uploads are a great fit for events.  When changes are infrequent, but your scenario requires immediate responsiveness, and event-based architecture can be especially efficient.
 
 ![Event Grid Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
@@ -52,20 +52,38 @@ Additional information about the usage of Event Grid event properties is documen
 > |Property|Type|Description|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |topic|string|Full Azure Resource Manager id of the storage account that emits the event.|
-> |subject|string|The relative resource path to the object that is the subject of the event, using the same extended Azure Resource Manager format that we use to describe storage accounts, services, and containers for Azure RBAC.  This format includes a case-preserving blob name.|
+> |subject|string|The relative resource path to the object that is the subject of the event, 
+using the same extended Azure Resource Manager format that we use to describe 
+storage accounts, services, and containers for Azure RBAC.  This format includes 
+a case-preserving blob name.|
 > |eventTime|string|Date/time that the event was generated, in ISO 8601 format|
 > |eventType|string|“Microsoft.Storage.BlobCreated” or “Microsoft.Storage.BlobDeleted”|
 > |Id|string|Unique identifier if this event|
 > |data|object|Collection of blob storage-specific event data|
-> |data.contentType|string|The content type of the blob, as would be returned in the Content-Type header from the blob|
-> |data.contentLength|number|The size of the blob as in integer representing a number of bytes, as would be returned in the Content-Length header from the blob.  Sent with BlobCreated event, but not with BlobDeleted.|
+> |data.contentType|string|The content type of the blob, as would be returned in the 
+Content-Type header from the blob|
+> |data.contentLength|number|The size of the blob as in integer representing a number of bytes, 
+as would be returned in the Content-Length header from the blob.  Sent with BlobCreated event, 
+but not with BlobDeleted.|
 > |data.url|string|The url of the object that is the subject of the event|
-> |data.eTag|string|The etag of the object when this event fired.  Not available for the BlobDeleted event.|
-> |data.api|string|The name of the api operation that triggered this event.  For BlobCreated events, this value is “PutBlob”, “PutBlockList”, or “CopyBlob”.  For BlobDeleted events, this value is “DeleteBlob”.  These values are the same api names that are present in the Azure Storage diagnostic logs.  See [Logged Operations and Status Messages](https://docs.microsoft.com/en-us/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
-> |data.sequencer|string|An opaque string value representing the logical sequence of events for any particular blob name.  Users can use standard string comparison to understand the relative sequence of two events on the same blob name.|
-> |data.requestId|string|Service-generated request id for the storage API operation.  Can be used to correlate to Azure Storage diagnostic logs using the “request-id-header” field in the logs and is returned from initiating API call in the 'x-ms-request-id' header. See [Log Format](https://docs.microsoft.com/en-us/rest/api/storageservices/storage-analytics-log-format).|
-> |data.clientRequestId|string|Client-provided request id for the storage API operation.  Can be used to correlate to Azure Storage diagnostic logs using the “client-request-id” field in the logs, and can be provided in client requests using the “x-ms-client-request-id” header. See [Log Format](https://docs.microsoft.com/en-us/rest/api/storageservices/storage-analytics-log-format).|
-> |data.storageDiagnostics|object|Diagnostic data occasionally included by the Azure Storage service.  When present, should be ignored by event consumers.|
+> |data.eTag|string|The etag of the object when this event fired.  Not available for the 
+BlobDeleted event.|
+> |data.api|string|The name of the api operation that triggered this event.  For BlobCreated 
+events, this value is “PutBlob”, “PutBlockList”, or “CopyBlob”.  For BlobDeleted events, 
+this value is “DeleteBlob”.  These values are the same api names that are present in the 
+Azure Storage diagnostic logs.  See [Logged Operations and Status Messages](https://docs.microsoft.com/en-us/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
+> |data.sequencer|string|An opaque string value representing the logical sequence of events 
+for any particular blob name.  Users can use standard string comparison to understand the 
+relative sequence of two events on the same blob name.|
+> |data.requestId|string|Service-generated request id for the storage API operation.  Can be 
+used to correlate to Azure Storage diagnostic logs using the “request-id-header” field in the 
+logs and is returned from initiating API call in the 'x-ms-request-id' header. See [Log Format](https://docs.microsoft.com/en-us/rest/api/storageservices/storage-analytics-log-format).|
+> |data.clientRequestId|string|Client-provided request id for the storage API operation.  
+Can be used to correlate to Azure Storage diagnostic logs using the “client-request-id” field 
+in the logs, and can be provided in client requests using the “x-ms-client-request-id” header. 
+See [Log Format](https://docs.microsoft.com/en-us/rest/api/storageservices/storage-analytics-log-format).|
+> |data.storageDiagnostics|object|Diagnostic data occasionally included by the Azure Storage 
+service.  When present, should be ignored by event consumers.|
 
 Here is an example of a BlobCreated event:
 ```json
