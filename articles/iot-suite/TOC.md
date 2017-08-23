@@ -62,24 +62,3 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [FAQ](iot-suite-faq.md)
 ## [IoT Suite learning path](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
-
-# To deprecate
-## [Connect your Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
-## [Connect a Logic App to the remote monitoring solution](iot-suite-logic-apps-tutorial.md)
-## [Customize a preconfigured solution](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
-## [Use dynamic telemetry with the remote monitoring solution](iot-suite-dynamic-telemetry.md)
-## [Create a custom rule in the remote monitoring solution](iot-suite-custom-rule.md)
-## [Device information in the remote monitoring solution](iot-suite-remote-monitoring-device-info.md)
-## [Get started with preconfigured solutions](iot-suite-getstarted-preconfigured-solutions.md)
-<!-- The following articles are being removed until we get a chance to recreate them for V2 -->
-### Connect a Raspberry Pi - C
-#### [Simulated data](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
-#### [Use real sensors](iot-suite-raspberry-pi-kit-c-get-started-basic.md)
-#### [Implement firmware update](iot-suite-raspberry-pi-kit-c-get-started-advanced.md)
-### Connect a Raspberry Pi - Node.js
-#### [Simulated data](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
-#### [Use real sensors](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
-#### [Implement firmware update](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
-### Connect an Intel NUC
-#### [Simulated data](iot-suite-gateway-kit-get-started-simulator.md)
-#### [Use real sensor](iot-suite-gateway-kit-get-started-sensortag.md)
