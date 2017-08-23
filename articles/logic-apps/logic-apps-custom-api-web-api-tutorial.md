@@ -69,9 +69,11 @@ review these Web App settings described in the table, make any changes, and choo
 ## Create a Swagger file that describes your Web API
 
 To connect your Web API app to Logic Apps, 
-you need a Swagger file that describes your API's operations. 
-You can write your own OpenAPI definition for your API with the online editor, 
-but this tutorial uses an open source tool named Swashbuckle.
+you need a [Swagger file](http://swagger.io/) 
+that describes your API's operations. 
+You can write your own OpenAPI definition for your API with the 
+[Swagger online editor](http://editor.swagger.io/), 
+but this tutorial uses an open source tool named [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle/blob/master/README.md).
 
 1. If you haven't already, install the Swashbuckle Nuget 
 package in your Visual Studio project. 
@@ -118,6 +120,33 @@ choose **Publish...**, and follow the prompts.
 you might have to copy and paste the text into an empty text file.
 
 ## Set up authentication with Azure Active Directory
+
+Now create two Azure Active Directory (Azure AD) apps in Azure. 
+For example, see the [Authenticate custom connectors with Azure Active Directory](../logic-apps/logic-apps-custom-api-connector-azure-active-directory.md).
+
+> [!IMPORTANT]
+> Both Azure AD apps must exist in the same directory.
+
+### First Azure AD app: Secure your Web API
+
+Your first Azure AD app secures your Web API. Name your Azure AD app
+
+1. Follow the above linked tutorial steps (just the section titled "Enable authentication in Azure Active Directory") with the following values:
+
+   |Setting|Suggested value|Description| 
+   |:------|:--------------|:----------| 
+   |Azure AD app name|webAPI|| 
+   |**Sign-on URL**|`https://login.windows.net`|| 
+   |**Reply URLs**|https://*{your-web-app-root-URL}*/.auth/login/aad/callback| 
+   |**Delegated permissions**|{not necessary}| 
+   |**Client key**|{not necessary}|| 
+   ||| 
+
+   > [!IMPORTANT]
+   > Make sure that you copy and save the application ID, which you need later.
+
+2. 
+
 
 
 
