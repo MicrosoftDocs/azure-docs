@@ -13,11 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 08/11/2017
 ms.author: kgremban
+ms.reviewer: 
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
 
 ---
-# How to enable native client apps to interact with proxy Applications
+# How to enable native client apps to interact with proxy ppplications
+
+>[!NOTE]
+>This article applies to the Azure classic portal, which is being retired. We recommend that you use the [Azure portal](https://portal.azure.com). In the Azure portal, Application Proxy apps have the same conditional access features as any other SaaS app. To learn more about conditional access, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+
 Azure Active Directory Application Proxy is widely used to publish browser applications such as SharePoint, Outlook Web Access, and custom line-of-business applications. It can also be used to publish native client apps, which differ from web apps because they get installed on a device. This is done by supporting Azure AD issued tokens that are sent in standard Authorize HTTP headers.
 
 ![Relationship between end users, Azure Active Directory, and published applications](./media/active-directory-application-proxy-native-client/richclientflow.png)

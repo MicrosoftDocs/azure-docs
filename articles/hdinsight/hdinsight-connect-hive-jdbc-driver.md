@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 08/14/2017
 ms.author: larryfr
 
 ---
@@ -138,7 +138,7 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
     * **Password**: The password for the cluster login account.
 
-    ![add alias dialog](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
+ ![add alias dialog](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
 
     Use the **Test** button to verify that the connection works. When **Connect to: Hive on HDInsight** dialog appears, select **Connect** to perform the test. If the test succeeds, you see a **Connection successful** dialog.
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Application Insights FAQ | Microsoft Docs
 description: Frequently asked questions about Application Insights.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: sewhee
+ms.author: bwren
 
 ---
 # Application Insights: Frequently Asked Questions

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 08/16/2017
 ms.author: ganesr;cherylmc
 
 ---
@@ -141,10 +141,10 @@ Set-AzureRmRouteFilter -RouteFilter $routefilter
 
 ## <a name="attach"></a>Step 3. Attach the route filter to an ExpressRoute circuit
 
-Run the following command to attach the route filter to the ExpressRoute circuit:
+Run the following command to attach the route filter to the ExpressRoute circuit, assuming you have only Microsoft peering:
 
 ```powershell
-Set-AzureRmExpressRouteCircuitPeeringConfig -ExpressRouteCircuit $ckt -Name "MicrosoftPeering" -PeeringType MicrosoftPeering -PeerASN "BGPASNNumber" -PrimaryPeerAddressPrefix "A.A.A.A/30" -SecondaryPeerAddressPrefix "B.B.B.B/30" -VlanId "VLANNumber" -RouteFilter $routefilter
+$ckt.Peerings[0].RouteFilter = $routefilter 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 

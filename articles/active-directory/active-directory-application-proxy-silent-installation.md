@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: kgremban
+ms.reviewer: harshja
 
 ---
 # Silently install the Azure AD Application Proxy Connector
