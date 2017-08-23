@@ -61,9 +61,9 @@ Performance levels are expressed in terms of Database Transaction Units (DTUs) f
 ||||||
 
 > [!IMPORTANT]
-> Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
+> \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
->In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-resource-limits.md#current-limitations-of-p11-and-p15-databases-with-a-maximum-size-greater-than-1-tb).  
+> \* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-resource-limits.md#current-limitations-of-p11-and-p15-databases-with-a-maximum-size-greater-than-1-tb).  
 > 
 
 For details on specific performance levels and storage size choices available, see [SQL Database resource limits](sql-database-resource-limits.md).
