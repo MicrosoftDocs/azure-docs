@@ -1,4 +1,4 @@
----
+﻿---
 title: Import your data to Analytics in Azure Application Insights | Microsoft Docs
 description: Import static data to join with app telemetry, or import a separate data stream to query with Analytics.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Import data into Analytics
@@ -55,19 +55,13 @@ You need:
 
  * We recommend you create a dedicated storage account for your blobs. If your blobs are shared with other processes, it takes longer for our processes to read your blobs.
 
-2. While this feature is in preview, you must ask for access.
-
- * From your Application Insights resource in the [Azure portal](https://portal.azure.com), open Analytics. 
- * At the bottom of the schema pane, click the 'Contact us' link under **Other Data Sources.** 
- * If you see 'Add data source', then you already have access.
-
 
 ## Define your schema
 
 Before you can import data, you must define a *data source,* which specifies the schema of your data.
 You can have up to 50 data sources in a single Application Insights resource
 
-1. Start the data source wizard.
+1. Start the data source wizard. Use "Add new data source" button. Alternatively - click on settings button in right upper corner and choose "Data Sources" in dropdown menu.
 
     ![Add new data source](./media/app-insights-analytics-import/add-new-data-source.png)
 
@@ -136,7 +130,7 @@ To import data, you upload it to Azure storage, create an access key for it, and
 
 You can perform the following process manually, or set up an automated system to do it at regular intervals. You need to follow these steps for each block of data you want to import.
 
-1. Upload the data to [Azure blob storage](../storage/storage-dotnet-how-to-use-blobs.md). 
+1. Upload the data to [Azure blob storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
 
  * Blobs can be any size up to 1GB uncompressed. Large blobs of hundreds of MB are ideal from a performance perspective.
  * You can compress it with Gzip to improve upload time and latency for the data to be available for query. Use the `.gz` filename extension.
@@ -144,7 +138,7 @@ You can perform the following process manually, or set up an automated system to
  * When sending data in high frequency, every few seconds, it is recommended to use more than one storage account, for performance reasons.
 
  
-2. [Create a Shared Access Signature key for the blob](../storage/storage-dotnet-shared-access-signature-part-2.md). The key should have an expiration period of one day and provide read access.
+2. [Create a Shared Access Signature key for the blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). The key should have an expiration period of one day and provide read access.
 3. Make a REST call to notify Application Insights that data is waiting.
 
  * Endpoint: `https://dc.services.visualstudio.com/v2/track`

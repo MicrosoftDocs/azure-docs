@@ -187,7 +187,7 @@ Follow these steps:
 
 2. Go to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
 
-3. [Install and configure an Azure Stack PowerShell environment](azure-stack-powershell-configure.md). Follow the instructions to create an AzureStackAdmin environment, and sign in to the AzureStackAdmin environment.
+3. [Install](azure-stack-powershell-install.md) and [configure an Azure Stack PowerShell environment](azure-stack-powershell-configure-admin.md).
 
 4. In the same PowerShell session, run the **CreateIdentityApp.ps1** script. When you're prompted for your Azure AD tenant ID, enter the Azure AD tenant ID you're using for your Azure Stack deployment, for example, myazurestack.onmicrosoft.com.
 
@@ -266,7 +266,7 @@ Follow these steps:
 
 2. Go to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
 
-3. [Install and configure an Azure Stack PowerShell environment](azure-stack-powershell-configure.md). Follow the instructions to create an AzureStackAdmin environment, and sign in to the AzureStackAdmin environment.
+3. [Install](azure-stack-powershell-install.md) and [configure an Azure Stack PowerShell environment](azure-stack-powershell-configure-admin.md).
 
 4. In the same PowerShell session, run the **CreateIdentityApp.ps1** script. When you're prompted for your Azure AD tenant ID, enter **ADFS**.
 

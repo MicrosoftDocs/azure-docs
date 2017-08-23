@@ -23,6 +23,8 @@
   items:
   - name: Relationship to orchestrators
     href: container-instances-orchestrator-relationship.md
+  - name: Container groups
+    href: container-instances-container-groups.md
 - name: How-to guides
   items:
   - name: Deploy multi-container groups

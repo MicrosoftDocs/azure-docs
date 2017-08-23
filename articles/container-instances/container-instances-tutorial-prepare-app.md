@@ -10,14 +10,14 @@ tags:
 keywords: ''
 
 ms.assetid: 
-ms.service: 
+ms.service: container-instances
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: seanmck
-ms.custom: 
+ms.custom: mvc
 ---
 
 # Create container for deployment to Azure Container Instances
