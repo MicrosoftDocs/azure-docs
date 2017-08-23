@@ -20,11 +20,11 @@ ms.custom: it-pro
 ---
 # Configure Azure Multi-Factor Authentication Server for high availability
 
-To achieve high-availability with your Azure Server MFA deployment, you will need to deploy multiple MFA servers. This section provides information on a load-balanced design to achieve your high availability targets in you Azure MFS Server deployment.
+To achieve high-availability with your Azure Server MFA deployment, you need to deploy multiple MFA servers. This section provides information on a load-balanced design to achieve your high availability targets in you Azure MFS Server deployment.
 
 ## MFA Server overview
 
-The Azure MFA Server service architecture comprises several components as shown in the diagram below:
+The Azure MFA Server service architecture comprises several components as shown in the following diagram:
 
  ![MFA Server Architecture](./media/mfa-server-high-availability/mfa-ha-architecture.png)
 
@@ -34,7 +34,7 @@ The first MFA Server that is installed is the master MFA Server upon activation 
 
 Both MFA master and slave MFA Servers communicate with the MFA Service when two-factor authentication is required. For example, when a user attempts to gain access to an application that requires two-factor authentication, the user will first be authenticated by an identity provider, such as Active Directory (AD).
 
-After successful authentication with AD, the MFA Server will communicate with the MFA Service. The MFA Server will wait for notification from the MFA Service to allow or deny the user access to the application.
+After successful authentication with AD, the MFA Server will communicate with the MFA Service. The MFA Server waits for notification from the MFA Service to allow or deny the user access to the application.
 
 If the MFA master server goes offline, authentications can still be processed, but operations that require changes to the MFA database cannot be processed. (Examples include: the addition of users, self-service PIN changes, and changing user information)
 
@@ -43,12 +43,12 @@ If the MFA master server goes offline, authentications can still be processed, b
 Consider the following important points for load balancing Azure MFA Server and its related components.
 
 * **Using RADIUS standard to achieve high availability**. If you are using Azure MFA Servers as RADIUS servers, you can potentially configure one MFA Server as a primary RADIUS authentication target and other Azure MFA Servers as secondary authentication targets. However, this method to achieve high availability may not be practical because you must wait for a time-out period to occur when authentication fails on the primary authentication target before you can be authenticated against the secondary authentication target. It is more efficient to load balance the RADIUS traffic between the RADIUS client and the RADIUS Servers (in this case, the Azure MFA Servers acting as RADIUS servers) so that you can configure the RADIUS clients with a single URL that they can point to.
-* **Need to manually promote MFA slaves**. If the master Azure MFA server goes offline, the secondary Azure MFA Servers will continue to process MFA requests. However, until a master MFA server is available, admins will not be able to add users or modify MFA settings, and users will not be able to make changes using the user portal. Promoting an MFA slave to the master role is always a manual process.
-* **Separability of components**. The Azure MFA Server comprises several components that can be installed on the same Windows Server instance or on different instances. These components include the User Portal, Mobile App Web Service, and the ADFS adapter (agent). This makes it possible to use the Web Application Proxy to publish the User Portal and Mobile App Web Server from the perimeter network. Such a configuration adds to the overall security of your design, as shown in the diagram below. The MFA User Portal and Mobile App Web Server may also be deployed in HA load-balanced configurations.
+* **Need to manually promote MFA slaves**. If the master Azure MFA server goes offline, the secondary Azure MFA Servers continue to process MFA requests. However, until a master MFA server is available, admins can not add users or modify MFA settings, and users can not make changes using the user portal. Promoting an MFA slave to the master role is always a manual process.
+* **Separability of components**. The Azure MFA Server comprises several components that can be installed on the same Windows Server instance or on different instances. These components include the User Portal, Mobile App Web Service, and the ADFS adapter (agent). This separability makes it possible to use the Web Application Proxy to publish the User Portal and Mobile App Web Server from the perimeter network. Such a configuration adds to the overall security of your design, as shown in the following diagram. The MFA User Portal and Mobile App Web Server may also be deployed in HA load-balanced configurations.
 
    ![MFA Server with a Perimeter Network](./media/mfa-server-high-availability/mfasecurity.png)
 
-* **One-time password (OTP) over SMS (aka one-way SMS) requires the use of sticky sessions if traffic is load-balanced**. One-way SMS is an authentication option that causes the MFA Server to send the users a text message containing an OTP. The user enters the OTP in a prompt window to complete the MFA challenge. If you load balance Azure MFA Servers, the same server that served the initial authentication request must be the server that receives the OTP message from the user; if another MFA Server receives the OTP reply, the authentication challenge will fail. For more information, see [One Time Password over SMS Added to Azure MFA Server](https://blogs.technet.microsoft.com/enterprisemobility/2015/03/02/one-time-password-over-sms-added-to-azure-mfa-server).
+* **One-time password (OTP) over SMS (aka one-way SMS) requires the use of sticky sessions if traffic is load-balanced**. One-way SMS is an authentication option that causes the MFA Server to send the users a text message containing an OTP. The user enters the OTP in a prompt window to complete the MFA challenge. If you load balance Azure MFA Servers, the same server that served the initial authentication request must be the server that receives the OTP message from the user; if another MFA Server receives the OTP reply, the authentication challenge fails. For more information, see [One Time Password over SMS Added to Azure MFA Server](https://blogs.technet.microsoft.com/enterprisemobility/2015/03/02/one-time-password-over-sms-added-to-azure-mfa-server).
 * **Load-Balanced deployments of the User Portal and Mobile App Web Service require sticky sessions**. If you are load-balancing the MFA User Portal and the Mobile App Web Service, each session needs to stay on the same server.
 
 ## High-availability deployment
@@ -57,7 +57,7 @@ The following diagram shows a complete HA load-balanced implementation of Azure 
 
  ![Azure MFA Server HA implementation](./media/mfa-server-high-availability/mfa-ha-deployment.png)
 
-Please note the following for the correspondingly numbered area of the above diagram.
+Note the following items for the correspondingly numbered area of the preceding diagram.
 
 1. The two Azure MFA Servers (MFA1 and MFA2) are load balanced (mfaapp.contoso.com) and are configured to use a static port (4443) to replicate the PhoneFactor.pfdata database. The Web Service SDK is installed on each of the MFA Server to enable communication over TCP port 443 with the ADFS servers. The MFA servers are deployed in a stateless load-balanced configuration. However, if you wanted to use OTP over SMS, you must use stateful load balancing.
    ![Azure MFA Server - App server HA](./media/mfa-server-high-availability/mfaapp.png)
