@@ -174,6 +174,6 @@ install.sh script to deploy the application.
 $ ./install.sh
 ```
 
-## Related articles
+## Next steps
 
 * [Getting started with Service Fabric CLI](service-fabric-cli.md)

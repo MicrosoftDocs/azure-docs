@@ -353,11 +353,9 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 ```
 
 ## Next steps
+
 * [Service Fabric Cluster upgrade process and expectations from you](service-fabric-cluster-upgrade.md)
 * [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 * [Service Fabric Health model introduction](service-fabric-health-introduction.md)
 * [Application Security and RunAs](service-fabric-application-runas-security.md)
-
-## Related articles
-
 * [Getting started with Service Fabric CLI](service-fabric-cli.md)

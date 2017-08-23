@@ -127,12 +127,10 @@ To add another service to an application already created using `yo`, perform the
 3. Update the project file names to csproj files in build.sh.
 
 ## Next steps
+
 * [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interacting with Service Fabric clusters using the Service Fabric CLI](service-fabric-cli.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
-
-## Related articles
-
 * [Getting started with Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Images -->

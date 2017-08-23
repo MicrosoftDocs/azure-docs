@@ -112,7 +112,4 @@ Although this model offers flexibility, we are also planning to support a simple
 ## Next steps
 
 * Read up on the [Service Fabric application model](service-fabric-application-model.md).
-
-## Related articles
-
 * [Get started with Service Fabric CLI](service-fabric-cli.md)

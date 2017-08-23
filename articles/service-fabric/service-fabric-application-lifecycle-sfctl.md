@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: service-fabric
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 08/22/2017
 ms.author: edwardsa
 ---
 # Manage an Azure Service Fabric application by using Azure Service Fabric CLI
@@ -172,7 +172,8 @@ When an application upgrade is in progress, the status can be retrieved using th
 Finally, if an upgrade is in progress and needs to be canceled, you can use
 the `sfctl application upgrade-rollback` to roll back the upgrade.
 
-## Related articles
+## Next steps
 
-* [Get started with Service Fabric CLI](service-fabric-cli.md)
-* [Service Fabric application upgrade](service-fabric-application-upgrade.md)
+* [Service Fabric CLI basics](service-fabric-cli.md)
+* [Getting started with Service Fabric on Linux](service-fabric-get-started-linux.md)
+* [Launching a Service Fabric application upgrade](service-fabric-application-upgrade.md)

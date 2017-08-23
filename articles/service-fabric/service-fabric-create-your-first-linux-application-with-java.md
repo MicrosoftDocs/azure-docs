@@ -132,13 +132,11 @@ In Service Fabric explorer you see that the application and application type no 
 We have recently moved Service Fabric Java libraries from Service Fabric Java SDK to Maven repository. While the new applications you generate using Yeoman or Eclipse, will generate latest updated projects (which will be able to work with Maven), you can update your existing Service Fabric stateless or actor Java applications, which were using the Service Fabric Java SDK earlier, to use the Service Fabric Java dependencies from Maven. Please follow the steps mentioned [here](service-fabric-migrate-old-javaapp-to-use-maven.md) to ensure your older application works with Maven.
 
 ## Next steps
+
 * [Create your first Service Fabric Java application on Linux using Eclipse](service-fabric-get-started-eclipse.md)
 * [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interact with Service Fabric clusters using the Service Fabric CLI](service-fabric-cli.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
-
-## Related articles
-
 * [Getting started with Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Images -->

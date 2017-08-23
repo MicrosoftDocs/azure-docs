@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: service-fabric
 ms.topic: get-started-article
-ms.date: 06/21/2017
+ms.date: 08/22/2017
 ms.author: edwardsa
 
 ---
@@ -152,3 +152,8 @@ Another example:
 ```azurecli
 sfctl application create -h
 ```
+
+## Next steps
+
+* [Deploy an application with the Azure Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
+* [Get started with Service Fabric on Linux](service-fabric-get-started-linux.md)

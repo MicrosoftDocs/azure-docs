@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 06/26/2017
+ms.date: 08/22/2017
 ms.author: adegeo
 ms.custom: mvc
 ---
