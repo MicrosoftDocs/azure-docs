@@ -24,29 +24,46 @@ Device provisioning  is a two part process. The first part is establishing the i
 
 This article gives an overview of the *security* concepts involved in device provisioning. This article is relevant to all personas involved in getting a device ready for deployment.
 
-## Attestation
+## Attestation mechanism
 
-See [attestation mechanism](#attestation-mechanism).
+The attestation mechanism is the method used for confirming a device's identity. The attestation mechanism is also relevant to the enrollment list, which tells the DPS which method of attestation to use with a given device.
+
+> [!NOTE]
+> IoT Hub uses "authentication scheme" for a similar concept in that service.
+
+DPS supports two forms of attestation:
+* **X.509 certificates** based on the standard X.509 certificate authentication flow.
+* **SAS tokens** based on a nonce challenge using the TPM standard for keys. This does not require a physical TPM on the device, but the service expects to attest using the endorsement key per the [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## Hardware security module
 
-See [hardware security module](#hardware-security-module).
+The hardware security module, or HSM, is used for secure, hardware-based storage of device secrets, and is the most secure form of secret storage. Both X.509 certificates and SAS tokens can be stored in the HSM. HSMs can be used with both attestation mechanisms the DPS supports.
+
+> [!TIP]
+> We strongly recommend using an HSM with devices to securely store secrets on your devices.
+
+Device secrets may also be stored in software (memory), but it is a less secure form of storage than an HSM.
 
 ## Trusted Platform Module (TPM)
 
 TPM can refer to a standard for securely storing keys used to authenticate the platform, or it can refer to the I/O interface used to interact with the modules implementing the standard. TPMs can exist as discrete hardware, integrated hardware, firmware-based, or software-based. Learn more about [TPMs and TPM attestation](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). DPS only supports TPM 2.0.
 
-# TODO: waiting for Eustace for the following, this header will be removed at a later date!!!
 ## Endorsement key
 
-The endorsement key (EK) is an asymmetric key contained inside the TPM which was injected at manufacturing time. The EK is unique for every TPM and can identify it. The EK cannot be changed or removed.
+The endorsement key is an asymmetric key contained inside the TPM which was injected at manufacturing time and is unique for every TPM. The endorsement key cannot be changed or removed. The private portion of the endorsement key is never released outside of the TPM, while the public portion of the endorsement key is used to recognize a genuine TPM. Learn more about the [endorsement key](https://technet.microsoft.com/en-us/library/cc770443(v=ws.11).aspx).
 
 ## Storage root key
 
-## Signing certificate
-
-## Intermediate certificate
+The storage root key is stored in the TPM and is used to protect TPM keys created by applications, so that these keys cannot be used without the TPM. The storage root key is generated when you take ownership of the TPM; when you clear the TPM so a new user can take ownership, a new storage root key is generated. Learn more about the [storage root key](https://technet.microsoft.com/en-us/library/cc753560(v=ws.11).aspx).
 
 ## Root certificate
 
+A root certificate is a type of X.509 certificate representing a certificate authority and is self-signed. It is the terminus of the certificate chain.
+
+## Intermediate certificate
+
+An intermediate certificate is an X.509 certificate which has been signed by the root certificate (or by another certificate with the root certificate in its chain) and which is used to sign the leaf certificate.
+
 ## Leaf certificate
+
+A leaf certificate, or end-entity certificate, is used to identify the certificate holder and it has the root certificate in its certificate chain. The leaf certificate is not used to sign any other certificates.
