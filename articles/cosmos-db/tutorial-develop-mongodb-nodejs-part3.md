@@ -482,11 +482,12 @@ Now that we have the component set, how do we get it to show up on the screen? L
 
 10. In Visual Studio Code, go back to heroes.components.ts. Notice that on the `constructor(private heroService: HeroService) {}` line (line 14), `HeroService` has a red line underneath. Click HeroService, and you'll get a lightbulb on the left side of Visual Studio Code. Click the light bulb and then click **Import HeroService from "./hero.service ".**
 
-    ![Light bulb in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
-
-    Clicking the light bulb inserted a new line of code on line 2 `import { HeroService } from "client/app/hero.service"`.
-
-11. Change the new line of code on line 2 so that is just says `iimport { HeroService } from "./hero.service` as it's in the same folder.
+    Clicking the light bulb inserts a new line of code on line 2.
+    
+    ```javascript
+    import { HeroService } from "client/app/hero.service"
+    ```
+11. Change the new line of code on line 2 to `import { HeroService } from "./hero.service` as it's in the same folder and doesn't need to specify the client/app directory.
 
 12. Save all files in Visual Studio Code.
 

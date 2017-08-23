@@ -84,9 +84,9 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     });
     ```
 
-5. Check that everything worked by running the app. In Visual Studio Code, save all your changes, click the Debug button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) on the left side, then click the Start Debugging button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
+5. Check that everything worked by running the app. In Visual Studio Code, save all your changes, click the Debug button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) on the left side, then click the Start Debugging button ![Start debiugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
-6. Now lets flip over to the browser, open the developer tools tab, navigate to localhost:3000, and refresh the tab.   
+6. Now lets flip over to the browser, and open the Developer tools Network tab to watch the calls made over the network. Navigate to localhost:3000, and refresh the tab. 
 
     ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 
@@ -94,9 +94,9 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
     ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
 
-    Now lets go back and add PUT and DELETE functions.
+    Now lets go back and add the Put and Delete functions to the app.
 
-## Add Put and Delete functions
+## Add the Put and Delete functions
 
 1. In routes.js, add the put and delete routers.
 
@@ -170,8 +170,21 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     };
     ```
 
-TODO - Complete
+4. Now that we've updated the code, click the Restart debugging button ![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png) in Visual Studio Code.
 
+5. Refresh the the page in your internet browser and add a new hero with an ID of 9, name set to Starlord, and saying set to Hi. Save the new hero.
+
+6. Now select the Starlord hero, and change the saying from Hi to Bye, then click Save. 
+
+    You can now select the ID in the Network tab to show the payload. You can see the saying is now set to "Bye".
+
+    ![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
+
+    You can also delete one of the heroes in the UI, and see the times it takes to complete the delete operation.  
+
+    ![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
+
+    If you refresh the page, the Network tab shows the time to get the heroes. While these times are fast, alot depends on where your data is located in the world and how you can geo replicate it to get it close to your users, which is what will be covered in the next tutorial.
 
 ## Next steps
 

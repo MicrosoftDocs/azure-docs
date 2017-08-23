@@ -42,9 +42,9 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Use Mongoose to connect to Azure Cosmos DB
 
- 1. In a Windows Command Prompt or Mac Terminal window, pull in the Mongoose API, which is an API normally used to talk to MongoDB by using the following command:
+1. In a Windows Command Prompt or Mac Terminal window, pull in the Mongoose API, which is an API normally used to talk to MongoDB by using the following command:
 
-    ```
+    ```bash
     npm i mongoose --save
     ```
 
@@ -102,7 +102,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 1. In environment.js, change the value of cosmosPort to 10255.
 
-   ```
+   ```javascript
    const cosmosPort = 10255;
    ```
 
@@ -207,7 +207,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 3. In hero.service.js, update the getHeroes function to take the request and response as parameters as follows:
 
-    ```
+    ```javascript
     function getHeroes(req, res) {
     ```
 

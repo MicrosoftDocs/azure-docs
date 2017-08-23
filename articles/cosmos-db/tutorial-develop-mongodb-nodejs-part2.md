@@ -44,7 +44,7 @@ This tutorial also requires:
 * [Postman](https://www.getpostman.com/)
 * [Visual Studio Code](https://code.visualstudio.com/) or your favorite Node IDE.
 
-## Install Angular CLI, Azure CLI, and Typescript
+## Install Angular CLI and Typescript
 
 1. Open a Windows Command Prompt or Mac Terminal window and install the Angular CLI.
 
