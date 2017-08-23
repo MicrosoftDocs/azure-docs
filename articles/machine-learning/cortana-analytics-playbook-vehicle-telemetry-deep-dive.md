@@ -149,8 +149,8 @@ Once the pipeline executes successfully and "RawCarEventsTable" dataset is marke
 ### References
 [Azure Event Hub SDK for stream ingestion](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-[Azure Data Factory data movement capabilities](../data-factory/data-factory-data-movement-activities.md)
-[Azure Data Factory DotNet Activity](../data-factory/data-factory-use-custom-activities.md)
+[Azure Data Factory data movement capabilities](../data-factory/copy-activity-overview.md)
+[Azure Data Factory DotNet Activity](../data-factory/transform-data-using-dotnet-custom-activity.md)
 
 [Azure Data Factory DotNet activity visual studio solution for preparing sample data](http://go.microsoft.com/fwlink/?LinkId=717077) 
 

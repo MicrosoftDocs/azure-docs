@@ -38,7 +38,7 @@ As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/
 * receive the predictive analytics results, and 
 * upload the results to storage. 
 
-For more information, see [Create predictive pipelines using Azure Data Factory and Azure Machine Learning](../data-factory/data-factory-azure-ml-batch-execution-activity.md).
+For more information, see [Create predictive pipelines using Azure Data Factory and Azure Machine Learning](../data-factory/transform-data-using-machine-learning.md).
 
 ## Prerequisites
 This document assumes that you have an Azure subscription, a storage account, and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure storage account name and account key.

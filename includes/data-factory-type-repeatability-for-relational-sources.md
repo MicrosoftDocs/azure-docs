@@ -10,7 +10,7 @@ A slice can be rerun automatically in Azure Data Factory as per the retry policy
 > 
 > 
 
-Usually, when reading from relational stores, you would want to read only the data corresponding to that slice. A way to do so would be by using the WindowStart and WindowEnd variables available in Azure Data Factory. Read about the variables and functions in Azure Data Factory here in the [Scheduling and Execution](../articles/data-factory/data-factory-scheduling-and-execution.md) article. Example: 
+Usually, when reading from relational stores, you would want to read only the data corresponding to that slice. A way to do so would be by using the WindowStart and WindowEnd variables available in Azure Data Factory. Read about the variables and functions in Azure Data Factory here in the [Scheduling and Execution](../articles/data-factory/v1/data-factory-scheduling-and-execution.md) article. Example: 
 
 ```json
 "source": {

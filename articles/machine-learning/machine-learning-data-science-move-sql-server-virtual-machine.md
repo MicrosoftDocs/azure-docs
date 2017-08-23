@@ -1,4 +1,4 @@
-﻿---
+---
 title: Move data to SQL Server on an Azure virtual machine| Microsoft Docs
 description: Move data from flat files or from an on-premises SQL Server to SQL Server on Azure VM.
 services: machine-learning
@@ -36,7 +36,7 @@ The following table summarizes the options for moving data to SQL Server on an A
 Note that this document assumes that SQL commands are executed from SQL Server Management Studio or Visual Studio Database Explorer.
 
 > [!TIP]
-> As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to create and schedule a pipeline that will move data to a SQL Server VM on Azure. For more information, see [Copy data with Azure Data Factory (Copy Activity)](../data-factory/data-factory-data-movement-activities.md).
+> As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to create and schedule a pipeline that will move data to a SQL Server VM on Azure. For more information, see [Copy data with Azure Data Factory (Copy Activity)](../data-factory/copy-activity-overview.md).
 >
 >
 
