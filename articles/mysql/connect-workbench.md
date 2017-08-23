@@ -1,6 +1,6 @@
 ---
 title: 'Connect to Azure Database for MySQL from MySQL Workbench | Microsoft Docs'
-description: This quickstart provides the steps to use MySQL Workbench to connect and query data from Azure Database for MySQL.
+description: This Quickstart provides the steps to use MySQL Workbench to connect and query data from Azure Database for MySQL.
 services: mysql
 author: jasonwhowell 
 ms.author: jasonh
@@ -9,7 +9,7 @@ editor: seanli1988
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 08/23/2017
 ---
 
 # Azure Database for MySQL: Use MySQL Workbench to connect and query data
@@ -38,22 +38,22 @@ To connect to Azure MySQL server using the GUI tool MySQL Workbench:
 
 1.	Launch the MySQL Workbench application on your computer. 
 
-2.	In **Setup New Connection** dialog box, enter the following information on **Parameters** tab:
+2.	In **Setup New Connection** dialog box, enter the following information on the **Parameters** tab:
 
     ![setup new connection](./media/connect-workbench/2-setup-new-connection.png)
 
-    | **Setting** | **Suggested value** | **Field Description** |
+    | **Setting** | **Suggested value** | **Field description** |
     |---|---|---|
     |	Connection Name | Demo Connection | Specify a label for this connection. |
     | Connection Method | Standard (TCP/IP) | Standard (TCP/IP) is sufficient. |
     | Hostname | *server name* | Specify the server name value that was used when you created the Azure Database for MySQL earlier. Our example server shown is myserver4demo.mysql.database.azure.com. Use the fully qualified domain name (\*.mysql.database.azure.com) as shown in the example. Follow the steps in the previous section to get the connection information if you do not remember your server name.  |
     | Port | 3306 | Always use port 3306 when connecting to Azure Database for MySQL. |
     | Username |  *server admin login name* | Type in the server admin login username supplied when you created the Azure Database for MySQL earlier. Our example username is myadmin@myserver4demo. Follow the steps in the previous section to get the connection information if you do not remember the username. The format is *username@servername*.
-    | Password | your password | Click Store in Vault... button to save the password. |
+    | Password | your password | Click **Store in Vault...** button to save the password. |
 
 3.   Click **Test Connection** to test if all parameters are correctly configured. 
 4.   Click **OK** to save the connection. 
-5.   In the listing of MySQL Connections, click the tile corresponding to your server and wait for the connection to be established.
+5.   In the listing of **MySQL Connections**, click the tile corresponding to your server and wait for the connection to be established.
 6.   A new SQL tab opens with a blank editor where you can type your queries.
 
     > [!NOTE]
@@ -92,9 +92,9 @@ To connect to Azure MySQL server using the GUI tool MySQL Workbench:
     The screenshot shows an example of the SQL code in SQL Workbench and the output after it has been run.
     ![MySQL Workbench SQL Tab to run sample SQL code](media/connect-workbench/3-workbench-sql-tab.png)
 
-2. To run the sample SQL Code, click the lightening bolt icon in the toolbar of the SQL File tab.
-3. Notice the three tabbed results in the Result Set section in the middle of the page. 
-4. Notice the Output list at the bottom of the page. The status of each command is shown. 
+2. To run the sample SQL Code, click the lightening bolt icon in the toolbar of the **SQL File** tab.
+3. Notice the three tabbed results in the **Result Set** section in the middle of the page. 
+4. Notice the **Output** list at the bottom of the page. The status of each command is shown. 
 
 Now, you have connected to Azure Database for MySQL using MySQL Workbench, and have queried data using the SQL language.
 
