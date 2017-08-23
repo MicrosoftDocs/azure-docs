@@ -10,18 +10,18 @@ ms.topic: article
 ms.service: storage
 ---
 
-# Reacting to Blob Storage events (preview)
+# Reacting to Blob storage events (preview)
 
-Azure Blob Storage events allow applications to react to the creation and deletion of blobs using modern serverless architectures and without the need for complicated code or expensive and inefficient polling services.  Instead, events are pushed through [Azure Event Grid](https://azure.microsoft.com/en-us/services/event-grid/) to subscribers such as [Azure Functions](https://azure.microsoft.com/en-us/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/en-us/services/logic-apps/), or even to your own custom http listener, and you only pay for what you use.
+Azure Blob storage events allow applications to react to the creation and deletion of blobs using modern serverless architectures and without the need for complicated code or expensive and inefficient polling services.  Instead, events are pushed through [Azure Event Grid](https://azure.microsoft.com/en-us/services/event-grid/) to subscribers such as [Azure Functions](https://azure.microsoft.com/en-us/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/en-us/services/logic-apps/), or even to your own custom http listener, and you only pay for what you use.
 
-Common Blob Storage event scenarios include image or video processing, search indexing, or any file-oriented workflow.  Asynchronous file uploads are a great fit for events.  When changes are infrequent, but your scenario requires immediate responsiveness, and event-based architecture can be especially efficient.
+Common Blob Storage event scenarios include image or video processing, search indexing, or any file-oriented workflow.  Asynchronous file uploads are a great fit for events.  When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 
 ![Event Grid Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Join the preview
-Blob Storage Events are available for preview.  Users may request to join the preview by issuing the following commands against their subscription:
+Blob storage Events are available for preview.  Users may request to join the preview by issuing the following commands against their subscription:
 ```azurecli-interactive
 az provider register --namespace  Microsoft.EventGrid
 az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
@@ -30,13 +30,13 @@ Subscriptions are added to the Preview Program as capacity is available.  Reques
 ```azurecli-interactive
 az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid
 ```
-Once your registration state changes to “Registered”, you have been admitted to the preview program and you can subscribe to Blob Storage events for accounts in the *West Central US* location.  Take a look at [Route Blob Storage Events to a custom Web Endpoint](storage-blob-event-quickstart.md) for a quick example.
+Once your registration state changes to “Registered”, you have been admitted to the preview program and you can subscribe to Blob storage events for accounts in the *West Central US* location.  Take a look at [Route Blob storage events to a custom web endpoint](storage-blob-event-quickstart.md) for a quick example.
 
 ## Blob Storage accounts
-Blob Storage events are available in Blob Storage accounts (and not in General Purpose storage accounts).  A Blob Storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob Storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
+Blob storage events are available in [Blob storage accounts](../common/storage-create-storage-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) (and not in General Purpose storage accounts).  A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
 
-## Available Blob Storage events
-Event subscriptions can include two types of Blob Storage events:  
+## Available Blob storage events
+Event grid uses [event subscriptions](/en-us/azure/event-grid/concepts#event-subscriptions) to route event messaged to subscribers.  Blob storage event subscriptions can include two types of events:  
 
 > [!div class="mx-tdBreakAll"]
 > |Event Name|Description|
@@ -45,7 +45,7 @@ Event subscriptions can include two types of Blob Storage events:
 > |`Microsoft.Storage.BlobDeleted`|Fired when a blob is deleted through a `DeleteBlob` operation|
 
 ## Event Schema
-Blob Storage events contain all the information you need to respond to changes in your data.  You can identify a Blob Storage event because the eventType property starts with “Microsoft.Storage.”  
+Blob storage events contain all the information you need to respond to changes in your data.  You can identify a Blob storage event because the eventType property starts with “Microsoft.Storage.”  
 Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema](/en-us/azure/event-grid/event-schema).  
 
 > [!div class="mx-tdBreakAll"]
@@ -90,15 +90,16 @@ Here is an example of a BlobCreated event:
 
 ```
 
-For more information, see [Blob Storage Events schema](/en-us/azure/event-grid/event-schema#azure-blob-storage).
+For more information, see [Blob storage events schema](/en-us/azure/event-grid/event-schema#azure-blob-storage).
 
 ## Filtering Events
 Blob Event subscriptions can be filtered based on the event type and by the container name and blob name of the object that was created or deleted.  Subject filters in Event Grid work based on a “begins with” and “ends with” matches, so that events with a matching subject are delivered to the subscriber.
-The subject of Blob Storage events uses the format:
+The subject of Blob storage events uses the format:
 ```json
 /blobServices/default/containers/<containername>/blobs/<blobname>
 ```
 To match all events for a storage account, you can leave the subject filters empty.
+
 To match events from blobs created in a set of containers sharing a prefix, use a `subjectBeginsWith` filter like:
 ```json
 /blobServices/default/containers/containerprefix
@@ -117,7 +118,7 @@ To match events from blobs created in specific container sharing a blob suffix, 
 For more information, see [Event Grid Concepts](/en-us/azure/event-grid/concepts#filters).
 
 ## Practices for consuming events
-Applications that handle Blob Storage events should follow a few recommended practices:
+Applications that handle Blob storage events should follow a few recommended practices:
 > [!div class="checklist"]
 > * As multiple subscriptions can be configured to route events to the same event handler, it is important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the storage account you are expecting.
 > * Similarly, check that the eventType is one you are prepared to process, and do not assume that all events you receive will be the types you expect.
@@ -129,7 +130,7 @@ Applications that handle Blob Storage events should follow a few recommended pra
 
 ## Next steps
 
-Learn more about Event Grid and give Blob Storage events a try:
+Learn more about Event Grid and give Blob storage events a try:
 
 - [About Event Grid](../../event-grid/overview.md)
-- [Route Blob Storage Events to a custom Web Endpoint](storage-blob-event-quickstart.md)
+- [Route Blob storage Events to a custom web endpoint](storage-blob-event-quickstart.md)

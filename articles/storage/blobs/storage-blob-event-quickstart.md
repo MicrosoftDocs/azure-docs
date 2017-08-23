@@ -1,6 +1,6 @@
 ---
-title: Route Blob Storage Events to a custom Web Endpoint (preview) | Microsoft Docs
-description: Use Azure Event Grid to subscribe to Blob Storage events. 
+title: Route Blob storage events to a custom web endpoint (preview) | Microsoft Docs
+description: Use Azure Event Grid to subscribe to Blob storage events. 
 services: storage,event-grid 
 keywords: 
 author: cbrooksmsft
@@ -10,16 +10,16 @@ ms.topic: hero-article
 ms.service: storage
 ---
 
-# Route Blob Storage Events to a custom Web Endpoint (preview)
+# Route Blob storage events to a custom web endpoint (preview)
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to subscribe to Blob Storage events, and trigger the event to view the result. 
+Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to subscribe to Blob storage events, and trigger the event to view the result. 
 
 > [!IMPORTANT]
-> You must be registered for the Blob Storage events preview to complete this tutorial.  Learn more about the preview program [here](storage-blob-event-overview.md).
+> You must be registered for the Blob storage events preview to complete this tutorial.  Learn more about the preview program [here](storage-blob-event-overview.md#join-the-preview).
 
-Typically, you send events to an endpoint that responds to the event, such as, a webhook or Azure Function. However, to simplify this article, you send the events to a URL that merely collects the messages. You create this URL by using an open source, third-party tool called [RequestBin](https://requestb.in/).
+Typically, you send events to an endpoint that responds to the event, such as a webhook or Azure Function. To simplify the example shown in this article, we send the events to a URL that merely collects the messages. You create this URL by using an open source, third-party tool called [RequestBin](https://requestb.in/).
 
-When you are finished, you see that the event data has been sent to an endpoint.
+When you complete the steps described in this article, you see that the event data has been sent to an endpoint.
 
 ![Event data](./media/storage-blob-event-quickstart/request-result.png)
 
@@ -41,14 +41,14 @@ The following example creates a resource group named `<resource_group_name>` in 
 az group create --name <resource_group_name> --location westcentralus
 ```
 
-## Create a Blob Storage Account
+## Create a Blob storage account
 
-To use Azure Storage, you need a storage account.  Blob Storage events are currently available today only in Blob Storage accounts.
+To use Azure Storage, you need a storage account.  Blob storage events are currently available today only in Blob storage accounts.
 
-A Blob Storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob Storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
+A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
 
 > [!NOTE]
-> For the preview release, Blob Storage events are available only for storage accounts in the **westcentralus** location.
+> For the preview release, Blob storage events are available only for storage accounts in the **westcentralus** location.
 
 Replace `<storage_account_name>` with a unique name for your storage account, and `<resource_group_name>` with the resource group you created earlier.
 
@@ -64,11 +64,11 @@ az storage account create \
 
 ## Create a message endpoint
 
-Before subscribing to events from the Blob Storage account, let's create the endpoint for the event message. Rather than write code to respond to the event, let's create an endpoint that collects the messages so you can view them. RequestBin is an open source, third-party tool that enables you to create an endpoint, and view requests that are sent to it. Go to [RequestBin](https://requestb.in/), and click **Create a RequestBin**.  Copy the bin URL, because you need it when subscribing to the topic.
+Before subscribing to events from the Blob storage account, let's create the endpoint for the event message. Rather than write code to respond to the event, we will create an endpoint that collects the messages so you can view them. RequestBin is an open source, third-party tool that enables you to create an endpoint, and view requests that are sent to it. Go to [RequestBin](https://requestb.in/), and click **Create a RequestBin**.  Copy the bin URL, because you need it when subscribing to the topic.
 
-## Subscribe to your Blob Storage account
+## Subscribe to your Blob storage account
 
-You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the Blob Storage account you created, and passes the URL from RequestBin as the endpoint for event notification. Replace `<event_subscription_name>` with a unique name for your event subscription, and `<URL_from_RequestBin>` with the value from the preceding section. By specifying an endpoint when subscribing, Event Grid handles the routing of events to that endpoint. For `<resource_group_name>` and `<storage_account_name>`, use the values you created earlier. 
+You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the Blob storage account you created, and passes the URL from RequestBin as the endpoint for event notification. Replace `<event_subscription_name>` with a unique name for your event subscription, and `<URL_from_RequestBin>` with the value from the preceding section. By specifying an endpoint when subscribing, Event Grid handles the routing of events to that endpoint. For `<resource_group_name>` and `<storage_account_name>`, use the values you created earlier. 
 
 ```azurecli-interactive
 az eventgrid resource event-subscription create \
@@ -80,7 +80,7 @@ az eventgrid resource event-subscription create \
 --resource-name <storage_account_name>
 ```
 
-## Trigger an event from Blob Storage
+## Trigger an event from Blob storage
 
 Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First,let's configure the name and key for the storage account, then we'll create a container, then create and upload a file. Again, use the values for `<storage_account_name>` and `<resource_group_name>`  you created earlier.
 
@@ -132,7 +132,7 @@ az group delete --name <resource_group_name>
 
 ## Next steps
 
-Now that you know how to create topics and event subscriptions, learn more about Blob Storage Events and what Event Grid can help you do:
+Now that you know how to create topics and event subscriptions, learn more about Blob storage Events and what Event Grid can help you do:
 
-- [Reacting to Blob Storage events](storage-blob-event-overview.md)
+- [Reacting to Blob storage events](storage-blob-event-overview.md)
 - [About Event Grid](../../event-grid/overview.md)
