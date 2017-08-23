@@ -1,2 +1,2 @@
 > [!IMPORTANT]
-> Azure Load Balancer supports two types of load balancers: Basic Load Balancer and Standard Load Balancer. This article discusses Basic Load Balancers. For more information about Standard Load Balancers, see [Overview of Standard Load Balancer](../articles/load-balancer/load-balancer-standard-overview.md).
+> Azure Load Balancer supports two different SKUs: Basic and Standard. This article discusses Basic SKU Load Balancers. Basic SKU Load Balancer is generally available, whereas Standard SKU Load Balancer is currently in Public Preview. For more information about the Public Preview for Standard SKU Load Balancers, see [Overview of Standard Load Balancer](../articles/load-balancer/load-balancer-standard-overview.md).
