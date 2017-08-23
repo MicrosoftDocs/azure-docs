@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Identifier** textbox, type the value: `DATA-BASICS_SP`
 	
-	b. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://site40.data-basics.net/<clientname>/saml_sso.jsp`
+	b. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<sitenumber>.data-basics.net/<clientname>/saml_sso.jsp`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [DATABASICS Client support team](https://www.data-basics.com/support/) to get these values.
