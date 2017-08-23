@@ -36,7 +36,6 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
 ### Azure Active Directory (AAD) based deployments
        
   ```powershell
-
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
   Set-ExecutionPolicy RemoteSigned
   Import-Module .\Connect\AzureStack.Connect.psm1
@@ -65,7 +64,6 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
 ### Active Directory Federation Services (AD FS) based deployments 
           
   ```powershell
-
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
   Set-ExecutionPolicy RemoteSigned
   Import-Module .\Connect\AzureStack.Connect.psm1
@@ -97,7 +95,6 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
 When operating on a newly created user subscription that doesn’t have any resources deployed through the portal, the resource providers aren't automatically registered. You should explicitly register them by using the following script:
 
 ```powershell
-
 foreach($s in (Get-AzureRmSubscription)) {
         Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)

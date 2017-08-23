@@ -50,7 +50,6 @@ You can establish a split tunnel Virtual Private Network (VPN) connection to an 
 To create a VPN connection to the development kit, open an elevated PowerShell session from your local Windows-based computer and run the following script (make sure to update the the IP address and password values for your environment):
 
 ```PowerShell 
-
 # Configure winrm if it's not already configured
 winrm quickconfig  
 
@@ -85,24 +84,18 @@ If the set up succeeds, you should see **azurestack** in your list of VPN connec
 
 ### Connect to Azure Stack
 
-Connect to the Azure Stack instance by using either of the following methods:  
+Connect to the Azure Stack instance by using either of the following two methods:  
 
-a. `Connect-AzsVpn ` command: 
+* By using the `Connect-AzsVpn ` command: 
     
-   ```PowerShell
-   Connect-AzsVpn `
-     -Password $Password
-   ```
-    
-   ![connect with cmd](media/azure-stack-connect-azure-stack/image4.png)  
+  ```PowerShell
+  Connect-AzsVpn `
+    -Password $Password
+  ```
 
-   When prompted, trust the Azure Stack host and install the certificate from **AzureStackCertificateAuthority** onto your local computer’s certificate store. (the prompt might appear behind the PowerShell session window). 
+  When prompted, trust the Azure Stack host and install the certificate from **AzureStackCertificateAuthority** onto your local computer’s certificate store. (the prompt might appear behind the PowerShell session window). 
 
-   b.	Open your local computer’s **Network Settings** > **VPN** > click **azurestack** > **connect**
-
-   ![connect with UI](media/azure-stack-connect-azure-stack/image5.png)  
-
-   At the sign-in prompt, enter the username (AzureStack\AzureStackAdmin) and the password.
+* Open your local computer’s **Network Settings** > **VPN** > click **azurestack** > **connect**. At the sign-in prompt, enter the username (AzureStack\AzureStackAdmin) and the password.
 
 ### Test the VPN connectivity
 

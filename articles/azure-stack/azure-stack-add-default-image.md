@@ -54,7 +54,6 @@ Now run the following steps to add the image to the Azure Stack marketplace:
 1. Import the Azure Stack Connect and ComputeAdmin modules by using the following commands:
 
    ```powershell
-
    Set-ExecutionPolicy RemoteSigned
 
    # import the Connect and ComputeAdmin modules   
@@ -68,7 +67,6 @@ Now run the following steps to add the image to the Azure Stack marketplace:
    a. **Azure Active Directory**, use the following cmdlet:
 
    ```PowerShell
-
    # Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
@@ -83,14 +81,13 @@ Now run the following steps to add the image to the Azure Stack marketplace:
      -EnvironmentName AzureStackAdmin
 
    Login-AzureRmAccount `
-   -EnvironmentName "AzureStackAdmin" `
-   -TenantId $TenantID 
+     -EnvironmentName "AzureStackAdmin" `
+     -TenantId $TenantID 
    ```
 
    b. **Active Directory Federation Services**, use the following cmdlet:
     
    ```PowerShell
-
    # Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
@@ -106,8 +103,8 @@ Now run the following steps to add the image to the Azure Stack marketplace:
      -EnvironmentName AzureStackAdmin 
 
    Login-AzureRmAccount `
-   -EnvironmentName "AzureStackAdmin" `
-   -TenantId $TenantID 
+     -EnvironmentName "AzureStackAdmin" `
+     -TenantId $TenantID 
    ```
    
 3. Add the Windows Server 2016 image to the Azure Stack marketplace (Make sure to replace the *Path_to_ISO* with the path to the WS2016 ISO you downloaded):

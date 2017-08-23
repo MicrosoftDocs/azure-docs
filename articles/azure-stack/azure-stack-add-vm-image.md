@@ -40,22 +40,9 @@ Run the following prerequisites either from the [development kit](azure-stack-co
 
 Now run the following steps to add the image to the Azure Stack marketplace:
 
-1. Download Azure Stack tools from GitHub, import the Connect and ComputeAdmin modules:
+1. Import the Connect and ComputeAdmin modules:
    
    ```powershell
-   # Download the tools required to work with Azure Stack
-   cd \
-
-   invoke-webrequest `
-     https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-     -OutFile master.zip
-
-   expand-archive master.zip `
-     -DestinationPath . `
-     -Force
-
-   cd AzureStack-Tools-master
-
    Set-ExecutionPolicy RemoteSigned
 
    # import the Connect and ComputeAdmin modules
@@ -68,7 +55,6 @@ Now run the following steps to add the image to the Azure Stack marketplace:
    a. **Azure Active Directory**, use the following cmdlet:
 
    ```PowerShell
-
    # Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
@@ -83,14 +69,13 @@ Now run the following steps to add the image to the Azure Stack marketplace:
      -EnvironmentName AzureStackAdmin
 
    Login-AzureRmAccount `
-   -EnvironmentName "AzureStackAdmin" `
-   -TenantId $TenantID 
+     -EnvironmentName "AzureStackAdmin" `
+     -TenantId $TenantID 
    ```
 
    b. **Active Directory Federation Services**, use the following cmdlet:
     
    ```PowerShell
-
    # Create the Azure Stack cloud administrator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
@@ -106,8 +91,8 @@ Now run the following steps to add the image to the Azure Stack marketplace:
      -EnvironmentName AzureStackAdmin 
 
    Login-AzureRmAccount `
-   -EnvironmentName "AzureStackAdmin" `
-   -TenantId $TenantID 
+     -EnvironmentName "AzureStackAdmin" `
+     -TenantId $TenantID 
    ```
     
 3. Add the VM image by invoking the `Add-AzsVMImage` cmdlet. In the Add-AzsVMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. See the [Parameters](#parameters) section for information about the allowed parameters. These parameters are used by Azure Resource Manager templates to reference the VM image. Following is an example invocation of the script:
