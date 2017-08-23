@@ -450,7 +450,7 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
 
 ![Create Azure Blob storage account](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
-* Customize Azure HDInsight Hadoop Clusters from [Azure portal](customize-hadoop-cluster.md)
+* Customize Azure HDInsight Hadoop Clusters from [Azure portal](../team-data-science-process/customize-hadoop-cluster.md)
   
   * You must link the storage account created with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
 
@@ -559,7 +559,7 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
             cursor.execute(queryString)
 
 
-* Alternately,  you can follow this [walkthrough](hive-walkthrough.md) to upload NYC Taxi data to HDI cluster. Major steps include:
+* Alternately,  you can follow this [walkthrough](../team-data-science-process/hive-walkthrough.md) to upload NYC Taxi data to HDI cluster. Major steps include:
   
   * AzCopy: download zipped CSV's from public blob to your local folder
   * AzCopy: upload unzipped CSV's from local folder to HDI cluster

@@ -8,19 +8,19 @@
     - name: Set up a virtual machine
       items:
       - name: DS VM overview
-        href: data-science-virtual-machine-overview.md
+        href: virtual-machine-overview.md
       - name: How to use the DS VM
-        href: data-science-vm-do-ten-things.md
+        href: vm-do-ten-things.md
       - name: Provision the DS VM
-        href: data-science-provision-vm.md
+        href: provision-vm.md
       - name: Set up Azure VM
-        href: data-science-setup-virtual-machine.md
+        href: setup-virtual-machine.md
       - name: Set up SQL VM
-        href: data-science-setup-sql-server-virtual-machine.md
+        href: setup-sql-server-virtual-machine.md
       - name: Provision Linux VM
-        href: data-science-linux-dsvm-intro.md
+        href: linux-dsvm-intro.md
       - name: Use Linux VM
-        href: data-science-linux-dsvm-walkthrough.md
+        href: linux-dsvm-walkthrough.md
 - name: Reference
 - name: Related
 - name: Resources
