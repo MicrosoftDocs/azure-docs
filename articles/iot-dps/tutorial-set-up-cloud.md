@@ -97,7 +97,7 @@ In this tutorial, you learned how to:
 > * Link the IoT hub to DPS
 > * Set the allocation policy on the DPS
 
-Advance to the next tutorial to learn how to set up your device.
+Advance to the next tutorial to learn how to set up your device for provisioning.
 
 > [!div class="nextstepaction"]
-> [Set up device](/azure/iot-hub/)
+> [Set up device for provisioning](tutorial-set-up-device.md)
