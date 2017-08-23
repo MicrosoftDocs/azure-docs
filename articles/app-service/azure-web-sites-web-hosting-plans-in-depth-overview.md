@@ -107,9 +107,6 @@ To move an app to another plan:
 > The select App Service plan UI is filtered by the following criteria:
 > - Exists within the same Resource Group
 > - Exists in the same Geographical Region
-> - Exists within the same Webspace
->
-> A Webspace is a logical construct within App Service which defines a grouping of server resources. A Geographical region (such as West US) contains many Webspaces in order to allocate customers using App Service. Currently, App Service resources aren’t able to be moved between Webspaces.
 >
 
 ![App Service plan selector.][change]
