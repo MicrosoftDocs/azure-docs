@@ -25,11 +25,11 @@ Information in this article describes how you can create an Office Data Connecti
 
 1. Copy the sample connection file below and paste into a text editor. 
 
-2. In `odc:ConnectionString` change the following properties:
+2. In `odc:ConnectionString`, change the following properties:
 
-    *   In `Data Source=asazure://*region*.asazure.windows.net/*servername*;` change `region` to the region of your Analysis Services server and `servername` to the name of your  server.
+    *   In `Data Source=asazure://<region>.asazure.windows.net/<servername>;` change `<region>` to the region of your Analysis Services server and `<servername>` to the name of your  server.
 
-    *   In `Initial Catalog=*database*;` change `database` to the name of your database.
+    *   In `Initial Catalog=<database>;` change `<database>` to the name of your database.
 
 3. In `<odc:CommandText>Model</odc:CommandText>` change `Model` to the name of your model or perspective. 
 
