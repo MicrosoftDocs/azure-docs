@@ -11,4 +11,4 @@
 - name: Queues
   href: ./queues/storage-queues-introduction.md 
 - name: Tables
-  href: table-storage-overview.md
+  href: ../cosmos-db/table-storage-overview.md
