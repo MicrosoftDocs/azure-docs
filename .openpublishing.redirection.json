@@ -6211,12 +6211,12 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-create-lamp-stack-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/create-lamp-stack-nodejs",
+            "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-create-lamp-stack.md",
-            "redirect_url": "/azure/virtual-machines/linux/create-lamp-stack",
+            "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
             "redirect_document_id": false
         },
         {
@@ -8486,22 +8486,22 @@
         },
         {
             "source_path": "articles/virtual-machines/linux/create-lamp-stack.md",
-            "redirect_url": "azure/virtual-machines/linux/tutorial-lamp-stack",
+            "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/linux/create-lamp-stack-nodejs.md",
-            "redirect_url": "azure/virtual-machines/linux/tutorial-lamp-stack",
+            "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/vpn-gateway/vpn-gateway-site-to-site-create.md",
-            "redirect_url": "azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md",
-            "redirect_url": "azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal",
             "redirect_document_id": false
         },
         {
@@ -8521,7 +8521,7 @@
         },
         {
             "source_path": "articles/virtual-machines/linux/configure-sshd-on-azure-linux-vms.md",
-            "redirect_url": "azure/virtual-machines/linux/",
+            "redirect_url": "/azure/virtual-machines/linux/",
             "redirect_document_id": false
         },
         {
@@ -10078,6 +10078,11 @@
             "source_path": "articles/service-fabric/service-fabric-azure-cli.md",
             "redirect_url": "/azure/service-fabric/service-fabric-cli",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-users-delete-user-azure-portal.md",
+            "redirect_url": "/azure/active-directory/add-users-azure-active-directory",
+            "redirect_document_id": false
+        }        
     ]
 }
