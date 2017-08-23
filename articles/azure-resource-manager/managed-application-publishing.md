@@ -102,10 +102,10 @@ The first step is to create the three required template files. Package all three
 
 * **applianceCreateUiDefinition.json**: The Azure portal uses this file to generate the user interface for users who create the managed application. You define how users provide input for each parameter. You can use options like a drop-down list, text box, password box, and other input tools. To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
 
-The following example shows an applianceCreateUiDefinition.json file that enables users to specify the storage account name prefix through a textbox.
+  The following example shows an applianceCreateUiDefinition.json file that enables users to specify the storage account name prefix through a textbox.
 
-```json
-{
+  ```json
+  {
     "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json",
     "handler": "Microsoft.Compute.MultiVm",
     "version": "0.1.2-preview",
@@ -130,8 +130,8 @@ The following example shows an applianceCreateUiDefinition.json file that enable
             "storageAccountNamePrefix": "[basics('storageAccounts')]"
         }
     }
-}
-```
+  }
+  ```
 
 After all the needed files are ready, package them as a .zip file. The three files must be at the root level of the .zip file. If you put them in a folder, you receive an error when creating the managed application definition that states the required files are not present. Upload the package to an accessible location from where it can be consumed. The remainder of this article assumes the .zip file exists in a publicly accessible storage blob container.
 
