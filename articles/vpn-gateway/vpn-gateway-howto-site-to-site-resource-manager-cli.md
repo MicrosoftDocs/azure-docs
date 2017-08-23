@@ -44,7 +44,7 @@ Verify that you have met the following criteria before beginning configuration:
 * If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to.
 * Verify that you have installed latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Get Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli).
 
-### Example values
+### <a name="example"></a>Example values
 
 You can use the following values to create a test environment, or refer to these values to better understand the examples in this article:
 
@@ -73,7 +73,7 @@ ConnectionName          = VNet1toSite2
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
-## 2. Create a resource group
+## <a name="rg"></a>2. Create a resource group
 
 The following example creates a resource group named 'TestRG1' in the 'eastus' location. If you already have a resource group in the region that you want to create your VNet, you can use that one instead.
 
@@ -183,7 +183,7 @@ If you want to use another method to verify your connection, see [Verify a VPN G
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
-## Common tasks
+## <a name="tasks"></a>Common tasks
 
 This section contains common commands that are helpful when working with site-to-site configurations. For the full list of CLI networking commands, see [Azure CLI - Networking](/cli/azure/network).
 
