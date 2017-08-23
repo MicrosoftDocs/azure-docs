@@ -60,26 +60,26 @@ You can use Azure PowerShell or the CLI to create a network interface or VM with
 When you create a VM through the portal, the portal creates a network interface with default settings and attaches it to the VM for you. You cannot add existing network interfaces to a new VM, or create a VM with multiple network interfaces using the Azure portal. You can do both using the CLI or PowerShell. You can add as many network interfaces to a VM as the VM size you're creating supports. To learn more about how many network interfaces each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The network interfaces you add to a VM cannot currently be attached to another VM. To learn more about creating network interfaces, read the [Manage network interfaces](virtual-network-network-interface.md#create-a-network-interface) article.
 
 > [!WARNING]
-> If the network interface has a private IPv6 address assigned to it, you can only add that network interface to the virtual machine when creating the virtual machine. You cannot add additional network interfaces to the virtual machine when you create the virtual machine, or after the virtual machine is created, as long as the IPv6 address is assigned to the network interface and the network interface is attached to the virtual machine. See [Network interface IP addresses](virtual-network-network-interface-addresses.md) to learn more about assigning IP addresses to network interfaces.
+> If a network interface has a private IPv6 address assigned to it, you can only add the network interface to the virtual machine when creating the virtual machine. You cannot attach more than one network interface to the virtual machine when you create the virtual machine, or after the virtual machine is created, as long as an IPv6 address is assigned to a network interface attached to a virtual machine. See [Network interface IP addresses](virtual-network-network-interface-addresses.md) to learn more about assigning IP addresses to network interfaces.
 
 **Commands**
 
 |Tool|Command|
 |---|---|
 |CLI|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[New-AzureRmVM](/powershell/resourcemanager/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>Add an existing network interface to an existing VM
 
 You can add as many network interfaces to a VM as the VM size you're adding network interfaces to supports. To learn how many network interfaces each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The VM you want to add a network interface to must support the number of network interfaces you want to add and must be in the stopped (deallocated) state. The network interfaces you want to add cannot currently be attached to another VM. You cannot add network interfaces to an existing VM using the Azure portal. To add network interfaces to an existing VM, you must use the CLI or PowerShell. 
 
 > [!WARNING]
-> If a network interface has a private IPv6 address assigned to it, it cannot be added to an existing virtual machine. You can only add a network interface with an assigned private IPv6 address to a virtual machine when you create the virtual machine. See [Network interface IP addresses](virtual-network-network-interface-addresses.md) to learn more about assigning IP addresses to network interfaces.
+> If a network interface has a private IPv6 address assigned to it, it cannot be added to an existing virtual machine. You can only add a network interface with an assigned private IPv6 address to a virtual machine when you create a virtual machine. See [Network interface IP addresses](virtual-network-network-interface-addresses.md) to learn more about assigning IP addresses to network interfaces.
 
 |Tool|Command|
 |---|---|
 |CLI|[az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#add) (reference) or [detailed steps](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
-|PowerShell|[Add-AzureRmVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (reference) or [detailed steps](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
+|PowerShell|[Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (reference) or [detailed steps](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="vm-view-nic"></a> View network interfaces for a VM
 
@@ -95,18 +95,25 @@ You can view the network interfaces currently attached to a VM to learn about ea
 |Tool|Command|
 |---|---|
 |CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
-|PowerShell|[Get-AzureRmVM](/powershell/resourcemanager/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-remove-nic"></a> Remove a network interface from a VM
 
-The VM you want to remove a network interface from must be in the stopped (deallocated) state and must currently have at least two network interfaces attached to it. You can remove any network interface, but the VM must always have at least one network interface attached to it. If you remove a primary network interface, Azure assigns the primary attribute to the network interface that's been attached to the VM the longest. You can designate any network interface as the primary yourself. You cannot remove network interfaces from a VM, nor set the primary attribute for a network interface using the Azure portal, though you can accomplish both operations using the CLI or PowerShell. 
+The VM you want to remove (or detach) a network interface from must be in the stopped (deallocated) state and must currently have at least two network interfaces attached to it. You can remove any network interface, but the VM must always have at least one network interface attached to it. If you remove a primary network interface, Azure assigns the primary attribute to the network interface that's been attached to the VM the longest. 
+
+1. Log in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Owner, Contributor, or Network Contributor role for your subscription. To learn more about assigning roles to accounts, see [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
+2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual machines*. When **virtual machines** appears in the search results, click it.
+3. In the **Virtual machines** blade that appears, click the name of the VM you want to remove a network interface for.
+4. In the **SETTINGS** section of the virtual machine blade that appears for the VM you selected, click **Network interfaces**. To learn about network interface settings and how to change them, read the [Manage network interfaces](virtual-network-network-interface.md) article. To learn about adding, changing, or removing IP addresses assigned to a network interface, see [Manage IP addresses](virtual-network-network-interface-addresses.md).
+5. In the network interfaces blade that appears, click the **...** to the right of the network interface that you want to detach.
+6. Click **Detach**. If there is only one network interface attached to the virtual machine, the **Detach** option isn't available. Click **Yes** in the confirmation box that appears.
 
 **Commands**
 
 |Tool|Command|
 |---|---|
 |CLI|[az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove) (reference) or [detailed steps](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
-|PowerShell|[Remove-AzureRMVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (reference) or [detailed steps](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
+|PowerShell|[Remove-AzureRMVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (reference) or [detailed steps](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="next-steps"></a>Next steps
 To create a VM with multiple network interfaces or IP addresses, read the following articles:

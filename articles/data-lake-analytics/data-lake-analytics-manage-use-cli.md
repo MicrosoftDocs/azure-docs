@@ -83,7 +83,7 @@ Get details of a specific Data Lake Analytics account
 Data Lake Analytics currently supports the following data sources:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Azure Storage](../storage/storage-introduction.md)
+* [Azure Storage](../storage/common/storage-introduction.md)
 
 When you create an Analytics account, you must designate an Azure Data Lake Storage account to be the default 
 storage account. The default ADL storage account is used to store job metadata and job audit logs. After you have 
