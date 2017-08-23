@@ -19,7 +19,7 @@ ms.author: magoedte
 
 # Connect your Linux Computers to Operations Management Suite (OMS) 
 
-With OMS, you can collect and act on data generated from Linux computers and container solutions like Docker, residing in your on-premises data center as physical servers or virtual machines, virtual machines in a cloud-hosted service like Amazon Web Services (AWS) or Microsoft Azure. You can also use management solutions available in OMS such as Change Tracking, to identify configuration changes, and Update Management to manage software updates to proactively manage the lifecycle of your Linux VMs. 
+With Microsoft Operations Management Suite (OMS), you can collect and act on data generated from Linux computers and container solutions like Docker, residing in your on-premises data center as physical servers or virtual machines, virtual machines in a cloud-hosted service like Amazon Web Services (AWS) or Microsoft Azure. You can also use management solutions available in OMS such as Change Tracking, to identify configuration changes, and Update Management to manage software updates to proactively manage the lifecycle of your Linux VMs. 
 
 The OMS Agent for Linux communicates outbound with the OMS service over TCP port 443, and if the computer connects to a firewall or proxy server to communicate over the Internet, review [Configuring the agent for use with an HTTP proxy server or OMS Gateway](#configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway) to understand what configuration changes will need to be applied.  If you are monitoring the computer with System Center 2016 - Operations Manager or Operations Manager 2012 R2, it can be multi-homed with the OMS service to collect data and forward to the service and still be monitored by Operations Manager.  Linux computers monitored by an Operations Manager management group that is integrated with OMS do not receive configuration for data sources and forward collected data through the management group.  The OMS agent cannot be configured to report to more than one workspace.  
 
@@ -35,10 +35,10 @@ Before starting, review the following details to verify you meet the prerequisit
 ### Supported Linux operating systems
 The following Linux distributions are officially supported.  However, the OMS Agent for Linux might also run on other distributions not listed.
 
-* Amazon Linux 2012.09 --> 2015.09 (x86/x64)
-* CentOS Linux 5,6, and 7 (x86/x64)
-* Oracle Linux 5,6, and 7 (x86/x64)
-* Red Hat Enterprise Linux Server 5,6 and 7 (x86/x64)
+* Amazon Linux 2012.09 to 2015.09 (x86/x64)
+* CentOS Linux 5, 6, and 7 (x86/x64)
+* Oracle Linux 5, 6, and 7 (x86/x64)
+* Red Hat Enterprise Linux Server 5, 6 and 7 (x86/x64)
 * Debian GNU/Linux 6, 7, and 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 and 12 (x86/x64)
@@ -106,7 +106,7 @@ First you need your OMS workspace ID and key, which you can find by switching to
 3. Install the bundle by using the `--install` or `--upgrade` argument. 
 
     > [!NOTE]
-    > Use the `--upgrade` argument if any existing packages are installed such as when the System Center Operations Manager agent for Linux is already installed. To connect to Operations Management Suite during installation, provide the `-w <WorkspaceID>` and `-s <Shared Key>` parameters.
+    > If any existing packages are installed such as when the System Center Operations Manager agent for Linux is already installed, use the `--upgrade` argument. To connect to Operations Management Suite during installation, provide the `-w <WorkspaceID>` and `-s <Shared Key>` parameters.
 
 
 #### To install and onboard directly
@@ -264,7 +264,7 @@ The agent packages can be uninstalled by running the bundle .sh file with the `-
 #### Resolution
 
 1. Check the time on your Linux server with the command date. If the time is +/- 15 minutes from current time, then onboarding fails. To correct this update the date and/or timezone of your Linux server. 
-2. Verify you have installed the latest version of the OMS Agent for Linux.  The newest version now notifies you if the time skew is causing the onboarding failure.
+2. Verify you have installed the latest version of the OMS Agent for Linux.  The newest version now notifies you if time skew is causing the onboarding failure.
 3. Reonboard using correct Workspace ID and Workspace Key following the installation instructions earlier in this topic.
 
 ### Issue: You see a 500 and 404 error in the log file right after onboarding
@@ -280,8 +280,10 @@ This is a known issue that occurs on first upload of Linux data into an OMS work
 
 #### Resolutions
 1. Check if onboarding the OMS Service was successful by checking if the following file exists: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
-2. Reonboard using the `omsadmin.sh` command line instructions
+2. Reonboard using the `omsadmin.sh` command-line instructions
 3. If using a proxy, refer to the proxy resolution steps provided earlier.
-4. In some cases, when the OMS Agent for Linux cannot communicate with the OMS Service, data on the agent is queued to the full buffer size, which is 50 MB. The OMS Agent for Linux should be restarted by running the following command `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
-> [!NOTE]
-> This issue is fixed in agent version 1.1.0-28 and later.
+4. In some cases, when the OMS Agent for Linux cannot communicate with the OMS Service, data on the agent is queued to the full buffer size, which is 50 MB. The OMS Agent for Linux should be restarted by running the following command: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
+
+    >[!NOTE]
+    >This issue is fixed in agent version 1.1.0-28 and later.
+> 
