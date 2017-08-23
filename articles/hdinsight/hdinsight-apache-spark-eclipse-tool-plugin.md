@@ -148,7 +148,8 @@ You can perform various operations by using HDInsight Tools, including accessing
        ![Job view node](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
 
 2. Click on **Jobs** node, the HDInsight Tools auto detects whether you installed e(fx)clipse plugin or not. Click **OK** to continue and follow the instructions to install by the Eclipse Marketplace and restart eclipse.
-       ![Install E(fx)clipse](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
+
+    ![Install E(fx)clipse](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
 
 3. Open job view from **Jobs** node. In the right pane, the **Spark Job View** tab displays all the applications that were run on the cluster. Click the name of the application for which you want to see more details.
        ![Application details](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
