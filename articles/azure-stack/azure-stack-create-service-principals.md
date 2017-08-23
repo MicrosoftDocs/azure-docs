@@ -90,7 +90,7 @@ You can create a Service Principal by executing the following command, making su
 $servicePrincipal = New-AzSADGraphServicePrincipal `
  -DisplayName "<YourServicePrincipalName>" `
  -AdminCredential $(Get-Credential) `
- -AdfsMachineName "MAS-ADFS01" `
+ -AdfsMachineName "AZS-ADFS01" `
  -Verbose
 ```
 ### Assign a role
