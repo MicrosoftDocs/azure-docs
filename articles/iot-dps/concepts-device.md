@@ -1,5 +1,5 @@
 ---
-title: Device concepts in device provisioning | Microsoft Docs
+title: Device concepts in Azure device provisioning | Microsoft Docs
 description: Describes device provisioning concepts specific to devices with DPS and IoT Hub
 services: iot-dps
 keywords: 
@@ -32,12 +32,12 @@ The attestation mechanism is the method used for confirming a device's identity.
 > IoT Hub uses "authentication scheme" for a similar concept in that service.
 
 DPS supports two forms of attestation:
-* **x509 certificates** based on the standard x509 certificate authentication flow.
+* **X.509 certificates** based on the standard X.509 certificate authentication flow.
 * **SAS tokens** based on a nonce challenge using the TPM standard for keys. This does not require a physical TPM on the device, but the service expects to attest using the endorsement key per the [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## Hardware security module
 
-The hardware security module, or HSM, is used for secure, hardware-based storage of device secrets, and is the most secure form of secret storage. Both x509 certificates and SAS tokens can be stored in the HSM. HSMs can be used with both attestation mechanisms the DPS supports.
+The hardware security module, or HSM, is used for secure, hardware-based storage of device secrets, and is the most secure form of secret storage. Both X.509 certificates and SAS tokens can be stored in the HSM. HSMs can be used with both attestation mechanisms the DPS supports.
 
 > [!TIP]
 > We strongly recommend using an HSM with devices to securely store secrets on your devices.
@@ -49,7 +49,7 @@ Device secrets may also be stored in software (memory), but it is a less secure 
 The registration ID is used to uniquely identify a device in DPS. The device ID must be unique in the DPS [ID scope](#id-scope). Each device must have a registration ID. The registration ID is alphanumeric, lowercase, and may contain hyphens.
 
 * In the case of TPM, the registration ID is provided by the TPM itself.
-* In the case of x509-based attestation, the registration ID is provided as the subject name of the certificate.
+* In the case of X.509-based attestation, the registration ID is provided as the subject name of the certificate.
 
 ## Device ID
 
