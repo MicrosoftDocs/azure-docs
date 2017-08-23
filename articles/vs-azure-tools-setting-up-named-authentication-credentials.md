@@ -13,16 +13,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/18/2016
+ms.date: 8/17/2017
 ms.author: tarcher
 
 ---
 # Setting Up Named Authentication Credentials
-To publish an application to Azure from Visual Studio or to monitor an existing cloud service, you must provide credentials that Visual Studio can use to authenticate requests to Azure. There are several places in Visual Studio where you can sign in to provide these credentials. For example, from the Server Explorer, you can open the shortcut menu for the **Azure** node and choose **Connect to Azure**. When you sign in, the subscription information associated with your Azure account is available in Visual Studio, and there is nothing more you need to do.
+To publish an application to Azure from Visual Studio or to monitor an existing cloud service, you must provide credentials that Visual Studio can use to authenticate requests to Azure. There are several places in Visual Studio where you can sign in to provide these credentials. For example, from the Server Explorer, you can open the shortcut menu for the **Azure** node and choose **Connect to Microsoft Azure Subscription...**. When you sign in, the subscription information associated with your Azure account is available in Visual Studio, and there is nothing more you need to do.
 
 Azure Tools also supports an older way of providing credentials, using the subscription file (.publishsettings file). This topic describes this method, which is still supported in Azure SDK 2.2.
 
-The following items are required for authentication to Azure.
+The following items are required for authentication to Azure:
 
 * Your subscription ID
 * A valid X.509 v3 certificate
@@ -46,7 +46,7 @@ If you want to create a certificate yourself, you can refer to the instructions 
 ## Modify or Export Authentication Credentials in Visual Studio
 You can also set up, modify, or export your authentication credentials in the **New Subscription** dialog box, which appears if you perform either of the following actions:
 
-* In **Server Explorer**, open the shortcut menu for the **Azure** node, choose **Manage Subscriptions**, choose the **Certificates** tab, and choose the **New** or **Edit** button.
+* In **Server Explorer**, open the shortcut menu for the **Azure** node, choose **Manage and Filter Subscriptions...**, choose the **Certificates** tab, and choose **Import**, **New**, or **Edit**.
 * When you publish an Azure cloud service from the **Publish Azure Application** wizard, choose **Manage** in the **Choose your Subscription** list, then choose the Certificates tab, and then choose the **New** or **Edit** button.
 
 The following procedure assumes that the **New Subscription** dialog box is open.

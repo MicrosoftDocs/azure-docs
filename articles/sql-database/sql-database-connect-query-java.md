@@ -131,7 +131,8 @@ Get the connection information needed to connect to the Azure SQL database. You 
 						       System.out.println(resultSet.getString(1) + " "
 							       + resultSet.getString(2));
 						   }
-				   }
+					connection.close();
+				   }				   
            }
 		   catch (Exception e) {
 		    	   e.printStackTrace();
