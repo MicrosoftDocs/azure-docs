@@ -3,7 +3,7 @@ title: Getting started with Azure Service Fabric XPlat CLI
 description: Getting started with Azure Service Fabric XPlat CLI
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: samedder
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: subramar
+ms.author: edwardsa
 ---
 
 # Using the XPlat CLI to interact with a Service Fabric cluster
