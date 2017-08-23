@@ -19,6 +19,8 @@
 #### [Raspberry Pi with C](iot-hub-raspberry-pi-kit-c-get-started.md)
 #### [Raspberry Pi with Python](iot-hub-raspberry-pi-kit-python-get-started.md)
 
+#### [IoT DevKit with Visual Studio Code](iot-hub-arduino-iot-devkit-az3166-get-started.md)
+
 #### [Intel Edison with Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Intel Edison with C](iot-hub-intel-edison-kit-c-get-started.md)
 
