@@ -61,7 +61,7 @@ To create an Azure database for PostgreSQL server, take the following steps:
 
 ## Configure a server-level firewall rule
 
-Azure Database for PostgreSQL creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless a rule is created to open the firewall for specific IP addresses. 
+Azure Database for PostgreSQL creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for specific IP addresses. 
 
 1. After the deployment finishes, locate your server. If needed, you can search for it. For example, on the menu on the left, select **All resources**. Type your server name, such as the example, **mypgserver-20170401**, to search for your newly created server. Select your server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
  
@@ -123,7 +123,7 @@ There are a number of applications you can use to connect to your Azure database
     --host | Server name | The server name value that you used when you created the Azure database for PostgreSQL earlier. Our example server shown is **mypgserver-20170401.postgres.database.azure.com.** Use the fully qualified domain name (**\*.postgres.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information. 
     --port | 5432 | The port to use when you connect to the Azure database for PostgreSQL. 
     --username | Server admin login name |The server admin login username that you supplied when you created the Azure database for PostgreSQL earlier. If you don't remember your username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
-    --dbname | *postgres* | The default, system-generated database name *postgres* that was created for the first connection. Later, you create your own database.
+    --dbname | *postgres* | The default, system-generated database name that was created for the first connection. Later, you create your own database.
 
     After you run the psql command with your own parameter values, you're prompted to enter the server admin password. This password is the same one that you provided when you created the server. 
 
@@ -162,7 +162,7 @@ There are a number of applications you can use to connect to your Azure database
     \c mypgsqldb
     ```
 
-6. Type *\q*, and then press the **Enter** key to quit psql. You can close Cloud Shell after you're finished.
+6. Type  `\q`, and then press the **Enter** key to quit psql. You can close Cloud Shell after you're finished.
 
 Now you're connected to the Azure database for PostgreSQL, and you created a blank user database. Continue to the next section to connect by using another common tool, pgAdmin.
 
@@ -195,11 +195,11 @@ To connect to the Azure PostgreSQL server by using the GUI tool pgAdmin:
 
 6. In the **Browser** pane on the left, expand the **Servers** node. Select your server, for example, **Azure PostgreSQL Server**. Click to connect to it.
 
-7. Expand the server node, and then expand **Databases** under it. The list should include your existing *postgres* database and any newly created user database, such as *mypgsqldb*, which we created in the previous section. Notice that you can create multiple databases per server with the Azure database for PostgreSQL.
+7. Expand the server node, and then expand **Databases** under it. The list should include your existing *postgres* database and any newly created user database, such as **mypgsqldb**, which we created in the previous section. Notice that you can create multiple databases per server with the Azure database for PostgreSQL.
 
 8. Right-click **Databases**, choose the **Create** menu, and then select **Database**.
 
-9. Type a database name of your choice in the **Database** field, such as *mypgsqldb*, as shown in the example.
+9. Type a database name of your choice in the **Database** field, such as **mypgsqldb**, as shown in the example.
 
 10. Select the **Owner** for the database from the list box. Choose your server admin login name, such as our example, **mylogin**.
 
@@ -221,7 +221,7 @@ To delete the entire resource group, including the newly created server:
 
 2. On your resource group page, select **Delete**. Type the name of your resource group, such as our example, **myresourcegroup**, in the text box to confirm deletion. Select **Delete**.
 
-To  delete only the newly created server:
+To delete only the newly created server:
 1. Locate your server in the portal, if you don't have it open. On the menu on the left, select **All resources**. Then search for the server you created.
 
 2. On the **Overview** page, select **Delete**.
