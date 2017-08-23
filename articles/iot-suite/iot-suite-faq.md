@@ -31,10 +31,6 @@ The source code is stored in the following GitHub repositories:
 * If you deploy a preconfigured solution from the https://www.azureiotsuite.com/ site, it always deploys a new instance of the latest version of the solution.
 * If you deploy a preconfigured solution using the command line, you can update an existing deployment with new code. See [Cloud deployment][lnk-cloud-deployment] in the GitHub [repository][lnk-remote-monitoring-github].
 
-### How can I add support for a new device method to the remote monitoring preconfigured solution?
-
-See the section [Add support for a new method to the simulator][lnk-add-method] in the [Customize a preconfigured solution][lnk-customize] article.
-
 ### The simulated device is ignoring my desired property changes, why?
 In the remote monitoring preconfigured solution, the simulated device code only uses the **Desired.Config.TemperatureMeanValue** and **Desired.Config.TelemetryInterval** desired properties to update the reported properties. All other desired property change requests are ignored.
 
@@ -114,12 +110,9 @@ You can also explore some of the other features and capabilities of the IoT Suit
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
-[lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring 
-[lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99 
+[lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 [lnk-cloud-deployment]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
-[lnk-add-method]: iot-suite-guidance-on-customizing-preconfigured-solutions.md#add-support-for-a-new-method-to-the-simulator
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-predictive-maintenance-github]: https://github.com/Azure/azure-iot-predictive-maintenance
