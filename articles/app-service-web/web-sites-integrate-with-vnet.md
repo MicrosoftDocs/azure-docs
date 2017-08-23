@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 08/23/2017
 ms.author: ccompy
 
 ---
@@ -27,14 +27,14 @@ The Azure App Service has two forms.
 
 This document goes through VNET Integration and not App Service Environment.  If you want to learn more about the ASE feature then start with the information here: [App Service Environment introduction][ASEintro].
 
-VNET Integration gives your web app access to resources in your virtual network but does not grant private access to your web app from the virtual network.  Private site access is only available with an ASE configured with an Internal Load Balancer (ILB).  For details on using an ILB ASE, start with the article here: [Creating and using an ILB ASE][ILBASE]. 
+VNET Integration gives your web app access to resources in your virtual network but does not grant private access to your web app from the virtual network. Private site access refers to making your app only accessible from a private network such as from within an Azure virtual network. Private site access is only available with an ASE configured with an Internal Load Balancer (ILB).  For details on using an ILB ASE, start with the article here: [Creating and using an ILB ASE][ILBASE]. 
 
 A common scenario where you would use VNET Integration is enabling access from your web app to a database or a web services running on a virtual machine in your Azure virtual network.  With VNET Integration you don't need to expose a public endpoint for applications on your VM but can use the private non-internet routable addresses instead.  
 
 The VNET Integration feature:
 
 * requires a Standard or Premium pricing plan 
-* will work with Classic(V1) or Resource Manager(V2) VNET 
+* will work with Classic or Resource Manager VNET 
 * supports TCP and UDP
 * works with Web, Mobile and API apps
 * enables an app to connect to only 1 VNET at a time
@@ -52,7 +52,7 @@ There are some things that VNET Integration does not support including:
 ### Getting started
 Here are some things to keep in mind before connecting your web app to a virtual network:
 
-* VNET Integration only works with apps in a **Standard** or **Premium** pricing plan.  If you enable the feature and then scale your App Service Plan to an unsupported pricing plan your apps will lose their connections to the VNETs they are using.  
+* VNET Integration only works with apps in a **Standard**, **Premium** or **Isolated** pricing plan.  If you enable the feature and then scale your App Service Plan to an unsupported pricing plan your apps will lose their connections to the VNETs they are using.  
 * If your target virtual network already exists, it must have point-to-site VPN enabled with a Dynamic routing gateway before it can be connected to an app.  You cannot enable point-to-site Virtual Private Network (VPN) if your gateway is configured with Static routing.
 * The VNET must be in the same subscription as your App Service Plan(ASP).  
 * The apps that integrate with a VNET will use the DNS that is specified for that VNET.
@@ -298,7 +298,7 @@ Beyond the functional differences there are also pricing differences.  The App S
 [V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
 [IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
 [ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
-[ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
+[ILBASE]: http://docs.microsoft.com/azure/app-service/app-service-environment/create-ilb-ase
 [V2VNETPortal]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
 [VPNERCoex]: http://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager
 [ASE]: http://docs.microsoft.com/azure/app-service/app-service-environment/intro
