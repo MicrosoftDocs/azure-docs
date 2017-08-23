@@ -182,7 +182,7 @@ For more development tips, see [development overview][development overview].
 <!--Image references-->
 
 <!--Article references-->
-[AZCopy]: ../storage/storage-use-azcopy.md
+[AZCopy]:../storage/common/storage-use-azcopy.md
 [ADF Copy]: ../data-factory/data-factory-data-movement-activities.md 
 [ADF samples]: ../data-factory/data-factory-samples.md
 [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md
