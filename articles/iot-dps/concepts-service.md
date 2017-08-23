@@ -34,7 +34,7 @@ This is the central endpoint all devices talk to for provisioning. The URL is th
 
 ## Linked IoT hubs
 
-DPS can only provision devices to IoT hubs which have been linked to it. Linking an IoT hub to DPS gives DPS read/write permissions to the IoT hub's device registry in order to create a device ID and set the initial configuration in the device twin.
+DPS can only provision devices to IoT hubs which have been linked to it. Linking an IoT hub to DPS gives DPS read/write permissions to the IoT hub's device registry in order to create a device ID and set the initial configuration in the device twin. Linked IoT hubs may be in any Azure region. You may link hubs in other subscriptions to your DPS.
 
 [TODO: picture of how to link a hub]
 
@@ -51,14 +51,14 @@ An enrollment is the record of devices or groups of devices that may at some poi
 
 ### Enrollment group
 
-An enrollment group is a group of devices that share a specific attestation mechanism, such as all presenting x509 certificates which have been signed by the same root CA. Enrollment groups can only use the x509 attestation mechanism.
+An enrollment group is a group of devices that share a specific attestation mechanism, such as all presenting X.509 certificates which have been signed by the same root CA. Enrollment groups can only use the X.509 attestation mechanism.
 
 > [!TIP]
 > We recommend using an enrollment group for a large number of devices which share a desired initial configuration, or for devices all going to the same tenant.
 
 ### Individual enrollment
 
-An individual enrollment is an entry for a single device that may register. Individual enrollments may use either x509 certificates or SAS tokens (in a real or virtual TPM) as attestation mechanisms. Individual enrollments may have the desired IoT hub device ID specified.
+An individual enrollment is an entry for a single device that may register. Individual enrollments may use either X.509 certificates or SAS tokens (in a real or virtual TPM) as attestation mechanisms. Individual enrollments may have the desired IoT hub device ID specified.
 
 > [!TIP]
 > We recommend using individual enrollments for devices which require unique initial configurations, or for devices which can only use SAS tokens via TPM or virtual TPM as the attestation mechanism.
