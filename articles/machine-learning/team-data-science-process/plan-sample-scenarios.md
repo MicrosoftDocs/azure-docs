@@ -18,7 +18,7 @@ ms.author: bradsev
 
 ---
 # Scenarios for advanced analytics in Azure Machine Learning
-This article outlines the variety of sample data sources and target scenarios that can be handled by the [Team Data Science Process (TDSP)](data-science-process-overview.md). The TDSP provides a systematic approach for teams to collaborate on building intelligent applications. The scenarios presented here illustrate options available in the data processing workflow that depend on the data characteristics, source locations, and target repositories in Azure.
+This article outlines the variety of sample data sources and target scenarios that can be handled by the [Team Data Science Process (TDSP)](overview.md). The TDSP provides a systematic approach for teams to collaborate on building intelligent applications. The scenarios presented here illustrate options available in the data processing workflow that depend on the data characteristics, source locations, and target repositories in Azure.
 
 The **decision tree** for selecting the sample scenarios that is appropriate for your data and objective is presented in the last section.
 
@@ -34,7 +34,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 > 
 > * [Create a storage account](../storage/common/storage-create-storage-account.md)
 >   <br/>
-> * [Create an Azure Machine Learning workspace](create-workspace.md)
+> * [Create an Azure Machine Learning workspace](../studio/create-workspace.md)
 > 
 > 
 
@@ -137,7 +137,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
    f.  If table joins are required, create indexes to expedite joins.
    
    > [!NOTE]
-   > For faster loading of large data sizes, it is recommended that you create partitioned tables and bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](data-science-parallel-load-sql-partitioned-tables.md).
+   > For faster loading of large data sizes, it is recommended that you create partitioned tables and bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](parallel-load-sql-partitioned-tables.md).
    > 
    > 
 5. Explore data, create features as needed. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
@@ -177,7 +177,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
    f.  If table joins are required, create indexes to expedite joins.
    
    > [!NOTE]
-   > For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](data-science-parallel-load-sql-partitioned-tables.md).
+   > For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](parallel-load-sql-partitioned-tables.md).
    > 
    > 
 5. Explore data, create features as needed. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
@@ -251,8 +251,8 @@ The following diagram summarizes the scenarios described above and the Advanced 
 ### Advanced Analytics in action Examples
 For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Analytics Process and Technology using public datasets, see:
 
-* [Team Data Science Process in action: using SQL Server](data-science-process-sql-walkthrough.md).
-* [Team Data Science Process in action: using HDInsight Hadoop clusters](data-science-process-hive-walkthrough.md).
+* [Team Data Science Process in action: using SQL Server](sql-walkthrough.md).
+* [Team Data Science Process in action: using HDInsight Hadoop clusters](hive-walkthrough.md).
 
 [1]: ./media/plan-sample-scenarios/dsp-plan-small-in-aml.png
 [2]: ./media/plan-sample-scenarios/dsp-plan-local-with-processing.png

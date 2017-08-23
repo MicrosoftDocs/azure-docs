@@ -22,7 +22,7 @@ This article explains the purposes of feature selection and provides examples of
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-The engineering and selection of features is one part of the Team Data Science Process (TDSP) outlined in [What is the Team Data Science Process?](data-science-process-overview.md). Feature engineering and selection are parts of the **Develop features** step of the TDSP.
+The engineering and selection of features is one part of the Team Data Science Process (TDSP) outlined in [What is the Team Data Science Process?](overview.md). Feature engineering and selection are parts of the **Develop features** step of the TDSP.
 
 * **feature engineering**: This process attempts to create additional relevant features from the existing raw features in the data, and to increase predictive power to the learning algorithm.
 * **feature selection**: This process selects the key subset of original data features in an attempt to reduce the dimensionality of the training problem.

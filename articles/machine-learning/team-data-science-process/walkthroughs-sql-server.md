@@ -20,7 +20,7 @@ ms.author: bradsev
 
 # SQL Server data science walkthroughs using R, Python and T-SQL
 
-These walkthroughs use SQL Server, SQL Server R Services, and SQL Server Python Services to do predictive analytics. R and Python code is deployed in stored procedures. They follow the steps outlined in the Team Data Science Process. For an overview of the Team Data Science Process, see [Data Science Process](data-science-process-overview.md). 
+These walkthroughs use SQL Server, SQL Server R Services, and SQL Server Python Services to do predictive analytics. R and Python code is deployed in stored procedures. They follow the steps outlined in the Team Data Science Process. For an overview of the Team Data Science Process, see [Data Science Process](overview.md). 
 
 Additional data science walkthroughs that execute the Team Data Science Process are grouped by the **platform** that they use: 
 
@@ -29,7 +29,7 @@ Additional data science walkthroughs that execute the Team Data Science Process 
 
 ## Predict taxi tips using Python and SQL queries with SQL Server 
 
-The [Use SQL Server](machine-learning-data-science-process-sql-walkthrough.md) walkthrough shows how you build and deploy machine learning classification and regression models using SQL Server and a publicly available NYC taxi trip and fare dataset.
+The [Use SQL Server](sql-walkthrough.md) walkthrough shows how you build and deploy machine learning classification and regression models using SQL Server and a publicly available NYC taxi trip and fare dataset.
 
 
 ## Predict taxi tips using Microsoft R with SQL Server 
@@ -49,6 +49,6 @@ The [Use T-SQL with SQL Server Python Services](https://docs.microsoft.com/en-us
 
 ## Next steps
 
-For a discussion of the key components that comprise the Team Data Science Process, see [Team Data Science Process overview](data-science-process-overview.md).
+For a discussion of the key components that comprise the Team Data Science Process, see [Team Data Science Process overview](overview.md).
 
-For a discussion of the Team Data Science Process lifecycle that you can use to structure your data science projects, see [Team Data Science Process lifecycle](data-science-process-lifecycle.md). The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. 
+For a discussion of the Team Data Science Process lifecycle that you can use to structure your data science projects, see [Team Data Science Process lifecycle](lifecycle.md). The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. 
