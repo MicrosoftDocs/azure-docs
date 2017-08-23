@@ -287,7 +287,7 @@ See [List and show clusters](#list-and-show-clusters).
 
 HDInsight clusters use either Azure Storage account or Azure Data Lake Store to store data. Each HDInsight cluster can have one default storage account and a number of linked storage accounts. To list the storage accounts, you first open the cluster from the portal, and then click Storage accounts:
 
-    ![HDInsight cluster storage accounts](./media/hdinsight-administer-use-portal-linux/hdinsight-storage-accounts.png)
+![HDInsight cluster storage accounts](./media/hdinsight-administer-use-portal-linux/hdinsight-storage-accounts.png)
 
 On the previous screenshot, there is a __Default__ column indicating whether the account is the default storage account.
 
@@ -333,7 +333,7 @@ The **Usage** section of the HDInsight cluster blade displays information about 
 * [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## Next steps
-In this article, you have learned some basic administative functions. To learn more, see the following articles:
+In this article, you have learned some basic administrative functions. To learn more, see the following articles:
 
 * [Administer HDInsight Using Azure PowerShell](hdinsight-administer-use-powershell.md)
 * [Administer HDInsight Using Azure CLI](hdinsight-administer-use-command-line.md)
