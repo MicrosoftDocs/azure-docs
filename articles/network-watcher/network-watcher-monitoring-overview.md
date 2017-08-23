@@ -51,7 +51,6 @@ Network watcher uses the [Azure Role-Based Access Control (RBAC) model](../activ
 
 |Resource| Permission|
 |---|---| 
-|Microsoft.||
 |Microsoft.Storage/ |Read|
 |Microsoft.Authorization/| Read| 
 |Microsoft.Resources/subscriptions/resourceGroups/| Read|
