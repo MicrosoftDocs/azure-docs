@@ -27,7 +27,7 @@ The basic steps are:
 
 2. Deploy the template by using [any deployment method](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
- First, we describe how to create a Resource Manager template for an action group where the action definitions are hard-coded in the template. Second, we describe how to create a template that takes the webhook configuration information as input parameters when the template is deployed.
+First, we describe how to create a Resource Manager template for an action group where the action definitions are hard-coded in the template. Second, we describe how to create a template that takes the webhook configuration information as input parameters when the template is deployed.
 
 ## Resource Manager templates for an action group
 
