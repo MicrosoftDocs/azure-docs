@@ -71,7 +71,7 @@ sql-database-elastic-pool.md
 
 | eDTUs per pool | **2000** | **2500** | **3000** | **3500** | **4000**|
 |:---|---:|---:|---:| ---: | ---: | 
-| Included storage per pool (GB) | 2048 | 2560| 3072 | 3548 | 4096 |
+| Included storage per pool (GB) | 2048 | 2560 | 3072 | 3548 | 4096 |
 | Max storage per pool (GB)* | 2048 | 2560 | 3072 | 3548 | 4096|
 | Max In-Memory OLTP storage per pool (GB) | 16 | 20 | 24 | 28 | 32 |
 | Max number DBs per pool | 100 | 100 | 100 | 100 | 100 | 
