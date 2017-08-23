@@ -75,8 +75,8 @@ For a more detailed example, see the [Web Service Parameters](http://blogs.techn
 For more information on accessing a Machine Learning web service, see [How to consume an Azure Machine Learning Web service](consume-web-services.md).
 
 <!-- Images -->
-[icon]: ../media/machine-learning-web-service-parameters/icon.png
-[parameter]: ../media/machine-learning-web-service-parameters/parameter.png
+[icon]: ./media/web-service-parameters/icon.png
+[parameter]: ./media/web-service-parameters/parameter.png
 
 
 <!-- Module References -->

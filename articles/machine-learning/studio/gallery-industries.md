@@ -42,9 +42,9 @@ These resources include experiments, custom modules, APIs, collections, and any 
  From this page, you can browse all the resources
  in the Gallery. You also can search by selecting filter criteria on the left of the page and entering search terms at the top.
 
-![Share this item with friends](../media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
+![Share this item with friends](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
-![Add your own comments](../media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
+![Add your own comments](./media/gallery-how-to-use-contribute-publish/comments.png)
 
  Click any Gallery item to open the item's details page for more information.
 

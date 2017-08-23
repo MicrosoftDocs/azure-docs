@@ -32,7 +32,7 @@ To import data from a local hard drive, do the following:
 4. Enter a name, identify the data type, and optionally enter a description. A description is recommended - it allows you to record any characteristics about the data that you want to remember when using the data in the future.
 5. The checkbox **This is the new version of an existing dataset** allows you to update an existing dataset with new data. Click this checkbox and then enter the name of an existing dataset.
 
-![Upload a new dataset](../media/machine-learning-import-data-from-local-file/upload-dataset.png)
+![Upload a new dataset](./media/import-data-from-local-file/upload-dataset.png)
 
 During upload, you'll see a message that your file is being uploaded. Upload time depends on the size of your data and the speed of your connection to the service. If you know the file will take a long time, you can do other things inside Machine Learning Studio while you wait. However, closing the browser causes the data upload to fail.
 

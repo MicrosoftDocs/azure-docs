@@ -50,9 +50,9 @@ notebook's
 notebook
  to invite other users to view the page.
 
-![Share this item with friends](../media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
+![Share this item with friends](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
-![Add your own comments](../media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
+![Add your own comments](./media/gallery-how-to-use-contribute-publish/comments.png)
 
 ## Download
 You can download a copy of any notebook from the Gallery into your Machine Learning Studio workspace.
@@ -64,7 +64,7 @@ To download a copy of a notebook from the Gallery:
 2. Click **Open in Studio**
 3. Select the Region and Workspace you want to use
    
-    ![Open Jupyter notebook from the Gallery](../media/machine-learning-gallery-jupyter-notebooks/open-notebook-from-gallery.png)
+    ![Open Jupyter notebook from the Gallery](./media/gallery-jupyter-notebooks/open-notebook-from-gallery.png)
 
 When you click **Open in Studio**, the notebook is loaded into your Machine Learning Studio workspace and opened (if you're not already signed in to Studio, you will be prompted to sign in using your Microsoft account before the notebook is copied to your workspace). You can find the notebook again later by clicking **Notebooks** on the left side of the Studio home page.
 
@@ -75,7 +75,7 @@ You can also open any of the same Gallery notebooks while you're working in Mach
 2. Select **Notebook** - a list of notebooks from the Gallery is displayed that you can choose from, or you can find a specific notebook using the search box
 3. Point your mouse at a notebook and select **Open Notebook**
    
-    ![Open Gallery notebook from inside Machine Learning Studio](../media/machine-learning-gallery-jupyter-notebooks/open-notebook-from-studio.png)
+    ![Open Gallery notebook from inside Machine Learning Studio](./media/gallery-jupyter-notebooks/open-notebook-from-studio.png)
 
 A copy of the notebook is downloaded and opened in your workspace in the Jupyter Notebooks section of Machine Learning Studio.
 The notebook will be listed, along with your other notebooks, on the **Notebooks** page of Studio (on the [Studio home page](https://studio.azureml.net/), click **Notebooks** on the left).

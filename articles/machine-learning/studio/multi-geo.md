@@ -51,7 +51,7 @@ To programmatically manage web services, such as for retraining, use the region-
 Ask a question on the [Azure Machine Learning forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=MachineLearning).
 
 <!--Image references-->
-[1]: ../media/machine-learning-multi-geo/multi-geo_1.png
-[2]: ../media/machine-learning-multi-geo/multi-geo_2.png
-[3]: ../media/machine-learning-multi-geo/multi-geo_3.png
-[4a]: ../media/machine-learning-multi-geo/multi-geo_4a.png
+[1]: ./media/multi-geo/multi-geo_1.png
+[2]: ./media/multi-geo/multi-geo_2.png
+[3]: ./media/multi-geo/multi-geo_3.png
+[4a]: ./media/multi-geo/multi-geo_4a.png

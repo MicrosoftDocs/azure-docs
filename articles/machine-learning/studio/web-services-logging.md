@@ -26,11 +26,11 @@ You enable logging from the [Azure Machine Learning Web Services](https://servic
 
 1. Sign in to the Azure Machine Learning Web Services portal at [https://services.azureml.net](https://services.azureml.net). For a Classic web service, you can also get to the portal by clicking **New Web Services Experience** on the Machine Learning Web Services page in Machine Learning Studio.
 
-   ![New Web Services Experience link](../media/machine-learning-web-services-logging/new-web-services-experience-link.png)
+   ![New Web Services Experience link](./media/web-services-logging/new-web-services-experience-link.png)
 
 2. On the top menu bar, click **Web Services** for a New web service, or click **Classic Web Services** for a Classic web service.
 
-   ![Select New or Classic web services](../media/machine-learning-web-services-logging/select-web-service.png)
+   ![Select New or Classic web services](./media/web-services-logging/select-web-service.png)
 
 3. For a New web service, click the web service name. For a Classic web service, click the web service name and then on the next page click the appropriate endpoint.
 
@@ -38,7 +38,7 @@ You enable logging from the [Azure Machine Learning Web Services](https://servic
 
 5. Set the **Enable Logging** option to *Error* (to log only errors) or *All* (for full logging).
 
-   ![Select logging level](../media/machine-learning-web-services-logging/enable-logging.png)
+   ![Select logging level](./media/web-services-logging/enable-logging.png)
 
 6. Click **Save**.
 
@@ -52,7 +52,7 @@ You enable logging from the [Azure Machine Learning Web Services](https://servic
 
    3. If the container **ml-diagnostics** doesn't exist, click **+Container**, give the container the name "ml-diagnostics", and select the **Access type** as "Blob". Click **OK**.
 
-      ![Select logging level](../media/machine-learning-web-services-logging/create-ml-diagnostics-container.png)
+      ![Select logging level](./media/web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >

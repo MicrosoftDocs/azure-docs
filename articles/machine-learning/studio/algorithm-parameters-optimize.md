@@ -33,26 +33,26 @@ There are four steps in the process of finding the best parameter set:
 
 The following image illustrates shows how this can be achieved in Azure Machine Learning.
 
-![Find the best parameter set](../media/machine-learning-algorithm-parameters-optimize/fig1.png)
+![Find the best parameter set](./media/algorithm-parameters-optimize/fig1.png)
 
 ## Define the parameter space
 You can define the parameter set at the model initialization step. The parameter pane of all machine learning algorithms has two trainer modes: *Single Parameter* and *Parameter Range*. Choose Parameter Range mode. In Parameter Range mode, you can enter multiple values for each parameter. You can enter comma-separated values in the text box.
 
-![Two-class boosted decision tree, single parameter](../media/machine-learning-algorithm-parameters-optimize/fig2.png)
+![Two-class boosted decision tree, single parameter](./media/algorithm-parameters-optimize/fig2.png)
 
  Alternately, you can define the maximum and minimum points of the grid and the total number of points to be generated with **Use Range Builder**. By default, the parameter values are generated on a linear scale. But if **Log Scale** is checked, the values are generated in the log scale (that is, the ratio of the adjacent points is constant instead of their difference). For integer parameters, you can define a range by using a hyphen. For example, “1-10” means that all integers between 1 and 10 (both inclusive) form the parameter set. A mixed mode is also supported. For example, the parameter set “1-10, 20, 50” would include integers 1-10, 20, and 50.
 
-![Two-class boosted decision tree, parameter range](../media/machine-learning-algorithm-parameters-optimize/fig3.png)
+![Two-class boosted decision tree, parameter range](./media/algorithm-parameters-optimize/fig3.png)
 
 ## Define cross-validation folds
 The [Partition and Sample][partition-and-sample] module can be used to randomly assign folds to the data. In the following sample configuration for the module, we define five folds and randomly assign a fold number to the sample instances.
 
-![Partition and sample](../media/machine-learning-algorithm-parameters-optimize/fig4.png)
+![Partition and sample](./media/algorithm-parameters-optimize/fig4.png)
 
 ## Define the metric
 The [Tune Model Hyperparameters][tune-model-hyperparameters] module provides support for empirically choosing the best set of parameters for a given algorithm and dataset. In addition to other information regarding training the model, the **Properties** pane of this module includes the metric for determining the best parameter set. It has two different drop-down list boxes for classification and regression algorithms, respectively. If the algorithm under consideration is a classification algorithm, the regression metric is ignored and vice versa. In this specific example, the metric is **Accuracy**.   
 
-![Sweep parameters](../media/machine-learning-algorithm-parameters-optimize/fig5.png)
+![Sweep parameters](./media/algorithm-parameters-optimize/fig5.png)
 
 ## Train, evaluate, and compare
 The same [Tune Model Hyperparameters][tune-model-hyperparameters] module trains all the models that correspond to the parameter set, evaluates various metrics, and then creates the best-trained model based on the metric you choose. This module has two mandatory inputs:
@@ -62,11 +62,11 @@ The same [Tune Model Hyperparameters][tune-model-hyperparameters] module trains 
 
 The module also has an optional dataset input. Connect the dataset with fold information to the mandatory dataset input. If the dataset is not assigned any fold information, then a 10-fold cross-validation is automatically executed by default. If the fold assignment is not done and a validation dataset is provided at the optional dataset port, then a train-test mode is chosen and the first dataset is used to train the model for each parameter combination.
 
-![Boosted decision tree classifier](../media/machine-learning-algorithm-parameters-optimize/fig6a.png)
+![Boosted decision tree classifier](./media/algorithm-parameters-optimize/fig6a.png)
 
 The model is then evaluated on the validation dataset. The left output port of the module shows different metrics as functions of parameter values. The right output port gives the trained model that corresponds to the best-performing model according to the chosen metric (**Accuracy** in this case).  
 
-![Validation dataset](../media/machine-learning-algorithm-parameters-optimize/fig6b.png)
+![Validation dataset](./media/algorithm-parameters-optimize/fig6b.png)
 
 You can see the exact parameters chosen by visualizing the right output port. This model can be used in scoring a test set or in an operationalized web service after saving as a trained model.
 

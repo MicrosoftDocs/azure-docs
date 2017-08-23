@@ -141,8 +141,8 @@ After the workspace is provisioned, you can also automate many Azure Machine Lea
 * Watch this video about [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
 
 <!--Image references-->
-[1]: .../media/machine-learning-deploy-with-resource-manager-template/azuresubscription.png
-[2]: .../media/machine-learning-deploy-with-resource-manager-template/resourcegroupprovisioning.png
+[1]: ../media/deploy-with-resource-manager-template/azuresubscription.png
+[2]: ../media/deploy-with-resource-manager-template/resourcegroupprovisioning.png
 
 
 <!--Link references-->

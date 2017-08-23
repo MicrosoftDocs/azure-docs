@@ -103,10 +103,10 @@ You can verify which Web service the endpoint is on by visiting the Azure classi
 
 <!-- Image Links -->
 
-[image1]: ../media/machine-learning-troubleshooting-retraining-a-model/ml-studio-tm-connnected-to-web-service-out.png
-[image2]: ../media/machine-learning-troubleshooting-retraining-a-model/addEndpoint-output.png
-[image3]: ../media/machine-learning-troubleshooting-retraining-a-model/azure-portal-update-resource.png
-[image4]: ../media/machine-learning-troubleshooting-retraining-a-model/azure-portal-machine-learning-tab.png
-[image5]: ../media/machine-learning-troubleshooting-retraining-a-model/ml-help-page-patch-url.png
-[image6]: ../media/machine-learning-troubleshooting-retraining-a-model/retraining-output.png
-[image7]: ../media/machine-learning-troubleshooting-retraining-a-model/web-services-tab.png
+[image1]: ./media/troubleshooting-retraining-a-model/ml-studio-tm-connnected-to-web-service-out.png
+[image2]: ./media/troubleshooting-retraining-a-model/addEndpoint-output.png
+[image3]: ./media/troubleshooting-retraining-a-model/azure-portal-update-resource.png
+[image4]: ./media/troubleshooting-retraining-a-model/azure-portal-machine-learning-tab.png
+[image5]: ./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png
+[image6]: ./media/troubleshooting-retraining-a-model/retraining-output.png
+[image7]: ./media/troubleshooting-retraining-a-model/web-services-tab.png

@@ -142,8 +142,8 @@ Here are some resources for helping you work with regression:
 * Ordinary Least Squares Linear Regression: Flaws, Problems and Pitfalls. For an introduction and discussion of Regression: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ 
  ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
-[1]: ../media/machine-learning-linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
-[2]: ../media/machine-learning-linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png
+[1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
+[2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png
 
 
 <!-- Module References -->

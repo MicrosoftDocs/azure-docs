@@ -28,7 +28,7 @@ This article explains the potential reasons why either of the following two fail
 
 ## Train Model Module produces an error
 
-![image1](../media/machine-learning-debug-models/train_model-1.png)
+![image1](./media/debug-models/train_model-1.png)
 
 The [Train Model][train-model] Module expects two inputs:
 
@@ -45,7 +45,7 @@ This module can produce an error in the following cases:
 
 ## Score Model Module produces incorrect results
 
-![image2](../media/machine-learning-debug-models/train_test-2.png)
+![image2](./media/debug-models/train_test-2.png)
 
 In a typical training/testing experiment for supervised learning, the [Split Data][split] module divides the original dataset into two parts: one part is used to train the model and one part is used to score how well the trained model performs. The trained model is then used to score the test data, after which the results are evaluated to determine the accuracy of the model.
 

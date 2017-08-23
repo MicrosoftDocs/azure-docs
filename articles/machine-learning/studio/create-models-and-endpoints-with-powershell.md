@@ -43,7 +43,7 @@ We're going to use an example [training experiment](https://gallery.cortanaintel
 
 The experiment uses an **Import Data** module to import the training dataset *customer001.csv* from an Azure storage account. Let's assume we have collected training datasets from all bike rental locations and stored them in the same blob storage location with file names ranging from *rentalloc001.csv* to *rentalloc10.csv*.
 
-![image](../media/machine-learning-create-models-and-endpoints-with-powershell/reader-module.png)
+![image](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
 Note that a **Web Service Output** module has been added to the **Train Model** module.
 When this experiment is deployed as a web service, the endpoint associated with that output will return the trained model in the format of a .ilearner file.
@@ -51,7 +51,7 @@ When this experiment is deployed as a web service, the endpoint associated with 
 Also note that we set up a web service parameter for the URL that the **Import Data** module uses. This allows us to use the parameter to specify individual training datasets to train the model for each location.
 There are other ways we could have done this, such as using a SQL query with a web service parameter to get data from a SQL Azure database, or simply using a  **Web Service Input** module to pass in a dataset to the web service.
 
-![image](../media/machine-learning-create-models-and-endpoints-with-powershell/web-service-output.png)
+![image](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
 Now, let's run this training experiment using the default value *rental001.csv* as the training dataset. If you view the output of the **Evaluate** module (click the output and select **Visualize**), you can see we get a decent performance of *AUC* = 0.91. At this point, we're ready to deploy a web service out of this training experiment.
 
@@ -88,7 +88,7 @@ Then, run the following PowerShell command:
 
 Now we've created 10 endpoints and they all contain the same trained model trained on *customer001.csv*. You can view them in the Azure Management Portal.
 
-![image](../media/machine-learning-create-models-and-endpoints-with-powershell/created-endpoints.png)
+![image](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## Update the endpoints to use separate training datasets using PowerShell
 The next step is to update the endpoints with models uniquely trained on each customer's individual data. But first we need to produce these models from the **Bike Rental Training** web service. Let's go back to the **Bike Rental Training** web service. We need to call its BES endpoint 10 times with 10 different training datasets in order to produce 10 different models. We'll use the **InovkeAmlWebServiceBESEndpoint** PowerShell cmdlet to do this.

@@ -50,14 +50,14 @@ Solution
 Solution
  to invite other users to view the page.
 
-![Share this item with friends](../media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
+![Share this item with friends](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
-![Add your own comments](../media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
+![Add your own comments](./media/gallery-how-to-use-contribute-publish/comments.png)
 
 ## Deploy
 If you want to use a Solution, click **Deploy**. Follow the steps presented to configure and deploy the Solution in your workspace.
 
-![Deploy a Gallery Solution](../media/machine-learning-gallery-solutions/deploy-solution.png)
+![Deploy a Gallery Solution](./media/gallery-solutions/deploy-solution.png)
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 

@@ -45,7 +45,7 @@ By converting to a predictive experiment, you're getting your trained model read
 
 To convert your training experiment to a predictive experiment, click **Run** at the bottom of the experiment canvas, click **Set Up Web Service**, then select **Predictive Web Service**.
 
-![Convert to scoring experiment](../media/machine-learning-publish-a-machine-learning-web-service/figure-1.png)
+![Convert to scoring experiment](./media/publish-a-machine-learning-web-service/figure-1.png)
 
 For more information on how to perform this conversion, see [How to prepare your model for deployment in Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md).
 
@@ -75,7 +75,7 @@ Click **Deploy** and the **Quickstart** page for your web service opens.
 
 The web service Quickstart page gives you access and guidance on the most common tasks you will perform after creating a web service. From here, you can easily access both the Test page and Consume page.
 
-<!-- ![Deploy the web service](../media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)-->
+<!-- ![Deploy the web service](./media/publish-a-machine-learning-web-service/figure-2.png)-->
 
 #### Test your New web service
 To test your new web service, click **Test web service** under common tasks. On the Test page, you can test your web service as a Request-Response Service (RRS) or a Batch Execution service (BES).
@@ -84,23 +84,23 @@ The RRS test page displays the inputs, outputs, and any global parameters that y
 
 To test using RRS, from the list view mode, enter appropriate values for the inputs and click **Test Request-Response**. Your prediction results  display in the output column to the left.
 
-![Deploy the web service](../media/machine-learning-publish-a-machine-learning-web-service/figure-5-test-request-response.png)
+![Deploy the web service](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
 To test your BES, click **Batch**. On the Batch test page, click Browse under your input and select a CSV file containing appropriate sample values. If you don't have a CSV file, and you created your predictive experiment using Machine Learning Studio, you can download the data set for your predictive experiment and use it.
 
 To download the data set, open Machine Learning Studio. Open your predictive experiment and right click the input for your experiment. From the context menu, select **dataset** and then select **Download**.
 
-![Deploy the web service](../media/machine-learning-publish-a-machine-learning-web-service/figure-7-mls-download.png)
+![Deploy the web service](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
 Click **Test**. The status of your Batch Execution job displays to the right under **Test Batch Jobs**.
 
-![Deploy the web service](../media/machine-learning-publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
+![Deploy the web service](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
-<!--![Test the web service](../media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)-->
+<!--![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)-->
 
 On the **CONFIGURATION** page, you can change the description, title, update the storage account key, and enable sample data for your web service.
 
-![Configure the web service](../media/machine-learning-publish-a-machine-learning-web-service/figure-8-arm-configure.png)
+![Configure the web service](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
 
 Once you've deployed the web service, you can:
 
@@ -124,7 +124,7 @@ Now that the predictive experiment has been sufficiently prepared, you can deplo
 
 To deploy your predictive experiment, click **Run** at the bottom of the experiment canvas and then click **Deploy Web Service**. The web service is set up and you are placed in the web service dashboard.
 
-![Deploy the web service](../media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)
+![Deploy the web service](./media/publish-a-machine-learning-web-service/figure-2.png)
 
 #### Test your Classic web service
 
@@ -136,7 +136,7 @@ You can click the **Test** preview link to test your service in the Azure Machin
 
 To test the Batch Execution Service, click **Test** preview link . On the Batch test page, click Browse under your input and select a CSV file containing appropriate sample values. If you don't have a CSV file, and you created your predictive experiment using Machine Learning Studio, you can download the data set for your predictive experiment and use it.
 
-![Test the web service](../media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)
+![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)
 
 On the **CONFIGURATION** page, you can change the display name of the service and give it a description. The name and description is displayed in the [Azure classic portal](http://manage.windowsazure.com/) where you manage your web services.
 
@@ -144,7 +144,7 @@ You can provide a description for your input data, output data, and web service 
 
 You can enable logging to diagnose any failures that you're seeing when your web service is accessed. For more information, see [Enable logging for Machine Learning web services](web-services-logging.md).
 
-![Configure the web service](../media/machine-learning-publish-a-machine-learning-web-service/figure-4.png)
+![Configure the web service](./media/publish-a-machine-learning-web-service/figure-4.png)
 
 You can also configure the endpoints for the web service in the Azure Machine Learning Web Services portal similar to the procedure shown previously in the New web service section. The options are different, you can add or change the service description, enable logging, and enable sample data for testing.
 

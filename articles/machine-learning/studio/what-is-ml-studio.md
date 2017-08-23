@@ -42,7 +42,7 @@ There is no programming required, just visually connecting datasets and modules 
 ## Get started with Machine Learning Studio
 When you first enter [Machine Learning Studio](https://studio.azureml.net) you see the **Home** page. From here you can view documentation, videos, webinars, and find other valuable resources.
 
-Click the upper-left menu ![Menu](../media/machine-learning-what-is-ml-studio/menu.png) and you'll see several options.
+Click the upper-left menu ![Menu](./media/what-is-ml-studio/menu.png) and you'll see several options.
 
 ### Cortana Intelligence
 Click **Cortana Intelligence** and you'll be taken to the home page of the [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite). The Cortana Intelligence Suite is a fully managed big data and advanced analytics suite to transform your data into intelligent action. See the Suite home page for full documentation, including customer stories.
@@ -108,7 +108,7 @@ For some help navigating through the large library of machine learning algorithm
 ## Deploying a predictive analytics web service
 Once your predictive analytics model is ready, you can deploy it as a web service right from Machine Learning Studio. For more details on this process, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
 
-[ml-studio-overview]:../media/machine-learning-what-is-ml-studio/azure-ml-studio-diagram.jpg
+[ml-studio-overview]:./media/what-is-ml-studio/azure-ml-studio-diagram.jpg
 
 <!-- Module References -->
 [convert-to-arff]: https://msdn.microsoft.com/library/azure/62d2cece-d832-4a7a-a0bd-f01f03af0960/

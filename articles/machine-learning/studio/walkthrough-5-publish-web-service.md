@@ -220,11 +220,11 @@ To monitor the performance of your web service:
 - - -
 **Next: [Access the web service](walkthrough-6-access-web-service.md)**
 
-[3]: ../media/machine-learning-walkthrough-5-publish-web-service/publish3.png
-[3a]: ../media/machine-learning-walkthrough-5-publish-web-service/publish3a.png
-[4]: ../media/machine-learning-walkthrough-5-publish-web-service/publish4.png
-[5]: ../media/machine-learning-walkthrough-5-publish-web-service/publish5.png
-[6]: ../media/machine-learning-walkthrough-5-publish-web-service/publish6.png
+[3]: ./media/walkthrough-5-publish-web-service/publish3.png
+[3a]: ./media/walkthrough-5-publish-web-service/publish3a.png
+[4]: ./media/walkthrough-5-publish-web-service/publish4.png
+[5]: ./media/walkthrough-5-publish-web-service/publish5.png
+[6]: ./media/walkthrough-5-publish-web-service/publish6.png
 
 
 <!-- Module References -->

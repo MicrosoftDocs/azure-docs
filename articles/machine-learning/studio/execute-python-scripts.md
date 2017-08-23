@@ -53,9 +53,9 @@ Azure Machine Learning Studio supports embedding Python scripts into various par
 
 The primary interface to Python in Azure Machine Learning Studio is via the [Execute Python Script][execute-python-script] module shown in Figure 1.
 
-![image1](../media/machine-learning-execute-python-scripts/execute-machine-learning-python-scripts-module.png)
+![image1](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
-![image2](../media/machine-learning-execute-python-scripts/embedded-machine-learning-python-script.png)
+![image2](./media/execute-python-scripts/embedded-machine-learning-python-script.png)
 
 Figure 1. The **Execute Python Script** module.
 
@@ -74,13 +74,13 @@ The [Execute Python Script][execute-python-script] module in Azure ML Studio acc
 
 In this section, we survey some of the basic uses of the [Execute Python Script][execute-python-script] module. Inputs to the Python module are exposed as Pandas data frames. The function must return a single Pandas data frame packaged inside of a Python [sequence](https://docs.python.org/2/c-api/sequence.html) such as a tuple, list, or NumPy array. The first element of this sequence is then returned in the first output port of the module. This scheme is shown in Figure 2.
 
-![image3](../media/machine-learning-execute-python-scripts/map-of-python-script-inputs-outputs.png)
+![image3](./media/execute-python-scripts/map-of-python-script-inputs-outputs.png)
 
 Figure 2. Mapping of input ports to parameters and return value to output port.
 
 More detailed semantics of how the input ports get mapped to parameters of the `azureml_main` function are shown in Table 1:
 
-![image1T](../media/machine-learning-execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
+![image1T](./media/execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
 Table 1. Mapping of input ports to function parameters.
 
@@ -104,9 +104,9 @@ Input datasets in Azure ML are converted to data frames in Pandas. Output data f
 
 Any [Execute Python Script][execute-python-script] modules used in a scoring experiment are called when published as a web service. For example, Figure 3 shows a scoring experiment that contains the code to evaluate a single Python expression. 
 
-![image4](../media/machine-learning-execute-python-scripts/figure3a.png)
+![image4](./media/execute-python-scripts/figure3a.png)
 
-![image5](../media/machine-learning-execute-python-scripts/python-script-with-python-pandas.png)
+![image5](./media/execute-python-scripts/python-script-with-python-pandas.png)
 
 Figure 3. Web service for evaluating a Python expression.
 
@@ -123,27 +123,27 @@ A common use-case for many data scientists is to incorporate existing Python scr
 
 As an example, consider the file Hello.py containing a simple “Hello, World” function.
 
-![image6](../media/machine-learning-execute-python-scripts/figure4.png)
+![image6](./media/execute-python-scripts/figure4.png)
 
 Figure 4. User-defined function in Hello.py file.
 
 Next, we create a file Hello.zip that contains Hello.py:
 
-![image7](../media/machine-learning-execute-python-scripts/figure5.png)
+![image7](./media/execute-python-scripts/figure5.png)
 
 Figure 5. Zip file containing user-defined Python code.
 
 Upload the zip file as a dataset into Azure Machine Learning Studio. Then create and run an experiment that uses the Python code in the Hello.zip file by attaching it to the third input port of the **Execute Python Script** module, as shown in this figure.
 
-![image8](../media/machine-learning-execute-python-scripts/figure6a.png)
+![image8](./media/execute-python-scripts/figure6a.png)
 
-![image9](../media/machine-learning-execute-python-scripts/figure6b.png)
+![image9](./media/execute-python-scripts/figure6b.png)
 
 Figure 6. Sample experiment with user-defined Python code uploaded as a zip file.
 
 The module output shows that the zip file has been unpackaged and that the function `print_hello` has been run.
  
-![image10](../media/machine-learning-execute-python-scripts/figure7.png)
+![image10](./media/execute-python-scripts/figure7.png)
 
 Figure 7. User-defined function in use inside the [Execute Python Script][execute-python-script] module.
 
@@ -161,15 +161,15 @@ To generate images from MatplotLib, you must complete the following procedure:
 
 This process is illustrated in the following Figure 8 that creates a scatter plot matrix using the scatter_matrix function in Pandas.
 
-![image1v](../media/machine-learning-execute-python-scripts/figure-v1-8.png)
+![image1v](./media/execute-python-scripts/figure-v1-8.png)
 
 Figure 8. Code to save MatplotLib figures to images.
 
 Figure 9 shows an experiment that uses the script shown previously to return plots via the second output port.
 
-![image2v](../media/machine-learning-execute-python-scripts/figure-v2-9a.png) 
+![image2v](./media/execute-python-scripts/figure-v2-9a.png) 
 
-![image2v](../media/machine-learning-execute-python-scripts/figure-v2-9b.png) 
+![image2v](./media/execute-python-scripts/figure-v2-9b.png) 
 
 Figure 9. Visualizing plots generated from Python code.
 
@@ -182,14 +182,14 @@ The Anaconda environment installed in Azure Machine Learning contains common pac
 
 Here is the Python function used to compute the importance scores and order the features based on the scores:
 
-![image11](../media/machine-learning-execute-python-scripts/figure8.png)
+![image11](./media/execute-python-scripts/figure8.png)
 
 Figure 10. Function to rank features by scores.
  
 The following experiment then computes and returns the importance scores of features in the “Pima Indian Diabetes” dataset in Azure Machine Learning:
 
-![image12](../media/machine-learning-execute-python-scripts/figure9a.png)
-![image13](../media/machine-learning-execute-python-scripts/figure9b.png)    
+![image12](./media/execute-python-scripts/figure9a.png)
+![image13](./media/execute-python-scripts/figure9b.png)    
 
 Figure 11. Experiment to rank features in the Pima Indian Diabetes dataset.
 

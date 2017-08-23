@@ -38,7 +38,7 @@ Download the **Microsoft Azure Machine Learning Studio Capabilities Overview** d
 
 ![Microsoft Azure Machine Learning Studio Capabilities Overview][studio-overview]
 
-[studio-overview]: ../media/machine-learning-studio-overview-diagram/ml_studio_overview_v1.1.png
+[studio-overview]: ./media/studio-overview-diagram/ml_studio_overview_v1.1.png
 
 
 ## More help with Machine Learning Studio

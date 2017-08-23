@@ -63,7 +63,7 @@ If our question is "What will my stock's sale price be next week?" then we have 
 
 If our question is "Which car in my fleet is going to fail first?" then we have to make sure our data includes information about previous failures.
 
-![Target data - examples of your answer. Formulate a data science question.](../media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/target-data.png)
+![Target data - examples of your answer. Formulate a data science question.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/target-data.png)
 
 These examples of answers are called a target. A target is what we are trying to predict about future data points, whether it's a category or a number.
 
@@ -80,7 +80,7 @@ To see how we can transform these, let's look at the question, "Which news story
 
 But, this question may be easier to answer if you reword it as "How interesting is each story on this list to this reader?" Now you can give each article a numerical score, and then it's easy to identify the highest-scoring article. This is a rephrasing of the classification question into a regression question or How much?
 
-![Reformulate your question. Classification question vs. regression question.](../media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
+![Reformulate your question. Classification question vs. regression question.](./media/data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
 
 How you ask a question is a clue to which algorithm can give you an answer.
 

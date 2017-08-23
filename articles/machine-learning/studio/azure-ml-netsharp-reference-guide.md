@@ -410,5 +410,5 @@ The definition of the following network is designed to recognize numbers, and it
 ## Acknowledgements
 The Net# language for customizing the architecture of neural networks was developed at Microsoft by Shon Katzenberger (Architect, Machine Learning) and Alexey Kamenev (Software Engineer, Microsoft Research). It is used internally for machine learning projects and applications ranging from image detection to text analytics. For more information, see [Neural Nets in Azure ML - Introduction to Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
 
-[1]:../media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
+[1]:./media/azure-ml-netsharp-reference-guide/formula_large.gif
 

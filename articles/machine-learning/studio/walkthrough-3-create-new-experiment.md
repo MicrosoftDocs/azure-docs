@@ -160,16 +160,16 @@ For more information on using R scripts in your experiments, see [Extend your ex
 
 **Next: [Train and evaluate the models](walkthrough-4-train-and-evaluate-models.md)**
 
-[0]: ../media/machine-learning-walkthrough-3-create-new-experiment/create-new-experiment.png
-[5]: ../media/machine-learning-walkthrough-3-create-new-experiment/rename-experiment.png
-[6]: ../media/machine-learning-walkthrough-3-create-new-experiment/experiment-properties.png
-[7]: ../media/machine-learning-walkthrough-3-create-new-experiment/add-dataset-to-experiment.png
-[8]: ../media/machine-learning-walkthrough-3-create-new-experiment/edit-metadata-with-comment.png
-[9]: ../media/machine-learning-walkthrough-3-create-new-experiment/execute-r-script.png
-[1]: ../media/machine-learning-walkthrough-3-create-new-experiment/experiment-with-edit-metadata-module.png
-[2]: ../media/machine-learning-walkthrough-3-create-new-experiment/select-columns.png
-[3]: ../media/machine-learning-walkthrough-3-create-new-experiment/edit-metadata-properties.png
-[4]: ../media/machine-learning-walkthrough-3-create-new-experiment/experiment.png
+[0]: ./media/walkthrough-3-create-new-experiment/create-new-experiment.png
+[5]: ./media/walkthrough-3-create-new-experiment/rename-experiment.png
+[6]: ./media/walkthrough-3-create-new-experiment/experiment-properties.png
+[7]: ./media/walkthrough-3-create-new-experiment/add-dataset-to-experiment.png
+[8]: ./media/walkthrough-3-create-new-experiment/edit-metadata-with-comment.png
+[9]: ./media/walkthrough-3-create-new-experiment/execute-r-script.png
+[1]: ./media/walkthrough-3-create-new-experiment/experiment-with-edit-metadata-module.png
+[2]: ./media/walkthrough-3-create-new-experiment/select-columns.png
+[3]: ./media/walkthrough-3-create-new-experiment/edit-metadata-properties.png
+[4]: ./media/walkthrough-3-create-new-experiment/experiment.png
 
 
 <!-- Module References -->

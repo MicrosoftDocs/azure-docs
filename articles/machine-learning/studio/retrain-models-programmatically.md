@@ -172,13 +172,13 @@ If you deployed the predictive web service by clicking **Deploy Web Service [New
 <!-- Retrain a New web service using the Machine Learning Management REST API -->
 
 
-[1]: ../media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE01.png
-[2]: ../media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE02.png
-[3]: ../media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE03.png
-[4]: ../media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE04.png
-[5]: ../media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE05.png
-[6]: ../media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE06.png
-[7]: ../media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE07.png
+[1]: ./media/retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE01.png
+[2]: ./media/retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE02.png
+[3]: ./media/retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE03.png
+[4]: ./media/retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE04.png
+[5]: ./media/retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE05.png
+[6]: ./media/retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE06.png
+[7]: ./media/retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE07.png
 
 
 <!-- Module References -->

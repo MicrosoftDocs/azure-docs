@@ -48,7 +48,7 @@ Say I want to shop for a diamond. I have a ring that belonged to my grandmother 
 
 Now I go through and do this for all the other diamonds in the store.
 
-![Columns of diamond data](../media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/diamond-data.png)
+![Columns of diamond data](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/diamond-data.png)
 
 Notice that our list has two columns. Each column has a different attribute - weight in carats and price - and each row is a single data point that represents a single diamond.
 
@@ -69,7 +69,7 @@ The first thing we'll do is draw a horizontal number line, called an axis, to ch
 
 Next we'll draw a vertical axis to record the price and connect it to the horizontal weight axis. This will be in units of dollars. Now we have a set of coordinate axes.
 
-![Weight and price axes](../media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/weight-and-price-axes.png)
+![Weight and price axes](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/weight-and-price-axes.png)
 
 We're going to take this data now and turn it into a *scatter plot*. This is a great way to visualize numerical data sets.
 
@@ -77,14 +77,14 @@ For the first data point, we eyeball a vertical line at 1.01 carats. Then, we ey
 
 Now we go through each diamond on this list and do the same thing. When we're through, this is what we get: a bunch of dots, one for each diamond.
 
-![Scatter plot](../media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
+![Scatter plot](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
 
 ## Draw the model through the data points
 Now if you look at the dots and squint, the collection looks like a fat, fuzzy line. We can take our marker and draw a straight line through it.
 
 By drawing a line, we created a *model*. Think of this as taking the real world and making a simplistic cartoon version of it. Now the cartoon is wrong - the line doesn't go through all the data points. But, it's a useful simplification.
 
-![Linear regression line](../media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/linear-regression-line.png)
+![Linear regression line](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/linear-regression-line.png)
 
 The fact that all the dots don't go exactly through the line is OK. Data scientists explain this by saying that there's the model - that's the line - and then each dot has some *noise* or *variance* associated with it. There's the underlying perfect relationship, and then there's the gritty, real world that adds noise and uncertainty.
 
@@ -95,12 +95,12 @@ Now we have a model and we ask it our question: How much will a 1.35 carat diamo
 
 To answer our question, we eyeball 1.35 carats and draw a vertical line. Where it crosses the model line, we eyeball a horizontal line to the dollar axis. It hits right at 10,000. Boom! That's the answer: A 1.35 carat diamond costs about $10,000.
 
-![Find the answer on the model](../media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
+![Find the answer on the model](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## Create a confidence interval
 It's natural to wonder how precise this prediction is. It's useful to know whether the 1.35 carat diamond will be very close to $10,000, or a lot higher or lower. To figure this out, let's draw an envelope around the regression line that includes most of the dots. This envelope is called our *confidence interval*: We're pretty confident that prices fall within this envelope, because in the past most of them have. We can draw two more horizontal lines from where the 1.35 carat line crosses the top and the bottom of that envelope.
 
-![Confidence interval](../media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
+![Confidence interval](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
 Now we can say something about our confidence interval:  We can say confidently that the price of a 1.35 carat diamond is about $10,000 - but it might be as low as $8,000 and it might be as high as $12,000.
 

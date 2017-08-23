@@ -61,7 +61,7 @@ It's helpful to think about an algorithm as a recipe and your data as the ingred
 ## Question 1: Is this A or B? uses classification algorithms
 Let's start with the question: Is this A or B?
 
-![Classification algorithms: Is this A or B?](../media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/classification-algorithms.png)
+![Classification algorithms: Is this A or B?](./media/data-science-for-beginners-the-5-questions-data-science-answers/classification-algorithms.png)
 
 This family of algorithms is called two-class classification.
 
@@ -77,7 +77,7 @@ This question can also be rephrased to include more than two options: Is this A 
 ## Question 2: Is this weird? uses anomaly detection algorithms
 The next question data science can answer is: Is this weird? This question is answered by a family of algorithms called anomaly detection.
 
-![Anomaly Detection algorithms: Is this weird?](../media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
+![Anomaly Detection algorithms: Is this weird?](./media/data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
 
 If you have a credit card, you’ve already benefited from anomaly detection. Your credit card company analyzes your purchase patterns, so that they can alert you to possible fraud. Charges that are "weird" might be a purchase at a store where you don't normally shop or buying an unusually pricey item.
 
@@ -91,7 +91,7 @@ Anomaly detection flags unexpected or unusual events or behaviors. It gives clue
 ## Question 3: How much? or How many? uses regression algorithms
 Machine learning can also predict the answer to How much? or How many? The algorithm family that answers this question is called regression.
 
-![Regression algorithms: How much? or How many?](../media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/regression-algorithms.png)
+![Regression algorithms: How much? or How many?](./media/data-science-for-beginners-the-5-questions-data-science-answers/regression-algorithms.png)
 
 Regression algorithms make numerical predictions, such as:
 
@@ -107,7 +107,7 @@ Sometimes you want to understand the structure of a data set - How is this organ
 
 There are a lot of ways to tease out the structure of data. One approach is clustering. It separates data into natural "clumps," for easier interpretation. With clustering, there is no one right answer.
 
-![Clustering algorithms: How is this organized?](../media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/clustering-algorithms.png)
+![Clustering algorithms: How is this organized?](./media/data-science-for-beginners-the-5-questions-data-science-answers/clustering-algorithms.png)
 
 Common examples of clustering questions are:
 
@@ -123,7 +123,7 @@ Reinforcement learning was inspired by how the brains of rats and humans respond
 
 Typically, reinforcement learning is a good fit for automated systems that have to make lots of small decisions without human guidance.
 
-![Reinforcement Learning algorithms: What should I do next?](../media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
+![Reinforcement Learning algorithms: What should I do next?](./media/data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
 
 Questions it answers are always about what action should be taken - usually by a machine or a robot. Examples are:
 

@@ -238,13 +238,13 @@ This feedback will help us improve the quality of white papers we release.
 
 *Figure 12: Snapshot of a presentation on churn prototype*
 
-[1]: ../media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
-[2]: ../media/machine-learning-azure-ml-customer-churn-scenario/churn-2.png
-[3]: ../media/machine-learning-azure-ml-customer-churn-scenario/churn-3.png
-[4]: ../media/machine-learning-azure-ml-customer-churn-scenario/churn-4.png
-[5]: ../media/machine-learning-azure-ml-customer-churn-scenario/churn-5.png
-[6]: ../media/machine-learning-azure-ml-customer-churn-scenario/churn-6.png
-[7]: ../media/machine-learning-azure-ml-customer-churn-scenario/churn-7.png
-[8]: ../media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
-[9]: ../media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
-[10]: ../media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
+[1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
+[2]: ./media/azure-ml-customer-churn-scenario/churn-2.png
+[3]: ./media/azure-ml-customer-churn-scenario/churn-3.png
+[4]: ./media/azure-ml-customer-churn-scenario/churn-4.png
+[5]: ./media/azure-ml-customer-churn-scenario/churn-5.png
+[6]: ./media/azure-ml-customer-churn-scenario/churn-6.png
+[7]: ./media/azure-ml-customer-churn-scenario/churn-7.png
+[8]: ./media/azure-ml-customer-churn-scenario/churn-8.png
+[9]: ./media/azure-ml-customer-churn-scenario/churn-9.png
+[10]: ./media/azure-ml-customer-churn-scenario/churn-10.png

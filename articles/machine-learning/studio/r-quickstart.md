@@ -942,13 +942,13 @@ With the dataframe constructed we need to create a training dataset. This data w
 
 Running the code produces the series of time series plots from the R Device output shown in Figure 22. Note that the time axis is in units of dates, a nice benefit of the time series plot method.
 
-![First of time series plots of California dairy production and price data](../media/machine-learning-r-quickstart/unnamed-chunk-161.png)
+![First of time series plots of California dairy production and price data](./media/r-quickstart/unnamed-chunk-161.png)
 
-![Second of time series plots of California dairy production and price data](../media/machine-learning-r-quickstart/unnamed-chunk-162.png)
+![Second of time series plots of California dairy production and price data](./media/r-quickstart/unnamed-chunk-162.png)
 
-![Third of time series plots of California dairy production and price data](../media/machine-learning-r-quickstart/unnamed-chunk-163.png)
+![Third of time series plots of California dairy production and price data](./media/r-quickstart/unnamed-chunk-163.png)
 
-![Fourth of time series plots of California dairy production and price data](../media/machine-learning-r-quickstart/unnamed-chunk-164.png)
+![Fourth of time series plots of California dairy production and price data](./media/r-quickstart/unnamed-chunk-164.png)
 
 *Figure 22. Time series plots of California dairy production and price data.*
 
@@ -1022,7 +1022,7 @@ As a sanity test, let's make a time series plot of the California dairy producti
     plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
     lines(cadairytrain$Time, predict(milk.lm, cadairytrain), lty = 2, col = 2)
 
-![California milk production data with trend model shown](../media/machine-learning-r-quickstart/unnamed-chunk-18.png)
+![California milk production data with trend model shown](./media/r-quickstart/unnamed-chunk-18.png)
 
 *Figure 23. California milk production data with trend model shown.*
 
@@ -1081,7 +1081,7 @@ Let's make another time series plot of the California dairy production data to s
 
 Running this code in Azure Machine Learning produces the plot shown in Figure 24.
 
-![California milk production with model including seasonal effects](../media/machine-learning-r-quickstart/unnamed-chunk-20.png)
+![California milk production with model including seasonal effects](./media/r-quickstart/unnamed-chunk-20.png)
 
 *Figure 24. California milk production with model including seasonal effects.*
 
@@ -1099,7 +1099,7 @@ As another check on our model, let's have a look at the residuals. The following
 
 The residual plot is shown in Figure 25.
 
-![Residuals of the seasonal model for the training data](../media/machine-learning-r-quickstart/unnamed-chunk-21.png)
+![Residuals of the seasonal model for the training data](./media/r-quickstart/unnamed-chunk-21.png)
 
 *Figure 25. Residuals of the seasonal model for the training data.*
 
@@ -1114,13 +1114,13 @@ You can also use `plot.lm()` to produce a series of diagnostic plots.
 
 This code produces a series of diagnostic plots shown in Figure 26.
 
-![First of diagnostic plots for the seasonal model](../media/machine-learning-r-quickstart/unnamed-chunk-221.png)
+![First of diagnostic plots for the seasonal model](./media/r-quickstart/unnamed-chunk-221.png)
 
-![Second of diagnostic plots for the seasonal model](../media/machine-learning-r-quickstart/unnamed-chunk-222.png)
+![Second of diagnostic plots for the seasonal model](./media/r-quickstart/unnamed-chunk-222.png)
 
-![Third of diagnostic plots for the seasonal model](../media/machine-learning-r-quickstart/unnamed-chunk-223.png)
+![Third of diagnostic plots for the seasonal model](./media/r-quickstart/unnamed-chunk-223.png)
 
-![Fourth of diagnostic plots for the seasonal model](../media/machine-learning-r-quickstart/unnamed-chunk-224.png)
+![Fourth of diagnostic plots for the seasonal model](./media/r-quickstart/unnamed-chunk-224.png)
 
 *Figure 26. Diagnostic plots for the seasonal model.*
 
@@ -1248,30 +1248,30 @@ Some great internet resources:
 * 60+ R resources listed at http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
 <!--Image references-->
-[1]: ../media/machine-learning-r-quickstart/fig1.png
-[2]: ../media/machine-learning-r-quickstart/fig2.png
-[3]: ../media/machine-learning-r-quickstart/fig3.png
-[4]: ../media/machine-learning-r-quickstart/fig4.png
-[5]: ../media/machine-learning-r-quickstart/fig5.png
-[6]: ../media/machine-learning-r-quickstart/fig6.png
-[7]: ../media/machine-learning-r-quickstart/fig7.png
-[8]: ../media/machine-learning-r-quickstart/fig8.png
-[9]: ../media/machine-learning-r-quickstart/fig9.png
-[10]: ../media/machine-learning-r-quickstart/fig10.png
-[11]: ../media/machine-learning-r-quickstart/fig11.png
-[12]: ../media/machine-learning-r-quickstart/fig12.png
-[13]: ../media/machine-learning-r-quickstart/fig13.png
-[14]: ../media/machine-learning-r-quickstart/fig14.png
-[15]: ../media/machine-learning-r-quickstart/fig15.png
-[16]: ../media/machine-learning-r-quickstart/fig16.png
-[17]: ../media/machine-learning-r-quickstart/fig17.png
-[18]: ../media/machine-learning-r-quickstart/fig18.png
-[19]: ../media/machine-learning-r-quickstart/fig19.png
-[20]: ../media/machine-learning-r-quickstart/fig20.png
-[21]: ../media/machine-learning-r-quickstart/fig21.png
-[22]: ../media/machine-learning-r-quickstart/fig22.png
+[1]: ./media/r-quickstart/fig1.png
+[2]: ./media/r-quickstart/fig2.png
+[3]: ./media/r-quickstart/fig3.png
+[4]: ./media/r-quickstart/fig4.png
+[5]: ./media/r-quickstart/fig5.png
+[6]: ./media/r-quickstart/fig6.png
+[7]: ./media/r-quickstart/fig7.png
+[8]: ./media/r-quickstart/fig8.png
+[9]: ./media/r-quickstart/fig9.png
+[10]: ./media/r-quickstart/fig10.png
+[11]: ./media/r-quickstart/fig11.png
+[12]: ./media/r-quickstart/fig12.png
+[13]: ./media/r-quickstart/fig13.png
+[14]: ./media/r-quickstart/fig14.png
+[15]: ./media/r-quickstart/fig15.png
+[16]: ./media/r-quickstart/fig16.png
+[17]: ./media/r-quickstart/fig17.png
+[18]: ./media/r-quickstart/fig18.png
+[19]: ./media/r-quickstart/fig19.png
+[20]: ./media/r-quickstart/fig20.png
+[21]: ./media/r-quickstart/fig21.png
+[22]: ./media/r-quickstart/fig22.png
 
-[26]: ../media/machine-learning-r-quickstart/fig26.png
+[26]: ./media/r-quickstart/fig26.png
 
 <!--links-->
 [appendixa]: #appendixa

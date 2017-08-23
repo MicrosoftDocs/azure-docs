@@ -56,7 +56,7 @@ We need data that is:
 ## Is your data relevant?
 So the first ingredient - we need data that's relevant.
 
-![Relevant data vs. irrelevant data - evaluate data](../media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
+![Relevant data vs. irrelevant data - evaluate data](./media/data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
 
 Look at the table on the left. We met seven people outside of Boston bars, measured their blood alcohol level, the Red Sox batting average in their last game, and the price of milk in the nearest convenience store.
 
@@ -67,7 +67,7 @@ Now look at the table on the right. This time we measured each person’s body m
 ## Do you have connected data?
 The next ingredient is connected data.
 
-![Connected data vs. disconnected data - data criteria, data ready](../media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/connected-vs-disconnected-data.png)
+![Connected data vs. disconnected data - data criteria, data ready](./media/data-science-for-beginners-is-your-data-ready-for-data-science/connected-vs-disconnected-data.png)
 
 Here is some relevant data on the quality of hamburgers: grill temperature, patty weight, and rating in the local food magazine. But notice the gaps in the table on the left.
 
@@ -80,7 +80,7 @@ The table on the right, though, is full and complete - an example of connected d
 ## Is your data accurate?
 The next ingredient we need is accuracy. Here are four targets that we’d like to hit with arrows.
 
-![Accurate data vs. inaccurate data - data criteria](../media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
+![Accurate data vs. inaccurate data - data criteria](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
 Look at the target in the upper right. We’ve got a tight grouping right around the bullseye. That, of course, is accurate. Oddly, in the language of data science, our performance on the target right below it is also considered accurate.
 
@@ -91,7 +91,7 @@ Now look at the upper-left target. Here our arrows hit very close together, a ti
 ## Do you have enough data to work with?
 Finally, ingredient #4 - we need to have enough data.
 
-![Do you have enough data for analysis? Data evaluation](../media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
+![Do you have enough data for analysis? Data evaluation](./media/data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
 
 Think of each data point in your table as being a brush stroke in a painting. If you have only a few of them, the painting can be pretty fuzzy - it's hard to tell what it is.
 

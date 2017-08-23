@@ -43,7 +43,7 @@ To use Azure Machine Learning Studio, you need to have a Machine Learning worksp
     - The *workspace name* may be up to 260 characters, not ending in a space. The name can't include these characters: `< > * % & : \ ? + /`
     - The *web service plan* you choose (or create), along with the associated *pricing tier* you select, is used if you deploy web services from this workspace.
 
-    ![Create a new workspace](../media/machine-learning-create-workspace/create-new-workspace.png)
+    ![Create a new workspace](./media/create-workspace/create-new-workspace.png)
 
 5. Click **Create**
 
@@ -53,11 +53,11 @@ Once the workspace is deployed, you can open it in Machine Learning Studio.
 
 2. Select your workspace in the upper-right-hand corner.
 
-    ![Select workspace](../media/machine-learning-create-workspace/open-workspace.png)
+    ![Select workspace](./media/create-workspace/open-workspace.png)
 
 3. Click **my experiments**.
 
-    ![Open experiments](../media/machine-learning-create-workspace/my-experiments.png)
+    ![Open experiments](./media/create-workspace/my-experiments.png)
 
 For information about managing your workspace, see [Manage an Azure Machine Learning workspace](manage-workspace.md).
 If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to a Machine Learning workspace](troubleshooting-creating-ml-workspace.md).
@@ -84,7 +84,7 @@ Once a Machine Learning workspace is created, you can invite users to your works
 
 4. Click **INVITE MORE USERS** at the bottom of the page
 
-    ![Studio settings](../media/machine-learning-create-workspace/settings.png)
+    ![Studio settings](./media/create-workspace/settings.png)
 
 5. Enter one or more email addresses. The users need a valid Microsoft account or an organizational account (from Azure Active Directory).
 

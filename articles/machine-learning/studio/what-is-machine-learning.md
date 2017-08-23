@@ -32,7 +32,7 @@ Azure Machine Learning is a cloud predictive analytics service that makes it pos
 
 You can work from a ready-to-use library of algorithms, use them to create models on an internet-connected PC, and deploy your predictive solution quickly. Start from ready-to-use examples and solutions in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/).
 
-![What is machine learning? Basic workflow to operationalize predictive analytics on Azure Machine Learning.](../media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
+![What is machine learning? Basic workflow to operationalize predictive analytics on Azure Machine Learning.](./media/what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
 Azure Machine Learning not only provides tools to model predictive analytics, but also provides a fully managed service you can use to deploy your predictive models as ready-to-consume web services.
 
@@ -47,10 +47,10 @@ In [Machine Learning Studio](what-is-ml-studio.md), you can quickly create predi
 
 * In [Cortana Intelligence Gallery](gallery-how-to-use-contribute-publish.md), you can try analytics solutions authored by others or contribute your own. Post questions or comments about experiments to the community, or share links to experiments via social networks such as LinkedIn and Twitter.
 
-  ![Try predictive experiments or contribute your own in Azure Cortana Intelligence Gallery](../media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
+  ![Try predictive experiments or contribute your own in Azure Cortana Intelligence Gallery](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * Use a large library of [Machine Learning algorithms and modules](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio to jump-start your predictive models. Choose from sample experiments, R and Python packages, and best-in-class algorithms from Microsoft businesses like Xbox and Bing. Extend Studio modules with your own custom [R](extend-your-experiment-with-r.md) and [Python](execute-python-scripts.md) scripts.
 
-  ![What is predictive analytics: Example of a predictive analytics experiment in Azure Machine Learning Studio](../media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
+  ![What is predictive analytics: Example of a predictive analytics experiment in Azure Machine Learning Studio](./media/what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
 ### Operationalize predictive analytics solutions by publishing your own
 The following tutorials show you how to operationalize your predictive analytics models:

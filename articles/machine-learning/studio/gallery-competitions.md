@@ -32,7 +32,7 @@ For answers to frequently-asked questions about Competitions, see [Microsoft Cor
   in the Gallery, open the [Gallery](http://gallery.cortanaintelligence.com), point your mouse to **More** at the top of the Gallery home page, and select
 **Competitions**.
 
-![Select Competitions from the Gallery home page](../media/machine-learning-gallery-competitions/select-competitions-in-gallery.png)
+![Select Competitions from the Gallery home page](./media/gallery-competitions/select-competitions-in-gallery.png)
 
  The
 **[Competitions](https://gallery.cortanaintelligence.com/competitions)**
@@ -52,9 +52,9 @@ competition's
 competition
  to invite other users to view the page.
 
-![Share this item with friends](../media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
+![Share this item with friends](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
-![Add your own comments](../media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
+![Add your own comments](./media/gallery-how-to-use-contribute-publish/comments.png)
 
 ## Enter a competition
 If the competition is open, the status on the details page is **Active**. To enter the competition, click **Enter Competition** and you will be given instructions on the resources you need and the steps you need to take.

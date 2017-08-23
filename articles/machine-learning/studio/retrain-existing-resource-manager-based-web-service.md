@@ -186,9 +186,9 @@ Finally, use the [Update-AzureRmMlWebService](https://msdn.microsoft.com/library
 
     Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
-[1]: ../media/machine-learning-retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png
-[4]: ../media/machine-learning-retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png
-[6]: ../media/machine-learning-retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png
+[1]: ./media/retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png
+[4]: ./media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png
+[6]: ./media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png
 
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
