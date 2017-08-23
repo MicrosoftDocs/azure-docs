@@ -130,11 +130,11 @@ package in your Visual Studio project.
    > If you run your app after installing Swashbuckle, 
    > Swashbuckle generates an OpenAPI file at this URL: 
    >
-   > http://*{your-web-app-root-URL}*/swagger/docs/v1
+   > http://*{your-web-api-app-root-URL}*/swagger/docs/v1
    > 
    > Swashbuckle also generates a user interface at this URL: 
    > 
-   > http://*{your-web-app-root-URL}*/swagger
+   > http://*{your-web-api-app-root-URL}*/swagger
 
 3. When you're ready, publish your Web API app to Azure. 
 To publish from Visual Studio, 
@@ -150,7 +150,7 @@ choose **Publish...**, and follow the prompts.
 
 4. Get the OpenAPI document by browsing to this location: 
 
-   http://*{your-web-app-root-URL}*/swagger/docs/v1
+   http://*{your-web-api-app-root-URL}*/swagger/docs/v1
 
    You can also download a [sample OpenAPI document](http://pwrappssamples.blob.core.windows.net/samples/webAPI.json) 
    from this tutorial. 
@@ -162,13 +162,15 @@ you might have to copy and paste the text into an empty text file.
 
 ## Set up authentication with Azure Active Directory
 
-Now create two Azure Active Directory (Azure AD) apps in Azure. 
-For more information, see the [Authenticate custom connectors with Azure Active Directory](../logic-apps/logic-apps-custom-api-connector-azure-active-directory.md).
+Now create two Azure Active Directory (Azure AD) apps in the Azure portal. 
+One Azure AD app secures your Web API, while the other Azure AD app 
+secures your custom connector registration and adds delegated access.
+For more information, see [Authenticate custom connectors with Azure Active Directory](../logic-apps/logic-apps-custom-api-connector-azure-active-directory.md).
 
 > [!IMPORTANT]
 > Make sure both Azure AD apps exist in the same directory.
 
-### Secure your Web API with your first Azure AD app
+### First Azure AD app: Secure your Web API
 
 Your first Azure AD app secures your Web API. 
 With the specified settings in the table below, 
@@ -187,7 +189,7 @@ in this tutorial: [Authenticate custom connectors](../logic-apps/logic-apps-cust
 > [!IMPORTANT]
 > Make sure that you copy and save the application ID safely for later use.
 
-### Secure your custom connector and add delegated access with your second Azure AD app
+### Second Azure AD app: Secure custom connector registration and add delegated access
 
 Your second Azure AD app secures your custom connector registration and 
 adds delegated access to the Web API protected by the first Azure AD app. 
@@ -210,18 +212,82 @@ in this tutorial: [Authenticate custom connectors](../logic-apps/logic-apps-cust
 
 ## Add authentication to your Web API app
 
+Now turn on authentication for your Web API with your first Azure AD app.
+
 1. Sign in to the [Azure portal](https://portal.azure.com), 
-and find your web API app that you deployed earlier in this tutorial.
+and find your Web API app that you deployed earlier in this tutorial.
 
 2. Under **Settings**, choose **Authentication / Authorization**.
 
-3. Turn on **App Service Authentication**, and select **Azure Active Directory**. 
+3. Turn on **App Service Authentication**, 
+and select **Azure Active Directory**. 
 On the next blade, choose **Express**.  
 
-4. Choose **Select Existing AD App** > **Azure AD App**, 
-and select the **webAPI** Azure AD app you created earlier.
+4. Now select the Azure AD app that your Web API app uses for authentication. 
+Choose **Select Existing AD App** > **Azure AD App**. 
 
-Now you can use Azure AD for authenticating your Web API app.
+5. Under **Azure AD Applications**, select the **webAPI** Azure AD 
+app that you created earlier. Choose **OK** until you return 
+to the **Authentication / Authorization** page.
+
+6. On the **Authentication / Authorization** page, 
+choose **Save**.
+
+Now your Web API app can use Azure AD for authentication.
+
+## Add your custom connector to Azure Logic Apps
+
+**WHICH STEPS APPLY AND DIFFER FOR LOGIC APPS???**
+
+1. In your OpenAPI document, add the `securityDefintions` object and the 
+Azure AD authentication for your Web API app to the **host** property: 
+The **host** section should look like this example: 
+
+``` json
+// Your OpenAPI file header appears here...
+
+"host": "{your-web-api-app-root-url}",
+"schemes": [
+    "https" // Make sure this is https!
+],
+"securityDefinitions": {
+    "AAD": {
+        "type": "oauth2",
+        "flow": "accessCode",
+        "authorizationUrl": "https://login.windows.net/common/oauth2/authorize",
+        "tokenUrl": "https://login.windows.net/common/oauth2/token",
+        "scopes": {}
+    }
+},
+
+// Your OpenAPI document continues here...
+```
+2. In the [Azure portal](https://portal.azure.com), 
+and add your custom connector as described in 
+[Register and use custom connectors in Azure Logic Apps](../logic-apps/logic-apps-custom-api-connector-register.md).
+
+3. After you upload your OpenAPI document, the wizard automatically 
+detects that you're using Azure AD authentication for your Web API.
+
+4. Set up Azure AD authentication for the custom connector 
+as described here:
+
+   |Setting|Suggested value|Description| 
+   |:------|:--------------|:----------| 
+   |**Client ID**|*client-ID-for-webAPI-CustomAPI*|The client ID for your second Azure AD app| 
+   |**Secret**|*client-key-for-webAPI-CustomAPI*|The client key for your second Azure AD app| 
+   |**Login URL**|`https://login.windows.net`||
+   |**ResourceUri**|*client-ID-for-webAPI*|The client ID for your first Azure AD app|  
+   |||| 
+
+5. Choose **Create** so that Azure creates a connection to your custom connector.
+
+## Next steps
+
+* [Authenticate custom connectors with Azure Active Directory](../logic-apps/logic-apps-custom-api-connector-azure-active-directory.md)
+
+
+
 
 
 
