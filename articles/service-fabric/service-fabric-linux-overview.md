@@ -40,7 +40,7 @@ The preview supports interaction with the cluster through Service Fabric CLI. Fo
 
 ## Next steps
 
-* Get familiar with the [Reliable Actors](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md) programming frameworks.
+* Get familiar with the [Reliable Actors](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md) programming frameworks
 * [Prepare your development environment on Linux](service-fabric-get-started-linux.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
 * [Create your first Service Fabric Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)
