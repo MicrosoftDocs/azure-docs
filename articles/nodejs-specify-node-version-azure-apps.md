@@ -3,8 +3,8 @@ title: Specifying a Node.js Version
 description: Learn how to specify the version of Node.js used by Azure Web Sites and Cloud Services
 services: ''
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: ''
 
 ms.assetid: d0e15278-2ab4-4ec8-8256-913839c6d5ef
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
+ms.date: 08/17/2016
+ms.author: tarcher
 
 ---
 # Specifying a Node.js version in an Azure application
