@@ -46,7 +46,7 @@ Azure Cosmos DB, via the DocumentDB API, offers the following key capabilities a
 * **Automatic indexing:** By default, Azure Cosmos DB automatically indexes all the documents in the database and does not expect or require any schema or creation of secondary indices. Don't want to index everything? Don't worry, you can [opt out of paths in your JSON files](indexing-policies.md) too.
 
 ## <a name="data-management"></a>How do you manage data with the DocumentDB API?
-The DocumentDB API helps manages JSON data through well-defined database resources. These resources are replicated for high availability and are uniquely addressable by their logical URI. The DocumentDB API offers a simple HTTP based RESTful programming model for all resources. 
+The DocumentDB API helps manage JSON data through well-defined database resources. These resources are replicated for high availability and are uniquely addressable by their logical URI. The DocumentDB API offers a simple HTTP based RESTful programming model for all resources. 
 
 
 The Azure Cosmos DB database account is a unique namespace that gives you access to Azure Cosmos DB. Before you can create a database account, you must have an Azure subscription, which gives you access to a variety of Azure services. 

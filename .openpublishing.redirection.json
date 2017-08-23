@@ -8349,6 +8349,11 @@
             "source_path": "articles/storage/storage-cannot-delete-storage-account-container-vhd.md",
             "redirect_url": "/azure/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd",
             "redirect_document_id": false
+        },                 
+        {
+            "source_path": "articles/azure-government/documentation-government-services-intelligenceandanalytics.md",
+            "redirect_url": "/azure/azure-government/documentation-government-services-dataandanalytics",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/service-fabric/service-fabric-deploy-container.md",
@@ -9043,6 +9048,26 @@
         {
             "source_path": "articles/cosmos-db/request-units-per-minute.md",
             "redirect_url": "/azure/cosmos-db/request-units",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-add-domain-federated.md",
+            "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-add-domain.md",
+            "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-domains-add-azure-portal.md",
+            "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-add-domain-add-users.md",
+            "redirect_url": "https://docs.microsoft.com/azure/active-directory/add-custom-domain",
             "redirect_document_id": false
         }
     ]

@@ -9,7 +9,7 @@ editor: ''
 tags: acs, azure-container-service
 keywords: Containers, Marathon, Micro-services, DC/OS, Azure
 
-ms.assetid: 16ecc16e-e504-480e-8dc3-cac14e9e1561
+
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
@@ -17,6 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2016
 ms.author: rogardle
+ms.custom: mvc
 
 ---
 # Create an application or user-specific Marathon service

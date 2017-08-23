@@ -17,6 +17,6 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
 ms.author: saudas
-ms.custom: 
+ms.custom: mvc
 ---
 [!INCLUDE [container-service-security.md](../../../includes/container-service-security.md)]

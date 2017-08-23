@@ -123,7 +123,7 @@ There are a number of applications you can use to connect to your Azure Database
     --username | *server admin login name* |Type in the  server admin login username supplied when you created the Azure Database for PostgreSQL earlier. Follow the previous section to get the connection information if you do not remember the username.  The format is *username@servername*.
     --dbname | **postgres** | Use the default system generated database name *postgres* for the first connection. Later you create your own database.
 
-    After running the psql command, with your own parameter values, you are prompted to type the server admin password. This is the same password that you provided when you created the server. 
+    After running the psql command, with your own parameter values, you are prompted to type the server admin password. This password is the same that you provided when you created the server. 
 
     psql parameter |Suggested value|Description
     ---|---|---

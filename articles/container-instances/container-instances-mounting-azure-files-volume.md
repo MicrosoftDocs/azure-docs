@@ -12,11 +12,12 @@ keywords:
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: seanmck
+ms.custom: mvc
 ---
 
 # Mounting an Azure file share with Azure Container Instances

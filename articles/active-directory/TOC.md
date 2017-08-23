@@ -238,11 +238,6 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Custom domain names
 #### [Overview](active-directory-add-domain-concepts.md)
-#### Add your domain name
-##### [Azure portal](active-directory-domains-add-azure-portal.md)
-##### [Classic portal](active-directory-add-domain.md)
-##### [With AD FS](active-directory-add-domain-federated.md)
-#### [Assign users](active-directory-add-domain-add-users.md)
 #### Manage domain names
 ##### [Azure portal](active-directory-domains-manage-azure-portal.md)
 ##### [Classic portal](active-directory-add-manage-domain-names.md)

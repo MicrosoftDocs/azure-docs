@@ -1,3 +1,20 @@
+---     
+title: Azure AD v2 JS SPA Guided Setup - Configure (ARP) | Microsoft Docs       
+description: How JavaScript SPA applications can call an API that require access tokens by Azure Active Directory v2 endpoint (ARP)     
+services: active-directory      
+documentationcenter: dev-center-name        
+author: andretms        
+manager: mbaldwin       
+editor: ''      
+       
+ms.service: active-directory        
+ms.devlang: na      
+ms.topic: article       
+ms.tgt_pltfrm: na       
+ms.workload: identity       
+ms.date: 06/01/2017     
+ms.author: andret       
+---
 
 ## Add the application’s registration information to your App
 
