@@ -75,6 +75,8 @@ Your app is now configured. Using your web browser, navigate to `http://localhos
 
 ![Hello World configured](./media/app-service-linux-ruby-get-started/hello-world-configured.png)
 
+[!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
+
 ## Create a Ruby web app on Azure
 
 Use the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) command to create an app service plan for your web app. 
