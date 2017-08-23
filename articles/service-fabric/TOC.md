@@ -133,11 +133,12 @@
 ### Build a container service
 #### [Create a Windows container application](service-fabric-get-started-containers.md)
 #### [Create a Linux container application](service-fabric-get-started-containers-linux.md)
-#### [Deploy Linux container](service-fabric-deploy-container-linux.md)
+#### [Container security](service-fabric-securing-containers.md)
 #### [Docker compose (preview)](service-fabric-docker-compose.md)
 #### [Resource governance for containers and services](service-fabric-resource-governance.md)
 #### [Volume and logging drivers](service-fabric-containers-volume-logging-drivers.md)
 #### [Services inside containers](service-fabric-services-inside-containers.md)
+#### [Container networking modes](service-fabric-networking-modes.md)
 
 ### Build a Reliable Services service
 #### [Overview](service-fabric-reliable-services-introduction.md)
@@ -175,11 +176,14 @@
 #### Get started
 ##### [C# on Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java on Linux](service-fabric-reliable-actors-get-started-java.md)
+##### [Java Actor on Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Send notifications](service-fabric-reliable-actors-events.md)
 #### [Set timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
 #### [Configure KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Configure communications settings](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [Configure ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
+
+### [Migrate old Java Application to support Maven](service-fabric-migrate-old-javaapp-to-use-maven.md)
 
 ### [Configure reverse proxy for secure communication](service-fabric-reverseproxy-configure-secure-communication.md)
 

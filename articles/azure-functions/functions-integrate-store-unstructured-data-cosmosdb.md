@@ -12,11 +12,11 @@ keywords: azure functions, functions, event processing, Cosmos DB, dynamic compu
 ms.assetid: 
 ms.service: functions
 ms.devlang: csharp
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/03/2017
-ms.author: rachelap, glenga
+ms.author: glenga
 ms.custom: mvc
 ---
 # Store unstructured data using Azure Functions and Cosmos DB
