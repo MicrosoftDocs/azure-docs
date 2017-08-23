@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/27/2017
+ms.date: 8/9/2017
 ms.author: subramar
 ---
 # Docker Compose application support in Azure Service Fabric (Preview)
@@ -22,10 +22,10 @@ Docker uses the [docker-compose.yml](https://docs.docker.com/compose) file for d
 
 Because this support is in preview, only a subset of Compose directives is supported. For example, application upgrades are not supported. However, you can always remove and deploy applications instead of upgrading them.
 
-To use this preview, create your cluster with the preview SDK (version 255.255.x.x) through the Azure portal. 
+To use this preview, create your cluster with version 5.7 or greater of the Service Fabric runtime through the Azure portal along with the corresponding SDK. 
 
 > [!NOTE]
-> This feature is in preview and is not supported.
+> This feature is in preview and is not supported in production.
 
 ## Deploy a Docker Compose file on Service Fabric
 

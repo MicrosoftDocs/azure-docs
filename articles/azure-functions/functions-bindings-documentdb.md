@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/18/2016
-ms.author: chrande; glenga
+ms.author: glenga
 
 ---
 # Azure Functions Cosmos DB bindings
