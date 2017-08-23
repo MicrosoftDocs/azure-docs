@@ -18,10 +18,10 @@ ms.author: rajani-janaki-ram
 ---
 # Upgrade a Site Recovery vault to an Azure Resource Manager-based Recovery Services vault
 
-This article describes how to upgrade Site Recovery vaults to Azure Resource Manager-based Recovery Service vaults without any impact on ongoing replication. For more information about Azure Resource Manager features and benefits, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
+This article describes how to upgrade Azure Site Recovery vaults to Azure Resource Manager-based Recovery Service vaults without any impact on ongoing replication. For more information about Azure Resource Manager features and benefits, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 ## Introduction
-Recovery Services vault is an Azure Resource Manager resource for managing backup and disaster recovery natively in the cloud. It is a unified vault that you can use in the new Azure portal, and it replaces the classic backup and Site Recovery vaults.
+A Recovery Services vault is an Azure Resource Manager resource for managing backup and disaster recovery natively in the cloud. It is a unified vault that you can use in the new Azure portal, and it replaces the classic backup and Site Recovery vaults.
 
 Recovery Services vaults offer an array of features, including:
 
@@ -29,7 +29,7 @@ Recovery Services vaults offer an array of features, including:
 
 * Exclude disk: If you have temp files or high churn data that you don’t want to use all your bandwidth for, you can exclude volumes from replication. This capability has been enabled currently in *VMware to Azure* and *Hyper-V to Azure* and is extended to other scenarios as well.
 
-* Support for premium and locally redundant storage (LRS): You can now protect servers into premium storage accounts that allow customers to protect applications with higher input/output operations per second (IOPS). This capability is currently enabled in *VMware to Azure*.
+* Support for premium and locally redundant storage: You can now protect servers in premium storage accounts that allow customers to protect applications with higher input/output operations per second (IOPS). This capability is currently enabled in *VMware to Azure*.
 
 * Streamlined getting-started experience: The enhanced getting-started experience has been designed to make disaster-recovery setup easy.
 
@@ -55,16 +55,16 @@ As you upgrade the vault type from the classic deployment model to the Resource 
 
 ### Prepare your environment for the upgrade
 
-* [Install PowerShell or upgrade it to version 5 or later](https://www.microsoft.com/download/details.aspx?id=50395).
-* [Install the latest version of Azure PowerShell MSI](https://github.com/Azure/azure-powershell/releases).
-* [Download the Recovery Services vault upgrade script](https://aka.ms/vaultupgradescript).
+* [Install PowerShell or upgrade it to version 5 or later](https://www.microsoft.com/download/details.aspx?id=50395)
+* [Install the latest version of Azure PowerShell MSI](https://github.com/Azure/azure-powershell/releases)
+* [Download the Recovery Services vault upgrade script](https://aka.ms/vaultupgradescript)
 
 ### Prerequisites
 To upgrade from Site Recovery vaults to Azure Resource Manager-based Recovery Service vaults, you must meet the following requirements:
 
 * Minimum agent version: The version of Azure Site Recovery Provider installed on your server must be 5.1.1700.0 or later.
 
-* Supported configuration: You cannot configure your vault with storage area network (SAN) or SQL Always On availability groups. All other configurations are supported.
+* Supported configuration: You cannot configure your vault with storage area network (SAN) or SQL Server AlwaysOn Availability Groups. All other configurations are supported.
 
     >[!NOTE]
     >After the upgrade, you can manage storage mapping only via PowerShell.
@@ -79,7 +79,7 @@ To upgrade from Site Recovery vaults to Azure Resource Manager-based Recovery Se
 
 No. Your ongoing replication continues uninterrupted during and after the upgrade.
 
-**What happens to network settings such as site-to-site VPN, IP settings, and so on?**
+**What happens to network settings such as site-to-site VPN and IP settings?**
 
 The upgrade doesn't affect the network settings. All Azure-to-on-premises connections remain intact.
 
@@ -89,7 +89,7 @@ Support for Site Recovery vault in the old Azure portal will be deprecated start
 
 **What does this migration plan mean for my existing tooling?**  
 
-Updating your tooling to the Resource Manager deployment model, which the Recovery Services vaults are based on, is one of the most important changes that you must account for in your upgrade plans.
+Updating your tooling to the Resource Manager deployment model is one of the most important changes that you must account for in your upgrade plans. The Recovery Services vaults are based on the Resource Manager deployment model. 
 
 **How long does the management-plane downtime last?**
 
