@@ -59,7 +59,7 @@ Two sample prediction problems are addressed in this walkthrough:
 
 Set up your Azure Data Science environment for building predictive analytics solutions with HDInsight clusters in three steps:
 
-1. [Create a storage account](../storage/storage-create-storage-account.md): This storage account is used to store data in Azure Blob Storage. The data used in HDInsight clusters is stored here.
+1. [Create a storage account](../storage/common/storage-create-storage-account.md): This storage account is used to store data in Azure Blob Storage. The data used in HDInsight clusters is stored here.
 2. [Customize Azure HDInsight Hadoop Clusters for Data Science](machine-learning-data-science-customize-hadoop-cluster.md): This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps (described in this topic) to complete when customizing the HDInsight cluster.
    
    * You must link the storage account created in step 1 with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
@@ -73,7 +73,7 @@ The [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) dat
 
 Click **Continue to Download** to read more about the dataset and its availability.
 
-The data resides in a public [Azure blob storage](../storage/storage-dotnet-how-to-use-blobs.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location. 
+The data resides in a public [Azure blob storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location. 
 
 1. The data in this public blob storage consists of three subfolders of unzipped data.
    

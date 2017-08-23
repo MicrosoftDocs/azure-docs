@@ -54,7 +54,7 @@ The following table compares the throughput and storage options available in sin
 |Maximum throughput|Unlimited|10K RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Minimum throughput|2.5K RU/s|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Maximum storage|Unlimited|10 GB|10 GB|10 GB|10 GB|
-|Price|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|$25 USD|$50 USD|$100 USD|
+|Price (monthly)|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|$25 USD|$50 USD|$100 USD|
 
 Are you an EA customer? If so, see [How am I impacted if I'm an EA customer?](#ea-customer)
 

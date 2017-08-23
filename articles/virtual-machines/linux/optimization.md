@@ -29,7 +29,7 @@ This topic assumes you already have a working Azure subscription ([free trial si
 Once you create a Linux VM in Azure, it has two disks associated with it. **/dev/sda** is your OS disk, **/dev/sdb** is your temporary disk.  Do not use the main OS disk (**/dev/sda**) for anything except the operating system as it is optimized for fast VM boot time and does not provide good performance for your workloads. You want to attach one or more disks to your VM to get persistent and optimized storage for your data. 
 
 ## Adding Disks for Size and Performance targets
-Based on the VM size, you can attach up to 16 additional disks on an A-Series, 32 disks on a D-Series and 64 disks on a G-Series machine - each up to 1 TB in size. You add extra disks as needed per your space and IOps requirements. Each disk has a performance target of 500 IOps for Standard Storage and up to 5000 IOps per disk for Premium Storage.  For more information about Premium Storage disks, see [Premium Storage: High-Performance Storage for Azure VMs](../../storage/storage-premium-storage.md)
+Based on the VM size, you can attach up to 16 additional disks on an A-Series, 32 disks on a D-Series and 64 disks on a G-Series machine - each up to 1 TB in size. You add extra disks as needed per your space and IOps requirements. Each disk has a performance target of 500 IOps for Standard Storage and up to 5000 IOps per disk for Premium Storage.  For more information about Premium Storage disks, see [Premium Storage: High-Performance Storage for Azure VMs](../../storage/common/storage-premium-storage.md)
 
 To achieve the highest IOps on Premium Storage disks where their cache settings have been set to either **ReadOnly** or **None**, you must disable **barriers** while mounting the file system in Linux. You do not need barriers because the writes to Premium Storage backed disks are durable for these cache settings.
 
@@ -38,7 +38,7 @@ To achieve the highest IOps on Premium Storage disks where their cache settings 
 * If you use **XFS**, disable barriers using the mount option `nobarrier` (For enabling barriers, use the option `barrier`)
 
 ## Unmanaged storage account considerations
-The default action when you create a VM with the Azure CLI 2.0 is to use Azure Managed Disks.  These disks are handled by the Azure platform and do not require any preparation or location to store them.  Unmanaged disks require a storage account and have some additional performance considerations.  For more information about managed disks, see [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md).  The following section outlines performance considerations only when you use unmanaged disks.  Again, the default and recommended storage solution is to use managed disks.
+The default action when you create a VM with the Azure CLI 2.0 is to use Azure Managed Disks.  These disks are handled by the Azure platform and do not require any preparation or location to store them.  Unmanaged disks require a storage account and have some additional performance considerations.  For more information about managed disks, see [Azure Managed Disks overview](../windows/managed-disks-overview.md).  The following section outlines performance considerations only when you use unmanaged disks.  Again, the default and recommended storage solution is to use managed disks.
 
 If you create a VM with unmanaged disks, make sure that you attach disks from storage accounts residing in the same region as your VM to ensure close proximity and minimize network latency.  Each Standard storage account has a maximum of 20k IOps and a 500 TB size capacity.  This  limit works out to approximately 40 heavily used disks including both the OS disk and any data disks you create. For Premium Storage accounts, there is no Maximum IOps limit but there is a 32 TB size limit. 
 
@@ -128,7 +128,7 @@ Remember, as with all optimization discussions, you need to perform tests before
 
 Some useful links to additional resources: 
 
-* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../storage/storage-premium-storage.md)
+* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../storage/common/storage-premium-storage.md)
 * [Azure Linux Agent User Guide](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Optimizing MySQL Performance on Azure Linux VMs](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Configure Software RAID on Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
