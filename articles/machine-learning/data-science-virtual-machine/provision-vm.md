@@ -50,13 +50,13 @@ The Microsoft Data Science Virtual Machine jump-starts your analytics project. I
 There are no software charges for this data science VM image. You only pay for the Azure usage fees which dependent on the size of the virtual machine you provision. More details on the compute fees can be found in the Pricing details section on the [Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) page. 
 
 ## Other Versions of the Data Science Virtual Machine
-A [CentOS](data-science-linux-dsvm-intro.md) image is also available, with many of the same tools as the Windows image. An [Ubuntu](data-science-dsvm-ubuntu-intro.md) image is available as well, with many similar tools plus deep learning frameworks.
+A [CentOS](linux-dsvm-intro.md) image is also available, with many of the same tools as the Windows image. An [Ubuntu](data-science-dsvm-ubuntu-intro.md) image is available as well, with many similar tools plus deep learning frameworks.
 
 ## Prerequisites
 Before you can create a Microsoft Data Science Virtual Machine, you must have the following:
 
 * **An Azure subscription**: To obtain one, see [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **An Azure storage account**: To create one, see [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). Alternatively, the storage account can be created as part of the process of creating the VM if you do not want to use an existing account.
+* **An Azure storage account**: To create one, see [Create an Azure storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account). Alternatively, the storage account can be created as part of the process of creating the VM if you do not want to use an existing account.
 
 ## Create your Microsoft Data Science Virtual Machine
 Here are the steps to create an instance of the Microsoft Data Science Virtual Machine:

@@ -66,7 +66,7 @@ Now you are set up to create a new Python project. Navigate to **File** -> **New
 The Jupyter Notebook is a powerful environment that provides a browser-based "IDE" for data exploration and modeling. You can use Python 2, Python 3 or R (both Open Source and the Microsoft R Server) in a Jupyter Notebook.
 
 To launch the Jupyter Notebook click on the start menu icon / desktop icon titled **Jupyter Notebook**. On the DSVM you can also browse to "https://localhost:9999/" to access the Jupiter Notebook. If it prompts you for a password, use instructions provided in the ***How to create a strong password on the Jupyter notebook server*** section of the 
-[Provision the Microsoft Data Science Virtual Machine](data-science-provision-vm.md) topic to create a strong password to access the Jupyter notebook. 
+[Provision the Microsoft Data Science Virtual Machine](provision-vm.md) topic to create a strong password to access the Jupyter notebook. 
 
 Once you have opened the notebook, you should see a directory that contains a few example notebooks that are pre-packaged into the DSVM. Now you can:
 
@@ -194,7 +194,7 @@ The DSVM not only allows you to build your analytics solution locally on the vir
 To administer your Azure subscription and cloud resources you can use your browser and point to the
 [Azure portal](https://portal.azure.com). You can also use Azure Powershell to administer your Azure subscription and resources via a script.
 You can run Azure Powershell from a shortcut on the desktop or from the start menu titled "Microsoft Azure Powershell". Refer to
-[Microsoft Azure Powershell documentation](../powershell-azure-resource-manager.md) for more information on how you can administer your Azure subscription and resources using Windows Powershell scripts.
+[Microsoft Azure Powershell documentation](../../powershell-azure-resource-manager.md) for more information on how you can administer your Azure subscription and resources using Windows Powershell scripts.
 
 ## 5. Extend your storage space with a shared file system
 Data scientists can share large datasets, code or other resources within the team. The DSVM itself has about 70GB of space available. To extend your storage, you can use the Azure File Service and either mount it on the DSVM or access it via a REST API.   
@@ -261,7 +261,7 @@ Azure blob is a reliable, economical cloud storage for data big and small. Let u
 
 ![Create_Azure_Blob](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
-* Confirm that the pre-installed command-line AzCopy tool is found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. You can add the directory containing the azcopy.exe to your PATH environment variable to avoid typing the full command path when running this tool. For more info on AzCopy tool please refer to [AzCopy documentation](../storage/common/storage-use-azcopy.md)
+* Confirm that the pre-installed command-line AzCopy tool is found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. You can add the directory containing the azcopy.exe to your PATH environment variable to avoid typing the full command path when running this tool. For more info on AzCopy tool please refer to [AzCopy documentation](../../storage/common/storage-use-azcopy.md)
 * Start the Azure Storage Explorer tool. It can be downloaded from [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
 
 ![AzureStorageExplorer_v4](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -431,7 +431,7 @@ After your query is submitted to the server, a diagram showing the status of you
 
 **Query data in Data Lake: U-SQL**
 
-After the dataset is ingested into Azure Data Lake, you can use [U-SQL language](../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) to query and explore the data. U-SQL language is similar to T-SQL, but combines some features from C# so that users can write customized modules, user-defined functions, and etc. You can use the scripts in the previous step.
+After the dataset is ingested into Azure Data Lake, you can use [U-SQL language](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) to query and explore the data. U-SQL language is similar to T-SQL, but combines some features from C# so that users can write customized modules, user-defined functions, and etc. You can use the scripts in the previous step.
 
 After the query is submitted to server, tripdata_summary.CSV can be found shortly in **Azure Data Lake Explorer**, you may preview the data by right-click the file.
 
@@ -450,7 +450,7 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
 
 ![Create Azure Blob storage account](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
-* Customize Azure HDInsight Hadoop Clusters from [Azure portal](data-science-customize-hadoop-cluster.md)
+* Customize Azure HDInsight Hadoop Clusters from [Azure portal](customize-hadoop-cluster.md)
   
   * You must link the storage account created with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
 
@@ -559,7 +559,7 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
             cursor.execute(queryString)
 
 
-* Alternately,  you can follow this [walkthrough](data-science-process-hive-walkthrough.md) to upload NYC Taxi data to HDI cluster. Major steps include:
+* Alternately,  you can follow this [walkthrough](hive-walkthrough.md) to upload NYC Taxi data to HDI cluster. Major steps include:
   
   * AzCopy: download zipped CSV's from public blob to your local folder
   * AzCopy: upload unzipped CSV's from local folder to HDI cluster
@@ -795,7 +795,7 @@ The scored dataset can then be viewed:
 ### Azure SQL Data Warehouse & databases
 Azure SQL Data Warehouse is an elastic data warehouse as a service with enterprise-class SQL Server experience.
 
-You can provision your Azure SQL Data Warehouse by following the instructions provided in this [article](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Once you provision your Azure SQL Data Warehouse, you can use this [walkthrough](data-science-process-sqldw-walkthrough.md) to do data upload, exploration and modeling using data within the SQL Data Warehouse.
+You can provision your Azure SQL Data Warehouse by following the instructions provided in this [article](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Once you provision your Azure SQL Data Warehouse, you can use this [walkthrough](sqldw-walkthrough.md) to do data upload, exploration and modeling using data within the SQL Data Warehouse.
 
 #### Azure Cosmos DB
 Azure Cosmos DB is a NoSQL database in the cloud. It allows you to work with documents like JSON and allows you to store and query the documents.
@@ -812,7 +812,7 @@ You need to do the following per-requisites steps to access Azure Cosmos DB from
 Once you import the data, you can go to Jupyter and open the notebook titled *DocumentDBSample* which contains python code to access DocumentDB and do some basic querying. You can learn more about Cosmos DB by visiting the service [documentation page](https://docs.microsoft.com/azure/cosmos-db/).
 
 ## 8. Build reports and dashboard using the Power BI Desktop
-Let us visualize the Volcano JSON file that we saw in the preceding Cosmos DB example in Power BI to gain visual insights into the data. Detailed steps are available in the [Power BI article](../cosmos-db/powerbi-visualize.md). Here are the high-level steps:
+Let us visualize the Volcano JSON file that we saw in the preceding Cosmos DB example in Power BI to gain visual insights into the data. Detailed steps are available in the [Power BI article](../../cosmos-db/powerbi-visualize.md). Here are the high-level steps:
 
 1. Open Power BI Desktop and do "Get Data". Specify the URL as: https://cahandson.blob.core.windows.net/samples/volcano.json
 2. You should see the JSON records imported as a list
@@ -840,7 +840,7 @@ You now have the data in your Power BI data model. Your Power BI desktop should 
 
 ![Power BI desktop](./media/vm-do-ten-things/PowerBIVolcanoData.png)
 
-You can start building reports and visualizations using the data model. You can follow the steps in this [Power BI article](../cosmos-db/powerbi-visualize.md#build-the-reports) to build a report. The end result is a report that looks like the following.
+You can start building reports and visualizations using the data model. You can follow the steps in this [Power BI article](../../cosmos-db/powerbi-visualize.md#build-the-reports) to build a report. The end result is a report that looks like the following.
 
 ![Power BI Desktop Report View - Power BI connector](./media/vm-do-ten-things/power_bi_connector_pbireportview2.png)
 

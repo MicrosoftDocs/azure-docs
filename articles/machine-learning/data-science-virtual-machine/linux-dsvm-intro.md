@@ -52,13 +52,13 @@ The Linux Data Science Virtual Machine can ease this burden substantially. Use i
 There are no software charges for this data science VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine that you provision with the VM image. More details on the compute fees can be found on the [VM listing page on the Azure Marketplace ](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
 ## Other Versions of the Data Science Virtual Machine
-An [Ubuntu](data-science-dsvm-ubuntu-intro.md) image is also available, with many of the same tools as the CentOS image plus deep learning frameworks. A [Windows](data-science-provision-vm.md) image is available as well.
+An [Ubuntu](dsvm-ubuntu-intro.md) image is also available, with many of the same tools as the CentOS image plus deep learning frameworks. A [Windows](data-science-provision-vm.md) image is available as well.
 
 ## Prerequisites
 Before you can create a Linux Data Science Virtual Machine, you must have the following:
 
 * **An Azure subscription**: To obtain one, see [Get Azure free trial](https://azure.microsoft.com/free/).
-* **An Azure storage account**: To create one, see [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). Alternatively, the storage account can be created as part of the process of creating the VM, if you do not want to use an existing account.
+* **An Azure storage account**: To create one, see [Create an Azure storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account). Alternatively, the storage account can be created as part of the process of creating the VM, if you do not want to use an existing account.
 
 ## Create your Linux Data Science Virtual Machine
 Here are the steps to create an instance of the Linux Data Science Virtual Machine:
@@ -197,7 +197,7 @@ You have a choice of several code editors. This includes vi/VIM, Emacs, gEdit, P
 
 **VIM** and **Emacs** are text-based editors. On Emacs, we have installed an add-on package called Emacs Speaks Statistics (ESS) that makes working with R easier within the Emacs editor. More information can be found at [ESS](http://ess.r-project.org/).
 
-**Eclipse** is an open source, extensible IDE that supports multiple languages. The Java developers edition is the instance installed on the VM. There are plugins available for several popular languages that can be installed to extend the environment. We also have a plugin installed in Eclipse called **Azure Toolkit for Eclipse**. It allows you to create, develop, test, and deploy Azure applications using the Eclipse development environment that supports languages like Java. There is also an **Azure SDK for Java** that allows access to different Azure services from within a Java environment. More information on Azure toolkit for Eclipse can be found at [Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse.md).
+**Eclipse** is an open source, extensible IDE that supports multiple languages. The Java developers edition is the instance installed on the VM. There are plugins available for several popular languages that can be installed to extend the environment. We also have a plugin installed in Eclipse called **Azure Toolkit for Eclipse**. It allows you to create, develop, test, and deploy Azure applications using the Eclipse development environment that supports languages like Java. There is also an **Azure SDK for Java** that allows access to different Azure services from within a Java environment. More information on Azure toolkit for Eclipse can be found at [Azure Toolkit for Eclipse](../../azure-toolkit-for-eclipse.md).
 
 **LaTex** is installed through the texlive package along with an Emacs add-on [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) package, which simplifies authoring your LaTex documents within Emacs.  
 
@@ -263,7 +263,7 @@ After you sign in to Azure Machine Learning Studio, you have access to an experi
 
 You can also build your models in R or Python on the VM, and then deploy it in production on Azure Machine Learning. We have installed libraries in R (**AzureML**) and Python (**azureml**) to enable this functionality.
 
-For information on how to deploy models in R and Python into Azure Machine Learning, see [Ten things you can do on the Data science Virtual Machine](data-science-vm-do-ten-things.md) (in particular, the section "Build models using R or Python and Operationalize them using Azure Machine Learning").
+For information on how to deploy models in R and Python into Azure Machine Learning, see [Ten things you can do on the Data science Virtual Machine](vm-do-ten-things.md) (in particular, the section "Build models using R or Python and Operationalize them using Azure Machine Learning").
 
 > [!NOTE]
 > These instructions were written for the Windows version of the Data Science VM. But the information provided there on deploying models to Azure Machine Learning is applicable to the Linux VM.
@@ -366,7 +366,7 @@ You can exit Rattle and R. Now you can modify the generated R script, or use it 
 ## Next steps
 Here's how you can continue your learning and exploration:
 
-* The [Data science on the Linux Data Science Virtual Machine](data-science-linux-dsvm-walkthrough.md) walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM provisioned here. 
+* The [Data science on the Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md) walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM provisioned here. 
 * Explore the various data science tools on the data science VM by trying out the tools described in this article. You can also run *dsvm-more-info* on the shell within the virtual machine for a basic introduction and pointers to more information about the tools installed on the VM.  
 * Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visit the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) for machine learning and data analytics samples that use the Cortana Analytics Suite.
