@@ -82,9 +82,7 @@ You can use one of the following methods to check whether VM Application or Serv
 
 ## Step 5 Check whether the problem is caused by SNAT
 
-In some scenarios, the VMs is placed behind a Load balance solution that has a dependency on resources outside of Azure. For example, the VMs is placed behind the Load balance query data on the Internet such as APIs or databases. 
-
-In these scenarios, if you experiences intermittent connection problems, the problem may be caused by [SNAT port exhaustion](../load-balancer/load-balancer-outbound-connections.md). To resolve the issue, create a VIP (or ILPIP for classic) for each VM that is behind the Load balance and secure with NSG or ACL. 
+In some scenarios, the VM is placed behind a Load balance solution that has a dependency on resources outside of Azure. In these scenarios, if you experience intermittent connection problems, the problem may be caused by [SNAT port exhaustion](../load-balancer/load-balancer-outbound-connections.md). To resolve the issue, create a VIP (or ILPIP for classic) for each VM that is behind the Load balance and secure with NSG or ACL. 
 
 ## Step 6 Check whether traffic is blocked by ACLs for Classic VM
 
