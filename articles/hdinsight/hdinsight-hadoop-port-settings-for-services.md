@@ -164,7 +164,7 @@ Examples:
 ### Spark ports
 
 | Service | Nodes | Port | Protocol | URL path | Description |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | Spark Thrift servers |Head nodes |10002 |Thrift | &nbsp; | Service for connecting to Spark SQL (Thrift/JDBC) |
 | Livy server | Head nodes | 8998 | HTTP | /batches | Service for running statements, jobs, and applications |
 
