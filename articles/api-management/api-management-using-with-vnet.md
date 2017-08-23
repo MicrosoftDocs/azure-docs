@@ -110,6 +110,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | 6381 - 6383 / 6381 - 6383 |Inbound & Outbound |UDP |Dependency on Redis Cache |VIRTUAL_NETWORK / VIRTUAL_NETWORK |External & Internal |-
 | * / 445 |Outbound |TCP |Dependency on Azure File Share for GIT |VIRTUAL_NETWORK / INTERNET |External & Internal |
 | * / * | Inbound |TCP |Azure Infrastructure Load Balancer | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |External & Internal |
+| * / * | Inbound |TCP |Cloud Service Infrastructure | VIRTUAL_NETWORK / 168.63.129.16, 169.254.169.254 |External & Internal |
 
 * **SSL functionality**: To enable SSL certificate chain building and validation the API Management service needs Outbound network connectivity to ocsp.msocsp.com, mscrl.microsoft.com and crl.microsoft.com. This dependency is not required, if any certificate you upload to API Management contain the full chain to the CA root.
 
