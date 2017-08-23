@@ -111,7 +111,7 @@ If you are getting some data but not other. This means the data collection / tra
 Diagnostics Configuration contains the part that instructs for a particular type of data to be collected. [Review your configuration](#how-to-check-diagnostics-extension-configuration) to make sure you are not looking for data you have not configured for collection.
 #### Is the host generating data:
 - **Performance Counters**: open perfmon and check the counter.
-- **Trace Logs**:  Remote desktop into the VM and add a TextWriterTraceListener to the app’s config file.  See http://msdn.microsoft.com/en-us/library/sk36c28t.aspx to set up the text listener.  Make sure the `<trace>` element has `<trace autoflush="true">`.<br />
+- **Trace Logs**:  Remote desktop into the VM and add a TextWriterTraceListener to the app’s config file.  See http://msdn.microsoft.com/library/sk36c28t.aspx to set up the text listener.  Make sure the `<trace>` element has `<trace autoflush="true">`.<br />
 If you don't see trace logs getting generated, follow [More About Trace Logs Missing](#more-about-trace-logs-missing).
 - **ETW traces**: Remote desktop into the VM and install PerfView.  In PerfView run File -> User Command -> Listen etwprovder1, etwprovider2, etc.  Note that the Listen command is case-sensitive and there cannot be spaces between the comma-separated list of ETW providers.  If the command fails to run, you can click the 'Log' button in the bottom-right of the Perfview tool to see what was attempted to run and what the result was.  Assuming the input is correct then a new window will pop up and in a few seconds you will begin seeing ETW traces.
 - **Event Logs**: Remote desktop into the VM. Open `Event Viewer` and ensure the events exist.
