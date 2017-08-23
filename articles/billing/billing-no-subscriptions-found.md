@@ -19,7 +19,7 @@ ms.author: genli
 ---
 
 # No subscriptions found error in Azure portal or Azure account center
-You might receive the "No subscriptions found" error when you try to sign in to the [Azure portal](https://portal.azure.com/) or the [Azure account center](https://account.windowsazure.com/Subscriptions). This article provides the solution for this problem.
+You might receive a "No subscriptions found" error message when you try to sign in to the [Azure portal](https://portal.azure.com/) or the [Azure account center](https://account.windowsazure.com/Subscriptions). This article provides a solution for this problem.
 
 ## Symptom
 
@@ -31,21 +31,21 @@ This problem occurs if your account doesn’t have sufficient permissions.
 
 ## Solution
 
-Make sure that you log in as the right administrator. An Account Administrator can only access the Account Center. The Service Administrators (SA) and Co-Administrators (CA) only have access to the Azure portal or the Azure classic portal.
+Make sure that you log in as the correct administrator. An Account Administrator can access only the Account Center. Service Administrators (SA) and Co-Administrators (CA) have access permission only to the Azure portal or the Azure classic portal.
 
 ### Scenario 1: Error message is received in the [Azure portal](https://portal.azure.com)
 
 To fix this issue:
 
-* Make sure the right Azure directory is selected by clicking your account at the top right.
+* Make sure that the correct Azure directory is selected by clicking your account at the top right.
 
   ![Select the directory at the top right of the Azure portal](./media/billing-no-subscriptions-found/directory-switch.png)
 
-* If the right Azure directory is selected but you still get the error, [have your account added as an Owner](billing-add-change-azure-subscription-administrator.md).
+* If the right Azure directory is selected but you still receive the error message, [have your account added as an Owner](billing-add-change-azure-subscription-administrator.md).
 
-### Scenario 2: Error message is received in the [Azure Account Center](https://account.windowsazure.com/Subscriptions)
+### Scenario 2: Error message is received in the [Azure account center](https://account.windowsazure.com/Subscriptions)
 
-Check whether the account that you used is the account administrator. To verify who the account administrator is, follow these steps:
+Check whether the account that you used is the Account Administrator. To verify who the Account Administrator is, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Hub menu, select **Subscription**.

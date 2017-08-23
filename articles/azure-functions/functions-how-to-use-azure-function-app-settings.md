@@ -14,7 +14,7 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
-ms.author: rachelap, glenga
+ms.author: glenga
 
 ---
 # How to manage a function app in the Azure portal 
