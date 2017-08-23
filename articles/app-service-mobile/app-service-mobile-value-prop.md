@@ -85,9 +85,9 @@ For more information about the Azure App Service platform, see [Azure App Servic
 <!-- URLs. -->
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
-[getting started]: app-service-mobile-ios-get-started.md
-[Azure Table storage]: ../storage/storage-dotnet-how-to-use-tables.md
-[Azure Cosmos DB]: ../documentdb/documentdb-get-started.md
+[Get Started]: app-service-mobile-ios-get-started.md
+[Azure Table Storage]:../cosmos-db/table-storage-how-to-use-dotnet.md
+[DocumentDB]: ../documentdb/documentdb-get-started.md
 [authentication features]: ./app-service-mobile-auth.md
 [data features]: ./app-service-mobile-offline-data-sync.md
 [push notification features]: ../notification-hubs/notification-hubs-push-notification-overview.md

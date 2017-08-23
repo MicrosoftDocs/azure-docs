@@ -19,6 +19,8 @@
     items:
     - name: Timer
       href: functions-create-scheduled-function.md
+    - name: Generic webhook
+      href: functions-create-generic-webhook-triggered-function.md
     - name: GitHub webhook
       href: functions-create-github-webhook-triggered-function.md
     - name: Blob storage

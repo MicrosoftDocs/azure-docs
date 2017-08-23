@@ -73,13 +73,13 @@ Throughout this quick start, you need the FQDN of both the Docker Swarm master a
 
 
 ```bash
-az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Ageent:agentPoolProfiles[0].fqdn}' -o table
+az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
 ```
 
 Output:
 
 ```bash
-Master                                                               Ageent
+Master                                                               Agent
 -------------------------------------------------------------------  --------------------------------------------------------------------
 myswarmcluster-myresourcegroup-d5b9d4mgmt.ukwest.cloudapp.azure.com  myswarmcluster-myresourcegroup-d5b9d4agent.ukwest.cloudapp.azure.com
 ```
