@@ -3,8 +3,8 @@ title: Create a Node.js chat application with Socket.IO in Azure App Service
 description: A tutorial that demonstrates using socket.io in a node.js web app hosted on Azure.
 services: app-service\web
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: ''
 
 ms.assetid: c4c4af36-3ecf-4619-b586-ca90d53ce35b
@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
+ms.date: 08/17/2016
+ms.author: tarcher
 
 ---
 # Create a Node.js chat application with Socket.IO in Azure App Service
