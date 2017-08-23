@@ -39,7 +39,7 @@ All requests into a logic app are encrypted and secured via SSL.
 ### Shared Access Signature
 
 Every request endpoint for a logic app includes a 
-[Shared Access Signature (SAS)](../storage/storage-dotnet-shared-access-signature-part-1.md) 
+[Shared Access Signature (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 
 as part of the URL. Each URL contains a `sp`, `sv`, and `sig` query parameter. 
 Permissions are specified by `sp`, 
 and correspond to HTTP methods allowed, 

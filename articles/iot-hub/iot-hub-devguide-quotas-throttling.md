@@ -39,7 +39,7 @@ The following table shows the enforced throttles. Values refer to an individual 
 | Cloud-to-device sends | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
 | Cloud-to-device receives <br/> (only when device uses HTTP)| 16.67/sec/unit (1000/min/unit) | 16.67/sec/unit (1000/min/unit) | 833.33/sec/unit (50000/min/unit) |
 | File upload | 1.67 file upload notifications/sec/unit (100/min/unit) | 1.67 file upload notifications/sec/unit (100/min/unit) | 83.33 file upload notifications/sec/unit (5000/min/unit) |
-| Direct methods | 10/sec/unit | 30/sec/unit | 1500/sec/unit | 
+| Direct methods | 20/sec/unit | 60/sec/unit | 3000/sec/unit | 
 | Device twin reads | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
 | Device twin updates | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
 | Jobs operations <br/> (create, update, list, delete) | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
