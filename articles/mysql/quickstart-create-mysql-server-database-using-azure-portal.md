@@ -29,7 +29,6 @@ Follow these steps to create an Azure database for MySQL server:
 
 2. Select **Databases** > **Azure Database for MySQL**. You can also type **MySQL** in the search box to find the service.
 
-
     ![Azure database for MySQL option](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
 
 4. Fill out the new server details form with the following information, as shown in the preceding image:
@@ -44,7 +43,7 @@ Follow these steps to create an Azure database for MySQL server:
     Confirm password | *Your choice*| The confirmed admin account password.
     Location | *The region closest to your users*| The location that is closest to your users or other Azure applications.
     Version | *Choose the latest version*| The latest version (unless you have specific requirements that require another version).
-    Pricing tier | **Basic**, **50 Compute Units** **50 GB** | The service tier and performance level for your new database. Select **Basic tier** in the tab at the top. Select the left end of the **Compute Units** slider to adjust the value to the lowest amount that's available for this Quickstart. Select **Ok** to save the pricing tier selection. For more information, see the following screenshot:
+    Pricing tier | **Basic**, **50 Compute Units**, **50 GB** | The service tier and performance level for your new database. Select **Basic tier** in the tab at the top. Select the left end of the **Compute Units** slider to adjust the value to the lowest amount that's available for this Quickstart. Select **Ok** to save the pricing tier selection. For more information, see the following screenshot:
     Pin to dashboard | Check | Enables easy tracking of your server on the front dashboard page of your Azure portal.
 
     > [!IMPORTANT]
@@ -183,14 +182,14 @@ To connect to the server by using the GUI tool MySQL Workbench, take the followi
 
     ![Set up new connection](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
 
-            | **Setting** | **Suggested value** | **Field description** |
-            |---|---|---|
-            |	Connection name | Demo connection | A label for this connection. |
-            | Connection method | Standard (TCP/IP) | Standard (TCP/IP) is sufficient. |
-            | Hostname | *Server name* | The server name value that you used when you created the Azure database for MySQL earlier. Our example server is **myserver4demo.mysql.database.azure.com**. Use the fully qualified domain name (**\*.mysql.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information.|
-            | Port | 3306 | The port to use when connecting to Azure Database for MySQL. |
-            | Username |  *Server admin login name* | The server admin sign-in information that you supplied when you created the Azure Database for MySQL earlier. Our example username is **myadmin@myserver4demo**. If you don't remember the username, follow the steps in the previous section to get the connection information . The format is *username@servername*.
-            | Password | *Your password* | Select the **Store in Vault...** button to save the password. |
+    |Setting |Suggested value|Field description|
+    |---|---|---|
+     Connection name | Demo connection | A label for this connection. |
+    Connection method | Standard (TCP/IP) | Standard (TCP/IP) is sufficient. |
+    Hostname | *Server name* | The server name value that you used when you created the Azure database for MySQL earlier. Our example server is **myserver4demo.mysql.database.azure.com**. Use the fully qualified domain name (**\*.mysql.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information.|
+     Port | 3306 | The port to use when connecting to your Azure database for MySQL. |
+    Username |  *Server admin login name* | The server admin sign-in information that you supplied when you created the Azure database for MySQL earlier. Our example username is **myadmin@myserver4demo**. If you don't remember the username, follow the steps in the previous section to get the connection information . The format is *username@servername*.
+    Password | *Your password* | Select the **Store in Vault...** button to save the password. |
 
 3. Select **Test Connection** to test whether all parameters are  configured correctly. Then select **OK** to save the connection. 
 
