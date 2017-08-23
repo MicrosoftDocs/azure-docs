@@ -269,7 +269,7 @@ When the **Azure Explorer** view is displayed, follow these steps to start or st
 
 ## Next Steps
 
-[!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
+[!INCLUDE [azure-toolkit-additional-resources](../../includes/azure-toolkit-additional-resources.md)]
 
 For additional information about creating Azure Web Apps, see the [Web Apps Overview].
 
