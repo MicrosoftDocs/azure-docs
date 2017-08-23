@@ -42,7 +42,7 @@ Follow these steps to create an Azure database for MySQL server:
     Password | *Your choice* | A new password for the server admin account. It must contain from 8 to 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
     Confirm password | *Your choice*| The confirmed admin account password.
     Location | *The region closest to your users*| The location that is closest to your users or other Azure applications.
-    Version | *Choose the latest version*| The latest version (unless you have specific requirements that require another version).
+    Version | *The latest version*| The latest version (unless you have specific requirements that require another version).
     Pricing tier | **Basic**, **50 Compute Units**, **50 GB** | The service tier and performance level for your new database. Select **Basic tier** in the tab at the top. Select the left end of the **Compute Units** slider to adjust the value to the lowest amount that's available for this Quickstart. Select **Ok** to save the pricing tier selection. For more information, see the following screenshot:
     Pin to dashboard | Check | Enables easy tracking of your server on the front dashboard page of your Azure portal.
 
@@ -60,7 +60,7 @@ Follow these steps to create an Azure database for MySQL server:
 
 The Azure Database for MySQL service creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless a firewall rule is created to open the firewall for specific IP addresses. 
 
-1.	 After the deployment finishes, locate your server. If necessary, you can search for it. For example, select **All Resources** from the menu on the left. Then type in the server name (such as the example **myserver4demo**) to search for your newly created server. Select the server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
+1.	 After the deployment finishes, locate your server. If necessary, you can search for it. For example, select **All Resources** from the menu on the left. Then type in the server name, such as the example **myserver4demo**, to search for your newly created server. Select the server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
 
 2. On the server page, select **Connection security**.
 
@@ -209,7 +209,7 @@ To delete the entire resource group including the newly created server, take the
 
 2.	On your resource group page, select **Delete**. Then type the name of your resource group (such as our example **myresourcegroup**) in the box to confirm deletion, and then select **Delete**.
 
-To delete the newly created server, take the following steps:
+To delete only the newly created server, take the following steps:
 
 1.	Locate your server in the Azure portal if you don't already have it open. From the menu on the left in the Azure portal, select **All resources**. Then search for the server you created.
 

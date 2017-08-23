@@ -41,8 +41,8 @@ To create an Azure database for PostgreSQL server, take the following steps:
     Resource group|*myresourcegroup*| A new resource group name or an existing one from your subscription.
     Server admin login |*mylogin*| Your own login account to use when you connect to the server. The admin login name can't be **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest,** or **public.** It can't start with **pg_**.
     Password |Your choice | A new password for the server admin account. It must contain from 8 to 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and nonalphanumeric characters (!, $, #, %, etc.).
-    Location|The region closest to your users| Choose the location that's closest to your users.
-    PostgreSQL version|Choose the latest version| The latest version, unless you have specific requirements.
+    Location|The region closest to your users| The location that's closest to your users.
+    PostgreSQL version|The latest version| The latest version, unless you have specific requirements.
     Pricing tier | **Basic**, **50 Compute Units**, **50 GB** | The service tier and performance level for your new database. Select **Pricing tier**. Next, select the **Basic** tab. Then select the left end of the **Compute Units** slider to adjust the value to the least amount available for this Quickstart. To save the pricing tier selection, select **OK**. For more information, see the following screenshot. 
     Pin to dashboard | Check | Enables easy tracking of your server on the front dashboard page of your portal.
 
@@ -63,7 +63,7 @@ To create an Azure database for PostgreSQL server, take the following steps:
 
 Azure Database for PostgreSQL creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless a rule is created to open the firewall for specific IP addresses. 
 
-1. After the deployment finishes, locate your server. If needed, you can search for it. For example, on the menu on the left, select **All resources**. Type your server name, such as the example, *mypgserver-20170401*, to search for your newly created server. Select your server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
+1. After the deployment finishes, locate your server. If needed, you can search for it. For example, on the menu on the left, select **All resources**. Type your server name, such as the example, **mypgserver-20170401**, to search for your newly created server. Select your server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
  
     ![Server name search](./media/quickstart-create-database-portal/4-locate.png)
 
@@ -93,19 +93,19 @@ Open your server's **Overview** page. Make a note of the **Server name** and the
 
  ![The server "Overview" page](./media/quickstart-create-database-portal/6-server-name.png)
 
-## Connect to the PostgreSQL database by using psql in the cloud shell
+## Connect to the PostgreSQL database by using psql in Cloud Shell
 
 There are a number of applications you can use to connect to your Azure database for PostgreSQL server. Let's first use the psql command-line utility to illustrate how to connect to the server. You can use a web browser and Azure Cloud Shell as described here without the need to install any additional software. If you have the psql utility installed locally on your own machine, you can connect from there as well.
 
-1. In the top navigation pane, select the terminal symbol to open the cloud shell.
+1. In the top navigation pane, select the terminal symbol to open Cloud Shell.
 
    ![Azure Cloud Shell terminal symbol](./media/quickstart-create-database-portal/7-cloud-console.png)
 
-2. The cloud shell opens in your browser, where you can type Bash shell commands.
+2. Cloud Shell opens in your browser, where you can type Bash shell commands.
 
-   ![Cloud shell Bash prompt](./media/quickstart-create-database-portal/8-bash.png)
+   ![Cloud Shell Bash prompt](./media/quickstart-create-database-portal/8-bash.png)
 
-3. At the cloud shell prompt, connect to a database in your Azure database for PostgreSQL server by typing the psql command line.
+3. At the Cloud Shell prompt, connect to a database in your Azure database for PostgreSQL server by typing the psql command line.
 
     To connect to an Azure database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility, use the following format:
     ```bash
@@ -147,7 +147,7 @@ There are a number of applications you can use to connect to your Azure database
     > [!TIP]
     > If the firewall is not configured to allow the IP address of Cloud Shell, the following error occurs:
     > 
-    > "psql: FATAL: no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL: SSL connection is required. Please specify SSL options and retry.
+    > "psql: FATAL: no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL: SSL connection is required.Specify SSL options and retry.
     > 
     > To resolve the error, make sure the server configuration matches the steps in the *Configure a server-level firewall rule* section of this article.
 
@@ -162,7 +162,7 @@ There are a number of applications you can use to connect to your Azure database
     \c mypgsqldb
     ```
 
-6. Type *\q* and then press the **Enter** key to quit psql. You can close Cloud Shell after you're finished.
+6. Type *\q*, and then press the **Enter** key to quit psql. You can close Cloud Shell after you're finished.
 
 Now you're connected to the Azure database for PostgreSQL, and you created a blank user database. Continue to the next section to connect by using another common tool, pgAdmin.
 
@@ -185,8 +185,8 @@ To connect to the Azure PostgreSQL server by using the GUI tool pgAdmin:
     ---|---|---
     Host Name/Address | Server name | The server name value that you used when you created the Azure database for PostgreSQL earlier. Our example server is **mypgserver-20170401.postgres.database.azure.com.** Use the fully qualified domain name (**\*.postgres.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information. 
     Port | 5432 | The port to use when you connect to the Azure database for PostgreSQL. 
-    Maintenance database | *postgres* | The default system-generated database name *postgres*.
-    Username | Server admin login name | The server admin login username supplied when you created the Azure database for PostgreSQL earlier. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
+    Maintenance database | *postgres* | The default system-generated database name.
+    Username | Server admin login name | The server admin login username that you supplied when you created the Azure database for PostgreSQL earlier. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
     Password | Your admin password | The password you chose when you created the server earlier in this Quickstart.
     Role | Leave blank | There's no need to provide a role name at this point. Leave the field blank.
     SSL mode | Required | By default, all Azure PostgreSQL servers are created with SSL enforcing turned on. To turn off SSL enforcing, see [Enforce SSL](./concepts-ssl-connection-security.md).
