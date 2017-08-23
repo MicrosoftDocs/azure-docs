@@ -25,13 +25,6 @@ ms.author: gwallace
 
 Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.
 
-This article takes you through some connectivity check scenarios.
-
-* [Check connectivity to a virtual machine](#check-connectivity-to-a-virtual-machine)
-* [Validate routing issues](#validate-routing-issues)
-* [Check website latency](#check-website-latency)
-* [Check connectivity to a storage endpoint](#check-connectivity-to-a-storage-endpoint)
-
 ## Before you begin
 
 This article assumes you have the following resources:
