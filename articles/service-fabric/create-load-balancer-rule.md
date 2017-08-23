@@ -23,9 +23,6 @@ The load balancer deployed with your Azure Service Fabric cluster directs traffi
 
 When you deployed your service fabric cluster to Azure, a load balancer was automatically created for you. If you do not have a load balancer, see [Configure an Internet-facing load balancer](..\load-balancer\load-balancer-get-started-internet-portal.md).
 
-> [!div class="checklist"]
-> * Create load balancer traffic rules
-
 ## Configure service fabric
 
 Your Service Fabric application **ServiceManifest.xml** config file defines the endpoints your application expects to use. After the config file has been updated to define an endpoint, the load balancer must be updated to expose that (or a different) port. For more information on how to create the service fabric endpoint, see [Setup an Endpoint](service-fabric-service-manifest-resources.md).
