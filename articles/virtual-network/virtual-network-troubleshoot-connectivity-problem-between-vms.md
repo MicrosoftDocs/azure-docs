@@ -25,7 +25,7 @@ You might experience connective problems between Azure VMs. This article provide
 
 ## Symptom
 
-A VM cannot connect to another VM in Microsoft Azure.
+A Azure VM cannot connect to another Azure VM.
 
 ## Troubleshooting guidance 
 
@@ -48,7 +48,7 @@ If the problem occurs after you modify the network interface (NIC), follow these
 **Mulit-NIC VMs**
 
 1. Add a NIC.
-2. Fix the problems in the bad NIC or remove bad NIC.  Then re-add the NIC.
+2. Fix the problems in the bad NIC or remove bad NIC.  Then readd the NIC.
 
 For more information, see [Add network interfaces to or remove from virtual machines](virtual-network-network-interface-vm.md).
 
