@@ -16,10 +16,10 @@ ms.author: apimpm
 ---
 
 # Make non-breaking changes safely using revisions
-In the previous steps of this getting started guide, we have added an API to our API Management service and applied multiple policies to the API. This tutorial describes how to make changes to your API safely, and communicate the change to your developers.
+This tutorial describes how to make changes to your API safely, and communicate the change to your developers.
 
 ## Prerequisites
-To complete this tutorial, you will need to have created an API Management Service, and have either followed the previous tutorial articles, or have existing API you can alter (in place of Conference API).
+To complete this tutorial, you will need to have [created an API Management Service](api-management-getstarted-create-service-instance.md), and have either followed the previous getting started articles, or have an existing API you can alter (in place of Conference API).
 
 ## About revisions
 When your API is ready to go and starts to be used by developers, you usually need to take care in making changes to that API - so as not to disrupt callers of your API. It's also useful to let developers know about the changes you made. We can do this in Azure API Management using **revisions**.
@@ -34,12 +34,13 @@ In this walkthrough We will add a new revision, add an operation to it, then mak
 
     > [!TIP]
     > You can also choose **Add Revision** in the context menu (**...**) on the API.
+![Revisions menu near top of screen](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
 4. Provide a description for your new revision, to help remember what it will be used for.
 5. Select **Create**
 6. Your new revision is now created.
 
-    > [!TIP]
+    > [!NOTE]
     > You orginal API remains in **Revision 1**. This is the revision your users will continue to call, until you choose to make a different revision current.
 
 ## Make non-breaking changes to your revision
@@ -57,8 +58,10 @@ In this walkthrough We will add a new revision, add an operation to it, then mak
 
 ## Make your revision current and add a change log entry
 1. Select the **Revisions** tab from the menu near the top of the page.
+![The revision menu on the revision screen.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
 2. Open the context menu (**...**) for **Revision 2**.
 3. Select **Make Current**.
+![Make revision current and post to change log](media/api-management-getstarted-revise-api/MakeCurrent.PNG)
 4. Select **Post to Public Change Log for this API**
 5. Provide a description for your change that developers will see, e.g. **"Added new Feedback operation"**.
 6. **Revision 2** is now current.
@@ -69,7 +72,7 @@ In this walkthrough We will add a new revision, add an operation to it, then mak
 3. Notice your new **Feedback** operation is now available.
 4. Select **API Change History** from below the API name.
 5. Notice that your change log entry appears in this list.
-
+![Change Log on the Developer Portal](media/api-management-getstarted-revise-api/ChangeLogDevPortal.PNG)
 
 ## Next steps
 [Publish API Versions with Azure API Management](#api-management-getstarted-publish-versions.md)

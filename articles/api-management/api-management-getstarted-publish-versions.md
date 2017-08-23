@@ -16,28 +16,28 @@ ms.author: apimpm
 ---
 
 # Publish multiple versions of your API in a predictable way
-In the previous steps of this getting started guide, we have added an API to our API Management service and applied multiple policies to the API. This tutorial describes how to set up versions of your API, and choose the way in which they are called by API developers.
+This tutorial describes how to set up versions of your API, and choose the way in which they are called by API developers.
 
 ## Prerequisites
-To complete this tutorial, you will need to have created an API Management Service, and have either followed the previous tutorial articles, or have existing API you can alter (in place of Conference API).
+To complete this tutorial, you will need to have [created an API Management Service](api-management-getstarted-create-service-instance.md), and have either followed the previous getting started articles, or have an existing API you can alter (in place of Conference API).
 
 ## About versions
 Sometimes it is impractical to have all callers to your API use exactly the same version. Sometimes you will want to publish new or different API features to some users, while others will want to stick they API that currently works for them. When callers want to upgrade to a later version, they want to be able to do this using an easy to understand approach.  We can do this using **versions** in Azure API Management.
 
 ## Walkthrough
-In this walkthrough We will add a new version to an existing API, choosing a versioning scheme and identifier.
+In this walkthrough We will add a new version to an existing API, choosing a versioning scheme and version identifier.
 
-## Add a new revision
+## Add a new version
 1. Browse to the **APIs** page within your API Management service in the Azure portal.
 2. Select **Conference API** from the API list, then select the context menu (**...**) next to it.
 3. Select **+ Add Version**.
-
+![API Context menu - add version](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
     > [!TIP]
     > Versions can also be enabled when you first create a new API - select **Version this API?** on the **Add API** screen.
 
 ## Choose a versioning scheme
 Azure API Management allows you to choose the way in which you will allow callers to specify which version of your API they want. You do this by choosing a **versioning scheme**. This scheme can be either **path, header or query string**. In our example, we will use path.
-
+![Add version screen](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 1. Leave **path** selected as your **versioning scheme**.
 2. Add **v1** as your **version identifier**.
 
@@ -46,10 +46,12 @@ Azure API Management allows you to choose the way in which you will allow caller
 
 3. Provide a description if you wish.
 4. Select **Create** to set up your new version.
-5. Underneath **Big Conference API** in the API List, you will now see two distinct APIs - **Original**, and **v1**. 
-
-    > [!TIP]
+5. Underneath **Big Conference API** in the API List, you will now see two distinct APIs - **Original**, and **v1**.
+![Versions listed under an API in the Azure Portal](media/api-management-getstarted-publish-versions/VersionList.PNG)
+    > [!Note]
     > If you add a version to a non-versioned API, we always create an **Original** for you - responding on the default URL. This is to ensure that any exisitng callers are not broken by the process of adding a version. If you create a new API with versions enabled at the start, an Original is not created.
+
+6. You can now edit and configure **v1** as an API that is completely separate to **Original**. Changes to one version will not effect another. 
 
 ## Add the version to a product
 For callers to see your new version, it must be added to a **product** (products are not inherited from parent versions).
@@ -66,6 +68,7 @@ For callers to see your new version, it must be added to a **product** (products
 2. Select **APIs**, notice that **Conference API** shows **Original** and **v1** versions.
 3. Select **v1**.
 4. Notice the **Request URL** of the first operation in the list. It shows that the API URL path include **v1**.
+![Version shown on developer portal](media/api-management-getstarted-publish-versions/VersionDevPortal.PNG)
 
 ## Next steps
 [Monitor a published API](#api-management-getstarted-publish-versions.md)
