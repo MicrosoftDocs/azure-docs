@@ -74,7 +74,7 @@ At run time, Azure Disk Encryption for Linux relies on the target distributionâ€
 
 ## Troubleshooting Windows Server 2016 Server Core
 
-On Windows Server 2016 Server Core, the bdehdcfg component is not available by default. This component is required by Azure Disk Encryption.
+On Windows Server 2016 Server Core, the bdehdcfg component is not available by default. This component is required by Azure Disk Encryption only to split the system volume from OS volume, which is done only once for the life time of the VM. These binaries are not required during later encryption operations. 
 
 To workaround this issue, copy the following 4 files from a Windows Server 2016 Data Center VM to the c:\windows\system32 folder of the Server Core image:
 
