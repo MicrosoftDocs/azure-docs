@@ -23,7 +23,7 @@ ms.author: iainfou
 ## Quick commands
 You can also [perform these steps using Azure PowerShell](nsg-quickstart-powershell.md).
 
-First, create your Network Security Group. Select a resource group in the portal, choose **Add**, then search for and select 'Network security group':
+First, create your Network Security Group. Select a resource group in the portal, choose **Add**, then search for and select **Network security group**:
 
 ![Add a Network Security Group](./media/nsg-quickstart-portal/add-nsg.png)
 
@@ -39,7 +39,7 @@ Choose a common **Service** from the drop-down menu, such as *HTTP*. You can als
 
 ![Create an inbound rule](./media/nsg-quickstart-portal/create-inbound-rule.png)
 
-Your final step is to associate your Network Security Group with a subnet or a specific network interface. Let's associate the Network Security Group with a subnet. Select 'Subnets', then choose **Associate**:
+Your final step is to associate your Network Security Group with a subnet or a specific network interface. Let's associate the Network Security Group with a subnet. Select **Subnets**, then choose **Associate**:
 
 ![Associate a Network Security Group with a subnet](./media/nsg-quickstart-portal/associate-subnet.png)
 
@@ -52,8 +52,7 @@ You have now created a Network Security Group, created an inbound rule that allo
 ## More information on Network Security Groups
 The quick commands here allow you to get up and running with traffic flowing to your VM. Network Security Groups provide many great features and granularity for controlling access to your resources. You can read more about [creating a Network Security Group and ACL rules here](../../virtual-network/virtual-networks-create-nsg-arm-ps.md).
 
-For highly available web applications, you should place your VMs behind an Azure Load Balancer. The load balancer distributes traffic to VMs, with a Network Security Group that provides traffic filtering. For more information, see [How to load balance Linux virtual machines in Azure to create a highly available application
-](tutorial-load-balancer.md).
+For highly available web applications, you should place your VMs behind an Azure Load Balancer. The load balancer distributes traffic to VMs, with a Network Security Group that provides traffic filtering. For more information, see [How to load balance Linux virtual machines in Azure to create a highly available application](tutorial-load-balancer.md).
 
 ## Next steps
 In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:
