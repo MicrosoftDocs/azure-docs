@@ -8501,7 +8501,7 @@
         },
         {
             "source_path": "articles/vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md",
-            "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal",
             "redirect_document_id": false
         },
         {
