@@ -462,7 +462,7 @@ U-SQL local run tests your local data and validates your script locally, before 
 - Step through the code. 
 - Validate your script locally.
 
- For instructions on local run and local debug, see [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
+For instructions on local run and local debug, see [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
 
 ## Additional features
 
