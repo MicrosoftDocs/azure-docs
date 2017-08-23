@@ -19,18 +19,12 @@ ms.author: gwallace
 # Check connectivity with Azure Network Watcher using PowerShell
 
 > [!div class="op_single_selector"]
+> - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.
-
-This article takes you through some connectivity check scenarios.
-
-* [Check connectivity to a virtual machine](#check-connectivity-to-a-virtual-machine)
-* [Validate routing issues](#validate-routing-issues)
-* [Check website latency](#check-website-latency)
-* [Check connectivity to a storage endpoint](#check-connectivity-to-a-storage-endpoint)
 
 ## Before you begin
 

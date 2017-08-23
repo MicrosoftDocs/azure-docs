@@ -1,4 +1,4 @@
-﻿---
+---
 title: Linux compute VMs in an HPC Pack cluster | Microsoft Docs
 description: Learn how to create and use an HPC Pack cluster in Azure for Linux high performance computing (HPC) workloads
 services: virtual-machines-linux
@@ -182,7 +182,7 @@ You have several choices to move data among Linux nodes and the Windows head nod
 ### Azure File storage
 The [Azure File](https://azure.microsoft.com/services/storage/files/) service exposes file shares using the standard SMB 2.1 protocol. Azure VMs and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share through the File storage API. 
 
-For detailed steps to create an Azure File share and mount it on the head node, see [Get started with Azure File storage on Windows](../../../storage/storage-file-how-to-use-files-windows.md). To mount the Azure File share on the Linux nodes, see [How to use Azure File storage with Linux](../../../storage/storage-how-to-use-files-linux.md). To set up persisting connections, see [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+For detailed steps to create an Azure File share and mount it on the head node, see [Get started with Azure File storage on Windows](../../../storage/files/storage-how-to-use-files-windows.md). To mount the Azure File share on the Linux nodes, see [How to use Azure File storage with Linux](../../../storage/files/storage-how-to-use-files-linux.md). To set up persisting connections, see [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 In the following example, create an Azure File share on a storage account. To mount the share on the head node, open a Command Prompt and enter the following commands:
 

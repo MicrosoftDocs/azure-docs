@@ -28,7 +28,6 @@
 ## [REST](/rest/api/datacatalog/)
 ## [Search syntax reference](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Developer concepts](data-catalog-developer-concepts.md)
-## [Developer samples](data-catalog-samples.md)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

@@ -317,6 +317,54 @@ Here are the complete service and application manifests used in this article.
   </DefaultServices>
 </ApplicationManifest>
 ```
+## Adding more services to an existing application
+
+To add another container service to an application already created using yeoman, perform the following steps:
+
+1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
+2. Run `yo azuresfcontainer:AddService`
+
+<a id="manually"></a>
+
+
+## Configure time interval before container is force terminated
+
+You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.   For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The following cluster manifest snippet shows how to set the wait interval:
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+            "ContainerDeactivationTimeout": "10",
+	      ...
+          }
+        ]
+}
+```
+The default time interval is set to 10 seconds. Since this configuration is dynamic, a config only upgrade on the cluster updates the timeout. 
+
+
+## Configure the runtime to remove unused container images
+
+You can configure the Service Fabric cluster to remove unused container images from the node. This configuration allows disk space to be recaptured if too many container images are present on the node.  To enable this feature, update the `Hosting` section in the cluster manifest as shown in the following snippet: 
+
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+	        "PruneContainerImages": “True”,
+            "ContainerImagesToSkip": "microsoft/windowsservercore|microsoft/nanoserver|…",
+	      ...
+          }
+        ]
+} 
+```
+
+For images that should not be deleted, you can specify them under the `ContainerImagesToSkip` parameter. 
+
 
 ## Next steps
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).

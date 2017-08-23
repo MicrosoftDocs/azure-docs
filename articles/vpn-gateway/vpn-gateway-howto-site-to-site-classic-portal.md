@@ -214,11 +214,11 @@ When the connection is created, the result is: **Status: Successful**.
 
 If you are having trouble connecting, see the **Troubleshoot** section of the table of contents in the left pane.
 
-## How to reset a VPN gateway
+## <a name="reset"></a>How to reset a VPN gateway
 
 Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more Site-to-Site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly, but are not able to establish IPsec tunnels with the Azure VPN gateways. For steps, see [Reset a VPN gateway](vpn-gateway-resetgw-classic.md).
 
-## How to change a gateway SKU
+## <a name="changesku"></a>How to change a gateway SKU
 
 For the steps to change a gateway SKU, see [Resize a gateway SKU](vpn-gateway-about-SKUS-legacy.md).
 

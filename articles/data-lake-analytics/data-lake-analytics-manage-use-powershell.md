@@ -169,7 +169,7 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 Azure Data Lake Analytics currently supports the following data sources:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Azure Storage](../storage/storage-introduction.md)
+* [Azure Storage](../storage/common/storage-introduction.md)
 
 When you create an Analytics account, you must designate a Data Lake Store account to be the default 
 data source. The default Data Lake Store account is used to store job metadata and job audit logs. After you have 
