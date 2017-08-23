@@ -56,7 +56,7 @@ In this tutorial, you learned how to:
 Now that you have explored the remote monitoring solution, the suggested next steps are to learn how to:
 
 * [Monitor your devices](./iot-suite-remote-monitoring-monitor.md).
-* [Manage your devices](./iot-suite-remote-monitoring-manage.md)...
+* [Manage your devices](./iot-suite-remote-monitoring-manage.md).
 * [Automate your solution with rules](./iot-suite-remote-monitoring-automate.md).
 * [Maintain your solution](./iot-suite-remote-monitoring-maintain.md).
 

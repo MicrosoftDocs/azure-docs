@@ -6,7 +6,7 @@
 # Get Started
 ## Remote monitoring V2
 ### [Deploy the preconfigured solution](iot-suite-remote-monitoring-deploy.md)
-### [Operate the preconfigured solution](iot-suite-getstarted-preconfigured-solutions.md)
+### [Operate the preconfigured solution](iot-suite-remote-monitoring-explore.md)
 
 ## Predictive maintenance
 ### [Predictive maintenance solution overview](iot-suite-predictive-overview.md)
@@ -22,7 +22,7 @@
 ### [Use rules to detect issues](iot-suite-remote-monitoring-automate.md)
 ### [Manage your devices](iot-suite-remote-monitoring-manage.md)
 ### [Troubleshoot device issues](iot-suite-remote-monitoring-maintain.md)
-### [Use simaulated devices](iot-suite-remote-monitoring-test.md)
+### [Use simulated devices](iot-suite-remote-monitoring-test.md)
 ### Connect a Raspberry Pi - C
 #### [Simulated data](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
 #### [Use real sensors](iot-suite-raspberry-pi-kit-c-get-started-basic.md)
@@ -81,3 +81,4 @@
 ## [Use dynamic telemetry with the remote monitoring solution](iot-suite-dynamic-telemetry.md)
 ## [Create a custom rule in the remote monitoring solution](iot-suite-custom-rule.md)
 ## [Device information in the remote monitoring solution](iot-suite-remote-monitoring-device-info.md)
+## [Get started with preconfigured solutions](iot-suite-getstarted-preconfigured-solutions.md)

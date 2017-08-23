@@ -42,6 +42,8 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 ## Organize your devices
 
+## Next steps
+
 This tutorial showed you how to:
 
 <!-- Repeat task list from intro -->

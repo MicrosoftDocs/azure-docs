@@ -71,6 +71,8 @@ At this point, all fans are operationally active and you are ready for the summe
 
 <!-- For completeness, point out how to delete (and/or disable?) a rule -->
 
+## Next steps
+
 This tutorial showed you how to:
 
 <!-- Repeat task list from intro -->
