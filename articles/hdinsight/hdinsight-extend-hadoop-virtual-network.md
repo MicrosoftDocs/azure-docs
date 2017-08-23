@@ -56,7 +56,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
 
 1. Are you using a classic or Resource Manager deployment model for the virtual network?
 
-    HDInsight 3.4 and greater requires a Resource Manager virtual network. Earlier versions of HDInsight required a classic virtual network, however these versions have been, or will soon be retired.
+    HDInsight 3.4 and greater requires a Resource Manager virtual network. Earlier versions of HDInsight required a classic virtual network.
 
     If your existing network is a classic virtual network, then you must create a Resource Manager virtual network and then connect the two. [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
@@ -197,7 +197,7 @@ To connect to Ambari and other web pages through the virtual network, use the fo
 	az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
 	```
 
-    In the list of nodes returned, find the FQDN for the head nodes and use those to connect to Ambari and other web services. For example, use `http://<headnode-fqdn>:8080` to access Ambari.
+    In the list of nodes returned, find the FQDN for the head nodes and use the FQDNs to connect to Ambari and other web services. For example, use `http://<headnode-fqdn>:8080` to access Ambari.
 
     > [!IMPORTANT]
     > Some services hosted on the head nodes are only active on one node at a time. If you try accessing a service on one head node and it returns a 404 error, switch to the other head node.
@@ -296,7 +296,7 @@ There are two sets of IP addresses:
 > [!IMPORTANT]
 > If you use a custom DNS server with your virtual network, you must also allow access from __168.63.129.16__. This address is Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
-For more information on network security groups and user-defined routes with HDInsight, see the [Controlling network traffic](#networktraffic) section.
+For more information, see the [Controlling network traffic](#networktraffic) section.
 
 ## <a id="hdinsight-ports"></a> Required ports
 
@@ -327,7 +327,7 @@ The following Resource Management template creates a virtual network that restri
 
 ### Azure PowerShell
 
-Use the following PowerShell script to create a virtual network that restricts inbound traffic, but allows traffic from the IP addresses required by HDInsight in the North Europe region.
+Use the following PowerShell script to create a virtual network that restricts inbound traffic and allows traffic from the IP addresses for the North Europe region.
 
 > [!IMPORTANT]
 > Change the IP addresses used in this example to match the Azure region you are using. You can find this information in the [HDInsight with network security groups and user-defined routes](#hdinsight-ip) section.
@@ -373,6 +373,50 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 301 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
+        -Name "hdirule2" `
+        -Description "HDI health and management 168.61.49.99" `
+        -Protocol "*" `
+        -SourcePortRange "*" `
+        -DestinationPortRange "443" `
+        -SourceAddressPrefix "168.61.49.99" `
+        -DestinationAddressPrefix "VirtualNetwork" `
+        -Access Allow `
+        -Priority 302 `
+        -Direction Inbound `
+    | Add-AzureRmNetworkSecurityRuleConfig `
+        -Name "hdirule2" `
+        -Description "HDI health and management 23.99.5.239" `
+        -Protocol "*" `
+        -SourcePortRange "*" `
+        -DestinationPortRange "443" `
+        -SourceAddressPrefix "23.99.5.239" `
+        -DestinationAddressPrefix "VirtualNetwork" `
+        -Access Allow `
+        -Priority 303 `
+        -Direction Inbound `
+    | Add-AzureRmNetworkSecurityRuleConfig `
+        -Name "hdirule2" `
+        -Description "HDI health and management 168.61.48.131" `
+        -Protocol "*" `
+        -SourcePortRange "*" `
+        -DestinationPortRange "443" `
+        -SourceAddressPrefix "168.61.48.131" `
+        -DestinationAddressPrefix "VirtualNetwork" `
+        -Access Allow `
+        -Priority 304 `
+        -Direction Inbound `
+    | Add-AzureRmNetworkSecurityRuleConfig `
+        -Name "hdirule2" `
+        -Description "HDI health and management 138.91.141.162" `
+        -Protocol "*" `
+        -SourcePortRange "*" `
+        -DestinationPortRange "443" `
+        -SourceAddressPrefix "138.91.141.162" `
+        -DestinationAddressPrefix "VirtualNetwork" `
+        -Access Allow `
+        -Priority 305 `
+        -Direction Inbound `
+    | Add-AzureRmNetworkSecurityRuleConfig `
         -Name "blockeverything" `
         -Description "Block everything else" `
         -Protocol "*" `
@@ -399,7 +443,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 > The following example demonstrates how to enable SSH access from the Internet:
 >
 > ```powershell
-> Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound
+> Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 > ```
 
 ### Azure CLI
@@ -422,6 +466,10 @@ Use the following steps to create a virtual network that restricts inbound traff
     ```azurecli
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "13.74.153.132" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.49.99" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 305 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n block --protocol "*" --source-port-range "*" --destination-port-range "*" --source-address-prefix "Internet" --destination-address-prefix "VirtualNetwork" --access "Deny" --priority 500 --direction "Inbound"
     ```
 
@@ -451,7 +499,7 @@ Use the following steps to create a virtual network that restricts inbound traff
 > The following example demonstrates how to enable SSH access from the Internet:
 >
 > ```azurecli
-> az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
+> az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 > ```
 
 ## <a id="example-dns"></a> Example: DNS configuration
