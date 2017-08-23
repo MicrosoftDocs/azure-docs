@@ -203,20 +203,18 @@ Selecting proper memory grant depending on the need of your query is non-trivial
 
 You can use the following stored procedure to figure out concurrency and memory grant per resource class at a given SLO and the closest best resource class for memory intensive CCI operations on non-partitioned CCI table at a given resource class:
 
-#### Description:
-       There are two purposes of this stored procedure as mentioned below.  
-       
-       1. To help user find out concurrency and memory grant per resource class at a given SLO. User need to provide NULL for both schema and tablename for this as shown in the example below.
-       2. To help user find out the closest best resoruce class for the memory intensed CCI operations (load, copy table, rebuild index, etc.) on non partitioned CCI table at a given resource class. 
-          The stored proc uses table schema to find out the required memory grant for this.
+#### Description:  
+Here's the purpose of this stored procedure:  
+1. To help user figure out concurrency and memory grant per resource class at a given SLO. User needs to provide NULL for both schema and tablename for this as shown in the example below.  
+2. To help user figure out the closest best resource class for the memory intensed CCI operations (load, copy table, rebuild index, etc.) on non partitioned CCI table at a given resource class. The stored proc uses table schema to find out the required memory grant for this.
 
 #### Dependencies & Restrictions:
-       * This stored proc is not designed to calculate memory requirement for partitioned-cci table
-       * This stored proc doesn't take memory requirement into account for the SELECT part of CTAS/INSERT-SELECT and assumes it to be a simple SELECT
-       * This stored proc uses a temp table so this can be used in the session where this stored proc was created
-       * This stored proc depends on the current offerings (e.g. hardware configuration, DMS config) and if any of that changes then this stored proc would not work correctly
-       * This stored proc depends on existing offered concurrency limit and if that changes then this stored proc would not work correctly
-       * This stored proc depends on existing resource class offerings and if that changes then this stored proc wuold not work correctly
+- This stored proc is not designed to calculate memory requirement for partitioned-cci table.    
+- This stored proc doesn't take memory requirement into account for the SELECT part of CTAS/INSERT-SELECT and assumes it to be a simple SELECT.
+- This stored proc uses a temp table so this can be used in the session where this stored proc was created.    
+- This stored proc depends on the current offerings (e.g. hardware configuration, DMS config) and if any of that changes then this stored proc would not work correctly.  
+- This stored proc depends on existing offered concurrency limit and if that changes then this stored proc would not work correctly.  
+- This stored proc depends on existing resource class offerings and if that changes then this stored proc wuold not work correctly.  
 
 >  [!NOTE]  
 >  If you are not getting output after executing stored procedure with parameters provided then there could be two cases. <br />1. Either DW Parameter contains invalid SLO value <br />2. OR there are no matching resource class for CCI operation if table name was provided. <br />For example, at DW100, highest memory grant available is 400MB and if table schema is wide enough to cross the requirement of 400MB.
@@ -229,16 +227,17 @@ Syntax:
 3. @TABLE_NAME: Provide a table name of the interest
 
 Examples executing this stored proc:  
-`EXEC dbo.prc_workload_management_by_DWU 'DW2000', 'dbo', 'Table1';`  
-`EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';`  
-`EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;`  
-`EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;`  
+```sql  
+EXEC dbo.prc_workload_management_by_DWU 'DW2000', 'dbo', 'Table1';  
+EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';  
+EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;  
+EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;  
+```
 
-Table1 used in the above examples could be created as below:
-
+Table1 used in the above examples could be created as below:  
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
 
-#### Stored procedure definition:
+#### Here's the stored procedure definition:
 ```sql  
 -------------------------------------------------------------------------------
 -- Dropping prc_workload_management_by_DWU procedure if it exists.
