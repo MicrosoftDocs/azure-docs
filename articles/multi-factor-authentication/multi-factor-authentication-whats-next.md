@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: kgremban
-ms.reviewer: 
-ms.custom: it-pro
+experimental: true
+experiment_id: 8fe4e6cb-4af2-4c
+
 ---
 # Configure Azure Multi-Factor Authentication settings
 This article helps you manage Azure Multi-Factor Authentication now that you are up and running.  It covers various topics that help you to get the most out of Azure Multi-Factor Authentication.  Not all these features are available in every version of Azure Multi-Factor Authentication.
