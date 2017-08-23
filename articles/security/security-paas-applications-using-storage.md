@@ -20,7 +20,7 @@ ms.author: TomShinder
 # Securing PaaS web and mobile applications using Azure Storage
 In this article, we discuss a collection of Azure Storage security best practices for securing your PaaS web and mobile applications. These best practices are derived from our experience with Azure and the experiences of customers like yourself.
 
-The [Azure Storage security guide](../storage/storage-security-guide.md) is a great source for detailed information about Azure Storage and security.  This article addresses at a high level some of the concepts found in the security guide and links to the security guide, as well as other sources, for more information.
+The [Azure Storage security guide](../storage/common/storage-security-guide.md) is a great source for detailed information about Azure Storage and security.  This article addresses at a high level some of the concepts found in the security guide and links to the security guide, as well as other sources, for more information.
 
 ## Azure Storage
 Azure makes it possible to deploy and use storage in ways not easily achievable on-premises. With Azure storage, you can reach high levels of scalability and availability with relatively little effort. Not only is Azure storage the foundation for Windows and Linux Azure Virtual Machines, it can also support large distributed applications.
@@ -47,11 +47,11 @@ In an IaaS solution, usually running Windows Server or Linux virtual machines, f
 
 PaaS is different. One of the most common ways to store files in Microsoft Azure is to use [Azure Blob storage](../storage/storage-dotnet-how-to-use-blobs.md). A difference between Blob storage and other file storage is the file I/O, and the protection methods that come with file I/O.
 
-Access control is critical. To help you control access to Azure storage, the system will generate two 512-bit storage account keys (SAKs) when you [create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account). The level of key redundancy makes it possible for you to avoid service interrupt during routine key rotation.
+Access control is critical. To help you control access to Azure storage, the system will generate two 512-bit storage account keys (SAKs) when you [create a storage account](../storage/common/storage-create-storage-account.md). The level of key redundancy makes it possible for you to avoid service interrupt during routine key rotation.
 
 Storage access keys are high priority secrets and should only be accessible to those responsible for storage access control. If the wrong people get access to these keys, they will have complete control of storage and could replace, delete or add files to storage. This includes malware and other types of content that can potentially compromise your organization or your customers.
 
-You still need a way to provide access to objects in storage. To provide more granular access you can take advantage of [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) (SAS). The SAS makes it possible for you to share specific objects in storage for a pre-defined time-interval and with specific permissions. A Shared Access Signature allows you to define:
+You still need a way to provide access to objects in storage. To provide more granular access you can take advantage of [Shared Access Signature](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS). The SAS makes it possible for you to share specific objects in storage for a pre-defined time-interval and with specific permissions. A Shared Access Signature allows you to define:
 
 - The interval over which the SAS is valid, including the start time and the expiry time.
 - The permissions granted by the SAS. For example, a SAS on a blob might grant a user read and write permissions to that blob, but not delete permissions.
@@ -60,7 +60,7 @@ You still need a way to provide access to objects in storage. To provide more gr
 
 SAS allows you to share content the way you want to share it without giving away your Storage Account Keys. Always using SAS in your application is a secure way to share your storage resources without compromising your storage account keys.
 
-To learn more, see [Using Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md) (SAS). To learn more about potential risks and recommendations to mitigate those risks, see [Best practices when using SAS](../storage/storage-dotnet-shared-access-signature-part-1.md#best-practices-when-using-sas).
+To learn more, see [Using Shared Access Signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS). To learn more about potential risks and recommendations to mitigate those risks, see [Best practices when using SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ### Use managed disks for VMs
 
@@ -82,7 +82,7 @@ To learn more about RBAC see:
 
 - [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
 - [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md)
-- [Azure Storage Security Guide](../storage/storage-security-guide.md#how-to-secure-your-storage-account-with-role-based-access-control-rbac) for detail on how to secure your storage account with RBAC
+- [Azure Storage Security Guide](../storage/common/storage-security-guide.md) for detail on how to secure your storage account with RBAC
 
 ## Storage encryption
 ### Use client-side encryption for high value data
