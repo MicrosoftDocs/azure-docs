@@ -24,7 +24,7 @@ Azure Marketplace UI with the creation of a Marketplace item.
 
 ## Add a VM image to marketplace with PowerShell
 
-Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-with-vpn):
+Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)
 
 * [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
 

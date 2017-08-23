@@ -41,7 +41,7 @@ After the download completes, the image is added to the **Marketplace Management
 
 ### Prerequisites 
 
-Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-with-vpn):
+Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
 * Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
 
