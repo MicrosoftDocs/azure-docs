@@ -750,7 +750,7 @@ If the table is an internal table and it is populated, its contents must show he
 
 Here is a snapshot of the Hive query and the [Import Data][import-data] module:
 
-![Hive query for Import Data module](../media/machine-learning-data-science-process-hive-walkthrough/1eTYf52.png)
+![Hive query for Import Data module](./media/process-hive-walkthrough/1eTYf52.png)
 
 Note that since our down sampled data resides in the default container, the resulting Hive query from Azure Machine Learning is very simple and is just a "SELECT * FROM nyctaxidb.nyctaxi\_downsampled\_data".
 
@@ -767,17 +767,17 @@ a. For this problem, our target (or class) label is "tipped". Our original down-
 
 The snapshot below shows our experiment to predict whether or not a tip was paid for a given trip.
 
-![Experiment snapshot](../media/machine-learning-data-science-process-hive-walkthrough/QGxRz5A.png)
+![Experiment snapshot](./media/process-hive-walkthrough/QGxRz5A.png)
 
 b. For this experiment, our target label distributions were roughly 1:1.
 
 The snapshot below shows the distribution of tip class labels for the binary classification problem.
 
-![Distribution of tip class labels](../media/machine-learning-data-science-process-hive-walkthrough/9mM4jlD.png)
+![Distribution of tip class labels](./media/process-hive-walkthrough/9mM4jlD.png)
 
 As a result, we obtain an AUC of 0.987 as shown in the figure below.
 
-![AUC value](../media/machine-learning-data-science-process-hive-walkthrough/8JDT0F8.png)
+![AUC value](./media/process-hive-walkthrough/8JDT0F8.png)
 
 **2. Multiclass classification**: To predict the range of tip amounts paid for the trip, using the previously defined classes.
 
@@ -787,15 +787,15 @@ a. For this problem, our target (or class) label is "tip\_class" which can take 
 
 The snapshot below shows our experiment to predict in which bin a tip is likely to fall ( Class 0: tip = $0, class 1 : tip > $0 and tip <= $5, Class 2 : tip > $5 and tip <= $10, Class 3 : tip > $10 and tip <= $20, Class 4 : tip > $20)
 
-![Experiment snapshot](../media/machine-learning-data-science-process-hive-walkthrough/5ztv0n0.png)
+![Experiment snapshot](./media/process-hive-walkthrough/5ztv0n0.png)
 
 We now show what our actual test class distribution looks like. We see that while Class 0 and Class 1 are prevalent, the other classes are rare.
 
-![Test class distribution](../media/machine-learning-data-science-process-hive-walkthrough/Vy1FUKa.png)
+![Test class distribution](./media/process-hive-walkthrough/Vy1FUKa.png)
 
 b. For this experiment, we use a confusion matrix to look at our prediction accuracies. This is shown below.
 
-![Confusion matrix](../media/machine-learning-data-science-process-hive-walkthrough/cxFmErM.png)
+![Confusion matrix](./media/process-hive-walkthrough/cxFmErM.png)
 
 Note that while our class accuracies on the prevalent classes is quite good, the model does not do a good job of "learning" on the rarer classes.
 
@@ -807,11 +807,11 @@ a. For this problem, our target (or class) label is "tip\_amount". Our target le
 
 The snapshot belows shows our experiment to predict the amount of the given tip.
 
-![Experiment snapshot](../media/machine-learning-data-science-process-hive-walkthrough/11TZWgV.png)
+![Experiment snapshot](./media/process-hive-walkthrough/11TZWgV.png)
 
 b. For regression problems, we measure the accuracies of our prediction by looking at the squared error in the predictions, the coefficient of determination, and the like. We show these below.
 
-![Prediction statistics](../media/machine-learning-data-science-process-hive-walkthrough/Jat9mrz.png)
+![Prediction statistics](./media/process-hive-walkthrough/Jat9mrz.png)
 
 We see that about the coefficient of determination is 0.709, implying about 71% of the variance is explained by our model coefficients.
 
@@ -828,12 +828,12 @@ This sample walkthrough and its accompanying scripts are shared by Microsoft und
 •    [FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
 •    [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
-[2]: ../media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
-[11]: ../media/machine-learning-data-science-process-hive-walkthrough/hive-reader-properties.png
-[12]: ../media/machine-learning-data-science-process-hive-walkthrough/binary-classification-training.png
-[13]: ../media/machine-learning-data-science-process-hive-walkthrough/create-scoring-experiment.png
-[14]: ../media/machine-learning-data-science-process-hive-walkthrough/binary-classification-scoring.png
-[15]: ../media/machine-learning-data-science-process-hive-walkthrough/amlreader.png
+[2]: ./media/process-hive-walkthrough/output-hive-results-3.png
+[11]: ./media/process-hive-walkthrough/hive-reader-properties.png
+[12]: ./media/process-hive-walkthrough/binary-classification-training.png
+[13]: ./media/process-hive-walkthrough/create-scoring-experiment.png
+[14]: ./media/process-hive-walkthrough/binary-classification-scoring.png
+[15]: ./media/process-hive-walkthrough/amlreader.png
 
 <!-- Module References -->
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/

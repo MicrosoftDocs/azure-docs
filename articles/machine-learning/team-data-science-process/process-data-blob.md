@@ -161,7 +161,7 @@ Note that additional features can be created in the Azure Machine Learning Studi
 
 ![reader blob][1]
 
-[1]: ../media/machine-learning-data-science-process-data-blob/reader_blob.png
+[1]: ./media/process-data-blob/reader_blob.png
 
 
 <!-- Module References -->

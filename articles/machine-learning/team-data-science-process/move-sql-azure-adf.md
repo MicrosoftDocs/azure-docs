@@ -311,7 +311,7 @@ Copy this JSON definition of the pipeline into a file called *pipelinedef.json* 
 
 Confirm that you can see the pipeline on the ADF in the Azure Classic Portal show up as following (when you click the diagram)
 
-![ADF pipeline](../media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
+![ADF pipeline](./media/move-sql-azure-adf/DJP1kji.png)
 
 ## <a name="adf-pipeline-start"></a>Start the Pipeline
 The pipeline can now be run using the following command:

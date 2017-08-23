@@ -239,7 +239,7 @@ Here is the code to plot the trips by passenger counts
 
 **OUTPUT**
 
-![Frequency of trips by passenger count](../media/machine-learning-data-science-spark-advanced-data-exploration-modeling/frequency-of-trips-by-passenger-count.png)
+![Frequency of trips by passenger count](./media/spark-advanced-data-exploration-modeling/frequency-of-trips-by-passenger-count.png)
 
 You can select among several different types of visualizations (Table, Pie, Line, Area, or Bar) by using the **Type** menu buttons in the notebook. The Bar plot is shown here.
 
@@ -292,11 +292,11 @@ This code cell uses the SQL query to create three plots the data.
 
 **OUTPUT:** 
 
-![Tip amount distribution](../media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-distribution.png)
+![Tip amount distribution](./media/spark-advanced-data-exploration-modeling/tip-amount-distribution.png)
 
-![Tip amount by passenger count](../media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-passenger-count.png)
+![Tip amount by passenger count](./media/spark-advanced-data-exploration-modeling/tip-amount-by-passenger-count.png)
 
-![Tip amount by fare Amount](../media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-fare-amount.png)
+![Tip amount by fare Amount](./media/spark-advanced-data-exploration-modeling/tip-amount-by-fare-amount.png)
 
 ## Feature engineering, transformation, and data preparation for modeling
 This section describes and provides the code for procedures used to prepare data for use in ML modeling. It shows how to do the following tasks:
@@ -769,7 +769,7 @@ Here is the code to make predictions and plot the ROC-curve.
 
 **OUTPUT**
 
-![Logistic regression ROC curve for generic approach](../media/machine-learning-data-science-spark-advanced-data-exploration-modeling/logistic-regression-roc-curve.png)
+![Logistic regression ROC curve for generic approach](./media/spark-advanced-data-exploration-modeling/logistic-regression-roc-curve.png)
 
 **Persist model in a blob for future consumption**
 
@@ -888,7 +888,7 @@ Here is the code to plot the ROC curve.
 
 **OUTPUT**
 
-![Logistic regression ROC curve using MLlib's CrossValidator](../media/machine-learning-data-science-spark-advanced-data-exploration-modeling/mllib-crossvalidator-roc-curve.png)
+![Logistic regression ROC curve using MLlib's CrossValidator](./media/spark-advanced-data-exploration-modeling/mllib-crossvalidator-roc-curve.png)
 
 ### Random forest classification
 The code in this section shows how to train, evaluate, and save a random forest regression that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
@@ -1196,7 +1196,7 @@ Here is the code to plot the data using the Jupyter server.
     plt.axis([-1, 15, -1, 15])
     plt.show(ax)
 
-![Actual-vs-predicted-tip-amounts](../media/machine-learning-data-science-spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
+![Actual-vs-predicted-tip-amounts](./media/spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
 
 ## Appendix: Additional regression tasks using cross validation with parameter sweeps
 This appendix contains code showing how to do CV using Elastic net for linear regression and how to do CV with parameter sweep using custom code for random forest regression.

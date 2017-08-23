@@ -31,7 +31,7 @@ Download the cheat sheet here: **[Microsoft Azure Machine Learning automated dat
 
 ![Microsoft Azure Machine Learning Studio Capabilities Overview][op-cheat-sheet]
 
-[op-cheat-sheet]: ../media/machine-learning-automated-data-pipeline-cheat-sheet/machine-learning-automated-data-pipeline-cheat-sheet_v1.1.png
+[op-cheat-sheet]: ./media/automated-data-pipeline-cheat-sheet/machine-learning-automated-data-pipeline-cheat-sheet_v1.1.png
 
 
 ## More help with Machine Learning Studio

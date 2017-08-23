@@ -116,7 +116,7 @@ You can use the following sample code to save the down-sampled data to a file an
 ## The Team Data Science Process in Action example
 For an end-to-end walkthrough example of the Team Data Science Process a using a public dataset, see [Team Data Science Process in Action: using SQL Sever](data-science-process-sql-walkthrough.md).
 
-[1]: ../media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
-[2]: ../media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
+[1]: ./media/sample-sql-server-virtual-machine/reader_database.png
+[2]: ./media/sample-sql-server-virtual-machine/reader_blob.png
 
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

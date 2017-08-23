@@ -263,7 +263,7 @@ Here is the code to plot the trips by passenger counts
 
 **OUTPUT:**
 
-![Trip frequency by passenger count](../media/machine-learning-data-science-spark-data-exploration-modeling/trip-freqency-by-passenger-count.png)
+![Trip frequency by passenger count](./media/spark-data-exploration-modeling/trip-freqency-by-passenger-count.png)
 
 You can select among several different types of visualizations (Table, Pie, Line, Area, or Bar) by using the **Type** menu buttons in the notebook. The Bar plot is shown here.
 
@@ -317,11 +317,11 @@ This code cell uses the SQL query to create three plots the data.
 
 **OUTPUT:** 
 
-![Tip amount distribution](../media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-distribution.png)
+![Tip amount distribution](./media/spark-data-exploration-modeling/tip-amount-distribution.png)
 
-![Tip amount by passenger count](../media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-passenger-count.png)
+![Tip amount by passenger count](./media/spark-data-exploration-modeling/tip-amount-by-passenger-count.png)
 
-![Tip amount by fare amount](../media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-fare-amount.png)
+![Tip amount by fare amount](./media/spark-data-exploration-modeling/tip-amount-by-fare-amount.png)
 
 ## Feature engineering, transformation and data preparation for modeling
 This section describes and provides the code for procedures used to prepare data for use in ML modeling. It shows how to do the following tasks:
@@ -739,7 +739,7 @@ Here is the code to make predictions and plot the ROC-curve.
 
 **OUTPUT:**
 
-![Logistic regression ROC curve.png](../media/machine-learning-data-science-spark-data-exploration-modeling/logistic-regression-roc-curve.png)
+![Logistic regression ROC curve.png](./media/spark-data-exploration-modeling/logistic-regression-roc-curve.png)
 
 ### Random forest classification
 The code in this section shows how to train, evaluate, and save a random forest model that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
@@ -1044,7 +1044,7 @@ Here is the code to plot the data using the Jupyter server.
 
 **OUTPUT:**
 
-![Actual-vs-predicted-tip-amounts](../media/machine-learning-data-science-spark-data-exploration-modeling/actual-vs-predicted-tips.png)
+![Actual-vs-predicted-tip-amounts](./media/spark-data-exploration-modeling/actual-vs-predicted-tips.png)
 
 ## Clean up objects from memory
 Use `unpersist()` to delete objects cached in memory.​

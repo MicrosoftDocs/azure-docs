@@ -25,7 +25,7 @@ This lifecycle has been designed for data science projects that are intended to 
 
 Here is a visual representation of the **Team Data Science Process lifecycle**. 
 
-![TDSP-Lifecycle](./media/data-science-process-overview/tdsp-lifecycle.png) 
+![TDSP-Lifecycle](./media/process-overview/tdsp-lifecycle.png) 
 
 The TDSP lifecycle is composed of five major stages that are executed iteratively. These include:
 

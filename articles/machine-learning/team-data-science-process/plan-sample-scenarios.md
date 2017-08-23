@@ -254,15 +254,15 @@ For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Anal
 * [Team Data Science Process in action: using SQL Server](data-science-process-sql-walkthrough.md).
 * [Team Data Science Process in action: using HDInsight Hadoop clusters](data-science-process-hive-walkthrough.md).
 
-[1]: ../media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
-[2]: ../media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-with-processing.png
-[3]: ../media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-large.png
-[4]: ../media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-to-db.png
-[5]: ../media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-large-to-db.png
-[6]: ../media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-db-to-db.png
-[7]: ../media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-attach-db.png
-[8]: ../media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-sample-scenarios.png
-[9]: ../media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-to-hive.png
+[1]: ./media/plan-sample-scenarios/dsp-plan-small-in-aml.png
+[2]: ./media/plan-sample-scenarios/dsp-plan-local-with-processing.png
+[3]: ./media/plan-sample-scenarios/dsp-plan-local-large.png
+[4]: ./media/plan-sample-scenarios/dsp-plan-local-to-db.png
+[5]: ./media/plan-sample-scenarios/dsp-plan-large-to-db.png
+[6]: ./media/plan-sample-scenarios/dsp-plan-db-to-db.png
+[7]: ./media/plan-sample-scenarios/dsp-plan-attach-db.png
+[8]: ./media/plan-sample-scenarios/dsp-plan-sample-scenarios.png
+[9]: ./media/plan-sample-scenarios/dsp-plan-local-to-hive.png
 
 
 <!-- Module References -->

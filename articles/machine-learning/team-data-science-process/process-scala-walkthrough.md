@@ -42,7 +42,7 @@ The setup steps and code in this article are for Azure HDInsight 3.4 Spark 1.6. 
 * You must have an Azure subscription. If you do not already have one, [get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * You need an Azure HDInsight 3.4 Spark 1.6 cluster to complete the following procedures. To create a cluster, see the instructions in [Get started: Create Apache Spark on Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Set the cluster type and version on the **Select Cluster Type** menu.
 
-![HDInsight cluster type configuration](../media/machine-learning-data-science-process-scala-walkthrough/spark-cluster-on-portal.png)
+![HDInsight cluster type configuration](./media/process-scala-walkthrough/spark-cluster-on-portal.png)
 
 > [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 > 
@@ -53,11 +53,11 @@ For a description of the NYC taxi trip data and instructions on how to execute c
 ## Execute Scala code from a Jupyter notebook on the Spark cluster
 You can launch a Jupyter notebook from the Azure portal. Find the Spark cluster on your dashboard, and then click it to enter the management page for your cluster. Next, click **Cluster Dashboards**, and then click **Jupyter Notebook** to open the notebook associated with the Spark cluster.
 
-![Cluster dashboard and Jupyter notebooks](../media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-on-portal.png)
+![Cluster dashboard and Jupyter notebooks](./media/process-scala-walkthrough/spark-jupyter-on-portal.png)
 
 You also can access Jupyter notebooks at https://&lt;clustername&gt;.azurehdinsight.net/jupyter. Replace *clustername* with the name of your cluster. You need the password for your administrator account to access the Jupyter notebooks.
 
-![Go to Jupyter notebooks by using the cluster name](../media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-notebook.png)
+![Go to Jupyter notebooks by using the cluster name](./media/process-scala-walkthrough/spark-jupyter-notebook.png)
 
 Select **Scala** to see a directory that has a few examples of prepackaged notebooks that use the PySpark API. The Exploration Modeling and Scoring using Scala.ipynb notebook that contains the code samples for this suite of Spark topics is available on [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala).
 
@@ -328,11 +328,11 @@ Here's the code to plot the data:
 
 **Output:**
 
-![Tip amount histogram](../media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-histogram.png)
+![Tip amount histogram](./media/process-scala-walkthrough/plot-tip-amount-histogram.png)
 
-![Tip amount by passenger count](../media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-by-passenger-count.png)
+![Tip amount by passenger count](./media/process-scala-walkthrough/plot-tip-amount-by-passenger-count.png)
 
-![Tip amount by fare amount](../media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-by-fare-amount.png)
+![Tip amount by fare amount](./media/process-scala-walkthrough/plot-tip-amount-by-fare-amount.png)
 
 ## Create features and transform features, and then prep data for input into modeling functions
 For tree-based modeling functions from Spark ML and MLlib, you have to prepare target and features by using a variety of techniques, such as binning, indexing, one-hot encoding, and vectorization. Here are the procedures to follow in this section:
@@ -633,7 +633,7 @@ Use Python on local Pandas data frames to plot the ROC curve.
 
 **Output:**
 
-![Tip or no tip ROC curve](../media/machine-learning-data-science-process-scala-walkthrough/plot-roc-curve-tip-or-not.png)
+![Tip or no tip ROC curve](./media/process-scala-walkthrough/plot-roc-curve-tip-or-not.png)
 
 ### Create a random forest classification model
 Next, create a random forest classification model by using the Spark ML `RandomForestClassifier()` function, and then evaluate the model on test data.
@@ -847,7 +847,7 @@ Create plots by using Python matplotlib.
 
 **Output:**
 
-![Tip amount: Actual vs. predicted](../media/machine-learning-data-science-process-scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
+![Tip amount: Actual vs. predicted](./media/process-scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
 ### Create a GBT regression model
 Create a GBT regression model by using the Spark ML `GBTRegressor()` function, and then evaluate the model on test data.

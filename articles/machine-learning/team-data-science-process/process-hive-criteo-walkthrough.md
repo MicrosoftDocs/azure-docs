@@ -69,7 +69,7 @@ Set up your Azure Data Science environment for building predictive analytics sol
 ## <a name="getdata"></a>Get and consume data from a public source
 The [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) dataset can be accessed by clicking on the link, accepting the terms of use, and providing a name. A snapshot of what this looks like is shown here:
 
-![Accept Criteo terms](../media/machine-learning-data-science-process-hive-criteo-walkthrough/hLxfI2E.png)
+![Accept Criteo terms](./media/process-hive-criteo-walkthrough/hLxfI2E.png)
 
 Click **Continue to Download** to read more about the dataset and its availability.
 
@@ -89,7 +89,7 @@ To log in to the headnode of the cluster, use the [Azure portal](https://ms.port
 
 Here is what a typical first log in to the cluster headnode looks like:
 
-![Log in to cluster](../media/machine-learning-data-science-process-hive-criteo-walkthrough/Yys9Vvm.png)
+![Log in to cluster](./media/process-hive-criteo-walkthrough/Yys9Vvm.png)
 
 On the left, we see the "Hadoop Command Line", which is our workhorse for the data exploration. We also see two useful URLs - "Hadoop Yarn Status" and "Hadoop Name Node". The yarn status URL shows job progress and the name node URL gives details on the cluster configuration.
 
@@ -428,7 +428,7 @@ Start by selecting a **+NEW** -> **EXPERIMENT** -> **Blank Experiment**. Then, f
 
 This is what the **Import Data** looks like while getting data from the Hive table:
 
-![Import Data gets data](../media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
+![Import Data gets data](./media/process-hive-criteo-walkthrough/i3zRaoj.png)
 
 For the **Import Data** module, the values of the parameters that are provided in the graphic are just examples of the sort of values you need to provide. Here is some general guidance on how to fill out the parameter set for the **Import Data** module.
 
@@ -444,13 +444,13 @@ For the **Import Data** module, the values of the parameters that are provided i
 
 Once the **Import Data** finishes getting data (you see the green tick on the Module), save this data as a Dataset (with a name of your choice). What this looks like:
 
-![Import Data save data](../media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
+![Import Data save data](./media/process-hive-criteo-walkthrough/oxM73Np.png)
 
 Right-click the output port of the **Import Data** module. This reveals a **Save as dataset** option and a **Visualize** option. The **Visualize** option, if clicked, displays 100 rows of the data, along with a right panel that is useful for some summary statistics. To save data, simply select **Save as dataset** and follow instructions.
 
 To select the saved dataset for use in a machine learning experiment, locate the datasets using the **Search** box shown in the following figure. Then simply type out the name you gave the dataset partially to access it and drag the dataset onto the main panel. Dropping it onto the main panel selects it for use in machine learning modeling.
 
-![Drage dataset onto the main panel](../media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
+![Drage dataset onto the main panel](./media/process-hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Do this for both the train and the test datasets. Also, remember to use the database name and table names that you gave for this purpose. The values used in the figure are solely for illustration purposes.**
@@ -460,14 +460,14 @@ To select the saved dataset for use in a machine learning experiment, locate the
 ### <a name="step2"></a> Step 2: Create a simple experiment in Azure Machine Learning to predict clicks / no clicks
 Our Azure ML experiment looks like this:
 
-![Machine Learning experiment](../media/machine-learning-data-science-process-hive-criteo-walkthrough/xRpVfrY.png)
+![Machine Learning experiment](./media/process-hive-criteo-walkthrough/xRpVfrY.png)
 
 We now examine the key components of this experiment. As a reminder, we need to drag our saved train and test datasets on to our experiment canvas first.
 
 #### Clean Missing Data
 The **Clean Missing Data** module does what its name suggests:  it cleans missing data in ways that can be user-specified. Looking into this module, we see this:
 
-![Clean missing data](../media/machine-learning-data-science-process-hive-criteo-walkthrough/0ycXod6.png)
+![Clean missing data](./media/process-hive-criteo-walkthrough/0ycXod6.png)
 
 Here, we chose to replace all missing values with a 0. There are other options as well, which can be seen by looking at the dropdowns in the module.
 
@@ -477,8 +477,8 @@ There can be millions of unique values for some categorical features of large da
 ##### Building counting transforms
 To build count features, we use the **Build Counting Transform** module that is available in Azure Machine Learning. The module looks like this:
 
-![Build Counting Transform module](../media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png)
-![Build Counting Transform module](../media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
+![Build Counting Transform module](./media/process-hive-criteo-walkthrough/e0eqKtZ.png)
+![Build Counting Transform module](./media/process-hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT] 
 > In the **Count columns** box, we enter those columns that we wish to perform counts on. Typically, these are (as mentioned) high-dimensional categorical columns. At the start, we mentioned that the Criteo dataset has 26 categorical columns: from Col15 to Col40. Here, we count on all of them and give their indices (from 15 to 40 separated by commas as shown).
@@ -486,49 +486,49 @@ To build count features, we use the **Build Counting Transform** module that is 
 
 To use the module in the MapReduce mode (appropriate for large datasets), we need access to an HDInsight Hadoop cluster (the one used for feature exploration can be reused for this purpose as well) and its credentials. The  previous figures illustrate what the filled-in values look like (replace the values provided for illustration with those relevant for your own use-case).
 
-![Module parameters](../media/machine-learning-data-science-process-hive-criteo-walkthrough/05IqySf.png)
+![Module parameters](./media/process-hive-criteo-walkthrough/05IqySf.png)
 
 In the figure above, we show how to enter the input blob location. This location has the data reserved for building count tables on.
 
 After this module finishes running, we can save the transform for later by right-clicking the module and selecting the **Save as Transform** option:
 
-!["Save as Transform" option](../media/machine-learning-data-science-process-hive-criteo-walkthrough/IcVgvHR.png)
+!["Save as Transform" option](./media/process-hive-criteo-walkthrough/IcVgvHR.png)
 
 In our experiment architecture shown above, the dataset "ytransform2" corresponds precisely to a saved count transform. For the remainder of this experiment, we assume that the reader used a **Build Counting Transform** module on some data to generate counts, and can then use those counts to generate count features on the train and test datasets.
 
 ##### Choosing what count features to include as part of the train and test datasets
 Once we have a count transform ready, the user can choose what features to include in their train and test datasets using the **Modify Count Table Parameters** module. We just show this module here for completeness, but in interests of simplicity do not actually use it in our experiment.
 
-![Modify Count Table parameters](../media/machine-learning-data-science-process-hive-criteo-walkthrough/PfCHkVg.png)
+![Modify Count Table parameters](./media/process-hive-criteo-walkthrough/PfCHkVg.png)
 
 In this case, as can be seen, we have chosen to use just the log-odds and to ignore the back off column. We can also set parameters such as the garbage bin threshold, how many pseudo-prior examples to add for smoothing, and whether to use any Laplacian noise or not. All these are advanced features and it is to be noted that the default values are a good starting point for users who are new to this type of feature generation.
 
 ##### Data transformation before generating the count features
 Now we focus on an important point about transforming our train and test data prior to actually generating count features. Note that there are two **Execute R Script** modules used before we apply the count transform to our data.
 
-![Execute R Script modules](../media/machine-learning-data-science-process-hive-criteo-walkthrough/aF59wbc.png)
+![Execute R Script modules](./media/process-hive-criteo-walkthrough/aF59wbc.png)
 
 Here is the first R script:
 
-![First R script](../media/machine-learning-data-science-process-hive-criteo-walkthrough/3hkIoMx.png)
+![First R script](./media/process-hive-criteo-walkthrough/3hkIoMx.png)
 
 In this R script, we rename our columns to names "Col1" to "Col40". This is because the count transform expects names of this format.
 
 In the second R script, we balance the distribution between positive and negative classes (classes 1 and 0 respectively) by downsampling the negative class. The R script here shows how to do this:
 
-![Second R script](../media/machine-learning-data-science-process-hive-criteo-walkthrough/91wvcwN.png)
+![Second R script](./media/process-hive-criteo-walkthrough/91wvcwN.png)
 
 In this simple R script, we use "pos\_neg\_ratio" to set the amount of balance between the positive and the negative classes. This is important to do since improving class imbalance usually has performance benefits for classification problems where the class distribution is skewed (recall that in our case, we have 3.3% positive class and 96.7% negative class).
 
 ##### Applying the count transformation on our data
 Finally, we can use the **Apply Transformation** module to apply the count transforms on our train and test datasets. This module takes the saved count transform as one input and the train or test datasets as the other input, and returns data with count features. It is shown here:
 
-![Apply Transformation module](../media/machine-learning-data-science-process-hive-criteo-walkthrough/xnQvsYf.png)
+![Apply Transformation module](./media/process-hive-criteo-walkthrough/xnQvsYf.png)
 
 ##### An excerpt of what the count features look like
 It is instructive to see what the count features look like in our case. Here we show an excerpt of this:
 
-![Count features](../media/machine-learning-data-science-process-hive-criteo-walkthrough/FO1nNfw.png)
+![Count features](./media/process-hive-criteo-walkthrough/FO1nNfw.png)
 
 In this excerpt, we show that for the columns that we counted on, we get the counts and log odds in addition to any relevant backoffs.
 
@@ -539,28 +539,28 @@ We are now ready to build an Azure Machine Learning model using these transforme
 #### Choice of learner
 First, we need to choose a learner. We are going to use a two class boosted decision tree as our learner. Here are the default options for this learner:
 
-![Two-Class Boosted Decision Tree parameters](../media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
+![Two-Class Boosted Decision Tree parameters](./media/process-hive-criteo-walkthrough/bH3ST2z.png)
 
 For our experiment, we are going to choose the default values. We note that the defaults are usually meaningful and a good way to get quick baselines on performance. You can improve on performance by sweeping parameters if you choose to once you have a baseline.
 
 #### Train the model
 For training, we simply invoke a **Train Model** module. The two inputs to it are the Two-Class Boosted Decision Tree learner and our train dataset. This is shown here:
 
-![Train Model module](../media/machine-learning-data-science-process-hive-criteo-walkthrough/2bZDZTy.png)
+![Train Model module](./media/process-hive-criteo-walkthrough/2bZDZTy.png)
 
 #### Score the model
 Once we have a trained model, we are ready to score on the test dataset and to evaluate its performance. We do this by using the **Score Model** module shown in the following figure, along with an **Evaluate Model** module:
 
-![Score Model module](../media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
+![Score Model module](./media/process-hive-criteo-walkthrough/fydcv6u.png)
 
 ### <a name="step4"></a> Step 4: Evaluate the model
 Finally, we would like to analyze model performance. Usually, for two class (binary) classification problems, a good measure is the AUC. To visualize this, we hook up the **Score Model** module to an **Evaluate Model** module for this. Clicking **Visualize** on the **Evaluate Model** module yields a graphic like the following one:
 
-![Evaluate module BDT model](../media/machine-learning-data-science-process-hive-criteo-walkthrough/0Tl0cdg.png)
+![Evaluate module BDT model](./media/process-hive-criteo-walkthrough/0Tl0cdg.png)
 
 In binary (or two class) classification problems, a good measure of prediction accuracy is the Area Under Curve (AUC). In what follows, we show our results using this model on our test dataset. To get this, right-click the output port of the **Evaluate Model** module and then **Visualize**.
 
-![Visualize Evaluate Model module](../media/machine-learning-data-science-process-hive-criteo-walkthrough/IRfc7fH.png)
+![Visualize Evaluate Model module](./media/process-hive-criteo-walkthrough/IRfc7fH.png)
 
 ### <a name="step5"></a> Step 5: Publish the model as a Web service
 The ability to publish an Azure Machine Learning model as web services with a minimum of fuss is a valuable feature for making it widely available. Once that is done, anyone can make calls to the web service with input data that they need predictions for, and the web service uses the model to return those predictions.
@@ -575,7 +575,7 @@ Next, we need to create input and output ports for our web service:
 #### Select a few rows of data for the input port
 It is convenient to use an **Apply SQL Transformation** module to select just 10 rows to serve as the input port data. Select just these rows of data for our input port using the SQL query shown here:
 
-![Input port data](../media/machine-learning-data-science-process-hive-criteo-walkthrough/XqVtSxu.png)
+![Input port data](./media/process-hive-criteo-walkthrough/XqVtSxu.png)
 
 #### Web service
 Now we are ready to run a small experiment that can be used to publish our web service.
@@ -583,7 +583,7 @@ Now we are ready to run a small experiment that can be used to publish our web s
 #### Generate input data for webservice
 As a zeroth step, since the count table is large, we take a few lines of test data and generate output data from it with count features. This can serve as the input data format for our webservice. This is shown here:
 
-![Create BDT input data](../media/machine-learning-data-science-process-hive-criteo-walkthrough/OEJMmst.png)
+![Create BDT input data](./media/process-hive-criteo-walkthrough/OEJMmst.png)
 
 > [!NOTE]
 > For the input data format, we now use the OUTPUT of the **Count Featurizer** module. Once this experiment finishes running, save the output from the **Count Featurizer** module as a Dataset. This Dataset is used for the input data in the webservice.
@@ -593,19 +593,19 @@ As a zeroth step, since the count table is large, we take a few lines of test da
 #### Scoring experiment for publishing webservice
 First, we show what this looks like. The essential structure is a **Score Model** module that accepts our trained model object and a few lines of input data that we generated in the previous steps using the **Count Featurizer** module. We use "Select Columns in Dataset" to project out the Scored labels and the Score probabilities.
 
-![Select Columns in Dataset](../media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
+![Select Columns in Dataset](./media/process-hive-criteo-walkthrough/kRHrIbe.png)
 
 Notice how the **Select Columns in Dataset** module can be used for 'filtering' data out from a dataset. We show the contents here:
 
-![Filtering with the Select Columns in Dataset module](../media/machine-learning-data-science-process-hive-criteo-walkthrough/oVUJC9K.png)
+![Filtering with the Select Columns in Dataset module](./media/process-hive-criteo-walkthrough/oVUJC9K.png)
 
 To get the blue input and output ports, you simply click **prepare webservice** at the bottom right. Running this experiment also allows us to publish the web service: click the **PUBLISH WEB SERVICE** icon at the bottom right, shown here:
 
-![Publish Web service](../media/machine-learning-data-science-process-hive-criteo-walkthrough/WO0nens.png)
+![Publish Web service](./media/process-hive-criteo-walkthrough/WO0nens.png)
 
 Once the webservice is published, we get redirected to a page that looks thus:
 
-![Web service dashboard](../media/machine-learning-data-science-process-hive-criteo-walkthrough/YKzxAA5.png)
+![Web service dashboard](./media/process-hive-criteo-walkthrough/YKzxAA5.png)
 
 We see two links for webservices on the left side:
 
@@ -618,11 +618,11 @@ It is convenient to copy this python code over to a new cell in the IPython note
 
 Here we show a segment of python code with the correct API key.
 
-![Python code](../media/machine-learning-data-science-process-hive-criteo-walkthrough/f8N4L4g.png)
+![Python code](./media/process-hive-criteo-walkthrough/f8N4L4g.png)
 
 Note that we replaced the default API key with our webservices's API key. Clicking **Run** on this cell in an IPython notebook yields the following response:
 
-![IPython response](../media/machine-learning-data-science-process-hive-criteo-walkthrough/KSxmia2.png)
+![IPython response](./media/process-hive-criteo-walkthrough/KSxmia2.png)
 
 We see that for the two test examples we asked about (in the JSON framework of the python script), we get back answers in the form "Scored Labels, Scored Probabilities". Note that in this case, we chose the default values that the pre-canned code provides (0's for all numeric columns and the string "value" for all categorical columns).
 
