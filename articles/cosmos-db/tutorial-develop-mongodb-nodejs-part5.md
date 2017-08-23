@@ -112,7 +112,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 3. Retrieve the primary key for the Azure Cosmos DB account by using the following CLI command in the terminal window: 
 
     ```azure-cli-interactive
-    az cosmosdb list-keys --name <my-cosmosdb-acct> -g <my-resource-group>"
+    az cosmosdb list-keys --name <my-cosmosdb-acct> -g <my-resource-group>
     ```    
     
     * Substitute your own Azure Cosmos DB account name where you see the `<my-cosmosdb-acct>` placeholder. This is the account you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md).
