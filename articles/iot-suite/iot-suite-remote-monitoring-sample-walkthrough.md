@@ -259,15 +259,12 @@ From this page in the solution portal you can:
 
 ## Next steps
 
-The following TechNet blog posts provide more detail about the remote monitoring preconfigured solution:
+For more conceptual information about the remote monitoring preconfigured solution, see:
 
-* [IoT Suite - Under The Hood - Remote Monitoring](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
-* [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
-
-You can continue getting started with IoT Suite by reading the following articles:
-
-* [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm]
-* [Permissions on the azureiotsuite.com site][lnk-permissions]
+* [Customize the preconfigured solution](iot-suite-remote-monitoring-customize.md)
+* [Modify the preconfigured solution from the CLI](iot-suite-remote-monitoring-cli.md)
+* [Device connectivity](iot-suite-remote-monitoring-connectivity.md)
+* [Security](iot-suite-remote-monitoring-security.md)
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md

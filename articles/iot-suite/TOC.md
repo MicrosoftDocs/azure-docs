@@ -23,30 +23,19 @@
 ### [Manage your devices](iot-suite-remote-monitoring-manage.md)
 ### [Troubleshoot device issues](iot-suite-remote-monitoring-maintain.md)
 ### [Use simulated devices](iot-suite-remote-monitoring-test.md)
-### Connect a Raspberry Pi - C
-#### [Simulated data](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
-#### [Use real sensors](iot-suite-raspberry-pi-kit-c-get-started-basic.md)
-#### [Implement firmware update](iot-suite-raspberry-pi-kit-c-get-started-advanced.md)
-### Connect a Raspberry Pi - Node.js
-#### [Simulated data](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
-#### [Use real sensors](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
-#### [Implement firmware update](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
-### Connect an Intel NUC
-#### [Simulated data](iot-suite-gateway-kit-get-started-simulator.md)
-#### [Use real sensor](iot-suite-gateway-kit-get-started-sensortag.md)
 ### Connect a generic device
 #### [C on Windows](iot-suite-connecting-devices.md)
 #### [C on Linux](iot-suite-connecting-devices-linux.md)
 #### [Node.js](iot-suite-connecting-devices-node.md)
 ### [Modify the deployment](iot-suite-remote-monitoring-cli.md)
-### [Integrate with Power BI](iot-suite-pcsv2-powerbi.md)
-### [Use Service Fabric](iot-suite-pcsv2-service-fabric.md)
+### [Integrate with Power BI](iot-suite-remote-monitoring-powerbi.md)
+### [Use Service Fabric](iot-suite-remote-monitoring-service-fabric.md)
 
 ### Concepts
 #### [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
-#### [Customize a solution](iot-suite-pcsv2-customize.md)
-#### [Device connectivity](iot-suite-pcsv2-connectivity.md)
-#### [Security](iot-suite-pcsv2-security.md)
+#### [Customize a solution](iot-suite-remote-monitoring-customize.md)
+#### [Device connectivity](iot-suite-remote-monitoring-connectivity.md)
+#### [Security](iot-suite-remote-monitoring-security.md)
 
 ## Connected factory
 ### [Deploy a gateway for connected factory](iot-suite-connected-factory-gateway-deployment.md)
@@ -82,3 +71,15 @@
 ## [Create a custom rule in the remote monitoring solution](iot-suite-custom-rule.md)
 ## [Device information in the remote monitoring solution](iot-suite-remote-monitoring-device-info.md)
 ## [Get started with preconfigured solutions](iot-suite-getstarted-preconfigured-solutions.md)
+<!-- The following articles are being removed until we get a chance to recreate them for V2 -->
+### Connect a Raspberry Pi - C
+#### [Simulated data](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
+#### [Use real sensors](iot-suite-raspberry-pi-kit-c-get-started-basic.md)
+#### [Implement firmware update](iot-suite-raspberry-pi-kit-c-get-started-advanced.md)
+### Connect a Raspberry Pi - Node.js
+#### [Simulated data](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
+#### [Use real sensors](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
+#### [Implement firmware update](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
+### Connect an Intel NUC
+#### [Simulated data](iot-suite-gateway-kit-get-started-simulator.md)
+#### [Use real sensor](iot-suite-gateway-kit-get-started-sensortag.md)

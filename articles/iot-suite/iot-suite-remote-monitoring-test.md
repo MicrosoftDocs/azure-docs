@@ -15,11 +15,37 @@ ms.workload: NA
 
 # Test your solution with simulated devices
 
-Version 2 preconfigured solution include a customizable device simulation service. You can use this serice to:
+Contoso wants to test a new smart lightbulb device. To perform the tests, you create a new simulated device with the following characteristics:
 
-* Learn how to use the remote monitoring solution without to need to deploy real devices.
-* Test the behavior of the remote monitoring solution.
-* Test the performance of the remote monitoring solution.
+*Properties*
+
+| Name                     | Values                      |
+| ------------------------ | --------------------------- |
+| Color                    | White, Red, Blue            |
+| Brightness               | 0 to 100                    |
+| Estimated remaining life | Countdown from 10,000 hours |
+
+*Telemetry*
+
+| Name   | Values      |
+| ------ | ----------- |
+| Status | 1=On, 0=Off |
+
+*Methods*
+
+| Name        |
+| ----------- |
+| Turn on-off |
+
+*Behavior*
+
+| Name                     | Values |
+| ------------------------ | -------|
+| Initial color            | White  |
+| Initial brightness       | 75     |
+| Initial remaining life   | 10,000 |
+| Initial telemetry status | 1      |
+| Always on                | 1      |
 
 This tutorial shows you how to use the device simulator with the remote monitoring preconfigured solution:
 
@@ -27,8 +53,8 @@ In this tutorial, you learn how to:
 
 >[!div class="checklist"]
 > * Create a new device type
-> * Change the behavior of a device
-> * Apply other customizations
+> * Simulate custom device behavior
+> * Add a new device type to the dashboard
 
 ## Prerequisites
 
@@ -44,11 +70,11 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 <!-- Provide detailed steps here -->
 
-## Change the behavior of a device
+## Simulate custom device behavior
 
 <!-- Provide detailed steps here -->
 
-## Apply other customizations
+## Add a new device type to the dashboard
 
 <!-- Provide detailed steps here -->
 
@@ -59,9 +85,9 @@ This tutorial, showed you how to:
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
 > * Create a new device type
-> * Change the behavior of a device
-> * Apply other customizations
+> * Simulate custom device behavior
+> * Add a new device type to the dashboard
 
-Now that you have learned how to use the device simulation service, the suggested next step is to learn how to [TODO].
+Now that you have learned how to use the device simulation service, the suggested next step is to learn how to [connect a physical device to your remote monitoring solution](iot-suite-connecting-devices-node.md).
 
 <!-- Next tutorials in the sequence -->

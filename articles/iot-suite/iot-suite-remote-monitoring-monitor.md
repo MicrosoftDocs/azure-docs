@@ -15,16 +15,16 @@ ms.workload: NA
 
 # Perform advanced device monitoring using the remote monitoring solution
 
-This tutorial shows you how to monitor your devices using the the remote monitoring preconfigured solution dashboard.
+As an operator, you need to monitor the location and behavior of your trucks in the field. In this tutorial, you use two simulated truck devices to learn how to monitor your devices from the preconfigured solution dashboard.
 
 In this tutorial, you learn how to:
 
 >[!div class="checklist"]
-> * Use the dashboard map
-> * View device telemetry
+> * Filter the devices in the dashboard
+> * View real-time telemetry
 > * View device details
-> * View diagnostics
-> * Organize your devices
+> * View alarms from your devices
+> * View the system KPIs
 
 ## Prerequisites
 
@@ -32,15 +32,15 @@ To follow this tutorial, you need a deployed instance of the remote monitoring s
 
 If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial.
 
-## Use the dashboard map
+## Filter the devices in the dashboard
 
-## View device telemetry
+## View real-time telemetry
 
 ## View device details
 
-## View diagnostics
+## View alarms from your devices
 
-## Organize your devices
+## View the system KPIs
 
 ## Next steps
 
@@ -48,16 +48,17 @@ This tutorial showed you how to:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
-> * Use the dashboard map
-> * View device telemetry
+> * Filter the devices in the dashboard
+> * View real-time telemetry
 > * View device details
-> * View diagnostics
-> * Organize your devices
+> * View alarms from your devices
+> * View the system KPIs
 
 Now that you have learned how to monitor your devices, the suggested next steps are to learn how to:
 
-* [Manage your devices](./iot-suite-remote-monitoring-manage.md).
-* [Automate your solution with rules](./iot-suite-remote-monitoring-automate.md).
-* [Maintain your solution](./iot-suite-remote-monitoring-maintain.md).
+* [Detect issues using threshold based rules](./iot-suite-remote-monitoring-automate.md).
+* [Manage and configure your devices](./iot-suite-remote-monitoring-manage.md).
+* [Troubleshoot and remediate device issues](./iot-suite-remote-monitoring-maintain.md).
+* [Test your solution with simulated devices](iot-suite-remote-monitoring-test.md).
 
 <!-- Next tutorials in the sequence -->
