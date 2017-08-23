@@ -187,3 +187,7 @@ One requirement of images is that they can be referenced by a Blob storage URI. 
    more readily available for user consumption in the UI, it is best
    to [create a
    Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
+
+## Next steps
+
+[Provision a virtual machine](azure-stack-provision-vm.md)
