@@ -334,7 +334,7 @@ You can list the storage path through the command palette or through right-click
 
 5.  Enter an Azure storage path. For example, /output.
 
-       ![Data Lake Tools for Visual Studio Code enter storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-path.png)
+    ![Data Lake Tools for Visual Studio Code enter storage path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-path.png)
 
 6.  Results: The command palette lists the path information based on your entries.
 
