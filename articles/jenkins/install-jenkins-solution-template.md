@@ -80,16 +80,29 @@ Your Jenkins instance is now ready to use! You can access a read-only view by go
 
 ![Jenkins is ready!](./media/install-jenkins-solution-template/jenkins-welcome.png)
 
+## Create your first job
+
+Select **Create new jobs** from the Jenkins console, then name it **mySampleApp** and select **Freestyle project**, then select **OK**.
+
+![Create a new job](./media/install-jenkins-solution-template/jenkins-new-job.png) 
+
+Select the **Source Code Management** tab, enable **Git** and enter the following URL in **Repository URL** https://github.com/spring-guides/gs-spring-boot-docker.git
+
+Select the **Build** tab, then select **Add build step**, **Invoke Gradle script**. Select **Use Gradle Wrapper** , then enter `complete` in **Wrapper location** and `build` for **Tasks**.
+
+Select **Advanced..**, then enter `complete` in the **Root Build script** field. Select **Save**.
+
+## Build the sample to test the job
+
+Select **Build Now** to compile the code and build the sample Java application. When your build completes, select the **Workspace** link for the project.
+
+Navigate to `complete/build/libs` and ensure the `gs-spring-boot-docker-0.1.0.jar` is there. You can download this file and run it with the following command on your local computer if you have Java installed:
+
+```
+java -jar gs-spring-boot-docker-0.1.0.jar
+```
+
 ## Next Steps
 
-In this tutorial, you:
-
-> [!div class="checklist"]
-> * Created a Jenkins Master with the solution template.
-> * Performed initial configuration of Jenkins.
-> * Installed plugins.
-
-Follow this link to see how to use Azure VM Agents for continuous integration with Jenkins.
-
 > [!div class="nextstepaction"]
-> [Azure VMs as Jenkins agents](jenkins-azure-vm-agents.md)
+> [Add Azure VMs as Jenkins agents](jenkins-azure-vm-agents.md)
