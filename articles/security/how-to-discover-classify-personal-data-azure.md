@@ -58,7 +58,7 @@ This is particularly helpful if you want to find or change personal data for a s
 
 2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
-   ![how do i locate user profile and work information](media/how-to-discover-classify-personal-data-azure/user-profile.png)
+   ![how do I locate user profile and work information](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
 3. On the **Users and groups** blade, select **Users**.
 
@@ -190,7 +190,7 @@ Quickstart tutorial. If you’d like to do this in a language other than .NET, s
 
 ## Next steps
 
-Learn more: [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50) (marketing page)
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50)
 
 [What is SQL Database?](../sql-database/sql-database-technical-overview.md)
 
