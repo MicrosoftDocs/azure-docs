@@ -30,7 +30,7 @@ To set or change the service tier, performance level, or storage amount for a ne
 - Set or change the performance level (**DTUs**) within a service tier using the **DTU** slider.
 - Set or change the storage amount for the performance level using the **Storage** slider. 
 
-![Configure service tier and performance level](./media/sql-database-service-tiers/service-tier-performance-level.png)
+![Configure service tier and performance level](./media/sql-database-get-started-portal/create-database-s1.png)
 
 > [!IMPORTANT]
 > Review [Current limitations of P11 and P15 databases with 4-TB maximum size](#current-limitations-of-p11-and-p15-databases-with-a-maximum-size-greater-than-1-tb) when selecting a P11 or P15 service tier.
