@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/03/2017
+ms.date: 08/24/2017
 ms.author: asgang
 
 ---
@@ -143,8 +143,9 @@ Input the credentials of the account used for protection and check if connectivi
   ![Fileshare2](./media/site-recovery-protection-common-errors/fileshare2.png) </br>
   3. If connection is successful, you can view the folders of source machine remotely from Process Server (PS) </br>
   ![Fileshare3](./media/site-recovery-protection-common-errors/fileshare3.png) </br>
-> [!NOTE] If connection is unsuccessful, please check whether all pre-requisites are met.
-
+> [!NOTE] 
+> If connection is unsuccessful, please check whether all pre-requisites are met.
+>
 
 If you don’t want to open “Windows Management Instrumentation”, you can also install mobility service manually on the source machine.</br> [Install Mobility Service manually through GUI](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui) </br>
 [Installation through configuration manager guidance](site-recovery-install-mobility-service-using-sccm.md) </br>
