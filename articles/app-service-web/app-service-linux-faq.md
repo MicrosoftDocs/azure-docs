@@ -4,7 +4,7 @@ description: Azure App Service Web App on Linux FAQ.
 keywords: azure app service, web app, faq, linux, oss
 services: app-service
 documentationCenter: ''
-authors: ahmedelnably
+author: ahmedelnably
 manager: erikre
 editor: ''
 

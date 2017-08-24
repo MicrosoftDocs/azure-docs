@@ -4,7 +4,7 @@ description: Manage Web App on Linux using Azure CLI.
 keywords: azure app service, web app, cli, linux, oss
 services: app-service
 documentationCenter: ''
-authors: ahmedelnably
+author: ahmedelnably
 manager: erikre
 editor: ''
 
