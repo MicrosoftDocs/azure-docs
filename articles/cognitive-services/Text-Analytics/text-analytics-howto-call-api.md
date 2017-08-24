@@ -61,8 +61,7 @@ If you are using Chrome Postman or another Web API test tool, set up the endpoin
 
 5. Paste in some JSON documents that have **id** and **text**. For sentiment analysis and key phrase extraction, include a 2-character **language** such as `en` for English, `es` for Spanish, and so forth.
 
-
-## JSON Schema Requirements
+## JSON schema requirements
 
 Input rows must be JSON in raw unstructured text. XML is not supported. The schema is simple, consisting of the elements described in the following list. You can use the same documents for all three operations: sentiment, key phrase, and language detection.
 
