@@ -592,7 +592,7 @@ We want to operationalize the machine learning model after it has been built. He
 Azure Machine Learning Studio can read data directly from Azure Data Lake Store and then be used to create and deploy models. This approach uses a Hive table that points at the Azure Data Lake Store. This requires that a separate Azure HDInsight cluster be provisioned, on which the Hive table is created. The following sections show how to do this. 
 
 ### Create an HDInsight Linux Cluster
-Create an HDInsight Cluster (Linux) from the [Azure Portal](http://portal.azure.com).For details, see the **Create an HDInsight cluster with access to Azure Data Lake Store** section in [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Create an HDInsight Cluster (Linux) from the [Azure Portal](http://portal.azure.com).For details, see the **Create an HDInsight cluster with access to Azure Data Lake Store** section in [Create an HDInsight cluster with Data Lake Store using Azure Portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
@@ -677,9 +677,9 @@ By completing this walkthrough you have created a data science environment for b
 
 ## What's next?
 The learning path for the
-[Team Data Science Process (TDSP)](http://aka.ms/datascienceprocess) provides links to topics describing each step in the advanced analytics process. There are a series of walkthroughs itemized on the [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) page that showcase how to use resources and services in various predictive analytics scenarios:
+[Team Data Science Process (TDSP)](http://aka.ms/datascienceprocess) provides links to topics describing each step in the advanced analytics process. There are a series of walkthroughs itemized on the [Team Data Science Process walkthroughs](walkthroughs.md) page that showcase how to use resources and services in various predictive analytics scenarios:
 
 * [The Team Data Science Process in action: using SQL Data Warehouse](sqldw-walkthrough.md)
 * [The Team Data Science Process in action: using HDInsight Hadoop clusters](hive-walkthrough.md)
 * [The Team Data Science Process: using SQL Server](sql-walkthrough.md)
-* [Overview of the Data Science Process using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md)
+* [Overview of the Data Science Process using Spark on Azure HDInsight](spark-overview.md)
