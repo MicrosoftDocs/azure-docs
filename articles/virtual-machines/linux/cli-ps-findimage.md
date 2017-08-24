@@ -30,8 +30,8 @@ Marketplace images are identified in the CLI and other Azure tools according to 
 
 * **Publisher** - The organization that created the image. Example: Canonical
 * **Offer** - A group of related images created by a publisher. Example: Ubuntu Server
-* **SKU** - An instance of an offer, such as a a major release of a distribution. Example: 16.04-LTS
-* **Version** - The version number of an image SKU. When specifying the image, the image version number can be replaced with "latest", which selects the latest version of the distribution.
+* **SKU** - An instance of an offer, such as a major release of a distribution. Example: 16.04-LTS
+* **Version** - The version number of an image SKU. When specifying the image, you can replace the version number with "latest", which selects the latest version of the distribution.
 
 To specify a Marketplace image, you typically use the image *URN*. The URN combines these values, separated by the colon (:) character: *Publisher*:*Offer*:*Sku*:*Version*. 
 
@@ -62,7 +62,7 @@ UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServe
 
 ## Find specific images
 
-To find a specific VM image in the Marketplace, use the `az vm image list` command with the `--all` option. This version of the command takes some time to complete and can return a lot of output, so you usually filter the list by `--publisher` or another parameter. 
+To find a specific VM image in the Marketplace, use the `az vm image list` command with the `--all` option. This version of the command takes some time to complete and can return lengthy output, so you usually filter the list by `--publisher` or another parameter. 
 
 For example, the following command displays all Debian offers (remember that without the `--all` switch, it only searches the local cache of common images):
 
