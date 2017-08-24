@@ -62,13 +62,7 @@ UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServe
 
 ## Find specific images
 
-To find a specific VM image in the Marketplace, use the `az vm image list` command with the `--all` option. This version of the command takes some time to complete and can return a lot of output, so you usually filter the list by `--publisher` or another parameter. In the following example, the list is filtered for all images with an offer that matches *CentOS*. 
-
-
-
-
-
-
+To find a specific VM image in the Marketplace, use the `az vm image list` command with the `--all` option. This version of the command takes some time to complete and can return a lot of output, so you usually filter the list by `--publisher` or another parameter. 
 
 For example, the following command displays all Debian offers (remember that without the `--all` switch, it only searches the local cache of common images):
 
@@ -135,9 +129,6 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706190        
 Debian   credativ     8                  credativ:Debian:8:8.0.201706210                  8.0.201706210
 ...
 ```
-
-If you don't specify a particular location with the `--location` option, the values for `westus` are returned by default. (Set a different default location by running `az configure --defaults location=<location>`.)
-
 
 ## Navigate the images 
 Another way to find an image in a location is to run the [az vm image list-publishers](/cli/azure/vm/image#list-publishers), [az vm image list-offers](/cli/azure/vm/image#list-offers), and [az vm image list-skus](/cli/azure/vm/image#list-skus) commands in sequence. With these commands, you determine these values:
