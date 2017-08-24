@@ -111,6 +111,9 @@ No, you can enable only RDB or AOF, but not both at the same time.
 
 AOF persistence saves every write to a log, which has some impact on throughput, compared with RDB persistence which saves backups based on the configured backup interval and still maintains optimal throughput for the cache. Choose AOF persistence if your primary goal is to minimize data loss, and you can handle a decrease in throughput o your cache. Choose RDB persistence if you wish to maintain optimal throughput on your cache, but still want a mechanism for data recovery.
 
+* Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages) and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
+* Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages) and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
+
 For more information on performance when using AOF persistence, see [Does AOF persistence affect throughout, latency, or performance of my cache?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache).
 
 ### Can I change the RDB backup frequency after I create the cache?
