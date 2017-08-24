@@ -204,7 +204,7 @@ that move and process the data using various technologies.  You can access your 
 
 ![Data Factory dataset errors](./media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
 
-This section discusses the necessary [pipelines](../../data-factory/data-factory-create-pipelines.md) and [activities](../data-factory/data-factory-create-pipelines.md) contained in the [Azure Data
+This section discusses the necessary [pipelines](../../data-factory/data-factory-create-pipelines.md) and [activities](../../data-factory/data-factory-create-pipelines.md) contained in the [Azure Data
 Factory](https://azure.microsoft.com/documentation/services/data-factory/). Below is the diagram view of the solution.
 
 ![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
@@ -223,7 +223,7 @@ queries, the
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts have implicit knowledge about the incoming data format, these
 queries would need to be altered based on your data format and [feature
-engineering](feature-selection-and-engineering.md)
+engineering](../studio/feature-selection-and-engineering.md)
 requirements.
 
 #### *AggregateFlightInfoPipeline*
