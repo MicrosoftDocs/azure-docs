@@ -79,9 +79,9 @@ To install the SDK and the associated runtime package via the apt-get command-li
 
 After you have updated your sources, you can install the SDK. Install the Service Fabric SDK package, confirm the installation, and agree to the license agreement.
 
-    ```bash
-    sudo apt-get install servicefabricsdkcommon
-    ```
+```bash
+sudo apt-get install servicefabricsdkcommon
+```
 
 >   [!TIP]
 >   The following commands automate accepting the license for Service Fabric packages:
