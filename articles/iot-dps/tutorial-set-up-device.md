@@ -1,62 +1,67 @@
-<!-------------------
-Definition of Tutorial: 
-- Prescriptive end-to-end how-to content which describes how to build and manage with a particular 
-service.  
-- Tutorials should be cross-service and represent the top 80% of use cases for the products. 
-- The different tutorials should build upon eachother.  
-- The first Tutorial should include Quickstart information to make sure customers 
-don't get lost. 
-- Rules for screenshots at the end of this template
-- Metadata for this article should have ms.topic: tutorial; ms.custom: mvc
--->
+---
+title: Set up device for IoT DPS | Microsoft Docs
+description: Set up device to provision via IoT DPS during manufacturing process
+services: iot-dps
+keywords: 
+author: dsk-2015
+ms.author: dkshir
+ms.date: 08/23/2017
+ms.topic: tutorial
+ms.service: iot-dps
 
-*EXAMPLE*:
-# Create a serverless API using Azure Functions
-<---! # Page heading (H1) - Unique, complements the page title, and 100 characters or fewer including 
-spaces --->
+documentationcenter: ''
+manager: timlt
+ms.devlang: na
+ms.custom: mvc
+---
 
+# Set up a device to provision using Azure IoT DPS
 
-In this tutorial you will learn how Azure Functions allows you to build highly-scalable APIs. 
-Azure Functions comes with a collection of built-in HTTP triggers and bindings which make it easy 
-to author an endpoint in a variety of languages, including Node.JS, C#, and more. 
-In this tutorial, you will customize an HTTP trigger to handle specific actions in your API design. 
-You will also prepare for growing your API by integrating it with Azure Functions Proxies and 
-setting up mock APIs. All of this is accomplished on top of the Functions serverless 
-compute environment, so you don't have to worry about scaling resources - you can just focus on 
-your API logic.
-<---! Intro sentence describing the steps outlined in the article --->
+In the previous tutorial, you learned how to set up the Azure IoT DPS to automatically provision your devices to your IoT hub. This tutorial provides guidance for setting up your device during the manufacturing process, so that you can configure the IoT DPS for your device based on its [Hardware Security Module (HSM)]https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/), and the device can connect to the IoT DPS when it boots for the first time. Using a device simulator, this tutorial shows you how to:
 
-## Prerequisites
-<---! Link to the previous Quickstart and provide additional information required for completing the Tutorial
--->
-
-*EXAMPLE*:
-[!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
-
-The resulting function will be used for the rest of this tutorial.
+> [!div class="checklist"]
+> * Create a simulated device
+> * Select and prepare an HSM
+> * Implement security mechanism
+> * Extract the security artefacts
+> * Set up DPS configuration on the device
 
 
-<----! Clean up or delete any Azure work that may incur costs --->
+## Create a simulated device
 
-*REQUIRED*:
+
+## Select and prepare an HSM
+
+
+## Implement security mechanism
+
+
+## Extract the security artefacts
+
+
+## Set up DPS configuration on the device
+
+
+## Clean up resources
+<----! ToDo: Clean up or delete any Azure work that may incur costs --->
+
 ## Next steps
-<---! Summarize what you learned and use the required syntax for formatting consistency: [!div class="checklist"] and [!div class="nextstepaction"] 
-
-*EXAMPLE*:
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Map a subdomain by using a CNAME record
-> * Map a root domain by using an A record
-> * Map a wildcard domain by using a CNAME record
-> * Automate domain mapping with scripts
+> * Create a simulated device
+> * Select and prepare an HSM
+> * Implement security mechanism
+> * Extract the security artefacts
+> * Set up DPS configuration on the device
 
-Advance to the next tutorial to learn how to bind a custom SSL certificate to it.
-<!-- Replace this .md
+Advance to the next tutorial to learn how to provision the device to your IoT hub by enrolling it to IoT DPS for auto-provisioning.
+
 > [!div class="nextstepaction"]
-> [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
--->
-<---! 
+> [Provision the device to your IoT hub](tutorial-provision-device-to-hub.md)
+
+
+<---! ToDo: 
 Rules for screenshots:
 - Use default Public Portal colors
 - Browser included in the first shot (especially) but all shots if possible
