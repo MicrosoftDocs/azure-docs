@@ -14,32 +14,32 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 08/23/2017
 ms.author: owend
 
 ---
-# Create an Office Data Connection (.odc) file
+# Create an Office Data Connection file
 
-Information in this article describes how you can create an .odc file to connect to an Azure Analysis Services server from Excel 2016 version number 16.0.7369.2117 or earlier, or Excel 2013. An updated [MSOLAP.7 provider](analysis-services-data-providers.md) is also required.
+Information in this article describes how you can create an Office Data Connection file to connect to an Azure Analysis Services server from Excel 2016 version number 16.0.7369.2117 or earlier, or Excel 2013. An updated [MSOLAP.7 provider](analysis-services-data-providers.md) is also required.
 
 
-1. Copy the sample .odc connection file below and paste into a text editor. 
+1. Copy the sample connection file below and paste into a text editor. 
 
-2. In **odc:ConnectionString** change the following properties:
+2. In `odc:ConnectionString`, change the following properties:
 
-    *   In **Data Source=asazure://*region*.asazure.windows.net/*servername*;** change *region* to the region of your Analysis Services server and *servername* to the name of your  server.
+    *   In `Data Source=asazure://<region>.asazure.windows.net/<servername>;` change `<region>` to the region of your Analysis Services server and `<servername>` to the name of your  server.
 
-    *   In **Initial Catalog=*database*;** change *database* to the name of your database.
+    *   In `Initial Catalog=<database>;` change `<database>` to the name of your database.
 
-3. In **&lt;odc:CommandText>*Model*&lt;/odc:CommandText>** change *Model* to the name of your model or perspective. 
+3. In `<odc:CommandText>Model</odc:CommandText>` change `Model` to the name of your model or perspective. 
 
-4. Save the file with an **.odc** extension to the C:\Users\\*username*\Documents\My Data Sources folder.
+4. Save the file with an `.odc` extension to the C:\Users\\*username*\Documents\My Data Sources folder.
 
 5. Right-click the file, and then click **Open in Excel**. Or in Excel, on the **Data** ribbon, click **Existing Connections**, select your file, and then click **Open**.
 
 
 
-**Sample .odc connection file**
+**Sample connection file**
 ```
 <html xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns="http://www.w3.org/TR/REC-html40">
