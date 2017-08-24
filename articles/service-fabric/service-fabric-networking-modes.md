@@ -334,5 +334,6 @@ In this article, you learned about networking modes offered by Service Fabric.
 
 * [Service Fabric application model](service-fabric-application-model.md)
 * [Service Fabric service manifest resources](service-fabric-application-model.md)
+<!---Loc Comment: Both links above have the same reference.---->   
 * [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-get-started-containers.md)
 * [Deploy a Docker container to Service Fabric on Linux](service-fabric-get-started-containers-linux.md)
