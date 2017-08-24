@@ -81,7 +81,7 @@ Once you have deployed your VM through either the PowerShell or Resource Manager
 Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
-The output is similar to the following example for Windows Server:
+The output is similar to the following example for Windows 10 with correct license type:
 
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
