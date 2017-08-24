@@ -36,18 +36,9 @@ Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark applications w
 
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development Kit version 8, which is used for the Eclipse IDE runtime. You can download it from the [Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-* Eclipse IDE. This article uses Eclipse Neon. You can install it from the [Eclipse website](https://www.eclipse.org/downloads/).
-* Scala IDE for Eclipse. 
-  
-  * **If you have the Eclipse IDE installed**, you can add the Scala IDE plug-in by going to **Help** > **Install New SoftWare**, and add [http://download.scala-ide.org/sdk/lithium/e46/scala211/stable/site](http://download.scala-ide.org/sdk/lithium/e46/scala211/stable/site) as the source to download the Scala plug-in for Eclipse. 
-  * **If you do not have the Eclipse IDE installed**, you can install the Scala IDE directly from the [Scala website](http://scala-ide.org/download/sdk.html). Download the .zip file, extract it, browse to the **/eclipse** folder, and then run **eclipse.exe** file from there.
-    
-    > [!NOTE]
-    > The steps in this article are based on using the Eclipse IDE with the Scala plug-in installed.
-    > 
-    > 
+* Eclipse IDE. This article uses Eclipse Neon. You can install it from the [Eclipse website](https://www.eclipse.org/downloads/).   
 * Spark SDK. You can download it from [GitHub](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409).
-* e(fx)clipse. You can install it from the [download page on the Eclipse website](https://www.eclipse.org/efxclipse/install.html).
+
 
 ## Install HDInsight Tools in Azure Toolkit for Eclipse and Scala Plugin
 #### Install HDInsight Tools
@@ -203,6 +194,13 @@ To resolve this error, you must [download the executable](http://public-repo-1.h
 4. Right-click the **LogQuery** application, point to **Run As**, and then click **1 Scala Application**. You will see an output like this in the **Console** tab at the bottom:
    
    ![Spark Application local run result](./media/hdinsight-apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
+
+## FAQ
+To submit an application to Azure Data Lake Store, choose interactive mode during the Azure sign-in process. If you select automated mode, you can get an error.
+
+![interative-signin](./media/hdinsight-apache-spark-eclipse-tool-plugin/interactive-authentication.png)
+
+Now, we resolved it. You can choose an Azure Data Lake Cluster to submit your application with any sign-in way.
 
 ## Feedback and known issues
 Currently, viewing Spark outputs directly is not supported.
