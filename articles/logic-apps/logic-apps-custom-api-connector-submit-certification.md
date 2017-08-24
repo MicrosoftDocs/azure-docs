@@ -1,6 +1,6 @@
 ---
-title: Certify custom API connectors - Azure Logic Apps | Microsoft Docs
-description: Make custom API connectors available for all users in Azure Logic Apps, Microsoft Flow, and PowerApps
+title: Certify and publish your custom API connectors - Azure Logic Apps | Microsoft Docs
+description: Make custom API connectors available to all users in Azure Logic Apps, Microsoft Flow, and PowerApps
 author: ecfan
 manager: anneta
 editor: 

@@ -1,6 +1,6 @@
 ---
 title: Custom API connector overview - Azure Logic Apps | Microsoft Docs
-description: Build custom connectors and certify them with Microsoft for Azure Logic Apps
+description: Build custom API connectors and certify them with Microsoft for Azure Logic Apps
 author: ecfan
 manager: anneta
 editor: 
@@ -19,18 +19,22 @@ ms.author: LADocs; estfan
 
 # Custom API connector overview for Azure Logic Apps
 
-An **API connector** is an OpenAPI (Swagger) based wrapper around a REST API that allows the underlying service to talk to [Microsoft Flow](https://flow.microsoft.com), [PowerApps](https://powerapps.microsoft.com), and [Logic Apps](https://docs.microsoft.com/azure/logic-apps/). It provides a way for users to connect their accounts and leverage a set of pre-built **triggers** and **actions** to build their apps and workflows.
+To support your users' various business and productivity scenarios, 
+you can build custom *API connectors*. These connectors help you expand your 
+set of integrations, and increase the reach, discoverability, and usage 
+for your service.
 
-You can build connectors to enable a wide range of business and productivity scenarios for your users. A connector helps you to go beyond a definite set of integrations, and increase the reach, discoverability, and usage of your service.
+An API connector is a wrapper, based on the OpenAPI (Swagger) specification, 
+around a REST API that lets the underlying service talk to 
+[Logic Apps](https://docs.microsoft.com/azure/logic-apps/), 
+[Microsoft Flow](https://flow.microsoft.com), 
+and [Microsoft PowerApps](https://powerapps.microsoft.com). 
+The connector provides a way that users can connect to their accounts 
+and use prebuilt *triggers* and *actions* for building workflows and apps.
 
+## Requirements
 
-<!-- ## Requirements
-
-To build and submit a connector, your service must meet the following requirements:
-
-- Business user scenario that fits well with Microsoft Flow, PowerApps, and Logic Apps
-- Publicly available service with stable REST APIs -->
-Azure Subscription
+* An active Azure subscription
 
 ## Build your connector
 
