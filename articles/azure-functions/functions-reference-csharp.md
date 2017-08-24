@@ -164,7 +164,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 
 The following assemblies are automatically added by the Azure Functions hosting environment:
 
-* `mscorlib`,
+* `mscorlib`
 * `System`
 * `System.Core`
 * `System.Xml`

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 07/10/2017
 ms.author: helaw
 
 ---
@@ -28,7 +28,7 @@ Because Azure Stack is hosted in your datacenter, it has different service endpo
       '/',variables('OSDiskName'),'.vhd')]"}}
 
 ## API versioning
-Azure service versions may differ between Azure and Azure Stack. Each resource requires the apiVersion attribute, which defines the capabilities offered. To ensure API version compatibility in Azure Stack TP3, the following are valid API versions for each Resource Provider:
+Azure service versions may differ between Azure and Azure Stack. Each resource requires the apiVersion attribute, which defines the capabilities offered. To ensure API version compatibility in Azure Stack, the following are valid API versions for each Resource Provider:
 
 | Resource Provider | apiVersion |
 | --- | --- |
@@ -47,7 +47,7 @@ Resource Manager [functions](../azure-resource-manager/resource-group-template-f
 * Reference values from other resources
 * Iterating on resources to deploy multiple instances 
 
-As you build your templates, some functions are not available in Azure Stack TP3, and should not be used. These functions are:
+As you build your templates, some functions are not available in Azure Stack Development Kit, and should not be used. These functions are:
 
 * Skip
 * Take

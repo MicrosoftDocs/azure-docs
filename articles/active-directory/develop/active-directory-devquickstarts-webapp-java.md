@@ -181,7 +181,7 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
         <display-name>Archetype Created Web Application</display-name>
         <context-param>
             <param-name>authority</param-name>
-            <param-value>https://login.windows.net/</param-value>
+            <param-value>https://login.microsoftonline.com/</param-value>
         </context-param>
         <context-param>
             <param-name>tenant</param-name>

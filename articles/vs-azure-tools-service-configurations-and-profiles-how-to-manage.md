@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 8/11/2017
 ms.author: tarcher
 
 ---
@@ -31,7 +31,7 @@ You can add, delete, rename, and modify these service configurations based on yo
 You can also open the **Manage Configurations** dialog box from the role’s property pages. To open the properties for a role in your Azure project, open the shortcut menu for that role, and then choose **Properties**. On the **Settings** tab, expand the **Service Configuration** list, and then select **Manage** to open the **Manage Configurations** dialog box.
 
 ### To add a service configuration
-1. In Solution Explorer open the shortcut menu for the Azure project and then select **Manage Configurations**.
+1. In Solution Explorer, open the shortcut menu for the Azure project and then select **Manage Configurations**.
    
     The **Manage Service Configurations** dialog box appears.
 2. To add a service configuration, you must create a copy of an existing configuration. To do this, choose the configuration that you want to copy from the Name list and then select **Create copy**.
@@ -57,7 +57,7 @@ You can also open the **Manage Configurations** dialog box from the role’s pro
     The name of the service configuration file is changed in the Azure project in Solution Explorer.
 
 ### To change a service configuration
-* If you want to change a service configuration, open the shortcut menu for the specific role you want to change in the Azure project, and then select **Properties**. See [How to: Configure the Roles for an Azure Cloud Service with Visual Studio](https://msdn.microsoft.com/library/azure/hh369931.aspx) for more information.
+* If you want to change a service configuration, open the shortcut menu for the specific role you want to change in the Azure project, and then select **Properties**. See [How to: Configure the Roles for an Azure Cloud Service with Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) for more information.
 
 ## Make different setting combinations by using profiles
 By using a profile, you can automatically fill in the **Publish Wizard** with different combinations of settings for different purposes. For example, you can have one profile for debugging and another for release builds. In that case, your **Debug** profile would have **IntelliTrace** enabled and the **Debug** configuration selected, and your **Release** profile would have **IntelliTrace** disabled and the **Release** configuration selected. You could also use different profiles to deploy a service using a different storage account.

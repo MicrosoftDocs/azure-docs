@@ -12,8 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
+ms.date: 07/20/2017
 ms.author: jeedes
+ms.reviewer: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with SAP HANA Cloud Platform Identity Authentication

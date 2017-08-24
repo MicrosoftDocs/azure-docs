@@ -3,8 +3,8 @@ title: I use Mobile Services, how does App Service help?
 description: Learn what advantages does App Service bring to your existing Mobile Services projects.
 services: app-service\mobile
 documentationcenter: ios
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: ''
 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: glenga
 
 ---
 # <a name="getting-started"> </a>I use Mobile Services, how does App Service help?
@@ -25,7 +25,7 @@ that are not available today with Mobile Services:
 * Simpler, easier and more cost effective offering for apps that include both web and mobile clients
 * New host features including Web Jobs, custom CNames, better monitoring
 * Turnkey integration with Traffic Manager
-* Connectivity to your on-premise resources and VPNs using VNet in addition to Hybrid Connections
+* Connectivity to your on-premises resources and VPNs using VNet in addition to Hybrid Connections
 * Monitoring, alerting and  troubleshooting for your app using NewRelic or AppInsights
 * Richer spectrum of the underlying compute resources and pricing
 * Built-in auto scale, load balancing, and performance monitoring.
@@ -44,7 +44,7 @@ this container, including some of those that are not currently present in Mobile
 * (For Node.js) Leverage any pure JavaScript library of the Node ecosystem, including common MVC libraries.
 
 ## Access on-premises data using VNet
-With Mobile Services today you can already use Hybrid Connections to access on-premise resources. However there are situations where a VPN
+With Mobile Services today you can already use Hybrid Connections to access on-premises resources. However there are situations where a VPN
 solution is preferred. With *Azure App Service* you can use Azure VNet for your Mobile App backend code.
 
 ## Use your favorite backend language
@@ -67,4 +67,3 @@ With *Azure App Service* you can now create multiple private testing and staging
 before you deploy. Swap to production with no downtime. Web apps are pre-loaded, ensuring the best customer experience.
 
 You can get start taking advantage of *App Service* for your existing Mobile Service by following this [tutorial](app-service-mobile-migrating-from-mobile-services.md).
-

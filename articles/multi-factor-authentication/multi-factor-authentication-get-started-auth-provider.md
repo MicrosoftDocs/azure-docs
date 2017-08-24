@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/28/2017
+ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
@@ -26,7 +26,7 @@ An Azure Multi-Factor Auth Provider is used to take advantage of features provid
 An Azure Multi-Factor Auth provider is required to download the SDK.
 
 > [!IMPORTANT]
-> To download the SDK, create an Azure Multi-Factor Auth Provider even if you have Azure MFA, AAD Premium, or EMS licenses.  If you create an Azure Multi-Factor Auth Provider for this purpose and already have licenses, be sure to create the Provider with the **Per Enabled User** model. Then, link the Provider to the directory that contains the Azure MFA, Azure AD Premium, or EMS licenses. This configuration ensures that you are only billed if you have more unique users performing two-step verification than the number of licenses you own.
+> To download the SDK, you need to create an Azure Multi-Factor Auth Provider even if you have Azure MFA, AAD Premium, or EMS licenses.  If you create an Azure Multi-Factor Auth Provider for this purpose and already have licenses, be sure to create the Provider with the **Per Enabled User** model. Then, link the Provider to the directory that contains the Azure MFA, Azure AD Premium, or EMS licenses. This configuration ensures that you are only billed if you have more unique users performing two-step verification than the number of licenses you own.
 
 ## What is an Azure Multi-Factor Auth Provider?
 
@@ -35,7 +35,7 @@ If you don't have licenses for Azure Multi-Factor Authentication, you can create
 There are two types of auth providers, and the distinction is around how your Azure subscription is charged. The per-authentication option calculates the number of authentications performed against your tenant in a month. This option is best if you have a number of users authenticating only occasionally, like if you require MFA for a custom application. The per-user option calculates the number of individuals in your tenant who perform two-step verification in a month. This option is best if you have some users with licenses but need to extend MFA to more users beyond your licensing limits.
 
 ## Create a Multi-Factor Auth Provider
-Use the following steps to create an Azure Multi-Factor Auth Provider.
+Use the following steps to create an Azure Multi-Factor Auth Provider. Azure Multi-Factor Auth Providers can only be created in the Azure classic portal. If you can't sign in to the Azure classic portal, check to make sure that your Azure AD tenant is [associated with an Azure subscription](../active-directory/active-directory-how-subscriptions-associated-directory.md). 
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator.
 2. On the left, select **Active Directory**.
@@ -61,12 +61,25 @@ Use the following steps to create an Azure Multi-Factor Auth Provider.
       * Per Authentication – purchasing model that charges per authentication. Typically used for scenarios that use Azure Multi-Factor Authentication in a consumer-facing application.
       * Per Enabled User – purchasing model that charges per enabled user. Typically used for employee access to applications such as Office 365. Choose this option if you have some users that are already licensed for Azure MFA.
    3. **Directory** – The Azure Active Directory tenant that the Multi-Factor Authentication Provider is associated with. Be aware of the following:
-      * You do not need an Azure AD directory to create a Multi-Factor Auth Provider. Leave the box blank if you are only planning to use the Azure Multi-Factor Authentication Server or SDK.
+      * You do not need an Azure AD directory to create a Multi-Factor Auth Provider. Leave this box blank if you are only planning to download the Azure Multi-Factor Authentication Server or SDK.
       * The Multi-Factor Auth Provider must be associated with an Azure AD directory to take advantage of the advanced features.
-      * Azure AD Connect, AAD Sync, or DirSync are only a requirement if you are synchronizing your on-premises Active Directory environment with an Azure AD directory.  If you only use an Azure AD directory that is not synchronized, then this is not required.
-        
-        ![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
+      * Only one Multi-Factor Auth Provider can be associated with any one Azure AD directory.  
+      ![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 
-8. Once you click create, the Multi-Factor Authentication Provider is created and you should see a message stating: **Successfully created Multi-Factor Authentication Provider**. Click **Ok**.
+8. Once you click create, the Multi-Factor Authentication Provider is created and you should see a message stating: **Successfully created Multi-Factor Authentication Provider**. Click **Ok**.  
    
    ![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)  
+
+## Manage your Multi-Factor Auth Provider
+
+You cannot change the usage model (per enabled user or per authentication) after an MFA provider is created. However, you can delete the MFA provider and then create one with a different usage model.
+
+If the current Multi-Factor Auth Provider is associated with an Azure AD directory (also known as an Azure AD tenant), you can safely delete the MFA provider and create one that is linked to the same Azure AD tenant. Alternatively, if you purchased enough MFA, Azure AD Premium, or Enterprise Mobility + Security (EMS) licenses to cover all users that are enabled for MFA, you can delete the MFA provider altogether.
+
+If your MFA provider is not linked to an Azure AD tenant, or you link the new MFA provider to a different Azure AD tenant, user settings and configuration options are not transferred. Also, existing Azure MFA Servers need to be reactivated using activation credentials generated through the new MFA Provider. Reactivating the MFA Servers to link them to the new MFA Provider doesn't impact phone call and text message authentication, but mobile app notifications will stop working for all users until they reactivate the mobile app.
+
+## Next steps
+
+[Download the Multi-Factor Authentication SDK](multi-factor-authentication-sdk.md)
+
+[Configure Multi-Factor Authentication settings](multi-factor-authentication-whats-next.md)

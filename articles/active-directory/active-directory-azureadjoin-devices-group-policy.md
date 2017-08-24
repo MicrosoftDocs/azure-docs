@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: jairoc
 
 ---
 # Connect domain-joined devices to Azure AD for Windows 10 experiences

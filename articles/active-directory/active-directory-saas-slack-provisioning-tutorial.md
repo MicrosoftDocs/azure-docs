@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: stevenpo
+manager: sakula
 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
@@ -13,8 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 07/20/2017
 ms.author: asmalser-msft
+ms.reviewer: asmalser
+
 ---
 
 # Tutorial: Configuring Slack for Automatic User Provisioning

@@ -42,12 +42,12 @@ An Availability Set is a logical grouping capability that you can use in Azure t
 
 Let’s consider a typical VM-based solution where you might have 4 front-end web servers and use 2 back-end VMs that host a database. With Azure, you’d want to define two availability sets before you deploy your VMs: one availability set for the “web” tier and one availability set for the “database” tier. When you create a new VM you can then specify the availability set as a parameter to the az vm create command, and Azure will automatically ensure that the VMs you create within the available set are isolated across multiple physical hardware resources. This means that if the physical hardware that one of your Web Server or Database Server VMs is running on has a problem, you know that the other instances of your Web Server and Database VMs will remain running fine because they are on different hardware.
 
-You should always use Availability Sets when you want to deploy reliable VM based solutions within Azure.
+You should always use Availability Sets when you want to deploy reliable VM-based solutions within Azure.
 
 
 ## Create an availability set
 
-You can create an availability set using [az vm availability-set create](/cli/azure/availability-set#create). In this example, we set both the number of update and fault domains at *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
+You can create an availability set using [az vm availability-set create](/cli/azure/vm/availability-set#create). In this example, we set both the number of update and fault domains at *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
 
 Create a resource group.
 

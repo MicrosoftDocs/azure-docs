@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 07/13/2017
 ms.author: ryanwi;mikhegn
 
 ---
@@ -110,7 +110,7 @@ Now that we have deployed the application, let's look at some of the app details
    
     ![List services for the application in PowerShell][ps-getsfsvc]
    
-    The application is made up of two services--the web front end and the stateful service that manages the words.
+    The application is made up of two services, the web front end, and the stateful service that manages the words.
 3. Finally, look at the list of partitions for WordCountService:
    
     ```powershell

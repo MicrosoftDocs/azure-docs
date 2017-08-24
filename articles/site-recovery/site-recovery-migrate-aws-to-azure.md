@@ -40,7 +40,7 @@ Site Recovery can be used to migrate EC2 instances running any of the following 
 
 Here's what you need for this deployment:
 
-* **Configuration server**: An Amazon EC2 VM running Windows Server 2012 R2 is deployed as the configuration server. By default, the other Azure Site Recovery components (process server and master target server) are installed when you deploy the configuration server. This article describes the steps for migration in the Azure portal, and are based on the instructions for  [Learn more](site-recovery-components.md#vmware-to-azure)
+* **Configuration server**: An Amazon EC2 VM running Windows Server 2012 R2 is deployed as the configuration server. By default, the other Azure Site Recovery components (process server and master target server) are installed when you deploy the configuration server. This article describes the steps for migration in the Azure portal, and are based on the instructions for  [Learn more](site-recovery-components.md)
 
 * **EC2 instances**: The Amazon EC2 virtual machines instances that you want to migrate.
 

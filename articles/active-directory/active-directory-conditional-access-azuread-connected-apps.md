@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: markvi
+ms.reviewer: calebb
 
 ---
 # Getting started with Azure Active Directory Conditional Access

@@ -24,8 +24,9 @@ ms.author: cjiang
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
 ## Top issues
-[!INCLUDE [support-disclaimer](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
+[!INCLUDE [support-disclaimer](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
 
+For other VM deployment issues and questions, see [Troubleshoot deploying Linux virtual machine issues in Azure](troubleshoot-deploy-vm.md).
 ## Collect activity logs
 To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
 

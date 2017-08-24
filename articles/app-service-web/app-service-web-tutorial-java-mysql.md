@@ -11,9 +11,10 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
+ms.custom: mvc
 ---
 
 # Build a Java and MySQL web app in Azure

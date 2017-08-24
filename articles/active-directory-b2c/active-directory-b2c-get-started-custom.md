@@ -26,7 +26,8 @@ After you complete the steps in this article, your custom policy will support "l
 
 Before proceeding, ensure that you have an Azure AD B2C tenant, which is a container for all your users, apps, policies, and more. If you don't have one already, you need to [create an Azure AD B2C tenant](active-directory-b2c-get-started.md). We strongly encourage all developers to complete the Azure AD B2C built-in policy walkthroughs and configure their applications with built-in policies before proceeding. Your applications will work with both types of policies once you make a minor change to the policy name to invoke the custom policy.
 
-To access custom policy editing, you need a valid Azure subscription linked to your tenant.
+>[!NOTE]
+>To access custom policy editing, you need a valid Azure subscription linked to your tenant. If you haven't [linked your Azure AD B2C tenant to an Azure subscription](active-directory-b2c-how-to-enable-billing.md) or your Azure subscription is disabled, the Identity Experience Framework button won't be available.
 
 ## Add signing and encryption keys to your B2C tenant for use by custom policies
 

@@ -3,7 +3,7 @@ title: Security considerations for data movement in Azure Data Factory  | Micros
 description: 'Learn about securing data movement in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
-author: abnarain
+author: nabhishek
 manager: jhubbard
 editor: monicar
 
@@ -12,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
-ms.author: jingwang
+ms.date: 07/27/2017
+ms.author: abnarain
 
 ---
 
@@ -63,7 +63,7 @@ Azure SQL Database also supports transparent data encryption (TDE), which helps 
 Azure Data Lake store also provides encryption for data stored in the account. When enabled, Data Lake store automatically encrypts data before persisting and decrypts before retrieval, making it transparent to the client accessing the data. For more information, see [Security in Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
 
 #### Azure Blob Storage and Azure Table Storage
-Azure Blob Storage and Azure Table storage supports Storage Service Encryption (SSE), which automatically encrypts your data before persisting to storage and decrypts before retrieval. For more information, see [Azure Storage Service Encryption for Data at Rest](../storage/storage-service-encryption.md).
+Azure Blob Storage and Azure Table storage supports Storage Service Encryption (SSE), which automatically encrypts your data before persisting to storage and decrypts before retrieval. For more information, see [Azure Storage Service Encryption for Data at Rest](../storage/common/storage-service-encryption.md).
 
 #### Amazon S3
 Amazon S3 supports both client and server encryption of data at Rest. For more information, see [Protecting Data Using Encryption](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Currently, Data Factory does not support Amazon S3 inside a virtual private cloud (VPC).
@@ -137,7 +137,7 @@ The following images show the usage of Data Management Gateway for moving data b
 
 ### Firewall configurations and whitelisting IP address of gateway
 
-#### Firewall requirements for on-premise/private network	
+#### Firewall requirements for on-premises/private network	
 In an enterprise, a **corporate firewall** runs on the central router of the organization. And, **Windows firewall** runs as a daemon on the local machine on which the gateway is installed. 
 
 The following table provides **outbound port** and domain requirements for the **corporate firewall**.

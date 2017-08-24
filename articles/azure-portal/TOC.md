@@ -1,16 +1,20 @@
-# [Overview](../azure-portal-overview.md)
+# Overview
+## [About the Azure portal](../azure-portal-overview.md)
+# Tutorials
+## [DevOps with the Azure Portal](tutorial-azureportal-devops.md)
+# Concepts
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-
-# Get Started
-## [Deploy with Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md)
-
-# How To
+## [Keyboard shortcuts](azure-portal-keyboard-shortcuts.md)
+## [Supported browsers and devices](../azure-preview-portal-supported-browsers-devices.md)
+# How-to guides
 ## Deploy
 ### [Create Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
-
+### [Deploy with Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md)
+### [Create and share Azure dashboard](azure-portal-dashboards.md)
 ## Manage
-### [Use preview portal to manage resources](../azure-resource-manager/resource-group-portal.md)
+### [Use portal to manage resources](../azure-resource-manager/resource-group-portal.md)
 ### [Manage access with RBAC](../active-directory/role-based-access-control-configure.md)
+### [Share dashboards with RBAC](azure-portal-dashboard-share-access.md)
 ### [Use tags to organize resources](../azure-resource-manager/resource-group-using-tags.md)
 ### [Scale your resources](../monitoring-and-diagnostics/insights-how-to-scale.md)
 ### [Create new Azure service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
@@ -33,8 +37,9 @@
 ## [Azure Insights CLI quick start samples](../monitoring-and-diagnostics/insights-cli-samples.md)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
 
 

@@ -20,7 +20,7 @@ ms.author: sashan
 
 ---
 # Store Azure SQL Database backups for up to 10 years
-Many applications have regulatory, compliance, or other business purposes that require you to retain automatic full database backups beyond the 7-35 days provided by Azure SQL Database [automatic backups](sql-database-automated-backups.md). By using the long-term backup retention feature, you can store your SQL database backups in an Azure Recovery Services vault for up to 10 years. You can store up to 1,000 databases per vault. You can select any backup in the vault to restore it as a new database.
+Many applications have regulatory, compliance, or other business purposes that require you to retain database backups beyond the 7-35 days provided by Azure SQL Database [automatic backups](sql-database-automated-backups.md). By using the long-term backup retention feature, you can store your SQL database backups in an Azure Recovery Services vault for up to 10 years. You can store up to 1,000 databases per vault. You then can select any backup in the vault to restore it as a new database.
 
 > [!IMPORTANT]
 > Long-term backup retention is currently in preview and available in the following regions: Australia East, Australia Southeast, Brazil South, Central US, East Asia, East US, East US 2, India Central, India South, Japan East, Japan West, North Central US, North Europe, South Central US, Southeast Asia, West Europe, and West US.

@@ -11,7 +11,7 @@ tags: ''
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017

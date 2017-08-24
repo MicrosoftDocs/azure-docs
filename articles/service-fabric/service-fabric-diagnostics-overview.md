@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: dekapur
 
 ---
@@ -32,7 +32,7 @@ The main goals of monitoring and diagnostics are to:
 
 The overall workflow of monitoring and diagnostics consists of three steps:
 
-1. **Event generation**: this includes events (logs, traces, custom events) at both the infrastructure (cluster) and application / service level
+1. **Event generation**: this includes events (logs, traces, custom events) at the infrastructure (cluster), platform, and application / service level
 2. **Event aggregation**: generated events need to be collected and aggregated before they can be displayed
 3. **Analysis**: events need to be visualized and accessible in some format, to allow for analysis and display as needed
 
@@ -40,9 +40,9 @@ Multiple products are available that cover these three areas, and you are free t
 
 ## Event generation
 
-The first step in the monitoring and diagnostics workflow is the creation and generation of events and logs. These events, logs, and traces are generated at two levels: the infrastructure layer (anything from the cluster, the machines, or Service Fabric actions) or the application layer (any instrumentation added to apps and services deployed to the cluster). Events at each of these levels are customizable, though Service Fabric does provide some instrumentation by default.
+The first step in the monitoring and diagnostics workflow is the creation and generation of events and logs. These events, logs, and traces are generated at two levels: the platform layer (including the cluster, the machines, or Service Fabric actions) or the application layer (any instrumentation added to apps and services deployed to the cluster). Events at each of these levels are customizable, though Service Fabric does provide some instrumentation by default.
 
-Read more about [infrastructure level events](service-fabric-diagnostics-event-generation-infra.md) and [application level events](service-fabric-diagnostics-event-generation-app.md) to understand what is provided and how to add further instrumentation.
+Read more about [platform level events](service-fabric-diagnostics-event-generation-infra.md) and [application level events](service-fabric-diagnostics-event-generation-app.md) to understand what is provided and how to add further instrumentation.
 
 After making a decision on the logging provider you would like to use, you need to make sure your logs are being aggregated and stored correctly.
 
@@ -64,7 +64,7 @@ Using [EventFlow](https://github.com/Azure/diagnostics-eventflow) allows you to 
 * Access to internal application data and context
     * The diagnostic subsystem running inside the application/service process can easily augment the traces with contextual information
 
-One thing to note is that these two options are not mutually exclusive and while it is possible to get a similar job done with using one or the other, it could also make sense for you to set up both. In most situations, combining an agent with in-process collection could lead to a more reliable monitoring workflow. The Azure Diagnostics extension (agent) could be your chosen path for infrastructure level logs while you could use EventFlow (in-process collection) for your application level logs. Once you have figured out what works best for you, it is time to think about how you want your data to be displayed and analyzed.
+One thing to note is that these two options are not mutually exclusive and while it is possible to get a similar job done with using one or the other, it could also make sense for you to set up both. In most situations, combining an agent with in-process collection could lead to a more reliable monitoring workflow. The Azure Diagnostics extension (agent) could be your chosen path for platform level logs while you could use EventFlow (in-process collection) for your application level logs. Once you have figured out what works best for you, it is time to think about how you want your data to be displayed and analyzed.
 
 ## Event analysis
 
@@ -80,7 +80,7 @@ You can use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md
 
 ![Azure portal view of collected metric information](media/service-fabric-diagnostics-overview/azure-monitoring-metrics.png)
 
-To customize the charts, follow the instructions in [Metrics in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). You also can create alerts based on these metrics, as described in [Create alerts in Azure Monitor for Azure services](../monitoring-and-diagnostics/insights-alerts-portal.md). You can send alerts to a notification service by using web hooks, as described in [Configure a web hook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure Monitor supports only one subscription. If you need to monitor multiple subscriptions, or if you need additional features, [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), part of Microsoft Operations Management Suite, provides a holistic IT management solution both for on-premises and cloud-based infrastructures. You can route data from Azure Monitor directly to Log Analytics, so you can see metrics and logs for your entire environment in a single place.
+To customize the charts, follow the instructions in [Metrics in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). You also can create alerts based on these metrics, as described in [Create alerts in Azure Monitor for Azure services](../monitoring-and-diagnostics/insights-alerts-portal.md). You can send alerts to a notification service by using web hooks, as described in [Configure a web hook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure Monitor supports only one subscription. If you need to monitor multiple subscriptions, or if you need additional features, [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), part of Microsoft Operations Management Suite, provides a holistic IT management solution both for on-premises and cloud-based infrastructure. You can route data from Azure Monitor directly to Log Analytics, so you can see metrics and logs for your entire environment in a single place.
 
 ## Next steps
 
@@ -88,4 +88,4 @@ To customize the charts, follow the instructions in [Metrics in Microsoft Azure]
 
 A watchdog is a separate service that can watch health and load across services, and report health for anything in the health model hierarchy. This can help prevent errors that would not be detected based on the view of a single service. Watchdogs are also a good place to host code that performs remedial actions without user interaction (for example, cleaning up log files in storage at certain time intervals). You can find a sample watchdog service implementation [here](https://github.com/Azure-Samples/service-fabric-watchdog-service).
 
-Get started with understanding how events and logs get generated at the [infrastructure level](service-fabric-diagnostics-event-generation-infra.md) and the [application level](service-fabric-diagnostics-event-generation-app.md).
+Get started with understanding how events and logs get generated at the [platform level](service-fabric-diagnostics-event-generation-infra.md) and the [application level](service-fabric-diagnostics-event-generation-app.md).

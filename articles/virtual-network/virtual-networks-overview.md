@@ -61,7 +61,7 @@ You can connect your on-premises network to a VNet using any combination of the 
 - **Site-to-site VPN:** Established between your VPN device and an Azure VPN Gateway. This connection type enables any on-premises resource you authorize to access a VNet. The connection is an IPSec/IKE VPN that provides encrypted communication over the Internet between your on-premises device and the Azure VPN gateway. The latency for a site-to-site connection is unpredictable, since the traffic traverses the Internet.
 - **Azure ExpressRoute:** Established between your network and Azure, through an ExpressRoute partner. This connection is private. Traffic does not traverse the Internet. The latency for an ExpressRoute connection is predictable, since traffic doesn't traverse the Internet.
 
-To learn more about all the previous connection options, read the [Connection topology diagrams](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#a-namediagramsaconnection-topology-diagrams) article.
+To learn more about all the previous connection options, read the [Connection topology diagrams](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams) article.
 
 ## <a name="filtering"></a>Filter network traffic
 You can filter network traffic between subnets using either or both of the following options:
@@ -87,3 +87,4 @@ To review frequently asked questions about Virtual Network, see the [Virtual Net
 
 - Create your first VNet, and connect a few VMs to it, by completing the steps in the [Create your first virtual network](virtual-network-get-started-vnet-subnet.md) article.
 - Create a point-to-site connection to a VNet by completing the steps in the [Configure a point-to-site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
+- Learn about some of the other key [network capabilities](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of Azure.

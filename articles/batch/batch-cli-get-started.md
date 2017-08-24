@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/11/2017
+ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -73,7 +73,7 @@ For the purposes of this article, we show how to log into Azure interactively. T
 az login
 ```
 
-The `az login` command returns a token that you'll use to authenticate, as shown here. Follow the instructions provided to open a web page and submit the token to Azure:
+The `az login` command returns a token that you can use to authenticate, as shown here. Follow the instructions provided to open a web page and submit the token to Azure:
 
 ![Log in to Azure](./media/batch-cli-get-started/az-login.png)
 
@@ -114,6 +114,10 @@ You have two options for authenticating against your Batch account:
     ```
 
 The examples listed in the [Sample shell scripts](#sample-shell-scripts) section show how to log into your Batch account with the Azure CLI using both Azure AD and Shared Key.
+
+## Use Azure Batch CLI Templates and File Transfer (Preview)
+
+You can use the Azure CLI to run Batch jobs end-to-end without writing code. Batch template files support creating pools, jobs, and tasks with the Azure CLI. You can also use the Azure CLI to upload job input files to the Azure Storage account associated with the Batch account, and download job output files from it. For more information, see [Use Azure Batch CLI Templates and File Transfer (Preview)](batch-cli-templates.md).
 
 ## Sample shell scripts
 
@@ -175,13 +179,14 @@ The following tips may help when you are troubleshooting Azure CLI issues:
 * Use `-h` to get **help text** for any CLI command
 * Use `-v` and `-vv` to display **verbose** command output. When the `-vv` flag is included, the Azure CLI displays the actual REST requests and responses. These switches are handy for displaying full error output.
 * You can view **command output as JSON** with the `--json` option. For example, `az batch pool show pool001 --json` displays pool001's properties in JSON format. You can then copy and modify this output to use in a `--json-file` (see [JSON files](#json-files) earlier in this article).
+<!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 * The [Batch forum][batch_forum] is monitored by Batch team members. You can post your questions there if you run into issues or would like help with a specific operation.
 
 ## Next steps
 
 * For more information about the Azure CLI, see the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 * For more information about Batch resources, see [Overview of Azure Batch for developers](batch-api-basics.md).
-* See [Application deployment with Azure Batch application packages](batch-application-packages.md) to find out how to use this feature to manage and deploy the applications you execute on Batch compute nodes.
+* For more information about using Batch templates to create pools, jobs, and tasks without writing code, see [Use Azure Batch CLI Templates and File Transfer (Preview)](batch-cli-templates.md).
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

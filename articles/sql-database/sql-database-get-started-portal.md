@@ -54,7 +54,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
    > You must select the sample database on this form because it is used in the remainder of this quick start.
    > 
 
-4. Fill out the SQL server (logical server) form with the following information, as shown on the preceding image:   
+4. Under **Server**, click **Configure required settings** and fill out the SQL server (logical server) form with the following information, as shown on the following image:   
 
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
@@ -99,7 +99,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
    > You need this fully qualified server name to connect to your server and its databases in subsequent quick starts.
    > 
 
-   ![server name](./media/sql-database-get-started-portal/server-name.png) 
+   ![server name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
 

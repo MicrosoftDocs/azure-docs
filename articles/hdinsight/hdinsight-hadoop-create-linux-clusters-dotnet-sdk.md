@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/27/2017
+ms.date: 08/16/2017
 ms.author: jgao
 
 ---
@@ -35,7 +35,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **An Azure storage account**. See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).
+* **An Azure storage account**. See [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * **Visual Studio 2013, Visual Studio 2015 or Visual Studio 2017**.
 
 ## Create clusters
@@ -225,7 +225,7 @@ static void Main(string[] args)
 
     var coreConfigs = new Dictionary<string, string>
     {
-        {"fs.defaultFS", string.Format("wasbs://{0}@{1}", ExistingBlobContainer, ExistingStorageName)},
+        {"fs.defaultFS", string.Format("wasb://{0}@{1}", ExistingBlobContainer, ExistingStorageName)},
         {
             string.Format("fs.azure.account.key.{0}", ExistingStorageName),
             ExistingStorageKey

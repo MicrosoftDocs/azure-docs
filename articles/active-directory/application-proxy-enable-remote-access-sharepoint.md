@@ -12,9 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 07/21/2017
 ms.author: kgremban
-
+ms.reviewer: harshja
+ms.custom: it-pro
 ---
 
 # Enable remote access to SharePoint with Azure AD Application Proxy
@@ -25,13 +26,11 @@ To enable remote access to SharePoint with Azure AD Application Proxy, follow th
 
 ## Prerequisites
 
-This article assumes that you already have SharePoint 2013 or newer already set up and running in your environment. In addition, consider the following prerequisites:
+This article assumes that you already have SharePoint 2013 or newer in your environment. In addition, consider the following prerequisites:
 
-* The Application Proxy feature is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
+* SharePoint includes native Kerberos support. Therefore, users who are accessing internal sites remotely through Azure AD Application Proxy can assume to have a single sign-on (SSO) experience.
 
-* SharePoint includes native Kerberos support. Therefore, users who are accessing internal sites remotely through Azure AD Application Proxy can assume to have a seamless single sign-on (SSO) experience.
-
-* You will need to make a few configuration changes to your SharePoint server. We recommend using a staging environment. This way, you can make updates to your staging server first, and then facilitate a testing cycle before going into production.
+* You need to make a few configuration changes to your SharePoint server. We recommend using a staging environment. This way, you can make updates to your staging server first, and then facilitate a testing cycle before going into production.
 
 * We assume that you have already set up SSL for SharePoint, because we require SSL on the published URL. You need to have SSL enabled on your internal site, to ensure that links are sent/mapped correctly. If you haven't configured SSL, see [Configure SSL for SharePoint 2013](https://blogs.msdn.microsoft.com/fabdulwahab/2013/01/20/configure-ssl-for-sharepoint-2013) for instructions. Also, make sure that the connector machine trusts the certificate that you issue. (The certificate does not need to be publicly issued.)
 
@@ -41,13 +40,13 @@ Our customers want the best SSO experience for their back-end applications, Shar
 
 For on-premises applications that require or use Windows authentication, you can achieve SSO by using the Kerberos authentication protocol and a feature called Kerberos constrained delegation (KCD). KCD, when configured, allows the Application Proxy connector to obtain a windows ticket/token for a user, even if the user hasn’t signed in to Windows directly. To learn more about KCD, see [Kerberos Constrained Delegation Overview](https://technet.microsoft.com/library/jj553400.aspx).
 
-To set up KCD for a SharePoint server, use the procedures in the following sequential sections.
+To set up KCD for a SharePoint server, use the procedures in the following sequential sections:
 
 ### Ensure that SharePoint is running under a service account
 
-First, make sure that SharePoint is running under a defined service account--not local system, local service, or network service. You need to do this so that you can attach service principal names (SPNs) to a valid account. SPNs are how the Kerberos protocol identifies different services. And you will need the account later to configure the KCD.
+First, make sure that SharePoint is running under a defined service account--not local system, local service, or network service. Do this so that you can attach service principal names (SPNs) to a valid account. SPNs are how the Kerberos protocol identifies different services. And you will need the account later to configure the KCD.
 
-To ensure that your sites are running under a defined service account, do the following:
+To ensure that your sites are running under a defined service account, perform the following steps:
 
 1. Open the **SharePoint 2013 Central Administration** site.
 2. Go to **Security** and select **Configure service accounts**.
@@ -68,7 +67,7 @@ You use KCD to perform single sign-on to the SharePoint server, and this works o
 To configure your SharePoint site for Kerberos authentication:
 
 1. Open the **SharePoint 2013 Central Administration** site.
-2. Go to **Application Management**, select **Manage web applications**, and select your SharePoint site. In this example, it's **SharePoint - 80**.
+2. Go to **Application Management**, select **Manage web applications**, and select your SharePoint site. In this example, it is **SharePoint - 80**.
 
   ![Selecting the SharePoint site](./media/application-proxy-remote-sharepoint/remote-sharepoint-manage-web-applications.png)
 
@@ -95,7 +94,7 @@ In the SPN format:
 
 * _service class_ is a unique name for the service. For SharePoint, you use **HTTP**.
 
-* _host_ is the fully qualified domain or NetBIOS name of the host that the service is running on. In the case of a SharePoint site, this might need to be the URL of the site, depending on the version of IIS that you're using.
+* _host_ is the fully qualified domain or NetBIOS name of the host that the service is running on. For a SharePoint site, this text might need to be the URL of the site, depending on the version of IIS that you're using.
 
 * _port_ is optional.
 
@@ -134,13 +133,13 @@ Klist then returns the set of target SPNs. In this example, the highlighted valu
 
  This command sets the SPN for the SharePoint service account running as _demo\sp_svc_.
 
- Replace _http/sharepoint.demo.o365identity.us_ with the SPN for your server and _demo\sp_svc_ with the service account in your environment. The Setspn command will search for the SPN before it adds it. In this case, you might see a **Duplicate SPN Value** error. If you see this error, make sure that the value is associated with the service account.
+ Replace _http/sharepoint.demo.o365identity.us_ with the SPN for your server and _demo\sp_svc_ with the service account in your environment. The Setspn command searches for the SPN before it adds it. In this case, you might see a **Duplicate SPN Value** error. If you see this error, make sure that the value is associated with the service account.
 
 You can verify that the SPN was added by running the Setspn command with the -l option. To learn more about this command, see [Setspn](https://technet.microsoft.com/library/cc731241.aspx).
 
 ### Ensure that the connector is set as a trusted delegate to SharePoint
 
-Configure the KCD so that the Azure AD Application Proxy service can delegate user identities to the SharePoint service. You do this by enabling the Application Proxy connector to retrieve Kerberos tickets for your users who have been authenticated in Azure AD. Then that server will pass the context to the target application, or SharePoint in this case.
+Configure the KCD so that the Azure AD Application Proxy service can delegate user identities to the SharePoint service. You do this by enabling the Application Proxy connector to retrieve Kerberos tickets for your users who have been authenticated in Azure AD. Then that server passes the context to the target application, or SharePoint in this case.
 
 To configure the KCD, repeat the following steps for each connector machine:
 
@@ -177,15 +176,15 @@ To perform the following steps, you need to be a member of the Global Administra
 5. After the app is published, click the **Configure** tab.
 6. Scroll down to the option **Translate URL in Headers**. The default value is **YES**. Change it to **NO**.
 
- SharePoint uses the _Host Header_ value to look up the site. It also generates links based on this value. The net effect is to make sure that any link that SharePoint generates is a published URL that is correctly set to use the external URL. Setting the value to **YES** also enables the connector to forward the request to the back-end application. However, setting the value to **NO** means that the connector will not send the internal host name. Instead, the connector will send the host header as the published URL to the back-end application.
+ SharePoint uses the _Host Header_ value to look up the site. It also generates links based on this value. The net effect is to make sure that any link that SharePoint generates is a published URL that is correctly set to use the external URL. Setting the value to **YES** also enables the connector to forward the request to the back-end application. However, setting the value to **NO** means that the connector will not send the internal host name. Instead, the connector sends the host header as the published URL to the back-end application.
 
- Also, to ensure that SharePoint accepts this URL, you need to complete one more configurations on the SharePoint server. You'll do that in the next section.
+ Also, to ensure that SharePoint accepts this URL, you need to complete one more configuration on the SharePoint server. You'll do that in the next section.
 
 7. Change **Internal Authentication Method** to **Integrated Windows Authentication**. If your Azure AD tenant uses a UPN in the cloud that's different from the UPN on-premises, remember to update **Delegated Login Identity** as well.
 8. Set **Internal Application SPN** to the value that you set earlier. For example, use **http/sharepoint.demo.o365identity.us**.
 9. Assign the application to your target users.
 
-Your application should look similar to the following:
+Your application should look similar to the following example:
 
   ![Finished application](./media/application-proxy-remote-sharepoint/remote-sharepoint-internal-application-spn.png)
 

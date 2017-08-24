@@ -138,32 +138,34 @@ sh InstallDependencyAgent-Linux64.bin -s
 ## Desired State Configuration
 To deploy the Dependency Agent via Desired State Configuration, you can use the xPSDesiredStateConfiguration module and a bit of code like the following:
 ```
+configuration ServiceMap {
+
 Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
 $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
 
-
-Node $NodeName 
+Node localhost
 { 
-	# Download and install the Dependency Agent
-	xRemoteFile DAPackage 
-	{
-		Uri = "https://aka.ms/dependencyagentwindows"
-		DestinationPath = $DAPackageLocalPath
-		DependsOn = "[Package]OI"
-	}
+    # Download and install the Dependency Agent
+    xRemoteFile DAPackage 
+    {
+        Uri = "https://aka.ms/dependencyagentwindows"
+        DestinationPath = $DAPackageLocalPath
+    }
 
-	xPackage DA
-	{
-		Ensure="Present"
-		Name = "Dependency Agent"
-		Path = $DAPackageLocalPath
-		Arguments = '/S'
-		ProductId = ""
-		InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
-		InstalledCheckRegValueName = "DisplayName"
-		InstalledCheckRegValueData = "Dependency Agent"
-	}
+    xPackage DA
+    {
+        Ensure="Present"
+        Name = "Dependency Agent"
+        Path = $DAPackageLocalPath
+        Arguments = '/S'
+        ProductId = ""
+        InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
+        InstalledCheckRegValueName = "DisplayName"
+        InstalledCheckRegValueData = "Dependency Agent"
+        DependsOn = "[xRemoteFile]DAPackage"
+    }
+  }
 }
 ```
 

@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
+
+ms.custom: oldportal;it-pro;
 
 ---
 # Understanding resource access in Azure
-> [!NOTE]
-> This topic explains concepts about using subscription administrators to control resource access in the full Azure portal. As an alternative, the Azure Preview portal provides [role-based access control](role-based-access-control-configure.md) so Azure resources can be managed more precisely.
+> [!IMPORTANT]
+> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. The Azure portal provides [role-based access control](role-based-access-control-configure.md) so Azure resources can be managed more precisely.
 > 
 > 
 
