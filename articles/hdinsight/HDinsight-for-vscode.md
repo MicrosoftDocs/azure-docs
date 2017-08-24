@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/09/2017
+ms.date: 08/30/2017
 ms.author: jejiang
 ---
 
