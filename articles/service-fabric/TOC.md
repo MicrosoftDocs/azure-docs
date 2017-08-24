@@ -258,6 +258,7 @@
 #### [Upgrade](service-fabric-cluster-upgrade.md)
 #### [Set access control](service-fabric-cluster-security-roles.md)
 #### [Configure](service-fabric-cluster-fabric-settings.md)
+#### [Open a port in the load balancer](create-load-balancer-rule.md)
 #### [Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md)
 #### [Delete](service-fabric-cluster-delete.md)
 
