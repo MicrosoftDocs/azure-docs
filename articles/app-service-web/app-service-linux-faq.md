@@ -77,6 +77,14 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **A:** We mount an SMB share to the `\home\` directory. This will override any content that's there.
 
+**Q:** I'm using my own custom container. I don't want the platform to mount an SMB share to the `\home\`.
+
+**A:** You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to `false`.
+
+**Q:** My custom container takes a long time to start, and the platform restart the container before it finishes starting up.
+
+**A:** You can configure the time the platform will wait before restarting your container. This can be done by setting the `WEBSITES_CONTAINER_START_TIME_LIMIT` app setting to the desired value in seconds. The default is 230 seconds, and the max is 600 seconds.
+
 **Q:** What is the format for private registry server url?
 
 **A:** You need to provide the full registry url including `http://` or `https://`.
