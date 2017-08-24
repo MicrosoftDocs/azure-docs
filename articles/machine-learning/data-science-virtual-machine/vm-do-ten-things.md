@@ -795,7 +795,7 @@ The scored dataset can then be viewed:
 ### Azure SQL Data Warehouse & databases
 Azure SQL Data Warehouse is an elastic data warehouse as a service with enterprise-class SQL Server experience.
 
-You can provision your Azure SQL Data Warehouse by following the instructions provided in this [article](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Once you provision your Azure SQL Data Warehouse, you can use this [walkthrough](sqldw-walkthrough.md) to do data upload, exploration and modeling using data within the SQL Data Warehouse.
+You can provision your Azure SQL Data Warehouse by following the instructions provided in this [article](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Once you provision your Azure SQL Data Warehouse, you can use this [walkthrough](../team-data-science-process/sqldw-walkthrough.md) to do data upload, exploration and modeling using data within the SQL Data Warehouse.
 
 #### Azure Cosmos DB
 Azure Cosmos DB is a NoSQL database in the cloud. It allows you to work with documents like JSON and allows you to store and query the documents.
