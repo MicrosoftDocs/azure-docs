@@ -710,6 +710,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/virtual-machines/disks/">
+                                                <img src="media/index/Disks-color.svg" alt="" />
+                                                <p>Disks</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/storage/files/storage-files-introduction/">
                                                 <img src="media/index/logo_azure-storage-file.svg" alt="" />
                                                 <p>File Storage</p>
@@ -744,13 +750,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
                                                 <p>Site Recovery</p>
                                             </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/virtual-machines/disks/">
-                                                <img src="media/index/Disks-color.svg" alt="" />
-                                                <p>Disks</p>
-                                            </a>
-                                        </li>
+                                        </li>                                        
                                     </ul>
                                     <h3>Data + Analytics</h3>
                                     <ul>
@@ -1496,6 +1496,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/virtual-machines/disks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Disks-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Disks</h3>
+                                                    <p>Simple storage for VMs with Managed Disks</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/storage/files/storage-files-introduction/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1608,26 +1627,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </div>
                                     </div>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="/azure/virtual-machines/disks/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Disks-color.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Disks</h3>
-                                                    <p>Simple storage for VMs with Managed Disks</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
+                            </li>                            
                         </ul>
                     </li>
                     <li>
