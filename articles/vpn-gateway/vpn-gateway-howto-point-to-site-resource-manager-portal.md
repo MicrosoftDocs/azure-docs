@@ -163,6 +163,8 @@ Make sure the client certificate was exported as a .pfx along with the entire ce
 
   ![Connection established](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
+#### Troubleshooting P2S connections
+
 [!INCLUDE [verifies client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
 ## <a name="verify"></a>11. Verify your connection
