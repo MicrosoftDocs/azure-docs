@@ -238,7 +238,7 @@ If you are using a third-party firewall, you can manually open the port 8050. If
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-If you choose not to open the port 8050 on the gateway machine, use mechanisms other than using the **Setting Credentials** application to configure data store credentials. For example, you could use [New-AzureRmDataFactoryEncryptValue](powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell cmdlet. See [security considerations](data-factory-data-movement-security-considerations) for more information.
+If you choose not to open the port 8050 on the gateway machine, use mechanisms other than using the **Setting Credentials** application to configure data store credentials. For example, you could use [New-AzureRmDataFactoryEncryptValue](powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell cmdlet. See [security considerations](data-factory-data-movement-security-considerations.md) for more information.
 
 ## Update
 By default, data management gateway is automatically updated when a newer version of the gateway is available. The gateway is not updated until all the scheduled tasks are done. No further tasks are processed by the gateway until the update operation is completed. If the update fails, gateway is rolled back to the old version.
