@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 08/24/2017
 ms.author: Jenny Jiang
 
 ---

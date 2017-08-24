@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 08/24/2017
 ms.author: nitinme
 
 ---
@@ -127,9 +127,6 @@ When you open the Intellij, the HDInsight Tools auto detects whether you install
    3. The **Spark Submission** tab should start displaying the progress. You can stop the application by clicking the red button in the **Spark Submission** window. You can also view the logs for this specific application run by clicking the globe icon (denoted by the blue box in the image).
       
        ![Spark Submission window](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
-
-## Choose Azure Data Lake Store as Spark Scala application storage
-We also support running a Spark Scala application on a cluster with Azure Data Lake as primary data storage. You just choose an **Azure Data Lake cluster** to submit your application.
 
 ## Access and manage HDInsight Spark clusters by using HDInsight Tools in Azure Toolkit for Eclipse
 You can perform various operations by using HDInsight Tools, including accessing the job output.
