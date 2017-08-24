@@ -1496,7 +1496,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machines/disks/">
+                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1507,7 +1507,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Disks</h3>
-                                                    <p>Simple storage for VMs with Managed Disks</p>
+                                                    <p>Disks storage for VMs</p>
                                                 </div>
                                             </div>
                                         </div>
