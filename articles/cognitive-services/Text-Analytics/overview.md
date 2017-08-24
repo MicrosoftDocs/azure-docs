@@ -1,6 +1,6 @@
 ---
-title: What is Text Analytics API (Azure Cognitive Services) | Microsoft Docs
-description: A Text Analytics API in Azure Cognitive Services for sentiment analysis, key phrase extraction, and language detection.
+title: Text Analytics API  overview (Microsoft Cognitive Services on Azure) | Microsoft Docs
+description: Text Analytics API in Azure Cognitive Services for sentiment analysis, key phrase extraction, and language detection.
 services: cognitive-services
 author: HeidiSteen
 manager: jhubbard
@@ -12,15 +12,17 @@ ms.date: 07/31/2017
 ms.author: heidist
 ---
 
-# Welcome to Text Analytics API in Microsoft Cognitive Services
+# Text Analytics API in Microsoft Cognitive Services
 
-[Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) is a collection of machine learning and AI technologies in the cloud, exposed through APIs so that you can consume state-of-the-art technology in your development projects.
+Welcome to the Text Analytics API, a cloud-based service offering advanced natural language processing for text that you provide. Text Analytics API has three main functions: sentiment analysis, key phrase extraction, and language detection.
 
- Within Cognitive Services, **Text Analytics API** provides capabilities for sentiment analysis, key phrase extraction, and language detection. Our models are pretrained. To run any workload, all you need to do is upload your data for scoring and analysis.
+The API is backed by resources in [Microsoft Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects. 
+
+For text analysis, the models are pretrained using an extensive body of text and natural language technologies from Microsoft. Because the models are pretrained, all you need to do is upload raw text for scoring and analysis, and handle the results.
 
 ## Capabilities in Text Analytics
 
-Text analysis can mean different things, but in Cognitive Services, APIs are exposed for the three types of analysis described in the following table. Each one is backed by natural language processing resources hosted in Azure, including ready-to-use pretrained models for scoring raw text that you upload to the service.
+Text analysis can mean different things, but in Cognitive Services, APIs are exposed for the three types of analysis described in the following table.
 
 | Operations | APIs | Description |
 |-----------|------|-------------|

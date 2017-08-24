@@ -14,7 +14,7 @@ ms.author: heidist
 
 # External & community content for Text Analytics API (Microsoft Cognitive Services on Azure) 
  
- Links in this article lead you to helpful web content developed and produced by partners and professionals familiar with Text Analytics API.
+ Links in this article lead you to helpful web content developed and produced by partners and professionals with experience in using the Text Analytics API.
 
  ## Blogs
 
