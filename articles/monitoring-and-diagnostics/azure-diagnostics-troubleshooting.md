@@ -52,6 +52,34 @@ Here are the paths to some important logs and artifacts. We keep referring to th
 | **Log collection utility path** | C:\WindowsAzure\Packages |
 | **MonAgentHost log file** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
+## Metric data doesn't show in Azure portal
+Azure Diagnostics provides a bunch of metric data, which can be displayed in Azure portal. If you have problems with seeing these data in portal, check the diagnostics storage account -> WADMetrics\* table to see if the corresponding metric records are there. Here, the PartitionKey of the table is the resource ID of virtual machine or virtual machine scale set, and the RowKey is the metric name i.e. performance counter name.
+
+If the resource ID is incorrect, check Diagnostics Configuration -> Metrics -> ResourceId to see if the resource ID is set correctly.
+
+If there's no data for the specific metric, check Diagnostics Configuration -> PerformanceCounter to see if the metric(performance counter) is included. We enable the following counters by default.
+- \Processor(_Total)\% Processor Time
+- \Memory\Available Bytes
+- \ASP.NET Applications(__Total__)\Requests/Sec
+- \ASP.NET Applications(__Total__)\Errors Total/Sec
+- \ASP.NET\Requests Queued
+- \ASP.NET\Requests Rejected
+- \Processor(w3wp)\% Processor Time
+- \Process(w3wp)\Private Bytes
+- \Process(WaIISHost)\% Processor Time
+- \Process(WaIISHost)\Private Bytes
+- \Process(WaWorkerHost)\% Processor Time
+- \Process(WaWorkerHost)\Private Bytes
+- \Memory\Page Faults/sec
+- \.NET CLR Memory(_Global_)\% Time in GC
+- \LogicalDisk(C:)\Disk Write Bytes/sec
+- \LogicalDisk(C:)\Disk Read Bytes/sec
+- \LogicalDisk(D:)\Disk Write Bytes/sec
+- \LogicalDisk(D:)\Disk Read Bytes/sec
+
+If the configuration is set correctly but you still cannot see the metric data, follow the guidelines below for the further investigation.
+
+
 ## Azure Diagnostics is not Starting
 Look at **DiagnosticsPluginLauncher.log** and **DiagnosticsPlugin.log** files from the location of the log files provided above for information on why diagnostics failed to start. 
 
@@ -68,30 +96,30 @@ If you find a **negative** exit code, refer to the [exit code table](#azure-diag
 Determine if no data is showing up or only some of the data is not showing up.
 
 ### Diagnostics Infrastructure Logs
-Diagnostics Infrastructure Logs is where azure diagnostics logs any errors that it runs into. Make sure you have enabled ([how to?](#how-to-check-diagnostics-extension-configuration)) capturing of Diagnsotics Infrastructure logs in your configuration and quickly look for any relevant errors that show up in the `DiagnosticInfrastructureLogsTable` table in your configured storage account.
+Diagnostics Infrastructure Logs is where azure diagnostics logs any errors that it runs into. Make sure you have enabled ([how to?](#how-to-check-diagnostics-extension-configuration)) capturing of Diagnostics Infrastructure logs in your configuration and quickly look for any relevant errors that show up in the `DiagnosticInfrastructureLogsTable` table in your configured storage account.
 
 ### No data is showing up
 The most common cause of event data entirely missing is incorrectly defined storage account information.
 
 Solution: Correct your Diagnostics configuration and reinstall Diagnostics.
 
-If the storage account is configured correctly, remote desktop into the machine and make sure DiagnosticsPlugin.exe and MonAgentCore.exe are running. If they are not running follow [Azure Diagnostics is not Starting](#azure-diagnostics-is-not-starting). If the processes are running, jump to [Is data getting captured locally](#is-data-getting-captured-locally) and follow this guide from there on.
+If the storage account is configured correctly, remote desktop into the machine and make sure DiagnosticsPlugin.exe and MonAgentCore.exe are running. If they are not running, follow [Azure Diagnostics is not Starting](#azure-diagnostics-is-not-starting). If the processes are running, jump to [Is data getting captured locally](#is-data-getting-captured-locally) and follow this guide from there on.
 
 ### Part of the data is missing
-If you are getting some data but not other. This means the data collection / transfer pipeline is set correctly. Follow the sub-sections here to narrow down what the issue is:
+If you are getting some data but not other. This means the data collection / transfer pipeline is set correctly. Follow the subsections here to narrow down what the issue is:
 #### Is Collection Configured: 
 Diagnostics Configuration contains the part that instructs for a particular type of data to be collected. [Review your configuration](#how-to-check-diagnostics-extension-configuration) to make sure you are not looking for data you have not configured for collection.
 #### Is the host generating data:
 - **Performance Counters**: open perfmon and check the counter.
-- **Trace Logs**:  Remote desktop into the VM and add a TextWriterTraceListener to the app’s config file.  See http://msdn.microsoft.com/en-us/library/sk36c28t.aspx to setup the text listener.  Make sure the `<trace>` element has `<trace autoflush="true">`.<br />
+- **Trace Logs**:  Remote desktop into the VM and add a TextWriterTraceListener to the app’s config file.  See http://msdn.microsoft.com/library/sk36c28t.aspx to set up the text listener.  Make sure the `<trace>` element has `<trace autoflush="true">`.<br />
 If you don't see trace logs getting generated, follow [More About Trace Logs Missing](#more-about-trace-logs-missing).
-- **ETW traces**: Remote desktop into the VM and install PerfView.  In PerfView run File -> User Command -> Listen etwprovder1,etwprovider2,etc.  Note that the Listen command is case sensitive and there cannot be spaces between the comma separated list of ETW providers.  If the command fails to run you can click the 'Log' button in the bottom-right of the Perfview tool to see what was attempted to run and what the result was.  Assuming the input is correct then a new window will pop up and in a few seconds you will begin seeing ETW traces.
+- **ETW traces**: Remote desktop into the VM and install PerfView.  In PerfView run File -> User Command -> Listen etwprovder1, etwprovider2, etc.  Note that the Listen command is case-sensitive and there cannot be spaces between the comma-separated list of ETW providers.  If the command fails to run, you can click the 'Log' button in the bottom-right of the Perfview tool to see what was attempted to run and what the result was.  Assuming the input is correct then a new window will pop up and in a few seconds you will begin seeing ETW traces.
 - **Event Logs**: Remote desktop into the VM. Open `Event Viewer` and ensure the events exist.
 #### Is data getting captured locally:
 Next make sure the data is getting captured locally.
 The data is locally stored in `*.tsf` files in [the local store for diagnostics data](#log-artifacts-path). Different kinds of logs get collected in different `.tsf` files. The names are similar to the table names in azure storage. For example `Performance Counters` get collected in `PerformanceCountersTable.tsf`, Event Logs get collected in `WindowsEventLogsTable.tsf`. Use the instructions in [Local Log Extraction](#local-log-extraction) section to open the local collection files and make sure you see them getting collected on disk.
 
-If you don't see logs getting collected locally and are have already verified that the host is generating data, you likely have a configuration issue. Review your configuration carefully for the appropriate section. Also review the configuration generated for MonitoringAgent [MaConfig.xml](#log-artifacts-path) and make sure there is some section describing the relevant log source and that it is not lost in translation between azure diagnostics configuration and monitoring agent configuration.
+If you don't see logs getting collected locally and have already verified that the host is generating data, you likely have a configuration issue. Review your configuration carefully for the appropriate section. Also review the configuration generated for MonitoringAgent [MaConfig.xml](#log-artifacts-path) and make sure there is some section describing the relevant log source and that it is not lost in translation between azure diagnostics configuration and monitoring agent configuration.
 #### Is data getting transferred:
 If you have verified the data is getting captured locally but you still don't see it in your storage account: 
 - First and foremost, make sure that you have provided a correct storage account and that you have not rolled over keys etc.for the given storage account. For cloud services, sometimes we see that people don't update their `useDevelopmentStorage=true`.
@@ -99,7 +127,7 @@ If you have verified the data is getting captured locally but you still don't se
 - Finally, you can try and see what failure are being reported by Monitoring Agent. Monitoring agent writes its logs in `maeventtable.tsf` located in [the local store for diagnostics data](#log-artifacts-path). Follow instructions in [Local Log Extraction](#local-log-extraction) section to open this file and try and figure out if there are `errors` indicating failures to read local files or write to storage.
 
 ### Capturing / Archiving logs
-You went through the above steps but could not figure out what was wrong and are thinking about contacting support. The first thing they might ask you is to collect logs from you machine. You can save time by doing that yourself. Run the `CollectGuestLogs.exe` utility at  [Log Collection Utility path](#log-artifacts-path) and it will generate a zip file with all relevant azure logs in the same folder.
+You went through the above steps but could not figure out what was wrong and are thinking about contacting support. The first thing they might ask you is to collect logs from your machine. You can save time by doing that yourself. Run the `CollectGuestLogs.exe` utility at  [Log Collection Utility path](#log-artifacts-path) and it generates a zip file with all relevant azure logs in the same folder.
 
 ## Diagnostics data Tables not found
 The tables in Azure storage holding ETW events are named using the following code:
@@ -118,13 +146,13 @@ The tables in Azure storage holding ETW events are named using the following cod
 Here is an example:
 
 ```XML
-        <EtwEventSourceProviderConfiguration provider=”prov1”>
-          <Event id=”1” />
-          <Event id=”2” eventDestination=”dest1” />
+        <EtwEventSourceProviderConfiguration provider="prov1">
+          <Event id="1" />
+          <Event id="2" eventDestination="dest1" />
           <DefaultEvents />
         </EtwEventSourceProviderConfiguration>
-        <EtwEventSourceProviderConfiguration provider=”prov2”>
-          <DefaultEvents eventDestination=”dest2” />
+        <EtwEventSourceProviderConfiguration provider="prov2">
+          <DefaultEvents eventDestination="dest2" />
         </EtwEventSourceProviderConfiguration>
 ```
 ```JSON
@@ -201,14 +229,14 @@ The plugin returns the following exit codes:
 | -112 |General error |
 
 ### Local Log Extraction
-The mointoring agent collects logs and artifacts as `.tsf` files. `.tsf` file is not readable but you can convert it into a `.csv` as follows: 
+The monitoring agent collects logs and artifacts as `.tsf` files. `.tsf` file is not readable but you can convert it into a `.csv` as follows: 
 
 ```
 <Azure diagnostics extension package>\Monitor\x64\table2csv.exe <relevantLogFile>.tsf
 ```
 A new file called `<relevantLogFile>.csv` will be created in the same path as the corresponding `.tsf` file.
 
-**NOTE**: You only need to run this utility against the main tsf file (e.g., PerformanceCountersTable.tsf). Tha accompanying files (e.g., PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002.tsf etc.) will automatically be processed.
+**NOTE**: You only need to run this utility against the main tsf file (e.g., PerformanceCountersTable.tsf). The accompanying files (e.g., PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002.tsf etc.) will automatically be processed.
 
 ### More About Trace Logs Missing
 
@@ -236,7 +264,7 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 **2. Performance Counters data available in storage but not showing in portal**
 
 Virtual machines portal experience shows certain performance counters by default. If you don't see them and you know the data is getting generated because it is available in storage. Check:
-- If the data in storage has english counter names. If the counter names are not in english, portal metric chart will not be able to recognize it.
+- If the data in storage has counter names in English. If the counter names are not in English, portal metric chart will not be able to recognize it.
 - If you are using wild cards (\*) in your performance counter names, the portal will not be able to correlate the configured and collected counter.
 
-**Mitigation**: Change the machine's language to english for system accounts. Control Panel -> Region -> Administrative -> Copy Settings -> uncheck "Welcome screen and system accounts" so that the custom language is not applied to system account. Also make sure you do not use wild cards if you want portal to be your primary consumption experience.
+**Mitigation**: Change the machine's language to English for system accounts. Control Panel -> Region -> Administrative -> Copy Settings -> uncheck "Welcome screen and system accounts" so that the custom language is not applied to system account. Also make sure you do not use wild cards if you want portal to be your primary consumption experience.
