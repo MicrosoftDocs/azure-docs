@@ -10083,6 +10083,21 @@
             "source_path": "articles/active-directory/active-directory-users-delete-user-azure-portal.md",
             "redirect_url": "/azure/active-directory/add-users-azure-active-directory",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-windows10-devices.md",
+            "redirect_url": "/azure/active-directory/device-management-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-overview.md",
+            "redirect_url": "/azure/active-directory/device-management-introduction",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-windows10-devices-overview.md",
+            "redirect_url": "/azure/active-directory/device-management-introduction",
+            "redirect_document_id": false
+        }        
     ]
 }
