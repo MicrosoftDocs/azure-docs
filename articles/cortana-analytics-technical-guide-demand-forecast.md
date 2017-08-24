@@ -168,7 +168,7 @@ queries, the
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts have implicit knowledge about the incoming data format, these
 queries would need to be altered based on your data format and [feature
-engineering](../machine-learning/team-data-science-process/create-features.md)
+engineering](machine-learning/team-data-science-process/create-features.md)
 requirements.
 
 #### *AggregateDemandDataTo1HrPipeline*
