@@ -22,7 +22,7 @@ For Enterprise customers with Windows 10 Enterprise E3/E5 per user or Windows VD
 
 
 ## Deploying Windows 10 Image from Azure Marketplace 
-For Powershell, CLI and ARM template deployments, the Windows 10 image can be found with the following publishername, offer, sku.
+For Powershell, CLI and Azure Resource Manager template deployments, the Windows 10 image can be found with the following publishername, offer, sku.
 
 | OS  |      PublisherName      |  Offer | Sku |
 |:----------|:-------------:|:------|:------|
@@ -30,7 +30,7 @@ For Powershell, CLI and ARM template deployments, the Windows 10 image can be fo
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
 
 ## Uploading Windows 10 VHD to Azure
-Windows 10 does not have built-in administrator account enabled by default, if you are uploading a generalized Windows 10 VHD, please ensure to include the following command as part of the Custom Script extension or include it as part of %WINDIR%\OEM\SetupComplete2.cmd
+if you are uploading a generalized Windows 10 VHD, please note Windows 10 does not have built-in administrator account enabled by default. To enable the built-in administrator account, include the following command as part of the Custom Script extension.
 
 ```powershell
 Net user <username> /active:yes
@@ -59,7 +59,7 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 ```
 
 
-**Deploy using ARM Template Deployment**
+**Deploy using Azure Resource Manager Template Deployment**
 Within your Resource Manager templates, an additional parameter for `licenseType` can be specified. You can read more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md). Once you have your VHD uploaded to Azure, edit you Resource Manager template to include the license type as part of the compute provider and deploy your template as normal:
 ```json
 "properties": {  
@@ -99,7 +99,7 @@ LicenseType              :
 
 ## Additional Information about joining Azure AD
 >[!NOTE]
->Azure provisions all Windows VMs with built-in administrator account which cannot be used to join AAD. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD.
+>Azure provisions all Windows VMs with built-in administrator account, which cannot be used to join AAD. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD.
 >
 >
 
