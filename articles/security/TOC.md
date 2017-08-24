@@ -8,6 +8,7 @@
 ## [Service Fabric security](azure-service-fabric-security-overview.md)
 ## [Identity management](security-identity-management-overview.md)
 ## [IoT security](../iot-suite/iot-security-architecture.md#security-in-iot)
+## [Azure encryption overview](security-azure-encryption-overview.md)
 ## [Security architecture](azure-security-architecture-overview.md)
 ### [Enabling operational security](azure-operational-security.md)
 ### [Advanced threat detection](azure-threat-detection.md)
@@ -30,7 +31,7 @@
 
 ## Storage security
 ### [Data security and encryption best practices](azure-security-data-encryption-best-practices.md)
-### [Storage security guide](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [Storage security guide](../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Compute security
 ### [Best practices for Azure VMs](azure-security-best-practices-vms.md)
@@ -63,11 +64,12 @@
 
 ## PaaS services
 ### [Securing PaaS deployments](security-paas-deployments.md)
-#### [Securing PaaS web and mobile applications using SQL](security-paas-applications-using-sql.md)
-#### [SQL Database security best practices](azure-database-security-best-practices.md)
-#### [SQL Database security checklist](azure-database-security-checklist.md)
 #### [Securing PaaS web and mobile applications using App Services](security-paas-applications-using-app-services.md)
+#### [Securing PaaS web and mobile applications using SQL](security-paas-applications-using-sql.md)
+##### [SQL Database security best practices](azure-database-security-best-practices.md)
+##### [SQL Database security checklist](azure-database-security-checklist.md)
 ####[Operational security checklist](azure-operational-security-checklist.md)
+#### [Securing PaaS web and mobile applications using Azure Storage](security-paas-applications-using-storage.md)
 
 ## Internet of Things
 ### [Secure your IoT deployment](../iot-suite/iot-suite-security-deployment.md)
