@@ -19,16 +19,16 @@ ms.author: devtiw
 ---
 # Azure Disk Encryption FAQ
 
-This FAQ answers questions about Azure Disk Encryption for Windows and Linux IaaS VMs. For more information about this service, see [Azure Disk Encryption for Windows and Linux IaaS VMs](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
+This frequently asked questions (FAQ) answers questions about Azure Disk Encryption for Windows and Linux IaaS VMs. For more information about this service, see [Azure Disk Encryption for Windows and Linux IaaS VMs](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
 
 ## General questions
-**Q.** Where is Azure Disk Encryption in general availability (GA)?
+**Q:** Where is Azure Disk Encryption in general availability (GA)?
 
 **A:** Azure Disk Encryption for Windows and Linux IaaS VMs is in general availability in all Azure public regions.
 
-**Q:** What user experiences are available with the Azure Disk Encryption solution?
+**Q:** What user experiences are available with Azure Disk Encryption?
 
-**A:** Azure Disk Encryption GA supports Azure Resource Manager templates, Azure PowerShell, and Azure CLI. This gives you a lot of flexibility. You have three different options for enabling disk encryption for your IaaS VMs. For more information on the user experience and step-by-step guidance available in the Azure Disk Encryption solution, see Azure Disk Encryption deployment scenarios and experiences.
+**A:** Azure Disk Encryption GA supports Azure Resource Manager templates, Azure PowerShell, and Azure CLI. This gives you a lot of flexibility. You have three different options for enabling disk encryption for your IaaS VMs. For more information on the user experience and step-by-step guidance available in Azure Disk Encryption, see Azure Disk Encryption deployment scenarios and experiences.
 
 **Q:** How much does Azure Disk Encryption cost?
 
@@ -67,7 +67,7 @@ This FAQ answers questions about Azure Disk Encryption for Windows and Linux Iaa
 
 **Q:** How can I start using Azure Disk Encryption?
 
-**A:** To get started, read the [Azure Disk Encryption for Windows and Linux IaaS VMs](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) whitepaper.
+**A:** To get started, read the [Azure Disk Encryption for Windows and Linux IaaS VMs](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) white paper.
 
 **Q:** Can I encrypt both boot and data volumes with Azure Disk Encryption?
 
@@ -75,25 +75,25 @@ This FAQ answers questions about Azure Disk Encryption for Windows and Linux Iaa
 
 **Q:** Does Azure Disk Encryption allow you to bring your own key (BYOK) capability?
 
-**A:** Yes, you can supply your own key encryption keys. These keys are safeguarded in Azure Key Vault, which is the key store for the Azure Disk Encryption solution. For more information on the key encryption keys support scenarios, see Azure Disk Encryption deployment scenarios and experiences.
+**A:** Yes, you can supply your own key encryption keys. These keys are safeguarded in Azure Key Vault, which is the key store for Azure Disk Encryption. For more information on the key encryption keys support scenarios, see Azure Disk Encryption deployment scenarios and experiences.
 
 **Q:** Can I use an Azure-created key encryption key?
 
 **A:** Yes, you can use Azure Key Vault to generate a key encryption key for Azure disk encryption use. These keys are safeguarded in Azure Key Vault, which is the key store for Azure Disk Encryption. For more information on the key encryption key support scenarios, see Azure Disk Encryption deployment scenarios and experiences.
 
-**Q:** Can I use an on-premises key management service or HSM-protected key to safeguard the encryption keys?
+**Q:** Can I use an on-premises key management service or HSM to safeguard the encryption keys?
 
-**A:** You cannot use the on-premises key management service or HSM-protected key to safeguard the encryption keys with the Azure Disk Encryption service. You can only use the Azure Key Vault service to safeguard the encryption keys. For more information on the key encryption key support scenarios, see Azure Disk Encryption deployment scenarios and experiences.
+**A:** You cannot use the on-premises key management service or HSM to safeguard the encryption keys with Azure Disk Encryption. You can only use the Azure Key Vault service to safeguard the encryption keys. For more information on the key encryption key support scenarios, see Azure Disk Encryption deployment scenarios and experiences.
 
 **Q:** What are the prerequisites to configure Azure Disk Encryption?
 
-**A:**There is a prerequisite PowerShell script that allows you to create an Azure Active Directory application, create a new key vault, or to set up an existing key vault for disk encryption access to enable encryption and safeguard secrets and keys. For more information on the key encryption key support scenarios, see Azure Disk Encryption prerequisites and deployment scenarios and experiences.
+**A:** There is a prerequisite PowerShell script. With this script you can create an Azure Active Directory application, create a new key vault, or set up an existing key vault for disk encryption access to enable encryption and safeguard secrets and keys. For more information on the key encryption key support scenarios, see Azure Disk Encryption prerequisites and deployment scenarios and experiences.
 
 **Q:** Where can I get more information on how to use PowerShell for configuring Azure Disk Encryption?
 
-**A:** We have some great articles on how you can perform basic Azure Disk Encryption tasks, as well as more advanced scenarios. For the basic tasks, see [Explore Azure Disk Encryption with Azure PowerShell - Part 1](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/explore-azure-disk-encryption-with-azure-powershell/). For more advanced scenarios, see [Explore Azure Disk Encryption with Azure PowerShell – Part 2](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2/).
+**A:** We have some great articles on how you can perform basic Azure Disk Encryption tasks, as well as more advanced scenarios. For the basic tasks, see [Explore Azure Disk Encryption with Azure PowerShell – Part 1](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/explore-azure-disk-encryption-with-azure-powershell/). For more advanced scenarios, see [Explore Azure Disk Encryption with Azure PowerShell – Part 2](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2/).
 
-**Q:** What version of Azure PowerShell is supported by Azure Disk Encryption?
+**Q:** What version of Azure PowerShell does Azure Disk Encryption support?
 
 **A:** Use the latest version of the Azure PowerShell SDK to configure Azure Disk Encryption. Download the latest version of [Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Azure Disk Encryption is *not* supported by Azure SDK version 1.1.0.
 
@@ -102,7 +102,7 @@ This FAQ answers questions about Azure Disk Encryption for Windows and Linux Iaa
 
 **Q:** Can I apply Azure disk encryption on my custom Linux image?
 
-**A:** You cannot apply the Azure Disk Encryption solution on your custom Linux image. We only support the gallery Linux images for the supported distributions called out previously. We do not currently support custom Linux images.
+**A:** You cannot apply Azure Disk Encryption on your custom Linux image. We support only the gallery Linux images for the supported distributions called out previously. We do not currently support custom Linux images.
 
 **Q:** Can I apply updates to a Linux Red Hat VM that uses the yum update?
 
