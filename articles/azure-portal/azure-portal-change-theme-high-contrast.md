@@ -17,18 +17,18 @@ manager:  timlt
 If you need more contrast or you want to change the color scheme in the Azure portal, go to the portal settings to make the change. 
 
 ## Turn on high contrast
-1. On the top right of the [Azure portal](https://portal.azure.com), select Settings. 
+1. On the top right of the [Azure portal](https://portal.azure.com), select **Settings**. 
 ![Screenshot that shows the portal settings gear icon in the Azure portal](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
-1. Choose white or black.
+1. Choose **White** or **Black**.
 ![Screenshot that shows high contrast options in the Azure portal settings](./media/azure-portal-change-theme-high-contrast/azure-portal-highcontrast-options.png)
-1. Select apply.
+1. Select **Apply**.
 
 ## Change theme
-1. In the [Azure portal](https://portal.azure.com), select Settings.
+1. In the [Azure portal](https://portal.azure.com), select **Settings**.
 ![Screenshot that shows the portal settings gear icon in the Azure portal](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
 2. Choose a theme.
 ![Screenshot that shows the theme options in the Azure portal settings](./media/azure-portal-change-theme-high-contrast/azure-portal-theme-options.png)
-3. Select apply.
+3. Select **Apply**.
 
 ## Next steps
 - [Keyboard shortcuts in Azure portal](azure-portal-keyboard-shortcuts.md)
