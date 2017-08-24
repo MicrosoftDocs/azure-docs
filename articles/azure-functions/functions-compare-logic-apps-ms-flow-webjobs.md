@@ -11,11 +11,11 @@ keywords: microsoft flow, flow, logic apps, azure functions, functions, azure we
 ms.assetid: e9ccf7ad-efc4-41af-b9d3-584957b1515d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/03/2017
-ms.author: chrande; glenga
+ms.author: glenga
 ms.custom: mvc
 ---
 # Choose between Flow, Logic Apps, Functions, and WebJobs
