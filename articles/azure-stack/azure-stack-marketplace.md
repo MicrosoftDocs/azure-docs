@@ -1,6 +1,6 @@
 ---
-title: Publish a custom marketplace item in Azure Stack (service administrator) | Microsoft Docs
-description: As a service administrator, learn how to publish a custom marketplace item in Azure Stack.
+title: Publish a custom marketplace item in Azure Stack (cloud operator) | Microsoft Docs
+description: As a cloud operator, learn how to publish a custom marketplace item in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: ErikjeMS
@@ -17,16 +17,18 @@ ms.date: 08/21/2017
 ms.author: erikje
 
 ---
-# The Azure Stack Marketplace
-The Marketplace is a collection of items customized for Azure Stack, like services, applications, and resources. It's the place where tenants come to create new resources and deploy new applications. Service administrators can add custom items to the Marketplace and tenants will see them right away.
+# The Azure Stack Marketplace overview
+The Marketplace is a collection of services, applications, and resources customized for Azure Stack, like networks, virtual machines, storage, Docker extensions, phpBB, and so on. Users come here to create new resources and deploy new applications. Think of it as a shopping catalog where users can browse and choose the items they want to use.
+
+As a cloud operator, you decide which items to publish to your Azure Stack Marketplace. This makes the item visible to all your users. Only those users subscribed to appropriate offers can use any specific Marketplace item. You can add custom items that you create and download items from a growing [list of Azure Marketplace items](azure-stack-marketplace-azure-items.md). When you add an item to the Marektplace, users can see it within five minutes.
 
 To open the Marketplace, click **New**.
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 
-The Marketplace is updated every five minutes.
-
 ## Marketplace items
+An Azure Stack Marketplace item is a service, application, or resource that your users can download and use. All Azure Stack Marketplace items are visible to all your users.
+
 Every Marketplace item has:
 
 * An Azure Resource Manager template for resource provisioning
