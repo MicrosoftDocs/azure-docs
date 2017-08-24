@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/07/2017
+ms.date: 08/24/2017
 ms.author: denlee
 
 ---
@@ -22,7 +22,7 @@ ms.author: denlee
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart creates a graph database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using a graph database using the OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) driver. The instructions in this quickstart can be followed on any operating system that is capable of running Java. By completing this quickstart you'll be familiar with creating and modifying graph resources in either the UI or programmatically, whichever is your preference. 
+This quickstart creates a graph database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using a graph database using the OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) driver. The instructions in this quickstart can be followed on any operating system that is capable of running Java. This quickstart familiarizes you with creating and modifying graph resources in either the UI or programmatically, whichever is your preference. 
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ Before you can create a graph database, you need to create a Gremlin (Graph) dat
 You can now use the Data Explorer tool in the Azure portal to create a graph database. 
 
 1. In the Azure portal, in the left navigation menu, click **Data Explorer (Preview)**. 
-2. In the **Data Explorer (Preview)** blade, click **New Graph**, then fill in the page using the following information.
+2. In the **Data Explorer (Preview)** blade, click **New Graph**, then fill in the page using the following information:
 
     ![Data Explorer in the Azure portal](./media/create-graph-java/azure-cosmosdb-data-explorer.png)
 
