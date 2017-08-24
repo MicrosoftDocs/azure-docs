@@ -44,7 +44,6 @@
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
 #### [PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
 ### [Add users from other directories (classic portal)](active-directory-create-users-external.md)
-### [Delete users](active-directory-users-delete-user-azure-portal.md)
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Reset a password](active-directory-users-reset-password-azure-portal.md)
 ### [Manage user work information](active-directory-users-work-info-azure-portal.md)
