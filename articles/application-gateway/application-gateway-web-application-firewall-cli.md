@@ -34,7 +34,7 @@ The WAF in Azure Application Gateway protects web applications from common web-b
  * Cookie-based session affinity 
  * Secure Sockets Layer (SSL) offload 
  * Custom health probes 
- * Support for multi-site 
+ * Support for multisite functionality
  
  To find a complete list of supported features, see [Overview of Application Gateway](application-gateway-introduction.md).
 
@@ -48,12 +48,12 @@ To perform the steps in this article, you need to [install the Azure command-lin
 
 ## WAF configuration differences
 
-If you've read [Create an application gateway with Azure CLI](application-gateway-create-gateway-cli.md), you understand the SKU settings to configure when you create an application gateway. WAF provides additional settings to define when you configure the SKU on an application gateway. There are no additional changes that you make on the application gateway itself.
+If you've read [Create an application gateway with Azure CLI](application-gateway-create-gateway-cli.md), you understand the SKU settings to configure when you create an application gateway. The WAF provides additional settings to define when you configure the SKU on an application gateway. There are no additional changes that you make on the application gateway itself.
 
 | **Setting** | **Details**
 |---|---|
-|**SKU** |A normal application gateway without WAF supports **Standard\_Small**, **Standard\_Medium**, and **Standard\_Large** sizes. With the introduction of WAF, there are two additional SKUs, **WAF\_Medium** and **WAF\_Large**. WAF is not supported on small application gateways.|
-|**Mode** | This setting is the mode of WAF. Allowed values are **Detection** and **Prevention**. When WAF is set up in detection mode, all threats are stored in a log file. In prevention mode, events are still logged, but the attacker receives a 403 unauthorized response from the application gateway.|
+|**SKU** |A normal application gateway without a WAF supports **Standard\_Small**, **Standard\_Medium**, and **Standard\_Large** sizes. With the introduction of a WAF, there are two additional SKUs, **WAF\_Medium** and **WAF\_Large**. A WAF is not supported on small application gateways.|
+|**Mode** | This setting is the mode of the WAF. Allowed values are **Detection** and **Prevention**. When the WAF is set up in **Detection** mode, all threats are stored in a log file. In **Prevention** mode, events are still logged, but the attacker receives a 403 unauthorized response from the application gateway.|
 
 ## Add a web application firewall to an existing application gateway
 
@@ -69,7 +69,7 @@ az network application-gateway waf-config set \
   --resource-group "AdatumAppGatewayRG"
 ```
 
-This command updates the application gateway with a WAF. To understand how to view logs for your application gateway, see [Application gateway diagnostics](application-gateway-diagnostics.md). Due to the security nature of a WAF, review logs regularly to understand the security posture of your web applications.
+This command updates the application gateway with a WAF. To understand how to view logs for your application gateway, see [Application Gateway diagnostics](application-gateway-diagnostics.md). Due to the security nature of a WAF, review logs regularly to understand the security posture of your web applications.
 
 ## Create an application gateway with a web application firewall
 
@@ -106,7 +106,7 @@ az network application-gateway create \
 
 After the gateway is created, the next step is to configure the front end for communication. When you use a public IP, the application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure that users can hit the application gateway, use a CNAME record to point to the public endpoint of the application gateway. For more information, see [Configure a custom domain name for an Azure cloud service](../cloud-services/cloud-services-custom-domain-name-portal.md). 
 
-To configure a CNAME record, retrieve details of the application gateway and its associated IP/DNS name by using the PublicIPAddress element attached to the application gateway. Use the application gateway's DNS name to create a CNAME record, which points the two web applications to this DNS name. We do not recommend using A-records, because the VIP might change when the application gateway restarts.
+To configure a CNAME record, retrieve details of the application gateway and its associated IP/DNS name by using the PublicIPAddress element attached to the application gateway. Use the application gateway's DNS name to create a CNAME record, which points the two web applications to this DNS name. We do not recommend using A records, because the VIP might change when the application gateway restarts.
 
 ```azurecli-interactive
 #!/bin/bash
