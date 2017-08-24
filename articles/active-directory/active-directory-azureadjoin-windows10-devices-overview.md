@@ -4,7 +4,7 @@ description: Overview of deploying Windows 10 devices for enterprises, and how t
 keywords: windows cloud, Windows on Azure Active Directory, Windows 10 devices on Azure, Azure Windows devices
 services: active-directory
 documentationcenter: ''
-author: femila
+author: MarkusVi
 manager: femila
 editor: ''
 tags: azure-classic-portal
