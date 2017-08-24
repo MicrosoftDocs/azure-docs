@@ -28,9 +28,9 @@ For information on other premium cache features, see [Introduction to the Azure 
 Azure Redis Cache offers Redis persistence using the following models:
 
 * **RDB persistence** - When RDB (Redis database) persistence is configured, Azure Redis Cache persists a snapshot of the Redis cache in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot. Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages) and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
-* **AOF persistence** - When AOF (Append only file) persistence is configured, Azure Redis Cache saves every write operation to a log, that is saved at least once per second into an Azure Storage account. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the stored write operations. Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages) and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
+* **AOF persistence** - When AOF (Append only file) persistence is configured, Azure Redis Cache saves every write operation to a log that is saved at least once per second into an Azure Storage account. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the stored write operations. Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages) and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
 
-Persistence can be configured from the **New Redis Cache** blade during cache creation and on the **Resource menu** for existing premium caches.
+Persistence is configured from the **New Redis Cache** blade during cache creation and on the **Resource menu** for existing premium caches.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
@@ -41,8 +41,6 @@ Once a premium pricing tier is selected, click **Redis persistence**.
 The steps in the next section describe how to configure Redis persistence on your new premium cache. Once Redis persistence is configured, click **Create** to create your new premium cache with Redis persistence.
 
 ## Enable Redis persistence
-
-When RDB (Redis database) persistence is configured, Azure Redis Cache persists a snapshot of the Redis cache in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot.
 
 Redis persistence is enabled on the **Redis data persistence** blade by choosing either **RDB** or **AOF** persistence. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Redis data persistence** blade is accessed from the **Resource menu** for your cache.
 
@@ -74,7 +72,12 @@ To enable AOF persistence, click **AOF**. To disable AOF persistence on a previo
 
 ![Redis AOF persistence][redis-cache-aof-persistence]
 
-To configure AOF persistence, specify a **First Storage Account**. This storage account must be in the same region as the cache. You can optionally configure an additional storage account named **Second Storage Account**. If a second storage account is configured, the writes to the replica cache are written to this second storage account.
+To configure AOF persistence, specify a **First Storage Account**. This storage account must be in the same region as the cache. You can optionally configure an additional storage account named **Second Storage Account**. If a second storage account is configured, the writes to the replica cache are written to this second storage account. For each configured storage account, choose either the **Primary key** or **Secondary key** to use from the **Storage Key** drop-down. You must choose a storage account in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput. 
+
+> [!IMPORTANT]
+> If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down.
+> 
+> 
 
 When AOF persistence is enabled, write operations to the cache are saved to the designated storage account (or accounts if you have configured a second storage account). In the event of a catastrophic failure that takes down both the primary and replica cache, the stored AOF log is used to rebuild the cache.
 
@@ -84,12 +87,13 @@ The following list contains answers to commonly asked questions about Azure Redi
 * [Can I enable persistence on a previously created cache?](#can-i-enable-persistence-on-a-previously-created-cache)
 * [Can I enable AOF and RDB persistence at the same time?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
 * [Which persistence model should I choose?](#which-persistence-model-should-i-choose)
+* [What happens if I have scaled to a different size and a backup is restored that was made before the scaling operation?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+
 
 ### RDB persistence
 * [Can I change the RDB backup frequency after I create the cache?](#can-i-change-the-rdb-backup-frequency-after-i-create-the-cache)
 * [Why if I have an RDB backup frequency of 60 minutes there is more than 60 minutes between backups?](#why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups)
 * [What happens to the old RDB backups when a new backup is made?](#what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made)
-* [What happens if I have scaled to a different size and a backup is restored that was made before the scaling operation?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 
 ### AOF persistence
 * [When should I use a second storage account?](#when-should-i-use-a-second-storage-account)
@@ -109,12 +113,20 @@ No, you can enable only RDB or AOF, but not both at the same time.
 
 ### Which persistence model should I choose?
 
-AOF persistence saves every write to a log, which has some impact on throughput, compared with RDB persistence which saves backups based on the configured backup interval and still maintains optimal throughput for the cache. Choose AOF persistence if your primary goal is to minimize data loss, and you can handle a decrease in throughput o your cache. Choose RDB persistence if you wish to maintain optimal throughput on your cache, but still want a mechanism for data recovery.
+AOF persistence saves every write to a log, which has some impact on throughput, compared with RDB persistence which saves backups based on the configured backup interval and still maintains optimal throughput for the cache. Choose AOF persistence if your primary goal is to minimize data loss, and you can handle a decrease in throughput for your cache. Choose RDB persistence if you wish to maintain optimal throughput on your cache, but still want a mechanism for data recovery.
 
 * Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages) and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
 * Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages) and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
 
-For more information on performance when using AOF persistence, see [Does AOF persistence affect throughout, latency, or performance of my cache?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache).
+For more information on performance when using AOF persistence, see [Does AOF persistence affect throughout, latency, or performance of my cache?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)
+
+### What happens if I have scaled to a different size and a backup is restored that was made before the scaling operation?
+
+For both RBD and AOF persistence:
+
+* If you have scaled to a larger size, there is no impact.
+* If you have scaled to a smaller size, and you have a custom [databases](cache-configure.md#databases) setting that is greater than the [databases limit](cache-configure.md#databases) for your new size, data in those databases isn't restored. For more information, see [Is my custom databases setting affected during scaling?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
+* If you have scaled to a smaller size, and there isn't enough room in the smaller size to hold all of the data from the last backup, keys will be evicted during the restore process, typically using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy.
 
 ### Can I change the RDB backup frequency after I create the cache?
 Yes, you can change the backup frequency for RDB persistence on the **Redis data persistence** blade. For instructions, see [Configure Redis persistence](#configure-redis-persistence).
@@ -125,11 +137,6 @@ The RDB persistence backup frequency interval does not start until the previous 
 ### What happens to the old RDB backups when a new backup is made?
 All RDB persistence backups except for the most recent one are automatically deleted. This deletion may not happen immediately but older backups are not persisted indefinitely.
 
-### What happens if I have scaled to a different size and a backup is restored that was made before the scaling operation?
-* If you have scaled to a larger size, there is no impact.
-* If you have scaled to a smaller size, and you have a custom [databases](cache-configure.md#databases) setting that is greater than the [databases limit](cache-configure.md#databases) for your new size, data in those databases isn't restored. For more information, see [Is my custom databases setting affected during scaling?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
-* If you have scaled to a smaller size, and there isn't enough room in the smaller size to hold all of the data from the last backup, keys will be evicted during the restore process, typically using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy.
-
 
 ### When should I use a second storage account?
 
@@ -137,7 +144,7 @@ You should use a second storage account when you believe you have higher than ex
 
 ### Does AOF persistence affect throughout, latency, or performance of my cache?
 
-AOF persistence affects throughput by about 15% – 20% when the cache is under maximum load (CPU and Server Load both under 90%). There should not be latency issues when the cache is within these limits. However, the cache will reach these limits faster with AOF enabled.
+AOF persistence affects throughput by about 15% – 20% when the cache is under maximum load (CPU and Server Load both under 90%). There should not be latency issues when the cache is within these limits. However, the cache will reach these limits sooner with AOF enabled.
 
 ### How can I remove the second storage account?
 
@@ -145,24 +152,26 @@ You can remove the secondary storage account by setting the second storage accou
 
 ### What is a rewrite and how does it affect my cache?
 
-When the AOF file becomes large enough, a rewrite is automatically queued on the cache. The rewrite resizes the AOF file with the minimal set of operations needed to create the current data set. During rewrites, expect to reach performance limits easier especially when dealing with large datasets. Rewrites occur less often as the AOF file becomes larger, but will take a significant amount of time when it happens.
+When the AOF file becomes large enough, a rewrite is automatically queued on the cache. The rewrite resizes the AOF file with the minimal set of operations needed to create the current data set. During rewrites, expect to reach performance limits sooner especially when dealing with large datasets. Rewrites occur less often as the AOF file becomes larger, but will take a significant amount of time when it happens.
 
 ### What should I expect when scaling a cache with AOF enabled?
 
 If the AOF file at the time of scaling is significantly large, then expect the scale operation to take longer than expected since it will be reloading the file after scaling has finished.
 
+For more information on scaling, see [What happens if I have scaled to a different size and a backup is restored that was made before the scaling operation?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+
 ### How is my AOF data organized in storage?
 
-Data stored in AOF files is divided into multiple page blobs per node to increase performance of saving the data to storage.Refer to the table below to see how many page blobs are expected for your size of cache:
+Data stored in AOF files is divided into multiple page blobs per node to increase performance of saving the data to storage. The following table displays how many page blobs are used for each pricing tier:
 
 | Premium tier | Blobs |
 |--------------|-------|
-| P1           | 4     |
-| P2           | 8     |
-| P3           | 16    |
-| P4           | 20    |
+| P1           | 4 per shard    |
+| P2           | 8 per shard    |
+| P3           | 16 per shard   |
+| P4           | 20 per shard   |
 
-When clustering is enabled, each shard in the cache has its own set of page blobs indicated in the previous table. For example, a P2 cache with three shards distributes its AOF file across 24 page blobs (8 blobs per shard, with 3 shards).
+When clustering is enabled, each shard in the cache has its own set of page blobs, as indicated in the previous table. For example, a P2 cache with three shards distributes its AOF file across 24 page blobs (8 blobs per shard, with 3 shards).
 
 After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the background and append to the first set of files, while set operations that are sent to the cache during the rewrite append to the second set. A backup is temporarily stored during rewrites in case of failure, but is promptly deleted after a rewrite finishes.
 
