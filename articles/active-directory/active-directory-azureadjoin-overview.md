@@ -3,7 +3,7 @@ title: Extending cloud capabilities to Windows 10 devices through Azure Active D
 description: Provides a detailed overview of how Windows 10 devices can utilize Azure AD Join to get registered on Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: femila
+author: MarkusVi
 manager: femila
 editor: ''
 tags: azure-classic-portal
