@@ -18,7 +18,9 @@
 # Samples
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
-## [Azure CLI](samples-cli.md)
+## [Service Fabric CLI](samples-cli.md)
+### [Deploy sample](scripts/cli-deploy-application.md)
+### [Remove sample](scripts/cli-remove-application.md)
 # Concepts
 ## [Understand microservices](service-fabric-overview-microservices.md)
 ## [Big picture](service-fabric-content-roadmap.md)
@@ -221,7 +223,7 @@
 ### Deploy or remove applications
 #### [Deploy applications on a local cluster](service-fabric-get-started-with-a-local-cluster.md)
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
-#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
+#### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -256,6 +258,7 @@
 #### [Upgrade](service-fabric-cluster-upgrade.md)
 #### [Set access control](service-fabric-cluster-security-roles.md)
 #### [Configure](service-fabric-cluster-fabric-settings.md)
+#### [Open a port in the load balancer](create-load-balancer-rule.md)
 #### [Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md)
 #### [Delete](service-fabric-cluster-delete.md)
 
@@ -275,8 +278,7 @@
 ### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 
-### [Manage a cluster using XPlat CLI](service-fabric-azure-cli.md)
-### [Manage a cluster using Azure CLI 2.0 commands](service-fabric-azure-cli-2-0.md)
+### [Manage a cluster using Service Fabric CLI](service-fabric-cli.md)
 ### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
 ### Manage and orchestrate cluster resources
