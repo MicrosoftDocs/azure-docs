@@ -72,7 +72,7 @@ To enable AOF persistence, click **AOF**. To disable AOF persistence on a previo
 
 ![Redis AOF persistence][redis-cache-aof-persistence]
 
-To configure AOF persistence, specify a **First Storage Account**. This storage account must be in the same region as the cache. You can optionally configure an additional storage account named **Second Storage Account**. If a second storage account is configured, the writes to the replica cache are written to this second storage account. For each configured storage account, choose either the **Primary key** or **Secondary key** to use from the **Storage Key** drop-down. You must choose a storage account in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput. 
+To configure AOF persistence, specify a **First Storage Account**. This storage account must be in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput. You can optionally configure an additional storage account named **Second Storage Account**. If a second storage account is configured, the writes to the replica cache are written to this second storage account. For each configured storage account, choose either the **Primary key** or **Secondary key** to use from the **Storage Key** drop-down. 
 
 > [!IMPORTANT]
 > If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down.
@@ -113,7 +113,7 @@ No, you can enable only RDB or AOF, but not both at the same time.
 
 ### Which persistence model should I choose?
 
-AOF persistence saves every write to a log, which has some impact on throughput, compared with RDB persistence which saves backups based on the configured backup interval and still maintains optimal throughput for the cache. Choose AOF persistence if your primary goal is to minimize data loss, and you can handle a decrease in throughput for your cache. Choose RDB persistence if you wish to maintain optimal throughput on your cache, but still want a mechanism for data recovery.
+AOF persistence saves every write to a log, which has some impact on throughput, compared with RDB persistence which saves backups based on the configured backup interval, with minimal impact on performance. Choose AOF persistence if your primary goal is to minimize data loss, and you can handle a decrease in throughput for your cache. Choose RDB persistence if you wish to maintain optimal throughput on your cache, but still want a mechanism for data recovery.
 
 * Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages) and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
 * Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages) and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
@@ -122,7 +122,7 @@ For more information on performance when using AOF persistence, see [Does AOF pe
 
 ### What happens if I have scaled to a different size and a backup is restored that was made before the scaling operation?
 
-For both RBD and AOF persistence:
+For both RDB and AOF persistence:
 
 * If you have scaled to a larger size, there is no impact.
 * If you have scaled to a smaller size, and you have a custom [databases](cache-configure.md#databases) setting that is greater than the [databases limit](cache-configure.md#databases) for your new size, data in those databases isn't restored. For more information, see [Is my custom databases setting affected during scaling?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
@@ -140,7 +140,7 @@ All RDB persistence backups except for the most recent one are automatically del
 
 ### When should I use a second storage account?
 
-You should use a second storage account when you believe you have higher than expected set operations on the cache.  Setting up the secondary storage account helps ensure your cache doesn't reach storage bandwidth limits.
+You should use a second storage account for AOF persistence when you believe you have higher than expected set operations on the cache.  Setting up the secondary storage account helps ensure your cache doesn't reach storage bandwidth limits.
 
 ### Does AOF persistence affect throughout, latency, or performance of my cache?
 
@@ -148,7 +148,7 @@ AOF persistence affects throughput by about 15% – 20% when the cache is under 
 
 ### How can I remove the second storage account?
 
-You can remove the secondary storage account by setting the second storage account to be the same as the first one. For instructions, see [Configure AOF persistence](#configure-aof-persistence).
+You can remove the AOF persistence secondary storage account by setting the second storage account to be the same as the first storage account. For instructions, see [Configure AOF persistence](#configure-aof-persistence).
 
 ### What is a rewrite and how does it affect my cache?
 
