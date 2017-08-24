@@ -59,12 +59,12 @@ The following procedure assumes that the **New Subscription** dialog box is open
 2. Choose the **Copy the full path** link. The path for the certificate (.cer file) is copied to the Clipboard.
 
    > [!IMPORTANT]
-   > To publish your Azure application from Visual Studio, you must upload this certificate to the [Azure portal](portal.azure.com).
+   > To publish your Azure application from Visual Studio, you must upload this certificate to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
    >
    >
 3. To upload the certificate to the Azure portal:
 
-   1. Open the [Azure portal](portal.azure.com).
+   1. Open the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
    2. If prompted, sign in to the portal and then navigate to **Settings**, **Management Certificates**.
    3. In the Management certificates pane, choose **Upload**.
    4. Select your Azure subscription, paste the full path of the .cer file that you just created, and choose **Upload**.
