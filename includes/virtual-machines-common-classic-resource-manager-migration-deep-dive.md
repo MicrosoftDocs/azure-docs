@@ -114,7 +114,7 @@ After you finish the validation, you can commit the migration. Resources do not 
 >
 >
 
-![Behind the scenes in Commit phase](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-Commit.png)
+![Behind the scenes in Commit phase](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
 
 ## Where to begin migration?
 
