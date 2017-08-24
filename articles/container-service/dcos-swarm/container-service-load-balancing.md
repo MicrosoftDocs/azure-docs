@@ -9,7 +9,6 @@ editor: ''
 tags: acs, azure-container-service
 keywords: Containers, Micro-services, DC/OS, Azure
 
-ms.assetid: f0ab5645-2636-42de-b23b-4c3a7e3aa8bb
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
@@ -17,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: rogardle
+ms.custom: mvc
 
 ---
 # Load balance containers in an Azure Container Service DC/OS cluster

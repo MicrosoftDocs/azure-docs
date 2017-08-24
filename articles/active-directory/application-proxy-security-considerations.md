@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/03/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -56,13 +56,15 @@ Because Azure AD Application Proxy is a reverse-proxy, all traffic to back-end a
 
 You don't need to open inbound connections to the corporate network.
 
-Azure AD connectors only use outbound connections to the Azure AD Application Proxy service, which means that there is no need to open firewall ports for incoming connections. Traditional proxies required a perimeter network (also known as *DMZ*, *demilitarized zone*, or *screened subnet*) and allowed access to unauthenticated connections at the network edge. This scenario required many additional investments in web application firewall products to analyze traffic and offer addition protections to the environment. With Application Proxy, you don't need a perimeter network because all connections are outbound and take place over a secure channel.
+Application Proxy connectors only use outbound connections to the Azure AD Application Proxy service, which means that there is no need to open firewall ports for incoming connections. Traditional proxies required a perimeter network (also known as *DMZ*, *demilitarized zone*, or *screened subnet*) and allowed access to unauthenticated connections at the network edge. This scenario required many additional investments in web application firewall products to analyze traffic and offer addition protections to the environment. With Application Proxy, you don't need a perimeter network because all connections are outbound and take place over a secure channel.
+
+For more information about connectors, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md).
 
 ### Cloud-scale analytics and machine learning 
 
 Get cutting-edge security protection.
 
-[Azure AD Identity Protection](active-directory-identityprotection.md) with machine learning-driven intelligence with data is fed from our Digital Crimes Unit and Microsoft Security Response Center. Together we proactively identify compromised accounts and offer real-time protection from high-risk sign-ins. We take into account numerous factors, such as access from infected devices, through anonymizing networks, and from atypical and unlikely locations.
+Because it's part of Azure Active Directory, Application Proxy can leverage [Azure AD Identity Protection](active-directory-identityprotection.md), with machine learning-driven intelligence and data from the Microsoft Security Response Center and Digital Crimes Unit. Together we proactively identify compromised accounts and offer real-time protection from high-risk sign-ins. We take into account numerous factors, such as access from infected devices, through anonymizing networks, and from atypical and unlikely locations.
 
 Many of these reports and events are already available through an API for integration with your security information and event management (SIEM) systems.
 
@@ -114,7 +116,7 @@ Whenever the Application Proxy service updates the configuration settings, the f
 
 When users access a published application, the following events take place between the Application Proxy service and the Application Proxy connector:
 
-1. [The service checks the configuration settings for the app](#the-service-checks-the-configuration-settings-for-the-app)
+1. [The service authenticates the user for the app](#the-service-checks-the-configuration-settings-for-the-app)
 2. [The service places a request in the connector queue](#The-service-places-a-request-in-the-connector-queue)
 3. [A connector processes the request from the queue](#the-connector-receives-the-request-from-the-queue)
 4. [The connector waits for a response](#the-connector-waits-for-a-response)
@@ -123,7 +125,7 @@ When users access a published application, the following events take place betwe
 To learn more about what takes place in each of these steps, keep reading.
 
 
-#### 1. The service checks the configuration settings for the app
+#### 1. The service authenticates the user for the app
 
 If you configured the app to use Passthrough as its preauthentication method, the steps in this section are skipped.
 

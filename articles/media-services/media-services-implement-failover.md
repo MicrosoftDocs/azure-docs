@@ -454,7 +454,6 @@ In this section, you create the ability to handle redundancy.
             var targetContainer = targetBlobClient.GetContainerReference(targetContainerName);
             targetContainer.CreateIfNotExists();
 
-
             string blobToken = sourceContainer.GetSharedAccessSignature(new SharedAccessBlobPolicy()
             {
                 // Specify the expiration time for the signature.
@@ -462,7 +461,6 @@ In this section, you create the ability to handle redundancy.
                 // Specify the permissions granted by the signature.
                 Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read
             });
-
 
             foreach (var sourceBlob in sourceContainer.ListBlobs())
             {
@@ -937,7 +935,6 @@ In this section, you create the ability to handle redundancy.
             }
             return request;
         }
-
 
 ## Next steps
 You can now use a traffic manager to route requests between the two datacenters, and thus fail over in case of any outages.

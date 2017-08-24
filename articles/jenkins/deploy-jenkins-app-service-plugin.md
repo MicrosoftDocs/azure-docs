@@ -96,6 +96,7 @@ az webapp config set \
 mvn clean package
 mv target/*.war target/ROOT.war
 ```
+
 4. Add a post-build action by selecting **Publish an Azure Web App**.
 5. Supply, "mySp", the Azure service principal stored in previous step.
 6. In **App Configuration** section, choose the resource group and web app in your subscription. The plugin automatically detects whether the Web App is Windows or Linux-based. For a Windows-based Web App, the option "Publish Files" is presented.

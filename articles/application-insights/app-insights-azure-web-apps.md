@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitor Azure web app performance | Microsoft Docs
 description: Application performance monitoring for Azure web apps. Chart load and response time, dependency information and set alerts on performance.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Monitor Azure web app performance

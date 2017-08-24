@@ -17,7 +17,7 @@ ms.workload: na
 ms.date: 06/01/2017
 ms.author: owend
 ---
-# Lesson 1: Create a new tabular model project
+# Lesson 1: Create a tabular model project
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 

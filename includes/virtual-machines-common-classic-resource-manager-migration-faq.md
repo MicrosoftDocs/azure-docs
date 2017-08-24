@@ -32,9 +32,14 @@ No. We recently enabled [moving ExpressRoute circuits from the classic to the Re
 
 During migration, the resources transform from classic to Resource Manager. So we recommend that you plan the RBAC policy updates that need to happen after migration.
 
-## What if I’m using Azure Site Recovery or Azure Backup today? 
+## I backed up my classic VMs in a Backup vault. Can I migrate my VMs from classic mode to Resource Manager mode and protect them in a Recovery Services vault? 
 
-To migrate your Virtual Machine that are enabled for backup, see [I have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode. How Can I backup them in recovery services vault?](../articles/backup/backup-azure-backup-ibiza-faq.md)i have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode.  How Can I backup them in recovery services vault?
+Classic VM recovery points in a backup vault don't automatically migrate to a Recovery Services vault when you move the VM from classic to Resource Manager mode. Follow these steps to transfer your VM backups:
+
+1. In the Backup vault, go to the **Protected Items** tab and select the VM. Click [Stop Protection](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
+2. Delete the backup/snapshot extension from the VM.
+3. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure the storage and network information corresponding to the virtual machine is also migrated to Resource Manager mode.
+4. Create a Recovery Services vault and configure backup on the migrated virtual machine using **Backup** action on top of vault dashboard. For detailed information on backing up a VM to a Recovery Services vault, see the article, [Protect Azure VMs with a Recovery Services vault](../articles/backup/backup-azure-vms-first-look-arm.md).
 
 ## Can I validate my subscription or resources to see if they're capable of migration? 
 

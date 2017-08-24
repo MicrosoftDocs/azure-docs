@@ -157,7 +157,7 @@ Using this configuration, the function is now addressable with the following rou
 This allows the function code to support two parameters in the address, "category" and "id". You can use any [Web API Route Constraint](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) with your parameters. The following C# function code makes use of both parameters.
 
 ```csharp
-    public static Task<HttpResponseMessage> Run(HttpRequestMessage request, string category, int? id, 
+    public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
                                                     TraceWriter log)
     {
         if (id == null)

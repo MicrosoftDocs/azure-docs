@@ -3,8 +3,8 @@ title: Connect to SQL Database using C and C++ | Microsoft Docs
 description: Use the sample code in this quick start to build a modern application with C++ and backed by a powerful relational database in the cloud with Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: asthana86
-manager: danmoth
+author: edmacauley
+manager: jhubbard
 editor: ''
 
 ms.assetid: 07d9e0b1-3234-4f17-a252-a7559160a9db
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: tobiast
+ms.author: edmacauley
 
 ---
 # Connect to SQL Database using C and C++
