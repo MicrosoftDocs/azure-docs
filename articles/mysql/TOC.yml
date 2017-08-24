@@ -25,6 +25,8 @@
       href: connect-nodejs.md
     - name: Ruby
       href: connect-ruby.md
+    - name: C++
+      href: connect-cpp.md
     - name: Go
       href: connect-go.md
 - name: Tutorials

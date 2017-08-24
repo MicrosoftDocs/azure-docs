@@ -26,7 +26,7 @@ The messaging service provides dependable information delivery as a brokered or 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus-messaging">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -85,7 +85,8 @@ The messaging service provides dependable information delivery as a brokered or 
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/overview/azure/service-bus">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.servicebus">.NET Standard</a></p>
                         <p><a href="/java/api/overview/azure/servicebus">Java</a></p>
                     </div>
                 </div>

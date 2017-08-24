@@ -67,7 +67,7 @@ To set up your Azure Data Science environment, follow these steps.
 **Create your own Azure blob storage account**
 
 * When you provision your own Azure blob storage, choose a geo-location for your Azure blob storage in or as close as possible to **South Central US**, which is where the NYC Taxi data is stored. The data will be copied using AzCopy from the public blob storage container to a container in your own storage account. The closer your Azure blob storage is to South Central US, the faster this task (Step 4) will be completed.
-* To create your own Azure storage account, follow the steps outlined at [About Azure storage accounts](../storage/storage-create-storage-account.md). Be sure to make notes on the values for following storage account credentials as they will be needed later in this walkthrough.
+* To create your own Azure storage account, follow the steps outlined at [About Azure storage accounts](../storage/common/storage-create-storage-account.md). Be sure to make notes on the values for following storage account credentials as they will be needed later in this walkthrough.
   
   * **Storage Account Name**
   * **Storage Account Key**

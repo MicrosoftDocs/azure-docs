@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 07/31/2017
+ms.date: 08/03/2017
 ms.author: carlrab
 
 ---
@@ -39,7 +39,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this tutorial, make sure you have installed:
 - The newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
-- The newest version of [BCP and SQLCMD][https://www.microsoft.com/download/details.aspx?id=36433].
+- The newest version of [BCP and SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433).
 
 ## Log in to the Azure portal
 

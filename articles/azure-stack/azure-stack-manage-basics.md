@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/03/2017
 ms.author: twooley
 
 ---
@@ -58,7 +58,7 @@ Azure Stack will continue to add support for Azure services. For the projected r
 
 ## What tools do I use to manage?
  
-You can use the [administrator portal](azure-stack-manage-portals.md) or PowerShell to manage Azure Stack. The easiest way to learn the basic concepts is through the portal. If you want to use PowerShell, there are preparation steps. You must [install](azure-stack-powershell-install.md) PowerShell, [download](azure-stack-powershell-download.md) additional modules, and [configure](azure-stack-powershell-configure.md) PowerShell.
+You can use the [administrator portal](azure-stack-manage-portals.md) or PowerShell to manage Azure Stack. The easiest way to learn the basic concepts is through the portal. If you want to use PowerShell, there are preparation steps. You must [install](azure-stack-powershell-install.md) PowerShell, [download](azure-stack-powershell-download.md) additional modules, and [configure](azure-stack-powershell-configure-admin.md) PowerShell.
 
 Azure Stack uses Azure Resource Manager as its underlying deployment, management, and organization mechanism. If you're going to manage Azure Stack and help support users, you should learn about Resource Manager. See the [Getting Started with Azure Resource Manager](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) whitepaper.
 
@@ -97,7 +97,7 @@ The information in these articles summarizes the differences between a service i
 
 In a development kit environment, if a user doesn't have Remote Desktop access to the development kit host, they must configure a virtual private network (VPN) connection before they can access Azure Stack. See [Connect to Azure Stack](azure-stack-connect-azure-stack.md). 
 
-Your users will want to know how to [access the user portal ](azure-stack-manage-portals.md) or how to connect through PowerShell. If using PowerShell, users may have to register resource providers before they can use services. (A resource provider manages a service. For example, the networking resource provider manages resources such as virtual networks, network interfaces, and load balancers.) They must [install](azure-stack-powershell-install.md) PowerShell, [download](azure-stack-powershell-download.md) additional modules, and [configure](azure-stack-powershell-configure.md) PowerShell (which includes resource provider registration).
+Your users will want to know how to [access the user portal ](azure-stack-manage-portals.md) or how to connect through PowerShell. If using PowerShell, users may have to register resource providers before they can use services. (A resource provider manages a service. For example, the networking resource provider manages resources such as virtual networks, network interfaces, and load balancers.) They must [install](azure-stack-powershell-install.md) PowerShell, [download](azure-stack-powershell-download.md) additional modules, and [configure](azure-stack-powershell-configure-user.md) PowerShell (which includes resource provider registration).
 
 **Subscribe to an offer**
 
@@ -105,7 +105,7 @@ Before a user can access services, they must [subscribe to an offer](azure-stack
 
 ## Where to get support
 
-For the Azure Stack Development Kit, you can ask support-related questions in the [Microsoft forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). These forums are regularly monitored. Because the development kit is an evaluation environment, there is no official support offered through Microsoft Customer Support Services (CSS).
+For the Azure Stack Development Kit, you can ask support-related questions in the [Microsoft forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). If you click the Help and support icon (question mark) in the upper-right corner of the administrator portal, and then click **New support request**, this opens the forums site directly. These forums are regularly monitored. Because the development kit is an evaluation environment, there is no official support offered through Microsoft Customer Support Services (CSS).
 
 ## Next steps
 

@@ -12,11 +12,12 @@ keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 ms.assetid: 
 ms.service: container-service
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Create container images to be used with Azure Container Service
@@ -110,7 +111,7 @@ docker-compose -f ./azure-voting-app-redis/docker-compose.yaml stop
 Delete the stopped containers with the following command.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml stop
+docker-compose -f ./azure-voting-app-redis/docker-compose.yaml rm
 ```
 
 At completion, you have a container image that contains the Azure Vote application.

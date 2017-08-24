@@ -28,7 +28,7 @@ App Service provides pre-defined application stacks on Linux with support for sp
 
 
 ## How to: set a custom Docker image for a web app
-You can set the custom Docker image for both new and existing webs apps. When you create a web app on Linux in the [Azure portal](https://portal.azure.com), click **Configure container** to set a custom Docker image:
+You can set the custom Docker image for both new and existing webs apps. When you create a web app on Linux in the [Azure portal](https://portal.azure.com/#create/Microsoft.AppSvcLinux), click **Configure container** to set a custom Docker image:
 
 ![Custom Docker Image for a new web app on Linux][1]
 
@@ -60,18 +60,20 @@ To use a custom Docker image from a private image registry:
 
 ## How to: set the port used by your Docker image ##
 
-When you use a custom Docker image for your web app, you can use the `PORT` environment variable in your Dockerfile, which gets added to the generated container. Consider the following example of a docker file for a Ruby application:
+When you use a custom Docker image for your web app, you can use the `WEBSITES_PORT` environment variable in your Dockerfile, which gets added to the generated container. Consider the following example of a docker file for a Ruby application:
 
 	FROM ruby:2.2.0
 	RUN mkdir /app
 	WORKDIR /app
 	ADD . /app
 	RUN bundle install
-	CMD bundle exec puma config.ru -p $PORT -e production
+	CMD bundle exec puma config.ru -p WEBSITES_PORT -e production
 
-On last line of the command, you can see that the PORT environment variable is passed at runtime. Remember that casing matters in commands.
+On last line of the command, you can see that the WEBSITES_PORT environment variable is passed at runtime. Remember that casing matters in commands.
 
-When you use an existing Docker image built by someone else, you may need to specify a port other than port 80 for the application. To configure the port, add an application setting named `PORT` with the value as shown below:
+Previously the platform was using `PORT` app setting, we are planning to deprecate the use this app setting and move to using `WEBSITES_PORT` exclusively.
+
+When you use an existing Docker image built by someone else, you may need to specify a port other than port 80 for the application. To configure the port, add an application setting named `WEBSITES_PORT` with the value as shown below:
 
 ![Configure PORT app setting for custom Docker image][6]
 
@@ -89,8 +91,8 @@ To switch from using a custom image to using a built-in image:
 
 ## Troubleshooting ##
 
-When your application fails to start with your custom Docker image, check the Docker logs in the LogFiles/docker directory. You can access this directory either through your SCM site or via FTP.
-To log the `stdout` and `stderr` from your container, you need to enable **Web server logging** under **Diagnostics Logs**.
+When your application fails to start with your custom Docker image, check the Docker logs in the LogFiles directory. You can access this directory either through your SCM site or via FTP.
+To log the `stdout` and `stderr` from your container, you need to enable **Docker Container logging** under **Diagnostics Logs**.
 
 ![Enabling Logging][8]
 

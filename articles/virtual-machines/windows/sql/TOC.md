@@ -4,7 +4,7 @@
 ## [FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # Get Started
-## [Provision a VM in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)
+## [Provision a VM in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md)
 ## [Provision a VM using Azure PowerShell](virtual-machines-windows-ps-sql-create.md)
 ## [Connect to a VM](virtual-machines-windows-sql-connect.md)
 ## [Migrate a SQL Server database](virtual-machines-windows-migrate-sql.md)

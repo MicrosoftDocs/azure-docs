@@ -30,7 +30,7 @@ You can use the steps described in this article either from the Azure Stack Deve
 
 2. Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX).
    
-   * For Windows images, the article [Upload a Windows VM image to Azure for Resource Manager deployments](../virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) contains image preparation instructions in the **Prepare the VHD for upload** section.
+   * For Windows images, the article [Upload a Windows VM image to Azure for Resource Manager deployments](../virtual-machines/windows/upload-generalized-managed.md) contains image preparation instructions in the **Prepare the VHD for upload** section.
    * For Linux images, follow the steps to
      prepare the image or use an existing Azure Stack Linux image as described in
      the article [Deploy Linux virtual machines on Azure
@@ -138,7 +138,7 @@ One requirement of images is that they can be referenced by a Blob storage URI. 
 
    * It's more efficient to upload an image to Azure Stack Blob storage than to Azure Blob storage because it takes less time to push the image to the Azure Stack image repository. 
    
-   * When uploading the [Windows VM image](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), make sure to substitute the **Login to Azure** step with the [Configure and Sign in PowerShell for Azure Stack](azure-stack-powershell-configure.md) step.  
+   * When uploading the [Windows VM image](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), make sure to substitute the **Login to Azure** step with the [Configure the Azure Stack operator's PowerShell environment](azure-stack-powershell-configure-admin.md)  step.  
 
    * Make a note of the Blob storage URI where you upload the image, which is in the following format:
   *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd
