@@ -222,9 +222,7 @@ Similar to the [Azure Stream Analytics](#azure-stream-analytics-1)
 queries, the
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts have implicit knowledge about the incoming data format, these
-queries would need to be altered based on your data format and [feature
-engineering](../studio/feature-selection-and-engineering.md)
-requirements.
+queries would need to be altered based on your data format.
 
 #### *AggregateFlightInfoPipeline*
 This
