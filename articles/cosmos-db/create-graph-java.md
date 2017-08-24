@@ -57,7 +57,6 @@ You can now use the Data Explorer tool in the Azure portal to create a graph dat
     Graph ID|sample-graph|The ID for your new graph. Graph names have the same character requirements as database ids.
     Storage Capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
     Throughput|400 RUs|Leave the default value. You can scale up the throughput later if you want to reduce latency.
-    RU/m|Off|Leave the default value.
     Partition key|Leave blank|For the purpose of this quickstart, leave the partition key blank.
 
 3. Once the form is filled out, click **OK**.
