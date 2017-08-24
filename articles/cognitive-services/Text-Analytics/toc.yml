@@ -7,7 +7,7 @@
   items:
    - name: Sign up
      href: text-analytics-howto-signup.md
-   - name: Obtain an access key
+   - name: Get an access key
      href: text-analytics-howto-accesskey.md
    - name: Call the Text Analytics API
      href: text-analytics-howto-call-api.md
@@ -19,7 +19,7 @@
      href: text-analytics-howto-keyword-extraction.md
 - name: Quickstarts
   items:
-  - name: C# (quick-start.md)
+  - name: C#
     href: quick-start.md
 - name: Concepts
   items:
