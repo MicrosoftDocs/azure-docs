@@ -41,7 +41,7 @@ Please follow the steps to get a subscription key from Azure portal:
 
       ![try](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-keys2.png)
 
-      > ![NOTE]
+      > [!NOTE]
       > Please do not copy the 'Subscription ID' from the overview page. We need the subscription key in the next step!
       >
 
