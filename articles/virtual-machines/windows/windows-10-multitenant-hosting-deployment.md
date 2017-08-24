@@ -29,10 +29,8 @@ For Powershell, CLI and ARM template deployments, the Windows 10 image can be fo
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
 
 | OS  |      PublisherName      |  Offer | Sku |
-|----------|:-------------:|:------:|:------:|
-| col 1 is |  left-aligned | $1600 ||
-| col 2 is |    centered   |   $12 ||
-| col 3 is | right-aligned |    $1 ||
+|:----------|:-------------:|:------|:------|
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
 
 ## Uploading Windows 10 VHD to Azure
