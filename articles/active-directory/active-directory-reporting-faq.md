@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -79,24 +79,30 @@ For more details, see [Azure Active Directory reporting](active-directory-report
 
 **Q: Do I see last month's data after getting an Azure AD premium license?**
 
-**A:**: If you have recently switched to a Premium version (including a trial version), you can see data up to 7 days initially. When data accumulates, you will see up to 30 days.
+**A:** If you have recently switched to a Premium version (including a trial version), you can see data up to 7 days initially. When data accumulates, you will see up to 30 days.
 
 ---
 
 **Q: There is a risk event in Identity Protection but I’m not seeing corresponding sign-in in the all sign-ins. Is this expected?**
-**A:**: Yes, Identity Protection evaluates risk for all authentication flows whether if be interactive or non-interactive. However, all sign-ins only report shows only the interactive sign-ins.
+
+**A:** Yes, Identity Protection evaluates risk for all authentication flows whether if be interactive or non-interactive. However, all sign-ins only report shows only the interactive sign-ins.
 
 ---
 
 **Q: How can I download the “Users flagged for risk” report in Azure portal?**
 
-**A:**:The option to download “Users flagged for risk” report will be added soon.
+**A:** The option to download *Users flagged for risk* report will be added soon.
 
 ---
 
-**Q: How can I know the reason why a sign-in or a user was flagged risky in the Azure portal?**
+**Q: How do I know why a sign-in or a user was flagged risky in the Azure portal?**
 
-**A:**:Premium edition customers can learn more about the underlying risk events by clicking on the user in “Users flagged for risk” or by clicking on the “Risky sign-ins”. Free and Basic edition customers get to see the at-risk users and sign-ins without the underlying risk event information.
+**A:** Premium edition customers can learn more about the underlying risk events by clicking on the user in “Users flagged for risk” or by clicking on the “Risky sign-ins”. Free and Basic edition customers get to see the at-risk users and sign-ins without the underlying risk event information.
 
 ---
 
+**Q: How are IP addresses calculated in the sign-ins and risky sign-ins report??**
+
+**A:** IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. This is complicated by factors such as mobile providers and VPNs issuing IP addresses from central pools often very far from where the client device is actually used. Given the above, converting IP address to a physical location is a best effort based on traces, registry data, reverse look ups and other information. 
+
+---

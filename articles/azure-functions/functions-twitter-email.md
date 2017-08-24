@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: glenga, riande
+ms.author: glenga
 ms.custom: mvc
 ---
 

@@ -39,7 +39,7 @@ To view resources in a storage account, expand the storage account’s node in S
 * Tables
 
 ## Work with Blob Resources
-The Blobs node displays a list of containers for the selected storage account. Blob containers contain blob files, and you can organize these blobs into folders and subfolders. See [How to use Blob Storage from .NET](storage/storage-dotnet-how-to-use-blobs.md) for more information.
+The Blobs node displays a list of containers for the selected storage account. Blob containers contain blob files, and you can organize these blobs into folders and subfolders. See [How to use Blob Storage from .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md) for more information.
 
 ### To create a blob container
 1. Open the shortcut menu for the **Blobs** node, and then choose **Create Blob Container**.
