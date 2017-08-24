@@ -22,7 +22,7 @@ This document provides sample Hive scripts that are used to explore data in Hive
 
 The following **menu** links to topics that describe how to use tools to explore data from various storage environments.
 
-[!INCLUDE [cap-explore-data-selector](../../../../includes/cap-explore-data-selector.md)]
+[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 
 ## Prerequisites
 This article assumes that you have:

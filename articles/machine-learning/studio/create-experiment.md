@@ -40,7 +40,7 @@ In this tutorial, we'll walk through how to use Studio for the first time to cre
 
 <!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## How does Machine Learning Studio help?
 

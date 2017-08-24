@@ -22,7 +22,7 @@ This document covers sampling data stored in Azure blob storage by downloading i
 
 The following **menu** links to topics that describe how to sample data from various storage environments. 
 
-[!INCLUDE [cap-sample-data-selector](../../../../includes/cap-sample-data-selector.md)]
+[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
 
 **Why sample your data?**
 If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.

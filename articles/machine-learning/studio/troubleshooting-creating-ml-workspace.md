@@ -20,7 +20,7 @@ ms.author: garye
 # Troubleshooting guide: Create and connect to an Machine Learning workspace
 This guide provides solutions for some frequently encountered challenges when you are setting up Azure Machine Learning workspaces.
 
-[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## Workspace owner
 To open a workspace in Machine Learning Studio, you must be signed in to the Microsoft Account you used to create the workspace, or you need to receive an invitation from the owner to join the workspace. From the Azure portal you can manage the workspace, which includes the ability to configure access.

@@ -22,7 +22,7 @@ AzCopy is a command-line utility designed for uploading, downloading, and copyin
 
 For instructions on installing AzCopy and additional information on using it with the Azure platform, see [Getting Started with the AzCopy Command-Line Utility](../../storage/common/storage-use-azcopy.md).
 
-[!INCLUDE [blob-storage-tool-selector](../../../../includes/machine-learning-blob-storage-tool-selector.md)]
+[!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 > [!NOTE]
 > If you are using VM that was set up with the scripts provided by [Data Science Virtual machines in Azure](virtual-machines.md), then AzCopy is already installed on the VM.

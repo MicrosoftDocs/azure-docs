@@ -18,7 +18,7 @@ ms.author: roopalik;garye
 
 ---
 # Discover competitions in the Cortana Intelligence Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../../includes/machine-learning-gallery-item-selector.md)]
+[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Cortana Intelligence Competitions
 **[Competitions](https://gallery.cortanaintelligence.com/competitions)**
@@ -65,5 +65,5 @@ If the competition has been completed, then a list of winners is shown.
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

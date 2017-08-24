@@ -22,7 +22,7 @@ This article outlines the variety of sample data sources and target scenarios th
 
 The **decision tree** for selecting the sample scenarios that is appropriate for your data and objective is presented in the last section.
 
-> [!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
+> [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 > 
 > 
 

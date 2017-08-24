@@ -27,5 +27,5 @@ This document covers how to explore data in four different storage environments 
 
 The following **menu** links to the topics that describe how to use these tools to explore data from various storage environments. 
 
-[!INCLUDE [cap-explore-data-selector](../../../../includes/cap-explore-data-selector.md)]
+[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 

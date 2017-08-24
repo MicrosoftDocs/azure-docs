@@ -18,7 +18,7 @@ ms.author: roopalik;garye
 
 ---
 # Discover Solutions in the Cortana Intelligence Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../../includes/machine-learning-gallery-item-selector.md)]
+[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Solutions
 A
@@ -61,5 +61,5 @@ If you want to use a Solution, click **Deploy**. Follow the steps presented to c
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

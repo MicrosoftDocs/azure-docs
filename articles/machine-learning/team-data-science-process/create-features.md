@@ -20,7 +20,7 @@ ms.author: zhangya;bradsev
 # Feature engineering in data science
 This topic explains the purposes of feature engineering and provides examples of its role in the data enhancement process of machine learning. The examples used to illustrate this process are drawn from Azure Machine Learning Studio. 
 
-[!INCLUDE [cap-create-features-data-selector](../../../../includes/cap-create-features-selector.md)]
+[!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
 
 This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
@@ -33,7 +33,7 @@ Normally **feature engineering** is applied first to generate additional feature
 
 The training data used in machine learning can often be enhanced by extraction of features from the raw data collected. An example of an engineered feature in the context of learning how to classify the images of handwritten characters is creation of a bit density map constructed from the raw bit distribution data. This map can help locate the edges of the characters more efficiently than simply using the raw distribution directly.
 
-[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## Creating Features from Your Data - Feature Engineering
 The training data consists of a matrix composed of examples (records or observations stored in rows), each of which has a set of features (variables or fields stored in columns). The features specified in the experimental design are expected to characterize the patterns in the data. Although many of the raw data fields can be directly included in the selected feature set used to train a model, it is often the case that additional (engineered) features need to be constructed from the features in the raw data to generate an enhanced training dataset.

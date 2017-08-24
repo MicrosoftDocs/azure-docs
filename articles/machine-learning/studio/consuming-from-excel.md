@@ -22,7 +22,7 @@ ms.author: tedway
 
 If you are using Excel 2013 (or later) or Excel Online, then we recommend that you use the Excel [Excel add-in](excel-add-in-for-web-services.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## Steps
 Publish a web service. [This page](walkthrough-5-publish-web-service.md) explains how to do it. Currently the Excel workbook feature is only supported for Request/Response services that have a single output (that is, a single scoring label). 

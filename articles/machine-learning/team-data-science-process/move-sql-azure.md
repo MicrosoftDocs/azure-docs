@@ -24,7 +24,7 @@ For a topic that outlines the options for moving data to an on-premises SQL Serv
 
 The following **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Team Data Science Process (TDSP).
 
-[!INCLUDE [cap-ingest-data-selector](../../../../includes/cap-ingest-data-selector.md)]
+[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
 The following table summarizes the options for moving data to an Azure SQL Database.
 

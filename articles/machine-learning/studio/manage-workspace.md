@@ -26,7 +26,7 @@ ms.author: garye
 
 You can manage Machine Learning workspaces in either the Azure portal or the Azure classic portal.
 
-[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## Use the Azure portal
 

@@ -20,7 +20,7 @@ ms.author: bradsev
 # Vehicle telemetry analytics solution playbook: deep dive into the solution
 This **menu** links to the sections of this playbook: 
 
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
+[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 This section drills down into each of the stages depicted in the Solution Architecture with instructions and pointers for customization. 
 

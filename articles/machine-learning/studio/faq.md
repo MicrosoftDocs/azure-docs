@@ -30,7 +30,7 @@ Azure Machine Learning has a forum on MSDN where members of the data science com
 
 Azure Machine Learning is a fully managed service that you can use to create, test, operate, and manage predictive analytic solutions in the cloud. With only a browser, you can sign in, upload data, and immediately start machine-learning experiments. Drag-and-drop predictive modeling, a large pallet of modules, and a library of starting templates make common machine-learning tasks simple and quick. For more information, see the [Azure Machine Learning service overview](https://azure.microsoft.com/services/machine-learning/). For an introduction to machine learning that explains key terminology and concepts, see [Introduction to Azure Machine Learning](what-is-machine-learning.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 **What is Machine Learning Studio?**
 

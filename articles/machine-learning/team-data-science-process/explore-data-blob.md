@@ -22,7 +22,7 @@ This document covers how to explore data that is stored in Azure blob container 
 
 The following **menu** links to topics that describe how to use tools to explore data from various storage environments. This task is a step in the [Data Science Process]().
 
-[!INCLUDE [cap-explore-data-selector](../../../../includes/cap-explore-data-selector.md)]
+[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 
 ## Prerequisites
 This article assumes that you have:

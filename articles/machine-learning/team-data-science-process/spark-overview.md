@@ -19,7 +19,7 @@ ms.author: deguhath;bradsev;gokuma
 
 ---
 # Overview of data science using Spark on Azure HDInsight
-[!INCLUDE [machine-learning-spark-modeling](../../../../includes/machine-learning-spark-modeling.md)]
+[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
 This suite of topics shows how to use HDInsight Spark to complete common data science tasks such as data ingestion, feature engineering, modeling, and model evaluation. The data used is a sample of the 2013 NYC taxi trip and fare dataset. The models built include logistic and linear regression, random forests, and gradient boosted trees. The topics also show how to store these models in Azure blob storage (WASB) and how to score and evaluate their predictive performance. More advanced topics cover how models can be trained using cross-validation and hyper-parameter sweeping. This overview topic also references the topics that describe how to set up the Spark cluster that you need to complete the steps in the walkthroughs provided. 
 
@@ -86,7 +86,7 @@ The following procedures are related to Spark 1.6. For  the Spark 2.0 version, u
 
 <!-- -->
 
-> [!INCLUDE [delete-cluster-warning](../../../../includes/hdinsight-delete-cluster-warning.md)]
+> [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 > 
 > 
 

@@ -22,7 +22,7 @@ This topic presents generic Hive queries that create Hive tables and load data f
 
 This **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Team Data Science Process (TDSP).
 
-[!INCLUDE [cap-ingest-data-selector](../../../../includes/cap-ingest-data-selector.md)]
+[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
 ## Prerequisites
 This article assumes that you have:

@@ -18,11 +18,11 @@ ms.author: bradsev;sachouks
 
 ---
 # Move data to and from Azure Blob Storage
-[!INCLUDE [cap-ingest-data-selector](../../../../includes/cap-ingest-data-selector.md)]
+[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
 <!-- just in case, adding this to separate these two include references -->
 
-[!INCLUDE [blob-storage-tool-selector](../../../../includes/machine-learning-blob-storage-tool-selector.md)]
+[!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 Which method is best for you depends on your scenario. The [Scenarios for advanced analytics in Azure Machine Learning](plan-sample-scenarios.md) article helps you determine the resources you need for a variety of data science workflows used in the advanced analytics process.
 

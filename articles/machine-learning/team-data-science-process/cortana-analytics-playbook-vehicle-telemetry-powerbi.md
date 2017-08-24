@@ -20,7 +20,7 @@ ms.author: bradsev
 # Vehicle telemetry analytics solution template Power BI Dashboard setup instructions
 This **menu** links to the chapters in this playbook. 
 
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
+[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 The Vehicle Telemetry Analytics solution showcases how car dealerships, automobile manufacturers and insurance companies can leverage the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits to drive improvements in the area of customer experience, R&D and marketing campaigns. 
 This document contains step by step instructions on how you can configure the Power BI reports and dashboard once the solution is deployed in your subscription. 

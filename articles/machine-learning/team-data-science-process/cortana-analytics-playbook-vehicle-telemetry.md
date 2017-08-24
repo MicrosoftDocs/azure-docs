@@ -20,7 +20,7 @@ ms.author: bradsev
 # Vehicle telemetry analytics solution playbook
 This **menu** links to the chapters in this playbook. 
 
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
+[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 ## Overview
 Super computers have moved out of the lab and are now parked in our garage! These cutting-edge automobiles contain a myriad of sensors, giving them the ability to track and monitor millions of events every second. We expect that by 2020, most of these cars will have been connected to the Internet. Imagine tapping into this wealth of data to provide greater safety, reliability and a better driving experience! Microsoft has made this dream a reality with Cortana Intelligence.
