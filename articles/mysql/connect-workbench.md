@@ -102,7 +102,7 @@ To connect to Azure MySQL server using the GUI tool MySQL Workbench:
     ![MySQL Workbench SQL Tab to run sample SQL code](media/connect-workbench/3-workbench-sql-tab.png)
 
 2. To run the sample SQL Code, click the lightening bolt icon in the toolbar of the **SQL File** tab.
-3. Notice the three tabbed results in the **Result Set** section in the middle of the page. 
+3. Notice the three tabbed results in the **Result Grid** section in the middle of the page. 
 4. Notice the **Output** list at the bottom of the page. The status of each command is shown. 
 
 Now, you have connected to Azure Database for MySQL using MySQL Workbench, and have queried data using the SQL language.
