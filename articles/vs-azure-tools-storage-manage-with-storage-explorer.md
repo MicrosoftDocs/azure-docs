@@ -152,7 +152,7 @@ To attach to an external storage account, you need the account's name and key. T
 2. In the confirmation message, select **Yes** to confirm the detachment from the external storage account.
 
 ## Attach a storage account by using an SAS
-An [SAS](storage/storage-dotnet-shared-access-signature-part-1.md) lets the admin of an Azure subscription grant temporary access to a storage account without having to provide Azure subscription credentials.
+An [SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) lets the admin of an Azure subscription grant temporary access to a storage account without having to provide Azure subscription credentials.
 
 To illustrate this scenario, let's say that UserA is an admin of an Azure subscription, and UserA wants to allow UserB to access a storage account for a limited time with certain permissions:
 

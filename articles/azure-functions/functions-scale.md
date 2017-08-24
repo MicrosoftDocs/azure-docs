@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/12/2017
-ms.author: donnam, glenga
+ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
 
@@ -77,7 +77,7 @@ Always On is available only on an App Service plan. On a Consumption plan, the p
 
 On either a Consumption plan or an App Service plan, a function app requires an Azure Storage account that supports Azure Blob, Queue, and Table storage. Internally, Azure Functions uses Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts do not support queues and tables, such as blob-only storage accounts (including premium storage) and general-purpose storage accounts with zone-redundant storage replication. These accounts are filtered from the **Storage Account** blade when you're creating a function app.
 
-To learn more about storage account types, see [Introducing the Azure Storage services](../storage/storage-introduction.md#introducing-the-azure-storage-services).
+To learn more about storage account types, see [Introducing the Azure Storage services](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## How the Consumption plan works
 

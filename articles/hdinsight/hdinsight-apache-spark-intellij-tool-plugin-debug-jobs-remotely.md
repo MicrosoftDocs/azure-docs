@@ -121,7 +121,7 @@ You should also create an Apache Spark cluster on Azure HDInsight that is part o
     Add these files to your project by copying them under the **/src** folder in your project tree, for example `<your project directory>\src`.
 6. Update the `core-site.xml` to make the following changes.
 
-   1. `core-site.xml` includes the encrypted key to the storage account associated with the cluster. In the `core-site.xml` that you added to the project, replace the encrypted key with the actual storage key associated with the default storage account. See [Manage your storage access keys](../storage/storage-create-storage-account.md#manage-your-storage-account).
+   1. `core-site.xml` includes the encrypted key to the storage account associated with the cluster. In the `core-site.xml` that you added to the project, replace the encrypted key with the actual storage key associated with the default storage account. See [Manage your storage access keys](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
            <property>
                  <name>fs.azure.account.key.hdistoragecentral.blob.core.windows.net</name>

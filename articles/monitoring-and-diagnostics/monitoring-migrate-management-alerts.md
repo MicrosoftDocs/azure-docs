@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/14/2017
 ms.author: johnkem
 
 ---
@@ -50,6 +50,49 @@ foreach ($alert in $alerts) {
   }
 } 
 ```
+
+If you have no alerts on management events, the PowerShell cmdlet above will output a series of warning messages like this one:
+
+`WARNING: The output of this cmdlet will be flattened, i.e. elimination of the properties field, in a future release to improve the user experience.`
+
+These warning messages can be ignored. If you do have alerts on management events, the output of this PowerShell cmdlet will look like this:
+
+```
+Alert Name: webhookEvent1
+Alert Resource ID: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/microsoft.insights/alertrules/webhookEvent1
+Alert conditions:
+
+EventName            : 
+EventSource          : 
+Level                : 
+OperationName        : microsoft.web/sites/start/action
+ResourceGroupName    : 
+ResourceProviderName : 
+Status               : succeeded
+SubStatus            : 
+Claims               : Microsoft.Azure.Management.Monitor.Management.Models.RuleManagementEventClaimsDataSource
+ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Web/sites/samplealertapp
+
+---------------------------------
+Alert Name: someclilogalert
+Alert Resource ID: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/microsoft.insights/alertrules/someclilogalert
+Alert conditions:
+
+EventName            : 
+EventSource          : 
+Level                : 
+OperationName        : Start
+ResourceGroupName    : 
+ResourceProviderName : 
+Status               : 
+SubStatus            : 
+Claims               : Microsoft.Azure.Management.Monitor.Management.Models.RuleManagementEventClaimsDataSource
+ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Compute/virtualMachines/Seaofclouds
+
+---------------------------------
+```
+
+Each alert is separated by a dashed line and details include the resource ID of the alert and the specific rule being monitored.
 
 This functionality has been transitioned to [Azure Monitor Activity Log Alerts](monitoring-activity-log-alerts.md). These new alerts enable you to set a condition on Activity Log events and receive a notification when a new event matches the condition. They also offer several improvements from alerts on management events:
 * You can reuse your group of notification recipients (“actions”) across many alerts using [Action Groups](monitoring-action-groups.md), reducing the complexity of changing who should receive an alert.
