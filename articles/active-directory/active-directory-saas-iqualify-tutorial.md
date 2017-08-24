@@ -142,7 +142,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| email | user.userprincipalname |
 	| first_name | user.givenname |
 	| last_name | user.surname |
-	| person_id | <yourattribute> |
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
@@ -157,9 +156,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	d. Click **Ok**
 
 	e. Repeat steps "a" through "d" for the next table rows. 
-
-> [Note!]
-> Repeating steps "a" through "d" for the **person_id** attribute is **Optional**.
 
 7. On the **SAML Signing Certificate** section, click **Certificate (Base 64)** and then save the certificate file on your computer.
 
