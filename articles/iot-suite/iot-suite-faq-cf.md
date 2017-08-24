@@ -87,7 +87,7 @@ If you deployed the solution from www.azureiotsuite.com, you cannot sign in to t
 
     * Run `./startsimulation`.
 
-### [How do I update the simulation in the VM?](How could I get any log information from the simulation components?)
+### How do I update the simulation in the VM?
 
 If you have made any changes to the simulation, you can use the PowerShell script `build.ps1` in the [repository](https://github.com/Azure/azure-iot-connected-factory) using the `updatedimulation` command. This script builds all the simulation components, stops the simulation in the VM, uploads, installs, and starts them.
 
@@ -139,7 +139,7 @@ Inspect the data sent by one of the publisher devices:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-If you see no data sent to IoT Hub, then there is an issue with the simulation. As a first analysis step you should analyze the log files of the simulation components. See [How can I get log data from the simulation components?](#how-can-i-get-log-data-from-the-simulation-components) Next, try to stop and start the simulation and if there's still no data sent, update the simulation completely. See [How do I update the simulation in the VM?](how-could-i-get-any-log-information-from-the-simulation-components)
+If you see no data sent to IoT Hub, then there is an issue with the simulation. As a first analysis step you should analyze the log files of the simulation components. See [How can I get log data from the simulation components?](#how-can-i-get-log-data-from-the-simulation-components) Next, try to stop and start the simulation and if there's still no data sent, update the simulation completely. See [How do I update the simulation in the VM?](#how-do-i-update-the-simulation-in-the-vm)
 
 ### Next steps
 
