@@ -79,17 +79,25 @@ Follow these steps to create a blank SQL database.
 
 5. Click **Select**.
 
-6. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. For this quick start tutorial, select the **Standard** service tier and then use the slider to select **20 DTUs** and **40** GB of storage.
+6. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. Explore the options for the amount of DTUs and storage that is available to you for each service tier. 
+
+   > [!IMPORTANT]
+   > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
+   >
+   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](../articles/sql-database/sql-database-resource-limits.md#current-limitations-of-p11-and-p15-databases-with-a-maximum-size-greater-than-1-tb).  
+   > 
+
+7. For this quick start tutorial, select the **Standard** service tier and then use the slider to select **20 DTUs** and **40** GB of storage.
 
    ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
-7. After selected the amount of DTUs and storage, click **Apply**.  
+8. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
 
-8. Select a **collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)
+9. Select a **collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
-9. Click **Create** to provision the database. Provisioning takes about a minute and a half to complete. 
+10. Now that you have completed the SQL Database form, click **Create** to provision the database. Provisioning takes a few minutes. 
 
-10. On the toolbar, click **Notifications** to monitor the deployment process.
+11. On the toolbar, click **Notifications** to monitor the deployment process.
     
      ![notification](./media/sql-database-get-started-portal/notification.png)
 
@@ -101,7 +109,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 > SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170824.database.windows.net**) and provides options for further configuration. 
+1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170824.database.windows.net**) and provides options for further configuration. 
 
 2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. 
 
@@ -120,8 +128,6 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 6. Click **OK** and then close the **Firewall settings** page.
 
 You can now connect to the SQL Database server and its databases using SQL Server Management Studio or another tool of your choice from this IP address using the server admin account created previously.
-
-
 
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.
