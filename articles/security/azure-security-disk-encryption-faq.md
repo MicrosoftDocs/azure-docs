@@ -87,7 +87,7 @@ This article provides answers to frequently asked questions (FAQ) about Azure Di
 
 **Q:** What are the prerequisites to configure Azure Disk Encryption?
 
-**A:** There is a prerequisite PowerShell script. With this script,S you can create an Azure Active Directory application, create a new key vault, or set up an existing key vault for disk encryption access to enable encryption and safeguard secrets and keys. For more information on the key encryption key support scenarios, see Azure Disk Encryption prerequisites and deployment scenarios and experiences.
+**A:** There is a prerequisite PowerShell script. With this script, you can create an Azure Active Directory application, create a new key vault, or set up an existing key vault for disk encryption access to enable encryption and safeguard secrets and keys. For more information on the key encryption key support scenarios, see Azure Disk Encryption prerequisites and deployment scenarios and experiences.
 
 **Q:** Where can I get more information on how to use PowerShell for configuring Azure Disk Encryption?
 
