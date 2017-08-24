@@ -10103,6 +10103,11 @@
             "source_path": "articles/azure-stack/azure-stack-setting-quotas.md",
             "redirect_url": "/azure/azure-stack/azure-stack-plan-offer-quota-overview",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-setup.md",
+            "redirect_url": "/azure/active-directory/device-management-azure-portal",
+            "redirect_document_id": false
+        }    
     ]
 }
