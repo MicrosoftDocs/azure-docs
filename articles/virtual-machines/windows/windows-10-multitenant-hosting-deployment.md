@@ -28,11 +28,12 @@ For Powershell, CLI and ARM template deployments, the Windows 10 image can be fo
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
 
-| Tables   |      Are      |  Cool |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
+| OS  |      PublisherName      |  Offer | Sku |
+|----------|:-------------:|:------:|:------:|
+| col 1 is |  left-aligned | $1600 ||
+| col 2 is |    centered   |   $12 ||
+| col 3 is | right-aligned |    $1 ||
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
 
 ## Uploading Windows 10 VHD to Azure
 Windows 10 does not have built-in administrator account enabled by default, if you are uploading a generalized Windows 10 VHD, please ensure to include the following command as part of the Custom Script extension or include it as part of %WINDIR%\OEM\SetupComplete2.cmd
