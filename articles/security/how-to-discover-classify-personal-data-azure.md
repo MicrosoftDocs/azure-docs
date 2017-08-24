@@ -22,9 +22,9 @@ ms.custom:
 
 This article provides guidance on how to discover, identify, and classify personal data in several Azure tools and services, including using Azure Data Catalog, Azure Active Directory, SQL Database, Power Query for Hadoop clusters in Azure HDInsight, Azure Information Protection, Azure Search, and SQL queries for Azure Cosmos DB.
 
-## Scenario, problem statement and goal:
+## Scenario, problem statement, and goal:
 
-A U.S.-based sports company collects a variety of personal and other data from their customers and employees, maintains it in multiple databases, and stores it in several different locations in their Azure environment. In addition to selling sports equipment, they also host and manage registration for elite athletic events around the world, including in the EU, and in some cases the customer data they collect includes medical information.
+A U.S.-based sports company collects a variety of personal and other data. This includes customers and employee data. The company keeps it in multiple databases, and stores it in several different locations in their Azure environment. In addition to selling sports equipment, they also host and manage registration for elite athletic events around the world, including in the EU, and in some cases the customer data they collect includes medical information.
 
 Since the company hosts many international bicycling tours every year and has contingent staff in locations around the globe, a couple of the data sets are quite large. The company also has developer-built applications that are used by both customers and employees.
 
@@ -32,7 +32,7 @@ The company wants to address the following problems:
 
 - Customer and employee personal data must be classified/distinguished from the other data the company collects in order to ensure proper access and security.
 - The data admin needs to easily discover the location of customer personal data across various areas of the Azure environment.
-- Customer and employee personal data that appears in shared documents and email communications must be classified and labelled to help ensure that it’s kept secure.
+- Customer and employee personal data that appears in shared documents and email communications must be labeled to help ensure that it’s kept secure.
 - The company’s app developers need a way to easily search for customer and employee personal data in their web and mobile apps.
 - Developers also need to query their document database for personal data.
 
@@ -42,7 +42,7 @@ The company wants to address the following problems:
 - Personal data from customer and employee user profiles and work information residing in Azure Active Directory must be easily located.
 - Personal data residing in multiple SQL databases must be easily queried. 
 - Some of the company’s large data sets are managed through Azure HDInsight and stored in Hadoop. They must be imported into Excel so they can be queried for personal data.
-- Personal data shared in documents and email communications must be classified, labelled, and kept secure with Azure Information Protection.
+- Personal data shared in documents and email communications must be classified, labeled, and kept secure with Azure Information Protection.
 - The company’s app developers must be able to discover customer and employee personal data in the apps they’ve built, which they can do with Azure Search.
 - Developers must be able to find personal data in their document database.
 
@@ -90,18 +90,18 @@ There are three ways to do it:
     tutorial.
 
   ![Create Azure SQL Database](media/how-to-discover-classify-personal-data-azure/create-database.png)
-- A SQL database can also be created in the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) CLI, a browser-based command line tool. The tool is available in the Azure portal and can be run directly from there. In this tutorial, you’ll launch the tool, define script variables, create a resource group and logical server, and configure a server firewall rule. Then you’ll create a database with sample data. To learn how to create your database this way, visit the [Create a single Azure SQL database using the Azure CLI](../sql-database/sql-database-get-started-cli.md) tutorial.
+- A SQL database can also be created in the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) CLI, a browser-based command-line tool. The tool is available in the Azure portal and can be run directly from there. In this tutorial, you launch the tool, define script variables, create a resource group and logical server, and configure a server firewall rule. Then you create a database with sample data. To learn how to create your database this way, visit the [Create a single Azure SQL database using the Azure CLI](../sql-database/sql-database-get-started-cli.md) tutorial.
 
   ![CLIT tutorial](media/how-to-discover-classify-personal-data-azure/cli-tutorial.png)
 
 >[!NOTE]
 Azure CLI is commonly used by Linux admins and developers. Some users find it easier and more intuitive than PowerShell, which is your third option.
 
-- Finally, you can create a SQL database using PowerShell, which is a command line/script tool used to create and manage Azure and other resources. In this tutorial, you’ll launch the tool, define script variables, create a resource group and logical server, and configure a server firewall rule. Then you’ll create a database with sample data.
+- Finally, you can create a SQL database using PowerShell, which is a command line/script tool used to create and manage Azure and other resources. In this tutorial, you launch the tool, define script variables, create a resource group and logical server, and configure a server firewall rule. Then you’ll create a database with sample data.
 
 The tutorial requires the Azure PowerShell module version 4.0 or later. Run  Get-Module -ListAvailable AzureRM to find your version. If you need to install or upgrade, see Install Azure PowerShell module.
 
-  ![how do i locate user profile and work information](media/how-to-discover-classify-personal-data-azure/sql-powershell.png)
+  ![how do I locate user profile and work information](media/how-to-discover-classify-personal-data-azure/sql-powershell.png)
 
 To learn how to create your database this way, visit the [Create a single Azure SQL database using Powershell](../sql-database/sql-database-get-started-powershell.md) tutorial.
 
@@ -154,15 +154,15 @@ Source: [Connect Excel to Hadoop by using Power Query](../hdinsight/hdinsight-co
 
 ## Azure Information Protection: personal data classification for documents and email
 
-[Azure Information Protection](https://www.microsoft.com/en-us/cloud-platform/azure-information-protection) can help Azure customers apply labels to classify and ensure the protection of internally or externally shared documents and email communications that contain customer or employee personal information. Rules and conditions can be defined automatically or manually, by administrators or by users. For example, if a user is saving a document that includes credit card information, he or she would see a label recommendation that was configured by the administrator.
+[Azure Information Protection](https://www.microsoft.com/en-us/cloud-platform/azure-information-protection) can help Azure customers apply labels to classify and protect internally or externally shared documents and email communications. Some of these items may contain customer or employee personal information. Rules and conditions can be defined automatically or manually, by administrators or by users. For example, if a user is saving a document that includes credit card information, he or she would see a label recommendation that was configured by the administrator.
 
 ### How do I try it?
 
-If you’d like to give Azure Information Protection a try to see if it might be a fit for your organization, visit the [Quickstart tutorial](https://docs.microsoft.com/information-protection/get-started/infoprotect-quick-start-tutorial). It walks you through five basic steps—from installation to configuring policy to seeing classification, labelling, and sharing in action—and should take less than a half hour.
+If you’d like to give Azure Information Protection a try to see if it might be a fit for your organization, visit the [Quickstart tutorial](https://docs.microsoft.com/information-protection/get-started/infoprotect-quick-start-tutorial). It walks you through five basic steps—from installation to configuring policy to seeing classification, labeling, and sharing in action—and should take less than a half hour.
 
 ### How do I deploy it?
 
-If you’d like to deploy Azure Information Protection for your organization, visit the [deployment roadmap for classification, labelling, and protection](https://docs.microsoft.com/information-protection/plan-design/deployment-roadmap).
+If you’d like to deploy Azure Information Protection for your organization, visit the [deployment roadmap for classification, labeling, and protection](https://docs.microsoft.com/information-protection/plan-design/deployment-roadmap).
 
 ### Is there anything else I should know?
 
