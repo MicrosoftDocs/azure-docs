@@ -192,6 +192,24 @@ For example:
 az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "C:\DLA\myfile.csv"
 ```
 
+**Get information about pipelines and recurrences**
+
+Use the `az dla job pipeline` commands to see the pipeline information previously submitted jobs.
+
+```
+az dla job pipeline list --account "<Data Lake Analytics Account Name>"
+
+az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
+```
+
+Use the `az dla job recurrence` commands to see the recurrence information for previously submitted jobs.
+
+```
+az dla job recurrence list --account "<Data Lake Analytics Account Name>"
+
+az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
+```
+
 ## Next steps
 
 * To see the Data Lake Analytics CLI 2.0 reference document, see [Data Lake Analytics](https://docs.microsoft.com/cli/azure/dla).
