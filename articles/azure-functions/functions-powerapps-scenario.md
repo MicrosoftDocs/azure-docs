@@ -194,6 +194,8 @@ That said, it's important to understand the types of modifications we made to th
 
 + Specified the required parameters, with their names and data types.
 
++ Specified the return values for a successful response, with their names and data types.
+
 + Provided friendly summaries and descriptions for the API, and its operations and parameters. This is important for people who will use this function.
 
 + Added x-ms-summary and x-ms-visibility, which are used in the UI for Microsoft Flow and Logic Apps. For more information, see [OpenAPI extensions for custom APIs in Microsoft Flow](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
@@ -226,31 +228,47 @@ paths:
       consumes:
         - application/json
       parameters:
-       - name: body
-         in: body
-         description: Hours and capacity used to calculate costs 
-         x-ms-summary: Hours and capacity
-         x-ms-visibility: important
-         required: true
-         schema:
+        - name: body
+          in: body
+          description: Hours and capacity used to calculate costs
+          x-ms-summary: Hours and capacity
+          x-ms-visibility: important
+          required: true
+          schema:
+            type: object
+            properties:
+              hours:
+                description: The amount of effort in hours required to conduct repair
+                type: number
+                x-ms-summary: Hours
+                x-ms-visibility: important
+              capacity:
+                description: The max output of a turbine in kilowatts
+                type: number
+                x-ms-summary: Capacity
+                x-ms-visibility: important
+      responses:
+        200:
+          description: Message with cost and revenue numbers
+          x-ms-summary: Message
+          schema:
            type: object
            properties:
-            hours:
-              description: The amount of effort in hours required to conduct repair
+            message:
+              type: string
+              description: Returns Yes or No depending on calculations
+              x-ms-summary: Message 
+            revenueOpportunity:
               type: number
-              x-ms-summary: Hours
-              x-ms-visibility: important
-            capacity:
-              description: The max output of a turbine in kilowatts
+              description: The revenue opportunity cost
+              x-ms-summary: RevenueOpportunity 
+            costToFix:
               type: number
-              x-ms-summary: Capacity
-              x-ms-visibility: important
-      responses:
-        '200':
-          description: Message with cost and revenue numbers
-          x-ms-summary: Message with cost and revenue numbers
+              description: The cost in $ to fix the turbine
+              x-ms-summary: CostToFix
       security:
         - apikeyQuery: []
+definitions: {}
 securityDefinitions:
   apikeyQuery:
     type: apiKey
@@ -311,14 +329,56 @@ The next step in this process is to export the API definition so that PowerApps 
 1. Click **OK**. The custom API is now built and added to the environment you specified.
 
 ## Build the app
-Talk about the different audience for this part -- the app builders who consume the API that the pro dev has exported.
+At this point, you have a custom API that is exported to PowerApps and Microsoft Flow. Now you're going to switch gears and use the API in a PowerApps app. As we noted in the introduction, app builders in PowerApps are often business users who don't have the background to do the work you just did in Azure Functions. Having access to the custom API makes their lives a lot easier when they need to perform more sophisticated tasks.
 
-1. Blank tablet app
-1. Start with connections to Excel and custom connector. Mention APIKey here (get clarification on expected behavior with bug)
-1. Add a gallery and resize
-1. Modify fields
-1. Add a form to show details
-1. Add a button and call the function to build a messages
+### Prepare sample data in Excel
+You'll start off by prepping some sample data that you'll use in the app. Copy the following table into Excel. 
+
+| Title      | Latitude  | Longtitude  | LastServiceDate | MaxOutput | ServiceRequired | EstimatedEffort | InspectionNotes                            |
+|------------|-----------|-------------|-----------------|-----------|-----------------|-----------------|--------------------------------------------|
+| Turbine 1  | 47.438401 | -121.383767 | 2/23/2017       | 2850      | Yes             | 6               | This is the second issue this month.       |
+| Turbine 4  | 47.433385 | -121.383767 | 5/8/2017        | 5400      | Yes             | 6               |                                            |
+| Turbine 33 | 47.428229 | -121.404641 | 6/20/2017       | 2800      |                 |                 |                                            |
+| Turbine 34 | 47.463637 | -121.358824 | 2/19/2017       | 2800      | Yes             | 7               |                                            |
+| Turbine 46 | 47.471993 | -121.298949 | 3/2/2017        | 1200      |                 |                 |                                            |
+| Turbine 47 | 47.484059 | -121.311171 | 8/2/2016        | 3350      |                 |                 |                                            |
+| Turbine 55 | 47.438403 | -121.383767 | 10/2/2016       | 2400      | Yes             | 4               | We have some parts coming in for this one. |
+
+1. In Excel, select the data, and on the **Home** tab, click **Format as table**.
+
+    ![Format as table](media/functions-powerapps-scenario/format-table.png)
+
+1. Select any style, and click **OK**.
+
+1. With the table selected, on the **Design** tab, enter `Turbines` for **Table Name**.
+
+    ![Table name](media/functions-powerapps-scenario/table-name.png)
+
+1. Save the Excel workbook.
+
+### Add a connection to the API
+The custom API (also known as a custom connector) is available in PowerApps, but you must make a connection to the API before you can use it in an app.
+
+1. In [web.powerapps.com](https://web.powerapps.com), click **Connections**.
+
+    ![PowerApps connections](media/functions-powerapps-scenario/powerapps-connections.png)
+
+1. Click **New Connection**, scroll down to the **Turbine Repair** connector, and click it.
+
+    ![New connection](media/functions-powerapps-scenario/new-connection.png)
+
+1. Enter the API Key, and click **Create**.
+
+    ![Create connection](media/functions-powerapps-scenario/create-connection.png)
+
+> [!NOTE]
+> If you share your app with others, each person who works on or uses the app will also need to enter the API key to connect to the API. This behavior might change in the future, and we will update this topic to reflect that.
+
+### Create the app and add data connections
+
+### Add controls to view data in the app
+
+### Call the function and display data
 
 ## Run the app
 Run the app and show an example of making the function call and seeing the results.
