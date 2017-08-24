@@ -18,28 +18,34 @@ ms.author: micflan
 
 ---
 # Azure portal keyboard shortcuts
-## Open hubs
+## Actions
 | Shortcut | Action |
 | --- | --- |
-| N |Notifications |
-| / |Browse services |
-| A |Active sessions |
-| B |Billing |
-| C |Create |
+| N |New |
+| / |Search resources |
+| B |Browse |
 
 ## Navigation
 | Shortcut | Action |
 | --- | --- |
-| H |Azure Start dashboard |
-| F |First open blade |
-| J |Previous open blade |
-| K |Next open blade |
-| L |Last open blade |
-| - |Minimize blade or restore from maximized |
-| + |Maximize blade or restore from minimized |
+| - |Minimize |
+| + |Maximize |
 | # |Close current blade |
 | ¦ |Close all blades |
 | , |Move focus to command bar |
-| . |Move focus to navigation bar |
-| ? |View keyboard shortcuts |
+| . |Toggle focus between top bar and side bar |
+| ? |Keyboard shortcuts |
 
+## Go To
+| Shortcut | Action |
+| --- | --- |
+| G+A |Go to all resources |
+| G+I |Go to Application Insights |
+| G+C |Go to cloud services |
+| G+R |Go to resource groups |
+| G+V |Go to virtual machines |
+| G+N |Go to virtual networks |
+| G+W |Go to web apps |
+| G+number |Go to all resources |
+| G+A |
+Open the item pinned to the favorites bar at this position |
