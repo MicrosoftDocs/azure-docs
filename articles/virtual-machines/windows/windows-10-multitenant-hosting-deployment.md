@@ -69,7 +69,7 @@ Within your Resource Manager templates, an additional parameter for `licenseType
    }
 ```
 
-**Deploy via PowerShell **
+**Deploy via PowerShell**
 When deploying your Windows Server VM via PowerShell, you have an additional parameter for `-LicenseType`. Once you have your VHD uploaded to Azure, you create a VM using `New-AzureRmVM` and specify the licensing type as follows:
 ```powershell
 New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
