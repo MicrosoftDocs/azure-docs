@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -49,6 +49,11 @@ ms.custom: H1Hack27Feb2017
 
 ## Release notes
 
+### <a name="1.17.0"/>1.17.0 
+
+* Added support for PartitionKeyRangeId as a FeedOption for scoping query results to a specific partition key range value. 
+* Added support for StartTime as a ChangeFeedOption to start looking for the changes after that time.
+
 ### <a name="1.16.1"/>1.16.1
 * Fixed an issue in the JsonSerializable class that may cause a stack overflow exception.
 
@@ -63,7 +68,6 @@ ms.custom: H1Hack27Feb2017
 *	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw an SEHException when running Azure Cosmos DB DocumentDB API queries.
 
 ### <a name="1.14.0"/>1.14.0
-*	Added support for the request unit per minute (RU/m) feature.
 *	Added support for a new consistency level called ConsistentPrefix.
 *	Added support for query metrics for individual partitions.
 *	Added support for limiting the size of the continuation token for queries.
@@ -250,6 +254,7 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.17.0](#1.17.0) |August 10, 2017 |--- |
 | [1.16.1](#1.16.1) |August 07, 2017 |--- |
 | [1.16.0](#1.16.0) |August 02, 2017 |--- |
 | [1.15.0](#1.15.0) |June 30, 2017 |--- |

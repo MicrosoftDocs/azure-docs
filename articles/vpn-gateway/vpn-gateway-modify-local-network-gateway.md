@@ -29,15 +29,15 @@ Sometimes the settings for your local network gateway AddressPrefix or GatewayIP
 >
 >
 
-## Before you begin
+## <a name="before"></a>Before you begin
 
 Install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
 
-## Modify IP address prefixes
+## <a name="ipaddprefix"></a>Modify IP address prefixes
 
 [!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
-## Modify the gateway IP address
+## <a name="gwip"></a>Modify the gateway IP address
 
 [!INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 

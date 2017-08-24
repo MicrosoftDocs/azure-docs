@@ -117,6 +117,8 @@
       items:
       - name: Overview
         href: app-service-linux-intro.md
+      - name: Manage using CLI
+        href: app-service-linux-cli.md
       - name: Create Web App on Linux
         href: app-service-linux-how-to-create-web-app.md
       - name: Ruby Web App on Linux

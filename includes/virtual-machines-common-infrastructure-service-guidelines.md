@@ -72,7 +72,7 @@ In case a virtual machine is created from a .vhd image file that already contain
 We recommend that the Azure virtual machine name be the same as the underlying operating system computer name. Because of this, follow the NetBIOS naming rules as described in [Microsoft NetBIOS computer naming conventions](https://support.microsoft.com/kb/188997/).
 
 ### Storage account names
-Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. See [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) for more information. Additionally, the storage account name, in combination with core.windows.net, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
+Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. See [Create a storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) for more information. Additionally, the storage account name, in combination with core.windows.net, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
 
 * mystorageaccount.blob.core.windows.net
 * mystorageaccount.table.core.windows.net
@@ -131,7 +131,7 @@ Azure Storage is an integral part of many Azure solutions. Azure Storage provide
 
 There are two types of storage accounts available from Azure. A standard storage account gives you access to blob storage (used for storing Azure virtual machine disks), table storage, queue storage, and file storage. Premium storage is designed for high-performance applications, such as SQL Servers in an AlwaysOn cluster, and currently supports Azure virtual machine disks only.
 
-Storage accounts are bound to scalability targets. See [Microsoft Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md#storage-limits) to become familiar with current Azure storage limits. Also see [Azure storage scalability and performance targets](../articles/storage/storage-scalability-targets.md).
+Storage accounts are bound to scalability targets. See [Microsoft Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md#storage-limits) to become familiar with current Azure storage limits. Also see [Azure storage scalability and performance targets](../articles/storage/common/storage-scalability-targets.md).
 
 Azure creates virtual machines with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure page blobs, whereas the temporary disk is stored locally on the node where the machine lives. This makes the temporary disk unfit for data that must persist during a system recycle, because the machine might silently be migrated from one node to another, losing any data in that disk. Do not store anything on the temporary drive.
 
@@ -392,7 +392,7 @@ This configuration incorporates:
 
 [Sizes for virtual machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Azure storage scalability and performance targets](../articles/storage/storage-scalability-targets.md)
+[Azure storage scalability and performance targets](../articles/storage/common/storage-scalability-targets.md)
 
 [Datacenter extension reference architecture diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
