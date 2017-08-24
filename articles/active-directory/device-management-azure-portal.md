@@ -1,5 +1,5 @@
 ---
-title: Managing devices using the Azure portal -preview | Microsoft Docs
+title: Managing devices using the Azure portal - preview | Microsoft Docs
 description: Learn how to use the Azure portal to manage devices.
 services: active-directory
 documentationcenter: ''
