@@ -12,19 +12,20 @@ ms.author: mlearned
 ms.custom: Jenkins
 ---
 
-# Create a Jenkins server on an Azure Linux VM using the Azure Portal
+# Create a Jenkins server on an Azure Linux VM from the Azure Portal
 
 This quickstart shows how to install Jenkins on an Ubuntu Linux VM with the tools and plugins configured to work with Azure. When you're finished, you'll have a Jenkins server running in Azure building code from a [GitHub](https://github.com).
 
 ## Prerequisites
 
 * An Azure subscription
+* SSH command line access on your computer (for example, through the Bash shell or [PuTTY](http://www.putty.org/) )
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create the Jenkins VM from the solution template
 
-Go to [The marketplace image for Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview) and select  **GET IT NOW** from the left hand side of the page. Review the pricing details and select **Continue** to open the configuration page in the Azure portal. Select **Create** to start configuring the Jenkins VM. 
+Open the [marketplace image for Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview) in your web browser and select  **GET IT NOW** from the left hand side of the page. Review the pricing details and select **Continue** to open the configuration page in the Azure portal. Select **Create** from the Portal to configure the Jenkins VM. 
    
 ![Azure portal dialog](./media/install-jenkins-solution-template/ap-create.png)
 
@@ -51,7 +52,17 @@ Select **OK**. Once validation passes, select **OK** again from the **Summary** 
 
 ## Connect to Jenkins
 
-Navigate to http://<jenkins_domain>.eastus.cloudapp.azure.com:8080/ on from your web browser.
+Navigate to your virtual machine (for example, http://<jenkins_domain>.eastus.cloudapp.azure.com/ ) in  your web browser. The Jenkins console is accessible only through unsecured HTTP and instructions are provided on the page to access the Jenkins console securely using an SSH tunnel.
+
+![Unlock jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
+
+Open your command line and forward the ports using the `ssh` command on the page:
+
+```bash
+ssh -L 127.0.0.1:8080:localhost:8080 username@jenkins2517454.eastus.cloudapp.azure.com
+```
+
+After you have started your tunnel, navigate to http://localhost:8080/ on your local machine.
 
 Unlock the Jenkins dashboard for the first time with the initial admin password.
 
@@ -59,7 +70,7 @@ Unlock the Jenkins dashboard for the first time with the initial admin password.
 
 To get a token, SSH into the VM and run `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`.
 
-![Unlock jenkins](./media/install-jenkins-solution-template/jenkins-ssh.png)
+![Unlock jenkins](./media/install-jenkins-solution-template/jenkins-ssh.png) 
 
 You are asked to install the suggested plugins.
 
