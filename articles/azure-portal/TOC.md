@@ -12,6 +12,7 @@
 ### [Deploy with Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md)
 ### [Create and share Azure dashboards](azure-portal-dashboards.md)
 ## Manage
+### [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md)
 ### [Use portal to manage resources](../azure-resource-manager/resource-group-portal.md)
 ### [Manage access with Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
 ### [Share dashboards with Role-Based Access Control](azure-portal-dashboard-share-access.md)
