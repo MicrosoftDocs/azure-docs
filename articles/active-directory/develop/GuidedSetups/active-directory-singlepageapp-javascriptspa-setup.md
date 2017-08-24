@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: identity 
 ms.date: 06/01/2017
 ms.author: andret
----
 
+---
 ## Setting up your web server or project
 
 > Prefer to download this sample's project instead? 
