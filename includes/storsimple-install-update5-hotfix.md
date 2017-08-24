@@ -37,10 +37,10 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
    
     We recommend that you use the credential parameter to access shares. Even shares that are open to “everyone” are typically not open to unauthenticated users.
    
-4 . Supply the password when prompted. A sample output for installing the first order updates is shown below. For the first order update, you need to point to the specific file.
+4. Supply the password when prompted. A sample output for installing the first order updates is shown below. For the first order update, you need to point to the specific file.
 
->[!NOTE] 
-> You should install the _HcsSoftwareUpdate.exe_ first. After this install has completed, then install _CisMdsAgentUpdate.exe_.
+    >[!NOTE] 
+    > You should install the _HcsSoftwareUpdate.exe_ first. After this install has completed, then install _CisMdsAgentUpdate.exe_.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -100,7 +100,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 8. Repeat steps 3-6 to install the second order updates. 
 
     > [!NOTE] 
-    > For second order updates, multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder.** If an update is already installed, the update logic will detect that and not apply that update.
+    > For second order updates, multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder. If an update is already installed, the update logic will detect that and not apply that update.
 
     After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
     
