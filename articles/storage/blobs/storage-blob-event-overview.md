@@ -93,7 +93,7 @@ Here is an example of a BlobCreated event:
 For more information, see [Blob storage events schema](/en-us/azure/event-grid/event-schema#azure-blob-storage).
 
 ## Filtering Events
-Blob Event subscriptions can be filtered based on the event type and by the container name and blob name of the object that was created or deleted.  Subject filters in Event Grid work based on a “begins with” and “ends with” matches, so that events with a matching subject are delivered to the subscriber.
+Blob Event subscriptions can be filtered based on the event type and by the container name and blob name of the object that was created or deleted.  Subject filters in Event Grid work based on “begins with” and “ends with” matches, so that events with a matching subject are delivered to the subscriber.
 The subject of Blob storage events uses the format:
 ```json
 /blobServices/default/containers/<containername>/blobs/<blobname>
