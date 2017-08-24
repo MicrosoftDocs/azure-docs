@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 08/24/2017
 ms.author: bwren
 
 ---
 
-# Log Analytics new log search frequently asked questions and known issues
+# Log Analytics new log search FAQ and known issues
 
 This article includes frequently asked questions regarding and known issues the upgrade of [Log Analytics to the new query language](log-analytics-log-search-upgrade.md).  You should read through this entire article before making the decision to upgrade your workspace.
 
@@ -41,7 +41,7 @@ An example query to create a new computer group that includes an imported Active
 ## Dashboards
 
 ### Question: Can I still use dashboards in an upgraded workspace?
-You can continue to use dashboards that you created before your workspace was upgraded, but you cannot edit those dashboards or create new ones.  You can continue to create and edit views with [View Designer](log-analytics-view-designer.md). 
+You can continue to use any tiles that you added to **My Dashboard ** before your workspace was upgraded, but you cannot edit those tiles or add new ones.  You can continue to create and edit views with [View Designer](log-analytics-view-designer.md) and also create dashboard in the Azure portal.
 
 
 ## Log searches
@@ -49,12 +49,14 @@ You can continue to use dashboards that you created before your workspace was up
 ### Question: I have saved searches outside of my upgraded workspace. Can I convert them to the new search language automatically?
 You can use the language converter tool in the log search page to convert each one.  There is no method to automatically convert multiple searches without upgrading the workspace.
 
-### Known issue: See all option for line charts in views doesn't result in a line chart
-When you click on the **See all** option at the bottom of a line chart part in a view, you are presented with a table.  Prior to upgrade, you would be presented with a line chart.  This issue is being analyzed for a potential modification.
+### Question: Why are my query results not sorted?
+Results are not sorted by default in the new query language.  Use the [sort operator](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator) to sort your results by one or more properties.
 
-### Known issue: Properties with no data are displayed in list views.
-Records returned from a log search in a list view may display properties with no data.  Prior to upgrade, these properties wouldn't be included in the list view.  This issue will be corrected so that these properties are not displayed.
+### Known issue: Search results in a list may include properties with no data 
+Log search results in a list may display properties with no data.  Prior to upgrade, these properties wouldn't be included.  This issue will be corrected so that empty properties are not displayed.
 
+### Known issue: Selecting a value in a chart doesn't display detailed results
+Prior to upgrade, when you selected a value in a chart, it would return a detailed list of records matching the selected value.  After upgrade, only the single summarized line is returned.  This issue is currently being investigated.
 
 ## Log Search API 
 
@@ -123,7 +125,7 @@ This solution will not collect data in an upgraded workspace.  A fix to this iss
 ## Upgrade process
 
 ### Question: I have several workspaces. Can I upgrade all workspaces at the same time?  
-A:  No.  Upgrade applies to a single workspace each time. Currently there is no way of upgrading many workspaces at once. Please note that other users of the upgraded workspace will be affected as well.  
+No.  Upgrade applies to a single workspace each time. Currently there is no way of upgrading many workspaces at once. Please note that other users of the upgraded workspace will be affected as well.  
 
 ### Question: Will existing log data collected in my workspace be modified if I upgrade?  
 No. The log data available to your workspace searches is not affected by the upgrade. Saved searches, alerts and views will be converted to the new search language automatically.  
@@ -138,10 +140,14 @@ Another admin of this workspace could have upgraded the workspace. Please note t
 No problem.  We create a snapshot of your workspace before upgrade, so you can restore it. Keep in mind that searches, alerts or views you saved after the upgrade will be lost though.  To restore your workspace environment, follow the procedure at [Can I go back after I upgrade?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade).
 
 
-## View Designer
+## Views
 
 ### Question: How do I create a new view with View Designer?
 Prior to upgrade, you could create a new view with View Designer from a tile on the main dashboard.  When your workspace is upgraded, this tile is removed.  You can create a new view with View Designer in the OMS portal by clicking on the green + button in the left menu.
+
+### Known issue: See all option for line charts in views doesn't result in a line chart
+When you click on the *See all* option at the bottom of a line chart part in a view, you are presented with a table.  Prior to upgrade, you would be presented with a line chart.  This issue is being analyzed for a potential modification.
+
 
 ## Next steps
 
