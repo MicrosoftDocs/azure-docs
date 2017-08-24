@@ -181,6 +181,7 @@ if(Test-Path $parametersFilePath) {
 }
 ```
 
+### Azure CLI
 ```azurecli
 #!/bin/bash
 set -euo pipefail
