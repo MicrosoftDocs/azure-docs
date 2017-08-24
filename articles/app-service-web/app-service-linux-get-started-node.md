@@ -102,7 +102,6 @@ The following example creates an App Service Plan on Linux workers named `quickS
 ```azurecli-interactive
 az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku S1 --is-linux
 ```
-
 When the App Service Plan has been created, the Azure CLI shows information similar to the following example.
 
 ```json
@@ -125,10 +124,10 @@ When the App Service Plan has been created, the Azure CLI shows information simi
 
 Now that an App Service plan has been created, create a web app within the `quickStartPlan` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) command to create the web app.
 
-In the following command, substitute your own unique app name where you see the <app_name> placeholder. The <app_name> is used as the default DNS site for the web app, and so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users.
+In the following command, substitute your own unique app name where you see the <app_name> placeholder. The <app_name> is used as the default DNS site for the web app, and so the name needs to be unique across all apps in Azure. Since this is a Node.js app, the `runtime` parameter is set to "node|8.1". You can later map any custom DNS entry to the web app before you expose it to your users.
 
 ```azurecli-interactive
-az webapp create --name <app_name> --plan quickStartPlan --resource-group myResourceGroup
+az webapp create --name <app_name> --plan quickStartPlan --resource-group myResourceGroup --runtime "node|8.1"
 ```
 
 When the web app has been created, the Azure CLI shows information similar to the following example:
@@ -160,17 +159,6 @@ http://<app_name>.azurewebsites.net
 ![app-service-web-service-created](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
 We’ve now created an empty new web app in Azure. Let’s now configure our web app to use Node.js and deploy our app to it.
-
-## Configure web app to use Node.js
-
-Use the [az webapp config](/cli/azure/app-service/web/config) command to configure the web app to use Node.js version `8.1`.
-
-> [!TIP]
-> Setting the Node.js version using the Azure CLI uses a default container provided by the platform. If you wish use your own container, refer to the CLI reference for the [az webapp config](/cli/azure/app-service/web/config) command.
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.1
-```
 
 ## Configure local git deployment
 
