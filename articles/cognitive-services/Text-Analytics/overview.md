@@ -91,7 +91,7 @@ Rate limiting exists at a rate of 100 calls per minute. We therefore recommend t
 
 First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). You can paste a text input (5K character maximum) to detect the language (up to 120), calculate a sentiment score, or extract key phrases.
 
-Next, step through the [quickstart REST API tutorial](quick-start.md) to learn the basic workflow using the REST API. You can use a Web API testing tool like Chrome Postman or Telerik Fiddler to minimize code investments while you evaluate the service.
+Next, step through the [quickstart](quick-start.md) to learn the basic workflow using the REST API in C#.
 
 For .NET developers, we recommend the [Cognitive Services Text Analytics .NET SDK](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) for developing text analysis apps in managed code.
 

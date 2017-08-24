@@ -20,7 +20,7 @@ The [language detection API](https://westus.dev.cognitive.microsoft.com/docs/ser
 
 ## Common use cases
 
-This capability is useful for content stores that collect arbitrary text, in possibly any number of languages, which you might want to then parse to determine which languages are represented and the frequency at which they occur. From the output, you could trim unknown or inconclusive results, or investigate the findings more deeply to see if there is corruption in the form of unexpected non-text content. For more information on handling results, see [How to work with analyses outputs](text-analytics-howto-output.md).
+This capability is useful for content stores that collect arbitrary text, in possibly any number of languages, which you might want to then parse to determine which languages are represented and the frequency at which they occur. From the output, you could trim unknown or inconclusive results, or investigate the findings more deeply to see if there is corruption in the form of unexpected non-text content.
 
 > [!Note]
 > If you are submitting the same collection of documents for sentiment analysis, key phrase analysis, and language detection, the `language` code used for sentiment analysis and key phrase extraction is ignored for language detection.
