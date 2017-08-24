@@ -93,8 +93,6 @@
       items:
       - name: Plan, offer, quota, and subscription overview
         href: azure-stack-plan-offer-quota-overview.md
-      - name: Set quotas
-        href: azure-stack-setting-quotas.md
       - name: Create a plan
         href: azure-stack-create-plan.md
       - name: Create an offer
@@ -103,6 +101,8 @@
         href: azure-stack-subscribe-plan-provision-vm.md
       - name: Delegate offers in Azure Stack
         href: azure-stack-delegated-provider.md
+      - name: Quota types
+        href: azure-stack-quota-types.md
     - name: Offer SQL or MySQL as PaaS
       items:
       - name: PaaS services overview
