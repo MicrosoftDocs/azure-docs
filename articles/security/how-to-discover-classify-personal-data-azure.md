@@ -101,7 +101,12 @@ Azure CLI is commonly used by Linux admins and developers. Some users find it ea
 
 The tutorial requires the Azure PowerShell module version 4.0 or later. Run  Get-Module -ListAvailable AzureRM to find your version. If you need to install or upgrade, see Install Azure PowerShell module.
 
-  ![how do I locate user profile and work information](media/how-to-discover-classify-personal-data-azure/sql-powershell.png)
+```PowerShell
+New-AzureRmSQLDatabase -ResourceGroupName $resourcegroupname `
+-ServerName $servername `
+-DatabaseName $databasename `
+-RequestedServiceObjectiveName "s0"
+```
 
 To learn how to create your database this way, visit the [Create a single Azure SQL database using Powershell](../sql-database/sql-database-get-started-powershell.md) tutorial.
 
