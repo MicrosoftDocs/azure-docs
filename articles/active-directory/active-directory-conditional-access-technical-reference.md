@@ -138,8 +138,10 @@ While most checks, like location and MFA work on most devices and browsers, devi
 
 
 ## Next steps
-* [Securing access to Office 365 and other apps connected to Azure Active Directory](active-directory-conditional-access.md)
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+
+- For an overview of conditional access, see [conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md)
+- If you are ready to configure conditional access policies in your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md)
+
 
 
 <!--Image references-->
