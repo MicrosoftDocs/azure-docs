@@ -21,7 +21,7 @@ ms.custom: oldportal;it-pro;
 
 ---
 # How Azure subscriptions are associated with Azure Active Directory
-This article covers information about the relationship between an Azure subscription and Azure Active Directory (Azure AD).
+This article covers information about the relationship between an Azure subscription and Azure Active Directory (Azure AD), and how to add an existing subscription to your Azure AD directory.
 
 ## Your Azure subscription's relationship to Azure AD
 Your Azure subscription has a trust relationship with Azure AD, which means that it trusts the directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but each subscription trusts only one directory. 
