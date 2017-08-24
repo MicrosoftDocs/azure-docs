@@ -1,17 +1,24 @@
 - name: Text Analytics Documentation
   href: ../index.md
 - name: Overview
+  href: overview.md
   items:
-  - name: Welcome to Text Analytics API
-    href: overview.md
+- name: How-to guides
+  items:
+   - name: Obtain an access key
+     href: 
+   - name: Call the Text Analytics API
+     href: 
+   - name: Detect language (REST)
+     href: 
+   - name: Analyze sentiment (REST)
+     href: 
+   - name: Extract keywords (REST)
+     href: 
 - name: Quickstarts
   items:
   - name: Analyze keywords, sentiment, and language with REST
     href: quick-start.md
-- name: Tutorials
-  items:
-  - name: Text Analytics & Power BI
-    href: text-analytics-tutorial-power-bi.md
 - name: Concepts
   items:
    - name: Sentiment analysis 
@@ -20,14 +27,6 @@
      href: text-analytics-concept-keyword-extraction.md
    - name: Language detection
      href: text-analytics-concept-language-detection.md
-- name: How-to guides
-  items:
-   - name: Develop with C#
-     href: 
-   - name: Structure data inputs
-     href: text-analytics-howto-input-data.md
-   - name: Work with analyzer outputs
-     href: text-analytics-howto-output.md
 - name: Reference
   items: 
   - name: REST API
