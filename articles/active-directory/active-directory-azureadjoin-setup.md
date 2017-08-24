@@ -3,8 +3,8 @@ title: Setting up Azure AD Join for your users| Microsoft Docs
 description: Explains how administrators can set up Azure AD Join for on-premises directory and device registration.
 services: active-directory
 documentationcenter: ''
-author: femila
-manager: swadhwa
+author: MarkusVi
+manager: femila
 editor: ''
 tags: azure-classic-portal
 
