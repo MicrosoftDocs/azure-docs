@@ -1,6 +1,6 @@
 # Submit your solutions to the Office Store
 
-The Office Store provides a convenient location for you to upload new Office Add-ins, SharePoint Add-ins, Power BI custom visuals, and Microsoft Teams apps that provide solutions for both at consumers and businesses. To include your solution in the Office Store, you submit it to the [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). You will need to create an individual or company account and, if applicable, add payout information. For details, see:
+The Office Store provides a convenient location for you to upload new Office Add-ins, SharePoint Add-ins, Power BI custom visuals, and Microsoft Teams apps that provide solutions for both consumers and businesses. To include your solution in the Office Store, you submit it to the [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). You will need to create an individual or company account and, if applicable, add payout information. For details, see:
 
 -  [Register as an app developer](https://dev.windows.com/en-us/programs/join). After you create your account, it goes through an approval process. 
 -  [Use the Seller Dashboard to submit to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md).
