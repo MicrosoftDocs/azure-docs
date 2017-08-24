@@ -38,7 +38,7 @@ There are a few pre-requisites to account for before you configure multi-tenancy
         Import-Module .\Connect\AzureStack.Connect.psm1
         Import-Module .\Identity\AzureStack.Identity.psm1
     ```` 
- - Mary will require [VPN](azure-stack-connect-azure-stack.md#connect-with-vpn) access to Azure Stack. 
+ - Mary will require [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) access to Azure Stack. 
 
 ## Configure Azure Stack directory
 In this section, you configure Azure Stack to allow sign-ins from Fabrikam Azure AD directory tenants.
