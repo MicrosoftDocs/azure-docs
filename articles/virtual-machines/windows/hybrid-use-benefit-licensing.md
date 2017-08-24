@@ -1,5 +1,5 @@
 ﻿---
-title: Azure Hybrid Use Benefit for Window Server and Windows Client| Microsoft Docs
+title: Azure Hybrid Use Benefit for Window Server | Microsoft Docs
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 5/26/2017
 ms.author: xujing
 
 ---
-# Azure Hybrid Use Benefit for Windows Server and Windows Client
+# Azure Hybrid Use Benefit for Windows Server
 For customers with Software Assurance, Azure Hybrid Use Benefit allows you to use your on-premises Windows Server and Windows Client licenses and run Windows virtual machines in Azure at a reduced cost. Azure Hybrid Use Benefit for Windows Server includes Windows Server 2008R2, Windows Server 2012, Windows Server 2012R2, and Windows Server 2016. Azure Hybrid Use Benefit for Windows Client includes Windows 10. For more information, please see the [Azure Hybrid Use Benefit licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 ## Ways to use Azure Hybrid Use Benefit
