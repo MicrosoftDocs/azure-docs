@@ -70,7 +70,7 @@
     - name: Import training data
       items:
       - name: Overview
-        href: data-science-import-data.md
+        href: import-data.md
       - name: From a local file
         href: import-data-from-local-file.md
       - name: From online sources

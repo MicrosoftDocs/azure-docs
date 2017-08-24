@@ -387,7 +387,7 @@ Click [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?LinkId=717
 **To execute the Real-time Dashboard Application**
 1. Extract and save locally ![RealtimeDashboardApp folder](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *Figure 16 – RealtimeDashboardApp folder*  
 2. Execute the application RealtimeDashboardApp.exe
-3. Provide valid Power BI credentials, sign in and click Accept ![Real-time dashboard app sign-in to Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Real-time dashboard app finish sign-in to Power BI](../../media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+3. Provide valid Power BI credentials, sign in and click Accept ![Real-time dashboard app sign-in to Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Real-time dashboard app finish sign-in to Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
 *Figure 17 – RealtimeDashboardApp: Sign-in to Power BI*
 

@@ -28,7 +28,7 @@ Machine Learning Studio and the Microsoft Azure Machine Learning Web Services po
 
 The following links provide general Information about how to deploy a new web service:
 
-* For an overview about how to deploy a new web service that's based on Azure Resource Manager, see [Deploy a new web service](webservice-deploy-a-web-service.md).
+* For an overview about how to deploy a new web service that's based on Azure Resource Manager, see [Deploy a new web service](publish-a-machine-learning-web-service.md).
 * For a walkthrough about how to deploy a web service, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
 * For a full walkthrough about how to create and deploy a web service, see [Walkthrough Step 1: Create a Machine Learning workspace](walkthrough-1-create-ml-workspace.md).
 * For specific examples that deploy a web service, see:
@@ -82,7 +82,7 @@ See the following articles and sample code for additional details:
 ### From the Azure Machine Learning Web Services UI (Testing)
 You can test your web service from the Azure Machine Learning Web Services portal. This includes testing the Request-Response service (RRS) and Batch Execution service (BES) interfaces.
 
-* [Deploy a new web service](webservice-deploy-a-web-service.md)
+* [Deploy a new web service](publish-a-machine-learning-web-service.md)
 * [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md)
 * [Walkthrough Step 5: Deploy the Azure Machine Learning web service](walkthrough-5-publish-web-service.md)
 
