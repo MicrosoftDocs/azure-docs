@@ -173,7 +173,7 @@ You can take a manual backup at any time. For procedures, go to [Create a manual
 ## Configure a new storage account for the service
 This is an optional step that you need to perform only if you did not enable the automatic creation of a storage account with your service. A Microsoft Azure storage account is required to create a StorSimple volume container.
 
-If you need to create an Azure storage account in a different region, see [About Azure Storage Accounts](../storage/storage-create-storage-account.md) for step-by-step instructions.
+If you need to create an Azure storage account in a different region, see [About Azure Storage Accounts](../storage/common/storage-create-storage-account.md) for step-by-step instructions.
 
 Perform the following steps in the Government Portal, on the **StorSimple Manager service** page.
 

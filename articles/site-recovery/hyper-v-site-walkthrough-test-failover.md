@@ -29,7 +29,7 @@ Before you run a test failover we recommend that you verify the VM properties, a
 
 ## Managed disk considerations
 
-[Managed disks](../storage/storage-managed-disks-overview.md) simplify disk management for Azure VMs, by managing the storage accounts associated with the VM disks. 
+[Managed disks](../virtual-machines/windows/managed-disks-overview.md) simplify disk management for Azure VMs, by managing the storage accounts associated with the VM disks. 
 
 - Managed disks are created and attached to the VM only when a failover to Azure occurs. When you enable protection, data from on-premises VMs replicates to storage accounts.
 - Managed disks can be created only for VMs that are deployed using the Resource manager deployment model.

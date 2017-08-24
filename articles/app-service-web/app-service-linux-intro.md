@@ -35,6 +35,9 @@ Web App on Linux currently supports the following application stacks:
 	* 6.6
 	* 6.9
 	* 6.10
+	* 6.11
+	* 8.0
+	* 8.1
 * PHP
 	* 5.6
 	* 7.0
@@ -94,7 +97,7 @@ Web Apps on Linux must be created in a resource group that does not contain non-
 
 ## Troubleshooting ##
 
-When your application fails to start or want to check the logging from your app, check the Docker logs in the LogFiles directory. You can access this directory either through your SCM site or via FTP.
+When your application fails to start or you want to check the logging from your app, check the Docker logs in the LogFiles directory. You can access this directory either through your SCM site or via FTP.
 To log the `stdout` and `stderr` from your container, you need to enable **Docker Container logging** under **Diagnostics Logs**.
 
 ![Enabling Logging][2]
