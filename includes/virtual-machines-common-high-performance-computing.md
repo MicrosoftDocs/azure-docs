@@ -1,4 +1,4 @@
-Organizations have large-scale computing needs. These Big Compute workloads include engineering design and analysis, image rendering, complex modeling, Monte Carlo simulations, financial risk calculations, and more. 
+Organizations have large-scale computing needs. These Big Compute workloads include engineering design and analysis, financial risk calculations, image rendering, complex modeling, Monte Carlo simulations, and more. 
 
 With Azure, you can run your high performance computing (HPC) and batch workloads on clusters of Azure virtual machines, using your choice of Azure infrastructure services or managed services. Azure gives you the flexibility to scale compute resources to thousands of VMs or cores and then scale down when you need fewer resources. 
 
@@ -9,7 +9,7 @@ Azure HPC solutions efficiently run compute-intensive Linux and Windows workload
 
 Sample compute-intensive solution architectures in Azure include:
 
-* Run HPC applications in virtual machines or virtual machine scale sets, using a Linux or Windows cluster or grid manager of your choice [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-cluster/)
+* Run HPC applications in virtual machines or [virtual machine scale sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md), using a Linux or Windows cluster or grid manager of your choice [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-cluster/)
 * Create hybrid solutions that extend an on-premises HPC cluster to offload ("burst") peak workloads to Azure VMs [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-on-prem-burst/)
 * Use the managed and scalable Azure [Batch](https://azure.microsoft.com/services/batch/) service to run compute-intensive workloads, without managing underlying infrastructure [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
 
@@ -38,7 +38,7 @@ Microsoft partners with commercial grid managers to make their solutions availab
 
 Learn how to:
 
-* [Create an HPC Pack 2016 cluster in Azure](https://github.com/MsHpcPack/HPCPack2016)
+* [Create an HPC Pack 2016 cluster in Azure](../virtual-machines/windows/hpcpack-2016-cluster.md)
 * [Burst to Azure with HPC Pack](https://technet.microsoft.com/library/gg481749(v=ws.11).aspx)
 
 
@@ -58,12 +58,12 @@ Learn how to:
 * [Use the R language with Batch](https://github.com/Azure/doAzureParallel)
 
 ## HPC and GPU VM sizes
-Azure offers a range of sizes for [Linux](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Windows](../articles/virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) VMs, including sizes designed for compute-intensive workloads. For example, H16r and H16mr VMs can connect to a high throughput back-end RDMA network. This cloud network can improve the performance of tightly coupled parallel applications running under [Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) or Intel MPI. N-series VMs feature NVIDIA GPUs designed for compute- and graphics-intensive workloads including artificial intelligence (AI) learning and visualization. 
+Azure offers a range of sizes for [Linux](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Windows](../articles/virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) VMs, including sizes designed for compute-intensive workloads. For example, H16r and H16mr VMs can connect to a high throughput back-end RDMA network. This cloud network can improve the performance of tightly coupled parallel applications running under [Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) or Intel MPI. N-series VMs feature NVIDIA GPUs designed for compute-intensive or graphics-intensive applications including artificial intelligence (AI) learning and visualization. 
 
 Learn more:
 
-* High performance compute [Linux](../articles/virtual-machines/linux/sizes-hpc.md) and [Windows](../articles/virtual-machines/windows/sizes-hpc.md) VM sizes 
-* GPU-enabled [Linux](../articles/virtual-machines/linux/sizes-gpu.md) and [Windows](../articles/virtual-machines/windows/sizes-gpu.md) VM sizes 
+* High performance compute sizes for [Linux](../articles/virtual-machines/linux/sizes-hpc.md) and [Windows](../articles/virtual-machines/windows/sizes-hpc.md) VMs 
+* GPU-enabled sizes for [Linux](../articles/virtual-machines/linux/sizes-gpu.md) and [Windows](../articles/virtual-machines/windows/sizes-gpu.md) VMs 
 
 Learn how to:
 
