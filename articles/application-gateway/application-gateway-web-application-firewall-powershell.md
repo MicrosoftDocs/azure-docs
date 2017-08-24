@@ -24,7 +24,7 @@ ms.author: gwallace
 > * [PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [Azure CLI](application-gateway-web-application-firewall-cli.md)
 
-Learn how to create a web application firewall (WAF)-enabled application gateway or add a WAF to an existing application gateway.
+Learn how to create a web application firewall (WAF)-enabled application gateway. Also learn how to add a WAF to an existing application gateway.
 
 The WAF in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
 
@@ -38,7 +38,7 @@ The WAF in Azure Application Gateway protects web applications from common web-b
  
  To find a complete list of supported features, see [Overview of Application Gateway](application-gateway-introduction.md).
 
-This article shows how to [add a WAF to an existing application gateway](#add-web-application-firewall-to-an-existing-application-gateway) and [create an application gateway that uses a WAF](#create-an-application-gateway-with-web-application-firewall).
+This article shows how to [add a WAF to an existing application gateway](#add-web-application-firewall-to-an-existing-application-gateway). It also shows how to [create an application gateway that uses a WAF](#create-an-application-gateway-with-web-application-firewall).
 
 ![Scenario image][scenario]
 
