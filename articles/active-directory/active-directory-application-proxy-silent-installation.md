@@ -1,11 +1,10 @@
 ---
-title: Silent install Azure AD App Proxy Connector | Microsoft Docs
+title: Silent install Azure AD App Proxy connector | Microsoft Docs
 description: Covers how to perform an unattended installation of Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: harshja
 
 ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
@@ -13,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 08/10/2017
 ms.author: kgremban
 ms.reviewer: harshja
-
+ms.custom: it-pro
 ---
+
 # Silently install the Azure AD Application Proxy Connector
 You want to be able to send an installation script to multiple Windows servers or to Windows Servers that don't have user interface enabled. This topic helps you create a Windows PowerShell script that enables unattended installation and registration for your Azure AD Application Proxy Connector.
 
@@ -28,13 +28,13 @@ This capability is useful when you want to:
 * Integrate the connector installation and registration as part of another procedure.
 * Create a standard server image that contains the connector bits but is not registered.
 
-Application Proxy works by installing a slim Windows Server service called the Connector inside your network. For the Application Proxy Connector to work it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this information is entered during Connector installation in a pop-up dialog box. However, You can use Windows PowerShell to create a credential object to enter your registration information, or you can create your own token and use it to enter your registration information.
+Application Proxy works by installing a slim Windows Server service called the Connector inside your network. For the Application Proxy Connector to work it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this information is entered during Connector installation in a pop-up dialog box. However, you can use Windows PowerShell to create a credential object to enter your registration information. Or you can create your own token and use it to enter your registration information.
 
 ## Install the connector
 Install the Connector MSIs without registering the Connector as follows:
 
 1. Open a command prompt.
-2. Run the following command in which the /q means quiet installation - the installation will not prompt you to accept the End-User License Agreement.
+2. Run the following command in which the /q means quiet installation - the installation doesn't prompt you to accept the End-User License Agreement.
    
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
@@ -45,7 +45,7 @@ There are two methods you can use to register the connector:
 * Register the connector using a token created offline
 
 ### Register the connector using a Windows PowerShell credential object
-1. Create the Windows PowerShell Credentials object by running the following command. Replace *\<username\>* and *\<password\>* with the username and password for your directory:
+1. Create the Windows PowerShell Credentials object by running this command. Replace *\<username\>* and *\<password\>* with the username and password for your directory:
    
         $User = "<username>"
         $PlainPassword = '<password>'
