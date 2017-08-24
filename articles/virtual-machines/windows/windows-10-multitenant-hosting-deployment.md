@@ -23,7 +23,7 @@ For Enterprise customers with Windows 10 Enterprise E3/E5 per user or Windows VD
 
 ## Deploying Windows 10 Image from Azure Marketplace 
 For Powershell, CLI and ARM template deployments, the Windows 10 image can be found with the following publishername, offer, sku.
-|    OS             |    PublisherName        |    Offer    |    Sku    |
+| OS | PublisherName | Offer | Sku |
 |-------------------|-------------------------|-------------|-----------|
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
