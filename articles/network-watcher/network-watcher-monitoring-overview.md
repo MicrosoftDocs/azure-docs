@@ -49,26 +49,25 @@ Network Watcher currently has the following capabilities:
 
 Network watcher uses the [Azure Role-Based Access Control (RBAC) model](../active-directory/role-based-access-control-what-is.md). The following permissions are required by the Network Watcher. It is important to make sure that the role used for initiating Network Watcher APIs or using Network Watcher from the portal has the required access.
 
-|Resource| Permission| |
+|Resource| Permission|
 |---|---| 
-|Microsoft.|
-|Microsoft.Storage/ |Read| |
-|Microsoft.Authorization/| Read| |
-|Microsoft.Resources/subscriptions/resourceGroups/| Read| |
-|Microsoft.Storage/storageAccounts/listServiceSas/ | Action| |
-|Microsoft.Storage/storageAccounts/listAccountSas/ |Action| |
-|Microsoft.Storage/storageAccounts/listKeys/ | Action| |
-|Microsoft.Compute/virtualMachines/ |Read| |
-|Microsoft.Compute/virtualMachines/ |Write| |
-|Microsoft.Compute/virtualMachineScaleSets/ |Read| |
-|Microsoft.Compute/virtualMachineScaleSets/ |Write| |
-|Microsoft.Network/networkWatchers/packetCaptures/| Read| |
-|Microsoft.Network/networkWatchers/packetCaptures/| Write| |
-|Microsoft.Network/networkWatchers/packetCaptures/| Delete| |
-|Microsoft.Network/networkWatchers/ |Write| |
-|Microsoft.Network/networkWatchers/| Read| |
-|Microsoft.Insights/alertRules/ |*| |
-|Microsoft.Support/| *| |
+|Microsoft.Storage/ |Read|
+|Microsoft.Authorization/| Read| 
+|Microsoft.Resources/subscriptions/resourceGroups/| Read|
+|Microsoft.Storage/storageAccounts/listServiceSas/ | Action|
+|Microsoft.Storage/storageAccounts/listAccountSas/ |Action|
+|Microsoft.Storage/storageAccounts/listKeys/ | Action|
+|Microsoft.Compute/virtualMachines/ |Read|
+|Microsoft.Compute/virtualMachines/ |Write|
+|Microsoft.Compute/virtualMachineScaleSets/ |Read|
+|Microsoft.Compute/virtualMachineScaleSets/ |Write|
+|Microsoft.Network/networkWatchers/packetCaptures/ |Read|
+|Microsoft.Network/networkWatchers/packetCaptures/| Write|
+|Microsoft.Network/networkWatchers/packetCaptures/| Delete|
+|Microsoft.Network/networkWatchers/ |Write |
+|Microsoft.Network/networkWatchers/| Read |
+|Microsoft.Insights/alertRules/ |*|
+|Microsoft.Support/ | *|
 
 ### Network subscription limits
 

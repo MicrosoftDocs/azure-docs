@@ -191,6 +191,8 @@ If you want to create a P2S connection from a client computer other than the one
 
   ![Established connection](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/connected.png)
 
+#### Troubleshooting P2S connections
+
 [!INCLUDE [verify-client-certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
 ### <a name="verifyvpnconnect"></a>Verify the VPN connection
