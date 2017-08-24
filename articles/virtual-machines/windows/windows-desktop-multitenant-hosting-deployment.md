@@ -103,5 +103,7 @@ LicenseType              :
 >
 >
 
+## Next Steps
+Learn more about [Configuring VDA for Windows 10](https://docs.microsoft.com/en-us/windows/deployment/vda-subscription-activation)
 
 
