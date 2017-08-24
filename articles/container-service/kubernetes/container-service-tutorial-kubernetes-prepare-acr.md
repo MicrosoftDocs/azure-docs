@@ -43,13 +43,13 @@ When deploying an Azure Container Registry, you first need a resource group. An 
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. In this example, a resource group named *myResourceGroup* is created in the *westeurope* region.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 
 Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**.
 
-```azurecli-interactive
+```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
 ```
 
@@ -59,7 +59,7 @@ Throughout the rest of this tutorial, we use "acrname" as a placeholder for the 
 
 You must log in to your ACR instance before pushing images to it. Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) command to complete the operation. You need to provide the unique name given to the container registry when it was created.
 
-```azurecli-interactive
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -86,7 +86,7 @@ tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ag
 
 To get the loginServer name, run the following command.
 
-```azurecli-interactive
+```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
@@ -128,7 +128,7 @@ This takes a couple of minutes to complete.
 
 To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository list](/cli/azure/acr/repository#list) command. Update the command with the ACR instance name.
 
-```azurecli-interactive
+```azurecli
 az acr repository list --name <acrName> --output table
 ```
 
@@ -142,7 +142,7 @@ azure-vote-front
 
 And then to see the tags for a specific image, use the [az acr repository show-tags](/cli/azure/acr/repository#show-tags) command.
 
-```azurecli-interactive
+```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
