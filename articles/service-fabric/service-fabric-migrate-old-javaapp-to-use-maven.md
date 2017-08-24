@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/21/2017
+ms.date: 08/23/2017
 ms.author: saysa
 
 ---
@@ -26,7 +26,7 @@ We have recently moved Service Fabric Java binaries from the Service Fabric Java
   ```bash
   sudo dpkg -r servicefabricsdkjava
   ```
-2. Install the latest Service Fabric Azure CLI following the steps mentioned [here](service-fabric-azure-cli-2-0.md).
+2. Install the latest Service Fabric CLI following the steps mentioned [here](service-fabric-cli.md).
 
 3. To build and work on the Service Fabric Java applications, you need to ensure that you have JDK 1.8 and Gradle installed. If not yet installed, you can run the following to install JDK 1.8 (openjdk-8-jdk) and Gradle -
 
@@ -34,10 +34,99 @@ We have recently moved Service Fabric Java binaries from the Service Fabric Java
  sudo apt-get install openjdk-8-jdk-headless
  sudo apt-get install gradle
  ```
-4. Update the install/uninstall scripts of your application to use the new Service Fabric Azure CLI following the steps mentioned [here](service-fabric-application-lifecycle-azure-cli-2-0.md). You can refer to our getting-started [examples](https://github.com/Azure-Samples/service-fabric-java-getting-started) for reference.
+4. Update the install/uninstall scripts of your application to use the new Service Fabric CLI following the steps mentioned [here](service-fabric-application-lifecycle-sfctl.md). You can refer to our getting-started [examples](https://github.com/Azure-Samples/service-fabric-java-getting-started) for reference.
 
 >[!TIP]
 > After uninstalling the Service Fabric Java SDK, Yeoman will not work. Follow the Prerequisites mentioned [here](service-fabric-create-your-first-linux-application-with-java.md) to have Service Fabric Yeoman Java template generator up and working.
+
+## Service Fabric Java libraries on Maven
+Service Fabric Java libraries have been hosted in Maven. You can add the dependencies in the ``pom.xml`` or ``build.gradle`` of your projects to use Service Fabric Java libraries from **mavenCentral**.
+
+### Actors
+
+Service Fabric Reliable Actor support for your application.
+
+  ```XML
+  <dependency>
+      <groupId>com.microsoft.servicefabric</groupId>
+      <artifactId>sf-actors-preview</artifactId>
+      <version>0.10.0</version>
+  </dependency>
+  ```
+
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  dependencies {
+      compile 'com.microsoft.servicefabric:sf-actors-preview:0.10.0'
+  }
+  ```
+
+### Services
+
+Service Fabric Stateless Service support for your application.
+
+  ```XML
+  <dependency>
+      <groupId>com.microsoft.servicefabric</groupId>
+      <artifactId>sf-services-preview</artifactId>
+      <version>0.10.0</version>
+  </dependency>
+  ```
+
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  dependencies {
+      compile 'com.microsoft.servicefabric:sf-services-preview:0.10.0'
+  }
+  ```
+
+### Others
+#### Transport
+
+Transport layer support for Service Fabric Java application. You do not need to explicitly add this dependency to your Reliable Actor or Service applications, unless you program at the transport layer.
+
+  ```XML
+  <dependency>
+      <groupId>com.microsoft.servicefabric</groupId>
+      <artifactId>sf-transport-preview</artifactId>
+      <version>0.10.0</version>
+  </dependency>
+  ```
+
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  dependencies {
+      compile 'com.microsoft.servicefabric:sf-transport-preview:0.10.0'
+  }
+  ```
+
+#### Fabric support
+
+System level support for Service Fabric, which talks to native Service Fabric runtime. You do not need to explicitly add this dependency to your Reliable Actor or Service applications. This gets fetched automatically from Maven, when you include the other dependencies above.
+
+  ```XML
+  <dependency>
+      <groupId>com.microsoft.servicefabric</groupId>
+      <artifactId>sf-preview</artifactId>
+      <version>0.10.0</version>
+  </dependency>
+  ```
+
+  ```gradle
+  repositories {
+      mavenCentral()
+  }
+  dependencies {
+      compile 'com.microsoft.servicefabric:sf-preview:0.10.0'
+  }
+  ```
+
 
 ## Migrating Service Fabric Stateless Service
 
@@ -384,4 +473,4 @@ task copyDeps<< {
 
 * [Create and deploy your first Service Fabric Java application on Linux by using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Create and deploy your first Service Fabric Java application on Linux by using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
-* [Interact with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli-2-0.md)
+* [Interact with Service Fabric clusters using the Service Fabric CLI](service-fabric-cli.md)
