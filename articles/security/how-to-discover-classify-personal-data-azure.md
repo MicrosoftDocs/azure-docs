@@ -77,8 +77,7 @@ This is particularly helpful if you want to find or change personal data for a s
 
 ## Azure SQL Database: data discovery
 
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50) is a cloud database that helps developers build and maintain applications. Personal data can be found in [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50)
-using standard SQL queries. Azure SQL elastic query (preview) enables users to perform cross-database queries.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50) is a cloud database that helps developers build and maintain applications. Personal data can be found in [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50) using standard SQL queries. Azure SQL elastic query (preview) enables users to perform cross-database queries.
 
 A detailed [SQL database](../sql-database/sql-database-technical-overview.md) tutorial explains many aspects of using a SQL database, including how to build one and how to run data queries. The following is a summary of the information available in the tutorial with links to specific sections.
 
@@ -91,7 +90,7 @@ There are three ways to do it:
     tutorial.
 
   ![Create Azure SQL Database](media/how-to-discover-classify-personal-data-azure/create-database.png)
-- A SQL database can also be created in the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) CLI, a     browser-based command line tool. The tool is available in the Azure portal and can be run directly from there. In this tutorial, you’ll launch the tool, define script variables, create a resource group and logical server, and configure a server firewall rule. Then you’ll create a database with sample data. To learn how to create your database this way, visit the [Create a single Azure SQL database using the Azure CLI](../sql-database/sql-database-get-started-cli.md) tutorial.
+- A SQL database can also be created in the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) CLI, a browser-based command line tool. The tool is available in the Azure portal and can be run directly from there. In this tutorial, you’ll launch the tool, define script variables, create a resource group and logical server, and configure a server firewall rule. Then you’ll create a database with sample data. To learn how to create your database this way, visit the [Create a single Azure SQL database using the Azure CLI](../sql-database/sql-database-get-started-cli.md) tutorial.
 
   ![CLIT tutorial](media/how-to-discover-classify-personal-data-azure/cli-tutorial.png)
 
@@ -135,8 +134,6 @@ SQL elastic query (preview) enables you to perform cross-database and multiple d
 
   ![horizontal partitioning](media/how-to-discover-classify-personal-data-azure/horizontal.png)
 
-The [Next steps](../sql-database/sql-database-elastic-query-overview#next-steps.md) section includes links to more detailed tutorials that explain how to get started, syntax, and sample queries for both types of elastic queries.
-
 To get started, visit the [Azure SQL Database elastic query overview (preview)](../sql-database/sql-database-elastic-query-overview.md) page.
 
 #### Power Query (for importing Azure HDInsight Hadoop clusters): data discovery for large data sets
@@ -147,8 +144,7 @@ Personal data associated with Hadoop clusters in Azure HDInsight can be imported
 
 #### How do I use Excel Power Query to import Hadoop clusters in Azure HDInsight into Excel?
 
-An HDInsight tutorial will walk you through this entire process. It explains prerequisites, and includes a link to a [Get started with Azure HDInsight](../hdinsight/hdinsight-hadoop-linux-tutorial-get-started.md) tutorial. Instructions cover Excel 2016 as well as 2013 and 2010 (steps are slightly different for the older versions of Excel). If you don’t have the Excel Power Query add-in, the tutorial shows you how to get it. You’ll start the tutorial in Excel and will need to have an Azure Blob storage account associated
-with your cluster.
+An HDInsight tutorial will walk you through this entire process. It explains prerequisites, and includes a link to a [Get started with Azure HDInsight](../hdinsight/hdinsight-hadoop-linux-tutorial-get-started.md) tutorial. Instructions cover Excel 2016 as well as 2013 and 2010 (steps are slightly different for the older versions of Excel). If you don’t have the Excel Power Query add-in, the tutorial shows you how to get it. You’ll start the tutorial in Excel and will need to have an Azure Blob storage account associated with your cluster.
 
   ![Query in Excel](media/how-to-discover-classify-personal-data-azure/excel.png)
 
@@ -175,32 +171,14 @@ blog post. And check the Learn more links listed below for more on Azure Informa
 
 ## Azure Search: data discovery for developer apps
 
-[Azure Search](https://azure.microsoft.com/services/search/) is a cloud search solution for developers, and provides a rich data search experience for your applications. Azure Search allows you to locate data across user-defined indexes, sourced from Azure Cosmo DB, Azure SQL Database, Azure Blob Storage, Azure Table storage, or custom customer JSON data. You can also structure Lucene
-queries using the Azure Search REST API to search for personal data types or the personal data of specific individuals. Features include full text search, simple query syntax, and Lucene query syntax. Visit the following links for more information:
-
-[Azure Search](https://azure.microsoft.com/services/search/)
-
-An introduction to the service
-
-### Azure Search documentation links:
-
-[What is Azure Search?](../search/search-what-is-azure-search.md)
-
-[How full text search works in Azure Search](../search/search-lucene-query-architecture.md)
-
-[Simple query syntax in Azure Search](https://docs.microsoft.com/en-us/rest/api/searchservice/simple-query-syntax-in-azure-search)
-
-[Lucene query syntax in Azure Search](https://docs.microsoft.com/en-us/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-
-Search query overview: [Query your Azure Searchindex](../search/search-query-overview.md)
+[Azure Search](https://azure.microsoft.com/services/search/) is a cloud search solution for developers, and provides a rich data search experience for your applications. Azure Search allows you to locate data across user-defined indexes, sourced from Azure Cosmo DB, Azure SQL Database, Azure Blob Storage, Azure Table storage, or custom customer JSON data. You can also structure Lucene queries using the Azure Search REST API to search for personal data types or the personal data of specific individuals. Features include full text search, simple query syntax, and Lucene query syntax. 
 
 ## How do I use SQL to query data?
 
 To begin with the basics, visit the [Azure CosmosD DB: How to query using SQL](../cosmos-db/tutorial-query-documentdb.md)
 tutorial. The tutorial provides a sample document and two sample SQL queries and results.
 
-For more in-depth guidance on building SQL queries, visit [SQL queries for Azure Cosmos DB Document DB
-API.](../cosmos-db/documentdb-sql-query.md)
+For more in-depth guidance on building SQL queries, visit [SQL queries for Azure Cosmos DB Document DB API.](../cosmos-db/documentdb-sql-query.md)
 
 If you’re new to Azure Cosmos DB and would like to learn how to create a database, add a collection, and add data, visit the [Azure Cosmos DB: Build a DocumentDB API web app](../cosmos-db/create-documentdb-dotnet.md)
 Quickstart tutorial. If you’d like to do this in a language other than .NET, such as Java or Python, just choose your preferred language once you get to the site.
