@@ -145,26 +145,48 @@ Under **Delegated permissions**, choose **Access Azure Service Management as org
     
       ![Manually copy and save your key](./media/logic-apps-custom-api-connector-azure-active-directory/save-key.png)
 
-9. After saving your key, you can safely close the Azure portal.
+9. After saving your key, you can safely close the **Settings** menu.
 
-## Add your connection in Azure Logic Apps
+## Add your connector to Azure Logic Apps
 
-Now that you configured your Azure AD app, add your custom connector.
+Now that you configured your Azure AD app, add your connector. 
+Make sure that you have your API's properties ready so that 
+you can provide them when prompted. 
 
-	You will be prompted for the properties of your API.  
+1. In the Azure portal, on the main Azure menu, choose **New**. 
+In the search box, enter "logic apps connector" as your filter, 
+and press Enter. From the results list, choose **Logic Apps Connector** > **Create**.
 
-	| Property | Description |
-	|----------|-------------|
-	| Name | At the top of the page, click **Untitled** and give your flow a name. |
-	| OpenAPI file | Browse to the [sample ARM OpenAPI file](http://pwrappssamples.blob.core.windows.net/samples/AzureResourceManager.json). |
-	| Upload API icon | Cick **Upload icon** to select an image file for the icon. Any PNG or JPG image less than 1 MB in size will work. |
-	| Description | Type a description of your custom connector (optional). |
+2. Provide the details for creating your connector 
+as described in the table. When you're done, 
+choose **Pin to dashboard** > **Create**.
 
-	![Create custom connector](./media/customapi-azure-resource-manager-tutorial/create-custom-api.png)  
+   |Property|Suggested value|Description|
+   |:-------|:--------------|:----------|
+   |**Name**|*{custom-connector-name}*|Provide a name for your connector.| 
+   |**Subscription**|*{your-Azure-subscription-name}*|Select your Azure subscription.| 
+   |**Resource group**|*{Azure-resource-group-name}*|Create or select an Azure group for organizing your Azure resources.| 
+   |**Location**|*{your-selected-region}*|Select a deployment region for your connector.| 
+   |||| 
 
-	Select **Continue**.
+3. From your connector's menu, choose **Logic Apps Connector** > **Edit**.
 
-3. On the next screen, because the OpenAPI file uses our AAD application for authentication, we need to give Flow some information about our application.  Under **Client id**, type the AAD **Application ID** you noted earlier.  For client secret, use the **key**.  And finally, for **Resource URL**, type `https://management.core.windows.net/`.
+4. On the **General** pane, provide more details about your connector:
+
+   |Setting|Suggested value|Description|
+   |:------|:--------------|:----------|
+   |**Custom connectors**|**Upload an OpenAPI file**: </p>**Use an OpenAPI URL**: </p>**Upload Postman collection V1**: |Select the appropriate option so you can provide the Swagger file that describes your API.| 
+   |**General information**|||
+
+
+On the **Edit Logic App custom connector** page, 
+in the **Custom connectors** section, select the option for creating your connector, and provide the location and Swagger file that describes your API. 
+For this tutorial, you can use this [sample Azure Resources Manager OpenAPI file](http://pwrappssamples.blob.core.windows.net/samples/AzureResourceManager.json).
+
+
+
+
+because the OpenAPI file uses our AAD application for authentication, we need to give Flow some information about our application.  Under **Client id**, type the AAD **Application ID** you noted earlier.  For client secret, use the **key**.  And finally, for **Resource URL**, type `https://management.core.windows.net/`.
 
     > [!IMPORTANT] Be sure to include the Resource URL exactly as written above, including the trailing slash.
 
