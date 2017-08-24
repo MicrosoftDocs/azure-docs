@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 08/24/2017
 ms.author: barclayn
 ms.custom: 
 
@@ -24,30 +24,34 @@ This article will help you understand how to use Azure Security Center to protec
 
 ## Scenario 
 
-A large cruise company, headquartered in the United States, is expanding its operations to offer itineraries in the Mediterranean, Adriatic, and Baltic seas, as well as the British Isles. To help in those efforts, it has acquired several
-smaller cruise lines based in Italy, Germany, Denmark and the U.K.
+A large cruise company, headquartered in the United States, is expanding its operations to offer itineraries in the Mediterranean, and Baltic seas, as well as the British Isles. To help in those efforts, it has acquired several
+smaller cruise lines based in Italy, Germany, Denmark, and the U.K.
 
 The company uses Microsoft Azure to store corporate data in the cloud. This includes personal identifiable information such as names, addresses, phone
-numbers, and credit card information. It also includes Human Resources information such as addresses, phone numbers, tax identification numbers and
-medical information about company employees in all locations. The cruise line also maintains a large database of reward and loyalty program members.  
+numbers, and credit card information. It also includes Human Resources information such as:
 
-Corporate employees access the network from the company’s remote offices and travel agents located around the world have access to some company resources.
+- Addresses
+- Phone numbers
+- Tax identification numbers
+- Medical information
+
+The cruise line also maintains a large database of reward and loyalty program members. Corporate employees access the network from the company’s remote offices and travel agents located around the world have access to some company resources.
 Personal data travels across the network between these locations and the Microsoft data center.
 
 ## Problem statement
 
-The company is concerned about the threat of attacks on their Azure resources that could expose customers’ and employees’ personal data to unauthorized
+The company is concerned about the threat of attacks on their Azure resources. They want to prevent exposure of customers’ and employees’ personal data to unauthorized
 persons. They want guidance on both prevention and response/remediation, as well as an effective way to monitor the ongoing security of their cloud resources.
 They need a strong line of defense against today’s sophisticated and organized attackers.
 
 ## Company goal
 
-One of the company’s goals is to ensure the privacy of customers’ and employees’ personal data by protecting it from threats, and responding immediately to signs
+One of the company’s goals is to ensure the privacy of customers’ and employees’ personal data by protecting it from threats. One of their goals is to respond immediately to signs
 of breach to mitigate the impact. It requires a way to assess the current state of security, identify vulnerable configurations, and remediate them.
 
 ## Solutions
 
-Microsoft Azure Security Center (ASC) provides an integrated security monitoring and policy management solution that delivers easy-to-use and effective threat
+Microsoft Azure Security Center (ASC) provides an integrated security monitoring and policy management solution. It delivers easy-to-use and effective threat
 prevention, detection, and response capabilities.
 
 ### Prevention
@@ -86,7 +90,7 @@ When JIT is enabled, Security Center locks down inbound traffic to your Azure VM
 4. Select **Enable JIT** on VMs.
 5. Select **Save**.
 
-Then you can see the default ports that ASC recommends being enabled for JIT. You can also add and configure a new port on which you want to enable the just in time solution. The **Just in time VM access** tile in the Security Center shows the number of VMs configured for JIT access and the number of approved access requests made in the last week.
+Then you can see the default ports that ASC recommends being enabled for JIT. You can also add and configure a new port on which you want to enable the just in time solution. The **Just in time VM access** tile in the Security Center shows the number of VMs configured for JIT access. It also shows the number of approved access requests made in the last week.
 
 ![](media/protect-personal-data-azure-security-center/jit-vm.png)
 
@@ -117,7 +121,7 @@ ASC threat detection works by automatically collecting security information from
 
 #### How do I manage and respond to security alerts?
 
-A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack. To manage your security alerts, do the following:
+A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem. Security Center also includes recommendations for how to remediate an attack. To manage your security alerts, do the following:
 
 1. Select the **Security alerts** tile in the ASC dashboard. This shows details for each alert.
 
@@ -142,7 +146,7 @@ To review and manage security incidents, do the following:
 1. Select the **Security alerts** tile. if a security incident is detected, it will appear under the security alerts graph. It will have an icon that’s
    different from other alerts.
 
-2. Select the incident to see more details about this security incident, which includes its full description, its severity, its current state, the attacked resource, the remediation steps for the incident, and the alerts that were included in this incident.
+2. Select the incident to see more details about this security incident. Additional details include its full description, its severity, its current state, the attacked resource, the remediation steps for the incident, and the alerts that were included in this incident.
 
 You can filter to see **incidents only**, **alerts only**, or **both**.
 
