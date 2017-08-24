@@ -1,6 +1,6 @@
 ---
-title: Use Azure Notification Hubs to send breaking news (Windows Universal) 
-description: Use Azure Notification Hubs with tags in the registration to send breaking news to a universal Windows app.
+title: Use Azure Notification Hubs to send breaking news (Universal Windows Platform) 
+description: Use Azure Notification Hubs with tags in the registration to send breaking news to a Universal Windows Platform app.
 services: notification-hubs
 documentationcenter: windows
 author: ysxu
