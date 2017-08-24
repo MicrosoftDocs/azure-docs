@@ -26,7 +26,7 @@ We have recently moved Service Fabric Java binaries from the Service Fabric Java
   ```bash
   sudo dpkg -r servicefabricsdkjava
   ```
-2. Install the latest Service Fabric Azure CLI following the steps mentioned [here](service-fabric-azure-cli-2-0.md).
+2. Install the latest Service Fabric CLI following the steps mentioned [here](service-fabric-cli.md).
 
 3. To build and work on the Service Fabric Java applications, you need to ensure that you have JDK 1.8 and Gradle installed. If not yet installed, you can run the following to install JDK 1.8 (openjdk-8-jdk) and Gradle -
 
@@ -34,7 +34,7 @@ We have recently moved Service Fabric Java binaries from the Service Fabric Java
  sudo apt-get install openjdk-8-jdk-headless
  sudo apt-get install gradle
  ```
-4. Update the install/uninstall scripts of your application to use the new Service Fabric Azure CLI following the steps mentioned [here](service-fabric-application-lifecycle-azure-cli-2-0.md). You can refer to our getting-started [examples](https://github.com/Azure-Samples/service-fabric-java-getting-started) for reference.
+4. Update the install/uninstall scripts of your application to use the new Service Fabric CLI following the steps mentioned [here](service-fabric-application-lifecycle-sfctl.md). You can refer to our getting-started [examples](https://github.com/Azure-Samples/service-fabric-java-getting-started) for reference.
 
 >[!TIP]
 > After uninstalling the Service Fabric Java SDK, Yeoman will not work. Follow the Prerequisites mentioned [here](service-fabric-create-your-first-linux-application-with-java.md) to have Service Fabric Yeoman Java template generator up and working.
@@ -473,4 +473,4 @@ task copyDeps<< {
 
 * [Create and deploy your first Service Fabric Java application on Linux by using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Create and deploy your first Service Fabric Java application on Linux by using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
-* [Interact with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli-2-0.md)
+* [Interact with Service Fabric clusters using the Service Fabric CLI](service-fabric-cli.md)
