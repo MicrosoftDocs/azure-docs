@@ -100,7 +100,7 @@ This frequently asked questions (FAQ) answers questions about Azure Disk Encrypt
 > [!NOTE]
 > The Linux Azure disk encryption preview extension is deprecated. For details, see [Deprecating Azure disk encryption preview extension for Linux IaaS VMs](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/12/deprecating-azure-disk-encryption-preview-extension-for-linux-iaas-vms/).
 
-**Q:** Can I apply Azure disk encryption on my custom Linux image?
+**Q:** Can I apply Azure Disk Encryption on my custom Linux image?
 
 **A:** You cannot apply Azure Disk Encryption on your custom Linux image. We support only the gallery Linux images for the supported distributions called out previously. We do not currently support custom Linux images.
 
