@@ -6,6 +6,7 @@ suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
+ms.service: iot-suite
 ms.date: 08/22/2017
 ms.topic: article
 ms.devlang: NA
