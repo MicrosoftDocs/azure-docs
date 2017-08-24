@@ -2,14 +2,15 @@
 title: 'Analyze keywords and phrases, sentiment and language in 10 minutes (Microsoft Cognitive Services on Azure) | Microsoft Docs'
 description: Learn the Text Analytics REST API in Microsoft Cognitive Services on Azure in this ten minute walkthrough tutorial.
 services: cognitive-services
-author: HeidiSteen
-manager: jhubbard
+author: luisca
+manager: 
 
 ms.service: cognitive-services
 ms.technology: text-analytics
-ms.topic: get-started-article
-ms.date: 08/12/2017
-ms.author: heidist
+ms.topic: article
+ms.date: 08/24/2017
+ms.author: luisca
+
 ---
 
 # Analyze keywords, sentiment, and language in 10 minutes
@@ -69,7 +70,9 @@ Endpoints for each operation include the resource providing the underlying algor
 
    ![Request screenshot with endpoint and headers](../media/text-analytics/postman-request-keyphrase-1.png)
 
-4. Click **Body** and choose **raw** for the format.
+* **Sentiment** - Is text positive or negative?
+* **Key phrases** - What are people discussing in a single article?
+* **Languages** - What language is text written in?
 
    ![Request screenshot with body settings](../media/text-analytics/postman-request-body-raw.png)
 
@@ -193,97 +196,6 @@ Comparing inputs and outputs side by side helps us understand key phrase extract
 | 4 | "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area." | "spectacular views", "trail", "Worth", "area" |
 | 5 | ""Me encanta este sendero. Tiene hermosas vistas y muchos lugares para detenerse y descansar" | "Tiene hermosas vistas y muchos lugares para detenerse y descansar", "encanta este sendero"|
 
-## Analyze sentiment
-
-Using the same documents and request headers, you can edit the existing request to call the sentiment analyzer and return sentiment scores.
-
-1. In the URL, replace `/keyPhrases` with `/sentiment` in the endpoint.
-
-2. Click **Send**.
-
-The response includes a sentiment score between 0.0 (negative) and 1.0 (positive) to indicate relative sentiment.
-
-```
-{
-    "documents": [
-        {
-            "score": 0.989059339865683,
-            "id": "1"
-        },
-        {
-            "score": 0.00626599157674657,
-            "id": "2"
-        },
-        {
-            "score": 0.919842553279166,
-            "id": "3"
-        },
-        {
-            "score": 0.841722489453801,
-            "id": "4"
-        },
-        {
-            "score": 0.5,
-            "id": "5"
-        }
-    ],
-    "errors": []
-}
-```
-
-The API returns a score and ID, but not the input string. The following table shows the original strings so that you can evaluate the score with your own interpretation of positive or negative sentiment.
-
-| ID | Score | Bias | String |
-|----|-------|------|--------|
-| 1 | 0.989059339865683  | positive | "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!" |
-| 2 | 0.00626599157674657  | negative | "Poorly marked trails! I thought we were goners. Worst hike ever." |
-| 3 | 0.919842553279166  | positive | "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children." |
-| 4 | 0.841722489453801  | positive | "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area." |
-| 5 | 0.5 | neutral <sup>1</sup> | "Me encanta este sendero. Tiene hermosas vistas y muchos lugares para detenerse y descansar." |
-
-<sup>1</sup> The Spanish string is not parsed for sentiment because the language code is `en` instead of `es`. When a string cannot be analyzed for sentiment or has no sentiment, the score is always 0.5 exactly. In a [later step](#set-lang-code), you can change the language code to get a valid score for this text.
-
-<a name="detect-language></a>
-
-## Detect language
-
-Using same documents and request headers, you can edit the existing request to call the language detection analyzer.
-
-1. In the URL, replace `/sentiment` with `/languages` in the endpoint.
-
-2. Click **Send**.
-
-The language code input, which was useful for other analyses, is ignored for language detection. Text Analytics operates only on the `text` you provide. Response output for each document includes a friendly language name, a 2-character language code, and a score indicating the strength of the analysis. 
-
-Notice that the last document is correctly identified as Spanish, even though the string was tagged as `en`.
-
-            "id": "5",
-            "detectedLanguages": [
-                {
-                    "name": "Spanish",
-                    "iso6391Name": "es",
-                    "score": 1
-                }
-            ]
-
-<a name="set-lang-code"></a>
-
-## Align language codes to text
-
-We deliberately used an incorrect language code in document 5 to show what happens when a language code is wrong. Byproducts of an incorrect language code include indeterminate sentiment, or key phrase extraction with the help of N-gram analysis.
-
-In this last exercise, change the language code for the Spanish string in document 5 from `en` to `es`. Resend the requests for sentiment analysis and keyword detection. 
-
-Comparing before-and-after results, sentiment score goes from 0.5 (neutral) to 1.0 (positive), an accurate score for this text. For key phrase extraction, notice that the results are more granular, on a level consistent with the English strings.
-
-        {
-            "keyPhrases": [
-                "lugares",
-                "sendero"
-            ],
-            "id": "5"
-
-The point to take away from this last exercise is that you should set the language code correctly, assuming you know it. If you don't, use [language detection](text-analytics-concept-language-detection.md) to obtain it, and then set the code before performing sentiment analysis or key phrase extraction. 
 
 ## Next steps
 
