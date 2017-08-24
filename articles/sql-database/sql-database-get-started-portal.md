@@ -77,7 +77,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
    ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-7. After selected the amount of DTUs, click **Apply**.  
+7. After selected the amount of DTUs and storage, click **Apply**.  
 
 8. Now that you have completed the SQL Database form, click **Create** to provision the database. Provisioning takes a few minutes. 
 
