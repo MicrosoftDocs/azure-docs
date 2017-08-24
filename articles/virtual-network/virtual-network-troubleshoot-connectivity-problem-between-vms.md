@@ -63,7 +63,7 @@ For more information, see [Add network interfaces to or remove from virtual mach
 
 ### Step 2 Check if network traffic is blocked by NSG or UDR
 
-Utilize [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [NSG Flow Logging](../network-watcher/network-watcher-nsg-flow-logging-overview.md) to identify if there is an Network Security Group or User-Defined Route that is interfering with traffic flow.
+Utilize [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [NSG Flow Logging](../network-watcher/network-watcher-nsg-flow-logging-overview.md) to identify if there is a Network Security Group or User-Defined Route that is interfering with traffic flow.
 
 ### Step 3 Check if network traffic is blocked by VM firewall
 
@@ -103,7 +103,7 @@ If the VM's network share cannot be connected, the problem can be caused by the 
 
 ## Step 9 Inter-Vnet Connectivity
 
-Utilize [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [NSG Flow Logging](../network-watcher/network-watcher-nsg-flow-logging-overview.md) to identify if there is an Network Security Group or User-Defined Route that is interfering with traffic flow.
+Utilize [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [NSG Flow Logging](../network-watcher/network-watcher-nsg-flow-logging-overview.md) to identify if there is a Network Security Group or User-Defined Route that is interfering with traffic flow.
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
