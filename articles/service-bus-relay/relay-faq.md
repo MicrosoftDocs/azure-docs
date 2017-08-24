@@ -32,7 +32,7 @@ A [namespace](relay-create-namespace-portal.md) is a scoping container that you 
 The previously named Service Bus Relay service is now called WCF Relay. You can continue to use this service as usual. The Hybrid Connections feature is an updated version of a service that's been transplanted from Azure BizTalk Services. WCF Relay and Hybrid Connections both continue to be supported.
 
 ## Pricing
-This section answers some frequently asked questions about the Relay pricing structure. You also can see [Azure Support FAQs](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing information. For complete information about Relay pricing, see [Service Bus pricing details](Pricing overview).
+This section answers some frequently asked questions about the Relay pricing structure. You also can see [Azure Support FAQs](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing information. For complete information about Relay pricing, see [Service Bus pricing details][Pricing overview].
 
 ### How do you charge for Hybrid Connections and WCF Relay?
 For complete information about Relay pricing, see the [Hybrid Connections and WCF Relays][Pricing overview] table on the Service Bus pricing details page. In addition to the prices noted on that page, you are charged for associated data transfers for egress outside of the datacenter in which your application is provisioned.
