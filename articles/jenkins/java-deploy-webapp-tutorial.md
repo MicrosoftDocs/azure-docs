@@ -13,9 +13,9 @@ ms.author: routlaw
 ms.custom: Jenkins
 ---
 
-# Set up CI/CD to Azure App Service with Jenkins
+# Set up continuous integration and deployment to Azure App Service with Jenkins
 
-This tutorial sets up continuous integration of a sample Java web app developed with the [Spring Boot](http://projects.spring.io/spring-boot/) framework to [Azure App Service Web App on Linux](/azure/app-service-web/app-service-linux-intro) using Jenkins.
+This tutorial sets up continuous integration and deployment (CI/CD) of a sample Java web app developed with the [Spring Boot](http://projects.spring.io/spring-boot/) framework to [Azure App Service Web App on Linux](/azure/app-service-web/app-service-linux-intro) using Jenkins.
 
 You will perform the following tasks in this tutorial:
 
@@ -42,8 +42,8 @@ To complete this tutorial, you need:
 1. Open a web browser to your Jenkins web console and select **Manage Jenkins** from the left-hand menu, then select **Manage Plugins**.
 2. Select the **Available** tab.
 3. Search for and select the checkbox next to the following plug-ins: 
-    - [Azure App Service Plugin](https://plugins.jenkins.io/azure-app-service)
-    - [GitHub Branch Source Plugin](https://plugins.jenkins.io/github-branch-source)
+    - [Azure App Service Plug-in](https://plugins.jenkins.io/azure-app-service)
+    - [GitHub Branch Source Plug-in](https://plugins.jenkins.io/github-branch-source)
 
     If the plugins do not appear, make sure they aren't already installed by checking the **Installed** tab.
 
@@ -60,13 +60,13 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
    ![Verify connection to GitHub once PAT is configured](media/jenkins-java-quickstart/verify_github_connection.png)
 
 > [!NOTE]
-> If your GitHub account has two-factor authentication enabled,  create the token on GitHub and configure Jenkins to use it. Review the [Jenkins GitHub plugin](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) documentation for full details.
+> If your GitHub account has two-factor authentication enabled,  create the token on GitHub and configure Jenkins to use it. Review the [Jenkins GitHub plug-in](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) documentation for full details.
 
 ## Fork the sample repo and create a Jenkins job 
 
 1. Open the [Spring Boot sample application repo](https://github.com/spring-guides/gs-spring-boot-docker) and fork it to your own GitHub account by selecting **Fork** in the top right-hand corner.   
     ![Fork from GitHub](media/jenkins-java-quickstart/fork_github_repo.png)
-1. In the Jenkins web console, select **New Item**, give it a name **DeployToAzure**, select **Freestyle project**, then select **OK**.   
+1. In the Jenkins web console, select **New Item**, give it a name **MyJavaApp**, select **Freestyle project**, then select **OK**.   
     ![New Jenkins Freestyle Project](media/jenkins-java-quickstart/jenkins_freestyle.png)
 2. Under the **General** section, select **GitHub** project and enter your forked repo URL such as https://github.com/raisa/gs-spring-boot-docker
 3. Under the **Source code management**  section, select **Git**, enter your forked repo `.git` URL such as https://github.com/raisa/gs-spring-boot-docker.git
@@ -76,12 +76,12 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
 
 ## Configure Azure App Service 
 
-1. Using the Azure CLI or [Cloud Shell](/azure/cloud-shell/overview), create a new [Web App on Linux](/azure/app-service-web/app-service-linux-intro). The web app name in this tutorial is `deployToAzure`, but you need to use a unique name for your own app.
+1. Using the Azure CLI or [Cloud Shell](/azure/cloud-shell/overview), create a new [Web App on Linux](/azure/app-service-web/app-service-linux-intro). The web app name in this tutorial is `myJavaApp`, but you need to use a unique name for your own app.
    
     ```azurecli-interactive
     az group create --name myResourceGroupJenkins --location westus
     az appservice plan create --is-linux --name myLinuxAppServicePlan --resource-group myResourceGroupJenkins 
-    az webapp create --name deployToAzure --resource-group myResourceGroupJenkins --plan myLinuxAppServicePlan
+    az webapp create --name myJavaApp --resource-group myResourceGroupJenkins --plan myLinuxAppServicePlan
     ```
 
 2. Create an [Azure Container Registry](/azure/container-registry/container-registry-intro) to store the Docker images built by Jenkins. The container registry name used in this tutorial is `jenkinsregistry`, but you need to use a unique name for your own container registry. 
@@ -92,13 +92,13 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
 3. Configure the web app to run Docker images pushed to the container registry and specify that the app running in the container listens for requests on port 8080.   
 
     ```azurecli-interactive
-    az webapp config container set -c jenkinsregistry/webapp --resource-group myResourceGroupJenkins --name deployToAzure
-    az webapp config appsettings set --resource-group myResourceGroupJenkins --name deployToAzure --settings PORT=8080
+    az webapp config container set -c jenkinsregistry/webapp --resource-group myResourceGroupJenkins --name myJavaApp
+    az webapp config appsettings set --resource-group myResourceGroupJenkins --name myJavaApp --settings PORT=8080
     ```
 
 ## Configure the Azure App Service Jenkins plug-in
 
-1. In the Jenkins web console, select the **DeployToAzure** job you created and then select **Configure** on the left hand of the page.
+1. In the Jenkins web console, select the **MyJavaApp** job you created and then select **Configure** on the left hand of the page.
 2. Scroll down to **Post-build Actions**, then select **Add post-build action** and choose **Publish an Azure Web App**.
 3. Under **Azure Profile Configuration**, select **Add** next to **Azure Credentials** and choose **Jenkins**.
 4. In the **Add Credentials** dialog, select **Microsoft Azure Service Principal** from the **Kind** drop-down.
@@ -110,11 +110,11 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
 
     ```json
     {
-        "appId": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee",
+        "appId": "BBBBBBBB-BBBB-BBBB-BBBB-BBBBBBBBBBB",
         "displayName": "jenkins_sp",
         "name": "http://jenkins_sp",
         "password": "secure_password",
-        "tenant": "ffffffff-gggg-hhhh-iiii-jjjjjjjjjj"
+        "tenant": "CCCCCCCC-CCCC-CCCC-CCCCCCCCCCC"
     }
     ```
 6. Enter the credentials from the service principal into the **Add credentials** dialog. If you don't know your Azure subscription ID, you can query it from the CLI:
@@ -147,7 +147,7 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
 ## Deploy the app from GitHub
 
 1. From the Jenkins project, select **Build Now** to deploy the sample app to Azure.
-2. Once the build completes, your app is live on Azure at it's publishing URL , for example http://deployToAzure.azurewebsites.net.   
+2. Once the build completes, your app is live on Azure at it's publishing URL , for example http://myjavaapp.azurewebsites.net.   
    ![View your deployed app on Azure](media/jenkins-java-quickstart/hello_docker_world_unedited.png)
 
 ## Push changes and redeploy
@@ -160,5 +160,8 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
 3. A new build starts in Jenkins, triggered by the new commit on the `master` branch of the repo. Once it completes, reload your app on Azure.     
       ![View your deployed app on Azure](media/jenkins-java-quickstart/hello_docker_world.png)
   
+## Next steps
 
+- [Use Azure VMs as build agents](/azure/jenkins/jenkins-azure-vm-agents)
+- [Manage resources in jobs and pipelines with the Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline)
  
