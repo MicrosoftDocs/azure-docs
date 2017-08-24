@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
-ms.author: chrande, glenga
+ms.author: glenga
 
 ---
 # Azure Functions JavaScript developer guide

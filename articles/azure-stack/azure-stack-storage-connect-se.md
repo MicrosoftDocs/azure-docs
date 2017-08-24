@@ -29,7 +29,7 @@ After you connect to your Azure Stack subscription, you can use the [Azure Stora
 
 ## Prepare an Azure Stack subscription
 
-You need access to the Azure Stack host machine's desktop or a VPN connection for Storage Explorer to access the Azure Stack subscription. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-with-vpn).
+You need access to the Azure Stack host machine's desktop or a VPN connection for Storage Explorer to access the Azure Stack subscription. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
 For the Azure Stack Development Kit, you need to export the Azure Stack authority root certificate.
 
@@ -119,7 +119,7 @@ Now you are ready to connect Storage Explorer to an Azure Stack subscription.
 * [Azure Stack Storage: differences and considerations](azure-stack-acs-differences.md)
 
 
-* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](..\storage\storage-introduction.md)
+* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md)
 
 [25]: ./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png
 [26]: ./media/azure-stack-storage-connect-se/export-root-cert-azure-stack.png
