@@ -120,13 +120,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Benefitsolver attribute section](./media/active-directory-saas-benefitsolver-tutorial/tutorial_attribute.png)
 
 5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
-	| |
-	|--|
+	
 	| Attribute Name| Attribute Value|
-	| ClientID| You need to get this value from your Benefitsolver support team.|
-	| ClientKey| You need to get this value from your Benefitsolver support team.|
-	| LogoutURL| You need to get this value from your Benefitsolver support team.|
-	| EmployeeID| You need to get this value from your Benefitsolver support team.|
+	|---------------|----------------|
+	| ClientID | You need to get this value from your [Benefitsolver Client support team](https://www.businessolver.com/contact).|
+	| ClientKey | You need to get this value from your [Benefitsolver Client support team](https://www.businessolver.com/contact).|
+	| LogoutURL | You need to get this value from your [Benefitsolver Client support team](https://www.businessolver.com/contact).|
+	| EmployeeID | You need to get this value from your [Benefitsolver Client support team](https://www.businessolver.com/contact).|
 
 	a. Click Add attribute to open the Add Attribute dialog.
 
@@ -140,7 +140,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Click **Ok**.
 
-6. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the metadata file on your computer.
+6. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_certificate.png) 
 
