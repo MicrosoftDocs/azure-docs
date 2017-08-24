@@ -17,13 +17,13 @@ ms.author: heidist
 This articles demonstrates how to call Text Analytics API using HTTP POST/GET calls in C# and [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop).
 
 > [!Tip]
-> You can call the REST API from the bulit-in testing console available any [API doc page](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). There is no setup, and user requirements consist only of pasting an access key and the JSON documents into the request. 
+> You can call the REST API from the built-in testing console available any [API doc page](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). There is no setup, and user requirements consist only of pasting an access key and the JSON documents into the request. 
 
 ## Prerequisites
 
 Have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) and [sign up for the Text Analytics API](text-analytics-howto-signup.md). 
 
-Have [an access key](text-analytics-howto-accesskey.md) for Text Analysis operations. You can use the same key for sentiment analysis, language detction, and key phrase extraction. 
+Have [an access key](text-analytics-howto-accesskey.md) for Text Analysis operations. You can use the same key for sentiment analysis, language detection, and key phrase extraction. 
 
 ## Set up a request in C#
 
@@ -68,7 +68,7 @@ Input rows must be JSON in raw unstructured text. XML is not supported. The sche
 
 + `id` is required. The data type is string, but in practice document IDs tend to be integers. The system uses the IDs you provide to structure the output. Language codes, keywords, and sentiment scores are generated for each ID.
 
-+ `text` field is requred and contains unstructured raw text, up to 10 KB. For more information about limits, see [Text Analytics Overview > Data limits](overview.md#data-limits). 
++ `text` field is required and contains unstructured raw text, up to 10 KB. For more information about limits, see [Text Analytics Overview > Data limits](overview.md#data-limits). 
 
 + `language` is used only in sentiment analysis and key phrase extraction. It is ignored in language detection. 
 

@@ -16,11 +16,11 @@ ms.author: heidist
 
 Text Analytics resources run continuously in the cloud. In order to access service operations for your payload, you must sign up for the API to get an access key. On each call to the API, you provide the access key in the request header.
 
-There is a Free tier for exploration and evaluation, and billable tiers for production workloads. You can only have one sign up. However, once you have a sign up, it's easy to change the tier to accommodate different volumes of requests or data.
-
 1. Start with an Azure Subscription. You can create a [free account](https://azure.microsoft.com/free/) to experiment at no charge.
 
-2. Sign in to the Azure portal, create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account), choosing the **Text Analytics API**.
+2. Sign in to the [Azure portal](https://portal.azure.com), create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account), choosing the **Text Analytics API**.
+
+For Text Analytics, there is a Free tier for exploration and evaluation, and billable tiers for production workloads. You can only have one sign-up. However, once you have a sign-up, it's easy to change the tier to accommodate different volumes of requests or data.
 
 Cognitive Services has multiple APIs. Each API ships new features and transitions from preview to general availability on separate schedules. For this reason, we ask you to sign up for each API individually.
 

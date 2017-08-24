@@ -1,6 +1,6 @@
 ---
-title: 'Analyze keywords and phrases, sentiment and language in 10 minutes (Microsoft Cognitive Services on Azure) | Microsoft Docs'
-description: Learn the Text Analytics REST API in Microsoft Cognitive Services on Azure in this ten minute walkthrough tutorial.
+title: How-to sentiment analysis in Text Analytics REST API (Microsoft Cognitive Services on Azure) | Microsoft Docs
+description: How to detect sentiment  using the Text Analytics REST API in Microsoft Cognitive Services on Azure in this walkthrough tutorial.
 services: cognitive-services
 author: HeidiSteen
 manager: jhubbard
@@ -12,7 +12,9 @@ ms.date: 08/12/2017
 ms.author: heidist
 ---
 
-# Analyze keywords, sentiment, and language in 10 minutes
+# How to detect sentiment in Text Analytics with REST
+
+## OLD
 
 In this Quickstart, learn how to call the [**Text Analytics REST APIs**](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) to perform key phrase extraction, sentiment analysis, and language detection on text provided in requests to [Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
 
