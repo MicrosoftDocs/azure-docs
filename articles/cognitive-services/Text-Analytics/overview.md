@@ -14,11 +14,11 @@ ms.author: heidist
 
 # Text Analytics API in Microsoft Cognitive Services
 
-Welcome to the Text Analytics API, a cloud-based service offering advanced natural language processing for text that you provide. Text Analytics API has three main functions: sentiment analysis, key phrase extraction, and language detection.
+Text Analytics API is a cloud-based service offering advanced natural language processing over raw text. Text Analytics API has three main functions: sentiment analysis, key phrase extraction, and language detection.
 
 The API is backed by resources in [Microsoft Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects. 
 
-For text analysis, the models are pretrained using an extensive body of text and natural language technologies from Microsoft. Because the models are pretrained, all you need to do is upload raw text for scoring and analysis, and handle the results.
+The models for analyzing text are pretrained using an extensive body of text and natural language technologies from Microsoft. Because the models are pretrained, the workflow is simple: upload raw text for scoring and analysis, and have your code handle the results.
 
 ## Capabilities in Text Analytics
 
@@ -29,10 +29,6 @@ Text analysis can mean different things, but in Cognitive Services, APIs are exp
 |[Sentiment Analysis](text-analytics-concept-sentiment-analysis.md) | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br/> [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) <br/>[Android](https://github.com/Microsoft/Cognitive-TextAnalytics-Android) | Sentiment analysis helps you find out what customers think of your brand or topic by analyzing any text for clues about sentiment. This API returns a sentiment score between 0 and 1 for each document. The sentiment score is generated using classification techniques. |
 |[Key Phrase Extraction](text-analytics-concept-keyword-extraction.md) | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br/> [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) <br/>[Android](https://github.com/Microsoft/Cognitive-TextAnalytics-Android)| Automatically extract key phrases to quickly identify the main points. For example, for the input text ‘The food was delicious and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’. Key phrase extraction uses technology from Microsoft Office's sophisticated Natural Language Processing toolkit. |
 |[Language Detection](text-analytics-concept-language-detection.md) | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br/>  [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) <br/>[Android](https://github.com/Microsoft/Cognitive-TextAnalytics-Android)|  For up to 120 languages, the service can detect which language the input text is written in and report a single language code for every document submitted on the request. The code is paired with a score indicating the strength of the score. Typically, the score is either 1.0 for a positive identification, 0.5 for mixed languages or content that is only. |
-
-> [!Note] 
-> Text Analytics API is available for consumption scenarios rather than custom development projects. For this reason, we do not document the implementation details or internal architecture of specific technologies. 
-
 
 <a name="data-limits"></a>
 
@@ -90,56 +86,6 @@ Text Analytics accepts raw text data. The service currently sets a limit of 10 K
 | Maximum number of documents in a request | 1,000 documents |
 
 Rate limiting exists at a rate of 100 calls per minute. We therefore recommend that you submit large quantities of documents in a single call. 
-
-<a name="sign-up"></a>
-
-## Signup and billing
-
-Although Cognitive Services has multiple APIs, we ask you to sign up for them individually so that you can manage costs and availability for each one.
-
-+ [Pricing for text analytics](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)
-+ [Calculator](https://azure.microsoft.com/pricing/calculator/?service=cognitive-services)
-
-Billing is based on transactions, where a transaction is based on the number of documents multiplied by unit of operation. There is no storage component to billing because we do not store your data. The following table illustrates the billing model at a glance.
-
-| Document | Sentiment | Key Phrase | Language Detection | Transactions |
-|----------|-----------|------------|--------------------|--------------|
-| 1  | ✔ | ✔ | ✔ | 3 |
-| 100 | ✔ | ✔ |   | 200 |
-| 1000 |   |   | ✔ | 1000 |
-
-Each tier provides an allocation of transactions to be consumed over a 30-day billing cycle. The counter is reset back to 0 on day 31. 
-
-**What happens if transactions get used up before the current billing period ends?**
-
-At the Free tier, excess requests are not handled and you get a message explaining why the request was dropped.
-
-For billable tiers, an overage rate is applied for each transaction above the limit. The overage rate varies by tier, as indicated on the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). 
-
- > [!Note]
- > Text Analytics was [first announced](https://blogs.technet.microsoft.com/machinelearning/2016/06/21/text-analytics-api-now-available-in-multiple-languages/) in June 2016 and is now [generally available (GA)](https://azure.microsoft.com//blog/) with support for production workloads. Preview pricing has been retired. For more information about service level agreements (SLA) from Microsoft, see [SLA for Cognitive Services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
-
-**How to sign up**
-
-Sign in to the Azure portal, create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account), choosing the **Text Analytics API**.
-
-**How to restrict access to the API**
-
-Selectively enable or disable access to specific APIs within your organization by [creating resource policies](../../azure-resource-manager/resource-manager-policy-portal.md).
-
-**How to change tiers**
-
-Standard billing is offered at graduated levels of transactions. You can switch tiers and still keep the same endpoint and access keys.
-
-1. Sign in to [Azure portal](https://portal.azure.com) and find your Text Analytics API dashboard.
-
-2. Click **Price Tier**.
-
-   ![Price tier command in left navigation menu](../media/text-analytics/portal-pricing-tier.png)
-
-3. Choose the tier you want and click **Select**.  The new limits take effect as soon as the selection is processed. 
-
-   ![Tiles and Select button in tier selection page](../media/text-analytics/portal-choose-tier.png)
 
 ## Next steps
 

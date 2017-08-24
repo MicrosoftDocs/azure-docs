@@ -3,21 +3,23 @@
 - name: Overview
   href: overview.md
   items:
-- name: How-to guides
+- name: How-to
   items:
+   - name: Sign up
+     href: text-analytics-howto-signup.md
    - name: Obtain an access key
-     href: 
+     href: text-analytics-howto-accesskey.md
    - name: Call the Text Analytics API
-     href: 
+     href: text-analytics-howto-call-api.md
    - name: Detect language (REST)
-     href: 
+     href: text-analytics-howto-language-detection.md
    - name: Analyze sentiment (REST)
-     href: 
+     href: text-analytics-howto-sentiment-analysis.md
    - name: Extract keywords (REST)
-     href: 
+     href: text-analytics-howto-keyword-extraction.md
 - name: Quickstarts
   items:
-  - name: Analyze keywords, sentiment, and language with REST
+  - name: C# (quick-start.md)
     href: quick-start.md
 - name: Concepts
   items:
@@ -27,6 +29,12 @@
      href: text-analytics-concept-keyword-extraction.md
    - name: Language detection
      href: text-analytics-concept-language-detection.md
+- name: Samples
+  items:
+  - name: Sample 1 (C#)
+    href:
+  - name: Sample 2 (Python)
+    href:
 - name: Reference
   items: 
   - name: REST API
