@@ -20,20 +20,20 @@ ms.author: carlrab
 ---
 # Azure SQL Database resource limits
 
-## Storage sizes and performance levels for a single database
+## Single database: Storage sizes and performance levels
 
 For single databases, the following tables show the resources available for a single database at each service tier and performance level. You can set the service tier, performance level, and storage amount for a single database using the [Azure portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](sql-database-single-database-resources.md#manage-single-database-resources-using-transact-sql), [PowerShell](sql-database-single-database-resources.md#manage-single-database-resources-using-powershell), the [Azure CLI](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-cli), or the [REST API](sql-database-single-database-resources.md#manage-single-database-resources-using-the-rest-api).
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-## Change storage size for a single database
+## Single database: change storage size
 
 - The DTU price for a single database includes a certain amount of storage at no additional cost. Extra storage beyond the included amount can be provisioned for an additional cost up to the max size limit in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB. For included storage amounts and max size limits, see [Single database](sql-database-single-database-resources.md).
 - Extra storage for a single database can be provisioned by increasing its max size using the [Azure portal](#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](/cli/azure/sql/db#update), or the [REST API](/rest/api/sql/databases#Databases_Update).
 - The price of extra storage for a single database is the extra storage amount multiplied by the extra storage unit price of the service tier. For details on the price of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
-## Change DTUs for a single database
+## Single database: change DTUs
 
 After initially picking a service tier, performance level, and storage amount, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](/cli/azure/sql/db#update), or the [REST API](/rest/api/sql/databases#Databases_Update). 
 
@@ -58,7 +58,7 @@ The duration of the entire scale-up process depends on both the size and service
 * The restore service offerings are different for the various service tiers. If you are downgrading to the **Basic** tier, there is a lower backup retention period - see [Azure SQL Database Backups](sql-database-automated-backups.md).
 * The new properties for the database are not applied until the changes are complete.
 
-## Current limitations of P11 and P15 databases with a maximum size greater than 1 TB
+## Single database: limitations of P11 and P15 when maximum size greater than 1 TB
 
 A maximum size greater than 1 TB for P11 and P15 database is supported in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. The following considerations and limitations apply to P11 and P15 databases with a maximum size greater than 1 TB:
 
@@ -72,7 +72,7 @@ A maximum size greater than 1 TB for P11 and P15 database is supported in the fo
    - Upgrading the primary database in a geo-replication relationship: Changing the maximum size to more than 1 TB on a primary database triggers the same change on the secondary database. Both upgrades must be successful for the change on the primary to take effect. Region limitations for more than 1 TB option apply. If the secondary is in a region that does not support more than 1 TB, the primary is not upgraded.
 - Using the Import/Export service for loading P11/P15 databases with more than 1 TB is not supported. Use SqlPackage.exe to [import](sql-database-import.md) and [export](sql-database-export.md) data.
 
-## Storage sizes and performance levels for an elastic pool
+## Elastic pool: storage sizes and performance levels
 
 For SQL Database elastic pools, the following tables show the resources available at each service tier and performance level. You can set the service tier, performance level, and storage amount using the [Azure portal](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-powershell), the [Azure CLI](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-azure-cli), or the [REST API](sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-rest-api).
 
@@ -95,13 +95,13 @@ The following table describes the properties for pooled databases.
 | Max storage per database |The maximum storage for a database in a pool. Pooled databases share pool storage, so database storage is limited to the smaller of remaining pool storage and max storage per database. Max storage per database refers to the maximum size of the data files and does not include the space used by log files. |
 |||
  
-## Change storage size for an elastic pool
+## Elastic pool: change storage size
 
 - The eDTU price for an elastic pool includes a certain amount of storage at no additional cost. Extra storage beyond the included amount can be provisioned for an additional cost up to the max size limit in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB. For included storage amounts and max size limits, see [Elastic pools](sql-database-elastic-pool.md).
 - Extra storage for an elastic pool can be provisioned by increasing its max size using the [Azure portal](#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), the [Azure CLI](/cli/azure/sql/elastic-pool#update), or the [REST API](/rest/api/sql/elasticpools#ElasticPools_Update).
 - The price of extra storage for an elastic pool is the extra storage amount multiplied by the extra storage unit price of the service tier. For details on the price of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
-## Changing eDTUs for an elastic pool
+## Elastic pool: change eDTUs
 
 You can increase or decrease the resources available to an elastic pool based on resource needs using the [Azure portal](#manage-sql-database-elastic-pools-using-the-azure-portal), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), the [Azure CLI](/cli/azure/sql/elastic-pool#update), or the [REST API](/rest/api/sql/elasticpools#ElasticPools_Update).
 
@@ -111,7 +111,7 @@ You can increase or decrease the resources available to an elastic pool based on
 - When downsizing pool eDTUs, the pool used space must be smaller than the maximum allowed size of the target service tier and pool eDTUs.
 - When rescaling pool eDTUs, an extra storage cost applies if (1) the storage max size of the pool is supported by the target pool, and (2) the storage max size exceeds the included storage amount of the target pool. For example, if a 100 eDTU Standard pool with a max size of 100 GB is downsized to a 50 eDTU Standard pool, then an extra storage cost applies since target pool supports a max size of 100 GB and its included storage amount is only 50 GB. So, the extra storage amount is 100 GB – 50 GB = 50 GB. For pricing of extra storage please see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of space used is less than the included storage amount, then this extra cost can be avoided by reducing the database max size to the included amount. 
 
-## What happens when resource limits are reached?
+## What happens when database and elastic pool resource limits are reached?
 
 ### Compute (DTUs and eDTUs)
 
