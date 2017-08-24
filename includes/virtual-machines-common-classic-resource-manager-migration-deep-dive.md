@@ -1,88 +1,86 @@
-## Meaning of migration of IaaS resources from the classic deployment model to Resource Manager
-Before we drill down into the details, let's look at the difference between data-plane and management-plane operations on the IaaS resources.
+## Migrate IaaS resources from the classic deployment model to Azure Resource Manager
+First, it's important to understand the difference between data-plane and management-plane operations on the infrastructure as a service (IaaS) resources.
 
-* *Management/Control plane* describes the calls that come into the management/control plane or the API for modifying resources. For example, operations like creating a VM, restarting a VM, and updating a virtual network with a new subnet manage the running resources. They don't directly affect connecting to the instances.
-* *Data plane* (application) describes the runtime of the application itself and involves interaction with instances that don’t go through the Azure API. Accessing your website or pulling data from a running SQL Server instance or a MongoDB server would be considered data plane or application interaction. Copying a blob from a storage account and accessing a public IP address to RDP or SSH into the virtual machine also are data plane. These operations keep the application running across compute, networking, and storage.
+* *Management/control plane* describes the calls that come into the management/control plane or the API for modifying resources. For example, operations like creating a VM, restarting a VM, and updating a virtual network with a new subnet manage the running resources. They don't directly affect connecting to the instances of those resources.
+* *Data plane* (application) describes the runtime of the application itself, and involves interaction with instances that don’t go through the Azure API. For example, accessing your website, or pulling data from a running SQL Server instance or a MongoDB server, are data plane or application interactions. Other examples include copying a blob from a storage account, and accessing a public IP address to use Remote Desktop Protocol (RDP) or Secure Shell (SSH) into the virtual machine. These operations keep the application running across compute, networking, and storage.
 
-Behind the scenes, the data plane is the same between both the Classic deployment model and Resource Manager stack. During migration process, we translate the representation of the resources from the Classic deployment model to that in the Resource Manager stack. As a result, you will need to use new tools, APIs, SDKs to manage your resources in the Resource Manager stack.
+The data plane is the same between the classic deployment model and Resource Manager stacks. The difference is that during the migration process, Microsoft translates the representation of the resources from the classic deployment model to that in the Resource Manager stack. As a result, you need to use new tools, APIs, and SDKs to manage your resources in the Resource Manager stack.
 
-![Screenshot that illustrates difference between management/control plane and data plane](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+![Diagram that shows the difference between management/control plane and data plane](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 
 > [!NOTE]
-> In some migration scenarios, the Azure platform stops, deallocates, and restarts your virtual machines. This incurs a short data-plane downtime.
+> In some migration scenarios, the Azure platform stops, deallocates, and restarts your virtual machines. This causes a brief data-plane downtime.
 >
 
 ## The migration experience
-Before you start the migration experience, the following is recommended:
+Before you start the migration:
 
 * Ensure that the resources that you want to migrate don't use any unsupported features or configurations. Usually the platform detects these issues and generates an error.
-* If you have VMs that are not in a virtual network, they will be stopped and deallocated as part of the prepare operation. If you don't want to lose the public IP address, look into reserving the IP address before triggering the prepare operation. However, if the VMs are in a virtual network, they are not stopped and deallocated.
+* If you have VMs that are not in a virtual network, they are stopped and deallocated as part of the prepare operation. If you don't want to lose the public IP address, consider reserving the IP address before triggering the prepare operation. If the VMs are in a virtual network, they are not stopped and deallocated.
 * Plan your migration during non-business hours to accommodate for any unexpected failures that might happen during migration.
 * Download the current configuration of your VMs by using PowerShell, command-line interface (CLI) commands, or REST APIs to make it easier for validation after the prepare step is complete.
-* Update your automation/operationalization scripts to handle the Resource Manager deployment model before you start the migration. You can optionally do GET operations when the resources are in the prepared state.
-* Evaluate the RBAC policies that are configured on the classic IaaS resources, and plan for after the migration is complete.
+* Update your automation and operationalization scripts to handle the Resource Manager deployment model, before you start the migration. You can optionally do GET operations when the resources are in the prepared state.
+* Evaluate the role-based access control (RBAC) policies that are configured on the IaaS resources in the classic deployment model, and plan for after the migration is complete.
 
 The migration workflow is as follows
 
-![Screenshot that shows the migration workflow](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
+![Diagram that shows the migration workflow](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
-> All the operations described in the following sections are idempotent. If you have a problem other than an unsupported feature or a configuration error, it is recommended that you retry the prepare, abort, or commit operation. The Azure platform tries the action again.
+> The operations described in the following sections are all idempotent. If you have a problem other than an unsupported feature or a configuration error, retry the prepare, abort, or commit operation. Azure tries the action again.
 >
 >
 
 ### Validate
-The validate operation is the first step in the migration process. The goal of this step is to analyze the state of the resources you wish to migrate in the classic deployment model and return success/failure if the resources are capable of migration.
+The validate operation is the first step in the migration process. The goal of this step is to analyze the state of the resources you wish to migrate in the classic deployment model. The operation evaluates whether the resources are capable of migration (success or failure).
 
-You select the virtual network or a cloud service (if it’s not in a virtual network) that you want to validate for migration.
+You select the virtual network or a cloud service (if it’s not in a virtual network) that you want to validate for migration. If the resource is not capable of migration, Azure lists the reasons why.
 
-* If the resource is not capable of migration, the Azure platform lists all the reasons for why it’s not supported for migration.
+#### Checks not done in the validate operation
 
-#### Checks not done in Validate
-
-Validate operation only analyzes the state of the resources in the classic deployment model. It can check for all failures and unsupported scenarios due to various configurations in the classic deployment model. It is not possible to check for all issues that the Azure Resource Manager stack might impose on the resources during migration. These issues are only checked when the resources undergo transformation in the next step of migration, that is, Prepare. The table below lists all the issues not checked in Validate.
+The validate operation only analyzes the state of the resources in the classic deployment model. It can check for all failures and unsupported scenarios due to various configurations in the classic deployment model. It is not possible to check for all issues that the Azure Resource Manager stack might impose on the resources during migration. These issues are only checked when the resources undergo transformation in the next step of migration (the Prepare operation). The following table lists all the issues not checked in the validate operation:
 
 
-|Networking checks not in Validate|
+|Networking checks not in the validate operation|
 |-|
-|A Virtual Network having both ER and VPN gateways|
-|Virtual Network gateway connection in disconnect state|
-|All ER circuits are pre-migrated to Azure Resource Manager stack|
-|Azure Resource Manager quota checks for Networking resources, that is, Static Public IP, Dynamic Public IPs, Load Balancer, Network Security Groups, Route Tables, Network Interfaces |
-| Check that all load balancer rules are valid across deployment/VNET |
-| Check for conflicting private IPs between stop-deallocated VMs in the same VNET |
+|A Virtual Network having both ER and VPN gateways.|
+|A Virtual Network gateway connection in a disconnected state.|
+|All ER circuits are pre-migrated to Azure Resource Manager stack.|
+|Azure Resource Manager quota checks for networking resources. For example: static public IP, dynamic public IPs, load balancer, network security groups, route tables, and network interfaces. |
+| All load balancer rules are valid across deployment and virtual network. |
+| Conflicting private IPs between stop-deallocated VMs in the same virtual network. |
 
 ### Prepare
-The prepare operation is the second step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from classic deployment model to Resource Manager resources and present this side by side for you to visualize.
+The prepare operation is the second step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from the classic deployment model to Resource Manager resources. Further, the prepare operation presents this side-by-side for you to visualize.
 
 > [!NOTE] 
-> Your Classic resources are not modified during this step. So it's a safe step to run if you're trying out migration. 
+> Your resources in the classic deployment model are not modified during this step. It's a safe step to run if you're trying out migration. 
 
 You select the virtual network or the cloud service (if it’s not a virtual network) that you want to prepare for migration.
 
-* If the resource is not capable of migration, the Azure platform stops the migration process and lists the reason why the prepare operation failed.
-* If the resource is capable of migration, the Azure platform first locks down the management-plane operations for the resources under migration. For example, you are not able to add a data disk to a VM under migration.
+* If the resource is not capable of migration, Azure stops the migration process and lists the reason why the prepare operation failed.
+* If the resource is capable of migration, Azure locks down the management-plane operations for the resources under migration. For example, you are not able to add a data disk to a VM under migration.
 
-The Azure platform then starts the migration of metadata from classic deployment model to Resource Manager for the migrating resources.
+Azure then starts the migration of metadata from the classic deployment model to Resource Manager for the migrating resources.
 
-After the prepare operation is complete, you have the option of visualizing the resources in both classic deployment model and Resource Manager. For every cloud service in the classic deployment model, the Azure platform creates a resource group name that has the pattern `cloud-service-name>-Migrated`.
-
-> [!NOTE]
-> It is not possible to select the name of Resource Group created for migrated resources (i.e. "-Migrated") but after migration is complete, you can use Azure Resource Manager move feature to move resources to any Resource Group you want. To read more about this see [Move resources to new resource group or subscription](../articles/resource-group-move-resources.md)
-
-Here are two screens that show the result after a succesful Prepare operation. First screen shows a Resource Group that contains the original cloud service. Second screen shows the new "-Migrated" resource group that contains the equivalent Azure Resource Manager resources.
-
-![Screenshot that shows Portal classic cloud service](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
-
-![Screenshot that shows Portal Azure Resource Manager resources in Prepare](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
-
-Here is a behind-the-scenes look at your resources after the completion of Prepare phase. Note that the resource is the data plane is the same. It's represented in both the management plane (classic deployment model) and the control plane (Resource Manager).
-
-![Behind the scenes in Prepare phase](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+After the prepare operation is complete, you have the option of visualizing the resources in both the classic deployment model and Resource Manager. For every cloud service in the classic deployment model, the Azure platform creates a resource group name that has the pattern `cloud-service-name>-Migrated`.
 
 > [!NOTE]
-> Virtual Machines that are not in a classic Virtual Network are stopped-deallocated in this phase of migration.
+> It is not possible to select the name of a resource group created for migrated resources (that is, "-Migrated"). After migration is complete, however, you can use the move feature of Azure Resource Manager to move resources to any resource group you want. For more information, see [Move resources to new resource group or subscription](../articles/resource-group-move-resources.md).
+
+The following two screenshots show the result after a succesful prepare operation. The first one shows a resource group that contains the original cloud service. The second one shows the new "-Migrated" resource group that contains the equivalent Azure Resource Manager resources.
+
+![Screenshot that shows original cloud service](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
+
+![Screenshot that shows Azure Resource Manager resources in the prepare operation](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
+
+Here is a behind-the-scenes look at your resources after the completion of the prepare phase. Note that the resource in the data plane is the same. It's represented in both the management plane (classic deployment model) and the control plane (Resource Manager).
+
+![Diagram of the prepare phase](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+
+> [!NOTE]
+> VMs that are not in a virtual network in the classic deployment model are stopped and deallocated in this phase of migration.
 >
 
 ### Check (manual or scripted)
