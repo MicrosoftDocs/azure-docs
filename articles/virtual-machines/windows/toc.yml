@@ -116,6 +116,8 @@
       href: connect-logon.md
     - name: Use AHUB licensing
       href: hybrid-use-benefit-licensing.md
+    - name: Use Multitenant Hosting Rights for Wondows 10
+      href: windows-10-multitenant-hosting-deployment.md
   - name: Secure VMs
     items:
     - name: Encrypt
