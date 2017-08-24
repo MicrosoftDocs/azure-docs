@@ -39,9 +39,9 @@ The following features are important to cloud-enabled mobile development:
 
     Discover more about our [authentication features].
 
-* **Data access**: Mobile Apps provides a mobile-friendly OData v3 data source that's linked to SQL Azure or an on-premises SQL Server. Because this service can be based on Entity Framework, you can easily integrate with other NoSQL and SQL data providers, including [Azure Table storage], MongoDB, [Azure Cosmos DB], and SaaS API providers such as Office 365 and Salesforce.com.
+* **Data access**: Mobile Apps provides a mobile-friendly OData v3 data source that's linked to Azure SQL Database or an on-premises SQL server. Because this service can be based on Entity Framework, you can easily integrate with other NoSQL and SQL data providers, including [Azure Table storage], MongoDB, [Azure Cosmos DB], and SaaS API providers such as Office 365 and Salesforce.com.
 
-* **Offline sync**: Our client SDKs make it easy to build robust and responsive mobile applications that operate with an offline dataset. You can sync this dataset automatically with the back end data, including conflict-resolution support.
+* **Offline sync**: Our client SDKs make it easy to build robust and responsive mobile applications that operate with an offline dataset. You can sync this dataset automatically with the back-end data, including conflict-resolution support.
 
   Discover more about our [data features].
 
@@ -54,7 +54,7 @@ The following features are important to cloud-enabled mobile development:
 ## Azure App Service features
 The following platform features are useful for mobile production sites:
 
-* **Autoscaling**: With App Service you can quickly scale up or scale out to handle any incoming customer load. Manually select the number and size of VMs or set up autoscaling to scale your mobile-app back end based on load or schedule.
+* **Autoscaling**: With App Service, you can quickly scale up or scale out to handle any incoming customer load. Manually select the number and size of VMs, or set up autoscaling to scale your mobile-app back end based on load or schedule.
 
   Discover more about [autoscaling].
 
@@ -66,7 +66,7 @@ The following platform features are useful for mobile production sites:
 
   Discover more about [deployment options].
 
-* **Virtual networking**: App Service can connect to on-premises resources by using virtual network, ExpressRoute, or hybrid connections.
+* **Virtual networking**: App Service can connect to on-premises resources by using virtual network, Azure ExpressRoute, or hybrid connections.
 
   Discover more about [hybrid connections], [virtual networks], and [ExpressRoute].
 
@@ -85,9 +85,9 @@ For more information about the Azure App Service platform, see [Azure App Servic
 <!-- URLs. -->
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
-[Get Started]: app-service-mobile-ios-get-started.md
-[Azure Table Storage]:../cosmos-db/table-storage-how-to-use-dotnet.md
-[DocumentDB]: ../documentdb/documentdb-get-started.md
+[getting started]: app-service-mobile-ios-get-started.md
+[Azure Table storage]:../cosmos-db/table-storage-how-to-use-dotnet.md
+[Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
 [authentication features]: ./app-service-mobile-auth.md
 [data features]: ./app-service-mobile-offline-data-sync.md
 [push notification features]: ../notification-hubs/notification-hubs-push-notification-overview.md
