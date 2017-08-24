@@ -114,15 +114,15 @@ The first step is to add UI elements to your existing main page so that users ca
     >[!NOTE]
     >If a device registers multiple templates with the same tag, an incoming message that targets the tag causes multiple notifications to be delivered to the device (one for each template). This behavior is useful when the same logical message must result in multiple visual notifications (for example, showing both a badge and a toast in a Windows Store application).
    
-    For more information about templates, see [Templates](notification-hubs-templates-cross-platform-push-messages.md).
+    For more information, see [Templates](notification-hubs-templates-cross-platform-push-messages.md).
 
 4. In the App.xaml.cs project file, add the following property to the **App** class:
    
         public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
    
-    This property is used to create and access a **Notifications** instance.
+    You use this property to create and access a **Notifications** instance.
    
-    In the code, replace the `<hub name>` and `<connection string with listen access>` placeholders with your notification hub name and the connection string for *DefaultListenSharedAccessSignature* that you obtained earlier.
+    In the code, replace the `<hub name>` and `<connection string with listen access>` placeholders with your notification hub name and the connection string for *DefaultListenSharedAccessSignature*, which you obtained earlier.
    
    > [!NOTE]
    > Because credentials that are distributed with a client app are not usually secure, distribute only the key for *listen* access with your client app. With listen access, your app can register for notifications, but existing registrations cannot be modified, and notifications cannot be sent. The full access key is used in a secured back-end service for sending notifications and changing existing registrations.
@@ -172,7 +172,7 @@ In this section, you register with the notification hub on startup by using the 
    
         var result = await notifications.SubscribeToCategories();
    
-    This process ensures that when the app starts, it retrieves the categories from local storage and requests registration of these categories. The **InitNotificationsAsync** method was created as part of the [Get started with Notification Hubs][get-started] tutorial.
+    This process ensures that when the app starts, it retrieves the categories from local storage and requests registration of these categories. You created the **InitNotificationsAsync** method as part of the [Get started with Notification Hubs][get-started] tutorial.
 
 2. In the MainPage.xaml.cs project file, add the following code to the *OnNavigatedTo* method:
    
@@ -196,7 +196,7 @@ The app is now complete. It can store a set of categories in the device local st
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## Run the app and generate notifications
-1. In Visual Studio, select F5 to compile and start the app.  
+1. In Visual Studio, select **F5** to compile and start the app.  
     The app UI provides a set of toggles that lets you choose the categories to subscribe to. 
    
     ![Breaking News app][1]
