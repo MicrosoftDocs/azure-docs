@@ -12,7 +12,7 @@ ms.date: 08/24/2017
 ms.author: heidist
 ---
 
-# Sign up and billing
+# How to sign up for Text Analytics API
 
 Text Analytics resources run continuously in the cloud. In order to access service operations for your payload, you must sign up for the API to get an access key. On each call to the API, you provide the access key in the request header.
 

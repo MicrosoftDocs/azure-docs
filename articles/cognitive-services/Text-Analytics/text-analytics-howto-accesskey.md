@@ -12,7 +12,7 @@ ms.date: 08/24/2017
 ms.author: heidist
 ---
 
-# Obtain an access key for Text Analytics
+# How to obtain an access key for Text Analytics
 
 An access key is required on each call to the Text Analytics API. If you are using the REST API, be sure to provide the access key in the request header. Access keys can be obtained in the Azure portal, assuming you already [signed up](text-analytics-howto-signup.md).
 
