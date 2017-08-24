@@ -18,7 +18,7 @@ ms.author: pratshar
 
 ---
 # Troubleshoot errors when failing over a virtual machine to Azure
-You may receive one of the following errors while doing failover of a virtual machine to Azure. To troubleshoot, use the following steps. 
+You may receive one of the following errors while doing failover of a virtual machine to Azure. To troubleshoot, use the described steps. 
 
 
 ## Failover failed with Error ID 28031
