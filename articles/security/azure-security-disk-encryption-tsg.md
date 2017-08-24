@@ -19,25 +19,27 @@ ms.author: devtiw
 ---
 # Azure Disk Encryption troubleshooting guide
 
-This guide is for IT professionals, information security analysts, and cloud administrators whose organizations use Azure Disk Encryption and need guidance to troubleshoot disk-encryption-related issues.
+This guide is for IT professionals, information security analysts, and cloud administrators whose organizations use Azure Disk Encryption and need guidance to troubleshoot disk-encryption-related problems.
 
 ## Troubleshooting Linux OS disk encryption
 
-Linux operating system (OS) disk encryption must unmount the OS drive before running it through the full disk encryption process. If it cannot unmount the drive, an error message of *failed to unmount after …* is likely to occur.
+Linux operating system (OS) disk encryption must unmount the OS drive before running it through the full disk encryption process. If it cannot unmount the drive, an error message of "failed to unmount after …" is likely to occur.
 
 This error is most likely to happen when OS disk encryption is attempted on a target VM environment that has been modified or changed from its supported stock gallery image. Examples of deviations from the supported image that can interfere with the extension’s ability to unmount the OS drive include the following:
-- There are customized images that no longer match a supported file system or partitioning scheme.
-- Large applications, such as SAP, MongoDB, or Apache Cassandra, were installed and running in the OS before encryption. The extension is unable to properly shut down these applications. If the applications maintain open file handles to the OS drive, the drive cannot be unmounted, and this causes failure.
-- Custom scripts are run in close time proximity to encryption. Errors can also occur if any other changes are made on the VM during the encryption process. Errors can happen when an Azure Resource Manager template defines multiple extensions to execute simultaneously. Errors can also happen when a custom script extension or other action run simultaneously with disk encryption. Serializing and isolating such steps might resolve the issue.
-- Security Enhanced Linux (SELinux) has not been disabled before enabling encryption, so the unmount step fails. SELinux can be reenabled after encryption has completed.
-- The OS disk uses a Logical Volume Manager (LVM) scheme (although limited LVM data disk support is available, an LVM OS disk is not).
+- Customized images no longer match a supported file system or partitioning scheme.
+- Large applications such as SAP, MongoDB, or Apache Cassandra are installed and running in the OS prior to encryption. The extension cannot properly shut these down, and if they maintain open file handles to the OS drive, the drive cannot be unmounted, causing failure.
+- Custom scripts run in close time proximity to the encryption being enabled, or if any other changes are being made on the VM during the encryption process. This can happen when a Resource Manager template defines multiple extensions to execute simultaneously, or when a custom script extension or other action is run simultaneously to disk encryption. Serializing and isolating such steps might resolve the issue.
+- Security Enhanced Linux (SELinux) has not been disabled before enabling encryption, so the unmount step fails. SELinux can be reenabled after encryption is complete.
+- The OS disk uses a Logical Volume Manager (LVM) scheme. Although limited LVM data disk support is available, an LVM OS disk is not.
 - Minimum memory requirements are not met (7 GB is suggested for OS disk encryption).
 - Data drives are recursively mounted under the /mnt/ directory, or each other (for example, /mnt/data1, /mnt/data2, /data3 + /data3/data4).
 - Other Azure Disk Encryption [prerequisites](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) for Linux are not met.
 
 ## Unable to encrypt
 
-In some cases, the Linux disk encryption appears to be stuck at "OS disk encryption started" and SSH is disabled. The encryption process can take between 3-16 hours to complete on a stock gallery image. If multi-terabyte-sized data disks are added, the process might take days. The Linux OS disk encryption sequence unmounts the OS drive temporarily, and then performs block-by-block encryption of the entire OS disk, before it remounts it in its encrypted state. Unlike Azure Disk Encryption on Windows, Linux Disk Encryption does not allow for concurrent use of the VM while the encryption is in progress. The performance characteristics of the VM can make a significant difference in the time required to complete encryption. These characteristics include the size of the disk and whether the storage account is standard or premium (SSD) storage.
+In some cases, the Linux disk encryption appears to be stuck at "OS disk encryption started" and SSH is disabled. The encryption process can take between 3-16 hours to complete on a stock gallery image. If multi-terabyte-sized data disks are added, the process might take days. 
+
+The Linux OS disk encryption sequence unmounts the OS drive temporarily, and then performs block-by-block encryption of the entire OS disk, before it remounts it in its encrypted state. Unlike Azure Disk Encryption on Windows, Linux Disk Encryption does not allow for concurrent use of the VM while the encryption is in progress. The performance characteristics of the VM can make a significant difference in the time required to complete encryption. These characteristics include the size of the disk and whether the storage account is standard or premium (SSD) storage.
 
 To check the encryption status, poll the **ProgressMessage** field returned from the [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) command. While the OS drive is being encrypted, the VM enters a servicing state, and disables SSH to prevent any disruption to the ongoing process. The **EncryptionInProgress** message reports for the majority of the time while the encryption is in progress, followed several hours later with a **VMRestartPending** message that prompts you to restart the VM. For example:
 
@@ -56,16 +58,16 @@ OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncry
 ProgressMessage            : OS disk successfully encrypted, please reboot the VM
 ```
 
-After prompted to reboot the VM, and after restarting the VM, you must wait 2-3 minutes for the reboot and for final steps to be performed on the target. When finished, the status message indicates that encryption has finally completed. After this message is available, the encrypted OS drive is expected to be ready for use and the VM is ready to be used again.
+After you are prompted to reboot the VM, and after restarting the VM, you must wait 2-3 minutes for the reboot and for the final steps to be performed on the target. The status message changes when the encryption is finally complete. After this message is available, the encrypted OS drive is expected to be ready for use and the VM is ready to be used again.
 
-In the following cases, we recommended that you restore the VM back to the snapshot or backup taken immediately before encryption:
+In the following cases, we recommend that you restore the VM back to the snapshot or backup taken immediately before encryption:
    - If the reboot sequence described previously does not happen.
-   - If the boot information, progress message, or other error indicators report that OS encryption has failed in the middle of this process. For example, if you are seeing the *failed to unmount* error described in this guide.
+   - If the boot information, progress message, or other error indicators report that OS encryption has failed in the middle of this process (for example, if you see the "failed to unmount" error described in this guide).
 
-Prior to the next attempt, we suggest that you reevaluate the characteristics of the VM and ensure that all of the prerequisites are satisfied.
+Prior to the next attempt, reevaluate the characteristics of the VM and ensure that all of the prerequisites are satisfied.
 
 ## Troubleshooting Azure Disk Encryption behind a firewall
-When connectivity is restricted by a firewall, proxy requirement, or network security group (NSG) settings, the ability of the extension to perform needed tasks can be disrupted. This disruption can result in status messages, such as *Extension status not available on the VM*, and in certain scenarios, the encryption fails to finish. The sections that follow have some common firewall issues that you might investigate.
+When connectivity is restricted by a firewall, proxy requirement, or network security group (NSG) settings, the ability of the extension to perform needed tasks can be disrupted. This can result in status messages, such as "Extension status not available on the VM", and in expected scenarios the encryption fails to finish. The sections that follow have some common firewall problems that you might investigate.
 
 ### Network security groups
 Any network security group settings that are applied must still allow the endpoint to meet the documented network configuration [prerequisites](https://docs.microsoft.com/azure/security/azure-security-disk-encryption#prerequisites) for disk encryption.
@@ -74,27 +76,27 @@ Any network security group settings that are applied must still allow the endpoi
 The VM must be able to access a key vault. Refer to guidance on access to the key vault from behind a firewall that is maintained by the [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall) team.
 
 ### Linux package management behind a firewall
-At runtime, Azure Disk Encryption for Linux relies on the target distribution’s package management system to install the prerequisite components that are needed before enabling encryption. If the firewall settings prevent the VM from being able to download and install these components, then subsequent failures are expected. The steps to configure this package management system can vary by distribution. On Red Hat, when a proxy is required, it is vital that you ensure that the subscription-manager and yum are set up properly. For more information, see [How to troubleshoot subscription-manager and yum issues](https://access.redhat.com/solutions/189533).  
+
+At runtime, Azure Disk Encryption for Linux relies on the target distribution’s package management system to install needed prerequisite components prior to enabling encryption. If the firewall settings prevent the VM from being able to download and install these components, then subsequent failures are expected. The steps to configure this package management system can vary by distribution. On Red Hat, when a proxy is required, you must ensure that the subscription-manager and yum are set up properly. For more information, see [How to troubleshoot subscription-manager and yum problems](https://access.redhat.com/solutions/189533).  
 
 ## Troubleshooting Windows Server 2016 Server Core
 
-On a system with a Windows Server 2016 Server Core installation, the **bdehdcfg** component is not available by default. This component is required by Azure Disk Encryption.
+On a Windows Server 2016 Server Core, the **bdehdcfg** component is not available by default. Azure Disk Encryption requires this component. Add the **bdehdcfg** component by following these steps:
 
-**To add the bdehdcfg component**
    1. Copy the following four files from a Windows Server 2016 data center VM to the **c:\windows\system32** folder of the Server Core image:
 
-```
-bdehdcfg.exe
-bdehdcfglib.dll
-bdehdcfglib.dll.mui
-bdehdcfg.exe.mui
-```
+   ```
+   bdehdcfg.exe
+   bdehdcfglib.dll
+   bdehdcfglib.dll.mui
+   bdehdcfg.exe.mui
+   ```
 
    2. Enter the following command:
 
-```
-bdehdcfg.exe -target default
-```
+   ```
+   bdehdcfg.exe -target default
+   ```
 
    3. This creates a 550-MB system partition. Reboot the system. 
    
@@ -112,8 +114,9 @@ DISKPART> list vol
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
 ## Next steps
-In this document, you learned more about some common issues in the Azure Disk Encryption solution and how to troubleshoot those issues. For more information about this service and its capabilities, see the following articles:
+
+In this document, you learned more about some common problems in Azure Disk Encryption and how to troubleshoot those problems. For more information about this service and its capabilities, see the following articles:
 
 - [Apply disk encryption in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Encrypt an Azure Virtual Machine](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
+- [Encrypt an Azure virtual machine](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Azure data encryption at rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
