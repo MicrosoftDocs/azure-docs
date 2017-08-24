@@ -38,7 +38,7 @@ Microsoft partners with commercial grid managers to make their solutions availab
 
 Learn how to:
 
-* [Create an HPC Pack 2016 cluster in Azure](../virtual-machines/windows/hpcpack-2016-cluster.md)
+* [Create an HPC Pack 2016 cluster in Azure](../articles/virtual-machines/windows/hpcpack-2016-cluster.md)
 * [Burst to Azure with HPC Pack](https://technet.microsoft.com/library/gg481749(v=ws.11).aspx)
 
 
