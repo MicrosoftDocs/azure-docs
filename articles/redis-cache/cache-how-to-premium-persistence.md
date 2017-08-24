@@ -144,7 +144,7 @@ You should use a second storage account for AOF persistence when you believe you
 
 ### Does AOF persistence affect throughout, latency, or performance of my cache?
 
-AOF persistence affects throughput by about 15% – 20% when the cache is under maximum load (CPU and Server Load both under 90%). There should not be latency issues when the cache is within these limits. However, the cache will reach these limits sooner with AOF enabled.
+AOF persistence affects throughput by about 15% – 20% when the cache is below maximum load (CPU and Server Load both under 90%). There should not be latency issues when the cache is within these limits. However, the cache will reach these limits sooner with AOF enabled.
 
 ### How can I remove the second storage account?
 
