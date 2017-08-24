@@ -41,7 +41,8 @@ To complete this tutorial, you need:
 
 1. Open a web browser to your Jenkins web console and select **Manage Jenkins** from the left-hand menu, then select **Manage Plugins**.
 2. Select the **Available** tab.
-3. Search for and select the checkbox next to the following plug-ins: 
+3. Search for and select the checkbox next to the following plug-ins:   
+
     - [Azure App Service Plug-in](https://plugins.jenkins.io/azure-app-service)
     - [GitHub Branch Source Plug-in](https://plugins.jenkins.io/github-branch-source)
 
@@ -121,6 +122,20 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
      
      ```azurecli-interactive
      az account list
+     ```
+
+     ```json
+        {
+            "cloudName": "AzureCloud",
+            "id": "AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA",
+            "isDefault": true,
+            "name": "Visual Studio Enterprise",
+            "state": "Enabled",
+            "tenantId": "CCCCCCCC-CCCC-CCCC-CCCC-CCCCCCCCCCC",
+            "user": {
+            "name": "raisa@fabrikam.com",
+            "type": "user"
+            }
      ```
 
     ![Configure Azure Service Principal](media/jenkins-java-quickstart/azure_service_principal.png)
