@@ -49,20 +49,20 @@ The [Azure Relay Hybrid Connections](relay-hybrid-connections-protocol.md) capab
 
 ### Service history
 
-Hybrid Connections supplants the former, similarly named "BizTalk Services" feature that was built on the Azure Service Bus WCF Relay. The new Hybrid Connections capability complements the existing WCF Relay feature and these two service capabilities exist side-by-side in the Azure Relay service for the foreseeable future. They share a common gateway, but are otherwise different implementations.
+Hybrid Connections supplants the former, similarly named "BizTalk Services" feature that was built on the Azure Service Bus WCF Relay. The new Hybrid Connections capability complements the existing WCF Relay feature and these two service capabilities exist side-by-side in the Azure Relay service. They share a common gateway, but are otherwise different implementations.
 
 ## WCF Relays
 
 The WCF Relay works for the full .NET Framework (NETFX) and for WCF. You initiate the connection between your on-premises service and the relay service using a suite of WCF "relay" bindings. Behind the scenes, the relay bindings map to new transport binding elements designed to create WCF channel components that integrate with Service Bus in the cloud.
 
-## Architecture: processing of incoming relay requests
+## Architecture: Processing of incoming relay requests
 When a client sends a request to the [Azure Relay](/azure/service-bus-relay/) service, the Azure load balancer routes it to any of the gateway nodes. If the request is a listening request, the gateway node creates a new relay. If the request is a connection request to a specific relay, the gateway node forwards the connection request to the gateway node that owns the relay. The gateway node that owns the relay sends a rendezvous request to the listening client, asking the listener to create a temporary channel to the gateway node that received the connection request.
 
 When the relay connection is established, the clients can exchange messages via the gateway node that is used for the rendezvous.
 
 ![Processing of Incoming WCF Relay Requests](./media/relay-what-is-it/ic690645.png)
 
-## Next steps:
+## Next steps
 
 * [Relay FAQ](relay-faq.md)
 * [Create a namespace](relay-create-namespace-portal.md)
