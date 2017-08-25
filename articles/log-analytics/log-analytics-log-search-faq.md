@@ -19,7 +19,7 @@ ms.author: bwren
 
 # Log Analytics new log search FAQ and known issues
 
-This article includes frequently asked questions regarding and known issues the upgrade of [Log Analytics to the new query language](log-analytics-log-search-upgrade.md).  You should read through this entire article before making the decision to upgrade your workspace.
+This article includes frequently asked questions and known issues regarding the upgrade of [Log Analytics to the new query language](log-analytics-log-search-upgrade.md).  You should read through this entire article before making the decision to upgrade your workspace.
 
 
 ## Alerts
@@ -28,7 +28,7 @@ This article includes frequently asked questions regarding and known issues the 
 No, your alert rules are automatically converted to the new search language during upgrade.  
 
 
-## Computer Groups
+## Computer groups
 
 ### Known issue: Groups imported from Active Directory
 You cannot currently create a query that uses a computer group imported from Active Directory.  As a workaround until this issue is corrected, create a new computer group using the imported Active Directory group and then use that new group in your query.
@@ -41,7 +41,7 @@ An example query to create a new computer group that includes an imported Active
 ## Dashboards
 
 ### Question: Can I still use dashboards in an upgraded workspace?
-You can continue to use any tiles that you added to **My Dashboard ** before your workspace was upgraded, but you cannot edit those tiles or add new ones.  You can continue to create and edit views with [View Designer](log-analytics-view-designer.md) and also create dashboard in the Azure portal.
+You can continue to use any tiles that you added to **My Dashboard** before your workspace was upgraded, but you cannot edit those tiles or add new ones.  You can continue to create and edit views with [View Designer](log-analytics-view-designer.md) and also create dashboards in the Azure portal.
 
 
 ## Log searches
@@ -137,7 +137,7 @@ The legacy log search will be deprecated in the coming months. Workspaces that a
 Another admin of this workspace could have upgraded the workspace. Please note that all workspaces will be automatically upgraded when the new language reaches general availability.  
 
 ### Question: I have upgraded by mistake and now need to cancel it and restore everything back. What should I do?!  
-No problem.  We create a snapshot of your workspace before upgrade, so you can restore it. Keep in mind that searches, alerts or views you saved after the upgrade will be lost though.  To restore your workspace environment, follow the procedure at [Can I go back after I upgrade?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade).
+No problem.  We create a snapshot of your workspace before upgrade, so you can restore it. Keep in mind that searches, alerts or views you saved after the upgrade will be lost though.  To restore your workspace environment, follow the procedure at [Can I go back after I upgrade?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade)
 
 
 ## Views
