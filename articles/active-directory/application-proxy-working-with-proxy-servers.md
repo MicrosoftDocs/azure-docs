@@ -12,9 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/24/2017
 ms.author: kgremban
-
+ms.reviewer: harshja
+ms.custom: it-pro
 ---
 
 # Work with existing on-premises proxy servers
@@ -27,23 +28,11 @@ We start by looking at these main deployment scenarios:
 
 For more information about how connectors work, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md).
 
-## Configure the outbound proxy
-
-If you have an outbound proxy in your environment, use an account with appropriate permissions to configure the outbound proxy. Because the installer runs in the context of the user who's doing the installation, you can check the configuration by using Microsoft Edge or another Internet browser.
-
-To configure the proxy settings in Microsoft Edge:
-
-1. Go to **Settings** > **View Advanced Settings** > **Open Proxy Settings** > **Manual Proxy Setup**.
-2. Set **Use a proxy server** to **On**, select the **Don’t use the proxy server for local (intranet) addresses** check box, and then change the address and port to reflect your local proxy server.
-3. Fill in the necessary proxy settings.
-
-   ![Dialog box for proxy settings](./media/application-proxy-working-with-proxy-servers/proxy-bypass-local-addresses.png)
-
 ## Bypass outbound proxies
 
-Connectors have underlying OS components that make outbound requests. These components automatically attempt to locate a proxy server on the network. They use Web Proxy Auto-Discovery (WPAD), if it's enabled in the environment.
+Connectors have underlying OS components that make outbound requests. These components automatically attempt to locate a proxy server on the network using Web Proxy Auto-Discovery (WPAD).
 
-The OS components attempt to locate a proxy server by carrying out a DNS lookup for wpad.domainsuffix. If this resolves in DNS, an HTTP request is then made to the IP address for wpad.dat. This request becomes the proxy configuration script in your environment. The connector uses this script to select an outbound proxy server. However, connector traffic might still not go through, because of additional configuration settings needed on the proxy.
+The OS components attempt to locate a proxy server by carrying out a DNS lookup for wpad.domainsuffix. If the lookup resolves in DNS, an HTTP request is then made to the IP address for wpad.dat. This request becomes the proxy configuration script in your environment. The connector uses this script to select an outbound proxy server. However, connector traffic might still not go through, because of additional configuration settings needed on the proxy.
 
 You can configure the connector to bypass your on-premises proxy to ensure that it uses direct connectivity to the Azure services. We recommend this approach (if your network policy allows for it), because it means that you have one less configuration to maintain.
 
@@ -63,7 +52,7 @@ To disable outbound proxy usage for the connector, edit the C:\Program Files\Mic
   </appSettings>
 </configuration>
 ```
-To ensure that the Connector Updater service also bypasses the proxy, make a similar change to the ApplicationProxyConnectorUpdaterService.exe.config file located at C:\Program Files\Microsoft AAD App Proxy Connector Updater.
+To ensure that the Connector Updater service also bypasses the proxy, make a similar change to the ApplicationProxyConnectorUpdaterService.exe.config file. This file is located at C:\Program Files\Microsoft AAD App Proxy Connector Updater.
 
 Be sure to make copies of the original files, in case you need to revert to the default .config files.
 
@@ -77,9 +66,12 @@ You can configure the connector traffic to go through the outbound proxy, as sho
 
 As a result of having only outbound traffic, there's no need to configure inbound access through your firewalls.
 
+>[!NOTE]
+>Application Proxy does not support authentication to other proxies. The connector/updater network service accounts should be able to connect to the proxy without being challenged for authentication.
+
 ### Step 1: Configure the connector and related services to go through the outbound proxy
 
-As covered earlier, if WPAD is enabled in the environment and configured appropriately, the connector will automatically discover the outbound proxy server and attempt to use it. However, you can explicitly configure the connector to go through an outbound proxy.
+If WPAD is enabled in the environment and configured appropriately, the connector automatically discovers the outbound proxy server and attempt to use it. However, you can explicitly configure the connector to go through an outbound proxy.
 
 To do so, edit the C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config file and add the *system.net* section shown in this code sample. Change *proxyserver:8080* to reflect your local proxy server name or IP address, and the port that it's listening on.
 
@@ -100,7 +92,7 @@ To do so, edit the C:\Program Files\Microsoft AAD App Proxy Connector\Applicatio
 </configuration>
 ```
 
-Next, configure the Connector Updater service to use the proxy by making a similar change to the file located at C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
+Next, configure the Connector Updater service to use the proxy by making a similar change to the C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config file.
 
 ### Step 2: Configure the proxy to allow traffic from the connector and related services to flow through
 
@@ -137,7 +129,7 @@ The connector makes outbound SSL-based connections by using the CONNECT method. 
 >[!NOTE]
 >When Service Bus runs over HTTPS, it uses port 443. However, by default, Service Bus attempts direct TCP connections and falls back to HTTPS only if direct connectivity fails.
 
-To ensure that the Service Bus traffic is also sent through the outbound proxy server, ensure that the connector cannot directly connect to the Azure services for ports 9350, 9352, and 5671.
+To ensure that the Service Bus traffic is also sent through the outbound proxy server, do not allow the connector to connect to the Azure services for ports 9350, 9352, and 5671.
 
 #### SSL inspection
 Do not use SSL inspection for the connector traffic, because it causes problems for the connector traffic.
@@ -145,11 +137,11 @@ Do not use SSL inspection for the connector traffic, because it causes problems 
 ## Troubleshoot connector proxy problems and service connectivity issues
 Now you should see all traffic flowing through the proxy. If you have problems, the following troubleshooting information should help.
 
-The best way to identify and troubleshoot connector connectivity issues is to take a network capture on the connector service while starting the connector service. This can be a daunting task, so let’s look at quick tips on capturing and filtering network traces.
+The best way to identify and troubleshoot connector connectivity issues is to take a network capture while starting the connector service. Here are some quick tips on capturing and filtering network traces.
 
 You can use the monitoring tool of your choice. For the purposes of this article, we used Microsoft Network Monitor 3.4. You can [download it from Microsoft](https://www.microsoft.com/download/details.aspx?id=4865).
 
-The examples and filters that we use in the following sections are specific to Network Monitor, but the principles can be applied to any analysis tool.
+The following examples are specific to Network Monitor, but the principles can be applied to any analysis tool.
 
 ### Take a capture by using Network Monitor
 
@@ -177,9 +169,9 @@ For initial troubleshooting, perform the following steps:
 
 Now that you’ve got a network capture, you're ready to filter it. The key to looking at the trace is understanding how to filter the capture.
 
-One filter is as follows (where 8080 is the proxy service port):
+One filter is as follows (where 443 is the proxy service port):
 
-**(http.Request or http.Response) and tcp.port==8080**
+**(http.Request or http.Response) and tcp.port==443**
 
 If you enter this filter in the **Display Filter** window and select **Apply**, it filters the captured traffic based on the filter.
 
@@ -193,7 +185,7 @@ If you see other response codes, such as 407 or 502, the proxy is requiring auth
 
 ### Identify failed TCP connection attempts
 
-The other common scenario that you may be interested in is when the connector is trying to connect directly, but it's failing.
+Another common scenario is when the connector tries to connect directly, but fails.
 
 Another Network Monitor filter that helps you to easily identify this problem is:
 
