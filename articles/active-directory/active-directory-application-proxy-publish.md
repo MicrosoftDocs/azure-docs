@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: harshja
 
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
@@ -13,10 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/04/2017
+ms.date: 07/14/2017
 ms.author: kgremban
-
+ms.reviewer: harshja
+ms.custom: it-pro; oldportal
 ---
+
 # Publish applications using Azure AD Application Proxy
 
 > [!div class="op_single_selector"]
@@ -57,9 +58,9 @@ Azure AD Application Proxy helps you support remote workers by publishing on-pre
 6. To finish the wizard, click the check mark at the bottom of the screen. The application is now defined in Azure AD.
 
 ## Assign users and groups to the application
-In order for your users to access your published application, you need to assign them either individually or in groups. (Remember to assign yourself access, too.) This requires that each user have a license for Azure Basic or higher. You can assign licenses individually or to groups. See [Assigning users to an application](active-directory-applications-guiding-developers-assigning-users.md) for more details. 
+In order for your users to access your published application, you need to assign them either individually or in groups. (Remember to assign yourself access, too.) Each user you assign needs a license for Azure Basic or higher. You can assign licenses individually or to groups. For more information, see [Assigning users to an application](active-directory-applications-guiding-developers-assigning-users.md). 
 
-For apps that require preauthentication, this grants permissions to use the app. For apps that don't require preauthentication, users can still be assigned to the app so that it appears in their application list, such as MyApps.
+For apps that require preauthentication, assigning a user grants permission to use the application. For apps that don't require preauthentication, assigning a user means that the user can access the application through the access panel.
 
 1. After finishing the Add App wizard, you see the Quick Start page for your application. To manage who has access to the app, select **Users and groups**.
    
@@ -84,7 +85,7 @@ You can modify published apps or set up advanced options on the Configure page. 
 
 After you publish applications using Azure Active Directory Application Proxy, they appear in the Applications list in Azure AD, and you can manage them there.
 
-If you disable Application Proxy services after you have published applications, they are no longer accessible from outside your private network. This does not delete the applications.
+If you disable Application Proxy services after you have published applications, the applications are no longer accessible from outside your private network. Your users can still access the applications on-premises as usual.
 
 To view an application and make sure that it is accessible, double-click the name of the application. If the Application Proxy service is disabled and the application is not available, a warning message appears at the top of the screen.
 

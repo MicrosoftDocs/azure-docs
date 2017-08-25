@@ -1,6 +1,6 @@
-## Extended IoT scenarios: Use other Azure services and tools
+## Extended IoT scenarios
 
-When you have connected your device to IoT Hub, you can explore additional scenarios that use other Azure tools and services:
+Use other Azure services and tools. When you have connected your device to IoT Hub, you can explore additional scenarios that use other Azure tools and services:
 
 | Scenario                                                   | Azure service or tool              |
 |----------------------------------------------------------- |------------------------------------|

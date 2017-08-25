@@ -12,7 +12,7 @@
    
    1. **Select device** is automatically populated based on the device you selected.
    
-   2. Specify a backup **Policy name** that contains between 3 and 150 characters.
+   2. Specify a backup **Policy name** that contains between 3 and 150 characters. Once the policy is created, you cannot rename the policy.
        
    3. To assign volumes to this backup policy, select **Add volumes** and then from the tabular listing of volumes, click the check box(es) to assign one or more volumes to this backup policy.
 

@@ -19,6 +19,8 @@ ms.author: yuaxu
 ---
 # Send cross-platform notifications to users with Notification Hubs
 In the previous tutorial [Notify users with Notification Hubs], you learned how to push notifications to all devices registered by a specific authenticated user. In that tutorial, multiple requests were required to send a notification to each supported client platform. Notification Hubs supports templates, which let you specify how a specific device wants to receive notifications. This simplifies sending cross-platform notifications. This topic demonstrates how to take advantage of templates to send, in a single request, a platform-agnostic notification that targets all platforms. For more detailed information about templates, see [Azure Notification Hubs Overview][Templates].
+> [!IMPORTANT]
+> Windows Phone projects 8.1 and earlier are not supported using Visual Studio 2017. For more information, see [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 > [!NOTE]
 > Notification Hubs allows a device to register multiple templates with the same tag. In this case, an incoming message targeting that tag results in multiple notifications delivered to the device, one for each template. This enables you to display the same message in multiple visual notifications, such as both as a badge and as a toast notification in a Windows Store app.
@@ -28,7 +30,7 @@ In the previous tutorial [Notify users with Notification Hubs], you learned how 
 Complete the following steps to send cross-platform notifications using templates:
 
 1. In the Solution Explorer in Visual Studio, expand the **Controllers** folder, then open the RegisterController.cs file.
-2. Locate the block of code in the **Post** method that creates a new registration replace the `switch` content with the following code:
+2. Locate the block of code in the **Put** method that creates a new registration replace the `switch` content with the following code:
    
         switch (deviceUpdate.Platform)
         {

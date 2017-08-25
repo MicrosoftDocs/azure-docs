@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 6/7/2017
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: Jenkins
 ---
 # Use Azure VM agents for continuous integration with Jenkins.
 

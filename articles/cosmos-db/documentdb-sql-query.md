@@ -14,17 +14,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/08/2017
+ms.date: 07/25/2017
 ms.author: arramac
 
 ---
 # SQL queries for Azure Cosmos DB DocumentDB API
 Microsoft Azure Cosmos DB supports querying documents using SQL (Structured Query Language) as a JSON query language. Cosmos DB is truly schema-free. By virtue of its commitment to the JSON data model directly within the database engine, it provides automatic indexing of JSON documents without requiring explicit schema or creation of secondary indexes. 
 
-While designing the query language for Cosmos DB we had two goals in mind:
+While designing the query language for Cosmos DB, we had two goals in mind:
 
 * Instead of inventing a new JSON query language, we wanted to support SQL. SQL is one of the most familiar and popular query languages. Cosmos DB SQL provides a formal programming model for rich queries over JSON documents.
-* As a JSON document database capable of executing JavaScript directly in the database engine, we wanted to use JavaScript's programming model as the foundation for our query language. The DocumentDB API SQL is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON documents, self joins, spatial queries, and invocation of user defined functions (UDFs) written entirely in JavaScript, among other features. 
+* As a JSON document database capable of executing JavaScript directly in the database engine, we wanted to use JavaScript's programming model as the foundation for our query language. The DocumentDB API SQL is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON documents, self joins, spatial queries, and invocation of user-defined functions (UDFs) written entirely in JavaScript, among other features. 
 
 We believe that these capabilities are key to reducing the friction between the application and the database and are crucial for developer productivity.
 
@@ -34,11 +34,11 @@ We recommend getting started by watching the following video, where Aravind Rama
 > 
 > 
 
-Then, return to this article, where we'll start with a SQL query tutorial that walks you through some simple JSON documents and SQL commands.
+Then, return to this article, where we start with a SQL query tutorial that walks you through some simple JSON documents and SQL commands.
 
 ## <a id="GettingStarted"></a>Getting started with SQL commands in Cosmos DB
-To see Cosmos DB SQL at work, let's begin with a few simple JSON documents and walk through some simple queries against it. Consider these two JSON documents about two families. Note that with Cosmos DB, we do not need to create any schemas or secondary indices explicitly. We simply need to insert the JSON documents to a Cosmos DB collection and subsequently query. 
-Here we have a simple JSON document for the Andersen family, the parents, children (and their pets), address and registration information. The document has strings, numbers, booleans, arrays and nested properties. 
+To see Cosmos DB SQL at work, let's begin with a few simple JSON documents and walk through some simple queries against it. Consider these two JSON documents about two families. With Cosmos DB, we do not need to create any schemas or secondary indices explicitly. We simply need to insert the JSON documents to a Cosmos DB collection and subsequently query. 
+Here we have a simple JSON document for the Andersen family, the parents, children (and their pets), address, and registration information. The document has strings, numbers, Booleans, arrays, and nested properties. 
 
 **Document**  
 
@@ -97,7 +97,7 @@ Here's a second document with one subtle difference – `givenName` and `familyN
 }
 ```
 
-Now let's try a few queries against this data to understand some of the key aspects of DocumentDB API SQL. For example, the following query will return the documents where the id field matches `AndersenFamily`. Since it's a `SELECT *`, the output of the query is the complete JSON document:
+Now let's try a few queries against this data to understand some of the key aspects of DocumentDB API SQL. For example, the following query returns the documents where the id field matches `AndersenFamily`. Since it's a `SELECT *`, the output of the query is the complete JSON document:
 
 **Query**
 
@@ -166,11 +166,11 @@ We would like to draw attention to a few noteworthy aspects of the Cosmos DB que
 
 * Since DocumentDB API SQL works on JSON values, it deals with tree shaped entities instead of rows and columns. Therefore, the language lets you refer to nodes of the tree at any arbitrary depth, like `Node1.Node2.Node3…..Nodem`, similar to relational SQL referring to the two part reference of `<table>.<column>`.   
 * The structured query language works with schema-less data. Therefore, the type system needs to be bound dynamically. The same expression could yield different types on different documents. The result of a query is a valid JSON value, but is not guaranteed to be of a fixed schema.  
-* Cosmos DB only supports strict JSON documents. This means the type system and expressions are restricted to deal only with JSON types. Please refer to the [JSON specification](http://www.json.org/) for more details.  
+* Cosmos DB only supports strict JSON documents. This means the type system and expressions are restricted to deal only with JSON types. Refer to the [JSON specification](http://www.json.org/) for more details.  
 * A Cosmos DB collection is a schema-free container of JSON documents. The relations in data entities within and across documents in a collection are implicitly captured by containment and not by primary key and foreign key relations. This is an important aspect worth pointing out in light of the intra-document joins discussed later in this article.
 
 ## <a id="Indexing"></a> Cosmos DB indexing
-Before we get into the DocumentDB API SQL syntax, it is worth exploring the indexing design in Cosmos DB API API. 
+Before we get into the DocumentDB API SQL syntax, it is worth exploring the indexing design in Cosmos DB. 
 
 The purpose of database indexes is to serve queries in their various forms and shapes with minimum resource consumption (like CPU and input/output) while providing good throughput and low latency. Often, the choice of the right index for querying a database requires much planning and experimentation. This approach poses a challenge for schema-less databases where the data doesn’t conform to a strict schema and evolves rapidly. 
 
@@ -179,8 +179,8 @@ Therefore, when we designed the Cosmos DB indexing subsystem, we set the followi
 * Index documents without requiring schema: The indexing subsystem does not require any schema information or make any assumptions about schema of the documents. 
 * Support for efficient, rich hierarchical, and relational queries: The index supports the Cosmos DB query language efficiently, including support for hierarchical and relational projections.
 * Support for consistent queries in face of a sustained volume of writes: For high write throughput workloads with consistent queries, the index is updated incrementally, efficiently, and online in the face of a sustained volume of writes. The consistent index update is crucial to serve the queries at the consistency level in which the user configured the document service.
-* Support for multi-tenancy: Given the reservation based model for resource governance across tenants, index updates are performed within the budget of system resources (CPU, memory, and input/output operations per second) allocated per replica. 
-* Storage efficiency: For cost effectiveness, the on-disk storage overhead of the index is bounded and predictable. This is crucial because Cosmos DB allows the developer to make cost based tradeoffs between index overhead in relation to the query performance.  
+* Support for multi-tenancy: Given the reservation-based model for resource governance across tenants, index updates are performed within the budget of system resources (CPU, memory, and input/output operations per second) allocated per replica. 
+* Storage efficiency: For cost effectiveness, the on-disk storage overhead of the index is bounded and predictable. This is crucial because Cosmos DB allows the developer to make cost-based tradeoffs between index overhead in relation to the query performance.  
 
 Refer to the [Azure Cosmos DB samples](https://github.com/Azure/azure-documentdb-net) on MSDN for samples showing how to configure the indexing policy for a collection. Let’s now get into the details of the Azure Cosmos DB SQL syntax.
 
@@ -200,11 +200,11 @@ A query like `SELECT * FROM Families` indicates that the entire Families collect
 The following list contains the rules that are enforced per query:
 
 * The collection can be aliased, such as `SELECT f.id FROM Families AS f` or simply `SELECT f.id FROM Families f`. Here `f` is the equivalent of `Families`. `AS` is an optional keyword to alias the identifier.
-* Note that once aliased, the original source cannot be bound. For example, `SELECT Families.id FROM Families f` is syntactically invalid since the identifier "Families" cannot be resolved anymore.
+* Once aliased, the original source cannot be bound. For example, `SELECT Families.id FROM Families f` is syntactically invalid since the identifier "Families" cannot be resolved anymore.
 * All properties that need to be referenced must be fully qualified. In the absence of strict schema adherence, this is enforced to avoid any ambiguous bindings. Therefore, `SELECT id FROM Families f` is syntactically invalid since the property `id` is not bound.
 
-### Sub-documents
-The source can also be reduced to a smaller subset. For instance, to enumerating only a sub-tree in each document, the sub-root could then become the source, as shown in the following example.
+### Subdocuments
+The source can also be reduced to a smaller subset. For instance, to enumerating only a subtree in each document, the subroot could then become the source, as shown in the following example:
 
 **Query**
 
@@ -242,7 +242,7 @@ The source can also be reduced to a smaller subset. For instance, to enumerating
       ]
     ]
 
-While the above example used an array as the source, an object could also be used as the source, which is what's shown in the following example. Any valid JSON value (not undefined) that can be found in the source will be considered for inclusion in the result of the query. If some families don’t have an `address.state` value, they will be excluded in the query result.
+While the above example used an array as the source, an object could also be used as the source, which is what's shown in the following example: Any valid JSON value (not undefined) that can be found in the source is considered for inclusion in the result of the query. If some families don’t have an `address.state` value, they are excluded in the query result.
 
 **Query**
 
@@ -624,7 +624,7 @@ You can also nest the calls to the operator like in the query below.
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
 
-As with other query operators, if the referenced properties in the conditional expression are missing in any document, or if the types being compared are different, then those documents will be excluded in the query results.
+As with other query operators, if the referenced properties in the conditional expression are missing in any document, or if the types being compared are different, then those documents are excluded in the query results.
 
 The Coalesce (??) operator can be used to efficiently check for the presence of a property (a.k.a. is defined) in a document. This is useful when querying against semi-structured or data of mixed types. For example, this query returns the "lastName" if present, or the "surname" if it isn't present.
 
@@ -640,7 +640,7 @@ You can also access properties using the quoted property operator `[]`. For exam
 
 
 ## <a id="SelectClause"></a>SELECT clause
-The SELECT clause (**`SELECT <select_list>`**) is mandatory and specifies what values will be retrieved from the query, just like in ANSI-SQL. The subset that's been filtered on top of the source documents are passed onto the projection phase, where the specified JSON values are retrieved and a new JSON object is constructed, for each input passed onto it. 
+The SELECT clause (**`SELECT <select_list>`**) is mandatory and specifies what values are retrieved from the query, just like in ANSI-SQL. The subset that's been filtered on top of the source documents are passed onto the projection phase, where the specified JSON values are retrieved and a new JSON object is constructed, for each input passed onto it. 
 
 The following example shows a typical SELECT query. 
 
@@ -678,7 +678,7 @@ In the following example, we are projecting two nested properties `f.address.sta
     }]
 
 
-Projection also supports JSON expressions as shown in the following example.
+Projection also supports JSON expressions as shown in the following example:
 
 **Query**
 
@@ -720,7 +720,7 @@ Let's look at the role of `$1` here. The `SELECT` clause needs to create a JSON 
 
 
 ### Aliasing
-Now let's extend the example above with explicit aliasing of values. AS is the keyword used for aliasing. Note that it's optional as shown while projecting the second value as `NameInfo`. 
+Now let's extend the example above with explicit aliasing of values. AS is the keyword used for aliasing. It's optional as shown while projecting the second value as `NameInfo`. 
 
 In case a query has two properties with the same name, aliasing must be used to rename one or both of the properties so that they are disambiguated in the projected result.
 
@@ -792,7 +792,7 @@ In the following example, the result of the scalar expression is a Boolean.
 
 
 ### Object and array creation
-Another key feature of DocumentDB API SQL is array/object creation. In the previous example, note that we created a new JSON object. Similarly, one can also construct arrays as shown in the following examples.
+Another key feature of DocumentDB API SQL is array/object creation. In the previous example, note that we created a new JSON object. Similarly, one can also construct arrays as shown in the following examples:
 
 **Query**
 
@@ -963,7 +963,7 @@ You can also perform aggregates in combination with filters. For example, the fo
 
     [ 1 ]
 
-The following tables shows the list of supported aggregate functions in DocumentDB API. `SUM` and `AVG` are performed over numeric values, whereas `COUNT`, `MIN`, and `MAX` can be performed over numbers, strings, Booleans, and nulls. 
+The following table shows the list of supported aggregate functions in DocumentDB API. `SUM` and `AVG` are performed over numeric values, whereas `COUNT`, `MIN`, and `MAX` can be performed over numbers, strings, Booleans, and nulls. 
 
 | Usage | Description |
 |-------|-------------|
@@ -973,10 +973,10 @@ The following tables shows the list of supported aggregate functions in Document
 | MAX   | Returns the maximum value in the expression. |
 | AVG   | Returns the average of the values in the expression. |
 
-Aggregates can also be performed over the results of an array iteration. For more details, see [Array Iteration in Queries](#Iteration).
+Aggregates can also be performed over the results of an array iteration. For more information, see [Array Iteration in Queries](#Iteration).
 
 > [!NOTE]
-> When using the Azure Portal's Query Explorer, note that aggregation queries may return the partially aggregated results over a query page. The SDKs will produce a single cumulative value across all pages. 
+> When using the Azure portal's Query Explorer, note that aggregation queries may return the partially aggregated results over a query page. The SDKs produces a single cumulative value across all pages. 
 > 
 > In order to perform aggregation queries using code, you need .NET SDK 1.12.0, .NET Core SDK 1.1.0, or Java SDK 1.9.5 or above.    
 >
@@ -1093,7 +1093,7 @@ Now let's look at another query that performs iteration over children in the col
       }
     ]
 
-This can be further used to filter on each individual entry of the array as shown in the following example.
+This can be further used to filter on each individual entry of the array as shown in the following example:
 
 **Query**
 
@@ -1123,7 +1123,7 @@ You can also perform aggregation over the result of array iteration. For example
     ]
 
 ### <a id="Joins"></a>Joins
-In a relational database, the need to join across tables is very important. It's the logical corollary to designing normalized schemas. Contrary to this, DocumentDB API deals with the denormalized data model of schema-free documents. This is the logical equivalent of a "self-join".
+In a relational database, the need to join across tables is important. It's the logical corollary to designing normalized schemas. Contrary to this, DocumentDB API deals with the denormalized data model of schema-free documents. This is the logical equivalent of a "self-join".
 
 The syntax that the language supports is <from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>. Overall, this returns a set of **N**-tuples (tuple with **N** values). Each tuple has values produced by iterating all collection aliases over their respective sets. In other words, this is a full cross product of the sets participating in the join.
 
@@ -1141,7 +1141,7 @@ The following examples show how the JOIN clause works. In the following example,
     }]
 
 
-In the following example, the join is between the document root and the `children` sub-root. It's a cross product between two JSON objects. The fact that children is an array is not effective in the JOIN since we are dealing with a single root that is the children array. Hence the result contains only two results, since the cross product of each document with the array yields exactly only one document.
+In the following example, the join is between the document root and the `children` subroot. It's a cross product between two JSON objects. The fact that children is an array is not effective in the JOIN since we are dealing with a single root that is the children array. Hence the result contains only two results, since the cross product of each document with the array yields exactly only one document.
 
 **Query**
 
@@ -1191,9 +1191,9 @@ The first thing to note is that the `from_source` of the **JOIN** clause is an i
 * Apply a cross product with the root of the document **f** with each child element **c** that was flattened in the first step.
 * Finally, project the root object **f** name property alone. 
 
-The first document (`AndersenFamily`) contains only one child element, so the result set contains only a single object corresponding to this document. The second document (`WakefieldFamily`) contains two children. So, the cross product produces a separate object for each child, thereby resulting in two objects, one for each child corresponding to this document. Note that the root fields in both these documents will be same, just as you would expect in a cross product.
+The first document (`AndersenFamily`) contains only one child element, so the result set contains only a single object corresponding to this document. The second document (`WakefieldFamily`) contains two children. So, the cross product produces a separate object for each child, thereby resulting in two objects, one for each child corresponding to this document. The root fields in both these documents are the same, just as you would expect in a cross product.
 
-The real utility of the JOIN is to form tuples from the cross-product in a shape that's otherwise difficult to project. Furthermore, as we will see in the example below, you could filter on the combination of a tuple that lets' the user chose a condition satisfied by the tuples overall.
+The real utility of the JOIN is to form tuples from the cross-product in a shape that's otherwise difficult to project. Furthermore, as we see in the example below, you could filter on the combination of a tuple that lets' the user chose a condition satisfied by the tuples overall.
 
 **Query**
 
@@ -1228,7 +1228,7 @@ The real utility of the JOIN is to form tuples from the cross-product in a shape
 
 
 
-This example is a natural extension of the preceding example, and performs a double join. So, the cross product can be viewed as the following pseudo-code.
+This example is a natural extension of the preceding example, and performs a double join. So, the cross product can be viewed as the following pseudo-code:
 
     for-each(Family f in Families)
     {    
@@ -1244,7 +1244,7 @@ This example is a natural extension of the preceding example, and performs a dou
         }
     }
 
-`AndersenFamily` has one child who has one pet. So, the cross product yields one row (1\*1\*1) from this family. WakefieldFamily however has two children, but only one child "Jesse" has pets. Jesse has 2 pets though. Hence the cross product yields 1\*1\*2 = 2 rows from this family.
+`AndersenFamily` has one child who has one pet. So, the cross product yields one row (1\*1\*1) from this family. WakefieldFamily however has two children, but only one child "Jesse" has pets. Jesse has two pets though. Hence the cross product yields 1\*1\*2 = 2 rows from this family.
 
 In the next example, there is an additional filter on `pet`. This excludes all the tuples where the pet name is not "Shadow". Notice that we are able to build tuples from arrays, filter on any of the elements of the tuple, and project any combination of the elements. 
 
@@ -1274,13 +1274,13 @@ In the next example, there is an additional filter on `pet`. This excludes all t
 ## <a id="JavaScriptIntegration"></a>JavaScript integration
 Azure Cosmos DB provides a programming model for executing JavaScript based application logic directly on the collections in terms of stored procedures and triggers. This allows for both:
 
-* Ability to do high performance transactional CRUD operations and queries against documents in a collection by virtue of the deep integration of JavaScript runtime directly within the database engine. 
-* A natural modeling of control flow, variable scoping, and assignment and integration of exception handling primitives with database transactions. For more details about Azure Cosmos DB support for JavaScript integration, please refer to the JavaScript server side programmability documentation.
+* Ability to do high-performance transactional CRUD operations and queries against documents in a collection by virtue of the deep integration of JavaScript runtime directly within the database engine. 
+* A natural modeling of control flow, variable scoping, and assignment and integration of exception handling primitives with database transactions. For more details about Azure Cosmos DB support for JavaScript integration, please refer to the JavaScript server-side programmability documentation.
 
-### <a id="UserDefinedFunctions"></a>User Defined Functions (UDFs)
-Along with the types already defined in this article, DocumentDB API SQL provides support for User Defined Functions (UDF). In particular, scalar UDFs are supported where the developers can pass in zero or many arguments and return a single argument result back. Each of these arguments are checked for being legal JSON values.  
+### <a id="UserDefinedFunctions"></a>User-Defined Functions (UDFs)
+Along with the types already defined in this article, DocumentDB API SQL provides support for User Defined Functions (UDF). In particular, scalar UDFs are supported where the developers can pass in zero or many arguments and return a single argument result back. Each of these arguments is checked for being legal JSON values.  
 
-The DocumentDB API SQL syntax is extended to support custom application logic using these User Defined Functions. UDFs can be registered with DocumentDB API and then be referenced as part of a SQL query. In fact, the UDFs are exquisitely designed to be invoked by queries. As a corollary to this choice, UDFs do not have access to the context object which the other JavaScript types (stored procedures and triggers) have. Since queries execute as read-only, they can run either on primary or on secondary replicas. Therefore, UDFs are designed to run on secondary replicas unlike other JavaScript types.
+The DocumentDB API SQL syntax is extended to support custom application logic using these User-Defined Functions. UDFs can be registered with DocumentDB API and then be referenced as part of a SQL query. In fact, the UDFs are exquisitely designed to be invoked by queries. As a corollary to this choice, UDFs do not have access to the context object which the other JavaScript types (stored procedures and triggers) have. Since queries execute as read-only, they can run either on primary or on secondary replicas. Therefore, UDFs are designed to run on secondary replicas unlike other JavaScript types.
 
 Below is an example of how a UDF can be registered at the Cosmos DB database, specifically under a document collection.
 
@@ -1321,7 +1321,7 @@ We can now use this UDF in a query in a projection. UDFs must be qualified with 
       }
     ]
 
-The UDF can also be used inside a filter as shown in the example below, also qualified with the "udf." prefix :
+The UDF can also be used inside a filter as shown in the example below, also qualified with the "udf." prefix:
 
 **Query**
 
@@ -1392,9 +1392,9 @@ In summary, UDFs are great tools to do complex business logic as part of the que
 ### Operator evaluation
 Cosmos DB, by the virtue of being a JSON database, draws parallels with JavaScript operators and its evaluation semantics. While Cosmos DB tries to preserve JavaScript semantics in terms of JSON support, the operation evaluation deviates in some instances.
 
-In DocumentDB API SQL, unlike in traditional SQL, the types of values are often not known until the values are actually retrieved from database. In order to efficiently execute queries, most of the operators have strict type requirements. 
+In DocumentDB API SQL, unlike in traditional SQL, the types of values are often not known until the values are retrieved from database. In order to efficiently execute queries, most of the operators have strict type requirements. 
 
-DocumentDB API SQL doesn't perform implicit conversions, unlike JavaScript. For instance, a query like `SELECT * FROM Person p WHERE p.Age = 21` matches documents which contain an Age property whose value is 21. Any other document whose Age property matches string "21", or
+DocumentDB API SQL doesn't perform implicit conversions, unlike JavaScript. For instance, a query like `SELECT * FROM Person p WHERE p.Age = 21` matches documents that contain an Age property whose value is 21. Any other document whose Age property matches string "21", or
 other possibly infinite variations like "021", "21.0", "0021", "00021", etc. will not be matched. 
 This is in contrast to the JavaScript where the string values are implicitly casted to numbers (based on operator, ex: ==). This choice is crucial for efficient index matching in DocumentDB API SQL. 
 
@@ -1429,7 +1429,7 @@ The argument to TOP can be set using parameterized queries like shown below.
 Parameter values can be any valid JSON (strings, numbers, Booleans, null, even arrays or nested JSON). Also since Cosmos DB is schema-less, parameters are not validated against any type.
 
 ## <a id="BuiltinFunctions"></a>Built-in functions
-Cosmos DB also supports a number of built-in functions for common operations, that can be used inside queries like user defined functions (UDFs).
+Cosmos DB also supports a number of built-in functions for common operations, that can be used inside queries like user-defined functions (UDFs).
 
 | Function group          | Operations                                                                                                                                          |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1439,10 +1439,10 @@ Cosmos DB also supports a number of built-in functions for common operations, th
 | Array functions         | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH, and ARRAY_SLICE                                                                                         |
 | Spatial functions       | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID, and ST_ISVALIDDETAILED                                                                           | 
 
-If you’re currently using a user defined function (UDF) for which a built-in function is now available, you should use the corresponding built-in function as it is going to be quicker to run and more efficiently. 
+If you’re currently using a user-defined function (UDF) for which a built-in function is now available, you should use the corresponding built-in function as it is going to be quicker to run and more efficiently. 
 
 ### Mathematical functions
-The mathematical functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value. Here’s a table of supported built-in mathematical functions.
+The mathematical functions each perform a calculation, based on input values that are provided as arguments, and return a numeric value. Here’s a table of supported built-in mathematical functions.
 
 
 | Usage | Description |
@@ -1457,7 +1457,7 @@ The mathematical functions each perform a calculation, usually based on input va
 | [TRUNC (num_expr)](#bk_trunc) | Returns a numeric value, truncated to the closest integer value. |
 | [SQRT (num_expr)](#bk_sqrt) | Returns the square root of the specified numeric expression. |
 | [SQUARE (num_expr)](#bk_square) | Returns the square of the specified numeric expression. |
-| [POWER (num_expr, num_expr)](#bk_power) | Returns the power of the specified numeric expression to the value specifed. |
+| [POWER (num_expr, num_expr)](#bk_power) | Returns the power of the specified numeric expression to the value specified. |
 | [SIGN (num_expr)](#bk_sign) | Returns the sign value (-1, 0, 1) of the specified numeric expression. |
 | [ACOS (num_expr)](#bk_acos) | Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine. |
 | [ASIN (num_expr)](#bk_asin) | Returns the angle, in radians, whose sine is the specified numeric expression. This is also called arcsine. |
@@ -1613,7 +1613,7 @@ The following scalar functions perform an operation on an array input value and 
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Returns the number of elements of the specified array expression. |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Returns an array that is the result of concatenating two or more array values. |
-| [ARRAY_CONTAINS (arr_expr, expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Returns a Boolean indicating whether the array contains the specified value. |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Returns a Boolean indicating whether the array contains the specified value. Can specify if the match is full or partial. |
 | [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |Returns part of an array expression. |
 
 Array functions can be used to manipulate arrays within JSON. For example, here's a query that returns all documents where one of the parents is "Robin Wakefield". 
@@ -1629,6 +1629,21 @@ Array functions can be used to manipulate arrays within JSON. For example, here'
     [{
       "id": "WakefieldFamily"
     }]
+
+You can specify a partial fragment for matching elements within the array. The following query finds all parents with the `givenName` of `Robin`.
+
+**Query**
+
+    SELECT Families.id 
+    FROM Families 
+    WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
+
+**Results**
+
+    [{
+      "id": "WakefieldFamily"
+    }]
+
 
 Here's another example that uses ARRAY_LENGTH to get the number of children per family.
 
@@ -1695,14 +1710,14 @@ Spatial functions can be used to perform proximity queries against spatial data.
 For more details on geospatial support in Cosmos DB, please see [Working with geospatial data in Azure Cosmos DB](geospatial.md). That wraps up spatial functions, and the SQL syntax for Cosmos DB. Now let's take a look at how LINQ querying works and how it interacts with the syntax we've seen so far.
 
 ## <a id="Linq"></a>LINQ to DocumentDB API SQL
-LINQ is a .NET programming model that expresses computation as queries on streams of objects. Cosmos DB provides a client side library to interface with LINQ by facilitating a conversion between JSON and .NET objects and a mapping from a subset of LINQ queries to Cosmos DB queries. 
+LINQ is a .NET programming model that expresses computation as queries on streams of objects. Cosmos DB provides a client-side library to interface with LINQ by facilitating a conversion between JSON and .NET objects and a mapping from a subset of LINQ queries to Cosmos DB queries. 
 
 The picture below shows the architecture of supporting LINQ queries using Cosmos DB.  Using the Cosmos DB client, developers can create an **IQueryable** object that directly queries the Cosmos DB query provider, which then translates the LINQ query into a Cosmos DB query. The query is then passed to the Cosmos DB server to retrieve a set of results in JSON format. The returned results are deserialized into a stream of .NET objects on the client side.
 
-![Architecture of supporting LINQ queries using DocumentDB API - SQL syntax, JSON query language, database concepts and SQL queries][1]
+![Architecture of supporting LINQ queries using DocumentDB API - SQL syntax, JSON query language, database concepts, and SQL queries][1]
 
 ### .NET and JSON mapping
-The mapping between .NET objects and JSON documents is natural - each data member field is mapped to a JSON object, where the field name is mapped to the "key" part of the object and the "value" part is recursively mapped to the value part of the object. Consider the following example. The Family object created is mapped to the JSON document as shown below. And vice versa, the JSON document is mapped back to a .NET object.
+The mapping between .NET objects and JSON documents is natural - each data member field is mapped to a JSON object, where the field name is mapped to the "key" part of the object and the "value" part is recursively mapped to the value part of the object. Consider the following example: The Family object created is mapped to the JSON document as shown below. And vice versa, the JSON document is mapped back to a .NET object.
 
 **C# Class**
 
@@ -1788,7 +1803,7 @@ The Cosmos DB query provider performs a best effort mapping from a LINQ query in
 
 First, for the type system, we support all JSON primitive types – numeric types, boolean, string, and null. Only these JSON types are supported. The following scalar expressions are supported.
 
-* Constant values – these includes constant values of the primitive data types at the time the query is evaluated.
+* Constant values – these include constant values of the primitive data types at the time the query is evaluated.
 * Property/array index expressions – these expressions refer to the property of an object or an array element.
   
      family.Id;
@@ -1806,7 +1821,7 @@ First, for the type system, we support all JSON primitive types – numeric type
 * Object/array creation expression - these expressions return an object of compound value type or anonymous type or an array of such objects. These values can be nested.
   
      new Parent { familyName = "Smith", givenName = "Joe" };
-     new { first = 1, second = 2 }; //an anonymous type with 2 fields              
+     new { first = 1, second = 2 }; //an anonymous type with two fields              
      new int[] { 3, child.grade, 5 };
 
 ### <a id="SupportedLinqOperators"></a>List of supported LINQ operators
@@ -1823,8 +1838,8 @@ Here is a list of supported LINQ operators in the LINQ provider included with th
 * **String Functions**: Supports translation from .NET’s Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper to the equivalent SQL built-in functions.
 * **Array Functions**: Supports translation from .NET’s Concat, Contains, and Count to the equivalent SQL built-in functions.
 * **Geospatial Extension Functions**: Supports translation from stub methods Distance, Within, IsValid, and IsValidDetailed to the equivalent SQL built-in functions.
-* **User Defined Function Extension Function**: Supports translation from the stub method UserDefinedFunctionProvider.Invoke to the corresponding user defined function.
-* **Miscellaneous**: Supports translation of the coalesce and conditional operators. Can translate Contains to String CONTAINS, ARRAY_CONTAINS or the SQL IN depending on context.
+* **User-Defined Function Extension Function**: Supports translation from the stub method UserDefinedFunctionProvider.Invoke to the corresponding user-defined function.
+* **Miscellaneous**: Supports translation of the coalesce and conditional operators. Can translate Contains to String CONTAINS, ARRAY_CONTAINS, or the SQL IN depending on context.
 
 ### SQL query operators
 Here are some examples that illustrate how some of the standard LINQ query operators are translated down to Cosmos DB queries.
@@ -1887,7 +1902,7 @@ The syntax is `input.SelectMany(x => f(x))`, where `f` is a scalar expression th
 
 
 #### Where operator
-The syntax is `input.Where(x => f(x))`, where `f` is a scalar expression which returns a Boolean value.
+The syntax is `input.Where(x => f(x))`, where `f` is a scalar expression, which returns a Boolean value.
 
 **LINQ lambda expression**
 
@@ -2018,14 +2033,14 @@ In a nested query, the inner query is applied to each element of the outer colle
 
 
 ## <a id="ExecutingSqlQueries"></a>Executing SQL queries
-Cosmos DB exposes resources through a REST API that can be called by any language capable of making HTTP/HTTPS requests. Additionally, Cosmos DB offers programming libraries for several popular languages like .NET, Node.js, JavaScript and Python. The REST API and the various libraries all support querying through SQL. The .NET SDK supports LINQ querying in addition to SQL.
+Cosmos DB exposes resources through a REST API that can be called by any language capable of making HTTP/HTTPS requests. Additionally, Cosmos DB offers programming libraries for several popular languages like .NET, Node.js, JavaScript, and Python. The REST API and the various libraries all support querying through SQL. The .NET SDK supports LINQ querying in addition to SQL.
 
 The following examples show how to create a query and submit it against a Cosmos DB database account.
 
 ### <a id="RestAPI"></a>REST API
-Cosmos DB offers an open RESTful programming model over HTTP. Database accounts can be provisioned using an Azure subscription. The Cosmos DB resource model consists of a sets of resources under a database account, each  of which is addressable using a logical and stable URI. A set of resources is referred to as a feed in this document. A database account consists of a set of databases, each containing multiple collections, each of which in-turn contain documents, UDFs, and other resource types.
+Cosmos DB offers an open RESTful programming model over HTTP. Database accounts can be provisioned using an Azure subscription. The Cosmos DB resource model consists of a set of resources under a database account, each  of which is addressable using a logical and stable URI. A set of resources is referred to as a feed in this document. A database account consists of a set of databases, each containing multiple collections, each of which in-turn contain documents, UDFs, and other resource types.
 
-The basic interaction model with these resources is through the HTTP verbs GET, PUT, POST and DELETE with their standard interpretation. The POST verb is used for creation of a new resource, for executing a stored procedure or for issuing a Cosmos DB query. Queries are always read only operations with no side-effects.
+The basic interaction model with these resources is through the HTTP verbs GET, PUT, POST, and DELETE with their standard interpretation. The POST verb is used for creation of a new resource, for executing a stored procedure or for issuing a Cosmos DB query. Queries are always read-only operations with no side-effects.
 
 The following examples show a POST for a DocumentDB API query made against a collection containing the two sample documents we've reviewed so far. The query has a simple filter on the JSON name property. Note the use of the `x-ms-documentdb-isquery` and Content-Type: `application/query+json` headers to denote that the operation is a query.
 
@@ -2149,11 +2164,13 @@ The second example shows a more complex query that returns multiple results from
     }
 
 
-If a query's results cannot fit within a single page of results, then the REST API returns a continuation token through the `x-ms-continuation-token` response header. Clients can paginate results by including the header in subsequent results. The number of results per page can also be controlled through the `x-ms-max-item-count` number header. If the specified query has an aggregation function like `COUNT`, then the query page may return a partially aggregated value over the page of results. The clients must perform a second level aggregation over these results to produce the final results, for example, sum over the counts returned in the individual pages to return the total count.
+If a query's results cannot fit within a single page of results, then the REST API returns a continuation token through the `x-ms-continuation-token` response header. Clients can paginate results by including the header in subsequent results. The number of results per page can also be controlled through the `x-ms-max-item-count` number header. If the specified query has an aggregation function like `COUNT`, then the query page may return a partially aggregated value over the page of results. The clients must perform a second-level aggregation over these results to produce the final results, for example, sum over the counts returned in the individual pages to return the total count.
 
-To manage the data consistency policy for queries, use the `x-ms-consistency-level` header like all REST API requests. For session consistency, it is required to also echo the latest `x-ms-session-token` Cookie header in the query request. Note that the queried collection's indexing policy can also influence the consistency of query results. With the default indexing policy settings, for collections the index is always current with the document contents and query results will match the consistency chosen for data. If the indexing policy is relaxed to Lazy, then queries can return stale results. For more information, refer to [Azure Cosmos DB Consistency Levels][consistency-levels].
+To manage the data consistency policy for queries, use the `x-ms-consistency-level` header like all REST API requests. For session consistency, it is required to also echo the latest `x-ms-session-token` Cookie header in the query request. The queried collection's indexing policy can also influence the consistency of query results. With the default indexing policy settings, for collections the index is always current with the document contents and query results match the consistency chosen for data. If the indexing policy is relaxed to Lazy, then queries can return stale results. For more information, see [Azure Cosmos DB Consistency Levels][consistency-levels].
 
 If the configured indexing policy on the collection cannot support the specified query, the Azure Cosmos DB server returns 400 "Bad Request". This is returned for range queries against paths configured for hash (equality) lookups, and for paths explicitly excluded from indexing. The `x-ms-documentdb-query-enable-scan` header can be specified to allow the query to perform a scan when an index is not available.
+
+You can get detailed metrics on query execution by setting `x-ms-documentdb-populatequerymetrics` header to `True`. For more information, see [SQL query metrics for Azure Cosmos DB DocumentDB API](documentdb-sql-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
 The .NET SDK supports both LINQ and SQL querying. The following example shows how to perform the simple filter query introduced earlier in this document.
@@ -2246,14 +2263,10 @@ You can also explicitly control paging by creating `IDocumentQueryable` using th
 
 Refer to [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-documentdb-net) for more samples containing queries. 
 
-> [!NOTE]
-> In order to perform aggregation queries, you need SDKs 1.12.0 or above. LINQ support for aggregation functions is not supported but will be available in .NET SDK 1.13.0.
->
-
 ### <a id="JavaScriptServerSideApi"></a>JavaScript server-side API
 Cosmos DB provides a programming model for executing JavaScript based application logic directly on the collections using stored procedures and triggers. The JavaScript logic registered at a collection level can then issue database operations on the operations on the documents of the given collection. These operations are wrapped in ambient ACID transactions.
 
-The following example show how to use the queryDocuments in the JavaScript server API to make queries from inside stored procedures and triggers.
+The following example shows how to use the queryDocuments in the JavaScript server API to make queries from inside stored procedures and triggers.
 
     function businessLogic(name, author) {
         var context = getContext();

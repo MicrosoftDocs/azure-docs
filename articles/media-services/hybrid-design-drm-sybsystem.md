@@ -1,6 +1,6 @@
 ---
-title: Hybrid design of DRM subsystem using Azure Media Services | Microsoft Docs
-description: This topic discusses hybrid design of DRM subsystem using Azure Media Services.
+title: Hybrid design of DRM subsystem(s) using Azure Media Services | Microsoft Docs
+description: This topic discusses hybrid design of DRM subsystem(s) using Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -13,13 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/17/2017
 ms.author: willzhan;juliako
 
 ---
-# Hybrid design of DRM subsystem
+# Hybrid design of DRM subsystem(s)
 
-This topic discusses hybrid design of DRM subsystem using Azure Media Services.
+This topic discusses hybrid design of DRM subsystem(s) using Azure Media Services.
 
 ## Overview
 
@@ -98,7 +98,7 @@ Based on the explanations in the previous section, the following five hybrid sce
 |AMS|Third-party|Outside|No|No|Sample 4|
 |Third-party|Third-party|AMS|Yes|No|	
 
-In the samples, PlayReady protection works for both DASH and smooth streaming. The video URLs below are smooth streaming URLs. To get the corresponding DASH URLs, just append "(format=mpd-time-csf)". You could use the [this browser player to test)[http://aka.ms/amtest]. It allows you to configure which streaming protocol to use, under which tech. IE11 and MS Edge on Windows 10 support PlayReady through EME. For more information, see [details about the test tool](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
+In the samples, PlayReady protection works for both DASH and smooth streaming. The video URLs below are smooth streaming URLs. To get the corresponding DASH URLs, just append "(format=mpd-time-csf)". You could use the [azure media test player](http://aka.ms/amtest) to test in a browser. It allows you to configure which streaming protocol to use, under which tech. IE11 and MS Edge on Windows 10 support PlayReady through EME. For more information, see [details about the test tool](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 
 ### Sample 1
 
@@ -121,6 +121,10 @@ In the samples, PlayReady protection works for both DASH and smooth streaming. T
 
 * Source URL: https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
 * PlayReady LA_URL (DASH & smooth): https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
+
+## Summary
+
+In summary, Azure Media Services DRM components are flexible, you can use them in a hybrid scenario by properly configuring content key and asset delivery policy, as described in this topic.
 
 ## Next steps
 View Media Services learning paths.

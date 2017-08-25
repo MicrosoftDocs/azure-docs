@@ -8,7 +8,7 @@ manager: timlt
 tags: azure-resource-manager
  
 ms.assetid: 
-ms.service: 
+ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
@@ -24,8 +24,7 @@ This document details how to use the Azure Cloud Shell in the [Azure portal](htt
 ## Start Cloud Shell
 1. Launch **Cloud Shell** from the top navigation of the Azure portal <br>
 ![](media/shell-icon.png)
-2. Select a subscription to create a storage account and Azure file share with <br>
-![](media/storage-prompt.png)
+2. Select a subscription to create a storage account and Azure file share
 3. Select "Create storage"
 
 > [!TIP]
@@ -41,11 +40,11 @@ This document details how to use the Azure Cloud Shell in the [Azure portal](htt
 > Your subscription will be remembered for future sessions using `/home/<user>/.azure/azureProfile.json`.
 
 ### Create a resource group
-Create a new resouce group in WestUS named "MyRG": <br>
+Create a new resource group in WestUS named "MyRG": <br>
 `az group create -l westus -n MyRG` <br>
 
 ### Create a Linux VM
-Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create ssh keys and setup the VM with them. <br>
+Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create SSH keys and setup the VM with them. <br>
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
@@ -69,4 +68,4 @@ Run `az group delete -n MyRG`
 ## Next Steps
 [Learn about persisting storage on Cloud Shell](persisting-shell-storage.md) <br>
 [Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
-[Learn about Azure File storage](../storage/storage-files-introduction.md) <br>
+[Learn about Azure File storage](../storage/files/storage-files-introduction.md) <br>

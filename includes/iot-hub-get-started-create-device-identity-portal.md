@@ -14,7 +14,9 @@ In this section, you use the [Azure portal][lnk-azure-portal] to create a device
 
    This creates a new device identity for your IoT hub.
 
-1. In the **Device Explorer**'s device list, click the newly created device and make note of the **Connection string---primary key**.
+   [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
+
+1. In the **Device Explorer**'s device list, click the newly created device and make note of the **Connection string---primary key**. 
 
     ![Device connection string][img-connection-string]
 

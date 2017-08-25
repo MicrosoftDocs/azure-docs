@@ -12,8 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/25/2017
+ms.date: 08/22/2017
 ms.author: markvi
+ms.reviewer: calebb
 
 ---
 # Azure Active Directory Conditional Access technical reference

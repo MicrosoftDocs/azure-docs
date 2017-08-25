@@ -33,6 +33,9 @@ The Azure portal is a web-based management tool for services and resources hoste
 ## Create clusters
 The Azure portal exposes most of the cluster properties. Using Azure Resource Manager template, you can hide a lot of details. For more information, see [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
+[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
+
 1. Sign in to the [Azure  portal](https://portal.azure.com).
 2. Click **+**, click **Intelligence + Analytics**, and then click **HDInsight**.
    

@@ -23,6 +23,9 @@ ms.author: piyushjo
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users in a Xamarin.iOS application.
 In this tutorial, you create a blank Xamarin.iOS app that collects basic data and receives push notifications using Apple Push Notification System (APNS).
 
+> [!NOTE]
+> The Azure Mobile Engagement service will be retired March 2018 and is currently only available to existing customers. For more information, see [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+
 This tutorial requires the following:
 
 * [Xamarin Studio](http://xamarin.com/studio). You can also use Visual Studio with Xamarin but this tutorial uses Xamarin Studio. For installation instructions, see [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). 

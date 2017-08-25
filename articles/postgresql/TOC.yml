@@ -103,10 +103,12 @@
   items:
   - name: Azure CLI
     href: /cli/azure/postgres
+  - name: REST API
+    href: /rest/api/postgresql
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/postgresql/
   - name: MSDN forum

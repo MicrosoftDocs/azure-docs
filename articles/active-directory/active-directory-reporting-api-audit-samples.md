@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 08/02/2017
 ms.author: dhanyahk;markvi
-ms.custom: oldportal
+ms.reviewer: dhanyahk
 
 ---
 # Azure Active Directory reporting audit API samples

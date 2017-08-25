@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 8/2/2017
 ms.author: twooley
 
 ---
@@ -58,7 +58,7 @@ The following table describes the high-level differences between Azure Stack and
 
 | Recommendation | References | 
 | -------- | ------------- | 
-| Install the correct tools on your developer workstation. | - [Install PowerShell](azure-stack-powershell-install.md)<br>- [Download tools](azure-stack-powershell-download.md)<br>- [Configure PowerShell](azure-stack-powershell-configure.md)<br>- [Install Visual Studio](azure-stack-install-visual-studio.md) 
+| Install the correct tools on your developer workstation. | - [Install PowerShell](azure-stack-powershell-install.md)<br>- [Download tools](azure-stack-powershell-download.md)<br>- [Configure PowerShell](azure-stack-powershell-configure-user.md)<br>- [Install Visual Studio](azure-stack-install-visual-studio.md) 
 | Review information about the following:<br>- Azure Resource Manager template considerations<br>- How to find QuickStart templates<br>- Use a policy module to help you use Azure to develop for Azure Stack | [Develop for Azure Stack](azure-stack-developer.md) | 
 | Review and follow the best practices for templates. | [Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
 | | |
@@ -72,7 +72,7 @@ To make sure that you use a correct version of Azure PowerShell, use [API versio
 >[!NOTE]
  If you're using the Azure Stack Development Kit, and you have administrative access, see the "Determine the current version" section of [Manage updates](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#determine-the-current-version) to determine the Azure Stack build.
 
-For other APIs, run the following PowerShell command to output the namespaces, resource types, and API versions that are supported in your Azure Stack subscription. Note there may still be differences at a property level. (For this command to work, you must have already [installed](azure-stack-powershell-install.md) and [configured](azure-stack-powershell-configure.md) PowerShell for an Azure Stack environment. You must also have a subscription to an Azure Stack offer.)
+For other APIs, run the following PowerShell command to output the namespaces, resource types, and API versions that are supported in your Azure Stack subscription. Note there may still be differences at a property level. (For this command to work, you must have already [installed](azure-stack-powershell-install.md) and [configured](azure-stack-powershell-configure-user.md) PowerShell for an Azure Stack environment. You must also have a subscription to an Azure Stack offer.)
 
  ```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
@@ -88,4 +88,5 @@ For more detailed information about differences at a service level, see:
 
 * [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)
 * [Considerations for Storage in Azure Stack](azure-stack-acs-differences.md)
+* [Considerations for Azure Stack networking](azure-stack-network-differences.md)
 

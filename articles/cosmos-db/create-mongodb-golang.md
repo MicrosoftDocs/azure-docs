@@ -8,7 +8,7 @@ editor: mimig1
 
 ms.service: cosmos-db
 ms.topic: hero-article
-ms.date: 06/22/2017
+ms.date: 07/21/2017
 ms.author: mimig
 ---
 
@@ -86,8 +86,8 @@ The following Golang code snippet connects the Go app with Azure Cosmos DB Mongo
 dialInfo := &mgo.DialInfo{
     Addrs:    []string{"golang-couch.documents.azure.com:10255"}, // Get HOST + PORT
     Timeout:  60 * time.Second,
-    Database: "golang-coach", // It can be anything
-    Username: "golang-coach", // Username
+    Database: "database", // It can be anything
+    Username: "username", // Username
     Password: "Azure database connect password from Azure Portal", // PASSWORD
     DialServer: func(addr *mgo.ServerAddr) (net.Conn, error) {
         return tls.Dial("tcp", addr.String(), &tls.Config{})
@@ -118,7 +118,7 @@ The **mgo.Dial()** method is used when there is no SSL connection. For an SSL co
 An instance of the **DialWIthInfo{}** object is used to create the session object. Once the session is established, you can access the collection by using the following code snippet:
 
 ```go
-collection := session.DB(“golang-couch”).C(“package”)
+collection := session.DB(“database”).C(“package”)
 ```
 
 <a id="create-document"></a>
