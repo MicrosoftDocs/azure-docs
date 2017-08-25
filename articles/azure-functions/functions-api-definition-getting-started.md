@@ -52,6 +52,7 @@ This document guides you through the step by step process of creating an OpenAPI
 1. Add an operation object to `paths: /api/yourfunctionroute post:`
     1. The quickstart OpenAPI document is an outline of a full OpenAPI doc. It requires more metadata to be a full OpenAPI definition, such as operation objects and response templates.
     1. The sample operation object below has a filled out produces/consumes section, a parameter object, and a response object.
+    
     ```yaml
       post:
         operationId: /api/yourfunctionroute/post
@@ -80,10 +81,12 @@ This document guides you through the step by step process of creating an OpenAPI
         security:
           - apikeyQuery: []
     ```
+    
     > [!NOTE]
     >  x-ms-summary provides a display name in Logic Apps, Flow, and PowerApps.
     >
     > Check out [customize your Swagger definition for PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/) to learn more.
+
 1. Click `save` to save your changes
 ![Adding Template Definition](./media/functions-api-definition-getting-started/addingtemplate.png)
 
