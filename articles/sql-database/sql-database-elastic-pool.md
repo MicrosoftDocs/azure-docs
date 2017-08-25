@@ -278,7 +278,7 @@ You can add or remove databases from an existing pool. The databases can be in o
 
 ### Move a database out of an elastic pool
 
-![databases listing](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
+![databases listing](./media/sql-database-elastic-pool-manage-portal/select-pools-removal.png)
 
 ### Change performance settings of an elastic pool
 

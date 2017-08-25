@@ -81,15 +81,23 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
    >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-maximum-size-greater-than-1-tb).  
    > 
 
-7. For this quick start tutorial, select the **Standard** service tier and then use the slider to select **20 DTUs** and **40** GB of storage.
+7. For this quick start tutorial, select the **Standard** service tier and then use the slider to select **100 DTUs (S3)** and **400** GB of storage.
 
    ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-8. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
+8. Accept the preview terms to use the **Add-on Storage** option. 
 
-9. Now that you have completed the SQL Database form, click **Create** to provision the database. Provisioning takes a few minutes. 
+   > [!IMPORTANT]
+   > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
+   >
+   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-maximum-size-greater-than-1-tb).  
+   > 
 
-10. On the toolbar, click **Notifications** to monitor the deployment process.
+9. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
+
+10. Now that you have completed the SQL Database form, click **Create** to provision the database. Provisioning takes a few minutes. 
+
+11. On the toolbar, click **Notifications** to monitor the deployment process.
     
      ![notification](./media/sql-database-get-started-portal/notification.png)
 

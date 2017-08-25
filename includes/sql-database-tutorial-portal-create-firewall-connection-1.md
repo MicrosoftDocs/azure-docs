@@ -38,22 +38,25 @@ Follow these steps to create a blank SQL database.
 
 6. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. Explore the options for the amount of DTUs and storage that is available to you for each service tier. 
 
+7. For this tutorial, select the **Standard** service tier and then use the slider to select **100 DTUs (S3)** and **400** GB of storage.
+
+   ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+
+8. Accept the preview terms to use the **Add-on Storage** option. 
+
    > [!IMPORTANT]
    > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-maximum-size-greater-than-1-tb).  
+   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-maximum-size-greater-than-1-tb).  
    > 
 
-7. For this quick start tutorial, select the **Standard** service tier and then use the slider to select **20 DTUs** and **40** GB of storage.
-   ![create database-s1](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+9. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
 
-8. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
+10. Select a **collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
-9. Select a **collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)
+11. Click **Create** to provision the database. Provisioning takes about a minute and a half to complete. 
 
-10. Click **Create** to provision the database. Provisioning takes about a minute and a half to complete. 
-
-11. On the toolbar, click **Notifications** to monitor the deployment process.
+12. On the toolbar, click **Notifications** to monitor the deployment process.
     
      ![notification](../articles/sql-database/media/sql-database-get-started-portal/notification.png)
 
