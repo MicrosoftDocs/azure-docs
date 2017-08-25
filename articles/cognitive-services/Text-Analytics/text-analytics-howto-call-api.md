@@ -14,22 +14,20 @@ ms.author: heidist
 
 # How to call Text Analytics REST API
 
-This article demonstrates how to call Text Analytics API using HTTP POST/GET calls in C# and [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop).
+This article demonstrates how to call Text Analytics API. Calls to the API are HTTP POST/GET calls, which you can construct in any language. In this article, we use REST and [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) to demonstrate key concepts.
 
-+ All requests are POST. Text Analytics is stateless so there is nothing to GET or DELETE. The request body must be JSON.
-+ All requests specify the endpoint plus the resource used on the request: `sentiment`, `keyphrases`, `languages`.    
-+ All requests must include the access key. 
+All requests must include your access key. The HTTP endpoint includes the region you chose during sign up, the service URL, and the resource used on the request: `sentiment`, `keyphrases`, `languages`. Recall that Text Analytics is stateless so there is nothing to GET or DELETE. Your text is analyzed upon receipt and results are immediately returned to the calling application.
 
 > [!Tip]
-> For one-off calls to see how the API works, you can send POST requests from the built-in testing console available on any [API doc page](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). There is no setup, and user requirements consist only of pasting an access key and the JSON documents into the request. 
+> For one-off calls to see how the API works, you can send POST requests from the built-in **API testing console** available on any [API doc page](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). There is no setup, and user requirements consist only of pasting an access key and the JSON documents into the request. 
 
 ## Prerequisites
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) and [sign up for the Text Analytics API](text-analytics-howto-signup.md). 
 
-You need an [access key](text-analytics-howto-accesskey.md) for Text Analysis operations. You can use the same key for sentiment analysis, language detection, and key phrase extraction. 
+An [access key](text-analytics-howto-accesskey.md) is required on every request. The key is created for you during sign up. 
 
-<a name'json-schema"></a>
+<a name="json-schema"></a>
 
 ## JSON schema requirements
 
@@ -39,11 +37,7 @@ Input rows must be JSON in raw unstructured text. XML is not supported. The sche
 
 + `text` field is required and contains unstructured raw text, up to 10 KB. For more information about limits, see [Text Analytics Overview > Data limits](overview.md#data-limits). 
 
-+ `language` is used only in sentiment analysis and key phrase extraction. It is ignored in language detection. It is a 2-character ISO 6391.1 value. For a list of supported languages, see 
-
-## Set up a request in C#
-
-TBD
++ `language` is used only in sentiment analysis and key phrase extraction. It is ignored in language detection. It is a 2-character ISO 6391.1 value. For a list of supported languages, see [Text Analytics overview](overview.md#supported-languages).
 
 ## Set up a request in Postman
 

@@ -12,37 +12,34 @@ ms.date: 08/24/2017
 ms.author: heidist
 ---
 
-# Text Analytics API in Microsoft Cognitive Services
+# Text Analytics API Version 1.0
 
-Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text. Text Analytics API has three main functions: sentiment analysis, key phrase extraction, and language detection.
+**Text Analytics API** is a cloud-based service that provides advanced natural language processing over raw text. Text Analytics API has three main functions: sentiment analysis, key phrase extraction, and language detection.
 
-The API is backed by resources in [Microsoft Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects. 
-
-Our models are pretrained using an extensive body of text and natural language technologies from Microsoft. As a result, the workflow is simple: upload raw text for scoring and analysis, and have your code handle the results.
+The API is backed by resources in [Microsoft Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects. Our models are pretrained using an extensive body of text and natural language technologies from Microsoft. 
 
 ## Capabilities in Text Analytics
 
 Text analysis can mean different things, but in Cognitive Services, APIs are exposed for the three types of analysis described in the following table.
 
-| Operations | APIs | Description |
-|-----------|------|-------------|
-|[Sentiment Analysis](text-analytics-concept-sentiment-analysis.md) | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br/> [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet)  | Sentiment analysis helps you find out what customers think of your brand or topic by analyzing any text for clues about sentiment. This API returns a sentiment score between 0 and 1 for each document. The sentiment score is generated using classification techniques. |
-|[Key Phrase Extraction](text-analytics-concept-keyword-extraction.md) | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br/> [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) | Automatically extract key phrases to quickly identify the main points. For example, for the input text ‘The food was delicious and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’. Key phrase extraction uses technology from Microsoft Office's sophisticated Natural Language Processing toolkit. |
-|[Language Detection](text-analytics-concept-language-detection.md) | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br/>  [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) |  For up to 120 languages, the service can detect which language the input text is written in and report a single language code for every document submitted on the request. The code is paired with a score indicating the strength of the score. Typically, the score is either 1.0 for a positive identification, 0.5 for mixed languages or content that is only. |
+| Operations| Description | APIs |
+|-----------|-------------|------|
+|[Sentiment Analysis](text-analytics-concept-sentiment-analysis.md) | Find out what customers think of your brand or topic by analyzing raw text for clues about positve or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br/> [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet)  |
+|[Key Phrase Extraction](text-analytics-concept-keyword-extraction.md) | Automatically extract key phrases to quickly identify the main points. For example, for the input text ‘The food was delicious and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’.  | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br/> [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) |
+|[Language Detection](text-analytics-concept-language-detection.md) | For up to 120 languages, detect which language the input text is written in and report a single language code for every document submitted on the request. The code is paired with a score indicating the strength of the score. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br/>  [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) | 
 
  ## Typical workflow
 
  The workflow is simple: you submit data for analysis and handle outputs in your code. Analyzers are consumed as-is, with no additional configuration or customization.
  
-1. [Sign up](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) for the **Text Analytics API** when creating a Cognitive Services account. As with most Azure Services, there is a free version so that you can experiment at no cost.
+1. [Sign up](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) for an 
+[access key](text-analytics-howto-accesskey.md). The key must be passed on each request.
 
-2. [Get an access key](text-analytics-howto-accesskey.md) from the portal. The key must be passed on each request.
+3. [Formulate a request](text-analytics-howto-call-api.md#json-schema) containing your data as raw unstructured text, in JSON. 
 
-3. [Formulate a request body](text-analytics-howto-call-api.md#json-schema) containing your data as raw unstructured text, in JSON. 
+4. Post the request to an endpoint established during sign-up, appending one of the following resources: sentiment analysis, key phrase extraction, or language detection. The request is processed immediately.
 
-4. Post the request to an endpoint, specifying one of the following resources: sentiment analysis, key phrase extraction, or language detection.
-
-5. Store or stream the response returned from each request. Depending on the request, results are either a sentiment score, a collection of extracted keywords, or a language code.
+5. Store or stream the response. Depending on the request, results are either a sentiment score, a collection of extracted keywords, or a language code.
 
 Output is returned as a single JSON document, with results for each text document you posted, based on ID. You can subsequently analyze, visualize, or categorize the results into actionable insights.
 
@@ -55,7 +52,7 @@ Data is not stored in your account. Operations performed by Text Analytics API a
 
 Text Analytics can detect language for up to 120 different languages. For sentiment analysis and key phrase extraction, the list of supported languages is more selective as we refine the analyzers to accommodate the linguistic rules of additional languages.
 
-Language support is initially rolled out in preview, graduating to generally available (GA) status, independently of each other and of the Text Analytics service overall. Several languages remain in preview, even though the Text Analytics API itself is GA.
+Language support is initially rolled out in preview, graduating to generally available (GA) status, independently of each other and of the Text Analytics service overall. It's possible for languages to remain in preview, even while Text Analytics API transitions to generally available.
 
 | Language    | Language code | Sentiment | Key phrases |
 |:----------- |:----:|:----:|:----:|
@@ -90,7 +87,7 @@ Text Analytics accepts raw text data. The service currently sets a limit of 10 K
 | Maximum size of entire request | 1 MB |
 | Maximum number of documents in a request | 1,000 documents |
 
-Rate limiting exists at a rate of 100 calls per minute. We therefore recommend that you submit large quantities of documents in a single call. 
+Rate limiting exists at a rate of 100 calls per minute. We generally recommend that you submit large quantities of documents in a single call. This practice works best for key phrase extraction and language detection. For sentiment detection, accuracy improves when text is delivered in smaller chunks. You might need to experiement to find the right balance.
 
 ## Next steps
 
