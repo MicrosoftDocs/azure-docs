@@ -87,7 +87,6 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 You can now connect to the SQL Database server and its databases using SQL Server Management Studio or another tool of your choice from this IP address using the server admin account created previously.
 
 
-
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.
 
