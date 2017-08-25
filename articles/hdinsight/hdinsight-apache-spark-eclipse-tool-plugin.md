@@ -1,6 +1,6 @@
 ---
-title: Azure Toolkit for Eclipse - Create Scala applications for HDInsight Spark | Microsoft Docs
-description: Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark applications written in Scala and submit them to an HDInsight Spark cluster, directly from them the Eclipse IDE.
+title: 'Azure Toolkit for Eclipse: Create Scala applications for HDInsight Spark' | Microsoft Docs
+description: Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark applications written in Scala and submit them to an HDInsight Spark cluster, directly from the Eclipse IDE.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -46,7 +46,7 @@ HDInsight Tools for Eclipse is available as part of Azure Toolkit for Eclipse. F
 ### Install the Scala plug-in
 When you open IntelliJ, HDInsight Tools automatically detects whether you installed the Scala plug-in. Select **OK** to continue, and then follow the instructions to install the plug-in from the Eclipse Marketplace.
 
- ![Automatic installation of the Scala plug-in](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-scala.png)
+![Automatic installation of the Scala plug-in](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
 ## Sign in to your Azure subscription
 1. Start the Eclipse IDE and open Azure Explorer. On the **Window** menu, select **Show View**, and then select **Other**. In the dialog box that opens, expand **Azure**, select **Azure Explorer**, and then select **OK**.
@@ -56,7 +56,7 @@ When you open IntelliJ, HDInsight Tools automatically detects whether you instal
 3. In the **Azure Sign In** dialog box, choose the authentication method, select **Sign in**, and enter your Azure credentials.
    
    ![Azure Sign In dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-2.png)
-4. After you're signed in, the **Select Subscriptions** dialog box lists all the Azure subscriptions associated with the credentials. Select **Select** to close the dialog box.
+4. After you're signed in, the **Select Subscriptions** dialog box lists all the Azure subscriptions associated with the credentials. Click **Select** to close the dialog box.
 
    ![Select Subscriptions dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/Select-Subscriptions.png)
 5. On the **Azure Explorer** tab, expand **HDInsight** to see the HDInsight Spark clusters under your subscription.
@@ -135,25 +135,25 @@ You can perform various operations by using HDInsight Tools, including accessing
 ### Access the job view
 1. In Azure Explorer, expand **HDInsight**, expand the Spark cluster name, and then select **Jobs**. 
 
-    ![Job view node](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
+   ![Job view node](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
 
 2. Click the **Jobs** node. HDInsight Tools automatically detects whether you installed the E(fx)clipse plug-in. Select **OK** to continue, and then follow the instructions to install the Eclipse Marketplace and restart Eclipse.
 
-    ![Install E(fx)clipse](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
+   ![Install E(fx)clipse](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
 
 3. Open the Job View from the **Jobs** node. In the right pane, the **Spark Job View** tab displays all the applications that were run on the cluster. Select the name of the application for which you want to see more details.
 
-    ![Application details](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
+   ![Application details](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
 
    You can then take any of these actions:
 
    * Hover on the job graph. It displays basic info about the running job. Select the job graph, and you can see the stages and info that every job generates.
 
-    ![Job stage details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
+     ![Job stage details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
 
    * Select the **Log** tab to view frequently used logs, including **Driver Stderr**, **Driver Stdout**, and **Directory Info**.
 
-    ![Log details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-log-info.png)
+     ![Log details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-log-info.png)
 
    * Open the Spark history UI and the YARN UI (at the application level) by selecting the hyperlinks at the top of the window.
 
@@ -193,25 +193,28 @@ To resolve this error, you must [download the executable](http://public-repo-1.h
    * In the right pane, select **Spark on HDInsight Local Run Sample (Scala)**.
 
    ![New Project dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
+   
 2. To provide the project details, follow steps 3 through 6 from the earlier section [Set up a Spark Scala project for an HDInsight Spark cluster](#set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster).
+
 3. The template adds a sample code (**LogQuery**) under the **src** folder that you can run locally on your computer.
    
    ![Location of LogQuery](./media/hdinsight-apache-spark-eclipse-tool-plugin/local-app.png)
-4. Right-click the **LogQuery** application, point to **Run As**, and then select **1 Scala Application**. You will see an output like this in the **Console** tab at the bottom:
+   
+4. Right-click the **LogQuery** application, point to **Run As**, and then select **1 Scala Application**. You will see an output like this on the **Console** tab at the bottom:
    
    ![Spark Application local run result](./media/hdinsight-apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
-## FAQ
-To submit an application to Azure Data Lake Store, choose **Interactive** mode during the Azure sign-in process. If you select **Automated** mode, you can get an error.
+## Known problems
+To submit an application to Azure Data Lake Store, select **Interactive** mode during the Azure sign-in process. If you select **Automated** mode, you might get an error.
 
-![interative-signin](./media/hdinsight-apache-spark-eclipse-tool-plugin/interactive-authentication.png)
+![Interactive sign-in](./media/hdinsight-apache-spark-eclipse-tool-plugin/interactive-authentication.png)
 
-Now, we resolved it. You can choose an Azure Data Lake Cluster to submit your application with any sign-in method.
+You can choose an Azure Data Lake cluster to submit your application with any sign-in method.
 
-## Feedback and known issues
 Currently, viewing Spark outputs directly is not supported.
 
-If you have any suggestions or feedback, or if you encounter any problems when using this tool, send us an email at hdivstool@microsoft.com.
+## Feedback
+If you have any feedback, or if you encounter any other problems when using this tool, send us an email at hdivstool@microsoft.com.
 
 ## <a name="seealso"></a>See also
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
