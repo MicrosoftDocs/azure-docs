@@ -47,6 +47,10 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **A:** Yes, you can do that through the SCM site, check the following article for more information [SSH support for Web App on Linux](./app-service-linux-ssh-support.md)
 
+**Q:** I want to create a Linux App Service plane through SDK or an ARM template, how can I achieve this?
+
+**A:** You need to set the `reserved` field of the app service to `true`.
+
 ## Continuous integration/deployment
 
 **Q:** My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration/deployment of custom containers?
