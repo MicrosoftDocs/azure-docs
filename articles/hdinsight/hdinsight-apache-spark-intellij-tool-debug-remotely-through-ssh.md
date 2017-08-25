@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 08/24/2017
 ms.author: Jenny Jiang
 
 ---
@@ -89,26 +89,76 @@ This article provides step-by-step guidance on how to use HDInsight tools in Azu
 9. The configuration is now saved with the name you provided. To view the configuration details, select the configuration name. To make changes, select **Edit Configurations**. 
 10. After you complete the configurations settings, you can run the project against the remote cluster or perform remote debugging.
 
-## Learn how to perform remote debugging and remote run
+## Learn how to perform remote debugging
 ### Scenario 1: Perform remote run
-1. To run the project remotely, select the **Run** icon.
 
-   ![Select the run icon](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-run-icon.png)
+In this section, we show you how to debug drivers and executors.
 
-2. The **HDInsight Spark Submission** window displays the application execution status. You can monitor the progress of the Scala job based on the information included here.
+    import org.apache.spark.{SparkConf, SparkContext}
 
-   ![Select the run icon](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-run-result.png)
+    object LogQuery {
+      val exampleApacheLogs = List(
+        """10.10.10.10 - "FRED" [18/Jan/2013:17:56:07 +1100] "GET http://images.com/2013/Generic.jpg
+          | HTTP/1.1" 304 315 "http://referall.com/" "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1;
+          | GTB7.4; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; .NET CLR 3.0.04506.648; .NET CLR
+          | 3.5.21022; .NET CLR 3.0.4506.2152; .NET CLR 1.0.3705; .NET CLR 1.1.4322; .NET CLR
+          | 3.5.30729; Release=ARP)" "UD-1" - "image/jpeg" "whatever" 0.350 "-" - "" 265 923 934 ""
+          | 62.24.11.25 images.com 1358492167 - Whatup""".stripMargin.lines.mkString,
+        """10.10.10.10 - "FRED" [18/Jan/2013:18:02:37 +1100] "GET http://images.com/2013/Generic.jpg
+          | HTTP/1.1" 304 306 "http:/referall.com" "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1;
+          | GTB7.4; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; .NET CLR 3.0.04506.648; .NET CLR
+          | 3.5.21022; .NET CLR 3.0.4506.2152; .NET CLR 1.0.3705; .NET CLR 1.1.4322; .NET CLR
+          | 3.5.30729; Release=ARP)" "UD-1" - "image/jpeg" "whatever" 0.352 "-" - "" 256 977 988 ""
+          | 0 73.23.2.15 images.com 1358492557 - Whatup""".stripMargin.lines.mkString
+      )
+      def main(args: Array[String]) {
+        val sparkconf = new SparkConf().setAppName("Log Query")
+        val sc = new SparkContext(sparkconf)
+        val dataSet = sc.parallelize(exampleApacheLogs)
+        // scalastyle:off
+        val apacheLogRegex =
+          """^([\d.]+) (\S+) (\S+) \[([\w\d:/]+\s[+\-]\d{4})\] "(.+?)" (\d{3}) ([\d\-]+) "([^"]+)" "([^"]+)".*""".r
+        // scalastyle:on
+        /** Tracks the total query count and number of aggregate bytes for a particular group. */
+        class Stats(val count: Int, val numBytes: Int) extends Serializable {
+          def merge(other: Stats): Stats = new Stats(count + other.count, numBytes + other.numBytes)
+          override def toString: String = "bytes=%s\tn=%s".format(numBytes, count)
+        }
+        def extractKey(line: String): (String, String, String) = {
+          apacheLogRegex.findFirstIn(line) match {
+            case Some(apacheLogRegex(ip, _, user, dateTime, query, status, bytes, referer, ua)) =>
+              if (user != "\"-\"") (ip, user, query)
+              else (null, null, null)
+            case _ => (null, null, null)
+          }
+        }
+        def extractStats(line: String): Stats = {
+          apacheLogRegex.findFirstIn(line) match {
+            case Some(apacheLogRegex(ip, _, user, dateTime, query, status, bytes, referer, ua)) =>
+              new Stats(1, bytes.toInt)
+            case _ => new Stats(1, 0)
+          }
+        }
+        
+        dataSet.map(line => (extractKey(line), extractStats(line)))
+          .reduceByKey((a, b) => a.merge(b))
+          .collect().foreach{
+          case (user, query) => println("%s\t%s".format(user, query))}
 
-### Scenario 2: Perform remote debugging
-1. Set up a breaking point, and then select the **Debug** icon.
+        sc.stop()
+      }
+    }
+
+
+1. Set up breaking points, and then select the **Debug** icon.
 
     ![Select the debug icon](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debug-icon.png)
 
-2. When the program execution reaches the breaking point, you see a **Debugger** tab in the bottom pane. You also see the view parameter and variable information in the **Variables** pane. Select the **Step Over** icon to proceed to the next line of code. Then you can further step through the code. Select the **Resume Program** icon to continue to run the code. You can review the execution status in the **HDInsight Spark Submission** window. 
+2. When the program execution reaches the breaking point, **Driver** tab and two **Executor** tabs in the **Debugger** pane. Select the **Resume Program** icon to continue running the code, which then reaches the next breakpoint and focuses on the corresponding **Executor** tab. You can review the execution logs in the corresponding **Console** tab.
 
    ![Debugging tab](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debugger-tab.png)
 
-### Scenario 3: Perform remote debugging and bug fixing
+### Scenario 2: Perform remote debugging and bug fixing
 In this section, we show you how to dynamically update the variable value by using the IntelliJ debugging capability for a simple fix. In the following code example, an exception is thrown because the target file already exists.
   
         import org.apache.spark.SparkConf
