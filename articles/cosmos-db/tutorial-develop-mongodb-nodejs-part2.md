@@ -19,9 +19,9 @@ ms.author: mimig
 ---
 # Create a MEAN.js app with Azure Cosmos DB - Part 2: Create a Node.js Express app with the Angular CLI 
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. With Azure Cosmos DB, can quickly create and query document, key/value, and graph databases that benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-introduction.md) API app written in Node.js with Express and Angular and connect then it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the exact same code that you use when you talk to MongoDB. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
+This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-introduction.md) API app written in Node.js with Express and Angular and connect then it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the exact same code that you use for MongoDB apps. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
 
 Part 2 of the tutorial covers the following tasks:
 
@@ -40,7 +40,7 @@ Part 2 of the tutorial covers the following tasks:
 Before starting this part of the tutorial, ensure you've watched the [introduction video](tutorial-develop-mongodb-nodejs.md).
 
 This tutorial also requires: 
-* [Node.js](https://nodejs.org/download/current/) version 8.3.0 or above.
+* [Node.js](https://nodejs.org/) version 8.4.0 or above.
 * [Postman](https://www.getpostman.com/)
 * [Visual Studio Code](https://code.visualstudio.com/) or your favorite Node IDE.
 
@@ -60,7 +60,7 @@ This tutorial also requires:
 
 ## Use the Angular CLI to create a new project
 
-1. At the command prompt, run the following code to create a new project with Angular CLI, install the source code in src/client folder (-sd src/client), and use the minimal setup (--minimal).
+1. At the command prompt, cd to the folder where you want to create your new project, then run the following code to create a new project with Angular CLI. This code installs the source code in src/client folder (-sd src/client), and uses the minimal setup (--minimal).
 
     ```bash
     ng new angular-cosmosdb -sd src/client --minimal --style scss

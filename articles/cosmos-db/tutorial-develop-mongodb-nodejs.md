@@ -20,9 +20,9 @@ ms.custom: mvc
 ---
 # Azure Cosmos DB: Create a MEAN.js app 
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. With Azure Cosmos DB, can quickly create and query document, key/value, and graph databases that benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-introduction.md) API app with Express, Angular, and Node.js (MEAN.js), and then connect it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the exact same code that you use when you talk to MongoDB. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
+This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-introduction.md) API app with Express, Angular, and Node.js (MEAN.js), and then connect it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the exact same code that you use for MongoDB apps. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
 
 This multi-part tutorial covers the following tasks:
 
@@ -31,7 +31,7 @@ This multi-part tutorial covers the following tasks:
 > * [Build the UI with Angular](tutorial-develop-mongodb-nodejs-part3.md)
 > * [Create an Azure Cosmos DB account using the Azure CLI](tutorial-develop-mongodb-nodejs-part4.md) 
 > * [Use Mongoose to connect to Azure Cosmos DB](tutorial-develop-mongodb-nodejs-part5.md)
-> * [Add Post, Put and Delete functions to the app](tutorial-develop-mongodb-nodejs-part6.md)
+> * [Add Post, Put, and Delete functions to the app](tutorial-develop-mongodb-nodejs-part6.md)
 
 ## Video walkthrough
 
