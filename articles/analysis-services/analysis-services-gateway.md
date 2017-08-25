@@ -19,7 +19,7 @@ ms.author: owend
 
 ---
 # Connecting to on-premises data sources with Azure On-premises Data Gateway
-The On-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same region with a single gateway. 
+The on-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same region with a single gateway. 
 
  Azure Analysis Services requires a gateway resource in the same region. For example, if you have Azure Analysis Services servers in the East US 2 region, you need a gateway resource in the East US 2 region. Multiple servers in East US 2 can use the same gateway.
 
@@ -37,7 +37,7 @@ Once you have a gateway resource configured for your subscription, you can conne
 
 To get started right away, see [Install and configure on-premises data gateway](analysis-services-gateway-install.md).
 
-## How it works
+## <a name="how-it-works"> </a>How it works
 The gateway you install on a computer in your organization runs as a Windows service, **On-premises data gateway**. This local service is registered with the Gateway Cloud Service through Azure Service Bus. You then create a gateway resource Gateway Cloud Service for your Azure subscription. Your Azure Analysis Services servers are then connected to your gateway resource. When models on your server need to connect to your on-premises data sources for queries or processing, a query and data flow traverses the gateway resource, Azure Service Bus, the local on-premises data gateway service, and your data sources. 
 
 ![How it works](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
@@ -51,12 +51,12 @@ Queries and data flow:
 5. The gateway sends the query to the data source for execution.
 6. The results are sent from the data source, back to the gateway, and then onto the cloud service and your server.
 
-## Windows Service account
+## <a name="windows-service-account"> </a>Windows Service account
 The on-premises data gateway is configured to use *NT SERVICE\PBIEgwService* for the Windows service logon credential. By default, it has the right of Logon as a service; in the context of the machine that you are installing the gateway on. This credential is not the same account used to connect to on-premises data sources or your Azure account.  
 
 If you encounter issues with your proxy server due to authentication, you may want to change the Windows service account to a domain user or managed service account.
 
-## Ports
+## <a name="ports"> </a>Ports
 The gateway creates an outbound connection to Azure Service Bus. It communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 through 9354.  The gateway does not require inbound ports.
 
 We recommend you whitelist the IP addresses for your data region in your firewall. You can download the [Microsoft Azure Datacenter IP list](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated weekly.
@@ -82,7 +82,7 @@ The following are the fully qualified domain names used by the gateway.
 | *.msftncsi.com |443 |Used to test internet connectivity if the gateway is unreachable by the Power BI service. |
 | *.microsoftonline-p.com |443 |Used for authentication depending on configuration. |
 
-### Forcing HTTPS communication with Azure Service Bus
+### <a name="force-https"></a>Forcing HTTPS communication with Azure Service Bus
 You can force the gateway to communicate with Azure Service Bus by using HTTPS instead of direct TCP; however, doing so can greatly reduce performance. You can modify the *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* file by changing the value from `AutoDetect` to `Https`. This file is typically located at *C:\Program Files\On-premises data gateway*.
 
 ```
@@ -91,19 +91,17 @@ You can force the gateway to communicate with Azure Service Bus by using HTTPS i
 </setting>
 ```
 
-
-<a name="faq"></a>
-## Frequently asked questions
+## <a name="faq"></a>Frequently asked questions
 
 ### General
 
-**Q**: Do I need a gateway for data sources in the cloud, such as SQL Azure? <br/>
+**Q**: Do I need a gateway for data sources in the cloud, such as Azure SQL Database? <br/>
 **A**: No. A gateway connects to on-premises data sources only.
 
 **Q**: Does the gateway have to be installed on the same machine as the data source? <br/>
 **A**: No. The gateway connects to the data source using the connection information that was provided. 
 Consider the gateway as a client application in this sense. 
-The gateway just needs the capability to connect to the server name that was provided.
+The gateway just needs the capability to connect to the server name that was provided, typically on the same network.
 
 <a name="why-azure-work-school-account"></a>
 
@@ -139,13 +137,13 @@ This proximity minimizes latency and avoids egress charges on the Azure VM.
 **A**: See the ports and hosts that the gateway uses.
 
 **Q**: What is the actual Windows service called?<br/>
-**A**: In Services, the gateway is called Power BI Enterprise Gateway Service.
+**A**: In Services, the gateway is called On-premises data gateway service.
 
 **Q**: Can the gateway Windows service run with an Azure Active Directory account? <br/>
 **A**: No. The Windows service must have a valid Windows account. By default, 
 the service runs with the Service SID, NT SERVICE\PBIEgwService.
 
-### High availability and disaster recovery
+### <a name="high-availability"></a>High availability and disaster recovery
 
 **Q**: What options are available for disaster recovery? <br/>
 **A**: You can use the recovery key to restore or move a gateway. 
@@ -154,7 +152,7 @@ When you install the gateway, specify the recovery key.
 **Q**: What is the benefit of the recovery key? <br/>
 **A**: The recovery key provides a way to migrate or recover your gateway settings after a disaster.
 
-## Troubleshooting
+## <a name="troubleshooting"> </a>Troubleshooting
 
 **Q**: How can I see what queries are being sent to the on-premises data source? <br/>
 **A**: You can enable query tracing, which includes the queries that are sent. 
@@ -165,9 +163,9 @@ You can also look at tools that your data source has for tracing queries.
 For example, you can use Extended Events or SQL Profiler for SQL Server and Analysis Services.
 
 **Q**: Where are the gateway logs? <br/>
-**A**: See Tools later in this topic.
+**A**: See Logs later in this topic.
 
-### Update to the latest version
+### <a name="update"></a>Update to the latest version
 
 Many issues can surface when the gateway version becomes outdated. 
 As good general practice, make sure that you use the latest version. 
@@ -180,36 +178,28 @@ and see if you can reproduce the issue.
 You might get this error if you try to install the gateway on a domain controller, which isn't supported. 
 Make sure that you deploy the gateway on a machine that isn't a domain controller.
 
-## Tools
+## <a name="logs"></a>Logs
 
-### Collect logs from the gateway configurer
-
-You can collect several logs for the gateway. Always start with the logs!
-
-#### Installer logs
-
-`%localappdata%\Temp\Power_BI_Gateway_–Enterprise.log`
-
-#### Configuration logs
-
-`%localappdata%\Microsoft\Power BI Enterprise Gateway\GatewayConfigurator.log`
+Log files are an important resource when troubleshooting.
 
 #### Enterprise gateway service logs
 
-`C:\Users\PBIEgwService\AppData\Local\Microsoft\Power BI Enterprise Gateway\EnterpriseGateway.log`
+`C:\Users\PBIEgwService\AppData\Local\Microsoft\On-premises data gateway\<yyyyymmdd>.<Number>.log`
+
+#### Configuration logs
+
+`C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
+
+
+
 
 #### Event logs
 
 You can find the Data Management Gateway and PowerBIGateway logs under **Application and Services Logs**.
 
-### Fiddler Trace
 
-[Fiddler](http://www.telerik.com/fiddler) is a free tool from Telerik that monitors HTTP traffic. 
-You can see this traffic with the Power BI service from the client machine. 
-This service might show errors and other related information.
-
-### Telemetry
-Telemetry can be used for monitoring and troubleshooting. 
+## <a name="telemetry"></a>Telemetry
+Telemetry can be used for monitoring and troubleshooting. By default
 
 **To turn on telemetry**
 
