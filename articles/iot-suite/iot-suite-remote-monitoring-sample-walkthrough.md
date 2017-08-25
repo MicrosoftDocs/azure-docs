@@ -28,6 +28,10 @@ This article walks you through some of the key elements of the remote monitoring
 * Plan how to customize to the solution to meet your own specific requirements.
 * Design your own IoT solution that uses Azure services.
 
+## Microservices architecture
+
+[TODO]
+
 ## Logical architecture
 
 The following diagram outlines the logical components of the remote monitoring preconfigured solution overlaid on the [IoT architecture](iot-suite-what-is-azure-iot.md):
