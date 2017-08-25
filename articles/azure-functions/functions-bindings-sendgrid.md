@@ -4,7 +4,7 @@ description: Azure Functions SendGrid bindings reference
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 
 ms.service: functions
 ms.devlang: multiple

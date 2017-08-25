@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Map a custom domain to a function app in 
 services: functions
 documentationcenter: 
 author: ggailey777   
-manager: erikre
+manager: cfowler
 editor: 
 tags: azure-service-management
 
