@@ -1,6 +1,6 @@
 ---
-title: Ways to run Windows container workloads in Azure | Microsoft Docs
-description: Learn about the different container technologies to run Windows workloads in Azure, such as Docker hosts on Linux VMs, Azure Container Service, Azure Container Instances, and Azure Container Registry.
+title: Ways to run Linux container workloads in Azure | Microsoft Docs
+description: Learn about the different container technologies to run LInux workloads in Azure, such as Docker hosts on Linux VMs, Azure Container Service, Azure Container Instances, and Azure Container Registry.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
