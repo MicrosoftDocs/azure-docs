@@ -88,7 +88,7 @@ You must sign in with an account that’s a global admin for the directory.
 
 3. On the **Users and groups** blade, select **Users**.
 
-    ![media/image2.png](media/manage-personal-data-azure/image03.png)
+    ![media/image2.png](media/manage-personal-data-azure/image003.png)
 
 4. On the **Users and groups - Users** blade, select a user from the list.
 
