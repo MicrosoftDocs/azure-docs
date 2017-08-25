@@ -74,6 +74,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | No |
 | [Full-text search](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) | Third-party word breakers are not supported |
 | [Functions](https://docs.microsoft.com/sql/t-sql/functions/functions) | Most - see individual functions |
+| [Graph processing](/sql/relational-databases/graphs/sql-graph-overview) | Yes |
 | [In-memory optimization](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Yes - [Premium edition only](sql-database-in-memory.md) |
 | [JSON data support](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Yes |
 | [Language elements](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Most - see individual elements |  
