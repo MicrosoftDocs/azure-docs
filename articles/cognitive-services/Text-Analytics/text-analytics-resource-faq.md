@@ -24,6 +24,10 @@ ms.author: heidist
  
  Because data isn't stored, the impact on deleting and recreating the signup is minimal. The only coding investment you lose is the reference to your access key string, which you would need to update after signing up for the API.
 
+ ## Can I restrict access to the API?
+
+You can selectively enable or disable access to specific APIs within your organization by [creating resource policies](../../azure-resource-manager/resource-manager-policy-portal.md).
+
 ## Architecture & concepts
 
 ### Can I add my own training data or models?

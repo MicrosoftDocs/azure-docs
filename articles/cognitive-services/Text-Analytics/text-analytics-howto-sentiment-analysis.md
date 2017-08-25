@@ -20,7 +20,7 @@ In this Quickstart, learn how to call the [**Text Analytics REST APIs**](https:/
 
 To complete this Quickstart, you need an interactive tool for sending HTTP requests. 
 
-+ [Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop), [Telerik Fiddler](https://www.telerik.com/download/fiddler), or other Web API testing tool, if you have one. 
++ [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop), [Telerik Fiddler](https://www.telerik.com/download/fiddler), or other Web API testing tool, if you have one. 
 + You can also use the built-in console app in our REST API documentation pages to interact with each API individually. To use the console, click **Open API testing console** on any [doc page](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6).
 
 > [!Tip]

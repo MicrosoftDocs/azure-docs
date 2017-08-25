@@ -29,18 +29,10 @@
      href: text-analytics-concept-keyword-extraction.md
    - name: Language detection
      href: text-analytics-concept-language-detection.md
-- name: Samples
-  items:
-  - name: Sample 1 (C#)
-    href:
-  - name: Sample 2 (Python)
-    href:
 - name: Reference
   items: 
-  - name: REST API
+  - name: API Reference
     href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
-  - name: Android SDK
-    href: https://github.com/Microsoft/Cognitive-TextAnalytics-Android
   - name: .Net Standard SDK
     href: https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet
 - name: Resources

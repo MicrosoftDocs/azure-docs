@@ -12,19 +12,21 @@ ms.date: 08/24/2017
 ms.author: heidist
 ---
 
-# How to obtain an access key for Text Analytics
+# How to find your access key for Text Analytics
 
-An access key is required on each call to the Text Analytics API. If you are using the REST API, be sure to provide the access key in the request header. Access keys can be obtained in the Azure portal, assuming you already [signed up](text-analytics-howto-signup.md).
+When you sign up for Text Analytics, you get a personalized access key unique to your subscription. This key is required on each call to the Text Analytics API. If you haven't [signed up](text-analytics-howto-signup.md) yet,  do so now to get your key. 
+
+If you aren't sure whether your subscription already has text analytics, or if you signed up but cannot find it in the port, use the following instructions to get your key. 
 
 ## Find your service and keys
 
-1. Sign in to [Azure portal](https://portal.azure.com) and find your Text Analytics API dashboard. If you pinned the service to the dashboard, you can click the tile to open it. If there is no tile and you do not have the service name, continue on to the next step to find the service.
+1. Sign in to [Azure portal](https://portal.azure.com).
 
-2. In the navigation pane, click **More services >** at the bottom of the list.
+2. In the left navigation pane, click **More services >** at the bottom of the list.
 
 3. In Filter, type *Cognitive Services*. You should see your service in the list, where API Type is **Text Analytics API**.
 
-4. Open the service blade. You can now get a key from **Resources > Keys** or by clicking **Show access keys** in the Essentials pane.
+4. Click the link to open the service blade. You can now get a key from **Resources > Keys** or by clicking **Show access keys** in the Essentials pane.
 
  ![Portal page with endpoint and keys](../media/text-analytics/portal-keys-endpoint.png)
 
