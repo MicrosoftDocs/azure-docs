@@ -278,13 +278,7 @@ You can add or remove databases from an existing pool. The databases can be in o
 
 ### Move a database out of an elastic pool
 
-![databases listing](./media/sql-database-elastic-pool-manage-portal/select-pools-removal.png)
-
 ![databases listing](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
-
-![preview database addition and removal](./media/sql-database-elastic-pool-manage-portal/pending-removal.png)
-
-![Click Save](./media/sql-database-elastic-pool-manage-portal/click-save.png)
 
 ### Change performance settings of an elastic pool
 
@@ -293,8 +287,6 @@ As you monitor the resource utilization of an elastic pool, you may discover tha
 To change the eDTUs or storage limits per pool, and eDTUs per database:
 
 ![Elastic pool resource utilization](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
-
-![Updating an elastic pool and new monthly cost](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
 
 ## Manage SQL Database elastic pools using PowerShell
 
