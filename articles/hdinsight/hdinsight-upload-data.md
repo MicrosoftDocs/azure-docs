@@ -32,7 +32,7 @@ Note the following requirement before you begin:
 * Knowledge of the following two articles:
 
     - [Use Azure Storage with HDInsight][hdinsight-storage]
-    - [Use Data Lake Store with HDInsight(hdinsight-hadoop-use-data-lake-store.md)
+    - [Use Data Lake Store with HDInsight](hdinsight-hadoop-use-data-lake-store.md)
 
 ## Upload data to Azure Storage
 
