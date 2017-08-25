@@ -22,11 +22,11 @@ ms.author: jgao
 # Manage Hadoop clusters in HDInsight by using Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. In this article, you will learn how to manage Hadoop clusters in Azure HDInsight by using a local Azure PowerShell console through the use of Windows PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
+Azure PowerShell can be used to control and automate the deployment and management of your workloads in Azure. In this article, you learn how to manage Hadoop clusters in Azure HDInsight by using Azure PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
 **Prerequisites**
 
-Before you begin this article, you must have the following:
+Before you begin this article, you must have the following items:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -59,7 +59,7 @@ Use the following command to delete a cluster:
 
     Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
-You can also delete a cluster by removing the resource group that contains the cluster. Please note, this will delete all the resources in the group including the default storage account.
+You can also delete a cluster by removing the resource group that contains the cluster. Deleting a resource group deletes all the resources in the group including the default storage account.
 
     Remove-AzureRmResourceGroup -Name <Resource Group Name>
 
@@ -77,10 +77,10 @@ The impact of changing the number of data nodes for each type of cluster support
 
     You can seamlessly increase the number of worker nodes in a Hadoop cluster that is running without impacting any pending or running jobs. New jobs can also be submitted while the operation is in progress. Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.
 
-    When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted. This causes all running and pending jobs to fail at the completion of the scaling operation. You can, however, resubmit the jobs once the operation is complete.
+    When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted. Restarting services causes all running and pending jobs to fail at the completion of the scaling operation. You can, however, resubmit the jobs once the operation is complete.
 * HBase
 
-    You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging in to the headnode of cluster and running the following commands from a command prompt window:
+    You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging in to the headnode of cluster, and then run the following commands from a command prompt window:
 
         >pushd %HBASE_HOME%\bin
         >hbase shell
@@ -94,7 +94,7 @@ The impact of changing the number of data nodes for each type of cluster support
   * Storm web UI
   * Command-line interface (CLI) tool
 
-    Please refer to the [Apache Storm documentation](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
+    Refer to the [Apache Storm documentation](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
 
     The Storm web UI is available on the HDInsight cluster:
 
@@ -141,11 +141,11 @@ To grant:
     Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 
 > [!NOTE]
-> By granting/revoking the access, you will reset the cluster user name and password.
+> By granting/revoking the access, you reset the cluster user name and password.
 >
 >
 
-This can also be done via the Portal. See [Administer HDInsight by using the Azure portal][hdinsight-admin-portal].
+Granting and revoking access can also be done via the Portal. See [Administer HDInsight by using the Azure portal][hdinsight-admin-portal].
 
 ## Update HTTP user credentials
 It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.

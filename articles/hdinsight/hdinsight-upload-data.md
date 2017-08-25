@@ -83,7 +83,7 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
            azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
 
 > [!NOTE]
-> If you will always be working with the same storage account, you can set the following environment variables instead of specifying the account and key for every command:
+> If you always work with the same storage account, you can set the following environment variables instead of specifying the account and key for every command:
 >
 > * **AZURE\_STORAGE\_ACCOUNT**: The storage account name
 > * **AZURE\_STORAGE\_ACCESS\_KEY**: The storage account key
@@ -245,9 +245,9 @@ For more information on installing the Azure SDKs, see [Azure downloads](https:/
             at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:354)
             ... 7 more
 
-**Cause**: HBase on HDInsight clusters default to a block size of 256KB when writing to Azure storage. While it works for HBase APIs or REST APIs, it will result in an error when using the `hadoop` or `hdfs dfs` command-line utilities.
+**Cause**: HBase on HDInsight clusters default to a block size of 256KB when writing to Azure storage. While it works for HBase APIs or REST APIs, it results in an error when using the `hadoop` or `hdfs dfs` command-line utilities.
 
-**Resolution**: Use `fs.azure.write.request.size` to specify a larger block size. You can do this on a per-use basis by using the `-D` parameter. The following is an example using this parameter with the `hadoop` command:
+**Resolution**: Use `fs.azure.write.request.size` to specify a larger block size. You can do this on a per-use basis by using the `-D` parameter. The following command is an example using this parameter with the `hadoop` command:
 
     hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
 
@@ -257,7 +257,7 @@ You can also increase the value of `fs.azure.write.request.size` globally by usi
 
     When prompted, enter the admin name and password for the cluster.
 2. From the left side of the screen, select **HDFS**, and then select the **Configs** tab.
-3. In the **Filter...** field, enter `fs.azure.write.request.size`. This will display the field and current value in the middle of the page.
+3. In the **Filter...** field, enter `fs.azure.write.request.size`. This displays the field and current value in the middle of the page.
 4. Change the value from 262144 (256KB) to the new value. For example, 4194304 (4MB).
 
 ![Image of changing the value through Ambari Web UI](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
