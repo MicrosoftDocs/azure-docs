@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/22/2017
+ms.date: 08/24/2017
 ms.author: curtand
 
 ms.reviewer: jeffsta
@@ -45,8 +45,17 @@ Azure AD provides the core directory and identity management capabilities behind
 You get the Azure AD service free when you sign up for any of these Microsoft cloud services. If you want to add an additional Azure subscription to an Azure AD directory, you can do this only if you are signed in with a Microsoft account. For example, if you sign up for Azure using a Microsoft account and also sign up for a different Microsoft cloud service using a work or school account, you have two instances of Azure AD:
 1. The default directory for your Azure subscription. You can add another Azure subscription to this directory or others you create if you are signed in with a Microsoft account because you can be authenticated by Azure.
 2. The home directory for your work or school account. If you are signed in to Azure with a work or school account, you can't add an Azure subscription to an existing directory because your work or school account can't be authenticated directly by Azure. 
- 
-To learn more about how to change administrators for an Azure subscription, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
+
+## To add an existing subscription to your Azure AD directory
+You need to sign in with an account that exists in both the current directory with which the subscription is associated as well as the directory you want to add it to. 
+
+1. Sign in to the [Azure Account Center](https://account.windowsazure.com/Home/Index) with an account that is the Account Administrator of the subscription to transfer subscription ownership.
+2. Ensure that the user who you want to be the subscription owner is in the targeted directory.
+3. Click **Transfer subscription**.
+4. Specify the recipient. The recipient automatically gets an email with an acceptance link.
+5. The recipient clicks the link and follows the instructions, including entering their payment information. When the recipient succeeds, the subscription is transferred. 
+6. The default directory of the subscription is changed to the directory that the user is in if the subscription ownership transfer is successful.
+
 
 ## Suggestions to manage both a subscription and a directory
 The administrative roles for an Azure subscription manage resources tied to the Azure subscription. This section explains the differences between Azure subscription admins and Azure AD directory admins. Administrative roles and other suggestions for using them to manage your subscription are covered at [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).

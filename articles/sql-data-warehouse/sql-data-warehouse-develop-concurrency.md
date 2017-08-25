@@ -149,7 +149,7 @@ The same calculation applies to static resource classes.
 ## Concurrency slot consumption  
 SQL Data Warehouse grants more memory to queries running in higher resource classes. Memory is a fixed resource.  Therefore, the more memory allocated per query, the fewer concurrent queries can execute. The following table reiterates all of the previous concepts in a single view that shows the number of concurrency slots available by DWU and the slots consumed by each resource class.  
 
-### Allocation and consumption of concurrency slots  
+### Allocation and consumption of concurrency slots for dynamic resource classes  
 | DWU | Maximum concurrent queries | Concurrency slots allocated | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |1 |2 |4 |
@@ -165,7 +165,7 @@ SQL Data Warehouse grants more memory to queries running in higher resource clas
 | DW3000 |32 |120 |1 |16 |32 |64 |
 | DW6000 |32 |240 |1 |32 |64 |128 |
 
-### Allocation and consumption of concurrency slots for static resource classes
+### Allocation and consumption of concurrency slots for static resource classes  
 | DWU | Maximum concurrent queries | Concurrency slots allocated |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |2 |4 |4 |4 |4 |4 |4 |
@@ -201,44 +201,43 @@ Queries have different requirements depending on their complexity. Increasing me
 
 Selecting proper memory grant depending on the need of your query is non-trivial, as it depends on many factors, such as the amount of data queried, the nature of the table schemas, and various join, selection, and group predicates. From a general standpoint, allocating more memory will allow queries to complete faster, but would reduce the overall concurrency. If concurrency is not an issue, over-allocating memory does not harm. To fine-tune throughput, trying various flavors of resource classes may be required.
 
-You can use the following stored procedure to figure out concurrency and memory grant per resource class at a given SLO and the closest best resource class for memory intensive CCI operations on non-partitioned CCI table at a given resource class.
+You can use the following stored procedure to figure out concurrency and memory grant per resource class at a given SLO and the closest best resource class for memory intensive CCI operations on non-partitioned CCI table at a given resource class:
 
-### Description:  
-       There are two purposes of this stored procedure as mentioned below.  
-       
-       1. To help user find out concurrency and memory grant per resource class at a given SLO. User need to provide NULL for both schema and tablename for this as shown in the example below.
-       2. To help user find out the closest best resoruce class for the memory intensed CCI operations (load, copy table, rebuild index, etc.) on non partitioned CCI table at a given resource class. 
-          The stored proc uses table schema to find out the required memory grant for this.
+#### Description:  
+Here's the purpose of this stored procedure:  
+1. To help user figure out concurrency and memory grant per resource class at a given SLO. User needs to provide NULL for both schema and tablename for this as shown in the example below.  
+2. To help user figure out the closest best resource class for the memory intensed CCI operations (load, copy table, rebuild index, etc.) on non partitioned CCI table at a given resource class. The stored proc uses table schema to find out the required memory grant for this.
 
-### Dependencies & Restrictions:
-       * This stored proc is not designed to calculate memory requirement for partitioned-cci table
-          * This stored proc doesn't take memeroy requirement into the account for the SELECT part of CTAS/INSERT-SELECT and assumes it to be a simple SELECT
-          * This stored proc using a temp table so this can be used in the session where this stored proc was created
-       * This stored proc depends on the current offerings (e.g. hardware configuration, DMS config) and if any of that changes then this stored proc would not work correctly
-       * This stored proc depends on offered concurrency limit and if that changes then this stored proc would not work correctly
-       * This stored proc depends on existing resrouce class offerings and if that changes then this stored proc wuold not work correctly
+#### Dependencies & Restrictions:
+- This stored proc is not designed to calculate memory requirement for partitioned-cci table.    
+- This stored proc doesn't take memory requirement into account for the SELECT part of CTAS/INSERT-SELECT and assumes it to be a simple SELECT.
+- This stored proc uses a temp table so this can be used in the session where this stored proc was created.    
+- This stored proc depends on the current offerings (e.g. hardware configuration, DMS config) and if any of that changes then this stored proc would not work correctly.  
+- This stored proc depends on existing offered concurrency limit and if that changes then this stored proc would not work correctly.  
+- This stored proc depends on existing resource class offerings and if that changes then this stored proc wuold not work correctly.  
 
 >  [!NOTE]  
->  If you are not getting output after executing stored procedure with parameters provided then there could be two cases. <br />1. Either DW Parameter contains invalid SLO value <br />2. OR there are no matching resource class for CCI operation if table name was provided. <br />For example, at DW100, highest memory grant available is 400MB and if table schema is wide enough to cross the requirement of 400MB.  
+>  If you are not getting output after executing stored procedure with parameters provided then there could be two cases. <br />1. Either DW Parameter contains invalid SLO value <br />2. OR there are no matching resource class for CCI operation if table name was provided. <br />For example, at DW100, highest memory grant available is 400MB and if table schema is wide enough to cross the requirement of 400MB.
       
-### Usage example:
+#### Usage example:
 Syntax:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
 1. @DWU: Either provide a NULL parameter to extract the current DWU from the DW DB or provide any supported DWU in the form of 'DW100'
 2. @SCHEMA_NAME: Provide a schema name of the table
 3. @TABLE_NAME: Provide a table name of the interest
 
-### Examples:  
-Create a table:  
+Examples executing this stored proc:  
 ```sql  
-CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), 
-    e varbinary(15), f float, g datetime, h date);`  
-```  
-Example 1: `EXEC dbo.prc_workload_management_by_DWU 'DW2000', 'dbo', 'Table1';`  
-Example 2: `EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';`  
-Example 3: `EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;`  
-Example 4: `EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;`  
+EXEC dbo.prc_workload_management_by_DWU 'DW2000', 'dbo', 'Table1';  
+EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';  
+EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;  
+EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;  
+```
 
+Table1 used in the above examples could be created as below:  
+`CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
+
+#### Here's the stored procedure definition:
 ```sql  
 -------------------------------------------------------------------------------
 -- Dropping prc_workload_management_by_DWU procedure if it exists.
