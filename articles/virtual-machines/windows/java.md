@@ -43,8 +43,7 @@ It takes about 20 minutes to do these steps.
     mkdir java-azure-test
     cd java-azure-test
     
-    mvn archetype:generate -DgroupId=com.fabrikam -DartifactId=testAzureApp  \ 
-      -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    mvn archetype:generate -DgroupId=com.fabrikam -DartifactId=testAzureApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
 ## Add dependencies
@@ -58,7 +57,7 @@ It takes about 20 minutes to do these steps.
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
             <configuration>
-                <mainClass>com.fabrikam.testAzureApp.AzureApp</mainClass>
+                <mainClass>com.fabrikam.testAzureApp.App</mainClass>
             </configuration>
         </plugin>
       </plugins>
@@ -138,7 +137,7 @@ Before you start this step, make sure that you have access to an [Active Directo
 
 ### Create the management client
 
-1. Create a new file in the project named `AzureApp.java` under `src\main\java\com\fabrikam` and make sure this package statement is at the top:
+1. Open the `App.java` file under `src\main\java\com\fabrikam` and make sure this package statement is at the top:
 
     ```java
     package com.fabrikam.testAzureApp;
@@ -166,7 +165,7 @@ Before you start this step, make sure that you have access to an [Active Directo
     import java.util.Scanner;
     ```
 
-2. To create the Active Directory credentials that you need to make requests, add this code to the main method of the AzureApp class:
+2. To create the Active Directory credentials that you need to make requests, add this code to the main method of the App class:
    
     ```java
     try {    
@@ -191,14 +190,10 @@ All resources must be contained in a [Resource group](../../azure-resource-manag
 To specify values for the application and create the resource group, add this code to the try block in the main method:
 
 ```java
-String groupName = "myResourceGroup";
-String vmName = "myVM";
-Region location = Region.US_WEST;
-
 System.out.println("Creating resource group...");
 ResourceGroup resourceGroup = azure.resourceGroups()
-    .define(groupName)
-    .withRegion(location)
+    .define("myResourceGroup")
+    .withRegion(Region.US_EAST)
     .create();
 ```
 
@@ -212,8 +207,8 @@ To create the availability set, add this code to the try block in the main metho
 System.out.println("Creating availability set...");
 AvailabilitySet availabilitySet = azure.availabilitySets()
     .define("myAvailabilitySet")
-    .withRegion(location)
-    .withExistingResourceGroup(groupName)
+    .withRegion(Region.US_EAST)
+    .withExistingResourceGroup("myResourceGroup")
     .withSku(AvailabilitySetSkuTypes.MANAGED)
     .create();
 ```
@@ -227,8 +222,8 @@ To create the public IP address for the virtual machine, add this code to the tr
 System.out.println("Creating public IP address...");
 PublicIPAddress publicIPAddress = azure.publicIPAddresses()
     .define("myPublicIP")
-    .withRegion(location)
-    .withExistingResourceGroup(groupName)
+    .withRegion(Region.US_EAST)
+    .withExistingResourceGroup("myResourceGroup")
     .withDynamicIP()
     .create();
 ```
@@ -243,8 +238,8 @@ To create a subnet and a virtual network, add this code to the try block in the 
 System.out.println("Creating virtual network...");
 Network network = azure.networks()
     .define("myVN")
-    .withRegion(location)
-    .withExistingResourceGroup(groupName)
+    .withRegion(Region.US_EAST)
+    .withExistingResourceGroup("myResourceGroup")
     .withAddressSpace("10.0.0.0/16")
     .withSubnet("mySubnet","10.0.0.0/24")
     .create();
@@ -260,8 +255,8 @@ To create a network interface, add this code to the try block in the main method
 System.out.println("Creating network interface...");
 NetworkInterface networkInterface = azure.networkInterfaces()
     .define("myNIC")
-    .withRegion(location)
-    .withExistingResourceGroup(groupName)
+    .withRegion(Region.US_EAST)
+    .withExistingResourceGroup("myResourceGroup")
     .withExistingPrimaryNetwork(network)
     .withSubnet("mySubnet")
     .withPrimaryPrivateIPAddressDynamic()
@@ -278,14 +273,14 @@ To create the virtual machine, add this code to the try block in the main method
 ```java
 System.out.println("Creating virtual machine...");
 VirtualMachine virtualMachine = azure.virtualMachines()
-    .define(vmName)
-    .withRegion(location)
-    .withExistingResourceGroup(groupName)
+    .define("myVM")
+    .withRegion(Region.US_EAST)
+    .withExistingResourceGroup("myResourceGroup")
     .withExistingPrimaryNetworkInterface(networkInterface)
     .withLatestWindowsImage("MicrosoftWindowsServer", "WindowsServer", "2012-R2-Datacenter")
     .withAdminUsername("azureuser")
     .withAdminPassword("Azure12345678")
-    .withComputerName(vmName)
+    .withComputerName("myVM")
     .withExistingAvailabilitySet(availabilitySet)
     .withSize("Standard_DS1")
     .create();
@@ -303,16 +298,16 @@ If you want to use an existing disk instead of a marketplace image, use this cod
 
 ```java
 ManagedDisk managedDisk = azure.disks.define("myosdisk") 
-    .withRegion(location) 
-    .withExistingResourceGroup(groupName) 
+    .withRegion(Region.US_EAST) 
+    .withExistingResourceGroup("myResourceGroup") 
     .withWindowsFromVhd("https://mystorage.blob.core.windows.net/vhds/myosdisk.vhd") 
     .withSizeInGB(128) 
     .withSku(DiskSkuTypes.PremiumLRS) 
     .create(); 
 
 azure.virtualMachines.define("myVM") 
-    .withRegion(location) 
-    .withExistingResourceGroup(groupName) 
+    .withRegion(Region.US_EAST) 
+    .withExistingResourceGroup("myResourceGroup") 
     .withExistingPrimaryNetworkInterface(networkInterface) 
     .withSpecializedOSDisk(managedDisk, OperatingSystemTypes.Windows) 
     .withExistingAvailabilitySet(availabilitySet) 
@@ -327,7 +322,7 @@ During the lifecycle of a virtual machine, you may want to run management tasks 
 When you need to do anything with the VM, you need to get an instance of it. Add this code to the try block of the main method:
 
 ```java
-VirtualMachine vm = azure.virtualMachines().getByResourceGroup(groupName, vmName);
+VirtualMachine vm = azure.virtualMachines().getByResourceGroup("myResourceGroup", "myVM");
 ```
 
 ### Get information about the VM
@@ -454,10 +449,10 @@ Because you are charged for resources used in Azure, it is always good practice 
    
 ```java
 System.out.println("Deleting resources...");
-azure.resourceGroups().deleteByName(groupName);
+azure.resourceGroups().deleteByName("myResourceGroup");
 ```
 
-2. Save the AzureApp.java file.
+2. Save the App.java file.
 
 ## Run the application
 
