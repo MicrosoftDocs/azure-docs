@@ -40,13 +40,13 @@ Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark applications w
 * Spark SDK. You can download it from [GitHub](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409).
 
 
-## Install HDInsight Tools in Azure Toolkit for Eclipse and Scala Plugin
+## Install HDInsight Tools in Azure Toolkit for Eclipse and the Scala plug-in
 ### Install HDInsight Tools
 HDInsight Tools for Eclipse is available as part of Azure Toolkit for Eclipse. For installation instructions, see [Installing Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse-installation.md).
-### Install Scala Plugin
-When you open the Intellij, the HDInsight Tools auto detects whether you installed Scala plugin or not. Click **OK** to continue and follow the instructions to install by the Eclipse Marketplace.
+### Install the Scala plug-in
+When you open IntelliJ, HDInsight Tools automatically detects whether you installed the Scala plug-in. Select **OK** to continue, and then follow the instructions to install the plug-in from the Eclipse Marketplace.
 
- ![Auto Install Scala Plugin](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-scala.png)
+ ![Automatic installation of the Scala plug-in](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
 ## Sign in to your Azure subscription
 1. Start the Eclipse IDE and open Azure Explorer. On the **Window** menu, select **Show View**, and then select **Other**. In the dialog box that opens, expand **Azure**, select **Azure Explorer**, and then select **OK**.
@@ -74,7 +74,7 @@ When you open the Intellij, the HDInsight Tools auto detects whether you install
 2. In the New Project wizard, expand **HDInsight**, select **Spark on HDInsight (Scala)**, and then select **Next**.
 
    ![Selecting the Spark on HDInsight (Scala) project](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
-3. The Scala project creation wizard automatically detects whether you installed Scala plug-in. Select **OK** to continue downloading the Scala plug-in, and then follow the instructions to restart Eclipse.
+3. The Scala project creation wizard automatically detects whether you installed the Scala plug-in. Select **OK** to continue downloading the Scala plug-in, and then follow the instructions to restart Eclipse.
 
    ![Scala check](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-scala-2.png)
 4. In the **New HDInsight Scala Project** dialog box, provide the following values, and then select **Next**:
