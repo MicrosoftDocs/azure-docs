@@ -32,8 +32,8 @@ The scenario that's outlined in this tutorial assumes that you already have the 
 
 Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Azure AD are synchronized.
 
-Before configuring and enabling the provisioning service, you need to decide which users or groups in Azure AD need access to your Google Apps app. After you've decided this, you can assign these users to your Google Apps app by following the instructions in
-[Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Before configuring and enabling the provisioning service, you need to decide which users or groups in Azure AD need access to your Google Apps app. After you've made this decision, you can assign these users to your Google Apps app by following the instructions in
+[Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
 > [!IMPORTANT]
 > We recommend  that a single Azure AD user be assigned to Google Apps to test the provisioning configuration. You can assign additional users and groups later.
@@ -89,7 +89,7 @@ This section guides you through the process of connecting your Azure AD to the u
 
     e. Repeat the preceding steps for all the domains that you intend to add to your directory.
 
-5. Now that you have verified all your domains with Azure AD, you must verify them again with Google Apps. For each domain that isn't already registered with Google Apps, perform the following steps:
+5. Now that you have verified all your domains with Azure AD, you must verify them again with Google Apps. For each domain that isn't already registered with Google Apps, take the following steps:
    
     a. In the [Google Apps Admin Console](http://admin.google.com/), select **Domains**.
      
@@ -123,7 +123,7 @@ This section guides you through the process of connecting your Azure AD to the u
      
 8. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications** section.
 
-9. If you have already configured Google Apps for single sign-on, search for your instance of Google Apps by using the search field. Otherwise, select **Add**, and then and search for **Google Apps** in the application gallery. Select **Google Apps** from the search results, and then add it to your list of applications.
+9. If you have already configured Google Apps for single sign-on, search for your instance of Google Apps by using the search field. Otherwise, select **Add**, and then search for **Google Apps** in the application gallery. Select **Google Apps** from the search results, and then add it to your list of applications.
 
 10. Select your instance of Google Apps, and then select the **Provisioning** tab.
 
@@ -139,7 +139,7 @@ This section guides you through the process of connecting your Azure AD to the u
 
 14. In the Azure portal, select **Test Connection** to ensure that Azure AD can connect to your Google Apps app. If the connection fails, ensure that your Google Apps account has Team Admin permissions. Then try the **Authorize** step again.
 
-15. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and. Then select the check box.
+15. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field. Then select the check box.
 
 16. Select **Save.**
 
@@ -151,9 +151,9 @@ This section guides you through the process of connecting your Azure AD to the u
 
 20. Select **Save.**
 
-This process starts the initial synchronization of any users and/or groups that are assigned to Google Apps in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. 
+This process starts the initial synchronization of any users or groups that are assigned to Google Apps in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes while the service is running. 
 
-You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports. These reports describe all actions that the are performed by the provisioning service performs on your Google Apps app.
+You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports. These reports describe all actions that the are performed by the provisioning service  on your Google Apps app.
 
 ## Additional resources
 
