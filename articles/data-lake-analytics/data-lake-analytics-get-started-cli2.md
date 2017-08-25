@@ -175,7 +175,7 @@ az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<
 az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
 ```
 
-##Retrieve job results
+## Retrieve job results
 
 After a job is completed, you can use the following commands to list the output files, and download the files:
 
@@ -190,6 +190,26 @@ For example:
 
 ```
 az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "C:\DLA\myfile.csv"
+```
+
+## Pipelines and recurrences
+
+**Get information about pipelines and recurrences**
+
+Use the `az dla job pipeline` commands to see the pipeline information previously submitted jobs.
+
+```
+az dla job pipeline list --account "<Data Lake Analytics Account Name>"
+
+az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
+```
+
+Use the `az dla job recurrence` commands to see the recurrence information for previously submitted jobs.
+
+```
+az dla job recurrence list --account "<Data Lake Analytics Account Name>"
+
+az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
 ## Next steps
