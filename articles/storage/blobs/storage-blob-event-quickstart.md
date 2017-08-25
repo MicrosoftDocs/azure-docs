@@ -19,6 +19,9 @@ Azure Event Grid is an eventing service for the cloud. In this article, you use 
 
 Typically, you send events to an endpoint that responds to the event, such as a webhook or Azure Function. To simplify the example shown in this article, we send the events to a URL that merely collects the messages. You create this URL by using an open source, third-party tool called [RequestBin](https://requestb.in/).
 
+> [!NOTE]
+> **RequestBin** is an open source tool that is not intended for high throughput usage. The use of the tool here is purely demonstrative. If you push more than one event at a time, you might not see all of your events in the tool.
+
 When you complete the steps described in this article, you see that the event data has been sent to an endpoint.
 
 ![Event data](./media/storage-blob-event-quickstart/request-result.png)
