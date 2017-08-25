@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/23/2017
 ms.author: bwren
 
 ---
@@ -100,7 +100,7 @@ You can group the results on a single property by selecting the **Group by** opt
 ![Group by computer](media/log-analytics-log-search-log-search-portal/log-search-portal-10.png)
 
 ## Work with results
-The Log Search portal has a variety of features for working with the results of a query.  You can sort, filter, and group results to analyze the data without modifying the actual query.
+The Log Search portal has a variety of features for working with the results of a query.  You can sort, filter, and group results to analyze the data without modifying the actual query.  Results of a query are not sorted by default.
 
 To view the data in table form which provides additional options for filtering and sorting, click **Table**.  
 
