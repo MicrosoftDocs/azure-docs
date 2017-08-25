@@ -17,7 +17,7 @@ ms.date: 08/25/2017
 ms.author: erikje
 
 ---
-# Overview of offering services in Azure stack
+# Overview of offering services in Azure Stack
 
 Microsoft Azure Stack is a hybrid cloud platform that lets you deliver services from your datacenter. As a service provider, you can offer services to your tenants. Within a business or government agency, you can offer on-premises services to your employees. The services that you can deliver include, but are not limited to:
 
@@ -32,9 +32,9 @@ To deliver these services to your users, you must create [plans, offers, and quo
 
 When you’re planning your offers, keep the following points in mind:
 
-**Trial offers**: You can use trial offers to attract new users, who can then upgrade to additional services. To do this, create a small [base plan](azure-stack-plan-offer-quota-overview.md#base-plan) with an optional larger add-on plan.
+**Trial offers**: You can use trial offers to attract new users, who can then upgrade to additional services. To create a trial offer, create a small [base plan](azure-stack-plan-offer-quota-overview.md#base-plan) with an optional larger add-on plan.
 
-**Capacity planning**: You might be concerned about users grabbing large amounts of resources and clogging the system for all users. If this is the case, you can [configure your plans with quotas](azure-stack-plan-offer-quota-overview#plans.md) to cap usage.
+**Capacity planning**: You might be concerned about users grabbing large amounts of resources and clogging the system for all users. To help performance, you can [configure your plans with quotas](azure-stack-plan-offer-quota-overview#plans.md) to cap usage.
 
 **Delegated providers**: You can grant others the ability to create offers in your environment. For example, if you’re a service provider, you can [delegate](azure-stack-delegated-provider.md) this ability to your resellers. Or, if you’re an organization, you can delegate to other divisions/subsidiaries.
 
