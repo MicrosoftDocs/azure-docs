@@ -73,8 +73,6 @@ The following table shows how the solutions map to specific IoT features:
 * *Rules and actions*: To act on specific device-to-cloud data, the solution back end uses rules.
 * *Predictive analytics*: The solution back end analyzes device-to-cloud data to predict when specific actions should take place. For example, analyzing aircraft engine telemetry to determine when engine maintenance is due.
 
-## What's new in preconfigured solutions Resource Manager deployment model?
-
 Microsoft is updating the preconfigured solutions to a new microservices-based architecture. The following table shows the current versions of the preconfigured solutions:
 
 | Preconfigured solution | Version | Architecture  | Languages     |
@@ -83,7 +81,34 @@ Microsoft is updating the preconfigured solutions to a new microservices-based a
 | Predictive maintenance | 1       | MVC           | .NET          |
 | Connected factory      | 1       | MVC           | .NET          |
 
-### Microservices architecture
+For more information about the version 2 preconfigured solutions, see [What's new in preconfigured solutions version 2?](#what-s-new-in-preconfigured-solutions-version-2).
+
+## Azure services
+
+When you deploy a preconfigured solution, the provisioning process configures a number of Azure services. The following table shows the services used in the preconfigured solutions:
+
+|   | Remote monitoring v2 | Predictive maintenance | Connected factory |
+| - | -------------------- | ---------------------- | ----------------- |
+| IoT Hub              | Yes |     | Yes |
+| Event Hubs           |     | Yes |     |
+| Time Series Insights | Yes |     | Yes |
+| Container Services   | Yes |     | Yes |
+| Stream Analytics     |     | Yes |     |
+| Web Apps             |     | Yes | Yes |
+
+* [Azure IoT Hub](../iot-hub/index.md). This service provides the device-to-cloud and cloud-to-device messaging capabilities and acts as the gateway to the cloud and the other key IoT Suite services. The service enables you to receive messages from your devices at scale, and send commands to your devices. The service also enables you to [manage your devices](../iot-hub/iot-hub-device-management-overview.md). For example, you can configure, reboot, or perform a factory reset on one or more devices connected to the hub.
+* [Azure Event Hubs](../event-hubs/index.md). This service provides high-volume event ingestion to the cloud. See [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md).
+* [Azure Time Series Insights](../time-series-insights/index.md). The preconfigured solutions use this service to analyze and display the telemetry data from your devices.
+* [Azure Container Service](../container-service/index.yml). This service hosts and manages the microservices in the preconfigured solutions.
+* [Azure Cosmos DB](../cosmos-db/index.yml) and [Azure Storage](../storage/index.md) for data storage.
+* [Azure Stream Analytics](../stream-analytics/index.md). The preconfigured solutions use this service to process incoming telemetry, perform aggregation, and detect events. These preconfigured solutions also use stream analytics to process informational messages that contain data such as metadata or command responses from devices.
+* [Azure Web Apps](../app-service-web/index.yml) to host the custom application code in the preconfigured solutions.
+
+For an overview of the architecture of a typical IoT solution, see [Microsoft Azure and the Internet of Things (IoT)](iot-suite-what-is-azure-iot.md).
+
+## What's new in preconfigured solutions version 2?
+
+### Microservices
 
 The version 2 preconfigured solutions use a microservices architecture. These preconfigured solutions are composed of multiple microservices such as an *IoT Hub manager* and a *Storage manager*.  Both Java and .NET versions of each microservice are available to download, along with related developer documentation. For more information about the microservices, see [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md).
 
@@ -99,18 +124,13 @@ When you deploy a version 2 preconfigured solution, you must select one of the f
 * **Enterprise:** The Azure Container Service deploys the microservices to multiple Azure virtual machines. Kubernetes orchestrates the Docker containers that host the individual microservices.
 * **Basic:** All the microservices deploy to a single Azure virtual machine. Use this option for a demonstration or test deployment to minimize costs.
 
-## Azure services
+### Java
 
-When you deploy a preconfigured solution, the provisioning process configures a number of Azure services. The preconfigured solutions make use of different Azure services such as:
+Implementations of each of the microservices is available in Java as well as .NET. Like the .NET code, the Java source code is open source and available for your to customize to your specific requirements.
 
-* [Azure IoT Hub](../iot-hub/index.md). This service provides the device-to-cloud and cloud-to-device messaging capabilities and acts as the gateway to the cloud and the other key IoT Suite services. The service enables you to receive messages from your devices at scale, and send commands to your devices. The service also enables you to [manage your devices](../iot-hub/iot-hub-device-management-overview.md). For example, you can configure, reboot, or perform a factory reset on one or more devices connected to the hub.
-* [Azure Time Series Insights](../time-series-insights/index.md). The version 2 preconfigured solutions use this service to analyze and display the telemetry data from your devices.
-* [Azure Container Service](../container-service/index.yml). This service hosts and manages the microservices in the version 2 preconfigured solutions.
-* [Azure Cosmos DB](../cosmos-db/index.yml) and [Azure Storage](../storage/index.md) for data storage.
-* [Azure Stream Analytics](../stream-analytics/index.md). The version 1 preconfigured solutions use this service to process incoming telemetry, perform aggregation, and detect events. These preconfigured solutions also use stream analytics to process informational messages that contain data such as metadata or command responses from devices.
-* [Azure Web Apps](../app-service-web/index.yml) to host the custom application code in the version 1 preconfigured solutions.
+### React user interface framework
 
-For an overview of the architecture of a typical IoT solution, see [Microsoft Azure and the Internet of Things (IoT)](iot-suite-what-is-azure-iot.md).
+The UI is built using the [React](https://facebook.github.io/react/) javascript library. The source code is open source and available for you to download and customize.
 
 ## Next steps
 
