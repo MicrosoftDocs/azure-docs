@@ -40,7 +40,7 @@ Follow these steps to create a blank SQL database.
 
 7. For this tutorial, select the **Standard** service tier and then use the slider to select **100 DTUs (S3)** and **400** GB of storage.
 
-   ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+   ![create database-s1](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
 8. Accept the preview terms to use the **Add-on Storage** option. 
 
