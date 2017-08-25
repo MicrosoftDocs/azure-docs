@@ -67,7 +67,7 @@ SHOWHOST = 'false'
 Use [docker-compose](https://docs.docker.com/compose/) to re-create the front-end image and run the updated application.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yaml up --build -d
+docker-compose -f ./azure-voting-app-redis/docker-compose.yml up --build -d
 ```
 
 ## Test application locally
