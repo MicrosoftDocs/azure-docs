@@ -133,7 +133,6 @@ Delete a resource group in the Azure portal:
 
 4. Run the following command to now create a secure cluster. Do not forget to customize the parameters. 
 
-
     ```powershell
     $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
     $RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
