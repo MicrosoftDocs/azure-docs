@@ -42,7 +42,8 @@ In this article we’ll accomplish the task of resizing the OS drive using resou
    ```
    
    > [!WARNING]
-   > The new size should be greater than the existing disk size. The maximum allowed is 1023 GB.
+   > The new size should be greater than the existing disk size. The maximum allowed is 2048 GB. (You can create a disk larger than
+   > that, but the OS will not be able to use space above that size.)
    > 
    > 
 6. Updating the VM may take a few seconds. Once the command finishes executing, restart the VM as follows:
