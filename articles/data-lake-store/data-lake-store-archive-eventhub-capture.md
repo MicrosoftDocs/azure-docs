@@ -1,5 +1,5 @@
 ---
-title: Capture data from Event Hubs into Azure Data Lake Store| Microsoft Docs
+title: Capture data from Event Hubs into Azure Data Lake Store | Microsoft Docs
 description: Use Azure Data Lake Store to capture data from Event Hubs 
 services: data-lake-store
 documentationcenter: ''
@@ -21,7 +21,6 @@ ms.author: nitinme
 Learn how to use Azure Data Lake Store to capture data received by Azure Event Hub.
 
 ## Prerequisites
-Before you begin this article, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -32,7 +31,7 @@ Before you begin this article, you must have the following:
 
 ## Assign permissions to EventHub
 
-In this section you create a folder within the account where you want to capture the data from Event Hubs. You will also assign permissions to Event Hub so that it can write data into a Data Lake Store account. 
+In this section, you create a folder within the account where you want to capture the data from Event Hubs. You also assign permissions to Event Hub so that it can write data into a Data Lake Store account. 
 
 1. Open the Data Lake Store account where you want to capture data from Event Hubs and then click on **Data Explorer**.
 
@@ -48,31 +47,31 @@ In this section you create a folder within the account where you want to capture
 
     ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Assign permissions for Data Lake Store root")
 
-    b. In the **Access** blade, click **Add**, click **Select User or Group**, and then search for `Microsoft.EventHubs`. 
+    b. Under **Access**, click **Add**, click **Select User or Group**, and then search for `Microsoft.EventHubs`. 
 
     ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Assign permissions for Data Lake Store root")
     
     Click **Select**.
 
-    c. In the **Assign Permissions** tab, click **Select Permissions**. Set **Permissions** to **Execute**, set **Add to** to **This folder and children**, and set **Add as** to **An access permission entry and a default permission entry**.
+    c. Under **Assign Permissions**, click **Select Permissions**. Set **Permissions** to **Execute**. Set **Add to** to **This folder and children**. Set **Add as** to **An access permission entry and a default permission entry**.
 
     ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
 
     Click **OK**.
 
-4. Assign permissions for the folder under Data Lake Store account where you will capture data.
+4. Assign permissions for the folder under Data Lake Store account where you want to capture data.
 
     a. Click **Data Explorer**, select the folder in the Data Lake Store account, and then click **Access**.
 
     ![Assign permissions for Data Lake Store folder](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Assign permissions for Data Lake Store folder")
 
-    b. b. In the **Access** blade, click **Add**, click **Select User or Group**, and then search for `Microsoft.EventHubs`. 
+    b. Under **Access**, click **Add**, click **Select User or Group**, and then search for `Microsoft.EventHubs`. 
 
     ![Assign permissions for Data Lake Store folder](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Assign permissions for Data Lake Store folder")
     
     Click **Select**.
 
-    c. In the **Assign Permissions** tab, click **Select Permissions**. Set **Permissions** to **Read, Write,** and **Execute**, set **Add to** to **This folder and children**, and set **Add as** to **An access permission entry and a default permission entry**.
+    c. Under **Assign Permissions**, click **Select Permissions**. Set **Permissions** to **Read, Write,** and **Execute**. Set **Add to** to **This folder and children**. Finally, set **Add as** to **An access permission entry and a default permission entry**.
 
     ![Assign permissions for Data Lake Store folder](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "Assign permissions for Data Lake Store folder")
     
@@ -80,9 +79,9 @@ In this section you create a folder within the account where you want to capture
 
 ## Configure Event Hub to capture data to Data Lake Store
 
-In this section you create an an Event Hub within an Event Hubs namespace. You also configure the Event Hub to capture data to an Azure Data Lake Store account. This section assumes that you have already created an Event Hubs namespace.
+In this section, you create an Event Hub within an Event Hubs namespace. You also configure the Event Hub to capture data to an Azure Data Lake Store account. This section assumes that you have already created an Event Hubs namespace.
 
-2. From the **Overview** blade of the Event Hubs namespace, click **+ Event Hub**.
+2. From the **Overview** pane of the Event Hubs namespace, click **+ Event Hub**.
 
     ![Create Event Hub](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Create Event Hub")
 
@@ -98,13 +97,13 @@ In this section you create an an Event Hub within an Event Hubs namespace. You a
     
     d. For **Capture Provider**, select **Azure Data Lake Store** and the select the Data Lake Store you created earlier. For **Data Lake Path**, enter the name of the folder you created in the Data Lake Store account. You only need to provide the relative path to the folder.
 
-    e. Leave the **Sample capture file name formats** to the default value. This governs the folder structure that is created under the capture folder.
+    e. Leave the **Sample capture file name formats** to the default value. This option governs the folder structure that is created under the capture folder.
 
     f. Click **Create**.
 
 ## Test the setup
 
-You can now test the solution by sending data to the Azure Event Hub. Follow the instructions at [Send events to Azure Event Hubs](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md). Once you start sending the data, you will see the data reflected in Data Lake Store using the folder structure you specified. For example, you will see a folder structure like this in your Data Lake Store.
+You can now test the solution by sending data to the Azure Event Hub. Follow the instructions at [Send events to Azure Event Hubs](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md). Once you start sending the data, you see the data reflected in Data Lake Store using the folder structure you specified. For example, you see a folder structure, as shown in the following screenshot, in your Data Lake Store.
 
 ![Sample EventHub data in Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-eventhub-data-sample.png "Sample EventHub data in Data Lake Store")
 
