@@ -1,6 +1,6 @@
 ---
 title: Ways to run Linux container workloads in Azure | Microsoft Docs
-description: Learn about the different container technologies to run LInux workloads in Azure, such as Docker hosts on Linux VMs, Azure Container Service, Azure Container Instances, and Azure Container Registry.
+description: Learn about the different container technologies to run Linux workloads in Azure, such as Docker hosts on Linux VMs, Azure Container Service, Azure Container Instances, Azure Container Registry, and Service Fabric.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -18,5 +18,5 @@ ms.author: iainfou
 
 ---
 # Use Docker, Kubernetes, and DC/OS container solutions for Linux workloads in Azure
-[!INCLUDE [virtual-machines-common-and-containers](../../../includes/virtual-machines-common-containers.md)]
 
+[!INCLUDE [virtual-machines-common-and-containers](../../../includes/virtual-machines-common-containers.md)]

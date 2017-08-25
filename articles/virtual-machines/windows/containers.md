@@ -1,6 +1,6 @@
 ---
 title: Ways to run Windows container workloads in Azure | Microsoft Docs
-description: Learn about the different container technologies to run Windows workloads in Azure, such as Docker hosts on Windows VMs, Azure Container Service, Azure Container Instances, and Azure Container Registry.
+description: Learn about the different container technologies to run Windows workloads in Azure, such as Docker hosts on Windows VMs, Azure Container Service, Azure Container Instances, Azure Container Registry, and Service Fabric.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -17,6 +17,6 @@ ms.date: 08/23/2017
 ms.author: iainfou
 
 ---
-# Use Docker, Kubernetes, and DC/OS container solutions for Windows workloads in Azure
-[!INCLUDE [virtual-machines-common-and-containers](../../../includes/virtual-machines-common-containers.md)]
+# Use Docker, Kubernetes, DC/OS, and Serv container solutions for Windows workloads in Azure
 
+[!INCLUDE [virtual-machines-common-and-containers](../../../includes/virtual-machines-common-containers.md)]

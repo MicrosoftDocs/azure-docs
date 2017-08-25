@@ -1,3 +1,5 @@
+To build and run modern applications and services in the cloud, developers typically use containers and microservices. Azure supports many common container solutions such as Docker, Kubernetes, DC/OS, and Service Fabric. You can quickly create single containers with Azure Container Instances, deploy a complete infrastructure with Azure Container Services, and store and use containers images from Azure Container Registry. This articles introduces some of the container solutions that you can use in Azure.
+
 
 ## Docker on virtual machines
 [Docker](https://www.docker.com) is a popular container management and imaging platform that allows you to quickly work with containers. Azure VMs as Docker hosts are a good option for development and test environments, or if you wish to build and manage your own production clusters and orchestration solutions. On Linux VMs, you can use cloud-init or the Azure Docker VM extension to create a VM and automatically configure it as a Docker host. 
@@ -51,7 +53,7 @@ Learn how to:
 - [Get started with DC/OS in Azure](../articles/container-service/dcos-swarm/container-service-dcos-quickstart.md)
 
 
-### Docker Swarm
+## Docker Swarm on Azure Container Service
 [Docker Swarm](https://docs.docker.com/engine/swarm/key-concepts/) is a cluster solution that allows Docker hosts to work together and orchestrate container services and deployments. You can build your own infrastructure with Docker hosts and Swarm, or use Azure Container Service for a centralized deployment.
 
 [Azure Container Service](../articles/container-service/dcos-swarm/container-service-intro.md) is an open platform that uses the Docker container format that creates the underlying container infrastructure environment for you. The Azure platform creates and manages the VM resources, storage, and network, allowing you to focus on the applications themselves and continue to use native tools. The underlying [ACS Engine is open-sourced](https://github.com/Azure/acs-engine) if you would like to build and customize the engine.
