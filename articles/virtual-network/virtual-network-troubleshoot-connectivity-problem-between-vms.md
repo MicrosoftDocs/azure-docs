@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 08/25/2017
 ms.author: genli
 ---
 
@@ -67,11 +67,11 @@ Utilize [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-f
 
 ### Step 3 Check if network traffic is blocked by VM firewall
 
-Disable the firewall, and then test the result. If the problem is resolved, validate the settings in the firewall.
+Disable the firewall, and then test the result. If the problem is resolved, validate the settings in the firewall and re-enable.
 
 ### Step 4 Check whether VM Application or Service is listening the port
 
-You can use one of the following methods to check whether VM Application or Service is listening the port
+You can use one of the following methods to check whether VM Application or Service is listening on the port
 
 - Run the following commands to check whether the server is listening on that port.
 
@@ -87,7 +87,7 @@ You can use one of the following methods to check whether VM Application or Serv
 
 ### Step 5 Check whether the problem is caused by SNAT
 
-In some scenarios, the VM is placed behind a Load balance solution that has a dependency on resources outside of Azure. In these scenarios, if you experience intermittent connection problems, the problem may be caused by [SNAT port exhaustion](../load-balancer/load-balancer-outbound-connections.md). To resolve the issue, create a VIP (or ILPIP for classic) for each VM that is behind the Load balance and secure with NSG or ACL. 
+In some scenarios, the VM is placed behind a Load balance solution that has a dependency on resources outside of Azure. In these scenarios, if you experience intermittent connection problems, the problem may be caused by [SNAT port exhaustion](../load-balancer/load-balancer-outbound-connections.md). To resolve the issue, create a VIP (or ILPIP for classic) for each VM that is behind the Load balancer and secure with NSG or ACL. 
 
 ### Step 6 Check whether traffic is blocked by ACLs for Classic VM
 
@@ -95,15 +95,15 @@ An ACL provides the ability to selectively permit or deny traffic for a virtual 
 
 ### Step 7 Check whether the endpoint is created for Classic VM
 
-All VM that you create in Azure using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on other virtual networks require endpoints to direct the inbound network traffic to a virtual machine. For more information, see [How to set up endpoints](../virtual-machines/windows/classic/setup-endpoints.md).
+All VMs that you create in Azure using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on other virtual networks require endpoints to direct the inbound network traffic to a virtual machine. For more information, see [How to set up endpoints](../virtual-machines/windows/classic/setup-endpoints.md).
 
 ## Step 8 Unable to connect a VM network share
 
-If the VM's network share cannot be connected, the problem can be caused by the unavailable NICs in the VM. To delete the unavailable NICs, see [How to delete the unavailable NICs](../virtual-machines/windows/reset-network-interface.md#delete-the-unavailable-nics)
+If you are unable to connect to a VM network share, the problem can be caused by unavailable NICs in the VM. To delete the unavailable NICs, see [How to delete the unavailable NICs](../virtual-machines/windows/reset-network-interface.md#delete-the-unavailable-nics)
 
-## Step 9 Inter-Vnet Connectivity
+### Step 9 Inter-Vnet Connectivity
 
-Utilize [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [NSG Flow Logging](../network-watcher/network-watcher-nsg-flow-logging-overview.md) to identify if there is a Network Security Group or User-Defined Route that is interfering with traffic flow.
+Utilize [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [NSG Flow Logging](../network-watcher/network-watcher-nsg-flow-logging-overview.md) to identify if there is a Network Security Group or User-Defined Route that is interfering with traffic flow. You can also validate your Inter-Vnet configuration [here](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections).
 
-## Need help? Contact support.
+### Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
