@@ -53,7 +53,7 @@ The company must protect the privacy of employee and customer data while making 
 The following articles contain technical how-to guidance that will help you
 attain the personal data protection goals listed above:
 
-- [Azure encryption technologies]protect-personal-data-at-rest.md)
+- [Azure encryption technologies](protect-personal-data-at-rest.md)
 
 - [Azure encryption technologies](protect-personal-data-in-transit-encryption.md)
 

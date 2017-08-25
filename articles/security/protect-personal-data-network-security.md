@@ -73,7 +73,7 @@ To create a new application gateway with WAF enabled, do the following:
 
 4. Navigate to the Azure portal, **click New \> Networking \> Application Gateway.**
 
-![creating application gateways](media/protect-netsec/app-gateway-01.png)
+   ![creating application gateways](media/protect-netsec/app-gateway-01.png)
 
 5. In the **Basics** blade that appears, enter the values for the following fields: Name, Tier (Standard or WAF), SKU size (Small, Medium, or Large),
     Instance count (2 for high availability), Subscription, Resource group, and Location.

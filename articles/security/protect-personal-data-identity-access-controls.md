@@ -164,7 +164,7 @@ To enable MFA by changing user state, do the following:
 5. Check the box next to the user’s name.
 6. On the right, under quick steps, choose **Enable**.
 
-![](media/protect-personal-data-identity-access-controls/quick-create.png)
+   ![](media/protect-personal-data-identity-access-controls/quick-create.png)
 
 7. Confirm your selection in the pop-up window that opens.  Users for whom MFA has been enabled will be asked to register the next time they sign in.
 

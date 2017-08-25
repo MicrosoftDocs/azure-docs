@@ -54,29 +54,29 @@ The HTTPS protocol provides a secure, encrypted communications channel over the 
 
 A Service SAS delegates access to a resource in just one of the storage services (blob, queue, table or file service). To construct a Service SAS, do the following:
 
-- Specify the Signed Version Field
+1. Specify the Signed Version Field
 
-- Specify the Signed Resource (Blob and File Service Only)
+2. Specify the Signed Resource (Blob and File Service Only)
 
-- Specify Query Parameters to Override Response Headers (Blob Service and File Service Only)
+3. Specify Query Parameters to Override Response Headers (Blob Service and File Service Only)
 
-- Specify the Table Name (Table Service Only)
+4. Specify the Table Name (Table Service Only)
 
-- Specify the Access Policy
+5. Specify the Access Policy
 
-- Specify the Signature Validity Interval
+6. Specify the Signature Validity Interval
 
-- Specify Permissions
+8. Specify Permissions
 
-- Specify IP Address or IP Range
+9. Specify IP Address or IP Range
 
-- Specify the HTTP Protocol
+10. Specify the HTTP Protocol
 
-- Specify Table Access Ranges
+11. Specify Table Access Ranges
 
-- Specify the Signed Identifier
+12. Specify the Signed Identifier
 
-- Specify the Signature
+13. Specify the Signature
 
 For more detailed instructions, see [Constructing a Service SAS](https://docs.microsoft.com/rest/api/storageservices/Constructing-a-Service-SAS?redirectedfrom=MSDN).
 
