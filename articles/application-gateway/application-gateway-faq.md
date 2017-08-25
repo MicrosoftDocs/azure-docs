@@ -225,11 +225,14 @@ Yes, you can configure Application Gateway to deny TLS1.0, TLS1.1, and TLS1.2. S
 
 **Q. Can I configure cipher suites and policy order?**
 
-Yes, configuration of cipher suites is supported. When defining a custom policy, at least one of the following cipher suites must be enabled. Application gateway uses SHA256 to for backend management.
+Yes, [configuration of cipher suites](application-gateway-ssl-policy-overview.md) is supported. When defining a custom policy, at least one of the following cipher suites must be enabled. Application gateway uses SHA256 to for backend management.
 
-- TLS_RSA_WITH_AES_128_GCM_SHA256
-- TLS_RSA_WITH_AES_256_CBC_SHA256
-- TLS_RSA_WITH_AES_128_CBC_SHA256
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+* TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+* TLS_RSA_WITH_AES_128_GCM_SHA256
+* TLS_RSA_WITH_AES_256_CBC_SHA256
+* TLS_RSA_WITH_AES_128_CBC_SHA256
 
 **Q. How many SSL certificates are supported?**
 

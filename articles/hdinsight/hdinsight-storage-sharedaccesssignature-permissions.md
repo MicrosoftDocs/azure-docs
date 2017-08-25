@@ -73,7 +73,7 @@ The difference between the two forms is important for one key scenario: revocati
 
 We recommend that you always use stored access policies. When using stored policies, you can either revoke signatures or extend the expiry date as needed. The steps in this document use stored access policies to generate SAS.
 
-For more information on Shared Access Signatures, see [Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md).
+For more information on Shared Access Signatures, see [Understanding the SAS model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ### Create a stored policy and SAS using C\#
 

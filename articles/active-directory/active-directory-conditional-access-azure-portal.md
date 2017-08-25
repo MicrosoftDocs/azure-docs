@@ -14,16 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: calebb
 
 ---
 # Conditional access in Azure Active Directory
-
-> [!div class="op_single_selector"]
-> * [Azure portal](active-directory-conditional-access-azure-portal.md)
-> * [Azure classic portal](active-directory-conditional-access.md)
 
 In a mobile-first, cloud-first world, Azure Active Directory enables single sign-on to devices, apps, and services from anywhere. With the proliferation of devices (including BYOD), work off corporate networks, and 3rd party SaaS apps, IT professionals are faced with two opposing goals:
 
@@ -69,11 +65,11 @@ The current implementation of Azure Active Directory enables you to configure th
 
 - **Multi-factor Authentication** - You can require strong authentication through multi-factor authentication. As provider, you can use Azure Multi-Factor or an on-premises multi-factor authentication provider, combined with Active Directory Federation Services (AD FS). Using multi-factor authentication helps protect resources from being accessed by an unauthorized user who might have gained access to the credentials of a valid user.
 
-- **Compliant device** - You can set conditional access policies at the device level. You might set up a policy to only enable computers that are compliant, or mobile devices that are enrolled in a mobile device management application, can access your organization's resources. For example, you can use Intune to check device compliance, and then report it to Azure AD for enforcement when the user attempts to access an application. For detailed guidance about how to use Intune to protect apps and data, see Protect apps and data with Microsoft Intune. You also can use Intune to enforce data protection for lost or stolen devices. For more information, see Help protect your data with full or selective wipe using Microsoft Intune.
+- **Compliant device** - You can set conditional access policies at the device level. You might set up a policy to only enable computers that are compliant, or mobile devices that are enrolled in a mobile device management to access your organization's resources. For example, you can use Intune to check device compliance, and then report it to Azure AD for enforcement when the user attempts to access an application. For detailed guidance about how to use Intune to protect apps and data, see [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune). You also can use Intune to enforce data protection for lost or stolen devices. For more information, see [Help protect your data with full or selective wipe using Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune).
 
-- **Domain joined device** – You can require the device you have used to connect to Azure Active Directory to be a domain joined device. This policy applies to Windows desktops, laptops, and enterprise tablets. For more information about how to set up automatic registration of domain-joined devices with Azure AD, see [Automatic device registration with Azure Active Directory for Windows domain-joined devices](active-directory-conditional-access-automatic-device-registration.md).
+- **Domain joined device** – You can require the device you have used to connect to Azure Active Directory to be domain-joined to your on-premises Active Directory (AD). This policy applies to Windows desktops, laptops, and enterprise tablets. 
 
-If you have more than one requirement selected in a conditional access policy, you can also configure your requirements for applying them. You can choose to require all of the selected controls or one of them.
+If you have multiple controls selected, you can also configure whether all of them are required when your policy is processed.
 
 ![Control](./media/active-directory-conditional-access-azure-portal/06.png)
 
@@ -134,10 +130,19 @@ You can use the calculated sign-in risk level as condition in a conditional acce
 
 ### Device platforms
 
-The device platform is characterized by the operating system that is running on your device (Android, iOS, Windows Phone, Windows). You can define the device platforms that are included as well as device platforms that are exempted from a policy.  
-To use device platforms in the policy, first change the configure toggles to **Yes**, and then select all or individual device platforms the policy applies to. If you select individual device platforms, the policy has only an impact on these platforms. In this case, sign-ins to other supported platforms are not impacted by the policy.
+The device platform is characterized by the operating system that is running on your device:
+
+- Android
+- iOS
+- Windows Phone
+- Windows
+- macOS (preview). 
 
 ![Conditions](./media/active-directory-conditional-access-azure-portal/02.png)
+
+You can define the device platforms that are included as well as device platforms that are exempted from a policy.  
+To use device platforms in the policy, first change the configure toggles to **Yes**, and then select all or individual device platforms the policy applies to. If you select individual device platforms, the policy has only an impact on these platforms. In this case, sign-ins to other supported platforms are not impacted by the policy.
+
 
 ### Locations
 
@@ -195,4 +200,4 @@ Many Intune customers are using conditional access to ensure that only trusted d
 
 If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
-For more details about things you should know and what it is you should avoid doing when configuring conditional access policies, see 
+If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
