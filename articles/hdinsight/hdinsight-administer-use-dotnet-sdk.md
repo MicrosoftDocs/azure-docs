@@ -34,77 +34,79 @@ Before you begin this article, you must have the following:
 
 You need the following Nuget packages:
 
+    ```
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
     Install-Package Microsoft.Azure.Management.ResourceManager -Pre
     Install-Package Microsoft.Azure.Management.HDInsight
+    ```
 
 The following code sample shows you how to connect to Azure before you can administer HDInsight clusters under your Azure subscription.
 
     ```csharp
-        using System;
-        using Microsoft.Azure;
-        using Microsoft.Azure.Management.HDInsight;
-        using Microsoft.Azure.Management.HDInsight.Models;
-        using Microsoft.Azure.Management.ResourceManager;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Rest;
-        using Microsoft.Rest.Azure.Authentication;
-    
-        namespace HDInsightManagement
+    using System;
+    using Microsoft.Azure;
+    using Microsoft.Azure.Management.HDInsight;
+    using Microsoft.Azure.Management.HDInsight.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Rest;
+    using Microsoft.Rest.Azure.Authentication;
+
+    namespace HDInsightManagement
+    {
+        class Program
         {
-            class Program
+            private static HDInsightManagementClient _hdiManagementClient;
+            // Replace with your AAD tenant ID if necessary
+            private const string TenantId = UserTokenProvider.CommonTenantId; 
+            private const string SubscriptionId = "<Your Azure Subscription ID>";
+            // This is the GUID for the PowerShell client. Used for interactive logins in this example.
+            private const string ClientId = "1950a258-227b-4e31-a9cf-717495945fc2";
+
+            static void Main(string[] args)
             {
-                private static HDInsightManagementClient _hdiManagementClient;
-                // Replace with your AAD tenant ID if necessary
-                private const string TenantId = UserTokenProvider.CommonTenantId; 
-                private const string SubscriptionId = "<Your Azure Subscription ID>";
-                // This is the GUID for the PowerShell client. Used for interactive logins in this example.
-                private const string ClientId = "1950a258-227b-4e31-a9cf-717495945fc2";
-    
-                static void Main(string[] args)
-                {
-                    // Authenticate and get a token
-                    var authToken = Authenticate(TenantId, ClientId, SubscriptionId);
-                    // Flag subscription for HDInsight, if it isn't already.
-                    EnableHDInsight(authToken);
-                    // Get an HDInsight management client
-                    _hdiManagementClient = new HDInsightManagementClient(authToken);
-    
-                    // insert code here
-    
-                    System.Console.WriteLine("Press ENTER to continue");
-                    System.Console.ReadLine();
-                }
-    
-                /// <summary>
-                /// Authenticate to an Azure subscription and retrieve an authentication token
-                /// </summary>
-                static TokenCloudCredentials Authenticate(string TenantId, string ClientId, string SubscriptionId)
-                {
-                    var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + TenantId);
-                    var tokenAuthResult = authContext.AcquireToken("https://management.core.windows.net/", 
-                        ClientId, 
-                        new Uri("urn:ietf:wg:oauth:2.0:oob"), 
-                        PromptBehavior.Always, 
-                        UserIdentifier.AnyUser);
-                    return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.AccessToken);
-                }
-                /// <summary>
-                /// Marks your subscription as one that can use HDInsight, if it has not already been marked as such.
-                /// </summary>
-                /// <remarks>This is essentially a one-time action; if you have already done something with HDInsight
-                /// on your subscription, then this isn't needed at all and will do nothing.</remarks>
-                /// <param name="authToken">An authentication token for your Azure subscription</param>
-                static void EnableHDInsight(TokenCloudCredentials authToken)
-                {
-                    // Create a client for the Resource manager and set the subscription ID
-                    var resourceManagementClient = new ResourceManagementClient(new TokenCredentials(authToken.Token));
-                    resourceManagementClient.SubscriptionId = SubscriptionId;
-                    // Register the HDInsight provider
-                    var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
-                }
+                // Authenticate and get a token
+                var authToken = Authenticate(TenantId, ClientId, SubscriptionId);
+                // Flag subscription for HDInsight, if it isn't already.
+                EnableHDInsight(authToken);
+                // Get an HDInsight management client
+                _hdiManagementClient = new HDInsightManagementClient(authToken);
+
+                // insert code here
+
+                System.Console.WriteLine("Press ENTER to continue");
+                System.Console.ReadLine();
+            }
+
+            /// <summary>
+            /// Authenticate to an Azure subscription and retrieve an authentication token
+            /// </summary>
+            static TokenCloudCredentials Authenticate(string TenantId, string ClientId, string SubscriptionId)
+            {
+                var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + TenantId);
+                var tokenAuthResult = authContext.AcquireToken("https://management.core.windows.net/", 
+                    ClientId, 
+                    new Uri("urn:ietf:wg:oauth:2.0:oob"), 
+                    PromptBehavior.Always, 
+                    UserIdentifier.AnyUser);
+                return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.AccessToken);
+            }
+            /// <summary>
+            /// Marks your subscription as one that can use HDInsight, if it has not already been marked as such.
+            /// </summary>
+            /// <remarks>This is essentially a one-time action; if you have already done something with HDInsight
+            /// on your subscription, then this isn't needed at all and will do nothing.</remarks>
+            /// <param name="authToken">An authentication token for your Azure subscription</param>
+            static void EnableHDInsight(TokenCloudCredentials authToken)
+            {
+                // Create a client for the Resource manager and set the subscription ID
+                var resourceManagementClient = new ResourceManagementClient(new TokenCredentials(authToken.Token));
+                resourceManagementClient.SubscriptionId = SubscriptionId;
+                // Register the HDInsight provider
+                var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
             }
         }
+    }
     ```csharp
 
 You shall see a prompt when you run this program.  If you don't want to see the prompt, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
@@ -116,21 +118,21 @@ See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hado
 The following code snippet lists clusters and some properties:
 
     ```csharp
-        var results = _hdiManagementClient.Clusters.List();
-        foreach (var name in results.Clusters) {
-            Console.WriteLine("Cluster Name: " + name.Name);
-            Console.WriteLine("\t Cluster type: " + name.Properties.ClusterDefinition.ClusterType);
-            Console.WriteLine("\t Cluster location: " + name.Location);
-            Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
-        }
+    var results = _hdiManagementClient.Clusters.List();
+    foreach (var name in results.Clusters) {
+        Console.WriteLine("Cluster Name: " + name.Name);
+        Console.WriteLine("\t Cluster type: " + name.Properties.ClusterDefinition.ClusterType);
+        Console.WriteLine("\t Cluster location: " + name.Location);
+        Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
+    }
     ```csharp
 
 ## Delete clusters
 Use the following code snippet to delete a cluster synchronously or asynchronously: 
 
     ```csharp
-        _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
-        _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
+    _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
+    _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
     ```csharp
 
 ## Scale clusters
@@ -153,9 +155,9 @@ The impact of changing the number of data nodes for each type of cluster support
     You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging into the headnode of cluster and running the following commands from a command prompt window:
   
         ```bash
-            >pushd %HBASE_HOME%\bin
-            >hbase shell
-            >balancer
+        >pushd %HBASE_HOME%\bin
+        >hbase shell
+        >balancer
         ```bash
 * Storm
   
@@ -175,17 +177,17 @@ The impact of changing the number of data nodes for each type of cluster support
     Here is an example how to use the CLI command to rebalance the Storm topology:
     
         ```cli
-            ## Reconfigure the topology "mytopology" to use 5 worker processes,
-            ## the spout "blue-spout" to use 3 executors, and
-            ## the bolt "yellow-bolt" to use 10 executors
-            $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
         ```cli
 
 The following code snippet shows how to resize a cluster synchronously or asynchronously:
 
     ```csharp
-        _hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
-        _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
+    _hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
+    _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
     ```csharp
 
 ## Grant/revoke access
@@ -200,25 +202,25 @@ HDInsight clusters have the following HTTP web services (all of these services h
 By default, these services are granted for access. You can revoke/grant the access. To revoke:
 
     ```csharp
-        var httpParams = new HttpSettingsParameters
-        {
-            HttpUserEnabled = false,
-            HttpUsername = "admin",
-            HttpPassword = "*******",
-        };
-        _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+    var httpParams = new HttpSettingsParameters
+    {
+        HttpUserEnabled = false,
+        HttpUsername = "admin",
+        HttpPassword = "*******",
+    };
+    _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
     ```csharp
 
 To grant:
 
     ```csharp
-        var httpParams = new HttpSettingsParameters
-        {
-            HttpUserEnabled = enable,
-            HttpUsername = "admin",
-            HttpPassword = "*******",
-        };
-        _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+    var httpParams = new HttpSettingsParameters
+    {
+        HttpUserEnabled = enable,
+        HttpUsername = "admin",
+        HttpPassword = "*******",
+    };
+    _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
     ```csharp
 
 > [!NOTE]
@@ -235,11 +237,11 @@ It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If 
 The following code snippet demonstrates how to get the default storage account name and the default storage account key for a cluster.
 
     ```csharp
-        var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
-        foreach (var key in results.Configuration.Keys)
-        {
-            Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
-        }
+    var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
+    foreach (var key in results.Configuration.Keys)
+    {
+        Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
+    }
     ```csharp
 
 ## Submit jobs
