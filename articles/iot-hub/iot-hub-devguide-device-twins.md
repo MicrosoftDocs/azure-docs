@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 08/24/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
 
@@ -138,7 +138,7 @@ In the previous example, the `telemetryConfig` device twin desired and reported 
 
 You can use twins to synchronize long-running operations such as firmware updates. For more information on how to use properties to synchronize and track a long running operation across devices, see [Use desired properties to configure devices][lnk-twin-properties].
 
-## Back-end operations
+## Back end operations
 The solution back end operates on the device twin using the following atomic operations, exposed through HTTP:
 
 1. **Retrieve device twin by id**. This operation returns the device twin document, including tags and desired, reported, and system properties.
@@ -169,7 +169,7 @@ The solution back end operates on the device twin using the following atomic ope
     $content-encoding | utf-8 |
     deviceId | Id of the device |
     hubName | Name of IoT Hub |
-    operationTimestamp | ISO8601 timestamp of operation |
+    operationTimestamp | [ISO8601] timestamp of operation |
     iothub-message-schema | deviceLifecycleNotification |
     opType | "replaceTwin" or "updateTwin" |
 
