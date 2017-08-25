@@ -57,8 +57,9 @@ This article provides step-by-step guidance on how to use the HDInsight Tools in
 6. Enter information for **Name**, **Spark cluster**, and **Main class name**. Then select **Advanced configuration**. 
 
    ![Run debug configurations](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-run-debug-configurations.png)
-   we support debugging of both driver and executor code depending on where the breakpoint is set.
-   - **numExecutors**: The default value is 5 executors. For better results, the value set not more than 3.
+
+   We support debugging of both driver and executor code depending on where the breakpoint is set.
+   - **numExecutors**: The default value is 5 executors. For better results, do not set the value higher than 3.
 7. In the **Spark Submission Advanced Configuration** dialog box, select **Enable Spark remote debug**. Enter the SSH user name or password, or use a private key file. To save it, select **Ok**.
 
    ![Enable Spark remote debug](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-enable-spark-remote-debug.png)
@@ -67,7 +68,7 @@ This article provides step-by-step guidance on how to use the HDInsight Tools in
 
 ## Learn how to perform remote debugging
 ### Scenario 1: Perform remote debugging
-In this section, we show you how to debug on driver and executors.
+In this section, we show you how to debug driver and executors.
 
     import org.apache.spark.{SparkConf, SparkContext}
 
@@ -127,7 +128,7 @@ In this section, we show you how to debug on driver and executors.
 1. Set up breaking points, and then select the **Debug** icon.
 
     ![Click the debug icon](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debug-icon.png)
-2. When the program execution reaches the breaking point, you see a **Driver** tab and two **Executor** tabs in the **Debugger** pane.   Click the **Resume Program** icon to continue running the code and then reaches on the next breakpoint and focus on corresponding executor tab. You can review the execution logs in the corresponding **Console** tab. 
+2. When the program execution reaches the breaking point, you see a **Driver** tab and two **Executor** tabs in the **Debugger** pane.   Click the **Resume Program** icon to continue running the code, which then reaches the next breakpoint and focuses on the corresponding **Executor** tab. You can review the execution logs in the corresponding **Console** tab. 
 
    ![Debugging tab](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debugger-tab.png)
 

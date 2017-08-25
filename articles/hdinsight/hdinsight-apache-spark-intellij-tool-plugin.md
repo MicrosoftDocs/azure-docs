@@ -298,11 +298,11 @@ These errors happen because the heap size is not large enough for Spark to run. 
 ![Adding options to the "VM options" box in IntelliJ](./media/hdinsight-apache-spark-intellij-tool-plugin/change-heap-size.png)
 
 ## FAQ
-To submit an application to Azure Data Lake Store, choose interactive mode during the Azure sign-in process. If you select automated mode, you can get an error.
+To submit an application to Azure Data Lake Store, choose **Interactive** mode during the Azure sign-in process. If you select **Automated** mode, you can get an error.
 
 ![interative-signin](./media/hdinsight-apache-spark-intellij-tool-plugin/interative-signin.png)
 
-Now, we resolved it. You can choose an Azure Data Lake Cluster to submit your application with any sign-in way.
+Now, we resolved it. You can choose an Azure Data Lake Cluster to submit your application with any sign-in method.
 
 ## Feedback and known issues
 Currently, viewing Spark outputs directly is not supported.
