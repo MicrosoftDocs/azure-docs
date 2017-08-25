@@ -29,7 +29,7 @@ This document guides you through the step by step process of creating an OpenAPI
 ## <a name="prepare-function"></a>Creating a Function with a simple API
   To create an OpenAPI definition, we first need to create a Function with a simple API. If you already have an API hosted on a Function App, you can skip straight to the next section
 1. Create a new Function App.
-    * [Azure portal](https://portal.azure.com) > `+ New` > Search for "Function App"
+    1. [Azure portal](https://portal.azure.com) > `+ New` > Search for "Function App"
 1. Create a new HTTP trigger function inside your new Function App
     1. Your function is pre-populated with code defining a very simple REST API.
     1. Any string passed to the Function as a query parameter or in the body is returned as "Hello {input}"
@@ -43,12 +43,12 @@ This document guides you through the step by step process of creating an OpenAPI
 1. Navigate to `your function name` > `Platform Features` > `API Definition`
 ![Definition Tab](./media/functions-api-definition-getting-started/definitiontab.png)
 1. Set `API Definition Source` to `Function (preview)`
-    * This step enables a suite of OpenAPI options for your Function App, including an endpoint to host an OpenAPI file from your Function App's domain, an inline copy of the [OpenAPI Editor](http://editor.swagger.io), and a quickstart definition generator.
+    1. This step enables a suite of OpenAPI options for your Function App, including an endpoint to host an OpenAPI file from your Function App's domain, an inline copy of the [OpenAPI Editor](http://editor.swagger.io), and a quickstart definition generator.
 ![Enabled Definition](./media/functions-api-definition-getting-started/enabledefinition.png)
 
 ## <a name="create-definition"></a>Creating your API Definition from a template
 1. Click `Generate API Definition template`
-    * This step scans your Function App for HTTP Trigger functions and uses the info in functions.json to generate an OpenAPI document.
+    1. This step scans your Function App for HTTP Trigger functions and uses the info in functions.json to generate an OpenAPI document.
 1. Add an operation object to `paths: /api/yourfunctionroute post:`
     1. The quickstart OpenAPI document is an outline of a full OpenAPI doc. It requires more metadata to be a full OpenAPI definition, such as operation objects and response templates.
     1. The sample operation object below has a filled out produces/consumes section, a parameter object, and a response object.
