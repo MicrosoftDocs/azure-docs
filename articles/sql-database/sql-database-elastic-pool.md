@@ -371,7 +371,6 @@ To create and manage SQL Database elastic pools use these REST API requests.
 |[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
 |[Databases - Update](/api/sql/databases/update)|Updates an existing database.|
 
-
 ## Next steps
 
 * For a video, see [Microsoft Virtual Academy video course on Azure SQL Database elastic capabilities](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
