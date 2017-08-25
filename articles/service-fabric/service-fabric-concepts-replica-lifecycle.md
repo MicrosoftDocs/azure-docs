@@ -104,6 +104,10 @@ If the application host or the node for a standby replica crashes it will transi
 
 The replica role is not relevant in the standby state.
 
+> [!NOTE]
+> Any replica that is not down or dropped is considered to be *up*
+>
+
 # Replica Role 
 The role of the replica determines its function in the replica set.
 
