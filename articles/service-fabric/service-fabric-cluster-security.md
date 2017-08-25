@@ -95,12 +95,10 @@ The **Subject** field can have multiple values. Each value is prefixed with an i
 The value of the **Intended Purposes** field of the certificate should include an appropriate value, such as **Server Authentication** or **Client Authentication**.
 
 ### Client X.509 certificates
-Client certificates typically are not issued by a third-party CA. Instead, the Personal store of the current user location typically contains client certificates placed there by a root authority, with an **Intended purpose** value of **Client Authentication**. The client can use this certificate when mutual authentication is required.
+Client certificates typically are not issued by a third-party CA. Instead, the Personal store of the current user location typically contains client certificates placed there by a root authority, with an **Intended Purposes** value of **Client Authentication**. The client can use this certificate when mutual authentication is required.
 
 > [!NOTE]
 > All management operations on a Service Fabric cluster require server certificates. Client certificates cannot be used for management.
-> 
-> 
 
 ## Next steps
 * [Create a cluster in Azure by using a Resource Manager template](service-fabric-cluster-creation-via-arm.md) 
