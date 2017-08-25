@@ -3,8 +3,8 @@ title: Get started with queue storage and Visual Studio connected services (clou
 description: How to get started using Azure Queue storage in a cloud service project in Visual Studio after connecting to a storage account using Visual Studio connected services
 services: storage
 documentationcenter: ''
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: da587aac-5e64-4e9a-8405-44cc1924881d
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: tarcher
+ms.author: kraigb
 
 ---
 # Getting started with Azure Queue storage and Visual Studio connected services (cloud services projects)

@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of uploading files into a
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: ''
 
 ms.assetid: 3ad3dcea-95be-4711-9aae-a455a32434f6
