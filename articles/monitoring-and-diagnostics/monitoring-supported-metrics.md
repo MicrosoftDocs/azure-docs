@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 8/24/2017
-ms.author: johnkem
+ms.author: ancav
 
 ---
 # Supported metrics with Azure Monitor
