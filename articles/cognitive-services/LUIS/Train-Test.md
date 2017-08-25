@@ -2,19 +2,18 @@
 title: Train and test your LUIS app | Microsoft Docs
 description: Use Language Understanding Intelligent Services (LUIS) to continuously work on your application to refine it and improve its language understanding.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: DeniseMak
+manager: rstand
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/01/2017
-ms.author: cahann
+ms.date: 08/25/2017
+ms.author: v-demak
 ---
 
 # Train and test your app
 
-## Train to teach your app
 You should continuously work on your application to refine it and improve its language understanding. If you make updates by adding, editing, or deleting entities, intents, or utterances to your LUIS app, you need to train your app before testing and publishing. When you train a LUIS app, LUIS generalizes from the examples you have labeled, and learns to recognize the relevant intents and entities in the future, which improves its classification accuracy. 
 
 Training and testing is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If not, make updates to the LUIS app, train and test again. 
@@ -28,7 +27,7 @@ Typically, before retraining, you will want to relabel any utterances in which L
 
 In addition to relabeling utterances, you may also try adding new utterances, editing the intent or entity types, and adding features to your LUIS app to improve performance. <!-- (add this if we have content showing a performance increase) or adding composite or list entities. -->
 
-### Train your current model
+## Train the current iteration of your app
 To start the iterative process of training, you first need to train your LUIS app at least once. 
 
 1. Access your app by clicking its name on **My Apps** page. 
@@ -72,18 +71,16 @@ The **Interactive Testing** tab is divided into two sections (as in the screensh
 
 In an interactive test, you submit individual test utterances and view the returned result for each utterance separately. 
 
-### Perform interactive testing on the current model
-<!-- TODO: Add explicit example here that can start with a JSON file to import. We should demonstrate both labeling an intent that's mislabeled, or an entity that isn't recognized. -->
 The following screenshot shows how test results appear in the **Interactive Testing** tab, in which "book me a flight to Boston tomorrow" is entered as a test utterance:
 
     ![Interactive testing of current model](./Images/TestApp-interactive-current.JPG)
 
  The testing result includes the top scoring intent identified in the utterance, with its certainty score, as well as other intents existing in your model with their certainty scores. The identified entities will also be displayed within the utterance and you can control their view by selecting your preferred view from the **Labels view** list at the top of the test console.
 
-### Example: Relabel and retrain utterances
+## Relabel utterances and retrain
 When you perform interactive testing, you may find that LUIS doesn't detect the intent or entities that you expect in some utterances. The following steps walk you through relabeling an utterance and retraining.
 
-#### Relabel an intent
+### Relabel an utterance to retrain an intent
 1. Import the sample LUIS app [Travel Agent - Sample 1](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/Examples-BookFlight/travel-agent-sample-01.json). This LUIS app has only a few sample utterances and is meant to provides a starting point for training. It has the following intents:
  * BookFlight
  * Weather.GetForecast
@@ -91,7 +88,7 @@ When you perform interactive testing, you may find that LUIS doesn't detect the 
 
 2. On the **Test App** page, in the **Interactive Testing** tab, type in `buy a plane ticket to bangor me` and press Enter. Instead of the `BookFlight` intent, the test results show `Weather.GetForecast`.
 
-    ![Interactive testing identifies the wrong intent](./media/interactive-incorrect-intent.png)
+    ![Interactive testing identifies the wrong intent](./media/luis-how-to-train-test/interactive-incorrect-intent.png)
 
 3. To teach LUIS that `buy a plane ticket to bangor me` should be mapped to the `BookFlight` intent instead of `Weather.GetForecast`, go to the **Intents** page, click the **BookFlight** intent, type "buy a plane ticket to bangor me" into the text box, and press Enter. Click **Save**.
 
@@ -99,23 +96,23 @@ When you perform interactive testing, you may find that LUIS doesn't detect the 
 
 5. Type `buy a plane ticket to bangor me` in the text box and click enter. Now the intent should be correctly detected as `BookFlight`.
 
-#### Relabel an entity
+### Relabel an utterance to retrain an entity
 1. Import the sample LUIS app [Choose a color - Sample 1](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/Examples-Colors/sample-choose-color-01.json). This LUIS app has a "RequestColorItem" intent that is supposed to recognize requests like "Find me a blue shirt" and  extract a color entity.
 
 2. On the **Test App** page, in the **Interactive Testing** tab, type in `find brown shoes` and press Enter. Notice that the test results didn't recognize `brown` as a color entity.
 
-    ![Interactive testing fails to recognize an entity](./media/interactive-no-entity.png)
+    ![Interactive testing fails to recognize an entity](./media/luis-how-to-train-test/interactive-no-entity.png)
 
 
 3. Now you need to teach LUIS that `brown` in the utterance `find brown shoes` should be mapped to the `color` entity. Go to the **Intents** page, click the **RequestColorItem** intent, type "find brown shoes" into the text box, and press Enter. 
 
 4. Click on the word `brown` and choose the **color** entity from the drop-down list. Click **Save**.
-    ![label the word brown as a color entity](./media/interactive-label-entity.png)
+    ![label the word brown as a color entity](./media/luis-how-to-train-test/interactive-label-entity.png)
 
 5. Go back to the **Train & Test** page and click **Train application**.
 
 6. Type `find brown shoes` in the text box and click enter. Now the color entity should be correctly detected.
-    ![Testing identifies the brown as a color entity](./media/interactive-corrected-entity.png)
+    ![Testing identifies the brown as a color entity](./media/luis-how-to-train-test/interactive-corrected-entity.png)
 
 <!-- TIP: The confidence score has also increased. -->
 
