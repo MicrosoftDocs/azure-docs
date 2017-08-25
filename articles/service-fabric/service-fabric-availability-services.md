@@ -35,7 +35,7 @@ There can be only one Primary replica, but there can be multiple Active Secondar
 
 If the Primary replica goes down, Service Fabric makes one of the Active Secondary replicas the new Primary replica. This Active Secondary replica already has the updated version of the state (via *replication*), and it can continue processing further read and write operations.
 
-This concept, of a replica being either a Primary or Active Secondary, is known as the Replica Role.
+This concept, of a replica being either a Primary or Active Secondary, is known as the Replica Role. These are described further in [Replicas and Instances](service-fabric-concepts-replica-lifecycle.md). 
 
 ### Replica roles
 The role of a replica is used to manage the life cycle of the state being managed by that replica. A replica whose role is Primary services read requests. The Primary also handles all write requests by updating its state and replicating the changes. These changes are applied to the Active Secondaries in the replica set. The job of an Active Secondary is to receive state changes that the Primary replica has replicated and update its view of the state.

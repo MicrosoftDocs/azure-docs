@@ -1,5 +1,5 @@
 ---
-title: Replica and Instance Lifecycle | Microsoft Docs
+title: Replicas and Instances | Microsoft Docs
 description: Understand replicas, instances their function and lifecycle
 services: service-fabric
 documentationcenter: .net
@@ -18,7 +18,7 @@ ms.author: aprameyr
 
 ---
 
-This article describes the lifecycle of a replica of a stateful service or an instance of a stateless service.
+This article describes concepts around replicas of stateful services or instances of stateless services.
 
 # Instances of Stateless Services
 An instance of a stateless service is a copy of the service logic running on one of the nodes of the cluster. An instance within a partition is uniquely identified by its InstanceId. The lifecycle of an instance can be modelled by the following diagram:
@@ -128,5 +128,9 @@ The following section describes replica role transitions and some example scenar
 - P -> S: Demotion of primary replica. This can be due to a primary movement initiated by the cluster resource manager in response to application upgrade or load balancing etc.
 - P -> N: Deletion of primary replica
 
+> [!NOTE]
+> Higher-level programming models such as [Reliable Actors](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md) hide the concept of replica role from the developer. In Actors, the notion of role is unnecessary, while in Services it is largely simplified for most scenarios.
+>
 
-
+## Next steps
+For more information on Service Fabric concepts, see the following articles:
