@@ -30,7 +30,7 @@ This example imports the following data into a Window Azure storage account name
 |K:\Temp\FavoriteMovie.ISO|A Blu-Ray™ disk image, 25 GB.|  
 |\\\bigshare\john\music|A collection of music files on a network share, 10 GB in total.|  
   
-The import job will import this data into the following destinations in the storage account:  
+The import job imports this data into the following destinations in the storage account:  
   
 |Source|Destination virtual directory or blob|  
 |------------|-------------------------------------------|  
@@ -39,32 +39,32 @@ The import job will import this data into the following destinations in the stor
 |K:\Temp\FavoriteMovie.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
 |\\\bigshare\john\music|https://mystorageaccount.blob.core.windows.net/music|  
   
-With this mapping, the file `H:\Video\Drama\GreatMovie.mov` will be imported to the blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.  
+With this mapping, the file `H:\Video\Drama\GreatMovie.mov` is imported to the blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.  
   
 Next, to determine how many hard drives are needed, compute the size of the data:  
   
 `5TB + 30GB + 25GB + 10GB = 5TB + 65GB`  
   
-For this example, two 3TB hard drives should be sufficient. However, since the source directory `H:\Video` has 5TB of data and your single hard drive's capacity is only 3TB, it's necessary to break `H:\Video` into two smaller directories before running the Microsoft Azure Import/Export Tool: `H:\Video1` and `H:\Video2`. This step yields the following source directories:  
+For this example, two 3-TB hard drives should be sufficient. However, since the source directory `H:\Video` has 5 TB of data and your single hard drive's capacity is only 3 TB, it's necessary to break `H:\Video` into two smaller directories: `H:\Video1` and `H:\Video2`, before running the Microsoft Azure Import/Export Tool. This step yields the following source directories:  
   
 |Location|Size|Destination virtual directory or blob|  
 |--------------|----------|-------------------------------------------|  
-|H:\Video1|2.5TB|https://mystorageaccount.blob.core.windows.net/video|  
-|H:\Video2|2.5TB|https://mystorageaccount.blob.core.windows.net/video|  
-|H:\Photo|30GB|https://mystorageaccount.blob.core.windows.net/photo|  
-|K:\Temp\FavoriteMovies.ISO|25GB|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
-|\\\bigshare\john\music|10GB|https://mystorageaccount.blob.core.windows.net/music|  
+|H:\Video1|2.5 TB|https://mystorageaccount.blob.core.windows.net/video|  
+|H:\Video2|2.5 TB|https://mystorageaccount.blob.core.windows.net/video|  
+|H:\Photo|30 GB|https://mystorageaccount.blob.core.windows.net/photo|  
+|K:\Temp\FavoriteMovies.ISO|25 GB|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
+|\\\bigshare\john\music|10 GB|https://mystorageaccount.blob.core.windows.net/music|  
   
- Note that even though the `H:\Video`directory has been split to two directories, they point to the same destination virtual directory in the storage account. This way, all video files are maintained under a single `video` container in the storage account.  
+ Even though the `H:\Video`directory has been split to two directories, they point to the same destination virtual directory in the storage account. This way, all video files are maintained under a single `video` container in the storage account.  
   
- Next, the above source directories are evenly distributed to the two hard drives:  
+ Next, the previous source directories are evenly distributed to the two hard drives:  
   
 ||||  
 |-|-|-|  
 |Hard drive|Source directories|Total size|  
-|First Drive|H:\Video1|2.5TB + 30GB|  
+|First Drive|H:\Video1|2.5 TB + 30 GB|  
 ||H:\Photo||  
-|Second Drive|H:\Video2|2.5TB + 35GB|  
+|Second Drive|H:\Video2|2.5 TB + 35 GB|  
 ||K:\Temp\BlueRay.ISO||  
 ||\\\bigshare\john\music||  
   
@@ -116,7 +116,7 @@ Now you are ready to run the Azure Import/Export Tool to prepare the two hard dr
 
 ## Preparing disk for import when data is pre-loaded
  
- If the data to be imported is already present on the disk, use the flag /skipwrite. Value of /t and /srcdir both should point to the disk being prepared for import. If not all the data on the disk needs to go to the same destination virtual directory or root of the storage account, run the same command for each directory separately keeping the value of /id same across all runs.
+ If the data to be imported is already present on the disk, use the flag /skipwrite. The value of /t and /srcdir should both point to the disk being prepared for import. If all of the data to be imported is not going to the same destination virtual directory or root of the storage account, run the same command for each destination directory separately, keeping the value of /id the same across all runs.
 
 >[!NOTE] 
 >Do not specify /format as it will wipe the data on the disk. You can specify /encrypt or /bk depending on whether the disk is already encrypted or not. 
@@ -167,7 +167,7 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 
 ## Copy session completion
 
-Once the copy sessions have completed, you can disconnect the two drives from the copy computer and ship them to the appropriate Windows Azure data center. You'll upload the two journal files, `FirstDrive.jrn` and `SecondDrive.jrn`, when you create the import job in the [Windows Azure Management Portal](https://manage.windowsazure.com/).  
+Once the copy sessions have completed, you can disconnect the two drives from the copy computer and ship them to the appropriate Windows Azure data center. Upload the two journal files, `FirstDrive.jrn` and `SecondDrive.jrn`, when you create the import job in the [Windows Azure portal](https://manage.windowsazure.com/).  
   
 ## Next steps
 

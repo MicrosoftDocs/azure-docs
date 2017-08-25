@@ -18,7 +18,7 @@ ms.author: barclayn
 ---
 # Azure encryption overview
 
-This article provides an overview of how encryption is used in Microsoft Azure. It covers the major areas of encryption, including encryption at rest, encryption in flight, and key management with key vault. Each section includes links for more detailed information.
+This article provides an overview of how encryption is used in Microsoft Azure. It covers the major areas of encryption, including encryption at rest, encryption in flight, and key management with Key Vault. Each section includes links for more detailed information.
 
 ## Encryption of data at rest
 
