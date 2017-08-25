@@ -1,13 +1,13 @@
 ---
-title: Automate Azure IoT Suite remote monitoring | Microsoft Docs
-description: This tutorial shows you how to use rules and actions to automate the remote monitoring solution.
+title: Detect device issues on Azure IoT Suite remote monitoring | Microsoft Docs
+description: This tutorial shows you how to use rules and actions to automatically detect threshold-based device issues in the remote monitoring solution.
 services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 08/09/2017
+ms.date: 08/25/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA

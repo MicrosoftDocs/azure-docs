@@ -1,5 +1,5 @@
 ---
-title: Manage devices with Azure IoT Suite remote monitoring | Microsoft Docs
+title: Device management on Azure IoT Suite remote monitoring | Microsoft Docs
 description: This tutorial shows you how to manage devices connected to the remote monitoring solution.
 services: ''
 suite: iot-suite
@@ -38,7 +38,18 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 ## Test the simulated device
 
-## Call device methods from the dashboard
+## Execute device methods
+
+### Reboot
+
+### Firmware update
+
+### Empty tank
+
+### Fill tank
+
+### Methods in other devices
+
 
 ## Provision a physical device
 

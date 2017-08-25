@@ -1,5 +1,5 @@
 ---
-title: Monitor devices with Azure IoT Suite remote monitoring | Microsoft Docs
+title: Advance monitoring using Azure IoT Suite remote monitoring | Microsoft Docs
 description: This tutorial shows you how to monitor devices with the remote monitoring solution dashboard.
 services: ''
 suite: iot-suite
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-# Perform advanced device monitoring using the remote monitoring solution
+# Perform advanced  monitoring using the remote monitoring solution
 
 As an operator, you need to monitor the location and behavior of your trucks in the field. In this tutorial, you use two simulated truck devices to learn how to monitor your devices from the preconfigured solution dashboard.
 
@@ -35,7 +35,24 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 ## Filter the devices in the dashboard
 
+Use the previously created filter to show in the map where the truck is, and the corresponding telemetry chart.
+
+
+### Drilling through the maps
+
+
+
 ## View real-time telemetry
+
+### Map
+
+#### Map summary
+
+### Telemetry chart
+
+#### Choosing telemetry
+
+#### Pausing telemetry flow
 
 ## View device details
 
