@@ -35,41 +35,42 @@ The completed code for this tutorial can be found on [GitHub](https://github.com
 This tutorial requires the following:
 
 * [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) or later
-* [Universal Windows Platform app-development tools installed](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
+* [UWP app-development tools installed](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 * An active Azure account  
     If you don't have an account, you can create a free trial account in just a couple of minutes. For more information, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
 * An active Windows Store account
 
-Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Universal Windows Platform apps.
+Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for UWP apps.
 
 ## Register your app for the Windows Store
 To send push notifications to UWP apps, you must associate your app to the Windows Store. You must then configure your notification hub to integrate with WNS.
 
-1. If you have not already registered your app, navigate to the [Windows Dev Center](https://dev.windows.com/overview), sign in with your Microsoft account, and then click **Create a new app**.
+1. If you have not already registered your app, navigate to the [Windows Dev Center](https://dev.windows.com/overview), sign in with your Microsoft account, and then select **Create a new app**.
 
-2. Type a name for your app and click **Reserve app name**. This creates a new Windows Store registration for your app.
+2. Type a name for your app, and then select **Reserve app name**. Doing so creates a new Windows Store registration for your app.
 
-3. In Visual Studio, create a new Visual C# Store Apps project by using the Universal Windows Platform **Blank App** template, and then select **OK**.
+3. In Visual Studio, create a new Visual C# Store apps project by using the UWP **Blank App** template, and then select **OK**.
 
 4. Accept the defaults for the target and minimum platform versions.
 
-5. In Solution Explorer, right-click the Windows Store app project, click **Store**, and then click **Associate App with the Store...**. The **Associate Your App with the Windows Store** wizard appears.
+5. In Solution Explorer, right-click the Windows Store app project, select **Store**, and then select **Associate App with the Store**.  
+    The **Associate Your App with the Windows Store** wizard appears.
 
 6. In the wizard, sign in with your Microsoft account.
 
-7. Click the app that you registered in step 2, click **Next**, and then click **Associate**. This adds the required Windows Store registration information to the application manifest.
+7. Select the app that you registered in step 2, select **Next**, and then select **Associate**. Doing so adds the required Windows Store registration information to the application manifest.
 
-8. Back on the [Windows Dev Center](http://dev.windows.com/overview) page for your new app, click **Services**, click **Push notifications**, and then click **WNS/MPNS**.
+8. Back on the [Windows Dev Center](http://dev.windows.com/overview) page for your new app, select **Services**, select **Push notifications**, and then select **WNS/MPNS**.
 
-9. Click **New Notification**.
+9. Select **New Notification**.
 
-10. Click **Blank (Toast)** template and then click **OK**.
+10. Select **Blank (Toast)** template and then select **OK**.
 
-11. Enter a notification **Name** and Visual **Context** message. Then click **Save as draft**.
+11. Enter a notification **Name** and Visual **Context** message, and then select **Save as draft**.
 
-12. Navigate to the [Application Registration Portal](http://apps.dev.microsoft.com) and log in.
+12. Go to the [Application Registration Portal](http://apps.dev.microsoft.com) and sign in.
 
-13. Click on your application name. Make a note of the **Application Secret** password and the **Package security identifier (SID)** located in the **Windows Store** platform settings.
+13. Select on your application name. Make a note of the **Application Secret** password and the **Package security identifier (SID)** located in the **Windows Store** platform settings.
 
      > [AZURE.WARNING]
     The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
@@ -78,7 +79,7 @@ To send push notifications to UWP apps, you must associate your app to the Windo
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
-<li><p>Select the <b>Notification Services</b> option and the <b>Windows (WNS)</b> option. Then enter the <b>Application secret</b> password in the <b>Security Key</b> field. Enter your <b>Package SID</b> value that you obtained from WNS in the previous section, and then click <b>Save</b>.</p>
+<li><p>Select the <b>Notification Services</b> option and the <b>Windows (WNS)</b> option. Then enter the <b>Application secret</b> password in the <b>Security Key</b> field. Enter your <b>Package SID</b> value that you obtained from WNS in the previous section, and then select <b>Save</b>.</p>
 </li>
 </ol>
 
@@ -87,10 +88,10 @@ To send push notifications to UWP apps, you must associate your app to the Windo
 Your notification hub is now configured to work with WNS, and you have the connection strings to register your app and send notifications.
 
 ## Connect your app to the notification hub
-1. In Visual Studio, right-click the solution, and then click **Manage NuGet Packages**.
+1. In Visual Studio, right-click the solution, and then select **Manage NuGet Packages**.
    
     This displays the **Manage NuGet Packages** dialog box.
-2. Search for `WindowsAzure.Messaging.Managed` and click **Install**, and accept the terms of use.
+2. Search for `WindowsAzure.Messaging.Managed`, select **Install**, and accept the terms of use.
    
     ![][20]
    
@@ -152,11 +153,11 @@ In this tutorial, we will keep it simple and just demonstrate testing your clien
 ## (Optional) Send notifications from a console app
 To send notifications by using a .NET console application follow these steps. 
 
-1. Right-click the solution, select **Add** and **New Project...**, and then under **Visual C#**, click **Windows** and **Console Application**, and click **OK**.
+1. Right-click the solution, select **Add** and **New Project...**, and then under **Visual C#**, select **Windows** and **Console Application**, and then select **OK**.
    
     This adds a new Visual C# console application to the solution. You can also do this in a separate solution.
 
-2. In Visual Studio, click **Tools**, click **NuGet Package Manager**, and then click **Package Manager Console**.
+2. In Visual Studio, select **Tools**, select **NuGet Package Manager**, and then select **Package Manager Console**.
    
     This displays the Package Manager Console in Visual Studio.
 3. In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
@@ -189,9 +190,9 @@ To send notifications by using a .NET console application follow these steps.
    
          SendNotificationAsync();
          Console.ReadLine();
-7. Right-click the console application project in Visual Studio, and click **Set as StartUp Project** to set it as the startup project. Then press the **F5** key to run the application.
+7. Right-click the console application project in Visual Studio, and then select **Set as StartUp Project** to set it as the startup project. Then press the **F5** key to run the application.
    
-    You will receive a toast notification on all registered devices. Clicking or tapping the toast banner loads the app.
+    You will receive a toast notification on all registered devices. Selecting or tapping the toast banner loads the app.
 
 You can find all the supported payloads in the [toast catalog], [tile catalog], and [badge overview] topics on MSDN.
 
