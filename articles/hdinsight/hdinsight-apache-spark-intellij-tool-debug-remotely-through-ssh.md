@@ -128,7 +128,7 @@ In this section, we show you how to debug driver and executors.
 1. Set up breaking points, and then select the **Debug** icon.
 
     ![Click the debug icon](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debug-icon.png)
-2. When the program execution reaches the breaking point, you see a **Driver** tab and two **Executor** tabs in the **Debugger** pane.   Click the **Resume Program** icon to continue running the code, which then reaches the next breakpoint and focuses on the corresponding **Executor** tab. You can review the execution logs in the corresponding **Console** tab. 
+2. When the program execution reaches the breaking point, you see a **Driver** tab and two **Executor** tabs in the **Debug** pane.   Click the **Resume Program** icon to continue running the code, which then reaches the next breakpoint and focuses on the corresponding **Executor** tab. You can review the execution logs in the corresponding **Console** tab. 
 
    ![Debugging tab](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debugger-tab.png)
 
