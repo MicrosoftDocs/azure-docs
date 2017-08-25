@@ -116,7 +116,7 @@ For initial registration, allow access to the following endpoints:
 If you can't allow connectivity by FQDN and need to specify IP ranges instead, use these options:
 
 * Allow the connector outbound access to all destinations.
-* Allow the connector outbound access to [Azure datacenter IP ranges](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). The challenge with using the list of Azure datacenter IP ranges is that it's updated weekly. You need to put a process in place to ensure that your access rules are updated accordingly.
+* Allow the connector outbound access to all of the [Azure datacenter IP ranges](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). The challenge with using the list of Azure datacenter IP ranges is that it's updated weekly. You need to put a process in place to ensure that your access rules are updated accordingly. Only using a subset of the IP addresses may cause your configuration to break.
 
 #### Proxy authentication
 
@@ -169,9 +169,9 @@ For initial troubleshooting, perform the following steps:
 
 Now that you’ve got a network capture, you're ready to filter it. The key to looking at the trace is understanding how to filter the capture.
 
-One filter is as follows (where 443 is the proxy service port):
+One filter is as follows (where 8080 is the proxy service port):
 
-**(http.Request or http.Response) and tcp.port==443**
+**(https.Request or https.Response) and tcp.port==8080**
 
 If you enter this filter in the **Display Filter** window and select **Apply**, it filters the captured traffic based on the filter.
 
