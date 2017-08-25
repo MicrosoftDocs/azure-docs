@@ -363,7 +363,7 @@ If the test snapshot has been executed successfully with the script, everything 
 As all the preparation steps have been finished we can now start to configure the actual storage snapshot configuration. The script to be scheduled works with SAP HANA scale-up and scale-out configurations. The idea is that you schedule the execution of the scripts via cron. 
 
 There are three type of snapshot backups that can be made:
-- HANA: combined snapshot backup where the volumes containing /hana/data, /hana/log, /hana/shared, and /usr/sap are getting covered by the snapshots. A single file restore is possible from this snapshot.
+- HANA: combined snapshot backup where the volumes containing /hana/data, /hana/log, /hana/shared, and /usr/sap are getting covered by the snapshot. A single file restore is possible from this snapshot.
 - Logs: snapshot backup of the /hana/log/backup volume. No other volume will experience a snapshot. No HANA snapshot will be triggered. This is the volume meant to contain SAP HANA transaction log backups which are performed more frequently in order to restrict log growth and prevent potential data loss. A single file restore is possible from this snapshot. You should not lower the frequency below 5 minutes.
 - Boot: snapshot of the volume that contains the boot LUN of the HANA Large Instance. This snapshot backup is only possible with the Type I SKUs of HANA Large Instances. Please also note that you can't perform single file restores from the snapshot of the volume that contains the boot LUN.  
 
@@ -400,13 +400,10 @@ Execute the script by calling it from the HDB executable folder that it was copi
 
 The retention period is strictly administered, with the number of snapshots submitted as a parameter when you execute the script (such as 30, shown previously). So the amount of time is a function of the period of execution and the number of snapshots in the call of the script. If the number of snapshots that are kept exceeds the number that are named as a parameter in the call of the script, the oldest storage snapshot of this label (in our previous case, _manual_) is deleted before a new snapshot is executed. This means the number you give as the last parameter of the call is the number you can use to control the number of snapshots that are kept. With that you also can control the indirectly the disk space used for snapshots. 
 
-
-
-
 >As soon as you change the label, the counting starts again. Means you need to be strict in labeling.
 
 ### Snapshot strategies
-The frequency of snapshots for the different types is dependent on whether you use the HANA Large Instance disaster recovery functionality that relies on storage snapshots and underlying storage replication or not. In the considerations and recommendations below, we assume that you do not use the disaster recovery functionality HANA Large Instances are offering. Instead you use the storage snapshots as mean to have backups and by able to for example provide point-in-time recovery for the last 30 days. Given the limitations of the number of snapshots and space, customers deployed so far configured the following:
+The frequency of snapshots for the different types is dependent on whether you use the HANA Large Instance disaster recovery functionality that relies on storage snapshots and underlying storage replication or not. In the considerations and recommendations below, we assume that you do not use the disaster recovery functionality HANA Large Instances are offering. Instead you use the storage snapshots as mean to have backups and be able to provide point-in-time recovery for the last 30 days. Given the limitations of the number of snapshots and space, customers deployed so far configured the following:
 
 - Requirements in recovery time objective for point-in-time recovery.
 - Space usage.
@@ -425,22 +422,25 @@ The cron scheduling in /etc/crontab could look like:
 ```
 00 1-11,13-23 * * * ./azure_hana_backup.pl hana HM3 hourlyhana 66
 10 12 * * *  ./azure_hana_backup.pl hana HM3 dailyhana 14
-20 12 * * *  ./azure_hana_backup.pl log HM3 dailylogback 14
+0,5,10,15,20,25,30,35,40,45,50,55 * * * *  Perform SAP HANA transaction log backup
+22 12 * * *  ./azure_hana_backup.pl log HM3 dailylogback 14
 ```
-Scheduling within cron can be tricky, because only one script should be executed at any particular time, unless the scripts are staggered by several minutes. In the case. Only one daily snapshot is kept in the production volume. In the example above there is an hourly combined snapshot that covers the volumes containing the /hana/data, /hana/log, /hana/shared, and /usr/sap locations. Additionally, there is a daily snapshot on those volumes. So, you got a 3 day coverage of hourly snapshots plus a 2 weeks coverage of daily snapshots. Additionally the transaction log backup volume is backed up every day once. these backups are kept for 2 weeks.
+Scheduling within cron can be tricky, because only one script should be executed at any particular time, unless the scripts are staggered by several minutes. In the example above there is an hourly combined snapshot that covers the volumes containing the /hana/data, /hana/log, /hana/shared, and /usr/sap locations. This would be used for faster point-in-time recovery within 3 days. Additionally, there is a daily snapshot on those volumes. So, you got a 3 day coverage of hourly snapshots plus a 2 weeks coverage of daily snapshots. Additionally the transaction log backup volume is backed up every day once. These backups are kept for 2 weeks. As you see in the third line of crontab, the backup of the HANA transaction log file is scheduled to be executed every 5 minutes
 
-In the example below, you would perform a combined snapshot that covers the volumes containing the /hana/data, /hana/log, /hana/shared, and /usr/sap locations on an hourly basis. You would keep these snapshots around for two days. The snapshots of the trnasaction log backup volumes are executed on a 5 minute basis and are kept for four hours.
+In the example below, you would perform a combined snapshot that covers the volumes containing the /hana/data, /hana/log, /hana/shared, and /usr/sap locations on an hourly basis. You would keep these snapshots around for two days. The snapshots of the transaction log backup volumes are executed on a 5 minute basis and are kept for four hours. As before, the backup of the HANA transaction log file is scheduled to be executed every 5 minutes. The snapshot of the transaction log backup volume is performed with a two minutes delay after the transaction log backup has been started.
+
 ```
 10 0-23 * * * ./azure_hana_backup.pl hana HM3 hourlyhana 48
-0,5,10,15,20,25,30,35,40,45,50,55 * * * *  ./azure_hana_backup.pl log HM3 logback 48
+0,5,10,15,20,25,30,35,40,45,50,55 * * * *  Perform SAP HANA transaction log backup
+2,7,12,17,22,27,32,37,42,47,52,57 * * * *  ./azure_hana_backup.pl log HM3 logback 48
 ```
 
 
 >[!IMPORTANT]
-> The use of storage snapshots for SAP HANA backups is valid only when the snapshots are performed in conjunction with SAP HANA transaction log backups. These log backups need to be able to cover the time periods between the storage snapshots. If you've set a commitment to users of a point-in-time recovery of 30 days, you need the following:
+> The use of storage snapshots for SAP HANA backups is valuable only when the snapshots are performed in conjunction with SAP HANA transaction log backups. These transaction log backups need to be able to cover the time periods between the storage snapshots. If you've set a commitment to users of a point-in-time recovery of 30 days, you need the following:
 
 - Ability to access a combined storage snapshot over/hana/data, /hana/log, /hana/shared, and /usr/sap that is in the extreme case 30 days old.
-- Contiguous transaction log backups that cover the time between any of the combined storage snapshots.So the oldest snapshot of the transaction log backup volume needs to be 30 days old. Unless you copied the transaction log backups meanwhile to another NFS share that is located on Azure storage.
+- Contiguous transaction log backups that cover the time between any of the combined storage snapshots.So the oldest snapshot of the transaction log backup volume needs to be 30 days old. Unless you copied the transaction log backups meanwhile to another NFS share that is located on Azure storage. In such a case you could pull old transaction log backups from that NFS share.
 
 >[!IMPORTANT]
 Just performing storage snapshots of the log backup volume is not good enough. You need to perform HANA transaction log backups as well to be able to perform point-in-time recoveries and to have valid backups on the log backup volume.
@@ -524,10 +524,10 @@ In the previous example, the snapshot label is _customer_ and the number of snap
 ./azure_hana_backup.pl hana HM3 customer 5
 ```
 
-As a result of running the script with this setting, the number of snapshots, including the new storage snapshot, is _5_.
+As a result of running the script with this setting, the number of snapshots, including the new storage snapshot, is _5_. The five most recent snapshots will be kept whereas the 15 older snapshots will be deleted.
 
  >[!NOTE]
- > This script reduces the number of snapshots only if the most recent previous snapshot is more than one hour old. The script does not delete snapshots that are less than one hour old. These restrictions are related to the optional disaster-recovery functionality offered.
+ > This script reduces the number of snapshots only if there are snapshots that are older than one hour. The script does not delete snapshots that are less than one hour old. These restrictions are related to the optional disaster-recovery functionality offered.
 
 If you no longer want to maintain a set of snapshots with that prefix, you can execute the script with _0_ as the retention number to remove all snapshots matching that prefix. However, removing all snapshots can affect the capabilities of disaster recovery.
 
@@ -686,13 +686,27 @@ In the scenarios deployed so far, the customers used the unit in the DR region t
 
 The basis of the disaster recovery functionality offered, is storage replication functionality offered by the HANA Large Instance infrastructure. The functionality used on the storage side is not a constant stream of changes being replicated in an asynchronous manner as changes happen to the storage. Instead it is a mechanism that relies on the fact that snapshots are created on a regular basis of these volumes. The changes between an already replicated snapshots and the snapshots not yet replicated are then transferred to the disaster recovery site into matching disk volumes (same size as production volumes). The first time the complete data of a volume needs to be transferred before the amount of data is becoming smaller with deltas between snapshots. As a result the volumes in the DR site contain everyone of the volume snapshots performed in the production site. This allows you to eventually use that DR system to get to an earlier status in order to recover lost data without rolling back the production system.
 
+In cases where you use HANA System Replication as High Availability functionality in your production site, we would only replicate the storage volumes of the Tier 2 (or replica) instance. This could lead to an effect, that there could be a delay in storage replication to the DR site if you maintain or take down the secondary replica (Tier 2) server unit or SAP HANA instance in this unit. 
+
+>[!IMPORTANT]
+>As with Multitier HANA System Replication, a shutdown of the Tier 2 HANA instance or server unit will block replication to the DR tier when using the HANA Large Instance disaster recovery functionality .
+
 
 >[!NOTE]
->In order to use the storage replication functionality, you need to first establish a storage snapshot schedule.
+>The HANA Large Instance storage replication functionality is mirroring/replicating storage snapshots. hence if you do not perform storage snapshots as introduced in the backup section of this document, there will be no replication to the DR site. Storage snaphot execution is a prerequisite to storage replication to the DR site.
 
-In order to minimize the Recovery Point Objective, we recommend the following storage snapshot schedule:
-- One 'hana' type snapshot (see step 7 - Perform snapshots) every one 30 min to one hour.
-- One 'logs' type of snapshot every 5-15 minutes. This will give you an RPO of around 15-25 minutes.
+In order to minimize the Recovery Point Objective, the following is delivered by the HANA Large Instance service:
+- The volumes covered by the combined snapshot (snapshot type = 'hana') are replicated every 15 minutes to the equivalent storage volume targets in the DR site.
+- - The transaction log backup volume (snapshot type = 'log') are replicated every 3 minutes to the equivalent storage volume targets in the DR site.
+
+In order to minimize the Recovery Point Objective, the following needs to be setup by you
+- Perform a 'hana' type snapshot (see step 7 - Perform snapshots) every 30 min to one hour.
+- Perform SAP HANA transaction log backups every 5 minutes.
+- Perform a 'logs' type of snapshot every 5-15 minutes. This will give you an RPO of around 15-25 minutes.
+
+With this setup, the sequence of transaction log backups, storage snapshots and replication of the HANA transaction log backup volume could look like shown in this graphic.
+
+ ![Relation between tlog backup snapshot ans snap mirror on time axis](./media/hana-overview-high-availability-disaster-recovery/tlog_snap_mirror1.PNG)
 
 To achieve an even better recovery point objective in the disaster-recovery case, copy the HANA transaction log backups from SAP HANA on Azure (large instances) to the other Azure region. To achieve this recovery point objective reduction, do the following:
 
