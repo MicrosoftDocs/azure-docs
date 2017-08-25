@@ -2,7 +2,7 @@
 title: Managing Assets and Related Entities with Media Services .NET SDK
 description: Learn how to manage assets and related entities with the Media Services SDK for .NET.
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''

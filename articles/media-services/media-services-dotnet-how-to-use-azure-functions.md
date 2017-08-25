@@ -4,7 +4,7 @@ description: This topic shows how to start developing Azure Functions with Media
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 
 ms.assetid: 51bdcb01-1846-4e1f-bd90-70020ab471b0
