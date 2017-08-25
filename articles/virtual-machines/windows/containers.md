@@ -17,6 +17,6 @@ ms.date: 08/23/2017
 ms.author: iainfou
 
 ---
-# Use Docker, Kubernetes, DC/OS, and Serv container solutions for Windows workloads in Azure
+# Develop and run container workloads in Azure
 
 [!INCLUDE [virtual-machines-common-and-containers](../../../includes/virtual-machines-common-containers.md)]

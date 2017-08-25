@@ -1,4 +1,4 @@
-To build and run modern applications and services in the cloud, developers typically use containers and microservices. Azure supports many common container solutions such as Docker, Kubernetes, DC/OS, and Service Fabric. You can quickly create single containers with Azure Container Instances, deploy a complete infrastructure with Azure Container Services, and store and use containers images from Azure Container Registry. This articles introduces some of the container solutions that you can use in Azure.
+To build and run modern applications and services in the cloud, developers typically use containers and microservices. Azure supports many common container solutions such as Docker, Kubernetes, DC/OS, and Service Fabric. You can quickly create single containers with Azure Container Instances, deploy a complete infrastructure with Azure Container Services, and store and use containers images from Azure Container Registry. This article introduces some of the container solutions that you can use in Azure.
 
 
 ## Docker on virtual machines
