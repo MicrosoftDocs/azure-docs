@@ -127,7 +127,5 @@ For an overview of steps for the wizard, visit the [Steps in the SQL Server Impo
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50) 
 
-[What is SQL Database?](..sql-database/sql-database-technical-overview.md)
-
 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
