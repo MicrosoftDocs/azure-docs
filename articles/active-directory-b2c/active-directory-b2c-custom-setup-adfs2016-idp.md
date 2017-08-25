@@ -17,11 +17,11 @@ ms.date: 08/04/2017
 ms.author: yoelh
 ---
 
-# Azure Active Directory B2C: Add ADFS as a SAML identity provider using Custom policies
+# Azure Active Directory B2C: Add ADFS as a SAML identity provider using custom policies
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable sign-in for users from AD-FS account through the use of [custom policies](active-directory-b2c-overview-custom.md).
+This article shows you how to enable sign-in for users from ADFS account through the use of [custom policies](active-directory-b2c-overview-custom.md).
 
 ## Prerequisites
 
@@ -29,15 +29,15 @@ Complete the steps in the [Getting started with custom policies](active-director
 
 These steps include:
 
-1.  Creating an AD-FS Relying Party Trust.
-2.  Adding the AD-FS Relying Party Trust certificate to Azure AD B2C.
+1.  Creating an ADFS Relying Party Trust.
+2.  Adding the ADFS Relying Party Trust certificate to Azure AD B2C.
 3.  Adding claims provider to a policy.
-4.  Registering the AD-FS account claims provider to a user journey.
+4.  Registering the ADFS account claims provider to a user journey.
 5.  Uploading the policy to an Azure AD B2C tenant and test it.
 
 ## To create a claims-aware Relying Party Trust
 
-To use AD-FS as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an AD-FS Relying Party Trust and supply it with the right parameters.
+To use ADFS as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an ADFS Relying Party Trust and supply it with the right parameters.
 
 To add a new relying party trust by using the AD FS Management snap-in and manually configure the settings, perform the following procedure on a federation server.
 
@@ -57,11 +57,11 @@ Membership in **Administrators**, or equivalent, on the local computer is the mi
     ![Specify Display Name and notes](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-4.png)
 6.  Optional. If you have an optional token encryption certificate, then on the **Configure Certificate** page, click **Browse** to locate your certificate file, and then click **Next**.
     ![Configure Certificate](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-5.png)
-7.  On the **Configure URL** page, select the **Enable support for the SAML 2.0 WebSSO protocol** check box. Under **Relying party SAML 2.0 SSO service URL**, type the Security Assertion Markup Language (SAML) service endpoint URL for this relying party trust, and then click **Next**.
->For the **Relying party SAML 2.0 SSO service URL**, paste the `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. Replace {tenant} with your tenant's name (for example, contosob2c.onmicrosoft.com). and replace the {policy} with your extensions policy name (for example, B2C_1A_TrustFrameworkExtensions)
-> [!IMPORTANT]
->The policy name  is the one that signup_or_signin policy inherits from that is, `B2C_1A_TrustFrameworkExtensions`.
->For example the URL could be: https://login.microsoftonline.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**
+7.  On the **Configure URL** page, select the **Enable support for the SAML 2.0 WebSSO protocol** check box. Under **Relying party SAML 2.0 SSO service URL**, type the Security Assertion Markup Language (SAML) service endpoint URL for this relying party trust, and then click **Next**.  For the **Relying party SAML 2.0 SSO service URL**, paste the `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. Replace {tenant} with your tenant's name (for example, contosob2c.onmicrosoft.com), and replace the {policy} with your extensions policy name (for example, B2C_1A_TrustFrameworkExtensions).
+    > [!IMPORTANT]
+    >The policy name  is the one that signup_or_signin policy inherits from, in this case it is: `B2C_1A_TrustFrameworkExtensions`.
+    >For example the URL could be:   https://login.microsoftonline.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
+
     ![Relying party SAML 2.0 SSO service URL](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-6.png)
 8. On the **Configure Identifiers** page, specify the same URL as the previous step, click **Add** to add them to the list, and then click **Next**.
     ![Relying party trust identifiers](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-7.png)
@@ -69,7 +69,7 @@ Membership in **Administrators**, or equivalent, on the local computer is the mi
     ![Choose Access Control Policy](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-8.png)
 10.  On the **Ready to Add Trust** page, review the settings, and then click **Next** to save your relying party trust information.
     ![Save your relying party trust information](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-9.png)
-11.  On the **Finish** page, click **Close**. This action automatically displays the **Edit Claim Rules** dialog box.
+11.  On the **Finish** page, click **Close**, this action automatically displays the **Edit Claim Rules** dialog box.
     ![Edit Claim Rules](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-10.png)
 12.  Click **Add Rule**.
     ![Add new rule](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-claims-1.png)
@@ -81,8 +81,7 @@ Membership in **Administrators**, or equivalent, on the local computer is the mi
     ![Relying party edit properties](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-1.png)
 16.  One the relying party trust (B2C Demo) properties window click **Signature** tab and click **Add**.
     ![Set signature](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-2.png)
-17.  Add your signature certificate (.cert file, without private key).
-    ![Add your signature certificate](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-3.png)
+17.  Add your signature certificate (.cert file, without private key).  ![Add your signature certificate](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-3.png)
 18.  On the relying party trust (B2C Demo) properties window click **Advanced** tab and change the **Secure hash algorithm** to **SHA-1**, Click **Ok**.
     ![Set secure hash algorithm to SHA-1](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-4.png)
 
