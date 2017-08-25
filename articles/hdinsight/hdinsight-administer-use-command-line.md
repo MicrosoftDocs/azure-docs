@@ -46,9 +46,9 @@ Before you begin this article, you must have the following:
 
 To get help, use the **-h** switch.  For example:
 
-    ```cli
-    azure hdinsight cluster create -h
-    ```
+```cli
+azure hdinsight cluster create -h
+```
 
 ## Create clusters with the CLI
 See [Create clusters in HDInsight using the Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
@@ -56,47 +56,47 @@ See [Create clusters in HDInsight using the Azure CLI](hdinsight-hadoop-create-l
 ## List and show cluster details
 Use the following commands to list and show cluster details:
 
-    ```cli
-    azure hdinsight cluster list
-    azure hdinsight cluster show <Cluster Name>
-    ```
+```cli
+azure hdinsight cluster list
+azure hdinsight cluster show <Cluster Name>
+```
 
 ![Command-line view of cluster list][image-cli-clusterlisting]
 
 ## Delete clusters
 Use the following command to delete a cluster:
 
-    ```cli
-    azure hdinsight cluster delete <Cluster Name>
-    ```
+```cli
+azure hdinsight cluster delete <Cluster Name>
+```
 
 You can also delete a cluster by deleting the resource group that contains the cluster. Please note, this will delete all the resources in the group including the default storage account.
 
-    ```cli
-    azure group delete <Resource Group Name>
-    ```
+```cli
+azure group delete <Resource Group Name>
+```
 
 ## Scale clusters
 To change the Hadoop cluster size:
 
-    ```cli
-    azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-    ```
+```cli
+azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
+```
 
 
 ## Enable/disable HTTP access for a cluster
 
-    ```cli
-    azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
-    azure hdinsight cluster disable-http-access [options] <Cluster Name>
-    ```
+```cli
+azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
+azure hdinsight cluster disable-http-access [options] <Cluster Name>
+```
 
 ## Enable/disable RDP access for a cluster
 
-    ```cli
-    azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
-    azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
-    ```
+```cli
+azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
+azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
+```
 
 ## Next steps
 In this article, you have learned how to perform different HDInsight cluster administrative tasks. To learn more, see the following articles:
