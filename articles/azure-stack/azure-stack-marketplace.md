@@ -18,9 +18,9 @@ ms.author: erikje
 
 ---
 # The Azure Stack Marketplace overview
-The Marketplace is a collection of services, applications, and resources customized for Azure Stack, like networks, virtual machines, storage, Docker extensions, phpBB, and so on. Users come here to create new resources and deploy new applications. Think of it as a shopping catalog where users can browse and choose the items they want to use.
+The Marketplace is a collection of services, applications, and resources customized for Azure Stack, like networks, virtual machines, storage, and so on. Users come here to create new resources and deploy new applications. Think of it as a shopping catalog where users can browse and choose the items they want to use. To use a Marketplace item, users must subscribe to an offer that grants them access to the item.
 
-As a cloud operator, you decide which items to publish to your Azure Stack Marketplace. This makes the item visible to all your users. Only those users subscribed to appropriate offers can use any specific Marketplace item. You can add custom items that you create and download items from a growing [list of Azure Marketplace items](azure-stack-marketplace-azure-items.md). When you add an item to the Marketplace, users can see it within five minutes.
+The Marketplace is automatically populated by a set of default items, like a Windows Server virtual machine. Other items, like databases, App Services, and future items, show up only after you publish them. As a cloud operator, you decide which items to publish to your Azure Stack Marketplace. This makes the item visible to all your users. You can add custom items that you create and download items from a growing [list of Azure Marketplace items](azure-stack-marketplace-azure-items.md). When you add an item to the Marketplace, users can see it within five minutes.
 
 To open the Marketplace, click **New**.
 
