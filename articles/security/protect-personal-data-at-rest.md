@@ -1,6 +1,6 @@
----
-title: Protect personal data at rest with encryption | Microsoft Docs
-description: Article part of a series of articles to help you use Azure to protect personal data
+﻿---
+title: Azure Protect personal data at rest with encryption | Microsoft Docs
+description: This article is part of a series helping you use Azure to protect personal data
 services: security
 documentationcenter: na
 author: Barclayn
@@ -170,7 +170,7 @@ information.
 
 To protect the keys that are used to encrypt data in Azure, the company can use Azure Key Vault. This streamlines the key management process and enables the company to maintain control of keys that access and encrypt personal data.
 
-## Next Steps:
+## Next steps
 
 - [Azure Disk Encryption Troubleshooting Guide](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg)
 

@@ -53,27 +53,26 @@ The company must protect the privacy of employee and customer data while making 
 The following articles contain technical how-to guidance that will help you
 attain the personal data protection goals listed above:
 
-- Azure encryption technologies: Protect personal data at rest
+- [Azure encryption technologies]protect-personal-data-at-rest.md)
 
-- Azure encryption technologies: Protect personal data in transit
+- [Azure encryption technologies](protect-personal-data-in-transit-encryption.md)
 
-- Azure identity and access technologies: Protect access to personal data
+- [Azure identity and access technologies](protect-personal-data-identity-access-controls.md)
 
-- Azure network security technologies: Protect personal data on the network
+- [Azure network security technologies](protect-personal-data-network-security.md)
 
-- Azure Security Center: protect personal data from data breach
-
-- Vulnerability Assessment Tool: Assess the security state of Azure services
+- [Azure Security Center](protect-personal-data-azure-security-center.md)
 
 
-## Next Steps:
+
+## Next steps
 
 - [Azure Security Information Site](https://aka.ms/AzureSecInfo)
 
-- [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/default.aspx)
+- [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx)
 
-- [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/)
+- [Azure Security Center](https://azure.microsoft.com/services/security-center/)
 
 - [Azure Security Team Blog](https://www.azuresecurityorg)
 
-- [Azure.com Blog - Security](https://azure.microsoft.com/en-us/blog/topics/security/)
+- [Azure.com Blog - Security](https://azure.microsoft.com/blog/topics/security/)

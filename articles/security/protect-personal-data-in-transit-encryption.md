@@ -1,6 +1,6 @@
 ﻿---
-title: Protect personal data in transit with encryption | Microsoft Docs
-description: Article part of a series of articles to help you use Azure to protect personal data
+title: Protect personal data in transit with encryption in Azure | Microsoft Docs
+description: Using encryption in Azure to protect personal data
 services: security
 documentationcenter: na
 author: Barclayn
@@ -113,27 +113,27 @@ An effective way to protect personal data in transit between a corporate network
 
 A site-to-site VPN connects multiple users on the corporate network to Azure. To create a site-to-site connection in the Azure portal, do the following:
 
-1. Create a virtual network
+1. Create a virtual network.
 
-2. Specify a DNS server
+2. Specify a DNS server.
 
-3. Create the gateway subnet
+3. Create the gateway subnet.
 
-4. Create the VPN gateway 
+4. Create the VPN gateway. 
 
     ![](media/protect-personal-data-in-transit-encryption/vpn-step-01.png)
 
-5. Create the local network gateway
+5. Create the local network gateway.
 
     ![](media/protect-personal-data-in-transit-encryption/vpn-step-02.png)
 
-6. Configure your VPN device
+6. Configure your VPN device.
 
-7. Create the VPN connection
+7. Create the VPN connection.
 
     ![](media/protect-personal-data-in-transit-encryption/vpn-step-03.png)
 
-8. Verify the VPN connection
+8. Verify the VPN connection.
 
 For more detailed instructions on how to create a site-to-site connection in the Azure portal, see [Create a Site-to-Site  connection in the Azure Portal.] (https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
 
@@ -141,27 +141,27 @@ For more detailed instructions on how to create a site-to-site connection in the
 
 A Point-to-Site VPN creates a secure connection from an individual client computer to a virtual network. This is useful when you  want to connect to Azure from a remote location, such as from home or a hotel or conference center. To create a point-to-site  connection in the Azure portal,
 
-1. Create a virtual network
+1. Create a virtual network.
 
-2. Add a gateway subnet
+2. Add a gateway subnet.
 
-3. Specify a DNS server (optional)
+3. Specify a DNS server. (optional)
 
-4. Create a virtual network gateway
+4. Create a virtual network gateway.
 
-5. Generate certificates
+5. Generate certificates.
 
-6. Add the client address pool
+6. Add the client address pool.
 
-7. Upload the root certificate public certificate data
+7. Upload the root certificate public certificate data.
 
-8. Generate and install the VPN client configuration package
+8. Generate and install the VPN client configuration package.
 
-9. Install an exported client certificate
+9. Install an exported client certificate.
 
-10. Connect to Azure
+10. Connect to Azure.
 
-11. Verify your connection
+11. Verify your connection.
 
 For more detailed instructions, see [Configure a Point-to-Site connection to a VNet using certificate authentication: Azure Portal.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
 
@@ -184,7 +184,7 @@ is supported for the Data Lake Store REST interfaces.
 
 The company can accomplish its goal of protecting personal data and the privacy of such data by enforcing HTTPS connections to Azure Storage, using Shared Access Signatures and enabling Secure Transfer Required on the storage accounts. They can also protect personal data by using SMB 3.0 connections and implementing client-side encryption. Site-to-site VPN connections from the corporate network to the Azure virtual network and point-to-site VPN connections from individual users will create a secure tunnel through which personal data can securely travel. Microsoft’s default encryption practices will further protect the privacy of personal data.
 
-## Next Steps:
+## Next steps
 
 - [Azure Data Security and Encryption Best Practices](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices)
 

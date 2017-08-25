@@ -1,6 +1,6 @@
----
-title: Protect personal data with identity and access controls | Microsoft Docs
-description: Article part of a series of articles to help you use Azure to protect personal data
+﻿---
+title: Protect personal data with Azure identity and access controls | Microsoft Docs
+description: Using Azure identity and access controls to help you protect your personal data
 services: security
 documentationcenter: na
 author: Barclayn
@@ -166,7 +166,7 @@ To enable MFA by changing user state, do the following:
 
 ![](media/protect-personal-data-identity-access-controls/quick-create.png)
 
-1. Confirm your selection in the pop-up window that opens.  Users for whom MFA has been enabled will be asked to register the next time they sign in.
+7. Confirm your selection in the pop-up window that opens.  Users for whom MFA has been enabled will be asked to register the next time they sign in.
 
 To enable Azure MFA with a conditional access policy, do the following:
 
@@ -184,7 +184,7 @@ To enable Azure MFA with a conditional access policy, do the following:
 
 For information on how to configure Azure MFA settings to set up fraud alerts, create a one-time bypass, use custom voice messages, configure caching, specify trusted IPs, create app passwords, enable remembering MFA for devices that users trust, and select verification methods, see [Configure Azure Multi-Factor Authentication Settings.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next)
 
-## Next Steps:
+## Next steps
 
 - [Securing privileged access in Azure AD](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/active-directory-securing-privileged-access)
 

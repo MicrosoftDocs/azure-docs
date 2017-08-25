@@ -1,6 +1,6 @@
----
-title: Protect personal data with network security features | Microsoft Docs
-description: Article part of a series of articles to help you use Azure to protect personal data
+﻿---
+title: Protect personal data with Azure network security features | Microsoft Docs
+description: Protect personal data using Azure network security features
 services: security
 documentationcenter: na
 author: Barclayn
@@ -75,27 +75,27 @@ To create a new application gateway with WAF enabled, do the following:
 
 ![creating application gateways](media/protect-netsec/app-gateway-01.png)
 
-1. In the **Basics** blade that appears, enter the values for the following fields: Name, Tier (Standard or WAF), SKU size (Small, Medium, or Large),
+5. In the **Basics** blade that appears, enter the values for the following fields: Name, Tier (Standard or WAF), SKU size (Small, Medium, or Large),
     Instance count (2 for high availability), Subscription, Resource group, and Location.
 
-2. In the **Settings** blade that appears under **Virtual network**, click **Choose a virtual network**. This step opens enter the Choose virtual
+6. In the **Settings** blade that appears under **Virtual network**, click **Choose a virtual network**. This step opens enter the Choose virtual
     network blade.
 
-3. Click **Create new** to open the **Create virtual network** blade.
+7. Click **Create new** to open the **Create virtual network** blade.
 
-4. Enter the following values: Name, Address space, Subnet name, Subnet address range. Click **OK**.
+8. Enter the following values: Name, Address space, Subnet name, Subnet address range. Click **OK**.
 
-5. On the **Settings** blade under **Frontend IP configuration**, choose the IP address type.
+9. On the **Settings** blade under **Frontend IP configuration**, choose the IP address type.
 
-6. Click **Choose a public IP address,** then **Create new.**
+10. Click **Choose a public IP address,** then **Create new.**
 
-7. Accept the default value, and click **OK.**
+11. Accept the default value, and click **OK.**
 
-8. On the **Settings** blade under **Listener configuration**, select to use HTTP or HTTPS under **Protocol**. To use HTTPS, a certificate is required.
+12. On the **Settings** blade under **Listener configuration**, select to use HTTP or HTTPS under **Protocol**. To use HTTPS, a certificate is required.
 
-9. Configure the WAF specific settings: **Firewall status** (**Enabled**) and **Firewall mode** (**Prevention**). If you choose **Detection** as the mode, traffic is only logged.
+13. Configure the WAF specific settings: **Firewall status** (**Enabled**) and **Firewall mode** (**Prevention**). If you choose **Detection** as the mode, traffic is only logged.
 
-10. Review the **Summary** page and click **OK**. Now the application gateway is queued up and created.
+14. Review the **Summary** page and click **OK**. Now the application gateway is queued up and created.
 
 After the application gateway has been created, you can navigate to it in the portal and continue configuration of the application gateway.
 
@@ -150,7 +150,7 @@ The new rule will appear in the NSG after a few seconds.
 For more instructions on how to create NSGs in subnets, create rules, and associate an NSG with a front-end and back-end subnet, see [Create network
 security groups using the Azure portal.](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal)
 
-## Next Steps:
+## Next steps
 
 [Azure Network Security](https://azure.microsoft.com/blog/azure-network-security/)
 

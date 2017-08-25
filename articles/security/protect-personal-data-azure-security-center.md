@@ -1,6 +1,6 @@
----
+﻿---
 title: Protect personal data with Azure Security Center | Microsoft Docs
-description: Article part of a series of articles to help you use Azure to protect personal data
+description: protect personal data using Azure security center
 services: security
 documentationcenter: na
 author: Barclayn
@@ -205,7 +205,7 @@ If a Virtual Machine does not have an integrated vulnerability assessment soluti
 
 For further instructions on how to implement a vulnerability assessment solution, see [Vulnerability Assessment in Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
 
-## Next Steps:
+## Next steps
 
 - [Azure Security Center quick start guide](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
