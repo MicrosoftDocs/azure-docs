@@ -137,7 +137,7 @@ aci-tutorial-app
 And then to see the tags for a specific image, use the [az acr repository show-tags](/cli/azure/acr/repository#show-tags) command.
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
+az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
 ```
 
 Output:
