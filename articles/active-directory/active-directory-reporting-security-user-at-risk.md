@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -59,6 +59,16 @@ Selecting a user opens the related user data blade.
 For users that are at risk, you can review the user’s sign-in history and reset the password if necessary.
 
 ![Risky Sign-ins](./media/active-directory-reporting-security-user-at-risk/46.png)
+
+
+This dialog provides you with an option to:
+
+- Download the report
+
+- Search users
+
+![Risky Sign-ins](./media/active-directory-reporting-security-user-at-risk/16.png)
+
 
 ## Azure Active Directory premium editions
 
