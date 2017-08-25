@@ -435,6 +435,12 @@ In the example below, you would perform a combined snapshot that covers the volu
 2,7,12,17,22,27,32,37,42,47,52,57 * * * *  ./azure_hana_backup.pl log HM3 logback 48
 ```
 
+Illustrated in a graphic, sequences of the example above would look like:
+
+![Relation between backups and snapshots](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot.PNG)
+
+SAP HANA is performing regular writes against the /hana/log volume to document the committed changes to the database. On a regular basis, SAP HANA writes a savepoint to the /hana/data volume. As specified in crontab, a SAP HANA transaction log backup is executed every 5 minuntes. You also see a SAP HANA snapshot being executed every hour as a result of triggering a combined storage snapshot over the /hana/data, /hana/log and /hana/shared volume (/hana/shared volume contains /usr/sap). After the HANA snapshot succeded, the combined storage snapshot gets executed. As instructed in crontab every 5 minutes, around 2 minutes after the HANA transaction log backup, the storage snapshot on the /hana/logbackup volume gets executed.
+
 
 >[!IMPORTANT]
 > The use of storage snapshots for SAP HANA backups is valuable only when the snapshots are performed in conjunction with SAP HANA transaction log backups. These transaction log backups need to be able to cover the time periods between the storage snapshots. If you've set a commitment to users of a point-in-time recovery of 30 days, you need the following:
