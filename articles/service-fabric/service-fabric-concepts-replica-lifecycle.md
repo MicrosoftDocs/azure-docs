@@ -134,3 +134,5 @@ The following section describes replica role transitions and some example scenar
 
 ## Next steps
 For more information on Service Fabric concepts, see the following articles:
+
+- [Reliable Services lifecycle - C#](service-fabric-reliable-services-lifecycle.md)
