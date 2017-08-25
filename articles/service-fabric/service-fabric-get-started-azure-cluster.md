@@ -40,15 +40,15 @@ Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
 
 5. Select **Node type 1 (Primary)** and fill out the **Node type configuration** form.  Enter a node type name and set the [Durability tier](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) to "Bronze."  Select a VM size.
 
-Node types define the VM size, number of VMs, custom endpoints, and other settings for the VMs of that type. Each node type defined is set up as a separate virtual machine scale set, which is used to deploy and managed virtual machines as a set. Each node type can be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.  The first, or primary, node type is where Service Fabric system services are hosted and must have five or more VMs.
+    Node types define the VM size, number of VMs, custom endpoints, and other settings for the VMs of that type. Each node type defined is set up as a separate virtual machine scale set, which is used to deploy and managed virtual machines as a set. Each node type can be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.  The first, or primary, node type is where Service Fabric system services are hosted and must have five or more VMs.
 
-For any production deployment, [capacity planning](service-fabric-cluster-capacity.md) is an important step.  For this quick start, however, you aren't running applications so select a *DS1_v2 Standard* VM size.  Select "Silver" for the [reliability tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) and an initial virtual machine scale set capacity of 5.  
+    For any production deployment, [capacity planning](service-fabric-cluster-capacity.md) is an important step.  For this quick start, however, you aren't running applications so select a *DS1_v2 Standard* VM size.  Select "Silver" for the [reliability tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) and an initial virtual machine scale set capacity of 5.  
 
-Custom endpoints open up ports in the Azure load balancer so that you can connect with applications running on the cluster.  Enter "80, 8172" to open up ports 80 and 8172.
+    Custom endpoints open up ports in the Azure load balancer so that you can connect with applications running on the cluster.  Enter "80, 8172" to open up ports 80 and 8172.
 
-Do not check the **Configure advanced settings** box, which is used for customizing TCP/HTTP management endpoints, application port ranges, [placement constraints](service-fabric-cluster-resource-manager-configure-services.md#placement-constraints), and [capacity properties](service-fabric-cluster-resource-manager-metrics.md).    
+    Do not check the **Configure advanced settings** box, which is used for customizing TCP/HTTP management endpoints, application port ranges, [placement constraints](service-fabric-cluster-resource-manager-configure-services.md#placement-constraints), and [capacity properties](service-fabric-cluster-resource-manager-metrics.md).    
 
-Select **OK**.
+    Select **OK**.
 
 6. In the **Cluster configuration** form, set **Diagnostics** to **On**.  For this quickstart, you do not need to enter any [fabric setting](service-fabric-cluster-fabric-settings.md) properties.  In **Fabric version**, select **Automatic** upgrade mode so that Microsoft automatically updates the version of the fabric code running the cluster.  Set the mode to **Manual** if you want to [choose a supported version](service-fabric-cluster-upgrade.md) to upgrade to. 
 
@@ -109,60 +109,55 @@ Delete a resource group in the Azure portal:
 
 
 ## Use Azure Powershell to deploy a secure cluster
+1. Download the [Azure Powershell module version 4.0 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) on your machine.
 
-
-1) Download the [Azure Powershell module version 4.0 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) on your machine.
-
-2) Open a Windows PowerShell window, Run the following command. 
+2. Open a Windows PowerShell window, Run the following command. 
 	
-```powershell
+    ```powershell
 
-Get-Command -Module AzureRM.ServiceFabric 
-```
+    Get-Command -Module AzureRM.ServiceFabric 
+    ```
 
-You should see an output similar to the following.
+    You should see an output similar to the following.
 
-![ps-list][ps-list]
+    ![ps-list][ps-list]
 
-3) Login to Azure and Select the subscription to which you want to create the cluster
+3. Login to Azure and Select the subscription to which you want to create the cluster
 
-```powershell
+    ```powershell
 
-Login-AzureRmAccount
+    Login-AzureRmAccount
 
-Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+    Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+    ```
 
-```
-
-4) Run the following command to now create a secure cluster. Do not forget to customize the parameters. 
+4. Run the following command to now create a secure cluster. Do not forget to customize the parameters. 
 
 
-````powershell
+    ````powershell
 
-$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
-$RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-$RDPuser="vmadmin"
-$RGname="mycluster" # this is also the name of your cluster
-$clusterloc="SouthCentralUS"
-$subname="$RGname.$clusterloc.cloudapp.azure.com"
-$certfolder="c:\mycertificates\"
-$clustersize=1 # can take values 1, 3-99
+    $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
+    $RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+    $RDPuser="vmadmin"
+    $RGname="mycluster" # this is also the name of your cluster
+    $clusterloc="SouthCentralUS"
+    $subname="$RGname.$clusterloc.cloudapp.azure.com"
+    $certfolder="c:\mycertificates\"
+    $clustersize=1 # can take values 1, 3-99
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+    New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+    ````
 
-````
+    The command can take anywhere from 10 minutes to 30 minutes to complete, at the end of it, you should get an output similar to the following. The output has information about the certificate, the KeyVault where it was uploaded to, and the local folder where the certificate is copied. 
 
-The command can take anywhere from 10 minutes to 30 minutes to complete, at the end of it, you should get an output similar to the following. The output has information about the certificate, the KeyVault where it was uploaded to, and the local folder where the certificate is copied. 
+    ![ps-out][ps-out]
 
-![ps-out][ps-out]
+5. Copy the entire output and save to a text file as we need to refer to it. Make a note of the following information from the output. 
 
-5) Copy the entire output and save to a text file as we need to refer to it. Make a note of the following information from the output.
- 
-
-- **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
-- **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
-- **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
-- **ClientConnectionEndpointPort** : 19000
+    - **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
+    - **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
+    - **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
+    - **ClientConnectionEndpointPort** : 19000
 
 ### Install the certificate on your local machine
   
