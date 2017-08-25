@@ -129,17 +129,17 @@ You can update the list of BGP community values attached to a circuit by selecti
 
 ## <a name="detach"></a>To detach a route filter from an ExpressRoute circuit
 
-**This operation can be performed in PowerShell only.**
+To detach a circuit from the route filter, right click on the circuit and click on "disassociate".
 
-Once a route filter is detached from the ExpressRoute circuit, no prefixes are advertised through the BGP session. You can detach a route filter from an ExpressRoute circuit using the following command:
-  
-```powershell
-$ckt.Peerings[0].RouteFilter = $null
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
+![Create a route filter](.\media\how-to-routefilter-portal\DetachRouteFilter.png) 
+
 
 ## <a name="delete"></a>To delete a route filter
 
 You can delete a route filter by selecting the delete button. 
 
 ![Create a route filter](.\media\how-to-routefilter-portal\DeleteRouteFilter.png) 
+
+## Next steps
+
+For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
