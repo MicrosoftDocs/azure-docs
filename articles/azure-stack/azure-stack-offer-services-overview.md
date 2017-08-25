@@ -26,7 +26,7 @@ Microsoft Azure Stack is a hybrid cloud platform that lets you deliver services 
 
 You can even combine services to integrate and build complex solutions for different users.
 
-To deliver these services to your users, you must [create plans, offers, and quotas](azure-stack-plan-offer-quota-overview.md). Your users can then subscribe to your offers to use the services.
+To deliver these services to your users, you must create [plans, offers, and quotas](azure-stack-plan-offer-quota-overview.md). Your users can then subscribe to your offers to use the services.
 
 ## Plan your service offers
 
