@@ -1,6 +1,6 @@
 ﻿---
 title: Discover, identify, and classify personal data in Microsoft Azure | Microsoft Docs
-description: Learn about searching, classifying, discovering and identifying data
+description: Learn about searching, classifying, discovering, and identifying data
 services: security
 documentationcenter: na
 author: barclayn
@@ -22,7 +22,7 @@ ms.custom:
 
 This article provides guidance on how to discover, identify, and classify personal data in several Azure tools and services, including using Azure Data Catalog, Azure Active Directory, SQL Database, Power Query for Hadoop clusters in Azure HDInsight, Azure Information Protection, Azure Search, and SQL queries for Azure Cosmos DB.
 
-## Scenario, problem statement, and goal:
+## Scenario, problem statement, and goal
 
 A U.S.-based sports company collects a variety of personal and other data. This includes customers and employee data. The company keeps it in multiple databases, and stores it in several different locations in their Azure environment. In addition to selling sports equipment, they also host and manage registration for elite athletic events around the world, including in the EU, and in some cases the customer data they collect includes medical information.
 
@@ -46,9 +46,9 @@ The company wants to address the following problems:
 - The company’s app developers must be able to discover customer and employee personal data in the apps they’ve built, which they can do with Azure Search.
 - Developers must be able to find personal data in their document database.
 
-## Azure Active Directory: data discovery
+## Azure Active Directory: Data discovery
 
-[Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) is Microsoft’s cloud-based, multi-tenant directory and identity management service. You can locate customer and employee user profiles and user work information that contain personal data in your [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) (AAD) environment by using the [Azure portal](https://portal.azure.com/).
+[Azure Active Directory](https://azure.microsoft.com/services/active-directory/) is Microsoft’s cloud-based, multi-tenant directory and identity management service. You can locate customer and employee user profiles and user work information that contain personal data in your [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (AAD) environment by using the [Azure portal](https://portal.azure.com/).
 
 This is particularly helpful if you want to find or change personal data for a specific user. You can also add or change user profile and work information. You must sign in with an account that’s a global admin for the directory.
 
@@ -75,7 +75,7 @@ This is particularly helpful if you want to find or change personal data for a s
 
 7. If you need to add or change user work information, you can do so, and then, in the command bar, select **Save.**
 
-## Azure SQL Database: data discovery
+## Azure SQL Database: Data discovery
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50) is a cloud database that helps developers build and maintain applications. Personal data can be found in [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50) using standard SQL queries. Azure SQL elastic query (preview) enables users to perform cross-database queries.
 
@@ -159,7 +159,7 @@ Source: [Connect Excel to Hadoop by using Power Query](../hdinsight/hdinsight-co
 
 ## Azure Information Protection: personal data classification for documents and email
 
-[Azure Information Protection](https://www.microsoft.com/en-us/cloud-platform/azure-information-protection) can help Azure customers apply labels to classify and protect internally or externally shared documents and email communications. Some of these items may contain customer or employee personal information. Rules and conditions can be defined automatically or manually, by administrators or by users. For example, if a user is saving a document that includes credit card information, he or she would see a label recommendation that was configured by the administrator.
+[Azure Information Protection](https://www.microsoft.com/cloud-platform/azure-information-protection) can help Azure customers apply labels to classify and protect internally or externally shared documents and email communications. Some of these items may contain customer or employee personal information. Rules and conditions can be defined automatically or manually, by administrators or by users. For example, if a user is saving a document that includes credit card information, he or she would see a label recommendation that was configured by the administrator.
 
 ### How do I try it?
 
@@ -196,8 +196,8 @@ Quickstart tutorial. If you’d like to do this in a language other than .NET, s
 
 [SQL Database Query Editor available in Azure portal] (https://azure.microsoft.com/blog/t-sql-query-editor-in-browser-azure-portal/)
 
-[What is Azure Information Protection?](https://docs.microsoft.com/en-us/information-protection/understand-explore/what-is-information-protection)
+[What is Azure Information Protection?](https://docs.microsoft.com/information-protection/understand-explore/what-is-information-protection)
 
-[What is Azure Rights Management?](https://docs.microsoft.com/en-us/information-protection/understand-explore/what-is-azure-rms)
+[What is Azure Rights Management?](https://docs.microsoft.com/information-protection/understand-explore/what-is-azure-rms)
 
 [Azure Information Protection: Ready, set, protect!](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/21/azure-information-protection-ready-set-protect/)
