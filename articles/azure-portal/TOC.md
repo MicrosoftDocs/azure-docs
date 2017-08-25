@@ -28,7 +28,7 @@
 ### [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # Related
-## [Azure resource manager template functions](../azure-resource-manager/resource-group-template-functions.md)
+## [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md)
 ## [Best practices for Autoscale](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Common metrics for Autoscale](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ## [Webhooks for Autoscale notifications](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
