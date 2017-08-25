@@ -247,8 +247,9 @@ Remember that you don't know what IP in your Point to Site IP range that your ap
 Additional debug steps include:
 
 * log onto another VM in your VNet and attempt to reach your resource host:port from there.  There are some TCP ping utilities that you can use for this purpose or can even use telnet if need be.  The purpose here is just to determine if connectivity is there from this other VM. 
-* bring up an application on another VM and test access to that host and port from the console from your app  
-  ####on-premises resources####
+* bring up an application on another VM and test access to that host and port from the console from your app
+
+#### On-premises resources ####
   If your cannot reach resources on-premises then the first thing you should check is if you can reach a resource in your VNet.  If that is working then the next steps are pretty easy.  From a VM in your VNet you need to try to reach the on-premises application.  You can use telnet or a TCP ping utility.  If your VM can't reach your on-premises resource then first make sure your Site to Site VPN connection is working.  If it is working then check the same things noted earlier as well as the on-premises gateway configuration and status.  
 
 Now if your VNet hosted VM can reach your on-premises system but your app can't then the reason is likely one of the following:
