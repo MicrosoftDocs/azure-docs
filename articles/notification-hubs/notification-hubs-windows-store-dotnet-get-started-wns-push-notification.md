@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Notification Hubs for Windows Universal Platform Apps | Microsoft Docs
+title: Get started with Azure Notification Hubs for Universal Windows Platform apps | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to push notifications to a Windows Universal Platform application.
 services: notification-hubs
 documentationcenter: windows
@@ -17,28 +17,30 @@ ms.date: 10/03/2016
 ms.author: yuaxu
 
 ---
-# Getting started with Notification Hubs for Windows Universal Platform Apps
+# Get started with Notification Hubs for Universal Windows Platform apps
+
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## Overview
-This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Universal Windows Platform (UWP) app.
+This article shows you how to use Azure Notification Hubs to send push notifications to a Universal Windows Platform (UWP) app.
 
-In this tutorial, you create a blank Windows Store app that receives push notifications by using the Windows Push Notification Service (WNS). When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app.
+In this article, you create a blank Windows Store app that receives push notifications by using the Windows Push Notification Service (WNS). When you're finished, you'll be able to use your notification hub to broadcast push notifications to all devices that are running your app.
 
 ## Before you begin
 [!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
-The completed code for this tutorial can be found on GitHub [here](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
+The completed code for this tutorial can be found on [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
 
 ## Prerequisites
 This tutorial requires the following:
 
 * [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) or later
-* [Universal Windows App Development Tools installed](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
-* An active Azure account <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
+* [Universal Windows Platform app-development tools installed](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
+* An active Azure account  
+    If you don't have an account, you can create a free trial account in just a couple of minutes. For more information, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
 * An active Windows Store account
 
-Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Windows Universal Platform apps.
+Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Universal Windows Platform apps.
 
 ## Register your app for the Windows Store
 To send push notifications to UWP apps, you must associate your app to the Windows Store. You must then configure your notification hub to integrate with WNS.
@@ -47,7 +49,7 @@ To send push notifications to UWP apps, you must associate your app to the Windo
 
 2. Type a name for your app and click **Reserve app name**. This creates a new Windows Store registration for your app.
 
-3. In Visual Studio, create a new Visual C# Store Apps project by using the Windows Universal **Blank App** template and click **OK**.
+3. In Visual Studio, create a new Visual C# Store Apps project by using the Universal Windows Platform **Blank App** template, and then select **OK**.
 
 4. Accept the defaults for the target and minimum platform versions.
 
