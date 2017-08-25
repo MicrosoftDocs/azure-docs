@@ -269,11 +269,11 @@ To assign Britta Simon to SAP Business Object Cloud:
 	
 ### Test single sign-on
 
-In this section, you test your Azure AD single sign-on set-up by using the access panel.
+In this section, you test your Azure AD single sign-on configuration by using the access panel.
 
 When you select the SAP Business Object Cloud tile in the access panel, you should be automatically signed in to your SAP Business Object Cloud application.
 
-For more information about the access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md). In this section, you test your Azure AD single sign-on configuration using the access panel.
+For more information about the access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
