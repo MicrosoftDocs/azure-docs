@@ -46,6 +46,14 @@ To create a web app and configuring it to run a custom Docker container, you can
 az webapp create -n sname -g rgname -p pname -i elnably/dockerimagetest
 ```
  
+## Activate the Docker container logging
+
+To activate the Docker container logging, you can use the following command:
+
+```azurecli-interactive
+az webapp log config -n sname -g rgname --web-server-logging filesystem
+```
+ 
 ## Change the custom Docker container for an existing Web App on Linux App
 
 To change a previously created app, from the current Docker image to a new image, you can use the following command:
