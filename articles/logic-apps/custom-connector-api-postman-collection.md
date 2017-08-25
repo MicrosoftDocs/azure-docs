@@ -1,6 +1,6 @@
 ---
 title: Describe your custom APIs with Postman - Azure Logic Apps | Microsoft Docs
-description: Create Postman collections to describe, group, and organize your custom APIs for use in logic apps
+description: Create Postman collections to describe, group, and organize your custom APIs
 author: ecfan
 manager: anneta
 editor: 
@@ -17,16 +17,16 @@ ms.date: 09/1/2017
 ms.author: LADocs; estfan
 ---
 
-# Describe your custom APIs with Postman for logic apps
+# Describe your custom APIs with Postman
 
-[Postman](https://www.getpostman.com/) makes API development faster and easier. 
+[Postman](https://www.getpostman.com/) makes your API development faster and easier. 
 This tutorial shows how to create a [Postman collection](https://www.getpostman.com/docs/postman/collections/creating_collections) 
-for the [Azure Cognitive Services Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/), 
-or more specifically, the [Detect Language API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7). 
+and as the example, uses the [Azure Cognitive Services Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/), 
+or more specifically, the [Detect Language API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 This API identifies the language, sentiment, and key phrases in text that you pass 
 to the API. You can then use your Postman collection to easily create 
-[custom connectors](../logic-apps/logic-apps-custom-api-connector-register.md) 
-for Azure Logic Apps.
+[custom APIs and connectors](../logic-apps/logic-apps-custom-api-connector-register.md) 
+for Azure Logic Apps, Microsoft Flow, or Microsoft PowerApps.
 
 ## Prerequisites
 
@@ -149,8 +149,9 @@ and browse to the location where you want to save the JSON file.
 
    ![Choose export format: "Collection v1"](./media/logic-apps-postman-collection/09-export-format.png)
    
-You can now use this Postman collection for creating a custom connector in Logic Apps. 
-After you export the collection, import the JSON file. **APPLIES TO LOGIC APPS?**
+You can now use this Postman collection for creating custom APIs and connectors. 
+After you export the collection, you can import the JSON file into Azure Logic Apps, 
+Microsoft Flow, and Microsoft PowerApps.
 
 > [!IMPORTANT]
 > **DOES THIS APPLY TO LOGIC APPS??**
@@ -160,8 +161,9 @@ After you export the collection, import the JSON file. **APPLIES TO LOGIC APPS?*
 > such as `Ocp-Apim-Subscription-Key` in the **Security** section **FLOW ONLY? - WHAT SECURITY SECTION?**,
 > and remove them from actions and triggers.
 
-For more information, see [Register and use custom APIs (connectors) in Logic Apps](../logic-apps/logic-apps-custom-api-connector-register.md).
-
 ## Next steps
+
+[Register custom APIs and connectors for Azure Logic Apps](../logic-apps/logic-apps-custom-api-connector-register.md)
+
 
 

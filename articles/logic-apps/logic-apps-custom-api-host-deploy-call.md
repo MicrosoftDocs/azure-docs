@@ -87,4 +87,4 @@ you can always create a request with the [HTTP action](../connectors/connectors-
 
 ## Next steps
 
-* [Check logic app performance with diagnostic logs and alerts](logic-apps-monitor-your-logic-apps.md)
+* [Custom connectors overview](../logic-apps/custom-connector-overview.md)

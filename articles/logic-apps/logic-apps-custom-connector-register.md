@@ -1,3 +1,10 @@
+## INTEGRATE WITH CONTENT BELOW: Add your custom connector to Azure Logic Apps
+
+
+
+
+5. Choose **Create** so that Azure creates a connection to your custom connector.
+
 ## Add your connector to Azure Logic Apps
 
 Now that you configured your Azure AD app, add your connector. 
@@ -7,7 +14,8 @@ You need to have these items for creating your custom connector:
 Azure resource group, and location to use for your connector
 * The location or path to the Swagger file that describes your API. 
 
-  For this tutorial, you can use this [sample Azure Resources Manager OpenAPI file](http://pwrappssamples.blob.core.windows.net/samples/AzureResourceManager.json).
+  For this tutorial, you can use the 
+  [sample Azure Resources Manager OpenAPI file](http://pwrappssamples.blob.core.windows.net/samples/AzureResourceManager.json).
 
 * An icon that represents your connector
 * A short description for your connector
@@ -36,7 +44,7 @@ In the toolbar, choose **Edit**.
 your connector as described in these tables.
 
    1. For **Custom connectors**, select the option 
-   so you can provide the Swagger file that describes your API.
+   so you can upload the OpenAPI (Swagger) file that describes connector.
 
       |Option|Format|Description|
       |:-----|:-----|:----------|
@@ -58,19 +66,21 @@ your connector as described in these tables.
 
    3. When you're done, choose **Continue**.
 
-5. On the **Security** pane, choose **Edit** so you can select the authentication 
-type that your API uses. 
+5. On the **Security** pane, choose **Edit** so you can 
+select the authentication type that your API uses. 
 
-because the OpenAPI file uses our AAD application for authentication, we need to give Flow some information about our application.  Under **Client id**, type the AAD **Application ID** you noted earlier.  For client secret, use the **key**.  And finally, for **Resource URL**, type `https://management.core.windows.net/`.
+   In this example, the OpenAPI file uses an Azure AD app for authentication, 
+   so you must provide information about the Azure AD app to Logic Apps. 
+   
+   1. Under **Client id**, type the AAD **Application ID** you noted earlier. 
+   2. For the client secret, use the **key**. 
+   3. For **Resource URL**, type `https://management.core.windows.net/`.
 
-    > [!IMPORTANT] Be sure to include the Resource URL exactly as written above, including the trailing slash.
+      > [!IMPORTANT] Make sure that you include the **Resource URL** exactly as written above, 
+      > including the trailing slash.
 
+6. Now that the custom connector is registered, 
+you must create a connection to the custom connector 
+so that you can use the connector in your logic apps. 
 
-5. Now that the custom connector is registered, you must create a connection to the custom connector so that you can use it in your logic apps. 
-
-> [!NOTE] The sample OpenAPI does not define the full set of ARM operations 
-> and currently only contains the [List all subscriptions](https://msdn.microsoft.com/library/azure/dn790531.aspx) operation. 
-> You can edit this OpenAPI or create another OpenAPI file 
-> using the [online OpenAPI editor](http://editor.swagger.io/).
->
-> This process can be used to access any RESTful API authenticated using Azure AD.
+## Next steps

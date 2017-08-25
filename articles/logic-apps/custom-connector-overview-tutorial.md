@@ -1,4 +1,4 @@
----
+fc---
 title: Register your custom connectors - Azure Logic Apps | Microsoft Docs
 description: Register your custom connectors for Azure Logic Apps
 author: ecfan
@@ -84,18 +84,19 @@ For Microsoft technologies, we recommend one of these platforms:
    You can allow unauthenticated access to your APIs, 
    but we don't recommend that.
 
-3. **Describe your API** using one of these industry-standard ways 
-so that Logic Apps can connect to your API:
+3. **Describe your API** with one of these industry-standard 
+ways so that Logic Apps can connect to your API:
 
-   * An OpenAPI file, also known as a Swagger file
+   * An OpenAPI (Swagger) file
    * A Postman collection
 
    You can also build an OpenAPI file in Step 4 
    as part of the registration process.
 
-4. **Register your custom connector** by using a **wizard - WHAT WIZARD** in Logic Apps, 
-where you specify an API description, security details, 
-and other information.
+4. **Register your custom connector** 
+by using the Logic Apps Connector wizard 
+where you specify an API description, 
+security details, and other information.
 
 5. **Include your custom connector in a logic app**. 
 In your logic app, create a connection to your connector, 
@@ -123,7 +124,7 @@ such as Azure, Amazon Web Services (AWS), Heroku, Google Cloud, and more
 * A custom line-of-business API that's deployed to your network 
 as long as that API is exposed on the public internet
 
-> [!NOTE]
+> [!IMPORTANT]
 > Your file size must be less than 1MB.
 
 OpenAPI 2.0, previously known as Swagger, 
