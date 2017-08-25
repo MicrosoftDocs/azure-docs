@@ -16,13 +16,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/20/2017
+ms.date: 07/21/2017
 ms.author: nitinme
 
 ---
 # Create an Apache Spark cluster in Azure HDInsight
 
-In this article, you learn how to create an Apache Spark cluster in Azure HDInsight.
+In this article, you learn how to create an Apache Spark cluster in Azure HDInsight. For information on Spark on HDInsight, see [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md).
 
    ![Quickstart diagram describing steps to create an Apache Spark cluster on Azure HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Spark quickstart using Apache Spark in HDInsight. Steps illustrated: create a cluster; run Spark interactive query")
 
@@ -111,10 +111,16 @@ When you use a Jupyter notebook configured for your HDInsight Spark cluster, you
 
 7. Shut down the notebook to release the cluster resources after you have finished running the application. To do so, from the **File** menu on the notebook, click **Close and Halt**.
 
-## Next step
+8. If you plan to complete the next steps at a later time, make sure you delete the HDInsight cluster you created in this article. 
 
-In this article you learned how to create an HDInsight Spark cluster and run a basic Spark SQL query. Now learn how to [Load data into HDInsight Spark and run an interactive query](hdinsight-apache-spark-load-data-run-query.md).
+    [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-If you plan to complete the next steps at a later time, make sure you delete the HDInsight cluster. 
+## Next step 
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+In this article you learned how to create an HDInsight Spark cluster and run a basic Spark SQL query. Advance to the next article to learn how to use an HDInsight Spark cluster to run interactive queries on sample data.
+
+> [!div class="nextstepaction"]
+>[Run interactive queries on an HDInsight Spark cluster](hdinsight-apache-spark-load-data-run-query.md)
+
+
+

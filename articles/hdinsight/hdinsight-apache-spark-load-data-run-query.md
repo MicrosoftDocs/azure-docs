@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 07/21/2017
 ms.author: nitinme
 
 ---
@@ -76,20 +76,21 @@ To run queries, we use sample data that is by default available in the storage a
 
 6. Create a dataframe and a temporary table (**hvac**) by running the following code. For this tutorial, we do not create all the columns in the temporary table as compared to the columns in the raw CSV data. 
 
-		# Load the data
-		hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		# Create an RDD from sample data
+        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-		# Create the schema
-		hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
+        # Create a schema for our data
+        Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
 
-		# Parse the data in hvacText
-		hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
-
-		# Create a data frame
-		hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
-
-		# Register the data frame as a table to run queries against
-		hvacdf.registerTempTable("hvac")
+        # Parse the data and create a schema
+        hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
+        hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
+        
+        # Infer the schema and create a table       
+        hvacTable = sqlContext.createDataFrame(hvac)
+        hvacTable.registerTempTable('hvactemptable')
+        dfw = DataFrameWriter(hvacTable)
+        dfw.saveAsTable('hvac')
 
 7. Once the table is created, run interactive query on the data, use the following code.
 
@@ -110,7 +111,10 @@ To run queries, we use sample data that is by default available in the storage a
 
 ## Next step
 
-In this article you learned how to run interactive queries in Spark using Jupyter notebook. The data you registered in Spark can now be pulled into a BI analytics tool such as Power BI and Tableau. See [Spark BI using data visualization tools with Azure HDInsight](hdinsight-apache-spark-use-bi-tools.md).
+In this article you learned how to run interactive queries in Spark using Jupyter notebook. Advance to the next article to see how the data you registered in Spark can be pulled into a BI analytics tool such as Power BI and Tableau. 
+
+> [!div class="nextstepaction"]
+>[Spark BI using data visualization tools with Azure HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
 
 

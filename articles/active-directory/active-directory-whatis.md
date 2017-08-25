@@ -63,7 +63,7 @@ To enhance your Azure Active Directory, you can add paid capabilities using the 
 
 * [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 day trial today and deploy your first cloud solution in under 5 minutes using this link
 
-* Read “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast
+* Read [Getting started with Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-get-started-premium) for tips and tricks on getting an Azure AD tenant up and running fast
 
 **If you are a developer:**
  

@@ -25,9 +25,6 @@
 
 # How To
 ## Manage
-### Accounts
-#### [PowerShell](media-services-manage-with-powershell.md)
-#### [REST](/rest/api/media/mediaservice)
 ### Entities
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
@@ -111,7 +108,6 @@
 ### [on-premises encoders](media-services-live-streaming-with-onprem-encoders.md)
 #### [Portal](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Live streaming with cloud encoder](media-services-manage-live-encoder-enabled-channels.md)
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -169,7 +165,6 @@
 ### [Media Processing](media-services-scale-media-processing-overview.md)
 #### [Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Streaming Endpoints
 #### [Portal](media-services-portal-scale-streaming-endpoints.md)
 
@@ -215,6 +210,7 @@
 ### [Retry logic](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
@@ -222,7 +218,8 @@
 
 # Resources
 ## [Azure Media Services Community](media-services-community.md)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Release notes](media-services-release-notes.md)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=media-services)

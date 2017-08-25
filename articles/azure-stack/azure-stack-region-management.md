@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 07/26/2017
 ms.author: efemmano
 
 ---
@@ -39,7 +39,7 @@ Azure Stack has a set of region management capabilities available in the **Regio
 
 4. **Resource providers**. Resource providers is the place to manage the tenant functionality offered by the components required to run Azure Stack. Each resource provider comes with an administrative experience. This experience can include alerts for the specific provider, metrics, and other management capabilities specific to the resource provider.
  
-5. **Infrastructure roles**. Infrastructure roles are the components necessary to run Azure Stack. Only the infrastructure roles that report alerts are listed. By clicking a role, you can view the alerts associated with the specific role and the role instances where this role is running. Although there is the capability to start, restart, or shut down an infrastructure role instance, we don’t recommend that you do so without guidance from the [Azure Stack forum](https://aka.ms/azurestackforum).
+5. **Infrastructure roles**. Infrastructure roles are the components necessary to run Azure Stack. Only the infrastructure roles that report alerts are listed. By clicking a role, you can view the alerts associated with the specific role and the role instances where this role is running. Although there is the capability to start, restart, or shut down an infrastructure role instance, do **not** do this in a development kit environment. These options are designed only for a multi-node environment, where there is more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the development kit causes system instability.
 
 ## Next steps
 [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md)

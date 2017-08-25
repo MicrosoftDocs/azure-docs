@@ -36,7 +36,7 @@ Check the type of Azure  virtual network gateway:
 
 ### Step 1 Check whether the on-premises VPN device is validated
 
-1. Check whether you are using a [validated VPN device and operating system version](vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides). If the VPN device is not validated, you may have to contact the device manufacturer to see if there is any compatibility issue.
+1. Check whether you are using a [validated VPN device and operating system version](vpn-gateway-about-vpn-devices.md#devicetable). If the VPN device is not validated, you may have to contact the device manufacturer to see if there is any compatibility issue.
 2. Make sure that the VPN device is correctly configured. For more information, see [Editing device configuration samples](vpn-gateway-about-vpn-devices.md#editing).
 
 ### Step 2 Check the Security Association settings(for policy-based Azure virtual network gateways)

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 08/07/2017
 ms.author: juliako
 
 ---
@@ -38,7 +38,7 @@ This section describes the steps you can take to encode your content with Media 
 2. In the **Settings** window, select **Assets**.  
 3. In the **Assets** window, select the asset that you would like to encode.
 4. Press the **Encode** button.
-5. In the **Encode an asset** window, select the "Media Encoder Standard" processor and a preset. For example, if you know your input video has a resolution of 1920x1080 pixels, then you could use the "H264 Multiple Bitrate 1080p" preset. For more information about presets, see [this](media-services-mes-presets-overview.md) article – it is important to select the preset that is most appropriate for your input video. If you have a low resolution (640x360) video, then you should not be using the default "H264 Multiple Bitrate 1080p" preset.
+5. In the **Encode an asset** window, select the "Media Encoder Standard" processor and a preset. For information about presets, see [auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md) and [Task Presets for MES](media-services-mes-presets-overview.md). If you plan to control which encoding preset is used, keep this in mind: it is important to select the preset that is most appropriate for your input video. For example, if you know your input video has a resolution of 1920x1080 pixels, then you could use the "H264 Multiple Bitrate 1080p" preset. If you have a low resolution (640x360) video, then you should not be using "H264 Multiple Bitrate 1080p" preset.
    
    For easier management, you have an option of editing the name of the output asset, and the name of the job.
    

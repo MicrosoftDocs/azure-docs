@@ -122,7 +122,7 @@ Most applications must store data, so regardless of how you decide to host your 
 
 	>**When to use**: When your app stores nonrelational data, such as key-value pairs (tables), blobs, files shares, or messages (queues).
 
-    >**Get started**: Choose from one of these types storage: [blobs](../../storage/storage-dotnet-how-to-use-blobs.md), [tables](../../storage/storage-dotnet-how-to-use-tables.md),     [queues](../../storage/storage-dotnet-how-to-use-queues.md), or [files](../../storage/storage-dotnet-how-to-use-files.md).
+    >**Get started**: Choose from one of these types storage: [blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tables](../../cosmos-db/table-storage-how-to-use-dotnet.md),     [queues](../../storage/queues/storage-dotnet-how-to-use-queues.md), or [files](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 -   **Azure DocumentDB**: A fully managed and scalable NoSQL database service, which features SQL queries over object data. You can access DocumentDB by using existing MongoDB drivers.
 	>**When to use:** When your application needs to be able to execute SQL queries over JSON documents, or if you’re using MongoDB.
@@ -148,7 +148,7 @@ Azure provides several ways to use containers in your applications.
 
 	>**When to use**: When you need to build production-ready, scalable environments that provide additional scheduling and management tools, or when you’re deploying a Docker Swarm cluster.
 
-    >**Get started**: [Deploy a Container Service cluster](../../container-service/container-service-deployment.md).
+    >**Get started**: [Deploy a Container Service cluster](../../container-service/dcos-swarm/container-service-deployment.md).
 
 -   **Docker Machine**: Lets you install and manage a Docker Engine on virtual hosts by using docker-machine commands.
 

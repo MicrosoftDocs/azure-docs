@@ -78,7 +78,8 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 
 
-1. Create some variables. 
+1. Create some variables.
+
     ```powershell
 	$vmName = "myVM"
 	$rgName = "myResourceGroup"

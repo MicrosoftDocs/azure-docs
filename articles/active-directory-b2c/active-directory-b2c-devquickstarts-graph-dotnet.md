@@ -3,9 +3,9 @@ title: 'Azure Active Directory B2C: Use the Graph API | Microsoft Docs'
 description: How to call the Graph API for a B2C tenant by using an application identity to automate the process.
 services: active-directory-b2c
 documentationcenter: .net
-author: gsacavdm
+author: parakhj
 manager: krassk
-editor: bryanla
+editor: parakhj
 
 ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
 ms.service: active-directory-b2c
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/22/2017
-ms.author: gsacavdm
+ms.date: 08/07/2017
+ms.author: parakhj
 
 ---
 # Azure AD B2C: Use the Graph API
-Azure Active Directory (Azure AD) B2C tenants tend to be very large. This means that many common tenant management tasks need to be performed programmatically. A primary example is user management. You might need to migrate an existing user store to a B2C tenant. You may want to host user registration on your own page and create user accounts in Azure AD behind the scenes. These types of tasks require the ability to create, read, update, and delete user accounts. You can do these tasks by using the Azure AD Graph API.
+Azure Active Directory (Azure AD) B2C tenants tend to be very large. This means that many common tenant management tasks need to be performed programmatically. A primary example is user management. You might need to migrate an existing user store to a B2C tenant. You may want to host user registration on your own page and create user accounts in your Azure AD B2C directory behind the scenes. These types of tasks require the ability to create, read, update, and delete user accounts. You can do these tasks by using the Azure AD Graph API.
 
 For B2C tenants, there are two primary modes of communicating with the Graph API.
 

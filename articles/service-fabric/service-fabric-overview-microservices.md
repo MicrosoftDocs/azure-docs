@@ -41,7 +41,7 @@ There are benefits to such a monolithic design approach. It's often simpler to d
 
 Microservices address these downsides and more closely align with the preceding business requirements, but they also have both benefits and liabilities. The benefits of microservices are that each one typically encapsulates simpler business functionality, which you scale up or down, test, deploy, and manage independently. One important benefit of a microservice approach is that teams are driven more by business scenarios than by technology, which the tiered approach encourages. In practice, smaller teams develop a microservice based on a customer scenario and use any technologies they choose. 
 
-In other words, the organization doesn’t need to standardize tech to maintain monolithic applications. Individual teams that own services can do what makes sense for them based on team expertise or what’s most appropriate to solve the problem. In practice, a set of recommended technologies, such as a particular NoSQL store or web application framework, is preferable.
+In other words, the organization doesn’t need to standardize tech to maintain microservice applications. Individual teams that own services can do what makes sense for them based on team expertise or what’s most appropriate to solve the problem. In practice, a set of recommended technologies, such as a particular NoSQL store or web application framework, is preferable.
 
 The downside of microservices comes in managing the increased number of separate entities and dealing with more complex deployments and versioning. Network traffic between the microservices increases as well as the corresponding network latencies. Lots of chatty, granular services are a recipe for a performance nightmare. Without tools to help view these dependencies, it is hard to “see” the whole system. 
 
@@ -142,7 +142,7 @@ Service Fabric provides three broad areas to help you build applications that us
 ***Service Fabric is agnostic on how you build your service, and you can use any technology. However, it does provide built-in programming APIs that make it easier to build microservices.***
 
 ### Migrating existing applications to Service Fabric
-A key approach to Service Fabric is to reuse existing code, which can then be modernized with new microservices. There are five stages to application monderization, and you can start and stop at any of the stages. These are;
+A key approach to Service Fabric is to reuse existing code, which can then be modernized with new microservices. There are five stages to application modernization, and you can start and stop at any of the stages. These are;
 
 1) Take a traditional monolithic application
 2) Lift and Shift - Use containers or guest executables to host existing code in Service Fabric.
@@ -152,7 +152,7 @@ A key approach to Service Fabric is to reuse existing code, which can then be mo
 
 ![Migration to Microservices][Image3]
 
-It is important to emphasis again, that you can **start and stop and any of these stages**, you are not compelled to moved to the next stage. Let's now look at examples for each of these stages.
+It is important to emphasis again, that you can **start and stop at any of these stages**, you are not compelled to moved to the next stage. Let's now look at examples for each of these stages.
 
 **Lift and Shift** - large numbers of companies are lifting and shifting existing monolithic applications into containers to for two reasons;
 

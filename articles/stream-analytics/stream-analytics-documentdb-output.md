@@ -4,7 +4,7 @@ description: Learn how Stream Analytics can target Azure Cosmos DB for JSON outp
 keywords: JSON output
 documentationcenter: ''
 services: stream-analytics,documentdb
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,13 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Target Azure Cosmos DB for JSON output from Stream Analytics
 Stream Analytics can target [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) for JSON output, enabling data archiving and low-latency queries on unstructured JSON data. This document covers some best practices for implementing this configuration.
 
-For those who are unfamiliar with Cosmos DB, take a look at [Azure Cosmos DB’s learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to get started.
+For those who are unfamiliar with Cosmos DB, take a look at [Azure Cosmos DB’s learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to get started. 
+
+Note: Mongo DB API based Cosmos DB collections is currently not supported. 
 
 ## Basics of Cosmos DB as an output target
 The Azure Cosmos DB output in Stream Analytics enables writing your stream processing results as JSON output into your Cosmos DB collection(s). Stream Analytics does not create collections in your database, instead requiring you to create them upfront. This is so that the billing costs of Cosmos DB collections are transparent to you, and so that you can tune the performance, consistency and capacity of your collections directly using the [Cosmos DB APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx). We recommend using one Cosmos DB Database per streaming job to logically separate your collections for a streaming job.
