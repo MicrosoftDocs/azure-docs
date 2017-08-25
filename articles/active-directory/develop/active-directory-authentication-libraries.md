@@ -25,6 +25,11 @@ The Azure Active Directory Authentication Library (ADAL) enables application dev
  - Support for asynchronous method calls
  - And more
 
+> [!NOTE]
+> Looking for the Azure AD v2.0 libraries (MSAL)? Checkout the [MSAL library guide]((https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries). 
+> 
+> 
+
 ### Client Libraries
 
 | Platform | Library | Download | Source Code | Sample | Reference
