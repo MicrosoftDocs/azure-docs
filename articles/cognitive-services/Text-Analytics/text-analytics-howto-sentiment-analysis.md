@@ -12,7 +12,7 @@ ms.date: 08/12/2017
 ms.author: heidist
 ---
 
-# How to detect sentiment in Text Analytics with REST
+# How to detect sentiment in Text Analytics
 
 ## OLD
 

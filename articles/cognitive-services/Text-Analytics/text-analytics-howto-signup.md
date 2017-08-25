@@ -14,20 +14,20 @@ ms.author: heidist
 
 # How to sign up for Text Analytics API
 
-Text Analytics resources are available 24-7 in the cloud. In order to access service operations for analysis of your content, you must sign up to get an access key. On each call to the API, provide the key on the request.
+Text Analytics resources are available 24-7 in the cloud. In order to access service operations for your content, you must sign up to get an access key. Each call to the API requires an access key on the request.
 
-1. Start with an Azure Subscription. You can create a [free account](https://azure.microsoft.com/free/) to experiment at no charge.
++ Start with an Azure Subscription. You can create a [free account](https://azure.microsoft.com/free/) to experiment at no charge.
 
-2. Sign in to the [Azure portal](https://portal.azure.com), create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account), choosing the **Text Analytics API**.
++ Create a [Cognitive Services API account] (https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account), choosing the **Text Analytics API**.
 
-For Text Analytics, there is a Free tier for exploration and evaluation, and billable tiers for production workloads. You can only have one sign-up, but you can eaisly change tiers to accommodate different volumes of requests or data.
+  For Text Analytics, there is a Free tier for exploration and evaluation, and billable tiers for production workloads. You can only have one sign-up, but changing tiers is simple if request or data volumes change.
 
 > [!Note]
-> Cognitive Services has multiple APIs. Each API ships new features and transitions from preview to general availability on separate schedules. For this reason, we ask you to sign up for each API individually.
+> Cognitive Services has multiple APIs. Each API ships new features and transitions from preview to general availability on separate schedules. For this reason, we ask you to sign up for each API indepenentally.
 
 ## How to change tiers
 
-Start with a Free tier and then transition to a billable tier when data size and request volumes require you to do so. Standard billing is offered for graduated levels of transactions. You can switch tiers and still keep the same endpoint and access keys.
+Start with a Free tier and then transition to a billable tier for production workloads. Standard billing is offered at graduated levels. You can switch tiers and still keep the same endpoint and access keys.
 
 1. Sign in to [Azure portal](https://portal.azure.com) and [find your service](text-analytics-howto-accesskey.md).
 

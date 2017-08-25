@@ -16,7 +16,7 @@ ms.author: heidist
 
 **Text Analytics API** is a cloud-based service that provides advanced natural language processing over raw text. Text Analytics API has three main functions: sentiment analysis, key phrase extraction, and language detection.
 
-The API is backed by resources in [Microsoft Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects. Our models are pretrained using an extensive body of text and natural language technologies from Microsoft. 
+The API is backed by resources in [Microsoft Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects. Our models are pretrained using an extensive body of text and natural language technologies from Microsoft. The service analyzes and scores raw text that you provide, directly returning results to the calling application.
 
 ## Capabilities in Text Analytics
 
@@ -37,9 +37,9 @@ Text analysis can mean different things, but in Cognitive Services, APIs are exp
 
 3. [Formulate a request](text-analytics-howto-call-api.md#json-schema) containing your data as raw unstructured text, in JSON. 
 
-4. Post the request to an endpoint established during sign-up, appending one of the following resources: sentiment analysis, key phrase extraction, or language detection. The request is processed immediately.
+4. Post the request to an endpoint established during sign-up, appending one of the following resources: sentiment analysis, key phrase extraction, or language detection.
 
-5. Store or stream the response. Depending on the request, results are either a sentiment score, a collection of extracted keywords, or a language code.
+5. Stream or store the response locally. Depending on the request, results are either a sentiment score, a collection of extracted keywords, or a language code.
 
 Output is returned as a single JSON document, with results for each text document you posted, based on ID. You can subsequently analyze, visualize, or categorize the results into actionable insights.
 

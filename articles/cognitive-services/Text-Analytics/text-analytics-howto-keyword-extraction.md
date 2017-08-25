@@ -12,7 +12,7 @@ ms.date: 08/12/2017
 ms.author: heidist
 ---
 
-# How to extract keywords in Text Analytics with REST
+# How to extract keywords in Text Analytics
 
 TBD
 
