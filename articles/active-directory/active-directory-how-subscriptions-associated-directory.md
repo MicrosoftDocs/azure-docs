@@ -26,7 +26,7 @@ This article covers information about the relationship between an Azure subscrip
 ## Your Azure subscription's relationship to Azure AD
 Your Azure subscription has a trust relationship with Azure AD, which means that it trusts the directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but each subscription trusts only one directory. 
 
-The trust relationship that a subscription has with a directory is unlike the relationship that it has with other resources in Azure (websites, databases, and so on). If a subscription expires, then access to the other resources associated with the subscription also stops. But an Azure AD directory remains in Azure, and you can associate a different subscription with that directory and use that subscription to manage the directory users.
+The trust relationship that a subscription has with a directory is unlike the relationship that it has with other resources in Azure (websites, databases, and so on). If a subscription expires, access to the other resources associated with the subscription also stops. But an Azure AD directory remains in Azure, and you can associate a different subscription with that directory and manage the directory using the new subscription.
 
 ![how subscriptions are associated diagram](./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png)
 
@@ -43,14 +43,14 @@ Azure AD provides the core directory and identity management capabilities behind
 You get the Azure AD service free when you sign up for any of these Microsoft cloud services. If you want to add an additional Azure subscription to an Azure AD directory, you must be signed in with a Microsoft account. If you sign in to Azure with a work or school account, you can't add an Azure subscription to an existing directory because your work or school account can't be authenticated directly by Azure. 
 
 ## To add an existing subscription to your Azure AD directory
-You need to sign in with an account that exists in both the current directory with which the subscription is associated as well as the directory you want to add it to. 
+You must sign in with an account that exists in both the current directory with which the subscription is associated and in the directory you want to add it to. 
 
 1. Sign in to the [Azure Account Center](https://account.windowsazure.com/Home/Index) with an account that is the Account Administrator of the subscription whose ownership you want to transfer.
 2. Ensure that the user who you want to be the subscription owner is in the targeted directory.
 3. Click **Transfer subscription**.
 4. Specify the recipient. The recipient automatically gets an email with an acceptance link.
 5. The recipient clicks the link and follows the instructions, including entering their payment information. When the recipient succeeds, the subscription is transferred. 
-6. The default directory of the subscription is changed to the directory that the user is in if the subscription ownership transfer is successful.
+6. The default directory of the subscription is changed to the directory that the user is in.
 
 
 ## Suggestions to manage both a subscription and a directory
