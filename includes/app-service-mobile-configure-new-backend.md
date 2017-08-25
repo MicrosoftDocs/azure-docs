@@ -7,7 +7,7 @@
 
     ![Azure portal with Mobile Apps Connect to database][connect]
 
-    a. Create a new SQL Database and server.
+    a. Create a new SQL database and server.
 
     ![Azure portal with Mobile Apps create new database and server][server]
 
@@ -25,7 +25,7 @@
     This action creates a new to-do item table in your database. 
 
     >[!IMPORTANT]
-    > Switching an existing back end to Node.js overwrites all contents. To create a .NET back end instead, see [Work with the .NET back-end server SDK for Azure Mobile Apps][instructions].
+    > Switching an existing back end to Node.js overwrites all contents. To create a .NET back end instead, see [Work with the .NET back-end server SDK for Mobile Apps][instructions].
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
