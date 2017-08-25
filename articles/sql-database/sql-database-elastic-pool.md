@@ -11,7 +11,7 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: NA
-ms.date: 07/31/2017
+ms.date: 08/25/2017
 ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
@@ -139,7 +139,7 @@ Pooled databases generally support the same [business continuity features](sql-d
 
 - **Active geo-replication**: For applications that have more aggressive recovery requirements than geo-restore can offer, configure [active geo-replication](sql-database-geo-replication-overview.md).
 
-## Manage SQL Database elastic pools using the Azure portal
+## Manage elastic pools and databases using the Azure portal
 
 ### Creating a new SQL Database elastic pool using the Azure portal
 
@@ -213,7 +213,7 @@ On the **Edit Chart** form, you can select a time range (past hour, today, or pa
 > Only metrics with the same unit of measure can be displayed in the chart at the same time. For example, if you select "eDTU percentage" then you can only select other metrics with percentage as the unit of measure.
 >
 
-[Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
+![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
 ### Manage and monitor databases in an elastic pool
 
@@ -288,7 +288,7 @@ To change the eDTUs or storage limits per pool, and eDTUs per database:
 
 ![Elastic pool resource utilization](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
 
-## Manage SQL Database elastic pools using PowerShell
+## Manage elastic pools and databases using PowerShell
 
 To create and manage SQL Database elastic pools with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). To create and manage databases, servers, and firewall rules, see [Create and manage Azure SQL Database servers and databases using PowerShell](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-powershell). 
 
@@ -313,7 +313,7 @@ To create and manage SQL Database elastic pools with Azure PowerShell, use the f
 > Creation of many databases in an elastic pool can take time when done using the portal or PowerShell cmdlets that create only a single database at a time. To automate creation into an elastic pool, see [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
 >
 
-## Manage SQL Database elastic pools using the Azure CLI
+## Manage elastic pools using the Azure CLI
 
 To create and manage SQL Database elastic pools with the [Azure CLI](/cli/azure/overview), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. 
 
@@ -330,7 +330,7 @@ To create and manage SQL Database elastic pools with the [Azure CLI](/cli/azure/
 |[az sql elastic-pool update](/cli/azure/sql/elastic-pool#update)|Updates an elastic pool.|
 |[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#delete)|Deletes the elastic pool.|
 
-## Manage SQL databases in elastic pools using Transact-SQL
+## Manage databases within elastic pools using Transact-SQL
 
 To create and move databases within existing elastic pools or to return information about an SQL Database elastic pool with Transact-SQL, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to an Azure SQL Database server and pass Transact-SQL commands. To create and manage databases, servers, and firewall rules, see [Create and manage Azure SQL Database servers and databases using Transact-SQL](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-transact-sql).
 
@@ -346,7 +346,7 @@ To create and move databases within existing elastic pools or to return informat
 |[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Returns resource usage statistics for all the elastic database pools in a logical server. For each elastic database pool, there is one row for each 15 second reporting window (four rows per minute). This includes CPU, IO, Log, storage consumption and concurrent request/session utilization by all databases in the pool.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for an Azure SQL database or an Azure SQL Data Warehouse. If logged on to the master database in an Azure SQL Database server, returns information on all databases. For Azure SQL Data Warehouse, you must be connected to the master database.|
 
-## Manage SQL Database elastic pools using the REST API
+## Manage elastic pools using the REST API
 
 To create and manage SQL Database elastic pools using the REST API, see [Azure SQL Database REST API](/rest/api/sql/).
 

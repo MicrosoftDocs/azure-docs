@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/15/2017
+ms.date: 08/25/2017
 ms.author: carlrab
 
 ---
@@ -58,7 +58,7 @@ The duration of the entire scale-up process depends on both the size and service
 * The restore service offerings are different for the various service tiers. If you are downgrading to the **Basic** tier, there is a lower backup retention period - see [Azure SQL Database Backups](sql-database-automated-backups.md).
 * The new properties for the database are not applied until the changes are complete.
 
-## Single database: limitations of P11 and P15 when maximum size greater than 1 TB
+## Single database: limitations of P11 and P15 when the maximum size greater than 1 TB
 
 A maximum size greater than 1 TB for P11 and P15 database is supported in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. The following considerations and limitations apply to P11 and P15 databases with a maximum size greater than 1 TB:
 
@@ -138,7 +138,7 @@ When encountering high session or worker utilization, mitigation options include
 - Increasing the service tier or performance level of the database or elastic pool. <Include pointer to table of resource limits for single databases and elastic pools.>
 - Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
- ## Next steps
+## Next steps
 
 - For information about service tiers, see [Service tiers](sql-database-service-tiers.md).
 - For information about single databases, see [Single database resources](sql-database-resource-limits.md).

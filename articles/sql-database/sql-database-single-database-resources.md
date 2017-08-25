@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/01/2017
+ms.date: 08/25/2017
 ms.author: carlrab
 
 ---
@@ -33,7 +33,7 @@ To set or change the service tier, performance level, or storage amount for a ne
 ![Configure service tier and performance level](./media/sql-database-single-database-resources/change-service-tier.png)
 
 > [!IMPORTANT]
-> Review [Current limitations of P11 and P15 databases with 4-TB maximum size](#single-database-limitations-of-p11-and-p15-when-maximum-size-greater-than-1-tb) when selecting a P11 or P15 service tier.
+> Review [Current limitations of P11 and P15 databases with 4-TB maximum size](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) when selecting a P11 or P15 service tier.
 >
 
 ## Manage single database resources using PowerShell

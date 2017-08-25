@@ -47,7 +47,7 @@ Follow these steps to create a blank SQL database.
    > [!IMPORTANT]
    > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-maximum-size-greater-than-1-tb).  
+   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
@@ -74,13 +74,11 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
    ![server name](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 
 
-3. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
+3. Click **Set server firewall** on the toolbar. The **Firewall settings** page for the SQL Database server opens. 
 
    ![server firewall rule](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 4. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
-
-   ![server firewall rule](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 5. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 

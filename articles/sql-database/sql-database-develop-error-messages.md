@@ -89,7 +89,7 @@ The following errors are caused by excessive use of resources while working with
 
 Related topics:
 
-* More detailed information is available here: [Azure SQL Database resource limits](sql-database-service-tiers.md)
+* More detailed information is available here: [Azure SQL Database resource limits](sql-database-service-tiers.md).
 
 | Error code | Severity | Description |
 | ---:| ---:|:--- |

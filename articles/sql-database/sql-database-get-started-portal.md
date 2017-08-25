@@ -78,7 +78,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
    > [!IMPORTANT]
    > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-maximum-size-greater-than-1-tb).  
+   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 7. For this quick start tutorial, select the **Standard** service tier and then use the slider to select **100 DTUs (S3)** and **400** GB of storage.
@@ -90,7 +90,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
    > [!IMPORTANT]
    > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-maximum-size-greater-than-1-tb).  
+   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
@@ -164,7 +164,7 @@ Now that you have created a sample database in Azure, let’s use the built-in q
 
 ## Clean up resources
 
-Save these resources if you want to go to [Next steps](#next-steps)) and learn how to connect and query your database using a number of different methods. If, however, you wish to delete the resources that you created in this quick start, use the following steps. 
+Save these resources if you want to go to [Next steps](#next-steps) and learn how to connect and query your database using a number of different methods. If, however, you wish to delete the resources that you created in this quick start, use the following steps. 
 
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**. 
