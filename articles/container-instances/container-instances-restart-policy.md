@@ -52,7 +52,7 @@ The method by which you specify a restart policy depends on how you create your 
 * PowerShell
 
   ```powershell
-  New-AzureRmContainer -ResourceGroupName myResourceGroup -Name mycontainer -Location EastUS -RestartPolicy OnFailure
+  New-AzureRmContainer -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/aci-helloworld -IpAddress public -RestartPolicy OnFailure
   ```
 
 * Azure portal
