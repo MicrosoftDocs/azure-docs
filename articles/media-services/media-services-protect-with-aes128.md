@@ -4,7 +4,7 @@ description: Microsoft Azure Media Services enables you to deliver your content 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: ''
 
 ms.assetid: 4d2c10af-9ee0-408f-899b-33fa4c1d89b9
