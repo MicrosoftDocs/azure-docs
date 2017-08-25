@@ -50,24 +50,24 @@ You can continue to use any tiles that you added to **My Dashboard** before your
 You can use the language converter tool in the log search page to convert each one.  There is no method to automatically convert multiple searches without upgrading the workspace.
 
 ### Question: Why are my query results not sorted?
-Results are not sorted by default in the new query language.  Use the [sort operator](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator) to sort your results by one or more properties.
+Results are not sorted by default in the new query language.  Use the [sort operator](https://go.microsoft.com/fwlink/?linkid=856079) to sort your results by one or more properties.
 
-### Known issue: Search results in a list may include properties with no data 
+### Known issue: Search results in a list may include properties with no data
 Log search results in a list may display properties with no data.  Prior to upgrade, these properties wouldn't be included.  This issue will be corrected so that empty properties are not displayed.
 
 ### Known issue: Selecting a value in a chart doesn't display detailed results
 Prior to upgrade, when you selected a value in a chart, it would return a detailed list of records matching the selected value.  After upgrade, only the single summarized line is returned.  This issue is currently being investigated.
 
-## Log Search API 
+## Log Search API
 
 ### Question: Does the Log Search API get updated after I upgrade?
-The [Log Search API](log-analytics-log-search-api.md) has not yet been upgraded to the new search language.  Continue to use the legacy query language with this API, even after you upgrade your workspace.  Updated documentation will become available for the Log Search API when it's updated. 
+The [Log Search API](log-analytics-log-search-api.md) has not yet been upgraded to the new search language.  Continue to use the legacy query language with this API, even after you upgrade your workspace.  Updated documentation will become available for the Log Search API when it's updated.
 
 
 ## Portals
 
 ### Question: Should I use the new Advanced Analytics portal or keep using the Log Search portal?
-You can see a comparison of the two portals at [Portals for creating and editing log queries in Azure Log Analytics](log-analytics-log-search-portals.md).  Each has distinct advantages so you can choose the best one for your requirements.  It's common to write queries in the Advanced Analytics portal and paste them into other places such as View Designer.  You should read about [issues to consider](log-analytics-log-search-portals.md#advanced-analytics-portal) when doing that. 
+You can see a comparison of the two portals at [Portals for creating and editing log queries in Azure Log Analytics](log-analytics-log-search-portals.md).  Each has distinct advantages so you can choose the best one for your requirements.  It's common to write queries in the Advanced Analytics portal and paste them into other places such as View Designer.  You should read about [issues to consider](log-analytics-log-search-portals.md#advanced-analytics-portal) when doing that.
 
 
 ## Power BI

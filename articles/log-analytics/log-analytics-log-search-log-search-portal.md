@@ -23,9 +23,9 @@ ms.author: bwren
 >
 > If your workspace hasn't been upgraded to the new query language, you should refer to [Find data using log searches in Log Analytics](log-analytics-log-searches.md) for information on the current version of the Log Search portal.
 
-This article includes a tutorial that describes how to create log searches and analyze data stored in your Log Analytics workspace using the Log Search portal.  The tutorial includes running some simple queries to return different types of data and analyzing results.  It focuses on features in the Log Search portal for modifying the query rather than modifying it directly.  For details on directly editing the query, see the [Query Language reference](https://docs.loganalytics.io/docs/Language-Reference).
+This article includes a tutorial that describes how to create log searches and analyze data stored in your Log Analytics workspace using the Log Search portal.  The tutorial includes running some simple queries to return different types of data and analyzing results.  It focuses on features in the Log Search portal for modifying the query rather than modifying it directly.  For details on directly editing the query, see the [Query Language reference](https://go.microsoft.com/fwlink/?linkid=856079).
 
-To create searches in the Advanced Analytics portal instead of the Log Search portal, see [Getting Started with the Analytics Portal](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-the-Analytics-portal).  Both portals use the same query language to access the same data in the Log Analytics workspace.
+To create searches in the Advanced Analytics portal instead of the Log Search portal, see [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856587).  Both portals use the same query language to access the same data in the Log Analytics workspace.
 
 ## Prerequisites
 This tutorial assumes that you already have a Log Analytics workspace with at least one connected source that generates data for the queries to analyze.  
@@ -159,5 +159,5 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ## Next steps
 
-- Learn more about the Log Analytics query language at [Getting Started with the Analytics Portal](https://docs.loganalytics.io/docs/Language-Reference).
-- Walk through a tutorial using the [Advanced Analytics portal](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-the-Analytics-portal) which allows you to run the same queries and access the same data as the Log Search portal.
+- Learn more about the Log Analytics query language at [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856079).
+- Walk through a tutorial using the [Advanced Analytics portal](https://go.microsoft.com/fwlink/?linkid=856587) which allows you to run the same queries and access the same data as the Log Search portal.
