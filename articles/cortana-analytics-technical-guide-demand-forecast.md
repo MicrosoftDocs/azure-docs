@@ -104,7 +104,7 @@ requirements will be crucial in how you modify this template to work
 with your own data. If this is your first exposure to the Azure Machine
 Learning service, you can get an introduction to it by using the example
 in [How to create your first
-experiment](machine-learning/machine-learning-create-experiment.md).
+experiment](machine-learning/studio/create-experiment.md).
 
 The following sections will discuss the sections of the template that
 will require modifications when a new dataset is introduced.
@@ -168,7 +168,7 @@ queries, the
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts have implicit knowledge about the incoming data format, these
 queries would need to be altered based on your data format and [feature
-engineering](machine-learning/machine-learning-feature-selection-and-engineering.md)
+engineering](machine-learning/team-data-science-process/create-features.md)
 requirements.
 
 #### *AggregateDemandDataTo1HrPipeline*

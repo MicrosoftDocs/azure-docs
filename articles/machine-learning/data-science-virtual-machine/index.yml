@@ -1,0 +1,17 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Data Science Virtual Machine Documentation
+metadata:
+  title: Azure Data Science Virtual Machine Documentation
+  description: Learn how to use the Data Science Virtual Machine.
+  services: machine-learning
+  author: carolz
+  manager: carolz
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/24/2017
+  ms.author: carolz
+abstract:
+  description: The Data Science Virtual Machine is a ...
