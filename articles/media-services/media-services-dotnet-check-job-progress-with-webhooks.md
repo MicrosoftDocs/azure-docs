@@ -4,7 +4,7 @@ description: Learn how to use Azure WebHooks to monitor Media Services job notif
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: ''
 
 ms.assetid: a61fe157-81b1-45c1-89f2-224b7ef55869

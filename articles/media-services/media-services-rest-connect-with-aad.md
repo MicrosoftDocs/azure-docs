@@ -4,7 +4,7 @@ description: Learn how to access Azure Media Services API with Azure Active Dire
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: erikre
+manager: SyntaxC4
 editor: ''
 
 ms.service: media-services

@@ -219,7 +219,7 @@ Encryption in transit is a mechanism of protecting data when it is transmitted a
 
 -	[Transport-level encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), such as HTTPS when you transfer data into or out of Azure Storage.
 
--	[Wire encryption](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), such as SMB 3.0 encryption for Azure File shares.
+-	[Wire encryption](../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), such as SMB 3.0 encryption for Azure File shares.
 
 -	[Client-side encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
 

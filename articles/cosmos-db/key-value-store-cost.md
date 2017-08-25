@@ -32,7 +32,6 @@ Azure Cosmos DB performance is based on the amount of provisioned [Request Units
 As a globally distributed database system, Azure Cosmos DB is the only Azure service that provides an SLA on latency, throughput, and consistency in addition to high availability. The throughput you provision is applied to each of the regions associated with your Azure Cosmos DB database account. For reads, Azure Cosmos DB offers multiple, well-defined [consistency levels](consistency-levels.md) for you to choose from. 
 Azure Cosmos DB is a globally distributed, multi-model database service for building highly available, large scale, [globally distributed](distribute-data-globally.md) applications easily. By default, Cosmos DB automatically indexes all the data it ingests, efficiently. This enables fast and consistent [SQL](documentdb-sql-query.md) (and [JavaScript](programming.md)) queries on any kind of data. 
 
-This article describes the cost of Cosmos DB for simple write and read operations when it’s used as a key/value store. Write operations include inserts, replaces, deletes, and upserts of documents. Besides guaranteeing 99.99% high availability, Cosmos DB offers guaranteed <10 ms latency for reads and <15 ms latency for the (indexed) writes respectively, at the 99th percentile. 
 
 ## Why we use Request Units (RUs)
 

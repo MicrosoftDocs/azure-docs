@@ -38,7 +38,7 @@ This quickstart creates a document database using the Azure portal tools for Azu
 
 ## Create a database account
 
-Before you can create a graph database, you need to create a SQL (DocumentDB) database account with Azure Cosmos DB.
+Before you can create a document database, you need to create a SQL (DocumentDB) database account with Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
