@@ -2,7 +2,7 @@
 title: H264 Multiple Bitrate 4x3 SD | Microsoft Docs
 description: The topic gives an overview of the **H264 Multiple Bitrate 4x3 SD** task preset.
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''
