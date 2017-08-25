@@ -124,14 +124,14 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Create a Hero model
 
-1.  In the Explorer pane, right-click the server folder, click New File, and name the new file hero.model.js.
+1.  In the Explorer pane, right-click the **server** folder, click **New File**, and name the new file **hero.model.js**.
 
 2. Copy the following code into hero.model.js. This code:
     * Requires Mongoose.
-    * Create a new schema with an ID, name, and saying, and pull it in
-    * Create a model using the schema
-    * Export the model 
-    * Name the collection Heroes (instead of Heros, which would be the default name of the collection based on Mongoose plural naming rules)
+    * Creates a new schema with an ID, name, and saying, and pull it in.
+    * Creates a model using the schema.
+    * Exports the model. 
+    * Name the collection Heroes (instead of Heros, which would be the default name of the collection based on Mongoose plural naming rules).
 
     ```javascript
     const mongoose = require('mongoose');
@@ -156,15 +156,15 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Create a Hero service
 
-1.  In the Explorer pane, right-click the server folder, click New File, and name the new file hero.service.js.
+1.  In the Explorer pane, right-click the **server** folder, click **New File**, and name the new file **hero.service.js**.
 
 2. Copy the following code into hero.service.js. This code:
-    * Go get the model you just created
-    * Connect to the database
-    * Create a docquery variable that uses the hero.find method to define a query that returns all heroes
-    * Run a query with the docquery.exec with a promise to get a list of all heroes, where the response status is 200 
-    * If the status is 500, send back the error message
-    * Because we're using modules, get the heroes 
+    * Gets the model you just created
+    * Connects to the database
+    * Creates a docquery variable that uses the hero.find method to define a query that returns all heroes.
+    * Runs a query with the docquery.exec with a promise to get a list of all heroes, where the response status is 200. 
+    * If the status is 500, sends back the error message
+    * Because we're using modules, it get the heroes. 
 
     ```javascript
     const Hero = require('./hero.model');
@@ -191,7 +191,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Add the hero service to routes.js
 
-1. In Visual Studio Code, in routes.js, comment out the res.send function that sent the sample hero data and call the heroService.getHeroes function instead.
+1. In Visual Studio Code, in **routes.js**, comment out the res.send function that sends the sample hero data and add a line to call the heroService.getHeroes function instead.
 
     ```javascript
     router.get('/heroes', (req, res) => {
@@ -202,17 +202,19 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     });
     ```
 
-2. In routes.js add a const to get the hero service:
+2. In **routes.js** add a const on line 3 to get the hero service:
 
+    ```javascript
     const heroService = require('./hero.service'): 
+    ```
 
-3. In hero.service.js, update the getHeroes function to take the request and response as parameters as follows:
+3. In **hero.service.js**, update the getHeroes function on line 5 to take the request and response as parameters as follows:
 
     ```javascript
     function getHeroes(req, res) {
     ```
 
-Let's review and walk through the chain here. First we come into the index, which sets up the node server, and notice that's setting up and defining our routes. Our routes file then talks to the hero service and tells it to go get our functions like getHeroes and pass request and response. Here hero.service.js is going to grab the model, and connect to Mongo, and then it's going to execute getHeroes when we call it, and return back a response of 200. Then it bubbles back out through the chain. 
+    Let's take a minute to review and walk through the call chain here. First we come into the index, which sets up the node server, and notice that's setting up and defining our routes. Our routes.js file then talks to the hero service and tells it to go get our functions like getHeroes and pass the request and response. Here hero.service.js is going to grab the model and connect to Mongo, and then it's going to execute getHeroes when we call it, and return back a response of 200. Then it bubbles back out through the chain. 
 
 ## Run the app
 
