@@ -4,7 +4,7 @@ description: Use .NET Core in Web App on Linux.
 keywords: azure app service, web app, dotnet, core, linux, oss
 services: app-service
 documentationCenter: ''
-author: michimune, rachelappel
+author: michimune,rachelappel
 manager: erikre
 editor: ''
 
