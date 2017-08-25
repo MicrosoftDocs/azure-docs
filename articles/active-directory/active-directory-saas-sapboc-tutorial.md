@@ -27,7 +27,7 @@ You get the following benefits when you integrate SAP Business Object Cloud with
 - You can automatically sign in your users to SAP Business Object Cloud by using single sign-on and a user's Azure AD account.
 - You can manage your accounts in one, central location, the Azure portal.
 
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
@@ -271,7 +271,7 @@ To assign Britta Simon to SAP Business Object Cloud:
 
 In this section, you test your Azure AD single sign-on set-up by using the access panel.
 
-When you select the SAP Business Object Cloud tile in the access panel, you should be automatically signed-in to your SAP Business Object Cloud application.
+When you select the SAP Business Object Cloud tile in the access panel, you should be automatically signed in to your SAP Business Object Cloud application.
 
 For more information about the access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md). In this section, you test your Azure AD single sign-on configuration using the access panel.
 
