@@ -144,7 +144,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| last_name | user.surname |
 	| person_id | "your attribute" | 
 
-
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
 	![Configure Single Sign-On](./media/active-directory-saas-iqualify-tutorial/atb2.png)
