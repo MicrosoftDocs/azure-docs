@@ -97,7 +97,7 @@ An ACL provides the ability to selectively permit or deny traffic for a virtual 
 
 All VMs that you create in Azure using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on other virtual networks require endpoints to direct the inbound network traffic to a virtual machine. For more information, see [How to set up endpoints](../virtual-machines/windows/classic/setup-endpoints.md).
 
-## Step 8 Unable to connect a VM network share
+### Step 8 Unable to connect a VM network share
 
 If you are unable to connect to a VM network share, the problem can be caused by unavailable NICs in the VM. To delete the unavailable NICs, see [How to delete the unavailable NICs](../virtual-machines/windows/reset-network-interface.md#delete-the-unavailable-nics)
 
