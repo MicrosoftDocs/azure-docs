@@ -23,6 +23,11 @@ The [Azure Active Directory (Azure AD) v2.0 endpoint](https://docs.microsoft.com
 
 When you build an application that uses the v2.0 endpoint, we recommend that you use libraries that are written by protocol domain experts who follow a Security Development Lifecycle (SDL) methodology, like [the one followed by Microsoft][Microsoft-SDL]. If you decide to hand-code support for the protocols, we recommend you follow SDL methodology and pay close attention to the security considerations in the standards specifications for each protocol.
 
+> [!NOTE]
+> Looking for the Azure AD v1.0 libraries (ADAL? Checkout the [ADAL library guide]((https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries). 
+> 
+> 
+
 ## Types of libraries
 Azure AD v2.0 endpoint works with two types of libraries:
 
