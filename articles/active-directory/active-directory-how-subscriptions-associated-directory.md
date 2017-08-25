@@ -64,7 +64,7 @@ Azure subscription admins and Azure AD directory admins are two separate roles.
 * Azure subscription admins can manage resources in Azure and can use Azure AD in the Azure portal (because the Azure portal itself is an Azure resource). 
 * Directory admins can manage properties only in the Azure AD directory.
 
-A person can be in both roles but it isn’t required. A user can be assigned to the directory global administrator role but not be assigned as Service administrator or co-administrator of an Azure subscription. Without being an administrator of the subscription, the user can sign in to the Azure portal, but can't manage the directories for that subscription in the portal. This user can manage directories using other tools such as Azure AD PowerShell or the Office 365 Admin Center.
+A person can be in both roles but it isn’t required. A directory global administrator might not be assigned as service administrator or co-administrator of an Azure subscription, or vice versa. Without being an administrator of the subscription, the user can sign in to the Azure portal, but can't manage the directories for that subscription in the portal. However, this user can manage directories using other tools such as Azure AD PowerShell or the Office 365 Admin Center.
 
 ## Next steps
 * To learn more about how to change administrators for an Azure subscription, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
