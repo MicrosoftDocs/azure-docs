@@ -4,7 +4,7 @@ description: Learn how to use PowerShell to create an Azure Active Directory (Az
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: ''
 
 ms.service: media-services

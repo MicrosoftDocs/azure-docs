@@ -190,6 +190,7 @@
 #### [Adobe Open Source Media Framework players](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Insert ads on the client side](media-services-inserting-ads-on-client-side.md)
 ### [Licensing Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
+### [Play AES encrypted HLS in Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 
 ## Integrate
 ### [Use Azure Functions with Media Services](media-services-dotnet-how-to-use-azure-functions.md)
