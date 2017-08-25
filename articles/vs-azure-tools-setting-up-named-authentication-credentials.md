@@ -3,8 +3,8 @@ title: Setting Up Named Authentication Credentials | Microsoft Docs
 description: 'Learn how to to provide credentials that Visual Studio can use to authenticate requests to Azure to publish an application to Azure from Visual Studio or to monitor an existing cloud service.. '
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: 61570907-42a1-40e8-bcd6-952b21a55786
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/22/2017
-ms.author: tarcher
+ms.author: kraigb
 
 ---
 # Setting Up Named Authentication Credentials
