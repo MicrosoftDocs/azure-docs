@@ -9,14 +9,16 @@ This is a common NAT behavior, which can cause communication issues on TCP based
 To ensure connections are not lost beyond the timeout limit, you should make sure either your application keeps the session alive, or you can configure the underlying operating system to do so. The settings to be used are different for Linux and Windows systems, as shown below.
 
 For [Linux][linux], you should change the kernel variables below.
-net.ipv4.tcp_keepalive_time = 120
-net.ipv4.tcp_keepalive_intvl = 30
-net.ipv4.tcp_keepalive_probes = 8
+
+* net.ipv4.tcp_keepalive_time = 120
+* net.ipv4.tcp_keepalive_intvl = 30
+* net.ipv4.tcp_keepalive_probes = 8
 
 For [Windows][windows], you should change the registry values below.
-KeepAliveInterval = 30
-KeepAliveTime = 120
-TcpMaxDataRetransmissions = 8
+
+* KeepAliveInterval = 30
+* KeepAliveTime = 120
+* TcpMaxDataRetransmissions = 8
 
 The settings above ensure a keep alive packet is sent after 2 minutes (120 seconds) of idle time, and then sent every 30 seconds. And if 8 of those packets fail, the session is dropped.
 
