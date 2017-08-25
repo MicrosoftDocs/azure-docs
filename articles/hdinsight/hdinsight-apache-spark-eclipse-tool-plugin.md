@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 08/24/2017
 ms.author: nitinme
 
 ---
@@ -37,20 +37,16 @@ Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark applications w
 * Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development Kit version 8, which is used for the Eclipse IDE runtime. You can download it from the [Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * Eclipse IDE. This article uses Eclipse Neon. You can install it from the [Eclipse website](https://www.eclipse.org/downloads/).
-* Scala IDE for Eclipse. 
-  
-  * **If you have the Eclipse IDE installed**, you can add the Scala IDE plug-in by going to **Help** > **Install New SoftWare**, and then adding [http://download.scala-ide.org/sdk/lithium/e46/scala211/stable/site](http://download.scala-ide.org/sdk/lithium/e46/scala211/stable/site) as the source for the download. 
-  * **If you do not have the Eclipse IDE installed**, you can install the Scala IDE directly from the [Scala website](http://scala-ide.org/download/sdk.html). Download the .zip file, extract it, browse to the **/eclipse** folder, and then run the **eclipse.exe** file from there.
-    
-  > [!NOTE]
-  > The steps in this article are based on using the Eclipse IDE with the Scala plug-in installed.
-  > 
-  > 
 * Spark SDK. You can download it from [GitHub](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409).
-* e(fx)clipse. You can install it from the [download page on the Eclipse website](https://www.eclipse.org/efxclipse/install.html).
 
-## Install HDInsight Tools in Azure Toolkit for Eclipse
+
+## Install HDInsight Tools in Azure Toolkit for Eclipse and Scala Plugin
+### Install HDInsight Tools
 HDInsight Tools for Eclipse is available as part of Azure Toolkit for Eclipse. For installation instructions, see [Installing Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse-installation.md).
+### Install Scala Plugin
+When you open the Intellij, the HDInsight Tools auto detects whether you installed Scala plugin or not. Click **OK** to continue and follow the instructions to install by the Eclipse Marketplace.
+
+ ![Auto Install Scala Plugin](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
 ## Sign in to your Azure subscription
 1. Start the Eclipse IDE and open Azure Explorer. On the **Window** menu, select **Show View**, and then select **Other**. In the dialog box that opens, expand **Azure**, select **Azure Explorer**, and then select **OK**.
@@ -70,28 +66,27 @@ HDInsight Tools for Eclipse is available as part of Azure Toolkit for Eclipse. F
    
    ![Expanding a cluster name to see resources](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
+
+
 ## Set up a Spark Scala project for an HDInsight Spark cluster
 
 1. In the Eclipse IDE workspace, select **File**, select **New**, and then select **Project**. 
 2. In the New Project wizard, expand **HDInsight**, select **Spark on HDInsight (Scala)**, and then select **Next**.
 
    ![Selecting the Spark on HDInsight (Scala) project](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
-3. In the **New HDInsight Scala Project** dialog box, provide the following values, and then select **Next**:
+3. The Scala project creation wizard automatically detects whether you installed Scala plug-in. Select **OK** to continue downloading the Scala plug-in, and then follow the instructions to restart Eclipse.
+
+   ![Scala check](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-scala-2.png)
+4. In the **New HDInsight Scala Project** dialog box, provide the following values, and then select **Next**:
    * Enter a name for the project.
    * In the **JRE** area, make sure that **Use an execution environment JRE** is set to **JavaSE-1.7** or later.
    * Make sure that the Spark SDK is set to the location where you downloaded the SDK. The link to the download location is included in the [prerequisites](#prerequisites) earlier in this article. You can also download the SDK from the link included in the dialog box.
 
    ![New HDInsight Scala Project dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-4.	In the next dialog box, select the **Libraries** tab and keep the defaults, and then select **Finish**. 
+5. In the next dialog box, select the **Libraries** tab and keep the defaults, and then click **Finish**. 
    
-    ![Libraries tab](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-4.png)
-
-
-## Run a Spark Scala application on an Azure Data Lake Store cluster
-If you want to submit an application to Azure Data Lake Store, you must choose **Interactive** mode during the Azure sign-in process. 
-
-![Interactive option at sign-in](./media/hdinsight-apache-spark-eclipse-tool-plugin/Interactive-Authentication.png)
-
+   ![Libraries tab](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-4.png)
+  
 ## Create a Scala application for an HDInsight Spark cluster
 
 1. In the Eclipse IDE, from Package Explorer, expand the project that you created earlier, right-click **src**, point to **New**, and then select **Other**.
@@ -133,23 +128,32 @@ If you want to submit an application to Azure Data Lake Store, you must choose *
 6. The **Spark Submission** tab should start displaying the progress. You can stop the application by selecting the red button in the **Spark Submission** window. You can also view the logs for this specific application run by selecting the globe icon (denoted by the blue box in the image).
       
    ![Spark Submission window](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
-      
+
 ## Access and manage HDInsight Spark clusters by using HDInsight Tools in Azure Toolkit for Eclipse
 You can perform various operations by using HDInsight Tools, including accessing the job output.
 
 ### Access the job view
-1. In Azure Explorer, expand **HDInsight**, expand the Spark cluster name, and then select **Jobs**.  
-   ![Job view node](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
-2. In the right pane, the **Spark Job View** tab displays all the applications that were run on the cluster. Select the name of the application for which you want to see more details.
-   ![Application details](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
+1. In Azure Explorer, expand **HDInsight**, expand the Spark cluster name, and then select **Jobs**. 
+
+    ![Job view node](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
+
+2. Click the **Jobs** node. HDInsight Tools automatically detects whether you installed the E(fx)clipse plug-in. Select **OK** to continue, and then follow the instructions to install the Eclipse Marketplace and restart Eclipse.
+
+    ![Install E(fx)clipse](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
+
+3. Open the Job View from the **Jobs** node. In the right pane, the **Spark Job View** tab displays all the applications that were run on the cluster. Select the name of the application for which you want to see more details.
+
+    ![Application details](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
 
    You can then take any of these actions:
 
-   * Hover on the job graph. It displays basic info about the running job. Select the job graph, and you can see the stages and other info that every job generates.
-     ![Job stage details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
+   * Hover on the job graph. It displays basic info about the running job. Select the job graph, and you can see the stages and info that every job generates.
+
+    ![Job stage details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
 
    * Select the **Log** tab to view frequently used logs, including **Driver Stderr**, **Driver Stdout**, and **Directory Info**.
-     ![Log details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-log-info.png)
+
+    ![Log details](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-log-info.png)
 
    * Open the Spark history UI and the YARN UI (at the application level) by selecting the hyperlinks at the top of the window.
 
@@ -196,6 +200,13 @@ To resolve this error, you must [download the executable](http://public-repo-1.h
 4. Right-click the **LogQuery** application, point to **Run As**, and then select **1 Scala Application**. You will see an output like this in the **Console** tab at the bottom:
    
    ![Spark Application local run result](./media/hdinsight-apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
+
+## FAQ
+To submit an application to Azure Data Lake Store, choose **Interactive** mode during the Azure sign-in process. If you select **Automated** mode, you can get an error.
+
+![interative-signin](./media/hdinsight-apache-spark-eclipse-tool-plugin/interactive-authentication.png)
+
+Now, we resolved it. You can choose an Azure Data Lake Cluster to submit your application with any sign-in method.
 
 ## Feedback and known issues
 Currently, viewing Spark outputs directly is not supported.
