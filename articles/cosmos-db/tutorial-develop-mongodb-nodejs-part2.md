@@ -169,7 +169,7 @@ This tutorial also requires:
 
 ## Next steps
 
-In this video, you've created a Node.js project using the Angular CLI and you've tested it using Postman. 
+In this part of the tutorial, you've created a Node.js project using the Angular CLI and you've tested it using Postman. 
 
 > [!div class="nextstepaction"]
 > [Build the UI with Angular](tutorial-develop-mongodb-nodejs-part3.md)

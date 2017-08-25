@@ -49,12 +49,12 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     npm i mongoose --save
     ```
 
-2. Now create a new file in your server folder called mongo. In the Explorer pane, right-click the server folder, click New File, and name the new file mongo.js. In this file, you add all of your connection info for the Azure Cosmos DB database.
+2. Now create a new file in your **server** folder called **mongo.js**. In the Explorer pane, right-click the **server** folder, click **New File**, and name the new file **mongo.js**. In this file, you add all of your connection info for the Azure Cosmos DB database.
 
 3. Copy the following code into mongo.js. This code:
     * Requires Mongoose.
-    * Overrides the Mongo promise to use the basic Promise that's built into ES6 or ES2015 and above.
-    * Calls on an env file that lets me set up certain things based on whether I'm in staging, prod or dev. We will create that file soon.
+    * Overrides the Mongo promise to use the basic promise that's built into ES6 or ES2015 and above.
+    * Calls on an env file that lets you set up certain things based on whether you're in staging, prod, or dev. We will create that file soon.
     * Includes our MongoDB connection string, which will be set in the env file.
     * Creates a connect function that calls Mongoose.
 
@@ -81,11 +81,11 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
       mongoose
     };
     ```
-4. In the Explorer pane, right-click the server folder, click New Folder, and name the new folder env.
+4. In the Explorer pane, right-click the **server** folder, click **New Folder**, and name the new folder **env**.
 
-5. In the Explorer pane, right-click the env folder, click New File, and name the new file environment.js.
+5. In the Explorer pane, right-click the **env** folder, click **New File**, and name the new file **environment.js**.
 
-6. From the mongo.js file, we know we need to include the dbName, the key, and the cosmosPort, so copy the following code into environment.js.
+6. From the mongo.js file, we know we need to include the dbName, the key, and the cosmosPort, so copy the following code into **environment.js**.
 
     ```javascript
     const cosmosPort = 1234; // replace with your port
@@ -101,13 +101,13 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Get the connection string information
 
-1. In environment.js, change the value of cosmosPort to 10255.
+1. In **environment.js**, change the value of cosmosPort to 10255.
 
    ```javascript
    const cosmosPort = 10255;
    ```
 
-2. In environment.js, change the value of dbName to the Azure Cosmos DB account name you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md). This is the `<my-cosmosdb-acct>` name from Step 4. 
+2. In **environment.js**, change the value of dbName to the Azure Cosmos DB account name you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md). This is the `<my-cosmosdb-acct>` name from [Step 4](tutorial-develop-mongodb-nodejs-part5.md). 
 
 3. Retrieve the primary key for the Azure Cosmos DB account by using the following CLI command in the terminal window: 
 
@@ -118,7 +118,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     * Substitute your own Azure Cosmos DB account name where you see the `<my-cosmosdb-acct>` placeholder. This is the account you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md).
     * Substitute your own resource group name where you see the `<my-resource-group>` placeholder. This is the account you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md). 
 
-4. Copy the primary key value from the terminal window into the environment.js window into the `key` value. The value should be surrounded by double quotes.
+4. Copy the primary key value from the terminal window into the environment.js window into the `key` value. The value and the dbName value should be surrounded by double quotes in environment.js.
 
     Your app now has all the information it needs to connect to Azure Cosmos DB. This information can also be retrieved in the portal. For more information, see [Get the MongoDB connection string to customize](connect-mongodb-account.md#GetCustomConnection). The Username in the portal equates to the dbName in environments.js. 
 
@@ -226,7 +226,7 @@ Let's review and walk through the chain here. First we come into the index, whic
 
 ## Next steps
 
-In this video, you've learned how to use Mongoose APIs to connect your heroes app to Azure Cosmos DB. 
+In this part of the tutorial, you've learned how to use Mongoose APIs to connect your heroes app to Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Add Post, Put, and Delete functions to the app](tutorial-develop-mongodb-nodejs-part6.md)

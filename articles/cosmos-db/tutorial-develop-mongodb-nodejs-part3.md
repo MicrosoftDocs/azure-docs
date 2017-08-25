@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/23/2017
+ms.date: 08/25/2017
 ms.author: mimig
 
 ---
@@ -42,7 +42,11 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 1. In Visual Studio Code, click the Stop button ![Stop button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png) to stop the Node app.
 
-2. In a Windows Command Prompt or Mac Terminal window, enter the following code to generate a heroes component `ng g c heroes --flat` (g=generate, c=component, heroes=name of component).
+2. In your Windows Command Prompt or Mac Terminal window, enter the following command to generate a heroes component. In this code g=generate, c=component, heroes=name of component, and it's using a flat file structure (--flat) so that a subfolder isn't created for it.
+
+    ```
+    ng g c heroes --flat 
+    ```
 
     The terminal window displays confirmation of the new components.
 
@@ -54,22 +58,22 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
     Let's take a look at the files that were created and updated. 
 
-3. In Visual Studio Code, navigate to the new src\client\app folder and open the new heroes.component.ts file created by step 2. 
+3. In Visual Studio Code, in the **Explorer** pane, navigate to the new **src\client\app** folder and open the new **heroes.component.ts** file created by step 2. This file was typescript component file was created by the previous command.
 
     > [!TIP]
-    > If the app folder doesn't display in Visual Studio Code, enter CMD + SHIFT P on a Mac or Ctrl + Shift + P on Windows to open the Command Palette, and then enter `Reload Window` to pick up the system change.
+    > If the app folder doesn't display in Visual Studio Code, enter CMD + SHIFT P on a Mac or Ctrl + Shift + P on Windows to open the Command Palette, and then type *Reload Window* to pick up the system change.
 
     ![Open the heroes.component.ts file](./media/tutorial-develop-mongodb-nodejs-part3/open-folder.png)
 
-4. Now open the app.module.ts file, and notice that it added the HeroesComponent to the declarations on line 5 and it imported it as well on line 10.
+4. In the same folder, open the **app.module.ts** file, and notice that it added the `HeroesComponent` to the declarations on line 5 and it imported it as well on line 10.
 
     ![Open the app-module.ts file](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
 
-    Now that you have your Heroes component, create a new file for the heroes component HTML. Because we created a minimal app, it was going to put the HTML in the same file as the typescript file, but we want to break it out and create a separate file.
+    Now that you have your Heroes component, create a new file for the heroes component HTML. Because we created a minimal app, the HTML was meant to go in the same file as the typescript file, but we want to break it out and create a separate file.
 
-5. In the Explorer pane, right-click the app folder, click New File, and name the new file heroes.component.ts.
+5. In the **Explorer** pane, right-click the **app** folder, click **New File**, and name the new file *heroes.component.html*.
 
-6. In the heroes.component.ts file, delete lines 5 through 9 
+6. In the **heroes.component.ts** file, delete lines 5 through 9 
 
     ```ts
     template: `
@@ -83,13 +87,15 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     ```ts
     templateUrl: './heroes.component.html',
     ```
+
+    to reference the new HTML file.
  
     > [!TIP]
-    > You can use John Papa's Angular Essentials extentions and snippets for Visual Studio Code to speed up your development. Click the Extensions button ![Visual Studio Code Extensions button](./media/tutorial-develop-mongodb-nodejs-part3/extensions-button.png) and type angular essentials in the search box, or go to [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). After installing click the Reload button to use the new extensions.
+    > You can use John Papa's Angular Essentials extentions and snippets for Visual Studio Code to speed up your development. Click the **Extensions** button ![Visual Studio Code Extensions button](./media/tutorial-develop-mongodb-nodejs-part3/extensions-button.png) and type *angular essentials* in the search box and then click **Install**, or go to [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). After installing click the **Reload** button to use the new extensions.
     >
     > ![Angular Essentials extension](./media/tutorial-develop-mongodb-nodejs-part3/angular-essentials-extension.png)
 
-7. Go back to the heroes.component.html file and copy in this code. The div is the container for the entire page, and then inside we've got a list of items, and we're going to need to have heroes models, which we need to create so that when you click on one you can select it and edit it or delete it. Then we've got some styling so you know which one has been selected. And then there's an edit area so that you can add a new hero or edit an existing one. 
+7. Go back to the **heroes.component.html** file and copy in this code. The `<div>` is the container for the entire page, and then inside we've got a list of items, and we're going to need to have heroes models, which we need to create so that when you click on one you can select it and edit it or delete it in the UI. Then in the HTML we've got some styling so you know which one has been selected. There's also an edit area so that you can add a new hero or edit an existing one. 
 
     ```html
     <div>
@@ -128,7 +134,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     </div>
     ```
 
-8. Now that we've got the HTML in place we need to add to the heroes.component.ts file so we can interact with the template. First, add some models, add hero flags for a list of heroes. Then fill in the constructor, get some heroes, and initialize the hero service component to go get all the data.
+8. Now that we've got the HTML in place we need to add to the heroes.component.ts file so we can interact with the template. The new code added to heroes.component.ts below adds some models and hero flags for a list of heroes. Then it fills in the constructor, gets some heroes, and initializes the hero service component to go get all the data. You can copy the following code over the existing code in heroes.component.ts.
 
     ```ts
     import { Component, OnInit } from '@angular/core';
@@ -195,7 +201,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     }
     ```
 
-9. In Explorer, open the app/app.module.ts file and add an import for a Forms module on line 14.
+9. In **Explorer**, open the **app/app.module.ts** file and update lines 13 (add a comma) and 14 to add an import for a `FormsModule`. The import section should now look like following:
 
     ```
     imports: [
@@ -204,7 +210,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     ],
     ```
 
-10. Then add an import for that forms module on line 3. 
+10. Add an import for the new FormsModule module on line 3. 
 
     ```
     import { BrowserModule } from '@angular/platform-browser';
@@ -214,9 +220,9 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Use CSS to set the look and feel
 
-1. In Visual Studio Code, open the src/client/styles.scss file.
+1. In the Explorer pane, open the **src/client/styles.scss** file.
 
-2. Copy the following code into the styles.scss file, replacing the content of the file.
+2. Copy the following code into the styles.scss file, replacing the existing content of the file.
 
     ```css
     /* You can add global styles to this file, and also import other style files */
@@ -371,30 +377,40 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
       }
     }
     ``` 
+3. Save the file. 
 
 ## Display the component
 
 Now that we have the component set, how do we get it to show up on the screen? Let's modify the default components in app.component.ts.
 
-1. In Visual Studio Code, open app/app.component.ts.
+1. In the Explorer pane, open **client/app/app.component.ts**.
 
-2. In lines 6 through 8, we're going to change the title to Heroes, and then put the name of the component we created in heroes.components.ts `<app-heroes></app-heroes>` to refer to that new component.
+2. In lines 6 through 8, change the title to Heroes, and then put the name of the component we created in heroes.components.ts (app-heroes) to refer to that new component. The template section should now look like the following: 
 
     ```ts
     template: `
-      <h1>
-        Heroes
-      </h1>
+      <h1>Heroes</h1>
       <div class="header-bar"></div>
       <app-heroes></app-heroes>
-    `
-    })
+      `,)
     ```
-3. There are other components in heroes.components.ts that we're referring to, like the Hero component, so we need to go create that. In the Angular CLI command prompt, type `ng g cl hero` (g=generate, cl=class, hero=name of class) to create a hero model and a file named hero.ts.
 
-4. In Visual Studio Code, open src\client\app\hero.ts.
+3. There are other components in heroes.components.ts that we're referring to, like the Hero component, so we need to go create that, too. In the Angular CLI command prompt, use the following command to create a hero model and a file named hero.ts, where g=generate, cl=class, and hero=name of class.
 
-5. In hero.ts, replace the content of the file with the following code, which adds a Hero class with an ID, a name, and a saying. 
+    ```bash
+    ng g cl hero
+    ```
+
+    The terminal window displays confirmation of the new class.
+
+    ```bash
+    installing class
+    create src\client\app\hero.ts
+    ```
+
+4. In the Explorer pane, open **src\client\app\hero.ts**.
+
+5. In **hero.ts**, replace the content of the file with the following code, which adds a Hero class with an ID, a name, and a saying. 
 
     ```ts
     export class Hero {
@@ -404,21 +420,29 @@ Now that we have the component set, how do we get it to show up on the screen? L
     }
     ```
 
-6. In Visual Studio Code, go back to heroes.components.ts. Notice that on the `selectedHero: Hero;` line (line 11), `Hero` has a red line underneath. By clicking Hero, you get a lightbulb on the left side of Visual Studio Code. Go click the light bulb and then click **Import Hero from "client/app/hero".**
+6. Go back to **heroes.components.ts** and notice that on the `selectedHero: Hero;` line (line 10), `Hero` has a red line underneath. 
+
+7. Left-click the term `Hero`, and Visual Studio displays a lightbulb icon on the left side of the code block. 
 
     ![Light bulb in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
 
-    Clicking the light bulb inserted a new line of code on line 2 `import { Hero } from client/app/hero';`.
+8. Click the lightbulb and then click **Import Hero from "client/app/hero".** or **Import Hero from "./hero".** (The message changes depending on your setup)
 
-7. Change the new line of code on line 2 so that it references the hero file from the local folder.
+    A new line of code appears on line 2. If line 2 references client/app/hero, modify it so that it references the hero file from the local folder (./hero). Line 2 should look like this:
 
    ```
-   import { Hero } from ./hero';
+   import { Hero } from "./hero";
    ``` 
 
     That takes care of the model, but we still need to create the service.
 
-8. In the Angular CLI command prompt, type `ng g s hero -m app.module` (g=generate, s=service, hero=name of service, -m=put in app.module) to create a hero service in app.module.ts.
+## Create the Service
+
+1. In the Angular CLI command prompt, enter the following command to create a hero service in app.module.ts, where g=generate, s=service, hero=name of service, -m=put in app.module.
+
+    ```bash
+    ng g s hero -m app.module
+    ```
 
     The output states that hero.service.ts was created and app.module.ts was updated.
   
@@ -428,9 +452,15 @@ Now that we have the component set, how do we get it to show up on the screen? L
       update src\client\app\app.module.ts
     ```
     
-    In app.module.ts, the following lines of code were added `import { HeroService } from './hero.service';` (line 7) and `  providers: [HeroService],` (line 18).
+    In app.module.ts, the following lines of code were added (lines 6 and 17):
+    
+    ```typescript
+    import { HeroService } from './hero.service';
+    ...
+        providers: [HeroService],
+    ```
 
-9. In Visual Studio Code, open hero.service.ts and copy in the following code, replacing the content of the file.
+2. In Visual Studio Code, open **hero.service.ts** and copy in the following code, replacing the content of the file.
 
     ```ts
     import { Injectable } from '@angular/core';
@@ -464,7 +494,7 @@ Now that we have the component set, how do we get it to show up on the screen? L
 
     This code uses the newest version of the HttpClient that Angular offers, which is a module that you need to provide, so we'll do that next.
 
-10. In Visual Studio Code, open app.module.ts and import the HttpClientModule by updating the import section to include HttpClientModule.
+3. In Visual Studio Code, open **app.module.ts** and import the HttpClientModule by updating the import section to include HttpClientModule.
 
     ```ts
     imports: [
@@ -474,38 +504,43 @@ Now that we have the component set, how do we get it to show up on the screen? L
     ],
     ```
 
-11. In app.module.ts, add the HttpClientModule import statement to line 4.
+4. In **app.module.ts**, add the HttpClientModule import statement the list of imports.
 
     ```ts
     import { HttpClientModule } from '@angular/common/http';
     ```
 
-10. In Visual Studio Code, go back to heroes.components.ts. Notice that on the `constructor(private heroService: HeroService) {}` line (line 14), `HeroService` has a red line underneath. Click HeroService, and you'll get a lightbulb on the left side of Visual Studio Code. Click the light bulb and then click **Import HeroService from "./hero.service ".**
+5. In Visual Studio Code, go back to **heroes.components.ts**. Notice that on the `constructor(private heroService: HeroService) {}` line (line 13), `HeroService` has a red line underneath. Click `HeroService`, and you'll get the lightbulb on the left side of code block. Click the light bulb and then click **Import HeroService from "./hero.service ".** or **Import HeroService from "client/app/hero.service ".**
 
-    Clicking the light bulb inserts a new line of code on line 2.
+    Clicking the light bulb inserts a new line of code on line 2. If line 2 references the client/app/hero.service folder, modify it so that it references the hero file from the local folder (./hero.serivce). Line 2 should look like this:
     
     ```javascript
-    import { HeroService } from "client/app/hero.service"
+    import { HeroService } from "./hero.service"
     ```
-11. Change the new line of code on line 2 to `import { HeroService } from "./hero.service` as it's in the same folder and doesn't need to specify the client/app directory.
 
-12. Save all files in Visual Studio Code.
+6. Save all files in Visual Studio Code.
 
 ## Build the app
 
-1. At the command prompt, type `ng b` (b=build) to compile the angular application. 
+1. At the command prompt, enter the following command to build the Angular application. 
 
-    If there are any problems, the terminal window displays the response. If it works, the new files go into the dist folder. Once you've successfully built, go to the dist folder in Visual Studio Code to see the new files.
+    ```bash
+    ng b
+    ``` 
 
-2. Now lets run the app. Click the Debug button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) on the left side, then click the Start Debugging button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png).
+    If there are any problems, the terminal window displays information about the files to fix. When the build completes, the new files go into the **dist** folder. You can review the files new in the **dist** folder if you want.
 
-3. Now lets flip over to the browser and navigate to localhost:3000 and there's our application.
+    Now lets run the app.
 
-     ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png)
+2. In Visual Studio Code, click the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) on the left side, then click the **Start Debugging** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png).
+
+3. Now open an internet browser and navigate to **localhost:3000** and see the app running locally.
+
+     ![Hero application running locally](./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png)
 
 ## Next steps
 
-In this video, you've learned how to build the Angular UI and test the app locally. 
+In this part of the tutorial, you've learned how to build the Angular UI and test the app locally. 
 
 > [!div class="nextstepaction"]
 > [Create an Azure Cosmos DB account using the Azure CLI](tutorial-develop-mongodb-nodejs-part4.md)

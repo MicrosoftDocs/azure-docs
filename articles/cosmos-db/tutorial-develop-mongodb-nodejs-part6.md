@@ -188,7 +188,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Next steps
 
-In this video, you've learned how to add (Post), update (Put), and delete heroes from the app. 
+In this part of the tutorial, you've learned how to add (Post), update (Put), and delete heroes from the app. 
 
 The final installment of this multi-part tutorial, which involves globally replicating your data, is coming soon. Check back for updates. 
 
