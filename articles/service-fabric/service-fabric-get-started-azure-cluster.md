@@ -134,8 +134,7 @@ Delete a resource group in the Azure portal:
 4. Run the following command to now create a secure cluster. Do not forget to customize the parameters. 
 
 
-    ````powershell
-
+    ```powershell
     $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
     $RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
     $RDPuser="vmadmin"
@@ -146,7 +145,7 @@ Delete a resource group in the Azure portal:
     $clustersize=1 # can take values 1, 3-99
 
     New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
-    ````
+    ```
 
     The command can take anywhere from 10 minutes to 30 minutes to complete, at the end of it, you should get an output similar to the following. The output has information about the certificate, the KeyVault where it was uploaded to, and the local folder where the certificate is copied. 
 
