@@ -348,7 +348,29 @@ To create and move databases within existing elastic pools or to return informat
 
 ## Manage elastic pools and databaeses using the REST API
 
-To create and manage SQL Database elastic pools using the REST API, see [Azure SQL Database REST API](/rest/api/sql/).
+To create and manage SQL Database elastic pools use these REST API requests.
+
+| Command | Description |
+| --- | --- |
+|[Elastic Pools - Create Or Update](/rest/api/sql/elasticpools/createorupdate)|Creates a new elastic pool or updates an existing elastic pool.|
+|[Elastic Pools - Delete](/rest/api/sql/elasticpools/delete)|Deletes the elastic pool.|
+|[Elastic Pools - Get](/rest/api/sql/elasticpools/get)|Gets an elastic pool.|
+|[Elastic Pools - List By Server](/rest/api/sql/elasticpools/listbyserver)|Returns a list of elastic pools in a server.|
+|[Elastic Pools - Update](/rest/api/sql/elasticpools/update)|Updates an existing elastic pool.|
+|[Recommended Elastic Pools - Get](/rest/api/sql/recommendedelasticpools/get)|Gets a recommented elastic pool.|
+|[Recommended Elastic Pools - List By Server](/rest/api/sql/recommendedelasticpools/listbyserver)|Returns recommended elastic pools.|
+|[Recommended Elastic Pools - List Metrics](/rest/api/sql/recommendedelasticpools/listmetrics)|Returns recommented elastic pool metrics.|
+|[Elastic Pool Activities](/rest/api/sql/elasticpoolactivities)|Returns elastic pool activities.|
+|[Elastic Pool Database Activities](/rest/api/sql/elasticpooldatabaseactivities)|Returns activity on databases inside of an elastic pool.|
+|[Databases - Create Or Update](/rest/api/sql/databases/createorupdate)|Creates a new database or updates an existing database.|
+|[Databases - Get](/rest/api/sql/databases/get)|Gets a database.|
+|[Databases - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|Gets a database inside of an elastic pool.|
+|[Databases - Get By Recommended Elastic Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|Gets a database inside of a recommented elastic pool.|
+|[Databases - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|
+|[Databases - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Returns a list of databases inside a recommented elastic pool.|
+|[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
+|[Databases - Update](/api/sql/databases/update)|Updates an existing database.|
+
 
 ## Next steps
 

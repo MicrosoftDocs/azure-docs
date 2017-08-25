@@ -202,7 +202,29 @@ To create and manage Azure SQL server, databases, and firewalls with Transact-SQ
 
 ## Manage Azure SQL servers, databases, and firewalls using the REST API
 
-To create and manage Azure SQL server, databases, and firewalls using the REST API, see [Azure SQL Database REST API](/rest/api/sql/).
+To create and manage Azure SQL server, databases, and firewalls use these REST API requests.
+
+| Command | Description |
+| --- | --- |
+|[Servers - Create Or Update](/rest/api/sql/servers/createorupdate)|Creates or updates a new server.|
+|[Servers - Delete](/rest/api/sql/servers/delete)|Deletes a SQL server.|
+|[Servers - Get](/rest/api/sql/servers/get)|Gets a server.|
+|[Servers - List](/rest/api/sql/servers/list)|Returns a list of servers.|
+|[Servers - List By Resource Group](/rest/api/sql/servers/listbyresourcegroup)|Returns a list of servers in a resource group.|
+|[Servers - Update](/rest/api/sql/servers/update)|Updates an existing server.|
+|[Servers - Sql](/rest/api/sql/servers%20-%20sql)|Determines whether a resource can be created with the specified name.|
+|[Databases - Create Or Update](/rest/api/sql/databases/createorupdate)|Creates a new database or updates an existing database.|
+|[Databases - Get](/rest/api/sql/databases/get)|Gets a database.|
+|[Databases - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|Gets a database inside of an elastic pool.|
+|[Databases - Get By Recommended Elastic Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|Gets a database inside of a recommented elastic pool.|
+|[Databases - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|
+|[Databases - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Returns a list of databases inside a recommented elastic pool.|
+|[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
+|[Databases - Update](/api/sql/databases/update)|Updates an existing database.|
+|[Firewall Rules - Create Or Update](/rest/api/sql/firewallrules/createorupdate)|Creates or updates a firewall rule.|
+|[Firewall Rules - Delete](/rest/api/sql/firewallrules/delete)|Deletes a firewall rule.|
+|[Firewall Rules - Get](/rest/api/sql/firewallrules/get)|Gets a firewall rule.|
+|[Firewall Rules - List By Server](/rest/api/sql/firewallrules/listbyserver)|Returns a list of firewall rules.|
 
 ## Next steps
 
