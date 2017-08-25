@@ -37,7 +37,9 @@ If you have installed Azure PowerShell version 0.9x, you must uninstall it befor
 
 To check the version of the installed PowerShell:
 
-    Get-Module *azure*
+    ```powershell
+        Get-Module *azure*
+    ```powershell
 
 To uninstall the older version, run Programs and Features in the control panel.
 
@@ -47,21 +49,29 @@ See [Create Linux-based clusters in HDInsight using Azure PowerShell](hdinsight-
 ## List clusters
 Use the following command to list all clusters in the current subscription:
 
-    Get-AzureRmHDInsightCluster
+    ```powershell
+        Get-AzureRmHDInsightCluster
+    ```powershell
 
 ## Show cluster
 Use the following command to show details of a specific cluster in the current subscription:
 
-    Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+    ```powershell
+        Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+    ```powershell
 
 ## Delete clusters
 Use the following command to delete a cluster:
 
-    Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+    ```powershell
+        Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+    ```powershell
 
 You can also delete a cluster by removing the resource group that contains the cluster. Deleting a resource group deletes all the resources in the group including the default storage account.
 
-    Remove-AzureRmResourceGroup -Name <Resource Group Name>
+    ```powershell
+        Remove-AzureRmResourceGroup -Name <Resource Group Name>
+    ```powershell
 
 ## Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
@@ -82,9 +92,12 @@ The impact of changing the number of data nodes for each type of cluster support
 
     You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging in to the headnode of cluster, and then run the following commands from a command prompt window:
 
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+        ```bash
+            >pushd %HBASE_HOME%\bin
+            >hbase shell
+            >balancer
+        ```bash
+
 * Storm
 
     You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
@@ -102,14 +115,18 @@ The impact of changing the number of data nodes for each type of cluster support
 
     Here is an example how to use the CLI command to rebalance the Storm topology:
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ```cli
+            ## Reconfigure the topology "mytopology" to use 5 worker processes,
+            ## the spout "blue-spout" to use 3 executors, and
+            ## the bolt "yellow-bolt" to use 10 executors
+            $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ```cli
 
 To change the Hadoop cluster size by using Azure PowerShell, run the following command from a client machine:
 
-    Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+    ```powershell
+        Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+    ```powershell
 
 
 ## Grant/revoke access
@@ -123,22 +140,26 @@ HDInsight clusters have the following HTTP web services (all of these services h
 
 By default, these services are granted for access. You can revoke/grant the access. To revoke:
 
-    Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+    ```powershell
+        Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+    ```powershell
 
 To grant:
 
-    $clusterName = "<HDInsight Cluster Name>"
-
-    # Credential option 1
-    $hadoopUserName = "admin"
-    $hadoopUserPassword = "<Enter the Password>"
-    $hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
-    $credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
-
-    # Credential option 2
-    #$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
-
-    Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
+    ```powershell
+        $clusterName = "<HDInsight Cluster Name>"
+    
+        # Credential option 1
+        $hadoopUserName = "admin"
+        $hadoopUserPassword = "<Enter the Password>"
+        $hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
+        $credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
+    
+        # Credential option 2
+        #$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
+    
+        Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
+    ```powershell
 
 > [!NOTE]
 > By granting/revoking the access, you reset the cluster user name and password.
@@ -153,35 +174,39 @@ It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If 
 ## Find the default storage account
 The following Powershell script demonstrates how to get the default storage account name and the related information:
 
-    #Login-AzureRmAccount
-    $clusterName = "<HDInsight Cluster Name>"
-    
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $storageInfo = $clusterInfo.DefaultStorageAccount.split('.')
-    $defaultStoreageType = $storageInfo[1]
-    $defaultStorageName = $storageInfo[0]
-    
-    echo "Default Storage account name: $defaultStorageName"
-    echo "Default Storage account type: $defaultStoreageType"
-    
-    if ($defaultStoreageType -eq "blob")
-    {
-        $defaultBlobContainerName = $cluster.DefaultStorageContainer
-        $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
-        $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
-    
-        echo "Default Blob container name: $defaultBlobContainerName"
-        echo "Default Storage account key: $defaultStorageAccountKey"
-    }
+    ```powershell
+        #Login-AzureRmAccount
+        $clusterName = "<HDInsight Cluster Name>"
+        
+        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+        $storageInfo = $clusterInfo.DefaultStorageAccount.split('.')
+        $defaultStoreageType = $storageInfo[1]
+        $defaultStorageName = $storageInfo[0]
+        
+        echo "Default Storage account name: $defaultStorageName"
+        echo "Default Storage account type: $defaultStoreageType"
+        
+        if ($defaultStoreageType -eq "blob")
+        {
+            $defaultBlobContainerName = $cluster.DefaultStorageContainer
+            $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
+            $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
+        
+            echo "Default Blob container name: $defaultBlobContainerName"
+            echo "Default Storage account key: $defaultStorageAccountKey"
+        }
+    ```powershell
 
 
 ## Find the resource group
 In the Resource Manager mode, each HDInsight cluster belongs to an Azure resource group.  To find the resource group:
 
-    $clusterName = "<HDInsight Cluster Name>"
-
-    $cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroupName = $cluster.ResourceGroup
+    ```powershell
+        $clusterName = "<HDInsight Cluster Name>"
+    
+        $cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+        $resourceGroupName = $cluster.ResourceGroup
+    ```powershell
 
 
 ## Submit jobs

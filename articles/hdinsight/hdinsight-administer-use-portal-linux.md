@@ -153,11 +153,14 @@ The impact of changing the number of data nodes for each type of cluster support
 
     You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging in to the headnode of cluster and running the following commands from a command prompt window:
 
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+        ```bash
+            >pushd %HBASE_HOME%\bin
+            >hbase shell
+            >balancer
+        ``bash
 
-    For more information on using the HBase shell, see []
+    For more information on using the HBase shell, see [Get started with an Apache HBase example in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
+
 * Storm
 
     You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
@@ -175,10 +178,12 @@ The impact of changing the number of data nodes for each type of cluster support
 
     Here is an example how to use the CLI command to rebalance the Storm topology:
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ```cli
+            ## Reconfigure the topology "mytopology" to use 5 worker processes,
+            ## the spout "blue-spout" to use 3 executors, and
+            ## the bolt "yellow-bolt" to use 10 executors
+            $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ```cli
 
 **To scale clusters**
 
@@ -239,11 +244,13 @@ Ambari then changes the password on all nodes in the cluster.
    >
    >
 
-        #! /bin/bash
-        USER=$1
-        PASS=$2
+        ```bash
+            #! /bin/bash
+            USER=$1
+            PASS=$2
+            usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
+        ```bash
 
-        usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
 2. Upload the file to a storage location that can be accessed from HDInsight using an HTTP or HTTPS address. For example, a public file store such as OneDrive or Azure Blob storage. Save the URI (HTTP or HTTPS address) to the file, as this URI is needed in the next step.
 3. From the Azure portal, click **HDInsight Clusters**.
 4. Click your HDInsight cluster.
