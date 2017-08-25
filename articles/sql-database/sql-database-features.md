@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/03/2017
-ms.author: carlrab; jognanay
+ms.date: 08/25/2017
+ms.author: carlrab
 
 ---
 # Azure SQL Database features
