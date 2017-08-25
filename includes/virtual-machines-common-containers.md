@@ -32,7 +32,7 @@ Learn how to:
 
 
 ## Kubernetes
-[Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) is an open-source platform that allows you to automate and orchestrate a container infrastructure. Additional tools and platforms such as Deis and Openshift leverage Kubernetes, which gives you choice and flexibility in how to manage and run your applications and services. You can build your own infrastruture with Docker hosts and Kubernetes, or use Azure Container Service for a centralized deployment.
+[Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) is an open-source platform that allows you to automate and orchestrate a container infrastructure. Additional tools and platforms such as Deis and Openshift leverage Kubernetes, which gives you choice and flexibility in how to manage and run your applications and services. You can build your own infrastructure with Docker hosts and Kubernetes, or use Azure Container Service for a centralized deployment.
 
 Learn how to:
 
@@ -40,7 +40,7 @@ Learn how to:
 
 
 ## DC/OS
-[DC/OS](https://dcos.io/) is an open-source platform to manage container hosts, appications and services, and VMs.
+[DC/OS](https://dcos.io/) is an open-source platform to manage container hosts, applications and services, and VMs.
 
 Learn how to:
 
@@ -58,7 +58,7 @@ Learn how to:
 
 
 ## Azure Container Registry
-Azure Container Registry allows you create, store and manage your private Docker container images in a secured central location. These container images can then be used as part of deployment workflows in Azure Container Service deployments and Azure Container Instances, as well as local development environments or external container platforms. Tags can be used to maintain multiple versions of images as needed to support your application lifecycle and continuous deployment. A managed registry adds features such as additional storage tiers for improved reliability, webhook integration, and the use of Azure Active Directory authentication.
+Azure Container Registry allows you to create, store, and manage your private Docker container images in a secured central location. These container images can then be used as part of deployment workflows in Azure Container Service deployments and Azure Container Instances, as well as local development environments or external container platforms. Tags can be used to maintain multiple versions of images as needed to support your application lifecycle and continuous deployment. A managed registry adds features such as additional storage tiers for improved reliability, webhook integration, and the use of Azure Active Directory authentication.
 
 Learn how to:
 - [Create an Azure Container Registry](../articles/container-registry/container-registry-get-started-portal.md)
