@@ -13,22 +13,25 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/28/2017
-ms.author: shvija;sethm
+ms.date: 08/28/2017
+ms.author: sethm
 
 ---
+
 # Create an Event Hubs namespace with an event hub and enable Capture using an Azure Resource Manager template
-This article shows how to use an Azure Resource Manager template that creates an Event Hubs namespace, with one event hub instance, and also enables the Capture feature on the event hub. The article describes how to define which resources are deployed, and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
-This article will also show you how to capture events into your Azure Storage Blobs or Azure Data Lake Store based on the destination you pick.
+
+This article shows how to use an Azure Resource Manager template that creates an Event Hubs namespace, with one event hub instance, and also enables the [Capture feature](event-hubs-capture-overview.md) on the event hub. The article describes how to define which resources are deployed, and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
+
+This article also shows how to specify that events are captured into either Azure Storage Blobs or an Azure Data Lake Store, based on the destination you choose.
 
 For more information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
-For more information on practice and patterns on Azure Resources naming conventions, please see [Azure Resources Naming Conventions][Azure Resources Naming Conventions].
+For more information about patterns and practices for Azure Resources naming conventions, see [Azure Resources naming conventions][Azure Resources naming conventions].
 
-For the complete templates see, 
-    [Event hub and enable Capture to Storage template][Event Hub and enable Capture to Storage template] 
-    [Event hub and enable Capture to Data Lake Store template][Event Hub and enable Capture to Data Lake Store template]
-on github
+For the complete templates, click the following GitHub links:
+
+- [Event hub and enable Capture to Storage template][Event Hub and enable Capture to Storage template] 
+- [Event hub and enable Capture to Azure Data Lake Store template][Event Hub and enable Capture to Azure Data Lake Store template]
 
 > [!NOTE]
 > To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for Event Hubs.
@@ -36,9 +39,10 @@ on github
 > 
 
 ## What will you deploy?
+
 With this template, you deploy an Event Hubs namespace with an event hub, and also enable [Event Hubs Capture](event-hubs-capture-overview.md).
 
-[Event Hubs](event-hubs-what-is-event-hubs.md) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability. Event Hubs Capture enables you to automatically deliver the streaming data in your Event Hubs to Azure Blob storage of your choice within a specified time or size interval of your choosing.
+[Event Hubs](event-hubs-what-is-event-hubs.md) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability. Event Hubs Capture enables you to automatically deliver the streaming data in Event Hubs to Azure Blob storage or Azure Data Lake Store, within a specified time or size interval of your choosing.
 
 Click the following button to enable Event Hubs Capture into Azure Storage automatically:
 
@@ -48,14 +52,15 @@ Click the following button to enable Event Hubs Capture into Azure Data Lake Sto
 
 [![Deploy to Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture-for-adls%2Fazuredeploy.json)
 
-
 ## Parameters
+
 With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all the parameter values. You should define a parameter for those values that vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that always stay the same. Each parameter value is used in the template to define the resources that are deployed.
 
 The template defines the following parameters.
 
 ### eventHubNamespaceName
-The name of the Event Hubs namespace to create.
+
+The name of the [Event Hubs namespace](event-hubs-create.md) to create.
 
 ```json
 "eventHubNamespaceName":{  
@@ -67,7 +72,8 @@ The name of the Event Hubs namespace to create.
 ```
 
 ### eventHubName
-The name of the event hub created in the Event Hubs namespace.
+
+The name of the event hub created in the [Event Hubs namespace](event-hubs-create.md).
 
 ```json
 "eventHubName":{  
@@ -79,6 +85,7 @@ The name of the event hub created in the Event Hubs namespace.
 ```
 
 ### messageRetentionInDays
+
 The number of days to retain the messages in the event hub. 
 
 ```json
@@ -94,6 +101,7 @@ The number of days to retain the messages in the event hub.
 ```
 
 ### partitionCount
+
 The number of partitions to create in the event hub.
 
 ```json
@@ -109,6 +117,7 @@ The number of partitions to create in the event hub.
 ```
 
 ### captureEnabled
+
 Enable Capture on the event hub.
 
 ```json
@@ -124,6 +133,7 @@ Enable Capture on the event hub.
  }
 ```
 ### captureEncodingFormat
+
 The encoding format you specify to serialize the event data.
 
 ```json
@@ -139,7 +149,8 @@ The encoding format you specify to serialize the event data.
 ```
 
 ### captureTime
-The time interval in which Event Hubs Capture starts capturing the data to Azure Blob storage.
+
+The time interval in which Event Hubs Capture starts capturing the data.
 
 ```json
 "captureTime":{
@@ -154,7 +165,7 @@ The time interval in which Event Hubs Capture starts capturing the data to Azure
 ```
 
 ### captureSize
-The size interval at which Capture starts capturing the data to Azure Blob storage.
+The size interval at which Capture starts capturing the data.
 
 ```json
 "captureSize":{
@@ -169,7 +180,8 @@ The size interval at which Capture starts capturing the data to Azure Blob stora
 ```
 
 ###captureNameFormat
-The name format used by Event Hubs Capture to write the Avro files. Note, a Capture name format must contain {Namespace}, {EventHub}, {PartitionId}, {Year}, {Month}, {Day}, {Hour}, {Minute} and {Second} fields. These can be arranged in any order with or without delimeters.
+
+The name format used by Event Hubs Capture to write the Avro files. Note that a Capture name format must contain `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}`, and `{Second}` fields. These can be arranged in any order, with or without delimiters.
  
 ```json
 "captureNameFormat": {
@@ -183,6 +195,7 @@ The name format used by Event Hubs Capture to write the Avro files. Note, a Capt
 ```
 
 ### apiVersion
+
 The API version of the template.
 
 ```json
@@ -195,21 +208,23 @@ The API version of the template.
  }
 ```
 
-The following parameters are used if you choose Azure Storage as your destination.
+Use the following parameters if you choose Azure Storage as your destination.
 
 ### destinationStorageAccountResourceId
+
 Capture requires an Azure Storage account resource ID to enable capturing to your desired Storage account.
 
 ```json
  "destinationStorageAccountResourceId":{
     "type":"string",
     "metadata":{
-        "description":"Your existing Storage account resource id where you want the blobs be captured"
+        "description":"Your existing Storage account resource ID where you want the blobs be captured"
     }
  }
 ```
 
 ### blobContainerName
+
 The blob container in which to capture your event data.
 
 ```json
@@ -221,34 +236,37 @@ The blob container in which to capture your event data.
 }
 ```
 
-The following parameters are used if you choose Azure Data Lake Store as your destination. You need to set permissions on your Data Lake Store path where you want to Capture the event. Please refer to [this](event-hubs-capture-enable-through-portal.md) article to set permissions.
+Use the following parameters if you choose Azure Data Lake Store as your destination. You must set permissions on your Data Lake Store path, in which you want to Capture the event. To set permissions, see [this article](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account).
 
 ###subscriptionId
-Subscription Id for Event Hubs namespace and Data Lake Store. Note, that both these resources need to be under the same subscription id
+
+Subscription ID for the Event Hubs namespace and Azure Data Lake Store. Both these resources must be under the same subscription ID.
 
 ```json
 "subscriptionId": {
     "type": "string",
     "metadata": {
-        "description": "Subscription Id of both Data Lake Store and Event Hub namespace"
+        "description": "Subscription Id of both Azure Data Lake Store and Event Hub namespace"
      }
  }
 ```
 
 ###dataLakeAccountName
-The Data Lake Store name for the Captured events from Event Hubs
+
+The Azure Data Lake Store name for the captured events.
 
 ```json
 "dataLakeAccountName": {
     "type": "string",
     "metadata": {
-        "description": "Data Lake Store name"
+        "description": "Azure Data Lake Store name"
     }
 }
 ```
 
 ###dataLakeFolderPath
-The destination folder path for the captured events
+
+The destination folder path for the captured events.
 
 ```json
 "dataLakeFolderPath": {
@@ -259,9 +277,9 @@ The destination folder path for the captured events
 }
 ```
 
-
 ## Resources to deploy for Azure Storage as destination to captured events
-Creates a namespace of type **EventHubs**, with one event hub, and also enables Capture.
+
+Creates a namespace of type **EventHubs**, with one event hub, and also enables Capture to Azure Blob Storage.
 
 ```json
 "resources":[  
@@ -308,8 +326,9 @@ Creates a namespace of type **EventHubs**, with one event hub, and also enables 
    ]
 ```
 
-## Resources to deploy for Azure Data Lake Store as destination to captured events
-Creates a namespace of type **EventHubs**, with one event hub, and also enables Capture.
+## Resources to deploy for Azure Data Lake Store as destination
+
+Creates a namespace of type **EventHubs**, with one event hub, and also enables Capture to Azure Data Lake Store.
 
 ```json
  "resources": [
@@ -355,28 +374,36 @@ Creates a namespace of type **EventHubs**, with one event hub, and also enables 
 ```
 
 ## Commands to run deployment
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## PowerShell
 
-Deploy your template to enable Event Hubs Capture into Azure Storage 
+Deploy your template to enable Event Hubs Capture into Azure Storage:
+ 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json
 ```
-Deploy your template to enable Event Hubs Capture into Azure Data Lake Store
+
+Deploy your template to enable Event Hubs Capture into Azure Data Lake Store:
+
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json
 ```
 
 ## Azure CLI
-Choosing Azure Storage as destination
-```cli
+
+Choosing Azure Blob Storage as destination:
+
+```azurecli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
-Choosing Azure Data Lake Store as destination
-```cli
+
+Choosing Azure Data Lake Store as destination:
+
+```azurecli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json][]
@@ -394,8 +421,6 @@ You can learn more about Event Hubs by visiting the following links:
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
-[Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-[Azure Resources Naming Conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
+[Azure Resources naming conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
 [Event hub and enable Capture to Storage template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture
-[Event hub and enable Capture to Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls
+[Event hub and enable Capture to Azure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls
