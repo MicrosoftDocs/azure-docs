@@ -52,7 +52,7 @@ The table below lists the property names and their description needed for creati
 <td>The name of the Data Lake Storage account where you are sending your output. You will be presented with a drop down list of Data Lake Store accounts to which the user logged in to the portal has access to.</td>
 </tr>
 <tr>
-<td>Path Prefix Pattern [<I>optional</I>]</td>
+<td>Path Prefix Pattern</td>
 <td>The file path used to write your files within the specified Data Lake Store Account. <BR>{date}, {time}<BR>Example 1: folder1/logs/{date}/{time}<BR>Example 2: folder1/logs/{date}</td>
 </tr>
 <tr>
