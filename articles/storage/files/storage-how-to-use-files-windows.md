@@ -22,7 +22,7 @@ ms.author: renash
 
 In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.0. 
 
-Azure File share can be mounted on Windows machine either on-premises or in Azure VM depending on OS version. Below table illustrates the 
+Azure File shares can be mounted on Windows machine either on-premises or in Azure VM depending on OS version. Below table illustrates the 
 
 | Windows Version        | SMB Version | Mountable in Azure VM | Mountable On-Premises |
 |------------------------|-------------|-----------------------|----------------------|
