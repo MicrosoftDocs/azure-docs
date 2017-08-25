@@ -204,6 +204,11 @@ There are many ways you can program the process:
 
 For the pricing information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/). To delete a cluster from the Portal, see [Delete clusters](#delete-clusters)
 
+
+## Upgrade clusters
+
+See [Upgrade HDInsight cluster to a newer version](./hdinsight-upgrade-cluster.md).
+
 ## Change passwords
 An HDInsight cluster can have two user accounts. The HDInsight cluster user account (A.K.A. HTTP user account) and the SSH user account are created during the creation process. You can use the Ambari web UI to change the cluster user account username and password, and script actions to change the SSH user account
 

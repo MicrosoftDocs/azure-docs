@@ -131,6 +131,7 @@
 
 ## Manage devices
 ### [Introduction](device-management-introduction.md)
+### [Using the Azure portal](device-management-azure-portal.md)
 ### [FAQs](device-management-faq.md)
 ### Tasks
 #### [Configure hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md) 
