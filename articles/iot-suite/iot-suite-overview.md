@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure IoT Suite overview | Microsoft Docs
-description: IoT Suite is a collection of customizable preconfigured solutions you can deploy to Azure, such as remote monitoring and predictive maintenance.
+title: Microsoft Azure IoT options | Microsoft Docs
+description: Choose how to implement your Azure IoT solution using IoT Suite, IoT Central, or IoT Hub.
 services: ''
 suite: iot-suite
 author: dominicbetts
@@ -23,55 +23,38 @@ ms.custom: H1Hack27Feb2017
 
 Compare IoT solution options, replaces existing "What is IoT Suite?" article.-->
 
-# What is Azure IoT Suite?
+# Azure IoT options
 
-Azure IoT Suite is a collection of preconfigured IoT solutions that you can deploy to your Azure subscription. Each *preconfigured solution* is a base implementation of a common IoT solution pattern such as remote monitoring or predictive maintenance. You can customize and extend these solutions to meet your specific requirements. You can also use these solutions as examples or templates when you develop new IoT solutions.
+The article [Azure and Internet of Things](iot-suite-overview.md) describes a typical IoT architecture with the following layers:
 
-Azure IoT Suite is a collection of enterprise-grade preconfigured solutions that enable you to get started quickly with IoT. Preconfigured solutions are open source, and you can customize and extended them to meet your specific requirements. The preconfigured solutions:
+* Device connectivity
+* Data processing and analytics
+* Presentation
 
-* Implement common IoT patterns to accelerate your solution development.
-* Deploy into your Azure subscription in a matter of minutes.
+To implement this architecture, Azure IoT offers three options:
+
+* **Microsoft IoT Central** is a SaaS solution that uses a model-based approach to enable you to build an enterprise-grade IoT solution.
+* **Azure IoT Suite** is a PaaS solution that deploys [preconfigured solutions](iot-suite-what-are-preconfigured-solutions.md) that implement common IoT patterns to your Azure subscription. These preconfigured solutions are customizable, enterprise-grade, and open-source.
+* **Azure IoT Hub** is the core Azure IoT service that both IoT Central and IoT Suite use. It provides services such as high-volume telemetry ingestion, device management, and security to an IoT solution. You can build your own IoT solutions from scratch using the IoT Hub service.
 
 ## Compare IoT Suite, IoT Central, and IoT Hub
 
-You can use IoT Suite, IoT Central, or IoT Hub to build your IoT solution. [IoT Hub provides core IoT services](../iot-hub/iot-hub-what-is-iot-hub.md) such as high-volume telemetry ingestion, device management, and security. The IoT Suite preconfigured solutions and IoT Central both use IoT Hub, and both offer enterprise-grade end-to-end solutions. If you are building an IoT solution from scratch, you can use IoT Hub as a core building block in your solution.
-
-The following table summarizes the key differences between IoT Suite and IoT Central to help you choose the correct one to meet your requirements:
+Choosing your Azure IoT product is a critical part of planning your IoT solution. IoT Hub offers the most flexibility, but you must implement most of the solution yourself. The following table summarizes the key differences between IoT Suite and IoT Central to help you choose the correct one for your requirements:
 
 |                        | IoT Suite | IoT Central |
 | ---------------------- | --------- | ----------- |
 | Service type           | PaaS. You have access to the underlying Azure services to manage them. | SaaS. Fully managed solution, you don't need to manage the underlying Azure services. |
 | Flexibility            | High. The code for the microservices is open source and you can modify it in any way you see fit. | Medium. You can use the built-in GUI tools to customize the model and aspects of the UI. |
-| Skills                 | Java or .NET skills are required to customize the solution. | Modelling skills are required to customize the solution. |
+| Skills                 | Java or .NET skills are required to customize the solution. | Modeling skills are required to customize the solution. |
 | Get started experience | Preconfigured solutions implement common IoT scenarios. Can be deployed in minutes. | Templates provide pre-built models. Can be deployed in minutes. |
-| Pricing                | You can fine tune the services to control the cost. | Simple, predictable pricing structure. |
+| Pricing                | You can fine-tune the services to control the cost. | Simple, predictable pricing structure. |
 
 <!-- Extend table with info from Cory and Hector -->
 
-## Use preconfigured solutions
-
-The IoT Suite preconfigured solutions implement common IoT patterns, such as:
-
-* Remote monitoring
-* Predictive maintenance
-* Connected factory
-
-The preconfigured solutions implement a number of core IoT capabilities. These enterprise-grade solutions deliver services such as:
-
-* Collect data from devices
-* Analyze data streams in-motion
-* Store and query large data sets
-* Visualize both real-time and historical data
-* Integrate with back-office systems
-* Manage your devices
-
-To deliver these capabilities, Azure IoT Suite packages together multiple Azure services with custom code as preconfigured solutions.
-
-<!-- Do we have anything more up to date? -->
-The following video provides an introduction to Azure IoT Suite:
-
-> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON309/player]
-
 ## Next steps
 
-Now that you have an overview of IoT Suite, the suggested next step is to learn more about the IoT Suite preconfigured solutions, see [What are the Azure IoT preconfigured solutions?](iot-suite-what-are-preconfigured-solutions.md)
+Based on your chosen product and approach, the suggested next steps are:
+
+* **IoT Suite**: [What are the Azure IoT preconfigured solutions?](iot-suite-what-are-preconfigured-solutions.md)
+* **IoT Central**: [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
+* **IoT Hub**: [Overview of the Azure IoT Hub service](../iot-hub/iot-hub-what-is-iot-hub.md).
