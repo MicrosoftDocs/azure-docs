@@ -26,7 +26,7 @@ take a look at the [pip quickstart documentation](https://pip.pypa.io/en/latest/
 While both python 2.7 and 3.6 are supported, it is recommended to use python 3.6. The following section goes
 over how to install all the prerequisites and the CLI.
 
-## Install pip, python and sfctl
+## Install pip, python, and sfctl
 
 While there are many ways to install both pip and python on your platform, here are some steps to get set up quickly
 with python 3.6 and pip for major OSes:
@@ -34,7 +34,7 @@ with python 3.6 and pip for major OSes:
 ### Windows
 
 For Windows 10, Server 2016, and Server 2012R2 you can use the standard official install instructions. The python
-installer will also install pip by default.
+installer also installs pip by default.
 
 - Navigate to the official [python downloads page](https://www.python.org/downloads/) and download the latest
 release of python 3.6
@@ -59,7 +59,7 @@ sfctl -h
 
 ### Ubuntu
 
-For Ubunutu 16.04 Desktop, you can install python 3.6 using a 3rd party PPA:
+For Ubuntu 16.04 Desktop, you can install python 3.6 using a third-party PPA:
 
 From the terminal run the following commands:
 
@@ -77,13 +77,13 @@ python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-This will leave python 3.5 and 2.7 installed and unmodified on the system. Do not attempt to modify these 
-installations, unless you are familiar with Ubuntu.
+These steps do not affect the system installed python 3.5 and 2.7. Do not attempt to modify these installations,
+unless you are familiar with Ubuntu.
 
 ### MacOS
 
 For MacOS, it is recommended to use the [HomeBrew package manager](https://brew.sh). Install HomeBrew if it is not
-already installed, by running the following from the terminal:
+already installed, by running the following command:
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -97,7 +97,7 @@ pip3 install sfctl
 sfctl -h
 ```
 
-This will still leave the system installation of python 2.7 unmodified.
+These steps do not modify the system installation of python 2.7.
 
 ## CLI syntax
 
