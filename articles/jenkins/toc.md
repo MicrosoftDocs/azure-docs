@@ -11,9 +11,11 @@
 ## [Docker, GitHub, and Jenkins](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
 # How-to guides
 ## [Secure Jenkins on Azure](https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/)
+## [Publish artifacts to Azure Storage](/azure/storage/common/storage-java-jenkins-continuous-integration-solution)
 ## [App Service Plugin](/azure/jenkins/deploy-Jenkins-app-service-plugin)
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
-## [Jenkins Azure Storage plugin](https://plugins.jenkins.io/windows-azure-storage)
-## [Jenkins Azure VM Agents plugin](https://plugins.jenkins.io/azure-vm-agents)
+## [App Service plugin](https://plugins.jenkins.io/azure-app-service)
+## [Azure Storage plugin](https://plugins.jenkins.io/windows-azure-storage)
+## [Azure VM Agents plugin](https://plugins.jenkins.io/azure-vm-agents)
 ## [Jenkins site](https://jenkins.io/)
