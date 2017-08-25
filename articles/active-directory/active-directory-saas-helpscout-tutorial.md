@@ -27,7 +27,7 @@ You get the following benefits from integrating Help Scout with Azure AD:
 - You can automatically sign in your users to Help Scout by using single sign-on and a user's Azure AD account.
 - You can manage your accounts in one, central location, the Azure portal.
 
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
@@ -206,7 +206,7 @@ To assign Britta Simon to Help Scout:
 
 In this section, you test your Azure AD single sign-on configuration by using the access panel.
 
-When you select the Help Scout tile in the access panel, you should be automatically signed-in to your Help Scout application.
+When you select the Help Scout tile in the access panel, you should be automatically signed in to your Help Scout application.
 
 For more information about the access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md). 
 
