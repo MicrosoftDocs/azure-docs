@@ -171,17 +171,14 @@ Sign in to the **tenant portal** as the delegated provider and create a new offe
     > Note the difference compared to offer creation as experienced by the cloud operator. The delegated provider does not construct the offer from base plans and add-on plans; they can only choose from offers that have been delegated to them, and can't make changes to those offers.
 
 1. Make the offer public by clicking **Browse** &gt; **Offers**, selecting the offer, and clicking **Change State**.
-2. The delegated provider exposes these offers through his or her own portal URL. Note that these offers are visible only through this    delegated portal. To find and change this URL:
+2. The delegated provider exposes these offers through his or her own portal URL. Note that these offers are visible only through the delegated portal. To find and change this URL:
    
-    a.  Click **Browse**&gt; **Provider Settings** &gt; **Portal URL**.
+    a.  Click **Browse**&gt; **More services**&gt; **Subscriptions**&gt; Select the delegated provider subscription, in our case its *DPSubscription*&gt; **Properties**.
    
-    b.  Change the Provider ID if desired.
+    b.  Copy the portal URL to a separate location, such as Notepad.
    
-    c.  Copy the portal URL to a separate location, such as Notepad.
+    ![](media/azure-stack-delegated-provider/dpportaluri.png)  
    
-    ![](media/azure-stack-delegated-provider/image7.png)
-   
-   <!-- -->
    You have now completed the creation of a delegated offer as a delegated provider. Sign out as the delegated provider. Close the browser tab you have been using.
 
 ## Sign up for the offer
