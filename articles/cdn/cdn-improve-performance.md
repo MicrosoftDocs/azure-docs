@@ -75,6 +75,8 @@ There are two ways to enable compression:
    
     The CDN management portal opens.
 2. Hover over the **HTTP Large** tab, then hover over the **Cache Settings** flyout.  Click on **Compression**.
+
+    ![File compression](./media/cdn-file-compression/cdn-compress-select.png)
    
     Compression options are displayed.
    
@@ -100,11 +102,11 @@ These tables describe Azure CDN compression behavior for every scenario.
 > 
 > For all Azure CDN products, a file must be a MIME type that has been [configured for compression](#enabling-compression).
 > 
-> **Azure CDN from Verizon** profiles (Standard and Premium) support **gzip**, **deflate**, or **bzip2** encoding.  **Azure CDN from Akamai** profiles only support **gzip** encoding.
+> **Azure CDN from Verizon** profiles (Standard and Premium) support **gzip** (GNU zip), **deflate**, **bzip2**, or  **br** (Brotli) encoding. For Brotli encoding, the compression is done only at the edge. The client/browser must send the request for Brotli encoding and the compressed asset must have been compressed on the origin side first. 
+>
+>**Azure CDN from Akamai** profiles support only **gzip** encoding.
 > 
-> **Azure CDN from Akamai** endpoints always request **gzip** encoded files from the origin, regardless of the client request.
-> 
-> 
+> **Azure CDN from Akamai** endpoints always request **gzip** encoded files from the origin, regardless of the client request. 
 
 ### Compression disabled or file is ineligible for compression
 | Client requested format (via Accept-Encoding header) | Cached file format | CDN response to the client | Notes |
