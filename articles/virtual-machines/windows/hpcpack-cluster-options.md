@@ -58,14 +58,14 @@ This article focuses on options to create HPC Pack clusters to run Windows workl
 * [Job management in HPC Pack](https://technet.microsoft.com/library/jj899585.aspx)
 * [Manage an HPC Pack 2016 cluster in Azure with Azure Active Directory](hpcpack-cluster-active-directory.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## Add worker role nodes to an HPC Pack cluster
+## Burst with worker role nodes 
 * [Burst to Azure worker instances with HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 * [Tutorial: Set up a hybrid cluster with HPC Pack in Azure](../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 * [Add Azure "burst" nodes to an HPC Pack head node in Azure](classic/hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## Integrate with Azure Batch
+## Burst with Azure Batch
 * [Burst to Azure Batch with HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
-## Create RDMA clusters for MPI workloads
+## RDMA clusters for MPI workloads
 * [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
