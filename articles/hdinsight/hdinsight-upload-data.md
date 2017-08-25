@@ -59,43 +59,43 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
 1. [Install and configure the Azure CLI for Mac, Linux, and Windows](../cli-install-nodejs.md).
 2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
 
-        ```cli
-            azure login
-        ```cli
+    ```cli
+        azure login
+    ```
 
     When prompted, enter the user name and password for your subscription.
 3. Enter the following command to list the storage accounts for your subscription:
 
-        ```cli
-            azure storage account list
-        ```cli
+    ```cli
+        azure storage account list
+    ```
 
 4. Select the storage account that contains the blob you want to work with, then use the following command to retrieve the key for this account:
 
-        ```cli
-            azure storage account keys list <storage-account-name>
-        ```cli
+    ```cli
+        azure storage account keys list <storage-account-name>
+    ```
 
     This command returns the **Primary** and the **Secondary** keys. Copy the **Primary** key value because it will be used in the next steps.
 5. Use the following command to retrieve a list of blob containers within the storage account:
 
-        ```cli
-            azure storage container list -a <storage-account-name> -k <primary-key>
-        ```cli
+    ```cli
+        azure storage container list -a <storage-account-name> -k <primary-key>
+    ```
 
 6. Use the following commands to upload and download files to the blob:
 
    * To upload a file:
 
-            ```cli
-               azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
-            ```cli
+        ```cli
+            azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
+        ```
 
    * To download a file:
 
-            ```cli
-               azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
-            ```cli
+        ```cli
+            azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
+        ```
     
 > [!NOTE]
 > If you always work with the same storage account, you can set the following environment variables instead of specifying the account and key for every command:
@@ -115,22 +115,22 @@ Azure PowerShell is a scripting environment that you can use to control and auto
 1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell](/powershell/azure/overview).
 2. Set the values of the first five variables in the following script:
 
-        ```powershell
-            $resourceGroupName = "<AzureResourceGroupName>"
-            $storageAccountName = "<StorageAccountName>"
-            $containerName = "<ContainerName>"
-    
-            $fileName ="<LocalFileName>"
-            $blobName = "<BlobName>"
-    
-            # Get the storage account key
-            $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
-            # Create the storage context object
-            $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
-    
-            # Copy the file from local workstation to the Blob container
-            Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -context $destContext
-        ```powershell
+    ```powershell
+    $resourceGroupName = "<AzureResourceGroupName>"
+    $storageAccountName = "<StorageAccountName>"
+    $containerName = "<ContainerName>"
+
+    $fileName ="<LocalFileName>"
+    $blobName = "<BlobName>"
+
+    # Get the storage account key
+    $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
+    # Create the storage context object
+    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
+
+    # Copy the file from local workstation to the Blob container
+    Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -context $destContext
+    ```
 
 3. Paste the script into the Azure PowerShell console to run it to copy the file.
 
@@ -141,9 +141,9 @@ AzCopy is a command-line tool that is designed to simplify the task of transferr
 
 The AzCopy syntax is:
 
-    ```command
-        AzCopy <Source> <Destination> [filePattern [filePattern...]] [Options]
-    ```command
+```command
+AzCopy <Source> <Destination> [filePattern [filePattern...]] [Options]
+```
 
 For more information, see [AzCopy - Uploading/Downloading files for Azure Blobs][azure-azcopy].
 
@@ -159,9 +159,9 @@ In order to use the Hadoop command, you must first connect to the headnode using
 
 Once connected, you can use the following syntax to upload a file to storage.
 
-    ```bash
-        hadoop -copyFromLocal <localFilePath> <storageFilePath>
-    ```bash
+```bash
+hadoop -copyFromLocal <localFilePath> <storageFilePath>
+```
 
 For example, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
@@ -271,9 +271,9 @@ For more information on installing the Azure SDKs, see [Azure downloads](https:/
 
 **Resolution**: Use `fs.azure.write.request.size` to specify a larger block size. You can do this on a per-use basis by using the `-D` parameter. The following command is an example using this parameter with the `hadoop` command:
 
-    ```bash
-        hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
-    ```bash
+```bash
+hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
+```
 
 You can also increase the value of `fs.azure.write.request.size` globally by using Ambari. The following steps can be used to change the value in the Ambari Web UI:
 

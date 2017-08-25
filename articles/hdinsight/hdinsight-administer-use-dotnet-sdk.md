@@ -237,11 +237,11 @@ It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If 
 The following code snippet demonstrates how to get the default storage account name and the default storage account key for a cluster.
 
 ```csharp
-    var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
-    foreach (var key in results.Configuration.Keys)
-    {
-        Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
-    }
+var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
+foreach (var key in results.Configuration.Keys)
+{
+    Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
+}
 ```
 
 ## Submit jobs
