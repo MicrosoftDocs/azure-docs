@@ -61,8 +61,6 @@
 ### Spark developer quickstart
 #### [Create standalone app](hdinsight-apache-spark-create-standalone-application.md)
 #### [Remote jobs with Livy](hdinsight-apache-spark-livy-rest-interface.md) 
-#### [Manage cluster resources](hdinsight-apache-spark-resource-manager.md)
-#### [Debug Spark jobs](hdinsight-apache-spark-job-debugging.md)
 ### [With Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Create apps using Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Create apps using IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
