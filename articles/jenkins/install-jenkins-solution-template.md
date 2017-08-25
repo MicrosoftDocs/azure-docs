@@ -82,7 +82,7 @@ Select **Create new jobs** from the Jenkins console, then name it **mySampleApp*
 
 ![Create a new job](./media/install-jenkins-solution-template/jenkins-new-job.png) 
 
-Select the **Source Code Management** tab, enable **Git** and enter the following URL in **Repository URL** https://github.com/spring-guides/gs-spring-boot-docker.git
+Select the **Source Code Management** tab, enable **Git** and enter the following URL in **Repository URL** https://github.com/spring-guides/gs-spring-boot.git
 
 ![Define the Git repo](./media/install-jenkins-solution-template/jenkins-job-git-configuration.png) 
 
@@ -100,7 +100,7 @@ Select **Build Now** to compile the code and package the sample app. When your b
 
 ![Browse to the workspace to get the JAR file from the build](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
 
-Navigate to `complete/build/libs` and ensure the `gs-spring-boot-docker-0.1.0.jar` is there to verify that your build was successful.
+Navigate to `complete/build/libs` and ensure the `gs-spring-boot-0.1.0.jar` is there to verify that your build was successful.
 
 ## Next Steps
 
