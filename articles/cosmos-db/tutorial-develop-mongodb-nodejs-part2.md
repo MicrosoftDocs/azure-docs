@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/23/2017
+ms.date: 08/25/2017
 ms.author: mimig
 
 ---
@@ -60,39 +60,48 @@ This tutorial also requires:
 
 ## Use the Angular CLI to create a new project
 
-1. At the command prompt, cd to the folder where you want to create your new project, then run the following code to create a new project with Angular CLI. This code installs the source code in src/client folder (-sd src/client), and uses the minimal setup (--minimal).
+1. At the command prompt, change to the folder where you want to create your new project, then run the following command. This command creates a new folder and project named angular-cosmosdb and installs the AngularJS components required for a new app. It also installs the source code in src/client folder (-sd src/client), uses the minimal setup (--minimal), and specifies that the project uses a CSS-like syntax (--style scss).
 
     ```bash
     ng new angular-cosmosdb -sd src/client --minimal --style scss
     ```
 
-2. Once the command completes, change directories into the src/client folder, and open the folder in Visual Studio Code.
+2. Once the command completes, change directories into the src/client folder.
+ and open the folder in Visual Studio Code.
 
     ```bash
     cd angular-cosmosdb
+    ```
+
+3. Then open the folder in Visual Studio Code.
+
+    ```bash
     code .
     ```
 
 ## Build out the app using the Express framework
 
-1. In Visual Studio Code, in the Explorer pane, right-click the src folder, click New Folder, and name the new folder server.
-2. In the Explorer pane, right-click the server folder, click New File, and name the new file index.js.
-3. At the command prompt, install the new folder and file.
+1. In Visual Studio Code, in the **Explorer** pane, right-click the **src** folder, click **New Folder**, and name the new folder *server*.
+2. In the **Explorer** pane, right-click the **server** folder, click **New File**, and name the new file *index.js*.
+3. Back at the command prompt, use the following command to install the body parser to help parse the json bodies as they're passed in through the APIs.
 
     ```bash
     npm i express body-parser --save
     ```
 
 4. In Visual Studio Code, copy the following code into the index.js file. This code:
-    * Creates express
+    * Creates Express
     * Pulls in the body-parser
     * Use a built-in feature called path
     * Sets root variables to make it easier to find where our code is located
     * Sets up a port
-    * Cranks up express
+    * Cranks up Express
     * Tells the app how to use the middleware that were going to be using to serve up the server
-    * Serves everything that's in the dist folder so all that's going to be static content
+    * Use the body-parser for URL encoding
+    * Serves everything that's in the dist folder so all that's going to be static content, so use express.static in the dist folder
     * Serves up the actual application, and does a get on anything that falls through to pass up and serve to index.html
+    * Crank up server with app.listen
+    * Use a lamba to ensure the port is alive
     
     ```node
     const express = require('express');
@@ -115,9 +124,12 @@ This tutorial also requires:
     app.listen(port, () => console.log(`API running on localhost:${port}`));
     ```
 
-5. In Visual Studio Code, in the Explorer pane, right-click the server folder, and then click New file. Name the new file routes.js. This code:
-    * Refers to the router
+5. In Visual Studio Code, in the **Explorer** pane, right-click the **server** folder, and then click **New file**. Name the new file *routes.js*. 
+
+6. Copy the following code into **routes.js**. This code:
+    * Refers to the Express router
     * Gets the heroes
+    * Send back the json for an defined hero
 
     ```node
     const express = require('express');
@@ -132,21 +144,25 @@ This tutorial also requires:
     module.exports=router;
     ```
 
-6. In Visual Studio Code, click the Debug button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png).
+7. Save all your modified files. 
 
-7. In the Debug box, select Add Configuration. 
+8. In Visual Studio Code, click the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png), click the Gear button ![Gear button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png), then select **Node.js** to create a configuration.
 
    The new launch.json file opens in Visual Studio Code.
 
-8. On line 11, change `"program": "${file}"` to `"program": "${workspaceRoot}/src/server/index.js"`.
+8. On line 11 of the launch.json file, change `"program": "${file}"` to `"program": "${workspaceRoot}/src/server/index.js"` and save the file.
 
-9. Click the Start Debugging button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png).
+9. Click the **Start Debugging** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) to run the app.
+
+    The app should run without errors.
 
 ## Use Postman to test the app
 
 1. Now open Postman and put `http://localhost:3000/api/heroes` in the GET box. 
 
-2. Click the Send button and get the json response from the app. This response shows the app is up and running. 
+2. Click the **Send** button and get the json response from the app. 
+
+    This response shows the app is up and running locally. 
 
     ![Postman showing the request and the response](./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png)
 
