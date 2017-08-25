@@ -32,7 +32,7 @@ The scenario that's outlined in this tutorial assumes that you already have the 
 
 Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Azure AD are synchronized.
 
-Before configuring and enabling the provisioning service, you need to decide which users and/or groups in Azure AD represent the users who need access to your Google Apps app. After you've decided this, you can assign these users to your Google Apps app by following the instructions in:
+Before configuring and enabling the provisioning service, you need to decide which users or groups in Azure AD need access to your Google Apps app. After you've decided this, you can assign these users to your Google Apps app by following the instructions in
 [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ Before configuring and enabling the provisioning service, you need to decide whi
 
 This section guides you through the process of connecting your Azure AD to the user account provisioning API of Google Apps. It also helps you configure the provisioning service to create, update, and disable assigned user accounts in Google Apps based on user and group assignment in Azure AD.
 
->[!Tip]
+>[!TIP]
 >You might also choose to enable SAML-based single sign-on for Google Apps, by following the instructions in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 ### Configure automatic user account provisioning
@@ -108,7 +108,7 @@ This section guides you through the process of connecting your Azure AD to the u
     e. Repeat the preceding steps for any additional domains that you intend to add to Google Apps.
      
      > [!WARNING]
-     > If you change the primary domain for your Google Apps tenant, and if you have already configured single sign-on with Azure AD, then you have to repeat step #3 under [Step Two: Enable single sign-on](#step-two-enable-single-sign-on).
+     > If you change the primary domain for your Google Apps tenant, and if you have already configured single sign-on with Azure AD, then you have to repeat step #3 under [Step 2: Enable single sign-on](#step-two-enable-single-sign-on).
        
 6. In the [Google Apps Admin console](http://admin.google.com/), select **Admin Roles**.
    
@@ -123,7 +123,7 @@ This section guides you through the process of connecting your Azure AD to the u
      
 8. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications** section.
 
-9. If you have already configured Google Apps for single sign-on, search for your instance of Google Apps using the search field. Otherwise, select **Add** and search for **Google Apps** in the application gallery. Select Google Apps from the search results, and then add it to your list of applications.
+9. If you have already configured Google Apps for single sign-on, search for your instance of Google Apps by using the search field. Otherwise, select **Add**, and then and search for **Google Apps** in the application gallery. Select **Google Apps** from the search results, and then add it to your list of applications.
 
 10. Select your instance of Google Apps, and then select the **Provisioning** tab.
 
@@ -137,23 +137,23 @@ This section guides you through the process of connecting your Azure AD to the u
     
      ![Confirm permissions.][28]
 
-14. In the Azure portal, select **Test Connection** to ensure that Azure AD can connect to your Google Apps app. If the connection fails, ensure that your Google Apps account has Team Admin permissions. Then try the **"Authorize"** step again.
+14. In the Azure portal, select **Test Connection** to ensure that Azure AD can connect to your Google Apps app. If the connection fails, ensure that your Google Apps account has Team Admin permissions. Then try the **Authorize** step again.
 
-15. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and then check the check box.
+15. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and. Then select the check box.
 
 16. Select **Save.**
 
 17. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Google Apps.**
 
-18. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to Google Apps. The attributes that are as **Matching** properties are used to match the user accounts in Google Apps for update operations. Select **Save** to commit any changes.
+18. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to Google Apps. The attributes that are **Matching** properties are used to match the user accounts in Google Apps for update operations. Select **Save** to commit any changes.
 
-19. To enable the Azure AD provisioning service for Google Apps, change the **Provisioning Status** to **On** in **Setting.**
+19. To enable the Azure AD provisioning service for Google Apps, change the **Provisioning Status** to **On** in **Settings.**
 
 20. Select **Save.**
 
 This process starts the initial synchronization of any users and/or groups that are assigned to Google Apps in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. 
 
-You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions that are performed by the provisioning service on your Google Apps app.
+You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports. These reports describe all actions that the are performed by the provisioning service performs on your Google Apps app.
 
 ## Additional resources
 
