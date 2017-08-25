@@ -133,7 +133,7 @@ If you are using active geo-replication and auto-failover groups (in-preview) as
 > 
 
 ### Perform a geo-restore
-If you are using automated backups with geo-redundant storage replication as your recovery mechanism, [initiate a database recovery using geo-restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last hourly differential backup with taken and replicated. Until the recovery completes, the database is unable to record any transactions or respond to any queries.
+If you are using automated backups with geo-redundant storage replication as your recovery mechanism, [initiate a database recovery using geo-restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last hourly differential backup with taken and replicated. Until the recovery completes, the database is unable to record any transactions or respond to any queries. While this restores a database to the last available point in time, restoring the geo-secondary to any point in time is not currently supported.
 
 > [!NOTE]
 > If the data center comes back online before you switch your application over to the recovered database, you can cancel the recovery.  
