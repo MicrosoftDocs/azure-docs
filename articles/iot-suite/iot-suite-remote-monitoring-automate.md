@@ -38,15 +38,15 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 ## View the rules in your solution
 
-<!-- Review the existing fan rules? -->
+<!-- Review the existing fan rules? --> Yes
 
 ## Edit an existing rule
 
-<!-- Tweak one of the existing fan rules? -->
+<!-- Tweak one of the existing fan rules? --> Yes
 
 ## Delete a rule
 
-<!-- For completeness, point out how to delete (and/or disable?) a rule -->
+<!-- For completeness, point out how to delete (and/or disable?) a rule --> Yes
 
 ## Next steps
 
