@@ -58,7 +58,7 @@
 ### [On-demand clusters](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Submit Hadoop jobs](hdinsight-submit-hadoop-jobs-programmatically.md)
 ## Use Spark for in-memory processing
-### Spark developer quickstart
+### Get started - Spark developer
 #### [Create standalone app](hdinsight-apache-spark-create-standalone-application.md)
 #### [Remote jobs with Livy](hdinsight-apache-spark-livy-rest-interface.md) 
 ### [With Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
