@@ -87,7 +87,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint quickstartcluster.westus2.cloud
 See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) for other examples of connecting to a cluster. After connecting to the cluster, use the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet to display a list of nodes in the cluster and status information for each node. **HealthState** should be *OK* for each node.
 
 ```powershell
-PS C:\Users\ryanwi> Get-ServiceFabricNode |Format-Table
+PS C:\Users\sfuser> Get-ServiceFabricNode |Format-Table
 
 NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion  ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
 -------------------- --------     --------------- --------  -----------  ------------- ---------- ---------- ------------ -----------
