@@ -1,6 +1,6 @@
 ---
 title: Get started with Mobile Apps by using Xamarin.Forms
-description: Follow this tutorial to start using Azure Mobile Apps for Xamarin.Forms development
+description: Follow this tutorial to start using Mobile Apps for Xamarin.Forms development
 services: app-service\mobile
 documentationcenter: xamarin
 author: ggailey777
@@ -21,7 +21,7 @@ ms.author: glenga
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## Overview
-This tutorial shows you how to add a cloud-based back-end service to a Xamarin.Forms mobile app by using an Azure Mobile Apps back end. You create both a new Mobile Apps back end and a simple to-do list Xamarin.Forms app that stores app data in Azure.
+This tutorial shows you how to add a cloud-based back-end service to a Xamarin.Forms mobile app by using the Mobile Apps feature of Azure App Service as the back end. You create both a new Mobile Apps back end and a simple to-do list Xamarin.Forms app that stores app data in Azure.
 
 Completing this tutorial is a prerequisite for all other Mobile Apps tutorials for Xamarin.Forms.
 
@@ -40,7 +40,7 @@ To create a new Mobile Apps back end, do the following:
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-You have now set up an Azure Mobile Apps back end that your mobile client applications can use. Next, you download a server project for a simple to-do list back end and then publish it to Azure.
+You have now set up a Mobile Apps back end that your mobile client applications can use. Next, you download a server project for a simple to-do list back end and then publish it to Azure.
 
 ## Configure the server project
 
@@ -175,7 +175,7 @@ In this section, you run the Xamarin WinApp project for Windows devices. You can
 * [Enable offline sync for your app](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Learn how to add offline support for your app by using a Mobile Apps back end. With offline sync, you can view, add, or modify your mobile app's data, even when there is no network connection.
 
-* [Use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
+* [Use the managed client for Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
   Learn how to work with the managed client SDK in your Xamarin app.
 
 <!-- Anchors. -->
