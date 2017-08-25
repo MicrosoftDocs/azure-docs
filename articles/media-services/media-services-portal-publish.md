@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of publishing your conten
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 
 ms.assetid: 92c364eb-5a5f-4f4e-8816-b162c031bb40
