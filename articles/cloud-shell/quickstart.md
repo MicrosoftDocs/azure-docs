@@ -40,11 +40,11 @@ This document details how to use the Azure Cloud Shell in the [Azure portal](htt
 > Your subscription will be remembered for future sessions using `/home/<user>/.azure/azureProfile.json`.
 
 ### Create a resource group
-Create a new resouce group in WestUS named "MyRG": <br>
+Create a new resource group in WestUS named "MyRG": <br>
 `az group create -l westus -n MyRG` <br>
 
 ### Create a Linux VM
-Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create ssh keys and setup the VM with them. <br>
+Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create SSH keys and setup the VM with them. <br>
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]

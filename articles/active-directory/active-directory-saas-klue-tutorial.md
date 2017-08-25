@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 07/13/2017
 ms.author: jeedes
 
 ---
@@ -119,7 +119,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.klue.com/account/auth/saml/<Customer UUID>/`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Reply URL, Identifier, and Sign-On URL. Contact [Klue Client support team](mailto:gsar@klue.com) to get these values.
+	> These values are not real. Update these values with the actual Reply URL, Identifier, and Sign-On URL. Contact [Klue Client support team](mailto:support@klue.com) to get these values.
 
 5. The Klue application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. 
 
@@ -157,11 +157,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-klue-tutorial/tutorial_klue_configure.png) 
 
-10. To configure single sign-on on **Klue** side, you need to send the downloaded **Certificate(Base64), SAML Single Sign-On Service URL, and SAML Entity ID** to [Klue support team](mailto:gsar@klue.com).
+10. To configure single sign-on on **Klue** side, you need to send the downloaded **Certificate(Base64), SAML Single Sign-On Service URL, and SAML Entity ID** to [Klue support team](mailto:support@klue.com).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -196,7 +195,10 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Klue test user
 
-In this section, you create a user called Britta Simon in Klue. Work with [Klue support team](mailto:gsar@klue.com) to add the users in the Klue platform. Users must be created and activated before you use single sign-on.
+The objective of this section is to create a user called Britta Simon in Klue. Klue supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Klue if it doesn't exist yet.
+
+>[!Note]
+>If you need to create a user manually, Contact [Klue support team](mailto:support@klue.com).
 
 ### Assigning the Azure AD test user
 

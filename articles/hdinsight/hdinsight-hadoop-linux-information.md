@@ -123,9 +123,9 @@ When using __Azure Storage__, use one of the following URI schemes:
 
 * `wasb:///`: Access default storage using unencrypted communication.
 
-* `wasbs:///`: Access default storage using encrypted communication.
+* `wasbs:///`: Access default storage using encrypted communication.  The wasbs scheme is supported only from HDInsight version 3.6 onwards.
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
 
 When using __Data Lake Store__, use one of the following URI schemes:
 
@@ -149,7 +149,7 @@ You can use Ambari to retrieve the default storage configuration for the cluster
 
 This command returns a value similar to the following URIs:
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net` if using an Azure Storage account.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` if using an Azure Storage account.
 
     The account name is the name of the Azure Storage account, while the container name is the blob container that is the root of the cluster storage.
 

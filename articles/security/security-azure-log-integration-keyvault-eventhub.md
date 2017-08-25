@@ -9,7 +9,7 @@ editor: TomShinder
 ms.assetid:
 ms.service: security
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 08/07/2017
 ms.author: Barclayn
 ms.custom: AzLog
 
@@ -18,10 +18,17 @@ ms.custom: AzLog
 
 # Azure Log Integration tutorial: Process Azure Key Vault events by using Event Hubs
 
-You can use Azure Log Integration (AzLog) to retrieve logged events and make them available to your security information and event management (SIEM) system. This tutorial walks you through the process of taking Azure Key Vault activity logged to an event hub and making it available as JSON files to your SIEM system. You can then configure your SIEM system to process the JSON files.
+Azure Log Integration (AzLog) enables you to retrieve logged events and make them available to your security information and event management (SIEM) system. The intent of this tutorial is to walk you through an example of how Azure Log Integration can be used to process logs that are acquired through Event Hubs. 
+You should use the article to get acquainted with how Azure Log Integration and Event Hubs work together by following the example steps and understanding how each step supports the solution. Then you can take what you’ve learned here to create your own steps to support your company’s unique requirements.
+
+>[!WARNING]
+The steps and commands used in this tutorial are not intended to be copy and pasted; they and provided as examples only. Do not use the PowerShell commands “as-is” in your live environment. They must be customized based on your unique environment.
+
+
+This tutorial walks you through the process of taking Azure Key Vault activity logged to an event hub and making it available as JSON files to your SIEM system. You can then configure your SIEM system to process the JSON files.
 
 >[!NOTE]
->Most of the steps in this tutorial involve configuring key vaults, storage accounts, and event hubs. The specific Azure Log Integration steps are at the end of this tutorial.
+>Most of the steps in this tutorial involve configuring key vaults, storage accounts, and event hubs. The specific Azure Log Integration steps are at the end of this tutorial. Do not perform these steps in a production environment – they are intended for a lab environment only. The steps must be customized before using them in production
 
 Information provided along the way helps you understand the reasons behind each step. Links to other articles give you more detail on certain topics.
 

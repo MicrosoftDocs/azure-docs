@@ -280,7 +280,7 @@ Now that you've learned the basics of Blob storage, follow these links to learn 
 * [Azure Storage REST API][Azure Storage REST API]
 * [Azure Storage Team Blog][Azure Storage Team Blog]
 
-For more information, see also the [Java Developer Center](/develop/java/).
+For more information, see also [Azure for Java developers](/java/azure).
 
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java

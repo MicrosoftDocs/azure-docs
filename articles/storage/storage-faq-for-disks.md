@@ -163,7 +163,7 @@ Yes. All managed snapshots and images created after June 9, 2017, are automatica
 
 **Can I convert VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
 
-No. This feature is not supported yet. It is expected to come out by the end of July. 
+Yes
 
 **Will an exported VHD from a managed disk or a snapshot also be encrypted?**
 

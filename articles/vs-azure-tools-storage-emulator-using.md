@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 8/17/2017
 ms.author: tarcher
 
 ---
@@ -51,5 +51,5 @@ The first time you run or debug your service from Visual Studio, the storage emu
 The storage emulator provides a user interface to view the status of the local storage services and to start, stop, and reset them. Once the storage emulator service has been started, you can display the user interface or start or stop the service by right-clicking the notification area icon for the Microsoft Azure Emulator in the Windows taskbar.
 
 ## Viewing storage emulator data in Server Explorer
-The Azure Storage node in Server Explorer enables you to view data and change settings for blob and table data in your storage accounts, including the storage emulator. See [Browsing and Managing Storage Resources with Server Explorer](https://msdn.microsoft.com/library/azure/ff683677.aspx) for more information.
+The Azure Storage node in Server Explorer enables you to view data and change settings for blob and table data in your storage accounts, including the storage emulator. See [Manage Azure Blob Storage resources with Storage Explorer (Preview)](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) for more information.
 

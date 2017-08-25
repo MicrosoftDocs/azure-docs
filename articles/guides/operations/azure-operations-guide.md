@@ -448,7 +448,7 @@ Azure Storage is accessed in various ways, including though the Azure portal, du
 
 **Virtual machine disks**
 
-When you’re deploying a virtual machine, you also need to create a storage account to hold the virtual machine operating system disk and any additional data disks. You can select an existing storage account or create a new one. Because the maximum size of a blob is 1,024 GB, a single VM disk has a maximum size of 1,023 GB. To configure a larger data disk, you can present multiple data disks to the virtual machine and pool them together as a single logical disk. For more information, see “Storage infrastructure guidelines” for [Windows](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md) and [Linux](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md).
+When you’re deploying a virtual machine, you also need to create a storage account to hold the virtual machine operating system disk and any additional data disks. You can select an existing storage account or create a new one. Because the maximum size of a blob is 1,024 GB, a single VM disk has a maximum size of 1,023 GB. To configure a larger data disk, you can present multiple data disks to the virtual machine and pool them together as a single logical disk. For more information, see “Manage Azure disks” for [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) and [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
 
 **Storage tools**
 

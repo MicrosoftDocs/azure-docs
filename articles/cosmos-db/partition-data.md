@@ -179,7 +179,7 @@ To scale effectively with Azure Cosmos DB, you need to pick a good partition key
 Let's look at a few real-world scenarios, and good partition keys for each:
 * If you’re implementing a user profile backend, then the user ID is a good choice for partition key.
 * If you’re storing IoT data for example, device state, a device ID is a good choice for partition key.
-* If you’re using DocumentDB for logging time-series data, then the hostname or process ID is a good choice for partition key.
+* If you’re using Azure Cosmos DB for logging time-series data, then the hostname or process ID is a good choice for partition key.
 * If you have a multi-tenant architecture, the tenant ID is a good choice for partition key.
 
 In some use cases like IoT and user profiles, the partition key might be the same as your id (document key). In others like the time series data, you might have a partition key that’s different than the id.

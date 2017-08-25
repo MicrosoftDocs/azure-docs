@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 08/16/2017
 ms.author: yushwang
 
 ---
@@ -35,7 +35,9 @@ This article provides the instructions to set up an active-active cross-premises
 You can combine these together to build a more complex, highly available network topology that meets your needs.
 
 > [!IMPORTANT]
-> Please note that the active-active mode only works in HighPerformance SKU
+> Please note that the active-active mode uses only the following SKUs: 
+  * VpnGw1, VpnGw2, VpnGw3
+  * HighPerformance (for old legacy SKUs)
 > 
 > 
 
@@ -44,7 +46,7 @@ The following steps will configure your Azure VPN gateway in active-active modes
 
 * You need to create two Gateway IP configurations with two public IP addresses
 * You need set the EnableActiveActiveFeature flag
-* The gateway SKU must be HighPerformance
+* The gateway SKU must be VpnGw1, VpnGw2, VpnGw3, or HighPerformance (legacy SKU).
 
 The other properties are the same as the non-active-active gateways. 
 
@@ -118,7 +120,7 @@ $gw1ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf2 -Subnet
 ```
 
 #### 2. Create the VPN gateway with active-active configuration
-Create the virtual network gateway for TestVNet1. Note that there are two GatewayIpConfig entries, and the EnableActiveActiveFeature flag is set. Active-active mode requires a Route-Based VPN gateway of HighPerformance SKU. Creating a gateway can take a while (30 minutes or more to complete).
+Create the virtual network gateway for TestVNet1. Note that there are two GatewayIpConfig entries, and the EnableActiveActiveFeature flag is set. Creating a gateway can take a while (45 minutes or more to complete).
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
@@ -250,15 +252,17 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupNa
 #### 3. VPN and BGP parameters for your second on-premises VPN device
 Similarly, below lists the parameters you will enter into the second VPN device:
 
-      - Site5 ASN            : 65050
-      - Site5 BGP IP         : 10.52.255.254
-      - Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
-      - Azure VNet ASN       : 65010
-      - Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
-      - Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
-      - Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
-                             Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
-      - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
+- Site5 ASN            : 65050
+- Site5 BGP IP         : 10.52.255.254
+- Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
+- Azure VNet ASN       : 65010
+- Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
+- Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
+- Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
+                         Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+- eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
 
 Once the connection (tunnels) are established, you will have dual redundant VPN devices and tunnels connecting your on-premises network and Azure:
 
@@ -364,7 +368,9 @@ After completing these steps, the connection will be establish in a few minutes,
 The last section will describe how you can configure an existing Azure VPN gateway from active-standby to active-active mode, or vice versa.
 
 > [!IMPORTANT]
-> Please note that the active-active mode only works in HighPerformance SKU
+> Please note that the active-active mode uses only the following SKUs: 
+  * VpnGw1, VpnGw2, VpnGw3
+  * HighPerformance (for old legacy SKUs)
 > 
 > 
 
@@ -425,4 +431,3 @@ This update can take up to 30 to  45 minutes.
 
 ## Next steps
 Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.
-

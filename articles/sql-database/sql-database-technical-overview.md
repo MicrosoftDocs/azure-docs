@@ -93,7 +93,7 @@ There are two automatic tuning aspects that are available in SQL Database:
 
 ### Adaptive query processing
 
-We are also adding the [adaptive query processing](/sql/relational-databases/performance/adaptive-query-processing.md) family of features to SQL Database, including interleaved execution for multi-statement table-valued functions, batch mode memory grant feedback, and batch mode adaptive joins. Each of these adaptive query processing features applies similar “learn and adapt” techniques, helping further address performance issues related to historically intractable query optimization problems.
+We are also adding the [adaptive query processing](/sql/relational-databases/performance/adaptive-query-processing) family of features to SQL Database, including interleaved execution for multi-statement table-valued functions, batch mode memory grant feedback, and batch mode adaptive joins. Each of these adaptive query processing features applies similar “learn and adapt” techniques, helping further address performance issues related to historically intractable query optimization problems.
 
 ### Intelligent threat detection
 

@@ -4,7 +4,7 @@ description: Protect Azure VMs with a recovery services vault. Use backups of Re
 services: backup
 documentationcenter: ''
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: ''
 keyword: backups; vm backup
 
@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/15/2017
+ms.date: 08/15/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
 

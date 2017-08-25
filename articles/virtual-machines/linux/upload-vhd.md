@@ -162,7 +162,7 @@ Uploading the VHD may take a while.
 ### Create a managed disk
 
 
-Create a managed disk from the VHD using [az disk create](/cli/azure/disk/create). The following example creates a managed disk named *myManagedDisk* from the VHD you uploaded to your named storage account and container:
+Create a managed disk from the VHD using [az disk create](/cli/azure/disk#create). The following example creates a managed disk named *myManagedDisk* from the VHD you uploaded to your named storage account and container:
 
 ```azurecli
 az disk create \

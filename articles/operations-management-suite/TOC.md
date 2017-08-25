@@ -29,6 +29,7 @@
 ### [Malware assessment](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [System update assessment](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Connect security products](oms-security-connect-products.md)
+### [Web baseline assessment](oms-security-web-baseline-assessment.md)
 
 ## Use solutions
 ### [Management solutions](operations-management-suite-solutions.md)
@@ -42,11 +43,13 @@
 #### [Containers](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Key Vault Analytics](../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Network Performance Monitor](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric Analytics](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Service Map
 ##### [Walkthrough](operations-management-suite-walkthrough-servicemap.md)
 ##### [Use](operations-management-suite-service-map.md)
 ##### [Configure](operations-management-suite-service-map-configure.md)
+##### [Integration with Operations Manager](operations-management-suite-service-map-scom.md)
 #### [SQL Assessment](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -76,3 +79,4 @@
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

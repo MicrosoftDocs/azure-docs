@@ -195,7 +195,7 @@ In copy activity, when the source is of type **FileSystemSource**, the following
 | --- | --- | --- | --- |
 | recursive |Indicates whether the data is read recursively from the subfolders, or only from the specified folder. |True, False (default) |No |
 
-## JSON example: Copy data from FTP server to Azure Blob storage
+## JSON example: Copy data from FTP server to Azure Blob
 This sample shows how to copy data from an FTP server to Azure Blob storage. However, data can be copied directly to any of the sinks stated in the [supported data stores and formats](data-factory-data-movement-activities.md#supported-data-stores-and-formats), by using the copy activity in Data Factory.  
 
 The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):

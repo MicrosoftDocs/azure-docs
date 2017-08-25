@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/21/2017
+ms.date: 7/24/2017
 ms.author: xiaofmao
 
 ---
@@ -31,7 +31,7 @@ After you connect to your Azure Stack subscription, you can use the [Azure Stora
 
 You need access to the Azure Stack host machine's desktop or a VPN connection for Storage Explorer to access the Azure Stack subscription. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-with-vpn).
 
-For Azure Stack Development Kit, you need to export the Azure Stack authority root certificate.
+For the Azure Stack Development Kit, you need to export the Azure Stack authority root certificate.
 
 ### To export and then import the Azure Stack certificate
 
@@ -56,7 +56,7 @@ For Azure Stack Development Kit, you need to export the Azure Stack authority ro
 
     ![Import the certificate into Storage Explorer (Preview)][27]
 
-Now you you are ready to connect Storage Explorer to an Azure Stack subscription.
+Now you are ready to connect Storage Explorer to an Azure Stack subscription.
 
 ### To connect an Azure Stack subscription
 
@@ -102,8 +102,8 @@ Now you you are ready to connect Storage Explorer to an Azure Stack subscription
     * **ARM resource id**: Use the same value as **Sign in resource id**.
     * **ARM resource endpoint**: The samples of Azure Resource Manager resource endpoints:
 
-        * For cloud operator: https://adminmanagement.local.azurestack.external   
-        * For tenant: https://management.local.azurestack.external
+        * For cloud operator:<br> https://adminmanagement.local.azurestack.external   
+        * For tenant:<br> https://management.local.azurestack.external
  
     * **Tenant Ids**: Optional. The value is given only when the directory must be specified.
 

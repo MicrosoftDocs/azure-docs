@@ -162,7 +162,7 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 <!-- links -->
 
 [audit-logs]: https://azure.microsoft.com/en-us/blog/analyze-azure-audit-logs-in-powerbi-more/
-[availability-set]:../articles/virtual-machines/windows/create-availability-set.md
+[availability-set]:../articles/virtual-machines/windows/tutorial-availability-sets.md
 [azure-cli]: /cli/azure/get-started-with-az-cli2
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md

@@ -107,7 +107,7 @@ For Linux or MacOS, main Azure scenarios that are supported:
 
 The first scenario enables you to author rich web apps that take advantage of the Azure PaaS capabilities such as [blob storage](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [queue storage](storage/storage-python-how-to-use-queue-storage.md), [table storage](storage/storage-python-how-to-use-table-storage.md) etc. via Pythonic wrappers for the Azure REST APIs. These works identically on Windows, Mac, and Linux.  You can also use these client libraries from your local development machine or a Linux VM running on Azure.
 
-For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.  As an example, you can run [IPython][IPython] REPL/notebook on your Windows/Mac/Linux machine and point your browser to a Linux or Windows multi-proc VM running the IPython Engine on Azure. See the [IPython Notebook on Azure](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) tutorial for more information.
+For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.  As an example, you can run [IPython][IPython] REPL/notebook on your Windows/Mac/Linux machine and point your browser to a Linux or Windows multi-proc VM running the IPython Engine on Azure.
 
 For information on how to setup a Linux VM, please see the [Create a Virtual Machine Running Linux](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) tutorial.
 
@@ -126,7 +126,6 @@ For more information on developing and publishing Azure Websites, see the tutori
 * [NumPy - A numerics library for Python][NumPy - A numerics library for Python]
 * [Django Project - A mature web framework/CMS][Django Project - A mature web framework/CMS]
 * [IPython - an advanced REPL/Notebook for Python][IPython - an advanced REPL/Notebook for Python]
-* [IPython Notebook on Azure](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Python Tools for Visual Studio on GitHub][Python Tools for Visual Studio on GitHub]
 * [Python Developer Center](/develop/python/)
 

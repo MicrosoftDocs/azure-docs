@@ -122,7 +122,7 @@ To leverage multiple VM instances of a tier, you need to configure Azure Load Ba
 
 As a best practice, always make sure that all internet connections first go to the presentation tier. The presentation layer accesses the business tier, and then the business tier accesses the data tier. For more information on how to allow access to the presentation layer, see [Allow external access to your VM using the Azure portal](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Note that the Load Balancer in Azure works similar to load balancers in an on-premises environment. For more information, see [Load balancing for Azure infrastructure services](../load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Note that the Load Balancer in Azure works similar to load balancers in an on-premises environment. For more information, see [Load balancing for Azure infrastructure services](../tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 In addition, we recommend that you set up a private network for your virtual machines by using Azure Virtual Network. This allows them to communicate among themselves over the private IP address. For more information, see [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md).
 
@@ -155,7 +155,7 @@ This application pattern is useful when:
 
 The following diagram demonstrates an on-premises scenario and its cloud enabled solution. In this scenario, you scale out the presentation tier and the business tier components in multiple virtual machines in Azure. In addition, you implement high availability and disaster recovery (HADR) techniques for SQL Server databases in Azure.
 
-Running multiple copies of an application in different VMs make sure that you are load balancing requests across them. When you have multiple virtual machines, you need to make sure that all your VMs are accessible and running at one point in time. If you configure load balancing, Azure Load Balancer tracks the health of VMs and directs incoming calls to the healthy functioning VM nodes properly. For information on how to set up load balancing of the virtual machines, see [Load balancing for Azure infrastructure services](../load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Having multiple instances of web and application servers behind a load balancer ensures the high availability of the presentation and business tiers.
+Running multiple copies of an application in different VMs make sure that you are load balancing requests across them. When you have multiple virtual machines, you need to make sure that all your VMs are accessible and running at one point in time. If you configure load balancing, Azure Load Balancer tracks the health of VMs and directs incoming calls to the healthy functioning VM nodes properly. For information on how to set up load balancing of the virtual machines, see [Load balancing for Azure infrastructure services](../tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Having multiple instances of web and application servers behind a load balancer ensures the high availability of the presentation and business tiers.
 
 ![Scale-out and high availability](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728012.png)
 

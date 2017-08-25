@@ -3,8 +3,8 @@
 ## [What is Azure Backup?](backup-introduction-to-azure-backup.md)
 
 # Get started
-## [Backup Azure VMs](backup-azure-vms-first-look-arm.md)
-## [Back up files and folders](backup-try-azure-backup-in-10-mins.md)
+## [Back up Azure VMs](backup-azure-vms-first-look-arm.md)
+## [Back up Windows Server or Windows computers](backup-try-azure-backup-in-10-mins.md)
 ## [Back up VMware servers](backup-azure-backup-server-vmware.md)
 
 # How to
@@ -17,7 +17,7 @@
 ### Back up VMs
 #### [Back up Azure virtual machines to a Recovery Services vault](backup-azure-arm-vms.md)
 #### [Back up encrypted virtual machines](backup-azure-vms-encryption.md)
-#### [Back up Azure virtual machines to backup vault](backup-azure-vms.md)
+#### [Back up Azure virtual machines](backup-azure-vms.md)
 ### Manage and monitor VMs
 #### [Manage Azure VM backups in Azure portal](backup-azure-manage-vms.md)
 #### [Monitor alerts for Azure VM backups in Azure portal](backup-azure-monitor-vms.md)
@@ -27,16 +27,19 @@
 #### [Restore Resource Manager-deployed VMs in Azure portal](backup-azure-arm-restore-vms.md)
 #### [Restore encrypted virtual machines](backup-azure-vms-encryption.md)
 #### [Restore virtual machines in Azure](backup-azure-restore-vms.md)
-#### [Restore Key Vault key and secret for encrypted VMs using Azure Backup](backup-azure-restore-key-secret.md)
+#### [Restore Key Vault key and secret for encrypted VMs](backup-azure-restore-key-secret.md)
 
 
-## Windows files and folders
-### [Windows Server using the Resource Manager deployment model](backup-configure-vault.md)
-### [Windows Server using the classic deployment model](backup-configure-vault-classic.md)
+## Windows Server
+### [Back up Windows Server files and folders](backup-configure-vault.md)
+### [Back up Windows Server System State](backup-azure-system-state.md)
+### [Recover files from Azure to Windows Server](backup-azure-restore-windows-server.md)
+### [Restore Windows Server System State](backup-azure-restore-system-state.md)
 ### [Monitor and manage Recovery Services vaults](backup-azure-manage-windows-server.md)
-### [Manage Backup vaults using the classic deployment model](backup-azure-manage-windows-server-classic.md)
-### [Recover files to a Windows Server using Resource Manager deployment model](backup-azure-restore-windows-server.md)
-### [Recover files to a Windows Server using the classic deployment model](backup-azure-restore-windows-server-classic.md)
+### Back up and restore using the classic portal
+#### [Windows Server using the classic deployment model](backup-configure-vault-classic.md)
+#### [Manage Backup vaults using the classic deployment model](backup-azure-manage-windows-server-classic.md)
+#### [Recover files to a Windows Server using the classic deployment model](backup-azure-restore-windows-server-classic.md)
 
 ## Azure Backup Server
 ### [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md)
@@ -57,7 +60,7 @@
 ### [Prepare DPM workloads in Azure portal](backup-azure-dpm-introduction.md)
 ### [Prepare DPM workloads in classic portal](backup-azure-dpm-introduction-classic.md)
 ### [Use System Center DPM to back up Exchange server](backup-azure-backup-exchange-server.md)
-### [Recover data in the Backup vault to an alternate DPM server](backup-azure-alternate-dpm-server.md)
+### [Recover data to an alternate DPM server](backup-azure-alternate-dpm-server.md)
 ### [Use DPM to back up SQL Server workloads](backup-azure-backup-sql.md)
 ### [Use DPM to back up a SharePoint farm](backup-azure-backup-sharepoint.md)
 
@@ -90,11 +93,12 @@
 # Concepts
 ## [Overview of Recovery Services vaults](backup-azure-recovery-services-vault-overview.md)
 ## [Upgrading a Backup vault to Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md)
-## [Delete an Azure Backup vault](backup-azure-delete-vault.md)
+## [Delete a Recovery Services vault](backup-azure-delete-vault.md)
 ## [Role-Based Access Control](backup-rbac-rs-vault.md)
 ## [Security for hybrid backups](backup-azure-security-feature.md)
 ## [Configure Azure Backup reports](backup-azure-configure-reports.md)
 ## [Data model for Azure Backup reports](backup-azure-reports-data-model.md)
+## [Log Analytics data model for Azure Backup](backup-azure-log-analytics-data-model.md)
 ## [Configure offline-backup](backup-azure-backup-import-export.md)
 ## [Replace your tape library](backup-azure-backup-cloud-as-tape.md)
 ## [Application consistent backups of Linux VMs](backup-azure-linux-app-consistent.md)
@@ -107,5 +111,6 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
 ## [Pricing](https://azure.microsoft.com/pricing/details/backup/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=backup)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=backup)

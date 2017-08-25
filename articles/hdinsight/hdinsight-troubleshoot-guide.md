@@ -32,7 +32,7 @@ See the following articles for additional troubleshooting help.
 | For information about | See the following |
 | --- | --- |
 | HDInsight on Linux and optimization | [Information about using HDInsight on Linux](hdinsight-hadoop-linux-information.md)<br>[Hadoop memory and performance](hdinsight-hadoop-stack-trace-error-messages.md)<br>[Hive query performance](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
-| Logs and dumps | [Access Hadoop YARN application logs on Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>[Enable heap dumps for Hadoop services](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>[Analyze HDInsight logs](hdinsight-debug-jobs.md)|
+| Logs and dumps | [Access Hadoop YARN application logs on Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>[Enable heap dumps for Hadoop services](hdinsight-hadoop-collect-debug-heap-dump-linux.md)|
 | Errors | [Understand and resolve WebHCat errors](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>[Hive settings fix Out of Memory error](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Tools | [Use Ambari Views to debug Tez Jobs](hdinsight-debug-ambari-tez-view.md)<br>[Optimize Hive queries](hdinsight-hadoop-optimize-hive-query.md) |
 

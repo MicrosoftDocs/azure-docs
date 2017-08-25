@@ -161,7 +161,7 @@ NFS | No | N/A
 SMB 3.0 | No | No
 RDM | Yes<br/><br/> N/A for physical servers | N/A
 Disk > 1 TB | Yes<br/><br/>Upto 4095 GB | Yes<br/><br/>Upto 4095 GB
-Disk with 4K sector size | No | No
+Disk with 4K sector size | Yes | Yes, supported for Generation 1 VMs<br/><br/>Not supported for Generation 2 VMs.
 Volume with striped disk > 1 TB<br/><br/> LVM-Logical Volume Management | Yes | Yes
 Storage Spaces | No | Yes
 Hot add/remove disk | No | No

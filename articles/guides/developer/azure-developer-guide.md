@@ -148,7 +148,7 @@ Azure provides several ways to use containers in your applications.
 
 	>**When to use**: When you need to build production-ready, scalable environments that provide additional scheduling and management tools, or when you’re deploying a Docker Swarm cluster.
 
-    >**Get started**: [Deploy a Container Service cluster](../../container-service/container-service-deployment.md).
+    >**Get started**: [Deploy a Container Service cluster](../../container-service/dcos-swarm/container-service-deployment.md).
 
 -   **Docker Machine**: Lets you install and manage a Docker Engine on virtual hosts by using docker-machine commands.
 

@@ -165,4 +165,4 @@ The following provides an overview of the Blob service components.
 * [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 
-For more information, also see the [Java Developer Center](https://azure.microsoft.com/develop/java/).
+For more information, visit [Azure for Java developers](/java/azure).

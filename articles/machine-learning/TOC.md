@@ -3,9 +3,10 @@
 ## [What's Machine Learning?](machine-learning-what-is-machine-learning.md)
 
 ## Team Data Science Process
-### [Overview](http://aka.ms/datascienceprocess)
-### [Lifecycle](data-science-process-overview.md)
+### [Overview](data-science-process-overview.md)
+### [Lifecycle](data-science-process-lifecycle.md)
 ### [Walkthroughs](data-science-process-walkthroughs.md)
+### [With Azure ML](http://aka.ms/datascienceprocess)
 
 ## Machine Learning Studio
 ### [What's the Studio?](machine-learning-what-is-ml-studio.md)
@@ -173,6 +174,7 @@
 
 # Reference
 
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=machine-learning)
 ## [PowerShell module (New)](/powershell/module/azurerm.machinelearning)
 ## [PowerShell module (Classic)](machine-learning-powershell-module.md)
 ## [Algorithm & Module reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
@@ -215,6 +217,7 @@
 
 ## [Net# Neural Networks Language](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)

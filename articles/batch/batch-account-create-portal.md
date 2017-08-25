@@ -147,7 +147,7 @@ You can optionally link a general-purpose Azure Storage account to your Batch ac
 
 We recommend that you create a new Storage account exclusively for use by your Batch account.
 
-![Creating a "General purpose" storage account][storage_account]
+![Creating a general-purpose storage account][storage_account]
 
 > [!NOTE]
 > Azure Batch currently supports only the general-purpose Storage account type. This account type is described in step 5, [Create a storage account] (../storage/storage-create-storage-account.md#create-a-storage-account), in [About Azure storage accounts](../storage/storage-create-storage-account.md).

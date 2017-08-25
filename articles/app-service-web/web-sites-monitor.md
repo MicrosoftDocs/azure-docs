@@ -42,8 +42,8 @@ Medium, Large) and **instance count** (1, 2, 3, ...) of the **App Service plan**
 **Quotas** for **Free** or **Shared** apps are:
 
 * **CPU(Short)**
-  * Amount of CPU allowed for this application in a 3-minute interval. This
-    quota re-sets every 3 minutes.
+  * Amount of CPU allowed for this application in a 5-minute interval. This
+    quota re-sets every 5 minutes.
 * **CPU(Day)**
   * Total amount of CPU allowed for this application in a day. This quota
     re-sets every 24 hours at midnight UTC.

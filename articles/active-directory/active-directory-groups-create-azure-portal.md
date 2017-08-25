@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/04/2017
 ms.author: curtand
 
 ms.custom: H1Hack27Feb2017                          
@@ -48,6 +48,7 @@ This article explains how to create and populate a new group in Azure Active Dir
 8. When you finish adding members to the group, select **Create** on the **Group** blade.    
 
    ![Create group confirmation](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
+
 
 ## Next steps
 These articles provide additional information on Azure Active Directory.

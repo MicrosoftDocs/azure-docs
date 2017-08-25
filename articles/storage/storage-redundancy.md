@@ -45,6 +45,10 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
 > Premium Storage supports only locally redundant storage (LRS). For information about Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md).
 >
 
+> [!NOTE]
+> Azure File storage supports only locally redundant storage (LRS) and georedundant storage (GRS). For information about Azure File Storage, see [Azure File storage overview](storage-files-introduction.md).
+>
+
 ## Locally redundant storage
 Locally redundant storage (LRS) replicates your data three times within a storage scale unit, which is hosted in a datacenter in the region in which you created your storage account. A write request returns successfully only once it has been written to all three replicas. These three replicas each reside in separate fault domains and upgrade domains within one storage scale unit.
 

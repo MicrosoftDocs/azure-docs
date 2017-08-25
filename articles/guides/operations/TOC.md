@@ -81,8 +81,6 @@
 ### [Create a storage account](../../storage/storage-create-storage-account.md#create-a-storage-account)
 ### [Using Azure PowerShell with Azure Storage](../../storage/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Using the Azure CLI with Azure Storage.](../../storage/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Storage infrastructure guidelines for Windows](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Storage infrastructure guidelines for Linux](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Storage client tools](../../storage/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Storage service REST API reference](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
 ### [Using shared access signatures](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -101,3 +99,4 @@
 ## [Next steps](azure-operations-guide.md#next-steps)
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

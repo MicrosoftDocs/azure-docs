@@ -1,23 +1,24 @@
-﻿---
-  title: Migrating to Azure Premium Storage using Azure Site Recovery | Microsoft Docs
-  description: Migrate your existing virtual machines to Azure Premium Storage using Site Recovery. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
-  services: storage
-  cloud: Azure
-  documentationcenter: na
-  author: luywang
-  manager: kavithag
-
-  ms.assetid:
-  ms.service: storage
-  ms.workload: storage
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: article
-  ms.date: 04/06/2017
-  ms.author: luywang
 
 ---
-# Migrating to Premium Storage using Azure Site Recovery
+title: Migrating to Azure Premium Storage using Azure Site Recovery (unmanaged disks) | Microsoft Docs
+description: Migrate your existing virtual machines to Azure Premium Storage using Site Recovery (unmanaged disks). 
+services: storage
+documentationcenter: ''
+author: luywang
+manager: kavithag
+
+ms.assetid: 
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2017
+ms.author: luywang
+
+---
+
+# Migrating to Premium Storage using Azure Site Recovery (unmanaged disks)
 
 [Azure Premium Storage](storage-premium-storage.md) delivers high-performance, low-latency disk support for virtual machines (VMs) that are running I/O-intensive workloads. The purpose of this guide is to help users migrate their VM disks from a Standard storage account to a Premium storage account by using [Azure Site Recovery](../site-recovery/site-recovery-overview.md).
 
@@ -148,7 +149,7 @@ You can choose a post-failover deployment model according to your need. If you c
 ## Post-migration steps
 
 1. **Configure replicated VMs to the availability set if applicable**. Site Recovery does not support migrating VMs along with the availability set. Depending on the deployment of your replicated VM, do one of the following:
-  * For a VM created using the classic deployment model: Add the VM to the availability set in the Azure portal. For detailed steps, go to [Add an existing virtual machine to an availability set](../virtual-machines/windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+  * For a VM created using the classic deployment model: Add the VM to the availability set in the Azure portal. For detailed steps, go to [Add an existing virtual machine to an availability set](../virtual-machines/windows/classic/configure-availability.md#addmachine).
   * For the Resource Manager deployment model: Save your configuration of the VM and then delete and re-create the VMs in the availability set. To do so, use the script at [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Check the limitation of this script and plan downtime before running the script.
 
 2. **Delete old VMs and disks**. Before deleting these, please make sure the Premium disks are consistent with source disks and the new VMs perform the same function as the source VMs. In the Resource Manager (RM) deployment model, delete the VM and delete the disks from your source storage accounts in the Azure portal. In the classic deployment model, you can delete the VM and disks in the classic portal or Azure portal. If there is an issue in which the disk is not deleted even though you deleted the VM, please see [Troubleshoot errors when you delete VHDs](storage-resource-manager-cannot-delete-storage-account-container-vhd.md).

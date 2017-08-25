@@ -1,4 +1,4 @@
----
+﻿---
 title: Dependency Tracking in Azure Application Insights | Microsoft Docs
 description: Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Set up Application Insights: Dependency tracking
@@ -129,7 +129,7 @@ Click through to an occurrence of a failed request, and look at its associated e
 ![Click a request type, click the instance to get to a different view of the same instance, click it to get exception details.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## Analytics
-You can track dependencies in the [Analytics query language](app-insights-analytics.md). Here are some examples.
+You can track dependencies in the [Log Analytics query language](https://docs.loganalytics.io/). Here are some examples.
 
 * Find any failed dependency calls:
 

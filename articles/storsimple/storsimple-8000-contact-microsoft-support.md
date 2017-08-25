@@ -1,5 +1,5 @@
 ---
-title: Log Support ticket for StorSimple 8000 series | Microsoft Docs
+title: Create Support ticket or case for StorSimple 8000 series | Microsoft Docs
 description: Learn how to log support request and start a support session on your StorSimple 8000 series device.
 services: storsimple
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 07/25/2017
 ms.author: alkohli;
 
 ---

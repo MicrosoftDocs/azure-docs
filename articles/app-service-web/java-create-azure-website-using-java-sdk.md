@@ -2,14 +2,14 @@
 title: Create a Web App in Azure App Service using the Azure SDK for Java
 description: Learn how to create a Web App on Azure App Service programmatically using the Azure SDK for Java.
 tags: azure-classic-portal
-services: app-service\web
+services: app-service-web
 documentationcenter: Java
 author: donntrenton
 manager: erikre
 editor: jimbe
 
 ms.assetid: 8954c456-1275-4d57-aff4-ca7d6374b71e
-ms.service: multiple
+ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
