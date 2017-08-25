@@ -46,7 +46,7 @@ If you're already running a web app in Azure, you already get some monitoring: r
     
     Value: `true`
    * **Save** the settings and **Restart** your app.
-3. **Monitor your app**.  [Expore the data](#explore-the-data).
+3. **Monitor your app**.  [Explore the data](#explore-the-data).
 
 Later, you can build the app with Application Insights if you want.
 
