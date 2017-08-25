@@ -200,7 +200,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "m
 ```
 
 > [!NOTE]
-> You can also deploy templates and parameters from local files. To learn more, see [Using Azure PowerShell with Azure Storage](../../storage/storage-powershell-guide-full.md).
+> You can also deploy templates and parameters from local files. To learn more, see [Using Azure PowerShell with Azure Storage](../../storage/common/storage-powershell-guide-full.md).
 
 ## Next Steps
 
