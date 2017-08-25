@@ -1,7 +1,7 @@
 
 
 ## Docker on virtual machines
-[Docker](https://www.docker.com) is a popular container management and imaging platform that allows you to quickly work with containers. Azure VMs as Docker hosts are a good option for development and test environments, or if you wish to build and manager your own production clusters and orchestration solutions. On Linux VMs, you can use cloud-init or the Azure Docker VM extension to create a VM and automatically configure it as a Docker host. 
+[Docker](https://www.docker.com) is a popular container management and imaging platform that allows you to quickly work with containers. Azure VMs as Docker hosts are a good option for development and test environments, or if you wish to build and manage your own production clusters and orchestration solutions. On Linux VMs, you can use cloud-init or the Azure Docker VM extension to create a VM and automatically configure it as a Docker host. 
 
 Learn how to:
 
@@ -9,14 +9,14 @@ Learn how to:
 - [Use cloud-init to install packages on a Linux VM](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md)
 
 ### Docker Machine
-[Docker Machine](https://docs.docker.com/machine/overview/) allows you to use tools on your local machine to create and manage Docker hosts in Azure. The Docker Machine client creates VMs in Azure, then installs the Docker Engine. This approach allows you to perform all the maintenance and management from a single tool on your local machine, and seamlessly acrpss multiple Azure VM Docker hosts.
+[Docker Machine](https://docs.docker.com/machine/overview/) allows you to use tools on your local machine to create and manage Docker hosts in Azure. The Docker Machine client creates VMs in Azure, then installs the Docker Engine. This approach allows you to perform all the maintenance and management from a single tool on your local machine, and seamlessly across multiple Azure VM Docker hosts.
 
 Learn how to:
 
 - [Use Docker Machine to create a Docker VM host](../articles/virtual-machines/linux/docker-machine.md)
 
 ### Docker Compose
-[Docker Compose](https://docs.docker.com/compose/overview/) lets you define your container applications and services in a single file. This Compose file includes the Docker image use, any ports to expose, or storage volumes to connect. Compose files are a good way to create consistent application deployments across platforms. You can use Compose files to create application deployments on Docker hosts in Azure.
+[Docker Compose](https://docs.docker.com/compose/overview/) lets you define your container applications and services in a single file. This Compose file includes the Docker image to use, any ports to expose, or storage volumes to connect. Compose files are a good way to create consistent application deployments across platforms. You can use Compose files to create application deployments on Docker hosts in Azure.
 
 Learn how to:
 
@@ -32,7 +32,7 @@ Learn how to:
 
 
 ## Kubernetes
-[Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) is an open-source platform that allows you to automate and orchestrate a container infrastructure. Additional tools and platforms such as Deis and Openshift leverge Kubernetes, which gives you choice and flexibility in how to manage and run your applications and services. You can build your own infrastruture with Docker hosts and Kubernetes, or use Azure Container Service for a centralized deployment.
+[Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) is an open-source platform that allows you to automate and orchestrate a container infrastructure. Additional tools and platforms such as Deis and Openshift leverage Kubernetes, which gives you choice and flexibility in how to manage and run your applications and services. You can build your own infrastruture with Docker hosts and Kubernetes, or use Azure Container Service for a centralized deployment.
 
 Learn how to:
 
