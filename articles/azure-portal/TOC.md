@@ -12,6 +12,7 @@
 ### [Deploy with Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md)
 ### [Create and share Azure dashboards](azure-portal-dashboards.md)
 ## Manage
+### [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md)
 ### [Use portal to manage resources](../azure-resource-manager/resource-group-portal.md)
 ### [Manage access with Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
 ### [Share dashboards with Role-Based Access Control](azure-portal-dashboard-share-access.md)
@@ -27,7 +28,7 @@
 ### [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # Related
-## [Azure resource manager template functions](../azure-resource-manager/resource-group-template-functions.md)
+## [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md)
 ## [Best practices for Autoscale](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Common metrics for Autoscale](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ## [Webhooks for Autoscale notifications](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
