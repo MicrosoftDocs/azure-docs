@@ -4,7 +4,7 @@ description: Microsoft Azure Media Services enables you to deliver your content 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 4d2c10af-9ee0-408f-899b-33fa4c1d89b9
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/25/2017
 ms.author: juliako
 
 ---
@@ -173,7 +173,11 @@ If you open one of the segment files in text editor (for example, http://test001
     Fragments(video=0,format=m3u8-aapl)
     #EXT-X-ENDLIST
 
+>[!NOTE] 
+>If you are planning to play an AES encrypted HLS in Safari, see [this blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+
 ### Request the key from the key delivery service
+
 The following code shows how to send a request to the Media Services key delivery service using a key delivery Uri (that was extracted from the manifest) and a token (this topic does not talk about how to get Simple Web Tokens from a Secure Token Service).
 
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
@@ -216,7 +220,9 @@ The following code shows how to send a request to the Media Services key deliver
         return key;
     }
 
-## Create and configure a Visual Studio project
+## Protect your content with AES-128 using .NET
+
+### Create and configure a Visual Studio project
 
 1. Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
 2. Add the following elements to **appSettings** defined in your app.config file:
@@ -224,7 +230,7 @@ The following code shows how to send a request to the Media Services key deliver
 		<add key="Issuer" value="http://testacs.com"/>
 		<add key="Audience" value="urn:test"/>
 
-## <a id="example"></a>Example
+### <a id="example"></a>Example
 
 Overwrite the code in your Program.cs file with the code shown in this section.
  
