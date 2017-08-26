@@ -4,7 +4,7 @@ description: This article gives a brief overview of Azure StorSimple Data Manage
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 1dd09328-262b-43ef-8099-73241b49a925
