@@ -89,6 +89,8 @@
       href: azure-stack-enable-multitenancy.md
   - name: Offer services
     items:
+    - name: Overview of offering services
+      href: azure-stack-offer-services-overview.md
     - name: Create plans, offers, and quotas
       items:
       - name: Plan, offer, quota, and subscription overview
