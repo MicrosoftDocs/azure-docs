@@ -21,7 +21,7 @@ ms.author: mimig
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. With Azure Cosmos DB, can quickly create and query document, key/value, and graph databases that benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-introduction.md) API app written in Node.js with Express and Angular and the connect it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the exact same code that you use for MongoDB apps. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
+This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express and Angular and the connect it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the exact same code that you use for MongoDB apps. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
 
 Part 5 of the tutorial covers the following tasks:
 
@@ -205,7 +205,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 2. In **routes.js** add a const on line 3 to get the hero service:
 
     ```javascript
-    const heroService = require('./hero.service'): 
+    const heroService = require('./hero.service'); 
     ```
 
 3. In **hero.service.js**, update the getHeroes function on line 5 to take the request and response as parameters as follows:
@@ -224,11 +224,11 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
     ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 
-   Now there are no heroes listed in the app yet, but in our next step we'll add the inserts, updates, and deletes with our Mongoose connections to our Azure Cosmos DB database. 
+   There are no heroes stored in the app yet, but in the next step of the tutorial we'll add the put, push, and delete functionality so we can add, update, and delete heroes from the UI using Mongoose connections to our Azure Cosmos DB database. 
 
 ## Next steps
 
-In this part of the tutorial, you've learned how to use Mongoose APIs to connect your heroes app to Azure Cosmos DB. 
+In this part of the tutorial, you've learned how to use Mongoose APIs to connect your heroes app to Azure Cosmos DB and we've added the get heroes functionality to the app.
 
 > [!div class="nextstepaction"]
 > [Add Post, Put, and Delete functions to the app](tutorial-develop-mongodb-nodejs-part6.md)

@@ -21,7 +21,7 @@ ms.author: mimig
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This multi-part tutorial demonstrates how to create a new [MongoDB](mongodb-introduction.md) API app written in Node.js with Express and Angular and then connect it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the exact same code that you use for MongoDB apps. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
+This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express and Angular and then connect it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the exact same code that you use for MongoDB apps. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
 
 Part 6 of the tutorial covers the following tasks:
 
@@ -37,17 +37,17 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Add a Post function to the hero service
 
-1. In Visual Studio Code, open routes.js and hero.service.js side by side. using the Split Editor screen by pressing the Split Editor button ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png).
+1. In Visual Studio Code, open **routes.js** and **hero.service.js** side by side by pressing the **Split Editor** button ![Split Editor button in Visual Studio](./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png).
 
-    See that routes.js line 7 is calling the getHeroes function on line 5 in hero.service.js.  We need to create this same pairing for the POST, PUT, and DELETE functions. 
+    See that routes.js line 7 is calling the getHeroes function on line 5 in hero.service.js.  We need to create this same pairing for the post, put, and delete functions. 
 
-    ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png)
+    ![routes.js and hero.service.js in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png)
     
     Let's start by coding up the hero service. 
 
-2. Copy the following code into hero.service.js. This code:  
-    * Use the hero model to post a new hero
-    * Check the responses to see if there's an error and return a status value of 500
+2. Copy the following code into **hero.service.js** after the getHeroes function and before module.exports. This code:  
+    * Uses the hero model to post a new hero.
+    * Checks the responses to see if there's an error and returns a status value of 500.
 
     ```javascript
     function postHero(req, res) {
@@ -68,37 +68,38 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     }
     ```
 
-3. Update the module.exports in hero.service.js to include the postHero function. 
+3. In hero.service.js, update the module.exports to include the new postHero function. 
 
-    ```
+    ```javascript
     module.exports = {
       getHeroes,
       postHero
     };
     ```
 
-4. In routes.js, add a router for the post function. This router will post one hero at a time. This way the router file shows you all of the ways you can talk to your API - then all the real work is done by the hero.service.js.
-    ```
+4. In **routes.js**, add a router for the post function after the get router. This router will post one hero at a time. This way the router file shows you all of the ways you can talk to your API - then all the real work is done by the hero.service.js.
+
+    ```javascript
     router.post('/hero', (req, res) => {
       heroService.postHero(req, res);
     });
     ```
 
-5. Check that everything worked by running the app. In Visual Studio Code, save all your changes, click the Debug button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) on the left side, then click the Start Debugging button ![Start debiugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
+5. Check that everything worked by running the app. In Visual Studio Code, save all your changes, click the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) on the left side, then click the **Start Debugging** button ![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
-6. Now lets flip over to the browser, and open the Developer tools Network tab to watch the calls made over the network. Navigate to localhost:3000, and refresh the tab. 
+6. Now go back to your internet browser and open the Developer tools Network tab by pressing F12 on most machines. Navigate to localhost:3000, and refresh the tab to watch the calls made over the network.
 
-    ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
+    ![Networking tab in Chrome that shows network activity](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 
-7. Add a new hero with an ID of 999, name of Fred, and saying Hello, and see in the Networking tab that you're getting and posting new heroes. 
+7. Add a new hero with an ID of 999, name of Fred, and saying Hello, then click **Save** and see that in the Networking tab that you're getting and posting new heroes. 
 
-    ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
+    ![Networking tab in Chrome that shows network activity for Get and Post functions](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
 
     Now lets go back and add the Put and Delete functions to the app.
 
 ## Add the Put and Delete functions
 
-1. In routes.js, add the put and delete routers.
+1. In **routes.js**, add the put and delete routers after the post router.
 
     ```javascript
     router.put('/hero/:id', (req, res) => {
@@ -110,7 +111,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     });
     ```
 
-2. Copy the following code into hero.service.js. This code:
+2. Copy the following code into **hero.service.js** after the **checkServerError** function. This code:
 
     * Creates the put and delete functions
     * Performs a check on whether the hero was found
@@ -170,19 +171,19 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     };
     ```
 
-4. Now that we've updated the code, click the Restart debugging button ![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png) in Visual Studio Code.
+4. Now that we've updated the code, click the **Restart** button ![Restart button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) in Visual Studio Code.
 
-5. Refresh the the page in your internet browser and add a new hero with an ID of 9, name set to Starlord, and saying set to Hi. Save the new hero.
+5. Refresh the page in your internet browser and click the **Add New Hero** button. Add a new hero with an ID of 9, name set to Starlord, and saying set to Hi. Save the new hero.
 
-6. Now select the Starlord hero, and change the saying from Hi to Bye, then click Save. 
+6. Now select the **Starlord** hero, and change the saying from Hi to Bye, then click **Save**. 
 
-    You can now select the ID in the Network tab to show the payload. You can see the saying is now set to "Bye".
+    You can now select the ID in the Network tab to show the payload. You can see in the payload that the saying is now set to "Bye".
 
-    ![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
+    ![Heroes app and Networking tab showing the payload](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
 
     You can also delete one of the heroes in the UI, and see the times it takes to complete the delete operation.  
 
-    ![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
+    ![Heroes app and the Networking tab showing the time to complete the functions](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
 
     If you refresh the page, the Network tab shows the time to get the heroes. While these times are fast, alot depends on where your data is located in the world and how you can geo replicate it to get it close to your users, which is what will be covered in the next tutorial.
 
