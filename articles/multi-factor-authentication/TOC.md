@@ -18,9 +18,10 @@
 #### [Advanced configuration for NPS extension](nps-extension-advanced-configuration.md)
 ### [Create an Auth Provider](multi-factor-authentication-get-started-auth-provider.md)
 ### Deploy MFA on-premises
-#### [Install the users portal](multi-factor-authentication-get-started-portal.md)
+#### [Install the user portal](multi-factor-authentication-get-started-portal.md)
 #### [Advanced VPN Configurations](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md)
+#### [Configure high availability](mfa-server-high-availability.md)
 #### [Windows Authentication](multi-factor-authentication-get-started-server-windows.md)
 #### [Upgrade MFA Server](multi-factor-authentication-server-upgrade.md)
 #### [Upgrade from PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)
