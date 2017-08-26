@@ -742,7 +742,7 @@ Change the backup location to /hana/logbackups using SAP HANA Studio as seen bel
  ![Change backup location for DR recovery](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
 SAP HANA will scan through the backup file locations and suggest the most recent transaction log backup to be restored to. the scan can take a few minutes until a screen like the one below is shown:
- ![List of transaction log backups for DR recovery](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.png)
+ ![List of transaction log backups for DR recovery](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
 In the next step you need to adjust some default settings by:
 
@@ -750,15 +750,15 @@ In the next step you need to adjust some default settings by:
 - Selecting 'Initialize Log Area'
 as shown below:
 
- ![Set initialize Log area](./media/hana-overview-high-availability-disaster-recovery/initialize_log_dr3.png)
+ ![Set initialize Log area](./media/hana-overview-high-availability-disaster-recovery/initialize_log_dr3.PNG)
 
 In the next screen simply press finish as shown below:
 
- ![Finish DR restore](./media/hana-overview-high-availability-disaster-recovery/finish_dr4.png)
+ ![Finish DR restore](./media/hana-overview-high-availability-disaster-recovery/finish_dr4.PNG)
 
 A progress window like this should appear. Please note the example is of a DR restore of a 3-node scale-out setup.
 
- ![Restore progress](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.png)
+ ![Restore progress](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.PNG)
 
 In cases where the restore seems to hang in the 'finish screen' and does not come up with the progress screen, check whether all the SAP HANA instances on the worker nodes are running. if necessary start them manually.
 
