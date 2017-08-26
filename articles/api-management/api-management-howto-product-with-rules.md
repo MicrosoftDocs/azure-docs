@@ -107,7 +107,7 @@ Rate limit and quota policies are inbound policies, so position the cursor in th
 
 ![Policy editor][api-management-policy-editor-inbound]
 
-policy Scroll through the list of policies and locate the **Limit call rate per subscription** policy entry.
+Scroll through the list of policies and locate the **Limit call rate per subscription** policy entry.
 
 ![Policy statements][api-management-limit-policies]
 
