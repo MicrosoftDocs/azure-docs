@@ -69,11 +69,9 @@ The binding supports the following properties:
 
 <a name="httptriggerusage"></a>
 ### Working with an HTTP trigger from code
-For C# and F# functions, you can declare the type of your trigger input to be either `HttpRequestMessage` or a custom type. If you choose `HttpRequestMessage`, you get full access to the request object. For a custom type (such as a POCO), Functions attempts to parse the request body as JSON to populate the object properties.
+For C# and F# functions, you can declare the type of your trigger input to be either `HttpRequestMessage` or a custom .NET type. If you choose `HttpRequestMessage`, you get full access to the request object. For a custom .NET type, Functions tries to parse the JSON request body to set the object properties. 
 
-For Node.js functions, the Functions runtime provides the request body instead of the request object.
-
-See [HTTP trigger samples, for example,  usages.
+For Node.js functions, the Functions runtime provides the request body instead of the request object. For more information, see [HTTP trigger samples](#httptriggersample).
 
 
 <a name="output"></a>
