@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of creating a Channel tha
 services: media-services
 documentationcenter: ''
 author: anilmur
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
