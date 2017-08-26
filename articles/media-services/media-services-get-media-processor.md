@@ -4,7 +4,7 @@ description: Learn how to create a media processor component to encode, convert 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: dbf9496f-c6f0-42a7-aa36-70f89dcb8ea2
