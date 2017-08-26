@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Azure Docker Swarm Mode cluster for Linux | Microsoft Docs
-description: Quickly learn to create a Docker Swarm Mode cluster for Linux containers in Azure Container Service with the Azure CLI.
+title: Quickstart - Azure Docker CE cluster for Linux | Microsoft Docs
+description: Quickly learn to create a Docker CE cluster for Linux containers in Azure Container Service with the Azure CLI.
 services: container-service
 documentationcenter: ''
 author: neilpeterson
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/14/2017
+ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom:
 ---
 
-# Deploy Docker Swarm Mode cluster
+# Deploy Docker CE cluster
 
-In this quick start, a Docker Swarm Mode cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
+In this quick start, a Docker CE cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
 
-Docker Swarm mode on Azure Container Service is in preview and **should not be used for production workloads**.
+Docker CE on Azure Container Service is in preview and **should not be used for production workloads**.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -57,7 +57,7 @@ Output:
 
 ## Create Docker Swarm cluster
 
-Create a Docker Swarm Mode cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
+Create a Docker CE cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
 
 The following example creates a cluster named *mySwarmCluster* with one Linux master node and three Linux agent nodes.
 
