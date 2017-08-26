@@ -726,7 +726,8 @@ To achieve an even better recovery point objective in the disaster-recovery case
 In case you want or need to fail over to the DR site, you look at a process where you will need to interact with the SAP HANA on Azure Operations. In rough steps the process so far looks like:
 
 - Since you are running a QA or test instance of HANA on the DR unit of HANA Large Instances. You need to shutdown this instance. We assume that there is a dormant HANA production instance pre-installed.
-- You need to make sure that no SAP HANA processes are running anymore. You can do this check with the command: /usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList. The output should show you the hdbdeamon process in a stopped state and no other HANA processes in a running or started state.
+- You need to make sure that no SAP HANA processes are running anymore. You can do this check with the command: /usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList. 
+The output should show you the hdbdeamon process in a stopped state and no other HANA processes in a running or started state.
 - Now you need to check to which snapshot name or HANA backupid you want to have the DR site restored. In real DR cases this is usually the latest one. However you might be in a situation where you need to recover lost data. Hence you would need to pick an earlier snapshot.
 - You need to contact the SAP HANA on Azure Service Management through a high priority support request and ask for the restore of that snapshot/HANA backupid on the DR site. On the operations side, the following steps will happen:
 	- The replication of snapshots from production volume to DR volumes will be stopped.
