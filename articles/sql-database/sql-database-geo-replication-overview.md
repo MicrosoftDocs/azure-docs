@@ -117,7 +117,7 @@ Due to the high latency of wide area networks, continuous copy uses an asynchron
 > **sp_wait_for_database_copy_sync** will prevent data loss after failover, but it will not guarantee full synchronization for read access. The delay caused by a **sp_wait_for_database_copy_sync** procedure call can be significant and depends on the size of the transaction log at the time of the call. 
 > 
 
-## Programmatically managing active geo-replication
+## Programmatically managing failover groups and active geo-replication
 As discussed previously, auto-failover groups (in-preview) and active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available.
 
 **Azure Resource Manager API and role-based security**: Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../active-directory/role-based-access-control-what-is.md).
@@ -126,7 +126,8 @@ As discussed previously, auto-failover groups (in-preview) and active geo-replic
 > Many new features of active geo-replication are only supported using [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) based [Azure SQL REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) and [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx). The [(classic) REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) and [Azure SQL Database (classic) cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx) are supported for backward compatibility so using the Azure Resource Manager-based APIs are recommended. 
 > 
 
-### Transact-SQL
+## Manage SQL database failover using using Transact-SQL
+
 | Command | Description |
 | --- | --- |
 | [ALTER DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx) |Use ADD SECONDARY ON SERVER argument to create a secondary database for an existing database and starts data replication |
@@ -138,7 +139,8 @@ As discussed previously, auto-failover groups (in-preview) and active geo-replic
 | [sp_wait_for_database_copy_sync (Azure SQL Database)](https://msdn.microsoft.com/library/dn467644.aspx) |causes the application to wait until all committed transactions are replicated and acknowledged by the active secondary database. |
 |  | |
 
-### PowerShell
+## Manage SQL database failover using using PowerShell
+
 | Cmdlet | Description |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Gets one or more databases. |
@@ -157,23 +159,23 @@ As discussed previously, auto-failover groups (in-preview) and active geo-replic
 > For sample scripts, see [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md), and  [Configure and failover a failover group for a single database (preview)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md.
 >
 
-### REST API
+## Manage SQL database failover using the REST API
 | API | Description |
 | --- | --- |
-| [Create or Update Database (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) |Creates, updates, or restores a primary or a secondary database. |
-| [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) |Returns the status during a create operation. |
+| [Create or Update Database (createMode=Restore)](/rest/api/sql/Databases/CreateOrUpdate) |Creates, updates, or restores a primary or a secondary database. |
+| [Get Create or Update Database Status](/rest/api/sql/Databases/CreateOrUpdate) |Returns the status during a create operation. |
 | [Set Secondary Database as Primary (Planned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinkss#ReplicationLinks_Failover) |Sets which replica database is primary by failing over from the current primary replica database. |
 | [Set Secondary Database as Primary (Unplanned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks#ReplicationLinks_FailoverAllowDataLoss) |Sets which replica database is primary by failing over from the current primary replica database. This operation might result in data loss. |
-| [Get Replication Link](https://docs.microsoft.com/rest/api/sql/replicationlinks#ReplicationLinks_Get) |Gets a specific replication link for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
-| [List Replication Links](https://docs.microsoft.com/en-us/rest/api/sql/replicationlinks#ReplicationLinks_ListByDatabase) | Gets all replication links for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
-| [Delete Replication Link](https://docs.microsoft.com/rest/api/sql/replicationlinks#ReplicationLinks_Delete) | Deletes a database replication link. Cannot be done during failover. |
-| [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_CreateOrUpdate) | Creates or updates a failover group |
-| [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Delete) | Removes the failover group from the server |
-| [Failover (Planned)](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Failover) | Fails over from the current primary server to this server. |
-| [Force Failover Allow Data Loss](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_ForceFailoverAllowDataLoss) |ails over from the current primary server to this server. This operation might result in data loss. |
-| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Get) | Gets a failover group. |
-| [List Failover Groups By Server](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_ListByServer) | Lists the failover groups in a server. |
-| [Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Update) | Updates a failover group. |
+| [Get Replication Link](/rest/api/sql/replicationlinks/get) |Gets a specific replication link for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
+| [Replication Links - List By Database](/rest/api/sql/replicationlinks/listbydatabase) | Gets all replication links for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
+| [Delete Replication Link](/rest/api/sql/databases/delete) | Deletes a database replication link. Cannot be done during failover. |
+| [Create or Update Failover Group]/rest/api/sql/failovergroups/createorupdate) | Creates or updates a failover group |
+| [Delete Failover Group](/rest/api/sql/failovergroups/delete) | Removes the failover group from the server |
+| [Failover (Planned)](/rest/api/sql/failovergroups/failover) | Fails over from the current primary server to this server. |
+| [Force Failover Allow Data Loss](/rest/api/sql/failovergroups/forcefailoverallowdataloss) |ails over from the current primary server to this server. This operation might result in data loss. |
+| [Get Failover Group](/rest/api/sql/failovergroups/get) | Gets a failover group. |
+| [List Failover Groups By Server](/rest/api/sql/failovergroups/listbyserver) | Lists the failover groups in a server. |
+| [Update Failover Group](/rest/api/sql/failovergroups/update) | Updates a failover group. |
 |  | |
 
 ## Next steps
