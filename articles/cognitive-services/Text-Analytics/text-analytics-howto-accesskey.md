@@ -16,7 +16,7 @@ ms.author: heidist
 
 When you sign up for Text Analytics, you get a personalized access key unique to your subscription. This key is required on each call to the Text Analytics API. If you haven't [signed up](text-analytics-howto-signup.md), do so now to get your key. 
 
-If you need help finding the key, or to determine whether your subscription already has Text Analytics, use the following instructions to move forward. 
+If you need help finding the key, or to determine whether your subscription already has Text Analytics, use the following instructions to get the necessary information. 
 
 ## Find your service endpoint and access key
 

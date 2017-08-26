@@ -24,14 +24,15 @@ TBD
 
 You must have JSON documents in this format: id, text, language
 
-Under 10 KB per document.
+Document size is Under 10 KB per document.
 
-Number of documents per request 
+The collection is submitted in the body of the request.
 
-Number of requests per minute = 100
+## Step 1: Structure the request
 
+Entire request must be under 1 MB.
 
-## Step 1: Initialize the request
+You can send up to 100 requests per minute.
 
 Create a **Post** request. Review the API documentation for this request: [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 

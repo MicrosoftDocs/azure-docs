@@ -16,7 +16,7 @@ ms.author: heidist
 
 **Text Analytics API** is a cloud-based service that provides advanced natural language processing over raw text. Text Analytics API has three main functions: sentiment analysis, key phrase extraction, and language detection.
 
-The API is backed by resources in [Microsoft Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects. Our models are pretrained using an extensive body of text and natural language technologies from Microsoft. The service analyzes and scores raw text that you provide, directly returning results to the calling application.
+The API is backed by resources in [Microsoft Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects. 
 
 ## Capabilities in Text Analytics
 
@@ -24,9 +24,9 @@ Text analysis can mean different things, but in Cognitive Services, APIs are exp
 
 | Operations| Description | APIs |
 |-----------|-------------|------|
-|[Sentiment Analysis](text-analytics-concept-sentiment-analysis.md) | Find out what customers think of your brand or topic by analyzing raw text for clues about positve or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br/> [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet)  |
-|[Key Phrase Extraction](text-analytics-concept-keyword-extraction.md) | Automatically extract key phrases to quickly identify the main points. For example, for the input text ‘The food was delicious and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’.  | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br/> [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) |
-|[Language Detection](text-analytics-concept-language-detection.md) | For up to 120 languages, detect which language the input text is written in and report a single language code for every document submitted on the request. The code is paired with a score indicating the strength of the score. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br/>  [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) | 
+|[**Sentiment Analysis**](text-analytics-concept-sentiment-analysis.md) | Find out what customers think of your brand or topic by analyzing raw text for clues about positve or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. <p/>Our models are pretrained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](#supported-languages), the service can analyze and score any raw text that you provide, directly returning results to the calling application. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br/> [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet)  |
+|[**Key Phrase Extraction**](text-analytics-concept-keyword-extraction.md) | Automatically extract key phrases to quickly identify the main points. For example, for the input text ‘The food was delicious and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’.  | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br/> [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) |
+|[**Language Detection**](text-analytics-concept-language-detection.md) | For up to 120 languages, detect which language the input text is written in and report a single language code for every document submitted on the request. The code is paired with a score indicating the strength of the score. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br/>  [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) | 
 
  ## Typical workflow
 
@@ -91,11 +91,19 @@ Rate limiting exists at a rate of 100 calls per minute. We generally recommend t
 
 ## Next steps
 
-Step through the [quickstart](quick-start.md) to learn the basic workflow using the REST API in C#.
+First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). You can paste a text input (5K character maximum) to detect the language (up to 120), calculate a sentiment score, or extract key phrases. No sign up necessary.
 
-For .NET developers, we recommend the [Cognitive Services Text Analytics .NET SDK](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) for developing text analysis apps in managed code.
+When you are ready to call the API diretly, continue with these links:
 
-Alternativley, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). You can paste a text input (5K character maximum) to detect the language (up to 120), calculate a sentiment score, or extract key phrases.
++ [sign up](text-analytics-howto-signup.md) for an access key and review the steps for [calling the API](text-analytics-howto-call-api.md).
+
++ [Quickstart](quick-start.md) is a walk through of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code.
+
++ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
+
++ To see how the Text Analytics API can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
+
++ [External & Community Content](text-analytics-resource-external-community.md) provides a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
 
 ## See also
 

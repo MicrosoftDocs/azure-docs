@@ -14,16 +14,16 @@ ms.author: heidist
 
 # How to sign up for Text Analytics API
 
-Text Analytics resources are available 24-7 in the cloud. In order to access service operations for your content, you must sign up to get an access key. Each call to the API requires an access key on the request.
+Text Analytics resources are available 24-7 in the cloud. Before you can upload your content for analysis, you must sign up to get an access key. Each call to the API requires an access key on the request.
 
 + Start with an Azure Subscription. You can create a [free account](https://azure.microsoft.com/free/) to experiment at no charge.
 
-+ Create a [Cognitive Services API account] (https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account), choosing the **Text Analytics API**.
++ Create a [Cognitive Services API account] (https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account), choosing the **Text Analytics API**. Your key is generated when you sign up.
 
-  For Text Analytics, there is a Free tier for exploration and evaluation, and billable tiers for production workloads. You only have one sign-up, but changing tiers is simple when the request volume goes up.
+  For Text Analytics, there is a Free tier for exploration and evaluation, and billable tiers for production workloads. You only have one sign-up, but changing tiers is simple if your request volume increases.
 
 > [!Note]
-> Cognitive Services has multiple APIs. Each API ships new features and transitions from preview to general availability on separate schedules. For this reason, we ask you to sign up for each API independentally.
+> Cognitive Services has multiple APIs. Each API ships new features and transitions from preview to general availability on its own schedule. For this reason, we ask you to sign up for each API independentally.
 
 ## How to change tiers
 

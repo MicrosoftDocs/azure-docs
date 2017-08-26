@@ -16,9 +16,7 @@ ms.author: heidist
  
  Find answers to commonly asked questions about concepts, code, and scenarios related to the Text Analytics API for Microsoft Cognitive Services on Azure.
 
- ## Availability & billing
-
- ### Can I manually throttle requests to suspend billable transactions?
+ ## Can I throttle requests or pause the service?
 
  You cannot pause the service or temporarily throttle requests service-side to conserve the balance of your request allocation for future use in the same billing cycle. The only guarantee for preventing transactions against your subscription is to remove the Text Analytics API from your subscription, and then repeat signup when you are ready to resume transactions. 
  
@@ -28,27 +26,34 @@ ms.author: heidist
 
 You can selectively enable or disable access to specific APIs within your organization by [creating resource policies](../../azure-resource-manager/resource-manager-policy-portal.md).
 
-## Architecture & concepts
-
 ### Can I add my own training data or models?
 
 No, the models are pretrained. The only operations available on uploaded data are scoring, key phrase extraction, and language detection. We do not host custom models. If you want to create and host custom machine learning models, consider the [machine learning capabilities in Microsoft R Server](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
 
-### What is the schedule or timeline for rolling out additional languages for sentiment analysis or key phrase extraction?
+### Can I request additional languages?
 
-We avoid pre-announcing support for specific languages so that no one takes a dependency on functionality that we might not be able to deliver in a timely manner. To help us prioritize which ones to work on next, vote for specific languages on [User Voice](https://cognitive.uservoice.com/). 
+Sentiment analysis and key phrase extraction are available for a [select number of languages](overview.md#supported-languages). Natural language processing is complex and requires substantial testing before new functionality can be released. For this reason, we avoid pre-announcing support so that no one takes a dependency on functionality that needs more time to mature. 
 
-### Is keyword extraction related to sentiment analysis?
+To help us prioritize which languages to work on next, vote for specific languages on [User Voice](https://cognitive.uservoice.com/). 
 
-No, none of the operations share models or components. Keywords or phrases are not extracted based on a higher or lower sentiment; nor is sentiment biased on words considered more important or relevant in the document. 
+## Is keyword extraction related to sentiment analysis?
 
-### Why do output calculations vary, when inputs are identical?
+No, none of the operations share models, training data, or components. Keywords or phrases are not extracted based on a higher or lower sentiment; nor is sentiment biased on words considered more important or relevant in the document. 
 
-Improvements to models and algorithms are announced if the change is major, or quietly slipstreamed into the service if the update is minor. Over time, you might find that the same text input results in a different sentiment score or key phrase extraction. This is a normal and intended consequence of using managed machine learning resources in the cloud.
+## Why does output vary, given identical inputs?
 
-### Why do some sentiment scores seem off?
+Improvements to models and algorithms are announced if the change is major, or quietly slipstreamed into the service if the update is minor. Over time, you might find that the same text input results in a different sentiment score or key phrase output. This is a normal and intentional consequence of using managed machine learning resources in the cloud.
 
-Sentiment analysis is hard to do when sentiment is nuanced or unclear. Sarcasm, irony, puns, and some slang are a challenge for most analyzers. In general, sentiment scoring is best at predicting positive or negative sentiment. The model provides a score given sufficient evidence. When analysis is indeterminate, a neutral score of 0.5 is assigned to the document.
+## How is the sentiment score calculated?
+
+Sentiment analysis is based on Naive-Bayes classifiers and a large body of fixed training data. The model calculates the probability of how positive or negative a word is based on its context, proximity to other words, and other evidence in the text. Against this model, new text inputs are scored along a negative (0) to positive (1.0) continuum based on typical usage. When analysis is indeterminate, a neutral score of 0.5 is assigned to the document.
+
+Currently, we do not support *mood detection* or *aspect-based sentiment analysis*. Text that is sarcastic, ironic, humorous, and so on, is scored at face value, which means the underlying nuance may or may not be accurately captured in the score. 
+
+Generally, sentiment analysis is the most useful when the following two conditions are met:
+
++ You can provide a large collection of documents, at sufficient quantity to offset incorrect analysis of nuanced or subtle meanings in the text.
++ You get value from having a fast machine learning algorithm scan any text you provide, to produce scores that reflect broad or emerging trends, spikes, or dips in positive-negative sentiment.
 
 ## Next steps
 

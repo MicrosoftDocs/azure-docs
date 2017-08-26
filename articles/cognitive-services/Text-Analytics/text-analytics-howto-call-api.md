@@ -14,7 +14,7 @@ ms.author: heidist
 
 # How to call Text Analytics REST API
 
-Calls to the Text Analytics API are HTTP POST/GET calls, which you can formulate in any language. In this article, we use REST and [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) to demonstrate coding requirements.
+Calls to the **Text Analytics API** are HTTP POST/GET calls, which you can formulate in any language. In this article, we use REST and [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) to demonstrate key concepts.
 
 Each request must include your access key and an HTTP endpoint. The endpoint specifies the region you chose during sign up, the service URL, and a resource used on the request: `sentiment`, `keyphrases`, `languages`. 
 
@@ -73,17 +73,23 @@ If you are using Postman or another Web API test tool, set up the endpoint to th
 
    ![Request screenshot with body settings](../media/text-analytics/postman-request-body-raw.png)
 
-5. Paste in some JSON documents that have **id** and **text**. For sentiment analysis and key phrase extraction, include a 2-character **language** such as `en` for English, `es` for Spanish, and so forth.
+5. Paste in some JSON documents in a format that is valid for the intended analysis:
+
+  + [Language detection](text-analytics-howto-language-detection.md)  
+  + [Key phrase extraction](text-analytics-howto-keyword-extraction.md)  
+  + [Sentiment analysis](text-analytics-howto-sentiment-analysis.md)  
+
+  Content must include a **id** and **text** for each document. For sentiment analysis and key phrase extraction, an additional 2-character **language** should be provided (such as `en` for English, `es` for Spanish, and so forth).
 
 ## Next steps
 
-+ [Quick start](quick-start.md) is a walk through of the main capabilities. Learn how to submit text, choose an analysis, and view results with minimal code.
++ [Quickstart](quick-start.md) is a walk through of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code.
 
-+ [Visit API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
++ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
 
 + To see how the Text Analytics API can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
 
-+ [Visit this page](text-analytics-resource-external-community.md) for a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
++ [External & Community Content](text-analytics-resource-external-community.md) provides a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
 
 ## See also 
 
