@@ -38,7 +38,6 @@ Blob storage events are available in [Blob storage accounts](../common/storage-c
 ## Available Blob storage events
 Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers.  Blob storage event subscriptions can include two types of events:  
 
-> [!div class="mx-tdBreakAll"]
 > |Event Name|Description|
 > |----------|-----------|
 > |`Microsoft.Storage.BlobCreated`|Fired when a blob is created or replaced through the `PutBlob`, `PutBlockList`, or `CopyBlob` operations|
@@ -48,7 +47,6 @@ Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscri
 Blob storage events contain all the information you need to respond to changes in your data.  You can identify a Blob storage event because the eventType property starts with “Microsoft.Storage.”  
 Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema](../../event-grid/event-schema.md).  
 
-> [!div class="mx-tdBreakAll"]
 > |Property|Type|Description|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |topic|string|Full Azure Resource Manager id of the storage account that emits the event.|
