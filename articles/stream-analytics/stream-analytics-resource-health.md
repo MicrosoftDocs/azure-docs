@@ -36,7 +36,7 @@ The following flowchart can help you make decisions about what to look for, and 
 ![Stream Analytics troubleshooting flow - map](media/stream-analytics-resource-health/stream-analytics-troubleshooting-map.png)
 
 ## Get help
-For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
