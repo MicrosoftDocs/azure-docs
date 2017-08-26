@@ -6,7 +6,7 @@ services: media-services
 documentationcenter: ''
 author: Juliako
 writer: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: bb1aca25-d23a-4520-8c45-44ef3ecd5371
