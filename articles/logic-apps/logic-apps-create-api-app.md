@@ -1,7 +1,7 @@
 ---
-title: Create web APIs & REST APIs as connectors - Azure Logic Apps | Microsoft Docs
-description: Create web APIs & REST APIs to call your APIs, services, or systems in workflows for system integrations with Azure Logic Apps
-keywords: web APIs, REST APIs, connectors, workflows, system integrations
+title: Create web APIs & REST APIs for Azure Logic Apps | Microsoft Docs
+description: Create web APIs & REST APIS to  call your APIs, services, or systems from logic app workflows for system integrations
+keywords: web APIs, REST APIs, workflows, system integrations
 services: logic-apps
 author: jeffhollan
 manager: anneta
@@ -18,27 +18,18 @@ ms.date: 5/26/2017
 ms.author: LADocs; jehollan
 ---
 
-# Create custom APIs as connectors for logic apps
+# Create custom APIs that you can call from logic app workflows
 
 Although Azure Logic Apps offers [100+ built-in connectors](../connectors/apis-list.md) 
 that you can use in logic app workflows, you might want to call APIs, systems, 
 and services that aren't available as connectors. You can create your own 
 custom APIs that provide actions and triggers to use in logic apps. 
-Here are other reasons why you might want to create your own APIs to 
-use as connectors in logic apps:
+Here are other reasons why you might want to create your own APIs 
+that you can call from logic app workflows:
 
 * Extend your current system integration and data integration workflows.
 * Help customers use your service to manage professional or personal tasks.
 * Expand the reach, discoverability, and use for your service.
-
-Basically, connectors are web APIs that use REST for pluggable interfaces, 
-[Swagger metadata format](http://swagger.io/specification/) for documentation, 
-and JSON as their data exchange format. Because connectors are REST APIs 
-that communicate through HTTP endpoints, you can use any language, 
-like .NET, Java, or Node.js, for building connectors. 
-You can also host your APIs on [Azure App Service](../app-service/app-service-value-prop-what-is.md), 
-a platform-as-a-service (PaaS) offering that provides one of the best, easiest, 
-and most scalable ways for API hosting. 
 
 For custom APIs to work with logic apps, your API can provide 
 [*actions*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
@@ -48,6 +39,10 @@ that starts a logic app workflow when new data or an event meets a specified con
 This topic describes common patterns that you can follow 
 for building actions and triggers in your API, 
 based on the behavior that you want your API to provide.
+
+You can host your APIs on [Azure App Service](../app-service/app-service-value-prop-what-is.md), 
+a platform-as-a-service (PaaS) offering that provides one of the best, easiest, 
+and most scalable ways for API hosting. 
 
 > [!TIP] 
 > Although you can deploy your APIs as 
@@ -63,6 +58,29 @@ based on the behavior that you want your API to provide.
 >
 > For API App samples built for logic apps, visit the 
 > [Azure Logic Apps GitHub repository](http://github.com/logicappsio) or [blog](http://aka.ms/logicappsblog).
+
+## How do custom APIs differ from custom connectors?
+
+Custom APIs and custom connectors are web APIs that use REST for pluggable interfaces, 
+[Swagger metadata format](http://swagger.io/specification/) for documentation, 
+and JSON as their data exchange format. And because these APIs and connectors 
+are REST APIs that communicate through HTTP endpoints, you can use any language, 
+like .NET, Java, or Node.js, for building custom APIs and connectors.
+
+Custom APIs let you call APIs that aren't connectors, 
+and provide endpoints that you can call with HTTP + Swagger, 
+Azure API Management, or App Services. Custom connectors work 
+like custom APIs but also have these attributes:
+
+* Registered in Azure as Logic Apps Connector resources.
+* Appear with icons alongside Microsoft-managed connectors in the Logic Apps Designer.
+* Available only to the connectors' authors and logic app users who have the same 
+Azure Active Directory tenant and Azure subscription in the region where the 
+logic apps are deployed.
+
+You can also nominate registered connectors for Microsoft certification. 
+This process verifies that registered connectors meet the criteria for public use 
+and makes those connectors available for users in Microsoft Flow and Microsoft PowerApps.
 
 ## Helpful tools
 
@@ -356,7 +374,7 @@ For specific help with custom APIs, contact [customapishelp@microsoft.com](mailt
 To ask questions, answer questions, and see what other Azure Logic Apps users are doing, visit the 
 [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-To help improve Logic Apps and connectors, vote on or submit ideas at the 
+To help improve Logic Apps, vote on or submit ideas at the 
 [Logic Apps user feedback site](http://aka.ms/logicapps-wish). 
 
 ## Next steps

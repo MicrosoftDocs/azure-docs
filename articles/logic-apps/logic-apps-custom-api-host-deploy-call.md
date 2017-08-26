@@ -1,6 +1,6 @@
 ---
-title: Deploy and call web APIs & REST APIs for Azure Logic Apps | Microsoft Docs
-description: Deploy and call web APIs & REST APIs in workflows for system integrations with Azure Logic Apps
+title: Deploy and call web APIs & REST APIs from Azure Logic Apps | Microsoft Docs
+description: Deploy and call your web APIs & REST APIs for system integration workflows in  Azure Logic Apps
 keywords: web APIs, REST APIs, connectors, workflows, system integrations, authenticate
 services: logic-apps
 author: stepsic-microsoft-com
@@ -18,10 +18,10 @@ ms.date: 05/26/2017
 ms.author: LADocs; stepsic
 ---
 
-# Deploy and call custom APIs for logic apps
+# Deploy and call custom APIs from logic app workflows
 
-After you [create custom APIs](./logic-apps-create-api-app.md) 
-that provide actions or triggers to use in logic apps workflows, 
+After you [create custom API endpoints](./logic-apps-create-api-app.md) 
+that provide actions or triggers for use in logic apps workflows, 
 you must deploy your APIs before you can call them. 
 And although you can call any API from a logic app, 
 for the best experience, add [Swagger metadata](http://swagger.io/specification/) 
@@ -46,9 +46,10 @@ set the API definition properties and turn on
 [cross-origin resource sharing (CORS)](../app-service-api/app-service-api-cors-consume-javascript.md#corsconfig) 
 for your web app or API app.
 
-1. In the Azure portal, select your web app or API app.
+1. In the [Azure portal](https://portal.azure.com), 
+select your web app or API app.
 
-2. In the blade that opens, 
+2. In the app menu that opens, 
 under **API**, choose **API definition**. 
 Set the **API definition location** 
 to the URL for your swagger.json file.
@@ -73,10 +74,10 @@ For more information, see these articles:
 ## Call your custom API from logic app workflows
 
 After you set up the API definition properties and CORS, 
-your custom API's triggers and actions should become available 
+your custom API's triggers and actions should be available 
 for you to include in your logic app workflow. 
 
-*  To view the websites that have Swagger URLs, 
+*  To view websites that have Swagger URLs, 
 you can browse your subscription websites in the Logic Apps Designer.
 
 *  To view available actions and inputs by pointing at a Swagger document, 
@@ -87,4 +88,4 @@ you can always create a request with the [HTTP action](../connectors/connectors-
 
 ## Next steps
 
-* [Custom connectors overview](../logic-apps/custom-connector-overview.md)
+* [Custom connector overview](../logic-apps/custom-connector-overview.md)

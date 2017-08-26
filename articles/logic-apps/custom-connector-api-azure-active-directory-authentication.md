@@ -1,6 +1,6 @@
 ---
-title: Secure custom connectors with Azure AD - Azure Logic Apps | Microsoft Docs
-description: Set up security for custom connectors with Azure Active Directory (Azure AD) authentication for Azure Logic Apps
+title: Authenticate custom connectors with Azure Active Directory - Azure Logic Apps | Microsoft Docs
+description: Add authentication to custom connectors with Azure Active Directory (Azure AD)
 author: ecfan
 manager: anneta
 editor: 
@@ -17,13 +17,13 @@ ms.date: 09/1/2017
 ms.author: LADocs; estfan
 ---
 
-# Secure custom connectors with Azure Active Directory (Azure AD) authentication
+# Set up authentication for custom connectors with Azure Active Directory (Azure AD)
 
-This tutorial shows how to set up security and authentication with Azure AD 
-for a custom API connector by using one of the Azure Resource Manager APIs as an example. 
+This tutorial shows how to add Azure AD authentication to custom connectors 
+by using a Azure Resource Manager API as an example. 
 Azure Resource Manager helps you manage the components for a solution 
 that you've built in Azure, such as databases, virtual machines, and web apps. 
-So, you might find a custom API connector for Azure Resource Manager useful 
+So, you might find a custom connector for Azure Resource Manager useful 
 when you want to manage Azure resources from your logic app workflow. 
 For more information, see [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).
 
