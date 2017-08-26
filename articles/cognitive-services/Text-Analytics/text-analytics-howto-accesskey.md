@@ -12,13 +12,13 @@ ms.date: 08/24/2017
 ms.author: heidist
 ---
 
-# How to find your access key for Text Analytics
+# How to find endpoints and access keys for Text Analytics
 
 When you sign up for Text Analytics, you get a personalized access key unique to your subscription. This key is required on each call to the Text Analytics API. If you haven't [signed up](text-analytics-howto-signup.md) yet,  do so now to get your key. 
 
 If you need help finding the key or determining whether your subscription already has Text Analytics, use the following instructions to get the necessary information. 
 
-## Find your service and keys
+## Find your service endpoint and access key
 
 1. Sign in to [Azure portal](https://portal.azure.com).
 

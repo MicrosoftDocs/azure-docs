@@ -12,7 +12,7 @@ ms.date: 08/24/2017
 ms.author: heidist
 ---
 
-# Text Analytics API Version 1.0
+# Text Analytics API Version 2.0
 
 **Text Analytics API** is a cloud-based service that provides advanced natural language processing over raw text. Text Analytics API has three main functions: sentiment analysis, key phrase extraction, and language detection.
 

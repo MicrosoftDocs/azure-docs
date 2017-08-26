@@ -16,68 +16,48 @@ ms.author: heidist
 
 TBD
 
-## OLD
+## Concepts
 
-In this Quickstart, learn how to call the [**Text Analytics REST APIs**](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) to perform key phrase extraction, sentiment analysis, and language detection on text provided in requests to [Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
+TBD
 
-To complete this Quickstart, you need an interactive tool for sending HTTP requests. 
+## Preparation
 
-+ [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop), [Telerik Fiddler](https://www.telerik.com/download/fiddler), or other Web API testing tool, if you have one. 
-+ You can also use the built-in console app in our REST API documentation pages to interact with each API individually. To use the console, click **Open API testing console** on any [doc page](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6).
+You must have JSON documents in this format: id, text, language
 
-> [!Tip]
-> For one-off interactions, we recommend the built-in console. There is no setup and user requirements consist only of the access key and the JSON documents you paste into the request. 
->
-> For ongoing experimentation, we suggest a web API testing tool like Postman or Fiddler. A tool persists your request headers and content. You can make incremental changes, including switching to another operation, without having to start over with each new request.
+Under 10 KB per document.
 
-## Before you begin
+Number of documents per request 
 
-To use Microsoft Cognitive Service APIs, create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. 
+Number of requests per minute = 100
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-> [!Note]
-> Cognitive Services has many APIs. Billing, policies, and release cycles vary for each API, so we ask you to sign up for each one individually. To find out if your subscription already has Text Analytics, enter "text analytics" in the portal's search box.
+## Step 1: Initialize the request
 
-## Set up a request in Postman
+Create a **Post** request. Review the API documentation for this request: [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
-In this first exercise, structure the request, using key phrase extraction as the first analysis.
+Create the HTTP endpoint for key phrase extraction. It must include the `/keyphrases` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 
-Text Analytics APIs invoke operations against pretrained models and machine learning algorithms running in Azure data centers. You need your own key to access the operations, which is generated for you when you sign up. 
+Get the access key that allows your subscription to access Text Analytics operations.
 
-Endpoints for each operation include the resource providing the underlying algorithms used for a particular analysis: **sentiment analysis**, **key phrase extraction**, and **language detection**. Each request must specify which resource to use. We list them in the next step.
+For more information on how to find a valid endpoint for your subscription, see [How to find endpoints and access keys](text-analytics-howto-accesskey.md).
 
-1. In the [Azure portal](https://portal.azure.com), open the Text Analytics page. If it's not pinned to dashboard, search for "text analytics" to find the page. Leave the page open so that you can copy an access key and endpoint.
-
-   ![Portal page with endpoint and keys](../media/text-analytics/portal-keys-endpoint.png)
-
-3. Set up the request:
-
-   + Choose **Post** as the request type.
-   + Paste in the endpoint you copied from the portal page.
-   + Append a resource. In this exercise, start with **/keyPhrases**.
-
-  Endpoints for each available resource are as follows (your region may vary):
-
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
-
-4. Set three request headers:
+Request headers:
 
    + `Ocp-Apim-Subscription-Key` set to your access key, obtained from Azure portal.
    + `Content-Type` set to application/json.
    + `Accept` set to application/json.
 
-  Your request should look similar to the following screenshot:
+     Your request should look similar to the following screenshot:
 
    ![Request screenshot with endpoint and headers](../media/text-analytics/postman-request-keyphrase-1.png)
 
-4. Click **Body** and choose **raw** for the format.
+## Step 2: Structure the request body
+
+1. Click **Body** and choose **raw** for the format.
 
    ![Request screenshot with body settings](../media/text-analytics/postman-request-body-raw.png)
 
-5. Paste in some JSON documents: 
+2. Paste in some JSON documents: 
 
    ```
     {
@@ -127,7 +107,8 @@ Input rows must be JSON in raw unstructured text. XML is not supported. The sche
 > [!Note]
 > For both sentiment analysis and key phrase extraction, `language` is an optional parameter. If `language` is wrong, results of the analysis might be incorrect or suboptimal. If `language` is missing, the system performs language detection prior to sentiment or key phrase analysis. This can slow down operations. For this reason, we recommend including an accurate language code in the request, assuming you know what it is. For more information about which languages are supported, see [Text Analytics Overview > Supported Languages](overview.md#supported-languages).
 
-## Key phrase extraction
+
+## Step 3: Post the request
 
 1. Compare the screenshots against your tool to verify the request is configured correctly.
 
@@ -185,7 +166,7 @@ All POST requests return a JSON formatted response with the IDs and detected pro
 }
 ```
 
-### Review the output
+## Step 4: Review results
 
 Comparing inputs and outputs side by side helps us understand key phrase extraction operations. The analyzer finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentence. 
 
@@ -197,97 +178,8 @@ Comparing inputs and outputs side by side helps us understand key phrase extract
 | 4 | "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area." | "spectacular views", "trail", "Worth", "area" |
 | 5 | ""Me encanta este sendero. Tiene hermosas vistas y muchos lugares para detenerse y descansar" | "Tiene hermosas vistas y muchos lugares para detenerse y descansar", "encanta este sendero"|
 
-## Analyze sentiment
+## Summary
 
-Using the same documents and request headers, you can edit the existing request to call the sentiment analyzer and return sentiment scores.
-
-1. In the URL, replace `/keyPhrases` with `/sentiment` in the endpoint.
-
-2. Click **Send**.
-
-The response includes a sentiment score between 0.0 (negative) and 1.0 (positive) to indicate relative sentiment.
-
-```
-{
-    "documents": [
-        {
-            "score": 0.989059339865683,
-            "id": "1"
-        },
-        {
-            "score": 0.00626599157674657,
-            "id": "2"
-        },
-        {
-            "score": 0.919842553279166,
-            "id": "3"
-        },
-        {
-            "score": 0.841722489453801,
-            "id": "4"
-        },
-        {
-            "score": 0.5,
-            "id": "5"
-        }
-    ],
-    "errors": []
-}
-```
-
-The API returns a score and ID, but not the input string. The following table shows the original strings so that you can evaluate the score with your own interpretation of positive or negative sentiment.
-
-| ID | Score | Bias | String |
-|----|-------|------|--------|
-| 1 | 0.989059339865683  | positive | "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!" |
-| 2 | 0.00626599157674657  | negative | "Poorly marked trails! I thought we were goners. Worst hike ever." |
-| 3 | 0.919842553279166  | positive | "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children." |
-| 4 | 0.841722489453801  | positive | "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area." |
-| 5 | 0.5 | neutral <sup>1</sup> | "Me encanta este sendero. Tiene hermosas vistas y muchos lugares para detenerse y descansar." |
-
-<sup>1</sup> The Spanish string is not parsed for sentiment because the language code is `en` instead of `es`. When a string cannot be analyzed for sentiment or has no sentiment, the score is always 0.5 exactly. In a [later step](#set-lang-code), you can change the language code to get a valid score for this text.
-
-<a name="detect-language></a>
-
-## Detect language
-
-Using same documents and request headers, you can edit the existing request to call the language detection analyzer.
-
-1. In the URL, replace `/sentiment` with `/languages` in the endpoint.
-
-2. Click **Send**.
-
-The language code input, which was useful for other analyses, is ignored for language detection. Text Analytics operates only on the `text` you provide. Response output for each document includes a friendly language name, a 2-character language code, and a score indicating the strength of the analysis. 
-
-Notice that the last document is correctly identified as Spanish, even though the string was tagged as `en`.
-
-            "id": "5",
-            "detectedLanguages": [
-                {
-                    "name": "Spanish",
-                    "iso6391Name": "es",
-                    "score": 1
-                }
-            ]
-
-<a name="set-lang-code"></a>
-
-## Align language codes to text
-
-We deliberately used an incorrect language code in document 5 to show what happens when a language code is wrong. Byproducts of an incorrect language code include indeterminate sentiment, or key phrase extraction with the help of N-gram analysis.
-
-In this last exercise, change the language code for the Spanish string in document 5 from `en` to `es`. Resend the requests for sentiment analysis and keyword detection. 
-
-Comparing before-and-after results, sentiment score goes from 0.5 (neutral) to 1.0 (positive), an accurate score for this text. For key phrase extraction, notice that the results are more granular, on a level consistent with the English strings.
-
-        {
-            "keyPhrases": [
-                "lugares",
-                "sendero"
-            ],
-            "id": "5"
-
-The point to take away from this last exercise is that you should set the language code correctly, assuming you know it. If you don't, use [language detection](text-analytics-concept-language-detection.md) to obtain it, and then set the code before performing sentiment analysis or key phrase extraction. 
 
 ## Next steps
 
@@ -301,5 +193,5 @@ The point to take away from this last exercise is that you should set the langua
 
 ## See also 
 
- [Welcome to Text Analytics in Microsoft Cognitive Services on Azure](overview.md)  
+ [Text Analytics overview](overview.md)  
  [Frequently asked questions (FAQ)](text-analytics-resource-faq.md)

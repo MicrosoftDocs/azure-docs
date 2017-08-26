@@ -16,7 +16,37 @@ ms.author: heidist
 
 TBD
 
-## OLD
+## Concepts
+
+## Preparation
+
+## Step 1: Initialize the request
+
+Create a **Post** request. Review the API documentation for this request: [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+
+Create the HTTP endpoint for key phrase extraction. It must include the `/keyphrases` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
+
+Get the access key that allows your subscription to access Text Analytics operations.
+
+For more information on how to find a valid endpoint for your subscription, see [How to find endpoints and access keys](text-analytics-howto-accesskey.md).
+
+Request headers:
+
+   + `Ocp-Apim-Subscription-Key` set to your access key, obtained from Azure portal.
+   + `Content-Type` set to application/json.
+   + `Accept` set to application/json.
+
+     Your request should look similar to the following screenshot:
+
+   ![Request screenshot with endpoint and headers](../media/text-analytics/postman-request-keyphrase-1.png)
+
+## Step 2: Structure the request body
+
+## Step 3: Post the request
+
+## Step 4: Review results
+
+## Summary
 
 In this Quickstart, learn how to call the [**Text Analytics REST APIs**](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) to perform key phrase extraction, sentiment analysis, and language detection on text provided in requests to [Microsoft Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
 
@@ -301,5 +331,5 @@ The point to take away from this last exercise is that you should set the langua
 
 ## See also 
 
- [Welcome to Text Analytics in Microsoft Cognitive Services on Azure](overview.md)  
+ [Text Analytics overview](overview.md)  
  [Frequently asked questions (FAQ)](text-analytics-resource-faq.md)
