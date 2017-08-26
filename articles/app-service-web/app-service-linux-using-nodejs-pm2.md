@@ -41,11 +41,11 @@ You can check the Node.js [process file documentation](http://pm2.keymetrics.io/
 
         {
           "name"        : "worker",
-          "script"      : "/bin/server.js",
+          "script"      : "./bin/server.js",
           "instances"   : 1,
           "merge_logs"  : true,
           "log_date_format" : "YYYY-MM-DD HH:mm Z",
-          "watch": ["/bin/server.js", "foo.txt"],
+          "watch": ["./bin/server.js", "foo.txt"],
           "watch_options": {
             "followSymlinks": true,
             "usePolling"   : true,
