@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for Eclipse: Create Scala applications for HDInsight Spark' | Microsoft Docs
+title: 'Azure Toolkit for Eclipse: Create Scala applications for HDInsight Spark | Microsoft Docs'
 description: Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark applications written in Scala and submit them to an HDInsight Spark cluster, directly from the Eclipse IDE.
 services: hdinsight
 documentationcenter: ''
@@ -80,7 +80,7 @@ When you open IntelliJ, HDInsight Tools automatically detects whether you instal
 4. In the **New HDInsight Scala Project** dialog box, provide the following values, and then select **Next**:
    * Enter a name for the project.
    * In the **JRE** area, make sure that **Use an execution environment JRE** is set to **JavaSE-1.7** or later.
-   * Make sure that the Spark SDK is set to the location where you downloaded the SDK. The link to the download location is included in the [prerequisites](#prerequisites) earlier in this article. You can also download the SDK from the link included in the dialog box.
+   * Make sure that the Spark SDK is set to the location where you downloaded the SDK. The link to the download location is included in the [prerequisites](#prerequisites) earlier in this article. You can also download the SDK from the link in the dialog box.
 
    ![New HDInsight Scala Project dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
 5. In the next dialog box, select the **Libraries** tab and keep the defaults, and then click **Finish**. 
@@ -200,9 +200,9 @@ To resolve this error, you must [download the executable](http://public-repo-1.h
    
    ![Location of LogQuery](./media/hdinsight-apache-spark-eclipse-tool-plugin/local-app.png)
    
-4. Right-click the **LogQuery** application, point to **Run As**, and then select **1 Scala Application**. You will see an output like this on the **Console** tab at the bottom:
+4. Right-click the **LogQuery** application, point to **Run As**, and then select **1 Scala Application**. Output like this appears on the **Console** tab:
    
-   ![Spark Application local run result](./media/hdinsight-apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
+   ![Spark application local run result](./media/hdinsight-apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## Known problems
 To submit an application to Azure Data Lake Store, select **Interactive** mode during the Azure sign-in process. If you select **Automated** mode, you might get an error.
