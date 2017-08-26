@@ -18,9 +18,15 @@ TBD
 
 ## Concepts
 
+TBD
+
 ## Preparation
 
-## Step 1: Initialize the request
+You must have JSON documents in this format: id, text
+
+The collection is submitted in the body of the request.
+
+## Step 1: Structure the request
 
 Create a **Post** request. Review the API documentation for this request: [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 

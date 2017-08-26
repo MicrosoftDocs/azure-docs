@@ -35,17 +35,17 @@ An [access key](text-analytics-howto-accesskey.md) is required on every request.
 
 Input rows must be JSON in raw unstructured text. XML is not supported. The schema is simple, consisting of the elements described in the following list. 
 
-Although this could change in the future, you can currently use the same documents for all three operations: sentiment, key phrase, and language detection.
+Although the schema is likely to vary for each analysis in the future, you can currently use the same documents for all three operations: sentiment, key phrase, and language detection.
 
 + `id` is required. The data type is string, but in practice document IDs tend to be integers. The system uses the IDs you provide to structure the output. Language codes, keywords, and sentiment scores are generated for each ID.
 
 + `text` is required and contains unstructured raw text, up to 10 KB. For more information about limits, see [Text Analytics Overview > Data limits](overview.md#data-limits). 
 
-+ `language` is used only in sentiment analysis and key phrase extraction. It is ignored in language detection. It is a 2-character [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) value. For a list of supported languages, see [Text Analytics overview](overview.md#supported-languages).
++ `language` is used in sentiment analysis and key phrase extraction. It is ignored in language detection. Valid values are a 2-character [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code for a [supported language](overview.md#supported-languages).
 
 ## Set up a request in Postman
 
-If you are using Postman or another Web API test tool, set up the endpoint to the resource you want to use, and provide the access key in a request header. Each operation requires that you append the appropriate resource to the endpoint. 
+The entire request must be under 1 MB in size. If you are using Postman or another Web API test tool, set up the endpoint to include the resource you want to use, and provide the access key in a request header. Each operation requires that you append the appropriate resource to the endpoint. 
 
 1. In Postman:
 
@@ -79,7 +79,9 @@ If you are using Postman or another Web API test tool, set up the endpoint to th
   + [Key phrase extraction](text-analytics-howto-keyword-extraction.md)  
   + [Sentiment analysis](text-analytics-howto-sentiment-analysis.md)  
 
-  Content must include a **id** and **text** for each document. For sentiment analysis and key phrase extraction, an additional 2-character **language** should be provided (such as `en` for English, `es` for Spanish, and so forth).
+6. Click **Send** to submit the request. You can submit up to 100 requests per minute. 
+
+  In Postman, the response is displayed in the app, as a single JSON document, with an item for each document ID you provided in the request.
 
 ## Next steps
 
