@@ -4,7 +4,7 @@ description: This article demonstrates how to use the Azure portal to configure 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 08/25/2017
 ms.author: juliako
 
 ---
@@ -120,6 +120,9 @@ To enable FairPlay encryption, you need to provide the App Certificate and Appli
 ![Protect content](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
 Once you make the encryption selection, press **Apply**.
+
+>[!NOTE] 
+>If you are planning to play an AES encrypted HLS in Safari, see [this blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## Next steps
 Review Media Services learning paths.
