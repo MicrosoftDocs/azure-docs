@@ -25,23 +25,25 @@ Recall that Text Analytics is stateless so there are no data assets to manage. Y
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) and [sign up for the Text Analytics API](text-analytics-howto-signup.md). 
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Text Analytics API**. 
 
-An [access key](text-analytics-howto-accesskey.md) is required on every request. The key is created for you during sign up. 
+You must have the [endpoint and access key](text-analytics-howto-accesskey.md) on hand for structuring the request. The key is generated for you during sign up. 
 
 <a name="json-schema"></a>
 
 ## JSON schema requirements
 
-Input rows must be JSON in raw unstructured text. XML is not supported. The schema is simple, consisting of the elements described in the following list. 
+Input must be JSON in raw unstructured text. XML is not supported. The schema is simple, consisting of the elements described in the following list. 
 
-Although the schema is likely to vary for each analysis in the future, you can currently use the same documents for all three operations: sentiment, key phrase, and language detection.
+Although the schema is likely to vary for each analysis in the future, you can currently submit the same documents for all three operations: sentiment, key phrase, and language detection.
 
-+ `id` is required. The data type is string, but in practice document IDs tend to be integers. The system uses the IDs you provide to structure the output. Language codes, keywords, and sentiment scores are generated for each ID.
+| Element | Valid values | Usage |
+|---------|--------------|-------|
+|`id` |The data type is string, but in practice document IDs tend to be integers. | Required. The system uses the IDs you provide to structure the output. Language codes, keywords, and sentiment scores are generated for each ID in the request.|
+|`text` | Unstructured raw text, up to 10 KB. | Required. For language detection, text can be expressed in any language. For sentiment analysis and key phrase extraction, the text must be in a [supported language](overview.md#supported-languages). |
+|`language` | 2-character [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code for a [supported language](overview.md#supported-languages) | Optional, but necessary for sentiment analysis and key phrase extraction. There is no error if you exclude it, but the analysis is weakened without it. This value is ignored in language detection. The language code should correspond to the `text` you provide. |
 
-+ `text` is required and contains unstructured raw text, up to 10 KB. For more information about limits, see [Text Analytics Overview > Data limits](overview.md#data-limits). 
-
-+ `language` is used in sentiment analysis and key phrase extraction. It is ignored in language detection. Valid values are a 2-character [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code for a [supported language](overview.md#supported-languages).
+For more information about limits, see [Text Analytics Overview > Data limits](overview.md#data-limits). 
 
 ## Set up a request in Postman
 
@@ -81,7 +83,7 @@ The entire request must be under 1 MB in size. If you are using Postman or anoth
 
 6. Click **Send** to submit the request. You can submit up to 100 requests per minute. 
 
-  In Postman, the response is displayed in the app, as a single JSON document, with an item for each document ID you provided in the request.
+  In Postman, the response is displayed in the next window down, as a single JSON document, with an item for each document ID you provided in the request.
 
 ## Next steps
 
