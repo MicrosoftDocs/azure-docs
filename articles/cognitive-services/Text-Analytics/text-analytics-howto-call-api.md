@@ -14,9 +14,11 @@ ms.author: heidist
 
 # How to call Text Analytics REST API
 
-Calls to the API are HTTP POST/GET calls, which you can construct in any language. In this article, we use REST and [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) to demonstrate how to call Text Analytics API.
+Calls to the Text Analytics API are HTTP POST/GET calls, which you can formulate in any language. In this article, we use REST and [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) to demonstrate coding requirements.
 
-All requests must include your access key. The HTTP endpoint includes the region you chose during sign up, the service URL, and the resource used on the request: `sentiment`, `keyphrases`, `languages`. Recall that Text Analytics is stateless so there are no data assets to manage. Your text is uploaded, analyzed upon receipt, and results are returned immediately to the calling application.
+Each request must include your access key and an HTTP endpoint. The endpoint specifies the region you chose during sign up, the service URL, and a resource used on the request: `sentiment`, `keyphrases`, `languages`. 
+
+Recall that Text Analytics is stateless so there are no data assets to manage. Your text is uploaded, analyzed upon receipt, and results are returned immediately to the calling application.
 
 > [!Tip]
 > For one-off calls to see how the API works, you can send POST requests from the built-in **API testing console** available on any [API doc page](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). There is no setup, and user requirements consist only of pasting an access key and the JSON documents into the request. 

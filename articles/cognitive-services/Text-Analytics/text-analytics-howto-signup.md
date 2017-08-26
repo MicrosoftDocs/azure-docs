@@ -20,10 +20,10 @@ Text Analytics resources are available 24-7 in the cloud. In order to access ser
 
 + Create a [Cognitive Services API account] (https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account), choosing the **Text Analytics API**.
 
-  For Text Analytics, there is a Free tier for exploration and evaluation, and billable tiers for production workloads. You can only have one sign-up, but changing tiers is simple if request or data volumes change.
+  For Text Analytics, there is a Free tier for exploration and evaluation, and billable tiers for production workloads. You only have one sign-up, but changing tiers is simple when the request volume goes up.
 
 > [!Note]
-> Cognitive Services has multiple APIs. Each API ships new features and transitions from preview to general availability on separate schedules. For this reason, we ask you to sign up for each API indepenentally.
+> Cognitive Services has multiple APIs. Each API ships new features and transitions from preview to general availability on separate schedules. For this reason, we ask you to sign up for each API independentally.
 
 ## How to change tiers
 
