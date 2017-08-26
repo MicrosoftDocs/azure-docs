@@ -133,7 +133,7 @@ Once the account has been created, you can open the **Batch account blade** to a
 
 ![Batch account URL in portal][account_url]
 
-* **Access keys** (Batch service mode): To authenticate access to your Batch account from your application, you'll need an account access key. (This setting is not available in user subscription mode, where you use Azure Active Directory authetication.)
+* **Access keys** (Batch service mode): To authenticate access to your Batch account from your application, you'll need an account access key. (This setting is not available in user subscription mode, where you use Azure Active Directory authentication.)
 
     To view or regenerate your Batch account's access keys, enter `keys` in the left menu **Search** box on the Batch account blade, then select **Keys**.
 
