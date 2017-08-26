@@ -4,7 +4,7 @@ description: Using Ruby in Azure App Service Web App on Linux.
 keywords: azure app service, web app, faq, linux, oss, ruby
 services: app-service
 documentationCenter: ''
-authors: aelnably
+author: ahmedelnably
 manager: erikre
 editor: ''
 

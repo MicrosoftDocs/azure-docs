@@ -4,7 +4,7 @@ description: This article demonstrates how to use the Azure portal to configure 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154

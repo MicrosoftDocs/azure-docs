@@ -236,7 +236,7 @@ The blob container in which to capture your event data.
 }
 ```
 
-Use the following parameters if you choose Azure Data Lake Store as your destination. You must set permissions on your Data Lake Store path, in which you want to Capture the event. To set permissions, see [this article](event-hubs-capture-enable-through-portal.md).
+Use the following parameters if you choose Azure Data Lake Store as your destination. You must set permissions on your Data Lake Store path, in which you want to Capture the event. To set permissions, see [this article](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account).
 
 ###subscriptionId
 
