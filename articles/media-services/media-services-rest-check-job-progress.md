@@ -4,7 +4,7 @@ description: Learn how to track job progress.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: a1a1f956-c035-448a-af9c-5ac15fcce9dd

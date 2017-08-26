@@ -2,7 +2,7 @@
 title: Task Presets for MES (Media Encoder Standard) | Microsoft Docs
 description: The topic gives and overview of Task Presets for MES (Media Encoder Standard).
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''
