@@ -83,7 +83,7 @@ When you open IntelliJ, HDInsight Tools automatically detects whether you instal
    * Make sure that the Spark SDK is set to the location where you downloaded the SDK. The link to the download location is included in the [prerequisites](#prerequisites) earlier in this article. You can also download the SDK from the link in the dialog box.
 
    ![New HDInsight Scala Project dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-5. In the next dialog box, select the **Libraries** tab and keep the defaults, and then click **Finish**. 
+5. In the next dialog box, select the **Libraries** tab and keep the defaults, and then select **Finish**. 
    
    ![Libraries tab](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-4.png)
   
@@ -137,7 +137,7 @@ You can perform various operations by using HDInsight Tools, including accessing
 
    ![Job view node](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
 
-2. Click the **Jobs** node. HDInsight Tools automatically detects whether you installed the E(fx)clipse plug-in. Select **OK** to continue, and then follow the instructions to install the Eclipse Marketplace and restart Eclipse.
+2. Select the **Jobs** node. HDInsight Tools automatically detects whether you installed the E(fx)clipse plug-in. Select **OK** to continue, and then follow the instructions to install the Eclipse Marketplace and restart Eclipse.
 
    ![Install E(fx)clipse](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
 
