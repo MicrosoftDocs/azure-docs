@@ -1,4 +1,4 @@
-﻿---
+---
 title: Build a management solution in OMS | Microsoft Docs
 description: Management solutions extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  This article provides details on how you can create management solutions to be used in your own environment or made available to your customers.
 services: operations-management-suite
