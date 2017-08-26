@@ -373,7 +373,7 @@ The call syntax for these three different types of snapshots would look like:
 HANA backup covering /hana/data, /hana/log, /hana/shared and /usr/sap
 ./azure_hana_backup.pl hana <HANA SID> manual 30
 
-For /hana/log/backups snapshot
+For /hana/logbackups snapshot
 ./azure_hana_backup.pl logs <HANA SID> manual 30
 
 For snapshot of the volume storing the boot LUN
@@ -710,35 +710,35 @@ In order to minimize the Recovery Point Objective, the following needs to be set
 - Perform SAP HANA transaction log backups every 5 minutes.
 - Perform a 'logs' type of snapshot every 5-15 minutes. This will give you an RPO of around 15-25 minutes.
 
-With this setup, the sequence of transaction log backups, storage snapshots and replication of the HANA transaction log backup volume could look like shown in this graphic.
+With this setup, the sequence of transaction log backups, storage snapshots and replication of the HANA transaction log backup volume and /hana/data, /hana/log, /hana/shared (includes /usr/sap) could look like shown in this graphic.
 
- ![Relation between tlog backup snapshot ans snap mirror on time axis](./media/hana-overview-high-availability-disaster-recovery/tlog_snap_mirror1.PNG)
+ ![Relation between tlog backup snapshot ans snap mirror on time axis](./media/hana-overview-high-availability-disaster-recovery/snapmirror.PNG)
 
-To achieve an even better recovery point objective in the disaster-recovery case, copy the HANA transaction log backups from SAP HANA on Azure (large instances) to the other Azure region. To achieve this recovery point objective reduction, do the following:
+To achieve an even better recovery point objective in the disaster-recovery case, you can copy the HANA transaction log backups from SAP HANA on Azure (large instances) to the other Azure region. To achieve this further recovery point objective reduction, do the following:
 
-1. Back up the HANA transaction log as frequently as possible to /hana/log/backups.
+1. Back up the HANA transaction log as frequently as possible to /hana/logbackups.
 2. Copy the transaction log backups, using rsync, when they are finished to NFS share hosted Azure virtual machines (VM), which are in Azure virtual networks in the Azure production region and in the DR regions. Both VNets need to be connected to the ExpressRoute circuit connecting the production HANA Large Instances to Azure (see graphics in the section: 'Disaster recovery requirements' of this document). 
 3. Keep the transaction log backups in that region in the VM.
-4. In case of disaster, after the disaster-recovery volumes have been mounted to the former QA HANA Large Instance unit, the transaction log backups not yet showing up in the newly mounted (and formerly replicated) /hana/log/backups volume would be copied from the NFS share into that volume. 
+4. In case of disaster, after the disaster-recovery volumes have been mounted to the former QA HANA Large Instance unit, the transaction log backups not yet showing up in the newly mounted (and formerly replicated) /hana/logbackups volume would be copied from the NFS share into that volume. 
 5. Now you could start a transaction log backup restore to the latest backup that could be saved over to the DR region.
 
 ## Disaster Recovery fail-over procedure
 In case you want or need to fail over to the DR site, you look at a process where you will need to interact with the SAP HANA on Azure Operations. In rough steps the process so far looks like:
 
-- Since you are running a QA or test instance of HANA on the DR unit of HANA Large Instances. You need to shutdown this instance. we assume that there is a dormant HANA production instance installed.
-- You need to make sure that no SAP HANA processes are running anymore. You can do this check with the command: /usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList. the output should show you the hdbdeamon process in a stopped state and no other HANA processes in a running or started state.
+- Since you are running a QA or test instance of HANA on the DR unit of HANA Large Instances. You need to shutdown this instance. We assume that there is a dormant HANA production instance pre-installed.
+- You need to make sure that no SAP HANA processes are running anymore. You can do this check with the command: /usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList. The output should show you the hdbdeamon process in a stopped state and no other HANA processes in a running or started state.
 - Now you need to check to which snapshot name or HANA backupid you want to have the DR site restored. In real DR cases this is usually the latest one. However you might be in a situation where you need to recover lost data. Hence you would need to pick an earlier snapshot.
-- You need to contact the SAP HANA on Azure Service Management through a high priority support request and ask for the restore of that snapshot/HANA backupid on the DR site. On the opreations side, the following steps will happen:
-	- The replication of snapshots from production volume to DR volumes will be stopped
-	- The storage snapshot/backupID you chose is getting restored
-	- After the restore the volumes will be made mountable
-- The next step on your side as customer is to mount the DR volumes to the DR HANA Large Instance unit 
+- You need to contact the SAP HANA on Azure Service Management through a high priority support request and ask for the restore of that snapshot/HANA backupid on the DR site. On the operations side, the following steps will happen:
+	- The replication of snapshots from production volume to DR volumes will be stopped.
+	- The storage snapshot/backupID you chose is getting restored.
+	- After the restore the volumes will be made mountable.
+- The next step on your side as customer is to mount the DR volumes to the DR HANA Large Instance unit. 
 - Now you can start the so far dormant SAP HANA production instance.
-- if you chose to copy transaction log backup logs additionally to reduce th RPO time, you need to merge those transaction log backups into the newly mounted DR /hana/log/backups directory. Don't overwrite existing backups, but, just copy newer ones that have not been replicated by the storage.
+- If you chose to copy transaction log backup logs additionally to reduce the RPO time, you need to merge those transaction log backups into the newly mounted DR /hana/logbackups directory. Don't overwrite existing backups, but, just copy newer ones that have not been replicated by the storage.
 
 The next sequence of steps involves the recovering the SAP HANA production instance based on the restored storage snapshot and the transaction log backups that are available. the steps look like:
 
-Change the backup location to /hana/log/backups using SAP HANA Studio as seen below
+Change the backup location to /hana/logbackups using SAP HANA Studio as seen below
  ![Change backup location for DR recovery](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
 SAP HANA will scan through the backup file locations and suggest the most recent transaction log backup to be restored to. the scan can take a few minutes until a screen like the one below is shown:
@@ -784,7 +784,7 @@ Call the script like:
 ./replication_status.pl <HANA SID>
 ```
 
-The output is broken down by volume into the following:  Link Status, Current Replication Activity,  Latest Snapshot Replicated, Size of Latest Snapshot, and Current lag time between last completed snapshot replication and now.  The link status will either show as Active unless the link between locations is down or a failover event is currently ongoing. The replication activity addresses whether any data is currently being replicated, idle, or if other activities are currently happening to the link. The last snapshot replicated should only display as snapmirror…. If the log_backups volume is displayed otherwise only the latest customer-generated snapshot will appear. This is a good indication that either a snapshot was not created by you or there is an issue with replication.  The size of the last snapshot is then displayed. Finally, the lag time is shown. The lag time represents the time from the scheduled replication time to when the replication finishes. A lag time may show greater than an hour for data replication even though replication has started. The lag time will continue to increase until the ongoing replication finishes.
+The output is broken down by volume into the following:  Link Status, Current Replication Activity,  Latest Snapshot Replicated, Size of Latest Snapshot, and Current lag time between last completed snapshot replication and now.  The link status will either show as Active unless the link between locations is down or a failover event is currently ongoing. The replication activity addresses whether any data is currently being replicated, idle, or if other activities are currently happening to the link. The last snapshot replicated should only display as snapmirror…. If the /hana/logbackups volume is displayed otherwise only the latest customer-generated snapshot will appear. This is a good indication that either a snapshot was not created by you or there is an issue with replication.  The size of the last snapshot is then displayed. Finally, the lag time is shown. The lag time represents the time from the scheduled replication time to when the replication finishes. A lag time may show greater than an hour for data replication even though replication has started. The lag time will continue to increase until the ongoing replication finishes.
 
 An example of an output can look like:
 
