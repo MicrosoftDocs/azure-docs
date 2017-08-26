@@ -73,7 +73,7 @@ In an interactive test, you submit individual test utterances and view the retur
 
 The following screenshot shows how test results appear in the **Interactive Testing** tab, in which "book me a flight to Boston tomorrow" is entered as a test utterance:
 
-    ![Interactive testing of current model](./Images/TestApp-interactive-current.JPG)
+![Interactive testing of current model](./Images/TestApp-interactive-current.JPG)
 
  The testing result includes the top scoring intent identified in the utterance, with its certainty score, as well as other intents existing in your model with their certainty scores. The identified entities will also be displayed within the utterance and you can control their view by selecting your preferred view from the **Labels view** list at the top of the test console.
 
