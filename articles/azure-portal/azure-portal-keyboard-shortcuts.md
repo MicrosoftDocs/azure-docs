@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
-
+ms.custom: accessibility
 ---
 # Keyboard shortcuts in the Azure portal
 This article shows the keyboard shortcuts that work throughout the Azure portal. Individual services may have their own keyboard shortcuts.
