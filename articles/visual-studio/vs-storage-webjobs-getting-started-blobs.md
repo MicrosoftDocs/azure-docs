@@ -3,8 +3,8 @@ title: Get started with blob storage and Visual Studio connected services (WebJo
 description: How to get started using Blob storage in a WebJob project after connecting to an Azure storage using Visual Studio connected services.
 services: storage
 documentationcenter: ''
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: 324c9376-0225-4092-9825-5d1bd5550058
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: tarcher
+ms.author: kraigb
 
 ---
 # Get started with Azure Blob storage and Visual Studio connected services (WebJob projects)

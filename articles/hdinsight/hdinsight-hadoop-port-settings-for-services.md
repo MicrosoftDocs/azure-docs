@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
-
+   
 ---
 # Ports used by Hadoop services on HDInsight
 
