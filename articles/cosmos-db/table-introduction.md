@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/09/2017
+ms.date: 08/25/2017
 ms.author: arramac
 
 ---
@@ -48,6 +48,8 @@ Create an Azure Cosmos DB account in the [Azure portal](https://portal.azure.com
 ## Next steps
 
 Here are a few pointers to get you started:
-* Get started with [Azure Cosmos DB's Table API](create-table-dotnet.md) using existing NET Table SDK.
-* Learn about [Global distribution with Azure Cosmos DB](distribute-data-globally.md).
-* Learn about [Provisioned throughput in Azure Cosmos DB](request-units.md).
+* [Build a .NET application using the Table API](create-table-dotnet.md)
+* [Develop with the Table API in .NET](tutorial-develop-table-dotnet.md)
+* [Query table data by using the Table API](tutorial-query-table.md)
+* [How to setup Azure Cosmos DB global distribution using the Table API](tutorial-global-distribution-table.md)
+* [Azure Cosmos DB Table API SDK for .NET](table-sdk-dotnet.md)
