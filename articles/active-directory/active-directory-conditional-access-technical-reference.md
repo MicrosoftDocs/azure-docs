@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
+ms.date: 08/28/2017
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -25,8 +25,6 @@ This topic provides you with support information for the following items of a co
 - Cloud apps assignments
 
 - Client apps conditions
-
-- Browsers for device-based policies 
 
 
 
