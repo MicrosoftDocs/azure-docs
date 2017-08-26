@@ -18,7 +18,7 @@ You should continuously work on your application to refine it and improve its la
 
 Training and testing is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If not, make updates to the LUIS app, train and test again. 
 
-Typically, before retraining, you will want to relabel any utterances in which LUIS failed to identify the expected intents and entities. You can find the utterances to relabel using the following procedures:
+Typically, before retraining, you will want to [relabel any utterances](#relabel-utterances-and-retrain) in which LUIS failed to identify the expected intents and entities. You can find the utterances to relabel using the following procedures:
  
   * **Interactive testing**: The [interactive testing pane](#interactive-testing) lets you type in an utterance and displays the intents and entities that your LUIS app detects.
   * **Suggested utterances**: Relabeling suggested utterances that LUIS identifies for you.
@@ -81,7 +81,7 @@ The following screenshot shows how test results appear in the **Interactive Test
 When you perform interactive testing, you may find that LUIS doesn't detect the intent or entities that you expect in some utterances. The following steps walk you through relabeling an utterance and retraining.
 
 ### Relabel an utterance to retrain an intent
-1. Import the sample LUIS app [Travel Agent - Sample 1](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/Examples-BookFlight/travel-agent-sample-01.json). This LUIS app has only a few sample utterances and is meant to provides a starting point for training. It has the following intents:
+1. Import the sample LUIS app [Travel Agent - Sample 1](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/Examples-BookFlight/travel-agent-sample-01.json). This LUIS app has only a few sample utterances and provides a starting point for training. It has the following intents:
  * BookFlight
  * Weather.GetForecast
  * None 
