@@ -24,7 +24,7 @@ This topic provides you with support information for the following items of a co
 
 - Cloud apps assignments
 
-- Client apps assinments
+- Client apps conditions
 
 - Browsers for device-based policies 
 
@@ -75,9 +75,48 @@ In addition to the Microsoft cloud apps, you can assign a conditional access pol
 
 ## Client apps conditions 
 
-When you configure a conditional access policy, you can configure a [client apps condition](active-directory-conditional-access-azure-portal.md#client-apps). In your client apps condition, you can select **mobile apps and desktop apps**.
+When you configure a conditional access policy, you can set a [client apps condition](active-directory-conditional-access-azure-portal.md#client-apps). The client apps condition enables you to grant or block access when an access attempt was made from these types of client apps:
 
-![Control](./media/active-directory-conditional-access-technical-reference/04.png)
+- Browser
+- Mobile apps and desktop apps
+
+![Control](./media/active-directory-conditional-access-technical-reference/03.png)
+
+
+### Supported browsers 
+
+If you select *Browsers* in your conditional access policy to grant access to resources, access is only granted, when the access attempt is made using a supported browser. When an access attempt is made using an unsupported browser, the attempt is blocked.
+
+![Supported browsers](./media/active-directory-conditional-access-technical-reference/05.png)
+
+In your conditional access policy, the following browsers are supported: 
+
+
+| OS                     | Browsers                 | Support     |
+| :--                    | :--                      | :-:         |
+| Win 10                 | IE, Edge                 | ![Check][1] |
+| Win 10                 | Chrome                   | Preview     |
+| Win 8 / 8.1            | IE, Chrome               | ![Check][1] |
+| Win 7                  | IE, Chrome               | ![Check][1] |
+| iOS                    | Safari                   | ![Check][1] |
+| Android                | Chrome                   | ![Check][1] |
+| Windows Phone          | IE, Edge                 | ![Check][1] |
+| Windows Server 2016    | IE, Edge                 | ![Check][1] |
+| Windows Server 2016    | Chrome                   | Coming soon |
+| Windows Server 2012 R2 | IE, Chrome               | ![Check][1] |
+| Windows Server 2008 R2 | IE, Chrome               | ![Check][1] |
+| Mac OS                 | Safari                   | ![Check][1] |
+| Mac OS                 | Chrome                   | Coming soon |
+
+> [!NOTE]
+> For Chrome support, you must be using Windows 10 Creators Update and install the extension found [here](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+
+### Supported mobile apps and desktop clients
+
+If you select **Mobile apps and desktop clients** in your conditional access policy to grant access to resources, access is only granted, when the access attempt was made using supported mobile apps or desktop clients. When an access attempt is made using an unsupported mobile app or desktop client, the attempt is blocked.
+
+![Control](./media/active-directory-conditional-access-technical-reference/06.png)
 
 The following mobile apps and desktop clients support conditional access for Office 365 and other Azure AD-connected service applications:
 
@@ -102,32 +141,8 @@ The following mobile apps and desktop clients support conditional access for Off
 
 
 
-## Supported browsers for device-based policies 
 
-With Azure Active Directory, you can configure [device-based conditional access policies](/active-directory-conditional-access-policy-connected-applications.md). To grant access to resources, a device-based conditional access policy requires an access attempt to be made using a supported browser. Access is blocked for users using   unsupported browsers.   
 
-While most checks, like location and MFA work on most devices and browsers, device-based policies require one of the browsers from the following list:
-
-| OS                     | Browsers                 | Support     |
-| :--                    | :--                      | :-:         |
-| Win 10                 | IE, Edge                 | ![Check][1] |
-| Win 10                 | Chrome                   | Preview     |
-| Win 8 / 8.1            | IE, Chrome               | ![Check][1] |
-| Win 7                  | IE, Chrome               | ![Check][1] |
-| iOS                    | Safari                   | ![Check][1] |
-| Android                | Chrome                   | ![Check][1] |
-| Windows Phone          | IE, Edge                 | ![Check][1] |
-| Windows Server 2016    | IE, Edge                 | ![Check][1] |
-| Windows Server 2016    | Chrome                   | Coming soon |
-| Windows Server 2012 R2 | IE, Chrome               | ![Check][1] |
-| Windows Server 2008 R2 | IE, Chrome               | ![Check][1] |
-| Mac OS                 | Safari                   | ![Check][1] |
-| Mac OS                 | Chrome                   | Coming soon |
-
-> [!NOTE]
-> For Chrome support, you must be using Windows 10 Creators Update and install the extension found [here](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
->
->
 
 
 
