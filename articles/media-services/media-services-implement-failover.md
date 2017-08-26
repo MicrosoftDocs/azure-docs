@@ -4,7 +4,7 @@ description: This topic shows how to implement a failover streaming scenario.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445

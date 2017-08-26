@@ -4,7 +4,7 @@ description: This topic shows step by step instructions on how to run a full red
 services: media-services
 documentationcenter: ''
 author: Lichard
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2

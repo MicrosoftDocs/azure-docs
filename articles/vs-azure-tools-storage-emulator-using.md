@@ -3,8 +3,8 @@ title: Configuring and using the Storage Emulator with Visual Studio | Microsoft
 description: Configuring and using the Storage Emulator with Visual Studio
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: c8e7996f-6027-4762-806e-614b93131867
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/17/2017
-ms.author: tarcher
+ms.author: kraigb
 
 ---
 # Configuring and Using the Storage Emulator with Visual Studio
