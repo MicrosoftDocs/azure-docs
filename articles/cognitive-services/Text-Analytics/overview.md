@@ -28,10 +28,6 @@ Automatically extract key phrases to quickly identify the main points. We employ
 
 For example, for the input text ‘The food was delicious and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’.
 
-## Topic Detection (To be deprecated August 24, 2017)
-
-This service returns topics that have been detected in multiple text articles. The service is designed to work well for short, human written text such as reviews and user feedback. It can help you to understand the main issues or suggestions that customers are mentioning.
-
 ## Language Detection
 
 The service can be used to detect which language the input text is written in. 120 languages are supported.
