@@ -66,7 +66,7 @@ Document size must be under 10 KB per document. The collection is submitted in t
     
 ## Step 1: Structure the request
 
-Details on request definition can be found in [How to call the Text Analytics API](text-analytics-howto-call-api.md). The following points are restated for convience:
+Details on request definition can be found in [How to call the Text Analytics API](text-analytics-howto-call-api.md). The following points are restated for convenience:
 
 + Create a **Post** request. Review the API documentation for this request: [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
@@ -80,7 +80,7 @@ Details on request definition can be found in [How to call the Text Analytics AP
 
 Analysis is performed upon receipt of the request. The service accepts up to 100 requests per minute. Each request can be a maximum of 1 MB.
 
-Recall that the service is stateless. No data is stored in your account. Results are returned immediatly in the response.
+Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
 
 ## Step 3: Handle results
 

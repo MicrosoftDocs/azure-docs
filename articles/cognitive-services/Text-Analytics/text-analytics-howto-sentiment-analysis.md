@@ -20,18 +20,11 @@ This capability is useful for detecting positive and negative sentiment in socia
 
 ## Concepts
 
-Text Analytics uses a Naive-Bayes machine learning algorithm to classify any new piece of text as positive, negative, or neutral content. The model uses training data, as well as the following methodologies:
-
-| Modeling aspect  | How effected |
-|-------------|-------------|
-| Linguistics | We invoke linguistic processing in the form of tokenization and stemming. |
-| Patterns | We use n-grams to articulate patterns, such as word repetition, proximity, and sequencing. <br/> We assign of part-of-speech to each word in the input text. | 
-| Expressivity | We incorporate any emoticons, punctuation such as exclamation or question marks, and letter case (upper or lower) as indicators of sentiment.|
-| Semantics | We build resonance in the training data by mapping syntactically similar words. Sentiment evidence associated with one term can be applied to similar terms. We use neural networks to construct the associations. |
+Text Analytics uses a Naive-Bayes machine learning algorithm to classify any new piece of text as positive, negative, or neutral content. The model is pretrained with an extensive body of text with sentiment associations. Currently, it is not possible to supplement or replace with your own data. 
 
 The sentiment analyzer is engineered to solve classification problems, and not aspect sentiment. The model is trained to analyze text at face value, and then score a positive, negative, or neutral sentiment based on our internal training data and natural language processing engines. 
 
-There is always some degree of imprecision in sentiment analysis, but the model is most reliable when there is no hidden meaning or subtext to the content. Irony, sarcasm, humor, and similarly nuanced content rely on cultural context and norms to convey intent. This type of content is among the most challenging to analyze for sentiment. Typically, the biggest discrepancy between a given score produced by the analyzer and a subjective assessment by a human is often for content with nuanced meaning.
+There is always some degree of imprecision in sentiment analysis, but the model is most reliable when there is no hidden meaning or subtext to the content. Irony, sarcasm, humor, and similarly nuanced content rely on cultural context and norms to convey intent. This type of content is among the most challenging to analyze for sentiment. Typically, the biggest discrepancy between a given score produced by the analyzer and a subjective assessment by a human is for content with nuanced meaning.
 
 ## Preparation
 
@@ -75,7 +68,7 @@ Document size must be under 10 KB per document. The collection is submitted in t
 
 ## Step 1: Structure the request
 
-Details on request definition can be found in [How to call the Text Analytics API](text-analytics-howto-call-api.md). The following points are restated for convience:
+Details on request definition can be found in [How to call the Text Analytics API](text-analytics-howto-call-api.md). The following points are restated for convenience:
 
 + Create a **Post** request. Review the API documentation for this request: [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
 
@@ -89,7 +82,7 @@ Details on request definition can be found in [How to call the Text Analytics AP
 
 Analysis is performed upon receipt of the request. The service accepts up to 100 requests per minute. Each request can be a maximum of 1 MB.
 
-Recall that the service is stateless. No data is stored in your account. Results are returned immediatly in the response.
+Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
 
 ## Step 3: Handle results
 

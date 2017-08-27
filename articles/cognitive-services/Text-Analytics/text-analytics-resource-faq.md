@@ -18,7 +18,7 @@ ms.author: heidist
 
 ## How is the sentiment score calculated?
 
-Sentiment analysis is based on Naive-Bayes classifiers and a large body of fixed training data. The model calculates the probability of how positive or negative a word is based on its context, proximity to other words, and other evidence in the text. Against this model, new text inputs are scored along a negative (0) to positive (1.0) continuum based on typical usage. When analysis is indeterminate, a neutral score of 0.5 is assigned to the document.
+Sentiment analysis is based on Naive-Bayes classifiers and a large body of fixed training data. The model calculates the probability of how positive or negative a word is based on its context, proximity to other words, and other evidence in the text, including punctuation and emoticons. Against this model, new text inputs are scored along a negative (0) to positive (1.0) continuum based on typical usage. When analysis is indeterminate, a neutral score of 0.5 is assigned to the document.
 
 Currently, we do not support *mood detection* or *aspect-based sentiment analysis*. Text that is sarcastic, ironic, humorous, and so on, is scored at face value, which means the underlying nuance is probably not reflected accurately in the score. 
 

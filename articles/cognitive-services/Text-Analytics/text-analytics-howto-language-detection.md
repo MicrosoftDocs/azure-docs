@@ -53,7 +53,7 @@ Document size must be under 10 KB per document. The collection is submitted in t
 
 ## Step 1: Structure the request
 
-Details on request definition can be found in [How to call the Text Analytics API](text-analytics-howto-call-api.md). The following points are restated for convience:
+Details on request definition can be found in [How to call the Text Analytics API](text-analytics-howto-call-api.md). The following points are restated for convenience:
 
 + Create a **Post** request. Review the API documentation for this request: [Language Detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 
@@ -67,7 +67,7 @@ Details on request definition can be found in [How to call the Text Analytics AP
 
 Analysis is performed upon receipt of the request. The service accepts up to 100 requests per minute. Each request can be a maximum of 1 MB.
 
-Recall that the service is stateless. No data is stored in your account. Results are returned immediatly in the response.
+Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
 
 ## Step 3: Handle results
 
@@ -154,7 +154,7 @@ If the analyzer cannot parse the input (for example, assume you submitted a text
 ```
 ### Mixed language content
 
-Mixed language content within the same document returns the language with the largest representation in the content, but with a lower positive rating to reflect the marginal strength of that assessment. In the following example, input is a blend of English, Spanish, and French. The analyzer counts characters in each segment to determine the predominent language.
+Mixed language content within the same document returns the language with the largest representation in the content, but with a lower positive rating to reflect the marginal strength of that assessment. In the following example, input is a blend of English, Spanish, and French. The analyzer counts characters in each segment to determine the predominant language.
 
 **Input**
 

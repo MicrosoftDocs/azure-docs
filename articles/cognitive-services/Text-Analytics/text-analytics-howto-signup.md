@@ -23,7 +23,7 @@ Text Analytics resources are available 24-7 in the cloud. Before you can upload 
   For Text Analytics, there is a Free tier for exploration and evaluation, and billable tiers for production workloads. You only have one sign-up, but changing tiers is simple if your request volume increases.
 
 > [!Note]
-> Cognitive Services has multiple APIs. Each API ships new features and transitions from preview to general availability on its own schedule. For this reason, we ask you to sign up for each API independentally.
+> Cognitive Services has multiple APIs. Each API ships new features and transitions from preview to general availability on its own schedule. For this reason, we ask you to sign up for each API independently.
 
 ## How to change tiers
 
