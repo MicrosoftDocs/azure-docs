@@ -7,22 +7,22 @@ manager: jhubbard
 
 ms.service: cognitive-services
 ms.technology: text-analytics
-ms.topic: get-started-article
-ms.date: 08/12/2017
+ms.topic: article
+ms.date: 08/26/2017
 ms.author: heidist
 ---
 
 # How to extract keywords in Text Analytics
 
-The [key phrase extraction API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) evaluates unstructured text, and for each JSON document, returns a list of keywords and a score indicating the strength of the analysis. 
+The [key phrase extraction API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) evaluates unstructured text, and for each JSON document, returns a list of keywords or phrases, and a score indicating the strength of the analysis. 
 
-This capability is useful if you need to quickly identify the main points in a collection of documents. For example, given input text "The food was delicious and there were wonderful staff", the service returns the main talking points: "food" and 'wonderful staff".
+This capability is useful if you need to quickly identify the main points in a collection of documents. For example, given input text "The food was delicious and there were wonderful staff", the service returns the main talking points: "food" and "wonderful staff".
 
 Currently, the following languages are supported for production workloads: English, German, Spanish, and Japanese. Other languages are in preview. For more information, see [Supported languages](overview.md#supported-languages).
 
 ## Concepts
 
-Key words or phrases are identified by a process of elimination. This analyzer finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentence. Once the text is paired down, the model calculates the probability of certain word combinations, elevating the rank of those combinations more likely to be found in common use. For this reason, you might find that adjectives or adverbs that appear by themselves are not flagged for extraction, even they seem interesting or important at face value.
+Key words or phrases are identified by a process of elimination. This analyzer finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentence. Once the text is paired down, the model calculates the probability of certain word combinations, elevating the rank of those combinations more likely to be found in common use. For this reason, you might find that adjectives or adverbs that appear by themselves are not flagged for extraction, even they seem interesting or important in the content.
 
 ## Preparation
 

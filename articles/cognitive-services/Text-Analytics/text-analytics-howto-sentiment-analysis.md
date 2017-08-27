@@ -16,7 +16,7 @@ ms.author: heidist
 
 The [sentiment analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) evaluates text input and for each document returns a sentiment score ranging from 0 to 1, from negative to positive.
 
-This capability is useful for detecting trends in terms of positive and negative sentiment in social media, customer reviews, and discussion forums. Content is provided by you; models and training data are provided by the service. You cannot customize the model or training data, or supplement it with your own information.
+This capability is useful for detecting positive and negative sentiment in social media, customer reviews, and discussion forums. Content is provided by you; models and training data are provided by the service. You cannot customize the model or training data, or supplement it with your own information.
 
 Given a large number of sentiment scores, you can import or stream the results to a visualization app for trend analysis, or call additional APIs from Twitter, Facebook, and so forth, to supplement sentiment scoring with metadata and other constructs available in the platform of origin. 
 
