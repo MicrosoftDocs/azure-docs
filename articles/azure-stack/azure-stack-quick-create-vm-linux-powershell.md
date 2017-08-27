@@ -31,9 +31,8 @@ You can run the steps described in this article either from the [Azure Stack Dev
 2. Azure Stack requires specific version of Azure PowerShell module to create and manage the resources. Use the steps described in [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) topic to install the required version.  
 
 3. [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md) and sign in to it.  
-[Download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md)
 
-4. A public SSH key with the name id_rsa.pub needs to be created in the .ssh directory of your Windows user profile. For detailed information on creating SSH keys, see [Creating SSH keys on Linux/macOs](/virtual-machines/linux/mac-create-ssh-keys.md) or [Creating SSH keys on Windows](/virtual-machines/linux/ssh-from-windows.md).  
+4. A public SSH key with the name id_rsa.pub needs to be created in the .ssh directory of your Windows user profile. For detailed information on creating SSH keys, see [Creating SSH keys on Linux/macOs](../virtual-machines/linux/mac-create-ssh-keys.md) or [Creating SSH keys on Windows](../virtual-machines/linux/ssh-from-windows.md).  
 
 ## Create resource group
 
