@@ -30,6 +30,9 @@ No, your alert rules are automatically converted to the new search language duri
 
 ## Computer groups
 
+### Question: I'm getting errors when trying to use computer groups.  Has their syntax changed?
+Yes, the syntax for using computer groups has changed.  See [Computer groups in Log Analytics log searches](log-analytics-computer-groups.md) for details.
+
 ### Known issue: Groups imported from Active Directory
 You cannot currently create a query that uses a computer group imported from Active Directory.  As a workaround until this issue is corrected, create a new computer group using the imported Active Directory group and then use that new group in your query.
 
