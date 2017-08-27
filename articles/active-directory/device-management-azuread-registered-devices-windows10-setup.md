@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 08/27/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -27,7 +27,7 @@ If you want to enable the **Bring Your Own Device (BYOD)** scenario, you can acc
 
 ## Before you begin
 
-To register a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to registering devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. 
+To register a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to registering devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. For more details, see [configure device settings](device-management-azure-portal.md#configure-device-settings).
 
 ## What you should know
 
@@ -46,7 +46,7 @@ When registering a device, you should keep the following in mind:
 
 ## Registering a device
 
-This section provides you with the steps to register your Windows 10 device to your Azure AD.
+This section provides you with the steps to register your Windows 10 device to your Azure AD. If you have successfully registered your device to Azure AD, your **Access work or school** dialog indicates this with a **Work or school account** entry.
 
 ![Register](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
@@ -85,9 +85,15 @@ This section provides you with the steps to register your Windows 10 device to y
 
     ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/07.png)
 
+## Verification
 
+To verify whether a device is joined to an Azure AD, you can review the **Access work or school** dialog on your device.
 
+![Register](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
+Alternatively, you can also review device settings on the Azure AD portal.
+
+![Register](./media/device-management-azuread-registered-devices-windows10-setup/09.png)
 
 
 
@@ -95,7 +101,10 @@ This section provides you with the steps to register your Windows 10 device to y
 
 ## Next steps
 
-* [Introduction to device management in Azure Active Directory](device-management-introduction.md)
+- For more details, see the [introduction to device management in Azure Active Directory](device-management-introduction.md)
+
+- For more details about managing devices in the Azure AD portal, see the [managing devices using the Azure portal ](device-management-azure-portal.md).
+
 
 
 
