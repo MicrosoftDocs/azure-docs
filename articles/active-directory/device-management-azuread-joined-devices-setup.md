@@ -118,7 +118,7 @@ For more details, see [locate devices](device-management-azure-portal.md#locate-
 ## Next steps
 
 - For more details, see the [introduction to device management in Azure Active Directory](device-management-introduction.md).
-- For more details about managing devices in the Azure AD portal, see [Introduction to device management in Azure Active Directory](device-management-introduction.md).
+- For more details about managing devices in the Azure AD portal, see the [managing devices using the Azure portal ](device-management-azure-portal.md).
 
 
 
