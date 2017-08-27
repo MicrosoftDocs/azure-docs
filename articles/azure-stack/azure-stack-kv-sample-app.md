@@ -121,7 +121,10 @@ Write-Host "Paste the following settings into the app.config file for the HelloK
 Write-Host
 
 ``` 
-![app settings](media/azure-stack-kv-sample-app/appconfig.png)
+
+The following screen shot shows the output of the previous script:
+
+![app config](media/azure-stack-kv-sample-app/settingsoutput.png)
 
 Make a note of the VaultUrl, AuthClientId, AuthClientSecret values returned by the previous script. You will use these values to run the HelloKeyVault application.
 
@@ -131,7 +134,7 @@ Download the key vault sample from the Azure key vault client samples page. Extr
 
 Open the HelloKeyVault\App.config file and replace the values of <appSettings> element with the VaultUrl, AuthClientId, AuthClientSecret values returned by the previous script. Note that by default the App.config contains place holder for AuthCertThumbprint but you will use AuthClientSecret instead. After you replace the settings, rebuild the solution and start the application.
 
-![app config](media/azure-stack-kv-sample-app/settingsoutput.png)
+![app settings](media/azure-stack-kv-sample-app/appconfig.png)
  
 The application signs in to Azure AD, then uses that token to authenticate to key vault in Azure Stack. The application performs operations like create, encrypt, wrap, delete etc. on the keys and secrets of the key vault. You can also pass specific parameters such as ‘encrypt’, ‘decrypt’ etc. to the application, which makes sure that the application executes only those operations against the vault. 
 
