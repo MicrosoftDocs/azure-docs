@@ -14,7 +14,7 @@ ms.author: heidist
 
 # How to detect language in Text Analytics
 
-The [language detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) evaluates text input and for each document returns language identifiers and a score indicating the strength of the analysis. Text Analytics recognizes up to 120 languages.
+The [Language Detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) evaluates text input and for each document returns language identifiers and a score indicating the strength of the analysis. Text Analytics recognizes up to 120 languages.
 
 This capability is useful for content stores that collect arbitrary text, where language is unknown. You can parse the results of this analysis to determine which language representation and frequency of occurrence. From the output, you could trim unknown or inconclusive results, or investigate the findings more deeply to see if there is corruption in the form of unexpected non-text content.
 
@@ -22,7 +22,7 @@ This capability is useful for content stores that collect arbitrary text, where 
 
 You must have JSON documents in this format: id, text
 
-The collection is submitted in the body of the request. The following example is an illustration of content you might submit for language detection.
+Document size must be under 10 KB per document. The collection is submitted in the body of the request. The following example is an illustration of content you might submit for language detection.
 
    ```
     {
@@ -53,44 +53,33 @@ The collection is submitted in the body of the request. The following example is
 
 ## Step 1: Structure the request
 
-Assuming you have content properly expressed as JSON, you can structure a POST request to include the following elements.
+Details on request definition can be found in [How to call the Text Analytics API](text-analytics-howto-call-api.md). The following points are restated for convience:
 
++ Create a **Post** request. Review the API documentation for this request: [Language Detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 
++ Set the HTTP endpoint for language detection. It must include the `/languages` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
 
-[Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Text Analytics API**. 
++ Set the request header to include the access key for Text Analytics operations. For more information, see [How to find endpoints and access keys](text-analytics-howto-accesskey.md).
 
-Create a **Post** request. Review the API documentation for this request: [language detectopm API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
++ Set the request body to the JSON documents collection you prepared for this analysis.
 
-Create the HTTP endpoint for key phrase extraction. It must include the `/languages` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
+## Step 2: Post the request
 
+Analysis is performed upon receipt of the request. The service accepts up to 100 requests per minute. Each request can be a maximum of 1 MB.
 
-Get the access key that allows your subscription to access Text Analytics operations.
+Recall that the service is stateless. No data is stored in your account. Results are returned immediatly in the response.
 
-For more information on how to find a valid endpoint for your subscription, see [How to find endpoints and access keys](text-analytics-howto-accesskey.md).
+## Step 3: Handle results
 
-Request headers:
+All POST requests return a JSON formatted response with the IDs and detected properties.
 
-   + `Ocp-Apim-Subscription-Key` set to your access key, obtained from Azure portal.
-   + `Content-Type` set to application/json.
-   + `Accept` set to application/json.
-
-     Your request should look similar to the following screenshot:
-
-   ![Request screenshot with endpoint and headers](../media/text-analytics/postman-request-keyphrase-1.png)
-
-## Step 2: Structure the request body
-
-## Step 3: Post the request
-
-When
-
-## Step 4: Review results
+Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
 
 Results for the example request should look like the following JSON. Notice that it is one document with multiple items. Output is in English. Language identifiers include a friendly name and a language code in [ISO 639-1](https://www.iso.org/standard/22109.html) format.
 
 A positive score of 1.0 expresses the highest possible confidence level of the analysis.
 
-Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort and manipulate the data.
+
 
 ```
 {
@@ -167,6 +156,8 @@ If the analyzer cannot parse the input (for example, assume you submitted a text
 
 Mixed language content within the same document returns the language with the largest representation in the content, but with a lower positive rating to reflect the marginal strength of that assessment. In the following example, input is a blend of English, Spanish, and French. The analyzer counts characters in each segment to determine the predominent language.
 
+**Input**
+
 ```
 {
   "documents": [
@@ -177,6 +168,8 @@ Mixed language content within the same document returns the language with the la
   ]
 }
 ```
+
+**Output**
 
 Resulting output consists of the predominant language, with a score of less than 1.0 indicating a weaker signal strength.
 

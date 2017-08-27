@@ -14,7 +14,7 @@ ms.author: heidist
 
 # How to extract keywords in Text Analytics
 
-The [key phrase extraction API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) evaluates unstructured text, and for each JSON document, returns a list of keywords or phrases, and a score indicating the strength of the analysis. 
+The [Key Phrase Extraction API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) evaluates unstructured text, and for each JSON document, returns a list of keywords or phrases, and a score indicating the strength of the analysis. 
 
 This capability is useful if you need to quickly identify the main points in a collection of documents. For example, given input text "The food was delicious and there were wonderful staff", the service returns the main talking points: "food" and "wonderful staff".
 
@@ -26,47 +26,13 @@ Key words or phrases are identified by a process of elimination. This analyzer f
 
 ## Preparation
 
+Key phrase extraction produces higher quality results when you give it bigger chunks of text to work on. This is opposite from sentiment analysis, which performs better on smaller blocks of text. To get the best results from both operations, consider restructuring the inputs accordingly.
+
 You must have JSON documents in this format: id, text, language
 
-Document size is Under 10 KB per document.
+Document size must be under 10 KB per document. The collection is submitted in the body of the request. The following example is an illustration of content you might submit for key phrase extraction.
 
-The collection is submitted in the body of the request.
-
-Key phrase extraction produces higher quality results when you give it bigger chunks of text to work on. This is opposite from sentiment analysis, which performs better on smaller blocks of text. To get the best results of both operations, consider restructuring the inputs accordingly.
-
-## Step 1: Structure the request
-
-Entire request must be under 1 MB.
-
-You can send up to 100 requests per minute.
-
-Create a **Post** request. Review the API documentation for this request: [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
-
-Create the HTTP endpoint for key phrase extraction. It must include the `/keyphrases` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
-
-Get the access key that allows your subscription to access Text Analytics operations.
-
-For more information on how to find a valid endpoint for your subscription, see [How to find endpoints and access keys](text-analytics-howto-accesskey.md).
-
-Request headers:
-
-   + `Ocp-Apim-Subscription-Key` set to your access key, obtained from Azure portal.
-   + `Content-Type` set to application/json.
-   + `Accept` set to application/json.
-
-     Your request should look similar to the following screenshot:
-
-   ![Request screenshot with endpoint and headers](../media/text-analytics/postman-request-keyphrase-1.png)
-
-## Step 2: Structure the request body
-
-1. Click **Body** and choose **raw** for the format.
-
-   ![Request screenshot with body settings](../media/text-analytics/postman-request-body-raw.png)
-
-2. Paste in some JSON documents: 
-
-   ```
+```
     {
         "documents": [
             {
@@ -92,39 +58,39 @@ Request headers:
             {
                 "language": "en",
                 "id": "5",
-                "text": "Me encanta este sendero. Tiene hermosas vistas y muchos lugares para detenerse y descansar"
+                "text": "This is my favorite trail. It has beautiful views and many places to stop and rest"
             }
         ]
     }
+```    
+    
+## Step 1: Structure the request
+
+Details on request definition can be found in [How to call the Text Analytics API](text-analytics-howto-call-api.md). The following points are restated for convience:
+
++ Create a **Post** request. Review the API documentation for this request: [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+
++ Set the HTTP endpoint for key phrase extraction. It must include the `/keyphrases` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
+
++ Set the request header to include the access key for Text Analytics operations. For more information, see [How to find endpoints and access keys](text-analytics-howto-accesskey.md).
+
++ Set the request body to the JSON documents collection you prepared for this analysis.
+
+## Step 2: Post the request
+
+Analysis is performed upon receipt of the request. The service accepts up to 100 requests per minute. Each request can be a maximum of 1 MB.
+
+Recall that the service is stateless. No data is stored in your account. Results are returned immediatly in the response.
+
+## Step 3: Handle results
+
+All POST requests return a JSON formatted response with the IDs and detected properties.
+
+Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
+
+An example of the output for key phrase extraction is shown next:
+
 ```
-
-> [!Note]
-> A Spanish string is included to demonstrate [language detection](#detect-language) and other behaviors, described in a following section. It is incorrectly tagged as `en` to demonstrate the effects of setting the wrong language.
-
-### About the request body
-
-Input rows must be JSON in raw unstructured text. XML is not supported. The schema is simple, consisting of the elements described in the following list. You can use the same documents for all three operations: sentiment, key phrase, and language detection.
-
-+ `id` is required. The data type is string, but in practice document IDs tend to be integers. The system uses the IDs you provide to structure the output. Language codes, keywords, and sentiment scores are generated for each ID.
-
-+ `text` field is requred and contains unstructured raw text, up to 10 KB. For more information about limits, see [Text Analytics Overview > Data limits](overview.md#data-limits). 
-
-+ `language` is used only in sentiment analysis and key phrase extraction. It is ignored in language detection. 
-
-> [!Note]
-> For both sentiment analysis and key phrase extraction, `language` is an optional parameter. If `language` is wrong, results of the analysis might be incorrect or suboptimal. If `language` is missing, the system performs language detection prior to sentiment or key phrase analysis. This can slow down operations. For this reason, we recommend including an accurate language code in the request, assuming you know what it is. For more information about which languages are supported, see [Text Analytics Overview > Supported Languages](overview.md#supported-languages).
-
-
-## Step 3: Post the request
-
-1. Compare the screenshots against your tool to verify the request is configured correctly.
-
-2. Click **Send** to submit the request.
-
-All POST requests return a JSON formatted response with the IDs and detected properties. An example of the output for key phrase extraction is shown next:
-
-```
-{
     "documents": [
         {
             "keyPhrases": [
@@ -137,18 +103,17 @@ All POST requests return a JSON formatted response with the IDs and detected pro
         },
         {
             "keyPhrases": [
+                "marked trails",
                 "Worst hike",
-                "trails",
                 "goners"
             ],
             "id": "2"
         },
         {
             "keyPhrases": [
-                "family",
                 "trail",
-                "us",
-                "small children"
+                "small children",
+                "family"
             ],
             "id": "3"
         },
@@ -156,34 +121,21 @@ All POST requests return a JSON formatted response with the IDs and detected pro
             "keyPhrases": [
                 "spectacular views",
                 "trail",
-                "Worth",
                 "area"
             ],
             "id": "4"
         },
         {
             "keyPhrases": [
-                "Tiene hermosas vistas y muchos lugares para detenerse y descansar",
-                "encanta este sendero"
+                "places",
+                "beautiful views",
+                "favorite trail"
             ],
             "id": "5"
         }
-    ],
-    "errors": []
-}
 ```
 
-## Step 4: Review results
-
-Comparing inputs and outputs side by side helps us understand key phrase extraction operations. The analyzer finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentence. 
-
-| ID | Input | key phrase output | 
-|----|-------|------|
-| 1 | "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!" | "year", "trail", "trip", "views"" |
-| 2 | "Poorly marked trails! I thought we were goners. Worst hike ever." | "Worst hike",  "trails", "goners" |
-| 3 | "Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children." | "family", "trail", "us", "small children"|
-| 4 | "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area." | "spectacular views", "trail", "Worth", "area" |
-| 5 | ""Me encanta este sendero. Tiene hermosas vistas y muchos lugares para detenerse y descansar" | "Tiene hermosas vistas y muchos lugares para detenerse y descansar", "encanta este sendero"|
+As noted, the analyzer finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentence. 
 
 ## Summary
 
