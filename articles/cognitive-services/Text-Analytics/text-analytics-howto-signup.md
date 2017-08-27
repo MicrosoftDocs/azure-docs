@@ -20,7 +20,9 @@ Text Analytics resources are available 24-7 in the cloud. Before you can upload 
 
 + Create a [Cognitive Services API account] (https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account), choosing the **Text Analytics API**. Your key is generated when you sign up.
 
-  For Text Analytics, there is a Free tier for exploration and evaluation, and billable tiers for production workloads. You only have one sign-up, but changing tiers is simple if your request volume increases.
+For Text Analytics, there is a Free tier for exploration and evaluation, and billable tiers for production workloads. You only have one sign-up, but changing tiers is simple if your request volume increases.
+
+There is no service level agreement for services in Preview or the free tier. For more information, see [SLA for Cognitive Services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/)
 
 > [!Note]
 > Cognitive Services has multiple APIs. Each API ships new features and transitions from preview to general availability on its own schedule. For this reason, we ask you to sign up for each API independently.
@@ -39,7 +41,13 @@ Start with a Free tier and then transition to a billable tier for production wor
 
    ![Tiles and Select button in tier selection page](../media/text-analytics/portal-choose-tier.png)
 
-## How billing works
+## How billing works (NOW)
+
+Billing is based on the number of transactions. You can purchase a block of transactions at a specific tier in a monthly billing cycle, and then if you go over, a small overage charge is applied per transaction. If you routinely go over the maximum limit, consider switching to a higher tier.
+
+Current rates are offered at a preview discount while the service is in preview. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
+## How billing works (SAVE/UPDATE FOR GA)
 
 Billing is based on transactions, where a transaction is based on the number of documents multiplied by unit of operation. There is no storage component to billing because we do not store your data. The following table illustrates the billing model at a glance.
 
@@ -49,20 +57,9 @@ Billing is based on transactions, where a transaction is based on the number of 
 | 100 | ✔ | ✔ |   | 200 |
 | 1000 |   |   | ✔ | 1000 |
 
-Each tier provides an allocation of transactions to be consumed over a 30-day billing cycle. The counter is reset back to 0 on day 31. 
-
-**What happens if transactions get used up before the current billing period ends?**
-
-At the Free tier, excess requests are not handled and you get a message explaining why the request was dropped.
-
-For billable tiers, an overage rate is applied for each transaction above the limit. The overage rate varies by tier, as indicated on the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). 
-
- > [!Note]
- > Text Analytics was [first announced](https://blogs.technet.microsoft.com/machinelearning/2016/06/21/text-analytics-api-now-available-in-multiple-languages/) in June 2016 and is now [generally available (GA)](https://azure.microsoft.com//blog/) with support for production workloads. Preview pricing has been retired. For more information about service level agreements (SLA) from Microsoft, see [SLA for Cognitive Services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
-
 ## Next steps
 
-Refer to the pricing page for current rates:
+Refer to the pricing page for current rates. The calculator is helpful if you are subscribing to multiple services.
 
 + [Pricing for text analytics](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)
 + [Calculator](https://azure.microsoft.com/pricing/calculator/?service=cognitive-services)
