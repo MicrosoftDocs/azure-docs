@@ -7,7 +7,7 @@ manager: jhubbard
 
 ms.service: cognitive-services
 ms.technology: text-analytics
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/26/2017
 ms.author: heidist
 ---
