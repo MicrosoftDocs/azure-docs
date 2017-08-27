@@ -1,8 +1,8 @@
 ---
-title: Create a custom connector from a function | Microsoft Docs
-description: Create a function that you expose as a custom connector for PowerApps and Microsoft Flow.
+title: Create an OpenAPI definition for a function | Microsoft Docs
+description: Create an OpenAPI definition that enables other apps and services to call your function.
 services: functions
-keywords: cloud apps, cloud services, PowerApps, Microsoft Flow, business processes, business application
+keywords: OpenAPI, Swagger, cloud apps, cloud services,
 documentationcenter: ''
 author: mgblythe
 manager: cfowler
@@ -19,30 +19,19 @@ ms.author: mblythe
 ms.custom: ''
 ---
 
-# Create a custom connector from a function
-The [PowerApps](https://powerapps.microsoft.com) platform is designed for business experts to build apps without traditional application code. Professional developers can use Azure Functions to extend the capabilities of PowerApps, while shielding PowerApps app builders from the technical details.
+# Create an OpenAPI definition for a function
+REST APIs are often described using an OpenAPI definition (formerly known as a [Swagger](http://swagger.io/) file). This definition contains information about what operations are available in an API and how the request and response data for the API should be structured.
 
-This topic shows you how to build a function that a PowerApps app can call. The app in this scenario is used by wind turbine technicians for maintenance-related tasks. The app calls the function to determine if an emergency repair on a wind turbine is cost-effective.
+In this tutorial, you create a function that determines whether an emergency repair on a wind turbine is cost-effective. You then create an OpenAPI definition for the function app so that the function can be called from other apps and services.
 
-![Finished app in PowerApps](media/functions-custom-connector/finished-app.png)
-
-[TODO: needs a new image and intro]
-
-[TODO: change all instances of custom API]
-
-In this topic, you learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a function app to host your function
-> * Create a function that calculates the cost-effectiveness of wind turbine repairs.
-> * Generate, modify, and test the function's API definition using OpenAPI tools.
-> * Export the API definition to PowerApps and Microsoft Flow.
-
-## Prerequisites
-
-[+ An active [PowerApps](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) or [Microsoft Flow] account with the same sign in credentials as your Azure account. 
-
-[TODO: Anything else?]
+> * Create a function app to host your function.
+> * Create a function.
+> * Generate an OpenAPI definition using OpenAPI tools.
+> * Modify the definition to provide additional metadata.
+> * Test the definition by calling the function.
 
 ## Create a function app
 
@@ -55,11 +44,11 @@ You must have a function app to host the execution of your functions. A function
 
 ## Create the function
 
-Functions extend the capabilities of apps that you build in PowerApps, and they provide a great way to offload processing tasks. This topic uses an HTTP triggered function that takes two parameters: the estimated time to make a turbine repair (in hours); and the capacity of the turbine (in kilowatts). The function then calculates how much a repair will cost, and how much revenue the turbine could make in a 24 hour period.
+This tutorial uses an HTTP triggered function that takes two parameters: the estimated time to make a turbine repair (in hours); and the capacity of the turbine (in kilowatts). The function then calculates how much a repair will cost, and how much revenue the turbine could make in a 24 hour period.
 
 1. Expand your function app, click the **+** button next to **Functions**, click the **HTTPTrigger** template. Enter `TurbineRepair` for the function **Name** and click **Create**.
 
-    ![Function Apps blade, Functions +](media/functions-custom-connector/add-function.png)
+    ![Function Apps blade, Functions +](media/functions-openapi-definition/add-function.png)
 
 1. Replace the contents of the run.csx file with the following code, then click **Save**:
 
@@ -97,7 +86,7 @@ Functions extend the capabilities of apps that you build in PowerApps, and they 
         }); 
     }
     ```
-    This function code returns a message of **Yes** or **No** to indicate whether an emergency repair is cost-effective, as well as the revenue opportunity that the turbine represents, and the cost to fix the turbine. 
+    This function code returns a message of `Yes` or `No` to indicate whether an emergency repair is cost-effective, as well as the revenue opportunity that the turbine represents, and the cost to fix the turbine. 
 
 1. To test the function, click **Test** at the far right to expand the test tab. Enter the following value for the **Request body**, and then click **Run**.
 
@@ -108,46 +97,41 @@ Functions extend the capabilities of apps that you build in PowerApps, and they 
     }
     ```
 
+    ![Test the function in the Azure portal](media/functions-openapi-definition/test-function.png)
+
     The following value is returned in the body of the response.
 
     ```json
     {"message":"Yes","revenueOpportunity":"$7200","costToFix":"$1600"}
     ```
 
-    ![Test the function in the Azure portal](media/functions-custom-connector/test-function.png)
+Now you have a function that determines the cost-effectiveness of emergency repairs. Next, you generate and modify an OpenAPI definition for the function app.
 
-Now you have a function that determines the cost-effectiveness of emergency repairs. Next, you generate and modify an API definition that can be used in PowerApps, Microsoft Flow, and other places that consume OpenAPI definitions.
+## Generate the OpenAPI definition
 
-## Generate the API definition
-REST APIs are often described using an OpenAPI definition (also known as a [Swagger](http://swagger.io/) file). This definition contains information about what operations are available in an API and how the request and response data for the API should be structured. 
+Now you're ready to generate the OpenAPI definition. This definition can be used by other Microsoft technologies, like [API Apps](https://docs.microsoft.com/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), [PowerApps](functions-powerapps-scenario.md) and [Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow), as well as 3rd party developer tools like [Postman](https://www.getpostman.com/docs/importing_swagger) and [many more packages](http://swagger.io/tools/).
 
-With Azure Functions, you can easily create custom APIs for PowerApps and Microsoft Flow, based on an OpenAPI 2.0 document. Once a custom API is created, it can be used in exactly the same way as one of the built-in connectors and can quickly be integrated into an application. 
-
-The OpenAPI definition can also be used by other Microsoft technologies, like [API Apps](https://docs.microsoft.com/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), as well as 3rd party developer tooling like [Postman](https://www.getpostman.com/docs/importing_swagger) and [many more packages](http://swagger.io/tools/).
-
-Now you're ready to generate the API definition.
-
-1. Select the *verbs* that your API supports (in this case POST). This makes the generated API definition cleaner.
+1. Select only the *verbs* that your API supports (in this case POST). This makes the generated API definition cleaner.
 
     1. On the **Integrate** tab of your new HTTP Trigger function, change **Allowed HTTP methods** to **Selected methods**
 
     1. In **Selected HTTP methods**, clear every option except **POST**.
 
-        ![Selected HTTP methods](media/functions-custom-connector/selected-http-methods.png)
+        ![Selected HTTP methods](media/functions-openapi-definition/selected-http-methods.png)
         
 1. Click your function app name (like **function-demo-energy**) > **Platform features** > **API definition**.
 
-    ![API definition](media/functions-custom-connector/api-definition.png)
+    ![API definition](media/functions-openapi-definition/api-definition.png)
 
 1. On the **API definition** tab, click **Function**.
 
-    ![API definition source](media/functions-custom-connector/api-definition-source.png)
+    ![API definition source](media/functions-openapi-definition/api-definition-source.png)
 
     This step enables a suite of OpenAPI options for your function app, including an endpoint to host an OpenAPI file from your function app's domain, an inline copy of the [OpenAPI Editor](http://editor.swagger.io), and an API definition template generator.
 
 1. Click **Generate API definition template** > **Save**.
 
-    ![Generate API definition template](media/functions-custom-connector/generate-template.png)
+    ![Generate API definition template](media/functions-openapi-definition/generate-template.png)
 
     Azure scans your function app for HTTP Trigger functions and uses the info in functions.json to generate an OpenAPI definition. Here's the definition that is generated:
 
@@ -186,8 +170,8 @@ Now you're ready to generate the API definition.
 
     This definition is described as a _template_ because it requires more metadata to be a full OpenAPI definition. You'll modify the definition in the next step.
 
-## Modify the API definition
-Now that you have a template definition, you modify it to provide more metadata about the API's operations and data structures. For this topic, you can simply paste the modified definition below into the **API definition** pane and click **Save**.
+## Modify the OpenAPI definition
+Now that you have a template definition, you modify it to provide additional metadata about the API's operations and data structures. For this tutorial, you can simply paste the modified definition below into the **API definition** pane and click **Save**.
 
 That said, it's important to understand the types of modifications we made to the default template:
 
@@ -276,70 +260,45 @@ securityDefinitions:
     name: code
     in: query
 ```
-## Test the API definition
-Before you export the API definition, it's a good idea to test it in the Azure Functions UI.
+## Test the OpenAPI definition
+Before you use the API definition, it's a good idea to test it in the Azure Functions UI.
 
 1. On the **Manage** tab of your function, under **Host Keys**, copy the **default** key.
 
-    ![Copy API key](media/functions-custom-connector/copy-api-key.png)
+    ![Copy API key](media/functions-openapi-definition/copy-api-key.png)
 
     > [!NOTE]
-    >You will use this key in the next step for testing, and you will also use it when you connect to the API from PowerApps.
+    >You use this key for testing, and you also use it when you call the API from an app or service.
 
 1. Go back to the API definition: **function-demo-energy** > **Platform features** > **API definition**.
 
 1. In the right pane, click **Change Authentication**, enter the API key that you copied, and click **Authenticate**.
 
-    ![Authenticate with API key](media/functions-custom-connector/authenticate-api-key.png)
+    ![Authenticate with API key](media/functions-openapi-definition/authenticate-api-key.png)
 
 1. Scroll down and click **Try this operation**.
 
-    ![Try this operation](media/functions-custom-connector/try-operation.png)
+    ![Try this operation](media/functions-openapi-definition/try-operation.png)
 
 1. Enter values for **hours** and **capacity**.
 
-    ![Enter parameters](media/functions-custom-connector/parameters.png)
+    ![Enter parameters](media/functions-openapi-definition/parameters.png)
 
     Notice how the UI uses the descriptions from the API definition.
 
 1. Click **Send a request**, then click the **Pretty** tab to see the output.
 
-    ![Send a request](media/functions-custom-connector/send-request.png)
-
-## Export the API definition
-The next step in this process is to export the API definition so that PowerApps and Microsoft Flow can use it in a custom API. You do this right in the Azure Functions UI.
-
-> [!NOTE]
-> Remember that you must be signed into Azure with the same credentials that you use for your PowerApps and Microsoft Flow tenants. This enables Azure to create the custom API and make it available for both PowerApps and Microsoft Flow.
-
-1. Click **Export to PowerApps + Flow**.
-
-    ![API definition source](media/functions-custom-connector/export-api-1.png)
-
-1. In the right pane, use the settings as specified in the table.
-
-    |Setting|Description|
-    |--------|------------|
-    |**Export Mode**|Select **Express** to automatically generate the custom API. Selecting **Manual** exports the API definition, but then you must import it into PowerApps and Microsoft Flow manually.|
-    |**Environment**|Select the environment that the custom API should be saved to. For more information, see [Environments overview](https://powerapps.microsoft.com/tutorials/environments-overview/).|
-    |**Custom API Name**|Enter a name, like `Turbine Repair`.|
-    |**API Key Name**|Enter the name that app and flow builders should see in the custom API UI. Note that the example includes helpful information.|
- 
-    ![API definition source](media/functions-custom-connector/export-api-2.png)
-
-1. Click **OK**. The custom API is now built and added to the environment you specified.
+    ![Send a request](media/functions-openapi-definition/send-request.png)
 
 ## Next steps
 
-In this topic, you learned how to:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a function app to host your function
-> * Create a function that calculates the cost-effectiveness of wind turbine repairs.
-> * Generate and modify the function's API definition using OpenAPI tools.
-> * Export the API definition to PowerApps and Microsoft Flow.
+> * Create a function app to host your function.
+> * Create a function.
+> * Generate an OpenAPI definition using OpenAPI tools.
+> * Modify the definition to provide additional metadata.
+> * Test the definition by calling the function.
 
-Advance to the next topic to learn how to create an app that uses your custom connector.
-
-> [!div class="nextstepaction"] 
-> [Call a function from PowerApps](functions-powerapps-scenario.md)
+To learn how to create a PowerApps app that uses the OpenAPI definition you created, see [Call a function from PowerApps](functions-powerapps-scenario.md).
