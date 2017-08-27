@@ -16,13 +16,13 @@ ms.author: heidist
 
 The [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) evaluates text input and for each document returns a sentiment score ranging from 0 to 1, from negative to positive.
 
-This capability is useful for detecting positive and negative sentiment in social media, customer reviews, and discussion forums. Content is provided by you; models and training data are provided by the service. You cannot customize the model or training data, or supplement it with your own information.
+This capability is useful for detecting positive and negative sentiment in social media, customer reviews, and discussion forums. Content is provided by you; models and training data are provided by the service.
 
 Currently, the following languages are supported for production workloads: English, German, Spanish, and French. Other languages are in preview. For more information, see [Supported languages](overview.md#supported-languages).
 
 ## Concepts
 
-Text Analytics uses a Naive-Bayes machine learning algorithm to classify any new piece of text as having positive, negative, or neutral sentiment. The model is pretrained with an extensive body of text with sentiment associations. Currently, it is not possible to supplement or replace with your own data. 
+Text Analytics uses a Naive-Bayes machine learning algorithm to classify any new piece of text as having positive, negative, or neutral sentiment. The model is pretrained with an extensive body of text with sentiment associations. Currently, it is not possible to provide your own training data. 
 
 The sentiment analyzer is engineered to solve classification problems, and not aspect sentiment. The model is trained to analyze text at face value, and then score a positive, negative, or neutral sentiment based on our internal training data and natural language processing engines. 
 
@@ -72,13 +72,16 @@ Document size must be under 10 KB per document. The collection is submitted in t
 
 Details on request definition can be found in [How to call the Text Analytics API](text-analytics-howto-call-api.md). The following points are restated for convenience:
 
-+ Create a **Post** request. Review the API documentation for this request: [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
++ Create a **POST** request. Review the API documentation for this request: [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
 
 + Set the HTTP endpoint for key phrase extraction. It must include the `/sentiment` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
 
-+ Set the request header to include the access key for Text Analytics operations. For more information, see [How to find endpoints and access keys](text-analytics-howto-accesskey.md).
++ Set a request header to include the access key for Text Analytics operations. For more information, see [How to find endpoints and access keys](text-analytics-howto-accesskey.md).
 
-+ Set the request body to the JSON documents collection you prepared for this analysis.
++ In the request body, provide the JSON documents collection you prepared for this analysis.
+
+> [!Tip]
+> Use [Postman](text-analytics-howto-call-api.md) or open the **API testing console** in the [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) to structure the request and POST it to the service.
 
 ## Step 2: Post the request
 
@@ -86,8 +89,6 @@ Analysis is performed upon receipt of the request. The service accepts up to 100
 
 Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
 
-> [!Tip]
-> Use [Postman](text-analytics-howto-call-api.md) or open the **API testing console** in the [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)to post content, such as the example JSON in the previous section.
 
 ## Step 3: Handle results
 

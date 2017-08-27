@@ -68,22 +68,22 @@ Document size must be under 10 KB per document. The collection is submitted in t
 
 Details on request definition can be found in [How to call the Text Analytics API](text-analytics-howto-call-api.md). The following points are restated for convenience:
 
-+ Create a **Post** request. Review the API documentation for this request: [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
++ Create a **POSt** request. Review the API documentation for this request: [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
 + Set the HTTP endpoint for key phrase extraction. It must include the `/keyphrases` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 
-+ Set the request header to include the access key for Text Analytics operations. For more information, see [How to find endpoints and access keys](text-analytics-howto-accesskey.md).
++ Set a request header to include the access key for Text Analytics operations. For more information, see [How to find endpoints and access keys](text-analytics-howto-accesskey.md).
 
-+ Set the request body to the JSON documents collection you prepared for this analysis.
++ In the request body, provide the JSON documents collection you prepared for this analysis
+
+> [!Tip]
+> Use [Postman](text-analytics-howto-call-api.md) or open the **API testing console** in the [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) to structure a request and POST it to the service.
 
 ## Step 2: Post the request
 
 Analysis is performed upon receipt of the request. The service accepts up to 100 requests per minute. Each request can be a maximum of 1 MB.
 
 Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
-
-> [!Tip]
-> Use [Postman](text-analytics-howto-call-api.md) or open the **API testing console** in the [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)to post content, such as the example JSON in the previous section.
 
 ## Step 3: Handle results
 
