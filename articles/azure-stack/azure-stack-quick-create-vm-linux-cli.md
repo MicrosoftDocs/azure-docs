@@ -26,7 +26,7 @@ Azure CLI is used to create and manage Azure Stack resources from the command li
 
 ## Prerequisites
 
-1. The Azure Stack marketplace doesn't contain the Windows Server 2016 image by default. So, before you can create a virtual machine, make sure that the Azure Stack operator a[dds the Windows Server 2016 image to the Azure Stack marketplace](azure-stack-add-default-image.md).  
+1. The Azure Stack marketplace doesn't contain a Linux image by default. So, before you can create a Linux virtual machine, make sure that the Azure Stack operator download the “Ubuntu Server 16.04 LTS” image by using the steps described in the [Download marketplace items](azure-stack-download-azure-marketplace-item.md) topic.   
 
 2. Azure Stack requires the 2.0 version of Azure CLI to create and manage the resources. Use the steps described in [Install and configure CLI](azure-stack-connect-cli.md) topic to install the required version.  
 
@@ -66,7 +66,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## SSH into your VM
 
-From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, Putty can be used to create the connection. Make sure to replace with the correct public IP address of your virtual machine. In our example above our IP address was 192.168.102.36.
+From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, [Putty](http://www.putty.org/) can be used to create the connection. Make sure to replace with the correct public IP address of your virtual machine. In our example above our IP address was 192.168.102.36.
 
 ```bash
 ssh <publicIpAddress>
