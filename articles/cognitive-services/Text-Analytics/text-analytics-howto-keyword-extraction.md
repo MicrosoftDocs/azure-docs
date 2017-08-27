@@ -14,11 +14,15 @@ ms.author: heidist
 
 # How to extract keywords in Text Analytics
 
-TBD
+The [key phrase extraction API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) evaluates unstructured text, and for each JSON document, returns a list of keywords and a score indicating the strength of the analysis. 
+
+This capability is useful if you need to quickly identify the main points in a collection of documents. For example, given input text "The food was delicious and there were wonderful staff", the service returns the main talking points: "food" and 'wonderful staff".
+
+Currently, the following languages are supported for production workloads: English, German, Spanish, and Japanese. Other languages are in preview. For more information, see [Supported languages](overview.md#supported-languages).
 
 ## Concepts
 
-TBD
+Key words or phrases are identified by a process of elimination. This analyzer finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentence. Once the text is paired down, the model calculates the probability of certain word combinations, elevating the rank of those combinations more likely to be found in common use. For this reason, you might find that adjectives or adverbs that appear by themselves are not flagged for extraction, even they seem interesting or important at face value.
 
 ## Preparation
 
@@ -27,6 +31,8 @@ You must have JSON documents in this format: id, text, language
 Document size is Under 10 KB per document.
 
 The collection is submitted in the body of the request.
+
+Key phrase extraction produces higher quality results when you give it bigger chunks of text to work on. This is opposite from sentiment analysis, which performs better on smaller blocks of text. To get the best results of both operations, consider restructuring the inputs accordingly.
 
 ## Step 1: Structure the request
 
@@ -181,18 +187,26 @@ Comparing inputs and outputs side by side helps us understand key phrase extract
 
 ## Summary
 
+In this article, you learned concepts and workflow for key phrase extraction using Text Analytics in Cognitive Services. The following are a quick reminder of the main points previously explained and demonstrated:
+
++ [Key phrase extraction API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) is available for selected languages.
++ JSON documents in the request body include an id, text, and language code.
++ POST request is to a `/keyphrases` endpoint, using a personalized [access key and an endpoint](text-analytics-howto-acccesskey.md) that is valid for your subscription.
++ Response output, which consists of key words and phrases for each document ID, can be streamed to any app that accepts JSON, including Excel and Power BI, to name a few.
 
 ## Next steps
 
-+ [Visit the product page](//go.microsoft.com/fwlink/?LinkID=759712) to try out an interactive demo of the APIs. Submit text, choose an analysis, and view results without writing any code.
++ [Quickstart](quick-start.md) is a walk through of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code.
 
-+ [Visit API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
++ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
+
++ [External & Community Content](text-analytics-resource-external-community.md) provides a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
 
 + To see how the Text Analytics API can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
 
-+ [Visit this page](text-analytics-resource-external-community.md) for a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
 
 ## See also 
 
  [Text Analytics overview](overview.md)  
  [Frequently asked questions (FAQ)](text-analytics-resource-faq.md)
+ [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712) 

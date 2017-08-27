@@ -14,7 +14,26 @@ ms.author: heidist
 
 # How to detect sentiment in Text Analytics
 
+The [sentiment analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) evaluates text input and for each document returns a sentiment score ranging from 0 to 1, from negative to positive.
+
+This capability is useful for detecting trends in terms of positive and negative sentiment in social media, customer reviews, and discussion forums. Content is provided by you; models and training data are provided by the service. You cannot customize the model or training data, or supplement it with your own information.
+
+Given a large number of sentiment scores, you can import or stream the results to a visualization app for trend analysis, or call additional APIs from Twitter, Facebook, and so forth, to supplement sentiment scoring with metadata and other constructs available in the platform of origin. 
+
+The sentiment analyzer is engineered to solve classification problems, and not aspect sentiment. The model is trained to analyze text at face value, and then score a positive, negative, or neutral sentiment based on our internal training data and natural language processing engines. 
+
+There is always a degree of imprecision in sentiment analysis, but the model is most reliable when there is no hidden meaning or subtext to the content. Irony, sarcasm, puns, jokes, and similarly nuanced content relies on cultural context and norms to convey intent, which continues to challenge most sentiment analyzers. The biggest discrepancies between a given score produced by the analyzer and a subjective assessment by a human is usually on content with nuanced meaning.
+
 ## Concepts
+
+Text Analytics uses a Naive-Bayes machine learning algorithm to classify any new piece of text as positive, negative, or neutral content. The model uses training data, as well as the following methodologies:
+
+| Modeling aspect  | How effected |
+|-------------|-------------|
+| Linguistics | We invoke linguistic processing in the form of tokenization and stemming. |
+| Patterns | We use n-grams to articulate patterns, such as word repetition, proximity, and sequencing. <br/> We assign of part-of-speech to each word in the input text. | 
+| Expressivity | We incorporate any emoticons, punctuation such as exclamation or question marks, and letter case (upper or lower) as indicators of sentiment.|
+| Semantics | We build resonance in the training data by mapping syntactically similar words. Sentiment evidence associated with one term can be applied to similar terms. We use neural networks to construct the associations. |
 
 ## Preparation
 
@@ -40,9 +59,52 @@ Request headers:
 
 ## Step 2: Structure the request body
 
+### Guidance for constructing inputs
+
++ For sentiment analysis, you can submit any text subject to the 10-KB limit per document, but we recommend splitting text into sentences. This generally leads to greater precision in sentiment predictions.
+
++ Include the language identifier in the request. It is not required, but the score will be neutral or inconclusive (0.5) if you omit it.
+
+> [!Note]
+> You can submit the same collection of documents for multiple operations: sentiment analysis, key phrase analysis, and language detection. Operations are independent so run them sequentially or in parallel.
+
 ## Step 3: Post the request
 
 ## Step 4: Review results
+
+##E Examples of sentiment output
+
+The sentiment analyzer classifies text as predominantly positive or negative, assigning a score in the range of 0 to 1, up to 15 decimal places. A solid 0.5 is neutral; the functional equivalent of an indeterminate sentiment. The analyzer couldn't interpret or make sense of the text input.
+
+The response consists of a document ID and a score. There is no built-in drillthrough to document detail. If you want clickthrough from a sentiment score to the original input, or to key phrases extracted for the same document, you will need to write code that collects the outputs for each document ID.
+
+The following example illustrates the syntax, starting with an input:
+
+```
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "My cat ate all my food! He is one crazy dude."
+    }
+  ]
+}
+```
+
+Output is one score for each document, where the ID is derived from the input, and the score is a 15-digit string indicating a degree of sentiment. Scores closer to zero indicate negative sentiment.
+
+```
+{
+  "documents": [
+    {
+      "score": 0.193176138548217,
+      "id": "1"
+    }
+  ],
+  "errors": []
+}
+```
 
 ## Summary
 
@@ -319,17 +381,28 @@ Comparing before-and-after results, sentiment score goes from 0.5 (neutral) to 1
 
 The point to take away from this last exercise is that you should set the language code correctly, assuming you know it. If you don't, use [language detection](text-analytics-concept-language-detection.md) to obtain it, and then set the code before performing sentiment analysis or key phrase extraction. 
 
+## Summary
+
+In this article, you learned concepts and workflow for sentiment analysis using Text Analytics in Cognitive Services. The following are a quick reminder of the main points previously explained and demonstrated:
+
++ [Sentiment analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) is available for selected languages.
++ JSON documents in the request body include an id, text, and language code.
++ POST request is to a `/sentiment` endpoint, using a personalized [access key and an endpoint](text-analytics-howto-acccesskey.md) that is valid for your subscription.
++ Response output, which consists of a sentiment score for each document ID, can be streamed to any app that accepts JSON, including Excel and Power BI, to name a few.
+
 ## Next steps
 
-+ [Visit the product page](//go.microsoft.com/fwlink/?LinkID=759712) to try out an interactive demo of the APIs. Submit text, choose an analysis, and view results without writing any code.
++ [Quickstart](quick-start.md) is a walk through of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code.
 
-+ [Visit API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
++ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
+
++ [External & Community Content](text-analytics-resource-external-community.md) provides a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
 
 + To see how the Text Analytics API can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
 
-+ [Visit this page](text-analytics-resource-external-community.md) for a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
 
 ## See also 
 
  [Text Analytics overview](overview.md)  
  [Frequently asked questions (FAQ)](text-analytics-resource-faq.md)
+ [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712) 

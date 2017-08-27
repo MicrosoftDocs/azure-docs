@@ -14,7 +14,9 @@ ms.author: heidist
 
 # How to detect language in Text Analytics
 
-TBD
+The [language detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) evaluates text input and for each document returns a language code in [ISO 639-1](https://www.iso.org/standard/22109.html) format and a score indicating the strength of the analysis. Text Analytics recognizes up to 120 languages.
+
+This capability is useful for content stores that collect arbitrary text, in possibly any number of languages, which you might want to then parse to determine which languages are represented and the frequency at which they occur. From the output, you could trim unknown or inconclusive results, or investigate the findings more deeply to see if there is corruption in the form of unexpected non-text content.
 
 ## Concepts
 
@@ -25,6 +27,9 @@ TBD
 You must have JSON documents in this format: id, text
 
 The collection is submitted in the body of the request.
+
+> [!Note]
+> If you are submitting the same collection of documents for sentiment analysis, key phrase analysis, and language detection, the `language` code used for sentiment analysis and key phrase extraction is ignored for language detection.
 
 ## Step 1: Structure the request
 
@@ -51,6 +56,67 @@ Request headers:
 ## Step 3: Post the request
 
 ## Step 4: Review results
+
+Standard output assumes the following form (using English as an example). A positive score of 1.0 expresses the highest possible confidence level of the analysis.
+
+```
+      "id": "4",
+      "detectedLanguages": [
+        {
+          "name": "English",
+          "iso6391Name": "en",
+          "score": 1.0
+        }
+      ]
+    },
+```
+
+Ambiguous content, such as a text block consisting solely of Arabic numerals, the system returns `(Unknown)`.
+
+```
+    {
+      "id": "5",
+      "detectedLanguages": [
+        {
+          "name": "(Unknown)",
+          "iso6391Name": "(Unknown)",
+          "score": "NaN"
+        }
+      ]
+```
+
+Mixed language content within the same document returns the language with the largest representation in the content, but with a lower positive rating to reflect the marginal strength of that assessment. In the following example, input is a blend of English, Spanish, and French:
+
+```
+{
+  "documents": [
+    {
+      "id": "1",
+      "text": "Hello, I would like to take a class at your University. ¿Se ofrecen clases en español? Es mi primera lengua y más fácil para escribir. Que diriez-vous des cours en français?"
+    }
+  ]
+}
+```
+
+Resulting output consists of the predominant language, with a score of less than 1.0 indicating a weaker signal strength.
+
+```
+{
+  "documents": [
+    {
+      "id": "1",
+      "detectedLanguages": [
+        {
+          "name": "Spanish",
+          "iso6391Name": "es",
+          "score": 0.9375
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
+```
 
 ## Summary
 
@@ -325,17 +391,28 @@ Comparing before-and-after results, sentiment score goes from 0.5 (neutral) to 1
 
 The point to take away from this last exercise is that you should set the language code correctly, assuming you know it. If you don't, use [language detection](text-analytics-concept-language-detection.md) to obtain it, and then set the code before performing sentiment analysis or key phrase extraction. 
 
+## Summary
+
+In this article, you learned concepts and workflow for language detection using Text Analytics in Cognitive Services. The following are a quick reminder of the main points previously explained and demonstrated:
+
++ [Language detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) is available for 120 languages.
++ JSON documents in the request body include an id and text.
++ POST request is to a `/languages` endpoint, using a personalized [access key and an endpoint](text-analytics-howto-acccesskey.md) that is valid for your subscription.
++ Response output, which consists of language identifiers for each document ID, can be streamed to any app that accepts JSON, including Excel and Power BI, to name a few.
+
 ## Next steps
 
-+ [Visit the product page](//go.microsoft.com/fwlink/?LinkID=759712) to try out an interactive demo of the APIs. Submit text, choose an analysis, and view results without writing any code.
++ [Quickstart](quick-start.md) is a walk through of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code.
 
-+ [Visit API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
++ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
+
++ [External & Community Content](text-analytics-resource-external-community.md) provides a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
 
 + To see how the Text Analytics API can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
 
-+ [Visit this page](text-analytics-resource-external-community.md) for a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
 
 ## See also 
 
  [Text Analytics overview](overview.md)  
  [Frequently asked questions (FAQ)](text-analytics-resource-faq.md)
+ [Text Analytics product page](//go.microsoft.com/fwlink/?LinkID=759712) 

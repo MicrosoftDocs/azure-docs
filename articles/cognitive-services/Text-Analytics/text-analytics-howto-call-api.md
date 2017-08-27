@@ -31,7 +31,7 @@ You must have the [endpoint and access key](text-analytics-howto-accesskey.md) o
 
 <a name="json-schema"></a>
 
-## JSON schema requirements
+## JSON schema definition
 
 Input must be JSON in raw unstructured text. XML is not supported. The schema is simple, consisting of the elements described in the following list. 
 
@@ -47,7 +47,7 @@ For more information about limits, see [Text Analytics Overview > Data limits](o
 
 ## Set up a request in Postman
 
-The entire request must be under 1 MB in size. If you are using Postman or another Web API test tool, set up the endpoint to include the resource you want to use, and provide the access key in a request header. Each operation requires that you append the appropriate resource to the endpoint. 
+The service accepts request up to 1 MB in size. If you are using Postman or another Web API test tool, set up the endpoint to include the resource you want to use, and provide the access key in a request header. Each operation requires that you append the appropriate resource to the endpoint. 
 
 1. In Postman:
 
@@ -91,9 +91,9 @@ The entire request must be under 1 MB in size. If you are using Postman or anoth
 
 + [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
 
-+ To see how the Text Analytics API can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
-
 + [External & Community Content](text-analytics-resource-external-community.md) provides a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
+
++ To see how the Text Analytics API can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
 
 ## See also 
 
