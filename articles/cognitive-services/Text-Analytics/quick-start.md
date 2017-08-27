@@ -26,12 +26,10 @@ The code was written to work on a .Net Core application, with minimal references
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
 ## Prerequisites
-Obtain a Text Analytics Subscription Key:
 
-1. Navigate to **Cognitive Services** in the [Azure portal](//go.microsoft.com/fwlink/?LinkId=761108) and ensure **Text Analytics** is selected as the 'API type'.
-1. Select a plan. You may select the **free tier for 5,000 transactions/month**. As is a free tier, there are no charges for using the service. You need to login to your Azure subscription to sign up for the service. 
-1. Complete the other fields and create your account.
-1. After you sign up for Text Analytics, find your **API Key**. Copy the primary key, as this will be the subscription key that will you will need to provide to the service.
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Text Analytics API**. You can use the **free tier for 5,000 transactions/month** to complete this quickstart.
+
+You must have the [endpoint and access key](text-analytics-howto-accesskey.md) on hand for structuring the request. The key is generated for you during sign up. 
 
 <a name="Detect"></a>
 
@@ -44,9 +42,9 @@ Use the [Detect Language method](https://westus.dev.cognitive.microsoft.com/docs
 The sample is written in C# using the Text Analytics API client library. 
 
 1. Create a new Console solution in Visual Studio.
-1. Replace Program.cs with the following code.
-1. Replace the `subscriptionKey` value with your valid subscription key.
-1. Change the `uriBase` value to use the location where you obtained your subscription keys.
+1. Replace Program.cs with the code provided below.
+1. Replace the `subscriptionKey` value with an access key valid for your subscription.
+1. Replace the loation in `uriBase` (currently `westus`) to the region you signed up for.
 1. Run the program.
 
 ```c#
@@ -269,12 +267,12 @@ Use the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/servi
 
 ### Sentiment analysis C# example request
 
-The sample is written in C# using the Text Analytics API client library. 
+The sample is written in C# using the Text Analytics API client library. It scores two documents, one in English and another in Spanish.
 
 1. Create a new Console solution in Visual Studio.
-1. Replace Program.cs with the following code.
-1. Replace the `subscriptionKey` value with your valid subscription key.
-1. Change the `uriBase` value to use the location where you obtained your subscription keys.
+1. Replace Program.cs with the code provided below.
+1. Replace the `subscriptionKey` value with an access key valid for your subscription.
+1. Replace the loation in `uriBase` (currently `westus`) to the region you signed up for.
 1. Run the program.
 
 ```c#
@@ -435,8 +433,6 @@ namespace TextAnalyticsCSharpCore
 
             return sb.ToString().Trim();
         }
-
-
     }
 }
 
@@ -457,12 +453,6 @@ A successful response is returned in JSON. Following is an example of a successf
          "score": 0.024017512798309326,
          "id": "2"
       },
-      {
-         "score": 0.088017612798301751,
-         "id": "3"
-      }
-         
-
    ],
    "errors": [   ]
 }
@@ -477,12 +467,12 @@ Use the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/ser
 
 ### Key phrase extraction C# example request
 
-The sample is written in C# using the Text Analytics API client library. 
+The sample is written in C# using the Text Analytics API client library. Key phrases are extracted for both English and Spanish documents.
 
 1. Create a new Console solution in Visual Studio.
-1. Replace Program.cs with the following code.
-1. Replace the `subscriptionKey` value with your valid subscription key.
-1. Change the `uriBase` value to use the location where you obtained your subscription keys.
+1. Replace Program.cs with the code provided below.
+1. Replace the `subscriptionKey` value with an access key valid for your subscription.
+1. Replace the loation in `uriBase` (currently `westus`) to the region you signed up for.
 1. Run the program.
 
 
@@ -509,7 +499,7 @@ namespace TextAnalyticsCSharpCore
         // **********************************************
 
         // Replace the subscriptionKey string value with your valid subscription key.
-        const string subscriptionKey = "c8e31cbfed0c4271926edceda8212378";
+        const string subscriptionKey = "enterKeyHere";
 
         // Replace or verify the region.
         //
@@ -697,11 +687,12 @@ A successful response is returned in JSON. Following is an example of a successf
 
 ## Next steps
 
-+ [Visit API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
++ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
+
++ [External & Community Content](text-analytics-resource-external-community.md) provides a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
 
 + To see how the Text Analytics API can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
 
-+ [Visit this page](text-analytics-resource-external-community.md) for a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
 
 ## See also 
 

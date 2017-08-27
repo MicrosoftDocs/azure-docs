@@ -26,7 +26,7 @@ Key words or phrases are identified by a process of elimination. This analyzer f
 
 ## Preparation
 
-Key phrase extraction produces higher quality results when you give it bigger chunks of text to work on. This is opposite from sentiment analysis, which performs better on smaller blocks of text. To get the best results from both operations, consider restructuring the inputs accordingly.
+Key phrase extraction works best when you give it bigger chunks of text to work on. This is opposite from sentiment analysis, which performs better on smaller blocks of text. To get the best results from both operations, consider restructuring the inputs accordingly.
 
 You must have JSON documents in this format: id, text, language
 
@@ -81,6 +81,9 @@ Details on request definition can be found in [How to call the Text Analytics AP
 Analysis is performed upon receipt of the request. The service accepts up to 100 requests per minute. Each request can be a maximum of 1 MB.
 
 Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
+
+> [!Tip]
+> Use [Postman](text-analytics-howto-call-api.md) or open the **API testing console** in the [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)to post content, such as the example JSON in the previous section.
 
 ## Step 3: Handle results
 

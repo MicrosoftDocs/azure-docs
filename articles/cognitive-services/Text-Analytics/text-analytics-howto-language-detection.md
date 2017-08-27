@@ -69,6 +69,9 @@ Analysis is performed upon receipt of the request. The service accepts up to 100
 
 Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
 
+> [!Tip]
+> Use [Postman](text-analytics-howto-call-api.md) or open the **API testing console** in the [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)to post content, such as the example JSON in the previous section.
+
 ## Step 3: Handle results
 
 All POST requests return a JSON formatted response with the IDs and detected properties.
