@@ -35,7 +35,10 @@ In the Windows *out-of-box experience*, joining an on-premises Active Directory 
 
 To join a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to joining devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. For more details, see [configure device settings](device-management-azure-portal.md#configure-device-settings).
 
-## To join a device to Azure AD
+## Joining a device
+
+**To join a Windows 10 device to Azure AD during FRX:**
+
 
 1. When you turn on your new device and start the setup process, you should see the  **Getting Ready** message. Follow the prompts to set up your device.
 
