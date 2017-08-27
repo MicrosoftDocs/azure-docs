@@ -18,20 +18,20 @@ ms.author: nitinme
 ---
 # Use Azure Data Lake Store to capture data from Event Hubs
 
-Learn how to use Azure Data Lake Store to capture data received by Azure Event Hub.
+Learn how to use Azure Data Lake Store to capture data received by Azure Event Hubs.
 
 ## Prerequisites
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
+* **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md).
 
 *  **An Event Hubs namespace**. For instructions, see [Create an Event Hubs namespace](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace). Make sure the Data Lake Store account and the Event Hubs namespace are in the same Azure subscription.
 
 
-## Assign permissions to EventHub
+## Assign permissions to Event Hubs
 
-In this section, you create a folder within the account where you want to capture the data from Event Hubs. You also assign permissions to Event Hub so that it can write data into a Data Lake Store account. 
+In this section, you create a folder within the account where you want to capture the data from Event Hubs. You also assign permissions to Event Hubs so that it can write data into a Data Lake Store account. 
 
 1. Open the Data Lake Store account where you want to capture data from Event Hubs and then click on **Data Explorer**.
 
@@ -53,7 +53,7 @@ In this section, you create a folder within the account where you want to captur
     
     Click **Select**.
 
-    c. Under **Assign Permissions**, click **Select Permissions**. Set **Permissions** to **Execute**. Set **Add to** to **This folder and children**. Set **Add as** to **An access permission entry and a default permission entry**.
+    c. Under **Assign Permissions**, click **Select Permissions**. Set **Permissions** to **Execute**. Set **Add to** to **This folder and all children**. Set **Add as** to **An access permission entry and a default permission entry**.
 
     ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
 
@@ -71,13 +71,13 @@ In this section, you create a folder within the account where you want to captur
     
     Click **Select**.
 
-    c. Under **Assign Permissions**, click **Select Permissions**. Set **Permissions** to **Read, Write,** and **Execute**. Set **Add to** to **This folder and children**. Finally, set **Add as** to **An access permission entry and a default permission entry**.
+    c. Under **Assign Permissions**, click **Select Permissions**. Set **Permissions** to **Read, Write,** and **Execute**. Set **Add to** to **This folder and all children**. Finally, set **Add as** to **An access permission entry and a default permission entry**.
 
     ![Assign permissions for Data Lake Store folder](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "Assign permissions for Data Lake Store folder")
     
     Click **OK**. 
 
-## Configure Event Hub to capture data to Data Lake Store
+## Configure Event Hubs to capture data to Data Lake Store
 
 In this section, you create an Event Hub within an Event Hubs namespace. You also configure the Event Hub to capture data to an Azure Data Lake Store account. This section assumes that you have already created an Event Hubs namespace.
 
@@ -108,7 +108,7 @@ You can now test the solution by sending data to the Azure Event Hub. Follow the
 ![Sample EventHub data in Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-eventhub-data-sample.png "Sample EventHub data in Data Lake Store")
 
 > [!NOTE]
-> Even if you do not have messages coming into Event Hub, Event Hub writes empty files with just the headers into the Data Lake Store account. The files are written at the same time interval that you provided while creating the Event Hub.
+> Even if you do not have messages coming into Event Hubs, Event Hubs writes empty files with just the headers into the Data Lake Store account. The files are written at the same time interval that you provided while creating the Event Hubs.
 > 
 >
 
