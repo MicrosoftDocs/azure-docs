@@ -109,7 +109,7 @@ Now you have a function that determines the cost-effectiveness of emergency repa
 
 ## Generate the OpenAPI definition
 
-Now you're ready to generate the OpenAPI definition. This definition can be used by other Microsoft technologies, like [API Apps](https://docs.microsoft.com/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), [PowerApps](functions-powerapps-scenario.md) and [Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow), as well as 3rd party developer tools like [Postman](https://www.getpostman.com/docs/importing_swagger) and [many more packages](http://swagger.io/tools/).
+Now you're ready to generate the OpenAPI definition. This definition can be used by other Microsoft technologies, like [API Apps](https://docs.microsoft.com/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), [PowerApps](functions-powerapps-scenario.md) and [Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow), as well as third party developer tools like [Postman](https://www.getpostman.com/docs/importing_swagger) and [many more packages](http://swagger.io/tools/).
 
 1. Select only the *verbs* that your API supports (in this case POST). This makes the generated API definition cleaner.
 
@@ -172,23 +172,6 @@ Now you're ready to generate the OpenAPI definition. This definition can be used
 
 ## Modify the OpenAPI definition
 Now that you have a template definition, you modify it to provide additional metadata about the API's operations and data structures. For this tutorial, you can simply paste the modified definition below into the **API definition** pane and click **Save**.
-
-That said, it's important to understand the types of modifications we made to the default template:
-
-+ Specified that the API produces and consumes data in a JSON format.
-
-+ Specified the required parameters, with their names and data types.
-
-+ Specified the return values for a successful response, with their names and data types.
-
-+ Provided friendly summaries and descriptions for the API, and its operations and parameters. This is important for people who will use this function.
-
-+ Added x-ms-summary and x-ms-visibility, which are used in the UI for Microsoft Flow and Logic Apps. For more information, see [OpenAPI extensions for custom APIs in Microsoft Flow](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
-
-> [!NOTE]
-> We left the security definition with the default authentication method of API key. You would change this section of the definition if you used a different type of authentication.
-
-For more information about defining API operations, see the [Open API specification](https://swagger.io/specification/#operationObject).
 
 ```yaml
 swagger: '2.0'
@@ -260,6 +243,24 @@ securityDefinitions:
     name: code
     in: query
 ```
+
+That said, it's important to understand the types of modifications we made to the default template:
+
++ Specified that the API produces and consumes data in a JSON format.
+
++ Specified the required parameters, with their names and data types.
+
++ Specified the return values for a successful response, with their names and data types.
+
++ Provided friendly summaries and descriptions for the API, and its operations and parameters. This is important for people who will use this function.
+
++ Added x-ms-summary and x-ms-visibility, which are used in the UI for Microsoft Flow and Logic Apps. For more information, see [OpenAPI extensions for custom APIs in Microsoft Flow](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
+
+> [!NOTE]
+> We left the security definition with the default authentication method of API key. You would change this section of the definition if you used a different type of authentication.
+
+For more information about defining API operations, see the [Open API specification](https://swagger.io/specification/#operationObject).
+
 ## Test the OpenAPI definition
 Before you use the API definition, it's a good idea to test it in the Azure Functions UI.
 

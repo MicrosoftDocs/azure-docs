@@ -40,7 +40,7 @@ In this topic, you learn how to:
 ## Prerequisites
 
 + An active [PowerApps account](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) with the same sign in credentials as your Azure account. 
-+ Excel, because you will store data for your app in Excel.
++ Excel, because you will use Escel as a data source for your app.
 + Complete the tutorial [Create an OpenAPI definition for a function](functions-openapi-definition.md).
 
 
@@ -112,7 +112,7 @@ The custom API (also known as a custom connector) is available in PowerApps, but
     ![Create connection](media/functions-powerapps-scenario/create-connection.png)
 
 > [!NOTE]
-> If you share your app with others, each person who works on or uses the app will also need to enter the API key to connect to the API. This behavior might change in the future, and we will update this topic to reflect that.
+> If you share your app with others, each person who works on or uses the app must also enter the API key to connect to the API. This behavior might change in the future, and we will update this topic to reflect that.
 
 ## Create an app and add data sources
 Now you're ready to create the app in PowerApps, and add the Excel data and the custom API as data sources for the app.
@@ -271,4 +271,4 @@ In this topic, you learned how to:
 
 To learn more about PowerApps, see [Introduction to PowerApps](https://powerapps.microsoft.com/tutorials/getting-started/).
 
-To learn about another scenario that uses Azure Functions, see [Create a function that integrates with Azure Logic Apps](functions-twitter-email.md).
+To learn about another interesting scenario that uses Azure Functions, see [Create a function that integrates with Azure Logic Apps](functions-twitter-email.md).
