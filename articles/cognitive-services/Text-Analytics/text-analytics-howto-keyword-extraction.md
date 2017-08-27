@@ -191,7 +191,7 @@ In this article, you learned concepts and workflow for key phrase extraction usi
 
 + [Key phrase extraction API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) is available for selected languages.
 + JSON documents in the request body include an id, text, and language code.
-+ POST request is to a `/keyphrases` endpoint, using a personalized [access key and an endpoint](text-analytics-howto-acccesskey.md) that is valid for your subscription.
++ POST request is to a `/keyphrases` endpoint, using a personalized [access key and an endpoint](text-analytics-howto-accesskey.md) that is valid for your subscription.
 + Response output, which consists of key words and phrases for each document ID, can be streamed to any app that accepts JSON, including Excel and Power BI, to name a few.
 
 ## Next steps
