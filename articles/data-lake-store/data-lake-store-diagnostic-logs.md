@@ -37,7 +37,7 @@ Organizations can enable diagnostic logging for their Azure Data Lake Store acco
    
     ![Enable diagnostic logging](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
    
-   * Set **Status** to **On** to enable diagnostic logging.
+   * For **Name**, enter a value for the diagnostic log configuration.
    * You can choose to store/process the data in different ways.
      
 		* Select the option to **Archive to a storage account** to store logs to an Azure Storage account. You use this option if you want to archive the data that will be batch-processed at a later date. If you select this option you must provide an Azure Storage account to save the logs to.
