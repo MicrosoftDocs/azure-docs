@@ -1,6 +1,6 @@
 ---
 title: How-to article Machine Learning Server | Microsoft Docs
-description: Describes the article in 115 to 145 characters. Validate to check. Use SEO words here.
+description: This sample describes the article in 115 to 145 characters. Validate using Gauntlet toolbar check icon. Use SEO kind of action verbs here.
 services: machine-learning
 author: yourgithubalias
 ms.author: yourmsftalias
@@ -8,9 +8,8 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
-ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 08/28/2017
 ---
 # This is the H1 and the article title that shows on the web
 
@@ -20,8 +19,8 @@ To step through this how-to guide, you need:
 
 ## Section here H2 
 Paragraph here. 
-**This phrase is bold**
-*This phrase is italics*
+**This phrase is bold.**
+*This phrase is italics.*
 
 This is a [hyperlink to an article](./doc-template-concepts.md)
 
@@ -43,11 +42,11 @@ This is a numbered list:
 
 1. First item
 
-    This paragraph is indented to be the same spacing as the first numbered item.
+   This paragraph is indented to be the same spacing as the first numbered item.
 
 2. Second item
-    - this sentence is a bullet
-    - this sentence is another bullet
+   - this sentence is a bullet
+   - this sentence is another bullet
 
 3. Third item
 
@@ -55,7 +54,7 @@ This is a numbered list:
 
 5. Fifth item
 
-This list is bulleted list:
+## This list is bulleted list:
 - Item 1
 - Item 2
 - Item 3
