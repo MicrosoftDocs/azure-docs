@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 
@@ -62,7 +62,7 @@ Are you an EA customer? If so, see [How am I impacted if I'm an EA customer?](#e
 
 ## What do I need to do to ensure uninterrupted access to my data?
 
-Nothing, Cosmos DB handles the migration for you. If you have an S1, S2, or S3 collection, your current collection will be migrated to a single partition collection on July 31, 2017. 
+Nothing, Cosmos DB handles the migration for you. If you have an S1, S2, or S3 collection, your current collection will be migrated to a single partition collection later in 2017. 
 
 <a name="collection-change"></a>
 
@@ -102,7 +102,7 @@ Only existing accounts with S1, S2, and S3 performance will be able to change an
 
 ## How will I know when my collection has migrated?
 
-The migration will occur on July 31, 2017. If you have a collection that uses the S1, S2 or S3 performance levels, the Cosmos DB team will contact you by email before the migration takes place. Once the migration is complete, on August 1, 2017, the Azure portal will show that your collection uses Standard pricing.
+The migration will occur later in 2017. If you have a collection that uses the S1, S2 or S3 performance levels, the Cosmos DB team will contact you by email before the migration takes place. Once the migration is complete, on August 1, 2017, the Azure portal will show that your collection uses Standard pricing.
 
 ![How to confirm your collection has migrated to the Standard pricing tier](./media/performance-levels/portal-standard-pricing-applied.png)
 
@@ -110,7 +110,7 @@ The migration will occur on July 31, 2017. If you have a collection that uses th
 
 ## How do I migrate from the S1, S2, S3 performance levels to single partition collections on my own?
 
-You can migrate from the S1, S2, and S3 performance levels to single partition collections using the Azure portal or programmatically. You can do this on your own before August 1 to benefit from the flexible throughput options available with single partition collections, or we will migrate your collections for you on July 31, 2017.
+You can migrate from the S1, S2, and S3 performance levels to single partition collections using the Azure portal or programmatically. You can do this on your own before August 1 to benefit from the flexible throughput options available with single partition collections, or we will migrate your collections for you later in 2017.
 
 **To migrate to single partition collections using the Azure portal**
 
