@@ -8,7 +8,7 @@
     href: what-are-preview-features.md
 - name: Quick Starts
   items:
-  - name: (Install Workbench and CLI)
+  - name: (Install Workbench)
   - name: (Create a model)
   - name: (Run a model in Docker)
   - name: (Run a model with Python)
