@@ -633,7 +633,7 @@ When a Naming operation takes longer than expected, the operation is flagged wit
 
 * **SourceId**: System.NamingService
 * **Property**: Starts with prefix **Duration_** and identifies the slow operation and the Service Fabric name on which the operation is applied. For example, if create service at name fabric:/MyApp/MyService takes too long, the property is Duration_AOCreateService.fabric:/MyApp/MyService. AO points to the role of the Naming partition for this name and operation.
-* **Next steps**: Check why the Naming operation fails. Each operation can have different root causes. For example, delete service may be stuck on a node because the application host keeps crashing on a node due to a user bug in the service code.
+* **Next steps**: Check why the Naming operation fails. Each operation can have different root causes. For example, delete service may be stuck because the application host keeps crashing on a node due to a user bug in the service code.
 
 The following example shows a create service operation. The operation took longer than the configured duration. AO retries and sends work to NO. NO completed the last operation with Timeout. In this case, the same replica is primary for both the AO and NO roles.
 

@@ -21,16 +21,16 @@ ms.author: aprameyr
 # Introduction
 A `configuration` is defined as the replicas and their roles for a partition of a stateful service.
 
-A `reconfiguration` is the process of moving one `configuration` to another `configuration` i.e. making a change to the replica set for a partition of a stateful service. The old configuration is called the `previous configuration (PC)` and the new configuration is called the `current configuration (CC)`. The reconfiguration protocol in service fabric ensures that consistency is preserved and availability is maintained during any changes to the replica set.
+A `reconfiguration` is the process of moving one `configuration` to another `configuration`. It is making a change to the replica set for a partition of a stateful service. The old configuration is called the `previous configuration (PC)` and the new configuration is called the `current configuration (CC)`. The reconfiguration protocol in service fabric preserves consistency and maintains availability during any changes to the replica set.
 
-Reconfigurations are initiated by the Failover Manager in response to different events in the system. For instance, if the primary fails then a reconfiguration is initiated to promote an active secondary to a primary. Another example is in response to application upgrades when it may be necessary to move the primary to another node in order to upgrade the node.
+The Failover Manager initiates reconfigurations in response to different events in the system. For instance, if the primary fails then a reconfiguration is initiated to promote an active secondary to a primary. Another example is in response to application upgrades when it may be necessary to move the primary to another node in order to upgrade the node.
 
 ## Reconfiguration Types
 Reconfigurations can be classified into two types:
 
 - Reconfigurations where the primary is changing
-    - Failover: These are reconfigurations in response to the failure of a running primary
-    - SwapPrimary: These are reconfigurations where service fabric needs to move a running primary from one node to another usually in response to load balancing or upgrade etc.
+    - Failover: Failovers are reconfigurations in response to the failure of a running primary
+    - SwapPrimary: Swaps are reconfigurations where service fabric needs to move a running primary from one node to another usually in response to load balancing or upgrade etc.
 
 - Reconfigurations where the primary is not changing
 
@@ -50,7 +50,7 @@ Reconfigurations may get *stuck* for a variety of reasons. Some of the common re
 
 - Down replicas: some reconfiguration phases require a majority of the replicas in the configuration to be up
 - Network or communication issues: reconfigurations require network connectivity between different nodes
-- API failures: the reconfiguration protocol requires that service implementations complete certain APIs. For example: not honouring the cancellation token in a reliable service will cause SwapPrimary reconfigurations to get stuck
+- API failures: the reconfiguration protocol requires that service implementations complete certain APIs. For example: not honoring the cancellation token in a reliable service causes SwapPrimary reconfigurations to get stuck
 
 Health reports from system components such as System.FM, System.RA, System.RAP can be used to diagnose where a reconfiguration is stuck. The [system health report page](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) describes these health reports.
 
