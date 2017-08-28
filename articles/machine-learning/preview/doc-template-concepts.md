@@ -60,4 +60,4 @@ This is bulleted list:
 
 
 ## Next steps
-For information about machine learning, see [Another article](concepts-article-name.md)
+For information about machine learning, see [Another article](doc-template-concepts.md)

@@ -14,8 +14,8 @@ ms.topic: hero-article
 ms.date: 09/25/2017
 ---
 
-# This is the H1 and the article title that shows on the web
-Once sentence into intro about Machine Learning. Intro paragraph to explain the intent of this quickstart, and time it takes - you can do this in about five minutes.
+# The H1 heading is the article title that shows on the web
+Once sentence into intro about Machine Learning. Intro paragraph to explain the intent of this Quickstart, and time it takes. You can finish this Quickstart in about five minutes.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -37,20 +37,20 @@ Resource Group|*myresourcegroup*| You may make a new resource group name, or use
 Server admin login |*mylogin*| Make your own login account to use when connecting to the server. 
 
   > [!IMPORTANT]
-  > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
+  > The server admin login and password that you specify here are required to log in to the server and its databases later in this Quickstart. Remember or record this information for later use.
 
 ## Example command using a bash shell comment
 
-This is a code block you could use.
+A code block you could use.
 ```bash
 tool --switch1 value2 --switch2 value2
 ```
 
-This describes the switched used in the above command: 
+The table describes the switched used in the preceding command: 
     tool parameter |Suggested value|Description
     ---|---|---
-    --switch1 | *given value* | Specify the first parameter to use with this tool.
-    --switch1 | *given value* | Specify the first parameter to use with this tool.
+    --switch1 | *given value* | Specify the first parameter to use with the tool.
+    --switch1 | *given value* | Specify the first parameter to use with the tool.
 
 Example tool output:
 ```bash
@@ -65,7 +65,7 @@ Something happened.
 Clean up the resources you created in the quickstart either by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group, or by deleting the one server resource if you want to keep the other resources intact.
 
 > [!TIP]
-> Other quickstarts in this collection build upon this quick start. If you plan to continue on to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete resources created by this quickstart in the Azure portal.
+> Other Quickstarts in this collection build upon this quick start. If you plan to continue on to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete resources created by this quickstart in the Azure portal.
 
 To delete the entire resource group including the newly created server:
 1.	Locate your resource group in the Azure portal. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of your resource group, such as our example **myresourcegroup**.
