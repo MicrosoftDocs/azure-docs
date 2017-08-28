@@ -107,7 +107,7 @@ There are testing tools built in to the UI view of the imbedded API definition e
 1. Navigate to the `API Definition` page.
     1. Click `Authenticate` and add your Function API key to the security object at the top.
   ![OpenAPI key](./media/functions-api-definition-getting-started/definitionTest auth.png)
-1. select `/api/yourfunctionroute` > `POST`
+1. Select `/api/yourfunctionroute` > `POST`
 1. Click `Try it out` and enter a name to test
 1. You should see a SUCCESS result under `Pretty`
 ![API Definition test](./media/functions-api-definition-getting-started/definitionTest.png)
