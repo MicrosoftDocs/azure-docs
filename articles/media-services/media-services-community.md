@@ -4,7 +4,7 @@ description: 'This Azure Media Services (AMS) community page discusses different
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 0df020f4-8297-4f31-92bf-de098283e997

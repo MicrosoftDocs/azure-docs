@@ -10108,6 +10108,16 @@
             "source_path": "articles/active-directory/active-directory-azureadjoin-setup.md",
             "redirect_url": "/azure/active-directory/device-management-azure-portal",
             "redirect_document_id": false
-        }    
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-how-to-create-web-app.md",
+            "redirect_url": "/azure/app-service-web/app-service-linux-intro",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-get-insights.md",
+            "redirect_url": "/azure/active-directory/active-directory-passwords-reporting",
+            "redirect_document_id": false
+        }
     ]
 }
