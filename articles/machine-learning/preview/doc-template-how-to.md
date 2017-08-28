@@ -27,7 +27,7 @@ This is a [hyperlink to an article](./doc-template-concepts.md)
 
 This is an image:
 
-![This is an image description](media/doc-template-concepts/1-machine-learning-image.png)
+![This is an image description](media/doc-template-how-to/1-machine-learning-image.png)
 
 ## Section here H2
 This table has headings:
