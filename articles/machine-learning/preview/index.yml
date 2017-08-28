@@ -23,8 +23,8 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="preview-features-workbench">Workbench</a>
-    - html: <a href="preview-features-experimentation">Experimentation Service</a>
-    - html: <a href="preview-features-model-management">Model Management Service</a>
-    - html: <a href="preview-features-mmlspark">MMLSpark Library</a>
-    - html: <a href="preview-features-openmind">OpenMind</a>
+    - html: <a href="what-are-preview-features#workbench">Workbench</a>
+    - html: <a href="what-are-preview-features#experimentation-service">Experimentation Service</a>
+    - html: <a href="what-are-preview-features#model-management-service">Model Management Service</a>
+    - html: <a href="what-are-preview-features#mmlspark-library">MMLSpark Library</a>
+    - html: <a href="what-are-preview-features#openmind">OpenMind</a>
