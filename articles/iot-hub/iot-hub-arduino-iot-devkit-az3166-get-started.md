@@ -197,7 +197,7 @@ Download and install [Visual Studio Code for macOS](https://code.visualstudio.co
    > [!div class="button"]
    [Download](https://azureboard.azureedge.net/installpackage/devkit_tasks_1.0.2.zip)
 
-   Locate the .zip file and extract it. Then start the **Terminal** app and run the following commands:
+3. Locate the .zip file and extract it. Then start the **Terminal** app and run the following commands:
 
    a. Move extracted folder to your macOS user folder:
       ```bash
@@ -224,7 +224,7 @@ Add the DevKit board by using Board Manager in Visual Studio Code.
 2. Click **Additional URLs** at the lower right.
    ![Additional URLs link](media/iot-hub-arduino-devkit-az3166-get-started/installation-additional-urls-mac.png)
 
-3. In the settings.json file, add a line at the bottom of **USER SETTINGS** pane and save.
+3. In the settings.json file, add a line at the bottom of the **USER SETTINGS** pane and save.
    ```json
    "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
    ```
