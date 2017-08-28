@@ -185,7 +185,15 @@ Other important events include a warning when the reconfiguration takes longer t
 
 * **SourceId**: System.FM
 * **Property**: State
-* **Next steps**: If the health state is not OK, it's possible that some replicas have not been created, opened, or promoted to primary or secondary correctly. In many instances, the root cause is a service bug in the open or change-role implementation.
+* **Next steps**: If the health state is not OK, it's possible that some replicas have not been created, opened, or promoted to primary or secondary correctly. 
+
+If the description describes quorum loss then examining the detailed health report for replicas that are down and bringing them back up would help to bring the partition back online.
+
+If the description describes partition stuck in [reconfiguration](service-fabric-concepts-reconfiguration.md) then health report on the primary replica would provide additional information.
+
+For other System.FM health reports there would be reports on the replicas or the partition or service from other system components. 
+
+The examples below describe some of these reports. 
 
 The following example shows a healthy partition:
 
@@ -231,12 +239,12 @@ HealthEvents          :
                         TTL                   : Infinite
                         Description           : Partition is below target replica or instance count.
                         fabric:/WordCount/WordCountService 7 2 af2e3e44-a8f8-45ac-9f31-4093eb897600
-                          N/S RD _Node_2 Up 131444422260002646
-                          N/S RD _Node_4 Up 131444422293113678
-                          N/S RD _Node_3 Up 131444422293113679
-                          N/S RD _Node_1 Up 131444422293118720
-                          N/P RD _Node_0 Up 131444422293118721
-                          (Showing 5 out of 5 replicas. Total available replicas: 5.)
+                          N/S Ready _Node_2 131444422260002646
+                          N/S Ready _Node_4 131444422293113678
+                          N/S Ready _Node_3 131444422293113679
+                          N/S Ready _Node_1 131444422293118720
+                          N/P Ready _Node_0 131444422293118721
+                          (Showing 5 out of 5 replicas. Total available replicas: 5)
                         
                         RemoveWhenExpired     : False
                         IsExpired             : False
@@ -287,6 +295,55 @@ PS C:\> @(Get-ServiceFabricNode).Count
 5
 ```
 
+The following example shows the health of a partition that is stuck in reconfiguration due to the user not honouring the cancellation token in the RunAsync method. Investigating the health report of any replica marked as Primary (P) can help to drill down further into the problem.
+
+```powershell
+PS C:\utilities\ServiceFabricExplorer\ClientPackage\lib> Get-ServiceFabricPartitionHealth 0e40fd81-284d-4be4-a665-13bc5a6607ec -ExcludeHealthStatistics 
+
+
+PartitionId           : 0e40fd81-284d-4be4-a665-13bc5a6607ec
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', 
+                        ConsiderWarningAsError=false.
+                                               
+HealthEvents          : 
+                        SourceId              : System.FM
+                        Property              : State
+                        HealthState           : Warning
+                        SequenceNumber        : 7
+                        SentAt                : 8/27/2017 3:43:09 AM
+                        ReceivedAt            : 8/27/2017 3:43:32 AM
+                        TTL                   : Infinite
+                        Description           : Partition reconfiguration is taking longer than expected.
+                        fabric:/app/test1 3 1 0e40fd81-284d-4be4-a665-13bc5a6607ec
+                          P/S Ready Node1 131482789658160654
+                          S/P Ready Node2 131482789688598467
+                          S/S Ready Node3 131482789688598468
+                          (Showing 3 out of 3 replicas. Total available replicas: 3)                        
+                        
+                        For more information see: http://aka.ms/sfhealth
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Ok->Warning = 8/27/2017 3:43:32 AM, LastError = 1/1/0001 12:00:00 AM
+```
+This health report shows the state of the replicas of the partition undergoing reconfiguration. 
+
+```
+  P/S Ready Node1 131482789658160654
+  S/P Ready Node2 131482789688598467
+  S/S Ready Node3 131482789688598468
+```
+
+For each replica the health report contains:
+- Previous Configuration Role
+- Current Configuration Role
+- [Replica State](service-fabric-concepts-replica-lifecycle.md)
+- Node on which the replica is running
+- Replica id
+
+In such a case for instance, further investigation should proceed by investigating the health of each individual replica starting with the replicas marked as Primary (131482789658160654 and 131482789688598467) in the example above.
+
 ### Replica constraint violation
 **System.PLB** reports a warning if it detects a replica constraint violation and can't place all partition replicas. The report details show which constraints and properties prevent the replica placement.
 
@@ -324,14 +381,95 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/14/2017 4:55:13 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### Replica open status
-The description of this health report contains the start time (Coordinated Universal Time) when the API call was invoked.
+### ReplicaOpenStatus, ReplicaCloseStatus, ReplicaChangeRoleStatus
+This property is used to indicate warnings or failures when attempting to  open a replica, close a replica or transition a replica from one role to another (see [Replica Lifecycle](service-fabric-concepts-replica-lifecycle.md)). The failures could be exceptions thrown from the api calls or crashes of the service host process during this time. For failures due to api calls from C# code, service fabric will add the exception and stack trace to the health report.
 
-**System.RA** reports a warning if the replica open takes longer than the configured period (default: 30 minutes). If the API impacts service availability, the report is issued much faster (a configurable interval, with a default of 30 seconds). The time measured includes the time taken for the replicator open and the service open. The property changes to OK if the open completes.
+These health warnings are raised after retrying the action locally some number of times (depending on policy). Service fabric will continue to retry the action up to a maximum threshold after which it may try to take action to correct the situation which may cause these warnings to get cleared as it gives up on the action on this node. For example: if a replica is failing to open on a node service fabric will raising a health warning. If the replica continues to fail the open, service fabric will take action to self-repair which may involve trying the same operation on another node. This would cause the warning raised for this replica to be cleared. 
 
 * **SourceId**: System.RA
-* **Property**: **ReplicaOpenStatus**
-* **Next steps**: If the health state is not OK, investigate why the replica open takes longer than expected.
+* **Property**: **ReplicaOpenStatus**, **ReplicaCloseStatus**, **ReplicaChangeRoleStatus**
+* **Next steps**: Investigate the service code or crash dumps to identify why the operation is failing.
+
+The following example shows the health of a replica that is throwing `TargetInvocationException` from its open method. The description contains the point of failure (IStatefulServiceReplica.Open), the exception type (TargetInvocationException) and the stacktrace.
+
+```powershell
+PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794
+
+
+PartitionId           : 337cf1df-6cab-4825-99a9-7595090c0b1b
+ReplicaId             : 131483509874784794
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.RA', Property='ReplicaOpenStatus', HealthState='Warning', 
+                        ConsiderWarningAsError=false.
+                        
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : ReplicaOpenStatus
+                        HealthState           : Warning
+                        SequenceNumber        : 131483510001453159
+                        SentAt                : 8/27/2017 11:43:20 PM
+                        ReceivedAt            : 8/27/2017 11:43:21 PM
+                        TTL                   : Infinite
+                        Description           : Replica had multiple failures during open on _Node_0 API call: IStatefulServiceReplica.Open(); Error = System.Reflection.TargetInvocationException (-2146232828)
+Exception has been thrown by the target of an invocation.
+   at Microsoft.ServiceFabric.Replicator.RecoveryManager.d__31.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.ServiceFabric.Replicator.LoggingReplicator.d__137.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.ServiceFabric.Replicator.DynamicStateManager.d__109.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.ServiceFabric.Replicator.TransactionalReplicator.d__79.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.ServiceFabric.Replicator.StatefulServiceReplica.d__21.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.ServiceFabric.Services.Runtime.StatefulServiceReplicaAdapter.d__0.MoveNext()
+
+    For more information see: http://aka.ms/sfhealth
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 8/27/2017 11:43:21 PM, LastOk = 1/1/0001 12:00:00 AM                        
+```
+
+The following example shows a replica that is constantly crashing during close.
+
+```Powershell
+C:>Get-ServiceFabricReplicaHealth -PartitionId dcafb6b7-9446-425c-8b90-b3fdf3859e64 -ReplicaOrInstanceId 131483565548493142
+
+
+PartitionId           : dcafb6b7-9446-425c-8b90-b3fdf3859e64
+ReplicaId             : 131483565548493142
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.RA', Property='ReplicaCloseStatus', HealthState='Warning', 
+                        ConsiderWarningAsError=false.
+                        
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : ReplicaCloseStatus
+                        HealthState           : Warning
+                        SequenceNumber        : 131483565611258984
+                        SentAt                : 8/28/2017 1:16:01 AM
+                        ReceivedAt            : 8/28/2017 1:16:03 AM
+                        TTL                   : Infinite
+                        Description           : Replica had multiple failures during close on _Node_1. The application 
+                        host has crashed.
+                        
+                        For more information see: http://aka.ms/sfhealth
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 8/28/2017 1:16:03 AM, LastOk = 1/1/0001 12:00:00 AM
+```
 
 ### Slow service API call
 **System.RAP** and **System.Replicator** report a warning if a call to the user service code takes longer than the configured time. The warning is cleared when the call completes.
