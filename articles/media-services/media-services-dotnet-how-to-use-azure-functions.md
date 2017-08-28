@@ -53,9 +53,9 @@ For example:
 
 The function, defined in this article, assumes you have the following environment variables in your app settings:
 
-**AMSAADTenantDomain** : Azure AD tenant endpoint.
+**AMSAADTenantDomain** : Azure AD tenant endpoint. For more information about connecting to the AMS API, see [this](media-services-use-aad-auth-to-access-ams-api.md) article.
 
-**AMSRESTAPIEndpoint** :  URI that represents the REST API endpoint (for example, https://test03.restv2.westus.media.azure.net/api/).
+**AMSRESTAPIEndpoint** :  URI that represents the REST API endpoint. 
 
 **AMSClientId** : Azure AD application client ID.
 
@@ -338,7 +338,7 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 
 To test your function, you need to upload an MP4 file into the **input** container of the storage account that you specified in the connection string.  
 
-## Next step
+## Next steps
 
 At this point, you are ready to start developing a Media Services application. 
  
