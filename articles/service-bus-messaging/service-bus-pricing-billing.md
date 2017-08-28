@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/28/2017
 ms.author: sethm
 
 ---
@@ -68,9 +68,9 @@ The Standard tier removes the per-namespace brokered connection limit and counts
 >
 >
 
-| Premium Tier |
-| --- |
-| Brokered connections are not charged in the Premium tier. |
+### Premium Tier
+
+Brokered connections are not charged in the Premium tier.
 
 For more information about brokered connections, see the [FAQ](#faq) section later in this topic.
 
