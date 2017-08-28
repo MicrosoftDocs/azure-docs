@@ -12,7 +12,7 @@ ms.date: 02/08/2017
 ms.author: panosper
 ---
 
-# Obtaining subscription Keys
+# Obtaining subscription keys
 To get started using the Custom Speech Service, you first need to link your user account to an Azure subscription. Subscriptions to **free** and **paid** tiers are available. For information about the tiers, visit the [pricing page](https://www.microsoft.com/cognitive-services/en-us/pricing).
 
 Follow the steps to get a subscription key from Azure portal:
