@@ -1,6 +1,6 @@
 ---
 title: Create custom connectors from Web APIs - Azure Logic Apps | Microsoft Docs
-description: Build custom connectors from Web APIs for Azure Logic Apps
+description: Build custom connectors from Web APIs
 author: ecfan
 manager: anneta
 editor: 
@@ -17,12 +17,12 @@ ms.date: 09/1/2017
 ms.author: LADocs; estfan
 ---
 
-# Build custom connectors from Web APIs in Azure Logic Apps
+# Create custom connectors from Web APIs
 
-To create a custom connector that you can call from logic app workflows, 
-create a Web API that you can host with Azure Web Apps, 
-authenticate with Azure Active Directory, 
-and register as a connector with Azure Logic Apps. 
+To create a custom connector that you can use in Azure Logic Apps, 
+Microsoft Flow, or Microsoft PowerApps, create a Web API that 
+you can host with Azure Web Apps, authenticate with Azure Active Directory, 
+and register as a connector with Logic Apps, Flow, or PowerApps. 
 This tutorial shows you how to perform these tasks 
 by building an ASP.NET Web API app.
 
@@ -103,10 +103,10 @@ and choose **Create**.
 6. After Visual Studio deploys your project, 
 build the code for your app.
 
-## Create a Swagger file that describes your Web API
+## Create an OpenAPI (Swagger) file that describes your Web API
 
 To connect your Web API app to Logic Apps, 
-you need a [Swagger file](http://swagger.io/) 
+you need an [OpenAPI (formerly Swagger) file](http://swagger.io/) 
 that describes your API's operations. 
 You can write your own OpenAPI definition for your API with the 
 [Swagger online editor](http://editor.swagger.io/), 
@@ -162,7 +162,7 @@ you might have to copy and paste the text into an empty text file.
 
 ## Next steps
 
-* [Authenticate custom connectors with Azure Active Directory](../logic-apps/logic-apps-custom-api-connector-azure-active-directory.md)
+* [Set up authentication for custom connectors](../logic-apps/custom-connector-security-authentication-overview.md)
 
 
 

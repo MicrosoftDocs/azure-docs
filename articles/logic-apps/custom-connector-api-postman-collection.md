@@ -1,6 +1,6 @@
 ---
-title: Describe your custom APIs with Postman - Azure Logic Apps | Microsoft Docs
-description: Create Postman collections to describe, group, and organize your custom APIs
+title: Describe custom APIs and connectors with Postman - Azure Logic Apps | Microsoft Docs
+description: Create Postman collections to describe, group, and organize your custom APIs and connectors
 author: ecfan
 manager: anneta
 editor: 
@@ -17,16 +17,21 @@ ms.date: 09/1/2017
 ms.author: LADocs; estfan
 ---
 
-# Describe your custom APIs with Postman
+# Describe custom APIs and custom connectors with Postman collections
 
-[Postman](https://www.getpostman.com/) makes your API development faster and easier. 
+To make developing [custom APIs](../logic-apps/create-api-app.md) 
+and [custom connectors](../logic-apps/custom-connector-overview.md) 
+faster and easier, you can create [Postman](https://www.getpostman.com/) collections, 
+rather build OpenAPI documents, for describing your APIs and connectors. 
+Postman collections help you organize and group related API requests. 
+For example, you can use Postman when creating connectors 
+for Azure Logic Apps, Microsoft Flow, or Microsoft PowerApps. 
+
 This tutorial shows how to create a [Postman collection](https://www.getpostman.com/docs/postman/collections/creating_collections) 
-and as the example, uses the [Azure Cognitive Services Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/), 
-or more specifically, the [Detect Language API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
-This API identifies the language, sentiment, and key phrases in text that you pass 
-to the API. You can then use your Postman collection to easily create 
-[custom APIs and connectors](../logic-apps/logic-apps-custom-api-connector-register.md) 
-for Azure Logic Apps, Microsoft Flow, or Microsoft PowerApps.
+by using the [Detect Language API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) 
+in [Azure Cognitive Services Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) 
+as the example. This API identifies the language, sentiment, 
+and key phrases in text that you pass to the API.
 
 ## Prerequisites
 
@@ -42,8 +47,8 @@ Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.co
 
 ## Create a Postman collection
 
-Postman collections help you organize and group related API requests. 
-Before you can create a collection, create an HTTP request for your API endpoint. 
+Before you can create a collection, 
+create an HTTP request for your API endpoint. 
 
 ### Create an HTTP request for your API
 
@@ -136,7 +141,8 @@ That way, the response appears as an example when you load the request later.
 
 2. Provide a name for your example, and choose **Save Example**.
 
-3. Continue building your Postman collection with any additional requests and responses.
+3. Continue building your Postman collection with 
+any additional requests and responses.
 
 ### Export your Postman collection
 
@@ -151,19 +157,19 @@ and browse to the location where you want to save the JSON file.
    
 You can now use this Postman collection for creating custom APIs and connectors. 
 After you export the collection, you can import the JSON file into Azure Logic Apps, 
-Microsoft Flow, and Microsoft PowerApps.
+Microsoft Flow, or Microsoft PowerApps.
 
 > [!IMPORTANT]
-> **DOES THIS APPLY TO LOGIC APPS??**
-> When you create a custom connector from a Postman collection, 
-> make sure that you remove the `Content-type` header from actions and triggers. 
-> Logic Apps automatically adds this header. Also, you should define authentication headers, 
-> such as `Ocp-Apim-Subscription-Key` in the **Security** section **FLOW ONLY? - WHAT SECURITY SECTION?**,
-> and remove them from actions and triggers.
+> 
+> When you create a custom API or connector from a Postman collection, 
+> remove the `Content-type` header from actions and triggers. 
+> The target service, for example, Logic Apps, automatically adds this header. 
+> Also, define authentication headers, such as `Ocp-Apim-Subscription-Key`, 
+> in the **Security** section, and remove those headers from actions and triggers.
 
 ## Next steps
 
-[Register custom APIs and connectors for Azure Logic Apps](../logic-apps/logic-apps-custom-api-connector-register.md)
+[Register custom connectors for Azure Logic Apps](../logic-apps/logic-apps-custom-connector-register.md)
 
 
 

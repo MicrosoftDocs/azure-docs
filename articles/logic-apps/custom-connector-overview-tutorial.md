@@ -1,6 +1,6 @@
-fc---
-title: Register your custom connectors - Azure Logic Apps | Microsoft Docs
-description: Register your custom connectors for Azure Logic Apps
+---
+title: Custom connector overview details - Azure Logic Apps | Microsoft Docs
+description: Register your custom connectors in Azure Logic Apps
 author: ecfan
 manager: anneta
 editor: 
@@ -25,17 +25,11 @@ and web services naturally fit this scenario.
 Your workflow can connect to a service, perform operations, 
 and get data back. When you have a web service that 
 you want to connect to Azure Logic Apps, 
-you can register your service as a custom connector. 
-This process helps Azure Logic Apps understand the 
-your Web API's characteristics, including the required authentication, 
-the supported operations, and the parameters and outputs for each operation.
 
-This topic describes the steps for how to register and use a custom connector 
-by using the Azure Cognitive Services Text Analytics API as our example. 
-This API identifies the language, sentiment, and key phrases in the text 
-that you pass to this API. For example, this image shows the interaction 
-between your service, the custom API, or connector, that we create from 
-that service, and the logic app that calls the API.
+
+This image shows the interaction between your API (service), 
+the custom connector that you create from that API, 
+and the logic app that calls the API.
 
 ![Conceptual overview for Azure Cognitive Services API, custom connector, and Logic Apps](./media/logic-apps-register-custom-api-connector/custom-connector-conceptual.png)
 
@@ -155,23 +149,21 @@ from their site.
 
 * **NEED LOGIC APPS INFO** 
 If you built your API with Azure API Apps or Azure Functions, see 
-[Exporting an Azure hosted API to Microsoft Flow and Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md).
+[Exporting an Azure-hosted API](../app-service/app-service-export-api-to-powerapps-and-flow.md).
 
 ## Register your custom connector
 
-Now register your custom connector in Logic Apps by 
-using your OpenAPI file or Postman collection.
+Now register your custom connector with Logic Apps, Flow, or PowerApps 
+by importing your OpenAPI file or Postman collection.
 
-**NEED LOGIC APPS STEPS IN AZURE PORTAL STEPS**
-
-#### Quota and throttling 
+### Quota and throttling 
 
 **NEED LOGIC APPS INFO**
 
 * For details about custom connector creation quotas, 
 see the Logic Apps pricing page.
 
-* For each connection created for a custom connector, 
+* For each connection that's created for a custom connector, 
 users can make up to **# FOR LOGIC APPS** requests per minute.
 
 ## Share your custom connector
@@ -182,12 +174,12 @@ Remember that when you share an custom connector,
 others might start to depend on that connector, 
 and deleting the connector deletes all connections to that connector. 
 To provide a connector for users outside your organization, 
-see [Certify custom connectors in Logic Apps](**NEED LOGIC APPS TOPIC**).
+see [Certify custom connectors](**NEED LOGIC APPS TOPIC**).
 
 **NEED LOGIC APPS INFO**
 
 ## Next steps
 
-* [Create a custom Web API (connector) for Logic Apps](../logic-apps/logic-apps-custom-api-connector-web-app-tutorial.md)
-* [Describe custom connectors with Postman](../logic-apps/logic-apps-custom-api-connector-postman-collection.md)
-* [Custom OpenAPI extensions](../logic-apps/customapi-how-to-swagger.md)
+* [Create custom connectors from Web APIs](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
+* [Describe custom connectors with Postman](../logic-apps/custom-connector-api-postman-collection.md)
+* [OpenAPI extensions for custom connectors](../logic-apps/customapi-how-to-swagger.md)

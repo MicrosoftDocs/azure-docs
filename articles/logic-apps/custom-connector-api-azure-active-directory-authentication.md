@@ -1,5 +1,5 @@
 ---
-title: Authenticate custom connectors with Azure Active Directory - Azure Logic Apps | Microsoft Docs
+title: Authenticate custom connectors with Azure AD - Azure Logic Apps | Microsoft Docs
 description: Add authentication to custom connectors with Azure Active Directory (Azure AD)
 author: ecfan
 manager: anneta

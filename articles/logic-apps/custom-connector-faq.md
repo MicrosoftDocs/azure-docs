@@ -1,6 +1,6 @@
 ---
-title: Custom API connector FAQ - Azure Logic Apps | Microsoft Docs
-description: FAQ about requirements, triggers, and so on about creating custom API connectors for Azure Logic Apps
+title: Custom connector FAQ - Azure Logic Apps | Microsoft Docs
+description: FAQ about requirements, triggers, and so on about creating custom  connectors
 author: ecfan
 manager: anneta
 editor: 
@@ -17,19 +17,21 @@ ms.date: 09/1/2017
 ms.author: LADocs; estfan
 ---
 
-# FAQ: Custom API connectors for Azure Logic Apps
+# FAQ: Custom connectors
 
 ## Requirements
 
 **Q:** I'm not an ISV, so can I still build a connector? </br>
-**A:** To publicly release a connector,
+**A:** If you want to certify and publicly release a connector, 
 you must either own the underlying service or present explicit rights to use the API.
 
 **Q:** Can I build a connector without REST APIs? </br>
-**A:** No, to build an API connector, you must support stable HTTP REST APIs for your service. 
+**A:** No, to build a connector, you must support stable HTTP REST APIs 
+for your service. 
 
 **Q:** What tools can I use to create a connector? </br>
-**A:** Azure has capabilities and services that you can use for exposing any service as an API, 
+**A:** Azure has capabilities and services that 
+you can use for exposing any service as an API, 
 such as Azure App Service for hosting, API Management, and more.
 
 **Q:** What authentication types are supported? </br>
@@ -42,7 +44,8 @@ such as Azure App Service for hosting, API Management, and more.
 ## Triggers
 
 **Q:** Can I build triggers without webhooks? </br>
-**A:** API connectors for Azure Logic Apps and Flow let you build webhook-based triggers only. 
+**A:** No, custom connectors for Azure Logic Apps and Microsoft Flow 
+support only webhook-based triggers. 
 If you want to request other patterns for implementation, 
 contact [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com) 
 with more details about your API.
@@ -50,7 +53,7 @@ with more details about your API.
 ## Other
 
 **Q:** My APIs use a dynamic host. How do I implement them with OpenAPI? </br>
-**A:** The API connector feature doesn't support dynamic hosts. 
+**A:** Custom connectors don't support dynamic hosts. 
 Please use a static host for development and testing purposes. 
 During submission, talk to your Microsoft contact regarding the dynamic implementation.
 
