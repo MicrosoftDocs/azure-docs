@@ -18,3 +18,6 @@ ms.author: shlo
 
 ---
 # Copy Activity in Azure Data Factory
+
+
+## Supported data stores and formats

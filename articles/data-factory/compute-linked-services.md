@@ -99,7 +99,7 @@ The Azure Data Factory service can automatically create a Windows/Linux-based on
 Note the following **important** points about on-demand HDInsight linked service:
 
 * You do not see the on-demand HDInsight cluster created in your Azure subscription. the Azure Data Factory service manages the on-demand HDInsight cluster on your behalf.
-* The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. You can access these logs from the Azure portal in the **Activity Run Details** blade. See [Monitor and Manage Pipelines](monitor-programmatically.md) article for details.
+* The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. You can access these logs from the Azure portal in the **Activity Run Details** blade. See [Monitor and Manage Pipelines](monitor-manage-pipelines.md) article for details.
 * You are charged only for the time when the HDInsight cluster is up and running jobs.
 
 > [!IMPORTANT]

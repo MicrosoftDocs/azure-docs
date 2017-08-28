@@ -1,5 +1,5 @@
 ---
-title: Create an Azure data factory using Java | Microsoft Docs
+title: Create an Azure data factory using portal | Microsoft Docs
 description: 'Create an Azure data factory to copy data from a cloud data store (Azure Blob Storage) to another cloud data store (Azure SQL Databse).'
 services: data-factory
 documentationcenter: ''
@@ -9,11 +9,9 @@ editor: spelluru
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
-ms.devlang: java
 ms.topic: hero-article
 ms.date: 08/24/2017
 ms.author: jingwang
 
 ---
-# Create an Azure data factory using Java
+# Create a data factory using Azure portal
