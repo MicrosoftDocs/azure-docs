@@ -25,11 +25,11 @@ If you choose to install and use the CLI locally, this topic requires that you a
 In the sample script, change the highlighted lines to customize the admin username and password. Replace the subscription id used in the az monitor commands with your own subscription id.
 
 The script is included from another repo meant just for CLI scripts.
-[!code-azurecli-interactive[main](../../../cli_scripts/machine-learning/article-name/create-script.sh?highlight=2-3 "Description here.")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh?highlight=2-3 "Description here.")]
 
 ## Clean up deployment
 After the script sample has run, the following command can be used to remove the resource group and all resources associated with it.
-[!code-azurecli-interactive[main](../../../cli_scripts/machine-learning/article-name/delete-script.sh "Delete the resource group.")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/delete-postgresql.sh  "Delete the resource group.")]
 
 ## Script explanation
 A script uses the following commands. Each command in the table links to command specific documentation.
