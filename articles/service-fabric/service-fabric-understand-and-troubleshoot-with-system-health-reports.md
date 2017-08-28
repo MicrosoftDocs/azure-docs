@@ -390,7 +390,7 @@ These health warnings are raised after retrying the action locally some number o
 * **Property**: **ReplicaOpenStatus**, **ReplicaCloseStatus**, **ReplicaChangeRoleStatus**
 * **Next steps**: Investigate the service code or crash dumps to identify why the operation is failing.
 
-The following example shows the health of a replica that is throwing `TargetInvocationException` from its open method. The description contains the point of failure (IStatefulServiceReplica.Open), the exception type (TargetInvocationException) and the stacktrace.
+The following example shows the health of a replica that is throwing `TargetInvocationException` from its open method. The description contains the point of failure (**IStatefulServiceReplica.Open**), the exception type (**TargetInvocationException**) and the stacktrace.
 
 ```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794

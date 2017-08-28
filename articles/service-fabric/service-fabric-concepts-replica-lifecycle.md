@@ -3,7 +3,7 @@ title: Replicas and Instances | Microsoft Docs
 description: Understand replicas, instances their function and lifecycle
 services: service-fabric
 documentationcenter: .net
-author: aprameyr
+author: appi101
 manager: anuragg
 editor: 
 
@@ -111,11 +111,11 @@ The replica role is not relevant in the standby state.
 # Replica Role 
 The role of the replica determines its function in the replica set.
 
-- Primary(P): There is one primary in the replica set which is responsible for performing read and write operations. 
-- ActiveSecondary(S): These are replicas that receive state updates from the primary, apply them and send back acknowledgements. There are multiple active secondaries in the replica set and the number of these determines the number of faults the service can handle.
-- IdleSecondary(I): These replicas are being built by the primary that is, they are receiving state from the primary before they can be promoted to active secondary. 
-- None(N): These replicas do not have a responsibility in the replica set.
-- Unknown(U): This is the initial role of a replica before it receives any ChangeRole api call from service fabric.
+- **Primary (P)**: There is one primary in the replica set which is responsible for performing read and write operations. 
+- **ActiveSecondary (S)**: These are replicas that receive state updates from the primary, apply them and send back acknowledgements. There are multiple active secondaries in the replica set and the number of these determines the number of faults the service can handle.
+- **IdleSecondary (I)**: These replicas are being built by the primary that is, they are receiving state from the primary before they can be promoted to active secondary. 
+- **None (N)**: These replicas do not have a responsibility in the replica set.
+- **Unknown (U)**: This is the initial role of a replica before it receives any ChangeRole api call from service fabric.
 
 The following section describes replica role transitions and some example scenarios in which they may occur:
 
