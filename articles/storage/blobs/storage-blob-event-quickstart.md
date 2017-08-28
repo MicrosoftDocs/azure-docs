@@ -125,7 +125,7 @@ You have triggered the event, and Event Grid sent the message to the endpoint yo
 ```
 
 ## Clean up resources
-If you plan to continue working with this event, do not clean up the resources created in this article. If you do not plan to continue, use the following command to delete the resources you created in this article.
+If you plan to continue working with this storage account and event subscription, do not clean up the resources created in this article. If you do not plan to continue, use the following command to delete the resources you created in this article.
 
 Replace `<resource_group_name>` with the resource group you created above.
 
