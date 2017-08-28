@@ -1,4 +1,11 @@
-To build and run modern applications and services in the cloud, developers typically use containers and microservices. Azure supports many common container solutions such as Docker, Kubernetes, DC/OS, and Service Fabric. You can quickly create single containers with Azure Container Instances, deploy a complete infrastructure with Azure Container Services, and store and use containers images from Azure Container Registry. This article introduces some of the container solutions that you can use in Azure.
+To build and run modern applications and services in the cloud, developers typically use containers and microservices. Containers are light-weight and portable when compared to full virtual machines (VMs) for application workloads. The container itself runs in the user space of an existing VM, isolated from other containers and the guest OS. You can build and run containers on your local computer as you develop your code, then push that exact same container to a host in Azure, without modification. As you only run the application code and associated libraries, containers typically start up much faster and have less overhead than VMs.
+
+Both Linux and Windows container workloads are supported, which gives you flexibility to build and run your application on the platform of your choice.
+
+- For Windows workloads and containers, [Service Fabric](#service-fabric) is a container orchestrator native to Azure that provides many features to build first-class Windows microservices. Service Fabric can also run Linux containers to provide a common orchestration platform for developers to work on.
+- For Linux workloads and containers, Azure Container Service (ACS) provides a choice of open-source orchestrators such as Kubernetes, DC/OS, and Docker CE. You can also continue to use common container tools such as Docker Compose, kubectl, Helm, and Draft. ACS also supports Windows containers.
+
+This article introduces some of the container solutions that you can use in Azure.
 
 
 ## Docker on virtual machines
