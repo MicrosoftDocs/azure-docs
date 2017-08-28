@@ -39,8 +39,8 @@ To start the iterative process of training, you first need to train your LUIS ap
 
 <!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
 
-    >[!NOTE]
-    >If you have one or more intents in your app that do not contain example utterances, you cannot train your app until you add utterances for all your intents. For more information, see [Add example utterances](Add-example-utterances.md).
+>[!NOTE]
+>If you have one or more intents in your app that do not contain example utterances, you cannot train your app until you add utterances for all your intents. For more information, see [Add example utterances](Add-example-utterances.md).
 
 ## Test your app
 LUIS provides two types of testing: interactive testing and batch testing. You can use either of them by using the corresponding tab on the **Test App** page.
