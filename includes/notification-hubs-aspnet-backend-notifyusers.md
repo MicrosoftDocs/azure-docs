@@ -40,7 +40,7 @@ Create the new ASP.NET WebAPI back end by doing the following:
     * Select an app service plan that you've already created. 
     * Select **Create a new app service plan**, and then create one. 
     
-    You do not need a database for this tutorial. After you have selected your app service plan, select **OK** to create the project.
+  You do not need a database for this tutorial. After you have selected your app service plan, select **OK** to create the project.
    
     ![The Configure Microsoft Azure Web App window][B5]
 
@@ -49,7 +49,7 @@ In this section, you create a new message-handler class named **AuthenticationTe
 
 1. In Solution Explorer, right-click the **AppBackend** project, select **Add**, then select **Class**. 
  
-2. Name the new class **AuthenticationTestHandler.cs**, and select **Add** to generate the class. This class authenticates users by using *Basic Authentication* for simplicity. Your app can use any authentication scheme.
+2. Name the new class **AuthenticationTestHandler.cs**, and then select **Add** to generate the class. This class authenticates users by using *Basic Authentication* for simplicity. Your app can use any authentication scheme.
 
 3. In AuthenticationTestHandler.cs, add the following `using` statements:
    
@@ -68,7 +68,7 @@ In this section, you create a new message-handler class named **AuthenticationTe
    * The request uses *basic* authentication. 
    * The user name string and the password string are the same string.
      
-  Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is just a very simple example for this tutorial.
+  Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is only a very simple example for this tutorial.
      
   If the request message is authenticated and authorized by `AuthenticationTestHandler`, the basic authentication user is attached to the current request on [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
      
@@ -134,13 +134,13 @@ In this section, you add a new controller to the WebAPI back end to handle reque
 
 1. In Solution Explorer, right-click the **AppBackend** project and then select **Manage NuGet Packages**.
 
-2. On the left-hand side, select **Online**, and search for **Microsoft.Azure.NotificationHubs** in the **Search** box.
+2. In the left pane, select **Online** and then, in the **Search** box, type **Microsoft.Azure.NotificationHubs**.
 
-3. In the results list, select **Microsoft Azure Notification Hubs**, and then select **Install**. Complete the installation, then close the NuGet package manager window.
+3. In the results list, select **Microsoft Azure Notification Hubs**, and then select **Install**. Complete the installation, and then close the NuGet Package Manager window.
    
-    This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
+    This action adds a reference to the Azure Notification Hubs SDK by using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
 
-4. You now create a new class file that represents the connection with the notification hub that's used to send notifications. In Solution Explorer, right-click the **Models** folder, select **Add**, and then select **Class**. Name the new class **Notifications.cs**, and then select **Add** to generate the class. 
+4. Create a new class file that represents the connection with the notification hub that's used to send notifications. In Solution Explorer, right-click the **Models** folder, select **Add**, and then select **Class**. Name the new class **Notifications.cs**, and then select **Add** to generate the class. 
    
     ![The Add New Item window][B6]
 
@@ -161,15 +161,17 @@ In this section, you add a new controller to the WebAPI back end to handle reque
                                                                              "<hub name>");
             }
         }
-7. Next, you create a new controller named **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, select **Add**, and then select **Controller**. 
+7. Next, create a new controller named **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, select **Add**, and then select **Controller**. 
 
-8. Select **Web API 2 Controller - Empty**, and then select **Add**. Name the new class **RegisterController**, and then select **Add** again to generate the controller.
+8. Select **Web API 2 Controller - Empty**, and then select **Add**.
    
     ![The Add Scaffold window][B7]
    
+9. In the **Controller name** box, type **RegisterController** to name the new class, and then select **Add**.
+
     ![The Add Controller window][B8]
 
-9. In RegisterController.cs, add the following `using` statements:
+10. In RegisterController.cs, add the following `using` statements:
    
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.NotificationHubs.Messaging;
@@ -177,7 +179,7 @@ In this section, you add a new controller to the WebAPI back end to handle reque
         using System.Threading.Tasks;
         using System.Web;
 
-10. Add the following code inside the `RegisterController` class definition. Note that in this code, we add a user tag for the user that's attached to HttpContext. The user was authenticated and attached to HttpContext by the message filter that we added, `AuthenticationTestHandler`. You can also add optional checks to verify that the user has rights to register for the requested tags.
+11. Add the following code inside the `RegisterController` class definition. Note that in this code, we add a user tag for the user that's attached to HttpContext. The user was authenticated and attached to HttpContext by the message filter that we added, `AuthenticationTestHandler`. You can also add optional checks to verify that the user has rights to register for the requested tags.
    
         private NotificationHubClient hub;
    
@@ -282,12 +284,12 @@ In this section, you add a new controller to the WebAPI back end to handle reque
                     throw new HttpRequestException(HttpStatusCode.Gone.ToString());
             }
         }
-11. Save your changes.
+12. Save your changes.
 
 ## Send notifications from the WebAPI back end
 In this section you add a new controller that exposes a way for client devices to send a notification. The notification is based on the username tag that uses Azure Notification Hubs Service Management Library in the ASP.NET WebAPI back end.
 
-1. Create another new controller named **NotificationsController**. Create it the same way you created the **RegisterController** in the previous section.
+1. Create another new controller named **NotificationsController** the same way you created **RegisterController** in the previous section.
 
 2. In NotificationsController.cs, add the following `using` statements:
    
@@ -342,7 +344,8 @@ In this section you add a new controller that exposes a way for client devices t
    
             return Request.CreateResponse(ret);
         }
-4. To run the application and ensure the accuracy of your work so far, select the **F5** key. The app should launch a web browser and be displayed on the ASP.NET home page. 
+
+4. To run the application and ensure the accuracy of your work so far, select the **F5** key. The app opens a web browser, and it is displayed on the ASP.NET home page. 
 
 ## Publish the new WebAPI back end
 Next, you deploy the app to an Azure website to make it accessible from all devices. 
@@ -362,7 +365,7 @@ Next, you deploy the app to an Azure website to make it accessible from all devi
 
 6. Select **Publish**.
 
-After you've completed the wizard, it publishes the ASP.NET web app to Azure, and then launches the app in the default browser.  Your application will be viewable in Azure App Services.
+After you've completed the wizard, it publishes the ASP.NET web app to Azure and then opens the app in the default browser.  Your application is viewable in Azure App Services.
 
 The URL uses the web app name that you specified earlier, with the format http://<app_name>.azurewebsites.net.
 
