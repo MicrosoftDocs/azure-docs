@@ -7,7 +7,7 @@
   items:
   - name: C#
     href: quick-start.md
-- name: How-to
+- name: How-to guides
   items:
    - name: Sign up
      href: text-analytics-howto-signup.md
