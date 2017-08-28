@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/24/2017
+ms.date: 08/28/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
 
@@ -383,7 +383,7 @@ After you have restored the disks, use these steps to create and configure the v
     * [Non-managed and encrypted VMs (BEK and KEK)](#non-managed-encrypted-vms-bek-and-kek)
     * [Managed and non-encrypted VMs](#managed-non-encrypted-vms)
     * [Managed and encrypted VMs (BEK and KEK)](#managed-encrypted-vms-bek-and-kek)
-
+    
     #### Non-managed, non-encrypted VMs
 
     Use the following sample for non-managed, non-encrypted VMs.
