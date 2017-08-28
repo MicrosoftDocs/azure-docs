@@ -15,10 +15,10 @@ ms.date: 03/28/2017
 ms.author: samacha
 ---
 
-This functionality is in preview. We do not recommend use in production.
+> [!IMPORTANT]
+> This functionality is in preview. We do not recommend use in production.
 
-ANOMALYDETECTION
-----------------
+# ANOMALYDETECTION
 
 The ANOMALYDETECTION operator can be used to detect anomalies in event streams.
 For example, a slow decrease in free memory over a long time can be indicative
@@ -26,15 +26,10 @@ of a memory leak, or the number of web service requests that are stable in a
 range might dramatically increase or decrease.
 
 It checks for the following types of anomalies over the specified duration:
----------------------------------------------------------------------------
 
-1. Bidirectional level change
------------------------------
-
-2. Slow positive trend
-----------------------
-
-3. Slow negative trend
+- Bidirectional level change
+- Slow positive trend
+- Slow negative trend
 
 The time interval for how far back in history from the current event needs to be
 looked at is limited using the LIMIT DURATION clause. ANOMALYDETECTION can
