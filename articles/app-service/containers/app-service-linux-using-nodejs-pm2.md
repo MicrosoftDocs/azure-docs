@@ -20,7 +20,7 @@ ms.author: naziml;wesmc
 ---
 # Use PM2 configuration for Node.js in Azure Web App on Linux
 
-[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+[!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
 
 
 If you set the application stack to Node.js for Azure Web App on Linux, you get the option to set a Node.js startup file as shown in the following image:
@@ -41,11 +41,11 @@ You can check the Node.js [process file documentation](http://pm2.keymetrics.io/
 
         {
           "name"        : "worker",
-          "script"      : "/bin/server.js",
+          "script"      : "./bin/server.js",
           "instances"   : 1,
           "merge_logs"  : true,
           "log_date_format" : "YYYY-MM-DD HH:mm Z",
-          "watch": ["/bin/server.js", "foo.txt"],
+          "watch": ["./bin/server.js", "foo.txt"],
           "watch_options": {
             "followSymlinks": true,
             "usePolling"   : true,

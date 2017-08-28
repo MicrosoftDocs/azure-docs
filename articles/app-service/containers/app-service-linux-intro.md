@@ -20,7 +20,7 @@ ms.author: naziml;wesmc
 ---
 # Introduction to Azure Web App on Linux
 
-[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+[!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
 
 ## Overview
 Customers can use Web App on Linux to host web apps natively on Linux for supported application stacks. The following section lists the application stacks that are currently supported. 
@@ -109,14 +109,13 @@ You can access the SCM site from **Advanced Tools** in the **Development Tools**
 ## Next steps
 See the following links to get started with App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Creating Web Apps in Azure Web App on Linux](app-service-linux-how-to-create-web-app.md)
-* [How to use a custom Docker image for Azure Web App on Linux](app-service-linux-using-custom-docker-image.md)
+* [How to use a custom Docker image for Azure Web App on Linux](tutorial-custom-docker-image.md)
 * [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
-* [Using .NET Core in Azure App Service Web App on Linux](app-service-linux-using-dotnetcore.md)
-* [Using Ruby in Azure App Service Web App on Linux](app-service-linux-ruby-get-started.md)
+* [Using .NET Core in Azure App Service Web App on Linux](quickstart-dotnetcore.md)
+* [Using Ruby in Azure App Service Web App on Linux](quickstart-ruby.md)
 * [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
-* [SSH support for Azure Web App on Linux](./app-service-linux-ssh-support.md)
-* [Set up staging environments in Azure App Service](./web-sites-staged-publishing.md)
+* [SSH support for Azure Web App on Linux](app-service-linux-ssh-support.md)
+* [Set up staging environments in Azure App Service](../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Docker Hub Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md)
 
 <!--Image references-->

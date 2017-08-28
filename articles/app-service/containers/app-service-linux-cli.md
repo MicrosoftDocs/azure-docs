@@ -4,7 +4,7 @@ description: Manage Web App on Linux using Azure CLI.
 keywords: azure app service, web app, cli, linux, oss
 services: app-service
 documentationCenter: ''
-authors: ahmedelnably
+author: ahmedelnably
 manager: erikre
 editor: ''
 
@@ -21,13 +21,13 @@ ms.author: aelnably
 
 # Manage Web App on Linux using Azure CLI
 
-[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+[!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
 
 Using the commands in this article you are able to create and manage a Web App on Linux using Azure CLI 2.0.
 You can start using the new version of the CLI in two ways:
 
 * [Installing Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine.
-* Using [Azure Cloud Shell (Preview)](../cloud-shell/overview.md)
+* Using [Azure Cloud Shell (Preview)](../../cloud-shell/overview.md)
 
 
 ## Create a Linux App Service Plan
@@ -106,7 +106,6 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 ## Next steps
 * [What is Azure Web App on Linux?](app-service-linux-intro.md)
 * [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-* [Azure Cloud Shell (Preview)](../cloud-shell/overview.md)
-* [Creating web apps in Azure Web App on Linux](app-service-linux-how-to-create-web-app.md)
-* [Set up staging environments in Azure App Service](./web-sites-staged-publishing.md)
-* [Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md)
+* [Azure Cloud Shell (Preview)](../../cloud-shell/overview.md)
+* [Set up staging environments in Azure App Service](../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Continuous Deployment with Azure Web App on Linux](app-service-linux-ci-cd.md)
