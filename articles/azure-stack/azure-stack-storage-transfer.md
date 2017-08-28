@@ -72,7 +72,7 @@ Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Des
 Azure PowerShell is a module that provides cmdlets for managing services on both Azure and Azure Stack. It's a task-based command-line shell and scripting language designed especially for system administration.
 
 ### Install and Configure PowerShell for Azure Stack
-Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. For more information, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) and [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md) to learn more.
+Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. For more information, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) and [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md) to learn more.
 
 ### PowerShell Sample script for Azure Stack 
 This sample assume you have successfully [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). This script will help you conplete the configuration and ask your Azure Stack tenant credentials to add your account to the local PowerShell environemnt. Then, the script will set the default Azure subscription, create a new storage account in Azure, create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will create a new destination directory in your local computer and download the image file.

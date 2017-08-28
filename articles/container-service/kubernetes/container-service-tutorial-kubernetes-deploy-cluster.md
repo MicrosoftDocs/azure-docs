@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2017
+ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -40,7 +40,7 @@ In previous tutorials, a container image was created and uploaded to an Azure Co
 In the [previous tutorial](./container-service-tutorial-kubernetes-prepare-acr.md), a resource group named *myResourceGroup* was created. If you have not done so, create this resource group now.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westeurope
 ```
 
 Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 

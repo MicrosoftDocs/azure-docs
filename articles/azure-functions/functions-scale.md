@@ -4,7 +4,7 @@ description: Understand how Azure Functions scales to meet the needs of your eve
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/12/2017
-ms.author: donnam, glenga
+ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
 
