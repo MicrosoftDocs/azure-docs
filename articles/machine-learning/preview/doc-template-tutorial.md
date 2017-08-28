@@ -5,7 +5,7 @@ services: machine-learning
 author: yourgithubalias
 ms.author: yourmsftalias
 manager: jhubbard
-editor: jasonwhowell
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
