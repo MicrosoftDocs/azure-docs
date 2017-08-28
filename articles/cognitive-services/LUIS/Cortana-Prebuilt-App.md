@@ -14,7 +14,6 @@ ms.author: cahann
 
 # Cortana Prebuilt App
 
-<!-- For example, instead of using builtin.intent.calendar.create_calendar_entry, use Calendar.Add -->
 > [!IMPORTANT]
 > We recommend that you use the [prebuilt domains](./luis-how-to-use-prebuilt-domains.md), instead of the Cortana prebuilt app. 
 > For example, instead of **builtin.intent.calendar.create_calendar_entry**, use **Calendar.Add** from the **Calendar** prebuilt domain.
@@ -170,30 +169,13 @@ Here are some examples of entities the prebuilt personal assistant application c
 |builtin.communication.phone_number | i want to dial `1-800-328-9459` <br/> 	call `555-555-5555` |	
 |builtin.communication.relationship_name | text my `husband` <br/>	email `family`|	
 |builtin.communication.slot_attribute | change the `recipient` <br/>	change the `text` |	
-
+|builtin.comminication.source_platform | call him from `skype` <br/> call him from my `personal line` |
+|builtin.mystuff.attachment| with documents `attached` <br/> find the email `attachment` bob sent |
+|builtin.mystuff.contact_name| find the spreadsheet lisa sent to `me` <br/> `"resolution": {"resolution_type": "metadataItems","metadataType": "CanonicalEntity","value": "me"}` <br/> where's the document i sent to `susan` last night |
+|builtin.mystuff.data_source | `c:\dev\` <br/> my `desktop` <br/> `"resolution": { "resolution_type": "metadataItems", "metadataType": CanonicalEntity", "value": "desktop" }`|
+|builtin.mystuff.data_type | locate the `document` i worked on last night <br/> `"resolution": {"resolution_type": "metadataItems", "metadataType": "CanonicalEntity", "value":Document" }` <br/> bring up mike's `visio diagram`	|
 <!-- 
-builtin.communication.source_platform
-call him from skype	
-{
-    "type": "builtin.communication.source_platform",
-    "entity": "skype"
-}
-call him from my personal line	
-{
-    "type": "builtin.communication.source_platform",
-    "entity": "personal line"
-}
-builtin.mystuff.attachment
-with documents attached	
-{
-    "type": "builtin.mystuff.attachment",
-    "entity": "attached"
-}
-find the email attachment bob sent	
-{
-    "type": "builtin.mystuff.attachment",
-    "entity": "attachment"
-}
+
 builtin.mystuff.contact_name
 find the spreadsheet lisa sent to me	
 {
