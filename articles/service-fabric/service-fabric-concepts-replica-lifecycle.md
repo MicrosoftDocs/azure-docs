@@ -41,6 +41,10 @@ In the closing state, service fabric is in the process of shutting down the inst
 ## Dropped (DD)
 In the dropped state the instance is no longer running on the node. At this point, service fabric is maintaining metadata about this instance (which will be deleted lazily).
 
+> [!NOTE]
+> It is possible to transition from any state to the dropped state by using the ForceRemove option on `Remove-ServiceFabricReplica`
+>
+
 # Replicas of Stateful Services
 A replica of a stateful service is a copy of the service logic running on one of the nodes of the cluster. In addition, the replica maintains a copy of the state of that service. There are two related concepts that describe the lifecycle and behavior of stateful replicas:
 - Replica Lifecycle
@@ -106,6 +110,10 @@ The replica role is not relevant in the standby state.
 
 > [!NOTE]
 > Any replica that is not down or dropped is considered to be *up*
+>
+
+> [!NOTE]
+> It is possible to transition from any state to the dropped state by using the ForceRemove option on `Remove-ServiceFabricReplica`
 >
 
 # Replica Role 

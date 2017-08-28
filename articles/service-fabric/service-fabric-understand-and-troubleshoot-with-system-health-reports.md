@@ -611,7 +611,7 @@ The property and text indicate which API that can get stuck. The next steps for 
 
 Other api calls that can get stuck are on the **IReplicator** interface. For example:
 
-- **IReplicator.CatchupReplicaSet**: This indicates that either there are insufficient up replicas (which can be determined by looking at the replica status of the replicas in the partition or the System.FM health report for a stuck reconfiguration) or the replicas are not acknowledging operations. The powershell command-let `Get-ServiceFabricDeployedReplicaDetail` can be used to determine the progress of all the replicas and the issue lies with replicas whose `LastAppliedReplicationSequenceNumber` is behind the primary's `CommittedSequenceNumber`.
+- **IReplicator.CatchupReplicaSet**: This indicates that either there are insufficient up replicas (which can be determined by looking at the replica status of the replicas in the partition or the System.FM health report for a stuck reconfiguration) or the replicas are not acknowledging operations. The powershell command-let `Get-ServiceFabricDeployedReplicaDetail` can be used to determine the progress of all the replicas. The issue lies with replicas whose `LastAppliedReplicationSequenceNumber` is behind the primary's `CommittedSequenceNumber`.
 
 - **IReplicator.BuildReplica(<Remote ReplicaId>)**: This indicates an issue in the build process (see [replica lifecycle](service-fabric-concepts-replica-lifecycle.md)). It could be due to a misconfiguration of the replicator address (see [this](service-fabric-reliable-services-configuration.md) and [this](service-fabric-service-manifest-resources.md)). It could also be an issue on the remote node.
 
