@@ -22,7 +22,7 @@ ms.author: LADocs; estfan
 To make developing [custom APIs](../logic-apps/create-api-app.md) 
 and [custom connectors](../logic-apps/custom-connector-overview.md) 
 faster and easier, you can create [Postman](https://www.getpostman.com/) collections, 
-rather build OpenAPI documents, for describing your APIs and connectors. 
+rather OpenAPI documents, for describing your APIs and connectors. 
 Postman collections help you organize and group related API requests. 
 For example, you can use Postman when creating connectors 
 for Azure Logic Apps, Microsoft Flow, or Microsoft PowerApps. 
@@ -156,8 +156,8 @@ and browse to the location where you want to save the JSON file.
    ![Choose export format: "Collection v1"](./media/logic-apps-postman-collection/09-export-format.png)
    
 You can now use this Postman collection for creating custom APIs and connectors. 
-After you export the collection, you can import the JSON file into Azure Logic Apps, 
-Microsoft Flow, or Microsoft PowerApps.
+After you export the collection, you can import the JSON file into Logic Apps, 
+Flow, or PowerApps.
 
 > [!IMPORTANT]
 > 
@@ -169,7 +169,7 @@ Microsoft Flow, or Microsoft PowerApps.
 
 ## Next steps
 
-[Register custom connectors for Azure Logic Apps](../logic-apps/logic-apps-custom-connector-register.md)
+* [Register custom connectors for Azure Logic Apps](../logic-apps/logic-apps-custom-connector-register.md)
 
 
 

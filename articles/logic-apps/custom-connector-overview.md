@@ -35,7 +35,7 @@ For example, this diagram shows the interaction between an API,
 the custom connector for that API, and a logic app that works with 
 that API through the custom connector:
 
-![Conceptual overview for Azure Cognitive Services API, custom connector, and logic app](./media/logic-apps-register-custom-api-connector/custom-connector-conceptual.png)
+![Conceptual overview for Azure Cognitive Services API, custom connector, and logic app](./media/custom-connector-overview/custom-connector-conceptual.png)
 
 This overview outlines the general high-level tasks for creating, 
 securing, registering, and using plus optionally sharing or certifying 
@@ -57,10 +57,8 @@ Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.co
 * Any item here:
 
   * An [OpenAPI 2.0 file in JSON format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md), 
-  previously known as the Swagger Specification
-
+  previously known as Swagger
   * A URL to an OpenAPI definition
-
   * A [Postman collection](https://www.getpostman.com/docs/postman/collections/creating_collections) 
   for your API 
 
@@ -158,7 +156,7 @@ such as Azure, Amazon Web Services (AWS), Heroku, Google Cloud, and more
 * A custom line-of-business API that's deployed to your network 
 as long as that API is exposed on the public internet
 
-You can also build an OpenAPI file during the registration process.
+You can also build an OpenAPI file when you register your connector.
 
 ## 4. Register your connector
 
@@ -169,66 +167,13 @@ When you start the registration wizard, you can provide either an
 OpenAPI file or a Postman collection, which automatically populates the 
 metadata fields in the wizard. You can edit these fields' values at any time.
 
-![Describe your API](./media/custom-connector-overview/build-your-api-updated.png)
+![Describe your API](./media/custom-connector-overview/choose-api-definition-file.png)
 
 To register your connector, follow the appropriate tutorial:
 
 * [Logic Apps: Register your connector](../logic-apps/logic-apps-custom-connector-register.md)
 * [Flow; Register your connector](https://ms.flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector)
 * [PowerApps: Register your connector](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector)
-
-### 4a. Provide connector details
-
-To identify your connector, add an icon and description. 
-
-![Connector details](./media/custom-connector-overview/add-connector-details.png)
-
-### 4b. Choose the authentication type for your connector
-
-To make sure that user identities flow appropriately between 
-your service and any clients, select the authentication type 
-that your service supports. Then provide additional 
-details for that authentication type.
-
-![Choose authentication type](./media/custom-connector-overview/security.png)
-
-### 4c. Define triggers and actions
-
-To describe the triggers and actions that users can 
-use in their flows, you can edit your connector's schema 
-and response for existing operations, or add new operations.
-You can specify each operation's properties so that you can 
-control your connector's end-user experience. 
-
-![Connector definition](./media/custom-connector-overview/definition.png)
-
-To learn more about the different operation types:
-
-* Triggers for [Logic Apps](**NEED TOPIC**) and [Flow](https://ms.flow.microsoft.com/documentation/customapi-webhooks/) 
-(not available for PowerApps)
-
-* Actions for [Logic Apps](../logic-apps/logic-apps-custom-connector-register.md), 
-[Flow](https://ms.flow.microsoft.com/documentation/register-custom-api), 
-and [PowerApps](https://powerapps.microsoft.com/en-us/tutorials/register-custom-api)
-
-For advanced connector functionality, 
-see [Logic Apps: OpenAPI extensions for custom connectors](../logic-apps/custom-connector-openapi-extensions.md) 
-or [Flow: OpenAPI extensions for custom connectors](https://ms.flow.microsoft.com/documentation/customapi-how-to-swagger/).
-
-To request features that aren't available in the registration wizard, 
-please contact [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com).
-
-### Quotas and throttling 
-
-For details about connector creation quotas, 
-see the appropriate pricing page:
-
-* [Logic Apps](**NEED INFO!!!!!!!!**)
-* [Flow pricing](https://flow.microsoft.com/pricing/)
-* [PowerApps pricing](https://powerapps.microsoft.com/pricing/)
-
-For each connection that's created for a custom connector, 
-users can make up to 500 requests per minute. (**VERIFY FOR LOGIC APPS**)
 
 ## 5. Use your connector in a logic app, flow, or app 
 
@@ -274,10 +219,16 @@ before Microsoft can publish your connector. Learn
 
 ## Get support
 
-For support with onboarding and development, please email 
+* For support with onboarding and development, please email 
 [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com). 
 Microsoft actively monitors and manages this account, 
 routing developer questions and incidents to the appropriate team.
+
+* To ask questions, answer questions, and see what other Azure Logic Apps users are doing, 
+visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+* To help improve Logic Apps, vote on or submit ideas at the 
+[Logic Apps user feedback site](http://aka.ms/logicapps-wish). 
 
 ## Next steps
 

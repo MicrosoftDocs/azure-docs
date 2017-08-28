@@ -233,3 +233,5 @@ Here's an example for dynamic response:
 
 ## Next steps
 
+* [Secure your connector](../logic-apps/custom-connector-security-authentication-overview.md)
+* [Set up authentication with Azure Active Directory](../logic-apps/custom-connector-api-azure-active-directory-authentication.md)

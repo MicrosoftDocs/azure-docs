@@ -57,14 +57,14 @@ to the URL for your swagger.json file.
    Usually, the URL appears in this format: 
    `https://{name}.azurewebsites.net/swagger/docs/v1)`
 
-   ![Link to Swagger file for your custom API](media/logic-apps-custom-hosted-api/custom-api-swagger-url.png)
+   ![Link to Swagger file for your custom API](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
 3. Under **API**, choose **CORS**. 
 Set the CORS policy for **Allowed origins** to **'*'** (allow all).
 
    This setting permits requests from Logic App Designer.
 
-   ![Permit requests from Logic App Designer to your custom API](media/logic-apps-custom-hosted-api/custom-api-cors.png)
+   ![Permit requests from Logic App Designer to your custom API](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
 
 For more information, see these articles:
 

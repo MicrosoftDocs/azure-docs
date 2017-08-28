@@ -17,7 +17,7 @@ ms.date: 09/1/2017
 ms.author: LADocs; estfan
 ---
 
-# Create custom connectors from Web APIs
+# Create connectors from Web APIs
 
 To build a custom connector that you can use in Azure Logic Apps, 
 Microsoft Flow, or Microsoft PowerApps, create a Web API that 
@@ -53,17 +53,18 @@ For general information about how to create
 
    For example:
 
-   ![Create a Visual C# ASP.NET Web Application](./media/logic-apps-custom-api-connector-web-app-tutorial/visual-studio-new-project-aspnet-web-app.png)
+   ![Create a Visual C# ASP.NET Web Application](./media/custom-connector-build-web-api-app-tutorial/visual-studio-new-project-aspnet-web-app.png)
 
 2. In the **New ASP.NET Web Application** box, 
 select the **Web API** template. If not already selected, 
 select **Host in the cloud**. Choose **Change Authentication**.
 
-   ![Select "Web API" template, "Host in the cloud", "Change Authentication"](./media/logic-apps-custom-api-connector-web-app-tutorial/visual-studio-web-api-template.png)
+   ![Select "Web API" template, "Host in the cloud", "Change Authentication"](./media/custom-connector-build-web-api-app-tutorial/visual-studio-web-api-template.png)
 
-3. Select **No Authentication**, and choose **OK**.
+3. Select **No Authentication**, and choose **OK**. 
+You can set up authentication later.
 
-   ![Select "No Authentication"](./media/logic-apps-custom-api-connector-web-app-tutorial/visual-studio-change-authentication.png)
+   ![Select "No Authentication"](./media/custom-connector-build-web-api-app-tutorial/visual-studio-change-authentication.png)
 
 4. When the **New ASP.NET Web Application** box reappears, choose **OK**. 
 
@@ -74,7 +75,7 @@ and choose **Create**.
    An [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) 
    represents a collection of physical resources used to host your apps in your Azure subscription. Learn more about [App Service](../app-service/app-service-value-prop-what-is.md).
 
-   ![Create App Service](./media/logic-apps-custom-api-connector-web-app-tutorial/visual-studio-create-app-service.png)
+   ![Create App Service](./media/custom-connector-build-web-api-app-tutorial/visual-studio-create-app-service.png)
 
    |Setting|Suggested value|Description| 
    |:------|:--------------|:----------| 
@@ -93,7 +94,8 @@ and choose **Create**.
    |**Size**|*app-service-plan-size*|Select your plan size, which determines the cost and computing resource capacity for your service plan.| 
    ||| 
 
-   To set up any other resources required by your app, choose **Explore additional Azure services**.
+   To set up any other resources required by your app, 
+   choose **Explore additional Azure services**.
 
    |Setting|Suggested value|Description| 
    |:------|:--------------|:----------| 
@@ -124,7 +126,7 @@ package in your Visual Studio project.
 
       For example:
 
-      ![Package Manager Console, install Swashbuckle](./media/logic-apps-custom-api-connector-web-app-tutorial/visual-studio-package-manager-install-swashbuckle.png)
+      ![Package Manager Console, install Swashbuckle](./media/custom-connector-build-web-api-app-tutorial/visual-studio-package-manager-install-swashbuckle.png)
 
    > [!TIP]
    > If you run your app after installing Swashbuckle, 

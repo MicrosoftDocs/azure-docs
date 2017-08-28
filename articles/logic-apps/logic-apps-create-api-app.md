@@ -357,19 +357,27 @@ Your API can then unregister the callback URL and stop any processes as necessar
 > For an example webhook pattern, review this 
 > [webhook trigger controller sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-## Deploy, call, and secure custom APIs
+## Secure calls to your APIs from logic apps
 
-After creating your custom APIs, set up your APIs for deployment so you can call them securely. 
-Learn how to [deploy, call, and secure custom APIs for logic apps](./logic-apps-custom-hosted-api.md).
+After creating your custom APIs, set up authentication for your APIs 
+so that you can call them securely from logic apps. Learn 
+[how to secure calls to custom APIs from logic apps](../logic-apps/logic-apps-custom-api-authentication.md).
+
+## Deploy and call your APIs
+
+After you add authentication, set up deployment for your APIs. 
+Learn [how to deploy and call custom APIs from logic apps](../logic-apps/logic-apps-custom-api-host-deploy-call.md)
 
 ## Publish custom APIs to Azure
 
-To make your custom APIs available for public use in Azure, submit your nominations to the 
+To make your custom APIs available for public use in Azure, 
+submit your nominations to the 
 [Microsoft Azure Certified program](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
-## Get help
+## Get support
 
-For specific help with custom APIs, contact [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
+For specific help with custom APIs, 
+contact [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 
 To ask questions, answer questions, and see what other Azure Logic Apps users are doing, visit the 
 [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
