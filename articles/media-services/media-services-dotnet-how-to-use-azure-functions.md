@@ -17,7 +17,7 @@ ms.date: 08/27/2017
 ms.author: juliako
 
 ---
-#Develop Azure Functions with Media Services
+# Develop Azure Functions with Media Services
 
 This topic shows you how to get started with creating Azure Functions that use Media Services. The Azure Function defined in this topic monitors a storage account container named **input** for new MP4 files. Once a file is dropped into the storage container, the blob trigger will execute the function.
 
