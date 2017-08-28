@@ -39,7 +39,7 @@ Site Recovery was not able to create a network interface for the failed over vir
 
 Site Recovery was not able to create a failed over Classic virtual machine in Azure. It could happen because of one of the following reasons:
 
-* One of the resources such as a virtual network that is required for the virtual machine to be created doesn't exist. Create the virtual network as provided under Compute and Network settings of the virtual machine or modify the the setting to a virtual network that already exists and then retry failover. 
+* One of the resources such as a virtual network that is required for the virtual machine to be created doesn't exist. Create the virtual network as provided under Compute and Network settings of the virtual machine or modify the setting to a virtual network that already exists and then retry failover. 
 
 
 ## Next steps
