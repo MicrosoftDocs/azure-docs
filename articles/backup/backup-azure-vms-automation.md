@@ -377,7 +377,6 @@ After you have restored the disks, use these steps to create and configure the v
     ```
 
 4. Attach the OS disk and data disks. Depending on the configuration of your VMs, click on the relevant link to view respective cmdlets:
-
     * [Non-managed and non-encrypted VMs](#non-managed-non-encrypted-vms)
     * [Non-managed and encrypted VMs (BEK only)](#non-managed-encrypted-vms-bek-only)
     * [Non-managed and encrypted VMs (BEK and KEK)](#non-managed-encrypted-vms-bek-and-kek)
