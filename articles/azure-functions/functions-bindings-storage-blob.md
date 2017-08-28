@@ -219,7 +219,7 @@ module.exports = function(context) {
 };
 ```
 <a name="outputusage"></a>
-<a name=storage-blob-output-binding"></a>
+<a name="storage-blob-output-binding"></a>
 
 ## Using a blob output binding
 
