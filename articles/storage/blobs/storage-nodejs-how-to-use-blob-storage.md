@@ -417,7 +417,6 @@ For more information, see the following resources.
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 
-[Node.js web app using the Azure Table Service](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)    
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/  
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure portal]: https://portal.azure.com

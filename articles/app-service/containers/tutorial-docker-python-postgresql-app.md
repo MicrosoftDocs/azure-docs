@@ -128,7 +128,7 @@ az login
    
 ### Create a resource group
 
-Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#create). 
+Create a [resource group](../../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#create). 
 
 [!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
