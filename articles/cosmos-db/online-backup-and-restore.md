@@ -1,4 +1,4 @@
---
+---
 title: Online backup and restore with Azure Cosmos DB | Microsoft Docs
 description: Learn how to perform automatic backup and restore on an Azure Cosmos DB database.
 keywords: backup and restore, online backup
