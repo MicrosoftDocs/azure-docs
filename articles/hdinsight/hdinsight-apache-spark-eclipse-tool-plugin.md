@@ -44,7 +44,7 @@ Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark applications w
 ### Install HDInsight Tools
 HDInsight Tools for Eclipse is available as part of Azure Toolkit for Eclipse. For installation instructions, see [Installing Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse-installation.md).
 ### Install the Scala plug-in
-When you open IntelliJ, HDInsight Tools automatically detects whether you installed the Scala plug-in. Select **OK** to continue, and then follow the instructions to install the plug-in from the Eclipse Marketplace.
+When you open Eclipse, HDInsight Tools automatically detects whether you installed the Scala plug-in. Select **OK** to continue, and then follow the instructions to install the plug-in from the Eclipse Marketplace.
 
 ![Automatic installation of the Scala plug-in](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
