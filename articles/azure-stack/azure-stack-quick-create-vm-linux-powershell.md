@@ -24,8 +24,6 @@ This guide details using the PowerShell to create a virtual machine running Ubun
 
 You can run the steps described in this article either from the [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)
 
-##test statement 12
-
 ## Prerequisites
 
 1. The Azure Stack marketplace doesn't contain a Linux image by default. So, before you can create a Linux virtual machine, make sure that the Azure Stack operator download the “Ubuntu Server 16.04 LTS” image by using the steps described in the [Download marketplace items](azure-stack-download-azure-marketplace-item.md) topic.  
