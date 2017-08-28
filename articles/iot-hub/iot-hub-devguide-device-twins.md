@@ -138,7 +138,7 @@ In the previous example, the `telemetryConfig` device twin desired and reported 
 
 You can use twins to synchronize long-running operations such as firmware updates. For more information on how to use properties to synchronize and track a long running operation across devices, see [Use desired properties to configure devices][lnk-twin-properties].
 
-## Back end operations
+## Back-end operations
 The solution back end operates on the device twin using the following atomic operations, exposed through HTTP:
 
 1. **Retrieve device twin by id**. This operation returns the device twin document, including tags and desired, reported, and system properties.
