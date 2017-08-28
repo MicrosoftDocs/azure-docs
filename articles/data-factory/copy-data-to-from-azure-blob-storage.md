@@ -66,10 +66,10 @@ You can create an Azure Storage linked service by using the account key, which p
 
 You can also create an Azure Storage linked service by using a Shared Access Signature (SAS), which provides the data factory with restricted/time-bound access to all/specific resources (blob/container) in the storage.
 
-A Shared Access Signature (SAS) provides delegated access to resources in your storage account. Using SAS, you can grant a client limited permissions to objects in your storage account for a specified period of time, without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method. For detailed information about SAS, see [Shared Access Signatures: Understanding the SAS Model](../storage/storage-dotnet-shared-access-signature-part-1.md)
+A Shared Access Signature (SAS) provides delegated access to resources in your storage account. Using SAS, you can grant a client limited permissions to objects in your storage account for a specified period of time, without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method.
 
 > [!IMPORTANT]
-> Azure Data Factory now only supports **Service SAS** but not Account SAS. See [Types of Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) for details about these two types and how to construct them. The SAS URL generated from Azure portal or Storage Explorer is an Account SAS, which is not supported.
+> Azure Data Factory now only supports **Service SAS** but not Account SAS. The SAS URL generated from Azure portal or Storage Explorer is an Account SAS, which is not supported.
 >
 
 To use Service SAS authentication, the following properties are supported:
