@@ -24,7 +24,7 @@ ms.author: xshi
 You can use the [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) to develop and prototype Internet of Things (IoT) solutions that take advantage of Microsoft Azure services. It includes an Arduino-compatible board with rich peripherals and sensors, an open-source board package, and a growing [projects catalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/).
 
 ## What you do
-Connect the [DevKit](https://microsoft.github.io/azure-iot-developer-kit/) to an Azure IoT hub that you create, collect the temperature and humidity data from sensors, and send the data to IoT hub.
+Connect the [DevKit](https://microsoft.github.io/azure-iot-developer-kit/) to an Azure IoT hub that you create, collect the temperature and humidity data from sensors, and send the data to the IoT hub.
 
 Don't have a DevKit yet? [Get one](https://aka.ms/iot-devkit-purchase).
 
@@ -49,7 +49,7 @@ Hook up the hardware to your computer.
 You need this hardware:
 
 * DevKit board
-* Micro USB cable
+* Micro-USB cable
 
 ![Required hardware](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/hardware.jpg)
 
@@ -65,9 +65,9 @@ To connect the DevKit to your computer:
 
 IoT projects rely on internet connectivity. Use the following instructions to configure the DevKit to connect to Wi-Fi.
 
-### Enter AP Mode
+### Enter AP mode
 
-Hold down button B, push and release the reset button, and then release button B. Your DevKit enters AP Mode for configuring Wi-Fi. The screen displays the service set identifier (SSID) of the DevKit and the configuration portal IP address.
+Hold down button B, push and release the reset button, and then release button B. Your DevKit enters AP mode for configuring Wi-Fi. The screen displays the service set identifier (SSID) of the DevKit and the configuration portal IP address.
 
 ![Reset button, button B, and SSID](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/wifi-ap.jpg)
 
@@ -79,7 +79,7 @@ Now, use another Wi-Fi enabled device (computer or mobile phone) to connect to t
 
 ### Configure Wi-Fi for the DevKit
 
-Open the IP address shown on the DevKit screen on your computer or mobile phone browser, select the Wi-Fi network you want the DevKit to connect to, and then type the password. Click **Connect**.
+Open the IP address shown on the DevKit screen on your computer or mobile phone browser, select the Wi-Fi network that you want the DevKit to connect to, and then type the password. Click **Connect**.
 
 ![Password box and Connect button](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/wifi-portal.png)
 
@@ -88,9 +88,9 @@ When the connection succeeds, the DevKit reboots in a few seconds. You then see 
 ![Wi-Fi name and IP address](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/wifi-ip.jpg)
 
 > [!NOTE] 
-> The IP address displayed in the photo might not match the actual IP assigned and displayed on the DevKit screen. This is normal, because Wi-Fi uses DHCP to dynamically assign IPs.
+> The IP address displayed in the photo might not match the actual IP address assigned and displayed on the DevKit screen. This is normal, because Wi-Fi uses DHCP to dynamically assign IPs.
 
-After Wi-Fi is configured, your credentials will persist on the device for that connection, even if the device is unplugged. For example, if you configure the DevKit for Wi-Fi in your home and then take the DevKit to the office, you will need to reconfigure AP mode (starting at the step in the "Enter AP Mode" section) to connect the DevKit to your office Wi-Fi. 
+After Wi-Fi is configured, your credentials will persist on the device for that connection, even if the device is unplugged. For example, if you configure the DevKit for Wi-Fi in your home and then take the DevKit to the office, you will need to reconfigure AP mode (starting at the step in the "Enter AP mode" section) to connect the DevKit to your office Wi-Fi. 
 
 ## Start using the DevKit
 
@@ -107,7 +107,7 @@ If you need a firmware upgrade, the screen will show the current and latest firm
 
 ### Test various sensors
 
-Press button B to test sensors. Continue pressing and releasing the button B to cycle through each sensor.
+Press button B to test sensors. Continue pressing and releasing button B to cycle through each sensor.
 
 ![Button B and sensor display](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/sensors.jpg)
 
@@ -133,14 +133,14 @@ The `.zip` file contains the following tools and packages. If you already have s
 * Node.js and Yarn: Runtime for the setup script and automated tasks.
 * [Azure CLI 2.0 MSI](https://docs.microsoft.com//cli/azure/install-azure-cli#windows): Cross-platform command-line experience for managing Azure resources. The MSI contains dependent Python and pip.
 * [Visual Studio Code](https://code.visualstudio.com/) (VS Code): Lightweight code editor for DevKit development.
-* [Visual Studio Code extension for Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): Enables Arduino development in Visual Studio Code
-* [Arduino IDE](https://www.arduino.cc/en/Main/Software): The extension for Arduino relies on this tool.
+* [Visual Studio Code extension for Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): Extension that enables Arduino development in Visual Studio Code.
+* [Arduino IDE](https://www.arduino.cc/en/Main/Software): Tool that the extension for Arduino relies on.
 * DevKit Board Package: Tool chains, libraries, and projects for the DevKit.
-* ST-Link Utility: Essential utilities and drivers.
+* ST-Link Utility: Essential tools and drivers.
 
 #### Run the installation script
 
-In Windows File Explorer, locate the .zip file and extract it. Find install.cmd, right-click it, and select **"Run as administrator"**.
+In Windows File Explorer, locate the .zip file and extract it. Find install.cmd, right-click it, and select **Run as administrator**.
 
 ![File Explorer](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/run-admin.png)
 
@@ -157,7 +157,7 @@ The VS Code for Arduino extension relies on the Arduino IDE. If this is the firs
 Installation should take around 10 minutes, depending on your internet speed. After the installation is complete, you should see Visual Studio Code and Arduino IDE shortcuts on your desktop.
 
 > [!NOTE] 
-> Occasionally, when you start VS Code, you're prompted with an error that it cannot find the Arduino IDE or related board package. To solve it, close VS Code and restart the Arduino IDE. VS Code should then locate the Arduino IDE path correctly.
+> Occasionally, when you start VS Code, you're prompted with an error that it cannot find the Arduino IDE or related board package. Close VS Code and restart the Arduino IDE. VS Code should then locate the Arduino IDE path correctly.
 
 
 ### macOS (preview)
@@ -166,17 +166,17 @@ Follow these steps to prepare the development environment on macOS.
 
 #### Install Azure CLI 2.0
 
-Install Azure CLI 2.0 by using one `curl` command:
+1. Install Azure CLI 2.0 by using one `curl` command:
 
-```bash
-curl -L https://aka.ms/InstallAzureCli | bash
-```
+   ```bash
+   curl -L https://aka.ms/InstallAzureCli | bash
+   ```
 
-Restart your command shell for changes to take effect:
+2. Restart your command shell for changes to take effect:
 
-```bash
-exec -l $SHELL
-```
+   ```bash
+   exec -l $SHELL
+   ```
 
 For more information about installing Azure CLI 2.0, see the [official guide](https://docs.microsoft.com//cli/azure/install-azure-cli).
 
@@ -245,7 +245,7 @@ Make sure your DevKit is not connected. Start VS Code first and connect the DevK
 ![Introduction page](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-vscode.png)
 
 > [!NOTE] 
-> Occasionally, when you start VS Code, you're prompted with an error that it cannot find the Arduino IDE or related board package. To solve it, close VS Code and restart the Arduino IDE. VS Code should then locate the Arduino IDE path correctly.
+> Occasionally, when you start VS Code, you're prompted with an error that it cannot find the Arduino IDE or related board package. Close VS Code and restart the Arduino IDE. VS Code should then locate the Arduino IDE path correctly.
 
 
 ### Open the Arduino Examples folder
