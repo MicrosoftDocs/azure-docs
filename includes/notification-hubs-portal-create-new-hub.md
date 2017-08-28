@@ -10,19 +10,19 @@
    
     If you already have a service bus namespace that you want to create the hub in, do the following:
 
-    a. Select the **Select Existing** link in the **Namespace** field. Otherwise, you can use the default name, which will be created based on the hub name, as long as the namespace name is available. 
+    a. In the **Namespace** area, select the **Select Existing** link. 
    
     b. Select **Create**.
 
-    If you do not already have a service bus namespace, you can use the default name, which will be created based on the hub name (if the namespace name is available).
+    If you don't already have a service bus namespace, you can use the default name, which is created based on the hub name (if the namespace name is available).
    
       ![Azure portal - set notification hub properties](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. After you've created the namespace and notification hub, you will be taken to the Azure portal page. 
+    After you've created the namespace and notification hub, the Azure portal opens. 
    
       ![Azure portal - notification hub portal page](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
 
-5. Select **Settings** > **Access Policies**. Note the two connection strings that are available to you. You will need them to handle push notifications later.
+4. Select **Settings** > **Access Policies**. Note the two connection strings that are available to you. You will need them to handle push notifications later.
    
       ![Azure portal - notification hub connection strings](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 
