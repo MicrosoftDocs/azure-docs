@@ -1,5 +1,18 @@
 ---
-title: Anomaly Detection Usage Guide (Preview)
+title: file name| Microsoft Docs
+description: Use stream analytics and machine learning to detect anomalies
+services: stream-analytics
+documentationcenter: ''
+author: samacha
+manager: jhubbard
+
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 03/28/2017
+ms.author: samacha
 ---
 
 This functionality is in preview. We do not recommend use in production.
@@ -50,12 +63,12 @@ Example usage:
 
 The scalar expression over which the anomaly detection would be performed. It is
 an expression of float or bigint type that returns a single (scalar) value. The
-wildcard expression ‘\*’ is not allowed. scalar_expression cannot contain other
+wildcard expression â€˜\*â€™ is not allowed. scalar_expression cannot contain other
 analytic functions or external functions.
 
 **OVER ( [ partition_by_clause ] limit_duration_clause [when_clause])**
 
-**partition_by_clause** The PARTITION BY \<partition key\> clause divides the
+**partition_by_clause**Â The PARTITION BY \<partition key\> clause divides the
 learning and training across separate partitions. In other words, a separate
 model would be used per value of \<partition key\> and only events with that
 value would be used for learning and training in that model. For example,
@@ -66,13 +79,13 @@ value would be used for learning and training in that model. For example,
 
 will train and score a reading against other readings of the same sensor only.
 
-**limit_duration clause** DURATION(\<unit\>, \<length\>)
+**limit_duration clause**Â DURATION(\<unit\>, \<length\>)
 
 Specifies how much of the history from the current event is considered in the
 ANOMALYDETECTION computation. See DATEDIFF for a detailed description of
 supported units and their abbreviations.
 
-**when_clause** Specifies a boolean condition for the events considered in the
+**when_clause**Â Specifies a boolean condition for the events considered in the
 ANOMALYDETECTION computation.
 
 ### Return Types
@@ -123,15 +136,15 @@ having this step will result in a compilation error.
 
 ### Performance Guidance
 
-### • Use 6 SU for jobs. 
+### â€¢ Use 6 SU for jobs. 
 
-### • Send events at least 1 second apart.
+### â€¢ Send events at least 1 second apart.
 
-### • A non-partitioned query using the ANOMALYDETECTION function can produce results with a computation latency of about 25ms on average.
+### â€¢ A non-partitioned query using the ANOMALYDETECTION function can produce results with a computation latency of about 25ms on average.
 
-### • The latency experienced by a partitioned query varies slightly with the number of partitions, as the number of computations is higher. However, the latency is about the same as the non-partitioned case for a comparable total number of events across all partitions.
+### â€¢ The latency experienced by a partitioned query varies slightly with the number of partitions, as the number of computations is higher. However, the latency is about the same as the non-partitioned case for a comparable total number of events across all partitions.
 
-### • While reading non-real-time data, a large amount of data is ingested quickly. Processing this data is currently significantly slower. The latency in such scenarios was found to increase linearly with the number of data points in the window rather than the window size or event interval per se. To reduce the latency in non-real-time cases, consider using a smaller window size. Alternatively, consider starting your job from the current time. A few examples of latencies in a non-partitioned query: 
+### â€¢ While reading non-real-time data, a large amount of data is ingested quickly. Processing this data is currently significantly slower. The latency in such scenarios was found to increase linearly with the number of data points in the window rather than the window size or event interval per se. To reduce the latency in non-real-time cases, consider using a smaller window size. Alternatively, consider starting your job from the current time. A few examples of latencies in a non-partitioned query: 
 
 ### \- 60 data points in the detection window can result in a latency of 10 seconds with a throughput of 3MBps. 
 
