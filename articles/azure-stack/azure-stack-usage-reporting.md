@@ -20,11 +20,11 @@ ms.author: sngun;AlfredoPizzirani
 
 # Report Azure Stack usage data to Azure 
 
-Usage data, also called consumption data, represents the amount of resources used. The Azure Stack multinode systems that use consumption-based billing model should report usage data to Azure. This usage data is used for billing purpose. It's the Azure Stack operator's responsibility to configure their Azure Stack environment with usage data reporting.
+Usage data, also called consumption data, represents the amount of resources used. The Azure Stack integrated systems that use consumption-based billing model should report usage data to Azure. This usage data is used for billing purpose. It's the Azure Stack operator's responsibility to configure their Azure Stack environment with usage data reporting.
 
 
 > [!NOTE]
-> Usage data reporting is required for the Azure Stack multi-node users who license under the pay-as-you-use model. Whereas, it's optional for customers who license under the capacity model. For the Azure Stack Development Kit, cloud operators can report usage data and test the feature, however, users are not charged for any usage they incur. See the [How to buy Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/) page to learn more about pricing in Azure Stack.
+> Usage data reporting is required for the Azure Stack integrated system users who license under the pay-as-you-use model. Whereas, it's optional for customers who license under the capacity model. For the Azure Stack Development Kit, cloud operators can report usage data and test the feature, however, users are not charged for any usage they incur. See the [How to buy Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/) page to learn more about pricing in Azure Stack.
 
 ## Usage data reporting flow
 
@@ -55,7 +55,7 @@ To set up usage data reporting in Azure Stack, you must [register your Azure Sta
 
    ![billing flow](media/azure-stack-usage-reporting/pricng-details.png)
 
-For the Azure Stack Development Kit, resources are not charged so, the price is shown as $0.00. For the Azure Stack multinode systems, the actual cost of each of these resources is displayed.
+For the Azure Stack Development Kit, resources are not charged so, the price is shown as $0.00. For the Azure Stack integrated systems, the actual cost of each of these resources is displayed.
 
 ## Are users charged for the infrastructure virtual machines?
 No, usage data for some Azure Stack resource provider virtual machines and infrastructure virtual machines that are created during deployment is reported to Azure, but there are no charges for them. 
@@ -65,7 +65,7 @@ Users are only charged for virtual machines that are created under user subscrip
 ## How do I use my existing Windows Server licenses in Azure Stack? 
 Existing Windows Server licenses can be used in Azure Stack. Using the licenses that you already own avoids generating additional usage meters. To use your existing licenses, you need to deploy the Windows Server virtual machines as described in the [Hybrid benefit for Windows Server license topic](). 
 
-## What Azure meters are used when reporting usage data in Azure Stack multinode environments?
+## What Azure meters are used when reporting usage data in integrated systems?
 * **Full price meters** – used for resources associated with user workloads.  
 * **Admin meters** – used for infrastructure resources. These meters have a price of zero dollars.
 
@@ -73,7 +73,7 @@ Existing Windows Server licenses can be used in Azure Stack. Using the licenses 
 The subscription that is provided when [registering Azure Stack with Azure](azure-stack-register.md) is charged.
 
 ## What types of subscriptions are supported for usage data reporting?
-For Azure Stack multinode environments, Enterprise Agreement (EA) and CSP subscriptions are supported. 
+For Azure Stack integrated systems, Enterprise Agreement (EA) and CSP subscriptions are supported. 
 
 For the Azure Stack Development Kit, Enterprise Agreement (EA), Pay-as-you-go, CSP, and MSDN subscriptions support usage data reporting.
 
