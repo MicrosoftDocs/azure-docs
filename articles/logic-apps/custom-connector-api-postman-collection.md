@@ -17,7 +17,7 @@ ms.date: 09/1/2017
 ms.author: LADocs; estfan
 ---
 
-# Describe custom APIs and custom connectors with Postman collections
+# Describe custom connectors with Postman collections
 
 To make developing [custom APIs](../logic-apps/create-api-app.md) 
 and [custom connectors](../logic-apps/custom-connector-overview.md) 
