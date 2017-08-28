@@ -59,5 +59,5 @@ The following table provides a comparison between a variety of common queries to
 
 
 ## Next steps
-- Check out a [tutorial on writing queries](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries) using the new query language.
-- Refer to the [Query Language Reference](https://docs.loganalytics.io/docs/Language-Reference) for details on all command, operators, and functions for the new query language.  
+- Check out a [tutorial on writing queries](https://go.microsoft.com/fwlink/?linkid=856078) using the new query language.
+- Refer to the [Query Language Reference](https://go.microsoft.com/fwlink/?linkid=856079) for details on all command, operators, and functions for the new query language.  
