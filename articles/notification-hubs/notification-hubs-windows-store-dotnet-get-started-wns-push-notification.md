@@ -230,3 +230,4 @@ For more general information about Notification Hubs, see [Notification Hubs gui
 [toast catalog]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [tile catalog]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [badge overview]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+ 
