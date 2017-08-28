@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2017
+ms.date: 08/28/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 
@@ -42,7 +42,6 @@ PS C:\> $properties = $details.properties
 PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
 PS C:\> $containerName = $properties["Config Blob Container Name"]
 PS C:\> $encryptedBlobName = $properties["Encryption Info Blob Name"]
-PS C:\> $containerName = $properties["Config Blob Container Name"]
 ```
 
 Set the Azure storage context and restore JSON configuration file containing key and secret details for encrypted VM.
@@ -89,10 +88,10 @@ PS C:\> Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputF
 >
 
 ## Create virtual machine from restored disk
-If you have backed up encrypted VM using Azure VM Backup, the PowerShell cmdlets mentioned above help you restore key and secret back to the key vault, . After restoring them, refer the article [Manage backup and restore of Azure VMs using PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) to create encrypted VMs from restored disk, key, and secret.
+If you have backed up encrypted VM using Azure VM Backup, the PowerShell cmdlets mentioned above help you restore key and secret back to the key vault. After restoring them, refer the article [Manage backup and restore of Azure VMs using PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) to create encrypted VMs from restored disk, key, and secret.
 
 ## Legacy approach
-The approach mentioned above would work for all the recovery points, however, the older approach of getting key and secret information from recovery point, would still be valid for recovery points older than July 11, 2017 for VMs encrypted using BEK and KEK. Once restore disk job is complete for encrypted VM using [PowerShell steps](backup-azure-vms-automation.md#restore-an-azure-vm), ensure that $rp is populated with a valid value.
+The approach mentioned above would work for all the recovery points. However, the older approach of getting key and secret information from recovery point, would be valid for recovery points older than July 11, 2017 for VMs encrypted using BEK and KEK. Once restore disk job is complete for encrypted VM using [PowerShell steps](backup-azure-vms-automation.md#restore-an-azure-vm), ensure that $rp is populated with a valid value.
 
 ### Restore key
 Use the following cmdlets to get key (KEK) information from recovery point and feed it to restore key cmdlet to put it back in the key vault.
