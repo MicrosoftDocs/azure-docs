@@ -136,7 +136,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ### Storage limits
-For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/storage-scalability-targets.md).
+For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).
 <!--like # storage accts --> 
 #### Storage Service limits
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]

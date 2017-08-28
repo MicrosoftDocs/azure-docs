@@ -4,7 +4,7 @@ description: Learn how to encode with Media Encoder Premium Workflow. Code sampl
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 0f4c87ac-810a-4d42-8df8-923dff2016c6

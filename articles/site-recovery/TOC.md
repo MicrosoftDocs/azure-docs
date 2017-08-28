@@ -140,6 +140,7 @@
 ## Monitor and troubleshoot
 ### [Azure to Azure replication issues](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [On-premises to Azure replication issues](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+### [Mobility service installation issues](site-recovery-vmware-to-azure-push-install-error-codes.md)
 ### [Collect logs and troubleshoot on-premises issues](site-recovery-monitoring-and-troubleshooting.md)
 
 # Reference

@@ -28,7 +28,7 @@ In this article, we walk you through the steps required to deploy a Windows virt
 * Azure Stack cloud administrators must have [created an offer](azure-stack-create-offer.md) that includes the Azure Key Vault service.  
 * Users must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that includes the Key Vault service.  
 * [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
-* [Configure PowerShell for use with Azure Stack.](azure-stack-powershell-configure.md)
+* [Configure the Azure Stack user's PowerShell environment.](azure-stack-powershell-configure-user.md)
 
 The following steps describe the process required to create a virtual machine by retrieving the password stored in a Key Vault:
 
