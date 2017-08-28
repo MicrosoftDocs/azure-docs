@@ -30,11 +30,11 @@ Start with a Free tier and then transition to a billable tier for production wor
 
 1. Sign in to [Azure portal](https://portal.azure.com) and [find your service](text-analytics-howto-accesskey.md).
 
-2. Click **Price Tier**.
+2. Click **Price tier**.
 
    ![Price tier command in left navigation menu](../media/text-analytics/portal-pricing-tier.png)
 
-3. Choose a tier Sand click **Select**.  The new limits take effect as soon as the selection is processed. 
+3. Choose a tier and click **Select**.  The new limits take effect as soon as the selection is processed. 
 
    ![Tiles and Select button in tier selection page](../media/text-analytics/portal-choose-tier.png)
 

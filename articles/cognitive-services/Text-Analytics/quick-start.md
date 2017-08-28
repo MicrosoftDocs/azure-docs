@@ -18,7 +18,7 @@ ms.author: luisca
 This article provides information and code samples to help you quickly get started using the [Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711) with C# to accomplish the following tasks: 
 
 * [Detect Language](#Detect) 
-* [Perform Sentiment Analysis](#SentimentAnalysis)
+* [Analyze Sentiment](#SentimentAnalysis)
 * [Extract Key Phrases](#KeyPhraseExtraction)
 
 The code was written to work on a .Net Core application, with minimal references to external libraries. You should be able to run it on Windows, Linux, or MacOS.
@@ -33,7 +33,7 @@ You must have the [endpoint and access key](text-analytics-howto-accesskey.md) o
 
 <a name="Detect"></a>
 
-## Detect Language in Text using C# 
+## Detect language in text using C#
 
 Use the [Detect Language method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) to detect the language of a text document.
 
@@ -261,11 +261,11 @@ A successful response is returned in JSON. Following is an example of a successf
 ```
 <a name="SentimentAnalysis"></a>
 
-## Sentiment analysis using C# 
+## Analyze sentiment in text using C#
 
 Use the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) to detect the sentiment of a set of text records.
 
-### Sentiment analysis C# example request
+### Analyze sentiment C# example request
 
 The sample is written in C# using the Text Analytics API client library. It scores two documents, one in English and another in Spanish.
 
@@ -460,7 +460,7 @@ A successful response is returned in JSON. Following is an example of a successf
 
 <a name="KeyPhraseExtraction"></a>
 
-## Key phrase extraction using C# 
+## Extract key phrases in text using C#
 
 Use the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) to extract key-phrases from a text document.
 

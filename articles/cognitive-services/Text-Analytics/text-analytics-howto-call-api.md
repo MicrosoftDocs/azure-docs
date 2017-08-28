@@ -12,7 +12,7 @@ ms.date: 08/24/2017
 ms.author: heidist
 ---
 
-# How to call Text Analytics REST API
+# How to call the Text Analytics REST API
 
 Calls to the **Text Analytics API** are HTTP POST/GET calls, which you can formulate in any language. In this article, we use REST and [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) to demonstrate key concepts.
 

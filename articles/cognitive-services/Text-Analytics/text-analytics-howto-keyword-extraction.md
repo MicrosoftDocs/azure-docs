@@ -64,7 +64,7 @@ Document size must be under 10 KB per document. The collection is submitted in t
 
 Details on request definition can be found in [How to call the Text Analytics API](text-analytics-howto-call-api.md). The following points are restated for convenience:
 
-+ Create a **POSt** request. Review the API documentation for this request: [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
++ Create a **POST** request. Review the API documentation for this request: [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
 + Set the HTTP endpoint for key phrase extraction. It must include the `/keyphrases` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 
