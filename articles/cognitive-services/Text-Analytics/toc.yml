@@ -3,6 +3,10 @@
 - name: Overview
   href: overview.md
   items:
+- name: Quickstarts
+  items:
+  - name: C#
+    href: quick-start.md
 - name: How-to
   items:
    - name: Sign up
@@ -17,10 +21,6 @@
      href: text-analytics-howto-sentiment-analysis.md
    - name: Extract keywords 
      href: text-analytics-howto-keyword-extraction.md
-- name: Quickstarts
-  items:
-  - name: C#
-    href: quick-start.md
 - name: Reference
   items: 
   - name: API Reference
