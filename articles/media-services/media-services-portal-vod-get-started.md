@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of implementing a basic V
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 
 ms.assetid: 6c98fcfa-39e6-43a5-83a5-d4954788f8a4

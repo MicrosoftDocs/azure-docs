@@ -29,30 +29,31 @@ This document guides you through the step by step process of creating an OpenAPI
 ## <a name="prepare-function"></a>Creating a Function with a simple API
   To create an OpenAPI definition, we first need to create a Function with a simple API. If you already have an API hosted on a Function App, you can skip straight to the next section
 1. Create a new Function App.
-  1. [Azure portal](https://portal.azure.com) > `+ New` > Search for "Function App"
+    1. [Azure portal](https://portal.azure.com) > `+ New` > Search for "Function App"
 1. Create a new HTTP trigger function inside your new Function App
-  1. Your function is pre-populated with code defining a very simple REST API.
-  1. Any string passed to the Function as a query parameter or in the body is returned as "Hello {input}"
+    1. Your function is pre-populated with code defining a very simple REST API.
+    1. Any string passed to the Function as a query parameter or in the body is returned as "Hello {input}"
 1. Go to the `Integrate` tab of your new HTTP Trigger function
-  1. Toggle `Allowed HTTP methods` to `Selected methods`
-  1. In `Selected HTTP methods` uncheck every verb except POST.
+    1. Toggle `Allowed HTTP methods` to `Selected methods`
+    1. In `Selected HTTP methods` uncheck every verb except POST.
     ![Selected HTTP Methods](./media/functions-api-definition-getting-started/selectedHTTPmethods.png)
-  1. This step will simplify your API definition later on.
+    1. This step will simplify your API definition later on.
 
 ## <a name="enable"></a>Enabling API Definition Support
-1. Navigate to `your function name` > `API Definition (preview)`
-1. Set `API Definition Source` to `Function`
-  1. This step enables a suite of OpenAPI options for your Function App, including an endpoint to host an OpenAPI file from your Function App's domain, an inline copy of the [OpenAPI Editor](http://editor.swagger.io), and a quickstart definition generator.
+1. Navigate to `your function name` > `Platform Features` > `API Definition`
+![Definition Tab](./media/functions-api-definition-getting-started/definitiontab.png)
+1. Set `API Definition Source` to `Function (preview)`
+    1. This step enables a suite of OpenAPI options for your Function App, including an endpoint to host an OpenAPI file from your Function App's domain, an inline copy of the [OpenAPI Editor](http://editor.swagger.io), and a quickstart definition generator.
 ![Enabled Definition](./media/functions-api-definition-getting-started/enabledefinition.png)
 
 ## <a name="create-definition"></a>Creating your API Definition from a template
 1. Click `Generate API Definition template`
-  1. This step scans your Function App for HTTP Trigger functions and uses the info in functions.json to generate an OpenAPI document.
-2. Add an operation object to `paths: /api/yourfunctionroute post:`
-  1. The quickstart OpenAPI document is an outline of a full OpenAPI doc. It requires more metadata to be a full OpenAPI definition, such as operation objects and response templates.
-  1. The sample operation object below has a filled out produces/consumes section, a parameter object, and a response object.
-  
-  ```yaml
+    1. This step scans your Function App for HTTP Trigger functions and uses the info in functions.json to generate an OpenAPI document.
+1. Add an operation object to `paths: /api/yourfunctionroute post:`
+    1. The quickstart OpenAPI document is an outline of a full OpenAPI doc. It requires more metadata to be a full OpenAPI definition, such as operation objects and response templates.
+    1. The sample operation object below has a filled out produces/consumes section, a parameter object, and a response object.
+    
+    ```yaml
       post:
         operationId: /api/yourfunctionroute/post
         consumes: [application/json]
@@ -79,20 +80,20 @@ This document guides you through the step by step process of creating an OpenAPI
               type: string
         security:
           - apikeyQuery: []
-  ```
+    ```
+    
+    > [!NOTE]
+    >  x-ms-summary provides a display name in Logic Apps, Flow, and PowerApps.
+    >
+    > Check out [customize your Swagger definition for PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/) to learn more.
 
-> [!NOTE]
->  x-ms-summary provides a display name in Logic Apps, Flow, and PowerApps.
->
-> Check out [customize your Swagger definition for PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/) to learn more.
-
-3. Click `save` to save your changes
+1. Click `save` to save your changes
 ![Adding Template Definition](./media/functions-api-definition-getting-started/addingtemplate.png)
 
 ## <a name="use-definition"></a>Using Your API Definition
 1. Copy your `API definition URL` and paste it into a new browser tab to view your raw OpenAPI document.
 1. You can import your OpenAPI document to any number of tools for testing and integration using that URL.
-  1. Many Azure resources are able to automatically import your OpenAPI doc using the API Definition URL that is saved in your Function application settings. As a part of the `Function` API definition source, we update that url for you.
+    1. Many Azure resources are able to automatically import your OpenAPI doc using the API Definition URL that is saved in your Function application settings. As a part of the `Function` API definition source, we update that url for you.
 
 
 ## <a name="test-definition"></a>Using the Swagger UI to test your API definition
@@ -101,10 +102,10 @@ There are testing tools built in to the UI view of the imbedded API definition e
 ### Steps:
 
 1. Copy your function API key
-  1. The API key can be found in your HTTP Trigger Function under `function name` > `Keys` > `Function Keys`
+    1. The API key can be found in your HTTP Trigger Function under `function name` > `Keys` > `Function Keys`
   ![Function key](./media/functions-api-definition-getting-started/functionkey.png)
-1. Navigate to the `API Definition (preview)` page.
-  1. Click `Authenticate` and add your Function API key to the security object at the top.
+1. Navigate to the `API Definition` page.
+    1. Click `Authenticate` and add your Function API key to the security object at the top.
   ![OpenAPI key](./media/functions-api-definition-getting-started/definitionTest auth.png)
 1. select `/api/yourfunctionroute` > `POST`
 1. Click `Try it out` and enter a name to test
