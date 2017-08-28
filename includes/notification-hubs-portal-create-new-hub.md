@@ -1,6 +1,6 @@
 
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and then select **NEW** at the top left.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **New** > **Web + Mobile** > **Notification Hub**.
    
