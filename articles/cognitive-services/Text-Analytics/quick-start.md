@@ -44,7 +44,7 @@ The sample is written in C# using the Text Analytics API client library.
 1. Create a new Console solution in Visual Studio.
 1. Replace Program.cs with the code provided below.
 1. Replace the `subscriptionKey` value with an access key valid for your subscription.
-1. Replace the loation in `uriBase` (currently `westus`) to the region you signed up for.
+1. Replace the location in `uriBase` (currently `westus`) to the region you signed up for.
 1. Run the program.
 
 ```c#
@@ -272,7 +272,7 @@ The sample is written in C# using the Text Analytics API client library. It scor
 1. Create a new Console solution in Visual Studio.
 1. Replace Program.cs with the code provided below.
 1. Replace the `subscriptionKey` value with an access key valid for your subscription.
-1. Replace the loation in `uriBase` (currently `westus`) to the region you signed up for.
+1. Replace the location in `uriBase` (currently `westus`) to the region you signed up for.
 1. Run the program.
 
 ```c#
@@ -472,7 +472,7 @@ The sample is written in C# using the Text Analytics API client library. Key phr
 1. Create a new Console solution in Visual Studio.
 1. Replace Program.cs with the code provided below.
 1. Replace the `subscriptionKey` value with an access key valid for your subscription.
-1. Replace the loation in `uriBase` (currently `westus`) to the region you signed up for.
+1. Replace the location in `uriBase` (currently `westus`) to the region you signed up for.
 1. Run the program.
 
 
