@@ -35,10 +35,10 @@ Create the new ASP.NET WebAPI back end by doing the following:
    
     ![The New ASP.NET Project window][B2]
 
-6. In the **Configure Microsoft Azure Web App** window, do either of the following:
+6. In the **Configure Microsoft Azure Web App** window, select a subscription and then, in the **App Service plan** list, do either of the following:
 
-    * Choose a subscription and an **App Service plan** that you've already created. 
-    * Choose **Create a new app service plan** in the **App Service plan** list, and then create one.) 
+    * Select an app service plan that you've already created. 
+    * Select **Create a new app service plan**, and then create one. 
     
     You do not need a database for this tutorial. After you have selected your app service plan, select **OK** to create the project.
    
@@ -68,9 +68,9 @@ In this section, you create a new message-handler class named **AuthenticationTe
    * The request uses *basic* authentication. 
    * The user name string and the password string are the same string.
      
-    Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is just a very simple example for this tutorial.
+  Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is just a very simple example for this tutorial.
      
-    If the request message is authenticated and authorized by `AuthenticationTestHandler`, the basic authentication user is attached to the current request on [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
+  If the request message is authenticated and authorized by `AuthenticationTestHandler`, the basic authentication user is attached to the current request on [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
      
        public class AuthenticationTestHandler : DelegatingHandler
        {
