@@ -3,15 +3,15 @@ title: 'Azure Text Analytics Quick Start | Microsoft Docs'
 description: Get information to help you quickly get started using the Text Analytics API in Cognitive Services.
 services: cognitive-services
 documentationcenter: ''
-author: onewth
+author: luiscabrer
 manager: jhubbard
 editor: cgronlun
 
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 05/16/2017
-ms.author: onewth
+ms.date: 08/24/2017
+ms.author: luisca
 
 ---
 # Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics, and language
@@ -26,7 +26,6 @@ By the end of this tutorial, you will be able to programmatically detect:
 
 * **Sentiment** - Is text positive or negative?
 * **Key phrases** - What are people discussing in a single article?
-* **Topics** - What are people discussing across many articles?
 * **Languages** - What language is text written in?
 
 <a name="Overview"></a>
@@ -143,125 +142,6 @@ Refer to the [Text Analytics Overview](overview.md#supported-languages) for deta
             ]
         }
 
-## Task 3 - Detect topics in a corpus of text  (The topic detection capability will be deprecated August 24, 2017)
-This API returns the top detected topics for a list of submitted text records. A topic is identified with a key phrase, which can be one or more related words. The API is designed to work well for short, human written text such as reviews and user feedback.
-
-This API requires **a minimum of 100 text records** to be submitted, but is designed to detect topics across hundreds to thousands of records. Any non-English records or records with fewer than three words are discarded and therefore are not assigned to topics. For topic detection, the maximum size of a single document that can be submitted is 30 KB, and the total maximum size of submitted input is 30 MB. Topic detection is rate limited to five submissions every five minutes.
-
-There are two additional **optional** input parameters that can help to improve the quality of results:
-
-* **Stop words.**  These words and their close forms (for example, plurals) are excluded from the entire topic detection pipeline. Use this parameter for common words (for example, “issue”, “error” and “user” may be appropriate choices for customer complaints about software). Each string should be a single word.
-* **Stop phrases** - These phrases are excluded from the list of returned topics. Use this to exclude generic topics that you don’t want to see in the results. For example, “Microsoft” and “Azure” would be appropriate choices for topics to exclude. Strings can contain multiple words.
-
-Follow these steps to detect topics in your text.
-
-1. Format the input in JSON. This time, you can define stop words and stop phrases.
-   
-        {
-            "documents": [
-                {
-                    "id": "1",
-                    "text": "First document"
-                },
-                ...
-                {
-                    "id": "100",
-                    "text": "Final document"
-                }
-            ],
-            "stopWords": [
-                "issue", "error", "user"
-            ],
-            "stopPhrases": [
-                "Microsoft", "Azure"
-            ]
-        }
-2. Using the same headers as defined in Task 2, make a **POST** call to the topics endpoint:
-   
-        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/topics
-3. This returns an `operation-location` as the header in the response, where the value is the URL to query for the resulting topics:
-   
-        'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
-4. Query the returned `operation-location` periodically with a **GET** request. Once per minute is recommended.
-   
-        GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
-5. The endpoint returns a response including `{"status": "notStarted"}` before processing, `{"status": "Running"}` while processing and `{"status": "Succeeded"}` with the output once completed. You can then consume the output, which is in the following format (note details like error format and dates have been excluded from this example):
-   
-        {
-            "status": "Succeeded",
-            "operationProcessingResult": {
-                  "topics": [
-                    {
-                        "id": "8b89dd7e-de2b-4a48-94c0-8e7844265196"
-                        "score": "5"
-                        "keyPhrase": "first topic name"
-                    },
-                    ...
-                    {
-                        "id": "359ed9cb-f793-4168-9cde-cd63d24e0d6d"
-                        "score": "3"
-                        "keyPhrase": "final topic name"
-                    }
-                ],
-                  "topicAssignments": [
-                    {
-                        "topicId": "8b89dd7e-de2b-4a48-94c0-8e7844265196",
-                        "documentId": "1",
-                        "distance": "0.354"
-                    },
-                    ...
-                    {
-                        "topicId": "359ed9cb-f793-4168-9cde-cd63d24e0d6d",
-                        "documentId": "55",
-                        "distance": "0.758"
-                    },            
-                ]
-            }
-        }
-
-The successful response for topics from the `operations` endpoint has the following schema:
-
-    {
-            "topics" : [{
-                "id" : "string",
-                "score" : "number",
-                "keyPhrase" : "string"
-            }],
-            "topicAssignments" : [{
-                "documentId" : "string",
-                "topicId" : "string",
-                "distance" : "number"
-            }],
-            "errors" : [{
-                "id" : "string",
-                "message" : "string"
-            }]
-        }
-
-Explanations for each part of this response are as follows:
-
-**topics**
-
-| Key | Description |
-|:--- |:--- |
-| id |A unique identifier for each topic. |
-| score |Count of documents assigned to topic. |
-| keyPhrase |A summarizing word or phrase for the topic. |
-
-**topicAssignments**
-
-| Key | Description |
-|:--- |:--- |
-| documentId |Identifier for the document. Equates to the ID included in the input. |
-| topicId |The topic ID, which the document has been assigned to. |
-| distance |Document-to-topic affiliation score between 0 and 1. The lower a distance score the stronger the topic affiliation is. |
-
-**errors**
-
-| Key | Description |
-|:--- |:--- |
-| id |Input document unique identifier the error refers to. |
-| message |Error message. |
 
 ## Next steps
 Congratulations! You have now completed using text analytics on your data. You may now wish to look into using a tool such as [Power BI](//powerbi.microsoft.com) to visualize your data. You can also use the insights to provide a streaming view of what customers are saying.

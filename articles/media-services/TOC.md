@@ -25,9 +25,6 @@
 
 # How To
 ## Manage
-### Accounts
-#### [PowerShell](media-services-manage-with-powershell.md)
-#### [REST](/rest/api/media/mediaservice)
 ### Entities
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
@@ -111,7 +108,6 @@
 ### [on-premises encoders](media-services-live-streaming-with-onprem-encoders.md)
 #### [Portal](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Live streaming with cloud encoder](media-services-manage-live-encoder-enabled-channels.md)
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -169,7 +165,6 @@
 ### [Media Processing](media-services-scale-media-processing-overview.md)
 #### [Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Streaming Endpoints
 #### [Portal](media-services-portal-scale-streaming-endpoints.md)
 
@@ -195,6 +190,7 @@
 #### [Adobe Open Source Media Framework players](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Insert ads on the client side](media-services-inserting-ads-on-client-side.md)
 ### [Licensing Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
+### [Play AES encrypted HLS in Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 
 ## Integrate
 ### [Use Azure Functions with Media Services](media-services-dotnet-how-to-use-azure-functions.md)

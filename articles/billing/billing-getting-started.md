@@ -3,7 +3,7 @@ title: Prevent unexpected costs, manage billing - Azure | Microsoft Docs
 description: Learn how to avoid unexpected charges on your Azure bill. Use cost-tracking and management features for a Microsoft Azure subscription.
 services: ''
 documentationcenter: ''
-author: jlian
+author: tonguyen10
 manager: tonguyen
 editor: ''
 tags: billing
@@ -14,10 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2017
-ms.author: jlian
+ms.date: 08/10/2017
+ms.author: tonguyen
 
+experimental: true
+experimental_id: "a2b2579c-cd2e-41"
 ---
+
 # Prevent unexpected costs with Azure billing and cost management
 
 When you sign up for Azure, there are several things you can do to get a better idea of your spend. In the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), when you select the subscription, you can see your current cost breakdown and burn rate. You can also [download past invoices and detail usage files](billing-download-azure-invoice-daily-usage-date.md). If you want to group costs for resources used for different projects or teams, look at [resource tagging](../azure-resource-manager/resource-group-using-tags.md). If your organization has a reporting system that you prefer to use, check out the [billing APIs](billing-usage-rate-card-overview.md). 
@@ -34,7 +37,7 @@ If your subscription is a Free Trial, [Visual Studio](https://azure.microsoft.co
 
 Check out the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) and [total cost of ownership calculator](https://aka.ms/azure-tco-calculator) to get an estimate the monthly cost of the service you're interested in. For example, an A1 Windows Virtual Machine (VM) is estimated to cost $66.96 USD/month in compute hours if you leave it running the whole time:
 
-![Screenshot of the pricing calculator showing that an A1 Windows VM is estimated to cost $66.96 USD per month](./media/billing-getting-started/pricing-calc.PNG)
+![Screenshot of the pricing calculator showing that an A1 Windows VM is estimated to cost $66.96 USD per month](./media/billing-getting-started/pricing-calcVM.png)
 
 For more information, see [pricing FAQ](https://azure.microsoft.com/pricing/faq/). Or if you want to talk to a person, call 1-800-867-1389.
 
@@ -131,7 +134,7 @@ After you get your services running, regularly check how much they're costing yo
 
 7. Click a resource to see spend history and how much it was costing you each day.
 
-    ![Screenshot of the spend history view in Azure portal](./media/billing-getting-started/spend-history.PNG)
+    ![Screenshot of the spend history view in Azure portal](./media/billing-getting-started/costhistory.PNG)
 
 We recommend that you check the costs you see with the estimates you saw when you selected the services. If the costs wildly differ from estimates, double check the pricing plan (A1 vs A0 VM, for example) that you've selected for your resources. 
 

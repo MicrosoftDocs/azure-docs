@@ -12,11 +12,12 @@ keywords: azure functions, functions, event processing, webhooks, dynamic comput
 ms.assetid: ab86065d-6050-46c9-a336-1bfc1fa4b5a1
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/01/2017
-ms.author: rachelap; glenga
+ms.author: glenga
+ms.custom: mvc
 
 ---
 # Use Azure Functions to create a function that connects to other Azure services

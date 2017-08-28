@@ -133,7 +133,7 @@ Once the account has been created, you can open the **Batch account blade** to a
 
 ![Batch account URL in portal][account_url]
 
-* **Access keys** (Batch service mode): To authenticate access to your Batch account from your application, you'll need an account access key. (This setting is not available in user subscription mode, where you use Azure Active Directory authetication.)
+* **Access keys** (Batch service mode): To authenticate access to your Batch account from your application, you'll need an account access key. (This setting is not available in user subscription mode, where you use Azure Active Directory authentication.)
 
     To view or regenerate your Batch account's access keys, enter `keys` in the left menu **Search** box on the Batch account blade, then select **Keys**.
 
@@ -150,7 +150,7 @@ We recommend that you create a new Storage account exclusively for use by your B
 ![Creating a general-purpose storage account][storage_account]
 
 > [!NOTE]
-> Azure Batch currently supports only the general-purpose Storage account type. This account type is described in step 5, [Create a storage account] (../storage/storage-create-storage-account.md#create-a-storage-account), in [About Azure storage accounts](../storage/storage-create-storage-account.md).
+> Azure Batch currently supports only the general-purpose Storage account type. This account type is described in step 5, [Create a storage account] (../storage/common/storage-create-storage-account.md#create-a-storage-account), in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 >
 >
 
