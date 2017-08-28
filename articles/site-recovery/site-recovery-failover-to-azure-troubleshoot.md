@@ -22,7 +22,8 @@ You may receive one of the following errors while doing failover of a virtual ma
 
 
 ## Failover failed with Error ID 28031
-Site Recovery was not able to create the failed over virtual machine in Azure. It could happen because of one of the following reasons:
+
+Site Recovery was not able to create a failed over virtual machine in Azure. It could happen because of one of the following reasons:
 
 * There isn't sufficient quota available to create the virtual machine: You can check the available quota by going to Subscription -> Usage + quotas. You can open a [new support request](http://aka.ms/getazuresupport) to increase the quota.
 	 
@@ -33,6 +34,12 @@ Site Recovery was not able to create the failed over virtual machine in Azure. I
 ## Failover failed with Error ID 28092
 
 Site Recovery was not able to create a network interface for the failed over virtual machine. Make sure you have sufficient quota available to create network interfaces in the subscription. You can check the available quota by going to Subscription -> Usage + quotas. You can open a [new support request](http://aka.ms/getazuresupport) to increase the quota. If you have sufficient quota, then this might be an intermittent issue, try the operation again. If the issue persists even after retries, then leave a comment at the end of this document.  
+
+## Failover failed with Error ID 70038
+
+Site Recovery was not able to create a failed over Classic virtual machine in Azure. It could happen because of one of the following reasons:
+
+* One of the resources such as a virtual network that is required for the virtual machine to be created doesn't exist. Create the virtual network as provided under Compute and Network settings of the virtual machine or modify the the setting to a virtual network that already exists and then retry failover. 
 
 
 ## Next steps
