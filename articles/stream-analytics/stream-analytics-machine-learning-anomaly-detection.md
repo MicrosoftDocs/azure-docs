@@ -1,5 +1,5 @@
 ---
-title: Anomaly Detection Usage Guide (Preview)| Microsoft Docs
+title: Anomaly Detection in Azure Usage Guide  (Preview)| Microsoft Docs
 description: Use stream analytics and machine learning to detect anomalies.
 services: stream-analytics
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 03/28/2017
 ms.author: samacha
 ---
 
+# Using the ANOMALYDETECTION operator
+
 > [!IMPORTANT]
 > This functionality is in preview. We do not recommend use in production.
-
-# Using the ANOMALYDETECTION operator
 
 The **ANOMALYDETECTION** operator can be used to detect anomalies in event streams.
 For example, a slow decrease in free memory over a long time can be indicative
@@ -215,7 +215,7 @@ As noted before, do not skip the `FillInMissingValuesStep` step for now. Omittin
 
 * [Anomaly Detection – Using Machine Learning to Detect Abnormalities in Time Series Data](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/)
 * [Machine Learning Anomaly Detection API](https://docs.microsoft.com/en-gb/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
-* [Time Series Anomaly Detection](https://msdn.microsoft.com/en-us/library/azure/mt775197.aspx)
+* [Time Series Anomaly Detection](https://msdn.microsoft.com/library/azure/mt775197.aspx)
 
 ## Get support
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
