@@ -60,27 +60,27 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
 2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
 
     ```cli
-        azure login
+    azure login
     ```
 
     When prompted, enter the user name and password for your subscription.
 3. Enter the following command to list the storage accounts for your subscription:
 
     ```cli
-        azure storage account list
+    azure storage account list
     ```
 
 4. Select the storage account that contains the blob you want to work with, then use the following command to retrieve the key for this account:
 
     ```cli
-        azure storage account keys list <storage-account-name>
+    azure storage account keys list <storage-account-name>
     ```
 
     This command returns the **Primary** and the **Secondary** keys. Copy the **Primary** key value because it will be used in the next steps.
 5. Use the following command to retrieve a list of blob containers within the storage account:
 
     ```cli
-        azure storage container list -a <storage-account-name> -k <primary-key>
+    azure storage container list -a <storage-account-name> -k <primary-key>
     ```
 
 6. Use the following commands to upload and download files to the blob:
@@ -88,13 +88,13 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
    * To upload a file:
 
         ```cli
-            azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
+        azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
         ```
 
    * To download a file:
 
         ```cli
-            azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
+        azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
         ```
     
 > [!NOTE]

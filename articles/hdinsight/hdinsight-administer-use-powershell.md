@@ -120,7 +120,7 @@ The impact of changing the number of data nodes for each type of cluster support
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
-    ```cli
+    ```
 
 To change the Hadoop cluster size by using Azure PowerShell, run the following command from a client machine:
 
