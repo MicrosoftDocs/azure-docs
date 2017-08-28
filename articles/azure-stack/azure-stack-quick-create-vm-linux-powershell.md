@@ -20,11 +20,11 @@ ms.author: sngun
 
 # Create a Linux virtual machine by using PowerShell in Azure Stack 
 
-This guide details using the PowerShell to create a virtual machine running Ubuntu server in Azure Stack. When you use Virtual Machines, understand that there are some differences between the features that are available in Azure and Azure Stack, refer to the [Considerations for virtual machines in Azure Stack](azure-stack-vm-considerations.md) topic to learn about these differences.
+This guide details using the PowerShell to create a virtual machine running Ubuntu server in Azure Stack. When you use Virtual Machines, understand that there are some differences between the features that are available in Azure and Azure Stack, refer to the [Considerations for virtual machin2es in Azure Stack](azure-stack-vm-considerations.md) topic to learn about these differences.
 
 You can run the steps described in this article either from the [Azure Stack Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)
 
-##test statement 1
+##test statement 12
 
 ## Prerequisites
 
