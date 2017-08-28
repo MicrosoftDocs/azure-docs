@@ -46,7 +46,7 @@
 ### [Deploy continuously](../../app-service-web/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 ### [Deploy from local Git](../../app-service-web/app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 ### [Deploy with template](../../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-### [Set deployment credentials](app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+### [Set deployment credentials](../../app-service-web/app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 ### [Create staging environments](../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 
 ## Map custom domain

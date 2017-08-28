@@ -19,9 +19,9 @@ ms.custom: mvc
 ---
 # Build a Node.js and MongoDB web app in Azure
 
-Azure Web Apps provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a Node.js web app in Azure and connect it to a MongoDB database. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in [Azure App Service](app-service-web-overview.md). For simplicity, the sample application uses the [MEAN.js web framework](http://meanjs.org/).
+Azure Web Apps provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a Node.js web app in Azure and connect it to a MongoDB database. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in [Azure App Service](../../app-service-web/app-service-web-overview.md). For simplicity, the sample application uses the [MEAN.js web framework](http://meanjs.org/).
 
-![MEAN.js app running in Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
+![MEAN.js app running in Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
 What you'll learn:
 
@@ -42,9 +42,9 @@ To complete this tutorial:
 1. [Install Gulp.js](http://gulpjs.com/) (required by [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
@@ -106,7 +106,7 @@ Navigate to http://localhost:3000 in a browser. Click **Sign Up** in the top men
 
 The MEAN.js sample application stores user data in the database. If you are successful at creating a user and signing in, then your app is writing data to the local MongoDB database.
 
-![MEAN.js connects successfully to MongoDB](./media/app-service-web-tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
+![MEAN.js connects successfully to MongoDB](./media/tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
 
 Select **Admin > Manage Articles** to add some articles.
 
@@ -130,7 +130,7 @@ az login
 
 Create a resource group with the [az group create](/cli/azure/group#create) command.
 
-[!INCLUDE [Resource group intro](../../includes/resource-group.md)]
+[!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
 The following example creates a resource group in the West Europe region.
 
@@ -217,7 +217,7 @@ db: {
 },
 ```
 
-The `ssl=true` option is required because [Cosmos DB requires SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
+The `ssl=true` option is required because [Cosmos DB requires SSL](../../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 
 Save your changes.
 
@@ -262,7 +262,7 @@ In this step, you deploy your MongoDB-connected Node.js application to Azure App
 
 Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command. 
 
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
+[!INCLUDE [app-service-plan](../../../includes/app-service-plan.md)]
 
 The following example creates an App Service plan named _myAppServicePlan_ using the **FREE** pricing tier:
 
@@ -432,7 +432,7 @@ Click **Sign Up** in the top menu and create a dummy user.
 
 If you are successful and the app automatically signs in to the created user, then your MEAN.js app in Azure has connectivity to the MongoDB (Cosmos DB) database. 
 
-![MEAN.js app running in Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
+![MEAN.js app running in Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
 Select **Admin > Manage Articles** to add some articles. 
 
@@ -548,7 +548,7 @@ Select **Admin > Manage Articles**, then add an article by selecting the **+** b
 
 You see the new `Comment` textbox now.
 
-![Added comment field to Articles](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field.png)
+![Added comment field to Articles](./media/tutorial-nodejs-mongodb-app/added-comment-field.png)
 
 In the terminal, stop Node.js by typing `Ctrl+C`. 
 
@@ -563,7 +563,7 @@ git push azure master
 
 Once the `git push` is complete, navigate to your Azure web app and try out the new functionality.
 
-![Model and database changes published to Azure](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
+![Model and database changes published to Azure](media/tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
 If you added any articles earlier, you still can see them. Existing data in your Cosmos DB is not lost. Also, your updates to the data schema and leaves your existing data intact.
 
@@ -587,13 +587,13 @@ Go to the [Azure portal](https://portal.azure.com) to see the web app you create
 
 From the left menu, click **App Services**, then click the name of your Azure web app.
 
-![Portal navigation to Azure web app](./media/app-service-web-tutorial-nodejs-mongodb-app/access-portal.png)
+![Portal navigation to Azure web app](./media/tutorial-nodejs-mongodb-app/access-portal.png)
 
 By default, the portal shows your web app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
-![App Service page in Azure portal](./media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
+![App Service page in Azure portal](./media/tutorial-nodejs-mongodb-app/web-app-blade.png)
 
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
 ## Next steps
@@ -611,4 +611,4 @@ What you learned:
 Advance to the next tutorial to learn how to map a custom DNS name to your web app.
 
 > [!div class="nextstepaction"] 
-> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure Web Apps](../../app-service-web/app-service-web-tutorial-custom-domain.md)

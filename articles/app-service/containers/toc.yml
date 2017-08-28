@@ -1,8 +1,7 @@
 - name: Web Apps for Containers
-  href: index.yml
 - name: Overview
   items:
   - name: About Web Apps for Containers
     href: app-service-linux-intro.md
   - name: Compare hosting options
-    href: ../../app-service-web/choose-web-site-cloud-service-vm.md
+    href: ../../app-service-web/choose-web-site-cloud-service-vm.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
