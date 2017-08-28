@@ -128,7 +128,7 @@ The .zip file that you download contains all the necessary tools and packages fo
 [Download](https://azureboard.azureedge.net/prod/installpackage/devkit_install_1.0.2.zip)
 
 
-The `.zip` file contains the following tools and packages. If you already have some components installed, the script will detect and skip them.
+The .zip file contains the following tools and packages. If you already have some components installed, the script will detect and skip them.
 
 * Node.js and Yarn: Runtime for the setup script and automated tasks.
 * [Azure CLI 2.0 MSI](https://docs.microsoft.com//cli/azure/install-azure-cli#windows): Cross-platform command-line experience for managing Azure resources. The MSI contains dependent Python and pip.
