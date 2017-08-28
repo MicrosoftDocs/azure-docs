@@ -4,7 +4,7 @@ description: Media Services Release Notes
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d

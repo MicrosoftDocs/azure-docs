@@ -4,7 +4,7 @@ description: Microsoft Azure Media Services enables you to deliver MPEG-DASH, Sm
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 548d1a12-e2cb-45fe-9307-4ec0320567a2
