@@ -27,7 +27,7 @@ Site Recovery provides test failovers to support disaster recovery drills withou
 
 We recommend migrating to Premium Storage by using Site Recovery because this option provides minimal downtime. This option also avoids the manual execution of copying disks and creating new VMs. Site Recovery will systematically copy your disks and create new VMs during failover. 
 
-Site Recovery supports a number of types of failover with minimal or no downtime. To plan your downtime and estimate data loss, see the [types of failover in Site Recovery](../../site-recovery/site-recovery-failover.md). If you [prepare to connect to Azure VMs after failover](../../site-recovery/site-recovery-vmware-to-azure.md), you should be able to connect to the Azure VM by using RDP after failover.
+Site Recovery supports a number of types of failover with minimal or no downtime. To plan your downtime and estimate data loss, see the [types of failover in Site Recovery](../../site-recovery/site-recovery-failover.md). If you [prepare to connect to Azure VMs after failover](../../site-recovery/vmware-walkthrough-overview.md), you should be able to connect to the Azure VM by using RDP after failover.
 
 ![Disaster recovery diagram][1]
 
@@ -35,7 +35,7 @@ Site Recovery supports a number of types of failover with minimal or no downtime
 
 These Site Recovery components are relevant to this migration scenario:
 
-* **Configuration server** is an Azure VM that coordinates communication and manages data replication and recovery processes. On this VM, you run a single setup file to install the configuration server and an additional component, called a process server, as a replication gateway. Read about [configuration server prerequisites](../../site-recovery/site-recovery-vmware-to-azure.md). You set up the configuration server only once, and you can use it for all migrations to the same region.
+* **Configuration server** is an Azure VM that coordinates communication and manages data replication and recovery processes. On this VM, you run a single setup file to install the configuration server and an additional component, called a process server, as a replication gateway. Read about [configuration server prerequisites](../../site-recovery/vmware-walkthrough-overview.md). You set up the configuration server only once, and you can use it for all migrations to the same region.
 
 * **Process server** is a replication gateway that: 
 
@@ -45,7 +45,7 @@ These Site Recovery components are relevant to this migration scenario:
 
   It also handles push installation of the mobility service to source VMs and performs automatic discovery of source VMs. The default process server is installed on the configuration server. You can deploy additional standalone process servers to scale your deployment. Read about [best practices for process server deployment](https://azure.microsoft.com/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/) and [deploying additional process servers](../../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers). You set up the process server only once, and you can use it for all migrations to the same region.
 
-* **Mobility service** is a component that is deployed on every standard VM that you want to replicate. It captures data writes on the standard VM and forwards them to the process server. Read about [replicated machine prerequisites](../site-recovery/site-recovery-vmware-to-azure.md).
+* **Mobility service** is a component that is deployed on every standard VM that you want to replicate. It captures data writes on the standard VM and forwards them to the process server. Read about [replicated machine prerequisites](../../site-recovery/vmware-walkthrough-overview.md).
 
 This graphic shows how these components interact:
 
@@ -54,7 +54,7 @@ This graphic shows how these components interact:
 > [!NOTE]
 > Site Recovery does not support the migration of Storage Spaces disks.
 
-For additional components for other scenarios, see [Scenario architecture](../../site-recovery/site-recovery-vmware-to-azure.md).
+For additional components for other scenarios, see [Scenario architecture](../../site-recovery/vmware-walkthrough-overview.md).
 
 ## Azure essentials
 
