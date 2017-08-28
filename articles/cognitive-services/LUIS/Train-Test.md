@@ -35,7 +35,7 @@ To start the iterative process of training, you first need to train your LUIS ap
 2. In your app, click **Train & Test** in the left panel. 
 3. On the **Test App** page, click **Train Application** to train the LUIS app on the latest updates.
 
-    ![Train & Test App page](./Images/Train_Test-app.JPG)
+    ![Train & Test App page](./media/luis-how-to-train-test/train-app-button.png)
 
 <!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
 
@@ -122,8 +122,8 @@ When you perform interactive testing, you may find that LUIS doesn't detect the 
 
     ![Confirm Published Model Test](./Images/TestApp-ConfirmPublishedTest.JPG)
 
-    >[!NOTE] 
-    >If you do not have a published version of your application, the **Enable published model** check box will be disabled. 
+>[!NOTE] 
+>If you do not have a published version of your application, the **Enable published model** check box will be disabled. 
 
 2. Type "book me a flight to Boston tomorrow" as your test utterance and press Enter. The result view on the right side will be split horizontally into two parts (as in the following screenshot) to display results of the test utterance in both the current and published models. 
 
