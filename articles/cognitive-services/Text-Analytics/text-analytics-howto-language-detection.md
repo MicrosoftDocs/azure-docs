@@ -16,7 +16,7 @@ ms.author: heidist
 
 The [Language Detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) evaluates text input and for each document returns language identifiers and a score indicating the strength of the analysis. Text Analytics recognizes up to 120 languages.
 
-This capability is useful for content stores that collect arbitrary text, where language is unknown. You can parse the results of this analysis to determine which language representation and frequency of occurrence. From the output, you could trim unknown or inconclusive results, or investigate the findings more deeply to see if there is corruption in the form of unexpected non-text content.
+This capability is useful for content stores that collect arbitrary text, where language is unknown. You can parse the results of this analysis to determine which language is used in the input document. The response also returns a score which reflects the confidence of the model (a value between 0 and 1).
 
 ## Preparation
 
@@ -208,11 +208,9 @@ In this article, you learned concepts and workflow for language detection using 
 
 + [Quickstart](quick-start.md) is a walk through of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code.
 
-+ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
++ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. The documentation supports embedded calls so that you can call the API from each documentation page.
 
 + [External & Community Content](text-analytics-resource-external-community.md) provides a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
-
-+ To see how the Text Analytics API can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
 
 ## See also 
 

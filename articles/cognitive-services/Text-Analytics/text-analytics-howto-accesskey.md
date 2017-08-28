@@ -36,11 +36,9 @@ If you need help finding the key, or to determine whether your subscription alre
 
 + [Quickstart](quick-start.md) is a walk through of the main capabilities. Learn how to submit text, perform an analysis, and view results with minimal code.
 
-+ [Visit API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
++ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides technical documentation for the APIs. The documentation supports embedded requests so that you can call the API from each documentation page.
 
-+ See how the Text Analytics API can be used as part of a bot in the [Emotional Bot](http://docs.botframework.com/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
-
-+ [Visit this page](text-analytics-resource-external-community.md) for a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
++ [External & Community Content](text-analytics-resource-external-community.md) provides a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
 
 ## See also 
 

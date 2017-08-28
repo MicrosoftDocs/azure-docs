@@ -24,9 +24,6 @@ For Text Analytics, there is a Free tier for exploration and evaluation, and bil
 
 There is no service level agreement for services in Preview or the free tier. For more information, see [SLA for Cognitive Services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/)
 
-> [!Note]
-> Cognitive Services has multiple APIs. Each API ships new features and transitions from preview to general availability on its own schedule. For this reason, we ask you to sign up for each API independently.
-
 ## How to change tiers
 
 Start with a Free tier and then transition to a billable tier for production workloads. Standard billing is offered at graduated levels. You can switch tiers and still keep the same endpoint and access keys.
@@ -41,21 +38,11 @@ Start with a Free tier and then transition to a billable tier for production wor
 
    ![Tiles and Select button in tier selection page](../media/text-analytics/portal-choose-tier.png)
 
-## How billing works (NOW)
+## How billing works
 
 Billing is based on the number of transactions. You can purchase a block of transactions at a specific tier in a monthly billing cycle, and then if you go over, a small overage charge is applied per transaction. If you routinely go over the maximum limit, consider switching to a higher tier.
 
 Current rates are offered at a preview discount while the service is in preview. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
-
-## How billing works (SAVE/UPDATE FOR GA)
-
-Billing is based on transactions, where a transaction is based on the number of documents multiplied by unit of operation. There is no storage component to billing because we do not store your data. The following table illustrates the billing model at a glance.
-
-| Document | Sentiment | Key Phrase | Language Detection | Transactions |
-|----------|-----------|------------|--------------------|--------------|
-| 1  | ✔ | ✔ | ✔ | 3 |
-| 100 | ✔ | ✔ |   | 200 |
-| 1000 |   |   | ✔ | 1000 |
 
 ## Next steps
 

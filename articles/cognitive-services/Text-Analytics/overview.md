@@ -87,7 +87,7 @@ Text Analytics accepts raw text data. The service currently sets a limit of 10 K
 | Maximum size of entire request | 1 MB |
 | Maximum number of documents in a request | 1,000 documents |
 
-Rate limiting exists at a rate of 100 calls per minute. We generally recommend that you submit large quantities of documents in a single call. This practice works best for key phrase extraction and language detection. For sentiment detection, accuracy improves when text is delivered in smaller chunks. You might need to experiement to find the right balance.
+Rate limiting exists at a rate of 100 calls per minute. Note that you can submit a large quantities of documents in a single call (up to 1000 documents). 
 
 ## Next steps
 
@@ -95,15 +95,13 @@ First, try the [interactive demo](https://azure.microsoft.com/services/cognitive
 
 When you are ready to call the API diretly, continue with these links:
 
-+ [sign up](text-analytics-howto-signup.md) for an access key and review the steps for [calling the API](text-analytics-howto-call-api.md).
++ [Sign up](text-analytics-howto-signup.md) for an access key and review the steps for [calling the API](text-analytics-howto-call-api.md).
 
 + [Quickstart](quick-start.md) is a walk through of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code.
 
-+ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
++ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. The documentation supports embedded calls so that you can call the API from each documentation page.
 
 + [External & Community Content](text-analytics-resource-external-community.md) provides a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
-
-+ To see how the Text Analytics API can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
 
 ## See also
 

@@ -22,7 +22,7 @@ Currently, the following languages are supported for production workloads: Engli
 
 ## Concepts
 
-Text Analytics uses a Naive-Bayes machine learning algorithm to classify any new piece of text as having positive, negative, or neutral sentiment. The model is pretrained with an extensive body of text with sentiment associations. Currently, it is not possible to provide your own training data. 
+Text Analytics uses a machine learning classification techniques algorithm to classify any new piece of text as having positive, negative, or neutral sentiment. The model is pretrained with an extensive body of text with sentiment associations. Currently, it is not possible to provide your own training data. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words.   
 
 The sentiment analyzer is engineered to solve classification problems, and not aspect sentiment. The model is trained to analyze text at face value, and then score sentiment using resources provided by the service. 
 
@@ -92,9 +92,7 @@ Recall that the service is stateless. No data is stored in your account. Results
 
 ## Step 3: Handle results
 
-The sentiment analyzer classifies text as predominantly positive or negative, assigning a score in the range of 0 to 1, as a 15-digit string. A solid 0.5 is neutral; the functional equivalent of an indeterminate sentiment. The analyzer couldn't interpret or make sense of the text input.
-
-All POST requests return a JSON formatted response with the IDs and detected properties. There is no built-in drillthrough to document detail. If you want clickthrough from a sentiment score to the original input, or to key phrases extracted for the same document, you will need to write code that collects the outputs for each document ID. If the source data platform supports it, consider calling additional APIs from Twitter, Facebook, and so forth, to supplement sentiment scoring with metadata and other constructs available in the platform of origin. 
+The sentiment analyzer classifies text as predominantly positive or negative, assigning a score in the range of 0 to 1. Values close to 0.5 are neutral or indeterminate. For example, you might get a 0.5 if the language code doesn't match the text.
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
 
@@ -145,11 +143,9 @@ In this article, you learned concepts and workflow for sentiment analysis using 
 
 + [Quickstart](quick-start.md) is a walk through of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code.
 
-+ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. Documentation embeds interactive requests so that you can call the API from each documentation page.
++ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. The documentation supports embedded calls so that you can call the API from each documentation page.
 
 + [External & Community Content](text-analytics-resource-external-community.md) provides a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
-
-+ To see how the Text Analytics API can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
 
 
 ## See also 
