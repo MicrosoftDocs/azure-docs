@@ -21,13 +21,12 @@ ms.author: yuaxu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## Overview
-Baidu cloud push is a Chinese cloud service that you can use to send push notifications to mobile devices. This service is useful in China, where delivering push notifications to Android is complex because of the presence of different app stores and push services, in addition to the availability of Android devices that are not typically connected to GCM (Google Cloud Messaging).
+Baidu cloud push is a Chinese cloud service that you can use to send push notifications to mobile devices. This service is useful in China, where delivering push notifications to Android is complex because of the presence of different app stores and push services, in addition to the availability of Android devices that are not typically connected to FCM (Firebase Cloud Messaging, the successor to GCM).
 
 ## Prerequisites
 This tutorial requires:
 
-* Android SDK (we assume that you use Eclipse), which you can download from the <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android site</a>
-* [Mobile Services Android SDK]
+* Android SDK (we assume that you use Android Studio), which you can download from the <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android site</a>
 * [Baidu Push Android SDK]
 
 > [!NOTE]
@@ -53,30 +52,6 @@ To use Baidu, you must have a Baidu account. If you already have one, log in to 
 
 Once you have an activated Baidu account, log in to the [Baidu portal].
 
-## Register as a Baidu developer
-1. Once you have logged in to the [Baidu portal], click **更多>>** (**more**).
-   
-      ![][5]
-2. Scroll down in the **站长与开发者服务 (Webmaster and Developer Services)** section and click **百度开放云平台** (**Baidu open cloud platform**).
-   
-      ![][6]
-3. On the next page, click **开发者服务** (**Developer Services**) on the top-right corner.
-   
-      ![][7]
-4. On the next page, click **注册开发者** (**Registered Developers**) from the menu on the top-right corner.
-   
-      ![][8]
-5. Enter your name, a description, and a mobile phone number for receiving a verification text message, and then click **送验证码** (**Send Verification Code**). For international phone numbers, you need to enclose the country code in parentheses. For example, for a United States number, it is **(1)1234567890**.
-   
-      ![][9]
-6. You should then receive a text message with a verification number, as shown in the following example:
-   
-      ![][10]
-7. Enter the verification number from the message in **验证码** (**Confirmation code**).
-8. Finally, complete the developer registration by accepting the Baidu agreement and clicking **提交** (**Submit**). You will see the following page on successful completion of registration:
-   
-      ![][11]
-
 ## Create a Baidu cloud push project
 When you create a Baidu cloud push project, you receive your app ID, API key, and secret key.
 
@@ -86,10 +61,11 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
 2. Scroll down in the **站长与开发者服务** (**Webmaster and Developer Services**) section and click **百度开放云平台** (**Baidu open cloud platform**).
    
       ![][6]
-3. On the next page, click **开发者服务** (**Developer Services**) on the top-right corner.
+3. On the next page, click **登录** (**Login**) on the top-right corner.
    
-      ![][7]
-4. On the next page, click **云推送** (**Cloud Push**) from the **云服务** (**Cloud Services**) section.
+      ![Baidu Login][./media/notification-hubs-baidu-get-started/]
+4. Then, click **创建应用** (**Create Application**) on this page.
+
    
       ![][12]
 5. Once you are a registered developer, you see **管理控制台** (**Management Console**) at the top menu. Click **开发者服务管理** (**Developers Service Management**).
