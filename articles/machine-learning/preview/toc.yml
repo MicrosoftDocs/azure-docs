@@ -9,50 +9,50 @@
 - name: Quick Starts
   items:
   - name: Quick Start
-  - name: [Create a model]
+  - name: (TBD) Create a model
   - name: Quick Start
-  - name: [Run a model in Docker]
+  - name: (TBD) Run a model in Docker
   - name: Quick Start
-  - name: [Run a model with Python]
+  - name: (TBD) Run a model with Python
   - name: Quick Start
-  - name: [Operationalize a model]
+  - name: (TBD) Operationalize a model
   - name: Quick Start
-  - name: [Create a model with CLI]
+  - name: (TBD) Create a model with CLI
   - name: Quick Start
-  - name: [Set up Model Management]
+  - name: (TBD) Set up Model Management
 - name: Tutorials
   items:
-  - name: [Bike Share Forecast]
+  - name: (TBD) Bike Share Forecast
 - name: Concepts
   items:
-  - name: [Workbench overview]
-  - name: [Operationalization overview]
+  - name: (TBD) Workbench overview
+  - name: (TBD) Operationalization overview
 - name: How-to guides
   items:
   - name: Set Up and Configure Environment
     items:
-    - name: [Set up an Experimentation account]
-    - name: [Configure execution targets]
-    - name: [Use Jupyter notebooks]
+    - name: (TBD) Set up an Experimentation account
+    - name: (TBD) Configure execution targets
+    - name: (TBD) Use Jupyter notebooks
   - name: Acquire and understand data
     items:
-    - name: [Prepare your data]
+    - name: (TBD) Prepare your data
   - name: Develop and manage models
     items:
-    - name: [Track run history and model metrics]
-    - name: [Use the MMLSpark library]
+    - name: (TBD) Track run history and model metrics
+    - name: (TBD) Use the MMLSpark library
   - name: Operationalize models
     items:
-    - name: [Use Model Management Service with CLI]
-    - name: [Consume a service using CLI]
-  - name: [Use AZ ML CLI from Command Line]
-  - name: [Use Git repo for source control]
+    - name: (TBD) Use Model Management Service with CLI
+    - name: (TBD) Consume a service using CLI
+  - name: (TBD) Use AZ ML CLI from Command Line
+  - name: (TBD) Use Git repo for source control
 - name: Reference
   items:
-  - name: [AZ ML CLI Syntax]
-  - name: [Known Issues and Troubleshooting]
-  - name: [Release Notes]
-  - name: [Frequently Asked Questions]
+  - name: (TBD) AZ ML CLI Syntax
+  - name: (TBD) Known Issues and Troubleshooting
+  - name: (TBD) Release Notes
+  - name: (TBD) Frequently Asked Questions
 
 
 
