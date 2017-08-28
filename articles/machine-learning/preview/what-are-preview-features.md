@@ -22,7 +22,7 @@ Microsoft Azure Machine Learning is an integrated, end-to-end data science solut
 
 The preview features include five components:
 - [**Workbench**](#workbench)
-- [**Experimentation**](#experimentation)
+- [**Experimentation**](#experimentation-service)
 - [**Model Management Service**](#model-management-service)
 - [**MMLSpark Library**](#mmlspark-library)
 - [**OpenMind**](#openmind)
