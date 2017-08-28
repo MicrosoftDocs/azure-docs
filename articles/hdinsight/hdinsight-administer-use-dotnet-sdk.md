@@ -32,7 +32,7 @@ Before you begin this article, you must have the following:
 
 ## Connect to Azure HDInsight
 
-You need the following Nuget packages:
+You need the following NuGet packages:
 
 ```
 Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre

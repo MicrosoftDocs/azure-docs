@@ -22,13 +22,13 @@ ms.author: jgao
 ---
 # Upload data for Hadoop jobs in HDInsight
 
-Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Storage and Azure Data Lake Store. Azure Storage and Data lake Store are designed as an HDFS extension to provide a seamless experience to customers. They enable the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure Storage and Data Lake Store are distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure Storage, see [Use Azure Storage with HDInsight][hdinsight-storage] and [Use Data Lake Store with HDInsight(hdinsight-hadoop-use-data-lake-store.md).
+Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Storage and Azure Data Lake Store. Azure Storage and Data lake Store are designed as an HDFS extension to provide a seamless experience to customers. They enable the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure Storage and Data Lake Store are distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure Storage, see [Use Azure Storage with HDInsight][hdinsight-storage] and [Use Data Lake Store with HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
-**Prerequisites**
+##Prerequisites
 
-Note the following requirement before you begin:
+Note the following requirements before you begin:
 
-* An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight][hdinsight-get-started] or [Create HDInsight clusters][hdinsight-hadoop-provision-linux-clusters.md].
+* An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight][hdinsight-get-started] or [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 * Knowledge of the following two articles:
 
     - [Use Azure Storage with HDInsight][hdinsight-storage]

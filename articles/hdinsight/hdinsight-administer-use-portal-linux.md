@@ -294,13 +294,13 @@ See [List and show clusters](#list-and-show-clusters).
 
 ## Find the storage accounts
 
-HDInsight clusters use either Azure Storage account or Azure Data Lake Store to store data. Each HDInsight cluster can have one default storage account and a number of linked storage accounts. To list the storage accounts, you first open the cluster from the portal, and then click Storage accounts:
+HDInsight clusters use either an Azure Storage account or an Azure Data Lake Store to store data. Each HDInsight cluster can have one default storage account and a number of linked storage accounts. To list the storage accounts, you first open the cluster from the portal, and then click **Storage accounts**:
 
 ![HDInsight cluster storage accounts](./media/hdinsight-administer-use-portal-linux/hdinsight-storage-accounts.png)
 
 On the previous screenshot, there is a __Default__ column indicating whether the account is the default storage account.
 
-To list the Data Lake Store accounts, click Data Lake Store access in the previous screenshot.
+To list the Data Lake Store accounts, click **Data Lake Store access** in the previous screenshot.
 
 ## Run Hive queries
 You cannot run Hive job directly from the Azure portal, but you can use the Hive View on Ambari Web UI.
