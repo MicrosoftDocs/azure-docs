@@ -109,7 +109,7 @@ Now you have a function that determines the cost-effectiveness of emergency repa
 
 ## Generate the OpenAPI definition
 
-Now you're ready to generate the OpenAPI definition. This definition can be used by other Microsoft technologies, like [API Apps](https://docs.microsoft.com/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), [PowerApps](functions-powerapps-scenario.md) and [Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow), as well as third party developer tools like [Postman](https://www.getpostman.com/docs/importing_swagger) and [many more packages](http://swagger.io/tools/).
+Now you're ready to generate the OpenAPI definition. This definition can be used by other Microsoft technologies, like [API Apps](https://../app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), [PowerApps](functions-powerapps-scenario.md) and [Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md), as well as third party developer tools like [Postman](https://www.getpostman.com/docs/importing_swagger) and [many more packages](http://swagger.io/tools/).
 
 1. Select only the *verbs* that your API supports (in this case POST). This makes the generated API definition cleaner.
 
