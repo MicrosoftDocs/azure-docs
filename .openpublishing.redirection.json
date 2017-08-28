@@ -10083,6 +10083,36 @@
             "source_path": "articles/active-directory/active-directory-users-delete-user-azure-portal.md",
             "redirect_url": "/azure/active-directory/add-users-azure-active-directory",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-windows10-devices.md",
+            "redirect_url": "/azure/active-directory/device-management-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-overview.md",
+            "redirect_url": "/azure/active-directory/device-management-introduction",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-windows10-devices-overview.md",
+            "redirect_url": "/azure/active-directory/device-management-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-setting-quotas.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-plan-offer-quota-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-setup.md",
+            "redirect_url": "/azure/active-directory/device-management-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-web/app-service-linux-how-to-create-web-app.md",
+            "redirect_url": "/azure/app-service-web/app-service-linux-intro",
+            "redirect_document_id": false
+        }    
     ]
 }
