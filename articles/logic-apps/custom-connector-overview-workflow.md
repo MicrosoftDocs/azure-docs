@@ -1,6 +1,6 @@
 ---
-title: Custom connector overview details - Azure Logic Apps | Microsoft Docs
-description: Register your custom connectors in Azure Logic Apps
+title: Create custom connectors - Azure Logic Apps | Microsoft Docs
+description: Workflow for how to create custom connectors
 author: ecfan
 manager: anneta
 editor: 
@@ -17,15 +17,12 @@ ms.date: 09/1/2017
 ms.author: LADocs; estfan
 ---
 
-# Register your custom connectors to use with logic apps
+# Workflow: Create custom connectors
 
-Logic Apps helps you build workflows without code. 
-But sometimes, you need to extend Logic Apps capabilites, 
 and web services naturally fit this scenario. 
 Your workflow can connect to a service, perform operations, 
 and get data back. When you have a web service that 
 you want to connect to Azure Logic Apps, 
-
 
 This image shows the interaction between your API (service), 
 the custom connector that you create from that API, 

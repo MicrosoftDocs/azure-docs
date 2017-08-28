@@ -17,15 +17,18 @@ ms.date: 09/1/2017
 ms.author: LADocs; estfan
 ---
 
-# Custom connector overview
+# Custom connectors overview
 
-To support and extend your customers' business and productivity scenarios, 
-you can build *custom connectors* so that users can connect to your service or product, 
+Azure Logic Apps, Microsoft Flow, and Microsoft PowerApps  
+help you build workflows or apps without code. 
+But sometimes, you might need to extend extend these services' capabilites, 
+so that they can support and extend your customers' business and productivity scenarios. 
+For these use cases, you can build *custom connectors* so users can connect to your service or product, 
 and build workflows or apps that integrate their data and business processes. 
 Connectors expand the integrations, reach, discoverability, and use for your service or product, 
 which can help increase and accelerate customer adoption.
 
-This overview outlines the general steps for creating, 
+This overview outlines the high-level general steps for creating, 
 registering, and optionally certifying, custom connectors 
 that work with these services:
 
@@ -130,4 +133,4 @@ routing developer questions and incidents to the appropriate team.
 
 ## Next steps
 
-
+* [Workflow: Create custom connectors](../logic-apps/custom-connector-overview-workflow.md)
