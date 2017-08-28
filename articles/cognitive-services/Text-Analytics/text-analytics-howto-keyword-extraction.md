@@ -22,7 +22,7 @@ Currently, the following languages are supported for production workloads: Engli
 
 ## Concepts
 
-Key words or phrases are identified by a process of elimination. This analyzer finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentence. Once the text is paired down, the model calculates the probability of certain word combinations, elevating the rank of those combinations more likely to be found in common use. For this reason, you might find that adjectives or adverbs that appear by themselves are not flagged for extraction, even they seem interesting or important in the content.
+The keyword analyzer finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentence. Once the text is paired down, the model calculates the probability of certain word combinations, elevating the rank of those combinations more likely to be found in common use. For this reason, you might find that adjectives or adverbs that appear by themselves are not flagged for extraction, even they seem interesting or important in the content.
 
 ## Preparation
 
