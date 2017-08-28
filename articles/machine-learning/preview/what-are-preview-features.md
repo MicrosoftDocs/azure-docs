@@ -1,5 +1,5 @@
 ---
-title: What are the Azure Machine Learning preview features? | Microsoft Docs
+title: What is the Azure Machine Learning preview? | Microsoft Docs
 description: Overview of the preview features of Azure Machine Learning, an integrated, end-to-end data science solution for professional data scientists to develop, experiment and deploy advanced analytics applications at cloud scale.
 services: machine-learning
 documentationcenter: ''

@@ -4,21 +4,16 @@
 - name: Overview
   expanded: true
   items:
-  - name: Preview features
+  - name: What is the Azure Machine Learning preview?
     href: what-are-preview-features.md
 - name: Quick Starts
   items:
-  - name: Quick Start
-  - name: (TBD) Create a model
-  - name: Quick Start
+  - name: (Install Workbench and CLI)
+  - name: "[Create a model]"
   - name: (TBD) Run a model in Docker
-  - name: Quick Start
   - name: (TBD) Run a model with Python
-  - name: Quick Start
   - name: (TBD) Operationalize a model
-  - name: Quick Start
   - name: (TBD) Create a model with CLI
-  - name: Quick Start
   - name: (TBD) Set up Model Management
 - name: Tutorials
   items:
@@ -44,9 +39,9 @@
   - name: Operationalize models
     items:
     - name: (TBD) Use Model Management Service with CLI
-    - name: (TBD) Consume a service using CLI
-  - name: (TBD) Use AZ ML CLI from Command Line
-  - name: (TBD) Use Git repo for source control
+    - name: (TBD) Consume a service with CLI
+  - name: (TBD) Use AZ ML CLI from the command line
+  - name: (TBD) Use a Git repo for source control
 - name: Reference
   items:
   - name: (TBD) AZ ML CLI Syntax
