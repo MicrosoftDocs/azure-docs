@@ -27,6 +27,8 @@ In this tutorial, you will:
 > * Create a new Jenkins freestyle job
 > * Run the job on an Azure VM agent
 
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
+
 ## Prerequisites
 
 * An Azure subscription
@@ -91,7 +93,7 @@ In this tutorial, you will:
 * Select **Verify configuration** to connect to Azure to test the profile settings.
 * Select **Apply** to update the plugin configuration.
 
-## Configure VM agent resources
+## Configure agent resources
 
 Configure a template for use to define an Azure VM agent. This template defines the compute resources each agent will have when created.
 
@@ -104,7 +106,7 @@ Configure a template for use to define an Azure VM agent. This template defines 
 
 ![General VM configuration](./media/jenkins-azure-vm-agents/general-config.png)
 
-## Configure VM Agent operating system and tools
+## Configure agent operating system and tools
 
 In the **Image Configuration** section, select **Ubuntu 16.04 LTS**. Check the boxes next to **Install Git (Latest)**, **Install Maven (V3.5.0)**, and **Install Docker** to install these tools on newly created agents.
 
@@ -112,29 +114,28 @@ In the **Image Configuration** section, select **Ubuntu 16.04 LTS**. Check the b
 
 Select **Add** next to **Admin Credentials**, then select **Jenkins**. Enter a username and password that will be used to log into the agents, making sure they satisfy the [username and password policy](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm) for administrative accounts on Azure VMs.
 
-* Click **Verify Template** to verify the configuration.
-* Click **Save**.
+* Select **Verify Template** to verify the configuration.
+* Select **Save**.
 
 ## Create a job in Jenkins
 
 * Within the Jenkins dashboard, click **New Item**. 
 * Enter `demoproject1` for the name and select **Freestyle project**, then select **OK**.
-* In the **General** tab, choose **Restrict where project can be run** and type `ubuntu` in **Label Expression**. You will see a message confirming that the label is served by the cloud configuration created in the previous step.
-* In the **Source Code Management** tab
+* In the **General** tab, choose **Restrict where project can be run** and type `ubuntu` in **Label Expression**. You will see a message confirming that the label is served by the cloud configuration created in the previous step. 
+   ![Set up job](./media/jenkins-azure-vm-agents/job-config.png)
+* In the **Source Code Management** tab, select **Git** and add the following for **Respository URL** : `https://github.com/spring-projects/spring-petclinic.git`
+* In the **Build** tab, select **Add build step**, then **Invoke top-level Maven targets**. Enter `package` in the **Goals** field.
 * Select **Save**.
-
-![Set up job](./media/jenkins-azure-vm-agents/job-config.png)
 
 ## Build the new job on an Azure VM agent
 
 * Go back to the Jenkins dashboard.
-* Right-click the new job you created, then click **Build now**. A build will kick off, but not begin until an agent VM is created in your Azure account.
+* Right-click the new job you created, then click **Build now**. This kicks off a build, but it will not start until an agent VM is created in your Azure subscription.
 * Once the build is complete, go to **Console output**. You see that the build was performed remotely on Azure.
 
 ![Console output](./media/jenkins-azure-vm-agents/console-output.png)
 
-## Reference
+## Next steps
 
-* Azure Friday video: [Continuous Integration with Jenkins using Azure VM agents](https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents)
-* Support information and configuration options:  [Azure VM Agent Jenkins Plugin Wiki](https://wiki.jenkins-ci.org/display/JENKINS/Azure+VM+Agents+Plugin) 
-
+> [!div class="nextstepaction"]
+> [CI/CD to Azure App Service](deploy-jenkins-app-service-plugin.md)
