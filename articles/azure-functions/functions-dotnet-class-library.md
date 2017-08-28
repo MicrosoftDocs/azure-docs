@@ -4,7 +4,7 @@ description: Learn how to author .NET class libraries for use with Azure Functio
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
