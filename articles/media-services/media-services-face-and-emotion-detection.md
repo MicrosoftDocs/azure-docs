@@ -4,7 +4,7 @@ description: This topic demonstrates how to detect faces and emotions with Azure
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 5ca4692c-23f1-451d-9d82-cbc8bf0fd707
