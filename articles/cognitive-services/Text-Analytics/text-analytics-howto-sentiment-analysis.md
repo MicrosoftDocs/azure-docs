@@ -22,11 +22,9 @@ Currently, the following languages are supported for production workloads: Engli
 
 ## Concepts
 
-Text Analytics uses a machine learning classification techniques algorithm to classify any new piece of text as having positive, negative, or neutral sentiment. The model is pretrained with an extensive body of text with sentiment associations. Currently, it is not possible to provide your own training data. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words.   
+Text Analytics uses a machine learning classification techniques algorithm to generate a sentiment score between 0 and 1. Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment. The model is pretrained with an extensive body of text with sentiment associations. Currently, it is not possible to provide your own training data. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words.   
 
-The sentiment analyzer is engineered to solve classification problems, and not aspect sentiment. 
-
-There is always some degree of imprecision in sentiment analysis, but the model is most useful when there is no hidden meaning or subtext to the content. Irony, sarcasm, humor, and similarly nuanced content rely on cultural context and norms to convey intent. This type of content is among the most challenging to analyze. Typically, the greatest discrepancy between a given score produced by the analyzer and a subjective assessment by a human is for content with nuanced meaning.
+It does sentiment analysis on the whole document provided, as opposed to extracting sentiment for a particular entity in the text.
 
 ## Preparation
 

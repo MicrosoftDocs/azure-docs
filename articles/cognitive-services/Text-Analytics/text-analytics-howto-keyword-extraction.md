@@ -20,10 +20,6 @@ This capability is useful if you need to quickly identify the main points in a c
 
 Currently, the following languages are supported for production workloads: English, German, Spanish, and Japanese. Other languages are in preview. For more information, see [Supported languages](overview.md#supported-languages).
 
-## Concepts
-
-The keyword analyzer finds and discards non-essential words, and keeps single terms or phrases that appear to be the subject or object of a sentence. Once the text is paired down, the model calculates the probability of certain word combinations, elevating the rank of those combinations more likely to be found in common use. For this reason, you might find that adjectives or adverbs that appear by themselves are not flagged for extraction, even they seem interesting or important in the content.
-
 ## Preparation
 
 Key phrase extraction works best when you give it bigger chunks of text to work on. This is opposite from sentiment analysis, which performs better on smaller blocks of text. To get the best results from both operations, consider restructuring the inputs accordingly.

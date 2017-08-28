@@ -16,19 +16,11 @@ ms.author: heidist
  
  Find answers to commonly asked questions about concepts, code, and scenarios related to the Text Analytics API for Microsoft Cognitive Services on Azure.
 
-## How is the sentiment score calculated?
+## Can Text Analytics identify sarcasm?
 
-Sentiment analysis uses a machine learning classification algorithm and a large body of fixed training data, together with other evidence in the text, including punctuation and emoticons. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words. 
+Analysis is for positive-negative sentiment rather than mood detection.
 
-Against this model, new text inputs are scored along a negative (0) to positive (1.0) continuum based on typical usage. When analysis is indeterminate, a neutral score of 0.5 is assigned to the document.
-
-Currently, we do not support *mood detection* or *aspect-based sentiment analysis*. Text that is sarcastic, ironic, humorous, and so on, is scored at face value, which means the underlying nuance is probably not reflected accurately in the score. 
-
-Generally, sentiment analysis is the most useful when the following conditions are met:
-
-+ You can provide a large collection of documents, at sufficient quantity to offset incorrect analyses due to nuanced or subtle meanings in the text.
-+ Fast machine learning algorithms are a good fit for your solution, where the text you want to analyze is unstructured, and alternative approaches would require large amounts of complex code.
-+ You can derive actionable insights from the scored results. Scoring can reveal emerging trends, spikes, or dips in positive-negative sentiment, which could prove useful in a variety of scenarios.
+There is always some degree of imprecision in sentiment analysis, but the model is most useful when there is no hidden meaning or subtext to the content. Irony, sarcasm, humor, and similarly nuanced content rely on cultural context and norms to convey intent. This type of content is among the most challenging to analyze. Typically, the greatest discrepancy between a given score produced by the analyzer and a subjective assessment by a human is for content with nuanced meaning.
 
 ## Can I throttle requests or pause the service?
 
