@@ -61,7 +61,7 @@ The function, defined in this article, assumes you have the following environmen
 
 **AMSClientSecret**: Azure AD application client secret.
 
-**StorageConnection** : storage connection of the account associated with the Media Services account. This value is used in the **function.json** file and run.csx file (described below).
+**StorageConnection** : storage connection of the account associated with the Media Services account. This value is used in the **function.json** file and **run.csx** file (described below).
 
 ## Create a function
 
