@@ -42,7 +42,7 @@ This feature is available in preview in Office 365 US Government Defense and Fed
 | OneNote |![Check][1] |
 | OneDrive |![Check][1] |
 | Outlook |![Check][1] |
-| Power BI mobile apps |![Check][1] |
+| Power BI |![Check][1] |
 | Skype for Business |![Check][1] |
 | Word / Excel / PowerPoint |![Check][1] |
 | Yammer |![Check][1] |
