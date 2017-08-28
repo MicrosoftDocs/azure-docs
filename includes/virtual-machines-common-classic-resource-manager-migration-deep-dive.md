@@ -33,13 +33,13 @@ The migration workflow is as follows
 >
 
 ### Validate
-The validate operation is the first step in the migration process. The goal of this step is to analyze the state of the resources you wish to migrate in the classic deployment model. The operation evaluates whether the resources are capable of migration (success or failure).
+The validate operation is the first step in the migration process. The goal of this step is to analyze the state of the resources you want to migrate in the classic deployment model. The operation evaluates whether the resources are capable of migration (success or failure).
 
 You select the virtual network or a cloud service (if it’s not in a virtual network) that you want to validate for migration. If the resource is not capable of migration, Azure lists the reasons why.
 
 #### Checks not done in the validate operation
 
-The validate operation only analyzes the state of the resources in the classic deployment model. It can check for all failures and unsupported scenarios due to various configurations in the classic deployment model. It is not possible to check for all issues that the Azure Resource Manager stack might impose on the resources during migration. These issues are only checked when the resources undergo transformation in the next step of migration (the Prepare operation). The following table lists all the issues not checked in the validate operation:
+The validate operation only analyzes the state of the resources in the classic deployment model. It can check for all failures and unsupported scenarios due to various configurations in the classic deployment model. It is not possible to check for all issues that the Azure Resource Manager stack might impose on the resources during migration. These issues are only checked when the resources undergo transformation in the next step of migration (the prepare operation). The following table lists all the issues not checked in the validate operation:
 
 
 |Networking checks not in the validate operation|
