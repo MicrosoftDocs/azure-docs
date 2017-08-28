@@ -32,11 +32,7 @@ The WAF in Azure Application Gateway protects web applications from common web-b
 
 ## Scenarios
 
-In this article there are two scenarios:
-
-In the first scenario, you learn how to [create an application gateway with a WAF](#create-an-application-gateway-with-web-application-firewall).
-
-In the second scenario, you learn how to [add a WAF to an existing application gateway](#add-web-application-firewall-to-an-existing-application-gateway).
+This article presents two scenarios. In the first scenario, you learn how to [create an application gateway with a WAF](#create-an-application-gateway-with-web-application-firewall). In the second scenario, you learn how to [add a WAF to an existing application gateway](#add-web-application-firewall-to-an-existing-application-gateway).
 
 ![Scenario example][scenario]
 
@@ -110,7 +106,7 @@ This scenario will:
 
    ![Virtual network choice][2]
 
-6. On the **Create virtual network blade**, enter the following values, and then select **OK**. The **Subnet** field on the **Settings** blade populates with the subnet you chose.
+6. On the **Create virtual network blade**, enter the following values, and then select **OK**. The **Subnet** field on the **Settings** blade is populated with the subnet you chose.
 
    |**Setting** | **Value** | **Details** |
    |---|---|---|
@@ -125,7 +121,7 @@ This scenario will:
 
    ![Public IP address choice][3]
 
-9. On the **Create public IP address** blade, accept the default value, and select **OK**. The **Public IP address** field populates with the public IP address you chose.
+9. On the **Create public IP address** blade, accept the default value, and select **OK**. The **Public IP address** field is populated with the public IP address you chose.
 
 10. On the **Settings** blade under **Listener configuration**, select **HTTP** under **Protocol**. A certificate is required to use **HTTPS**. The private key for the certificate is needed. Provide a .pfx export of the certificate, and enter the password for the file.
 
