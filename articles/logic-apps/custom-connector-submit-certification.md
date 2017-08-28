@@ -1,6 +1,6 @@
 ---
-title: Certify and publish custom connectors - Azure Logic Apps | Microsoft Docs
-description: Make custom connectors publicly available to all users in Azure Logic Apps, Microsoft Flow, and PowerApps
+title: Get custom connectors certified by Microsoft - Azure Logic Apps | Microsoft Docs
+description: Make custom connectors publicly available to all users in Azure Logic Apps, Microsoft Flow, and Microsoft PowerApps
 author: ecfan
 manager: anneta
 editor: 
@@ -21,9 +21,9 @@ ms.author: LADocs; estfan
 
 To make custom connectors publicly available for all users 
 in Azure Logic Apps, Microsoft Flow, and Microsoft PowerApps, 
-submit your connector to Microsoft for review, certification, and publishing. 
+submit your connector to Microsoft for review, validation, and publishing. 
 
-## Criteria for certification
+## Certification criteria
 
 | Capability | Details | Required or Recommended |
 |------------|---------|-------------------------|
@@ -33,7 +33,7 @@ submit your connector to Microsoft for review, certification, and publishing.
 | Availability and uptime | Your app has at least 99.9% uptime. | Recommended |
 |||| 
 
-## Submit your connector for certification
+## Nominate and submit your connector to Microsoft for certification
 
 To apply for certification, follow these steps:
 

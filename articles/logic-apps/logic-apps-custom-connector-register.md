@@ -1,4 +1,6 @@
-## INTEGRATE WITH CONTENT BELOW: Add your custom connector to Azure Logic Apps
+
+# Register your connector with Azure Logic Apps
+
 
 
 
@@ -71,10 +73,12 @@ select the authentication type that your API uses.
 
    In this example, the OpenAPI file uses an Azure AD app for authentication, 
    so you must provide information about the Azure AD app to Logic Apps. 
-   
-   1. Under **Client id**, type the AAD **Application ID** you noted earlier. 
-   2. For the client secret, use the **key**. 
-   3. For **Resource URL**, type `https://management.core.windows.net/`.
+
+   1. Under **Authentication type**, select this type: **OAuth 2.0**
+   2. Under **OAuth 2.0**, select **Azure Active Directory**.
+   1. Under **Client id**, type the Azure AD *Application ID* that you saved earlier. 
+   2. For **Client secret**, use the *client key* that you saved earlier.
+   3. For **Resource URL**, enter this URL: `https://management.core.windows.net/`
 
       > [!IMPORTANT] Make sure that you include the **Resource URL** exactly as written above, 
       > including the trailing slash.
