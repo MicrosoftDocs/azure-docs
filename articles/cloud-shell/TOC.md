@@ -1,6 +1,8 @@
 # [Overview](overview.md)
 
-# [Quickstart](quickstart.md)
+# Quickstart
+## [Bash Quickstart](quickstart-bash.md)
+## [PowerShell Quickstart](quickstart-PS.md)
 
 # Concepts
 ## [Features & Tools](features.md)

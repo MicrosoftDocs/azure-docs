@@ -1,74 +1,34 @@
----
-title: Azure Cloud Shell (Preview) quickstart | Microsoft Docs
-description: Quickstart for the Azure Cloud Shell
-services: 
-documentationcenter: ''
-author: jluk
-manager: timlt
-tags: azure-resource-manager
- 
-ms.assetid: 
-ms.service: azure
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
-ms.date: 07/10/2017
-ms.author: juluk
----
+# PowerShell in Azure Cloud Shell Quickstart
 
-# Quickstart for using the Azure Cloud Shell
+This document details how to use the PowerShell in Cloud Shell in the [Azure portal](https://aka.ms/PSCloudPreview).
 
-This document details how to use the Azure Cloud Shell in the [Azure portal](https://ms.portal.azure.com/).
+## Start cloud shell
 
-## Start Cloud Shell
-1. Launch **Cloud Shell** from the top navigation of the Azure portal <br>
+1. Click on **Cloud Shell** button from the top navigation bar of the Azure portal <br>
 ![](media/shell-icon.png)
-2. Select a subscription to create a storage account and Azure file share
-3. Select "Create storage"
 
-> [!TIP]
-> You are automatically authenticated for Azure CLI 2.0 in every sesssion.
+2. Select the PowerShell environment from  drop down from the the left hand side of shell window <br>
 
-### Select an Environment
-1. Select the environment drop down from the the left hand side of shell window <br>
-![](media/select-environment.png)
-2. Choose your desired environment
+[TODO: Image]
 
-### Set your subscription
-1. List subscriptions you have access to: <br>
-`az account list`
-2. Set your preferred subscription: <br>
-`az account set --subscription my-subscription-name`
+3. Select PowerShell
 
-> [!TIP]
-> Your subscription will be remembered for future sessions using `/home/<user>/.azure/azureProfile.json`.
+4. You will see PowerShell cloud console appears at the bottom part of the portal
+5. `Azure PowerShell drive` will appear as follows
 
-### Create a resource group
-Create a new resouce group in WestUS named "MyRG": <br>
-`az group create -l westus -n MyRG` <br>
+  ```powershell
+  Requesting a Cloud Shell... Succeeded.
+  Connecting terminal...
 
-### Create a Linux VM
-Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create ssh keys and setup the VM with them. <br>
-`az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
+  Welcome to Azure Cloud Shell (Private Preview)
 
-> [!NOTE]
-> The public and private keys used to authenticate your VM are placed in `/User/.ssh/id_rsa` and `/User/.ssh/id_rsa.pub` by Azure CLI 2.0 by default. Your .ssh folder is persisted in your attached Azure file share's 5-GB image.
+  Type "dir" in "Azure:" drive to see your subscriptions.
+  Type "help" to learn more about the shell features.
 
-Your username on this VM will be your username used in Cloud Shell ($User@Azure:).
-
-### SSH into your Linux VM
-1. Search for your VM name in the Azure portal search bar
-2. Click "Connect" and run: `ssh username@ipaddress`
-
-![](media/sshcmd-copy.png)
-
-Upon establishing the SSH connection, you should see the Ubuntu welcome prompt.<br>
-![](media/ubuntu-welcome.png)
-
-## Cleaning up 
-Delete your resource group and any resources within it: <br>
-Run `az group delete -n MyRG`
+  VERBOSE: Authenticating to Azure services ...
+  VERBOSE: Building your Azure drive ...
+  PS Azure:\>
+  ```
 
 ## Run PowerShell commands
 
@@ -87,7 +47,7 @@ MyResourceGroup         MyVM1       eastus            Standard_DS1  Windows    S
 MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    Succeeded           deallocated
 ```
 
-### Navigate Azure Resources
+## Navigate Azure Resources
 
  1. List your subscriptions
 
@@ -119,9 +79,9 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 This is because the child items are cached in memory for a better user experience.
 However, you can always use `dir -force` to get fresh data.
 
-### Interact with VMs
+## Interact with VMs
 
-#### Invoke PowerShell script across remote VMs
+### Invoke PowerShell script across remote VMs
 
   Assuming you have a VM, MyVM1, let's use `Invoke-AzureRmVMCommand` to invoke a PowerShell scriptblock on the remote machine.
 
@@ -168,7 +128,7 @@ However, you can always use `dir -force` to get fresh data.
      Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
      ```
 
-#### Interactive Logon to a remote VM
+### Interactive Logon to a remote VM
 
 You can use `Enter-AzureRmVM` to interactively logon to a VM running in Azure.
 
@@ -182,17 +142,17 @@ You can also navigate to the `virtualMachines` directory first and run `Enter-Az
  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
  ```
 
-### List available commands
+## List available commands
 
 Under `Azure` drive, type `Get-AzureRmCommand` to get context specific Azure commands.
 
 Alternatively, you can always use `Get-Command *azurerm* -Module AzureRM.*` to find out the available Azure commands.
 
-### Install modules
+## Install modules
 
 You can run `Install-Module` to install modules from the [PowerShellGallery.com][gallery].
 
-### Get-Help
+## Get-Help
 
 Type `Get-Help` to get information about PowerShell in Azure cloud shell.
 
@@ -206,7 +166,7 @@ For a specific command, you can still do Get-Help followed by a cmdlet, for exam
 PS Azure:\> Get-Help Get-AzureRmVM
 ```
 
-### Use Azure File Storage to store your data
+## Use Azure File Storage to store your data
 
 You can create a script, say `helloworld.ps1` and save it to your clouddrive to use it across shell sessions.
 
@@ -220,18 +180,21 @@ Hello World!
 
 Next time when you use PowerShell in Cloud Shell, the `helloworld.ps1` file should still exist under the `CloudDrive` folder mounts your Azure cloud files share.
 
-### User Custom Profile
+## User Custom Profile
 
 If you want to customize your environment, you can create a PowerShell profile, name it as `Microsoft.PowerShell_profile.ps1` and save it under the clouddrive so that it can be loaded to every PowerShell session when you launch the Cloud Shell.
 
 For how to create a profile, please refer to [About Profiles][profile].
 
-### Exit the console
+## Run az cli commands
+
+Follow the [Azure Cloud Shell quickstart][bashqs], to see examples of running `az cli` commands.
+
+## Exit the console
 
 Type `exit` to close the session.
 
-
-## Next Steps
-[Learn about persisting storage on Cloud Shell](persisting-shell-storage.md) <br>
-[Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
-[Learn about Azure File storage](../storage/storage-files-introduction.md) <br>
+[bashqs]:https://docs.microsoft.com/azure/cloud-shell/quickstart
+[gallery]:https://www.powershellgallery.com/
+[customex]:https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript
+[profile]: https://msdn.microsoft.com/en-us/powershell/reference/5.1/microsoft.powershell.core/about/about_profiles
