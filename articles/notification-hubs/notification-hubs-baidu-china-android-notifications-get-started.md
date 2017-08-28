@@ -37,18 +37,18 @@ This tutorial requires:
 ## Create a Baidu account
 To use Baidu, you must have a Baidu account. If you already have one, log in to the [Baidu portal] and skip to the next step. Otherwise, see the following instructions on how to create a Baidu account.  
 
-1. Go to the [Baidu portal] and click the **登录** (**Login**) link. Click **立即注册** to start the account registration process.
+1. Go to the [Baidu portal] and click the **登录** (**Login**) link. Click **立即注册** (**Register Now**) to start the account registration process.
    
-   ![][1]
-2. Enter the required details—phone/email address, password, and verification code—and click **Signup**.
+   ![Baidu Registration](./media/notification-hubs-baidu-get-started/BaiduRegistration.png)
+2. Enter the required details—phone/email address, password, and verification code—and click 注册 (**Signup**).
    
-   ![][2]
+   ![Baidu Registration Input](./media/notification-hubs-baidu-get-started/BaiduRegistrationInput.png)
 3. You will be sent an email to the email address that you entered with a link to activate your Baidu account.
    
-   ![][3]
+   ![Baidu Registration Confirmation](./media/notification-hubs-baidu-get-started/BaiduConfirmation.png)
 4. Log in to your email account, open the Baidu activation mail, and click the activation link to activate your Baidu account.
    
-   ![][4]
+   ![Baidu Activation e-mail](./media/notification-hubs-baidu-get-started/BaiduActivationEmail.png)
 
 Once you have an activated Baidu account, log in to the [Baidu portal].
 
@@ -57,62 +57,45 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
 
 1. Once you have logged in to the [Baidu portal], click **更多>>** (**more**).
    
-      ![][5]
+      ![Registration - More](./media/notification-hubs-baidu-get-started/BaiduRegistrationMore.png)
 2. Scroll down in the **站长与开发者服务** (**Webmaster and Developer Services**) section and click **百度开放云平台** (**Baidu open cloud platform**).
    
-      ![][6]
+      ![Baidu Open Cloud Platform](./media/notification-hubs-baidu-get-started/BaiduOpenCloudPlatform.png)
 3. On the next page, click **登录** (**Login**) on the top-right corner.
    
-      ![Baidu Login][./media/notification-hubs-baidu-get-started/]
+      ![Baidu Login](./media/notification-hubs-baidu-get-started/BaiduLogin.png)
 4. Then, click **创建应用** (**Create Application**) on this page.
 
    
-      ![][12]
-5. Once you are a registered developer, you see **管理控制台** (**Management Console**) at the top menu. Click **开发者服务管理** (**Developers Service Management**).
+      ![Baidu Create Application](./media/notification-hubs-baidu-get-started/BaiduCreateApplication.png)
+5. On the next page, click 创建新应用 (**Create New Application**).
    
-      ![][13]
-6. On the next page, click **创建工程** (**Create Project**).
+      ![Baidu Create New Application](./media/notification-hubs-baidu-get-started/BaiduCreateNewApplication.png)
+6.	Enter an application name and click 创建 (**Create**).
    
-      ![][14]
-7. Enter an application name and click **创建** (**Create**).
+      ![](./media/notification-hubs-baidu-get-started/BaiduCreateApplicationDoCreate.png)
+7. Upon successful creation of a Baidu cloud push project, you see a page with **AppID**, **API Key**, and **Secret Key**. Make a note of the API key and secret key, which we will use later.
    
-      ![][15]
-8. Upon successful creation of a Baidu cloud push project, you see a page with **AppID**, **API Key**, and **Secret Key**. Make a note of the API key and secret key, which we will use later.
+      ![Baidu Push Secrets](./media/notification-hubs-baidu-get-started/BaiduGetSecrets.png)
+8. Configure the project for push notifications by clicking 创建通知 (**Create Notification**)  on the left pane.
    
-      ![][16]
-9. Configure the project for push notifications by clicking **云推送** (**Cloud Push**) on the left pane.
-   
-      ![][31]
-10. On the next page, click the **推送设置** (**Push settings**) button.
-    
-    ![][32]  
-11. On the configuration page, add the package name that you will be using in your Android project in the **应用包名** (**Application package**) field, and then click **保存设置** (**Save**).  
-    
-    ![][33]
+      ![](./media/notification-hubs-baidu-get-started/BaiduCreateNotification.png)
 
-You see the **保存成功！** (**Successfully saved!**) message.
 
-## Configure your notification hub
-1. Sign in to the [Azure Classic Portal], and then click **+NEW** at the bottom of the screen.
-2. Click **App Services**, click **Service Bus**, click **Notification Hub**, and then click **Quick Create**.
-3. Provide a name for your **Notification Hub**, select the **Region** and the **Namespace** where this notification hub will be created, and then click **Create a New Notification Hub**.  
-   
-      ![][17]
-4. Click the namespace in which you created your notification hub, and then click **Notification Hubs** at the top.
-   
-      ![][18]
-5. Select the notification hub that you created, and then click **Configure** from the top menu.
-   
-      ![][19]
-6. Scroll down to the **baidu notification settings** section and enter the API key and secret key that you obtained from the Baidu console previously for your Baidu cloud push project. Click **Save**.
-   
-      ![][20]
-7. Click the **Dashboard** tab at the top for the notification hub, and then click **View Connection String**.
-   
-      ![][21]
-8. Make a note of the **DefaultListenSharedAccessSignature** and **DefaultFullSharedAccessSignature** from the **Access connection information** window.
-   
-    ![][22]
+## Configure a new notification hub
+[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
+
+
+6. In blade of your notification hub, select **Notification Services** and then **Baidu (Android China)**.
+
+    ![Azure Notification Hubs - Baidu](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
+
+7. Scroll down to the Baidu notification settings section and enter the API key and secret key that you obtained from the Baidu console previously for your Baidu cloud push project. Click Save.
+
+    ![Azure Notification Hubs - Baidu Secrets](./media/notification-hubs-baidu-get-started/NotificationHubBaiduConfigure.png)
+
+Your notification hub is now configured to work with Baidu, and you have the connection strings to both register your app to receive and send push notifications.
+Make a note of the *DefaultListenSharedAccessSignature* and *DefaultFullSharedAccessSignature* from the Access connection information window.
 
 ## Connect your app to the notification hub
 1. In Eclipse ADT, create a new Android project (**File** > **New** > **Android Application Project**).
@@ -417,5 +400,5 @@ To send a test notification, you can use the debug tab of the Azure Classic Port
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Baidu Push Android SDK]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
-[Azure Classic Portal]: https://manage.windowsazure.com/
+[Azure Portal]: https://portal.azure.com/
 [Baidu portal]: http://www.baidu.com/
