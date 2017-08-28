@@ -16,7 +16,7 @@ ms.date: 09/25/2017
 
 ## Prerequisites
 To step through this how-to guide, you need:
-- [A machine learning account](quickstart-setup-machine-learning.md)
+- [A machine learning account](doc-template-how-to.md)
 
 ## Section here H2 
 Paragraph here. 
