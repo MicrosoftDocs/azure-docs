@@ -16,8 +16,8 @@ ms.date: 09/25/2017
 
 ## Section here H2 
 Paragraph here. 
-**This is bold**
-*This is italics*
+**This phrase is bold**
+*This phrase is italics*
 
 This is a [hyperlink to an article](./doc-template-concepts.md)
 
@@ -26,7 +26,7 @@ This is an image:
 ![This is an image description](media/doc-template-concepts/1-machine-learning-image.png)
 
 ## Section here H2
-This is a table with headings:
+This table has headings:
 
 |Column1  |Column2  |Column3  |
 |---------|---------|---------|
@@ -39,11 +39,11 @@ This is a numbered list:
 
 1. First item
 
-    This is indented to be the same spacing as the first numbered item.
+    This paragraph is indented to be the same spacing as the first numbered item.
 
 2. Second item
-    - this is a bullet
-    - this is another bullet
+    - this sentence is a bullet
+    - this sentence is another bullet
 
 3. Third item
 
@@ -51,7 +51,7 @@ This is a numbered list:
 
 5. Fifth item
 
-This is bulleted list:
+This list is bulleted list:
 - Item 1
 - Item 2
 - Item 3

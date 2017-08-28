@@ -27,7 +27,7 @@ Open your web browser, and navigate to the [Microsoft Azure portal](https://port
 
     ![This is a screenshot](media/doc-template-quickstart/1-machine-learning-image.png)
 
-This is the kind of table to use following a screenshot to describe how to fill in the form seen in the screenshot. 
+This table is the kind of table to use following a screenshot to describe how to fill in the form seen in the screenshot. 
 
 Setting|Suggested value|Description
 ---|---|---
@@ -62,7 +62,7 @@ Something happened.
 
 
 ## Clean up resources
-Clean up the resources you created in the quickstart either by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group, or by deleting the one server resource if you want to keep the other resources intact.
+Clean up the resources you created in the quickstart either by deleting the [Azure resource group](../../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group, or by deleting the one server resource if you want to keep the other resources intact.
 
 > [!TIP]
 > Other Quickstarts in this collection build upon this quick start. If you plan to continue on to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete resources created by this quickstart in the Azure portal.
