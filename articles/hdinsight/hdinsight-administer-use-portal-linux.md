@@ -242,13 +242,12 @@ Ambari then changes the password on all nodes in the cluster.
    > [!IMPORTANT]
    > You must use an editor that uses LF as the line ending. If the editor uses CRLF, then the script does not work.
 
-
-    ```bash
-    #! /bin/bash
-    USER=$1
-    PASS=$2
-    usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
-    ```
+        ```bash
+        #! /bin/bash
+        USER=$1
+        PASS=$2
+        usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
+        ```
 
 2. Upload the file to a storage location that can be accessed from HDInsight using an HTTP or HTTPS address. For example, a public file store such as OneDrive or Azure Blob storage. Save the URI (HTTP or HTTPS address) to the file, as this URI is needed in the next step.
 3. From the Azure portal, click **HDInsight Clusters**.
