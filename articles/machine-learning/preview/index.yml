@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/24/2017
+  ms.date: 08/28/2017
   ms.author: carolz
 abstract:
   description: Azure Machine Learning is an integrated, end-to-end data science solution for professional data scientists working in Python and the Azure Command-Line Interface.
@@ -23,8 +23,8 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="preview-features-workbench">Workbench</a>
-    - html: <a href="preview-features-experimentation">Experimentation Service</a>
-    - html: <a href="preview-features-model-management">Model Management Service</a>
-    - html: <a href="preview-features-mmlspark">MMLSpark Library</a>
-    - html: <a href="preview-features-openmind">OpenMind</a>
+    - html: <a href="what-are-preview-features#workbench">Workbench</a>
+    - html: <a href="what-are-preview-features#experimentation-service">Experimentation Service</a>
+    - html: <a href="what-are-preview-features#model-management-service">Model Management Service</a>
+    - html: <a href="what-are-preview-features#mmlspark-library">MMLSpark Library</a>
+    - html: <a href="what-are-preview-features#openmind">OpenMind</a>
