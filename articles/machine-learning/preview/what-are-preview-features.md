@@ -18,7 +18,7 @@ ms.author: garye
 ---
 # What are the Azure Machine Learning preview features?
 
-Microsoft Azure Machine Learning is an integrated, end-to-end data science solution for professional data scientists to develop, experiment and deploy advanced analytics applications at cloud scale.
+Microsoft Azure Machine Learning is an integrated, comprehensive data science solution for professional data scientists to develop, experiment, and deploy advanced analytics applications at cloud scale.
 
 The preview features include five components:
 - [**Workbench**](#workbench)
