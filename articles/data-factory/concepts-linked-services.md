@@ -101,7 +101,7 @@ The Azure Data Factory service can automatically create a Windows/Linux-based on
 Note the following **important** points about on-demand HDInsight linked service:
 
 * You do not see the on-demand HDInsight cluster created in your Azure subscription. the Azure Data Factory service manages the on-demand HDInsight cluster on your behalf.
-* The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. You can access these logs from the Azure portal in the **Activity Run Details** blade. See [Monitor and Manage Pipelines](monitor-manage-pipelines.md) article for details.
+* The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. You can access these logs from the Azure portal in the **Activity Run Details** window. See [Monitor and Manage Pipelines](monitor-manage-pipelines.md) article for details.
 * You are charged only for the time when the HDInsight cluster is up and running jobs.
 
 > [!IMPORTANT]
@@ -353,7 +353,7 @@ The following table provides descriptions for the generic properties used in the
 | **type** |The type property should be set to: **AzureDataLakeAnalytics**. |Yes |
 | **accountName** |Azure Data Lake Analytics Account Name. |Yes |
 | **dataLakeAnalyticsUri** |Azure Data Lake Analytics URI. |No |
-| **subscriptionId** |Azure subscription id |No (If not specified, subscription of the data factory is used). |
+| **subscriptionId** |Azure subscription ID. |No (If not specified, subscription of the data factory is used). |
 | **resourceGroupName** |Azure resource group name |No (If not specified, resource group of the data factory is used). |
 
 ### Service principal authentication (recommended)
@@ -459,6 +459,6 @@ You create an Azure SQL linked service and use it with the [Stored Procedure Act
 You create an Azure SQL Data Warehouse linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Data Warehouse Connector](copy-data-to-from-azure-sql-data-warehouse.md) article for details about this linked service.
 
 ## SQL Server Linked Service
-You create a SQL Server linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [SQL Server connector](copy-data-to-from-sqlserver.md#linked-service-properties) article for details about this linked service.
+You create a SQL Server linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [SQL Server connector](copy-data-to-from-sql-server.md) article for details about this linked service.
 
 

@@ -73,8 +73,8 @@ The HDInsight Streaming Activity in a Data Factory [pipeline](concepts-pipelines
 | mapper            | Specifies the name of the mapper executable | Yes      |
 | reducer           | Specifies the name of the reducer executable | Yes      |
 | combiner          | Specifies the name of the combiner executable | No       |
-| fileLinkedService | Reference to an Azure Storage Linked Service used to store the Mapper, Combiner and Reducer programs to be executed. If you don't specify this Linked Service, the Azure Storage Linked Service defined in the HDInsight Linked Service is used. | No       |
-| filePath          | Provide an array of path to the Mapper, Combiner and Reducer programs stored in above mentioned Azure Storage. The path is case-sensitive. | Yes      |
+| fileLinkedService | Reference to an Azure Storage Linked Service used to store the Mapper, Combiner, and Reducer programs to be executed. If you don't specify this Linked Service, the Azure Storage Linked Service defined in the HDInsight Linked Service is used. | No       |
+| filePath          | Provide an array of path to the Mapper, Combiner, and Reducer programs stored in the Azure Storage (fileLinkedService). The path is case-sensitive. | Yes      |
 | input             | Specifies the WASB path to the input file for the Mapper. | Yes      |
 | output            | Specifies the WASB path to the output file for the Reducer. | Yes      |
 | getDebugInfo      | Specifies when the log files are copied to the Azure Storage used by HDInsight cluster (or) specified by scriptLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No       |
@@ -84,7 +84,7 @@ The HDInsight Streaming Activity in a Data Factory [pipeline](concepts-pipelines
 > 
 
 ## See Also
-* [Hive Activity](transform-data-using-hive.md)
-* [Pig Activity](transform-data-using-pig.md)
+* [Hive Activity](transform-data-using-hadoop-hive.md)
+* [Pig Activity](transform-data-using-hadoop-pig.md)
 * [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)
 * [Spark Activity](transform-data-using-spark.md)

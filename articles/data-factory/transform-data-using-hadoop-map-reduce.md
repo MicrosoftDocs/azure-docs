@@ -22,7 +22,7 @@ The HDInsight MapReduce activity in a Data Factory [pipeline](concepts-pipelines
 > [!NOTE] 
 > If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-dot-net.md) before reading this article. 
 
-See [Pig](transform-data-using-pig.md) and [Hive](transform-data-using-hive.md) for details about running Pig/Hive scripts on a HDInsight cluster from a pipeline by using HDInsight Pig and Hive activities. 
+See [Pig](transform-data-using-hadoop-pig.md) and [Hive](transform-data-using-hadoop-hive.md) for details about running Pig/Hive scripts on a HDInsight cluster from a pipeline by using HDInsight Pig and Hive activities. 
 
 ## Syntax
 
@@ -64,8 +64,8 @@ See [Pig](transform-data-using-pig.md) and [Hive](transform-data-using-hive.md) 
 | linkedServiceName | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes      |
 | className         | Name of the Class to be executed         | Yes      |
 | jarLinkedService  | Reference to an Azure Storage Linked Service used to store the Jar files. If you don't specify this Linked Service, the Azure Storage Linked Service defined in the HDInsight Linked Service is used. | No       |
-| jarFilePath       | Provide the path to the Jar files stored in above mentioned Azure Storage. The file name is case-sensitive. | Yes      |
-| jarlibs           | Provide the path to the Jar library files referenced by the job stored in above mentioned Azure Storage. The file name is case-sensitive. | No       |
+| jarFilePath       | Provide the path to the Jar files stored in the Azure Storage (jarLinkedService). The file name is case-sensitive. | Yes      |
+| jarlibs           | Provide the path to the Jar library files referenced by the job stored in the Azure Storage (jarLinkedService). The file name is case-sensitive. | No       |
 | getDebugInfo      | Specifies when the log files are copied to the Azure Storage used by HDInsight cluster (or) specified by jarLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No       |
 | arguments         | Specifies an array of arguments for a Hadoop job. The arguments are passed as command-line arguments to each task. | No       |
 | defines           | Specify parameters as key/value pairs for referencing within the Hive script. | No       |
@@ -109,8 +109,8 @@ You can use the HDInsight MapReduce Activity to run any MapReduce jar file on an
 You can specify any arguments for the MapReduce program in the **arguments** section. At runtime, you see a few extra arguments (for example: mapreduce.job.tags) from the MapReduce framework. To differentiate your arguments with the MapReduce arguments, consider using both option and value as arguments as shown in the following example (-s, --input, --output etc., are options immediately followed by their values).
 
 ## See Also
-* [Hive Activity](transform-data-using-hive.md)
-* [Pig Activity](transform-data-using-pig.md)
+* [Hive Activity](transform-data-using-hadoop-hive.md)
+* [Pig Activity](transform-data-using-hadoop-pig.md)
 * [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
 * [Spark Activity](transform-data-using-spark.md)
 

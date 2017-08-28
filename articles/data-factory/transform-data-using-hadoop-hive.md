@@ -18,7 +18,7 @@ ms.author: shlo
 ---
 # Transform data using Hive Activity in Azure Data Factory 
 
-The HDInsight Hive activity in a Data Factory [pipeline](concepts--pipelines-activities.md) executes Hive queries on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
+The HDInsight Hive activity in a Data Factory [pipeline](concepts-pipelines-activities.md) executes Hive queries on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
 > [!NOTE] 
 > If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-dot-net.md) before reading this article. 
@@ -58,7 +58,7 @@ The HDInsight Hive activity in a Data Factory [pipeline](concepts--pipelines-act
 | type                | For Hive Activity, the activity type is HDinsightHive | Yes      |
 | linkedServiceName   | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes      |
 | scriptLinkedService | Reference to an Azure Storage Linked Service used to store the Hive script to be executed. If you don't specify this Linked Service, the Azure Storage Linked Service defined in the HDInsight Linked Service is used. | No       |
-| scriptPath          | Provide the path to the script file stored in above mentioned Azure Storage. The file name is case-sensitive. | Yes      |
+| scriptPath          | Provide the path to the script file stored in an Azure Storage. The file name is case-sensitive. | Yes      |
 | getDebugInfo        | Specifies when the log files are copied to the Azure Storage used by HDInsight cluster (or) specified by scriptLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No       |
 | arguments           | Specifies an array of arguments for a Hadoop job. The arguments are passed as command-line arguments to each task. | No       |
 | defines             | Specify parameters as key/value pairs for referencing within the Hive script. | No       |
