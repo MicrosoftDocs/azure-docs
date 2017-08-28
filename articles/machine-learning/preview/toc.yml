@@ -114,11 +114,15 @@
   - name: Known Issues and Troubleshooting
   - name: Release Notes
   - name: Frequently Asked Questions
-
-
-
-
-
-
-
-
+- name: Doc Templates
+  items:
+  - name: Quickstarts
+    href: doc-template-quickstart.md
+  - name: Tutorials
+    href: doc-template-tutorial.md
+  - name: Samples
+    href: scripts/doc-template-sample.md
+  - name: Concepts
+    href: doc-template-concepts.md
+  - name: How-to Guides
+    href: doc-template-how-to.md
