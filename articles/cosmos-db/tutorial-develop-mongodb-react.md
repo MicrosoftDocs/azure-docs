@@ -20,11 +20,13 @@ ms.custom: mvc
 ---
 # Create a MongoDB app with React and Azure Cosmos DB
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. With Azure Cosmos DB, can quickly create and query document, key/value, and graph databases that benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. With Azure Cosmos DB, can quickly create and query document, key/value, and graph databases that benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
-This multi-part video tutorial demonstrates how to create a new hero tracking app with a React front-end. The app uses APIs for Node and Express, connects to the Azure Cosmos DB and the [MongoDB API](mongodb-introduction.md), and then connects the React front-end to the server portion of the app. You'll also learn how to do point and click scaling in the Azure portal and how to can deploy this app to the internet so everyone can track their favorite heroes. 
+Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the same code that you use for MongoDB apps but with added benefits. These benefits from Azure Cosmos DB are simple cloud deployment, scaling, security, and super-fast reads and writes.
 
-Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the same code that you use for MongoDB apps but with added benefits. These benefits from Azure Cosmos DB are simple cloud deployment, scaling, security, and super-fast reads and writes.  
+This multi-part video tutorial demonstrates how to create a new hero tracking app with a React front-end. The app uses APIs for Node and Express, connects to the Azure Cosmos DB and the [MongoDB API](mongodb-introduction.md), and then connects the React front-end to the server portion of the app. The tutorial also demonstrates how to do point and click scaling in the Azure portal and how to can deploy this app to the internet so everyone can track their favorite heroes. 
+
+  
 
 This multi-part tutorial covers the following tasks:
 
