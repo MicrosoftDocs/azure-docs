@@ -1,5 +1,5 @@
 ---
-title: Set up a Azure Service Fabric cluster | Microsoft Docs
+title: Set up an Azure Service Fabric cluster | Microsoft Docs
 description: Quickstart- create a Windows or Linux Service Fabric cluster on Azure.
 services: service-fabric
 documentationcenter: .net

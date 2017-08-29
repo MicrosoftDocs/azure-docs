@@ -3,7 +3,7 @@ title: Quotas in Azure Stack | Microsoft Docs
 description: Administrators set quotas to restrict the maximum amount of resources that tenants have access to.
 services: azure-stack
 documentationcenter: ''
-author: mattmcg
+author: ErikjeMS
 manager: byronr
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 3/1/2017
-ms.author: mattmcg
+ms.author: erikje
 
 ---
 # Set and view quotas in Azure Stack
