@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Create a MEAN.js app - Part 6 | Microsoft Docs"
-description: Learn how to create a MEAN.js app for Azure Cosmos DB using the exact same APIs you use for MongoDB. 
+title: "MongoDB, AngularJS, and Node.js tutorial for Azure - Part 6 | Microsoft Docs"
+description: Part 6 of the tutorial series on creating a MongoDB app with AngularJS and Node.js on Azure Cosmos DB using the exact same APIs you use for MongoDB
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -19,11 +19,9 @@ ms.author: mimig
 ---
 # Create a MongoDB app with Angular and Azure Cosmos DB - Part 6: Add Post, Put, and Delete functions to the app
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express and Angular and then connect it to your Azure Cosmos DB database.
 
-This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express and Angular and then connect it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the exact same code that you use for MongoDB apps. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
-
-Part 6 of the tutorial covers the following tasks:
+Part 6 of the tutorial builds on [Part 5](tutorial-develop-mongodb-nodejs-part5.md) and covers the following tasks:
 
 > [!div class="checklist"]
 > * Create Post, Put, and Delete functions for the hero service

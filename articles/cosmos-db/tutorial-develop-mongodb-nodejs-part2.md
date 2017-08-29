@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Create a MEAN.js app - Part 2 | Microsoft Docs"
-description: Learn how to create a MEAN.js app for Azure Cosmos DB using the exact same APIs you use for MongoDB. 
+title: "MongoDB, AngularJS, and Node.js tutorial for Azure - Part 2 | Microsoft Docs"
+description: Part 2 of the tutorial series on creating a MongoDB app with AngularJS and Node.js on Azure Cosmos DB using the exact same APIs you use for MongoDB.
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -19,11 +19,9 @@ ms.author: mimig
 ---
 # Create a MongoDB app with Angular and Azure Cosmos DB - Part 2: Create a Node.js Express app with the Angular CLI 
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. With Azure Cosmos DB, you can quickly create and query document, key/value, and graph databases that benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express and Angular and then connects it to your Azure Cosmos DB database.
 
-This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express and Angular and then connects it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the same code that you use for MongoDB apps. You'll benefit by using Azure Cosmos DB through its features in deployment, scaling, security, and super-fast reads and writes.
-
-Part 2 of the tutorial covers the following tasks:
+Part 2 of the tutorial builds on [the introduction](tutorial-develop-mongodb-nodejs.md) and covers the following tasks:
 
 > [!div class="checklist"]
 > * Install the Angular CLI and Typescript
