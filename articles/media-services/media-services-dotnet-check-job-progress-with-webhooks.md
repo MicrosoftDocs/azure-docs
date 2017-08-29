@@ -42,7 +42,7 @@ The following are required to complete the tutorial:
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 * Understanding of [how to use Azure functions](../azure-functions/functions-overview.md). Also, review [Azure functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md).
 
-## Setting up "webhook notification" Azure functions
+## Set up "webhook notification" Azure functions
 
 The code in this section shows an implementation of an Azure function that is a webhook. In this sample, the function listens for the webhook call back from Media Services notifications and publishes the output asset once the job finishes.
 
@@ -369,7 +369,7 @@ Once the webhook is triggered, the example above produces the following output, 
 	
 	URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
-## Adding Webhook to your encoding task
+## Add a webhook to your encoding task
 
 In this section, the code that adds a webhook notification to a Task is shown. You can also add a job level notification, which would be more useful for a job with chained tasks.  
 
@@ -393,7 +393,6 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
   <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
 </appSettings>
 ```
-
 4. Update your Program.cs file with the following code:
 
 ```
