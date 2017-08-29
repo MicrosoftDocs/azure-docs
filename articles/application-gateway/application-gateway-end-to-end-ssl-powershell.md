@@ -203,14 +203,13 @@ All configuration items are set before creating the application gateway. The fol
    > [!NOTE]
    > An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and is therefore not recommended. Small gateways are to be used for dev test and not for production purposes.
 
-   12. Configure the SSL policy to be used on the application gateway. Application Gateway supports the ability to set a minimum version for SSL protocol versions.
+   11. Configure the SSL policy to be used on the application gateway. Application Gateway supports the ability to set a minimum version for SSL protocol versions.
 
    The following values are a list of protocol versions that can be defined:
 
-   - **TLSV1_0**
-   - **TLSV1_1**
-   - **TLSV1_2**
-
+    - **TLSV1_0**
+    - **TLSV1_1**
+    - **TLSV1_2**
     
    The following example sets the minimum protocol version to **TLSv1_2** and enables **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, and **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** only.
 
