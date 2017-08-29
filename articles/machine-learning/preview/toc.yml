@@ -16,7 +16,7 @@
   - name: (Create a model with CLI)
   - name: (Set up Model Management)
   - name: MVC Template
-    href: scripts/doc-template-quickstart.md
+    href: doc-template-quickstart.md
 - name: Tutorials
   items:
   - name: (Bike Share Forecast)
@@ -57,7 +57,7 @@
   - name: (Use AZ ML CLI from the command line)
   - name: (Use a Git repo for source control)
   - name: MVC Template
-    href: doc-template-tutorial.md
+    href: doc-template-how-to.md
 - name: Reference
   items:
   - name: (AZ ML CLI Syntax)
