@@ -41,7 +41,7 @@ The following steps explain how to create an internal load balancer using Azure 
 Create and configure the following objects to deploy a load balancer:
 
 * Frontend IP configuration - configures the private IP address for incoming network traffic.
-* Backend address pool - configures the network interfaces which receive the load balanced traffic coming from front end IP pool.
+* Backend address pool - configures the network interfaces that receive the load balanced traffic coming from frontend IP pool.
 * Load balancing rules - source and local port configuration for the load balancer.
 * Probes - configures the health status probe for the Virtual Machine instances.
 * Inbound NAT rules - configures the port rules to directly access one of the Virtual Machine instances.
@@ -86,11 +86,11 @@ Create a new resource group (skip this step if using an existing resource group)
 New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 ```
 
-Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure all commands to create a load balancer use the same resource group.
+Azure Resource Manager requires that all resource groups specify a location. This location is used as the default for resources in that resource group. Make sure all commands to create a load balancer use the same resource group.
 
-In the preceding example we created a resource group called "NRP-RG" and location "West US".
+In the preceding example, we created a resource group called **NRP-RG** and location **West US**.
 
-## Create Virtual Network and a private IP address for front end IP pool
+## Create Virtual Network and a private IP address for frontend IP pool
 
 Creates a subnet for the virtual network and assigns to variable $backendSubnet
 
@@ -106,13 +106,13 @@ $vnet= New-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Locati
 
 Creates the virtual network and adds the subnet lb-subnet-be to the virtual network NRPVNet and assigns to variable $vnet
 
-## Create Front end IP pool and backend address pool
+## Create Frontend IP pool and backend address pool
 
-Setting up a front end IP pool for the incoming load balancer network traffic and backend address pool to receive the load balanced traffic.
+Setting up a frontend IP pool for the incoming load balancer network traffic and backend address pool to receive the load balanced traffic.
 
 ### Step 1
 
-Create a front end IP pool using the private IP address 10.0.2.5 for the subnet 10.0.2.0/24 which is the incoming network traffic endpoint.
+Create a frontend IP pool using the private IP address 10.0.2.5 for the subnet 10.0.2.0/24 that is the incoming network traffic endpoint.
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
@@ -120,7 +120,7 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -Private
 
 ### Step 2
 
-Set up a back end address pool used to receive incoming traffic from front end IP pool:
+Set up a backend address pool used to receive incoming traffic from frontend IP pool:
 
 ```powershell
 $beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
@@ -128,7 +128,7 @@ $beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backen
 
 ## Create LB rules, NAT rules, probe, and load balancer
 
-After creating the front end IP pool and the backend address pool, create the rules which belong to the load balancer resource:
+After creating the frontend IP pool and the backend address pool, create the rules that belong to the load balancer resource:
 
 ### Step 1
 
@@ -146,8 +146,8 @@ The preceding example is creating the following items:
 
 * NAT rule in which all incoming traffic to port 3441 goes to port 3389.
 * a second NAT rule in which all incoming traffic to port 3442 goes to port 3389.
-* a load balancer rule which load balances all incoming traffic on public port 80 to local port 80 in the back end address pool.
-* a probe rule which checks the health status for path "HealthProbe.aspx"
+* a load balancer rule which load balances all incoming traffic on public port 80 to local port 80 in the backend address pool.
+* a probe rule that checks the health status for path "HealthProbe.aspx"
 
 ### Step 2
 
@@ -171,7 +171,7 @@ $vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
 $backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
 ```
 
-This step creates a network interface which belongs to the load balancer back end pool and associate the first NAT rule for RDP for this network interface:
+This step creates a network interface that belongs to the load balancer backend pool and associate the first NAT rule for RDP for this network interface:
 
 ```powershell
 $backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
@@ -181,13 +181,13 @@ $backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-n
 
 Create a second network interface called LB-Nic2-BE:
 
-This step creates a second network interface, assigning to the same load balancer back end pool and associating the second NAT rule created for RDP:
+This step creates a second network interface, assigning to the same load balancer backend pool and associating the second NAT rule created for RDP:
 
 ```powershell
 $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 ```
 
-The end result shows the following:
+The end result shows the following output:
 
     $backendnic1
 
@@ -300,7 +300,7 @@ $slb = Get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
 ### Step 2
 
-In the following example, you add a new Inbound NAT rule using port 81 in the front end and port 8181 for the back end pool to an existing load balancer
+In the following example, you add a new Inbound NAT rule using port 81 in the frontend and port 8181 for the backend pool to an existing load balancer
 
 ```powershell
 $slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
