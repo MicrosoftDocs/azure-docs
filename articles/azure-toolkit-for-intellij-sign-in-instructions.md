@@ -4,7 +4,7 @@ description: Learn how to sign in to Microsoft Azure by using the Azure Toolkit 
 services: ''
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: ''
 
 ms.assetid: 

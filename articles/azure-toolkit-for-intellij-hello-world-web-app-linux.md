@@ -4,7 +4,7 @@ description: Learn how to create a basic Hello World web app in a Linux containe
 services: ''
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: ''
 
 ms.assetid: 

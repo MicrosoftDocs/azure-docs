@@ -4,7 +4,7 @@ description: Learn how to publish a web app to Microsoft Azure as a Docker conta
 services: ''
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: ''
 
 ms.assetid: 
@@ -59,7 +59,8 @@ This article demonstrates the steps that are required to publish your applicatio
    * On the IntelliJ toolbar, click the **Publish Group** button, and then click **Publish as Docker Container**:
 
       ![The Publish as Docker Container command][PUB02]  
-    The **Deploy Docker Container on Azure** wizard opens.
+
+   The **Deploy Docker Container on Azure** wizard opens.
 
    ![The Deploy Docker Container on Azure wizard][PUB03]
 
@@ -68,9 +69,10 @@ This article demonstrates the steps that are required to publish your applicatio
    a. In the **Docker image name** box, enter a unique name for your Docker host. (The wizard automatically creates a name, but you can modify it.) 
 
    b. The **Hosts** area displays any Docker hosts that you have already created. Do either of the following: 
+
       * If you have an existing Docker host, you can deploy your web app to it.
-      * To create a Docker host, click the green plus sign (**+**).  
-       The **Create Docker Host** dialog box opens. 
+
+      * To create a Docker host, click the green plus sign (**+**). The **Create Docker Host** dialog box opens. 
 
       ![Deploy Docker Container on Azure Wizard][PUB04a]
 
@@ -98,46 +100,62 @@ This article demonstrates the steps that are required to publish your applicatio
       * **New storage account**: Create a storage account for your host.
       * **Existing storage account**: Specify an existing storage account from your Azure account.
        
-1. Click **Next**.  
-     The **Configure log in credentials and port settings** window opens.
+1. Click **Next**.
 
-      ![The Configure log in credentials and port settings window][PUB05]
+   The **Configure log in credentials and port settings** window opens.
+
+   ![The Configure log in credentials and port settings window][PUB05]
 
 1. Select one of the following options:
 
-      * **Import credentials from Azure Key Vault**: Specify a previously saved set of credentials that are stored in your Azure subscription.
+   * **Import credentials from Azure Key Vault**: Specify a previously saved set of credentials that are stored in your Azure subscription.
 
-          > [!NOTE]
-          > An Azure key vault that's created with a specific account or service principal is not automatically accessible by another account or service principal that shares the subscription. To allow another account or service principal to use the key vault, you must use the Azure portal to add the account or service principal.
+      > [!NOTE]
+      > An Azure key vault that's created with a specific account or service principal is not automatically accessible by another account or service principal that shares the subscription. To allow another account or service principal to use the key vault, you must use the Azure portal to add the account or service principal.
 
-      * **New log in credentials**: Create a new set of login credentials. If you select this option, do the following:
+   * **New log in credentials**: Create a new set of login credentials. If you select this option, do the following:
 
-        a. On the **VM Credentials** tab, provide the following information for the virtual-machine login credentials of your Docker host:
-             * **Username**: Enter the username for your virtual-machine login credentials.
-             * **Password** and **Confirm**: Enter the password for your virtual-machine login credentials.
-             * **SSH**: Enter the Secure Shell (SSH) settings for your Docker host. You can select one of the following options:
-                * **None**: Specifies that your virtual machine does not allow SSH connections.
-                * **Auto-generate**: Automatically creates the requisite settings for connecting via SSH.
-                * **Import from directory**: Allows you to specify a directory that contains a set of previously saved SSH settings. The directory must contain the following two files:
-                
-                  * *id_rsa*: Contains the RSA identification for a user.
-                  * *id_rsa.pub*: Contains the RSA public key that is used for authentication.
-            
-        b. On the **Docker Daemon Access** tab, provide the following information:
+      a. On the **VM Credentials** tab, provide the following information for the virtual-machine login credentials of your Docker host:
 
-          ![Create Docker Host][PUB06]
-    
-             * **Docker Daemon port**: Enter the unique TCP port for your Docker host.
-             * **TLS Security**: Enter the Transport Layer Security settings for your Docker host. You can choose from the following options:
-                * **None**: Specifies that your virtual machine does not allow TLS connections.
-                * **Auto-generate**: Automatically creates the requisite settings for connecting via TLS.
-                * **Import from directory**: Specifies a directory that contains a set of previously saved TLS settings. The directory must contain the following six files: 
-                   * *ca.pem* and *ca-key.pem*: Contain the certificate and public key for the TLS Certificate Authority.
-                   * *cert.pem* and *key.pem*: Contain client certificate and public key which will be used for TLS authentication.
-                   * *server.pem* and *server-key.pem*: Contain the client certificate and public key that is used for TLS authentication.
+         * **Username**: Enter the username for your virtual-machine login credentials.
 
-1. After you have entered the required information, click **Finish**.  
-    The **Deploy Docker Container on Azure** wizard reappears.
+         * **Password** and **Confirm**: Enter the password for your virtual-machine login credentials.
+
+         * **SSH**: Enter the Secure Shell (SSH) settings for your Docker host. You can select one of the following options:
+
+            * **None**: Specifies that your virtual machine does not allow SSH connections.
+
+            * **Auto-generate**: Automatically creates the requisite settings for connecting via SSH.
+
+            * **Import from directory**: Allows you to specify a directory that contains a set of previously saved SSH settings. The directory must contain the following two files:
+
+               * *id_rsa*: Contains the RSA identification for a user.
+
+               * *id_rsa.pub*: Contains the RSA public key that is used for authentication.
+
+      b. On the **Docker Daemon Access** tab, provide the following information:
+
+         ![Create Docker Host][PUB06]
+
+         * **Docker Daemon port**: Enter the unique TCP port for your Docker host.
+
+         * **TLS Security**: Enter the Transport Layer Security settings for your Docker host. You can choose from the following options:
+
+            * **None**: Specifies that your virtual machine does not allow TLS connections.
+
+            * **Auto-generate**: Automatically creates the requisite settings for connecting via TLS.
+
+            * **Import from directory**: Specifies a directory that contains a set of previously saved TLS settings. The directory must contain the following six files: 
+
+               * *ca.pem* and *ca-key.pem*: Contain the certificate and public key for the TLS Certificate Authority.
+
+               * *cert.pem* and *key.pem*: Contain client certificate and public key which will be used for TLS authentication.
+
+               * *server.pem* and *server-key.pem*: Contain the client certificate and public key that is used for TLS authentication.
+
+1. After you have entered the required information, click **Finish**.
+
+   The **Deploy Docker Container on Azure** wizard reappears.
 
    ![Deploy Docker Container on Azure Wizard][PUB07]
 
@@ -154,27 +172,27 @@ This article demonstrates the steps that are required to publish your applicatio
 
       * **Predefined Docker image**: Specify a pre-existing Docker image from Azure. 
 
-        > [!NOTE]
-        > The list of Docker images in this box consists of several images that the Azure Toolkit has been configured to patch so that your artifact is deployed automatically. 
+         > [!NOTE]
+         > The list of Docker images in this box consists of several images that the Azure Toolkit has been configured to patch so that your artifact is deployed automatically. 
 
       * **Custom Dockerfile**: Specify a previously saved Dockerfile from your local computer.
 
-        > [!NOTE]
-        > This is a more advanced feature for developers who want to deploy their own Dockerfile. However, it is up to developers who use this option to ensure that their Dockerfile is built correctly. Because the Azure Toolkit does not validate the content in a custom Dockerfile, the deployment might fail if the Dockerfile has issues. In addition, because the Azure Toolkit expects the custom Dockerfile to contain a web app artifact, it attempts to open an HTTP connection. If developers publish a different type of artifact, they might receive innocuous errors after deployment.
+         > [!NOTE]
+         > This is a more advanced feature for developers who want to deploy their own Dockerfile. However, it is up to developers who use this option to ensure that their Dockerfile is built correctly. Because the Azure Toolkit does not validate the content in a custom Dockerfile, the deployment might fail if the Dockerfile has issues. In addition, because the Azure Toolkit expects the custom Dockerfile to contain a web app artifact, it attempts to open an HTTP connection. If developers publish a different type of artifact, they might receive innocuous errors after deployment.
 
    c. In the **Port settings** box, enter the unique TCP port binding for your Docker container. 
 
 1. After you have completed the preceding steps, click **Finish**. 
 
-The Azure Toolkit begins deploying your web app to Azure in a Docker container. Unless you have configured IntelliJ to be deployed in the background, a **Deploying to Azure** progress bar appears. 
+   The Azure Toolkit begins deploying your web app to Azure in a Docker container. Unless you have configured IntelliJ to be deployed in the background, a **Deploying to Azure** progress bar appears.
 
-![The deployment progress bar][PUB09]
+   ![The deployment progress bar][PUB09]
 
 ## Next steps
 
 [!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
 
-For additional resources for Docker, see the official [Docker website][Docker].
+For additional resources for Docker, see the [official Docker website][Docker].
 
 <!-- URL List -->
 

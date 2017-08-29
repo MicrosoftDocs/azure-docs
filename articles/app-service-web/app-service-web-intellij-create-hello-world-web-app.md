@@ -4,7 +4,7 @@ description: This tutorial shows you how to use the Azure Toolkit for IntelliJ t
 services: app-service\web
 documentationcenter: java
 author: selvasingh
-manager: erikre
+manager: routlaw
 editor: ''
 
 ms.assetid: 75ce7b36-e3ae-491d-8305-4b42ce37db4e
@@ -32,7 +32,7 @@ This tutorial shows how to create and deploy a basic Hello World application to 
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-## Create a Hello World web app by using the August 2017 or later toolkit
+## Create a Hello World web app by using the version 3.0.7 or later toolkit
 
 ### Create a new web app project
 
