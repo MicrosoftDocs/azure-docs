@@ -25,6 +25,7 @@ ms.author: robmcm
 This article demonstrates the steps that are required to create a basic Hello World web app and publish your web app in a Linux container to Azure by using the Azure Toolkit for IntelliJ.
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
+* A [Docker] client.
 
 > [!NOTE]
 >

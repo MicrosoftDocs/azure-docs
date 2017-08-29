@@ -1,7 +1,7 @@
 ## Prerequisites
 The Azure Toolkit for IntelliJ requires the following software components:
 
-* IntelliJ IDEA Ultimate Edition or Community Edition, which can be downloaded from the [JetBrains website](https://www.jetbrains.com/idea/download/).
+* IntelliJ IDEA Ultimate Edition, which can be downloaded from the [JetBrains website](https://www.jetbrains.com/idea/download/).
 
 * A Java Developer Kit (JDK), version 1.8 or later.
 
