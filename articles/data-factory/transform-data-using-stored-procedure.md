@@ -17,3 +17,54 @@ ms.author: shlo
 
 ---
 # SQL Server Stored Procedure Activity
+You use data transformation activities in a Data Factory [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Stored Procedure Activity is one of the transformation activities that Data Factory supports. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities in Data Factory.
+
+> [!NOTE] 
+> If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-dot-net.md) before reading this article. 
+
+You can use the Stored Procedure Activity to invoke a stored procedure in one of the following data stores in your enterprise or on an Azure virtual machine (VM): 
+
+- Azure SQL Database
+- Azure SQL Data Warehouse
+- SQL Server Database.  If you are using SQL Server, install Self-Hosted Integration Runtime on the same machine that hosts the database or on a separate machine that has access to the database. Self-Hosted Integration Runtime is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) article for details.
+
+> [!IMPORTANT]
+> When copying data into Azure SQL Database or SQL Server, you can configure the **SqlSink** in copy activity to invoke a stored procedure by using the **sqlWriterStoredProcedureName** property. For details about the property, see following connector articles: [Azure SQL Database](copy-data-to-from-azure-sql-database.md), [SQL Server](copy-data-to-from-sql-server.md). Invoking a stored procedure while copying data into an Azure SQL Data Warehouse by using a copy activity is not supported. But, you can use the stored procedure activity to invoke a stored procedure in a SQL Data Warehouse. 
+>
+> When copying data from Azure SQL Database or SQL Server or Azure SQL Data Warehouse, you can configure **SqlSource** in copy activity to invoke a stored procedure to read data from the source database by using the **sqlReaderStoredProcedureName** property. For more information, see the following connector articles: [Azure SQL Database](copy-data-to-from-azure-sql-database.md), [SQL Server](copy-data-to-from-sql-server.md), [Azure SQL Data Warehouse](copy-data-to-from-azure-sql-data-warehouse.md)          
+
+> 
+
+## Syntax details
+Here is the JSON format for defining a Stored Procedure Activity:
+
+```json
+{
+    "name": "Stored Procedure Activity",
+    "description":"Description",
+    "type": "SqlServerStoredProcedure",
+    "linkedServiceName": {
+        "referenceName": "AzureSqlLinkedService",
+        "type": "LinkedServiceReference"
+    },
+    "typeProperties": {
+        "storedProcedureName": "sp_sample",
+        "storedProcedureParameters": {
+            "identifier": { "value": "1", "type": "Int" },
+            "stringData": { "value": "str1" }
+
+        }
+    }
+}
+```
+
+The following table describes these JSON properties:
+
+| Property                  | Description                              | Required |
+| ------------------------- | ---------------------------------------- | -------- |
+| name                      | Name of the activity                     | Yes      |
+| description               | Text describing what the activity is used for | No       |
+| type                      | For Stored Procedure Activity, the activity type is SqlServerStoredProcedure | Yes      |
+| linkedServiceName         | Reference to the Azure SQL Database or Azure SQL Data Warehouse or SQL Server registered as a linked service in Data Factory | Yes      |
+| storedProcedureName       | Specify the name of the stored procedure in the Azure SQL database or Azure SQL Data Warehouse or SQL Server database that is represented by the linked service that the output table uses. | Yes      |
+| storedProcedureParameters | Specify values for stored procedure parameters. Use *"param1": { "value": "param1Value","type":"param1Type" }* for to pass parameter values and their native type supported by the data source. If you need to pass null for a parameter, use *"param1": { "value": null }* (all lower case). | No       |
