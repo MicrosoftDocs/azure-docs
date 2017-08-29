@@ -26,7 +26,7 @@
 ### Develop custom connectors
 #### [Custom connectors overview](custom-connector-overview.md)
 #### [Create connectors from Web APIs](custom-connector-build-web-api-app-tutorial.md)
-#### [Secure connectors with Azure AD](custom-connector-api-azure-active-directory-authentication.md)
+#### [Secure connectors with Azure AD](custom-connector-azure-active-directory-authentication.md)
 #### [Describe APIs with Postman](custom-connector-api-postman-collection.md)
 #### [Extend OpenAPI for custom connectors](custom-connector-openapi-extensions.md)
 #### [Register your connector](logic-apps-custom-connector-register.md)

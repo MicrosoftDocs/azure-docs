@@ -154,7 +154,7 @@ choose **Publish...**, and follow the prompts.
 
    http://*{your-web-api-app-root-URL}*/swagger/docs/v1
 
-   You can also download a [sample OpenAPI document](http://pwrappssamples.blob.core.windows.net/samples/webAPI.json) 
+   You can also download a [sample OpenAPI document](https://pwrappssamples.blob.core.windows.net/samples/webAPI.json) 
    from this tutorial. 
    Make sure that you remove the comments, which starting with "//", 
    before you use the document.

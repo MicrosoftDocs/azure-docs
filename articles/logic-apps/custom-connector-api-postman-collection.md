@@ -17,7 +17,7 @@ ms.date: 09/1/2017
 ms.author: LADocs; estfan
 ---
 
-# Describe custom connectors with Postman collections
+# Describe custom APIs and custom connectors with Postman
 
 To make developing [custom APIs](../logic-apps/create-api-app.md) 
 and [custom connectors](../logic-apps/custom-connector-overview.md) 
@@ -64,7 +64,7 @@ for your API endpoint. For more information, see the Postman's
 
       For this tutorial, you can use these settings in this example:
 
-      ![Create request: "HTTP method", "Request URL", "Authorization"](./media/logic-apps-postman-collection/01-create-api-http-request.png)
+      ![Create request: "HTTP method", "Request URL", "Authorization"](./media/custom-connector-api-postman-collection/01-create-api-http-request.png)
 
       |Parameter|Suggested value| 
       |:--------|:----| 
@@ -77,7 +77,7 @@ for your API endpoint. For more information, see the Postman's
    in the request URL. Postman combines these items together into a query string.
    When you're done, choose **Headers**.
 
-      ![Request continued: "Parameters"](./media/logic-apps-postman-collection/02-create-api-http-request-params.png)
+      ![Request continued: "Parameters"](./media/custom-connector-api-postman-collection/02-create-api-http-request-params.png)
 
       |Parameter|Suggested value| 
       |:--------|:----| 
@@ -88,7 +88,7 @@ for your API endpoint. For more information, see the Postman's
    For the header name, enter any string you want. For common HTTP headers, 
    you can select from the dropdown list. When you're done, choose **Body**. 
    
-      ![Request continued: "Headers"](./media/logic-apps-postman-collection/03-create-api-http-request-header.png)
+      ![Request continued: "Headers"](./media/custom-connector-api-postman-collection/03-create-api-http-request-header.png)
 
       |Parameter|Value| 
       |:--------|:----|    
@@ -98,7 +98,7 @@ for your API endpoint. For more information, see the Postman's
    4. Enter content that you want to send in the request body. 
    To check that the request works by getting a response back, choose **Send**. 
    
-      ![Request continued: "Body"](./media/logic-apps-postman-collection/04-create-api-http-request-body.png)
+      ![Request continued: "Body"](./media/custom-connector-api-postman-collection/04-create-api-http-request-body.png)
 
       |Parameter|Value| 
       |:--------|:----|    
@@ -108,7 +108,7 @@ for your API endpoint. For more information, see the Postman's
       The response field contains the full response from the API, 
       including the result or an error, if any occurred.
 
-      ![Get request response](./media/logic-apps-postman-collection/05-create-api-http-request-response.png)
+      ![Get request response](./media/custom-connector-api-postman-collection/05-create-api-http-request-response.png)
 
 2. After you've checked that your request works, 
 save your request to a Postman collection. 
@@ -125,7 +125,7 @@ save your request to a Postman collection.
    Choose the check mark, which creates a collection folder, 
    then choose **Save to *your-Postman-collection-name***.
 
-      ![Save request](./media/logic-apps-postman-collection/06-save-request.png)
+      ![Save request](./media/custom-connector-api-postman-collection/06-save-request.png)
 
 ### Save the request response
 
@@ -134,7 +134,7 @@ That way, the response appears as an example when you load the request later.
 
 1. Above the response window, choose **Save Response**. 
 
-   ![Save response](./media/logic-apps-postman-collection/07-create-api-http-request-save-response.png)
+   ![Save response](./media/custom-connector-api-postman-collection/07-create-api-http-request-save-response.png)
 
    Custom connectors support only one response per request. 
    If you save multiple responses per request, only the first one is used.
@@ -148,12 +148,12 @@ any additional requests and responses.
 
 1. When you're done, export your collection to a JSON file.
 
-   ![Export collection](./media/logic-apps-postman-collection/08-export-http-request.png)
+   ![Export collection](./media/custom-connector-api-postman-collection/08-export-http-request.png)
 
 2. Choose the **Collection v1** export format, 
 and browse to the location where you want to save the JSON file.
 
-   ![Choose export format: "Collection v1"](./media/logic-apps-postman-collection/09-export-format.png)
+   ![Choose export format: "Collection v1"](./media/custom-connector-api-postman-collection/09-export-format.png)
    
 You can now use this Postman collection for creating custom APIs and connectors. 
 After you export the collection, you can import the JSON file into Logic Apps, 
