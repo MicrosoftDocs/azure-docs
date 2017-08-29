@@ -54,9 +54,9 @@ Owner, Contributor, or Reader role in the provider’s subscription.
 GET
 /subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&subscriberId=sub1.1&api-version=1.0
 
-```
+```json
 {
-"value": \[
+"value": [
 {
 
 "id":
@@ -70,7 +70,7 @@ meterID1",
 "subscriptionId":"sub1.1",
 "usageStartTime": "2015-03-03T00:00:00+00:00",
 "usageEndTime": "2015-03-04T00:00:00+00:00",
-"instanceData":"{\\"Microsoft.Resources\\":{\\"resourceUri\\":\\"resourceUri1\\",\\"location\\":\\"Alaska\\",\\"tags\\":null,\\"additionalInfo\\":null}}",
+"instanceData":"{\"Microsoft.Resources\":{\"resourceUri\":\"resourceUri1\",\"location\":\"Alaska\",\"tags\":null,\"additionalInfo\":null}}",
 "quantity":2.4000000000,
 "meterId":"meterID1"
 
