@@ -20,6 +20,10 @@
     href: security-authentication.md
   - name: Delivery and retry
     href: delivery-and-retry.md
+- name: How-to Guides
+  items:
+  - name: Route Blob storage events
+    href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fevent%2fgrid%2ftoc.json
 - name: Reference
   items:
   - name: REST
