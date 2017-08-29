@@ -6,7 +6,7 @@
   items:
   - name: What is the Azure Machine Learning preview?
     href: what-are-preview-features.md
-- name: Quick Starts
+- name: Quickstarts
   items:
   - name: (Install Workbench)
   - name: (Create a model)
@@ -18,6 +18,12 @@
 - name: Tutorials
   items:
   - name: (Bike Share Forecast)
+- name: Samples
+  items:
+  - name: Azure CLI 2.0
+    href: samples-azure-cli.md
+  - name: Python
+    href: samples-python.md
 - name: Concepts
   items:
   - name: (Workbench overview)
@@ -45,14 +51,8 @@
 - name: Reference
   items:
   - name: (AZ ML CLI Syntax)
+- name: Resources
+  items:
   - name: (Known Issues and Troubleshooting)
   - name: (Release Notes)
   - name: (Frequently Asked Questions)
-
-
-
-
-
-
-
-
