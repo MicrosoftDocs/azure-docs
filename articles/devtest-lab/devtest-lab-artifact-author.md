@@ -18,6 +18,9 @@ ms.author: tarcher
 
 ---
 # Create custom artifacts for your DevTest Labs virtual machine
+
+Watch the following video for an overview of the steps described in this article:
+
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/how-to-author-custom-artifacts/player]
 > 
 > 
@@ -57,9 +60,9 @@ The following example shows the sections that make up the basic structure of a d
 | runCommand |Yes |Artifact install command that is executed on a VM. |
 
 ### Artifact parameters
-In the parameters section of the definition file, you specify which values a user can input when they install an artifact. You can refer to these values in the artifact install command.
+In the parameters section of the definition file, specify which values a user can input when they install an artifact. You can refer to these values in the artifact install command.
 
-You define parameters with the following structure:
+To define parameters, use the following structure:
 
     "parameters": {
         "<parameterName>": {
@@ -75,24 +78,24 @@ You define parameters with the following structure:
 | displayName |Yes |Name of the parameter that is displayed to a user in the lab. | |
 | description |Yes |Description of the parameter that is displayed in the lab. |
 
-The allowed types are:
+Allowed types are:
 
-* string – any valid JSON string
-* int – any valid JSON integer
-* bool – any valid JSON Boolean
-* array – any valid JSON array
+* string (any valid JSON string)
+* int (any valid JSON integer)
+* bool (any valid JSON Boolean)
+* array (any valid JSON array)
 
 ## Artifact expressions and functions
-You can use expression and functions to construct the artifact install command.
-Expressions are enclosed with brackets (\[ and \]), and are evaluated when the artifact is installed. Expressions can appear anywhere in a JSON string value. They always return another JSON value. If you need to use a literal string that starts with a bracket ([), you must use two brackets ([[).
-Typically, you use expressions with functions to construct a value. Just like in JavaScript, function calls are formatted as functionName(arg1,arg2,arg3).
+You can use expressions and functions to construct the artifact install command.
+Expressions are enclosed with brackets ([ and ]), and are evaluated when the artifact is installed. Expressions can appear anywhere in a JSON string value. Expressions always return another JSON value. If you need to use a literal string that starts with a bracket ([), you must use two brackets ([[).
+Typically, you use expressions with functions to construct a value. Just like in JavaScript, function calls are formatted as **functionName(arg1,arg2,arg3)**.
 
 The following list shows common functions:
 
-* parameters(parameterName): Returns a parameter value that is provided when the artifact command is run.
-* concat(arg1,arg2,arg3, …..): Combines multiple string values. This function can take a variety of arguments.
+* **parameters(parameterName)**: Returns a parameter value that is provided when the artifact command is run.
+* **concat(arg1,arg2,arg3, …..)**: Combines multiple string values. This function can take a variety of arguments.
 
-The following example shows how to use expression and functions to construct a value:
+The following example shows how to use expressions and functions to construct a value:
 
     runCommand": {
          "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
@@ -105,7 +108,7 @@ The following example shows how to use expression and functions to construct a v
 
 1. Install a JSON editor. You need a JSON editor to work with artifact definition files. We recommend using [Visual Studio Code](https://code.visualstudio.com/), which is available for Windows, Linux, and OS X.
 2. Get a sample artifactfile.json. Check out the artifacts created by the DevTest Labs team at our [GitHub repository](https://github.com/Azure/azure-devtestlab). We have created a rich library of artifacts that can help you create your own artifacts. Download an artifact definition file and make changes to it to create your own artifacts.
-3. Make use of IntelliSense. Leverage IntelliSense to see valid elements that can be used to construct an artifact definition file. You can also see the different options for values of an element. For example, when you edit the **targetOsType** element, IntelliSense shows you the two choices of Windows or Linux.
+3. Make use of IntelliSense. Use IntelliSense to see valid elements that can be used to construct an artifact definition file. You also can see the different options for values of an element. For example, when you edit the **targetOsType** element, IntelliSense shows you two choices, for Windows or Linux.
 4. Store the artifact in a [git repository](devtest-lab-add-artifact-repo.md).
    
    1. Create a separate directory for each artifact. The directory name should be the same as the artifact name.

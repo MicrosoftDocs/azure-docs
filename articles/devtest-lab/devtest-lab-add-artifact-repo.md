@@ -17,49 +17,49 @@ ms.date: 01/11/2017
 ms.author: tarcher
 
 ---
-# Add a Git repository to store custom artifacts and Azure Resource Manager templates
+# Add a Git repository to store custom artifacts and Resource Manager templates
 
-If you want to [create custom artifacts](devtest-lab-artifact-author.md) for the VMs in your lab, or [use Azure Resource Manager templates to create a custom test environment](devtest-lab-create-environment-from-arm.md), you must also add a private Git repository for the artifacts or Resource Manager templates that your team creates. The repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Team Services](https://visualstudio.com).
+You can [create custom artifacts](devtest-lab-artifact-author.md) for the VMs in your lab, or [use Azure Resource Manager templates to create a custom test environment](devtest-lab-create-environment-from-arm.md). You must add a private Git repository for the artifacts or Resource Manager templates that your team creates. The repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Team Services](https://visualstudio.com).
 
-We have provided a [Github repository of artifacts](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) that you can deploy as-is, or which you can customize for your labs. When you customize or create an artifact, you cannot store the artifact in the public repository. You must create your own private repo for custom artifacts and for artifacts that you create. 
+We offer a [Github repository of artifacts](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) that you can deploy as-is, or which you can customize for your labs. When you customize or create an artifact, you can't store the artifact in the public repository. You must create your own private repo for custom artifacts and for artifacts that you create. 
 
-When you create a VM, you can save the Resource Manager template, customize it, if you want, and then use it later to easily create more VMs. You must create your own private repository to store your custom Resource Manager templates.  
+When you create a VM, you can save the Resource Manager template, customize it, if you want, and then use it later to create more VMs. You must create your own private repository to store your custom Resource Manager templates.  
 
 * To learn how to create a GitHub repository, see [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
 * To learn how to create a Team Services project that has a Git repository, see [Connect to Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
-The following figure shows an example of how a repository that has artifacts might look in GitHub:  
+The following figure is an example of how a repository that has artifacts might look in GitHub:  
+
 ![Sample GitHub artifacts repo](./media/devtest-lab-add-repo/devtestlab-github-artifact-repo-home.png)
 
 ## Get the repository information and credentials
-To add a repository to your lab, first, you must get some information from your repository. The following sections show you how to get required information for repositories that are hosted on GitHub and Visual Studio Team Services.
+To add a repository to your lab, first, get key information from your repository. The following sections describe how to get required information for repositories that are hosted on GitHub or Visual Studio Team Services.
 
 ### Get the GitHub repository clone URL and personal access token
 
-1. Browse to the home page of the GitHub repository that contains the artifact or Resource Manager template definitions.
+1. Go to the home page of the GitHub repository that contains the artifact or Resource Manager template definitions.
 2. Select **Clone or download**.
-3. Select the **HTTPS clone url** button to copy the URL to the clipboard. Save the URL for later use.
+3. To copy the URL to the clipboard, select the **HTTPS clone url** button. Save the URL for later use.
 4. In the upper-right corner of GitHub, select the profile image, and then select **Settings**.
 5. In the **Personal settings** menu on the left, select **Personal access tokens**.
 6. Select **Generate new token**.
-7. On the **New personal access token** page, enter a **Token description**, accept the default items under **Select scopes**, and then select **Generate Token**.
+7. On the **New personal access token** page, under **Token description**, enter a description. Accept the default items under **Select scopes**, and then select **Generate Token**.
 8. Save the generated token. You'll use the token later.
 9. Close GitHub.   
 10. Continue to the [Connect your lab to the repository](#connect-your-lab-to-the-repository) section.
 
 ### Get the Visual Studio Team Services repository clone URL and personal access token
 
-1. Open the home page of your team collection (for example, https://contoso-web-team.visualstudio.com), and then select your project.
+1. Go to the home page of your team collection (for example, https://contoso-web-team.visualstudio.com), and then select your project.
 2. On the project home page, select **Code**.
 3. To view the clone URL, on the project **Code** page, select **Clone**.
 4. Save the URL. You'll use the URL later.
-5. To create a Personal Access Token, in the user account drop-down menu, select **My profile**.
+5. To create a personal access token, in the user account drop-down menu, select **My profile**.
 6. On the profile information page, select **Security**.
 7. On the **Security** tab, select **Add**.
 8. On the **Create a personal access token** page:
-
    1. Enter a **Description** for the token.
-   2. Select **180 days** from the **Expires In** list.
+   2. In the **Expires In** list, select **180 days**.
    3. In the **Accounts** list, select **All accessible accounts**.
    4. Select the **All scopes** option.
    5. Select **Create Token**.
@@ -69,22 +69,25 @@ To add a repository to your lab, first, you must get some information from your 
 ## Connect your lab to the repository
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Select **More Services**, and then select **DevTest Labs** from the list of services.
-3. From the list of labs, select your lab.   
-4. On the left panel, select **Configuration and policies**.
-5. In the lab's **Configuration and policies** area, select **Repositories**.
-6. In the **Repositories** area, select **+ Add**.
+3. From the list of labs, select your lab. 
+4. Select **Configuration and policies** > **Repositories** > **+ Add**.
 
-    ![Add the repository button](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
-7. On the second **Repositories** page, specify the following information:
-
+    ![The Add repository button](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
+5. On the second **Repositories** page, specify the following information:
   1. **Name**. Enter a name for the repository.
   2. **Git Clone Url**. Enter the Git HTTPS clone URL that you copied earlier from either GitHub or Visual Studio Team Services.
   3. **Branch**. To get your definitions, enter the branch.
   4. **Personal Access Token**. Enter the personal access token you got earlier from either GitHub or Visual Studio Team Services.
-  5. **Folder Paths**. Enter at least one folder path relative to the clone URL that contains your artifact or Resource Manager template definitions. When you specify a subdirectory, make sure to include the forward slash in the folder path.
+  5. **Folder Paths**. Enter at least one folder path relative to the clone URL that contains your artifact or Resource Manager template definitions. When you specify a subdirectory, make sure you include the forward slash in the folder path.
 
      ![Repositories area](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
-8. Select **Save**.
+6. Select **Save**.
+
+### Related blog posts
+* [Troubleshoot failing artifacts in DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
+* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+
+[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Next steps
 After you have created your private Git repository, you can do one or both of the following, depending on your needs:
@@ -92,9 +95,3 @@ After you have created your private Git repository, you can do one or both of th
 * [Create multi-VM environments and PaaS resources by using Resource Manager templates](devtest-lab-create-environment-from-arm.md). Then, you can store the templates in your private repo.
 
 When you create a VM, you can verify that the artifacts or templates are added to your Git repository. They are available immediately in the list of artifacts or templates, with the name of your private repo shown in the column that specifies the source. 
-
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-
-### Related blog posts
-* [Troubleshoot failing artifacts in DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
