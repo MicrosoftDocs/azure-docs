@@ -118,7 +118,7 @@ provide a name for your key. Under **Expires**, select a duration for your key.
 
 8. On the toolbar, choose **Save**. Under **Value**, your key now appears. 
 **Make sure to copy and save your key** for later use because the key is hidden 
-when you leave the key blade.
+when you leave the **Keys** page.
 
    When you configure your logic app in Part 3, 
    you specify this key as the "secret" or password.
@@ -196,13 +196,13 @@ Under **Authentication Providers**, choose **Azure Active Directory**.
    ![Turn on authentication](./media/logic-apps-custom-api-authentication/custom-web-api-app-authentication.png)
 
 3. Now create an application identity for your web app or API app as shown here. 
-On the **Azure Active Directory Settings** blade, 
+On the **Azure Active Directory Settings** page, 
 set **Management mode** to **Express**. Choose **Create New AD App**. 
 Give your application identity a name, and choose **OK**. 
 
    ![Create application identity for your web app or API app](./media/logic-apps-custom-api-authentication/custom-api-application-identity.png)
 
-4. On the **Authentication / Authorization blade**, choose **Save**.
+4. On the **Authentication / Authorization** page, choose **Save**.
 
 Now you must find the client ID and tenant ID for the application identity 
 that's associated with your web app or API app. You use these IDs in Part 3. 
@@ -214,7 +214,7 @@ So continue with these steps for the Azure portal or [Azure classic portal](#fin
 
    ![Choose "Azure Active Directory"](./media/logic-apps-custom-api-authentication/custom-api-app-identity-client-id-tenant-id.png)
 
-2. On the **Azure Active Directory Settings** blade, set **Management mode** to **Advanced**.
+2. On the **Azure Active Directory Settings** page, set **Management mode** to **Advanced**.
 
 3. Copy the **Client ID**, and save that GUID for use in Part 3.
 
@@ -228,7 +228,7 @@ You can also use this GUID in your web app or API app's deployment template, if 
    This GUID is your specific tenant's GUID ("tenant ID") and 
    should appear in this URL: `https://sts.windows.net/{GUID}`
 
-5. Without saving your changes, close the **Azure Active Directory Settings** blade.
+5. Without saving your changes, close the **Azure Active Directory Settings** page.
 
 <a name="find-id-classic"></a>
 

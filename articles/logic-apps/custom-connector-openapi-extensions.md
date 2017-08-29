@@ -33,27 +33,25 @@ include these OpenAPI extensions when you create custom connectors:
 * `x-ms-dynamic-values`
 * `x-ms-dynamic-schema`
 
-## summary
+Here are more details about these extensions:
 
-Specifies the title for the operation. 
-Recommended: Use *sentence case* for `summary`.
+### summary
 
-Example: "When a task is created" or "Create new lead".
+Specifies the title for the action (operation). </br>
+Applies to: Operations </br>
+Recommended: Use *sentence case* for `summary`. </br>
+Example: "When a task is created" or "Create new lead"
 
-Applies to: Operations
-
-![Summary annotation](./media/customapi-how-to-swagger/figure_1.png)
+!["summary" for each operation](./media/custom-connector-openapi-extensions/summary.png)
 
 ## x-ms-summary
 
-Specifies the title for an entity. 
-Recommended: Use *title case* for `x-ms-summary`.
-
+Specifies the title for an entity. </br>
+Applies to: Parameters, Response Schema </br>
+Recommended: Use *title case* for `x-ms-summary`. </br>
 Example: "Task Name", "Due Date", and so on
 
-Applies to: Parameters, Response Schema
-
-![x-ms-summary-annotation](./media/customapi-how-to-swagger/figure_2.png)
+![x-ms-summary-annotation](./media/custom-connector-openapi-extensions/figure_2.png)
 
 ## description
 
@@ -65,7 +63,7 @@ Example: "This operation triggers when a task is added to your project."
 
 Applies to: Operations, Parameters, Response Schema
 
-![description-annotation](./media/customapi-how-to-swagger/figure_3.jpg)
+![description-annotation](./media/custom-connector-openapi-extensions/figure_3.jpg)
 
 ## x-ms-visibility
 
@@ -82,7 +80,7 @@ Possible values: `important`, `advanced`, and `internal`
 
 Applies to: Operations, Parameters, Schemas
 
-![visibility-annotation](./media/customapi-how-to-swagger/figure_4.jpg)
+![visibility-annotation](./media/custom-connector-openapi-extensions/figure_4.jpg)
 
 ## x-ms-dynamic-values
 
@@ -91,7 +89,7 @@ to select input parameters for an operation.
 
 Applies to: Parameters
 
-![dynamic-values](./media/customapi-how-to-swagger/figure_5.png)
+![dynamic-values](./media/custom-connector-openapi-extensions/figure_5.png)
 
 ### How to use x-ms-dynamic-values
 
@@ -168,12 +166,12 @@ Applies to: Parameters, Response
 Here's an example that shows how the input form changes, 
 based on the item that the user selects from drop-down list:
 
-![dynamic-schema-request](./media/customapi-how-to-swagger/figure_6.png)
+![dynamic-schema-request](./media/custom-connector-openapi-extensions/figure_6.png)
 
 Here's an example that shows how the outputs change, 
 based on the item that a user selects from the drop-down list:
 
-![dynamic-schema-response](./media/customapi-how-to-swagger/figure_7.png)
+![dynamic-schema-response](./media/custom-connector-openapi-extensions/figure_7.png)
 
 ### How to use
 

@@ -27,10 +27,10 @@ submit your connector to Microsoft for review, validation, and publishing.
 
 | Capability | Details | Required or Recommended |
 |------------|---------|-------------------------|
-|Software-as-a-Service (SaaS) app for business | Meets a business user scenario that fits well with Logic Apps, Flow, and PowerApps. | Required |
-| Authentication Type | Your API must support OAuth2, API Key, or Basic Authentication. | Required |
-| Support | You must provide a support contact where customers can find help. | Required |
-| Availability and uptime | Your app has at least 99.9% uptime. | Recommended |
+| Software-as-a-Service (SaaS) app for business | Meets a business user scenario that fits well with Logic Apps, Flow, and PowerApps. | Required |
+| Authentication Type | Your API must support OAuth2, API Key, or Basic Authentication. | Required | 
+| Support | You must provide a support contact so that customers can get help. | Required | 
+| Availability and uptime | Your app has at least 99.9% uptime. | Recommended | 
 |||| 
 
 ## Nominate and submit your connector to Microsoft for certification
@@ -64,14 +64,14 @@ To apply for certification, follow these steps:
 	  * A test account for validation
       * A support contact
 
-   2. If we need more information, we'll contact you with more details.
+   2. If we need more information, we can contact you with more details.
 
 3. **Publish**
 
     After we validate your connector's functionality and content, 
     we stage the connector for deployment across all products and regions.
     
-    By default, all connectors are published as "premium". 
+    By default, all connectors are published as "premium." 
     If your app is built with Azure, you can apply to have 
     your connector listed as a "standard" connector that's 
     available to all users with Office 365 Enterprise plans. 
