@@ -33,8 +33,8 @@
       href: azure-stack-manage-permissions.md
     - name: Create service principals
       href: Azure-stack-create-service-principals.md
-    - name: Use services
-    items:
+  - name: Use services
+  items:
     - name: Key considerations
       href: azure-stack-considerations.md
     - name: Compute
