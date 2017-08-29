@@ -27,8 +27,8 @@ Linux operating system (OS) disk encryption must unmount the OS drive before run
 
 This error is most likely to happen when OS disk encryption is attempted on a target VM environment that has been modified or changed from its supported stock gallery image. Examples of deviations from the supported image that can interfere with the extension’s ability to unmount the OS drive include the following:
 - Customized images no longer match a supported file system or partitioning scheme.
-- Large applications such as SAP, MongoDB, or Apache Cassandra are installed and running in the OS prior to encryption. The extension cannot properly shut down these applications, and if they maintain open file handles to the OS drive, the drive cannot be unmounted, causing failure.
-- Custom scripts that run in close time proximity to the encryption being enabled, or if any other changes are being made on the VM during the encryption process. This conflict can happen when a Resource Manager template defines multiple extensions to execute simultaneously, or when a custom script extension or other action runs simultaneously to disk encryption. Serializing and isolating such steps might resolve the issue.
+- Large applications such as SAP, MongoDB, or Apache Cassandra are installed and running in the OS prior to encryption. The extension cannot properly shut down these applications. If the applications maintain open file handles to the OS drive, the drive cannot be unmounted, causing failure.
+- Custom scripts that run in close time proximity to the encryption being enabled, or if any other changes are being made on the VM during the encryption process. This conflict can happen when an Azure Resource Manager template defines multiple extensions to execute simultaneously, or when a custom script extension or other action runs simultaneously to disk encryption. Serializing and isolating such steps might resolve the issue.
 - Security Enhanced Linux (SELinux) has not been disabled before enabling encryption, so the unmount step fails. SELinux can be reenabled after encryption is complete.
 - The OS disk uses a Logical Volume Manager (LVM) scheme. Although limited LVM data disk support is available, an LVM OS disk is not.
 - Minimum memory requirements are not met (7 GB is suggested for OS disk encryption).
@@ -37,11 +37,11 @@ This error is most likely to happen when OS disk encryption is attempted on a ta
 
 ## Unable to encrypt
 
-In some cases, the Linux disk encryption appears to be stuck at "OS disk encryption started" and SSH is disabled. The encryption process can take between 3-16 hours to complete on a stock gallery image. If multi-terabyte-sized data disks are added, the process might take days. 
+In some cases, the Linux disk encryption appears to be stuck at "OS disk encryption started" and SSH is disabled. The encryption process can take between 3-16 hours to finish on a stock gallery image. If multi-terabyte-sized data disks are added, the process might take days. 
 
-The Linux OS disk encryption sequence unmounts the OS drive temporarily, and then performs block-by-block encryption of the entire OS disk, before it remounts it in its encrypted state. Unlike Azure Disk Encryption on Windows, Linux Disk Encryption does not allow for concurrent use of the VM while the encryption is in progress. The performance characteristics of the VM can make a significant difference in the time required to complete encryption. These characteristics include the size of the disk and whether the storage account is standard or premium (SSD) storage.
+The Linux OS disk encryption sequence unmounts the OS drive temporarily. It then performs block-by-block encryption of the entire OS disk, before it remounts it in its encrypted state. Unlike Azure Disk Encryption on Windows, Linux Disk Encryption does not allow for concurrent use of the VM while the encryption is in progress. The performance characteristics of the VM can make a significant difference in the time required to complete encryption. These characteristics include the size of the disk and whether the storage account is standard or premium (SSD) storage.
 
-To check the encryption status, poll the **ProgressMessage** field returned from the [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) command. While the OS drive is being encrypted, the VM enters a servicing state, and disables SSH to prevent any disruption to the ongoing process. The **EncryptionInProgress** message reports for the majority of the time while the encryption is in progress, followed several hours later with a **VMRestartPending** message that prompts you to restart the VM. For example:
+To check the encryption status, poll the **ProgressMessage** field returned from the [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) command. While the OS drive is being encrypted, the VM enters a servicing state, and disables SSH to prevent any disruption to the ongoing process. The **EncryptionInProgress** message reports for the majority of the time while the encryption is in progress. Several hours later, a **VMRestartPending** message prompts you to restart the VM. For example:
 
 
 ```
@@ -67,7 +67,7 @@ In the following cases, we recommend that you restore the VM back to the snapsho
 Prior to the next attempt, reevaluate the characteristics of the VM and ensure that all of the prerequisites are satisfied.
 
 ## Troubleshooting Azure Disk Encryption behind a firewall
-When connectivity is restricted by a firewall, proxy requirement, or network security group (NSG) settings, the ability of the extension to perform needed tasks might be disrupted. This disruption can result in status messages, such as "Extension status not available on the VM", and in expected scenarios the encryption fails to finish. The sections that follow have some common firewall problems that you might investigate.
+When connectivity is restricted by a firewall, proxy requirement, or network security group (NSG) settings, the ability of the extension to perform needed tasks might be disrupted. This disruption can result in status messages such as "Extension status not available on the VM." In expected scenarios, the encryption fails to finish. The sections that follow have some common firewall problems that you might investigate.
 
 ### Network security groups
 Any network security group settings that are applied must still allow the endpoint to meet the documented network configuration [prerequisites](https://docs.microsoft.com/azure/security/azure-security-disk-encryption#prerequisites) for disk encryption.
@@ -83,7 +83,7 @@ At runtime, Azure Disk Encryption for Linux relies on the target distribution’
 
 On a Windows Server 2016 Server Core, the **bdehdcfg** component is not available by default. Azure Disk Encryption requires this component. Add the **bdehdcfg** component by following these steps:
 
-   1. Copy the following four files from a Windows Server 2016 data center VM to the **c:\windows\system32** folder of the Server Core image:
+   1. Copy the following four files from a Windows Server 2016 datacenter VM to the **c:\windows\system32** folder of the Server Core image:
 
    ```
    bdehdcfg.exe
