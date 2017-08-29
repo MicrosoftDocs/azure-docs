@@ -372,7 +372,7 @@ For the purposes of this tutorial, you check for topics that are mentioned more 
 
 
 ## Get support
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
