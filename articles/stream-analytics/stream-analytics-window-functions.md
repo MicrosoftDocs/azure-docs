@@ -4,7 +4,7 @@ description: Learn about the three Window functions in Stream Analytics (tumblin
 keywords: tumbling window, sliding window, hopping window
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Introduction to Stream Analytics Window functions
