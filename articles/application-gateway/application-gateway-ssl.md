@@ -52,7 +52,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 To validate that the gateway was created, you can enter the `Get-AzureApplicationGateway` cmdlet.
 
-In the sample, **Description**, **InstanceCount**, and **GatewaySize** are optional parameters. The default value for **InstanceCount** is **2**, with a maximum value of **10**. The default value for **GatewaySize** is **Medium**. Small and Large are other available values. **VirtualIPs** and **DnsName** are shown as blank, because the gateway has not started yet. These values are created once the gateway is in the running state.
+In the sample, **Description**, **InstanceCount**, and **GatewaySize** are optional parameters. The default value for **InstanceCount** is **2**, with a maximum value of **10**. The default value for **GatewaySize** is **Medium**. Small and Large are other available values. **VirtualIPs** and **DnsName** are shown as blank, because the gateway has not started yet. These values are created after the gateway is in the running state.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -98,7 +98,7 @@ The values are:
 * **Back-end server pool**: The list of IP addresses of the back-end servers. The IP addresses listed should belong to the virtual network subnet or should be a public IP or VIP address.
 * **Back-end server pool settings**: Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 * **Front-end port**: This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
-* **Listener**: The listener has a front-end port, a protocol (Http or Https, these values are case-sensitive), and the SSL certificate name (if configuring an SSL offload).
+* **Listener**: The listener has a front-end port, a protocol (Http or Https; these values are case-sensitive), and the SSL certificate name (if configuring an SSL offload).
 * **Rule**: The rule binds the listener and the back-end server pool and defines which back-end server pool to direct the traffic to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
 
 **Additional configuration notes**
