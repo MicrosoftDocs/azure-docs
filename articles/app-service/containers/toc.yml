@@ -81,7 +81,7 @@
       - name: Deploy with template
         href: ../../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Set deployment credentials
-      href: app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../../app-service-web/app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Create staging environments
       href: ../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Map custom domain
@@ -111,3 +111,33 @@
     - name: Enable HSTS
     - name: Configure TLS mutual authentication
       href: ../../app-service-web/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Scale app
+    items:
+    - name: Scale up server capacity
+      href: ../../app-service-web/web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Scale out to multiple instances
+      href: ../../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Monitor app
+    items:
+    - name: Quotas & alerts
+      href: ../../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Enable logs
+      href: ../../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Manage app
+    items:
+    - name: Back up an app
+      href: ../../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Restore a backup
+      href: ../../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Clone an app
+      href: ../../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Move resources
+      href: ../../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+- name: Reference
+  items:
+  - name: CLI 2.0
+    href: /cli/azure/appservice
+  - name: PowerShell
+    href: /powershell
+  - name: REST API
+    href: /rest/api/appservice/
