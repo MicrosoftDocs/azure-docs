@@ -67,7 +67,7 @@ actions and triggers for your custom connector.
    1. For **Custom connectors**, select an option 
    so you can provide the OpenAPI (Swagger) file that describes your API.
 
-      ![Provide the OpenAPI file for you API](./media/logic-apps-custom-connector-register/provide-openapi-file.png)
+      ![Provide the OpenAPI file for your API](./media/logic-apps-custom-connector-register/provide-openapi-file.png)
 
       |Option|Format|Description|
       |:-----|:-----|:----------|
@@ -85,7 +85,7 @@ actions and triggers for your custom connector.
       |:----------------|:-----|:----------|
       |**Upload Icon**|*png-or-jpg-file-under-1MB*|Provide the icon that represents your connector.| 
       |**Icon background color**|*hexadecimal-color-code*|To show a color behind your icon, provide hexadecimal code for that color. For example, #007ee5 represents the color blue.| 
-      |**Description**|*connector-description*|Provide a short decription for your connector.| 
+      |**Description**|*connector-description*|Provide a short description for your connector.| 
       |**Host**|*connector-host*|Provide the host domain used by your connector.|
       |**Base URL**|*connector-base-URL*|Provide the base URL for your connector.|
       ||||
@@ -152,6 +152,6 @@ so review the pricing page for that service:
 (**VERIFY FOR LOGIC APPS**)
 **Q:** Is there a limit on how many requests that users can make with 
 **A:** Yes, for each connection that's created for a custom connector, 
-you can can make up to 500 requests per minute. 
+you can make up to 500 requests per minute. 
 
 ## Next steps

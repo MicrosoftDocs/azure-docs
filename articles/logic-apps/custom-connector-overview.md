@@ -22,7 +22,7 @@ ms.author: LADocs; estfan
 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), [Microsoft Flow](https://flow.microsoft.com), 
 and [Microsoft PowerApps](https://powerapps.microsoft.com) 
 help you build workflows or apps without code. But sometimes, 
-you might need to extend extend these services' capabilites, 
+you might need to extend these services' capabilities, 
 so that they can support your users' business and productivity needs.
 
 For more tailored scenarios, you can build *custom connectors* 
@@ -35,7 +35,7 @@ For example, this diagram shows the interaction between an API,
 the custom connector for that API, and a logic app that works with 
 that API through the custom connector:
 
-![Conceptual overview for Azure Cognitive Services API, custom connector, and logic app](./media/custom-connector-overview/custom-connector-conceptual.png)
+![Conceptual overview for Microsoft Cognitive Services API, custom connector, and logic app](./media/custom-connector-overview/custom-connector-conceptual.png)
 
 This overview outlines the general high-level tasks for creating, 
 securing, registering, and using plus optionally sharing or certifying 
@@ -62,7 +62,8 @@ Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.co
   * A [Postman collection](https://www.getpostman.com/docs/postman/collections/creating_collections) 
   for your API 
 
-  If you don't have any of these, we'll provide guidance for you.
+  If you don't have any of these items, 
+  we provide guidance for you.
 
 * Optional: An image to use as an icon for your custom connector
 
@@ -136,7 +137,7 @@ You can generate these documents by using various tools,
 depending on the language and platform that you used to build your API. 
 
 > [!IMPORTANT]
-> Your file size must be less than 1MB.
+> Your file size must be less than 1 MB.
 
 Behind the scenes, Logic Apps, Flow, and PowerApps ultimately use OpenAPI, 
 parses a Postman collection, and translates the collection to an OpenAPI definition file. For more information, see 
@@ -219,12 +220,12 @@ before Microsoft can publish your connector. Learn
 
 ## Get support
 
-* For support with onboarding and development, please email 
+* For support with onboarding and development, email 
 [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com). 
-Microsoft actively monitors and manages this account, 
-routing developer questions and incidents to the appropriate team.
+Microsoft actively monitors this account for developer questions and problems, 
+and routes them to the appropriate team.
 
-* To ask questions, answer questions, and see what other Azure Logic Apps users are doing, 
+* To ask or answer questions, or see what other Azure Logic Apps users are doing, 
 visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 * To help improve Logic Apps, vote on or submit ideas at the 

@@ -67,8 +67,8 @@ checking the directory under your username.
    ![Confirm your directory](./media/custom-connector-azure-active-directory-authentication/check-user-directory.png)
 
    > [!TIP]
-   > To change directories, choose your user name so that you can 
-   > select the directory that you want.
+   > To change directories, choose your user name, 
+   > then select the directory that you want.
 
 2. On the main Azure menu, choose **Azure Active Directory** 
 so you can view your current directory.
@@ -92,10 +92,11 @@ as described in the table, then choose **Create**.
    ![Create Azure AD app](./media/custom-connector-azure-active-directory-authentication/create-app1-registration.png)
 
    |Setting|Suggested value|Description| 
-   |:------|:--------------|:----------| 
-   |**Name**|*{web-api-app-name}*|The name for your Web API's Azure AD app|
+   |-------|---------------|-----------| 
+   |**Name**|*{web-api-app-name}*|The name for your Web API's Azure AD app| 
    |**Application type**|**Web app / API**|Your app's type| 
    |**Sign-on URL**|`https://login.windows.net`|| 
+   |||| 
 
 5. When you return to your directory's **App registrations** list, 
 select your Azure AD app.
@@ -115,11 +116,11 @@ Enter this URL, then choose **Save**.
    ![Reply URLs](./media/custom-connector-azure-active-directory-authentication/add-reply-url1.png)
 
    |Setting|Suggested value|Description| 
-   |:------|:--------------|:----------| 
-   |**Reply URLs**|For your own API, enter this URL: </br>`https://{your-web-app-root-URL}/.auth/login/aad/callback`||
-   |**Delegated permissions**|{not necessary}||  
-   |**Client key**|{not necessary}||
-   ||||  
+   |-------|---------------|-----------| 
+   |**Reply URLs**|For your own API, enter this URL: </br>`https://{your-web-app-root-URL}/.auth/login/aad/callback`|| 
+   |**Delegated permissions**|{not necessary}|| 
+   |**Client key**|{not necessary}|| 
+   |||| 
 
    > [!TIP]
    > If the **Settings** menu didn't previously appear, 
@@ -227,7 +228,7 @@ find your Web API app that you previously published in
 
 3. Turn on **App Service Authentication**, 
 and select **Azure Active Directory**. 
-On the next blade, choose **Express**.  
+On the next menu, choose **Express**.  
 
 4. Now select the Azure AD app that your Web API app uses for authentication. 
 Choose **Select Existing AD App** > **Azure AD App**. 
