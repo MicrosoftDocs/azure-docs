@@ -3,7 +3,7 @@ title: Add or remove nodes to a standalone Service Fabric cluster | Microsoft Do
 description: Learn how to add or remove nodes to an Azure Service Fabric cluster on a physical or virtual machine running Windows Server, which could be on-premises or in any cloud.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/02/2017
-ms.author: chackdan
+ms.author: dekapur
 
 ---
 # Add or remove nodes to a standalone Service Fabric cluster running on Windows Server

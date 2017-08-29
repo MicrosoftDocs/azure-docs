@@ -56,9 +56,12 @@
 ## [Custom policies](active-directory-b2c-overview-custom.md)
 ## Guides
 ### [Get started](active-directory-b2c-get-started-custom.md)
-### Configure OIDC providers
+### Configure OIDC/OAUTH2 providers
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
+#### [Microsoft Account](active-directory-b2c-custom-setup-msa-idp.md)
+#### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
 ### Configure SAML providers
+#### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrate RESTful APIs
 #### [Validate user input](active-directory-b2c-rest-api-validation-custom.md)
@@ -72,7 +75,7 @@
 #### [Collect logs using Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Reference
 ### [Release notes](active-directory-b2c-developer-notes-custom.md)
-
+### [Trust Framework definition](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glossary
@@ -83,6 +86,7 @@
 ## [Enable billing](active-directory-b2c-how-to-enable-billing.md)
 ## [Threat management](active-directory-b2c-reference-threat-management.md)
 ## [Issues when creating a directory](active-directory-b2c-support-create-directory.md)
+## [Extensions app](active-directory-b2c-reference-extensions-app.md)
 
 # Related
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

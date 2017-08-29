@@ -42,6 +42,7 @@ Follow the steps in the [Provision device to a hub](tutorial-provision-device-to
 The enrollment list tells the DPS which method of attestation (the method for confirming a device identity) it is using with the device. The next step is to add an enrollment list entry to the second device. 
 
 1. In the page for your DPS, click **Manage enrollments**. The **Add enrollment list entry** page appears. 
+2. At the top of the page, click **Add**.
 2. Complete the fields and then click **Save**.
 
 ## Set the DPS allocation policy

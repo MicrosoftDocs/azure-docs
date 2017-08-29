@@ -1,4 +1,4 @@
----
+﻿---
 title: Using Analytics - the powerful search tool of Azure Application Insights | Microsoft Docs
 description: 'Using the Analytics, the powerful diagnostic search tool of Application Insights. '
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: sewhee
+ms.author: bwren
 
 ---
 # Using Analytics in Application Insights
