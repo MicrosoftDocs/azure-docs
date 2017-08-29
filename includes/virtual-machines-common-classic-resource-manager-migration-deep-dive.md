@@ -21,9 +21,9 @@ Before you start the migration:
 * Plan your migration during non-business hours to accommodate for any unexpected failures that might happen during migration.
 * Download the current configuration of your VMs by using PowerShell, command-line interface (CLI) commands, or REST APIs to make it easier for validation after the prepare step is complete.
 * Update your automation and operationalization scripts to handle the Resource Manager deployment model, before you start the migration. You can optionally do GET operations when the resources are in the prepared state.
-* Evaluate the role-based access control (RBAC) policies that are configured on the IaaS resources in the classic deployment model, and plan for after the migration is complete.
+* Evaluate the Role-Based Access Control (RBAC) policies that are configured on the IaaS resources in the classic deployment model, and plan for after the migration is complete.
 
-The migration workflow is as follows
+The migration workflow is as follows:
 
 ![Diagram that shows the migration workflow](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
 
@@ -44,11 +44,11 @@ The validate operation only analyzes the state of the resources in the classic d
 
 |Networking checks not in the validate operation|
 |-|
-|A Virtual Network having both ER and VPN gateways.|
-|A Virtual Network gateway connection in a disconnected state.|
+|A virtual network having both ER and VPN gateways.|
+|A virtual network gateway connection in a disconnected state.|
 |All ER circuits are pre-migrated to Azure Resource Manager stack.|
 |Azure Resource Manager quota checks for networking resources. For example: static public IP, dynamic public IPs, load balancer, network security groups, route tables, and network interfaces. |
-| All load balancer rules are valid across deployment and virtual network. |
+| All load balancer rules are valid across deployment and the virtual network. |
 | Conflicting private IPs between stop-deallocated VMs in the same virtual network. |
 
 ### Prepare
@@ -146,8 +146,8 @@ You can find the classic deployment model and Resource Manager representations o
 | IP forwarding property on a VM's network configuration |IP forwarding property on the NIC |The IP forwarding property on a VM is converted to a property on the network interface during the migration. |
 | Load balancer with multiple IPs |Load balancer with multiple public IP resources |Every public IP associated with the load balancer is converted to a public IP resource, and associated with the load balancer after migration. |
 | Internal DNS names on the VM |Internal DNS names on the NIC |During migration, the internal DNS suffixes for the VMs are migrated to a read-only property named “InternalDomainNameSuffix” on the NIC. The suffix remains unchanged after migration, and VM resolution should continue to work as previously. |
-| Virtual Network Gateway |Virtual Network Gateway |Virtual Network Gateway properties are migrated unchanged. The VIP associated with the gateway does not change either. |
-| Local network site |Local Network Gateway |Local network site properties are migrated unchanged to a new resource called Local Network Gateway. This represents on-premises address prefixes and the remote gateway IP. |
+| Virtual network gateway |Virtual network gateway |Virtual network gateway properties are migrated unchanged. The VIP associated with the gateway does not change either. |
+| Local network site |Local network gateway |Local network site properties are migrated unchanged to a new resource called a local network gateway. This represents on-premises address prefixes and the remote gateway IP. |
 | Connections references |Connection |Connectivity references between the gateway and the local network site in network configuration is represented by a new resource called Connection. All properties of connectivity reference in network configuration files are copied unchanged to the Connection resource. Connectivity between virtual networks in the classic deployment model is achieved by creating two IPsec tunnels to local network sites representing the virtual networks. This is transformed to the virtual-network-to-virtual-network connection type in the Resource Manager model, without requiring local network gateways. |
 
 ## Changes to your automation and tooling after migration
