@@ -39,13 +39,32 @@ As a device manufacturer, you need to select hardware security modules/chips tha
 
 ## Implement security mechanism
 
-The Azure DPS Client SDK helps implement the selected security mechanism in software by 
+The Azure DPS Client SDK helps implement the selected security mechanism in software. The following steps show how to use the SDK for the selected HSM chip:
+
+1. If you followed the [Quick start to create simulated device](./quick-create-simulated-device.md), you have the setup ready to build the SDK. If not, follow the first four steps from the section titled [Prepare the development environment](./quick-create-simulated-device.md#setupdevbox) to install the `cmake` build tool. 
+
+1. Build the SDK for the type of HSM you have selected for your device, using either one of the following commands on the command prompt:
+    - For TPM devices:
+        ```code
+        cmake -Ddps_auth_type=tpm ..
+        ```
+
+    - For TPM simulator:
+        ```code
+        cmake -Ddps_auth_type=tpm_simulator ..
+        ```
+
+    - For X.509 devices and simulator:
+        ```code
+        cmake -Ddps_auth_type=x509 ..
+        ```
+
 
 ## Extract the security artefacts
 
-Once you implement the security mechanism, you need to make sure the following functions are implemented for your HSM chip:
+Once you build the SDK for your selected HSM, make sure the following functions are implemented for your HSM chip. 
 
-- For TPM based chips:
+- For TPM based chips, the header file named `dps_client\adapters\dps_tpm_template.h` contains the interface for these APIs. The SDK built for TPM simulator will have default implementations for the same.
    
     ```code
     SEC_DEVICE_HANDLE secure_dev_tpm_create();
@@ -57,7 +76,9 @@ Once you implement the security mechanism, you need to make sure the following f
     Const SEC_TPM_INTERFACE* secure_dev_tpm_interface();
     ```
 
-- For X.509 based chips:
+
+- For X.509 based chips, the header file named `dps_client\adapters\dps_x509_template.h` contains the interface for these APIs. The SDK built for X.509 flow will have default implementations for the X.509 simulator.
+
     ```code
     SEC_DEVICE_HANDLE secure_dev_riot_create();
     void secure_dev_riot_destroy(SEC_DEVICE_HANDLE handle);
@@ -68,18 +89,35 @@ Once you implement the security mechanism, you need to make sure the following f
     const SEC_RIOT_INTERFACE* secure_device_riot_interface();
     ```
 
-These APIs interact with your chip to extract the security artefacts from the device after it boots, which will be then used for registration with DPS service.
-
+These APIs interact with your chip to extract the security artefacts from the device after it boots. The DPS Client SDK uses these security artefacts for verifying registration with the DPS service.
 
 
 ## Set up DPS configuration on the device
 
+The last step in the device manufacturing process is to write an application that will use the DPS client SDK to register the device with the DPS service. The DPS client incorporates the following APIs for your applications to use:
+
+    ```code
+    typedef void(*DPS_REGISTER_DEVICE_CALLBACK)(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* user_context); // Callback to notify user of device registration results.
+    DPS_CLIENT_LL_HANDLE DPS_Client_LL_Create (const char* dps_uri, const char* scope_id, DPS_TRANSPORT_PROVIDER_FUNCTION protocol, DPS_CLIENT_ON_ERROR_CALLBACK on_error_callback, void* user_ctx); // Creates the IOTHUB_DPS_LL_HANDLE to be used in subsequent calls.
+    void DPS_Client_LL_Destroy(DPS_CLIENT_LL_HANDLE handle); // Frees any resources created by the IoTHub DPS module.
+    DPS_RESULT DPS_LL_Register_Device(DPS_LL_HANDLE handle, DPS_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, DPS_CLIENT_REGISTER_STATUS_CALLBACK status_cb, void* status_ctx); // Registers a device that has been previously registered with DPS
+    void DPS_Client_LL_DoWork(DPS_LL_HANDLE handle); // Processes the communications with the DPS service and calls any user callbacks that are required.
+    ```
+
+These APIs help your device to connect and register with the DPS service when it boots up, get the information about your IoT hub and then connect to your IoT hub. 
+
+
 
 ## Clean up resources
-<----! ToDo: Clean up or delete any Azure work that may incur costs --->
+
+At this point, you might have set up the DPS and IoT Hub services in the portal. If you wish to abandon the DPS device provisioning setup, and/or delay using any of these services, we recommend shutting them down to avoid incurring unnecessary costs.
+
+1. From the left-hand menu in the Azure portal, click **All resources** and then select your DPS service. At the top of the **All resources** blade, click **Delete**.  
+1. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. At the top of the **All resources** blade, click **Delete**.  
+
 
 ## Next steps
-In this tutorial, you learned how to:
+In this tutorial, you learned the following:
 
 > [!div class="checklist"]
 > * Select a Hardware Security Module
@@ -92,17 +130,3 @@ Advance to the next tutorial to learn how to provision the device to your IoT hu
 > [!div class="nextstepaction"]
 > [Provision the device to your IoT hub](tutorial-provision-device-to-hub.md)
 
-
-<---! ToDo: 
-Rules for screenshots:
-- Use default Public Portal colors
-- Browser included in the first shot (especially) but all shots if possible
-- Resize the browser to minimize white space
-- Include complete blades in the screenshots
-- Linux: Safari – consider context in images
-Guidelines for outlining areas within screenshots:
-	- Red outline #ef4836
-	- 3px thick outline
-	- Text should be vertically centered within the outline.
-	- Length of outline should be dependent on where it sits within the screenshot. Make the shape fit the layout of the screenshot.
--->

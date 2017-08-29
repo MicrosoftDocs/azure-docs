@@ -21,7 +21,7 @@ These steps show how to create a simulated device on your development machine, r
 
 Make sure to complete the steps in the [Azure Quick Start - Set up DPS in Portal](./quick-setup-auto-provision.md) before you proceed.
 
-
+<a id="setupdevbox"></a>
 ## Prepare the development environment 
 
 1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. 
@@ -90,9 +90,9 @@ Make sure to complete the steps in the [Azure Quick Start - Set up DPS in Portal
 If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start.
 
 1. Close the device client sample output window on your machine.
-2. Close the TPM simulator window on your machine.
-3. In the Azure portal left-hand menu, click **Resource groups** and then click **myResourceGroup**. 
-4. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
+1. Close the TPM simulator window on your machine.
+1. From the left-hand menu in the Azure portal, click **All resources** and then select your DPS service. At the top of the **All resources** blade, click **Delete**.  
+1. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. At the top of the **All resources** blade, click **Delete**.  
 
 ## Next steps
 
