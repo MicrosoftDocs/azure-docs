@@ -9,7 +9,7 @@ This document details how to use the PowerShell in Cloud Shell in the [Azure por
 
 2. Select the PowerShell environment from  drop down from the the left hand side of shell window <br>
 
-[TODO: Image]
+![](media/Environment-PS.png)
 
 3. Select PowerShell
 

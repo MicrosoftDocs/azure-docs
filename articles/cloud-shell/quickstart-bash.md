@@ -32,7 +32,7 @@ This document details how to use the Azure Cloud Shell in the [Azure portal](htt
 
 ### Select the Bash Environment
 1. Select the environment drop down from the the left hand side of shell window <br>
-[TODO: Image]
+![](media/Environment-Bash.png)
 2. Select Bash
 
 ### Set your subscription
