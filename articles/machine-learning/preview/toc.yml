@@ -21,9 +21,9 @@
 - name: Samples
   items:
   - name: Azure CLI 2.0
-    href: samples-azure-cli.md
+    href: sample-scripts-azure-cli.md
   - name: Python
-    href: samples-python.md
+    href: sample-scripts-python.md
 - name: Concepts
   items:
   - name: (Workbench overview)

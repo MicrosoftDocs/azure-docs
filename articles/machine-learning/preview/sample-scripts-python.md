@@ -1,24 +1,26 @@
 ---
-title: Azure CLI samples for Azure Database for MySQL | Microsoft Docs
-description: This article lists the Azure CLI code samples available for interacting with Azure Database for MySQL.
-services: mysql
+title:  Python samples for Azure Machine Learning | Microsoft Docs
+description: This article lists the Python code samples available for interacting with Azure Machine Learning.
+services: machine-learning
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
-editor: jasonwhowell
-ms.service: mysql-database
-ms.devlang: azure-cli
-ms.topic: article
+ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.service: machine-learning
+ms.workload: data-services
 ms.custom: mvc
-ms.date: 05/10/2017
+ms.devlang: python
+ms.topic: article
+ms.date: 08/28/2017
 ---
-# Azure CLI samples for Azure Database for MySQL 
-The following table includes links to sample Azure CLI scripts for Azure Database for MySQL.
 
-| |  |
+# Python samples for Azure Machine Learning
+The following table includes links to sample Python scripts for interacting with Azure Machine Learning.
+
+| Sample topic | Link |
 |---|---|
-|**Create a server**||
-| [Create a server and firewall rule](./scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | Azure CLI script that creates a single Azure Database for MySQL server and configures a server-level firewall rule. |
-|**Scale a server**||
-| [Scale a server](./scripts/sample-scale-server.md?toc=%2fcli%2fazure%2ftoc.json) | Azure CLI script that scales a single Azure Database for MySQL server up or down to allow for changing performance needs. |
+|**Create a Machine Learning workspace**||
+| [Create a Machine Learning workspace](.) | Python script that creates a Machine Learning workspace. |
+|**Create a Machine Learning workspace**||
+| [Create a Machine Learning workspace](.) | Python script that creates a Machine Learning workspace. |
 |||
