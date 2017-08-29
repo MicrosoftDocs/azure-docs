@@ -104,5 +104,5 @@ Cloud Shell is intended for interactive use cases. As a result, any long-running
 Any latency in Cloud Shell is subject to local internet connectivity, Cloud Shell continues to attempt to carry out any instructions sent.
 
 ## Next steps
-[Bash Quickstart](quickstart-bash.md)
+[Bash Quickstart](quickstart.md)
 [PowerShell Quickstart](quickstart-PS.md)
