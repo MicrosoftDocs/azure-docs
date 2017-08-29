@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/28/2017
+ms.date: 08/29/2017
 ms.author: mimig
 ms.custom: mvc
 
@@ -72,11 +72,25 @@ This video shows how to delete and update heroes from the app and display the up
 
 > [!VIDEO https://www.youtube.com/embed/mKzk_5RQz28] 
 
-## Delete and update heroes in the app
+## Complete the app
 
-This video shows how to hook up the read, create, delete, and update APIs to the UI. 
+This video shows how to complete the app and hook the UI up to the APIs. 
 
-> [!VIDEO https://www.youtube.com/embed/mKzk_5RQz28] 
+> [!VIDEO https://www.youtube.com/embed/Jhma0SNbAvk]
+
+
+## Sample video table
+
+|Videos|by Burke Holland|
+|In this video Burke gives an introduction to Azure Cosmos DB and walks you through the app that is created in this video series. 
+> [!VIDEO https://www.youtube.com/embed/mcBUdC_978A]| This video shows how to clone and set up the Express and React starter project. Burke then provides a walkthrough of the code in the project.
+> [!VIDEO https://www.youtube.com/embed/LmAhD_ILNrk]|
+|This video shows how to modify the code in the Express and React starter project to add the custom Heroes UI. 
+
+> [!VIDEO https://www.youtube.com/embed/NIg5VJA5BQw]
+|This video shows how to create an Azure Cosmos DB account in the Azure portal, install the MongoDB and Mongoose packages, and then connect the app to the newly created account using the Azure Cosmos DB connection string. 
+
+> [!VIDEO https://www.youtube.com/embed/AiVy1RjSpG4]|
 
 ## Clean up resources
 
