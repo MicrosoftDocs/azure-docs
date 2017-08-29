@@ -49,9 +49,9 @@ for the requested time frame. There is no request body.
 GET
 /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&api-version=1.0
 
-```
+```json
 {
-"value": \[
+"value": [
 {
 
 "id":
@@ -63,7 +63,7 @@ GET
 "subscriptionId":"sub1",
 "usageStartTime": "2015-03-03T00:00:00+00:00",
 "usageEndTime": "2015-03-04T00:00:00+00:00",
-"instanceData":"{\\"Microsoft.Resources\\":{\\"resourceUri\\":\\"resourceUri1\\",\\"location\\":\\"Alaska\\",\\"tags\\":null,\\"additionalInfo\\":null}}",
+"instanceData":"{\"Microsoft.Resources\":{\"resourceUri\":\"resourceUri1\",\"location\":\"Alaska\",\"tags\":null,\"additionalInfo\":null}}",
 "quantity":2.4000000000,
 "meterId":"meterID1"
 
