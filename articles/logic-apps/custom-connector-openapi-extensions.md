@@ -42,7 +42,7 @@ Example: "When a task is created" or "Create new lead".
 
 Applies to: Operations
 
-![Summary-annotation](./media/customapi-how-to-swagger/figure_1.png)
+![Summary annotation](./media/customapi-how-to-swagger/figure_1.png)
 
 ## x-ms-summary
 
@@ -233,5 +233,5 @@ Here's an example for dynamic response:
 
 ## Next steps
 
-* [Secure your connector](../logic-apps/custom-connector-security-authentication-overview.md)
 * [Set up authentication with Azure Active Directory](../logic-apps/custom-connector-azure-active-directory-authentication.md)
+* [Describe your custom APIs and connectors](../logic-apps/custom-connector-api-postman-collection.md)

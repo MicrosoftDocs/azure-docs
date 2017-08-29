@@ -164,7 +164,7 @@ you might have to copy and paste the text into an empty text file.
 
 ## Next steps
 
-* [Set up authentication for custom connectors](../logic-apps/custom-connector-security-authentication-overview.md)
+* [Set up authentication for custom connectors](../logic-apps/custom-connector-azure-active-directory-authentication.md)
 
 
 

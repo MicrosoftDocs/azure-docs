@@ -99,7 +99,7 @@ You can use these authentication standards for your APIs:
 
 For more information, follow the appropriate tutorials:
 
-* [Logic Apps: Secure your custom connector](../logic-apps/custom-connector-security-authentication-overview.md)
+* [Logic Apps: Secure your custom connector](../logic-apps/custom-connector-azure-active-directory-authentication.md)
 * [Flow: Secure your custom connector](https://ms.flow.microsoft.com/documentation/customapi-azure-resource-manager-tutorial/)
 * [PowerApps: Secure your custom connector](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/)
 
@@ -140,7 +140,7 @@ depending on the language and platform that you used to build your API.
 
 Behind the scenes, Logic Apps, Flow, and PowerApps ultimately use OpenAPI, 
 parses a Postman collection, and translates the collection to an OpenAPI definition file. For more information, see 
-[Describe custom connectors with Postman](../logic-apps/custom-connector-postman-collection.md).
+[Describe custom connectors with Postman](../logic-apps/custom-connector-api-postman-collection.md).
 
 For example, you create an OpenAPI file or a Postman collection 
 from any REST API endpoint, including:
@@ -233,6 +233,6 @@ visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-U
 ## Next steps
 
 * [Build a custom connector from a Web API](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
-* [Set up authentication for custom connectors](../logic-apps/custom-connector-security-authentication-overview.md)
+* [Set up authentication for custom connectors](../logic-apps/custom-connector-azure-active-directory.md)
 * [Describe custom connectors with Postman collections](../logic-apps/custom-connector-api-postman-collection.md)
 * [Submit custom connectors for Microsoft certification](../logic-apps/custom-connector-submit-certification.md)

@@ -30,7 +30,7 @@
 #### [Describe APIs with Postman](custom-connector-api-postman-collection.md)
 #### [Extend OpenAPI for custom connectors](custom-connector-openapi-extensions.md)
 #### [Register your connector](logic-apps-custom-connector-register.md)
-#### [Certify your connector](custom-connector-submit-certification)
+#### [Certify your connector](custom-connector-submit-certification.md)
 #### [FAQ for custom connectors](custom-connector-faq.md)
 ### [Handle errors and exceptions](logic-apps-exception-handling.md)
 ### [Handle content types](logic-apps-content-type.md)

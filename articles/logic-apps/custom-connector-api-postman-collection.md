@@ -19,7 +19,7 @@ ms.author: LADocs; estfan
 
 # Describe custom APIs and custom connectors with Postman
 
-To make developing [custom APIs](../logic-apps/create-api-app.md) 
+To make developing [custom APIs](../logic-apps/logic-apps-create-api-app.md) 
 and [custom connectors](../logic-apps/custom-connector-overview.md) 
 faster and easier, you can create [Postman](https://www.getpostman.com/) collections, 
 rather OpenAPI documents, for describing your APIs and connectors. 

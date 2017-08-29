@@ -43,7 +43,8 @@ Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.co
 
 * For this tutorial, the [sample OpenAPI file for Azure Resource Manager](https://pwrappssamples.blob.core.windows.net/samples/AzureResourceManager.json)
 
-  > [!NOTE] The sample OpenAPI file doesn't define all 
+  > [!NOTE] 
+  > The sample OpenAPI file doesn't define all 
   > Azure Resource Manager operations and currently 
   > contains only the operation for [List all subscriptions](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_List). 
   > You can edit this OpenAPI or create another OpenAPI file 
