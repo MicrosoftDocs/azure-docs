@@ -234,6 +234,6 @@ visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-U
 ## Next steps
 
 * [Build a custom connector from a Web API](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
-* [Set up authentication for custom connectors](../logic-apps/custom-connector-azure-active-directory.md)
+* [Set up authentication for custom connectors](../logic-apps/custom-connector-azure-active-directory-authentication.md)
 * [Describe custom connectors with Postman collections](../logic-apps/custom-connector-api-postman-collection.md)
 * [Submit custom connectors for Microsoft certification](../logic-apps/custom-connector-submit-certification.md)

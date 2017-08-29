@@ -93,7 +93,7 @@ as described in the table, then choose **Create**.
 
    |Setting|Suggested value|Description| 
    |-------|---------------|-----------| 
-   |**Name**|*{web-api-app-name}*|The name for your Web API's Azure AD app| 
+   |**Name**|*web-api-app-name*|The name for your Web API's Azure AD app| 
    |**Application type**|**Web app / API**|Your app's type| 
    |**Sign-on URL**|`https://login.windows.net`|| 
    |||| 
@@ -144,11 +144,11 @@ as described in the table, then choose **Create**.
    ![Create Azure AD app](./media/custom-connector-azure-active-directory-authentication/create-app2-registration.png)
 
    |Setting|Suggested value|Description| 
-   |:------|:--------------|:----------| 
-   |**Name**|*{your-connector-name}*|The name for your connector's Azure AD app|
+   |-------|---------------|-----------| 
+   |**Name**|*your-connector-name*|The name for your connector's Azure AD app| 
    |**Application type**|**Web app / API**|Your app's type| 
    |**Sign-on URL**|`https://login.windows.net`|| 
-   ||||
+   |||| 
 
 3. When you return to your directory's **App registrations** list, 
 select your second Azure AD app.
@@ -166,9 +166,9 @@ In the app's **Settings** menu, choose **Reply URLs**.
 Enter this URL, then choose **Save**.
 
    |Setting|Suggested value|Description| 
-   |:------|:--------------|:----------| 
-   |**Reply URLs**|For the Azure Resource Manager custom connector, enter this URL: `https://msmanaged-na.consent.azure-apim.net/redirect`||
-   ||||
+   |-------|---------------|-----------| 
+   |**Reply URLs**|For the Azure Resource Manager custom connector, enter this URL: `https://msmanaged-na.consent.azure-apim.net/redirect`|| 
+   |||| 
 
    > [!TIP]
    > If the **Settings** menu didn't previously appear, 
@@ -193,9 +193,9 @@ Under **Delegated permissions**, choose **Access Azure Service Management as org
    Otherwise, for other options:
 
    |Option|Suggested value|Description| 
-   |:-----|:--------------|:----------| 
+   |------|---------------|-----------| 
    |**Delegated permissions**||Select permissions for delegated access to your Web API| 
-   ||||
+   |||| 
 
 7. Now on the **Add API access** menu, choose **Done**.
 
@@ -245,16 +245,16 @@ choose **Save**.
 7. Set up Azure AD authentication for your connector as described here:
 
    |Setting|Suggested value|Description| 
-   |:------|:--------------|:----------| 
+   |-------|---------------|-----------| 
    |**Client ID**|*client-ID-for-connector-Azure-AD-app*|The client ID for your connector's Azure AD app| 
    |**Secret**|*client-key-for-connector-Azure-AD-app*|The client key for your connector's Azure AD app| 
-   |**Login URL**|`https://login.windows.net`||
-   |**ResourceUri**|*client-ID-for-Web-API-Azure-AD-app*|The client ID for your Web API's Azure AD app|  
+   |**Login URL**|`https://login.windows.net`|| 
+   |**ResourceUri**|*client-ID-for-Web-API-Azure-AD-app*|The client ID for your Web API's Azure AD app| 
    |||| 
 
 ## Set up your OpenAPI document to use Azure AD authentication
 
-In your OpenAPI document, add the `securityDefintions` object and the 
+In your OpenAPI document, add the `securityDefintions` object and 
 Azure AD authentication for your Web API app to the **host** property: 
 The **host** section should look like this example: 
 

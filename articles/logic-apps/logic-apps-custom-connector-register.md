@@ -49,8 +49,8 @@ and press Enter. From the results list, choose **Logic Apps Connector** > **Crea
 as described in the table. When you're done, 
 choose **Pin to dashboard** > **Create**.
 
-   |Property|Suggested value|Description|
-   |:-------|:--------------|:----------|
+   |Property|Suggested value|Description| 
+   |--------|---------------|-----------| 
    |**Name**|*{custom-connector-name}*|Provide a name for your connector.| 
    |**Subscription**|*{your-Azure-subscription-name}*|Select your Azure subscription.| 
    |**Resource group**|*{Azure-resource-group-name}*|Create or select an Azure group for organizing your Azure resources.| 
@@ -69,11 +69,11 @@ actions and triggers for your custom connector.
 
       ![Provide the OpenAPI file for your API](./media/logic-apps-custom-connector-register/provide-openapi-file.png)
 
-      |Option|Format|Description|
-      |:-----|:-----|:----------|
-      |**Upload an OpenAPI file**|*OpenAPI (Swagger)-json-file*|Browse to the location for your OpenAPI file, and select that file.|
-      |**Use an OpenAPI URL**|http://*path-to-swagger-json-file*|Provide the URL for your API's  OpenAPI file.|
-      |**Upload Postman collection V1**|*exported-Postman-collection-V1-file*|Browse to the location for an exported Postman collection in V1 format.|
+      |Option|Format|Description| 
+      |------|------|-----------| 
+      |**Upload an OpenAPI file**|*OpenAPI (Swagger)-json-file*|Browse to the location for your OpenAPI file, and select that file.| 
+      |**Use an OpenAPI URL**|http://*path-to-swagger-json-file*|Provide the URL for your API's OpenAPI file.| 
+      |**Upload Postman collection V1**|*exported-Postman-collection-V1-file*|Browse to the location for an exported Postman collection in V1 format.| 
       |||| 
 
    2. For **General information**, provide these items for identifying 
@@ -81,22 +81,22 @@ actions and triggers for your custom connector.
 
       ![Connector details](./media/logic-apps-custom-connector-register/add-connector-details.png)
 
-      |Option or setting|Format|Description|
-      |:----------------|:-----|:----------|
+      |Option or setting|Format|Description| 
+      |-----------------|------|-----------| 
       |**Upload Icon**|*png-or-jpg-file-under-1MB*|Provide the icon that represents your connector.| 
       |**Icon background color**|*hexadecimal-color-code*|To show a color behind your icon, provide hexadecimal code for that color. For example, #007ee5 represents the color blue.| 
       |**Description**|*connector-description*|Provide a short description for your connector.| 
-      |**Host**|*connector-host*|Provide the host domain used by your connector.|
-      |**Base URL**|*connector-base-URL*|Provide the base URL for your connector.|
-      ||||
+      |**Host**|*connector-host*|Provide the host domain used by your connector.| 
+      |**Base URL**|*connector-base-URL*|Provide the base URL for your connector.| 
+      |||| 
 
    3. When you're done, choose **Continue**.
 
 5. Now choose **Security**, then choose **Edit** so you can 
 select the authentication type that your API uses.  
 Then provide additional details for that authentication type. 
-This makes sure that user identities flow appropriately between 
-your service and any clients.
+These settings make sure that user identities flow appropriately 
+between your service and any clients.
 
    ![Choose authentication type](./media/logic-apps-custom-connector-register/security.png)
 
@@ -109,8 +109,9 @@ your service and any clients.
    4. For **Client secret**, use the *client key* that you saved earlier.
    5. For **Resource URL**, enter this URL: `https://management.core.windows.net/`
 
-      > [!IMPORTANT] Make sure that you include the 
-      > **Resource URL** exactly as written above, 
+      > [!IMPORTANT] 
+      > Make sure that you include the 
+      > **Resource URL** exactly as specified here, 
       > including the trailing slash.
 
    6. When you're ready, choose **Continue**.
@@ -133,7 +134,7 @@ that users can add to their workflows.
    see [Logic Apps: OpenAPI extensions for custom connectors](../logic-apps/custom-connector-openapi-extensions.md).
 
    To request features that aren't available in the registration wizard, 
-   please contact [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com).
+   contact [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com).
 
 7. Now that the custom connector is registered, 
 you must create a connection to the custom connector 
