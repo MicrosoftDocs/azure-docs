@@ -157,7 +157,7 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
         tools:replace="android:allowBackup,icon,theme,label">
     ```
 
-6.	Download and unzip the Baidu Push Android SDK. Copy the `pushservice-x.y.z jar` file in the libs folder. Then copy the `.so` files in the `src/main/jniLibs` (create a new folder) folders of your Android application.
+6.	Download and unzip the [Baidu Push Android SDK]. Copy the `pushservice-x.y.z jar` file in the libs folder. Then copy the `.so` files in the `src/main/jniLibs` (create a new folder) folders of your Android application.
 
     ![Azure Notification Hubs - Baidu SDK Libs](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
@@ -531,6 +531,6 @@ To send a test notification, you can use the debug tab of the [Azure portal]. If
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Baidu Push Android SDK]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
+[Baidu Push Android SDK]: http://push.baidu.com/sdk/push_client_sdk_for_android
 [Azure portal]: https://portal.azure.com/
 [Baidu portal]: http://www.baidu.com/
