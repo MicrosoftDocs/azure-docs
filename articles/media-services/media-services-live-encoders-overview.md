@@ -4,7 +4,7 @@ description: This topic lists on-premises live encoders that you can use to capt
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 0ec6f046-0841-4673-9057-883bdbc30d5c

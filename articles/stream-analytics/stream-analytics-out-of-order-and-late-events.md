@@ -4,7 +4,7 @@ description: Learn about how Stream Analytics works with out-of-order or late ev
 keywords: out of order, late, events
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Azure Stream Analytics event order handling
@@ -60,7 +60,7 @@ To allow Stream Analytics to correct an event misorder, you can specify a non-ze
 A side effect of the buffering is that the output is **delayed by the same amount of time**. You can tune the value to reduce the number of out-of-order events, and keep the job latency low.
 
 ## Get help
-For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)

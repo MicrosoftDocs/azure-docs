@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
@@ -23,9 +23,9 @@ Log Analytics management solutions are a collection of **logic**, **visualizatio
 
 Management solutions allow deeper insights to:
 
-* help investigate and resolve operational issues faster
-* collect and correlate various types of machine data
-* help you be proactive with activities that the solution exposes.
+* Help investigate and resolve operational issues faster
+* Collect and correlate various types of machine data
+* Help you be proactive with activities that the solution exposes.
 
 > [!NOTE]
 > Log Analytics includes Log Search functionality, so you don't need to install a management solution to enable it. However, you get data visualizations, suggested searches, and insights by adding management solutions to your workspace.

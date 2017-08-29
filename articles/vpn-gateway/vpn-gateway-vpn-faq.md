@@ -19,7 +19,7 @@ ms.author: cherylmc,yushwang
 ---
 # VPN Gateway FAQ
 
-## Connecting to virtual networks
+## <a name="connecting"></a>Connecting to virtual networks
 
 ### Can I connect virtual networks in different Azure regions?
 
