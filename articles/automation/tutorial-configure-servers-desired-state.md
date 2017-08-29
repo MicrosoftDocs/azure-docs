@@ -54,12 +54,44 @@ Login-AzureRmAccount
 Call the `Register-AzureRmAutomationDscNode` cmdlet to register your VM with Azure Automation DSC.
 
 ```powershell
-Register-AzureRMautomationdscnode -AutomationAccouAtname "myAutomationAccount" -AzureVMName "DscVm" -ResourceGroupName "MyResourceGroup"
+Register-AzureRMautomationDscNode -AutomationAccountName "myAutomationAccount" -AzureVMName "DscVm" -ResourceGroupName "MyResourceGroup"
 ```
 
 ## Create and upload a configuration to Azure Automation
 
+For this tutorial, we will use a simple DSC configuration that ensures that IIS is installed on the VM.
+
+In a text editor, type the following and save it locally as `TestConfig.ps1`.
+
+```powershell
+configuration TestConfig {
+
+   Node WebServer {
+
+      WindowsFeature IIS {
+         Ensure               = 'Present'
+         Name                 = 'Web-Server'
+         IncludeAllSubFeature = $true
+      }
+   }
+}
+```
+
+Call the `Import-AzureRmAutomationDscConfiguration` cmdlet to upload the configuration into your Automation account:
+
+```powershell
+ Import-AzureRmAutomationDscConfiguration -SourcePath 'C:\DscConfigs\TestConfig.ps1' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Published
+```
+
 ## Compile a configuration into a node configuration
+
+A DSC configuration must be compiled into a node configuration before it can be assigned to a node.
+
+Call the `Start-AzureRmAutomationDscCompilationJob` cmdlet to compile the `TestConfig` configuration into a node configuration:
+
+```powershell
+Start-AzureRmAutomationDscCompilationJob -ConfigurationName 'TestConfig' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount'
+```
 
 ## Assign a node configuration to a managed node
 
