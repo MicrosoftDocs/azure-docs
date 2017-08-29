@@ -21,13 +21,14 @@ ms.author: LADocs; estfan
 
 To make custom connectors publicly available for all users 
 in Azure Logic Apps, Microsoft Flow, and Microsoft PowerApps, 
-submit your connector to Microsoft for review, validation, and publishing. 
+submit your connector to Microsoft for review, validation, 
+and approval for publishing. 
 
 ## Certification criteria
 
 | Capability | Details | Required or Recommended |
 |------------|---------|-------------------------|
-| Software-as-a-Service (SaaS) app for business | Meets a business user scenario that fits well with Logic Apps, Flow, and PowerApps. | Required |
+| Software-as-a-Service (SaaS) app | Meets a user scenario that fits well with Logic Apps, Flow, and PowerApps. | Required |
 | Authentication Type | Your API must support OAuth2, API Key, or Basic Authentication. | Required | 
 | Support | You must provide a support contact so that customers can get help. | Required | 
 | Availability and uptime | Your app has at least 99.9% uptime. | Recommended | 
@@ -54,17 +55,19 @@ To apply for certification, follow these steps:
    1. Send this information to your nomination contact for review:
 
       * The OpenAPI file that describes your API
-	  * The icon.png file that represents your connector 
+	  * The icon file (.png or .jpg) that represents your connector 
       
-        Your icon should have a ~160 pixel logo inside a 230 pixel square. A white logo on a colored background is preferred.
+        Your icon should have a ~160 pixel logo inside a 230 pixel square. 
+        A white logo on a colored background is preferred.
 	  
       * Your icon's brand color in hexadecimal format, 
-      matching the colored background in the icon file
+      which should match the colored background in the icon file
 
 	  * A test account for validation
       * A support contact
 
-   2. If we need more information, we can contact you with more details.
+   2. If we need more information, 
+   we will contact you.
 
 3. **Publish**
 

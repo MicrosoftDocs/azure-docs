@@ -26,17 +26,18 @@ and get your API definition file, you're ready to register your connector.
 
 To register your custom connector, you need these items:
 
-* Details, such as the name, Azure subscription, 
-Azure resource group, and location that you want to use 
-for registering your connector in Azure
+* Details for registering your connector in Azure, 
+such as the name, Azure subscription, Azure resource group, 
+and location that you want to use
 
-* An OpenAPI (Swagger) file that describes your API 
-
-  For this tutorial, you can use the 
-  [sample Azure Resources Manager OpenAPI file](http://pwrappssamples.blob.core.windows.net/samples/AzureResourceManager.json).
+* An OpenAPI (Swagger) file that describes your API. 
+For this tutorial, you can use the 
+[sample Azure Resources Manager OpenAPI file](http://pwrappssamples.blob.core.windows.net/samples/AzureResourceManager.json).
 
 * An icon that represents your connector
+
 * A short description for your connector
+
 * The host location for your API
 
 ## Create your connector
@@ -151,8 +152,10 @@ so review the pricing page for that service:
 * [PowerApps pricing](https://powerapps.microsoft.com/pricing/)
 
 (**VERIFY FOR LOGIC APPS**)
-**Q:** Is there a limit on how many requests that users can make with 
-**A:** Yes, for each connection that's created for a custom connector, 
+**Q:** Is there a limit on how many requests that users can make with a custom connector? </br>
+**A:** Yes, for each connection that's created by a custom connector, 
 you can make up to 500 requests per minute. 
 
 ## Next steps
+
+* [Optional: Certify your connector](../logic-apps/custom-connector-submit-certification.md)

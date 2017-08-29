@@ -86,14 +86,13 @@ For example, this tutorial shows
 
 ## 2. Secure your API
 
-To secure calls to your APIs, you can set up Azure Active Directory (Azure AD) 
-authentication for your API through the Azure portal so you don't have to update your code. 
+To secure calls to your API, you can set up Azure Active Directory (Azure AD) 
+authentication in the Azure portal so you don't have to update your code. 
 Or, you can require and enforce authentication through your API's code. 
 You can use these authentication standards for your APIs:
 
-   * [Azure Active Directory](https://azure.microsoft.com/develop/identity/)
-   * [OAuth 2.0](https://oauth.net/2/) for specific services, such as Dropbox, 
-   Facebook, and SalesForce
+   * [OAuth 2.0](https://oauth.net/2/), including [Azure Active Directory](https://azure.microsoft.com/develop/identity/) or specific services, 
+   such as Dropbox, Facebook, and SalesForce
    * Generic OAuth 2.0
    * API Key
    * Basic authentication
@@ -131,17 +130,17 @@ create a custom connector by using a Postman collection.
   from their site.
 
 OpenAPI 2.0 and Postman collections use different formats, 
-but both are language-agnostic machine-readable documents 
-that describe your API's operations and parameters.
-You can generate these documents by using various tools, 
-depending on the language and platform that you used to build your API. 
+but both are language-agnostic, machine-readable documents 
+that describe your API's operations and parameters. 
+You can generate these documents from various tools, 
+based on the language and platform used your API. 
 
 > [!IMPORTANT]
 > Your file size must be less than 1 MB.
 
 Behind the scenes, Logic Apps, Flow, and PowerApps ultimately use OpenAPI, 
-parses a Postman collection, and translates the collection to an OpenAPI definition file. For more information, see 
-[Describe custom connectors with Postman](../logic-apps/custom-connector-api-postman-collection.md).
+parses a Postman collection, and translates the collection to an OpenAPI definition file. 
+For more information, see [Describe custom connectors with Postman](../logic-apps/custom-connector-api-postman-collection.md).
 
 For example, you create an OpenAPI file or a Postman collection 
 from any REST API endpoint, including:
@@ -149,13 +148,13 @@ from any REST API endpoint, including:
 * Publicly available connectors, for example, 
 [Spotify](https://developer.spotify.com/), 
 [Slack](https://api.slack.com/), 
-[Rackspace](http://docs.rackspace.com/), and so on.
+[Rackspace](http://docs.rackspace.com/), and so on
 
-* An API that you create and deploy to any cloud hosting provider, 
-such as Azure, Amazon Web Services (AWS), Heroku, Google Cloud, and more
+* An API that you created and deployed to any cloud hosting provider, 
+such as Azure, Heroku, Google Cloud, and more
 
 * A custom line-of-business API that's deployed to your network 
-as long as that API is exposed on the public internet
+but only if that API is exposed on the public internet
 
 You can also build an OpenAPI file when you register your connector.
 
@@ -163,39 +162,38 @@ You can also build an OpenAPI file when you register your connector.
 
 The registration process helps Logic Apps, Flow, or PowerApps understand 
 your API's characteristics, including the description, required authentication, 
-supported operations, and the parameters and outputs for each operation. 
-When you start the registration wizard, you can provide either an 
+and operations, including the parameters and outputs for each operation. 
+When you start the registration process, you can provide either an 
 OpenAPI file or a Postman collection, which automatically populates the 
-metadata fields in the wizard. You can edit these fields' values at any time.
+metadata fields in the registration wizard. You can edit these fields' values at any time.
 
 ![Describe your API](./media/custom-connector-overview/choose-api-definition-file.png)
 
 To register your connector, follow the appropriate tutorial:
 
 * [Logic Apps: Register your connector](../logic-apps/logic-apps-custom-connector-register.md)
-* [Flow; Register your connector](https://ms.flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector)
+* [Flow: Register your connector](https://ms.flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector)
 * [PowerApps: Register your connector](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector)
 
 ## 5. Use your connector in a logic app, flow, or app 
 
-You can use your connector the same way that you do with 
-Microsoft-managed connectors. For example, in a logic app workflow, 
-create a connection to your API with your custom connector, 
-and call any operations that the API provides, 
-in the same way that you call Microsoft-managed connections.
+You can use your connector in the same way that you use Microsoft-managed connectors. 
+For example, in a logic app workflow, add your custom connector so you can 
+create a connection to your API, and call any operations that the API provides 
+in the same way that you call operations for Microsoft-managed connectors.
 
 ## 6. Share your connector 
 
-You can share your connector with other users in your organization 
-the same way that you share resources in Logic Apps, Flow, or PowerApps. 
-Although this step is optional, you might have scenarios 
-where you want to share custom connectors with other creators. 
+You can share your connector with users in your organization in the same way 
+that you share resources in Logic Apps, Flow, or PowerApps. 
+Although sharing is optional, you might have scenarios where 
+you want to share your connectors with other users. 
 
-Remember that when you share a connector, 
-others might start to depend on that connector. 
-***Deleting your connector deletes all connections to that connector.***
+> [!IMPORTANT]
+> when you share a connector, others might start to depend on that connector. 
+> ***Deleting your connector deletes all connections to that connector.***
 
-* [Logic Apps: Share your connector](**NEED TOPIC**)
+* [Logic Apps: Share your connector](../logic-apps/logic-apps-custom-connector-register.md)
 * [Flow: Share your connector](https://ms.flow.microsoft.com/documentation/register-custom-api/#share-your-custom-connector)
 * [PowerApps: Share your connector](https://powerapps.microsoft.com/tutorials/register-custom-api/#share-your-custom-connector)
 
@@ -207,14 +205,14 @@ others might start to depend on that connector.
 > for apps in the region where they are deployed. 
 > 
 > To share your connector with external users outside these boundaries, 
-> submit your connector for Microsoft certification.
+> [submit your connector for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
 
-## 6. Submit your connector for Microsoft certification
+## 7. Certify your connector
 
 To optionally share your connector with all users in Logic Apps, Flow, 
-and PowerApps, submit the connector for Microsoft certification. 
-This process reviews and validates your connector's functionality for Logic Apps, 
-Flow, and PowerApps, and checks for technical and content compliance 
+and PowerApps, submit your connector for Microsoft certification. 
+This process reviews your connector, checks for technical and content compliance, 
+and validates functionality for Logic Apps, Flow, and PowerApps 
 before Microsoft can publish your connector. Learn 
 [how to submit your connector for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
 

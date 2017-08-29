@@ -20,7 +20,7 @@ ms.author: LADocs; estfan
 # Create custom connectors from Web APIs
 
 To build a custom connector that you can use in Azure Logic Apps, 
-Microsoft Flow, or Microsoft PowerApps, create a Web API that 
+Microsoft Flow, or Microsoft PowerApps, first create a Web API that 
 you can host with Azure Web Apps, authenticate with Azure Active Directory, 
 and register as a connector with Logic Apps, Flow, or PowerApps. 
 This tutorial shows you how to perform these tasks 
@@ -73,33 +73,33 @@ review the hosting settings described in the table,
 make the changes you want, and choose **Create**. 
 
    An [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) 
-   represents a collection of physical resources used to host your apps in your Azure subscription. Learn more about [App Service](../app-service/app-service-value-prop-what-is.md).
+   represents a collection of physical resources used for hosting apps in your Azure subscription. Learn about [App Service](../app-service/app-service-value-prop-what-is.md).
 
    ![Create App Service](./media/custom-connector-build-web-api-app-tutorial/visual-studio-create-app-service.png)
 
-   |Setting|Suggested value|Description| 
-   |:------|:--------------|:----------| 
-   |Your Azure work or school account, or your personal Microsoft account||Select your user account.| 
-   |**Web App Name**|*custom-web-api-app-name* or the default name|Enter the name for your Web API app, which is used in your app's URL, for example: http://*web-api-app-name*.| 
-   |**Subscription**|*Azure-subscription-name*|Select the Azure subscription that you want to use.| 
-   |**Resource Group**|*Azure-resource-group-name*|Select an existing Azure resource group, or if you haven't already, create a resource group. <p>**Note**: An Azure resource group organizes Azure resources in your Azure subscription.| 
-   |**App Service Plan**|*App-Service-plan-name*|Select an existing App Service plan, or if you haven't already, create a plan.| 
+   | Setting | Suggested value | Description | 
+   | :------ | :-------------- | :---------- | 
+   | Your Azure work or school account, or your personal Microsoft account | | Select your user account. | 
+   | **Web App Name** | *custom-web-api-app-name* or the default name | Enter the name for your Web API app, which is used in your app's URL, for example: http://*web-api-app-name*. | 
+   | **Subscription** | *Azure-subscription-name* | Select the Azure subscription that you want to use. | 
+   | **Resource Group** | *Azure-resource-group-name* | Select an existing Azure resource group, or if you haven't already, create a resource group. <p>**Note**: An Azure resource group organizes Azure resources in your Azure subscription. | 
+   | **App Service Plan** | *App-Service-plan-name*| Select an existing App Service plan, or if you haven't already, create a plan. | 
    |||| 
 
    If you create an App Service Plan, specify these settings:
 
-   |Setting|Suggested value|Description| 
-   |:------|:--------------|:----------| 
-   |**Location**|*deployment-region*|Select the region for deploying your app.| 
-   |**Size**|*app-service-plan-size*|Select your plan size, which determines the cost and computing resource capacity for your service plan.| 
+   | Setting | Suggested value | Description | 
+   | :------ | :-------------- | :---------- | 
+   | **Location** | *deployment-region* | Select the region for deploying your app. | 
+   | **Size** | *app-service-plan-size* | Select your plan size, which determines the cost and computing resource capacity for your service plan. | 
    |||| 
 
    To set up any other resources required by your app, 
    choose **Explore additional Azure services**.
 
-   |Setting|Suggested value|Description| 
-   |:------|:--------------|:----------| 
-   |**Resource Type**|*Azure-resource-type*|Select and set up any additional resources required by your app.| 
+   | Setting | Suggested value | Description | 
+   | :------ | :-------------- | :---------- | 
+   | **Resource Type** | *Azure-resource-type*|Select and set up any additional resources required by your app. | 
    |||| 
 
 6. After Visual Studio deploys your project, 

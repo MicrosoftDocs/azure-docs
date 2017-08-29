@@ -66,11 +66,11 @@ for your API endpoint. For more information, see the Postman's
 
       ![Create request: "HTTP method", "Request URL", "Authorization"](./media/custom-connector-api-postman-collection/01-create-api-http-request.png)
 
-      |Parameter|Suggested value| 
-      |:--------|:----| 
-      |**HTTP method**|POST| 
-      |**Request URL**| https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages| | 
-      |**Authorization**|"No Auth"| | 
+      | Parameter | Suggested value | 
+      | :-------- | :-------------- | 
+      | **HTTP method** | POST | 
+      | **Request URL** | `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages` | | 
+      | **Authorization** | "No Auth" | | 
       ||| 
 
    2. Now you can enter key-value pairs to use as query or path parameters 
@@ -79,9 +79,9 @@ for your API endpoint. For more information, see the Postman's
 
       ![Request continued: "Parameters"](./media/custom-connector-api-postman-collection/02-create-api-http-request-params.png)
 
-      |Parameter|Suggested value| 
-      |:--------|:----| 
-      |**Params**|**Key**: "numberOfLanguagesToDetect" </br>**Value**: "1"| 
+      | Parameter | Suggested value | 
+      | :-------- | :-------------- | 
+      | **Params** | **Key**: "numberOfLanguagesToDetect" </br>**Value**: "1" | 
       ||| 
 
    3. Enter key-value pairs for the request header. 
@@ -90,9 +90,9 @@ for your API endpoint. For more information, see the Postman's
    
       ![Request continued: "Headers"](./media/custom-connector-api-postman-collection/03-create-api-http-request-header.png)
 
-      |Parameter|Value| 
-      |:--------|:----|    
-      |**Headers**|**Key**: "Ocp-Apim-Subscription-Key", **Value**: *your-API-subscription-key*, which you can find in your Cognitive Services account </br>**Key**: "Content-Type", **Value**: "application/json"| 
+      | Parameter | Value | 
+      | :-------- | :---- | 
+      | **Headers** | **Key**: "Ocp-Apim-Subscription-Key" </br>**Value**: *your-API-subscription-key*, which you can find in your Cognitive Services account <p>**Key**: "Content-Type" </br> **Value**: "application/json" | 
       ||| 
 
    4. Enter content that you want to send in the request body. 
@@ -100,9 +100,9 @@ for your API endpoint. For more information, see the Postman's
    
       ![Request continued: "Body"](./media/custom-connector-api-postman-collection/04-create-api-http-request-body.png)
 
-      |Parameter|Value| 
+      | Parameter | Suggested value | 
       |:--------|:----|    
-      |**Body**|```{"documents": [{ "id": "1", "text": "Hello World"}]}```| | 
+      | **Body** |```{"documents": [{ "id": "1", "text": "Hello World"}]}``` | | 
       ||| 
 
       The response field contains the full response from the API, 
@@ -163,13 +163,14 @@ Flow, or PowerApps.
 > 
 > When you create a custom API or connector from a Postman collection, 
 > remove the `Content-type` header from actions and triggers. 
-> The target service, for example, Logic Apps, automatically adds this header. 
+> The target service, for example, Flow, automatically adds this header. 
 > Also, define authentication headers, such as `Ocp-Apim-Subscription-Key`, 
 > in the **Security** section, and remove those headers from actions and triggers.
 
 ## Next steps
 
-* [Register custom connectors for Azure Logic Apps](../logic-apps/logic-apps-custom-connector-register.md)
-
+* [Logic Apps: Register custom connectors](../logic-apps/logic-apps-custom-connector-register.md)
+* [Flow: Register your connector](https://ms.flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector)
+* [PowerApps: Register your connector](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector)
 
 

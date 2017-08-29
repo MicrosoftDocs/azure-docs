@@ -252,7 +252,7 @@ choose **Save**.
    | **ResourceUri** |*client-ID-for-Web-API-Azure-AD-app* | The client ID for your Web API's Azure AD app | 
    |||| 
 
-## Set up your OpenAPI document to use Azure AD authentication
+## 4. Set up your OpenAPI document to use Azure AD authentication
 
 In your OpenAPI document, add the `securityDefintions` object and 
 Azure AD authentication for your Web API app to the **host** property: 

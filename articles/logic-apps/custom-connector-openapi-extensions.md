@@ -225,5 +225,7 @@ Here's an example for a dynamic response:
 
 ## Next steps
 
-* [Set up authentication with Azure Active Directory](../logic-apps/custom-connector-azure-active-directory-authentication.md)
 * [Describe your custom APIs and connectors](../logic-apps/custom-connector-api-postman-collection.md)
+* [Logic Apps: Register your connector](../logic-apps/logic-apps-custom-connector-register.md)
+* [Flow: Register your connector](https://ms.flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector)
+* [PowerApps: Register your connector](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector)

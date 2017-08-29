@@ -267,10 +267,11 @@ For more information, see these topics:
 You must still create an Azure AD application identity for your web app or API app 
 that differs from the app identity for your logic app. To create the application identity, 
 follow the previous steps in Part 2 for the Azure portal. 
-You can also follow the steps in Part 1, but make sure to use your web app or API app's 
-actual `https://{URL}` for **Sign-on URL** and **App ID URI**. From these steps, 
-you have to save both the client ID and tenant ID for use in your app's 
-deployment template and also for Part 3.
+
+You can also follow the steps in Part 1, but make sure to use your web app 
+or API app's actual `https://{URL}` for **Sign-on URL** and **App ID URI**. 
+From these steps, you have to save both the client ID and tenant ID for use 
+in your app's deployment template and also for Part 3.
 
 > [!NOTE]
 > When you create the Azure AD application identity for your web app or API app, 
@@ -302,7 +303,7 @@ To automatically deploy a blank web app and a logic app together with
 Azure Active Directory authentication, [view the complete template here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json), 
 or click **Deploy to Azure** here:
 
-[![Deploy to Azure](media/logic-apps-custom-api-authentication/deploybutton.png](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
+[![Deploy to Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
 #### Part 3: Populate the Authorization section in your logic app
 
