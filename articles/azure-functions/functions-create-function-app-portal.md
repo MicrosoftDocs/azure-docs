@@ -4,7 +4,7 @@ description: Create a new function app in Azure App Service from the portal.
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 

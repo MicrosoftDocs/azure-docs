@@ -23,17 +23,81 @@ Prior to installation, make sure your environment has both python and pip instal
 take a look at the [pip quickstart documentation](https://pip.pypa.io/en/latest/quickstart/), and official
 [python install documentation](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-While both python 2.7 and 3.6 are supported, it is recommended to use python 3.6.
+While both python 2.7 and 3.6 are supported, it is recommended to use python 3.6. The following section goes
+over how to install all the prerequisites and the CLI.
 
-## Install
+## Install pip, python, and sfctl
 
-The Azure Service Fabric CLI (sfctl) is packaged as a python package. To install the latest version run:
+While there are many ways to install both pip and python on your platform, here are some steps to get set up quickly
+with python 3.6 and pip for major OSes:
 
-```bash
-pip install sfctl
+### Windows
+
+For Windows 10, Server 2016, and Server 2012R2 you can use the standard official install instructions. The python
+installer also installs pip by default.
+
+- Navigate to the official [python downloads page](https://www.python.org/downloads/) and download the latest
+release of python 3.6
+- Launch the installer
+- Select the option at the bottom of the prompt to `Add Python 3.6 to PATH`
+- Select `Install Now`
+- Complete the install
+
+You should now be able to open a new command window and get the version of both python and pip:
+
+```bat
+python --version
+pip --version
 ```
 
-After installation, run `sfctl -h` to get information about available commands.
+Then run the following to install the Service Fabric CLI
+
+```
+pip install sfctl
+sfctl -h
+```
+
+### Ubuntu
+
+For Ubuntu 16.04 Desktop, you can install python 3.6 using a third-party PPA:
+
+From the terminal run the following commands:
+
+```bash
+sudo add-apt-repository ppa:jonathonf/python-3.6
+sudo apt-get update
+sudo apt-get install python3.6
+sudo apt-get install python3-pip
+```
+
+Then, to install sfctl for just your installation of python 3.6 run the following command:
+
+```bash
+python3.6 -m pip install sfctl
+sfctl -h
+```
+
+These steps do not affect the system installed python 3.5 and 2.7. Do not attempt to modify these installations,
+unless you are familiar with Ubuntu.
+
+### MacOS
+
+For MacOS, it is recommended to use the [HomeBrew package manager](https://brew.sh). Install HomeBrew if it is not
+already installed, by running the following command:
+
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Then from the terminal install python 3.6, pip and sfctl
+
+```bash
+brew install python3
+pip3 install sfctl
+sfctl -h
+```
+
+These steps do not modify the system installation of python 2.7.
 
 ## CLI syntax
 
