@@ -22,5 +22,5 @@ The following table includes links to sample Azure CLI scripts for Azure Databas
 |**Scale a server**||
 | [Scale a server](./scripts/sample-scale-server.md?toc=%2fcli%2fazure%2ftoc.json) | Azure CLI script that scales a single Azure Database for MySQL server up or down to allow for changing performance needs. |
 |**Change server configurations**||
-| [Change server configurations](./scripts/sample-change-server-configuration.md?toc=%2fcli%2fazure%2ftoc.json)
+| [Change server configurations](./scripts/sample-change-server-configuration.md?toc=%2fcli%2fazure%2ftoc.json) | Azure CLI script that change configurations of a single Azure Database for MySQL server. |
 |||
