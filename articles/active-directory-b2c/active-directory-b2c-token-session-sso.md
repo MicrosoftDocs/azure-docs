@@ -28,14 +28,14 @@ This feature gives you fine-grained control, on a [per-policy basis](active-dire
 
 For built-in policies, you can use this feature in your Azure AD B2C directory as follows:
 
-1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
+1. Follow these steps to [navigate to the B2C features menu](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
 2. Click **Sign-up or sign-in policies**. *Note: You can use this feature on any policy type, not just on **Sign-up or sign-in policies***.
 3. Open a policy by clicking it. For example, click on **B2C_1_SiUpIn**.
-4. Click **Edit** at the top of the blade.
+4. Click **Edit** at the top of the menu.
 5. Click **Token, session & single sign-on config**.
 6. Make your desired changes. Learn about available properties in subsequent sections.
 7. Click **OK**.
-8. Click **Save** on the top of the blade.
+8. Click **Save** on the top of the menu.
 
 ## Token lifetimes configuration
 
@@ -104,7 +104,7 @@ If you have multiple applications and policies in your B2C tenant, you can manag
 * **Tenant**: This is the default setting. Using this setting allows multiple applications and policies in your B2C tenant to share the same user session. For example, once a user signs into an application, Contoso Shopping, he or she can also seamlessly sign into another one, Contoso Pharmacy, upon accessing it.
 * **Application**: This allows you to maintain a user session exclusively for an application, independent of other applications. For example, if you want the user to sign in to Contoso Pharmacy (with the same credentials), even if he or she is already signed into Contoso Shopping, another application on the same B2C tenant. 
 * **Policy**: This allows you to maintain a user session exclusively for a policy, independent of the applications using it. For example, if the user has already signed in and completed a multi factor authentication (MFA) step, he or she can be given access to higher-security parts of multiple applications as long as the session tied to the policy doesn't expire.
-* **Disabled**: This forces the user to run through the entire user journey on every execution of the policy. For example, this will allow multiple users to sign up to your application (in a shared desktop scenario), even while a single user remains signed in during the whole time.
+* **Disabled**: This forces the user to run through the entire user journey on every execution of the policy. For example, this allows multiple users to sign up to your application (in a shared desktop scenario), even while a single user remains signed in during the whole time.
 
     > [!NOTE]
     > These settings are not available for password reset policies.
