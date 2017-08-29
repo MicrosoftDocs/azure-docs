@@ -23,9 +23,9 @@ ms.author: arramac
 
 Azure Cosmos DB provides the Table API (preview) for applications that need a key-value store with flexible schema, predictable performance, global distribution, and high throughput. The Table API provides the same functionality as Azure Table storage, but leverages the benefits of the Azure Cosmos DB engine. 
 
-We recommend getting started by watching the following video, where Aravind Ramachandran explains how applications running on Azure Table storage can take advantage of secondary indexes, turnkey global distribution, dedicated throughput, and single digit millisecond latency with 99.99% comprehensive SLAs using the Table API for Azure Cosmos DB.
+We recommend getting started by watching the following video, where Aravind Ramachandran explains how to get started with the Table API for Azure Cosmos DB.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
 > 
 > 
 
