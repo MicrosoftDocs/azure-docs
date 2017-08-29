@@ -28,19 +28,23 @@ This article walks you through some of the key elements of the remote monitoring
 * Plan how to customize to the solution to meet your own specific requirements.
 * Design your own IoT solution that uses Azure services.
 
-## Microservices architecture
-
-[TODO]
-
 ## Logical architecture
 
 The following diagram outlines the logical components of the remote monitoring preconfigured solution overlaid on the [IoT architecture](iot-suite-what-is-azure-iot.md):
 
 ![Logical architecture](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
-## device-simulation
+## Why microservices?
 
-This microservice enables you to manage a pool of simulated devices to test the end-to-end flow of  the solution. The simulated devices:
+[TODO]
+
+## Device connectivity
+
+The solution includes the following components in the device connectivity part of the logical architecture:
+
+### Simulated devices
+
+The solution includes a microservice that enables you to manage a pool of simulated devices to test the end-to-end flow in the solution. The simulated devices:
 
 * Generate device-to-cloud telemetry.
 * Respond to cloud-to-device method calls from IoT Hub.
@@ -49,13 +53,13 @@ The microservice provides a RESTful endpoint for you to create, start, and stop 
 
 You can provision simulated devices from the dashboard in the solution portal.
 
-## Physical devices
+### Physical devices
 
 You can connect physical devices to the solution. You can implement the behavior of your simulated devices using the Azure IoT device SDKs.
 
 You can provision physical devices from the dashboard in the solution portal.
 
-## IoT Hub
+### IoT Hub
 
 The [IoT hub](../iot-hub/index.md) ingests data sent from the devices into the cloud and makes it available to the `stream-analytics` microservice.
 
@@ -66,9 +70,7 @@ The IoT hub in the solution also:
 * Maintains device twins for all registered devices. A device twin stores the property values reported by a device. A device twin also stores desired properties, set in the solution portal, for the device to retrieve when it next connects.
 * Schedules jobs to set properties for multiple devices or invoke methods on multiple devices.
 
-## `iot-manager`
-
-This microservice handles interactions with your IoT hub such as:
+The solution includes the `iot-manager` microservice to handle interactions with your IoT hub such as:
 
 * Creating and managing IoT devices.
 * Managing device twins.
@@ -79,36 +81,40 @@ This service also runs IoT Hub queries to retrieve devices belonging to user-def
 
 The microservice provides a RESTful endpoint to manage devices and device twins, invoke methods, and run IoT Hub queries.
 
-## `stream-analytics`
+## Data processing and analytics
 
-This microservice:
+The solution includes the following components in the data processing and analytics part of the logical architecture:
 
-* Analyzes the telemetry stream from devices.
+### Device telemetry
+
+The solution includes two microservices to handle device telemetry.
+
+The `stream-analytics` microservice:
+
 * Stores telemetry in Cosmos DB.
-* Generates alerts according to defined rules.
+* Analyzes the telemetry stream from devices.
+* Generates alarms according to defined rules.
 
-The service analyzes the telemetry stream using a set of rules defined in the **device-telemetry** service, and generates an alarm when a message matches a rule. The alarms are stored in Cosmos DB.
+The alarms are stored in Cosmos DB.
 
-## `device-telemetry`
-
-This microservice enables the solution portal to read the telemetry sent from the devices. The solution portal also uses this service to:
+The `device-telemetry` microservice enables the solution portal to read the telemetry sent from the devices. The solution portal also uses this service to:
 
 * Define monitoring rules such as the thresholds that trigger alarms
 * Retrieve the list of past alarms.
 
 Use the RESTful endpoint provided by this microservice to manage telemetry, rules, and alarms.
 
-## `storage-adapter`
+### Storage
 
-This microservice is an adapter in front of the main storage service used for the preconfigured solution. It provides simple collection and key-value storage.
+The `storage-adapter` microservice is an adapter in front of the main storage service used for the preconfigured solution. It provides simple collection and key-value storage.
 
 The standard deployment of the preconfigured solution uses Cosmos DB as its main storage service.
 
-## Cosmos DB
+The Cosmos DB database stores data in the preconfigured solution. The **storage-adapter** microservice acts as an adapter for the other microservices in the solution to access storage services.
 
-The solution uses a Cosmos DB database to store data in the preconfigured solution. The **storage-adapter** microservice acts as an adapter for the other microservices in the solution to access storage services.
+## Presentation
 
-## `webui`
+The solution includes the following components in the presentation part of the logical architecture:
 
 The web user interface is a React Javascript application. The application:
 
@@ -121,9 +127,7 @@ The user interface presents all the preconfigured solution functionality, and in
 * The authentication microservice to protect user data.
 * The `iothub-manager`microservice to list and manage the IoT devices.
 
-## `ui-config`
-
-This microservice enables the user interface to store and retrieve configuration settings.
+The `ui-config` microservice enables the user interface to store and retrieve configuration settings.
 
 ## Next steps
 
