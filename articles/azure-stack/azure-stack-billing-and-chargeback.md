@@ -51,7 +51,6 @@ To generate the usage data, you should have resources that are running and activ
    
    ![Usage aggregates](media/azure-stack-billing-and-chargeback/image2.png)
    
-   PowerShell returns 1,000 lines of usage per call. You can use the continuation parameter to retrieve more than 1,000 lines
 
 ## Next steps
 
