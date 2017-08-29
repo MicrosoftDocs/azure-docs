@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/24/2017
+ms.date: 07/06/2017
 ms.author: markvi
 
 ---
@@ -36,7 +36,7 @@ The following applications support conditional access for Office 365 and other A
 
 | Target Service| Platform| Application |
 | --- | --- | --- |
-| Any My Apps app service| Android and iOS| Any My Apps app service|
+| Any My Apps app service| Android and iOS| MFA and location policy for apps. Device based policies are not supported. |
 | Azure Remote App service| Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X| Azure Remote app|
 | Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS, and Android| Dynamics CRM app|
 | Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS/Android and MAC OSX| Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, MAC OS X, iOS, Android, WP, and web client|
@@ -71,6 +71,7 @@ You can disable legacy protocols for SharePoint access by using the Set-SPOTenan
 Exchange offers two main categories of protocols. Review the following options, and then select the policy that is right for your organization.
 
 * **Exchange ActiveSync**. By default, conditional access policies for multi-factor authentication and location are not enforced for Exchange ActiveSync. You need to protect access to these services either by configuring Exchange ActiveSync policy directly, or by blocking Exchange ActiveSync by using Active Directory Federation Services (AD FS) rules.
+
 * **Legacy protocols**. You can block legacy protocols with AD FS. This blocks access to older Office clients, such as Office 2013 without modern authentication enabled, and earlier versions of Office.
 
 ### Use AD FS to block legacy protocol
@@ -118,7 +119,9 @@ By applying the following three rules to the AD FS relying party trust for Micro
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-## Supported browsers
+## Supported browsers for device based policies
+
+Access can only be granted for device based policies, that check for device compliance and domain join, when Azure AD can identify and authenticate the device. While most checks, like location and MFA work on most devices and browsers, device policies require of the OS version and browsers listed below. A user on an unsupported browser or OS will have their access blocked when a policy is in device policy is in place.
 
 | OS                     | Browsers                 | Support     |
 | :--                    | :--                      | :-:         |

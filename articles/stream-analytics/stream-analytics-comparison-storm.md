@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2017
+ms.date: 06/27/2017
 ms.author: jeffstok
 
 ---
-# Help choosing a streaming analytics platform: Apache Storm comparison to Azure Stream Analytics
-Get guidance choosing a cloud analytics platform by using this Apache Storm comparison to Azure Stream Analytics. Understand the value propositions of Stream Analytics versus Apache Storm as a managed service on Azure HDInsight, so you can choose the right solution for your business use cases.
+# Choosing a streaming analytics platform: comparing Apache Storm and Azure Stream Analytics
+Azure provides multiple solutions for analyzing streaming data: [Azure Streaming Analytics](https://docs.microsoft.com/azure/stream-analytics/) and [Apache Storm on Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-storm/). Both analytics platforms provide the benefits of a PaaS solution. But the platforms have some significant differences in their capabilities as well as in how you configure and manage them. 
 
-Both analytics platforms provide benefits of a PaaS solution, there are a few major distinguishing capabilities that differentiate them. Capabilities as well as the limitations of these services are listed below to help you land on the solution you need to achieve your goals.
+This article provides a side-by-side comparison of features to help you choose between Apache Storm and Azure Stream Analytics as a cloud analytics platform. 
 
-## Storm comparison to Stream Analytics: General features
+## General features
 
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
@@ -47,24 +47,24 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Open Source</strong>
+                    <strong>Open source?</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    No, Azure Stream Analytics is a Microsoft proprietary offering.
+                    No. Azure Stream Analytics is a Microsoft proprietary offering.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Yes, Apache Storm is an Apache licensed technology.
+                    Yes. Apache Storm is an Apache licensed technology.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Microsoft Supported</strong>
+                    <strong>Microsoft support?</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -86,59 +86,58 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="204" valign="top">
                 <p>
-                    There are no hardware requirements. Azure Stream Analytics is an Azure Service.
+                    None. Azure Stream Analytics is an Azure Service.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    There are no hardware requirements. Apache Storm is an Azure Service.
+                    None. Apache Storm is an Azure Service.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Top Level Unit</strong>
+                    <strong>Top-level unit</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    With Azure Stream Analytics customers deploy and monitor streaming jobs.
+                    Users deploy and monitor streaming jobs.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    With Apache Storm on HDInsight customers deploy and monitor a whole cluster, which can host multiple Storm jobs as well as other  workloads (incl. batch).
+                    Users deploy and monitor a whole cluster, which can host multiple Storm jobs as well as other workloads (including batch).
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Price</strong>
+                    <strong>Pricing</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Stream Analytics is priced by volume of data processed and the number of streaming units (per hour the job is running) required.
+                    Priced by volume of data processed and the number of streaming units required per hour that the job is running. 
                 </p>
-                <p>
-                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Further pricing information can be found here.</a>
+                    <p>For more information, see <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Stream Analytics Pricing</a>.</p>
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    For Apache Storm on HDInsight, the unit of purchase is cluster-based, and is charged based on the time the cluster is running, independent of jobs deployed.
+                    The unit of purchase is cluster-based, and is charged based on the time the cluster is running, independent of jobs deployed.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">Further pricing information can be found here.</a>
+                    For more information, see <a href="http://azure.microsoft.com/pricing/details/hdinsight/">HDInsight pricing</a>.
                 </p>
             </td>
         </tr>
     </tbody>
 </table>
 
-## Authoring on each analytics platform ##
+## Authoring
 
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
@@ -162,51 +161,51 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Capabilities: SQL DSL</strong>
+                    <strong>Capabilities: SQL DSL?</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Yes, an easy to use SQL language support is available.
+                    Yes. Stream Analytics provides a SQL-like language for creating transformations.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    No, users must write code in Java C# or use Trident APIs.
+                    No. Users write code in Java or C#, or use Trident APIs.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Capabilities: Temporal operators</strong>
+                    <strong>Capabilities: Temporal operators?</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Windowed aggregates, and temporal joins are supported out of the box.
+                    Windowed aggregates and temporal joins are supported by default.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Temporal operators must to be implemented by the user.
+                    Temporal operators must be implemented by the user.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Development Experience</strong>
+                    <strong>Development experience</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Interactive authoring and debugging experience through Azure Portal on sample data.
+                    Users can create, debug, and monitor jobs through the Azure portal, using sample data derived from a live stream.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Development, debugging and monitoring experience is provided through the Visual Studio experience for .NET users, while for Java and other languages developers may use the IDE of their choice.
+                    Users using .NET can develop, debug, and monitor through Visual Studio. Users using Java or other languages can use the IDE of their choice.
                 </p>
             </td>
         </tr>
@@ -218,53 +217,53 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="204" valign="top">
                 <p>
-                    Stream Analytics offers basic job status and Operations logs as a way of debugging, but currently does not offer flexibility in what/how much is included in the logs ie: verbose mode.
+                    Basic job status and operations logs are available to help debug. Stream Analytics currently does not let users specify what content or how much content is included in the logs (i.e., verbose mode).
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Detailed logs are available for debugging purposes. There are two ways to surface logs to user, via visual Studio or user can RDP into the cluster to access logs.
+                    Detailed logs are available. Users can access logs in Visual Studio or by logging in to the cluster and accessing the logs directly.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Support for UDF (User Defined Functions)</strong>
+                    <strong>Support for user-defined functions (UDFs)</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Currently there is no support for UDFs.
+                    Queries support JavaScript UDFs. For more information, see <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">JavaScript UDF integration</a>.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    UDFs can be written in C#, Java or the language of your choice.
+                    UDFs can be written in C#, Java, or any other language.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Extensible - custom code </strong>
+                    <strong>Extensibility using custom code?</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    There is no support for extensible code in Stream Analytics.
+                    No. There is no support for extensible code in Stream Analytics.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Yes, there is availability to write custom code in C#, Java or other supported languages on Storm.
+                    Yes. Users can write custom code in C#, Java, or any other language supported on Storm.
                 </p>
             </td>
         </tr>
     </tbody>
 </table>
 
-## Data sources and outputs ##
+## Data sources (inputs) and outputs ##
 
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
@@ -288,33 +287,33 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         <tr>
             <td width="174" valign="top">
                 <p>
-                 <strong>Input Data Sources</strong>
+                 <strong>Input data sources</strong>
                 </p>
             </td>
             <td width="204" valign="top">
-                <p>The supported input sources are Azure Event Hubs and Azure Blobs.
+                <p>Azure Event Hubs and Azure Blob storage.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    There are connectors available for Event Hubs, Service Bus, Kafka, etc. Unsupported connectors may be implemented via custom code.
+                    Connectors are available for Azure Event Hubs, Azure Service Bus, Kafka, and more. Users can create additional connectors using custom code.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Input Data formats</strong>
+                    <strong>Input data formats</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Supported input formats are Avro, JSON, CSV.
+                    Avro, JSON, CSV
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Any format may be implemented via custom code.
+                    Users can implement any format using custom code.
                 </p>
             </td>
         </tr>
@@ -326,29 +325,29 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="204" valign="top">
                 <p>
-                    A streaming job may have multiple outputs. Supported Outputs: Azure Event Hubs, Azure Blob Storage, Azure Tables, Azure SQL DB, and PowerBI.
+                    A streaming job can have multiple outputs. Supported outputs are Azure Event Hubs, Azure Blob storage, Azure Table storage, Azure SQL DB, and Power BI.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Support for many outputs in a topology, each output may have custom logic for downstream processing. Out of the box Storm includes connectors for PowerBI, Azure Event Hubs, Azure Blob Store, Azure Cosmos DB, SQL and HBase. Unsupported connectors may be implemented via custom code.
+                    Storm supports many outputs in a topology, and each output can have custom logic for downstream processing. Storm includes connectors for Power BI, Azure Event Hubs, Azure Blob storage, Azure Cosmos DB, SQL, and HBase. Users can create additional connectors using custom code.    
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Data Encoding formats</strong>
+                    <strong>Data-encoding formats</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Stream Analytics requires UTF-8 data format to be utilized.
+                    Data must be formatted using UTF-8.
                 </p>
-            </td>
+            </td>   
             <td width="246" valign="top">
                 <p>
-                    Any data encoding format may be implemented via custom code.
+                    Users can implement any data encoding format using custom code.
                 </p>
             </td>
         </tr>
@@ -379,26 +378,17 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Job Deployment model</strong>
-                </p>
-                <p>
-                    - <strong>Azure Portal</strong>
-                </p>
-                <p>
-                    - <strong>Visual Studio</strong>
-                </p>
-                <p>
-                    - <strong>PowerShell</strong>
+                    <strong>Job deployment model</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Deployment is implemented via Azure Portal, PowerShell and REST APIs.
+                    Azure portal, PowerShell, and REST APIs.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Depolyment is implemented via Azure Portal, PowerShell, Visual Studio and REST APIs.
+                    Azure portal, PowerShell, Visual Studio, and REST APIs.
                 </p>
             </td>
         </tr>
@@ -410,15 +400,12 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="204" valign="top">
                 <p>
-                    Monitoring is implemented via Azure Portal and REST APIs.
-                </p>
-                <p>
-                    The user may also configure Azure alerts.
+                    Monitoring is implemented using Azure portal and REST APIs. Users can also configure Azure alerts.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Monitoring is implemented via Storm UI and REST APIs.
+                    Monitoring is implemented using the Storm UI and REST APIs.
                 </p>
             </td>
         </tr>
@@ -430,12 +417,12 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="204" valign="top">
                 <p>
-                    Number of Streaming Units for each job. Each Streaming Unit processes up to 1MB/s. Max of 50 units by default. Call to increase limit.
+                    Scalability is determined by the number of Streaming Units (SUs) for each job. Each Streaming Unit processes up to 1 MB/second, with a maximum 50 units. For more information, see <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-scale-jobs">Scale to increase throughput</a>.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Number of nodes in the HDI Storm cluster. No limit on number of nodes (Top limit defined by your Azure quota). Call to increase limit.
+                    Scalability is determined by the number of nodes in the HDInsight Storm cluster. The top limit on the number of nodes is defined by the user's Azure quota.
                 </p>
             </td>
         </tr>
@@ -447,15 +434,12 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="204" valign="top">
                 <p>
-                    Users can scale up or down number of Streaming Units to increase data processing or optimize costs.
-                </p>
-                <p>
-                    Scale up to 1 GB/s
+                    Users can increase data processing or optimize costs by increasing or decreasing the number of Streaming Units, with an upper limit of 1 GB/second.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    User can scale up or down cluster size to meet needs.
+                    Users can scale cluster size up or down.
                 </p>
             </td>
         </tr>
@@ -472,7 +456,7 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="246" valign="top">
                 <p>
-                    Stop and resume from last place stopped based on the watermark.
+                    Stop and resume from last place stopped based on a watermark.
                 </p>
             </td>
         </tr>
@@ -496,30 +480,29 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Business continuity through a Highly Available Service with guaranteed SLA’s</strong>
+                    <strong>Business continuity through a Highly Available Service with guaranteed SLAs</strong>
                 </p>
             </td>
             <td width="204" valign="top">
-                <p>
-                    SLA of 99.9% uptime
-                </p>
-                <p>
-                    Auto-recovery from failures
-                </p>
-                <p>
-                    Recovery of stateful temporal operators is built-in.
-                </p>
+                <ul>
+                <li>SLA of 99.9% uptime</li>
+                <li>Auto-recovery from failures</li>
+                <li>Built-in recovery of stateful temporal operators</li>
+                </ul>
             </td>
             <td width="246" valign="top">
                 <p>
-                    SLA of 99.9% uptime of the Storm cluster. Apache Storm is a fault tolerant streaming platform however it is the customers' responsibility to ensure their streaming jobs run uninterrupted.
+                    SLA of 99.9% uptime of the Storm cluster. 
+                </p>
+                <p>
+                    Apache Storm is a fault-tolerant streaming platform. However, it is the user's responsibility to ensure that streaming jobs run uninterrupted.
                 </p>
             </td>
         </tr>
     </tbody>
 </table>
 
-## Advanced Features ##
+## Advanced features ##
 
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
@@ -543,17 +526,17 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Late arrival and out of order event handling</strong>
+                    <strong>Late arrival and out-of-order event handling</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Built-in configurable policies to reorder, drop events or adjust event time.
+                    Built-in configurable policies can reorder events, drop events, or adjust event time.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    User must implement logic to handle this scenario.
+                    Users must implement logic to handle this scenario.
                 </p>
             </td>
         </tr>
@@ -565,15 +548,12 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="204" valign="top">
                 <p>
-                    Reference data available from Azure Blobs with max size of 100 MB of in-memory lookup cache. Refreshing of reference data is managed by the service.
+                    Reference data is available from Azure Blob storage with a maximum of 100 MB of in-memory cache. Reference data is refreshed by the service.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    No limits on data size. Connectors available for HBase, Azure Cosmos DB, SQL Server and Azure. Unsupported connectors may be implemented via custom code.
-                </p>
-                <p>
-                    Refreshing of reference data must be handled by custom code.
+                    No limits on data size. Connectors are available for HBase, Azure Cosmos DB, SQL Server, and Azure. Users can create additional connectors using custom code. Reference data must be refreshed using custom code.
                 </p>
             </td>
         </tr>
@@ -585,7 +565,7 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="204" valign="top">
                 <p>
-                    By configuring published Azure Machine Learning models as functions during ASA job creation <a href="http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx">(private preview)</a>.
+                    Published Azure Machine Learning models can be configured as functions during job creation. For more information, see <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-scale-with-machine-learning-functions">Scale for Machine Learning functions</a>.
                 </p>
             </td>
             <td width="246" valign="top">

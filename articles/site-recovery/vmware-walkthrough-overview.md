@@ -13,15 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 06/27/2017
 ms.author: raynew
 
 ---
 # Replicate VMware VMs to Azure with Site Recovery
-
-> [!div class="op_single_selector"]
-> * [Azure portal](vmware-walkthrough-overview.md)
-> * [Azure classic](site-recovery-vmware-to-azure-classic.md)
 
 This article provides an overview of the steps required to replicate on-premises VMware virtual machines to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
 
@@ -46,7 +42,7 @@ Make sure you have the prerequisites in place for each deployment component:
 - **On-premises VMware prerequisites**: You need to set up accounts so that Site Recovery can access VMware servers and VMs.
 - **Replicated VMs**: VMs you want to replicate need to comply with Azure requirements, and have the Mobility service component installed.
 
-Go to [Step 2: Verify prerequisites and limitations](vmware-walkthrough-prerequisites.md)
+Go to [Step 2: Review prerequisites and limitations](vmware-walkthrough-prerequisites.md)
 
 ## Step 3: Plan capacity
 
@@ -80,7 +76,7 @@ Go to [Step 6: Prepare VMware](vmware-walkthrough-prepare-vmware.md)
 
 You need to set up a Recovery Services vault to orchestrate and manage replication. When you set up the vault, you specify what you want to replicate, and where you want to replicate it to.
 
-Go to [Step 7: Create a vault](vmware-walkthrough-create-vault.md)
+Go to [Step 7: Set up a vault](vmware-walkthrough-create-vault.md)
 
 ## Step 8: Configure source and target settings
 

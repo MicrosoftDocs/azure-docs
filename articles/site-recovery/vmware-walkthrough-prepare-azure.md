@@ -1,6 +1,6 @@
 ---
-title: Prepare Azure resources to replicate on-premises machines to Azure using Azure Site Recovery| Microsoft Docs
-description: Describes what you need in place in Azure before you start replicating on-premises machines to Azure using Azure Site Recovery
+title: Prepare Azure resources to replicate on-premises VMware VMs to Azure using Azure Site Recovery | Microsoft Docs
+description: Describes what you need in place in Azure before you start replicating on-premises VMware VMs to Azure using Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 06/27/2017
 ms.author: raynew
 
 ---

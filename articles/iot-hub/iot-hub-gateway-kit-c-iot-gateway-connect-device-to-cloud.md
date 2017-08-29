@@ -37,6 +37,7 @@ You learn how to use an IoT gateway to connect a Texas Instruments SensorTag (CC
 ## What you need
 
 - Tutorial [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md) completed in which you set up Intel NUC as an IoT gateway.
+- * An active Azure subscription. If you don't have an Azure account, [create a free Azure trial account](https://azure.microsoft.com/free/) in just a few minutes.
 - An SSH client that runs on your host computer. PuTTY is recommended on Windows. Linux and macOS already come with an SSH client.
 - The IP address and the username and password to access the gateway from the SSH client.
 - An Internet connection.

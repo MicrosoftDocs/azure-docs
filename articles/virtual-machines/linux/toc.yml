@@ -203,6 +203,8 @@
       href: cli-ps-findimage.md
     - name: Create custom VM images
       href: create-upload-generic.md
+    - name: Download a VHD
+      href: download-vhd.md
     - name: Upload custom VM images
       href: upload-vhd.md
     - name: Capture an existing VM into an image
@@ -379,6 +381,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
+    - name: Reset Linux VM password
+      href: virtual-machines-linux-reset-password.md
     - name: Understand a system reboot
       href: understand-vm-reboot.md
     - name: SSH connections
@@ -393,6 +397,8 @@
     - name: Allocation failures
       href: allocation-failure.md
     - name: Deployment issues
+      href: troubleshoot-deploy-vm.md
+    - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
     - name: Redeploy VM to a new Azure node
       href: redeploy-to-new-node.md

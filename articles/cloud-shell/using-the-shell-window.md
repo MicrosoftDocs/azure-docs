@@ -51,5 +51,5 @@ If exiting a session, be sure to exit from each session window as each process r
 ## Exit command
 Running `exit` terminates the active session. This behavior occurs by default after 10 minutes without interaction.
 
-## Next Steps
+## Next steps
 [Cloud Shell Quickstart](quickstart.md)  

@@ -8,19 +8,19 @@ manager: timlt
 editor: ''
 tags: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 2/6/2016
+ms.date: 6/28/2017
 ms.author: rasquill
 
 ---
 
 # Detailed walk through to create an SSH key pair and additional certificates for a Linux VM in Azure
-With an SSH key pair, you can create Virtual Machines on Azure that default to using SSH keys for authentication, eliminating the need for passwords to log in. Passwords can be guessed, and open your VMs up to relentless brute force attempts to guess your password. VMs created with the Azure CLI or Resource Manager templates can include your SSH public key as part of the deployment, removing a post deployment configuration step of disabling password logins for SSH. This article provides detailed steps and additional examples of generating certificates such as for use with the Classic portal. If you want to quickly create and use an SSH key pair, see [How to create an SSH public and private key pair for Linux VMs in Azure](mac-create-ssh-keys.md).
+With an SSH key pair, you can create Virtual Machines on Azure that default to using SSH keys for authentication, eliminating the need for passwords to log in. Passwords can be guessed, and open your VMs up to relentless brute force attempts to guess your password. VMs created with the Azure CLI or Resource Manager templates can include your SSH public key as part of the deployment, removing a post deployment configuration step of disabling password logins for SSH. This article provides detailed steps and additional examples of generating certificates, such as for use with Linux virtual machines. If you want to quickly create and use an SSH key pair, see [How to create an SSH public and private key pair for Linux VMs in Azure](mac-create-ssh-keys.md).
 
 ## Understanding SSH keys
 
@@ -32,7 +32,7 @@ This article creates an SSH protocol version 2 RSA public and private key file p
 
 ## SSH keys use and benefits
 
-Azure requires at least 2048-bit, SSH protocol version 2 RSA format public and private keys; the public key file has the `.pub` container format. (The classic portal uses the `.pem` file format. See ) To create the keys use `ssh-keygen`, which asks a series of questions and then writes a private key and a matching public key. When an Azure VM is created, Azure copies the public key to the `~/.ssh/authorized_keys` folder on the VM. SSH keys in `~/.ssh/authorized_keys` are used to challenge the client to match the corresponding private key on an SSH login connection.  When an Azure Linux VM is created using SSH keys for authentication, Azure configures the SSHD server to not allow password logins, only SSH keys.  Therefore, by creating Azure Linux VMs with SSH keys, you can help secure the VM deployment and save yourself the typical post-deployment configuration step of disabling passwords in the **sshd_config** file.
+Azure requires at least 2048-bit, SSH protocol version 2 RSA format public and private keys; the public key file has the `.pub` container format. To create the keys use `ssh-keygen`, which asks a series of questions and then writes a private key and a matching public key. When an Azure VM is created, Azure copies the public key to the `~/.ssh/authorized_keys` folder on the VM. SSH keys in `~/.ssh/authorized_keys` are used to challenge the client to match the corresponding private key on an SSH login connection.  When an Azure Linux VM is created using SSH keys for authentication, Azure configures the SSHD server to not allow password logins, only SSH keys.  Therefore, by creating Azure Linux VMs with SSH keys, you can help secure the VM deployment and save yourself the typical post-deployment configuration step of disabling passwords in the **sshd_config** file.
 
 ## Using ssh-keygen
 
@@ -59,24 +59,9 @@ ssh-keygen \
 
 `-C "azureuser@myserver"` = a comment appended to the end of the public key file to easily identify it.  Normally an email is used as the comment but you can use whatever works best for your infrastructure.
 
-## Classic portal and X.509 certs
-
-If you are using the Azure [classic portal](https://manage.windowsazure.com/), it requires X.509 certificate .pem file for the SSH keys.  No other types of SSH public keys are allowed, they *must* be X.509 certs.
-
-To create an X.509 cert from your existing SSH-RSA private key:
-
-```bash
-openssl req -x509 \
--key ~/.ssh/id_rsa \
--nodes \
--days 365 \
--newkey rsa:2048 \
--out ~/.ssh/id_rsa.pem
-```
-
 ## Classic deploy using `asm`
 
-If you are using the classic deploy model (`asm` mode in the CLI), you can use an SSH-RSA public key or an RFC4716 formatted key in a pem container.  The SSH-RSA public key is what was created earlier in this article using `ssh-keygen`.
+If you are using the classic deployment model (`asm` mode in the CLI), you can use an SSH-RSA public key or an RFC4716 formatted key in a pem container.  The SSH-RSA public key is what was created earlier in this article using `ssh-keygen`.
 
 To create a RFC4716 formatted key from an existing SSH public key:
 
@@ -92,7 +77,7 @@ ssh-keygen \
 ```bash
 ssh-keygen -t rsa -b 2048 -C "azureuser@myserver"
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/azureuser/.ssh/id_rsa): 
+Enter file in which to save the key (/home/azureuser/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
 Your identification has been saved in /home/azureuser/.ssh/id_rsa.

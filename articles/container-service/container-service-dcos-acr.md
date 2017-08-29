@@ -166,7 +166,7 @@ To use an image from the ACR registry, create a file names *acrDemo.json* and co
           "name": "80",
           "labels": null
         }
-      ]
+      ],
       "forcePullImage":true
     }
   },

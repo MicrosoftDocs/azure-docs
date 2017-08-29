@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/13/2017
+ms.date: 06/27/2017
 ms.author: raynew
 ---
 
 # Step 2: Review the prerequisites for VMware to Azure replication
 
+Read the prerequisites summarized in the following table.
 
 **Prerequisite** | **Details**
 --- | ---
@@ -34,6 +35,8 @@ ms.author: raynew
 
 ## Limitations
 
+Make sure you understand the limitations summarized in the table before you deploy.
+
 **Limitation** | **Details**
 --- | ---
 **Azure** | Storage and network accounts must be in the same region as the vault<br/><br/> If you use a premium storage account, you also need a standard store account to store replication logs<br/><br/> You can't replicate to premium accounts in Central and South India.
@@ -45,4 +48,4 @@ ms.author: raynew
 ## Next steps
 
 - If you're doing a full deployment, go to [Step 3: Plan capacity](vmware-walkthrough-capacity.md)
-- If you're doing a simple test deployment, go to [Step 4: Plan networking](site-recovery-network-design.md).
+- If you're doing a simple test deployment, go to [Step 4: Plan networking](vmware-walkthrough-network.md).

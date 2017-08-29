@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 07/05/2017
 ms.author: cherylmc
 
 ---
@@ -99,7 +99,7 @@ No, you only need one physical connection if your service provider can establish
 No. We do not support layer 2 connectivity extensions into Azure.
 
 ### Can I have more than one ExpressRoute circuit in my subscription?
-Yes. You can have more than one ExpressRoute circuit in your subscription. The default limit on the number of dedicated circuits is set to 10. You can contact Microsoft Support to increase the limit if needed.
+Yes. You can have more than one ExpressRoute circuit in your subscription. The default limit is set to 10. You can contact Microsoft Support to increase the limit if needed.
 
 ### Can I have ExpressRoute circuits from different service providers?
 Yes. You can have ExpressRoute circuits with many service providers. Each ExpressRoute circuit will be associated with one service provider only. 
@@ -180,7 +180,7 @@ The following steps will help Azure recognize the activation request:
 Yes, you can attempt to increase the bandwidth of your ExpressRoute circuit in the Azure Portal or by using PowerShell. If there is capacity available on the physical port on which your circuit was created, your change will succeed. If your change fails, it means there isn’t enough capacity left on the current port and that you need to create a new ExpressRoute circuit with the higher bandwidth OR that there is no additional capacity at that location, in which case you will not be able to increase the bandwidth. You will also have to follow up with your connectivity provider to ensure that they update the throttles within their networks to support the bandwidth increase. You cannot, however, reduce the bandwidth of your ExpressRoute circuit. You will have to create a new ExpressRoute circuit with lower bandwidth and delete the old circuit.
 
 ### How do I change the bandwidth of an ExpressRoute circuit?
-You can update the bandwidth of the ExpressRoute circuit using the update dedicated circuit API and PowerShell cmdlet.
+You can update the bandwidth of the ExpressRoute circuit using the REST API and PowerShell cmdlet.
 
 ## ExpressRoute Premium
 ### What is ExpressRoute premium?
@@ -197,10 +197,10 @@ The tables below show the ExpressRoute limits and the number of VNets per Expres
 [!INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
 
 ### How do I enable ExpressRoute premium?
-ExpressRoute premium features can be enabled when the feature is enabled and can be shut down by updating the circuit state. You can enable ExpressRoute premium at circuit creation time or can call the update dedicated circuit API / PowerShell cmdlet to enable ExpressRoute premium.
+ExpressRoute premium features can be enabled when the feature is enabled and can be shut down by updating the circuit state. You can enable ExpressRoute premium at circuit creation time or can call the REST API / PowerShell cmdlet to enable ExpressRoute premium.
 
 ### How do I disable ExpressRoute premium?
-You can disable ExpressRoute premium by calling the update dedicated circuit API / PowerShell cmdlet. You must ensure that you have scaled your connectivity needs to meet the default limits before you disable ExpressRoute premium. We will fail request to disable ExpressRoute premium if your utilization scales beyond the default limits.
+You can disable ExpressRoute premium by calling the REST API / PowerShell cmdlet. You must ensure that you have scaled your connectivity needs to meet the default limits before you disable ExpressRoute premium. We will fail request to disable ExpressRoute premium if your utilization scales beyond the default limits.
 
 ### Can I pick and choose the features I want from the premium feature set?
 No. You will not be able to pick the features you need. We enable all features when you turn on ExpressRoute premium.

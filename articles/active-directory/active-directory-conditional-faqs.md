@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 07/05/2017
 ms.author: markvi
 
 ---
@@ -26,11 +26,12 @@ For information about applications that work with conditional access policies, s
 
 Policies are enforced for business-to-business (B2B) collaboration users. However, in some cases, a user might not be able to satisfy the policy requirements. For example, a guest user's organization might not support multi-factor authentication. 
 
-Currently, conditional access policies are not enforced for SharePoint guest users. The guest relationship is maintained in SharePoint. Guest user accounts in SharePoint are not subject to access polices at the authentication server. You can manage guest access in SharePoint.
+
 
 ## Does a SharePoint Online policy also apply to OneDrive for Business?
 
 Yes. A SharePoint Online policy also applies to OneDrive for Business.
+
 
 ## Why can’t I set a policy on client apps, like Word or Outlook?
 

@@ -34,6 +34,7 @@
 ###[Output cache provider](cache-aspnet-output-cache-provider.md)
 ## Manage
 ###[Configure in the portal](cache-configure.md)
+###[Configure Geo-replication](cache-how-to-geo-replication.md)
 ###[Import/Export data](cache-how-to-import-export-data.md)
 ###[Reboot](cache-administration.md#reboot)
 ###[Schedule updates](cache-administration.md#schedule-updates)

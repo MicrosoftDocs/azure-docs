@@ -33,7 +33,7 @@ Going forward, Security Center uses the Microsoft Monitoring Agent – this is t
 
 ## Agent
 
-As part of the transition, the Microsoft Monitoring Agent (for [Windows](../log-analytics/log-analytics-windows-agents.md) or [Linux](../log-analytics/log-analytics-linux-agents.md)) are installed on all Azure VMs from which data is currently being collected.  If the VM already has the Microsoft Monitoring Agent installed, Security Center leverages the current installed agent.
+As part of the transition, the Microsoft Monitoring Agent (for [Windows](../log-analytics/log-analytics-windows-agents.md) or [Linux](../log-analytics/log-analytics-linux-agents.md)) is installed on all Azure VMs from which data is currently being collected.  If the VM already has the Microsoft Monitoring Agent installed, Security Center leverages the current installed agent.
 
 For a period of time (typically a few days), both agents will run side by side to ensure a smooth transition without any loss of data. This will enable Microsoft to validate that the new data pipeline is operational before discontinuing use of the current pipeline. Once verified, the Azure Monitoring Agent will be removed from your VMs. No work is required on your part. An email will notify you when all customers have been migrated.
  

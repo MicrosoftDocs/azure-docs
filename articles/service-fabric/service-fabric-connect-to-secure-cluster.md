@@ -22,38 +22,92 @@ When a client connects to a Service Fabric cluster node, the client can be authe
 
 <a id="connectsecureclustercli"></a> 
 
-## Connect to a secure cluster using Azure CLI
-The following Azure CLI commands describe how to connect to a secure cluster. 
+## Connect to a secure cluster using CLI
+
+There are a few different ways to connect to a secure cluster using either the Service Fabric Azure CLI 2.0 commands
+or XPlat CLI.
 
 ### Connect to a secure cluster using a client certificate
-The certificate details must match a certificate on the cluster nodes. 
 
-If your certificate has Certificate Authorities (CAs), you need to add the parameter `--ca-cert-path` as shown in the following example: 
+When using a client certificate for authentication, the certificate details must match a certificate
+deployed to the cluster nodes. If your certificate has Certificate Authorities (CAs), you need to additionally 
+specify the trusted CAs. Use the following samples for both the XPlat CLI and Azure CLI 2.0 to connect.
 
-```
- azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
-```
-If you have multiple CAs, use commas as the delimiter. 
+#### XPlat CLI
 
-If your Common Name in the certificate does not match the connection endpoint, you could use the parameter `--strict-ssl-false` to bypass the verification. 
+When using the XPlat CLI, run the following command to connect:
 
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
-```
-
-If you would like to skip the CA verification, you could add the ``--reject-unauthorized-false`` parameter, like the following command:
-
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
+```bash
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
+--client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2
 ```
 
-For connecting to a cluster secured with a self-signed certificate, use the following command removing both the CA verification and Common Name verification:
+Multiple CA certs can be specified using `,` to separate the paths.
 
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
+If your Common Name in the certificate does not match the connection endpoint, you could use the parameter 
+`--strict-ssl-false` to bypass the verification. For example:
+
+```bash
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
+--client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
 ```
 
-After you connect, you should be able to [run other CLI commands](service-fabric-azure-cli.md) to interact with the cluster. 
+If you would like to skip the CA verification, you could add the ``--reject-unauthorized-false`` parameter. For
+example:
+
+```bash
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
+--client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
+```
+
+For connecting to a cluster secured with a self-signed certificate, use the following command removing both the 
+CA verification and common name verification:
+
+```bash
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
+--client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
+```
+
+#### Azure CLI 2.0
+
+When using the Azure CLI 2.0, you can connect to a cluster using the `az sf cluster select` command.
+
+Client certificates can be specified in two different fashions, either as a cert and key pair, or as a single pem
+file. For password protected `pem` files, you will be prompted automatically to enter the password.
+
+To specify the client certificate as a pem file, specify the file path in the `--pem` argument. For example:
+
+```azurecli
+az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+```
+
+Password protected pem files will prompt for password prior to running any additional commands.
+
+To specify a cert, key pair use the `--cert` and `--key` arguments to specify the file paths to each respective
+file.
+
+```azurecli
+az sf cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
+```
+Sometimes certificates used to secure test or dev clusters fail certificate validation. To bypass certificate
+verification, specify the `--no-verify` option. For example:
+
+> [!WARNING]
+> Do not use the `no-verify` option when connecting to production Service Fabric clusters.
+
+```azurecli
+az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
+```
+
+In addition, you can specify paths to directories of trusted CA certs, or indivdual certs. To specify these
+paths, use the `--ca` argument. For example:
+
+```azurecli
+az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
+```
+
+After you connect, you should be able to [run other CLI commands](service-fabric-azure-cli.md) to interact
+with the cluster.
 
 <a id="connectsecurecluster"></a>
 
@@ -344,3 +398,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 * [Service Fabric Health model introduction](service-fabric-health-introduction.md)
 * [Application Security and RunAs](service-fabric-application-runas-security.md)
 
+## Related articles
+
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)

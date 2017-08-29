@@ -3,8 +3,8 @@ title: 'Get started with U-SQL language | Microsoft Docs'
 description: Learn the basics of the U-SQL language.
 services: data-lake-analytics
 documentationcenter: ''
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
-ms.author: edmaca
+ms.date: 06/23/2017
+ms.author: saveenr
 
 ---
 # Get started with U-SQL
@@ -32,7 +32,7 @@ Before you go through the U-SQL samples in this document, read and complete [Tut
 
 ## Your first U-SQL script
 
-The following U-SQL script is very simple and lets us explore many aspects the U-SQL language.
+The following U-SQL script is simple and lets us explore many aspects the U-SQL language.
 
 ```
 @searchlog =
@@ -68,7 +68,7 @@ This following absolute file path refers to a file in a Data Lake Store named `m
 
     adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
 
-This following relative file path starts with `"/"` and refers to a file in the default Data Lake Store account that is associated with the Data Lake Analytics account:
+This following file path starts with `"/"`. It refers to a file in the default Data Lake Store account:
 
     /output/SearchLog-first-u-sql.csv
 
@@ -225,12 +225,6 @@ The U-SQL HAVING clause can be used to restrict the output to groups that satisf
 
 For advanced aggregation scenarios, see the The U-SQL reference documentation for [aggregate, analytic, and reference functions](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)
 
-## See also
+## Next steps
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Using U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
-
-## Let us know what you think
-* [Submit a feature request](http://aka.ms/adlafeedback)
-* [Get help in the forums](http://aka.ms/adlaforums)
-* [Provide feedback on U-SQL](http://aka.ms/usqldiscuss)

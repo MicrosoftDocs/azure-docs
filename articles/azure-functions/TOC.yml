@@ -73,6 +73,8 @@
        href: functions-test-a-function.md
      - name: Develop and debug locally
        href: functions-run-local.md
+     - name: Visual Studio development
+       href: functions-develop-vs.md
   - name: Deploy
     items:
     - name: Continuous deployment

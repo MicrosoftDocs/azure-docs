@@ -40,7 +40,7 @@ For additional assistance, try our [Azure Stream Analytics forum](https://social
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
-* [Get started with Stream Analytics](stream-analytics-get-started.md)
+* [Get started with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

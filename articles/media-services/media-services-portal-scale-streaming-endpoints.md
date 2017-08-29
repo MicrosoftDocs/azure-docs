@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 07/04/2017
 ms.author: juliako
 
 ---
@@ -25,22 +25,25 @@ ms.author: juliako
 > 
 > 
 
-This topic is useful for customers who have **Streaming Endpoint** of the **Premium** type. For more information about streaming endpoint types and CDN configuration, see the [Streaming Endpoint overview](media-services-portal-manage-streaming-endpoints.md) topic.
+**Premium** streaming endpoints are suitable for advanced workloads, providing dedicated and scalable bandwidth capacity. Customers that have a **Premium** streaming endpoint, by default get one streaming unit (SU). The streaming endpoint can be scaled by adding SUs. Each SU provides additional bandwidth capacity to the application. For more information about streaming endpoint types and CDN configuration, see the [Streaming Endpoint overview](media-services-portal-manage-streaming-endpoints.md) topic.
  
-When you have a **Premium** type, by default you get 1 streaming unit (SU). If you need to scale your streaming endpoint, follow the steps in this topic.
+This topic shows how to scale a streaming endpoint.
 
 For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 ## Scale streaming endpoints
 
-To create and change the number of streaming units, do the following:
+To change the number of streaming units, do the following:
 
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
 2. In the **Settings** window, select **Streaming endpoints**.
 3. Click on the streaming endpoint that you want to scale. 
+
+	[!NOTE] You can only scale **Premium** streaming endpoints.
+
 4. Move the slider to specify the number of streaming units.
 
-![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
+	![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
 
 ## Next steps
 Review Media Services learning paths.

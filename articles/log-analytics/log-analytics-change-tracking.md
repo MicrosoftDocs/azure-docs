@@ -31,13 +31,24 @@ Use the following information to install and configure the solution.
 * You must have a [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md), or [Linux](log-analytics-linux-agents.md) agent on each computer where you want to monitor changes.
 * Add the Change Tracking solution to your OMS workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
 
+### Configure Linux files to track
+Use the following steps to configure files to track on Linux computers.
+
+1. In the OMS portal, click **Settings** (the gear symbol).
+2. On the **Settings** page, click **Data**, and then click **Linux File Tracking**.
+3. Under Linux File Change Tracking, type the entire path, including the file name of the file that you want to track and then click the **Add** symbol. For example: "/etc/*.conf"
+4. Click **Save**.  
+  
+> [!NOTE]
+> Linux file tracking has additional capabilities including directory tracking, recrusion through directories, and wildcard tracking.
+
 ### Configure Windows files to track
 Use the following steps to configure files to track on Windows computers.
 
 1. In the OMS portal, click **Settings** (the gear symbol).
 2. On the **Settings** page, click **Data**, and then click **Windows File Tracking**.
 3. Under Windows File Change Tracking, type the entire path, including the file name of the file that you want to track and then click the **Add** symbol. For example: C:\Program Files (x86)\Internet Explorer\iexplore.exe or C:\Windows\System32\drivers\etc\hosts.
-4. Click **Save**.  
+4. Click **Save**.  
    ![Windows File Change Tracking](./media/log-analytics-change-tracking/windows-file-change-tracking.png)
 
 ### Configure Windows registry keys to track
@@ -49,14 +60,28 @@ Use the following steps to configure registry keys to track on Windows computers
 4. Click **Save**.  
    ![Windows Registry Change Tracking](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
+### Explanation of Linux File Collection Properties
+1. **Type**
+   * **File** (Report file metadata - size, modification date, hash, etc.)
+   * **Directory** (Report directory metadata - size, modification date, etc.)
+2. **Links** (Handling Linux symlink references to other files or directories)
+   * **Ignore** (Ignore symlinks during recurions to not include the files/directories referenced)
+   * **Follow** (Follow the symlinks during recursion to also include the files/directories referenced)
+   * **Manage** (Follow the symlinks and alter the treatment of returned content) 
+   > [!NOTE]   
+   > The "Manage" links option is not recommended since file content retrieval is not currently supported.
+3. **Recurse** (Recurse through folder levels and track all files meeting the path statement)
+4. **Sudo** (Enable access files or directories that require sudo privilege)
+
 ### Limitations
 The Change Tracking solution does not currently support the following:
 
-* Folders (directories)
-* Recursion
-* Wild cards
+* Folders (directories) for Windows File Tracking
+* Recursion for Windows File Tracking
+* Wild cards for Windows File Tracking
 * Path variables
 * Network file systems
+* File Content
 
 Other limitations:
 

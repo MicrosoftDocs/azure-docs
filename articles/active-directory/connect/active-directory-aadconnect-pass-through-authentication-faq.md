@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 07/05/2017
 ms.author: billmath
 ---
 
@@ -27,6 +27,10 @@ It depends on your on-premises environment and organizational requirements. Revi
 ## Is Pass-through Authentication a free feature?
 
 Pass-through Authentication is a free feature and you don't need any paid editions of Azure AD to use it. It remains free when the feature reaches general availability.
+
+## Is Pass-through Authentication available in [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) and [Microsoft Azure Government Cloud](https://azure.microsoft.com/features/gov/)?
+
+No, Pass-through Authentication is only available in the world-wide instance of Azure AD.
 
 ## Does [Conditional Access](../active-directory-conditional-access.md) work with Pass-through Authentication?
 

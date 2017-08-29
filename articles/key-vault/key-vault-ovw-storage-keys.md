@@ -13,8 +13,6 @@ Before Azure Key Vault Storage Account Keys, developers had to manage their own 
 
 The Key Vault ASA key feature adds value through managing secret rotation for you. It also removes the need for your direct contact with an Azure Storage Account key by offering shared access signatures (SAS) as a method. 
 
-Also, Key Vault ASA keys are useful beyond Azure Storage Account. You can perform a wide range of operations with a Key Vault ASA key such as list and regenerate keys.
-
 For more general information on Azure Storage accounts, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
 ## Supporting interfaces
@@ -57,11 +55,18 @@ var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSett
 ### After Azure Key Vault Storage Keys 
 
 ```
-//Get SAS token from Key Vault //.... 
- 
+//Use PowerShell command to get Secret URI 
+
+Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
+-AccountName msak01 -Name blobsas1 -Protocol HttpsOrHttp -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
+
+//Get SAS token from Key Vault //....
+
+var secret = await kv.GetSecretAsync("SecretUri");
+
 // Create new storage credentials using the SAS token. 
 
-var accountSasCredential = new StorageCredentials(sasToken); 
+var accountSasCredential = new StorageCredentials(secret.Value); 
 
 // Use credentials and the Blob storage endpoint to create a new Blob service client. 
 

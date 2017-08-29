@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
-ms.topic: article
+ms.topic: hero-article
 ms.devlang: java
 ms.date: 06/20/2017
 ---

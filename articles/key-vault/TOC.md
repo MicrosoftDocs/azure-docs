@@ -17,7 +17,6 @@
 ### Overviews
 #### [Security worlds overview](key-vault-ovw-security-worlds.md)
 #### [Soft-delete overview](key-vault-ovw-soft-delete.md)
-#### [Storage account keys overview](key-vault-ovw-storage-keys.md)
 #### [Throttling overview](key-vault-ovw-throttling.md)
 
 ## Manage

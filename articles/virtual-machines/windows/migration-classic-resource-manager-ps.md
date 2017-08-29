@@ -138,7 +138,7 @@ Get-AzureRmVMUsage -Location "West US"
 >
 >
 
-## Step 6.1 Migrate virtual machines in a cloud service (not in a virtual network)
+## Step 6.1: Option 1 - Migrate virtual machines in a cloud service (not in a virtual network)
 Get the list of cloud services by using the following command, and then pick the cloud service that you want to migrate. If the VMs in the cloud service are in a virtual network or if they have web or worker roles, the command returns an error message.
 
 ```powershell
@@ -192,7 +192,7 @@ Prepare the virtual machines in the cloud service for migration. You have two op
     The preceding command displays any warnings and errors that block migration. If validation is successful, then you can proceed with the following Prepare step:
 
     ```powershell
-    Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName `
+        Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName `
         -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName `
         -VirtualNetworkName $vnetName -SubnetName $subnetName
     ```
@@ -201,11 +201,11 @@ After the Prepare operation succeeds with either of the preceding options, query
 
 This example sets the VM name to **myVM**. Replace the example name with your own VM name.
 
-    ```powershell
+```powershell
     $vmName = "myVM"
     $vm = Get-AzureVM -ServiceName $serviceName -Name $vmName
     $vm.VM.MigrationState
-    ```
+```
 
 Check the configuration for the prepared resources by using either PowerShell or the Azure portal. If you are not ready for migration and you want to go back to the old state, use the following command:
 
@@ -219,10 +219,15 @@ If the prepared configuration looks good, you can move forward and commit the re
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-## Step 6.2 Migrate virtual machines in a virtual network
+## Step 6.1: Option 2 - Migrate virtual machines in a virtual network
+
 To migrate virtual machines in a virtual network, you migrate the virtual network. The virtual machines automatically migrate with the virtual network. Pick the virtual network that you want to migrate.
 > [!NOTE]
 > [Migrate single classic virtual machine](migrate-single-classic-to-resource-manager.md) by creating a new Resource Manager virtual machine with Managed Disks using the VHD (OS and data) files of the virtual machine.
+<br>
+
+> [!NOTE]
+> The virtual network name might be different from what is shown in the new Portal. The new Azure Portal displays the name as `[vnet-name]` but the actual virtual network name is of type `Group [resource-group-name] [vnet-name]`. Before migrating, lookup the actual virtual network name using the command `Get-AzureVnetSite | Select -Property Name` or view it in the old Azure Portal. 
 
 This example sets the virtual network name to **myVnet**. Replace the example virtual network name with your own.
 
@@ -259,7 +264,7 @@ If the prepared configuration looks good, you can move forward and commit the re
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-## Step 6.3 Migrate a storage account
+## Step 6.2 Migrate a storage account
 Once you're done migrating the virtual machines, we recommend you migrate the storage accounts.
 
 Before you migrate the storage account, please perform preceding prerequisite checks:
@@ -279,7 +284,7 @@ Before you migrate the storage account, please perform preceding prerequisite ch
 
     ```powershell
         $storageAccountName = 'yourStorageAccountName'
-        Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Format-List -Property DiskName  
+        Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Where-Object -Property AttachedTo -EQ $null | Format-List -Property DiskName  
 
     ```
     If above command returns disks then delete these disks using following command:

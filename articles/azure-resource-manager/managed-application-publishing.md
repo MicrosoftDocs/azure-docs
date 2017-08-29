@@ -116,13 +116,13 @@ Once all the needed files are ready, you upload the package to an accessible loc
 Next create a user group or application that you want to use to manage the resources on behalf of the customer. This user group or application has permissions on the managed resource group as described by the role. The role could be any built-in RBAC role like **Owner** or **Contributor**. An individual user can also be given permissions to manage the resources, but typically you assign this permission to use a user group. To create a new active directory user group, use:
 
 ```azurecli
-az ad group create –display-name "name" –mail-nickname "nickname"
+az ad group create --display-name "name" --mail-nickname "nickname"
 ```
 
 You can also use an existing group. You need the object Id of the newly created or an existing user group. The following example shows how to get the object ID from the display name that was used for creating the group.
 
 ```azurecli
-az ad group show –group "groupName"
+az ad group show --group "groupName"
 ```
 
 Example:

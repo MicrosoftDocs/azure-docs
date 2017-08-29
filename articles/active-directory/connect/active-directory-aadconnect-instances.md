@@ -35,7 +35,7 @@ Features currently not present in the Microsoft Cloud Germany:
 
 * **Azure AD Connect Health** is not available.
 * **Automatic updates** is not available.
-* **Password writeback** is not available.
+* **Password writeback** is available for preview with Azure AD Connect version 1.1.570.0 and after.
 * Other Azure AD Premium services are not available.
 
 ## Microsoft Azure Government cloud
@@ -61,7 +61,7 @@ Features currently not present in the Microsoft Azure Government cloud:
 
 * **Azure AD Connect Health** is not available.
 * **Automatic updates** is not available.
-* **Password writeback** is not available.
+* **Password writeback**  is available for preview with Azure AD Connect version 1.1.570.0 and after.
 * Other Azure AD Premium services are not available.
 
 ## Next steps

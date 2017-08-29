@@ -23,9 +23,9 @@ ms.author: saurinsh
 
 The traditional Hadoop is a single-user cluster. It is suitable for most companies that have smaller application teams building large data workloads. As Hadoop gains popularity, many enterprises are moving toward a model in which clusters are managed by IT teams and multiple application teams share clusters. Thus, functionalities involving multiuser clusters are among the most requested functionalities in Azure HDInsight.
 
-Instead of building its own multiuser authentication and authorization, HDInsight relies on the most popular identity provider--Azure Active Directory (Azure AD). The powerful security functionality in Azure AD can be used to manage multiuser authorization in HDInsight. By integrating HDInsight with Azure AD, you can communicate with the clusters by using your Azure AD credentials. HDInsight maps an Azure AD user to a local Hadoop user, so all the services running on HDInsight (Ambari, Hive server, Ranger, Spark thrift server, and others) work seamlessly for the authenticated user.
+Instead of building its own multiuser authentication and authorization, HDInsight relies on the most popular identity provider--Active Directory (AD). The powerful security functionality in AD can be used to manage multiuser authorization in HDInsight. By integrating HDInsight with AD, you can communicate with the clusters by using your AD credentials. HDInsight maps an AD user to a local Hadoop user, so all the services running on HDInsight (Ambari, Hive server, Ranger, Spark thrift server, and others) work seamlessly for the authenticated user.
 
-## Integrate HDInsight with Azure AD and AD on IaaS VM
+## Integrate HDInsight with AD and AD on IaaS VM
 
 By integrating HDInsight with Azure AD or AD on Iaas VM, the HDInsight cluster nodes are domain-joined to a domain. HDInsight creates service principals for the Hadoop services running on the cluster and places them within a specified organizational unit (OU) in Azure AD or AD on IaaS VM. HDInsight also creates reverse DNS mappings in the domain for the IP addresses of the nodes that are joined to the domain.
 

@@ -24,7 +24,7 @@ Create a new VM by attaching a specialized unmanaged disk as the OS disk using P
 
 You have two options:
 * [Upload a VHD](create-vm-specialized.md#option-1-upload-a-specialized-vhd)
-* [Copy the VHD of an existing Azure VM](create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
+* [Copy the VHD of an existing Azure VM](create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
 ## Before you begin
 If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.

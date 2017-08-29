@@ -15,7 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: raynew
-
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: physical-walkthrough-overview
+---
 ---
 # Replicate physical machines to Azure by using Site Recovery
 
