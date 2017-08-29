@@ -40,10 +40,10 @@
 
 ## Integrate with Azure Services
 ### With HDInsight
-#### [HDInsight with Data Lake Store - Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-#### [HDInsight with Data Lake Store as default storage - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-#### [HDInsight with Data Lake Store as additional storage - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-#### [HDInsight with Data Lake Store - Azure template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+#### [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [Using PowerShell (default storage)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [Using PowerShell (additonal storage)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Using Azure template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Access from VMs in Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Use with Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Use with Azure Event Hubs](data-lake-store-archive-eventhub-capture.md)
