@@ -48,7 +48,7 @@ The complete workflow describing these concepts is captured in the following fig
 ![](media/modelmanagement/ModelManagementWorkflow.png)
 
 ## Frequently asked questions (FAQ) 
-- What data types can I pass NumPy arrays directly as input to web service
+- What data types can I pass NumPy arrays directly as input to web service?
 
 If you are providing schema file that was created using generate_schema SDK, then you can pass NumPy and/or Pandas DF. You can pass any JSON serializable inputs. You can pass image as binary encoded string as well.
 
