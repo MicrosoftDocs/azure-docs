@@ -23,7 +23,7 @@ The Azure Machine Learning Model Management provides these capabilities through 
 
 The Azure Machine Learning Model Management takes user generated scoring file, model path, conda dependency file, runtime environment choice, and schema for managing models in production. It registers given model, creates a manifest that is required for building a container, builds a container image for the Docker, and deploys the container to Azure Container Service using Kubernetes as shown in the following figure:
 
-![](media/model_management_overview/modelmanagement.png)
+![](media/model-management-overview/modelmanagement.png)
 
 ## Create and manage models 
 Enterprises can register models with Azure Machine Learning Model Management for tracking models and versions in the production. The model management captures all dependencies and associated information for ease of reproducibility and governance.  Enterprises can also capture model telemetry by using Python SDK for getting deeper insights into the model performance. This telemetry is archived in user provided storage, which could be later used for tracking model performance, retraining, and gaining model insights for the business users.
@@ -45,7 +45,7 @@ Azure Machine Learning Model Management also provides APIs for the users to retr
 
 The complete workflow describing these concepts is captured in the following figure:
 
-![](media/model_management_overview/modelmanagementworkflow.png)
+![](media/model-management-overview/modelmanagementworkflow.png)
 
 ## Frequently asked questions (FAQ) 
 - What data types can I pass NumPy arrays directly as input to web service?
