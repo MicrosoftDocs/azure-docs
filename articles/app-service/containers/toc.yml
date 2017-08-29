@@ -5,3 +5,16 @@
     href: app-service-linux-intro.md
   - name: Compare hosting options
     href: ../../app-service-web/choose-web-site-cloud-service-vm.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create .NET Core app
+    href: get-started-dotnetcore.md
+  - name: Create PHP app
+    href: get-started-php.md
+  - name: Create Node.js app
+    href: get-started-nodejs.md
+  - name: Create Ruby app
+    href: get-started-ruby.md
+  - name: Create static HTML site
+    href: get-started-html.md
