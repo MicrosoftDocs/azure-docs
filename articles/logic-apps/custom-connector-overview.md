@@ -209,7 +209,7 @@ others might start to depend on that connector.
 > To share your connector with external users outside these boundaries, 
 > submit your connector for Microsoft certification.
 
-## Submit your connector for Microsoft certification
+## 6. Submit your connector for Microsoft certification
 
 To optionally share your connector with all users in Logic Apps, Flow, 
 and PowerApps, submit the connector for Microsoft certification. 

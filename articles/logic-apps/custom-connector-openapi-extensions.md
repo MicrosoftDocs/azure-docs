@@ -35,12 +35,12 @@ include these OpenAPI extensions when you create custom connectors:
 
 Here are more details about these extensions:
 
-### summary
+## summary
 
 Specifies the title for the action (operation). </br>
 Applies to: Operations </br>
 Recommended: Use *sentence case* for `summary`. </br>
-Example: "When a task is created" or "Create new lead"
+Example: "When an event is added to calendar" or "Send an email"
 
 !["summary" for each operation](./media/custom-connector-openapi-extensions/summary.png)
 
@@ -49,68 +49,62 @@ Example: "When a task is created" or "Create new lead"
 Specifies the title for an entity. </br>
 Applies to: Parameters, Response Schema </br>
 Recommended: Use *title case* for `x-ms-summary`. </br>
-Example: "Task Name", "Due Date", and so on
+Example: "Calendar ID", "Event Description", and so on
 
-![x-ms-summary-annotation](./media/custom-connector-openapi-extensions/figure_2.png)
+!["x-ms-summary" for each entity](./media/custom-connector-openapi-extensions/x-ms-summary.png)
 
 ## description
 
 Specifies a verbose explanation about the operation's 
-functionality or an entity's format and function. 
-Recommended: Use *sentence case* for `description`.
+functionality or an entity's format and function. </br>
+Applies to: Operations, Parameters, Response Schema </br>
+Recommended: Use *sentence case* for `description`. </br>
+Example: "This operation triggers when a new event is added to the calendar", 
+"Specify the subject of the mail.", and so on
 
-Example: "This operation triggers when a task is added to your project."
-
-Applies to: Operations, Parameters, Response Schema
-
-![description-annotation](./media/custom-connector-openapi-extensions/figure_3.jpg)
+!["description" for each operation or entity](./media/custom-connector-openapi-extensions/description.png)
 
 ## x-ms-visibility
 
-Specifies the user-facing visibility for an entity. 
-Possible values: `important`, `advanced`, and `internal`
+Specifies the user-facing visibility for an entity. </br>
+Possible values: `important`, `advanced`, and `internal` </br>
+Applies to: Operations, Parameters, Schemas
 
 * `important` operations and parameters are always shown to the user first.
-* `advanced` operations and parameters are hidden under the **See more** menu.
+* `advanced` operations and parameters are hidden under an additional menu.
 * `internal` operations and parameters are completely hidden from the user.
 
 > [!NOTE] 
 > For parameters that are `internal` and `required`, 
 > you **must** provide default values for these parameters.
 
-Applies to: Operations, Parameters, Schemas
+Example: The **See more** menu and **Show advanced options** menu 
+are hiding `advanced` operations and parameters.
 
-![visibility-annotation](./media/custom-connector-openapi-extensions/figure_4.jpg)
+!["x-ms-visibility" for showing or hiding operations and parameters](./media/custom-connector-openapi-extensions/x-ms-visibility.png)
 
 ## x-ms-dynamic-values
 
-Shows a populated drop-down list for the user 
-to select input parameters for an operation.
+Shows a populated list for the user so they can 
+select input parameters for an operation. </br>
+Applies to: Parameters </br>
+How to use: Add the `x-ms-dynamic-values` object 
+to the parameter's definition. For example, see this [OpenAPI sample](https://procsi.blob.core.windows.net/blog-images/sampleDynamicSwagger.json).
 
-Applies to: Parameters
-
-![dynamic-values](./media/custom-connector-openapi-extensions/figure_5.png)
-
-### How to use x-ms-dynamic-values
-
-Annotate a parameter with the `x-ms-dynamic-values` 
-object in the parameter definition.
-
-> [!TIP] 
-> For an example, see this [OpenAPI sample](https://procsi.blob.core.windows.net/blog-images/sampleDynamicSwagger.json). 
+!["x-ms-dynamic-values" for showing lists](./media/custom-connector-openapi-extensions/x-ms-dynamic-values.png)
 
 ### Properties for x-ms-dynamic-values
 
-|Name|Required or optional|Description| 
-|:---|:-------------------|:----------| 
-|**operationID**|Required|The operation to call for populating the drop-down list| 
-|**value-path**|Required|A path string in the object inside `value-collection` that refers to the parameter value. If `value-collection` isn't specified, the response is evaluated as an array.| 
-|**value-title**|Optional|A path string in the object inside `value-collection` that refers to the value's description. If `value-collection` isn't specified, the response is evaluated as an array.| 
-|**value-collection**|Optional|A path string that evaluates to an array of objects in the response payload| 
-|**parameters**|Optional|An object whose properties specify the input parameters required to invoke a dynamic-values operation| 
+| Name | Required or optional | Description | 
+| :--- | :------------------- | :---------- | 
+| **operationID** | Required | The operation to call for populating the list | 
+| **value-path** | Required | A path string in the object inside `value-collection` that refers to the parameter value. </br>If `value-collection` isn't specified, the response is evaluated as an array. | 
+| **value-title** | Optional |A path string in the object inside `value-collection` that refers to the value's description. </br>If `value-collection` isn't specified, the response is evaluated as an array. | 
+| **value-collection** | Optional | A path string that evaluates to an array of objects in the response payload | 
+| **parameters** | Optional | An object whose properties specify the input parameters required to invoke a dynamic-values operation | 
 |||| 
 
-Here's an example for `x-ms-dynamic-values`:
+Here's an example that shows the properties in `x-ms-dynamic-values`:
 
 ``` json
 "x-ms-dynamic-values": {
@@ -127,7 +121,7 @@ Here's an example for `x-ms-dynamic-values`:
 }
 ```
 
-### Example with all the OpenAPI extensions up to this point
+## Example: All the OpenAPI extensions up to this point
 
 ``` json
 "/api/lists/{listID-dynamic}": {
@@ -156,41 +150,41 @@ Here's an example for `x-ms-dynamic-values`:
 
 ## x-ms-dynamic-schema
 
-This object indicates that the schema for the current parameter or response is dynamic. 
-This extension can invoke an operation that's defined by the value of this field, 
-and dynamically discover the schema. The extension then shows the appropriate UI 
-to receive inputs from the user or display available fields.
+Indicates that the schema for the current parameter or response is dynamic. 
+This object can invoke an operation that's defined by the value of this field, 
+and dynamically discover the schema. Then, shows the appropriate UI 
+for receiving inputs from the user or show available fields. 
 
 Applies to: Parameters, Response
 
-Here's an example that shows how the input form changes, 
-based on the item that the user selects from drop-down list:
+How to use: Add the `x-ms-dynamic-schema` object to a request parameter 
+or response body definition. For an example, see this [OpenAPI sample](https://procsi.blob.core.windows.net/blog-images/sampleDynamicSwagger.json).
 
-![dynamic-schema-request](./media/custom-connector-openapi-extensions/figure_6.png)
+This example shows how the input form changes, 
+based on the item that the user selects from the drop-down list:
 
-Here's an example that shows how the outputs change, 
-based on the item that a user selects from the drop-down list:
+!["x-ms-dynamic-schema" for dynamic parameters](./media/custom-connector-openapi-extensions/x-ms-dynamic-schema.png)
 
-![dynamic-schema-response](./media/custom-connector-openapi-extensions/figure_7.png)
+And this example shows how the outputs change, 
+based on the item that the user selects from the drop-down list. 
+In this version, the user selected "Cars":
 
-### How to use
+!["x-ms-dynamic-schema-response" for selected item "Cars"](./media/custom-connector-openapi-extensions/x-ms-dynamic-schema-output1.png)
 
-Annotate a request parameter or a response body definition 
-with the `x-ms-dynamic-schema` object.
+In this version, the user selected "Food":
 
-> [!TIP] 
-> For an example, see this [OpenAPI sample](https://procsi.blob.core.windows.net/blog-images/sampleDynamicSwagger.json).
+!["x-ms-dynamic-schema-response" for selected item "Food"](./media/custom-connector-openapi-extensions/x-ms-dynamic-schema-output2.png)
 
 ### Properties for x-ms-dynamic-schema
 
-|Name|Required or optional|Description| 
-|:---|:-------------------|:----------| 
-|**operationID**|Required|The operation to call for fetching the schema| 
-|**parameters**|Required|An object whose properties specify the input parameters required to invoke a dynamic-schema operation| 
-|**value-path**|Optional|A path string that refers to the property that has the schema. If not specified, the response is assumed to contain the schema in the root object's properties.| 
+| Name | Required or optional | Description | 
+| :--- | :------------------- | :---------- | 
+| **operationID** | Required | The operation to call for fetching the schema | 
+| **parameters** | Required | An object whose properties specify the input parameters required to invoke a dynamic-schema operation | 
+| **value-path** |Optional | A path string that refers to the property that has the schema. </br>If not specified, the response is assumed to contain the schema in the root object's properties. | 
 |||| 
 
-Here's an example for dynamic parameters:
+Here's an example for a dynamic parameter:
 
 ``` json
 {
@@ -212,7 +206,7 @@ Here's an example for dynamic parameters:
 }
 ```
 
-Here's an example for dynamic response:
+Here's an example for a dynamic response:
 
 ``` json
 "DynamicResponseGetListSchema": {

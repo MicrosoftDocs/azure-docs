@@ -19,10 +19,6 @@
 ### [Batch process messages](logic-apps-batch-process-send-receive-messages.md)
 ### [Author logic app definitions](logic-apps-author-definitions.md)
 ### [Call, trigger, or nest logic apps](logic-apps-http-endpoint.md)
-### Develop custom APIs
-#### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
-#### [Secure calls to custom APIs](logic-apps-custom-api-authentication.md)
-#### [Deploy and call custom APIs](logic-apps-custom-api-host-deploy-call.md)
 ### Develop custom connectors
 #### [Custom connectors overview](custom-connector-overview.md)
 #### [Create connectors from Web APIs](custom-connector-build-web-api-app-tutorial.md)
@@ -32,6 +28,10 @@
 #### [Register your connector](logic-apps-custom-connector-register.md)
 #### [Certify your connector](custom-connector-submit-certification.md)
 #### [FAQ for custom connectors](custom-connector-faq.md)
+### Develop custom APIs
+#### [Create custom APIs for logic apps](logic-apps-create-api-app.md)
+#### [Secure calls to custom APIs](logic-apps-custom-api-authentication.md)
+#### [Deploy and call custom APIs](logic-apps-custom-api-host-deploy-call.md)
 ### [Handle errors and exceptions](logic-apps-exception-handling.md)
 ### [Handle content types](logic-apps-content-type.md)
 ### [Secure your logic apps](logic-apps-securing-a-logic-app.md)
