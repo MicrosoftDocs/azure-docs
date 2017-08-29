@@ -25,9 +25,9 @@ Microsoft supports some SAP HANA high-availability methods "out of the box" with
 
 - **Storage replication:** The storage system's ability to replicate all data to another HANA Large Instance Stamp in another Azure Region. SAP HANA operates independently of this method.
 - **HANA system replication:** The replication of all data in SAP HANA to a separate SAP HANA system. The recovery time objective is minimized through data replication at regular intervals. SAP HANA supports asynchronous, synchronous in-memory, and synchronous modes (recommended only for SAP HANA systems that are within the same datacenter or less than 100 KM apart). In the current design of HANA large-instance stamps, HANA system replication can be used for high availability only. Based on the current network design, HANA System Replication can't be used without third-party reverse proxy component for disaster recovery configurations into another Azure Region. 
-- **Host auto-failover:** A local fault-recovery solution for SAP HANA to use as an alternative to HANA System Replication. When the master node becomes unavailable, one or more standby SAP HANA nodes are configured in scale-out mode and SAP HANA automatically fails over to another node.
+- **Host auto-failover:** A local fault-recovery solution for SAP HANA to use as an alternative to HANA System Replication. When the master node becomes unavailable, one or more standby SAP HANA nodes are configured in scale-out mode and SAP HANA automatically fails over to a standby node.
 
-SAP HANA on Azure (large instances) is offered in two Azure regions in meanwhile three different geopolitical regions (U.S., Australia, and Europe). Two different regions hosting HANA Large Instance stamps are connected with separate dedicated network circuits that are used for replicating storage snapshots to provide disaster recovery methods. The replication is not established by default. It is set up for customers that ordered disaster recovery functionality. The storage replication is dependent on the usage of storage snapshots for HANA Large Instances. It is also not possible to choose an Azure Region as DR region, which is in a different geopolitical area. 
+SAP HANA on Azure (large instances) is offered in two Azure regions in meanwhile three different geopolitical regions (U.S., Australia, and Europe). Two different regions that host HANA Large Instance stamps are connected with separate dedicated network circuits that are used for replicating storage snapshots to provide disaster recovery methods. The replication is not established by default. It is set up for customers that ordered disaster recovery functionality. The storage replication is dependent on the usage of storage snapshots for HANA Large Instances. It is also not possible to choose an Azure Region as DR region, which is in a different geopolitical area. 
 
 Currently supported High-Availability and Disaster Recovery methods and combinations can be seen in this table:
 
@@ -37,7 +37,7 @@ Currently supported High-Availability and Disaster Recovery methods and combinat
 | Host Auto Failover: N+m<br /> including 1+1 | Possible with Standby taking active role<br /> HANA control the role switch | Dedicated DR Setup<br /> Multipurpose DR Setup<br /> DR synchronization using storage replication | HANA volume sets attached to all the nodes (n+m)<br /> DR site must have the same number of nodes |
 | HANA System Replication | Possible with Primary/Secondary setup<br /> Secondary moves in primary role in a failover case<br /> HANA System Replication and OS control failover | Dedicated DR Setup<br /> Multipurpose DR Setup<br /> DR synchronization using storage replication<br /> DR using HANA System Replication is not yet possible without third-party components | Separate set of disk volumes attached to each node<br /> Only disk volumes of secondary replica in production site get replicated to DR location<br /> One set of volumes required at DR site | 
 
-As Dedicated DR Setup we characterize a setup where the HANA Large Instance unit in the DR site is not used for running any other workload or non-production system. The unit is passive and is deployed just for the case of jumping into action in if a disaster failover is executed. So far we don't have a single customer with such a configuration.
+As Dedicated DR Setup we characterize a setup where the HANA Large Instance unit in the DR site is not used for running any other workload or non-production system. The unit is passive and is deployed just for the case of jumping into action if a disaster failover is executed. So far we don't have a single customer with such a configuration.
 
 As a Multipurpose DR Setup we characterize a setup on the DR site, where the HANA Large Instance unit runs a non-production workload. In the disaster case that non-production system would get shut down, the storage-replicated (additional) volume sets mounted and the production HANA instance would get started. So far all customers using the HANA Large Instance disaster recovery functionality are using this configuration alternative. 
 
@@ -697,7 +697,7 @@ In cases where you use HANA System Replication as High Availability functionalit
 >[!NOTE]
 >The HANA Large Instance storage replication functionality is mirroring/replicating storage snapshots. Therefore,  if you do not perform storage snapshots as introduced in the backup section of this document, there cannot be any replication to the disaster recovery site. Storage snapshot execution is a prerequisite to storage replication to the disaster recovery site.
 
-In order to minimize the Recovery Point Objective, the following replication intervals are set in the the HANA Large Instance service:
+In order to minimize the Recovery Point Objective, the following replication intervals are set in the HANA Large Instance service:
 - The volumes covered by the combined snapshot (snapshot type = 'hana') are replicated every 15 minutes to the equivalent storage volume targets in the disaster recovery site.
 - The transaction log backup volume (snapshot type = 'logs') is replicated every three minutes to the equivalent storage volume targets in the disaster recovery site.
 
@@ -765,11 +765,11 @@ We assume that the fail-over into the disaster recovery site was caused by issue
 
 The sequence of steps looks like:
 
-- SAP HANA on Azure Operations get the trigger to synchronize the production storage volumes from the disaster recovery storage volumes, which are representing production state now. In this state, the HANA Large Instance unit in the production site is shutdown.
+- SAP HANA on Azure Operations gets the trigger to synchronize the production storage volumes from the disaster recovery storage volumes, which are representing production state now. In this state, the HANA Large Instance unit in the production site is shutdown.
 - SAP HANA on Azure Operations monitors the replication and makes sure that a catch up is achieved before informing you as a customer
 - You need to shut down the applications, which use the production HANA Instance in the disaster recovery site. Then perform a HANA transaction log backup and then stop the HANA instance running on the HANA Large Instance units in the disaster recovery site
 - After the HANA instance running in HANA Large Instance unit in the disaster recovery site is shut down, operation needs to manually synchronize the disk volumes again.
-- SAP HANA on Azure Operations are going to start the HANA Large Instance unit in the production site again and hand it over to you. Make sure that the SAP HANA instance is in a shutdown state at start-up time of the HANA Large Instance unit.
+- SAP HANA on Azure Operations is going to start the HANA Large Instance unit in the production site again and hand it over to you. Make sure that the SAP HANA instance is in a shutdown state at start-up time of the HANA Large Instance unit.
 - Now you need to perform the same steps database restore steps as you did them failing over to the disaster recovery site previously.
 
 ### Monitoring Disaster Recovery Replication
