@@ -79,11 +79,11 @@ Currently, the only official client implementation is for [JavaScript](https://g
 sample provided there, you will have to make the following changes to the code and build the sample again.
 
 1.  In _src\sdk\speech.browser\SpeechConnectionFactory.ts_ replace the host name "wss://speech.platform.bing.com" with the host name shown as part on the details page of
-your deployment. Do not insert the full URI here but just the wss protocol scheme and host name. Example:
+your deployment. Do not insert the full URI here but just the *wss* protocol scheme and host name. Example:
 
     ```JavaScript
     private get Host(): string {
-        return Storage.Local.GetOrAdd("Host", "wss://1234567890.api.cris.ai");
+        return Storage.Local.GetOrAdd("Host", "wss://<your_key_goes_here>.api.cris.ai");
     }
     ```
 
@@ -92,6 +92,9 @@ your deployment. Do not insert the full URI here but just the wss protocol schem
   * _RecognitionMode.Conversation_ and _RecognitionMode.Dictation_ (both are equivalent in Custom Speech Service) support requests up to 10 minutes.
 
 3.  Build the sample using "gulp build" before using it.
+
+> [!NOTE]
+> Please ensure that you use the correct URI for this protocol. The reuqired scheme is *wss* (not *http* as in the client protocol!. You will also have to change the URI of the authorization provider in the implementation of IAuthorizationProvider to https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken.
 
 Please see the documentation of [Bing Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/getstarted/getstartedjswebsockets) for more information.
 

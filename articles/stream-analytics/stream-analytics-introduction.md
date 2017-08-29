@@ -4,7 +4,7 @@ description: Learn about Stream Analytics, a managed service that helps you anal
 keywords: analytics as a service, managed services, stream processing, streaming analytics, what is stream analytics
 services: stream-analytics
 documentationcenter: ''
-author: jenniehubbard
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/08/2017
-ms.author: jhubbard
+ms.author: samacha
 
 ---
 
