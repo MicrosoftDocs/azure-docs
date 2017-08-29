@@ -38,11 +38,11 @@ Log in to the [Azure portal](https://portal.azure.com/) as the Global Administra
 
 Choose next steps based on the application type you are registering:
 
-* [Register a web application](#register-a-web-application)
+* [Register a web application](#register-a-web-app)
 * [Register a web API](#register-a-web-api)
-* [Register a mobile or native application](#register-a-mobile-or-native-application)
+* [Register a mobile or native application](#register-a-mobile-or-native-app)
  
-## Register a web application
+## Register a web app
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
 
@@ -64,7 +64,7 @@ Click **Published scopes** to add more scopes as necessary. By default, the "use
 
 [Jump to **next steps**](#next-steps)
 
-## Register a mobile or native application
+## Register a mobile or native app
 
 [!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
 
@@ -107,7 +107,7 @@ In this case, you're referring to a DNS subdomain of login.contoso.com. If you w
 
 You can add the latter two because they are subdomains of the first reply URL, contoso.com.
 
-### Choosing a native application redirect URI
+### Choosing a native app redirect URI
 
 There are two important considerations when choosing a redirect URI for mobile/native applications:
 

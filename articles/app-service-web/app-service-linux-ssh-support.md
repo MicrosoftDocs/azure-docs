@@ -51,7 +51,7 @@ If you are not already authenticated, you are required to authenticate with your
 
 In order for a custom Docker image to support SSH communication between the container and the client in the Azure portal, perform the following steps for your Docker image. 
 
-These steps are are shown in the Azure App Service repository as an example [here](https://github.com/Azure-App-Service/node/tree/master/4.4.7-1).
+These steps are are shown in the Azure App Service repository as an example [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
 1. Include the `openssh-server` installation in [`RUN` instruction](https://docs.docker.com/engine/reference/builder/#run) in the Dockerfile for your image and set the password for the root account to `"Docker!"`. 
 
@@ -109,7 +109,6 @@ These steps are are shown in the Azure App Service repository as an example [her
 ## Next steps
 See the following links for more information regarding Web App on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Creating Apps in Azure Web App on Linux](app-service-linux-how-to-create-web-app.md)
 * [How to use a custom Docker image for Azure Web App on Linux](app-service-linux-using-custom-docker-image.md)
 * [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure Web App on Linux](app-service-linux-using-dotnetcore.md)
