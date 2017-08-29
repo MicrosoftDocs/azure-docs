@@ -62,7 +62,7 @@ The following table describes the JSON properties used in the JSON definition:
 | type                  | For Spark Activity, the activity type is HDInsightSpark. | Yes      |
 | linkedServiceName     | Name of the HDInsight Spark Linked Service on which the Spark program runs. | Yes      |
 | SparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs.  If you do not specify a value for this property, the storage associated with HDInsight cluster is used. | No       |
-| rootPath              | The Azure Blob container and folder that contains the Spark file. The file name is case-sensitive. Refer to folder structure section below for details about the structure of this folder. | Yes      |
+| rootPath              | The Azure Blob container and folder that contains the Spark file. The file name is case-sensitive. Refer to folder structure section for details about the structure of this folder. | Yes      |
 | entryFilePath         | Relative path to the root folder of the Spark code/package. | Yes      |
 | className             | Application's Java/Spark main class      | No       |
 | arguments             | A list of command-line arguments to the Spark program. | No       |
@@ -73,7 +73,7 @@ The following table describes the JSON properties used in the JSON definition:
 ## Folder structure
 Spark jobs are more extensible than Pig/Hive jobs. For Spark jobs, you can provide multiple dependencies such as jar packages (placed in the java CLASSPATH), python files (placed on the PYTHONPATH), and any other files.
 
-Create the following folder structure in the Azure Blob storage referenced by the HDInsight linked service. Then, upload dependent files to the appropriate sub folders in the root folder represented by **entryFilePath**. For example, upload python files to the pyFiles subfolder and jar files to the jars subfolder of the root folder. At runtime, Data Factory service expects the following folder structure in the Azure Blob storage:     
+Create the following folder structure in the Azure Blob storage referenced by the HDInsight linked service. Then, upload dependent files to the appropriate sub folders in the root folder represented by **entryFilePath**. For example, upload python files to pyFiles subfolder and jar files to jars subfolder in the root folder. At runtime, Data Factory service expects the following folder structure in the Azure Blob storage:     
 
 | Path                  | Description                              | Required | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
@@ -83,7 +83,7 @@ Create the following folder structure in the Azure Blob storage referenced by th
 | ./pyFiles             | All files under this folder are uploaded and placed on the PYTHONPATH of the cluster | No       | Folder |
 | ./files               | All files under this folder are uploaded and placed on executor working directory | No       | Folder |
 | ./archives            | All files under this folder are uncompressed | No       | Folder |
-| ./logs                | The folder where logs from the Spark cluster are stored. | No       | Folder |
+| ./logs                | The folder that contains logs from the Spark cluster are stored. | No       | Folder |
 
 Here is an example for a storage containing two Spark job files in the Azure Blob Storage referenced by the HDInsight linked service.
 

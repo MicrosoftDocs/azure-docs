@@ -26,7 +26,7 @@ You can use the Stored Procedure Activity to invoke a stored procedure in one of
 
 - Azure SQL Database
 - Azure SQL Data Warehouse
-- SQL Server Database.  If you are using SQL Server, install Self-Hosted Integration Runtime on the same machine that hosts the database or on a separate machine that has access to the database. Self-Hosted Integration Runtime is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) article for details.
+- SQL Server Database.  If you are using SQL Server, install Self-hosted integration runtime on the same machine that hosts the database or on a separate machine that has access to the database. Self-Hosted integration runtime is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) article for details.
 
 > [!IMPORTANT]
 > When copying data into Azure SQL Database or SQL Server, you can configure the **SqlSink** in copy activity to invoke a stored procedure by using the **sqlWriterStoredProcedureName** property. For details about the property, see following connector articles: [Azure SQL Database](copy-data-to-from-azure-sql-database.md), [SQL Server](copy-data-to-from-sql-server.md). Invoking a stored procedure while copying data into an Azure SQL Data Warehouse by using a copy activity is not supported. But, you can use the stored procedure activity to invoke a stored procedure in a SQL Data Warehouse. 
@@ -67,4 +67,4 @@ The following table describes these JSON properties:
 | type                      | For Stored Procedure Activity, the activity type is SqlServerStoredProcedure | Yes      |
 | linkedServiceName         | Reference to the Azure SQL Database or Azure SQL Data Warehouse or SQL Server registered as a linked service in Data Factory | Yes      |
 | storedProcedureName       | Specify the name of the stored procedure in the Azure SQL database or Azure SQL Data Warehouse or SQL Server database that is represented by the linked service that the output table uses. | Yes      |
-| storedProcedureParameters | Specify values for stored procedure parameters. Use *"param1": { "value": "param1Value","type":"param1Type" }* for to pass parameter values and their native type supported by the data source. If you need to pass null for a parameter, use *"param1": { "value": null }* (all lower case). | No       |
+| storedProcedureParameters | Specify values for stored procedure parameters. Use `"param1": { "value": "param1Value","type":"param1Type" }` for to pass parameter values and their native type supported by the data source. If you need to pass null for a parameter, use *"param1": { "value": null }* (all lower case). | No       |
