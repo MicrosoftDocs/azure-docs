@@ -17,7 +17,7 @@ ms.date: 08/25/2017
 ms.author: mimig
 
 ---
-# Create a MEAN.js app with Azure Cosmos DB - Part 3: Build the UI with Angular
+# Create a MongoDB app with Angular and Azure Cosmos DB - Part 3: Build the UI with Angular
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. With Azure Cosmos DB, can quickly create and query document, key/value, and graph databases that benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 

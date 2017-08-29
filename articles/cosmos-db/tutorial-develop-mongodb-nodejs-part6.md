@@ -17,7 +17,7 @@ ms.date: 08/23/2017
 ms.author: mimig
 
 ---
-# Create a MEAN.js app with Azure Cosmos DB - Part 6: Add Post, Put, and Delete functions to the app
+# Create a MongoDB app with Angular and Azure Cosmos DB - Part 6: Add Post, Put, and Delete functions to the app
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 

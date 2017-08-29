@@ -17,7 +17,7 @@ ms.date: 08/25/2017
 ms.author: mimig
 
 ---
-# Create a MEAN.js app with Azure Cosmos DB - Part 2: Create a Node.js Express app with the Angular CLI 
+# Create a MongoDB app with Angular and Azure Cosmos DB - Part 2: Create a Node.js Express app with the Angular CLI 
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. With Azure Cosmos DB, you can quickly create and query document, key/value, and graph databases that benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
