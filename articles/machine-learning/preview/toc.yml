@@ -6,7 +6,7 @@
   items:
   - name: What is the Azure Machine Learning preview?
     href: what-are-preview-features.md
-- name: Quick Starts
+- name: Quickstarts
   items:
   - name: (Install Workbench)
   - name: (Create a model)
@@ -15,13 +15,27 @@
   - name: (Operationalize a model)
   - name: (Create a model with CLI)
   - name: (Set up Model Management)
+  - name: MVC Template
+    href: scripts/doc-template-quickstart.md
 - name: Tutorials
   items:
   - name: (Bike Share Forecast)
+  - name: MVC Template
+    href: doc-template-tutorial.md
+- name: Samples
+  items:
+  - name: Azure CLI 2.0
+    href: sample-scripts-azure-cli.md
+  - name: Python
+    href: sample-scripts-python.md
+  - name: MVC Template
+    href: scripts/doc-template-sample.md
 - name: Concepts
   items:
   - name: (Workbench overview)
   - name: (Operationalization overview)
+  - name: MVC Template
+    href: doc-template-concepts.md
 - name: How-to guides
   items:
   - name: Set Up and Configure Environment
@@ -42,17 +56,13 @@
     - name: (Consume a service with CLI)
   - name: (Use AZ ML CLI from the command line)
   - name: (Use a Git repo for source control)
+  - name: MVC Template
+    href: doc-template-tutorial.md
 - name: Reference
   items:
   - name: (AZ ML CLI Syntax)
+- name: Resources
+  items:
   - name: (Known Issues and Troubleshooting)
   - name: (Release Notes)
   - name: (Frequently Asked Questions)
-
-
-
-
-
-
-
-
