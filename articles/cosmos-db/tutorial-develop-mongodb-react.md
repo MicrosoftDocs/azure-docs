@@ -78,20 +78,6 @@ This video shows how to complete the app and hook the UI up to the APIs.
 
 > [!VIDEO https://www.youtube.com/embed/Jhma0SNbAvk]
 
-
-## Sample video table
-
-|Videos|by Burke Holland|
-|In this video Burke gives an introduction to Azure Cosmos DB and walks you through the app that is created in this video series. 
-> [!VIDEO https://www.youtube.com/embed/mcBUdC_978A]| This video shows how to clone and set up the Express and React starter project. Burke then provides a walkthrough of the code in the project.
-> [!VIDEO https://www.youtube.com/embed/LmAhD_ILNrk]|
-|This video shows how to modify the code in the Express and React starter project to add the custom Heroes UI. 
-
-> [!VIDEO https://www.youtube.com/embed/NIg5VJA5BQw]
-|This video shows how to create an Azure Cosmos DB account in the Azure portal, install the MongoDB and Mongoose packages, and then connect the app to the newly created account using the Azure Cosmos DB connection string. 
-
-> [!VIDEO https://www.youtube.com/embed/AiVy1RjSpG4]|
-
 ## Clean up resources
 
 If you're not going to continue to use this app, use the following steps to delete all resources created by this tutorial in the Azure portal. 
