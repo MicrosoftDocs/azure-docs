@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 
 ---
@@ -59,6 +59,9 @@ You can use the Azure Data Lake Store connection manager in SSIS to connect an S
 
 ## Use Data Lake Store with SQL Data Warehouse
 You can use PolyBase to load data from Azure Data Lake Store into SQL Data Warehouse. For more information see [Use Data Lake Store with SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
+
+## Use Data Lake Store with Azure Event Hubs
+You can use Azure Data Lake Store to archive and capture data received by Azure Event Hubs. For more information see [Use Data Lake Store with Azure Event Hubs](data-lake-store-archive-eventhub-capture.md).
 
 ## See also
 * [Overview of Azure Data Lake Store](data-lake-store-overview.md)

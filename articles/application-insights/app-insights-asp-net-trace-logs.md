@@ -1,4 +1,4 @@
----
+﻿---
 title: Explore .NET trace logs in Application Insights
 description: Search logs generated with Trace, NLog, or Log4Net.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/3/2017
-ms.author: sewhee
+ms.author: bwren
 
 ---
 # Explore .NET trace logs in Application Insights

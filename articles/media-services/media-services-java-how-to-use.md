@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of implementing a basic V
 services: media-services
 documentationcenter: java
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
