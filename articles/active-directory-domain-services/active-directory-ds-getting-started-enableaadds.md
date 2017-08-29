@@ -13,11 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/28/2017
+ms.date: 08/28/2017
 ms.author: maheshu
 
 ---
 # Enable Azure Active Directory Domain Services using the Azure classic portal
+
+> [!IMPORTANT]
+> The Azure classic portal experience to enable Azure AD Domain Services shown in this article will be removed soon. For new deployments, [**use the new (preview) Azure portal experience instead**](active-directory-ds-getting-started.md).
+>
 
 ## Task 3: enable Azure Active Directory Domain Services
 In this task, you enable Azure Active Directory Domain Services (Azure AD DS) for your directory by doing the following steps:
