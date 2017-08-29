@@ -22,5 +22,3 @@ Microsoft Azure Machine Learning Workbench is an integrated, end-to-end data sci
 Machine Learning Studio is where data science, predictive analytics, cloud resources, and your data meet.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-test comment
