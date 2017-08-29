@@ -27,7 +27,7 @@ Azure Stack contains the infrastructure to collect and aggregate usage data for 
 
 ## Usage pipeline
 
-Each resource provider in Azure Stack emits usage data as per resource utilization. The Usage Service periodically(hourly or daily basis) aggregates this usage data and stores it in the usage database. The stored usage data can be accessed by Azure Stack operators and users locally by using usage APIs. 
+Each resource provider in Azure Stack emits usage data as per resource utilization. The Usage Service periodically(hourly or daily) aggregates this usage data and stores it in the usage database. The stored usage data can be accessed by Azure Stack operators and users locally by using usage APIs. 
 
 If you have [Registered your Azure Stack instance with Azure](azure-stack-register.md), Usage Bridge is configured to send the usage data to Azure commerce. After the data is available in Azure, you can access it through the billing portal or by using Azure usage API's. Refer to the [Usage data reporting](azure-stack-usage-reporting.md) topic to learn more about what usage data is reported to Azure. 
 
@@ -53,7 +53,8 @@ To generate the usage data, you should have resources that are running and activ
 1. [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)
 2. [Configure the Azure Stack user's](azure-stack-powershell-configure-user.md) or the [Azure Stack operator's](azure-stack-powershell-configure-admin.md) PowerShell environment 
 3. To retrieve the usage data, use the [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell cmdlet:
-   ```PowerShell
+
+   ```powershell
    Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
    ```
 
