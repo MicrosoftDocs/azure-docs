@@ -1,6 +1,6 @@
 ---
-title: Use Azure WebHooks to monitor Media Services job notifications with .NET | Microsoft Docs
-description: Learn how to use Azure WebHooks to monitor Media Services job notifications. The code sample is written in C# and uses the Media Services SDK for .NET.
+title: Use Azure Webhooks to monitor Media Services job notifications with .NET | Microsoft Docs
+description: Learn how to use Azure Webhooks to monitor Media Services job notifications. The code sample is written in C# and uses the Media Services SDK for .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -17,8 +17,8 @@ ms.date: 08/28/2017
 ms.author: juliako
 
 ---
-# Use Azure WebHooks to monitor Media Services job notifications with .NET
-When you run jobs, you often require a way to track job progress. You can monitor Media Services job notifications by using Azure Webhooks or [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). This topic shows how to work with Webhooks.
+# Use Azure Webhooks to monitor Media Services job notifications with .NET
+When you run jobs, you often require a way to track job progress. You can monitor Media Services job notifications by using Azure Webhooks or [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). This topic shows how to work with webhooks.
 
 This topic shows how to
 
@@ -32,7 +32,7 @@ This topic shows how to
 	
 * Add a webhook to your encoding task and specify the webhook URL and secret key that this webhook responds to. You will find an example that adds a webhook to your encoding task at the end of the topic.  
 
-You can find definitions of various Media Services .NET Azure functions (including the one shown in this topic) [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+You can find definitions of various Media Services .NET Azure Functions (including the one shown in this topic) [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
 ## Prerequisites
 
@@ -40,22 +40,14 @@ The following are required to complete the tutorial:
 
 * An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
-* Understanding of [how to use Azure functions](../azure-functions/functions-overview.md). Also, review [Azure functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md).
+* Understanding of [how to use Azure Functions](../azure-functions/functions-overview.md). Also, review [Azure Functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md).
 
-## Set up "webhook notification" Azure functions
-
-The code in this section shows an implementation of an Azure function that is a webhook. In this sample, the function listens for the webhook call back from Media Services notifications and publishes the output asset once the job finishes.
-
-The webhook expects a signing key (credential) to match the one you pass when you configure the notification endpoint. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
-
-In the webhook definition code that follows, the **VerifyWebHookRequestSignature** method does the verification of the notification message. The purpose of this validation is to ensure that the message was sent by Azure Media Services and hasn't been tampered with. The signature is optional for Azure functions as it has the **Code** value as a query parameter over Transport Layer Security (TLS). 
-
-### Create a function app
+## Create a function app
 
 1. Go to the [Azure portal](http://portal.azure.com) and sign-in with your Azure account.
 2. Create a function app as described [here](../azure-functions/functions-create-function-app-portal.md).
 
-### Configure function app settings
+## Configure function app settings
 
 When developing Media Services functions, it is handy to add environment variables that will be used throughout your functions. To configure app settings, click the Configure App Settings link. 
 
@@ -66,7 +58,7 @@ The [application settings](media-services-dotnet-how-to-use-azure-functions.md#c
 |SigningKey |A signing key.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | A webhook endpoint address. Once your webhook function is created, you can copy the URL from the **Get function URL** link. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
-### Create a function
+## Create a function
 
 Once your function app is deployed, you can find it among **App Services** Azure Functions.
 
@@ -75,13 +67,13 @@ Once your function app is deployed, you can find it among **App Services** Azure
 3. Select **Generic Webhook - C#**.
 4. Name your webhook and press **Create**.
 
-### Files
+## Files
 
-Your Azure function is associated with code files and other files that are described in this section. By default, a function is associated with **function.json** and **run.csx** (C#) files. You will need to add a **project.json** file. The rest of this section shows the definitions for these files.
+Your Azure Function is associated with code files and other files that are described in this section. By default, a function is associated with **function.json** and **run.csx** (C#) files. You will need to add a **project.json** file. The rest of this section shows the definitions for these files.
 
 ![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
-#### function.json
+### function.json
 
 The function.json file defines the function bindings and other configuration settings. The runtime uses this file to determine the events to monitor and how to pass data into and return data from function execution. 
 
@@ -104,7 +96,7 @@ The function.json file defines the function bindings and other configuration set
 }
 ```
 
-#### project.json
+### project.json
 
 The project.json file contains dependencies. 
 
@@ -123,9 +115,13 @@ The project.json file contains dependencies.
 }
 ```
 	
-#### run.csx
+### run.csx
 
-The following C# code shows a definition of an Azure function that is a webhook. The function listens for the webhook call back from Media Services notifications and publishes the output asset once the job finishes. 
+The code in this section shows an implementation of an Azure Function that is a webhook. In this sample, the function listens for the webhook call back from Media Services notifications and publishes the output asset once the job finishes.
+
+The webhook expects a signing key (credential) to match the one you pass when you configure the notification endpoint. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
+
+In the webhook definition code that follows, the **VerifyWebHookRequestSignature** method does the verification of the notification message. The purpose of this validation is to ensure that the message was sent by Azure Media Services and hasn't been tampered with. The signature is optional for Azure Functions as it has the **Code** value as a query parameter over Transport Layer Security (TLS). 
 
 >[!NOTE]
 >There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
@@ -346,7 +342,7 @@ internal sealed class NotificationMessage
 
 Save and run your function.
 
-### Function output
+## Function output
 
 Once the webhook is triggered, the example above produces the following output, your values will vary.
 
@@ -379,7 +375,7 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 	
 	* Azure Media Services connection information, 
 	* webhook URL that expects to get the notifications, 
-	* the signing key that matches the key that your webhook expects. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
+	* the signing key that matches the key that your webhook expects. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your webhooks callbacks from Azure Media Services. 
 
 			<appSettings>
 			  <add key="AMSAADTenantDomain" value="domain" />
@@ -507,8 +503,7 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 		    }
 		}
 
-## Next step
-Review Media Services learning paths
+## Next stepS
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
