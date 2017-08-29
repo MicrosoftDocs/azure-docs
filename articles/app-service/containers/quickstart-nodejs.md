@@ -1,5 +1,5 @@
 ---
-title: Create a Node.js web app in Azure | Microsoft Docs
+title: Create a Node.js web app in a Linux container in Azure | Microsoft Docs
 description: Deploy your first Node.js Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -17,9 +17,11 @@ ms.date: 05/05/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
-# Create a Node.js web app in Azure
+# Create a Node.js web app in a Linux container in Azure
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy a Node.js app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy sample Node.js code to the web app.
+[!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
+
+[Web App](app-service-linux-intro.md) on Linux provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Node.js app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Node.js code to the web app.
 
 ![Sample app running in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -36,10 +38,6 @@ To complete this quickstart:
 * [Install Node.js and NPM](https://nodejs.org/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Download the sample
 
@@ -73,21 +71,31 @@ You see the **Hello World** message from the sample app displayed in the page.
 
 In your terminal window, press **Ctrl+C** to exit the web server.
 
-[!INCLUDE [Log in to Azure](../../../includes/login-to-azure.md)] 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)] 
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)] 
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)] 
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app.md)] 
+## Create a web app
+
+Create a [web app](../../app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
+
+Notice that the runtime is set to `NODE|6.10`. 
+
+```azurecli-interactive
+  az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "NODE|6.10" --deployment-local-git
+```
+> [!TIP]
+> Setting the runtime this way uses a default container provided by the platform. You can bring your own docker container using the [az webapp config container set](/cli/azure/webapp/config/container#set) command.
+
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)] 
 
 ![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
 
-You’ve created an empty new web app in Azure.
-
-[!INCLUDE [Configure local git](../../../includes/app-service-web-configure-local-git.md)] 
+You’ve created an empty new web app in a Linux container, with git deployment enabled.
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 

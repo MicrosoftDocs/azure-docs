@@ -1,5 +1,5 @@
 ---
-title: Create a static HTML web app in Azure | Microsoft Docs
+title: Create a static HTML site in a Linux container in Azure | Microsoft Docs
 description: Learn how to run web apps in Azure App Service by deploying a static HTML sample app.
 services: app-service\web
 documentationcenter: ''
@@ -17,9 +17,11 @@ ms.date: 05/26/2017
 ms.author: riande
 ms.custom: mvc
 ---
-# Create a static HTML web app in Azure
+# Create a static HTML site in a Linux container in Azure
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy a basic HTML+CSS site to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy sample HTML content to the web app.
+[!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
+
+[Web App](app-service-linux-intro.md) on Linux provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a basic HTML+CSS site to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the HTML content to the web app.
 
 ![Home page of sample app](media/quickstart-html/hello-world-in-browser-az.png)
 
@@ -31,10 +33,6 @@ To complete this quickstart:
 
 - [Install Git](https://git-scm.com/)
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Download the sample
 
@@ -52,21 +50,19 @@ Navigate to the directory that contains the sample HTML. Open the *index.html* f
 
 ![Sample app home page](media/quickstart-html/hello-world-in-browser.png)
 
-[!INCLUDE [Log in to Azure](../../../includes/login-to-azure.md)] 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)] 
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)] 
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)] 
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app.md)] 
 
 ![Empty web app page](media/quickstart-html/app-service-web-service-created.png)
 
-You’ve created an empty new web app in Azure.
-
-[!INCLUDE [Configure local git](../../../includes/app-service-web-configure-local-git.md)] 
+You’ve created an empty new web app in a Linux container, with git deployment enabled.
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 

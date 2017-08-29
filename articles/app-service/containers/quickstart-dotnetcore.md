@@ -1,169 +1,185 @@
 ---
-title: Use .NET Core in Web App on Linux | Microsoft Docs
-description: Use .NET Core in Web App on Linux.
+title: Create a .NET Core web app in a Linux container in Azure | Microsoft Docs
+description: Deploy your first .NET Core Hello World app to Web Apps for Containers in minutes.
 keywords: azure app service, web app, dotnet, core, linux, oss
 services: app-service
 documentationCenter: ''
-authors: michimune, rachelappel
-manager: erikre
+authors: cephalin
+manager: syntaxc4
 editor: ''
 
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.workload: web
+ms.tgt_pltfrm: linux
 ms.devlang: na
-ms.topic: article
-ms.date: 07/12/2017
-ms.author: aelnably;wesmc;mikono;rachelap
-
+ms.topic: quickstart
+ms.date: 08/29/2017
+ms.author: aelnably;wesmc;mikono;rachelap;cephalin;cfowler
 ---
-
-# Use .NET Core in an Azure web app on Linux #
+# Create a .NET Core web app in a Linux container in Azure
 
 [!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
 
-[Web App](app-service-linux-intro.md) on Linux provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial contains step-by-step instructions showing how to create a [.NET Core](https://docs.microsoft.com/aspnet/core/) app on Azure web app on Linux. 
+[Web App](app-service-linux-intro.md) on Linux provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](https://docs.microsoft.com/aspnet/core/) app on Azure web app on Linux. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the web app.
 
 ![Web App on Linux][10]
 
-You can follow the steps below using a Mac, Windows, or Linux machine.
+You can follow the steps below using a Mac, Windows, or Linux machine. 
 
-## Prerequisites ##
+## Prerequisites
 
-To complete this tutorial: 
+To complete this quickstart:
 
-* Install the [.NET Core SDK](https://www.microsoft.com/net/download/core).
-* Install [Git](https://git-scm.com/downloads).
+* [Install Git](https://git-scm.com/)
+* [Install the .NET Core SDK](https://www.microsoft.com/net/download/core)
 
-[!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Create a local .NET Core application ##
+## Create the app locally ##
 
-Start a new terminal session. Create a directory named `hellodotnetcore`, and change the current directory to it. Then type the following: 
+In a new terminal session, create a directory named `hellodotnetcore` and change the current directory to it. 
+
+```
+md hellodotnetcore
+cd hellodotnetcore
+``` 
+
+Create a new .NET Core web app.
 
 ```
 dotnet new web
 ``` 
 
-  This command creates three files (*hellodotnetcore.csproj*, *Program.cs*, and *Startup.cs*) and one empty folder (*wwwroot/*) under the current directory. The content of `.csproj` file should look like the following: 
+## Run the app locally
 
-```xml
-  <!-- Empty lines are omitted. -->
-
-  <Project Sdk="Microsoft.NET.Sdk.Web">
-        <PropertyGroup>
-        <TargetFramework>netcoreapp1.1</TargetFramework>
-        </PropertyGroup>
-        <ItemGroup>
-        <Folder Include="wwwroot\" />
-        </ItemGroup>
-        <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
-        </ItemGroup>
-  </Project>
-```
-
-Since this app is a web application, a reference to an ASP.NET Core package was automatically added to the *hellodotnetcore.csproj* file. The version number of the package is set according to the chosen framework. This example is referencing ASP.NET Core version 1.1.2 because .NET Core 1.1 is used.
-
-## Build and test the application locally ##
-
-You can build and run your .NET Core app with the `dotnet restore` command followed by the `dotnet run` command, as shown here:
+Restore the NuGet packages and run the app.
 
 ```
 dotnet restore
 dotnet run
 ```
 
+Open a web browser, and navigate to the app at http://localhost:5000.
 
-When the application starts, it displays a message indicating the app is listening to incoming requests at a port. 
+You see the **Hello World** message from the sample app displayed in the page.
+
+![Test with browser](media/quickstart-dotnetcore/dotnet-browse-local.png)
+
+In your terminal window, press **Ctrl+C** to exit the web server.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)] 
+
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)] 
+
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)] 
+
+## Create a web app
+
+Create a [web app](../../app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
+
+Notice that the runtime is set to `DOTNETCORE|1.1.0`. 
+
+```azurecli-interactive
+  az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "DOTNETCORE|1.1.0" --deployment-local-git
+```
+> [!TIP]
+> Setting the runtime this way uses a default container provided by the platform. You can bring your own docker container using the [az webapp config container set](/cli/azure/webapp/config/container#set) command.
+
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)] 
+
+![Empty web app page](media/quickstart-dotnetcore/app-service-web-service-created.png)
+
+You’ve created an empty new web app in a Linux container, with git deployment enabled.
+
+[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
-Hosting environment: Production
-Content root path: C:\hellodotnetcore
-Now listening on: http://localhost:5000
-Application started. Press Ctrl+C to shut down.
+Counting objects: 23, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (21/21), done.
+Writing objects: 100% (23/23), 3.71 KiB | 0 bytes/s, done.
+Total 23 (delta 8), reused 7 (delta 1)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id 'bf114df591'.
+remote: Generating deployment script.
+remote: Generating deployment script for node.js Web Site
+remote: Generated deployment script files
+remote: Running deployment command...
+remote: Handling node.js deployment.
+remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
+remote: Copying file: '.gitignore'
+remote: Copying file: 'LICENSE'
+remote: Copying file: 'README.md'
+remote: Copying file: 'index.js'
+remote: Copying file: 'package.json'
+remote: Copying file: 'process.json'
+remote: Deleting file: 'hostingstart.html'
+remote: Ignoring: .git
+remote: Using start-up script index.js from package.json.
+remote: Node.js versions available on the platform are: 4.4.7, 4.5.0, 6.2.2, 6.6.0, 6.9.1.
+remote: Selected node.js version 6.9.1. Use package.json file to choose a different version.
+remote: Selected npm version 3.10.8
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
+ * [new branch]      master -> master
 ```
 
-Test it by browsing to `http://localhost:5000/` with your browser. If everything works fine, you see "Hello World!" as the result text.
+## Browse to the app
 
-![Test with browser][7]
+Browse to the deployed application using your web browser.
 
-## Create a .NET Core app in the Azure Portal ##
-
-First you need to create an empty web app. Log in to the [Azure portal](https://portal.azure.com/) and create a new [Web App on Linux](https://portal.azure.com/#create/Microsoft.AppSvcLinux).
-
-![Creating a web app][1]
-
-When the **Create** page opens, provide details about your web app:
-
-![Choosing a .NET Core runtime stack][2]
-
-Use the following table as a guide to fill out the **Create** page, then select **OK** and **Create** to create the app.
-
-| Setting      | Suggested value  | Description                                        |
-| ------------ | ---------------- | -------------------------------------------------- |
-| App name | hellodotnetcore  | The name of your app. This name must be unique. |
-| Subscription | Choose an existing subscription | The Azure subscription. |
-| Resource Group | myResourceGroup |  The Azure resource group to contain the web app. |
-| App Service Plan | Existing App Service Plan name |  The App Service plan.  |
-| Configure Container | .NET Core 1.1 | The type of container for this web app: Built-in, Docker, or Private registry. |
-| Image source  | Built-in  |  The source of the image. |
-| Runtime Stack  | .NET Core 1.1  | The runtime stack and version.  |
-
-## Deploy your application via Git ##
-
-Use Git to deploy the .NET Core application to Azure App Service Web App on Linux.
-
-The new Azure web app already has Git deployment configured. You will find the Git deployment URL by navigating to the following URL after inserting your web app name:
-
-```https://{your web app name}.scm.azurewebsites.net/api/scm/info```
-
-The Git URL has the following form based on your web app name:
-
-```https://{your web app name}.scm.azurewebsites.net/{your web app name}.git```
-
-Run the following commands to deploy the local application to your Azure web app: 
- 
 ```bash
-git init
-git remote add azure <Git deployment URL from above>
-git add *.csproj *.cs
-git commit -m "Initial deployment commit"
+http://<app_name>.azurewebsites.net
+```
+
+The Node.js sample code is running in an Azure App Service web app.
+
+![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
+
+**Congratulations!** You've deployed your first Node.js app to App Service.
+
+## Update and redeploy the code
+
+In the local directory, open the _Startup.cs_ file. In line 33, make a small change to the text in the call to `context.Response.WriteAsync`:
+
+```csharp
+await context.Response.WriteAsync("Hello Azure!");
+```
+
+Commit your changes in Git, and then push the code changes to Azure.
+
+```bash
+git commit -am "updated output"
 git push azure master
 ```
 
-You don't need to push any files under *bin/* or *obj/* directories because your application is built in the cloud when the application's source files are pushed to Azure. After the build process is complete, binary files are copied into the application's directory at */home/site/wwwroot/*.
+Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
 
-Confirm that the remote deployment operations report success. Push operations may take a while since package resolution and build process run in the cloud. You will see several status messages, including ones stating that files have been copied. The output should look similar to the following:
+![Updated sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-```bash
-/* some output has been removed for brevity */
-remote: Copying file: 'System.Net.Websockets.dll' 
-remote: Copying file: 'System.Runtime.CompilerServices.Unsafe.dll' 
-remote: Copying file: 'System.Runtime.Serialization.Primitives.dll' 
-remote: Copying file: 'System.Text.Encodings.Web.dll' 
-remote: Copying file: 'hellodotnetcore.deps.json' 
-remote: Copying file: 'hellodotnetcore.dll' 
-remote: Omitting next output lines...
-remote: Finished successfully.
-remote: Running post deployment commands...
-remote: Deployment successful.
-To https://hellodotnetcore.scm.azurewebsites.net/
- * [new branch]           master -> master
+## Manage your new Azure web app
 
-```
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
 
-Once the deployment has completed, restart your web app for the deployment to take effect. To do this, go to the Azure portal and navigate to the **Overview** page of your web app. Select the **Restart** button in the page. When a popup window shows up, select **Yes** to confirm. You can then browse your web app, as shown here:
+From the left menu, click **App Services**, and then click the name of your Azure web app.
 
-![Browsing .NET Core app deployed to Azure App Service on Linux][10]
+![Portal navigation to Azure web app](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
 
-[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
+You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
+
+![App Service blade in Azure portal](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
+
+The left menu provides different pages for configuring your app. 
+
+[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
-* [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
 
-[1]: ./media/get-started-dotnetcore/top-level-create.png
-[2]: ./media/get-started-dotnetcore/dotnet-new-webapp.png
-[7]: ./media/get-started-dotnetcore/dotnet-browse-local.png
-[10]: ./media/get-started-dotnetcore/dotnet-browse-azure.png
+> [!div class="nextstepaction"]
+> [Node.js with MongoDB](tutorial-nodejs-mongodb-app.md)
