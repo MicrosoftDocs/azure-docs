@@ -32,10 +32,10 @@ To perform the steps in this article, you need to [install the Azure command-lin
 
 ## Required components
 
-* **Back-end server pool**: The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or should be a public IP address or virtual IP address (VIP).
+* **Back-end server pool**: The list of IP addresses of the back-end servers. The IP addresses listed should belong to the virtual network subnet or should be a public IP address or virtual IP address (VIP).
 * **Back-end server pool settings**: Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 * **Front-end port**: This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
-* **Listener**: The listener has a front-end port, a protocol (Http or Https, these settings are case-sensitive), and the SSL certificate name (if configuring SSL offload).
+* **Listener**: The listener has a front-end port, a protocol (Http or Https; these settings are case-sensitive), and the SSL certificate name (if configuring SSL offload).
 * **Rule**: The rule binds the listener and the back-end server pool and defines which back-end server pool to direct the traffic to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
 
 **Additional configuration notes**
@@ -138,7 +138,7 @@ az network application-gateway create \
 
 After the gateway is created, the next step is to configure the front end for communication.  Application Gateway requires a dynamically assigned DNS name when using a public IP, which is not friendly. To ensure end users can hit the application gateway, you can use a CNAME record to point to the public endpoint of the application gateway. For more information, see [Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
 
-To configure an alias, retrieve details of the application gateway and its associated IP/DNS name using the **PublicIPAddress** element attached to the application gateway. Use the application gateway's DNS name to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended because the VIP can change on restart of the application gateway.
+To configure an alias, retrieve details of the application gateway and its associated IP/DNS name using the **PublicIPAddress** element attached to the application gateway. Use the application gateway's DNS name to create a CNAME record, which points the two web applications to this DNS name. We don't recommend the use of A-records because the VIP can change on restart of the application gateway.
 
 
 ```azurecli-interactive
