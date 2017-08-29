@@ -120,6 +120,7 @@
 ### [Health model](service-fabric-health-introduction.md)
 ### [Diagnostics in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostics in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### [Performance counters for Reliable Service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md)
 
 # How To Guides
 ## Set up your development environment
@@ -128,6 +129,7 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 
 ## Build an application
+### [Create your first C# app in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 ### Build a guest executable service
 #### [Host a Node.js application on Windows](quickstart-guest-app.md)
 #### [Deploy a guest executable](service-fabric-deploy-existing-app.md)
