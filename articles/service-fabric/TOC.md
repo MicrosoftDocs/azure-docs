@@ -113,6 +113,8 @@
 #### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
+## [Integrate with API Management](service-fabric-api-management-overview.md)
+
 ## Monitor and diagnose
 ### [Overview](service-fabric-diagnostics-overview.md)
 ### [Health model](service-fabric-health-introduction.md)
@@ -206,9 +208,7 @@
 ### [Debug a Java service in Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Monitor and diagnose locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## Integrate with API Management
-### [Overview](service-fabric-api-management-overview.md)
-### [Quick start](service-fabric-api-management-quick-start.md)
+## [Deploy API Management and Service Fabric to Azure](service-fabric-api-management-quick-start.md)
 
 ## Migrate from Cloud Services
 ### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
