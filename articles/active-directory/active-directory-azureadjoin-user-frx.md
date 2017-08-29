@@ -3,8 +3,8 @@ title: Set up a new device with Azure AD during Setup| Microsoft Docs
 description: A topic that explains how users can set up Azure AD Join during their first run experience.
 services: active-directory
 documentationcenter: ''
-author: femila
-manager: swadhwa
+author: MarkusVi
+manager: femila
 editor: ''
 tags: azure-classic-portal
 
