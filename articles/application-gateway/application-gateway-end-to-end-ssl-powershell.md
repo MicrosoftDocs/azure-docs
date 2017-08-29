@@ -45,9 +45,9 @@ This scenario will:
 
 To configure end-to-end SSL with an application gateway, a certificate is required for the gateway and certificates are required for the back-end servers. The gateway certificate is used to encrypt and decrypt the traffic sent to it through SSL. The gateway certificate needs to be in Personal Information Exchange (PFX) format. This file format allows you to export the private key that is required by the application gateway to perform the encryption and decryption of traffic.
 
-For end-to-end SSL encryption, the back end must be whitelisted with the application gateway. You need to upload the public certificate of the back-end servers to the application gateway. This ensures that the application gateway only communicates with known back-end instances. This further secures the end-to-end communication.
+For end-to-end SSL encryption, the back end must be whitelisted with the application gateway. You need to upload the public certificate of the back-end servers to the application gateway. Adding the certificate ensures that the application gateway only communicates with known back-end instances. This further secures the end-to-end communication.
 
-This process is described in the following steps.
+This process is described in the following sections.
 
 ## Create the resource group
 
@@ -125,7 +125,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 
 All configuration items are set before creating the application gateway. The following steps create the configuration items that are needed for an application gateway resource.
 
-   1. Create an application gateway IP configuration. This setting configures which subnet the application gateway uses. When application gateway starts, it picks up an IP address from the subnet configured and routes network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance takes one IP address.
+   1. Create an application gateway IP configuration. This setting configures which of the subnets the application gateway uses. When application gateway starts, it picks up an IP address from the subnet configured and routes network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance takes one IP address.
 
    ```powershell
    $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
@@ -174,7 +174,7 @@ All configuration items are set before creating the application gateway. The fol
    > [!NOTE]
    > The default probe gets the public key from the *default* SSL binding on the back-end's IP address and compares the public key value it receives to the public key value you provide here. 
    
-   >  The retrieved public key might not necessarily be the intended site to which traffic flows *if* you are using host headers and Server Name Indication (SNI) on the back-end. If in doubt, visit https://127.0.0.1/ on the back-end servers to confirm which certificate is used for the *default* SSL binding. Use the public key from that request in this section. If you are using host-headers and SNI on HTTPS bindings and you do not receive a response and certificate from a manual browser request to https://127.0.0.1/ on the back-end servers, you must set up a default SSL binding on the them. If you do not do so, probes fail and the back end is not whitelisted.
+   > If you are using host headers and Server Name Indication (SNI) on the back end, the retrieved public key might not necessarily be the intended site to which traffic flows. If in doubt, visit https://127.0.0.1/ on the back-end servers to confirm which certificate is used for the *default* SSL binding. Use the public key from that request in this section. If you are using host-headers and SNI on HTTPS bindings and you do not receive a response and certificate from a manual browser request to https://127.0.0.1/ on the back-end servers, you must set up a default SSL binding on the them. If you do not do so, probes fail and the back end is not whitelisted.
 
    ```powershell
    $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
@@ -183,7 +183,7 @@ All configuration items are set before creating the application gateway. The fol
    > [!NOTE]
    > The certificate provided in this step should be the public key of the .pfx cert present on the back end. Export the certificate (not the root certificate) installed on the back-end server in CER format and use it in this step. This step whitelists the back end with the application gateway.
 
-   8. Configure the application gateway back end HTTP settings. Assign the certificate uploaded in the preceding step to the HTTP settings.
+   8. Configure the HTTP settings for application gateway back end. Assign the certificate uploaded in the preceding step to the HTTP settings.
 
    ```powershell
    $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
@@ -207,10 +207,11 @@ All configuration items are set before creating the application gateway. The fol
 
    The following values are a list of protocol versions that can be defined:
 
-   * **TLSv1_0**
-   * **TLSv1_1**
-   * **TLSv1_2**
+   - **TLSV1_0**
+   - **TLSV1_1**
+   - **TLSV1_2**
 
+    
    The following example sets the minimum protocol version to **TLSv1_2** and enables **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, and **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** only.
 
    ```powershell
@@ -282,6 +283,6 @@ DnsSettings              : {
 
 ## Next steps
 
-For more informaton about hardening the security of your web applications with Web Application Firewall through Application Gateway, see [Web Application Firewall overview](application-gateway-webapplicationfirewall-overview.md).
+For more information about hardening the security of your web applications with Web Application Firewall through Application Gateway, see the [Web Application Firewall overview](application-gateway-webapplicationfirewall-overview.md).
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png
