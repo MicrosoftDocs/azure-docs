@@ -46,9 +46,9 @@ This article demonstrates the steps that are required to publish your applicatio
 
    d. In the **Name** box, enter a name for your artifact (do not include the *.war* extension), and then click **OK**.
 
-      ![The artifact Name box][ART03]
+   ![The artifact Name box][ART03]
 
-      For more information about creating artifacts in IntelliJ, see [Configuring artifacts] on the JetBrains website.
+   For more information about creating artifacts in IntelliJ, see [Configuring artifacts] on the JetBrains website.
 
 1. To start the **Publish as Docker Container** wizard, do either of the following:
 
@@ -70,11 +70,11 @@ This article demonstrates the steps that are required to publish your applicatio
 
    b. The **Hosts** area displays any Docker hosts that you have already created. Do either of the following: 
 
-      * If you have an existing Docker host, you can deploy your web app to it.
+   * If you have an existing Docker host, you can deploy your web app to it.
 
-      * To create a Docker host, click the green plus sign (**+**). The **Create Docker Host** dialog box opens. 
+   * To create a Docker host, click the green plus sign (**+**). The **Create Docker Host** dialog box opens. 
 
-      ![Deploy Docker Container on Azure Wizard][PUB04a]
+   ![Deploy Docker Container on Azure Wizard][PUB04a]
 
 1. In the **Configure the new virtual machine** window, provide the following information about your Docker host. (The wizard automatically generates most of the information for you, but you can modify any of them.) 
 
@@ -85,20 +85,28 @@ This article demonstrates the steps that are required to publish your applicatio
    c. In the **Region** box, enter the geographical region where your host is located.
       
    d. On the **OS and Size** tab, do the following:      
-      * **Host OS**: Enter the operating system for the virtual machine that contains your host. 
-      * **Size**: Enter the virtual-machine size for your host.   
+
+   * **Host OS**: Enter the operating system for the virtual machine that contains your host. 
+
+   * **Size**: Enter the virtual-machine size for your host. 
        
    e. On the **Resource Group** tab, select either of the following:      
-      * **New resource group**: Create a resource group for your host.
-      * **Existing resource group**: Specify an existing resource group from your Azure account. 
+
+   * **New resource group**: Create a resource group for your host.
+
+   * **Existing resource group**: Specify an existing resource group from your Azure account. 
        
    f. On the **Network** tab, select either of the following:      
-      * **New virtual network**: Create a virtual network for your host.
-      * **Existing virtual network**: Specify an existing virtual network from your Azure account. 
+
+   * **New virtual network**: Create a virtual network for your host.
+
+   * **Existing virtual network**: Specify an existing virtual network from your Azure account. 
        
    g. On the **Storage** tab, select either of the following:      
-      * **New storage account**: Create a storage account for your host.
-      * **Existing storage account**: Specify an existing storage account from your Azure account.
+
+   * **New storage account**: Create a storage account for your host.
+
+   * **Existing storage account**: Specify an existing storage account from your Azure account.
        
 1. Click **Next**.
 
@@ -117,41 +125,41 @@ This article demonstrates the steps that are required to publish your applicatio
 
       a. On the **VM Credentials** tab, provide the following information for the virtual-machine login credentials of your Docker host:
 
-         * **Username**: Enter the username for your virtual-machine login credentials.
+      * **Username**: Enter the username for your virtual-machine login credentials.
 
-         * **Password** and **Confirm**: Enter the password for your virtual-machine login credentials.
+      * **Password** and **Confirm**: Enter the password for your virtual-machine login credentials.
 
-         * **SSH**: Enter the Secure Shell (SSH) settings for your Docker host. You can select one of the following options:
+      * **SSH**: Enter the Secure Shell (SSH) settings for your Docker host. You can select one of the following options:
 
-            * **None**: Specifies that your virtual machine does not allow SSH connections.
+         * **None**: Specifies that your virtual machine does not allow SSH connections.
 
-            * **Auto-generate**: Automatically creates the requisite settings for connecting via SSH.
+         * **Auto-generate**: Automatically creates the requisite settings for connecting via SSH.
 
-            * **Import from directory**: Allows you to specify a directory that contains a set of previously saved SSH settings. The directory must contain the following two files:
+         * **Import from directory**: Allows you to specify a directory that contains a set of previously saved SSH settings. The directory must contain the following two files:
 
-               * *id_rsa*: Contains the RSA identification for a user.
+            * *id_rsa*: Contains the RSA identification for a user.
 
-               * *id_rsa.pub*: Contains the RSA public key that is used for authentication.
+            * *id_rsa.pub*: Contains the RSA public key that is used for authentication.
 
       b. On the **Docker Daemon Access** tab, provide the following information:
 
-         ![Create Docker Host][PUB06]
+      ![Create Docker Host][PUB06]
 
-         * **Docker Daemon port**: Enter the unique TCP port for your Docker host.
+      * **Docker Daemon port**: Enter the unique TCP port for your Docker host.
 
-         * **TLS Security**: Enter the Transport Layer Security settings for your Docker host. You can choose from the following options:
+      * **TLS Security**: Enter the Transport Layer Security settings for your Docker host. You can choose from the following options:
 
-            * **None**: Specifies that your virtual machine does not allow TLS connections.
+         * **None**: Specifies that your virtual machine does not allow TLS connections.
 
-            * **Auto-generate**: Automatically creates the requisite settings for connecting via TLS.
+         * **Auto-generate**: Automatically creates the requisite settings for connecting via TLS.
 
-            * **Import from directory**: Specifies a directory that contains a set of previously saved TLS settings. The directory must contain the following six files: 
+         * **Import from directory**: Specifies a directory that contains a set of previously saved TLS settings. The directory must contain the following six files: 
 
-               * *ca.pem* and *ca-key.pem*: Contain the certificate and public key for the TLS Certificate Authority.
+            * *ca.pem* and *ca-key.pem*: Contain the certificate and public key for the TLS Certificate Authority.
 
-               * *cert.pem* and *key.pem*: Contain client certificate and public key which will be used for TLS authentication.
+            * *cert.pem* and *key.pem*: Contain client certificate and public key which will be used for TLS authentication.
 
-               * *server.pem* and *server-key.pem*: Contain the client certificate and public key that is used for TLS authentication.
+            * *server.pem* and *server-key.pem*: Contain the client certificate and public key that is used for TLS authentication.
 
 1. After you have entered the required information, click **Finish**.
 
