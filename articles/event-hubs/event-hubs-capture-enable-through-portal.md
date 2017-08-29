@@ -24,7 +24,7 @@ Azure [Event Hubs Capture][capture-overview] enables you to automatically delive
 
 You can configure Capture at the event hub creation time using the [Azure portal](https://portal.azure.com). You can either capture the data to an Azure [Blob storage](https://azure.microsoft.com/services/storage/blobs/) container, or to an [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) account.
 
-For more information, see the [Event Hubs Capture overview](capture-overview).
+For more information, see the [Event Hubs Capture overview][capture-overview].
 
 ## Capture data to an Azure Storage account  
 
@@ -88,7 +88,7 @@ You can configure Capture on existing event hubs that are in Event Hubs namespac
 
 ## Next steps
 
-- Learn more about Event Hubs capture by reading the [Event Hubs Capture overview](capture-overview).
+- Learn more about Event Hubs capture by reading the [Event Hubs Capture overview][capture-overview].
 - You can also configure Event Hubs Capture using Azure Resource Manager templates. For more information, see [Enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
 
 [capture-overview]: event-hubs-capture-overview.md
