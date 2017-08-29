@@ -32,7 +32,7 @@ In the previous tutorial, you learned how to set up the Azure IoT DPS to automat
 
 - [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module) - This is an established standard for most Windows based device platforms, as well as a few Linux/Ubuntu based devices. As a device manufacturer, you may choose this if you have either of these OSes running on your devices, and if you are looking for an established standard for HSMs. Be aware that with TPM chips in your devices, you can only enroll each device individually in DPS via the portal. For development purposes, you can use the TPM simulator on your Windows or Linux development machine.
 
-- X.509 based hardware security modules - This is a relatively newer form of hardware security modules, with work currently progressing within Microsoft on RIoT or DICE chips. With X.509 chips, you can do bulk enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the DPS client SDK supports an X.509 device simulator.  
+- X.509 based hardware security modules - These are relatively newer hardware security modules, with work currently progressing within Microsoft on RIoT or DICE chips which implement the X.509 certificates. With X.509 chips, you can do bulk enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the DPS client SDK supports an X.509 device simulator. 
 
 As a device manufacturer, you need to select hardware security modules/chips that are based on either one of the above types. Other types of HSMs are not currently supported in the DPS client SDK.   
 
@@ -41,7 +41,7 @@ As a device manufacturer, you need to select hardware security modules/chips tha
 
 The Azure DPS Client SDK helps implement the selected security mechanism in software. The following steps show how to use the SDK for the selected HSM chip:
 
-1. If you followed the [Quick start to create simulated device](./quick-create-simulated-device.md), you have the setup ready to build the SDK. If not, follow the first four steps from the section titled [Prepare the development environment](./quick-create-simulated-device.md#setupdevbox) to install the `cmake` build tool. 
+1. If you followed the [Quick start to create simulated device](./quick-create-simulated-device.md), you have the setup ready to build the SDK. If not, follow the first four steps from the section titled [Prepare the development environment](./quick-create-simulated-device.md#setupdevbox). These steps clone the github repo for the DPS Client SDK as well as install the `cmake` build tool. 
 
 1. Build the SDK for the type of HSM you have selected for your device, using either one of the following commands on the command prompt:
     - For TPM devices:
@@ -62,9 +62,9 @@ The Azure DPS Client SDK helps implement the selected security mechanism in soft
 
 ## Extract the security artefacts
 
-Once you build the SDK for your selected HSM, make sure the following functions are implemented for your HSM chip. 
+Once you build the SDK for your selected HSM, make sure the following functions are implemented for your HSM chip. The interface for these APIs are found in the github repo folder `dps_client\adapters`.
 
-- For TPM based chips, the header file named `dps_client\adapters\dps_tpm_template.h` contains the interface for these APIs. The SDK built for TPM simulator will have default implementations for the same.
+- For TPM based chips: 
    
     ```c
     SEC_DEVICE_HANDLE secure_dev_tpm_create();
@@ -75,9 +75,9 @@ Once you build the SDK for your selected HSM, make sure the following functions 
     BUFFER_HANDLE secure_dev_tpm_sign_data(SEC_DEVICE_HANDLE handle, const unsigned char* data, size data_len); // Hash the supplied data using the imported device key to be used in the SAS Token.
     Const SEC_TPM_INTERFACE* secure_dev_tpm_interface();
     ```
+  The SDK built for TPM simulator will have default implementations for the same.
 
-
-- For X.509 based chips, the header file named `dps_client\adapters\dps_x509_template.h` contains the interface for these APIs. The SDK built for X.509 flow will have default implementations for the X.509 simulator.
+- For X.509 based chips: 
 
     ```c
     SEC_DEVICE_HANDLE secure_dev_riot_create();
@@ -88,6 +88,7 @@ Once you build the SDK for your selected HSM, make sure the following functions 
     char* secure_dev_riot_get_common_name(SEC_DEVICE_HANDLE handle);// Returns the common name of the certificate
     const SEC_RIOT_INTERFACE* secure_device_riot_interface();
     ```
+  The SDK built for X.509 flow will have default implementations for the X.509 simulator.
 
 These APIs interact with your chip to extract the security artefacts from the device after it boots. The DPS Client SDK uses these security artefacts for verifying registration with the DPS service.
 
@@ -104,8 +105,37 @@ The last step in the device manufacturing process is to write an application tha
     void DPS_Client_LL_DoWork(DPS_LL_HANDLE handle); // Processes the communications with the DPS service and calls any user callbacks that are required.
     ```
 
-These APIs help your device to connect and register with the DPS service when it boots up, get the information about your IoT hub and then connect to your IoT hub. 
+These APIs help your device to connect and register with the DPS service when it boots up, get the information about your IoT hub and then connect to your IoT hub. The file `dps_client/samples/dps_client_sample/dps_client_sample.c` shows how to use these APIs. In general, you will need to create the following framework for the client registration:
 
+    ```c
+    static void register_callback(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* context)
+    {
+	    USER_DEFINED_INFO* user_info = (USER_DEFINED_INFO *)user_context;
+        ...
+	    user_info. reg_complete = 1;
+    }
+    static void registation_status(DPS_REGISTRATION_STATUS reg_status, void* user_context)
+    {
+    }
+    int main()
+    {
+        ...    
+	    security_device_init(); // initialize your HSM here
+
+	    DPS_CLIENT_LL_HANDLE handle = DPS_Client_LL_Create(dps_uri, dps_scope_id, dps_transport, on_dps_error_callback, &user_info); // Create your DPS client
+
+	    if (DPS_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
+		    do {
+    			// The dps_register_callback is called when registration is complete or fails
+	    		DPS_Client_LL_DoWork(handle);
+		    } while (user_info.reg_complete == 0);
+	    }
+	    DPS_Client_LL_Destroy(handle); // Clean up the DPS client
+        ...
+	    iothub_client = IoTHubClient_LL_CreateFromDeviceAuth(user_info.iothub_uri, user_info.device_id, transport); // Create your IoT hub client and connect to your hub
+        ...
+    }
+    ```
 
 
 ## Clean up resources
