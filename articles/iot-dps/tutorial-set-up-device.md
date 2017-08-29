@@ -45,17 +45,17 @@ The Azure DPS Client SDK helps implement the selected security mechanism in soft
 
 1. Build the SDK for the type of HSM you have selected for your device, using either one of the following commands on the command prompt:
     - For TPM devices:
-        ```code
+        ```cmd/sh
         cmake -Ddps_auth_type=tpm ..
         ```
 
     - For TPM simulator:
-        ```code
+        ```cmd/sh
         cmake -Ddps_auth_type=tpm_simulator ..
         ```
 
     - For X.509 devices and simulator:
-        ```code
+        ```cmd/sh
         cmake -Ddps_auth_type=x509 ..
         ```
 
@@ -66,7 +66,7 @@ Once you build the SDK for your selected HSM, make sure the following functions 
 
 - For TPM based chips, the header file named `dps_client\adapters\dps_tpm_template.h` contains the interface for these APIs. The SDK built for TPM simulator will have default implementations for the same.
    
-    ```code
+    ```c
     SEC_DEVICE_HANDLE secure_dev_tpm_create();
     void secure_dev_tpm_destroy(SEC_DEVICE_HANDLE handle);
     char* secure_dev_tpm_get_endorsement_key(SEC_DEVICE_HANDLE handle); // Returns the endorsement key from the TPM.
@@ -79,7 +79,7 @@ Once you build the SDK for your selected HSM, make sure the following functions 
 
 - For X.509 based chips, the header file named `dps_client\adapters\dps_x509_template.h` contains the interface for these APIs. The SDK built for X.509 flow will have default implementations for the X.509 simulator.
 
-    ```code
+    ```c
     SEC_DEVICE_HANDLE secure_dev_riot_create();
     void secure_dev_riot_destroy(SEC_DEVICE_HANDLE handle);
     char* secure_dev_riot_get_certificate(SEC_DEVICE_HANDLE handle); // Returns the certificate produced by the RIoT system.
@@ -96,7 +96,7 @@ These APIs interact with your chip to extract the security artefacts from the de
 
 The last step in the device manufacturing process is to write an application that will use the DPS client SDK to register the device with the DPS service. The DPS client incorporates the following APIs for your applications to use:
 
-    ```code
+    ```c
     typedef void(*DPS_REGISTER_DEVICE_CALLBACK)(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* user_context); // Callback to notify user of device registration results.
     DPS_CLIENT_LL_HANDLE DPS_Client_LL_Create (const char* dps_uri, const char* scope_id, DPS_TRANSPORT_PROVIDER_FUNCTION protocol, DPS_CLIENT_ON_ERROR_CALLBACK on_error_callback, void* user_ctx); // Creates the IOTHUB_DPS_LL_HANDLE to be used in subsequent calls.
     void DPS_Client_LL_Destroy(DPS_CLIENT_LL_HANDLE handle); // Frees any resources created by the IoTHub DPS module.
