@@ -5,7 +5,7 @@ description: Create and publish a simple HTTP triggered function to Azure by usi
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, compute, serverless architecture
@@ -55,6 +55,10 @@ Now that you have created the project, you can create your first function.
 2. Select **HttpTrigger**, type a **Function Name**, select **Anonymous** for **Access Rights**, and click **Create**. The function created is accessed by an HTTP request from any client. 
 
     ![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
+
+    A code file is added to your project that contains a class that implements your function code. This code is based on a template, which receives a name value and echos it back. The **FunctionName** attribute sets the name of your function. The **HttpTrigger** attribute indicates the message that triggers the function. 
+
+    ![Function code file](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
 Now that you have created an HTTP-triggered function, you can test it on your local computer.
 
