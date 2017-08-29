@@ -4,7 +4,7 @@ description: How run a streaming job in Azure Stream Analytics | learning path s
 keywords: streaming jobs
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # How to run a streaming job in Azure Stream Analytics

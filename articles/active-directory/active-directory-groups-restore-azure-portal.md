@@ -14,8 +14,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 08/28/2017
 ms.author: curtand                       
+ms.reviewer: kairaz.contractor
+ms.custom: it-pro
 
 ---
 
