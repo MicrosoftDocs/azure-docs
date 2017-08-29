@@ -4,7 +4,7 @@ description: Test your Azure functions by using Postman, cURL, and Node.js.
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, testing
