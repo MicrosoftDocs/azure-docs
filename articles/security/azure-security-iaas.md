@@ -142,7 +142,7 @@ Anyone with an Azure subscription can create and use key vaults. Although Key Va
 
 For more information, see [Azure Disk Encryption in Windows and Linux IaaS VMs](azure-security-disk-encryption.md).
 
-[Azure Storage Service Encryption](../storage/storage-service-encryption.md) helps protect your data at rest. It's enabled at the storage account level. It encrypts data as it's written in our datacenters, and it's automatically decrypted as you access it. It supports the following scenarios:
+[Azure Storage Service Encryption](../storage/common/storage-service-encryption.md) helps protect your data at rest. It's enabled at the storage account level. It encrypts data as it's written in our datacenters, and it's automatically decrypted as you access it. It supports the following scenarios:
 
 - Encryption of block blobs, append blobs, and page blobs
 - Encryption of archived VHDs and templates brought to Azure from on-premises

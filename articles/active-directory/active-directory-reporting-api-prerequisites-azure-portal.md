@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
+ms.reviewer: dhanyahk
 
 ---
 # Prerequisites to access the Azure AD reporting API
@@ -69,7 +70,7 @@ To configure your directory to access the Azure AD reporting API, you must sign 
 
     a. In the **Name** textbox, type `Reporting API application`.
 
-    b. As **Application type**, select `Web app / API`.
+    b. As **Application type**, select **Web app / API**.
 
     c. In the **Sign-on URL** textbox, type `https://localhost`.
 

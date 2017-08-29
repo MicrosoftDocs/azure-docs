@@ -250,7 +250,7 @@ In this section, you create a Linux-based Hadoop cluster in HDInsight using eith
      
      * **Cluster Type**: Hadoop. Domain-joined HDInsight is currently only supported on Hadoop clusters.
      * **Operating System**: Linux.  Domain-joined HDInsight is only supported on Linux-based HDInsight clusters.
-     * **Version**: Hadoop 2.7.3 (HDI 3.5). Domain-joined HDInsight is only supported on HDInsight cluster version 3.5.
+     * **Version**: HDI 3.6. Domain-joined HDInsight is only supported on HDInsight cluster version 3.6.
      * **Cluster Type**: PREMIUM
        
        Click **Select** to save the changes.

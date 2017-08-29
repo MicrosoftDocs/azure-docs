@@ -13,20 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 07/25/2017
 ms.author: dobett
 
 ---
 # How to use Azure IoT Hub
 
-You have various options to learn how to develop for the IoT Hub service. You can read the conceptual articles that describe the features of IoT Hub in detail or follow one of the tutorials that cover the various features of IoT Hub.
+You have various options to learn how to develop for the IoT Hub service:
 
-## The developer guide
+* Read the conceptual articles that describe the features of IoT Hub in detail.
+* Follow one of the tutorials that cover the various features of IoT Hub.
 
-As a developer, you can read detailed conceptual guidance about IoT Hub in the [Developer Guide][lnk-devguide]. This guide includes detailed descriptions of all IoT Hub features that help you to learn how to use them and how to choose between them when multiple options are available
+## Developer guide
 
+As a developer, you can read detailed conceptual guidance about IoT Hub in the [Developer Guide][lnk-devguide]. This guide includes:
 
-## The tutorials
+* Detailed descriptions of all IoT Hub features that help you to learn how to use them.
+* Guidance on how to choose when multiple options are available.
+
+## Tutorials
 
 If you prefer to learn about specific IoT Hub features by working through hands-on exercises, there are several tutorials to choose from. Many of these tutorials are available in multiple programming languages. These tutorials include:
 
@@ -40,11 +45,11 @@ If you prefer to learn about specific IoT Hub features by working through hands-
 
 - [Use direct methods][lnk-methods-tutorial]. This tutorial shows you how to use direct methods. You add a handler for a direct method in your simulated device and invoke the direct method from IoT Hub.
 
-- [Get started with device management][lnk-dm-tutorial]. This tutorial shows you how to use key device management features such as twins and direct methods to remotely reboot your simulated device.
+- [Get started with device management][lnk-dm-tutorial]. This tutorial shows you how to use key device management features such as twins and direct methods. You use these features to remotely reboot your simulated device.
 
-- [Use desired properties to configure devices][lnk-properties-tutorial]. This tutorial shows you how to use the device twin's desired properties along with reported properties, to remotely configure your device.
+- [Use desired properties to configure devices][lnk-properties-tutorial]. This tutorial shows you how to use the device twin's desired and reported properties, to remotely configure your device.
 
-- [Use device jobs to initiate a device firmware update][lnk-jobs-tutorial]. This tutorial shows you how to use key device management features such as twins and direct methods to remotely update your device's firmware.
+- [Use device jobs to initiate a device firmware update][lnk-jobs-tutorial]. This tutorial shows you how to use key device management features such as twins and direct methods. You learn how to use these features to remotely update your device's firmware.
 
 - [Schedule and broadcast jobs][lnk-schedule-tutorial]. This tutorial shows you how to use desired properties and direct methods to interact with multiple devices at a scheduled time.
 

@@ -782,6 +782,6 @@ The following example returns `"1991-01-01T00:59:59.000Z"`:
 "[addHours('1990-12-31T23:59:59Z', 1)]"
 ```
 
-## Next Steps
+## Next steps
 * For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
 

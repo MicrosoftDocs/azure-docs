@@ -4,7 +4,7 @@ description: This topic gives suggestions on how to troubleshoot live streaming 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 3a7f6c1d-ce57-4fa4-a7a6-edb526b3ffbf
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 07/20/2017
 ms.author: juliako
 
 ---

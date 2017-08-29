@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 08/11/2017
 ms.author: larryfr
 
 ---
@@ -39,7 +39,7 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 * A Linux-based HDInsight cluster OR [Azure PowerShell][powershell] - If you have an existing Linux-based cluster, you can use Ambari to add a Shared Access Signature to the cluster. If not, you can use Azure PowerShell to create a cluster and add a Shared Access Signature during cluster creation.
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * The example files from [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). This repository contains the following items:
 
@@ -51,7 +51,7 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 
 There are two forms of Shared Access Signatures:
 
-* Ad hoc: The start time, expiry time, and permissions for the SAS are all specified on the SAS URI (or implied, in the case where start time is omitted).
+* Ad hoc: The start time, expiry time, and permissions for the SAS are all specified on the SAS URI.
 
 * Stored access policy: A stored access policy is defined on a resource container, such as a blob container. A policy can be used to manage constraints for one or more shared access signatures. When you associate a SAS with a stored access policy, the SAS inherits the constraints - the start time, expiry time, and permissions - defined for the stored access policy.
 
@@ -59,18 +59,21 @@ The difference between the two forms is important for one key scenario: revocati
 
 1. The expiry time specified on the SAS is reached.
 
-2. The expiry time specified on the stored access policy referenced by the SAS is reached. This can either occur because the interval elapses, or because you have modified the stored access policy to have an expiry time in the past, which is one way to revoke the SAS.
+2. The expiry time specified on the stored access policy referenced by the SAS is reached. The following scenarios cause the expiry time to be reached:
+
+    * The time interval has elapsed.
+    * The stored access policy is modified to have an expiry time in the past. Changing the expiry time is one way to revoke the SAS.
 
 3. The stored access policy referenced by the SAS is deleted, which is another way to revoke the SAS. If you recreate the stored access policy with the same name, all  SAS tokens for the previous policy are valid (if the expiry time on the SAS has not passed). If you intend to revoke the SAS, be sure to use a different name if you recreate the access policy with an expiry time in the future.
 
-4. The account key that was used to create the SAS is regenerated. Regenerating the key causes all applications that use the previous key to fail authentication. You must update all components to the new key.
+4. The account key that was used to create the SAS is regenerated. Regenerating the key causes all applications that use the previous key to fail authentication. Update all components to the new key.
 
 > [!IMPORTANT]
 > A shared access signature URI is associated with the account key used to create the signature, and the associated stored access policy (if any). If no stored access policy is specified, the only way to revoke a shared access signature is to change the account key.
 
-We recommend that you always use stored access policies, so that you can either revoke signatures or extend the expiry date as needed. The steps in this document use stored access policies to generate SAS.
+We recommend that you always use stored access policies. When using stored policies, you can either revoke signatures or extend the expiry date as needed. The steps in this document use stored access policies to generate SAS.
 
-For more information on Shared Access Signatures, see [Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md).
+For more information on Shared Access Signatures, see [Understanding the SAS model](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ### Create a stored policy and SAS using C\#
 
@@ -88,7 +91,7 @@ For more information on Shared Access Signatures, see [Understanding the SAS mod
 
    * FileToUpload: The path to a file that is uploaded to the container.
 
-4. Run the project. A console window appears, and information similar to the following text is displayed once the SAS has been generated:
+4. Run the project. Information similar to the following text is displayed once the SAS has been generated:
 
         Container SAS token using stored access policy: sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
 
@@ -129,39 +132,48 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
 
 1. Open the `CreateCluster\HDInsightSAS.ps1` file in a text editor and modify the following values at the beginning of the document.
 
-        # Replace 'mycluster' with the name of the cluster to be created
-        $clusterName = 'mycluster'
-        # Valid values are 'Linux' and 'Windows'
-        $osType = 'Linux'
-        # Replace 'myresourcegroup' with the name of the group to be created
-        $resourceGroupName = 'myresourcegroup'
-        # Replace with the Azure data center you want to the cluster to live in
-        $location = 'North Europe'
-        # Replace with the name of the default storage account to be created
-        $defaultStorageAccountName = 'mystorageaccount'
-        # Replace with the name of the SAS container created earlier
-        $SASContainerName = 'sascontainer'
-        # Replace with the name of the SAS storage account created earlier
-        $SASStorageAccountName = 'sasaccount'
-        # Replace with the SAS token generated earlier
-        $SASToken = 'sastoken'
-        # Set the number of worker nodes in the cluster
-        $clusterSizeInNodes = 2
+    ```powershell
+    # Replace 'mycluster' with the name of the cluster to be created
+    $clusterName = 'mycluster'
+    # Valid values are 'Linux' and 'Windows'
+    $osType = 'Linux'
+    # Replace 'myresourcegroup' with the name of the group to be created
+    $resourceGroupName = 'myresourcegroup'
+    # Replace with the Azure data center you want to the cluster to live in
+    $location = 'North Europe'
+    # Replace with the name of the default storage account to be created
+    $defaultStorageAccountName = 'mystorageaccount'
+    # Replace with the name of the SAS container created earlier
+    $SASContainerName = 'sascontainer'
+    # Replace with the name of the SAS storage account created earlier
+    $SASStorageAccountName = 'sasaccount'
+    # Replace with the SAS token generated earlier
+    $SASToken = 'sastoken'
+    # Set the number of worker nodes in the cluster
+    $clusterSizeInNodes = 3
+    ```
 
     For example, change `'mycluster'` to the name of the cluster you want to create. The SAS values should match the values from the previous steps when creating a storage account and SAS token.
 
     Once you have changed the values, save the file.
-2. Open a new Azure PowerShell prompt. If you are unfamiliar with Azure PowerShell, or have not installed it, see [Install and configure Azure PowerShell][powershell].
-3. From the prompt, use the following command to authenticate to your Azure subscription:
 
-        Login-AzureRmAccount
+2. Open a new Azure PowerShell prompt. If you are unfamiliar with Azure PowerShell, or have not installed it, see [Install and configure Azure PowerShell][powershell].
+
+1. From the prompt, use the following command to authenticate to your Azure subscription:
+
+    ```powershell
+    Login-AzureRmAccount
+    ```
 
     When prompted, log in with the account for your Azure subscription.
 
     If your account is associated with multiple Azure subscriptions, you may need to use `Select-AzureRmSubscription` to select the subscription you wish to use.
+
 4. From the prompt, change directories to the `CreateCluster` directory that contains the HDInsightSAS.ps1 file. Then use the following command to run the script
 
-        .\HDInsightSAS.ps1
+    ```powershell
+    .\HDInsightSAS.ps1
+    ```
 
     As the script runs, it logs output to the PowerShell prompt as it creates the resource group and storage accounts. You are prompted to enter the HTTP user for the HDInsight cluster. This account is used to secure HTTP/s access to the cluster.
 
@@ -214,31 +226,42 @@ To verify that you have restricted access, use the following methods:
 * For **Windows-based** HDInsight clusters, use Remote Desktop to connect to the cluster. For more information, see [Connect to HDInsight using RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
     Once connected, use the **Hadoop Command-Line** icon on the desktop to open a command prompt.
+
 * For **Linux-based** HDInsight clusters, use SSH to connect to the cluster. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Once connected to the cluster, use the following steps to verify that you can only read and list items on the SAS storage account:
 
-1. From the prompt, type the following. Replace **SASCONTAINER** with the name of the container created for the SAS storage account. Replace **SASACCOUNTNAME** with the name of the storage account used for the SAS:
+1. To list the contents of the container, use the following command from the prompt: 
 
-        hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+    ```bash
+    hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+    ```
 
-    This command lists the contents of the container, which should include the file that was uploaded when the container and SAS was created.
+    Replace **SASCONTAINER** with the name of the container created for the SAS storage account. Replace **SASACCOUNTNAME** with the name of the storage account used for the SAS.
+
+    The list includes the file uploaded when the container and SAS were created.
 
 2. Use the following command to verify that you can read the contents of the file. Replace the **SASCONTAINER** and **SASACCOUNTNAME** as in the previous step. Replace **FILENAME** with the name of the file displayed in the previous command:
 
-        hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+    ```bash
+    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+    ```
 
     This command lists the contents of the file.
 
 3. Use the following command to download the file to the local file system:
 
-        hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+    ```bash
+    hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+    ```
 
     This command downloads the file to a local file named **testfile.txt**.
 
 4. Use the following command to upload the local file to a new file named **testupload.txt** on the SAS storage:
 
-        hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+    ```bash
+    hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+    ```
 
     You receive a message similar to the following text:
 
@@ -246,7 +269,9 @@ Once connected to the cluster, use the following steps to verify that you can on
 
     This error occurs because the storage location is read+list only. Use the following command to put the data on the default storage for the cluster, which is writable:
 
-        hdfs dfs -put testfile.txt wasbs:///testupload.txt
+    ```bash
+    hdfs dfs -put testfile.txt wasb:///testupload.txt
+    ```
 
     This time, the operation should complete successfully.
 

@@ -56,9 +56,12 @@
 ## [Custom policies](active-directory-b2c-overview-custom.md)
 ## Guides
 ### [Get started](active-directory-b2c-get-started-custom.md)
-### Configure OIDC providers
+### Configure OIDC/OAUTH2 providers
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
+#### [Microsoft Account](active-directory-b2c-custom-setup-msa-idp.md)
+#### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
 ### Configure SAML providers
+#### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrate RESTful APIs
 #### [Validate user input](active-directory-b2c-rest-api-validation-custom.md)
@@ -72,8 +75,9 @@
 #### [Collect logs using Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Reference
 ### [Release notes](active-directory-b2c-developer-notes-custom.md)
-
+### [Trust Framework definition](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glossary
 ### [Types of applications](active-directory-b2c-apps.md)
 ### [Authentication protocols](active-directory-b2c-reference-protocols.md)
@@ -82,6 +86,7 @@
 ## [Enable billing](active-directory-b2c-how-to-enable-billing.md)
 ## [Threat management](active-directory-b2c-reference-threat-management.md)
 ## [Issues when creating a directory](active-directory-b2c-support-create-directory.md)
+## [Extensions app](active-directory-b2c-reference-extensions-app.md)
 
 # Related
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
@@ -89,9 +94,10 @@
 
 # Resources
 ## [Azure AD B2C feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Frequently asked questions](active-directory-b2c-faqs.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 ## [Support](active-directory-b2c-support.md)

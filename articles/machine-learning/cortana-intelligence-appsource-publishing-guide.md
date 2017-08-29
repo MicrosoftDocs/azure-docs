@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 07/06/2017
 ms.author: anupams;v-bruham;garye
 --- 
 # Cortana Intelligence AppSource publishing guide
@@ -25,11 +25,13 @@ As a Microsoft Partner, you can really benefit from publishing on AppSource if y
 - Your solution or app addresses a specific business problem.
 - You built modules or intellectual property that your customers can reuse relatively quickly in a predictable manner.
 
+Take a look at [Cortana Intelligence solutions](https://appsource.microsoft.com/en-us/marketplace/apps?product=cortana-intelligence&page=1) that are already published on AppSource. 
+
 This article will walk through the steps to get a partner's Cortana Intelligence solution published to AppSource
 
 ## Getting started
 1. In the [Partner Community Benefits Guide](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Partner%20Community%20Benefits%20Guide%20-%20Cloud%20and%20Enterprise.pdf) (PDF), see page 9 to get listed as an Advanced Analytics partner.
-1. Complete the [Submit your app](https://appsource.microsoft.com/en-us/) form.
+1. Complete the [Submit your app](https://appsource.microsoft.com/en-us/partners/list-an-app) form.
 
     For the question *“Choose the products that your app is built for*”, check the **Other** checkbox and list “Cortana Intelligence” in the edit control.
 1. Before a Cortana Intelligence app can get onboarded to AppSource, it must get certified by Cortana Intelligence’s Partner Solution Technology team. To get that process started, kindly share details about your app by filling in survey form at [Cortana Intelligence solution evaluation for AppSource publishing](https://aka.ms/cisappsrceval). This site is password protected and the site has instructions on how to get the password.
@@ -58,7 +60,7 @@ Here is the list of criteria the app needs to meet
 1. Use Power BI in your solution: Optional but highly recommended as it is proven to generate higher number of leads.
 
 ## DevCenter account setup
-This is the process of registering your company to become a publisher with Microsoft. If you are already a registered publisher with an existing DevCenter account, share the email ID associated with your DevCenter account. 
+This is the process of registering your company to become a publisher with Microsoft. If you are already a registered publisher with an existing DevCenter account, share the email ID associated with your DevCenter account. Once your application is approved for publishing, you will get access to full documentation about [Cloud Portal Manage publisher profile](https://cloudpartner.azure.com/#documentation/manage-publisher-profile)
 
 If you don't have one, below are the key steps to setup a DevCenter account.
 1. Create a Microsoft account [here](https://signup.live.com/signup.aspx).

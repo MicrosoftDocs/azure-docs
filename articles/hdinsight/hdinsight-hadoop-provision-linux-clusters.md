@@ -56,7 +56,7 @@ Follow instructions on the screen to do a basic cluster setup. Details are provi
 * [Location](#location)
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 retirement](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 retirement](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 
 ## Resource group name 
@@ -125,6 +125,9 @@ Although an on-premises installation of Hadoop uses the Hadoop Distributed File 
 During configuration, for the default storage endpoint you specify a blob container of an Azure Storage account or a Data Lake Store. The default storage contains application and system logs. Optionally, you can specify additional linked Azure Storage accounts and Data Lake Store accounts that the cluster can access. The HDInsight cluster and the dependent storage accounts must be in the same Azure location.
 
 ![Cluster storage settings: HDFS-compatible storage endpoints](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
+
+[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
 
 ### Optional metastores
 You can create optional Hive or Oozie metastores. However, not all cluster types support metastores, and Azure SQL Data Warehouse isn't compatible with metastores. 

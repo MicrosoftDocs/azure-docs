@@ -79,7 +79,7 @@ WITH
 -- It should look something like this:
 CREATE DATABASE SCOPED CREDENTIAL ADLCredential
 WITH
-    IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.windows.net/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
+    IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
     SECRET = 'BjdIlmtKp4Fpyh9hIvr8HJlUida/seM5kQ3EpLAmeDI='
 ;
 ```

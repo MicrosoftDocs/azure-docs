@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 07/20/2017
 ms.author: spelluru
 
 ---
@@ -171,7 +171,7 @@ write-host "Storage Account Key: $destStorageAccountKey"
 Write-host "`nScript completed" -ForegroundColor Green
 ```
 
-If you need help with the PowerShell script, see [Using the Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md). If you like to use Azure CLI instead, see the [Appendix](#appendix) section for the Azure CLI script.
+If you need help with the PowerShell script, see [Using the Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md). If you like to use Azure CLI instead, see the [Appendix](#appendix) section for the Azure CLI script.
 
 **To examine the storage account and the contents**
 
@@ -308,12 +308,12 @@ In the on-demand HDInsight linked service definition, you specify values for con
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "osType": "linux",
-            "version": "3.2",
+            "version": "3.5",
             "clusterSize": 1,
+            "timeToLive": "00:05:00",
+            "osType": "Linux",
             "sshUserName": "myuser",                            
             "sshPassword": "MyPassword!",
-            "timeToLive": "00:30:00",
             "linkedServiceName": "[variables('storageLinkedServiceName')]"
         }
     }
@@ -546,12 +546,12 @@ In case you don't want to delete the storage account when you delete the resourc
         "properties": {
             "type": "HDInsightOnDemand",
             "typeProperties": {
-                "osType": "linux",
-                "version": "3.2",
-                "clusterSize": 1,
+            	"version": "3.5",
+	            "clusterSize": 1,
+    	        "timeToLive": "00:05:00",
+    	        "osType": "Linux",
                 "sshUserName": "myuser",                            
                 "sshPassword": "MyPassword!",
-                "timeToLive": "00:30:00",
                 "linkedServiceName": "[variables('storageLinkedServiceName')]",
                 "additionalLinkedServiceNames": "[variables('defaultStorageLinkedServiceName')]"
             }
@@ -591,4 +591,4 @@ azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adf
 azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
 ```
 
-The container name is *adfgetstarted*. Keep it as it is. Otherwise you need to update the Resource Manager template. If you need help with this CLI script, see [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md).
+The container name is *adfgetstarted*. Keep it as it is. Otherwise you need to update the Resource Manager template. If you need help with this CLI script, see [Using the Azure CLI with Azure Storage](../storage/common/storage-azure-cli.md).

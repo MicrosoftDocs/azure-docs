@@ -111,7 +111,7 @@ Login-AzureRmAccount
 $tenantId =  #your AAD tenant ID
 $subscriptionId = #Azure SubscriptionID
 $uri = #AAD uri
-$authUrl = "https://login.windows.net/$tenantId"
+$authUrl = "https://login.microsoftonline.com/$tenantId"
 $serverName = #sqldb server name 
 $resourceGroupName=#sqldb resource group
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl

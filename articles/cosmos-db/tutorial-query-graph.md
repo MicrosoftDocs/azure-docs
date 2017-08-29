@@ -3,7 +3,7 @@ title: How to query graph data in Azure Cosmos DB? | Microsoft Docs
 description: Learn to query graph data in Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
+author: dennyglee
 manager: jhubbard
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/10/2017
-ms.author: mimig
+ms.author: denlee
 
 ---
 

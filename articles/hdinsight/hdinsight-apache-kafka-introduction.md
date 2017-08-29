@@ -37,7 +37,7 @@ Kafka provides the following features:
 
 * Integration with Azure Managed Disks: Managed disks provides higher scale and throughput for the disks used by the virtual machines in the HDInsight cluster.
 
-    Managed disks are enabled by default for Kafka on HDInsight, and the number of disks used per node can be configured during HDInsight creation. For more information on managed disks, see [Azure Managed Disks](../storage/storage-managed-disks-overview.md).
+    Managed disks are enabled by default for Kafka on HDInsight, and the number of disks used per node can be configured during HDInsight creation. For more information on managed disks, see [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
     For information on configuring managed disks with Kafka on HDInsight, see [Increase scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md).
 

@@ -4,7 +4,7 @@ description: Learn how to programmatically monitor Stream Analytics jobs created
 keywords: .net monitor, job monitor, monitoring app
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Programmatically create a Stream Analytics job monitor
@@ -48,7 +48,7 @@ Before you begin this process, you must have the following:
      <add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
      <add key="JobName" value="YOUR JOB NAME" />
      <add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
-     <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+     <add key="ActiveDirectoryEndpoint" value="https://login.microsoftonline.com/" />
      <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
      <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
      <add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
@@ -172,7 +172,7 @@ The following code enables monitoring for an **existing** Stream Analytics job. 
 
 ## Get support
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 

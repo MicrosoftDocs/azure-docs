@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 07/21/2017
 ms.author: jeedes
+ms.reviewer: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with ServiceNow
@@ -225,7 +226,7 @@ This link relationship is established by assigning the value of the **user name*
 
     k. Deselect **Create an AuthnContextClass**.
 
-    l. In the **AuthnContextClassRef Method**, type `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`. This is only needed if you are cloud only organization. If you are using on premise ADFS or MFA for authentication then you should not configure this value. 
+    l. In the **AuthnContextClassRef Method**, type `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`. This is only needed if you are cloud only organization. If you are using on-premises ADFS or MFA for authentication then you should not configure this value. 
 
     m. In **Clock Skew** textbox, type **60**.
 

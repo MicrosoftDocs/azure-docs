@@ -334,7 +334,7 @@ The following Azure Resource Manager template creates a Linux-based Hadoop clust
                 "name": "[concat(variables('clusterStorageAccountName'),'.blob.core.windows.net')]",
                 "isDefault": true,
                 "container": "[parameters('clusterName')]",
-                "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('clusterStorageAccountName')), variables('defaultApiVersion')).key1]"
+                "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('clusterStorageAccountName')), variables('defaultApiVersion')).keys[0].value]"
                 }
             ]
             },
@@ -450,8 +450,23 @@ If you set any one parameter in a section as part of the template itself, HDInsi
             }
         }
     },
+    "variables": {
+        "defaultApiVersion": "2017-06-01",
+        "clusterStorageAccountName": "[concat(parameters('clusterName'),'store')]"
+    },
     "resources": [
         {
+        "name": "[variables('clusterStorageAccountName')]",
+        "type": "Microsoft.Storage/storageAccounts",
+        "location": "[parameters('location')]",
+        "apiVersion": "[variables('defaultApiVersion')]",
+        "dependsOn": [ ],
+        "tags": { },
+        "properties": {
+            "accountType": "Standard_LRS"
+        }
+        },
+	{
             "apiVersion": "2015-03-01-preview",
             "name": "[parameters('clusterName')]",
             "type": "Microsoft.HDInsight/clusters",
@@ -483,7 +498,7 @@ If you set any one parameter in a section as part of the template itself, HDInsi
                             "name": "[concat(variables('clusterStorageAccountName'),'.blob.core.windows.net')]",
                             "isDefault": true,
                             "container": "[parameters('clusterName')]",
-                            "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('clusterStorageAccountName')), variables('defaultApiVersion')).key1]"
+                            "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('clusterStorageAccountName')), variables('defaultApiVersion')).keys[0].value]"
                         }
                     ]
                 },

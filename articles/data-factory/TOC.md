@@ -29,6 +29,7 @@
 ### [Data Factory Copy Wizard](data-factory-azure-copy-wizard.md)
 #### [Load 1 TB in 15 minutes](data-factory-load-sql-data-warehouse.md)
 ### [Performance and tuning guide](data-factory-copy-activity-performance.md)
+### [Fault tolerance](data-factory-copy-activity-fault-tolerance.md)
 ### [Security considerations](data-factory-data-movement-security-considerations.md)
 ### Connectors
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
@@ -60,7 +61,10 @@
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Web table](data-factory-web-table-connector.md)
-### [Data Management Gateway](data-factory-data-management-gateway.md)
+### Data Management Gateway
+#### [Overview](data-factory-data-management-gateway.md)
+#### [High availability and scalability (Preview)](data-factory-data-management-gateway-high-availability-scalability.md)
+#### [Walkthrough: Move data from an on-premises SQL Server to Azure Blob Storage](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## [Transform Data](data-factory-data-transformation-activities.md)
@@ -92,6 +96,7 @@
 ### [Troubleshoot issues with using Data Management Gateway](data-factory-troubleshoot-gateway-issues.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory)
 ## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
@@ -103,6 +108,7 @@
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [Pricing](https://azure.microsoft.com/pricing/details/data-factory/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Release notes for Data Management Gateway](data-factory-gateway-release-notes.md)
 ## [Request a feature](https://feedback.azure.com/forums/270578-azure-data-factory)
 ## [Service updates](https://azure.microsoft.com/updates/?product=data-factory)

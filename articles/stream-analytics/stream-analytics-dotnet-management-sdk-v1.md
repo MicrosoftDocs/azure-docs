@@ -4,7 +4,7 @@ description: Get started with Stream Analytics Management .NET SDK. Learn how to
 keywords: .net SDK, analytics API
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/06/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Management .NET SDK v1.x: Set up and run analytics jobs using the Azure Stream Analytics API for .NET
@@ -62,7 +62,7 @@ To create an analytics job use the Stream Analytics API for .NET, first set up y
    
         <appSettings>
           <!--CSM Prod related values-->
-          <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+          <add key="ActiveDirectoryEndpoint" value="https://login.microsoftonline.com/" />
           <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
           <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
           <add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
@@ -298,7 +298,7 @@ The **Delete** method will delete the job as well as the underlying sub-resource
     LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
 ## Get support
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 You've learned the basics of using a .NET SDK to create and run analytics jobs. To learn more, see the following:

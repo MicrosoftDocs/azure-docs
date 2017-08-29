@@ -2,10 +2,8 @@
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
 > * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
-> 
-> 
+> * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
 
-## Introduction
 Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it.
 
 Use device twins to:
@@ -17,8 +15,6 @@ Use device twins to:
 
 > [!NOTE]
 > Device twins are designed for synchronization and for querying device configurations and conditions. More informations on when to use device twins can be found in [Understand device twins][lnk-twins].
-> 
-> 
 
 Device twins are stored in an IoT hub and contain:
 
@@ -33,8 +29,6 @@ Refer to [Understand device twins][lnk-twins] for more information about device 
 
 > [!NOTE]
 > At this time, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol. Please refer to the [MQTT support][lnk-devguide-mqtt] article for instructions on how to convert existing device app to use MQTT.
-> 
-> 
 
 This tutorial shows you how to:
 

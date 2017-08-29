@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 08/25/2017
 ms.author: tomfitz
 
 ---
@@ -107,7 +107,7 @@ For now, the services that enable moving to both a new resource group and subscr
 * Service Fabric
 * Storage
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
-* Stream Analytics
+* Stream Analytics - Stream Analytics jobs cannot be moved when in running state.
 * SQL Database server - The database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved.
 * Traffic Manager
 * Virtual Machines
@@ -123,6 +123,7 @@ redis resource is deployed into this subnet.
 ## Services that do not enable move
 The services that currently do not enable moving a resource are:
 
+* AD Domain Services
 * AD Hybrid Health Service
 * Application Gateway
 * Availability sets with Virtual Machines with Managed Disks

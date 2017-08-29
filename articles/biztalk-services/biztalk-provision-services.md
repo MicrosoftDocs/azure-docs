@@ -26,7 +26,7 @@ ms.author: mandia
 > To sign in to the Azure portal, you need an Azure account and Azure subscription. If you don't have an account, you can create a free trial account within a few minutes. See [Azure Free Trial](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
-## Create a BizTalk Service
+## <a name="CreateService"></a>Create a BizTalk Service
 Depending on the Edition you choose, not all BizTalk Service settings may be available.
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -232,13 +232,14 @@ When an Azure BizTalk Service is created, an HTTPS URL that includes your BizTal
 
 <ul>
 <li><strong>Enhanced Key Usage</strong>: At a minimum, Azure BizTalk Services requires Server Authentication.</li>
-<li><strong>Common Name</strong>: Enter the fully qualified domain name (FQDN) of your Azure BizTalk Service URL. See <a HREF="#BizTalk">Create a BizTalk Service</a> in this article.</li>
+<li><strong>Common Name</strong>: Enter the fully qualified domain name (FQDN) of your Azure BizTalk Service URL. See <a HREF="#CreateService">Create a BizTalk Service</a> in this article.</li>
 </ul>
 <br/>
 A new or different certificate can be added after the BizTalk Service is created.
 </td>
 </tr>
 </table>
+<!---Loc Comment: Please, check link [Create a BizTalk Service] since it is not redirecting to any location.--->
 
 
 

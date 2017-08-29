@@ -4,7 +4,7 @@ description: Use the Web Apps feature of Microsoft Azure App Service to visualiz
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'real time data visualization, live data visualization, sensor data visualization'
 
@@ -14,7 +14,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/16/2017
 ms.author: xshi
 
 ---
@@ -79,7 +79,7 @@ On GitHub, we've made available a web application that displays real-time sensor
 
    ![Configure your web app deployment to use the local Git repository](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
-2. Click **Deployment Credentials**, create a user name and password to use to connect to the Git repository in Azure, and then click **OK**.
+2. Click **Deployment Credentials**, create a user name and password to use to connect to the Git repository in Azure, and then click **Save**.
 
 3. Click **Overview**, and note the value of **Git clone url**.
 
@@ -108,6 +108,9 @@ On the **Overview** page of your web app, click the URL to open the web app.
 You should see the real-time temperature and humidity data from your IoT hub.
 
 ![Web app page showing real-time temperature and humidity](media/iot-hub-live-data-visualization-in-web-apps/9_web-app-page-show-real-time-temperature-humidity-azure.png)
+
+> [!NOTE]
+> Ensure the sample application is running on your device. If not, you will get a blank chart, you can refer to the tutorials under [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md).
 
 ## Next steps
 You've successfully used your web app to visualize real-time sensor data from your IoT hub.

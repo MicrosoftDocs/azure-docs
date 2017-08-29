@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitor your app's health and usage with Application Insights
 description: Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2015
-ms.author: cfreeman
+ms.author: bwren
 
 ---
 # Monitor performance in web applications
@@ -21,7 +21,7 @@ ms.author: cfreeman
 
 Make sure your application is performing well, and find out quickly about any failures. [Application Insights][start] will tell you about any performance issues and exceptions, and help you find and diagnose the root causes.
 
-Application Insights can monitor both Java and ASP.NET web applications and services, WCF services. They can be hosted on-premise, on virtual machines, or as Microsoft Azure websites. 
+Application Insights can monitor both Java and ASP.NET web applications and services, WCF services. They can be hosted on-premises, on virtual machines, or as Microsoft Azure websites. 
 
 On the client side, Application Insights can take telemetry from web pages and a wide variety of devices including iOS, Android and Windows Store apps.
 

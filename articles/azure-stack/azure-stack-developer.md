@@ -1,6 +1,6 @@
 ---
 title: Develop apps for Azure Stack | Microsoft Docs
-description: Learn development considerations for prototyping Azure Stack apps
+description: Learn development considerations in prototyping applications on Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: HeathL17
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 07/10/2017
 ms.author: helaw
 
 ---

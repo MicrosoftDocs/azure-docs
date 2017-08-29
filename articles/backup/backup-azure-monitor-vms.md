@@ -190,7 +190,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 Event-based alerts are subject to the following limitations:
 
 1. Alerts are triggered on all virtual machines in the Recovery Services vault. You cannot customize the alert for a subset of virtual machines in a Recovery Services vault.
-2. This feature is in Preview. [Learn more](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
+2. This feature is in Preview. [Learn more](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. Alerts are sent from "alerts-noreply@mail.windowsazure.com". Currently you can't modify the email sender.
 
 ## Next steps

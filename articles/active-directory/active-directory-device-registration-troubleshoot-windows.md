@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: jairoc
 
 ---
 # Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016

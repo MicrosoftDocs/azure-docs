@@ -30,19 +30,20 @@ To leverage this transform functionality, you create an ApplicationHost.xdt file
 
 The following applicationHost.xdt sample shows how to add a new custom environment variable to a web app that uses PHP 5.4.
 
-    <?xml version="1.0"?>
-    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-          <system.webServer>
-                <fastCgi>
-                      <application>
-                         <environmentVariables>
-                                <environmentVariable name="CONFIGTEST" value="TEST" xdt:Transform="Insert" xdt:Locator="XPath(/configuration/system.webServer/fastCgi/application[contains(@fullPath,'5.4')]/environmentVariables)" />
-                         </environmentVariables>
-                      </application>
-                </fastCgi>
-          </system.webServer>
-    </configuration>
-
+```xml
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.webServer>
+    <fastCgi>
+      <application>
+        <environmentVariables>
+          <environmentVariable name="CONFIGTEST" value="TEST" xdt:Transform="Insert" xdt:Locator="XPath(/configuration/system.webServer/fastCgi/application[contains(@fullPath,'5.4')]/environmentVariables)" />
+        </environmentVariables>
+      </application>
+    </fastCgi>
+  </system.webServer>
+</configuration>
+```
 
 A log file with transform status and details is available from the FTP root under LogFiles\Transform.
 
@@ -81,19 +82,21 @@ The PHP Manager extension was created using the Visual Studio ASP.NET MVC 4 Web 
 
 The only special logic needed for file I/O is to indicate where the wwwroot directory of the web app is located. As the following code example shows, the environment variable "HOME" indicates the web app's root path, and the wwwroot path can be constructed by appending "site\wwwroot":
 
-    /// <summary>
-    /// Gives the location of the .user.ini file, even if one doesn't exist yet
-    /// </summary>
-    private static string GetUserSettingsFilePath()
-    {
-            var rootPath = Environment.GetEnvironmentVariable("HOME"); // For use on Azure Websites
-            if (rootPath == null)
-            {
-                rootPath = System.IO.Path.GetTempPath(); // For testing purposes
-            };
-            var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
-            return userSettingsFile;
-    }
+```csharp
+/// <summary>
+/// Gives the location of the .user.ini file, even if one doesn't exist yet
+/// </summary>
+private static string GetUserSettingsFilePath()
+{
+  var rootPath = Environment.GetEnvironmentVariable("HOME"); // For use on Azure Websites
+  if (rootPath == null)
+  {
+    rootPath = System.IO.Path.GetTempPath(); // For testing purposes
+  };
+  var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
+  return userSettingsFile;
+}
+```
 
 
 After you have the directory path, you can use regular file I/O operations to read and write to files.
@@ -113,46 +116,51 @@ The code for your web app extension goes under %HOME%\SiteExtensions\[your-exten
 
 To register your web app extension with the applicationHost.config file, you need to place a file called ApplicationHost.xdt in the extension root. The content of the ApplicationHost.xdt file should be as follows:
 
-    <?xml version="1.0"?>
-    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-          <system.applicationHost>
-                <sites>
-                      <site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
-                        <!-- NOTE: Add your extension name in the application paths below -->
-                        <application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
-                        <application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
-                              <virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
-                        </application>
-                      </site>
-                </sites>
-          </system.applicationHost>
-    </configuration>
+```xml
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.applicationHost>
+    <sites>
+      <site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
+        <!-- NOTE: Add your extension name in the application paths below -->
+        <application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
+        <application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
+          <virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
+        </application>
+      </site>
+    </sites>
+  </system.applicationHost>
+</configuration>
+```
 
 The name you select as your extension name should have the same name as your extension root folder.
 
 This has the effect of adding a new application path to the `system.applicationHost` sites list under the SCM site. The SCM site is a site administration end point with specific access credentials. It has the URL `https://[your-site-name].scm.azurewebsites.net`.  
 
-    <system.applicationHost>
-          ...
-          <site name="~1[your-website]" id="1716402716">
-                  <bindings>
-                    <binding protocol="http" bindingInformation="*:80: [your-website].scm.azurewebsites.net" />
-                    <binding protocol="https" bindingInformation="*:443: [your-website].scm.azurewebsites.net" />
-                  </bindings>
-                  <traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
-                  <detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
-                  <logFile logSiteId="false" />
-                  <application path="/" applicationPool="[your-website]">
-                    <virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
-                  </application>
-                <!-- Note the custom changes that go here -->
-                  <application path="/[your-extension-name]" applicationPool="[your-website]">
-                    <virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
-                  </application>
-            </site>
-      </sites>
-      ...
-    </system.applicationHost>
+```xml
+<system.applicationHost>
+  ...       
+  <sites>
+    <site name="~1[your-website]" id="1716402716">
+      <bindings>
+        <binding protocol="http" bindingInformation="*:80: [your-website].scm.azurewebsites.net" />
+        <binding protocol="https" bindingInformation="*:443: [your-website].scm.azurewebsites.net" />
+      </bindings>
+      <traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
+      <detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
+      <logFile logSiteId="false" />
+      <application path="/" applicationPool="[your-website]">
+        <virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
+      </application>
+      <!-- Note the custom changes that go here -->
+      <application path="/[your-extension-name]" applicationPool="[your-website]">
+        <virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
+      </application>
+    </site>
+  </sites>
+  ... 
+</system.applicationHost>
+```
 
 ### <a id="deploy"></a> Web app extension deployment
 To install your web app extension, you can use FTP to copy all the files of your web application to the `\SiteExtensions\[your-extension-name]` folder of the web app on which you want to install the extension.  Be sure to copy the ApplicationHost.xdt file to this location as well. Restart your web app to enable the extension.
