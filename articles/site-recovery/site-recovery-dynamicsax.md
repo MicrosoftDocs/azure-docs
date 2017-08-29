@@ -24,7 +24,7 @@ ms.author: asgang
 
  Dynamics AX is one of the most popular ERP solutions used by enterprises to standardize processes across locations, manage resources, and simplify compliance. Because the application is critical to an organization, in the event of a disaster, the application should be up and running in minimum time.
 
-Today, Dynamics AX doesn't provide any out-of-the-box disaster recovery capabilities. Dynamics AX consists of many server components, such as Windows Application Object Server, Azure Active Directory, Azure SQL Database, SharePoint Server, Reporting Services, etc. To manage the disaster recovery of each of these components manually is not only expensive but also error prone.
+Today, Dynamics AX doesn't provide any out-of-the-box disaster recovery capabilities. Dynamics AX consists of many server components, such as Windows Application Object Server, Azure Active Directory, Azure SQL Database, SharePoint Server, and Reporting Services. To manage the disaster recovery of each of these components manually is not only expensive but also error prone.
 
 This article explains how you can create a disaster recovery solution for your Dynamics AX application by using [Azure Site Recovery](site-recovery-overview.md). It also covers planned/unplanned test failovers by using a one-click recovery plan, supported configurations, and prerequisites.
 
@@ -94,7 +94,7 @@ You can select the VM in the replicated items to configure the network settings,
 
 * For Application Object Server servers, select the correct availability set.
 
-* If you're using a static IP, specify the IP that you want the VM to take in the **Target IP** field.
+* If you're using a static IP, specify the IP that you want the VM to take in the **Target IP** text box.
 
     ![Network settings ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png).
 
