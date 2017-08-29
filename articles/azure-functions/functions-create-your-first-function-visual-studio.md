@@ -5,7 +5,7 @@ description: Create and publish a simple HTTP triggered function to Azure by usi
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, compute, serverless architecture
