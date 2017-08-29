@@ -22,19 +22,21 @@ In the previous tutorial, you learned how to set up the Azure IoT DPS to automat
 > [!div class="checklist"]
 > * Select a Hardware Security Module
 > * Implement security mechanism
-> * Extract the security artefacts
+> * Extract the security artifacts
 > * Set up DPS configuration on the device
 
 
 ## Select a Hardware Security Module
 
-[Azure IoT DPS client SDK](https://github.com/Azure/azure-iot-device-auth/tree/master/dps_client) provides support for 2 types of Hardware Security Modules: 
+[Azure IoT DPS client SDK](https://github.com/Azure/azure-iot-device-auth/tree/master/dps_client) provides support for two types of Hardware Security Modules: 
 
-- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module) - This is an established standard for most Windows based device platforms, as well as a few Linux/Ubuntu based devices. As a device manufacturer, you may choose this if you have either of these OSes running on your devices, and if you are looking for an established standard for HSMs. Be aware that with TPM chips in your devices, you can only enroll each device individually in DPS via the portal. For development purposes, you can use the TPM simulator on your Windows or Linux development machine.
+- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module).
+    - TPM is an established standard for most Windows-based device platforms, as well as a few Linux/Ubuntu based devices. As a device manufacturer, you may choose this HSM if you have either of these OSes running on your devices, and if you are looking for an established standard for HSMs. With TPM chips, you can only enroll each device individually in DPS via the portal. For development purposes, you can use the TPM simulator on your Windows or Linux development machine.
 
-- X.509 based hardware security modules - These are relatively newer hardware security modules, with work currently progressing within Microsoft on RIoT or DICE chips which implement the X.509 certificates. With X.509 chips, you can do bulk enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the DPS client SDK supports an X.509 device simulator. 
+- X.509 based hardware security modules. 
+    - X.509 based HSMs are relatively newer chips, with work currently progressing within Microsoft on RIoT or DICE chips, which implement the X.509 certificates. With X.509 chips, you can do bulk enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the DPS client SDK supports an X.509 device simulator. 
 
-As a device manufacturer, you need to select hardware security modules/chips that are based on either one of the above types. Other types of HSMs are not currently supported in the DPS client SDK.   
+As a device manufacturer, you need to select hardware security modules/chips that are based on either one of the preceding types. Other types of HSMs are not currently supported in the DPS client SDK.   
 
 
 ## Implement security mechanism
@@ -60,11 +62,11 @@ The Azure DPS Client SDK helps implement the selected security mechanism in soft
         ```
 
 
-## Extract the security artefacts
+## Extract the security artifacts
 
-Once you build the SDK for your selected HSM, make sure the following functions are implemented for your HSM chip. The interface for these APIs are found in the github repo folder `dps_client\adapters`.
+Once you build the SDK for your selected HSM, make sure the following functions are implemented for your HSM chip. The interface for these APIs is found in the github repo folder `dps_client\adapters`.
 
-- For TPM based chips: 
+- For TPM-based chips: 
    
     ```c
     SEC_DEVICE_HANDLE secure_dev_tpm_create();
@@ -75,9 +77,9 @@ Once you build the SDK for your selected HSM, make sure the following functions 
     BUFFER_HANDLE secure_dev_tpm_sign_data(SEC_DEVICE_HANDLE handle, const unsigned char* data, size data_len); // Hash the supplied data using the imported device key to be used in the SAS Token.
     Const SEC_TPM_INTERFACE* secure_dev_tpm_interface();
     ```
-  The SDK built for TPM simulator will have default implementations for the same.
+  The SDK built for TPM simulator has default implementations for the same.
 
-- For X.509 based chips: 
+- For X.509-based chips: 
 
     ```c
     SEC_DEVICE_HANDLE secure_dev_riot_create();
@@ -88,9 +90,9 @@ Once you build the SDK for your selected HSM, make sure the following functions 
     char* secure_dev_riot_get_common_name(SEC_DEVICE_HANDLE handle);// Returns the common name of the certificate
     const SEC_RIOT_INTERFACE* secure_device_riot_interface();
     ```
-  The SDK built for X.509 flow will have default implementations for the X.509 simulator.
+  The SDK built for X.509 flow has default implementations for the X.509 simulator.
 
-These APIs interact with your chip to extract the security artefacts from the device after it boots. The DPS Client SDK uses these security artefacts for verifying registration with the DPS service.
+These APIs interact with your chip to extract the security artifacts from the device after it boots. The DPS Client SDK uses these security artifacts for verifying registration with the DPS service.
 
 
 ## Set up DPS configuration on the device
@@ -147,12 +149,12 @@ At this point, you might have set up the DPS and IoT Hub services in the portal.
 
 
 ## Next steps
-In this tutorial, you learned the following:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Select a Hardware Security Module
 > * Implement security mechanism
-> * Extract the security artefacts
+> * Extract the security artifacts
 > * Set up DPS configuration on the device
 
 Advance to the next tutorial to learn how to provision the device to your IoT hub by enrolling it to IoT DPS for auto-provisioning.
