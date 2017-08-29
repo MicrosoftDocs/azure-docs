@@ -63,7 +63,7 @@ No, usage data for some Azure Stack resource provider virtual machines and infra
 Users are only charged for virtual machines that are created under user subscriptions. So, all workloads must be deployed under user subscriptions to comply with the Azure Stack licensing terms.
 
 ## How do I use my existing Windows Server licenses in Azure Stack? 
-Existing Windows Server licenses can be used in Azure Stack. Using the licenses that you already own avoids generating additional usage meters. To use your existing licenses, you need to deploy the Windows Server virtual machines as described in the [Hybrid benefit for Windows Server license topic](). 
+Existing Windows Server licenses can be used in Azure Stack, this model is referred to as BYOL(Bring Your Own License). Using the licenses that you already own avoids generating additional usage meters. To use your existing licenses, you need to deploy the Windows Server virtual machines as described in the [Hybrid benefit for Windows Server license](../virtual-machines/windows/hybrid-use-benefit-licensing.md) topic. 
 
 ## What Azure meters are used when reporting usage data in integrated systems?
 * **Full price meters** – used for resources associated with user workloads.  
