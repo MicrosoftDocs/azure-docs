@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2017
+ms.date: 08/27/2017
 ms.author: bwren
 
 ---
@@ -29,6 +29,9 @@ No, your alert rules are automatically converted to the new search language duri
 
 
 ## Computer groups
+
+### Question: I'm getting errors when trying to use computer groups.  Has their syntax changed?
+Yes, the syntax for using computer groups changes when your workspace is upgraded.  See [Computer groups in Log Analytics log searches](log-analytics-computer-groups.md) for details.
 
 ### Known issue: Groups imported from Active Directory
 You cannot currently create a query that uses a computer group imported from Active Directory.  As a workaround until this issue is corrected, create a new computer group using the imported Active Directory group and then use that new group in your query.
@@ -116,11 +119,13 @@ Yes.  You must use an API version of 2017-03-15-preview and include a **features
 All solutions will continue to work in an upgraded workspace, although their performance will improve if they are converted to the new query language.  There are known issues with some existing solutions that are described in this section.
 
 ### Known issue: Capacity and Performance solution
-Some of the parts in the Capacity and Performance view may be empty.  A fix to this issue will be available shortly.
+Some of the parts in the [Capacity and Performance](log-analytics-capacity.md) view may be empty.  A fix to this issue will be available shortly.
 
 ### Known issue: Device Health solution
-This solution will not collect data in an upgraded workspace.  A fix to this issue will be available shortly.
+The [Device Health solution](https://docs.microsoft.com/windows/deployment/update/device-health-monitor) will not collect data in an upgraded workspace.  A fix to this issue will be available shortly.
 
+### Known issue: Application Insights connector
+Perspectives in [Application Insights Connector solution](log-analytics-app-insights-connector.md) are currently not supported in an upgraded workspace.  A fix to this issue is currently under analysis.
 
 ## Upgrade process
 

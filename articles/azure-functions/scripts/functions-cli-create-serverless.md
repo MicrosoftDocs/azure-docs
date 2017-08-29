@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Create a Function App for serverless exec
 services: functions
 documentationcenter: functions
 author: syntaxc4
-manager: erikre
+manager: cfowler
 editor: 
 tags: azure-service-management
 
