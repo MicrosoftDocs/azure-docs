@@ -50,12 +50,12 @@ The webhook expects a signing key (credential) to match the one you pass when yo
 
 In the webhook definition code that follows, the **VerifyWebHookRequestSignature** method does the verification of the notification message. The purpose of this validation is to ensure that the message was sent by Azure Media Services and hasn't been tampered with. The signature is optional for Azure functions as it has the **Code** value as a query parameter over Transport Layer Security (TLS). 
 
-## Create a function app
+### Create a function app
 
 1. Go to the [Azure portal](http://portal.azure.com) and sign-in with your Azure account.
 2. Create a function app as described [here](../azure-functions/functions-create-function-app-portal.md).
 
-## Configure function app settings
+### Configure function app settings
 
 When developing Media Services functions, it is handy to add environment variables that will be used throughout your functions. To configure app settings, click the Configure App Settings link. 
 
@@ -66,7 +66,7 @@ The [application settings](media-services-dotnet-how-to-use-azure-functions.md#c
 |SigningKey |A signing key.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | A webhook endpoint address. Once your webhook function is created, you can copy the URL from the **Get function URL** link. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
-## Create a function
+### Create a function
 
 Once your function app is deployed, you can find it among **App Services** Azure Functions.
 
@@ -75,13 +75,13 @@ Once your function app is deployed, you can find it among **App Services** Azure
 3. Select **Generic Webhook - C#**.
 4. Name your webhook and press **Create**.
 
-## Files
+### Files
 
 Your Azure function is associated with code files and other files that are described in this section. By default, a function is associated with **function.json** and **run.csx** (C#) files. You will need to add a **project.json** file. The rest of this section shows the definitions for these files.
 
 ![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
-### function.json
+#### function.json
 
 The function.json file defines the function bindings and other configuration settings. The runtime uses this file to determine the events to monitor and how to pass data into and return data from function execution. 
 
@@ -104,7 +104,7 @@ The function.json file defines the function bindings and other configuration set
 }
 ```
 
-### project.json
+#### project.json
 
 The project.json file contains dependencies. 
 
@@ -123,7 +123,7 @@ The project.json file contains dependencies.
 }
 ```
 	
-### run.csx
+#### run.csx
 
 The following C# code shows a definition of an Azure function that is a webhook. The function listens for the webhook call back from Media Services notifications and publishes the output asset once the job finishes. 
 
@@ -348,7 +348,7 @@ Save and run your function.
 
 ### Function output
 
-Once the webhook is triggered, the example above produced the following output, your values will vary.
+Once the webhook is triggered, the example above produces the following output, your values will vary.
 
 	C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
 	Request Body = {
@@ -380,6 +380,7 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
 	* Azure Media Services connection information, 
 	* webhook URL that expects to get the notifications, 
 	* the signing key that matches the key that your webhook expects. The signing key is the 64-byte Base64 encoded value that is used to protect and secure your WebHooks callbacks from Azure Media Services. 
+
 ```
 <appSettings>
   <add key="AMSAADTenantDomain" value="domain" />
@@ -392,6 +393,7 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
   <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
 </appSettings>
 ```
+
 4. Update your Program.cs file with the following code:
 
 ```
