@@ -23,7 +23,6 @@
   items:
   - name: Deploy apps to Azure & Azure Stack
     href: azure-stack-solution-pipeline.md
-- name: Concepts
 - name: How-to guides
   items:
   - name: Use the portal
