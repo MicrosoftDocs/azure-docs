@@ -57,7 +57,7 @@ We recommend that you also create an Apache Spark cluster in Azure HDInsight tha
 2. From the Ambari UI, select **Hosts**.
 
     ![Select Hosts in Ambari](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely-through-vpn/ambari-hosts.png)
-3. You see a list of head nodes, worker nodes, and zookeeper nodes. The head nodes have a **hn*** prefix. Select the first head node.
+3. You see a list of head nodes, worker nodes, and zookeeper nodes. The head nodes have an **hn*** prefix. Select the first head node.
 
     ![Find the head node in Ambari](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely-through-vpn/cluster-headnodes.png)
 4. From the **Summary** pane at the bottom of the page that opens, copy the **IP Address** of the head node and the **Hostname**.
@@ -80,7 +80,6 @@ We recommend that you also create an Apache Spark cluster in Azure HDInsight tha
 7. Use SSH to connect to the cluster head node by following the instructions in [Connect to an HDInsight cluster using SSH](hdinsight-hadoop-linux-use-ssh-unix.md). From the cluster head node, ping the IP address of the desktop computer. Test the connectivity to both IP addresses assigned to the computer:
 
     - One for the network connection
-
     - One for the Azure virtual network
 
 8. Repeat the steps for the other head node.
@@ -100,9 +99,8 @@ We recommend that you also create an Apache Spark cluster in Azure HDInsight tha
     - In the **Project SDK** drop-down list, select **Java 1.8** for the Spark 2.x cluster, or select **Java 1.7** for the Spark 1.x cluster.
 
     - In the **Spark version** drop-down list, the Scala project creation wizard integrates the proper version for the Spark SDK and the Scala SDK. If the Spark cluster version is earlier than 2.0, select **Spark 1.x**. Otherwise, select **Spark2.x**. This example uses **Spark 2.0.2 (Scala 2.11.8)**.
-
   
-    ![Select the project SDK and Spark version](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely-through-vpn/hdi-scala-project-details.png)
+   ![Select the project SDK and Spark version](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely-through-vpn/hdi-scala-project-details.png)
   
 3. The Spark project automatically creates an artifact for you. To view the artifact, do the following:
 
@@ -259,7 +257,7 @@ We recommend that you also create an Apache Spark cluster in Azure HDInsight tha
 5. You can now select the **Resume Program** icon to proceed with your application run.
 
     ![Select Resume Program](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely-through-vpn/debug-continue-run.png)
-6. If the application completes successfully, you should see output like the following:
+6. If the application finishes successfully, you should see output like the following:
 
     ![Console output](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely-through-vpn/debug-complete.png)
 
