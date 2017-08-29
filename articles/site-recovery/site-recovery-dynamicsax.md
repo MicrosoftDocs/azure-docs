@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 8/24/2017
 ms.author: asgang
 
 ---
@@ -22,12 +22,12 @@ ms.author: asgang
 ## Overview
 
 
-Microsoft Dynamics AX is one of the most popular ERP solution among enterprises to standardized process across locations, manage resources and simplifying compliance. Considering the application is business critical to an organization it is very important to be sure that in case of any disaster, application should be up and running in minimum time.
+Microsoft Dynamics AX is one of the most popular ERP solution among enterprises to standardized process across locations, manage resources and simplifying compliance. Considering the application is business critical to an organization it is very important to be sure that if any disaster, application should be up and running in minimum time.
 
 Today, Microsoft Dynamics AX  does not provide any out-of-the-box disaster recovery capabilities. Microsoft Dynamics AX consists of many server components like Application Object Server, Active Directory (AD), SQL Database Server, SharePoint Server, Reporting Server etc. To manage the disaster recovery of each of these components manually is not only expensive but also error-prone.
 
-This article explains in detail about how you can create a disaster recovery solution for your Dynamics AX application using [Azure Site Recovery](site-recovery-overview.md). It will also cover planned/unplanned/test failovers using one-click recovery plan, supported configurations and prerequisites.
-Azure Site Recovery based disaster recovery solution is fully tested, certified and recommended by Microsoft Dynamics AX.
+This article explains in detail about how you can create a disaster recovery solution for your Dynamics AX application using [Azure Site Recovery](site-recovery-overview.md). It also covers planned/unplanned/test failovers using one-click recovery plan, supported configurations, and prerequisites.
+Azure Site Recovery based disaster recovery solution is fully tested, certified, and recommended by Microsoft Dynamics AX.
 
 
 
@@ -35,7 +35,7 @@ Azure Site Recovery based disaster recovery solution is fully tested, certified 
 
 Implementing disaster recovery for Dynamics AX application using Azure Site Recovery requires the following pre-requisites completed.
 
-•	An on-premises Dynamics AX deployment has been setup
+•	An on-premises Dynamics AX deployment has been set up
 
 •	Azure Site Recovery Services vault has been created in Microsoft Azure subscription
 
@@ -44,7 +44,7 @@ Implementing disaster recovery for Dynamics AX application using Azure Site Reco
 
 ## Site Recovery support
 
-For the purpose of creating this article VMware virtual machines with Dynamics AX  2012R3 on Windows Server 2012 R2 Enterprise were used. As site recovery replication is application agnostic, the recommendations provided here are expected to hold on following scenarios as well.
+For the purpose of creating this article, VMware virtual machines with Dynamics AX  2012R3 on Windows Server 2012 R2 Enterprise were used. As site recovery replication is application agnostic, the recommendations provided here are expected to hold on following scenarios as well.
 
 ### Source and target
 
@@ -54,7 +54,7 @@ For the purpose of creating this article VMware virtual machines with Dynamics A
 **VMware** | Yes | Yes
 **Physical server** | Yes | Yes
 
-## Enable DR of Dynamics AX application using ASR
+## Enable DR of Dynamics AX application using Azure Site Recovery
 ### Protect your Dynamics AX application
 Each component of the Dynamics AX needs to be protected to enable the complete application replication and recovery. This section covers:
 
@@ -98,7 +98,7 @@ The below snapshot shows the protection status of Dynamics component VMs in ‘V
 ### 4. Configure Networking
 Configure VM Compute and Network Settings
 
-For the AX client and AOS VMs configure network settings in ASR so that the VM networks get attached to the right DR network after failover. Ensure the DR network for these tiers is routable to the SQL tier.
+For the AX client and AOS VMs configure network settings in Azure Site Recovery so that the VM networks get attached to the right DR network after failover. Ensure the DR network for these tiers is routable to the SQL tier.
 
 You can select the VM in the replicated items to configure the network settings as shown in the snapshot below.
 
@@ -111,9 +111,9 @@ You can select the VM in the replicated items to configure the network settings 
 
 ### 5. Creating a recovery plan
 
-You can create a recovery plan in ASR to automate the failover process. Add app tier and web tier in the Recovery Plan. Order them in different groups so that the front-end shutdown before app tier.
+You can create a recovery plan in Azure Site Recovery to automate the failover process. Add app tier and web tier in the Recovery Plan. Order them in different groups so that the front-end shutdown before app tier.
 
-1)	Select the ASR vault in your subscription and click on ‘Recovery Plans’ tile.
+1)	Select the Azure Site Recovery vault in your subscription and click on ‘Recovery Plans’ tile.
 
 2)	Click on ‘+ Recovery plan and specify a name.
 
@@ -131,19 +131,19 @@ You can customize the recovery plan for Dynamics AX application by adding variou
 
 *Steps:*
 
-*1.	SQL Server failover steps*
+*1.	SQL Server fail over steps*
 
 Refer to [‘SQL Server DR Solution’](site-recovery-sql.md) companion guide  for details about recovery steps specific to SQL server.
 
-*2.	Failover Group 1: Failover the AOS VMs*
+*2.	Failover Group 1: Fail over the AOS VMs*
 
 Make sure that the recovery point selected is as close as possible to the database PIT but not ahead.
 
 *3.	Script: Add load balancer (Only E-A)*
 Add a script (via Azure automation) after AOS VM group comes up to add a load balancer to it. You can use a script to do this task. Refer article [how to add load balancer for multi-tier application DR](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/)
 
-*4.	Failover Group 2: Failover the AX client VMs.*
-Failover the web tier VMs as part of the recovery plan.
+*4.	Failover Group 2: Fail over the AX client VMs.*
+Fail over the web tier VMs as part of the recovery plan.
 
 
 ### Doing a test failover
