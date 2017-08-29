@@ -87,8 +87,8 @@ The following steps describe how to change the availability set of a VM using Az
     ``` 
 5. Add data disks and extensions. For more information, see [Attach Data Disk to VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Extensions in Resource Manager templates](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions). Data disks and extensions can be added to the VM using PowerShell or Azure CLI.
 
-## Example Script
-The following script provides an example of gathering the required information, deleting the original VM and then recreating it in a new availability set.
+## Example Script 1
+The following script provides an example of gathering the required information, deleting the original VM which using Unmanaged Disks and then recreating it in a new availability set.
 
 ```powershell
     #set variables
@@ -111,7 +111,7 @@ The following script provides an example of gathering the required information, 
     $OriginalVM.HardwareProfile.VmSize | Out-File -FilePath $outFile -Append
 
     "NIC: " | Out-File -FilePath $outFile -Append
-    $OriginalVM.NetworkProfile.NetworkInterfaces[0].Id | Out-File -FilePath $outFile -Append
+    $OriginalVM.NetworkProfile.NetworkInterfaces.Id | Out-File -FilePath $outFile -Append
 
     "OSType: " | Out-File -FilePath $outFile -Append
     $OriginalVM.StorageProfile.OsDisk.OsType | Out-File -FilePath $outFile -Append
@@ -143,7 +143,7 @@ The following script provides an example of gathering the required information, 
     }
 
     #Add NIC(s)
-    foreach ($nic in $OriginalVM.NetworkInterfaceIDs) {
+    foreach ($nic in $OriginalVM.NetworkProfile.NetworkInterfaces.Id) {
         Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic
     }
 
@@ -151,6 +151,70 @@ The following script provides an example of gathering the required information, 
     New-AzureRmVM -ResourceGroupName $rg -Location $OriginalVM.Location -VM $NewVM -DisableBginfoExtension
 ```
 
+## Example Script 2
+The following script provides adding an Azure Virtual Machine that uses managed disk into an availability set.
+
+```powershell
+#set variables
+    $rg = "demo-resource-group"
+    $vmName = "demo-vm"
+    $newAvailSetName = "demo-as"
+    $outFile = "C:\temp\outfile.txt"
+   
+#Get VM Details
+    $OriginalVM = get-azurermvm -ResourceGroupName $rg -Name $vmName
+    
+    #Output VM details to file
+    "VM Name: " | Out-File -FilePath $outFile 
+    $OriginalVM.Name | Out-File -FilePath $outFile -Append
+
+    "Extensions: " | Out-File -FilePath $outFile -Append
+    $OriginalVM.Extensions | Out-File -FilePath $outFile -Append
+
+    "VMSize: " | Out-File -FilePath $outFile -Append
+    $OriginalVM.HardwareProfile.VmSize | Out-File -FilePath $outFile -Append
+
+    "NIC: " | Out-File -FilePath $outFile -Append
+    $OriginalVM.NetworkProfile.NetworkInterfaces.Id | Out-File -FilePath $outFile -Append
+    
+    "OSType: " | Out-File -FilePath $outFile -Append
+    $OriginalVM.StorageProfile.OsDisk.OsType | Out-File -FilePath $outFile -Append
+
+    "OSDisk: " | Out-File -FilePath $outFile -Append
+    $OriginalVM.StorageProfile.OsDisk.ManagedDisk.Id| Out-File -FilePath $outFile -Append
+    
+    if ($OriginalVM.StorageProfile.DataDisks) {
+    "Data Disk(s): " | Out-File -FilePath $outFile -Append
+    $OriginalVM.StorageProfile.DataDisks | Out-File -FilePath $outFile -Append
+    }
+
+    #Remove the original VM
+    Remove-AzureRmVM -ResourceGroupName $rg -Name $vmName
+#Create new availability set if it does not exist
+    $availSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rg -Name $newAvailSetName -ErrorAction Ignore
+    if (-Not $availSet) {
+    $availset = New-AzureRmAvailabilitySet -ResourceGroupName $rg -Name $newAvailSetName -Location $OriginalVM.Location -Managed     -PlatformFaultDomainCount 2    -PlatformUpdateDomainCount 2
+    }
+
+    #Create the basic configuration for the replacement VM
+    $newVM = New-AzureRmVMConfig -VMName $OriginalVM.Name -VMSize $OriginalVM.HardwareProfile.VmSize -AvailabilitySetId $availSet.Id
+    Set-AzureRmVMOSDisk -VM $NewVM -ManagedDisk $OriginalVM.StorageProfile.OsDisk.ManagedDisk.Id   -CreateOption Attach -Windows
+
+    #Add Data Disks
+    foreach ($disk in $OriginalVM.StorageProfile.DataDisks ) { 
+    Add-AzureRmVMDataDisk -VM $newVM -Name $disk.Name -VhdUri $disk.Vhd.Uri -Caching $disk.Caching -Lun $disk.Lun -CreateOption Attach -DiskSizeInGB $disk.DiskSizeGB
+    }
+
+    #Add NIC(s)
+    foreach ($nic in $OriginalVM.NetworkProfile.NetworkInterfaces.Id) {
+        Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic
+    }
+
+
+    #Create the VM
+    New-AzureRmVM -ResourceGroupName $rg -Location $OriginalVM.Location -VM $NewVM -DisableBginfoExtension
+    ```
+    
 ## Next steps
 Add additional storage to your VM by adding an additional [data disk](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
