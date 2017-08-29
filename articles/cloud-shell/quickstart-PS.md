@@ -2,6 +2,9 @@
 
 This document details how to use the PowerShell in Cloud Shell in the [Azure portal](https://aka.ms/PSCloudPreview).
 
+> [!NOTE]
+> A [Bash in Azure Cloud Shell](quickstart.md) guide is also available.
+
 ## Start cloud shell
 
 1. Click on **Cloud Shell** button from the top navigation bar of the Azure portal <br>
