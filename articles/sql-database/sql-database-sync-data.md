@@ -48,7 +48,7 @@ Data Sync uses a hub and spoke topology to synchronize data. You define one of t
 
 Data Sync is useful in cases where data needs to be kept up to date across several Azure SQL Databases or SQL Server databases. Here are the main use cases for Data Sync:
 
--   **Hybrid Data Synchronization:** With Data Sync, you can keep data synchronized between your on-premises databases and Azure SQL Databases to enable hybrid applications with their data tier in SQL. This capability may appeal to customers who are considering moving to the cloud and would like to put some of their application in Azure.
+-   **Hybrid Data Synchronization:** With Data Sync, you can keep data synchronized between your on-premises databases and Azure SQL Databases to enable hybrid applications. This capability may appeal to customers who are considering moving to the cloud and would like to put some of their application in Azure.
 
 -   **Distributed Applications:** In many cases, it's beneficial to separate different workloads across different databases. For example, if you have a large production database, but you also need to run a reporting or analytics workload on this data, it's helpful to have a second database for this additional workload. This approach minimizes the performance impact on your production workload. You can use Data Sync to keep these two databases synchronized.
 

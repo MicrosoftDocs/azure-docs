@@ -4,7 +4,7 @@ description: Learn how to encrypt your content with storage encryption using AMS
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: a0a79f3d-76a1-4994-9202-59b91a2230e0
@@ -17,7 +17,7 @@ ms.date: 08/10/2017
 ms.author: juliako
 
 ---
-# Encrypting your content with storage eencryption
+# Encrypting your content with storage encryption
 
 It is highly recommended to encrypt your content locally using AES-256 bit encryption and then upload it to Azure Storage where it will be stored encrypted at rest.
 

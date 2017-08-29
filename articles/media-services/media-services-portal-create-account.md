@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of creating an Azure Medi
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: c551e158-aad6-47b4-931e-b46260b3ee4c
@@ -59,7 +59,7 @@ The steps in this section show how to create an AMS account.
    4. In **Location**,  select the geographic region that will be used to store the media and metadata records for your Media Services account. This  region will be used to process and stream your media. Only the available Media Services regions appear in the drop-down list box. 
    5. In **Storage Account**, select a storage account to provide blob storage of the media content from your Media Services account. You can select an existing storage account in the same geographic region as your Media Services account, or you can create a storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Media Services accounts.
       
-       Learn more about storage [here](../storage/storage-introduction.md).
+       Learn more about storage [here](../storage/common/storage-introduction.md).
    6. Select **Pin to dashboard** to see the progress of the account deployment.
 4. Click **Create** at the bottom of the form.
    

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Application Insights for Windows server and worker roles | Microsoft Docs
 description: Manually add the Application Insights SDK to your ASP.NET application to analyze usage, availability and performance.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/15/2017
-ms.author: sewhee
+ms.author: bwren
 
 ---
 # Manually configure Application Insights for .NET applications

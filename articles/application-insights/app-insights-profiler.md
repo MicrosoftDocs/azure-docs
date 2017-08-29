@@ -1,4 +1,4 @@
----
+﻿---
 title: Profiling live web apps on Azure with Application Insights | Microsoft Docs
 description: Identify the hot path in your web server code with a low-footprint profiler.
 services: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: sewhee
+ms.author: bwren
 
 ---
 # Profiling live Azure web apps with Application Insights

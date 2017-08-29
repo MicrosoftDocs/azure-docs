@@ -425,6 +425,46 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 </ApplicationManifest>
 ```
 
+## Configure time interval before container is force terminated
+
+You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.   For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The following cluster manifest snippet shows how to set the wait interval:
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+            "ContainerDeactivationTimeout": "10",
+	      ...
+          }
+        ]
+}
+```
+The default time interval is set to 10 seconds. Since this configuration is dynamic, a config only upgrade on the cluster updates the timeout. 
+
+
+## Configure the runtime to remove unused container images
+
+You can configure the Service Fabric cluster to remove unused container images from the node. This configuration allows disk space to be recaptured if too many container images are present on the node.  To enable this feature, update the `Hosting` section in the cluster manifest as shown in the following snippet: 
+
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+	        "PruneContainerImages": “True”,
+            "ContainerImagesToSkip": "microsoft/windowsservercore|microsoft/nanoserver|…",
+	      ...
+          }
+        ]
+} 
+```
+
+For images that should not be deleted, you can specify them under the `ContainerImagesToSkip` parameter. 
+
+
+
 ## Next steps
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
 * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
