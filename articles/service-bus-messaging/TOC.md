@@ -52,7 +52,13 @@
 
 ## Manage
 ### [Service Bus management libraries](service-bus-management-libraries.md)
-### [Using Azure Resource Manager templates](service-bus-resource-manager-overview.md)
+### [Use Azure Resource Manager templates](service-bus-resource-manager-overview.md)
+#### [Create a namespace using a template](service-bus-resource-manager-namespace.md)
+#### [Create a namespace and a queue using a template](service-bus-resource-manager-namespace-queue.md)
+#### [Create a namespace with topic and subscription using a template](service-bus-resource-manager-namespace-topic.md)
+#### [Create an authorization rule for namespace and queue using a template](service-bus-resource-manager-namespace-auth-rule.md)
+#### [Create a namespace with topic, subscription, and rule using a template](service-bus-resource-manager-namespace-topic-with-rule.md)
+#### 
 ### [Using PowerShell to provision entities](service-bus-manage-with-ps.md)
 
 # Reference
