@@ -4,7 +4,7 @@ description: Learn about how Stream Analytics works with out-of-order or late ev
 keywords: out of order, late, events
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Azure Stream Analytics event order handling
