@@ -10118,6 +10118,16 @@
             "source_path": "articles/active-directory/active-directory-passwords-get-insights.md",
             "redirect_url": "/azure/active-directory/active-directory-passwords-reporting",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-conditional-access-supported-apps.md",
+            "redirect_url": "/azure/active-directory/active-directory-conditional-access-technical-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/cognitive-services-text-analytics-api-migration.md",
+            "redirect_url": "/azure/cognitive-services/text-analytics/overview",
+            "redirect_document_id": false
         }
     ]
 }
