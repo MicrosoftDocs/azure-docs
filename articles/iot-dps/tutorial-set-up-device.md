@@ -30,29 +30,46 @@ In the previous tutorial, you learned how to set up the Azure IoT DPS to automat
 
 [Azure IoT DPS client SDK](https://github.com/Azure/azure-iot-device-auth/tree/master/dps_client) provides support for 2 types of Hardware Security Modules: 
 
-- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module)
-- X.509 based security modules
+- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module) - This is an established standard for most Windows based device platforms, as well as a few Linux/Ubuntu based devices. As a device manufacturer, you may choose this if you have either of these OSes running on your devices, and if you are looking for an established standard for HSMs. Be aware that with TPM chips in your devices, you can only enroll each device individually in DPS via the portal. For development purposes, you can use the TPM simulator on your Windows or Linux development machine.
 
-A device to be provisioned by IoT DPS should have one of these HSM chips built into them. DPS client is also 
+- X.509 based hardware security modules - This is a relatively newer form of hardware security modules, with work currently progressing within Microsoft on RIoT or DICE chips. With X.509 chips, you can do bulk enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the DPS client SDK supports an X.509 device simulator.  
 
-<--?
-You select the HSM for your chip. 
-Build the SDK for the type of HSM you are using. 
+As a device manufacturer, you need to select hardware security modules/chips that are based on either one of the above types. Other types of HSMs are not currently supported in the DPS client SDK.   
 
-App programmer will call into same functions so they don't see the difference. 
-
-The registration part of the SDK does not have to be part of the OS - either an app or a service, (probably triggered) after the OS boots. 
-
-Current support is Windows and Linux, since the SDK is in C so portable. Java (a big ask) and Python (since it's a wrapper on C code) next - for GA. Node & C# are still in discussion.
-
-
-
--->
 
 ## Implement security mechanism
 
+The Azure DPS Client SDK helps implement the selected security mechanism in software by 
 
 ## Extract the security artefacts
+
+Once you implement the security mechanism, you need to make sure the following functions are implemented for your HSM chip:
+
+- For TPM based chips:
+   
+    ```code
+    SEC_DEVICE_HANDLE secure_dev_tpm_create();
+    void secure_dev_tpm_destroy(SEC_DEVICE_HANDLE handle);
+    char* secure_dev_tpm_get_endorsement_key(SEC_DEVICE_HANDLE handle); // Returns the endorsement key from the TPM.
+    char* secure_dev_tpm_get_storage_key(SEC_DEVICE_HANDLE handle); // Returns the storage root key from the TPM.
+    int secure_dev_tpm_import_key(SEC_DEVICE_HANDLE handle, const unsigned char* key, size_t key_len); // Import the device key into the device TPM.
+    BUFFER_HANDLE secure_dev_tpm_sign_data(SEC_DEVICE_HANDLE handle, const unsigned char* data, size data_len); // Hash the supplied data using the imported device key to be used in the SAS Token.
+    Const SEC_TPM_INTERFACE* secure_dev_tpm_interface();
+    ```
+
+- For X.509 based chips:
+    ```code
+    SEC_DEVICE_HANDLE secure_dev_riot_create();
+    void secure_dev_riot_destroy(SEC_DEVICE_HANDLE handle);
+    char* secure_dev_riot_get_certificate(SEC_DEVICE_HANDLE handle); // Returns the certificate produced by the RIoT system.
+    char* secure_dev_riot_get_alias_key(SEC_DEVICE_HANDLE handle);// Returns the certificate public key
+    char* secure_dev_riot_get_signer_cert(SEC_DEVICE_HANDLE, handle);// Returns the device signer certificate
+    char* secure_dev_riot_get_common_name(SEC_DEVICE_HANDLE handle);// Returns the common name of the certificate
+    const SEC_RIOT_INTERFACE* secure_device_riot_interface();
+    ```
+
+These APIs interact with your chip to extract the security artefacts from the device after it boots, which will be then used for registration with DPS service.
+
 
 
 ## Set up DPS configuration on the device
