@@ -28,24 +28,24 @@ After reading this article, you will be able to answer the following questions:
 * Where can I find a sample .NET client application for performance testing of Cosmos DB? 
 * How do I achieve high throughput levels with Cosmos DB from my client application?
 
-To get started with code, please download the project from [Azure Cosmos DB Performance Testing Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
+To get started with code, download the project from [Azure Cosmos DB Performance Testing Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
 
 > [!NOTE]
-> The goal of this application is to demonstrate best practices for extracting better performance out of Cosmos DB with a small number of client machines. This was not made to demonstrate the peak capacity of the service, which can scale limitlessly.
+> The goal of this application is to demonstrate how to get the best performance from Azure Cosmos DB with a small number of client machines. The goal of the sample is not to achieve the peak throughput capacity of Azure Cosmos DB (which can scale without any limits).
 > 
 > 
 
 If you're looking for client-side configuration options to improve Cosmos DB performance, see [Azure Cosmos DB performance tips](performance-tips.md).
 
 ## Run the performance testing application
-The quickest way to get started is to compile and run the .NET sample below, as described in the steps below. You can also review the source code and implement similar configurations to your own client applications.
+The quickest way to get started is to compile and run the .NET sample, as described in the following steps: You can also review the source code and implement similar configurations to your own client applications.
 
 **Step 1:** Download the project from [Azure Cosmos DB Performance Testing Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), or fork the GitHub repository.
 
-**Step 2:** Modify the settings for EndpointUrl, AuthorizationKey, CollectionThroughput and DocumentTemplate (optional) in App.config.
+**Step 2:** Modify the settings for EndpointUrl, AuthorizationKey, CollectionThroughput, and DocumentTemplate (optional) in App.config.
 
 > [!NOTE]
-> Before provisioning collections with high throughput, please refer to the [Pricing Page](https://azure.microsoft.com/pricing/details/cosmos-db/) to estimate the costs per collection. Azure Cosmos DB bills storage and throughput independently on an hourly basis, so you can save costs by deleting or lowering the throughput of your Azure Cosmos DB collections after testing.
+> Before provisioning collections with high throughput, refer to the [Pricing Page](https://azure.microsoft.com/pricing/details/cosmos-db/) to estimate the costs per collection. Azure Cosmos DB bills storage and throughput independently on an hourly basis, so you can save costs by deleting or lowering the throughput of your Azure Cosmos DB collections after testing.
 > 
 > 
 
@@ -92,12 +92,12 @@ The quickest way to get started is to compile and run the .NET sample below, as 
     Press any key to exit...
 
 
-**Step 4 (if necessary):** The throughput reported (RU/s) from the tool should be the same or higher than the provisioned throughput of the collection. If not, increasing the DegreeOfParallelism in small increments may help you reach the limit. If the throughput from your client app plateaus, launching multiple instances of the app on the same or different machines will help you reach the provisioned limit across the different instances. If you need help with this step, please, write an email to askcosmosdb@microsoft.com or file a support ticket from the [Azure Portal](https://portal.azure.com).
+**Step 4 (if necessary):** The throughput reported (RU/s) from the tool should be the same or higher than the provisioned throughput of the collection. If not, increasing the DegreeOfParallelism in small increments may help you reach the limit. If the throughput from your client app plateaus, start multiple instances of the app on additional client machines. If you need help with this step, email askcosmosdb@microsoft.com or file a support ticket from the [Azure portal](https://portal.azure.com).
 
 Once you have the app running, you can try different [Indexing policies](indexing-policies.md) and [Consistency levels](consistency-levels.md) to understand their impact on throughput and latency. You can also review the source code and implement similar configurations to your own test suites or production applications.
 
 ## Next steps
-In this article, we looked at how you can perform performance and scale testing with Cosmos DB using a .NET console app. Please refer to the links below for additional information on working with Azure Cosmos DB.
+In this article, we looked at how you can perform performance and scale testing with Cosmos DB using a .NET console app. For more information, see the following articles.
 
 * [Azure Cosmos DB performance testing sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [Client configuration options to improve Azure Cosmos DB performance](performance-tips.md)
