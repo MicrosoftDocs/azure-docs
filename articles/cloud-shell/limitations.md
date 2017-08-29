@@ -65,7 +65,7 @@ Your history of bash commands may be inconsistent because of Cloud Shell session
       > Note: Untagging the storage account doesn't remove any data and it will still exist in your subscription
 
       4.	Log back using [PowerShell Private Preview link](https://aka.ms/PSCloudPreview) and launch the Cloud Shell (PowerShell) 
-      > Note: You will have to [Restart Cloud Shell](media/shell-recycle.png) for PowerShell instance
+      > Note: You will have to [Restart Cloud Shell](media/recycle.png) for PowerShell instance
 
 ### An error about [MissingSubscriptionRegistration](media/storageRP-error.jpg) occurs during persistent storage creation
   - **Details**: The selected subscription does not have Storage RP registered.
@@ -81,11 +81,11 @@ Your history of bash commands may be inconsistent because of Cloud Shell session
 ### For a given user only one shell can be active
   - **Details**: If the user launches Bash shell first and shortly opens PowerShell, it would connect back to the Bash shell with blue background.
   Similarly, if the user launches PowerShell first and shortly opens Bash shell, it would connect back to PowerShell instance with black background.
-  - **Workaround**: Restart the shell by clicking [Restart Cloud Shell](media/shell-recycle.png) in the shell IFrame (refreshing the browser tab does not work).
+  - **Workaround**: Restart the shell by clicking [Restart Cloud Shell](media/recycle.png) in the shell IFrame (refreshing the browser tab does not work).
 
 ### Automatic Azure authentication limit
   - **Details**: The authentication is active only for an hour due to a limitation in processing the Azure authentication token.
-  - **Workaround**: Restart the shell by clicking [Restart Cloud Shell](media/shell-recycle.png) in the shell IFrame (refreshing the browser tab does not work).
+  - **Workaround**: Restart the shell by clicking [Restart Cloud Shell](media/recycle.png) in the shell IFrame (refreshing the browser tab does not work).
 
 ### Get-Help -online does not open the help page
   - **Details**: If a user types `Get-Help Find-Module -online`, one sees an error message such as:\
@@ -104,4 +104,5 @@ Cloud Shell is intended for interactive use cases. As a result, any long-running
 Any latency in Cloud Shell is subject to local internet connectivity, Cloud Shell continues to attempt to carry out any instructions sent.
 
 ## Next steps
-[Cloud Shell Quickstart](quickstart.md)
+[Bash Quickstart](quickstart-bash.md)
+[PowerShell Quickstart](quickstart-PS.md)
