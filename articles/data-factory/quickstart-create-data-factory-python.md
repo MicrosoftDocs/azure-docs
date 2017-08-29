@@ -1,20 +1,20 @@
 ---
-title: Build your first data factory using PowerShell | Microsoft Docs
-description: 'Learn what Azure Data Factory is: A cloud data integration service that orchestrates and automates movement and transformation of data.'
-keywords: data integration, cloud data integration, what is azure data factory
+title: Create an Azure data factory using Python | Microsoft Docs
+description: 'Create an Azure data factory to copy data from a cloud data store (Azure Blob Storage) to another cloud data store (Azure SQL Databse).'
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: linda33wj
 manager: jhubbard
 editor: spelluru
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/10/2017
-ms.author: shlo
+ms.tgt_pltfrm: 
+ms.devlang: python
+ms.topic: hero-article
+ms.date: 08/24/2017
+ms.author: jingwang
 
 ---
-# Build your first data factory using Python
+# Create an Azure data factory using Python
+

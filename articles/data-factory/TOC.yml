@@ -4,6 +4,8 @@
   items:
   - name: Introduction to Data Factory
     href: introduction.md
+  - name: Compare version 1 and version 2
+    href: compare-contrast-v1-v2.md   
 - name: Quickstarts
   expanded: true
   items:
@@ -17,18 +19,20 @@
     href: quickstart-create-data-factory-java.md
   - name: Create data factory - REST   
     href: quickstart-create-data-factory-rest-api.md
-  - name: Create data factory - ARM template
+  - name: Create data factory - template
     href: quickstart-create-data-factory-resource-manager-template.md
+  - name: Create data factory - Portal
+    href: quickstart-create-data-factory-portal.md     
 - name: Tutorials
   items:
-  - name: 1 - Copy data 
+  - name: 1 - Copy data in cloud
     href: tutorial-copy-data-dot-net.md
-  - name: 2 - Copy on-premises data 
-    href: tutorial-copy-onprem-data-to-cloud.md
-  - name: 3 - Transform data
+  - name: 2 - Copy on-prem data to cloud
+    href: tutorial-copy-onprem-data-to-cloud-dot-net.md
+  - name: 3 - Transform data in cloud
     href: tutorial-transform-data-dot-net.md
-  - name: 4 - Copy multiple tables in a loop
-    href: tutorial-copy-multiple-tables-in-loop.md
+  - name: 4 - Copy multiples tables in a loop 
+    href: tutorial-copy-multiple-tables-in-loop.md   
   - name: 5 - Branch control flow
     href: tutorial-branch-control-flow.md
 - name: Samples
@@ -53,8 +57,6 @@
     href: concepts-control-flow.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
-  - name: SSIS Everest
-    href: concepts-integration-with-sql-server-integration-services.md
 - name: How-to guides
   items:
   - name: Move data
@@ -181,10 +183,16 @@
       href: control-flow-expression-language.md
   - name: Monitor and manage
     items: 
-    - name: Monitor programmatically
-      href: monitor-programmatically.md
+    - name: Use .NET
+      href: monitor-manage-pipelines.md
     - name: Use Azure Monitor
       href: monitor-using-azure-monitor.md
+  - name: Create integration runtime
+    items:
+    - name: Create and configure self-hosted integration runtime
+      href: create-self-hosted-integration-runtime.md
+    - name: Provision managed dedicated integration runtime
+      href: provision-managed-dedicated-integration-runtime.md
 - name: Reference
   items:
   - name: .NET
