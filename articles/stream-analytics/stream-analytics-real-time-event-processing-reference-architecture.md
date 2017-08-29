@@ -4,7 +4,7 @@ description: Learn how a set of Azure services can interoperate for enabling rea
 keywords: real-time processing, event processing, reference architecture
 services: stream-analytics,event-hubs,storage,sql-database
 documentationcenter: ''
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Reference architecture: Real-time event processing with Microsoft Azure Stream Analytics

@@ -3,7 +3,7 @@ title: Microsoft Authenticator app for mobile phones | Microsoft Docs
 description: Learn how to upgrade to the latest version of Azure Authenticator.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: barlanmsft
 manager: femila
 
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
 ---
@@ -23,20 +23,20 @@ The Microsoft Authenticator app provides an additional level of security in your
 
 The app works in one of two ways:
 
-* **Notification**. The app can help prevent unauthorized access to accounts and stop fraudulent transactions by pushing a notification to your smartphone or tablet. Simply view the notification, and if it's legitimate, select **Verify**. Otherwise, you can select **Deny**. 
+* **Notification**. The app can help prevent unauthorized access to accounts and stop fraudulent transactions by pushing a notification to your smartphone or tablet. Simply view the notification, and if it's legitimate, select **Verify**. Otherwise, you can select **Deny**.
 * **Verification code**. The app can be used as a software token to generate an OAuth verification code. After you enter your username and password, you enter the code provided by the app into the sign-in screen. The verification code provides a second form of authentication.
 
 The Microsoft Authenticator app replaces the Azure Authenticator app. The Azure Authenticator app still works, but if you decide to move to the new Microsoft Authenticator app, this article can assist you.  
 
 ## Opt in for two-step verification
 
-The Microsoft Authenticator app doesn't work by itself. Configure each of your accounts to prompt you for a second verification method after you sign in with your username and password. 
+The Microsoft Authenticator app doesn't work by itself. Configure each of your accounts to prompt you for a second verification method after you sign in with your username and password.
 
 For a work or school account, you don't usually get to choose this feature for yourself. Instead, a security administrator opts in on your behalf and then notifies you to register verification methods for your account. If this scenario applies to you, learn more in [What does Azure Multi-Factor Authentication mean for me](multi-factor-authentication-end-user.md).
 
-For a personal account, you need to set up two-step verification for yourself. If you have a Microsoft account, those steps are available in [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification). 
+For a personal account, you need to set up two-step verification for yourself. If you have a Microsoft account, those steps are available in [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 
-You can also use the Microsoft Authenticator with non-Microsoft accounts. They may call the feature something other than two-step verification, but you should be able to find it under security or sign-in settings. 
+You can also use the Microsoft Authenticator with non-Microsoft accounts. They may call the feature something other than two-step verification, but you should be able to find it under security or sign-in settings.
 
 ## Install the app
 The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
@@ -62,7 +62,7 @@ For a personal Microsoft account (one that you use to sign in to Outlook.com, Xb
 
     If your camera is not working properly, you can [enter the QR code and URL manually](#add-an-account-to-the-app-manually).
 
-5. When the app shows your account name with a six-digit code underneath it, you're done. 
+5. When the app shows your account name with a six-digit code underneath it, you're done.
 
     ![Accounts screen](./media/authenticator-app-how-to/accounts.png)
 
