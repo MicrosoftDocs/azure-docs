@@ -37,11 +37,11 @@ Most of the currently available technical content assumes that applications are 
 * Certain services and features that are in specific regions of the global service might not be available in Azure Government.
 * Feature configurations in Azure Government might differ from those in the global service. Therefore, it's important to review your sample code, configurations, and steps to ensure that you are building and executing within the Azure Government Cloud Services environment.
 
-Currently, US GOV Iowa and US GOV Virginia are the datacenters that support Azure Government. For current datacenters and available services, see [Products available by region](https://azure.microsoft.com/regions/services).
+Currently, US Gov Virginia, US Gov Arizona, US Gov Texas and US Gov Iowa are the datacenters that support Azure Government. For current datacenters and available services, see [Products available by region](https://azure.microsoft.com/regions/services).
 
 
 ## Endpoint mapping
-To learn about mapping public Azure and SQL Database endpoints to Azure Government-specific endpoints, see the following table:
+To learn about mapping global Azure and SQL Database endpoints to Azure Government-specific endpoints, see the following table:
 
 > [!NOTE]
 > The **Active Directory Authority** for Azure Government has changed from https://login-us.microsoftonline.com to https://login.microsoftonline.us.  The original URL will continue to work but all applications should be updated to the new authority URL.
@@ -53,14 +53,24 @@ To learn about mapping public Azure and SQL Database endpoints to Azure Governme
 | Active Directory Authority  | https://login.microsoftonline.us |
 | Active Directory Graph API | https://graph.windows.net/ |
 | Azure API | https://management.usgovcloudapi.net/ | 
-| SQL Database DNS Suffix | .database.usgovcloudapi.net |
-| Storage Endpoint Suffix | .core.usgovcloudapi.net |
-| Traffic Manager Dns Suffix | usgovtrafficmanager.net |
-| Key Vault Dns Suffix | vault.usgovcloudapi.net |
+| SQL Database DNS Suffix | *.database.usgovcloudapi.net |
+| Storage Endpoint Suffix | *.core.usgovcloudapi.net |
+| Traffic Manager DNS Suffix | *.usgovtrafficmanager.net |
+| Key Vault DNS Suffix | *.vault.usgovcloudapi.net |
 | *Classic* Portal | https://manage.windowsazure.us |
 | Gallery Url | https://gallery.usgovcloudapi.net/ |
-| Service Management Url | https://management.core.usgovcloudapi.net/ |
+| Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ |
 | Publish Settings File Url | https://manage.windowsazure.us/publishsettings/index |
+
+## Azure Government and Office 365 GCC
+While Azure Government has its own Active Directory instance and API endpoints, the [Office 365 Government Community Cloud (GCC)](https://technet.microsoft.com/library/mt774967.aspx) does not.
+
+This means that government customers that have both Azure Government and Office 365 subscriptions will have two Active Directories and two sets of user accounts.
+
+If you are building an application that interacts with both Azure Government and Office 365 GCC, your application will need to allow the user to sign in with two different identities:
+
+* Sign in with their Azure Government account via the Azure Government Active Directory endpoint to interact with Azure Government APIs.
+* Sign in with their Office 365 GCC account via the normal Active Directory endpoint to interact with the normal Office 365 and Microsoft Graph APIs.
 
 ## Next steps
 For more information about Azure Government, see the following resources:
