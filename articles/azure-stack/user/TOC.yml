@@ -27,8 +27,6 @@
   items:
   - name: Use the portal
     href: azure-stack-manage-portals.md
-    - name: Backup workloads
-    - name: Monitor
   - name: Security & compliance
     items:
     - name: Manage RBAC
