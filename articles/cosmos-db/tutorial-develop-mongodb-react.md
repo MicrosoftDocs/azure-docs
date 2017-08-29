@@ -18,7 +18,7 @@ ms.author: mimig
 ms.custom: mvc
 
 ---
-# Azure Cosmos DB: Create a MongoDB API app using React, Node, and Express
+# Create a MongoDB app with React and Azure Cosmos DB
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. With Azure Cosmos DB, can quickly create and query document, key/value, and graph databases that benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
