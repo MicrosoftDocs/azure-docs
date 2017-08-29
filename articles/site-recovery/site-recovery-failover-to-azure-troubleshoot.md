@@ -18,7 +18,7 @@ ms.author: pratshar
 
 ---
 # Troubleshoot errors when failing over a virtual machine to Azure
-You may receive one of the following errors while doing failover of a virtual machine to Azure. To troubleshoot, use the described steps. 
+You may receive one of the following errors while doing failover of a virtual machine to Azure. To troubleshoot, use the described steps for each error condition.
 
 
 ## Failover failed with Error ID 28031
@@ -37,7 +37,7 @@ Site Recovery was not able to create a network interface for the failed over vir
 
 ## Failover failed with Error ID 70038
 
-Site Recovery was not able to create a failed over Classic virtual machine in Azure. It could happen because of one of the following reasons:
+Site Recovery was not able to create a failed over Classic virtual machine in Azure. It could happen because:
 
 * One of the resources such as a virtual network that is required for the virtual machine to be created doesn't exist. Create the virtual network as provided under Compute and Network settings of the virtual machine or modify the setting to a virtual network that already exists and then retry failover. 
 

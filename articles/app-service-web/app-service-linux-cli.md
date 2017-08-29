@@ -4,7 +4,7 @@ description: Manage Web App on Linux using Azure CLI.
 keywords: azure app service, web app, cli, linux, oss
 services: app-service
 documentationCenter: ''
-authors: ahmedelnably
+author: ahmedelnably
 manager: erikre
 editor: ''
 
@@ -44,6 +44,14 @@ To create a web app and configuring it to run a custom Docker container, you can
 
 ```azurecli-interactive
 az webapp create -n sname -g rgname -p pname -i elnably/dockerimagetest
+```
+ 
+## Activate the Docker container logging
+
+To activate the Docker container logging, you can use the following command:
+
+```azurecli-interactive
+az webapp log config -n sname -g rgname --web-server-logging filesystem
 ```
  
 ## Change the custom Docker container for an existing Web App on Linux App
@@ -99,6 +107,5 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 * [What is Azure Web App on Linux?](app-service-linux-intro.md)
 * [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (Preview)](../cloud-shell/overview.md)
-* [Creating web apps in Azure Web App on Linux](app-service-linux-how-to-create-web-app.md)
 * [Set up staging environments in Azure App Service](./web-sites-staged-publishing.md)
 * [Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md)

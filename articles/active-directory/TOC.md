@@ -131,10 +131,12 @@
 
 ## Manage devices
 ### [Introduction](device-management-introduction.md)
+### [Using the Azure portal](device-management-azure-portal.md)
 ### [FAQs](device-management-faq.md)
 ### Tasks
 #### [Configure hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
+#### [Azure AD join during Windows 10 first-run experience](device-management-azuread-joined-devices-frx.md)
 ### Troubleshoot
 #### [Hybrid Azure AD joined Windows 10 and Windows Server 2016 devices](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Hybrid Azure AD joined legacy Windows devices](device-management-troubleshoot-hybrid-join-windows-legacy.md)
@@ -296,7 +298,6 @@
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Best practices](active-directory-conditional-access-best-practices.md)
 #### [Technical reference](active-directory-conditional-access-technical-reference.md)
-#### [Supported apps](active-directory-conditional-access-supported-apps.md)
 #### [Understand device policies](active-directory-conditional-access-device-policies.md)
 #### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
 #### [Remediation](active-directory-conditional-access-device-remediation.md)

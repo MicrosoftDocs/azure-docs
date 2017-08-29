@@ -22,9 +22,9 @@ sections:
     text: 'Learn how to deploy container images with Azure Container Instances.'
   - type: list
     style: icon48
-    items:     
-    - image: 
-        src: /azure/container-instances/media/container-instances.png
+    items:
+    - image:
+        src: /azure/container-instances/media/container-instances.svg
       text: Create container instance
       href: /azure/container-instances/container-instances-quickstart
 - title: Step-by-Step Tutorials
