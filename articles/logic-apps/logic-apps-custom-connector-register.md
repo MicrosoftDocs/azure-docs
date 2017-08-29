@@ -49,12 +49,12 @@ and press Enter. From the results list, choose **Logic Apps Connector** > **Crea
 as described in the table. When you're done, 
 choose **Pin to dashboard** > **Create**.
 
-   |Property|Suggested value|Description| 
-   |--------|---------------|-----------| 
-   |**Name**|*{custom-connector-name}*|Provide a name for your connector.| 
-   |**Subscription**|*{your-Azure-subscription-name}*|Select your Azure subscription.| 
-   |**Resource group**|*{Azure-resource-group-name}*|Create or select an Azure group for organizing your Azure resources.| 
-   |**Location**|*{your-selected-region}*|Select a deployment region for your connector.| 
+   | Property | Suggested value | Description | 
+   | -------- | --------------- | ----------- | 
+   | **Name** | *custom-connector-name* | Provide a name for your connector. | 
+   | **Subscription** | *your-Azure-subscription* | Select your Azure subscription. | 
+   | **Resource group** | *Azure-resource-group-name* | Create or select an Azure group for organizing your Azure resources. | 
+   | **Location** | *your-selected-region* | Select a deployment region for your connector. | 
    |||| 
 
 3. In your connector's menu, choose **Logic Apps Connector**. 
@@ -69,11 +69,11 @@ actions and triggers for your custom connector.
 
       ![Provide the OpenAPI file for your API](./media/logic-apps-custom-connector-register/provide-openapi-file.png)
 
-      |Option|Format|Description| 
-      |------|------|-----------| 
-      |**Upload an OpenAPI file**|*OpenAPI (Swagger)-json-file*|Browse to the location for your OpenAPI file, and select that file.| 
-      |**Use an OpenAPI URL**|http://*path-to-swagger-json-file*|Provide the URL for your API's OpenAPI file.| 
-      |**Upload Postman collection V1**|*exported-Postman-collection-V1-file*|Browse to the location for an exported Postman collection in V1 format.| 
+      | Option | Format |Description | 
+      | ------ | ------ | ----------- | 
+      | **Upload an OpenAPI file** | *OpenAPI (Swagger)-json-file* | Browse to the location for your OpenAPI file, and select that file. | 
+      | **Use an OpenAPI URL** | http://*path-to-swagger-json-file* | Provide the URL for your API's OpenAPI file. | 
+      | **Upload Postman collection V1** | *exported-Postman-collection-V1-file* | Browse to the location for an exported Postman collection in V1 format. | 
       |||| 
 
    2. For **General information**, provide these items for identifying 
@@ -81,13 +81,13 @@ actions and triggers for your custom connector.
 
       ![Connector details](./media/logic-apps-custom-connector-register/add-connector-details.png)
 
-      |Option or setting|Format|Description| 
-      |-----------------|------|-----------| 
-      |**Upload Icon**|*png-or-jpg-file-under-1MB*|Provide the icon that represents your connector.| 
-      |**Icon background color**|*hexadecimal-color-code*|To show a color behind your icon, provide hexadecimal code for that color. For example, #007ee5 represents the color blue.| 
-      |**Description**|*connector-description*|Provide a short description for your connector.| 
-      |**Host**|*connector-host*|Provide the host domain used by your connector.| 
-      |**Base URL**|*connector-base-URL*|Provide the base URL for your connector.| 
+      | Option or setting | Format | Description | 
+      | ----------------- | ------ | ----------- | 
+      | **Upload Icon** | *png-or-jpg-file-under-1-MB* | Provide the icon that represents your connector. | 
+      | **Icon background color** | *hexadecimal-color-code* | Shows a color behind your icon. Provide the hexadecimal code for that color. For example, #007ee5 represents the color blue. | 
+      | **Description** | *connector-description* | Provide a short description for your connector. | 
+      | **Host** | *connector-host* | Provide the host domain used by your connector. | 
+      | **Base URL** | *connector-base-URL* | Provide the base URL for your connector. | 
       |||| 
 
    3. When you're done, choose **Continue**.
