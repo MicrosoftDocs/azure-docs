@@ -29,7 +29,7 @@ Azure Application Gateway can be configured to terminate the Secure Sockets Laye
 
 ## Scenario
 
-The following scenario takes you through configuring SSL offload on an existing application gateway. The scenario assumes that you have already followed the steps to [create an Application Gateway](application-gateway-create-gateway-portal.md).
+The following scenario takes you through configuring SSL offload on an existing application gateway. The scenario assumes that you have already followed the steps to [create an application gateway](application-gateway-create-gateway-portal.md).
 
 ## Before you begin
 
@@ -85,9 +85,4 @@ To learn how to configure a custom health probe with Azure Application Gateway, 
 [2]: ./media/application-gateway-ssl-portal/figure2.png
 [3]: ./media/application-gateway-ssl-portal/figure3.png
 [4]: ./media/application-gateway-ssl-portal/figure4.png
-To learn how to configure a custom health probe with Azure Application Gateway, see [Create a custom health probe](application-gateway-create-gateway-portal.md).
 
-[1]: ./media/application-gateway-ssl-portal/figure1.png
-[2]: ./media/application-gateway-ssl-portal/figure2.png
-[3]: ./media/application-gateway-ssl-portal/figure3.png
-[4]: ./media/application-gateway-ssl-portal/figure4.png
