@@ -72,7 +72,7 @@
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
-    href: auto-scale-overview.md
+    href: autoscale.md
   - name: Infrastructure automation
     href: infrastructure-automation.md
   - name: Containers
@@ -82,7 +82,7 @@
   - name: Backup and recovery
     href: backup-recovery.md
   - name: High performance computing
-    href: hpc.md
+    href: high-performance-computing.md
   - name: Deployment considerations
     items:
     - name: Infrastructure guidelines
