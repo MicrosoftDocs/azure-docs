@@ -28,7 +28,7 @@ secures your connector registration and adds delegated access.
 > [!IMPORTANT]
 > Both Azure AD apps must exist in the same directory.
 
-This tutorial uses an Azure Resource Manager API as an example. 
+This tutorial uses the Azure Resource Manager API as an example. 
 Azure Resource Manager helps you manage the components for a solution 
 that you've built in Azure, such as databases, virtual machines, and web apps. 
 A custom connector for Azure Resource Manager might be useful 
@@ -88,30 +88,30 @@ In the registered apps list, choose **+ New application registration**.
 4. Under **Create**, provide the details for your Azure AD app 
 as described in the table, then choose **Create**. 
 
-   ![Create Azure AD app](./media/custom-connector-azure-active-directory-authentication/create-app-registration.png)
+   ![Create Azure AD app](./media/custom-connector-azure-active-directory-authentication/create-app1-registration.png)
 
    |Setting|Suggested value|Description| 
    |:------|:--------------|:----------| 
-   |**Name**|webAPI|The name for your first Azure AD app|
+   |**Name**|*{web-api-app-name}*|The name for your Web API's Azure AD app|
    |**Application type**|**Web app / API**|Your app's type| 
    |**Sign-on URL**|`https://login.windows.net`|| 
 
 5. When you return to your directory's **App registrations** list, 
 select your Azure AD app.
 
-   ![Select your Azure App from list](./media/custom-connector-azure-active-directory-authentication/app-registration-created.png)
+   ![Select your Azure AD app from list](./media/custom-connector-azure-active-directory-authentication/app1-registration-created.png)
 
 6. When the app's details page appears, 
 make sure that you **copy and save the app's *Application ID* somewhere safe**. 
 You need this ID for later use.
 
-   ![Save "Application ID" for later use](./media/custom-connector-azure-active-directory-authentication/application-id.png)
+   ![Save "Application ID" for later use](./media/custom-connector-azure-active-directory-authentication/application-id-app1.png)
 
 7. Now provide a reply URL for your Azure AD app. 
 In the app's **Settings** menu, choose **Reply URLs**. 
-Enter this URL, then choose **Save**: 
+Enter this URL, then choose **Save**.
 
-   ![Reply URLs](./media/custom-connector-azure-active-directory-authentication/add-reply-url.png)
+   ![Reply URLs](./media/custom-connector-azure-active-directory-authentication/add-reply-url1.png)
 
    |Setting|Suggested value|Description| 
    |:------|:--------------|:----------| 
@@ -124,7 +124,7 @@ Enter this URL, then choose **Save**:
    > If the **Settings** menu didn't previously appear, 
    > choose **Settings** here:
    >
-   > ![Choose "Settings"](./media/custom-connector-azure-active-directory-authentication/show-app-settings-menu.png)
+   > ![Choose "Settings"](./media/custom-connector-azure-active-directory-authentication/show-app1-settings-menu.png)
 
 ## 2. Create your second Azure AD app for your custom connector
 
@@ -136,44 +136,91 @@ and choose **+ New application registration** again.
 
    ![Choose "App registrations", "+ New application registration"](./media/custom-connector-azure-active-directory-authentication/add-app-registrations.png)
 
-4. Under **Create**, provide the details for your second Azure AD app 
+2. Under **Create**, provide the details for your second Azure AD app 
 as described in the table, then choose **Create**. 
 
-   ![Create Azure AD app](./media/custom-connector-azure-active-directory-authentication/create-app-registration.png)
+   ![Create Azure AD app](./media/custom-connector-azure-active-directory-authentication/create-app2-registration.png)
 
    |Setting|Suggested value|Description| 
    |:------|:--------------|:----------| 
-   |**Name**|webAPI-custom-connector|The name for your second Azure AD app|
+   |**Name**|*{your-connector-name}*|The name for your connector's Azure AD app|
    |**Application type**|**Web app / API**|Your app's type| 
    |**Sign-on URL**|`https://login.windows.net`|| 
    ||||
 
+3. When you return to your directory's **App registrations** list, 
+select your second Azure AD app.
 
-   |**Reply URLs**|For the Azure Resource Manager, enter this URL: `https://msmanaged-na.consent.azure-apim.net/redirect`||
-4. Back in the **Settings** menu, choose **Required permissions** > **Add**.
+   ![Select your second Azure AD app from list](./media/custom-connector-azure-active-directory-authentication/app2-registration-created.png)
+
+4. When the app's details page appears, 
+make sure that you also **copy and save this app's *Application ID* somewhere safe too**. 
+You need this ID for later use.
+
+   ![Save "Application ID" for later use](./media/custom-connector-azure-active-directory-authentication/application-id-app2.png)
+
+5. Now provide a reply URL for your Azure AD app. 
+In the app's **Settings** menu, choose **Reply URLs**. 
+Enter this URL, then choose **Save**.
+
+   |Setting|Suggested value|Description| 
+   |:------|:--------------|:----------| 
+   |**Reply URLs**|For the Azure Resource Manager custom connector, enter this URL: `https://msmanaged-na.consent.azure-apim.net/redirect`||
+   ||||
+
+   > [!TIP]
+   > If the **Settings** menu didn't previously appear, 
+   > choose **Settings** here:
+   >
+   > ![Choose "Settings"](./media/custom-connector-azure-active-directory-authentication/show-app2-settings-menu.png)
+
+6. Back in the **Settings** menu, choose **Required permissions** > **Add**.
 
    ![Required permissions > Add](./media/custom-connector-azure-active-directory-authentication/add-api-access1-select-permissions.png)
 
-   |**Delegated permissions**||Add permissions for delegated access to your Web API|  
-   |**Client key**|*generated-client-key*|Generate a client key, and store somewhere safe. You need this key for later.|
-   |||| 
+7. When the **Add API access** menu opens, choose **Select an API** > 
+**Windows Azure Service Management API** > **Select**.
 
+   ![Select an API](./media/custom-connector-azure-active-directory-authentication/add-api-access2-select-api.png)
 
-5. When you return to your directory's **App registrations** list, 
-select your Azure AD app.
+6. On the **Add API access** menu, choose **Select permissions**. 
+Under **Delegated permissions**, choose **Access Azure Service Management as organization users** > **Select**.
 
-   ![Select your Azure App from list](./media/custom-connector-azure-active-directory-authentication/app-registration-created.png)
+   ![Choose "Delegated permissions" > "Access Azure Services Management as organization users"](./media/custom-connector-azure-active-directory-authentication/add-api-access3-select-permissions.png)
 
+   Otherwise, for other options:
 
-> [!IMPORTANT]
-> Make sure that you copy and save this application ID for later use too.
+   |Option|Suggested value|Description| 
+   |:-----|:--------------|:----------| 
+   |**Delegated permissions**||Select permissions for delegated access to your Web API| 
+   ||||
+
+7. Now on the **Add API access** menu, choose **Done**.
+
+   !["Add API access" menu > "Done"](./media/custom-connector-azure-active-directory-authentication/add-api-access4-done.png)
+
+8. Now add a *client key*, or "secret", for your Azure AD app. 
+
+   1. Back on the **Settings** menu, choose **Keys**. 
+   Provide a name for your key with 16 or fewer characters, 
+   select an expiration period, and then choose **Save**.
+
+      ![Add a key](./media/custom-connector-azure-active-directory-authentication/add-key.png)
+
+   2. When your generated key appears, **immediately copy and save that key somewhere 
+   safe for later use**. *You can't retrieve the key after you close the **Keys** page.*
+    
+      ![Manually copy and save your key](./media/custom-connector-azure-active-directory-authentication/save-key.png)
+
+9. After saving your key, you can safely close the **Settings** menu.
 
 ## 3. Add authentication to your Web API app
 
 Now turn on authentication for your Web API with your first Azure AD app.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), 
-and find your Web API app that you deployed earlier in this tutorial.
+1. In the [Azure portal](https://portal.azure.com), 
+find your Web API app that you previously published in 
+[Create custom connectors from Web APIs](../logic-apps/custom-connector-build-web-api-app-tutorial.md).
 
 2. Under **Settings**, choose **Authentication / Authorization**.
 
@@ -191,17 +238,16 @@ to the **Authentication / Authorization** page.
 6. On the **Authentication / Authorization** page, 
 choose **Save**.
 
-Now your Web API app can use Azure AD for authentication.
+   Now your Web API app can use Azure AD for authentication.
 
-4. Set up Azure AD authentication for the custom connector 
-as described here:
+7. Set up Azure AD authentication for your connector as described here:
 
    |Setting|Suggested value|Description| 
    |:------|:--------------|:----------| 
-   |**Client ID**|*client-ID-for-webAPI-CustomAPI*|The client ID for your second Azure AD app| 
-   |**Secret**|*client-key-for-webAPI-CustomAPI*|The client key for your second Azure AD app| 
+   |**Client ID**|*client-ID-for-connector-Azure-AD-app*|The client ID for your connector's Azure AD app| 
+   |**Secret**|*client-key-for-connector-Azure-AD-app*|The client key for your connector's Azure AD app| 
    |**Login URL**|`https://login.windows.net`||
-   |**ResourceUri**|*client-ID-for-webAPI*|The client ID for your first Azure AD app|  
+   |**ResourceUri**|*client-ID-for-Web-API-Azure-AD-app*|The client ID for your Web API's Azure AD app|  
    |||| 
 
 ## Set up your OpenAPI document to use Azure AD authentication

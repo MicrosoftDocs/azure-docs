@@ -17,7 +17,7 @@ ms.date: 09/1/2017
 ms.author: LADocs; estfan
 ---
 
-# Create connectors from Web APIs
+# Create custom connectors from Web APIs
 
 To build a custom connector that you can use in Azure Logic Apps, 
 Microsoft Flow, or Microsoft PowerApps, create a Web API that 
