@@ -58,7 +58,7 @@ This article demonstrates the steps that are required to create a basic Hello Wo
    
     ![Specify project name][project-name]
 
-## Create an Azure Container Registry to use as a Private Docker Registry
+## Create an Azure Container Registry to use as a private Docker registry
 
 The following steps walk you through using the Azure portal to create an Azure Container Registry.
 

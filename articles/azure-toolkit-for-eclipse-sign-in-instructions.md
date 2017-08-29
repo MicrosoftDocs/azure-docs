@@ -1,6 +1,6 @@
 ---
 title: Sign In Instructions for the Azure Toolkit for Eclipse | Microsoft Docs
-description: Learn how to sign into Microsoft Azure by using the Azure Toolkit for Eclipse.
+description: Learn how to sign in to Microsoft Azure by using the Azure Toolkit for Eclipse.
 services: ''
 documentationcenter: java
 author: rmcmurray
@@ -20,16 +20,16 @@ ms.author: robmcm
 
 # Azure Sign In Instructions for the Azure Toolkit for Eclipse
 
-The Azure Toolkit for Eclipse provides two methods for signing into your Azure account:
+The Azure Toolkit for Eclipse provides two methods for signing in to your Azure account:
 
-  * **Automated** - when you are using this method, you will create a credentials file, which contains your service principal data, after which you can use the credentials file to automatically sign into your Azure account.
-  * **Interactive** - when you are using this method, you will enter your Azure credentials each time you sign into your Azure account.
+  * **Automated** - when you are using this method, you will create a credentials file, which contains your service principal data, after which you can use the credentials file to automatically sign in to your Azure account.
+  * **Interactive** - when you are using this method, you will enter your Azure credentials each time you sign in to your Azure account.
 
 The steps in the following sections will describe how to use each method.
 
 [!INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
-## Signing into your Azure account automatically and creating a credentials file to use in the future
+## signing in to your Azure account automatically and creating a credentials file to use in the future
 
 The following steps walk you through creating a credentials file that contains your service principal data. Once you have completed these steps, Eclipse will automatically use the credentials file to automatically sign you into Azure each time you open your project.
 
@@ -75,9 +75,9 @@ After you have configured the steps in the previous section, the Azure Toolkit w
 
    ![Sign Out Dialog Box][L03]
 
-## Signing into your Azure account automatically using a credentials file that you have already created
+## signing in to your Azure account automatically using a credentials file that you have already created
 
-If you sign out of Azure when you are using Eclipse, you will need to reconfigure the Azure Toolkit for Eclipse to use a credentials file that have created before you can automatically sign into your Azure account. The following steps walk you through configuring the Azure Toolkit to use an existing credentials file.
+If you sign out of Azure when you are using Eclipse, you will need to reconfigure the Azure Toolkit for Eclipse to use a credentials file that have created before you can automatically sign in to your Azure account. The following steps walk you through configuring the Azure Toolkit to use an existing credentials file.
 
 1. Open your project with Eclipse.
 
@@ -101,9 +101,9 @@ If you sign out of Azure when you are using Eclipse, you will need to reconfigur
 
    ![Select Subscriptions Dialog Box][A07]
 
-## Signing into your Azure account interactively
+## signing in to your Azure account interactively
 
-The following steps illustrate how to sign into Azure by manually entering your Azure credentials.
+The following steps illustrate how to sign in to Azure by manually entering your Azure credentials.
 
 1. Open your project with Eclipse.
 
