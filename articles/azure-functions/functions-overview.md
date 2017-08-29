@@ -4,7 +4,7 @@ description: Understand how to use Azure Functions to optimize asynchronous work
 services: functions
 documentationcenter: na
 author: mattchenderson
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
