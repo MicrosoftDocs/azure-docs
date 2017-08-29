@@ -46,6 +46,7 @@
 ## [Configure tokens](active-directory-b2c-token-session-sso.md)
 ## [Enable MFA](active-directory-b2c-reference-mfa.md)
 ## [Use custom attributes](active-directory-b2c-reference-custom-attr.md)
+## [Customize password](active-directory-b2c-reference-password-complexity.md)
 ## [Customizing the UI](active-directory-b2c-reference-ui-customization.md)
 ### [Helper tool for customization](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Language customization](active-directory-b2c-reference-language-customization.md)
@@ -71,6 +72,7 @@
 #### [Custom attributes](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Customize UI](active-directory-b2c-ui-customization-custom.md)
 #### [Customize tokens](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [Customize password](active-directory-b2c-reference-password-complexity-custom.md)
 ### Troubleshooting
 #### [Collect logs using Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Reference
