@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
 ---
 # How to configure Azure Active Directory joined devices
 
-With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more details, see [Introduction to device management in Azure Active Directory](device-management-introduction.md).
+With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more information, see [Introduction to device management in Azure Active Directory](device-management-introduction.md).
 
 If you want to bring work-owned Windows 10 devices under the control of Azure AD, you can accomplish this by configuring Azure AD joined devices. This topic provides you with the related steps. 
 
 
-## Before you begin
+## Prerequisites
 
-To join a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to joining devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. For more details, see [configure device settings](device-management-azure-portal.md#configure-device-settings).
+To join a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to joining devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. For more insofrmation, see [configure device settings](device-management-azure-portal.md#configure-device-settings).
 
 
 
@@ -35,7 +35,7 @@ To join a Windows 10 device, the device registration service must be configured 
 
 When joining a device, you should keep the following in mind:
 
-- Windows joins the device in the organization’s directory in Azure AD
+- Windows joins the device in the organization’s directory in Azure AD.
 
 - You might be required to go through multi-factor authentication challenge. This challenge is configurable by your IT administrator.
 
@@ -43,7 +43,7 @@ When joining a device, you should keep the following in mind:
 
 - If you are a managed user, Windows takes you to the desktop through the automatic sign-in.
 
-- If you are a federated user, you will be taken to a Windows sign-in screen to enter your credentials.
+- If you are a federated user, you have to sign-in using your credentials.
 
 
 ## Joining a device
@@ -78,7 +78,7 @@ This section provides you with the steps to join your Windows 10 device to your 
     ![Connect](./media/device-management-azuread-joined-devices-setup/08.png)
 
 
-6. On the **Let's get you signed in** dialog, enter your account name (e.g.: someone@example.com), and then click **Next**.
+6. On the **Let's get you signed in** dialog, enter your account name (for example, someone@example.com), and then click **Next**.
 
     ![Let's get you signed in](./media/device-management-azuread-joined-devices-setup/10.png)
 
@@ -112,13 +112,13 @@ You can also review device settings on the Azure AD portal.
 
 ![Connected](./media/device-management-azuread-joined-devices-setup/15.png)
 
-For more details, see [locate devices](device-management-azure-portal.md#locate-devices).
+For more information, see [locate devices](device-management-azure-portal.md#locate-devices).
 
 
 ## Next steps
 
-- For more details, see the [introduction to device management in Azure Active Directory](device-management-introduction.md).
-- For more details about managing devices in the Azure AD portal, see the [managing devices using the Azure portal ](device-management-azure-portal.md).
+- For more information, see the [introduction to device management in Azure Active Directory](device-management-introduction.md).
+- For more information about managing devices in the Azure AD portal, see [managing devices using the Azure portal ](device-management-azure-portal.md).
 
 
 
