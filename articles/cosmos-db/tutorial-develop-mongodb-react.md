@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Create a MongoDB API app using React | Microsoft Docs"
-description: Learn how to create a MongoDB API app for Azure Cosmos DB using the React, Node, Express, and Mongoose. 
+title: "MongoDB, React.js, and Node.js tutorial for Azure | Microsoft Docs"
+description: Learn how to create a MongoDB app with React.js and Node.js for Azure Cosmos DB in this video based tutorial series. 
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
