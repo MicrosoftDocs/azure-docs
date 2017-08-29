@@ -15,7 +15,7 @@ ms.date: 08/28/2017
 
 Azure Machine Learning Model Management enables enterprises and users to manage and deploy machine-learning workflows and models as Docker containerized web services. 
 
-The Azure Machine Learning Model Management provides capability for model versioning, tracking models in the production, and deploying models in production. It provides these capabilities through [Azure Container Service](https://azure.microsoft.com/services/container-service/) using [Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough). It allows deploying models as web service across various targets including local, on-prem, IoT edge device as Docker container) or cluster. The Azure Machine Learning Model Management also provides automated model retraining, and capturing model telemetry for actionable insights.  
+The Azure Machine Learning Model Management provides capability for model versioning, tracking models in the production, and deploying models in production. It supports deploying models to . It allows deploying models as web service across various targets including local, on-prem, IoT edge device as Docker container) or a [Azure Container Service](https://azure.microsoft.com/services/container-service/) [Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough) based cluster. The Azure Machine Learning Model Management also provides automated model retraining, and capturing model telemetry for actionable insights.  
 
 The Azure Machine Learning Model Management deploys models into production by creating a Linux-based Docker container that includes model and all encompassing dependencies. It adds web service front end required for REST Endpoint with necessary authentication, load balancing, and encryption.  
 
@@ -31,10 +31,10 @@ Enterprises can register models with Azure Machine Learning Model Management for
 ## Create and manage manifests 
 The models require additional artifacts to deploy into the production. The system provides the capability to create a manifest using model, dependencies, inference script (aka scoring script), sample data, schema etc. This manifest acts as a recipe to create a Docker container image. Enterprises can auto-generate manifest, version manifest, and manage manifests. 
 
-## Create and manage images 
+## Create and manage Docker container images 
 The users can use the manifest from the previous step to generate and regenerate Docker-based container images in their respective environments. The containerized Docker-based images provide enterprises with the flexibility to run these images on scalable [Kubernetes based Azure Container Service](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), or pull these images into their environment to run on-prem, on the local machine, or on IoT device. These Docker-based containerized images are self-contained with all necessary dependencies required for generating predictions. 
 
-## Deploy images 
+## Deploy Docker container images 
 The users can deploy Docker-based container images from the previous step with a single command to Azure Container Service. These deployments are created with front-end server that provides load balancing, encryption, API key authorization, and swagger. Users can control the deployment in terms of scale and telemetry. Users can enable/disable system logging and model telemetry at each web service level and if enabled, all stdout logs are streamed to [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) and model telemetry is archived in users provided storage. Users can control auto-scale and concurrency limits that automatically increases the number of deployed containers based on the load within the existing cluster size. 
 
 ## Consumption 
