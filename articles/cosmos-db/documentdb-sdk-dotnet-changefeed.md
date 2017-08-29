@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 08/29/2017
 ms.author: maquaran
 
 ---
@@ -67,7 +67,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [1.1.1](#1.1.0) |August 25, 2017 |--- |
+| [1.1.1](#1.1.1) |August 29, 2017 |--- |
 | [1.1.0](#1.1.0) |August 13, 2017 |--- |
 | [1.0.0](#1.0.0) |July 07, 2017 |--- |
 
