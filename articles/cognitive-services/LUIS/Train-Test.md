@@ -21,11 +21,11 @@ Training and testing is an iterative process. After you train your LUIS app, you
 Typically, before retraining, you will want to [relabel any utterances](#relabel-utterances-and-retrain) in which LUIS failed to identify the expected intents and entities. You can find the utterances to relabel using the following procedures:
  
   * **Interactive testing**: The [interactive testing pane](#interactive-testing) lets you type in an utterance and displays the intents and entities that your LUIS app detects.
-  * **Suggested utterances**: Relabeling suggested utterances that LUIS identifies for you.
-  * **Review utterances from users**: LUIS provides a log of all utterances from users that have been passed to the LUIS app endpoint. This log includes the intents and entities you can review to see if they've been correctly identified.
+  * **Suggested utterances**: Relabeling [suggested utterances](./Label-Suggested-Utterances.md) that LUIS identifies for you.
+  * **Review utterances from users**: LUIS provides a [log of utterances](./luis-resources-faq.md#how-do-i-download-a-log-of-user-utterances) from users that have been passed to the LUIS app endpoint. This log includes the intents and entities you can review to see if they've been correctly identified.
   
 
-In addition to relabeling utterances, you may also try adding new utterances, editing the intent or entity types, and adding features to your LUIS app to improve performance. <!-- (add this if we have content showing a performance increase) or adding composite or list entities. -->
+In addition to relabeling utterances, you may also try adding new utterances, editing the intent or entity types, and [adding features](./Add-Features.md) to your LUIS app to improve performance. <!-- (add this if we have content showing a performance increase) or adding composite or list entities. -->
 
 ## Train the current iteration of your app
 To start the iterative process of training, you first need to train your LUIS app at least once. 
