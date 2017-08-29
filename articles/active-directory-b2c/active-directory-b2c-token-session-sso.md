@@ -1,11 +1,11 @@
 ---
-title: 'Azure Active Directory B2C: Token, session and single sign-on configuration | Microsoft Docs'
+title: 'Token, session and single sign-on configuration - Azure AD B2C | Microsoft Docs'
 description: Token, session and single sign-on configuration in Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
-author: swkrish
-manager: mbaldwin
-editor: bryanla
+author: parakhj
+manager: krassk
+editor: parakhj
 
 ms.assetid: e78e6344-0089-49bf-8c7b-5f634326f58c
 ms.service: active-directory-b2c
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2017
-ms.author: swkrish
+ms.date: 08/16/2017
+ms.author: parakhj
 
 ---
 # Azure Active Directory B2C: Token, session and single sign-on configuration
+
 This feature gives you fine-grained control, on a [per-policy basis](active-directory-b2c-reference-policies.md), of:
 
 1. Lifetimes of security tokens emitted by Azure Active Directory (Azure AD) B2C.
@@ -25,11 +26,11 @@ This feature gives you fine-grained control, on a [per-policy basis](active-dire
 3. Formats of important claims in the security tokens emitted by Azure AD B2C.
 4. Single sign-on (SSO) behavior across multiple apps and policies in your B2C tenant.
 
-You can use this feature in your B2C tenant as follows:
+For built-in policies, you can use this feature in your Azure AD B2C directory as follows:
 
 1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
-2. Click **Sign-in policies**. *Note: You can use this feature on any policy type, not just on **Sign-in policies***.
-3. Open a policy by clicking it. For example, click on **B2C_1_SiIn**.
+2. Click **Sign-up or sign-in policies**. *Note: You can use this feature on any policy type, not just on **Sign-up or sign-in policies***.
+3. Open a policy by clicking it. For example, click on **B2C_1_SiUpIn**.
 4. Click **Edit** at the top of the blade.
 5. Click **Token, session & single sign-on config**.
 6. Make your desired changes. Learn about available properties in subsequent sections.
@@ -37,9 +38,10 @@ You can use this feature in your B2C tenant as follows:
 8. Click **Save** on the top of the blade.
 
 ## Token lifetimes configuration
+
 Azure AD B2C supports the [OAuth 2.0 authorization protocol](active-directory-b2c-reference-protocols.md) for enabling secure access to protected resources. To implement this support, Azure AD B2C emits various [security tokens](active-directory-b2c-reference-tokens.md). These are the properties you can use to manage lifetimes of security tokens emitted by Azure AD B2C:
 
-* **Access & ID token lifetimes (minutes)**: The lifetime of the OAuth 2.0 bearer token used to gain access to a protected resource. Azure AD B2C issues only ID tokens at this time. This value would apply to access tokens as well, when we add support for them.
+* **Access & ID token lifetimes (minutes)**: The lifetime of the OAuth 2.0 bearer token used to gain access to a protected resource.
   * Default = 60 minutes.
   * Minimum (inclusive) = 5 minutes.
   * Maximum (inclusive) = 1440 minutes.
@@ -63,6 +65,7 @@ These are a couple of use cases that you can enable using these properties:
     > 
 
 ## Token compatibility settings
+
 We made formatting changes to important claims in security tokens emitted by Azure AD B2C. This was done to improve our standard protocol support and for better interoperability with third-party identity libraries. However, to avoid breaking existing apps, we created the following properties to allow customers to opt-in as needed:
 
 * **Issuer (iss) claim**: This identifies the Azure AD B2C tenant that issued the token.
@@ -76,6 +79,7 @@ We made formatting changes to important claims in security tokens emitted by Azu
   * **acr**: This is only provided for backward-compatibility, and we recommend that you switch to `tfp` as soon as you are able to.
 
 ## Session behavior
+
 Azure AD B2C supports the [OpenID Connect authentication protocol](active-directory-b2c-reference-oidc.md) for enabling secure sign-in to web applications. These are the properties you can use to manage web application sessions:
 
 * **Web app session lifetime (minutes)**: The lifetime of Azure AD B2C's session cookie stored on the user's browser upon successful authentication.
