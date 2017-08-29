@@ -7,14 +7,14 @@ This document details how to use the PowerShell in Cloud Shell in the [Azure por
 1. Click on **Cloud Shell** button from the top navigation bar of the Azure portal <br>
 ![](media/shell-icon.png)
 
-2. Select the PowerShell environment from  drop down from the the left hand side of shell window <br>
+2. Select the PowerShell environment from the drop-down on the left-hand side of shell window <br>
 
 ![](media/Environment-PS.png)
 
 3. Select PowerShell
 
-4. You will see PowerShell cloud console appears at the bottom part of the portal
-5. `Azure PowerShell drive` will appear as follows
+4. The PowerShell cloud console appears at the bottom part of the portal
+5. `Azure PowerShell drive` appears as follows
 
   ```powershell
   Requesting a Cloud Shell... Succeeded.
@@ -94,7 +94,7 @@ However, you can always use `dir -force` to get fresh data.
   PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
   PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock{Get-ComputerInfo}
   ```
-  You will see output like below:
+  You see output similar to the following:
 
   ```powershell
   PSComputerName                                          : 65.52.28.207
@@ -111,11 +111,11 @@ However, you can always use `dir -force` to get fresh data.
   ```
   > Note: You may see the following error due to the default windows firewall settings for WinRM
 
-  *Ensure the WinRM service is running. Please Remote Desktop into the VM for the first time and ensure it can be discovered.*
+  *Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.*
 
   > We recommend you try the following:
   - Make sure your VM is running. You can run `Get-AzureRmVM -Status` to find out the VM Status
-  - Add a new firewall rule on the remote VM to allow WinRM connections from any subnet, e.g.,
+  - Add a new firewall rule on the remote VM to allow WinRM connections from any subnet, for example,
 
     ```powershell
     New-NetFirewallRule -Name 'WINRM-HTTP-In-TCP-PSCloudShell' -Group 'Windows Remote Management' -Enabled True -Protocol TCP -LocalPort 5985 -Direction Inbound -Action Allow -DisplayName 'Windows Remote Management - PSCloud (HTTP-In)' -Profile Public
@@ -128,9 +128,9 @@ However, you can always use `dir -force` to get fresh data.
      Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
      ```
 
-### Interactive Logon to a remote VM
+### Interactively log onto a remote VM
 
-You can use `Enter-AzureRmVM` to interactively logon to a VM running in Azure.
+You can use `Enter-AzureRmVM` to interactively log into a VM running in Azure.
 
   ```powershell
   Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
@@ -168,7 +168,7 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 ## Use Azure File Storage to store your data
 
-You can create a script, say `helloworld.ps1` and save it to your clouddrive to use it across shell sessions.
+You can create a script, say `helloworld.ps1`, and save it to your clouddrive to use it across shell sessions.
 
 ```powershell
 cd C:\users\ContainerAdministrator\CloudDrive
@@ -184,11 +184,11 @@ Next time when you use PowerShell in Cloud Shell, the `helloworld.ps1` file shou
 
 If you want to customize your environment, you can create a PowerShell profile, name it as `Microsoft.PowerShell_profile.ps1` and save it under the clouddrive so that it can be loaded to every PowerShell session when you launch the Cloud Shell.
 
-For how to create a profile, please refer to [About Profiles][profile].
+For how to create a profile, refer to [About Profiles][profile].
 
 ## Run az cli commands
 
-Follow the [Azure Cloud Shell quickstart][bashqs], to see examples of running `az cli` commands.
+To see examples of running `az cli` commands, follow the [Azure Cloud Shell quickstart][bashqs].
 
 ## Exit the console
 
