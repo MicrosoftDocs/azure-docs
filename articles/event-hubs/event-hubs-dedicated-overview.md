@@ -36,7 +36,7 @@ The following table compares the available service tiers of Event Hubs. The Even
 | Brokered connections | 100 included | 1,000 included | 100 K included |
 | Additional Brokered connections | N/A | Yes | Yes |
 | Message Retention | 1 day included | 1 day included | Up to 7 days included |
-| Archive (Preview) | N/A	| Pay per hour | Included |
+| Capture | N/A	| Pay per hour | Included |
 
 ## Benefits of Event Hubs Dedicated capacity
 
