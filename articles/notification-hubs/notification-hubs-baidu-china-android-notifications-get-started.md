@@ -23,7 +23,7 @@ ms.author: kpiteira
 ## Overview
 Baidu cloud push is a Chinese cloud service that you can use to send push notifications to mobile devices. 
 
-As Google Play and FCM (Firebase Cloud Messaging) are not usually available in China, it is necessary to use different app stores and push services. Baidu is one of them, and the one currently used by Notification Hub.
+As Google Play and FCM (Firebase Cloud Messaging) are not available in China, it is necessary to use different app stores and push services. Baidu is one of them, and the one currently used by Notification Hub.
 
 ## Prerequisites
 This tutorial requires:
@@ -47,7 +47,7 @@ To use Baidu, you must have a Baidu account. If you already have one, log in to 
    
     ![Baidu Registration Input](./media/notification-hubs-baidu-get-started/BaiduRegistrationInput.png)
 
-3. You will be sent an email to the email address that you entered with a link to activate your Baidu account.
+3. You are sent an email to the email address that you entered with a link to activate your Baidu account.
    
     ![Baidu Registration Confirmation](./media/notification-hubs-baidu-get-started/BaiduConfirmation.png)
 
@@ -84,7 +84,7 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
    
     ![](./media/notification-hubs-baidu-get-started/BaiduCreateApplicationDoCreate.png)
 
-7. Upon successful creation of a Baidu cloud push project, you see a page with **AppID**, **API Key**, and **Secret Key**. Make a note of the API key and secret key, which we will use later.
+7. Upon successful creation of a Baidu cloud push project, you see a page with **AppID**, **API Key**, and **Secret Key**. Make a note of the API key and secret key, which we use later.
    
     ![Baidu Push Secrets](./media/notification-hubs-baidu-get-started/BaiduGetSecrets.png)
 
@@ -97,7 +97,7 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 
-&emsp;&emsp;6. In blade of your notification hub, select **Notification Services** and then **Baidu (Android China)**.
+&emsp;&emsp;6. In your notification hub, select **Notification Services** and then **Baidu (Android China)**.
 
 &emsp;&emsp;![Azure Notification Hubs - Baidu](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
 
@@ -125,7 +125,7 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
 
 4.	Make sure that the Project Build Target is set correctly.
 
-5.	Then add Azure Notification Hubs libraries. In the Build.Gradle file for the app, add the following lines in the dependencies section.
+5.	Then add Azure Notification Hubs libraries. In the `Build.Gradle` file for the app, add the following lines in the dependencies section.
 
     ```javascript
     compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
@@ -282,7 +282,7 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
     
     Set the value of the `API_KEY` string with the API_KEY from the Baidu Cloud Project.
     
-    Set the value of the `NotificationHubName` string with your notification hub name from the [Azure Portal]; and then `NotificationHubConnectionString` with `DefaultListenSharedAccessSignature` from the [Azure Portal].
+    Set the value of the `NotificationHubName` string with your notification hub name from the [Azure portal]; and then `NotificationHubConnectionString` with `DefaultListenSharedAccessSignature` from the [Azure portal].
 
 11.	Open MainActivity.java, and add the following to the onCreate method:
 
@@ -325,7 +325,7 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
 
             if (errorCode == 0) {
                 // Binding successful
-        Log.d(TAG, " Binding successful");
+                Log.d(TAG, " Binding successful");
             }
             try {
                 if (hub == null) {
@@ -363,8 +363,6 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
             }.execute(null, null, null);
         }
 
-
-
         @Override
         public void onMessage(Context context, String message,
                             String customContentString) {
@@ -386,11 +384,8 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
 
         }
 
-
         @Override
-        public void onNotificationArrived(Context context, String title, 
-    String description, String customContentString) {
-
+        public void onNotificationArrived(Context context, String title, String description, String customContentString) {
             String notifyString = " Notice Arrives onNotificationArrived  title=\"" + title
                     + "\" description=\"" + description + "\" customContent="
                     + customContentString;
@@ -410,10 +405,8 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
             }
         }
 
-
         @Override
-        public void onNotificationClicked(Context context, String title,
-                                        String description, String customContentString) {
+        public void onNotificationClicked(Context context, String title, String description, String customContentString) {
             String notifyString = " onNotificationClicked title=\"" + title + "\" description=\""
                     + description + "\" customContent=" + customContentString;
             Log.d(TAG, notifyString);
@@ -455,7 +448,6 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
 
         }
 
-
         @Override
         public void onUnbind(Context context, int errorCode, String requestId) {
             String responseString = "onUnbind errorCode=" + errorCode
@@ -467,20 +459,19 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
                 Log.d(TAG, " Unbinding is successful ");
             }
         }
-
     }
     ```
 
 ## Send notifications to your app
 
-You can quickly test receiving notifications from the [Azure portal]: use the **Send** button on in the notification hub blade, as shown in the following screens:
+You can quickly test receiving notifications from the [Azure portal]: use the **Send** button in the notification hub configuration screen, as shown in the following screens:
 
 ![](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
 ![](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
 
-Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET using a compatible library. If a library is not available for your back-end, you can use the REST API directly to send notification messages .
+Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET using a compatible library. If a library is not available for your back-end, you can use the REST API directly to send notification messages.
 
-For simplicity, this tutorial will use a console app as a demonstration on how to send a notification with the .NET SDK. However, we recommend the [Use Notification Hubs to push notifications to users](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) tutorial as the next step for sending notifications from an ASP.NET backend. 
+For simplicity, this tutorial uses a console app as a demonstration on how to send a notification with the .NET SDK. However, we recommend the [Use Notification Hubs to push notifications to users](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) tutorial as the next step for sending notifications from an ASP.NET backend. 
 
 Here are different approaches for sending notifications:
 * **REST Interface**:  You can support notification on any backend platform using  the [REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
@@ -536,10 +527,10 @@ To test this app with the emulator, on the Eclipse top toolbar, click **Run**, a
 
 The app retrieves the `userId` and `channelId` from the Baidu Push notification service and registers with the notification hub.
 
-To send a test notification, you can use the debug tab of the Azure Classic Portal. If you built the .NET console application for Visual Studio, just press the F5 key in Visual Studio to run the application. The application sends a notification that appears in the top notification area of your device or emulator.
+To send a test notification, you can use the debug tab of the [Azure portal]. If you built the .NET console application for Visual Studio, just press the F5 key in Visual Studio to run the application. The application sends a notification that appears in the top notification area of your device or emulator.
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Baidu Push Android SDK]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Baidu portal]: http://www.baidu.com/
