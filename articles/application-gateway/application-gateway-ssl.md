@@ -52,7 +52,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 To validate that the gateway was created, you can enter the `Get-AzureApplicationGateway` cmdlet.
 
-In the sample, **Description**, **InstanceCount**, and **GatewaySize** are optional parameters. The default value for **InstanceCount** is **2**, with a maximum value of 10. The default value for **GatewaySize** is **Medium**. Small and Large are other available values. **VirtualIPs** and **DnsName** are shown as blank, because the gateway has not started yet. These values are created once the gateway is in the running state.
+In the sample, **Description**, **InstanceCount**, and **GatewaySize** are optional parameters. The default value for **InstanceCount** is **2**, with a maximum value of **10**. The default value for **GatewaySize** is **Medium**. Small and Large are other available values. **VirtualIPs** and **DnsName** are shown as blank, because the gateway has not started yet. These values are created once the gateway is in the running state.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -60,7 +60,7 @@ Get-AzureApplicationGateway AppGwTest
 
 ## Upload SSL certificates
 
-Enter `Add-AzureApplicationGatewaySslCertificate` to upload the server certificate in **PFX** format to the application gateway. The certificate name is a user-chosen name and must be unique within the application gateway. This certificate is referred to by this name in all certificate management operations on the application gateway.
+Enter `Add-AzureApplicationGatewaySslCertificate` to upload the server certificate in PFX format to the application gateway. The certificate name is a user-chosen name and must be unique within the application gateway. This certificate is referred to by this name in all certificate management operations on the application gateway.
 
 The following sample shows the cmdlet. Replace the values in the sample with your own.
 
@@ -95,7 +95,7 @@ An application gateway configuration consists of multiple values. The values can
 
 The values are:
 
-* **Back-end server pool**: The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or should be a public IP or VIP address.
+* **Back-end server pool**: The list of IP addresses of the back-end servers. The IP addresses listed should belong to the virtual network subnet or should be a public IP or VIP address.
 * **Back-end server pool settings**: Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 * **Front-end port**: This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
 * **Listener**: The listener has a front-end port, a protocol (Http or Https, these values are case-sensitive), and the SSL certificate name (if configuring an SSL offload).
@@ -160,7 +160,7 @@ To construct your configuration by using a configuration XML file, enter the fol
 
 ## Set the gateway configuration
 
-Next, set the application gateway. You can enter the `Set-AzureApplicationGatewayConfig` cmdlet with either a configuration object or with a configuration XML file.
+Next, set the application gateway. You can enter the `Set-AzureApplicationGatewayConfig` cmdlet with either a configuration object or a configuration XML file.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
@@ -183,7 +183,7 @@ Start-AzureApplicationGateway AppGwTest
 
 Enter the `Get-AzureApplicationGateway` cmdlet to check the status of the gateway. If `Start-AzureApplicationGateway` succeeded in the previous step, the **State** should be **Running**, and the **VirtualIPs** and **DnsName** should have valid entries.
 
-This sample shows an application gateway that is up, running, and is ready to take traffic:
+This sample shows an application gateway that is up, running, and ready to take traffic:
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -203,7 +203,7 @@ DnsName       : appgw-4c960426-d1e6-4aae-8670-81fd7a519a43.cloudapp.net
 
 ## Next steps
 
-For more information about load balancing options in general, see:
+For more information about load-balancing options in general, see:
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
