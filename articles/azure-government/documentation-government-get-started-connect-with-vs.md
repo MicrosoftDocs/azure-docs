@@ -23,9 +23,19 @@ ms.author: zakramer
 Visual Studio is used by developers to easily manage their Azure subscriptions while building solutions.  Visual Studio does not currently allow you to configure a connection to Azure Government in the user interface.  
 
 ## Visual Studio 2017
-Visual Studio 2017 requires a configuration file for Visual Studio to connect to Azure Government.  With this file in place, Visual Studio connects to Azure Government instead of Azure Public.  You can do this manually, or use a Visual Studio extension.
+Visual Studio 2017 requires a configuration file for Visual Studio to connect to Azure Government.  With this file in place, Visual Studio connects to Azure Government instead of Azure Public. You can do this by using a Visual Studio Extension, or through manual configuration.
 
-### Manually creating a configuration file for Azure Government
+### Automatically configuring your target using a Visual Studio Extension
+
+> [!NOTE]
+> This is the recommended way to connect to Azure Government through Visual Studio.
+> 
+> 
+
+For more information on the Visual Studio Extension, please refer to the [announcement blog post](https://blogs.msdn.microsoft.com/azuregov/2017/04/05/introducing-the-azure-environment-selector-visual-studio-extension/).
+
+### Manually configuring your target
+#### Manually creating a configuration file for Azure Government
 Create a file named **AadProvider.Configuration.json** with the following content:
 
         {
@@ -46,7 +56,7 @@ Create a file named **AadProvider.Configuration.json** with the following conten
           "VisualStudioOnlineAudience": "499b84ac-1321-427f-aa17-267ca6975798"
         }
 
-### Manually updating Visual Studio for Azure Government
+#### Manually updating Visual Studio for Azure Government
 
 1.	Close Visual Studio
 2.	Place **AadProvider.Configuration.json** created in the previous step into **%localappdata%\\.IdentityService\AadConfigurations**.  Create this folder if not present.
@@ -57,7 +67,7 @@ Create a file named **AadProvider.Configuration.json** with the following conten
 > 
 > 
 
-### Manually reverting Visual Studio Connection to Azure Government
+#### Manually reverting Visual Studio Connection to Azure Government
 To enable Visual Studio to connect to Azure Public, you need to remove the configuration file settings that enables connection to Azure Government.
 
 1.	Close Visual Studio
@@ -69,9 +79,6 @@ To enable Visual Studio to connect to Azure Public, you need to remove the confi
 > 
 >
 
-### Configuring your target using a Visual Studio Extension
-
-For more information on the Visual Studio Extension, please refer to the [announcement blog post](https://blogs.msdn.microsoft.com/azuregov/2017/04/05/introducing-the-azure-environment-selector-visual-studio-extension/).
 
 ## Visual Studio 2015
 Visual Studio 2015 requires a registry change for Visual Studio to connect to Azure Government.  Once this registry key is set Visual Studio connects to Azure Government instead of Azure Public.
