@@ -42,12 +42,9 @@ This walk-through shows you how to use the Azure Cosmos DB service to store and 
 ## <a name="_Toc395637760"></a>Prerequisites for this database tutorial
 Before following the instructions in this article, you should ensure that you have the following:
 
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
-
-    OR
-
-    A local installation of the [Azure Cosmos DB Emulator](local-emulator.md).
-* [Visual Studio 2017](http://www.visualstudio.com/).  
+* An active Azure account.  If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+    
+* If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.  
 * Microsoft Azure SDK for .NET for Visual Studio 2017, available through the Visual Studio Installer.
 
 All the screen shots in this article have been taken using Microsoft Visual Studio Community 2017. If your system is configured with a different version it is possible that your screens and options won't match entirely, but if you meet the above prerequisites this solution should work.

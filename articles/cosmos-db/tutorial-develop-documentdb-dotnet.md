@@ -41,7 +41,7 @@ This tutorial covers the following tasks by using the [DocumentDB .NET API](docu
 Please make sure you have the following:
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
-    * Alternatively, you can use the [Azure Cosmos DB Emulator](local-emulator.md) for this tutorial if you'd like to use a local environment that emulates the Azure DocumentDB service for development purposes.
+    * [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## Create an Azure Cosmos DB account
