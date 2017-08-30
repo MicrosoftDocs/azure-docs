@@ -20,7 +20,7 @@ ms.author: sngun
 
 # Configure the Azure Stack operator's PowerShell environment
 
-As an Azure Stack operator, you can configure your Azure Stack Development Kit's PowerShell environment. After you configure, you can use PowerShell to manage Azure Stack resources such as creating offers, plans, quotas, managing alerts, etc. This topic is scoped to use with the cloud operator environments only, if you want to set up PowerShell for the user environment, refer to [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md) topic. 
+As an Azure Stack operator, you can configure your Azure Stack Development Kit's PowerShell environment. After you configure, you can use PowerShell to manage Azure Stack resources such as creating offers, plans, quotas, managing alerts, etc. This topic is scoped to use with the cloud operator environments only, if you want to set up PowerShell for the user environment, refer to [Configure the Azure Stack user's PowerShell environment](user/azure-stack-powershell-configure-user.md) topic. 
 
 ## Prerequisites
 
@@ -111,5 +111,5 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
 ## Next steps
-* [Develop templates for Azure Stack](azure-stack-develop-templates.md)
-* [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
+* [Develop templates for Azure Stack](user/azure-stack-develop-templates.md)
+* [Deploy templates with PowerShell](user/azure-stack-deploy-template-powershell.md)

@@ -207,7 +207,7 @@ There are some known issues when using CLI 2.0 in Azure Stack, to learn about th
 
 ## Next steps
 
-[Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
+[Deploy templates with Azure CLI](user/azure-stack-deploy-template-command-line.md)
 
 [Connect with PowerShell](azure-stack-connect-powershell.md)
 
