@@ -94,26 +94,34 @@ When you perform interactive testing, you may find that LUIS doesn't detect the 
 
 4. Go back to the **Train & Test** page and click **Train application**.
 
-5. Type `buy a plane ticket to bangor me` in the text box and click enter. Now the intent should be correctly detected as `BookFlight`. However, `bangor me` isn't detected as a location yet.
+5. Type `book a flight to bangor` in the text box and click enter. 
+
+>[!NOTE]
+> In this step you choose an utterance that's similar to the one you labeled, but not exactly the same. This helps to test your LUIS app's ability to generalize.
+
+6. Now the intent should be correctly detected as `BookFlight`. However, `bangor` isn't detected as a location yet.
 
     ![The intent is correctly identified but the location entity isn't detected](./media/luis-how-to-train-test/interactive-correct-intent-no-entity.png)
 
-6. Now you need to teach LUIS that `bangor me` in the utterance `buy a plane ticket to bangor me` should be mapped to the `Location` entity. Go to the **Intents** page, click the **BookFlight** intent, and find `buy a plane ticket to bangor me` in the list of utterances. 
+7. Now you need to teach LUIS that `bangor me` in the utterance `buy a plane ticket to bangor me` should be mapped to the `Location` entity. Go to the **Intents** page, click the **BookFlight** intent, and find `buy a plane ticket to bangor me` in the list of utterances. 
 
-7. Click on the words `bangor me` and choose the **Location** entity from the drop-down list. Click on the arrow to expand the **Location** entity.
+8. Click on the words `bangor me` and choose the **Location** entity from the drop-down list. Click on the arrow to expand the **Location** entity.
     ![label the word `bangor me` as a Location entity](./media/luis-how-to-train-test/interactive-label-entity-existing-utterance.png)
 
-8. Select **Location::ToLocation** hierarchical entity from the drop down list.
+9. Select **Location::ToLocation** hierarchical entity from the drop down list.
     ![label the word `bangor me` as a Location entity](./media/luis-how-to-train-test/interactive-label-entity-existing-utterance-hierarchical.png)
 
-9. Click **Save**. 
+10. Click **Save**. 
 
     ![Save the change to the entity](./media/luis-how-to-train-test/interactive-label-entity-save.png)
 
-10. Go back to the **Train & Test** page and click **Train application**.
+11. Go back to the **Train & Test** page and click **Train application**.
 
-11. Type `buy a plane ticket to bangor me` in the text box and click enter. Now the location entity is correctly detected.
-    ![Testing identifies bangor me as a location entity](./media/luis-how-to-train-test/interactive-corrected-location-entity.png)
+12. Type `buy a plane ticket to paris` in the text box and click enter. Now the location entity is correctly detected.
+
+>[!NOTE]
+> In this step you choose an utterance that's similar to the one you labeled, but not exactly the same. This helps to test your LUIS app's ability to generalize.
+    ![Testing identifies the location entity](./media/luis-how-to-train-test/interactive-corrected-location-entity.png)
 
 
 ### Perform interactive testing on current and published models
