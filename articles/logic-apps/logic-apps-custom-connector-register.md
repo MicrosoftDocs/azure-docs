@@ -170,7 +170,7 @@ the actions that users can add to their workflows.
    continue with these steps:
 
    1. To add an action that didn't exist in your OpenAPI file or Postman collection, 
-   select **New action**. 
+   choose **New action**. 
 
    2. Under **General**, provide the name, description, ID, and visibility for your operation.
 
@@ -181,7 +181,9 @@ the actions that users can add to their workflows.
       Usually, sample requests are available in the API documentation 
       where you can get information for the **Verb**, **URL**, 
       **Headers**, and **Body** fields. 
-      For example, see the [Text Analytics API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6).
+      For example, see the [Text Analytics API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+
+      ![Import sample request](./media/logic-apps-custom-connector-register/import-sample-operation-request.png)
 
       > [!IMPORTANT]
       > If you create a connector from a Postman collection, 
@@ -211,18 +213,14 @@ contact [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com).
 
 ## FAQ
 
+**=======NEED INFO=========**
+
 **Q:** Is there a limit on how many connectors I create? </br>
-**A:** Yes, this number differs based on your target service, 
-so review the pricing page for that service:
+**A:** Yes, see the [Logic Apps pricing page](**=======NEED INFO=========**).
 
-* [Logic Apps pricing](**NEED INFO!!!!!!!!**)
-* [Flow pricing](https://flow.microsoft.com/pricing/)
-* [PowerApps pricing](https://powerapps.microsoft.com/pricing/)
-
-(**VERIFY FOR LOGIC APPS**)
 **Q:** Is there a limit on how many requests that users can make with a custom connector? </br>
 **A:** Yes, for each connection that's created by a custom connector, 
-you can make up to 500 requests per minute. 
+you can make up to 500 requests per minute. **=======CONFIRM=========**
 
 ## Next steps
 
