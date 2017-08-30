@@ -36,7 +36,7 @@ To copy data from a Cassandra database that is not publicly accessible, you need
 
 ***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
 
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial]((quickstart-create-data-factory-dot-net.md)) for step-by-step instructions to create a pipeline with a copy activity.
+You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Cassandra connector.
 

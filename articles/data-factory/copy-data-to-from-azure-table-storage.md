@@ -43,7 +43,7 @@ You can create an Azure Storage linked service by using the account key, which p
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureStorage** |Yes |
-| connectionString | Specify information needed to connect to Azure storage for the connectionString property. Mark this field as SecureString as shown in the following example. |Yes |
+| connectionString | Specify information needed to connect to Azure storage for the connectionString property. Mark this field as SecureString. |Yes |
 
 **Example:**
 
@@ -76,7 +76,7 @@ To use Service SAS authentication, the following properties are supported:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureStorage** |Yes |
-| sasUri | Specify Shared Access Signature URI to the Azure Storage resources such as blob, container, or table. Mark this field as SecureString as shown in the following example. |Yes |
+| sasUri | Specify Shared Access Signature URI to the Azure Storage resources such as blob, container, or table. Mark this field as SecureString. |Yes |
 
 **Example:**
 
