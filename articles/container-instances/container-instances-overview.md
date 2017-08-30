@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2017
+ms.date: 07/20/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -53,19 +53,6 @@ With Azure Container Instances, you can schedule both Windows and Linux containe
 ## Co-scheduled groups
 
 Azure Container Instances supports scheduling of multi-container groups that share a host machine, local network, storage, and lifecycle. This enables you to combine your main application with others acting in a supporting role, such as logging.
-
-## Region availability
-
-During preview, Azure Container Instances are available in the following regions with the specified CPU and memory limits.
-
-| Location | OS | CPU | Memory (GB) |
-| -------- | -- | :---: | :-----------: |
-| East US | Linux | 2 | 7 |
-| East US | Windows | 2 | 3.5 |
-| West Europe | Linux | 1 | 1.5 |
-| West Europe | Windows | 2 | 3.5 |
-| West US | Linux | 2 | 3.5 |
-| West US | Windows | 2 | 3.5 |
 
 ## Next steps
 
