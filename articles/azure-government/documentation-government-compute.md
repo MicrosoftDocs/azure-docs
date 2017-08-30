@@ -1,4 +1,4 @@
- ---
+  ---
 title: Azure Government Compute | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: azure-government
@@ -22,7 +22,7 @@ ms.author: kydeeds
 For details on this service and how to use it, see [Azure Virtual Machines Sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Variations
-For available virtual machine sizes in Azure Government, see<a href="https://azure.microsoft.com/regions/services/">Products Available by Reigon</a>
+For available virtual machine sizes in Azure Government, see <a href="https://azure.microsoft.com/regions/services/">Products Available by Reigon</a>
 
 ### Data Considerations
 The following information identifies the Azure Government boundary for Azure Virtual Machines:
