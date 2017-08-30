@@ -150,27 +150,39 @@ The **url** parameter here is a fully-qualified service name of a service in you
 
 Refer to the API Management [backend API reference documentation](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#a-namebackenda-backend) for more details on each field.
 
-#### Example
+```python
+#import requests library for making REST calls
+import requests
+import json
 
-```http
-PUT https://your-apim.management.azure-api.net/backends/servicefabric?api-version=2016-10-10
-Authorization: SharedAccessSignature 230948023984&Ld93cRGcNU6KZ4uVz7JlfTec4eX43Q9Nu8ndatOgBzs6+f559Pkf3iHX2cSge+r42pn35qGY3TitjrIl13hwcQ==
-Content-Type: application/json
+#specify url
+url = 'https://ryanwiapimgmt.management.azure-api.net/backends/servicefabric?api-version=2016-10-10'
 
-{
+token = "SharedAccessSignature integration&201709291702&BNOlZ55mla885ultt7+avRgtJn2TvuKW4rE57ya8miL51Ts/vDqny70lHzbhScLsHIqcm7+Dsw029i6WmL5mQw=="
+
+payload = {
     "description": "My Service Fabric backend",
-    "url": "fabric:/myapp/myservice",
+    "url": "fabric:/ApiApplication/ApiWebService",
     "protocol": "http",
-    "resourceId": "https://your-cluster.westus.cloudapp.azure.com:19080",
+    "resourceId": "https://apimgmtcluster.westus.cloudapp.azure.com:19080",
     "properties": {
         "serviceFabricCluster": {
-            "managementEndpoints": ["https://your-cluster.westus.cloudapp.azure.com:19080"],
-            "clientCertificateThumbprint": "57bc463aba3aea3a12a18f36f44154f819f0fe32",
-            "serverCertificateThumbprints": ["57bc463aba3aea3a12a18f36f44154f819f0fe32"],
+            "managementEndpoints": [ "https://apimgmtcluster.westus.cloudapp.azure.com:19080" ],
+            "clientCertificateThumbprint": "97EDD7E4979FB072AF3E480A5E5EE34B1B89DD80",
+            "serverCertificateThumbprints": [ "97EDD7E4979FB072AF3E480A5E5EE34B1B89DD80" ],
             "maxPartitionResolutionRetries" : 5
         }
     }
 }
+
+headers = {'Authorization': token, "Content-Type": "application/json"}
+
+#Call REST API
+response = requests.put(url, data=json.dumps(payload), headers=headers)
+
+#Print Response
+print(response.status_code)
+print(response.text)
 ```
 
 ## Deploy a Service Fabric back-end service
