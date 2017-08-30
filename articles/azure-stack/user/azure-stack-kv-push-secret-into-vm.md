@@ -23,8 +23,7 @@ This article helps you to create a virtual machine in Azure Stack and push certi
 
 ## Prerequisites
 
-* Azure Stack cloud administrators must have [created an offer](azure-stack-create-offer.md) that includes the Azure Key Vault service.  
-* Users must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that includes the Key Vault service.  
+* You must must subscribe to an offer that includes the Key Vault service. 
 * [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
 * [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)
 
@@ -159,7 +158,7 @@ New-AzureRmResourceGroupDeployment `
 
 When the template is deployed successfully, it results in the following output:
 
-![Deployment output](media\azure-stack-kv-push-secret-into-vm/deployment-output.png)
+![Deployment output](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
 When this virtual machine is deployed, Azure Stack pushes the certificate onto the virtual machine. In Windows, the certificate is added to the LocalMachine certificate location, with the certificate store that the user provided. In Linux,
 the certificate is placed under the /var/lib/waagent directory,

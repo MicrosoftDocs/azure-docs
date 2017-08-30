@@ -22,8 +22,7 @@ ms.author: sngun
 ## Before you start
 This article assumes the following:
 
-* Azure Stack cloud administrators must have [created an offer](azure-stack-create-offer.md) that includes the Key Vault service.  
-* Users must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that includes the Key Vault service.  
+* Users must subscribe to an offer that includes the Key Vault service.  
 * [PowerShell is configured for use with Azure Stack](azure-stack-powershell-configure-user.md) 
  
 ## Key Vault basics

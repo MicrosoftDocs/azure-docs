@@ -68,5 +68,3 @@ User portal:
 ## Next steps
 
 [Connect to Azure Stack](azure-stack-connect-azure-stack.md)
-
-[Region management in Azure Stack](azure-stack-region-management.md)

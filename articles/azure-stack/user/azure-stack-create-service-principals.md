@@ -34,7 +34,7 @@ Depending on how you have deployed Azure Stack, you start by creating a service 
 
 ## Create service principal for Azure AD
 
-If you've deployed Azure Stack using Azure AD as the identity store, you can create service principals just like you do for Azure.  This section shows you how to perform the steps through the portal.  Check that you have the [required Azure AD permissions](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) before beginning.
+If you've deployed Azure Stack using Azure AD as the identity store, you can create service principals just like you do for Azure.  This section shows you how to perform the steps through the portal.  Check that you have the [required Azure AD permissions](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) before beginning.
 
 ### Create service principal
 In this section, you create an application (service principal) in Azure AD that will represent your application.
@@ -108,7 +108,7 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 ```
 
 ## Assign role to service principal
-To access resources in your subscription, you must assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md).
+To access resources in your subscription, you must assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../../active-directory/role-based-access-built-in-roles.md).
 
 You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains.
 
@@ -134,5 +134,4 @@ Now that you've created a service principal and assigned a role, you can begin u
 
 ## Next steps
 
-[Add users for ADFS](azure-stack-add-users-adfs.md)
 [Manage user permissions](azure-stack-manage-permissions.md)
