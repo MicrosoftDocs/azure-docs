@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/30/2017
 ms.author: jingwang
 
 ---

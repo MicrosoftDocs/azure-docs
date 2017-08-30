@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/30/2017
 ms.author: jingwang
 
 ---
@@ -30,7 +30,7 @@ Specifically, this PostgreSQL connector supports PostgreSQL **version 7.4 and ab
 
 To use this PostgreSQL connector, you need to:
 
-- Set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article to learn details.
+- Set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
 - Install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 or above on the Integration Runtime machine.
 
 ## Getting started
@@ -160,44 +160,44 @@ When copying data from PostgreSQL, the following mappings are used from PostgreS
 
 | PostgreSQL data type | PostgresSQL aliases | Data factory interim data type |
 |:--- |:--- |:--- |
-| abstime | |Datetime | &nbsp;
-| bigint |int8 |Int64 |
-| bigserial |serial8 |Int64 |
-| bit [ (n) ] | |Byte[], String | &nbsp;
-| bit varying [ (n) ] |varbit |Byte[], String |
-| boolean |bool |Boolean |
-| box | |Byte[], String |&nbsp;
-| bytea | |Byte[], String |&nbsp;
-| character [ (n) ] |char [ (n) ] |String |
-| character varying [ (n) ] |varchar [ (n) ] |String |
-| cid | |String |&nbsp;
-| cidr | |String |&nbsp;
-| circle | |Byte[], String |&nbsp;
-| date | |Datetime |&nbsp;
-| daterange | |String |&nbsp;
-| double precision |float8 |Double |
-| inet | |Byte[], String |&nbsp;
-| intarry | |String |&nbsp;
-| int4range | |String |&nbsp;
-| int8range | |String |&nbsp;
-| integer |int, int4 |Int32 |
-| interval [ fields ] [ (p) ] | |Timespan |&nbsp;
-| json | |String |&nbsp;
-| jsonb | |Byte[] |&nbsp;
-| line | |Byte[], String |&nbsp;
-| lseg | |Byte[], String |&nbsp;
-| macaddr | |Byte[], String |&nbsp;
-| money | |Decimal |&nbsp;
-| numeric [ (p, s) ] |decimal [ (p, s) ] |Decimal |
-| numrange | |String |&nbsp;
-| oid | |Int32 |&nbsp;
-| path | |Byte[], String |&nbsp;
-| pg_lsn | |Int64 |&nbsp;
-| point | |Byte[], String |&nbsp;
-| polygon | |Byte[], String |&nbsp;
-| real |float4 |Single |
-| smallint |int2 |Int16 |
-| smallserial |serial2 |Int16 |
-| serial |serial4 |Int32 |
-| text | |String |&nbsp;
+| `abstime` | |`Datetime` | &nbsp;
+| `bigint` | `int8` | `Int64` |
+| `bigserial` | `serial8` | `Int64` |
+| `bit [ (n) ]` | | `Byte[], String` | &nbsp;
+| `bit varying [ (n) ]` | `varbit |Byte[], String` |
+| `boolean` | `bool` | `Boolean` |
+| `box` | | `Byte[], String` | &nbsp;
+| `bytea` | | `Byte[], String` |&nbsp;
+| `character [ (n) ]` | `char [ (n) ]` | `String` |
+| `character varying [ (n) ]` | `varchar [ (n) ]` | `String` |
+| `cid` | | `String` |&nbsp;
+| `cidr` | | `String` |&nbsp;
+| `circle` | |`Byte[], String` |&nbsp;
+| `date` | |`Datetime` |&nbsp;
+| `daterange` | |`String` |&nbsp;
+| `double precision` |`float8` |`Double` |
+| `inet` | |`Byte[], String` |&nbsp;
+| `intarry` | |`String` |&nbsp;
+| `int4range` | |`String` |&nbsp;
+| `int8range` | |`String` |&nbsp;
+| `integer` | `int, int4 |Int32` |
+| `interval [ fields ] [ (p) ]` | | `Timespan` |&nbsp;
+| `json` | | `String` |&nbsp;
+| `jsonb` | | `Byte[]` |&nbsp;
+| `line` | | `Byte[], String` |&nbsp;
+| `lseg` | | `Byte[], String` |&nbsp;
+| `macaddr` | | `Byte[], String` |&nbsp;
+| `money` | | `Decimal` |&nbsp;
+| `numeric [ (p, s) ]`|`decimal [ (p, s) ]` |`Decimal` |
+| `numrange` | |`String` |&nbsp;
+| `oid` | |`Int32` |&nbsp;
+| `path` | |`Byte[], String` |&nbsp;
+| `pg_lsn` | |`Int64` |&nbsp;
+| `point` | |`Byte[], String` |&nbsp;
+| `polygon` | |`Byte[], String` |&nbsp;
+| `real` |`float4` |`Single` |
+| `smallint` |`int2` |`Int16` |
+| `smallserial` |`serial2` |`Int16` |
+| `serial` |`serial4` |`Int32` |
+| `text` | |`String` |&nbsp;
 
