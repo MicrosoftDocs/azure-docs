@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2017
+ms.date: 08/30/2017
 ms.author: jeedes
 
 ---
@@ -164,7 +164,7 @@ The objective of this section is to create a test user in the Azure portal calle
 The objective of this section is to create a user called Britta Simon in Bynder. Bynder supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user will be created during an attempt to access Bynder if it doesn't exist yet.
 
 > [!NOTE]
-> If you need to create an user manually, you need to contact the [Bynder support team](https://www.bynder.com/en/support/).
+> If you need to create a user manually, you need to contact the [Bynder support team](https://www.bynder.com/en/support/).
 
 ### Assign the Azure AD test user
 
