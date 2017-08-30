@@ -96,8 +96,8 @@ When you perform interactive testing, you may find that LUIS doesn't detect the 
 
 5. Type `book a flight to bangor` in the text box and click enter. 
 
->[!NOTE]
-> In this step you choose an utterance that's similar to the one you labeled, but not exactly the same. This helps to test your LUIS app's ability to generalize.
+   > [!NOTE]
+   > In this step you choose an utterance that's similar to the one you labeled, but not exactly the same. This helps to test your LUIS app's ability to generalize.
 
 6. Now the intent should be correctly detected as `BookFlight`. However, `bangor` isn't detected as a location yet.
 
@@ -119,9 +119,10 @@ When you perform interactive testing, you may find that LUIS doesn't detect the 
 
 12. Type `buy a plane ticket to paris` in the text box and click enter. Now the location entity is correctly detected.
 
->[!NOTE]
+> [!NOTE]
 > In this step you choose an utterance that's similar to the one you labeled, but not exactly the same. This helps to test your LUIS app's ability to generalize.
-    ![Testing identifies the location entity](./media/luis-how-to-train-test/interactive-corrected-location-entity.png)
+
+![Testing identifies the location entity](./media/luis-how-to-train-test/interactive-corrected-location-entity.png)
 
 
 ### Perform interactive testing on current and published models
