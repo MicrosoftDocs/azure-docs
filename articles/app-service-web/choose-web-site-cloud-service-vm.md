@@ -36,7 +36,7 @@ The following table compares the capabilities of App Service, Cloud Services, Vi
 | Scale up to larger machines without redeploy |X | | |X | |
 | Web server instances share content and configuration, which means you don't have to redeploy or reconfigure as you scale. |X | | |X | |
 | Multiple deployment environments (production and staging) |X |X | |X |Service Fabric allows you to have multiple environments for your apps or to deploy different versions of your app side-by-side. |
-| Automatic OS update management |X |X | | |Automatic OS updates are planned for a future Service Fabric release. |
+| Automatic OS update management |X |X | | |Partially through Patch Orchestration Application (POA) and full in next releases|
 | Seamless platform switching (easily move between 32 bit and 64 bit) |X |X | | | |
 | Deploy code with GIT, FTP |X | |X | | |
 | Deploy code with Web Deploy |X | |X | |Cloud Services supports the use of Web Deploy to deploy updates to individual role instances. However, you can't use it for initial deployment of a role, and if you use Web Deploy for an update you have to deploy separately to each instance of a role. Multiple instances are required in order to qualify for the Cloud Service SLA for production environments. |
