@@ -10,13 +10,13 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 08/30/2017
 ms.author: glenga
 ms.custom: mvc
 ---
 # Automate the resizing of uploaded images using Event Grid
 
-Azure Event Grid is an eventing service for the cloud. Event Grid lets you send events raised by Azure services or third-party resources to an endpoint that can respond to the event. Resources that raise events are called _topics_, which are subscribed to by consuming endpoints with _event subscriptions_. In this article, you use Event Grid to have Azure Functions subscribe to Azure Blob storage events to support thumbnail generation for images uploaded from a sample app. You use the Azure CLI to create and configure the application topology. 
+[Azure Event Grid](overview.md) is an eventing service for the cloud. Event Grid lets you send events raised by Azure services or third-party resources to an endpoint that can respond to the event. In this article, you use Event Grid to have [Azure Functions](..\azure-functions\functions-overview.md) subscribe to [Azure Blob storage](..\storage\blobs\storage-blobs-introduction.md) events to support thumbnail generation for images uploaded from a sample app. You use the Azure CLI to create and configure the application topology. 
 
 > [!WARNING]
 > This tutorial requires Event Grid functionality that is currently in a reduced-access preview. To be able to successfully complete this topic, you must first [request access to Blob storage events](#request-storage-access).  
