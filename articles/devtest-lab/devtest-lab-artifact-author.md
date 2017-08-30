@@ -51,11 +51,11 @@ The following example shows the sections that make up the basic structure of a d
 
 | Element name | Required? | Description |
 | --- | --- | --- |
-| $schema |No |Location of the JSON schema file that helps you test the validity of the definition file. |
+| $schema |No |Location of the JSON schema file. The JSON schema file can help you test the validity of the definition file. |
 | title |Yes |Name of the artifact displayed in the lab. |
 | description |Yes |Description of the artifact displayed in the lab. |
 | iconUri |No |URI of the icon displayed in the lab. |
-| targetOsType |Yes |Operating system of the VM where the artifact is installed. Supported options are: Windows and Linux. |
+| targetOsType |Yes |Operating system of the VM where the artifact is installed. Supported options are Windows and Linux. |
 | parameters |No |Values that are provided when the artifact install command is run on a machine. This helps you customize your artifact. |
 | runCommand |Yes |Artifact install command that is executed on a VM. |
 
@@ -107,9 +107,9 @@ The following example shows how to use expressions and functions to construct a 
 ## Create a custom artifact
 
 1. Install a JSON editor. You need a JSON editor to work with artifact definition files. We recommend using [Visual Studio Code](https://code.visualstudio.com/), which is available for Windows, Linux, and OS X.
-2. Get a sample artifactfile.json. Check out the artifacts created by the DevTest Labs team at our [GitHub repository](https://github.com/Azure/azure-devtestlab). We have created a rich library of artifacts that can help you create your own artifacts. Download an artifact definition file and make changes to it to create your own artifacts.
-3. Make use of IntelliSense. Use IntelliSense to see valid elements that can be used to construct an artifact definition file. You also can see the different options for values of an element. For example, when you edit the **targetOsType** element, IntelliSense shows you two choices, for Windows or Linux.
-4. Store the artifact in a [git repository](devtest-lab-add-artifact-repo.md).
+2. Get a sample artifactfile.json definition file. Check out the artifacts created by the DevTest Labs team in our [GitHub repository](https://github.com/Azure/azure-devtestlab). We have created a rich library of artifacts that can help you create your own artifacts. Download an artifact definition file and make changes to it to create your own artifacts.
+3. Make use of IntelliSense. Use IntelliSense to see valid elements that you can use to construct an artifact definition file. You also can see the different options for values of an element. For example, when you edit the **targetOsType** element, IntelliSense shows you two choices, for Windows or Linux.
+4. Store the artifact in a [Git repository](devtest-lab-add-artifact-repo.md).
    
    1. Create a separate directory for each artifact. The directory name should be the same as the artifact name.
    2. Store the artifact definition file (artifactfile.json) in the directory that you created.
@@ -117,7 +117,7 @@ The following example shows how to use expressions and functions to construct a 
       
       Here is an example of how an artifact folder might look:
       
-      ![Artifact Git repo example](./media/devtest-lab-artifact-author/git-repo.png)
+      ![Artifact folder example](./media/devtest-lab-artifact-author/git-repo.png)
 5. Add the artifacts repository to the lab. See [Add a Git repository for artifacts and templates](devtest-lab-add-artifact-repo.md).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

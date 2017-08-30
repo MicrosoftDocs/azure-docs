@@ -18,32 +18,35 @@ ms.author: tarcher
 
 ---
 # Diagnose artifact failures in the lab 
-After you have created an artifact, you can check to see if it succeeded or failed. Artifact logs in Azure DevTest Labs provide information that you can use to diagnose an artifact failure. You have a couple of options for viewing the artifact log information for a Windows VM.
+After you have created an artifact, you can check to see whether it succeeded or failed. Artifact logs in Azure DevTest Labs provide information that you can use to diagnose an artifact failure. You have a couple of options for viewing the artifact log information for a Windows VM:
+
+* In the Azure portal
+* In the VM
 
 > [!NOTE]
-> To ensure that failures are correctly identified and explained, it's important that the artifact has the proper structure. For information about how to correctly construct an artifact, see [Create custom artifacts](devtest-lab-artifact-author.md). To see an example of a properly structured artifact, check out this [Test Parameter Types](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes) artifact.
+> To ensure that failures are correctly identified and explained, it's important that the artifact has the proper structure. For information about how to correctly construct an artifact, see [Create custom artifacts](devtest-lab-artifact-author.md). To see an example of a properly structured artifact, check out the [Test parameter types](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes) artifact.
 
 ## Troubleshoot artifact failures by using the Azure portal
 
-1. In the list of resources, select your lab.
+1. In the Azure portal, in your list of resources, select your lab.
 2. Choose the Windows VM that includes the artifact that you want to investigate.
 3. In the left panel, under **GENERAL**, select **Artifacts**. A list of artifacts associated with that VM appears. The name of the artifact and the artifact status are indicated.
 
-   ![Artifact Git repo example](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure.png)
+   ![Artifact status](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure.png)
 
 4. Select an artifact that shows a **Failed** status. The artifact opens. An extension message that includes details about the failure of the artifact is displayed.
 
-   ![Artifact Git repo example](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error.png)
+   ![Artifact error message](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error.png)
 
 
 ## Troubleshoot artifact failures from within the virtual machine
 
 1. Sign in to the VM that contains the artifact you want to diagnose.
-2. Go to C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.9\Status, where *1.9* is the Custom Script Extension (CSE) version number.
+2. Go to C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\*1.9*\Status, where *1.9* is the Azure Custom Script Extension version number.
 
-   ![Artifact git repo example](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error-vm-status.png)
+   ![The Status file](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error-vm-status.png)
 
-3. To view information that can help you diagnose artifact failures for that VM, open the **status** file.
+3. Open the **status** file.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
