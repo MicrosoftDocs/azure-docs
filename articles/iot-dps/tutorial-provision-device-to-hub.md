@@ -77,6 +77,7 @@ Start the device to allow your DPS client application to start the registration 
 
 ## Verify the device is registered
 
+Note this section is pending portal bug fix. 
 <!-- 
 Could not be verified as the DPS client sample fails to get the DPS data
 -->
@@ -93,17 +94,3 @@ Advance to the next tutorial to learn how to provision multiple devices across l
 
 > [!div class="nextstepaction"]
 > [Use DPS to provision devices across load balanced IoT hubs](./tutorial-provision-multiple-hubs.md)
-
-<!--- 
-Rules for screenshots:
-- Use default Public Portal colors
-- Browser included in the first shot (especially) but all shots if possible
-- Resize the browser to minimize white space
-- Include complete blades in the screenshots
-- Linux: Safari – consider context in images
-Guidelines for outlining areas within screenshots:
-	- Red outline #ef4836
-	- 3px thick outline
-	- Text should be vertically centered within the outline.
-	- Length of outline should be dependent on where it sits within the screenshot. Make the shape fit the layout of the screenshot.
--->
