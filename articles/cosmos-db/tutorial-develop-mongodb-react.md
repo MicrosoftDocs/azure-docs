@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Create a MongoDB API app using React | Microsoft Docs"
-description: Learn how to create a MongoDB API app for Azure Cosmos DB using the React, Node, Express, and Mongoose. 
+title: "MongoDB, React and Node tutorial for Azure | Microsoft Docs"
+description: Learn how to create a MongoDB app with React and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB with this video based tutorial series. 
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -13,18 +13,16 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/28/2017
+ms.date: 08/31/2017
 ms.author: mimig
 ms.custom: mvc
 
 ---
-# Azure Cosmos DB: Create a MongoDB API app using React, Node, and Express
-
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. With Azure Cosmos DB, can quickly create and query document, key/value, and graph databases that benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+# Create a MongoDB app with React and Azure Cosmos DB  
 
 This multi-part video tutorial demonstrates how to create a new hero tracking app with a React front-end. The app uses APIs for Node and Express, connects to the Azure Cosmos DB and the [MongoDB API](mongodb-introduction.md), and then connects the React front-end to the server portion of the app. You'll also learn how to do point and click scaling in the Azure portal and how to can deploy this app to the internet so everyone can track their favorite heroes. 
 
-Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the same code that you use for MongoDB apps but with added benefits. These benefits from Azure Cosmos DB are simple cloud deployment, scaling, security, and super-fast reads and writes.  
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the same code that you use for MongoDB apps but with added benefits. These benefits from Azure Cosmos DB are simple cloud deployment, scaling, security, and super-fast reads and writes.  
 
 This multi-part tutorial covers the following tasks:
 
