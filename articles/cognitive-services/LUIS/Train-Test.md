@@ -107,6 +107,7 @@ When you perform interactive testing, you may find that LUIS doesn't detect the 
     ![label the word `bangor me` as a Location entity](./media/luis-how-to-train-test/interactive-label-entity-existing-utterance-hierarchical.png)
 
 9. Click **Save**. 
+
     ![Save the change to the entity](./media/luis-how-to-train-test/interactive-label-entity-save.png)
 
 10. Go back to the **Train & Test** page and click **Train application**.
