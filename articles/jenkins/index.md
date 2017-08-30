@@ -38,6 +38,6 @@ ms.custom: Jenkins
 <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM Agents plugin</a><br/>
 <a href="https://plugins.jenkins.io/windows-azure-storage">Azure Storage plugin</a><br/>
 <a href="https://jenkins.io">Learn about Jenkins</a><br/>
-      
-Jenkins® is a registered trademark of Software in the Public Interest, Inc. The [Jenkins® logo](https://wiki.jenkins.io/display/JENKINS/Logo) is licensed under [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) from the [Jenkins project](https://jenkins.io).
+<h4>      
+Jenkins® is a registered trademark of Software in the Public Interest, Inc. The [Jenkins® logo](https://wiki.jenkins.io/display/JENKINS/Logo) is licensed under [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) from the [Jenkins project](https://jenkins.io).</h4>
 </div>
