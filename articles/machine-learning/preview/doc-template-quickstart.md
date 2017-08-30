@@ -1,17 +1,16 @@
 ---
 title: Quickstart article for Machine Learning Server | Microsoft Docs
-description: Quickstart guide to do something. Describes the article in 115 to 145 characters. Validate to check. Use SEO words here.
+description: This sample describes the article in 115 to 145 characters. Validate using Gauntlet toolbar check icon. Use SEO kind of action verbs here.
 services: machine-learning
 author: yourgithubalias
 ms.author: yourmsftalias
 manager: jhubbard
-editor: jasonwhowell
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
-ms.devlang: 
 ms.topic: hero-article
-ms.date: 09/25/2017
+ms.date: 08/28/2017
 ---
 
 # The H1 heading is the article title that shows on the web
@@ -25,7 +24,7 @@ Open your web browser, and navigate to the [Microsoft Azure portal](https://port
 ## Create an Azure Machine Learning Server
 1. Fill in the details:
 
-    ![This is a screenshot](media/doc-template-quickstart/1-machine-learning-image.png)
+   ![This is a screenshot](media/doc-template-quickstart/1-machine-learning-image.png)
 
 This table is the kind of table to use following a screenshot to describe how to fill in the form seen in the screenshot. 
 
@@ -47,10 +46,11 @@ tool --switch1 value2 --switch2 value2
 ```
 
 The table describes the switched used in the preceding command: 
-    tool parameter |Suggested value|Description
-    ---|---|---
-    --switch1 | *given value* | Specify the first parameter to use with the tool.
-    --switch1 | *given value* | Specify the first parameter to use with the tool.
+
+tool parameter |Suggested value|Description
+---|---|---
+--switch1 | *given value* | Specify the first parameter to use with the tool.
+--switch1 | *given value* | Specify the first parameter to use with the tool.
 
 Example tool output:
 ```bash

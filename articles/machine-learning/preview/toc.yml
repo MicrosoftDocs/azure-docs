@@ -4,125 +4,67 @@
 - name: Overview
   expanded: true
   items:
-  - name: Preview features
+  - name: What is the Azure Machine Learning preview?
     href: what-are-preview-features.md
-- name: Quick Starts
+- name: Quickstarts
   items:
-  - name: Quick Start
-  - name: Classifying Iris
+  - name: (Install Workbench)
+  - name: (Create a model)
+  - name: (Run a model in Docker)
+  - name: (Run a model with Python)
+  - name: (Operationalize a model)
+  - name: (Create a model with CLI)
+  - name: (Set up Model Management)
+  - name: MVC Template
+    href: doc-template-quickstart.md
 - name: Tutorials
   items:
-  - name: AZ ML CLI Tutorial
-  - name: Bike Share Forecast
+  - name: (Bike Share Forecast)
+  - name: MVC Template
+    href: doc-template-tutorial.md
+- name: Samples
+  items:
+  - name: Azure CLI 2.0
+    href: sample-scripts-azure-cli.md
+  - name: Python
+    href: sample-scripts-python.md
+  - name: MVC Template
+    href: scripts/doc-template-sample.md
 - name: Concepts
   items:
-  - name: Workbench
-    href: preview-features-workbench.md
-  - name: Experimentation Service
-    href: preview-features-experimentation.md
-  - name: Model Management Service
-    href: preview-features-model-management.md
-  - name: MMLSpark Library
-    href: preview-features-mmlspark.md
-  - name: OpenMind
-    href: preview-features-openmind.md
-  - name: Operationalization
-  - name: Billing
+  - name: (Workbench overview)
+  - name: Model Management overview
+    href: model-management-overview.md 
+  - name: (Operationalization overview)
+  - name: MVC Template
+    href: doc-template-concepts.md
 - name: How-to guides
   items:
   - name: Set Up and Configure Environment
     items:
-    - name: Installation
-    - name: Set up Team Account and Workgroup
-    - name: Set up Hosting Account and environment
-      items:
-      - name: Setup Using CLI
-      - name: Setup Using UI
-      - name: Setup Using API
-    - name: Configure Execution Targets
-    - name: Use Jupyter Notebooks
-    - name: Persist Changes and Data in Docker Container
-  - name: Experimentation Service
+    - name: (Set up an Experimentation account)
+    - name: (Configure execution targets)
+    - name: (Use Jupyter notebooks)
+  - name: Acquire and understand data
     items:
-    - name: Acquire and understand data
-      items:
-      - name: Bring Large Datasets to Azure
-      - name: Prepare Your Data
-      - name: Deep Dive to Data Wrangling
-    - name: Develop models
-      items:
-      - name: Track Run History and Model Metrics
-      - name: Use MMLSpark Library
-  - name: Model Management Service
+    - name: (Prepare your data)
+  - name: Develop and manage models
     items:
-    - name: Model Management using CLI
-    - name: Model Management using API
-    - name: Consume Web service using CLI
-    - name: Consume Web service using API
-    - name: Enable logging for Web Services and model telemetry
-    - name: Scale Web Service
-    - name: Troubleshooting web services
-    - name: Model telemetry 
-    - name: Updating web service 
-    - name: Retraining 
-    - name: Batch scoring on HDI using Livy
-    - name: Mini-batch scoring using realtime service
-    - name: Getting started with VNETs
-    - name: Encryption at rest
-    - name: Deploy into IoT devices
-  - name: Use AZ ML CLI from Command Line
-  - name: Use AZ ML CLI from VS Code
-  - name: Use Git repo for source control
-  - name: How to share project and collaborate with others
-  - name: End-to-end examples
+    - name: (Track run history and model metrics)
+    - name: (Use the MMLSpark library)
+  - name: Operationalize models
     items:
-    - name: MMLSpark on Adult Census
-    - name: Simple Linear Regression
-    - name: MNIST using TensorFlow
-    - name: Python & PySpark Template
-    - name: MNIST using CNTK
-    - name: Parameter Sweep on Spark
-    - name: Transfer Learning
-    - name: ARIMA Forecasting
-    - name: Deep Learning with Keras and TensorFlow
-    - name: Anomaly detection using IoT
-    - name: How to Apply Azure ML Workbench to TDSP
-    - name: Infrastructure Capacity Planning
-    - name: Aerial image classification
-    - name: Jabil circuit board failure prediction
-    - name: Kaggle competition 
-    - name: Stackoverflow - auto-tagging
-    - name: NLP text classification 
-    - name: Document level NLP analysis  
-    - name: Predictive maintenance  
-    - name: Retail time series forecasting
-    - name: Distributed Hyper Parameter Tuning
-    - name: Inventory optimization or supply chain 
-    - name: Fraud detection 
-    - name: LSTM on Predictive Maintenance
-    - name: CV toolkit integration with Azure ML Workbench
-    - name: Create a model and show how to deploy to CoreML
-    - name: BigDL sample
-    - name: Tensorframes sample
-    - name: PyTorch sample
+    - name: (Use Model Management Service with CLI)
+    - name: (Consume a service with CLI)
+  - name: (Use AZ ML CLI from the command line)
+  - name: (Use a Git repo for source control)
+  - name: MVC Template
+    href: doc-template-how-to.md
 - name: Reference
   items:
-  - name: Command reference guide CLI
-  - name: API refence 
-  - name: Data Wrangling Reference Guide
-  - name: AZ ML CLI Syntax
-  - name: Known Issues and Troubleshooting
-  - name: Release Notes
-  - name: Frequently Asked Questions
-- name: Doc Templates
+  - name: (AZ ML CLI Syntax)
+- name: Resources
   items:
-  - name: Quickstarts
-    href: doc-template-quickstart.md
-  - name: Tutorials
-    href: doc-template-tutorial.md
-  - name: Samples
-    href: scripts/doc-template-sample.md
-  - name: Concepts
-    href: doc-template-concepts.md
-  - name: How-to Guides
-    href: doc-template-how-to.md
+  - name: (Known Issues and Troubleshooting)
+  - name: (Release Notes)
+  - name: (Frequently Asked Questions)

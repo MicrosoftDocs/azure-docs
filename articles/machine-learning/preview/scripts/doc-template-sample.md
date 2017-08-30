@@ -1,21 +1,21 @@
 ---
-title: Azure CLI Script-Scale for Machine Learning Server 
-description: "Azure CLI Script Sample - Scale Azure Database for PostgreSQL server to a different performance level after querying the metrics."
+title: Azure CLI Script-Scale for Machine Learning Server  | Microsoft Docs
+description: This sample describes the article in 115 to 145 characters. Validate using Gauntlet toolbar check icon. Use SEO kind of action verbs here.
 services: machine-learning
 author: yourgithubalias
 ms.author: yourmsftalias
 manager: jhubbard
-editor: jasonwhowell
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 08/28/2017
 ---
 
-# A sample script
-The article contains a sample CLI script that does something. Focus on a longer copy/pasteable code block. Not much explanation needed.
+# This is the H1 and the article title that shows on the web. A sample script.
+The article contains a sample CLI script that does something. Focus on a longer block intended to be copied and pasted. Only intro explanation needed.
 
 [!INCLUDE [cloud-shell-try-it](../../../../includes/cloud-shell-try-it.md)]
 

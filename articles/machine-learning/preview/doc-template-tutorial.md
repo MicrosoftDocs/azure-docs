@@ -1,20 +1,19 @@
 ---
 title: Tutorial article for Machine Learning Server | Microsoft Docs
-description: Tutorial to do some longer scenario. Describes the article in 115 to 145 characters. Validate to check. Use SEO words here.
+description: This sample describes the article in 115 to 145 characters. Validate using Gauntlet toolbar check icon. Use SEO kind of action verbs here.
 services: machine-learning
 author: yourgithubalias
 ms.author: yourmsftalias
 manager: jhubbard
-editor: jasonwhowell
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.devlang: 
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 08/28/2017
 ---
 
-# Create your first Machine Learning Server
+# This is the H1 and the article title that shows on the web
 Once sentence into intro about Machine Learning. Intro paragraph to explain the intent of this tutorial.
 
 In this tutorial, you use the Azure portal to learn how to:
