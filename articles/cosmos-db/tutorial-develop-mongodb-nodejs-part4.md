@@ -39,31 +39,9 @@ In this tutorial section, you can either use the Azure Cloud Shell (in your inte
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-## Log in to Azure
+[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)]
 
-If you are using Azure CLI installed locally, log in to your Azure subscription with the [`az login`](/cli/azure/#login) command in a Windows Command Prompt or Mac Terminal window, and follow the on-screen directions. If you're using the Azure Cloud Shell, you can skip this step.
-
-```azurecli
-az login 
-``` 
-
-After you're logged in, the command prompt displays all of your active subscriptions.
-
-## Create a resource group
-
-Now that you're logged in, create a [resource group](../azure-resource-manager/resource-group-overview.md) with a **unique name** by using the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container in which Azure resources like web apps, databases, and storage accounts are deployed and managed. 
-
-If you are using Azure Cloud Shell, click **Try It**, follow the onscreen prompts to log in, then copy the following code into the command prompt.
-
-```azurecli-interactive
-az group create -n <my-resource-group> -l "East US"
-```
-
-* [az group create](/cli/azure/group#create) creates a resource group.
-* For `-n <my-resource-group>`, choose a unique name for your resource group. Substitute your own resource group name where you see the `<my-resource-group>` placeholder. 
-* For `-l "East US"` you are selecting a location in which to create the resource group. You can choose any of the [Azure regions](https://azure.microsoft.com/regions/). 
-
-After the resource group is created, the command prompt displays the new resource group information.    
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
 ## Create an Azure Cosmos DB account
 
