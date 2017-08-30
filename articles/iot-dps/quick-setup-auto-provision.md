@@ -32,7 +32,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 2. Select **Internet of Things**, select **IoT Hub**, and click the **Create** button. 
 
-3. **Name** your IoT hub. Select from available options for pricing, enter the [IoT Hub units](https://azure.microsoft.com/pricing/details/iot-hub/), select the number of partitions for device-to-cloud messages and the subscription that would be used for this resource. Enter the name of a new or existing resource group and select the location. When complete, click **Create**.
+3. **Name** your IoT hub. Select from available options for pricing, enter the [IoT Hub units](https://azure.microsoft.com/pricing/details/iot-hub/), select the number of partitions for device-to-cloud messages, and the subscription that would be used for this resource. Enter the name of a new or existing resource group and select the location. When complete, click **Create**.
 
     ![Enter basic information about your IoT hub in the portal blade](./media/quick-setup-auto-provision/create-iot-hub-portal.png)  
 
@@ -51,7 +51,7 @@ Need for a string pass in the last week of August or when portal is ready.
 
 2. *Search the Marketplace* for **Device provisioning service**. Select **IoT Device Provisioning Service (preview)** and click the **Create** button. 
 
-3. **Name** your DPS tenant. Select the subscription that would be used for this tenant and name a new or existing resource group. Select the location. When complete, click **Create**.
+3. **Name** your DPS tenant. Select the subscription that would be used for this tenant, and name a new or existing resource group. Select the location. When complete, click **Create**.
 
     ![Enter basic information about your DPS tenant in the portal blade](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
@@ -60,7 +60,7 @@ Need for a string pass in the last week of August or when portal is ready.
 
 ## Link the IoT hub and the DPS tenant
 
-1. Click the **All resources** button from on the left-hand menu of the Azure portal. Select the DPS tenant that you created in above section.  
+1. Click the **All resources** button from on the left-hand menu of the Azure portal. Select the DPS tenant that you created in preceding section.  
 
 2. On the DPS summary blade, select **Linked IoT hubs**. Click the **+ Add** button seen at the top. 
 
@@ -81,7 +81,7 @@ Other quick starts in this collection build upon this quick start. If you plan t
 
 ## Next steps
 
-In this quick start, you’ve deployed an IoT hub and a DPS tenant, and linked the two resources. To learn how to use this set up to provision a simple simulated device, continue to the quick start for creating simulated device.
+In this quick start, you’ve deployed an IoT hub and a DPS tenant, and linked the two resources. To learn how to use this set up to provision a simulated device, continue to the quick start for creating simulated device.
 
 > [!div class="nextstepaction"]
 > [Quick start to create simulated device](./quick-create-simulated-device.md)
