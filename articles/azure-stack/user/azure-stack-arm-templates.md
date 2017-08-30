@@ -66,5 +66,5 @@ To cancel a running template deployment, use the `Stop-AzureRmResourceGroupDeplo
 ## Next steps
 [Deploy templates with the portal](azure-stack-deploy-template-portal.md)
 
-[Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
+[Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)
 
