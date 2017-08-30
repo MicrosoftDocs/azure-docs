@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Create a MongoDB app with React and Azure Cosmos DB  
 
-This multi-part video tutorial demonstrates how to create a new hero tracking app with a React front-end. The app uses APIs for Node and Express, connects to the Azure Cosmos DB and the [MongoDB API](mongodb-introduction.md), and then connects the React front-end to the server portion of the app. You'll also learn how to do point and click scaling in the Azure portal and how to can deploy this app to the internet so everyone can track their favorite heroes. 
+This multi-part video tutorial demonstrates how to create a new hero tracking app with a React front-end. The app uses APIs for Node and Express, connects to the Azure Cosmos DB and the [MongoDB API](mongodb-introduction.md), and then connects the React front-end to the server portion of the app. The tutorial also demonstrates how to do point and click scaling in the Azure portal and how to can deploy this app to the internet so everyone can track their favorite heroes. 
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the same code that you use for MongoDB apps but with added benefits. These benefits from Azure Cosmos DB are simple cloud deployment, scaling, security, and super-fast reads and writes.  
 
@@ -70,11 +70,11 @@ This video shows how to delete and update heroes from the app and display the up
 
 > [!VIDEO https://www.youtube.com/embed/mKzk_5RQz28] 
 
-## Delete and update heroes in the app
+## Complete the app
 
-This video shows how to hook up the read, create, delete, and update APIs to the UI. 
+This video shows how to complete the app and hook the UI up to the APIs. 
 
-> [!VIDEO https://www.youtube.com/embed/mKzk_5RQz28] 
+> [!VIDEO https://www.youtube.com/embed/Jhma0SNbAvk]
 
 ## Clean up resources
 
