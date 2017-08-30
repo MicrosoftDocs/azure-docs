@@ -18,8 +18,8 @@ ms.author: alfredop
 
 ---
 # Provider Resource Usage API
-The term provider applies to the Azure Stack operator and to any
-delegated providers. Service admins and delegated providers can use the
+The term provider applies to the service administrator and to any
+delegated providers. Azure Stack operator's and delegated providers can use the
 Provider Usage API to view the usage of their direct tenants. For
 example, P0 can call the Provider API to get usage information on P1's and
 P2's direct usage, and P1 can call for usage information on P3 and P4.
@@ -41,7 +41,7 @@ Owner, Contributor, or Reader role in the provider’s subscription.
 ### Arguments
 | **Argument** | **Description** |
 | --- | --- |
-| *armendpoint* |Azure Resource Manager endpoint of your Azure Stack environment. The Azure Stack convention is that the name of Azure Resource Manager endpoint is in the format `https://adminmanagement.{domain-name}`. For example, if the domain name is local.azurestack.external, then the Resource Manager endpoint is `https://adminmanagement.local.azurestack.external`. |
+| *armendpoint* |Azure Resource Manager endpoint of your Azure Stack environment. The Azure Stack convention is that the name of Azure Resource Manager endpoint is in the format `https://adminmanagement.{domain-name}`. For example, for development kit, the domain name is local.azurestack.external, then the Resource Manager endpoint is `https://adminmanagement.local.azurestack.external`. |
 | *subId* |Subscription ID of the user who is making the call. |
 | *reportedStartTime* |Start time of the query. The value for *DateTime* should be in UTC and at the beginning of the hour, for example, 13:00. For daily aggregation, set this value to UTC midnight. The format is *escaped* ISO 8601, for example, 2015-06-16T18%3a53%3a11%2b00%3a00Z, where colon is escaped to %3a and plus is escaped to %2b so that it is URI friendly. |
 | *reportedEndTime* |End time of the query. The constraints that apply to *reportedStartTime* also apply to this argument. The value for *reportedEndTime* cannot be in the future or the current date. If it is, the result is set to "processing not complete." |
