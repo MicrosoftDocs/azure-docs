@@ -18,7 +18,7 @@ ms.author: garye
 ---
 # What are the Azure Machine Learning preview features?
 
-Microsoft Azure Machine Learning is an integrated, comprehensive data science solution for professional data scientists to develop, experiment, and deploy advanced analytics applications at cloud scale.  There are a new set of features that have been released as a public preview that are described below.
+Microsoft Azure Machine Learning is an integrated, comprehensive data science solution for professional data scientists to develop, experiment, and deploy advanced analytics applications at cloud scale. 
 
 The preview features include five components:
 
@@ -28,7 +28,7 @@ The preview features include five components:
 - [**Visual Studio Tools for Machine Learning**](#visual-studio-tools-for-machine-learning)
 - [**Workbench**](#workbench)
 
-In addition, you can use **Azure Machine Learning Studio**, a collaborative, drag-and-drop tool that provides predefined machine learning algorithms and push-button model deployment. For more information, see [What is Machine Learning Studio?](../studio/what-is-ml-studio.md).
+In addition, you can use **Azure Machine Learning Studio**, a collaborative, drag-and-drop tool that provides predefined machine learning algorithms and push-button model deployment. For more information, see [What is Machine Learning Studio?](../studio/what-is-ml-studio.md)
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
