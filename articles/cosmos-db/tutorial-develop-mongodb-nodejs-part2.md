@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Create a MEAN.js app - Part 2 | Microsoft Docs"
-description: Learn how to create a MEAN.js app for Azure Cosmos DB using the exact same APIs you use for MongoDB. 
+title: "MongoDB, AngularJS, and Node.js tutorial for Azure - Part 2 | Microsoft Docs"
+description: Part 2 of the tutorial series on creating a MongoDB app with AngularJS and Node.js on Azure Cosmos DB using the exact same APIs you use for MongoDB.
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -17,13 +17,11 @@ ms.date: 08/25/2017
 ms.author: mimig
 
 ---
-# Create a MEAN.js app with Azure Cosmos DB - Part 2: Create a Node.js Express app with the Angular CLI 
+# Create a MongoDB app with Angular and Azure Cosmos DB - Part 2: Create a Node.js Express app with the Angular CLI 
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. With Azure Cosmos DB, can quickly create and query document, key/value, and graph databases that benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express and Angular and then connects it to your Azure Cosmos DB database.
 
-This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express and Angular and connect then it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the exact same code that you use for MongoDB apps. By using Azure Cosmos DB instead of MongoDB, you benefit from the deployment, scaling, security, and super-fast reads and writes that Azure Cosmos DB provides as a managed service. 
-
-Part 2 of the tutorial covers the following tasks:
+Part 2 of the tutorial builds on [the introduction](tutorial-develop-mongodb-nodejs.md) and covers the following tasks:
 
 > [!div class="checklist"]
 > * Install the Angular CLI and Typescript
@@ -42,9 +40,9 @@ Before starting this part of the tutorial, ensure you've watched the [introducti
 This tutorial also requires: 
 * [Node.js](https://nodejs.org/) version 8.4.0 or above.
 * [Postman](https://www.getpostman.com/)
-* [Visual Studio Code](https://code.visualstudio.com/) or your favorite Node IDE.
+* [Visual Studio Code](https://code.visualstudio.com/) or your favorite code editor.
 
-## Install Angular CLI and Typescript
+## Install the Angular CLI and Typescript
 
 1. Open a Windows Command Prompt or Mac Terminal window and install the Angular CLI.
 
@@ -52,7 +50,7 @@ This tutorial also requires:
     npm install -g @angular/cli
     ```
 
-2. Install Typescript by entering the following code at the command prompt. 
+2. Install Typescript by entering the following command in the prompt. 
 
     ```
     npm install -g typescript

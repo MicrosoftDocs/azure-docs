@@ -51,7 +51,7 @@
       href: tutorial-develop-documentdb-dotnet.md
     - name: MongoDB with .NET
       href: tutorial-develop-mongodb.md
-    - name: MongoDB with Node.js
+    - name: MongoDB with Angular
       href: tutorial-develop-mongodb-nodejs.md
     - name: Table
       href: tutorial-develop-table-dotnet.md
