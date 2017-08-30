@@ -17,7 +17,7 @@ ms.date: 08/28/2017
 ms.author: juluk
 ---
 
-# Quickstart for using Bash Cloud Shell
+# Quickstart for using Bash in Cloud Shell
 
 This document details how to use Bash in Azure Cloud Shell in the [Azure portal](https://ms.portal.azure.com/).
 
