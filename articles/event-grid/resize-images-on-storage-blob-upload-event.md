@@ -178,7 +178,7 @@ The function code is deployed directly from the public sample repo. To learn mor
 
 ## Create an event subscription in Event Grid
 
-An event subscription tells Event Grid which events you want to send to your function. Create an event subscription by using the `az eventgrid resource event-subscription create` command. In the following command, `<function_app>` is the function app you created and `<blob_storage_account>` is your storage account. 
+An event subscription tells Event Grid which provider-generated events you want to send to a specific endpoint. In this case, the endpoint is your function. Create an event subscription by using the `az eventgrid resource event-subscription create` command. In the following command, `<function_app>` is the function app you created and `<blob_storage_account>` is your storage account. 
 
 ```azurecli-interactive
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -188,8 +188,7 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 --subject-begins-with /blobServices/default/containers/images/blobs/ \
 --endpoint https://<function_app>.azurewebsites.net/api/imageresizefunc 
 ```
-
-The prefix filter value `/blobServices/default/containers/images/blobs/` filters storage events to only those on the **images** container.  
+The prefix filter value `/blobServices/default/containers/images/blobs/` filters storage events to only those on the **images** container. Only event types of `Microsoft.Storage.BlobCreated` are passed to the function. 
 
 Now that the backend services are configured, you publish the sample web app to Azure. 
 
@@ -216,12 +215,12 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 ## Deploy the sample app from the GitHub repository
 
-App Service supports several ways to deploy content to a web app. In this tutorial, you  deploy the web app from a public GitHub sample repository: <https://github.com/Azure-Samples/integration-image-upload-resize-storage-functions>. Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source#config) command. 
+App Service supports several ways to deploy content to a web app. In this tutorial, you  deploy the web app from a public GitHub sample repository: <https://github.com/Azure-Samples/integration-image-resize-web-app>. Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source#config) command. 
 
 ```azurecli-interactive
-az webapp deployment source config --name <web_app>  
+az webapp deployment source config --name <web_app>  \
 --resource-group myResourceGroup --branch master --manual-integration \
---repo-url https://github.com/Azure-Samples/integration-image-upload-resize-storage-functions
+--repo-url https://github.com/Azure-Samples/integration-image-resize-web-app
 ```
 
 ## Configure web app settings
