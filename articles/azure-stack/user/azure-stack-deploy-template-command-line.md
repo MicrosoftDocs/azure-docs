@@ -38,6 +38,6 @@ To see this resource group and storage account, use the following commands:
 
     azure storage account list
 
-## Next steps
-[Manage user permissions](azure-stack-manage-permissions.md)
+
+
 

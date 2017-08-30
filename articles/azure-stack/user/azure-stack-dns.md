@@ -54,7 +54,7 @@ DNS in Azure Stack is similar to DNS in Azure, with two major exceptions:
 
 In addition, there are some minor differences in how Azure Stack DNS implements Tags, Metadata, Etags, and Limits.
 
-The following information applies specifically to Azure Stack DNS and varies slightly from Azure DNS. To learn more about Azure DNS, see [DNS zones and records](../dns/dns-zones-records.md) at the Microsoft Azure documentation site.
+The following information applies specifically to Azure Stack DNS and varies slightly from Azure DNS. To learn more about Azure DNS, see [DNS zones and records](../../dns/dns-zones-records.md) at the Microsoft Azure documentation site.
 
 ### Tags, metadata, and Etags
 
