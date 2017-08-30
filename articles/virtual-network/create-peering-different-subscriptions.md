@@ -270,10 +270,9 @@ This tutorial uses different accounts for each subscription. If you're using an 
 	```
 
 3. Log into Azure as UserA and deploy the template using the [portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-a-template-from-your-local-machine), or the [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Specify the file name you saved the example json text in step 2 to.
-4. Change the following lines of the example json in step 2 and save the contents to a different file on your computer than you did in step 2:
-	- Replace `<subscription ID>` with UserB's subscription ID.
-	- Change the value on the name line from *myVnetA/myVnetAToMyVnetB* to *myVnetB/myVnetBToMyVnetA*. 
-	- On the "id" line, replace *myVnetB* with *myVnetA*.
+4. Copy the example json from step 2 to a file on your computer and make changes to the lines that begin with:
+	- **name**: Change *myVnetA/myVnetAToMyVnetB* to *myVnetB/myVnetBToMyVnetA*.
+	- **id**: Replace `<subscription ID>` with UserB's subscription ID and change *myVnetB* to *myVnetA*.
 5. Complete step 3 again, logged into Azure as UserB.
 6. **Optional**: Though creating virtual machines is not covered in this tutorial, you can create a virtual machine in each virtual network and connect from one virtual machine to the other, to validate connectivity.
 7. **Optional**: To delete the resources that you create in this tutorial, complete the steps in the [Delete resources](#delete) section of this article, using either the Azure portal, PowerShell, or the Azure CLI.
