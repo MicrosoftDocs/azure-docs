@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/29/2017
+ms.date: 08/30/2017
 ms.author: aelnably;wesmc;mikono;rachelap;cephalin;cfowler
 ---
 # Create a .NET Core web app in a Linux container in Azure
@@ -86,7 +86,7 @@ git commit -m "first commit"
 
 Create a [web app](../../app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
 
-The runtime below is set to `DOTNETCORE|1.1`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#list-runtimes).
+The runtime in the following command is set to `DOTNETCORE|1.1`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#list-runtimes).
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "DOTNETCORE|1.1" --deployment-local-git
@@ -172,7 +172,7 @@ From the left menu, click **App Services**, and then click the name of your Azur
 
 You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
 
-![App Service blade in Azure portal](media/quickstart-dotnetcore/portal-app-overview.png)
+![App Service page in Azure portal](media/quickstart-dotnetcore/portal-app-overview.png)
 
 The left menu provides different pages for configuring your app. 
 

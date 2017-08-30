@@ -21,7 +21,7 @@ ms.author: wesmc;rachelap;cephalin
 
 [!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Ruby code to the web app.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to you deploy a basic Ruby on Rails app to Azure Web Apps for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Ruby code to the web app.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -69,7 +69,7 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 Create a [web app](../../app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
 
-The runtime below is set to `ruby|2.3`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
+The runtime in the following command is set to `ruby|2.3`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "ruby|2.3" --deployment-local-git
@@ -116,7 +116,7 @@ The Ruby sample code is running in an Azure App Service web app.
 Using a local text editor, open the `app/controllers/application_controller.rb` file within the PHP app, and make a small change to the text within the string next to `echo`:
 
 ```php
-echo "Hello Azure!";
+render html: "Hello Azure!"
 ```
 
 Commit your changes in Git, and then push the code changes to Azure.
@@ -128,7 +128,7 @@ git push azure master
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 
-![Updated sample app running in Azure](media/quickstart-php/hello-azure-in-browser.png)
+![Updated sample app running in Azure](media/quickstart-ruby/hello-world-updated-azure.png)
 
 ## Manage your new Azure web app
 
@@ -140,7 +140,7 @@ From the left menu, click **App Services**, and then click the name of your Azur
 
 You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 
-![App Service blade in Azure portal](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
+![App Service page in Azure portal](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 
 The left menu provides different pages for configuring your app. 
 

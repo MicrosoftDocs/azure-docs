@@ -36,9 +36,9 @@ To complete this quickstart:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Download the sample locally
+## Download the sample
 
-In a terminal window, run the following commands. This will clone the sample application to your local machine, and navigate to the directory containing the sample code.
+In a terminal window, run the following commands to clone the sample application to your local machine, and navigate to the directory containing the sample code.
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
@@ -73,7 +73,7 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 Create a [web app](../../app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
 
-The runtime below is set to `PHP|7.1`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
+The runtime in the following command is set to `PHP|7.1`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "PHP|7.1" --deployment-local-git
@@ -155,7 +155,7 @@ From the left menu, click **App Services**, and then click the name of your Azur
 
 You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 
-![App Service blade in Azure portal](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
+![App Service page in Azure portal](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 
 The left menu provides different pages for configuring your app. 
 
