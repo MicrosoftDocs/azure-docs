@@ -22,20 +22,7 @@ ms.author: ryansoc
 For details on this service and how to use it, see [Azure Virtual Machines Sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Variations
-The products (VMs) are available in Azure Government:
-
-| Products (VMs) | US Gov VA | US Gov IA | US DOD East | US DOD Central
-| --- | --- | --- |--- |--- |
-| A0-A7 |Y |Y |Y |Y |Y |
-| Av2 |Y |Y |Y |Y |Y |
-| D-series |Y |N |N |N |
-| Dv2-series |Y |Y |Y |Y |
-| DS-series |Y |N |N |N |
-| DSv2-series |Y |N |Y |Y |
-| F-series |Y |Y |Y |Y |
-| FS-series |Y |N |Y |Y |
-| G-series |Y |N |N |N |
-| GS-series |Y |N |N |N |
+To see available virtual machine sizes in Azure Government, please see the <a href="https://azure.microsoft.com/regions/services/">Products Available by Reigon</a>
 
 ### Data Considerations
 The following information identifies the Azure Government boundary for Azure Virtual Machines:
