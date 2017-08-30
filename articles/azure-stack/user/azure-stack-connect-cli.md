@@ -46,7 +46,7 @@ Sign in to your development kit and run the following script to export the Azure
 
 ## Install CLI
 
-Next you should sign in to your development workstation and install CLI. Azure Stack requires the 2.0 version of Azure CLI, which you can install by using the steps described in the [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) article. To verify if the installation was successful, open a terminal or a command prompt window and run the following command:
+Next you should sign in to your development workstation and install CLI. Azure Stack requires the 2.0 version of Azure CLI, which you can install by using the steps described in the [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) article. To verify if the installation was successful, open a terminal or a command prompt window and run the following command:
 
 ```azurecli
 az --version
@@ -203,13 +203,9 @@ If the resource group is created successfully, the previous command outputs the 
 
 ![resource group create output](media/azure-stack-connect-cli/image1.png)
 
-There are some known issues when using CLI 2.0 in Azure Stack, to learn about these issues, see the [Known issues in Azure Stack CLI](azure-stack-troubleshooting.md#cli) topic. 
-
 ## Next steps
 
 [Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
-
-[Connect with PowerShell](azure-stack-connect-powershell.md)
 
 [Manage user permissions](azure-stack-manage-permissions.md)
 
