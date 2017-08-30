@@ -7,7 +7,6 @@ author: nitinme
 manager: jhubbard
 editor: cgronlun
 
-ms.assetid: 820b7c5d-4863-4225-9bd1-df4d8f515537
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
@@ -31,7 +30,7 @@ Azure Data Lake Store uses Azure Active Directory for authentication. Before aut
 
 Both these options result in your application being provided with an OAuth 2.0 token, which gets attached to each request made to Azure Data Lake Store or Azure Data Lake Analytics.
 
-This article talks about how create an **Azure AD web application for service-to-service authentication**. For instructions on Azure AD application configuration for end-user authentication see [End-user authentication with Data Lake Store using Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+This article talks about how to create an **Azure AD web application for service-to-service authentication**. For instructions on Azure AD application configuration for end-user authentication see [End-user authentication with Data Lake Store using Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## Prerequisites
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).

@@ -10153,6 +10153,11 @@
             "source_path": "articles/active-directory/active-directory-azureadjoin-devices-group-policy.md",
             "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/data-lake-store/data-lake-store-authenticate-using-active-directory.md",
+            "redirect_url": "/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory",
+            "redirect_document_id": false
         }
     ]
 }
