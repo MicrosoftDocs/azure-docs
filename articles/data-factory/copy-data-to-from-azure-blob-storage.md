@@ -18,7 +18,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 ## Supported scenarios
 
-You can copy data from any supported source data store to Azure Blob Storage, or copy data from Azure Blob Storage to any supported sink data store. For a list of data stores supported as sources/ or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md) table.
+You can copy data from any supported source data store to Azure Blob Storage, or copy data from Azure Blob Storage to any supported sink data store. For a list of data stores that are supported as sources/ or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md) table.
 
 Specifically, this Azure Blob connector supports:
 

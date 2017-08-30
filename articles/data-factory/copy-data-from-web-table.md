@@ -22,7 +22,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 ## Supported scenarios
 
-You can copy data from Web table database to any supported sink data store. For a list of data stores supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from Web table database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Web table connector supports **extracting table content from an HTML page**. To retrieve data from a HTTP/s endpoint, use [HTTP connector](copy-data-from-http-end-point.md) instead.
 
