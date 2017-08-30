@@ -20,6 +20,7 @@
 ### [Security concepts](concepts-security.md)
 
 ## How-to guides
+### [Manage device enrollments](how-to-manage-enrollments.md)
 
 # Reference
 
