@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/21/2017
+ms.date: 08/29/2017
 ms.author: denlee
 
 ---
@@ -19,8 +19,11 @@ ms.author: denlee
 
 [Azure Cosmos DB](introduction.md) is the globally distributed, multi-model database service from Microsoft for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, which are all backed by [industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models.
 
-![Gremlin, graph, and Azure Cosmos DB](./media/graph-introduction/graph-gremlin.png)
+We recommend getting started by watching the following video, where Kirill Gavrylyuk explains how to get started with graphas on Azure Cosmos DB.
 
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Graphs-with-Azure-Cosmos-DB-Gremlin-API/player]
+> 
+> 
 The Azure Cosmos DB Graph API provides:
 
 - Graph modeling
