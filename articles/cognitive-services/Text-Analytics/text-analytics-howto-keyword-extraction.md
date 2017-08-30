@@ -26,7 +26,7 @@ Key phrase extraction works best when you give it bigger chunks of text to work 
 
 You must have JSON documents in this format: id, text, language
 
-Document size must be under 10 KB per document. The collection is submitted in the body of the request. The following example is an illustration of content you might submit for key phrase extraction.
+Document size must be under 10 KB per document. You can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following example is an illustration of content you might submit for key phrase extraction.
 
 ```
     {
