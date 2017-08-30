@@ -18,26 +18,26 @@ ms.author: muralikk
 
 ---
 # Quick reference for frequently used commands for import jobs
-This section provides a quick references for some frequently used commands. For detailed usage, see [Preparing Hard Drives for an Import Job](../storage-import-export-tool-preparing-hard-drives-import-v1.md).  
+This section provides a quick reference for some frequently used commands. For detailed usage, see [Preparing Hard Drives for an Import Job](../storage-import-export-tool-preparing-hard-drives-import-v1.md).  
 
-## Prepare the disks when data already copied to the disks
- Here is a sample command to prepare a disks when data already copied to the hard drive that hasn't been yet been encrypted with BitLocker:  
+## Prepare a hard drive when data has already been copied to the hard drive
+ The following command prepares a hard drive when data has already been copied to it, but has not yet been encrypted with BitLocker:  
   
 ```  
   WAImportExport.exe PrepImport /j:9WM35C2V.jrn /id:session#1 /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /t:d /encrypt /srcdir:d:\movies\drama /dstdir:movies/drama/ /skipwrite
 ```    
 
 ## Copy a single directory to a hard drive  
- Here is a sample command to copy a single source directory to a hard drive that hasn't been yet been encrypted with BitLocker:  
+ The following command copies a single source directory to a hard drive that has not yet been encrypted with BitLocker:  
   
 ```  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:movies /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:d:\Movies /dstdir:entertainment/movies/  
 ```  
   
-## Copy wwo directories to a hard drive  
- To copy two source directories to a drive, you will need two commands.  
+## Copy two directories to a hard drive  
+ To copy two source directories to a drive, use the following commands:  
   
- The first command specifies the log directory, storage account key, target drive letter and `format/encrypt` requirements, in addition to the common parameters:  
+ The first command specifies the log directory, storage account key, target drive letter, `format/encrypt` requirements, and common parameters:  
   
 ```  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:movies /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:d:\Movies /dstdir:entertainment/movies/  
@@ -50,7 +50,7 @@ WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:music /srcdir:d:\Music /dstd
 ```  
   
 ## Copy a large file to a hard drive in a second copy session  
- Here is a sample command that copies a single large file to a drive that has been prepared in a previous copy session:  
+ The following command copies a single large file to a hard drive that was prepared in a previous copy session:  
   
 ```  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:dvd /srcfile:d:\dvd\favoritemovie.vhd /dstblob:dvd/favoritemovie.vhd  
