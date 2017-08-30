@@ -210,15 +210,17 @@ and add that connector to your logic app.
 
 ![In Logic Apps Designer, find your connector](./media/logic-apps-custom-connector-register/custom-connector-created.png)
 
-> [!NOTE] 
-> Registered but uncertified custom connectors work like 
-> Microsoft-managed connectors, but are visible and available 
-> *only* to the connector's author and users who have the same 
-> Azure Active Directory tenant and Azure subscription 
-> for logic apps in the region where those apps are deployed. 
-> 
-> To share your connector with external users outside these boundaries, 
-> [submit your connector for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
+## Share your connector with other Logic Apps users
+
+Registered but uncertified custom connectors work like 
+Microsoft-managed connectors, but are visible and available 
+*only* to the connector's author and users who have the same 
+Azure Active Directory tenant and Azure subscription 
+for logic apps in the region where those apps are deployed. 
+ 
+To share your connector with external users outside these boundaries, 
+for example, with all Logic Apps, Flow, and PowerApps users, 
+[submit your connector for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
 
 ## Get support
 
