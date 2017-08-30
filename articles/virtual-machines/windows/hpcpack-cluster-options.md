@@ -1,5 +1,5 @@
 ---
-title: Windows HPC Pack cluster options in the cloud | Microsoft Docs
+title: Windows HPC Pack cluster options in Azure | Microsoft Docs
 description: Learn about options with Microsoft HPC Pack to create and manage a Windows high performance computing (HPC) cluster in the Azure cloud
 services: virtual-machines-windows,cloud-services,batch
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/06/2017
+ms.date: 08/25/2017
 ms.author: danlep
 
 ---
-# Options with HPC Pack to create and manage a Windows HPC cluster in Azure
+# Options with HPC Pack to create and manage a cluster for Windows HPC workloads in Azure
 [!INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
 This article focuses on options to create HPC Pack clusters to run Windows workloads. There are also options for creating HPC Pack clusters to run [Linux HPC workloads](../linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-## Run an HPC Pack cluster in Azure VMs
+## HPC Pack cluster in Azure VMs
 ### Azure templates
 * (GitHub) [HPC Pack 2016 cluster templates](https://github.com/MsHpcPack/HPCPack2016)
 * (Marketplace) [HPC Pack cluster for Windows workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/)
@@ -41,7 +41,7 @@ This article focuses on options to create HPC Pack clusters to run Windows workl
 * [HPC Pack 2012 R2 compute node on Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
 * [HPC Pack compute node with Excel on Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
 
-### PowerShell deployment script
+### PowerShell deployment script for HPC Pack 2012 R2
 * [Create an HPC cluster with the HPC Pack IaaS deployment script](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ### Tutorials
@@ -56,16 +56,16 @@ This article focuses on options to create HPC Pack clusters to run Windows workl
 * [Grow and shrink Azure compute resources in an HPC Pack cluster](classic/hpcpack-cluster-node-autogrowshrink.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Submit jobs to an HPC Pack cluster in Azure](hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Job management in HPC Pack](https://technet.microsoft.com/library/jj899585.aspx)
-* [Manage an HPC Pack cluster in Azure with Azure Active Directory](hpcpack-cluster-active-directory.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Manage an HPC Pack 2016 cluster in Azure with Azure Active Directory](hpcpack-cluster-active-directory.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## Add worker role nodes to an HPC Pack cluster
+## Burst with worker role nodes 
 * [Burst to Azure worker instances with HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 * [Tutorial: Set up a hybrid cluster with HPC Pack in Azure](../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 * [Add Azure "burst" nodes to an HPC Pack head node in Azure](classic/hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## Integrate with Azure Batch
+## Burst with Azure Batch
 * [Burst to Azure Batch with HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
-## Create RDMA clusters for MPI workloads
+## RDMA clusters for MPI workloads
 * [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
