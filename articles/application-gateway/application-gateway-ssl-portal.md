@@ -1,6 +1,6 @@
 ---
 title: Configure SSL offload - Azure Application Gateway - Azure Portal | Microsoft Docs
-description: This page provides instructions to create an application gateway with SSL offload by using the portal
+description: This article provides instructions to create an application gateway with SSL offload by using the Azure portal
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -17,71 +17,65 @@ ms.date: 01/23/2017
 ms.author: gwallace
 
 ---
-# Configure an application gateway for SSL offload by using the portal
+# Configure an application gateway for SSL offload by using the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-ssl-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
-> * [Azure Classic PowerShell](application-gateway-ssl.md)
+> * [Azure classic PowerShell](application-gateway-ssl.md)
 > * [Azure CLI 2.0](application-gateway-ssl-cli.md)
 
 Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
 
 ## Scenario
 
-The following scenario goes through configuring SSL offload on an existing application gateway. The scenario assumes that you have already followed the steps to [Create an Application Gateway](application-gateway-create-gateway-portal.md).
+The following scenario takes you through configuring SSL offload on an existing application gateway. The scenario assumes that you have already followed the steps to [create an application gateway](application-gateway-create-gateway-portal.md).
 
 ## Before you begin
 
-To configure SSL offload with an application gateway, a certificate is required. This certificate is loaded on the application gateway and used to encrypt and decrypt the traffic sent via SSL. The certificate needs to be in Personal Information Exchange (pfx) format. This file format allows for the private key to be exported which is required by the application gateway to perform the encryption and decryption of traffic.
+To configure SSL offload with an application gateway, a certificate is required. This certificate is loaded on the application gateway and is used to encrypt and decrypt the traffic sent via SSL. The certificate needs to be in Personal Information Exchange (.pfx) format. This file format allows you to export the private key that is required by the application gateway to perform the encryption and decryption of traffic.
 
 ## Add an HTTPS listener
 
-The HTTPS listener looks for traffic based on its configuration and helps route the traffic to the backend pools.
+The HTTPS listener looks for traffic based on its configuration and helps route the traffic to the back-end pools. To add an HTTPS listener, follow these steps:
 
-### Step 1
+   1. Browse to the Azure portal and select an existing application gateway.
 
-Navigate to the Azure portal and select an existing application gateway
+   2. Select **Listeners**, and then select the **Add** button to add a listener.
 
-### Step 2
+   ![Application Gateway Overview pane][1]
 
-Click Listeners and click the Add button to add a listener.
 
-![app gateway overview blade][1]
+   3. Fill out the following required information for the listener and upload the .pfx certificate:
+      - **Name**: The friendly name of the listener.
 
-### Step 3
+      - **Frontend IP configuration**: The front-end IP configuration that is used for the listener.
 
-Fill out the required information for the listener and upload the .pfx certificate, when complete click OK.
+      - **Frontend port (Name/Port)**: A friendly name for the port used on the front end of the application gateway and the actual port that is used.
 
-**Name** - This value is a friendly name of the listener.
+      - **Protocol**: A switch to determine if HTTPS or HTTP is used for the front end.
 
-**Frontend IP configuration** - This value is the frontend IP configuration that is used for the listener.
+      - **Certificate (Name/Password)**: If SSL offload is used, a .pfx certificate is required for this setting. A friendly name and password are also required.
 
-**Frontend port (Name/Port)** - A friendly name for the port used on the front end of the application gateway and the actual port used.
+   4. Select **OK**.
 
-**Protocol** - A switch to determine if https or http is used for the front end.
-
-**Certificate (Name/Password)** - If SSL offload is used, a .pfx certificate is required for this setting and a friendly name and password are required.
-
-![add listener blade][2]
+![Add a listener pane][2]
 
 ## Create a rule and associate it to the listener
 
-The listener has now been created. It is time to create a rule to handle the traffic from the listener. Rules define how traffic is routed to the backend pools based on multiple configuration settings, including whether cookie-based session affinity is used, protocol, port, and health probes.
+The listener has now been created. Next, create a rule to handle the traffic from the listener. Rules define how traffic is routed to the back-end pools based on multiple configuration settings. These settings include the protocol, the port, and the health probes, and whether cookie-based session affinity is use. To create and associate a rule to the listener, follow these steps:
 
-### Step 1
 
-Click the **Rules** of the application gateway, and then click Add.
+   1. Select the **Rules** of the application gateway, and then select **Add**.
 
-![app gateway rules blade][3]
+   ![Application Gateway Rules pane][3]
 
-### Step 2
 
-On the **Add basic rule** blade, type in the friendly name for the rule and choose the listener created in the previous step. Choose the appropriate backend pool and http setting and click **OK**
+   2. Under **Add basic rule**, enter a friendly name for the rule in the **Name** field, and then select the **Listener** created in the previous step. Select the appropriate **Backend pool** and **HTTP setting**, and then select **OK**.
 
-![https settings window][4]
+   ![HTTPS Settings window][4]
 
-The settings are now saved to the application gateway. The save process for these settings may take a while before they are available to view through the portal or through PowerShell. Once saved the application gateway handles the encryption and decryption of traffic. All traffic between the application gateway and the backend web servers will be handled over http. Any communication back to the client if initiated over https will be returned to the client encrypted.
+The settings are now saved to the application gateway. The save process for these settings may take a while before they are available to view through the portal or through PowerShell. After it is saved, the application gateway handles the encryption and decryption of traffic. All traffic between the application gateway and the back-end web servers will be handled over HTTP. Any communication back to the client, if initiated over HTTPS, will be returned to the client encrypted.
 
 ## Next steps
 
@@ -91,3 +85,4 @@ To learn how to configure a custom health probe with Azure Application Gateway, 
 [2]: ./media/application-gateway-ssl-portal/figure2.png
 [3]: ./media/application-gateway-ssl-portal/figure3.png
 [4]: ./media/application-gateway-ssl-portal/figure4.png
+
