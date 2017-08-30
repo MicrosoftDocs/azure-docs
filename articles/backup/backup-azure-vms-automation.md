@@ -376,8 +376,8 @@ After you have restored the disks, use these steps to create and configure the v
    PS C:\> $vm = New-AzureRmVMConfig -VMSize $obj.'properties.hardwareProfile'.vmSize -VMName "testrestore"
     ```
 
-4. Attach the OS disk and data disks. Depending on the configuration of your VMs, click on the relevant link to view respective cmdlets: 
-   
+4. Attach the OS disk and data disks. Depending on the configuration of your VMs, refer to the relevant section to view respective cmdlets:
+
     #### Non-managed, non-encrypted VMs
 
     Use the following sample for non-managed, non-encrypted VMs.
