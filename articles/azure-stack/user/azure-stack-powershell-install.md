@@ -129,5 +129,4 @@ In a disconnected scenario, you must first download the PowerShell modules to a 
 
 * [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md)
 * [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)  
-* [Configure the Azure Stack operator's PowerShell environment](azure-stack-powershell-configure-admin.md) 
 * [Manage API version profiles in Azure Stack](azure-stack-version-profiles.md)  
