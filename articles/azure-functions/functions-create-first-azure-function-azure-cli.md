@@ -11,7 +11,7 @@ ms.topic: hero-article
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
-manager: erikre
+manager: cfowler
 ---
 
 # Create your first function using the Azure CLI
