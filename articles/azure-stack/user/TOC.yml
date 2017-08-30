@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: Key considerations
-    href: azure-stack-poc.md
+    href: azure-stack-considerations.md
 - name: Quickstarts
   expanded: true
   items:
