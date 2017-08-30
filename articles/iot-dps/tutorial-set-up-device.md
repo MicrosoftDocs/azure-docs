@@ -14,6 +14,8 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ---
+<!-- Under review
+-->
 
 # Set up a device to provision using Azure IoT DPS
 
