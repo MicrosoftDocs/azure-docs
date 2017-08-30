@@ -1,5 +1,5 @@
 ---
-title: Add a Git artifact repository to a lab in Azure DevTest Labs | Microsoft Docs
+title: Add a Git repository to a lab in Azure DevTest Labs | Microsoft Docs
 description: Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts source in Azure DevTest Labs
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 01/11/2017
 ms.author: tarcher
 
 ---
-# Add a Git repository to store custom artifacts and Azure Resource Manager templates for use in Azure DevTest Labs
+# Add a Git repository to store custom artifacts and Azure Resource Manager templates
 
 If you want to [create custom artifacts](devtest-lab-artifact-author.md) for the VMs in your lab, or [use Azure Resource Manager templates to create a custom test environment](devtest-lab-create-environment-from-arm.md), you must also add a private Git repository to include the artifacts or Azure Resource Manager templates that your team creates. The repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
@@ -72,12 +72,12 @@ To get the Visual Studio Team Services repository clone URL and personal access 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Select **More Services**, and then select **DevTest Labs** from the list.
 3. From the list of labs, select the desired lab.   
-4. On the lab's blade, select **Configuration and policies**.
-5. On the lab's **Configuration and policies** blade, select **Repositories**.
-6. On the **Repositories** blade, select **+ Add**.
+4. On the left panel, select **Configuration and policies**.
+5. On the lab's **Configuration and policies** area, select **Repositories**.
+6. On the **Repositories** area, select **+ Add**.
 
     ![Add repository button](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
-7. On the second **Repositories** blade, specify the following:
+7. On the second **Repositories** page, specify the following information:
 
    * **Name** - Enter a name for the repository.
    * **Git Clone Url** - Enter the Git HTTPS clone URL that you copied earlier from either GitHub or Visual Studio Team Services.
@@ -85,7 +85,7 @@ To get the Visual Studio Team Services repository clone URL and personal access 
    * **Personal Access Token** - Enter the personal access token you obtained earlier from either GitHub or Visual Studio Team Services.
    * **Folder Paths** - Enter at least one folder path relative to the clone URL that contains your artifact or Azure Resource Manager template definitions. When specifying a subdirectory, make sure to include the forward slash in the folder path.
 
-     ![Repo blade](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+     ![Repositories area](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 8. Select **Save**.
 
 ## Next steps
@@ -93,10 +93,10 @@ After you have created your private Git repository, you can do one or both of th
 * Store your [custom artifacts](devtest-lab-artifact-author.md), which you can use later to create new VMs.
 * [Create multi-VM environments and PaaS resources with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md) and then store the templates in your private repo.
 
-When you create a VM, you'll be able to verify that the artifacts or templates are added to your Git repository. They will be available immediately in the list of artifacts or templates, with the name of your private repo shown in the column that specifies the source. 
+When you create a VM, you can verify that the artifacts or templates are added to your Git repository. They are available immediately in the list of artifacts or templates, with the name of your private repo shown in the column that specifies the source. 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### Related blog posts
-* [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
-* [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [How to troubleshoot failing Artifacts in Azure DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
+* [Join a VM to existing AD Domain using a resource manager template in Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)

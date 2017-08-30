@@ -20,7 +20,7 @@ ms.author: sethm;shvija
 
 # Create a Service Bus namespace using an Azure Resource Manager template
 
-This article describes how to use an Azure Resource Manager template that creates a Service Bus namespace of type **Messaging** with a Standard/Basic SKU. The article also defines the parameters that are specified for the execution of the deployment. You can use this template for your own deployments, or customize it to meet your requirements.
+This article describes how to use an Azure Resource Manager template that creates a Service Bus namespace of type **Messaging** with a Standard SKU. The article also defines the parameters that are specified for the execution of the deployment. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, please see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
@@ -39,7 +39,7 @@ For the complete template, see the [Service Bus namespace template][Service Bus 
 > 
 
 ## What will you deploy?
-With this template, you will deploy a Service Bus namespace with a [Basic, Standard, or Premium](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
+With this template, you deploy a Service Bus namespace with a [Standard or Premium](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
 
 To run the deployment automatically, click the following button:
 
@@ -69,7 +69,6 @@ The name of the Service Bus [SKU](https://azure.microsoft.com/pricing/details/se
 "serviceBusSku": { 
     "type": "string", 
     "allowedValues": [ 
-        "Basic", 
         "Standard",
         "Premium" 
     ], 
@@ -80,7 +79,7 @@ The name of the Service Bus [SKU](https://azure.microsoft.com/pricing/details/se
 
 ```
 
-The template defines the values that are permitted for this parameter (Basic, Standard, or Premium) and assigns a default value (Standard) if no value is specified.
+The template defines the values that are permitted for this parameter (Standard or Premium) and assigns a default value (Standard) if no value is specified.
 
 For more information about Service Bus pricing, see [Service Bus pricing and billing][Service Bus pricing and billing].
 
