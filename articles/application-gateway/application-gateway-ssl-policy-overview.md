@@ -57,7 +57,7 @@ Application Gateway has three predefined security policies. You can configure yo
 
 ## Custom SSL policy
 
-If a predefined SSL policy needs to be configured for your requirements, you have must define your own custom SSL policy. With a custom SSL policy you have complete control over the minimum SSL protocol version to support, as well as the supported cipher suites and their priority order.
+If a predefined SSL policy needs to be configured for your requirements, you must define your own custom SSL policy. With a custom SSL policy, you have complete control over the minimum SSL protocol version to support, as well as the supported cipher suites and their priority order.
  
 ### SSL protocol versions
 
