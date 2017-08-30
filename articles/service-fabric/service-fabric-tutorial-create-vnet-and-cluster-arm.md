@@ -80,7 +80,7 @@ Use the following PowerShell command to deploy the Resource Manager template and
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
 ```
-
+<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 ## Create a key vault and upload a certificate
 The Service Fabric cluster Resource Manager template in the next step is configured to create a secure cluster with certificate security. The certificate is used to secure node-to-node communication for your cluster and to manage user access to your Service Fabric cluster. API Management also uses this certificate to access the Service Fabric Naming Service for service discovery. This requires having a certificate in Key Vault for cluster security.
 
