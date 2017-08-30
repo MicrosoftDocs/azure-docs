@@ -4,7 +4,7 @@ description: This provides a comparision of features and guidance on developing 
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: ryansoc
+author: kydeeds
 manager: zakramer
 
 ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 3/13/2017
-ms.author: ryansoc
+ms.date: 8/30/2017
+ms.author: kydeeds
 
 ---
 # Azure Government Compute
@@ -22,7 +22,7 @@ ms.author: ryansoc
 For details on this service and how to use it, see [Azure Virtual Machines Sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Variations
-To see available virtual machine sizes in Azure Government, please see the <a href="https://azure.microsoft.com/regions/services/">Products Available by Reigon</a>
+For available virtual machine sizes in Azure Government, please see<a href="https://azure.microsoft.com/regions/services/">Products Available by Reigon</a>
 
 ### Data Considerations
 The following information identifies the Azure Government boundary for Azure Virtual Machines:
