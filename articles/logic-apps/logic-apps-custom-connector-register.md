@@ -217,6 +217,12 @@ Microsoft-managed connectors, but are visible and available
 *only* to the connector's author and users who have the same 
 Azure Active Directory tenant and Azure subscription 
 for logic apps in the region where those apps are deployed. 
+Although sharing is optional, you might have scenarios where 
+you want to share your connectors with other users. 
+
+> [!IMPORTANT]
+> If you share a connector, others might start to depend on that connector. 
+> ***Deleting your connector deletes all connections to that connector.***
  
 To share your connector with external users outside these boundaries, 
 for example, with all Logic Apps, Flow, and PowerApps users, 

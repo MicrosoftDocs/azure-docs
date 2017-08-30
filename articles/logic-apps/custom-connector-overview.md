@@ -189,7 +189,7 @@ Although sharing is optional, you might have scenarios where
 you want to share your connectors with other users. 
 
 > [!IMPORTANT]
-> when you share a connector, others might start to depend on that connector. 
+> If you share a connector, others might start to depend on that connector. 
 > ***Deleting your connector deletes all connections to that connector.***
 
 * [Logic Apps: Share your connector](../logic-apps/logic-apps-custom-connector-register.md)
