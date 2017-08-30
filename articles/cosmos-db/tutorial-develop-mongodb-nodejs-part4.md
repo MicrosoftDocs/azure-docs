@@ -45,21 +45,21 @@ In this tutorial section, you can either use the Azure Cloud Shell (in your inte
 
 ## Create an Azure Cosmos DB account
 
-Create a Cosmos DB with the [`az cosmosdb create`](/cli/azure/cosmosdb#create) command.
+Create an Azure Cosmos DB account with the [`az cosmosdb create`](/cli/azure/cosmosdb#create) command.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
 ```
 
-* For `<cosmosdb-name>` use your own unique Cosmos DB name, the name needs to be unique across all Cosmos DB names in Azure.
-* The `--kind MongoDB` setting enables the Cosmos DB to have MongoDB client connections.
+* For `<cosmosdb-name>` use your own unique Azure Cosmos DB account name, the name needs to be unique across all Azure Cosmos DB account names in Azure.
+* The `--kind MongoDB` setting enables the Azure Cosmos DB to have MongoDB client connections.
 
 It may take a minute or two for the command to complete. When it's done, the terminal window displays information about the new database. 
 
-Once the Cosmos DB has been created:
+Once the Azure Cosmos DB account has been created:
 1. Open a new browser window and go to [https://portal.azure.com](https://portal.azure.com)
-1. Click the Azure Cosmos DB logo ![Azure Cosmos DB icon in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png) on the left bar, and it shows you all the Cosmos DBs you have.
-1. Click on the Cosmos DB you just created, select the **Overview** tab and scroll down to view the map where the database is located. 
+1. Click the Azure Cosmos DB logo ![Azure Cosmos DB icon in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png) on the left bar, and it shows you all the Azure Cosmos DBs you have.
+1. Click on the Azure Cosmos DB account you just created, select the **Overview** tab and scroll down to view the map where the database is located. 
 
 ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png)
 
@@ -69,7 +69,7 @@ Scroll down on the left navigation and click the **Replicate data globally** tab
 
 ## Next steps
 
-In this part of the tutorial, you've learned how to create an Azure resource group and Cosmos DB using the Azure CLI. 
+In this part of the tutorial, you've learned how to create an Azure resource group and Azure Cosmos DB using the Azure CLI. 
 
 > [!div class="nextstepaction"]
 > [Use Mongoose to connect to Azure Cosmos DB](tutorial-develop-mongodb-nodejs-part5.md)
