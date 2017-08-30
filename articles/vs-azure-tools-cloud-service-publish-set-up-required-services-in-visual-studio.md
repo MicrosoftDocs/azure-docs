@@ -3,8 +3,8 @@ title: Prepare to publish or deploy an Azure application from Visual Studio | Mi
 description: Learn the procedures to set up cloud and storage account services and configure your Azure application.
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
+ms.author: kraigb
 
 ---
 # Prepare to Publish or Deploy an Azure Application from Visual Studio
@@ -113,7 +113,7 @@ You must configure any role that accesses storage services to use the Azure stor
        * **Specify custom endpoints** for each of the three services. You can then type these endpoints into the field for the specific service.
 
          > [!NOTE]
-         > If you create custom endpoints, you can create a more complex connection string. When you use this string format, you can specify storage service endpoints that include a custom domain name that you have registered for your storage account with the Blob service. Also you can grant access only to blob resources in a single container through a shared access signature. For more information about how to create custom endpoints, see [Configure Azure Storage Connection Strings](storage/storage-configure-connection-string.md).
+         > If you create custom endpoints, you can create a more complex connection string. When you use this string format, you can specify storage service endpoints that include a custom domain name that you have registered for your storage account with the Blob service. Also you can grant access only to blob resources in a single container through a shared access signature. For more information about how to create custom endpoints, see [Configure Azure Storage Connection Strings](storage/common/storage-configure-connection-string.md).
          >
          >
 11. To save these connection string changes, choose the **OK** button and then choose the **Save** button on the toolbar. After you save these changes, you can get the value of this connection string in your code by using [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx). When you publish your application to Azure, choose the service configuration that contains the Azure storage account for the connection string. After your application is published, verify that the application works as expected against the Azure storage services

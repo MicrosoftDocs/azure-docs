@@ -4,8 +4,8 @@ description: How to use a custom Docker image for Azure Web App on Linux.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
 documentationcenter: ''
-author: rachelappel
-manager: wpickett
+author: SyntaxC4
+manager: SyntaxC4
 editor: ''
 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
-ms.author: rachelap
+ms.date: 08/30/2017
+ms.author: cfowler
 
 ---
 
@@ -399,9 +399,9 @@ Verify that the web app works by browsing it. Don't forget the port number.
 
 ## Configure Web App to use Docker container
 
-The [az webapp config](https://docs.microsoft.com/cli/azure/webapp/config) command allows you to configure your web app so that it uses a Docker image from a number of registries. You can choose from a public or private Docker registry, or a private Azure Container Registry.
+The [az webapp config](https://docs.microsoft.com/cli/azure/webapp/config) command allows you to use a custom Docker image. Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry, such as Azure Container Registry. Select the appropriate tab for your scenario below:
 
-# [Public Docker Hub](#tab/docker-hub) 
+# [Docker Hub](#tab/docker-hub) 
 
 To configure the web app to use a public Docker registry, pass the name of the app, the resource group, and the image name and URL to the [az webapp config container set](https://docs.microsoft.com/cli/azure/webapp/config/container#set) command. 
 

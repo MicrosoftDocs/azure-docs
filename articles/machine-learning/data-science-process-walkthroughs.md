@@ -1,6 +1,6 @@
 ---
-title: Team Data Science Process walkthroughs  | Microsoft Docs
-description: Walkthoughs show how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
+title: Walkthroughs executing the Team Data Science Process on Azure  | Microsoft Docs
+description: How to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
@@ -13,51 +13,34 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/17/2017
 ms.author: bradsev
 
 ---
-# Team Data Science Process walkthroughs
-The **end-to-end walkthroughs** itemized here each demonstrate the steps in the Team Data Science Process for **specific scenarios**. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an **intelligent application**. The walkthroughs are grouped by **platform** they use: 
+# Walkthroughs executing the Team Data Science Process
 
-- Spark with PySpark and Scala
-- HDInsight (Hadoop)
-- Azure Data Lake 
-- SQL Server
-- SQL Data Warehouse 
+These **end-to-end walkthroughs** demonstrate the steps in the Team Data Science Process for specific scenarios. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an **intelligent application**. The walkthroughs are grouped by **platform** that they use. The following menu links to these examples:
+
+[!INCLUDE [tdsp-walkthroughs-by-platform](../../includes/tdsp-walkthroughs-by-platform.md)]
 
 
-## HDInsight Spark using PySpark and Scala
+## Walkthrough descriptions
 
-- The [Use Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) walkthrough uses the Team Data Science Process in a scenario using an [Azure HDInsight Spark cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, and feature engineer data from the publicly available NYC taxi trip and fare dataset.
+Here are brief descriptions of what these walkthrough examples provide on their respective platforms:
 
-- The [Use Scala with Spark on Azure](machine-learning-data-science-process-scala-walkthrough.md) walkthrough shows how to use Scala for supervised machine learning tasks with the Spark machine learning library (MLlib) and SparkML packages on an Azure HDInsight Spark cluster. It walks you through the tasks that constitute the [Data Science Process](http://aka.ms/datascienceprocess): data ingestion and exploration, visualization, feature engineering, modeling, and model consumption. The models built include logistic and linear regression, random forests, and gradient boosted trees.
-
-
-## HDInsight Hadoop 
-
-- The [Use HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md) walkthrough uses an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from a publicly available NYC taxi trip and fare dataset
-
-- The [Use Azure HDInsight Hadoop Clusters on a 1-TB dataset](machine-learning-data-science-process-hive-criteo-walkthrough.md) walkthrough presents a scenario that uses an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data from a publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) dataset.
+- [HDInsight Spark walkthroughs using PySpark and Scala](data-science-process-walkthroughs-spark.md) These walkthroughs use PySpark and Scala on an Azure Spark cluster to do predictive analytics. 
+- [HDInsight Hadoop walkthroughs using Hive](data-science-process-walkthroughs-hdinsight-hadoop.md) These walkthroughs use Hive with an HDInsight Hadoop cluster to do predictive analytics.
+- [Azure Data Lake walkthroughs using U-SQL](data-science-process-walkthroughs-azure-data-lake.md) These walkthroughs use U-SQL with Azure Data Lake to do predictive analytics.
+- [SQL Server](data-science-process-walkthroughs-sql-server.md) These walkthroughs use SQL Server, SQL Server R Services, and SQL Server Python Services to do predictive analytics.
+- [SQL Data Warehouse](data-science-process-walkthroughs-sql-data-warehouse.md) These walkthroughs use SQL Data Warehouse to do predictive analytics. 
 
 
-## Azure Data Lake
 
-- The [Use Azure Data Lake for data science](machine-learning-data-science-process-data-lake-walkthrough.md) shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi dataset to predict whether or not a tip is paid by a customer. 
+## Next steps
 
+For a discussion of the key components that comprise the Team Data Science Process, see [Team Data Science Process overview](data-science-process-overview.md).
 
-## SQL Server and SQL Data Warehouse 
+For a discussion of the Team Data Science Process lifecycle that you can use to structure your data science projects, see [Team Data Science Process lifecycle](data-science-process-lifecycle.md). The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. 
 
-- The [Use SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md) walkthrough shows you how to build and deploy machine learning classification and regression models using SQL Data Warehouse (SQL DW) for a publicly available NYC taxi trip and fare dataset.
-
-- The [Use SQL Server](machine-learning-data-science-process-sql-walkthrough.md) walkthrough shows you build and deploy machine learning classification and regression models using SQL Server and a publicly available NYC taxi trip and fare dataset.
-
-- The [Use SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) walkthrough provides data scientists with a combination of R code, SQL Server data, and custom SQL functions to build and deploy an R model to SQL Server.
-
-- The [Use T-SQL with SQL Server R Services](https://msdn.microsoft.com/library/mt683480.aspx) walkthrough provides SQL programmers with experience building an advanced analytics solution with Transact-SQL using SQL Server R Services to operationalize an R solution.
-
-- The [Use T-SQL with SQL Server Python Services](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) walkthrough provides SQL programmers with experience building a machine learning solution in SQL Server. It demonstrates how to incorporate Python into an application by adding Python code to stored procedures.
-
-## What's next?
 For an overview of topics that walk you through the tasks that comprise the data science process in Azure, see [Data Science Process](http://aka.ms/datascienceprocess). 
 
