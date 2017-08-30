@@ -126,7 +126,7 @@ When you perform interactive testing, you may find that LUIS doesn't detect the 
 
 2. Type "book me a flight to Boston tomorrow" as your test utterance and press Enter. The result view on the right side will be split horizontally into two parts (as in the following screenshot) to display results of the test utterance in both the current and published models. 
 
-    ![Interactive testing of both current & published models](./Images/TestApp-interactive-both.JPG)
+    ![Interactive testing of both current & published models](./media/luis-how-to-train-test/interactive-both.png)
 3. To view the test result of your published app in JSON format, click **Raw JSON view**. This looks like the following screenshot.
 
     ![Published model test result in JSON format](./Images/TestApp-JSON-result.JPG)
