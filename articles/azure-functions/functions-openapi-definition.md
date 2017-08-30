@@ -1,6 +1,6 @@
 ---
 title: Create an OpenAPI definition for a function | Microsoft Docs
-description: Create an OpenAPI definition that enables other apps and services to call your function.
+description: Create an OpenAPI definition that enables other apps and services to call your function in Azure.
 services: functions
 keywords: OpenAPI, Swagger, cloud apps, cloud services,
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: mblythe
+ms.author: mblythe; glenga
 ms.custom: ''
 ---
 
@@ -27,11 +27,10 @@ In this tutorial, you create a function that determines whether an emergency rep
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a function app to host your function.
-> * Create a function.
-> * Generate an OpenAPI definition using OpenAPI tools.
-> * Modify the definition to provide additional metadata.
-> * Test the definition by calling the function.
+> * Create a function in Azure
+> * Generate an OpenAPI definition using OpenAPI tools
+> * Modify the definition to provide additional metadata
+> * Test the definition by calling the function
 
 ## Create a function app
 
@@ -296,10 +295,11 @@ Before you use the API definition, it's a good idea to test it in the Azure Func
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a function app to host your function.
-> * Create a function.
-> * Generate an OpenAPI definition using OpenAPI tools.
-> * Modify the definition to provide additional metadata.
-> * Test the definition by calling the function.
+> * Create a function in Azure
+> * Generate an OpenAPI definition using OpenAPI tools
+> * Modify the definition to provide additional metadata
+> * Test the definition by calling the function
 
-To learn how to create a PowerApps app that uses the OpenAPI definition you created, see [Call a function from PowerApps](functions-powerapps-scenario.md).
+Advance to the next topic to learn how to create a PowerApps app that uses the OpenAPI definition you created.
+> [!div class="nextstepaction"]
+> [Call a function from PowerApps](functions-powerapps-scenario.md)
