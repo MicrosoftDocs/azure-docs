@@ -4,7 +4,7 @@ description: Learn how to code and test Azure functions on your local computer b
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
