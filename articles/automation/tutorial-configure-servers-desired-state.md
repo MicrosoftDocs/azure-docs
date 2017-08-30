@@ -40,6 +40,7 @@ To complete this tutorial, you will need:
 * An Azure Resource Manager VM (not Classic) running Windows Server 2008 R2 or later. For instructions on creating a VM, see 
   [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 * Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+* Familiarity with DSC. For information about DSC, see [Windows PowerShell Desired State Configuration Overview](https://docs.microsoft.com/powershell/dsc/overview)
 
 ## Log in to Azure
 
@@ -49,17 +50,11 @@ Log in to your Azure subscription with the `Login-AzureRmAccount` command and fo
 Login-AzureRmAccount
 ```
 
-## Register a VM to be managed by DSC
-
-Call the `Register-AzureRmAutomationDscNode` cmdlet to register your VM with Azure Automation DSC.
-
-```powershell
-Register-AzureRMautomationDscNode -AutomationAccountName "myAutomationAccount" -AzureVMName "DscVm" -ResourceGroupName "MyResourceGroup"
-```
-
 ## Create and upload a configuration to Azure Automation
 
 For this tutorial, we will use a simple DSC configuration that ensures that IIS is installed on the VM.
+
+For information about DSC configurations, see [DSC configurations](https://docs.microsoft.com/powershell/dsc/configurations).
 
 In a text editor, type the following and save it locally as `TestConfig.ps1`.
 
@@ -87,12 +82,68 @@ Call the `Import-AzureRmAutomationDscConfiguration` cmdlet to upload the configu
 
 A DSC configuration must be compiled into a node configuration before it can be assigned to a node.
 
+For information about compiling configurations, see [DSC configurations](https://docs.microsoft.com/powershell/dsc/configurations).
+
 Call the `Start-AzureRmAutomationDscCompilationJob` cmdlet to compile the `TestConfig` configuration into a node configuration:
 
 ```powershell
 Start-AzureRmAutomationDscCompilationJob -ConfigurationName 'TestConfig' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount'
 ```
 
+This creates a node configuration named `TestConfig.WebServer` in your Automation account.
+
+## Register a VM to be managed by DSC
+
+Call the `Register-AzureRmAutomationDscNode` cmdlet to register your VM with Azure Automation DSC.
+
+```powershell
+Register-AzureRmAutomationDscNode -ResourceGroupName "MyResourceGroup" -AutomationAccountName "myAutomationAccount" -AzureVMName "DscVm"
+```
+
+This registers the specified VM as a DSC node in your Azure Automation account.
+
+### Specify configuration mode settings
+
+When you register a VM as a managed node, you can also specify 
+
 ## Assign a node configuration to a managed node
 
+Now we can assign the compiled node configuration to the VM we want to configure.
+
+```powershell
+# Get the ID of the DSC node
+$node = Get-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Name 'DscVm'
+
+# Assign the node configuration to the DSC node
+Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -NodeConfigurationName 'TestConfig.WebServer' -Id $node.Id
+```
+
+This assigns the node configuration named `TestConfig.WebServer` to the registered DSC node named `DscVm`.
+By default, the DSC node is checked for compliance with the node configuration every 30 minutes.
+For information about how to change the compliance check interval, see
+[Configuring the Local Configuration Manager](https://docs.microsoft.com/PowerShell/DSC/metaConfig)
+
 ## Check the compliance status of a managed node
+
+You can get reports on the compliance status of a DSC node by calling the `Get-AzureRmAutomationDscNodeReport` cmdlet:
+
+```powershell
+# Get the ID of the DSC node
+$node = Get-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Name 'DscVm'
+
+# Get an array of status reports for the DSC node
+$reports Get-Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Id $node.Id
+
+# Display the most recent report
+$report[0]
+```
+
+## Next steps
+
+* To learn how to onboard nodes to be managed with Azure Automation DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md)
+* To learn how to use the Azure portal to use Automation DSC, see [Getting started with Azure Automation DSC](automation-dsc-getting-started.md)
+* To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compiling configurations in Azure Automation DSC](automation-dsc-compile.md)
+* For PowerShell cmdlet reference for Azure Automation DSC, see [Azure Automation DSC cmdlets](/powershell/module/azurerm.automation/#automation)
+* For pricing information, see [Azure Automation DSC pricing](https://azure.microsoft.com/pricing/details/automation/)
+* To see an example of using Azure Automation DSC in a continuous deployment pipeline, see 
+   [Continuous Deployment to IaaS VMs Using Azure Automation DSC and Chocolatey](automation-dsc-cd-chocolatey.md)
