@@ -5,7 +5,7 @@ description: Create and publish a simple HTTP triggered function to Azure by usi
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, compute, serverless architecture
@@ -56,6 +56,10 @@ Now that you have created the project, you can create your first function.
 
     ![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
+    A code file is added to your project that contains a class that implements your function code. This code is based on a template, which receives a name value and echos it back. The **FunctionName** attribute sets the name of your function. The **HttpTrigger** attribute indicates the message that triggers the function. 
+
+    ![Function code file](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
+
 Now that you have created an HTTP-triggered function, you can test it on your local computer.
 
 ## Test the function locally
@@ -68,7 +72,7 @@ Azure Functions Core Tools lets you run Azure Functions project on your local de
 
     ![Azure local runtime](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
-3. Paste the URL for the HTTP request into your browser's address bar. Append the query string `&name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the local GET request returned by the function: 
+3. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the local GET request returned by the function: 
 
     ![Function localhost response in the browser](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
 
@@ -84,7 +88,7 @@ You must have a function app in your Azure subscription before you can publish y
 
 ## Test your function in Azure
 
-1. Copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL. As before, make sure to append the query string `&name=<yourname>` to this URL and execute the request.
+1. Copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL. As before, make sure to append the query string `?name=<yourname>` to this URL and execute the request.
 
     The URL that calls your HTTP triggered function looks like this:
 

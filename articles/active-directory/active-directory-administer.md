@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/21/2017
+ms.date: 08/23/2017
 ms.author: curtand
 
 ms.reviewer: jeffsta
@@ -45,7 +45,7 @@ For example, if you sign up for a Microsoft Intune subscription and then further
 For more information about integrating your on-premises directory with Azure AD, see [Directory integration with Azure AD Connect](active-directory-aadconnect.md).
 
 ### Associate an existing Azure AD directory with a new Azure subscription
-You can associate a new Azure subscription with the same directory that authenticates sign-in for an existing Office 365 or Microsoft Intune subscription. For more information on that scenario, see [Manage the directory for your Office 365 subscription in Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
+You can associate a new Azure subscription with the same directory that authenticates sign-in for an existing Office 365 or Microsoft Intune subscription. For more information on that scenario, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
 
 ### Create an Azure AD directory by signing up for a Microsoft cloud service as an organization
 If you don’t yet have a subscription to a Microsoft cloud service, you can use one of the following links to sign up. Signing up for your first service creates an Azure AD directory automatically.
@@ -64,7 +64,7 @@ If you don’t yet have a subscription to a Microsoft cloud service, you can use
 6. The default directory of the subscription is changed to the directory that the user is in if the subscription ownership transfer is successful.
 
 ### Manage the default directory in Azure
-When you sign up for Azure, a default Azure AD directory is associated with your subscription. There are no costs for using Azure AD and your directories are a free resource. There are paid Azure AD services that are licensed separately and provide additional functionality such as company branding at sign-in, and self-service password reset. You can also create a custom domain using a DNS name that you have registered instead of the default *.onmicrosoft.com domain, which may be preferable with a service such as SharePoint Online.
+When you sign up for Azure, a default Azure AD directory is associated with your subscription. There are no costs for using Azure AD and your directories are a free resource. There are paid Azure AD services that are licensed separately and provide additional functionality such as company branding at sign-in, and self-service password reset. You can also create a custom domain using a DNS name that you own instead of the default *.onmicrosoft.com domain.
 
 ## How can I manage directory data?
 To administer one or more Microsoft cloud service subscriptions, you can use the [Azure AD admin center](https://aad.portal.azure.com), the Microsoft Intune account portal, or the [Office 365 Admin Center](https://portal.office.com/) to manage your organization's directory data. You can also use [Azure Active Directory PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/active-directory) to help you manage data stored in Azure AD.
