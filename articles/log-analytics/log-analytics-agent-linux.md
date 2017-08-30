@@ -295,7 +295,7 @@ You can verify what the current limit is set to by running the following command
 
 Use the following commands to either configure a custom process limit or to set the process limit back to it's default value.
 
-1. To set the process limit for OMSAgent: `sudo /opt/microsoft/omsagent/bin/omsadmin.sh -n <specific number limit>`.  Note that the minimum limit it can be set to is 5.  
+1. To set the process limit for OMSAgent: `sudo /opt/microsoft/omsagent/bin/omsadmin.sh -n <specific number limit>`.<br>Note that the minimum limit it can be set to is 5.  
 
 2. To set the process limit for OMSAgent back to the default value: `sudo /opt/microsoft/omsagent/bin/omsadmin.sh -N`
 
