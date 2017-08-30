@@ -104,7 +104,7 @@ For more details on quota limits:
 * [Azure Subscription Service Limits](../azure-subscription-service-limits.md)
 
 ## Related Azure components
-[link(s) to IoT hub + blurb about what DPS is to IoT Hub. DPS is a helper service to automate provisioning devices to IoT Hub.](TODO)
+[link(s) to IoT hub + blurb about what DPS is to IoT Hub. DPS is a helper service to automate provisioning devices to IoT Hub.](https://docs.microsoft.com/en-us/azure/iot-hub/)
 
 ## Next steps
 You now have an overview of provisioning IoT devices in Azure. The next step is to try out an end-to-end IoT scenario!
