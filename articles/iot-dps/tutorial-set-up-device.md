@@ -66,6 +66,7 @@ The Azure DPS Client SDK helps implement the selected security mechanism in soft
         ```
 
 
+<a id="extractsecurity"></a>
 ## Extract the security artifacts
 
 Once you build the SDK for your selected HSM, make sure the following functions are implemented for your HSM chip. The interface for these APIs is found in the github repo folder `dps_client\adapters`.
@@ -88,7 +89,7 @@ Once you build the SDK for your selected HSM, make sure the following functions 
     ```c
     SEC_DEVICE_HANDLE secure_dev_riot_create();
     void secure_dev_riot_destroy(SEC_DEVICE_HANDLE handle);
-    char* secure_dev_riot_get_certificate(SEC_DEVICE_HANDLE handle); // Returns the certificate produced by the RIoT system.
+    char* secure_dev_riot_get_certificate(SEC_DEVICE_HANDLE handle); // Returns the certificate produced by the X.509 system.
     char* secure_dev_riot_get_alias_key(SEC_DEVICE_HANDLE handle);// Returns the certificate public key
     char* secure_dev_riot_get_signer_cert(SEC_DEVICE_HANDLE, handle);// Returns the device signer certificate
     char* secure_dev_riot_get_common_name(SEC_DEVICE_HANDLE handle);// Returns the common name of the certificate

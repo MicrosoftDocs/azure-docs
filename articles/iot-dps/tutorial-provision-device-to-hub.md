@@ -32,29 +32,54 @@ Before you proceed, make sure to configure your device and its *Hardware Securit
 <a id="enrolldevice"></a>
 ## Enroll the device
 
-<!-- Copied from the device quick start for now. Elaborate and add more screenshots when the dogfood portal is up.
--->
-1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
+This step involves adding the device's unique security artifacts to the DPS service. These security artifacts are as follows:
 
-2. Right click the **tpm_device_provision** project and select **Set as Startup Project**. Run the solution. The output window displays the **_Endorsement Key_** and the **_Registration Id_** needed for device enrollment. Note down these values. 
+- For TPM-based devices:
+    - The *Endorsement Key* that is unique to each TPM chip or simulation. Read the [Understand TPM Endorsement Key](https://technet.microsoft.com/library/cc770443.aspx) for more information.
+    - The *Registration ID* that will be used to uniquely identify a device in the namespace/scope. This may or may not be the same as the device ID. The ID is mandatory for every device. For TPM-based devices, the registration ID may be derived from the TPM itself, for example, an SHA-256 hash of the TPM Endorsement Key.
 
-3. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your DPS service.
+    ![Enrollment information for TPM in the portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)
 
-4. On the DPS summary blade, select **Manage enrollments**. Select **Invidual Enrollments** tab and click the **Add** button at the top. Select **TPM** as the identity attestation *Mechanism*, and enter the *Registration Id* and *Endorsement key* as required by the blade. Once complete, click the **Save** button. 
+- For X.509 based devices:
+    - The [certificate issued to the X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) chip or simulation, in the form of either a *.pem* or a *.cer* file. For individual enrollment, you need to use the *signer certificate* for your X.509 system, while for enrollment groups, you need to use the *root certificate*.
 
-<!--
-    ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device/enter-device-enrollment.png)  
--->
+    ![Enrollment information for X.509 in the portal](./media/tutorial-provision-device-to-hub/x509-device-enrollment.png)
+
+
+There are two ways to enroll the device to the DPS service:
+
+- **Enrollment Groups**
+    This represents a group of devices that share a specific attestation mechanism. We recommend using an enrollment group for a large number of devices which share a desired initial configuration, or for devices all going to the same tenant.
+
+    ![Enrollment Groups for X.509 in the portal](./media/tutorial-provision-device-to-hub/x509-enrollment-groups.png)
+
+- **Individual Enrollments**
+    This represents an entry for a single device that may register with the DPS. Individual enrollments may use either x509 certificates or SAS tokens (in a real or virtual TPM) as attestation mechanisms. We recommend using individual enrollments for devices which require unique initial configurations, or for devices which can only use SAS tokens via TPM or virtual TPM as the attestation mechanism. Individual enrollments may have the desired IoT hub device ID specified.
+
+The following are the steps to enroll the device in the portal:
+
+1. Note the security artifacts for the HSM on your device. You might need to use the APIs mentioned in the section titled [Extract security artifacts](./tutorial-set-up-device.md#extractsecurity) of the previous tutorial, in a development environment.
+
+1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your DPS service.
+
+1. On the DPS summary blade, select **Manage enrollments**. Select either **Invidual Enrollments** tab or the **Enrollment Groups** tab as per your device setup. Click the **Add** button at the top. Select **TPM** or **X.509** as the identity attestation *Mechanism*, and enter the appropriate security artifacats as discussed previously. You may enter a new **IoT Hub device ID**. Once complete, click the **Save** button. 
 
 
 ## Start the device
 
+At this point, the following setup is ready for device registration:
 
+1. Your device or group of devices are enrolled to your DPS service, and 
+2. Your device is ready with the HSM chip configured and accesible through the application using the DPS client SDK.
+
+Start the device to allow your DPS client application to start the registration with your DPS service.  
 
 
 ## Verify the device is registered
 
-
+<!-- 
+Could not be verified as the DPS client sample fails to get the DPS data
+-->
 
 ## Next steps
 In this tutorial, you learned how to:

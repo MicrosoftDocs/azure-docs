@@ -15,6 +15,7 @@
 
 # How To
 ## How-to guides
+### [Manage device enrollments](how-to-manage-enrollments.md)
 
 # Reference
 
