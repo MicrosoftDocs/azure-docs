@@ -107,21 +107,17 @@ Use the following steps to connect to Azure Stack:
      --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
    ```
 
-2. Set the active environment by using the following command:
+2. Set the active environment and update your environment configuration to use the Azure Stack specific API version profile:
 
    ```azurecli
    az cloud set \
      -n AzureStackUser
-   ```
 
-3. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
-
-   ```azurecli
    az cloud update \
      --profile 2017-03-09-profile
    ```
 
-4. Sign in to your Azure Stack environment by using the **az login** command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+3. Sign in to your Azure Stack environment by using the **az login** command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
 
    * Sign in as a **user**: You can either specify the username and password directly within the az login command or authenticate using a browser. You would have to do the latter, if your account has multi-factor authentication enabled.
 
