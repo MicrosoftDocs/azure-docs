@@ -28,7 +28,7 @@ To build an application that accepts consumer sign-up and sign-in, you first nee
 
 Applications created from the Azure AD B2C blade in the Azure portal must be managed from the same location. If you edit the B2C applications using PowerShell or another portal, they become unsupported and do not work with Azure AD B2C. See details in the [faulted apps](#faulted-apps) section. 
 
-The examples below show how to register the B2C sample applications avaialable on Github. This Get Started section contains walkthroughs for running the [Web Application](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-tutorial-custom-domain), [Web API](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-api-dotnet), and [.NET WPF Desktop application](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop). 
+The following steps demostrate how to register the B2C sample applications that are avaialable on GitHub. This Get Started TOC contains walkthroughs for how to integrate B2C into a [Web Application](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet-susi) and a [.NET WPF Desktop application](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) and how to register and call a [Web API](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-api-dotnet).
 
 ## Navigate to B2C settings
 
