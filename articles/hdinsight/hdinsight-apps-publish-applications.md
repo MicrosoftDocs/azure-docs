@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 08/28/2017
 ms.author: jgao
 
 ---
@@ -39,16 +39,17 @@ You must also have registered your developer account. See [publish an offer to t
 ## Define application
 There are two steps involved for publishing applications to the Azure Marketplace.  First you define a **createUiDef.json** file to indicate which clusters your application is compatible with; and then you publish the template from the Azure portal. The following section is a sample createUiDef.json file.
 
-    {
-        "handler": "Microsoft.HDInsight",
-        "version": "0.0.1-preview",
-        "clusterFilters": {
-            "types": ["Hadoop", "HBase", "Storm", "Spark"],
-            "tiers": ["Standard", "Premium"],
-            "versions": ["3.4"]
-        }
+```json
+{
+    "handler": "Microsoft.HDInsight",
+    "version": "0.0.1-preview",
+    "clusterFilters": {
+        "types": ["Hadoop", "HBase", "Storm", "Spark"],
+        "tiers": ["Standard", "Premium"],
+        "versions": ["3.4"]
     }
-
+}
+```
 
 | Field | Description | Possible values |
 | --- | --- | --- |
@@ -59,7 +60,7 @@ There are two steps involved for publishing applications to the Azure Marketplac
 ## Application install script
 Whenever an application is installed on a cluster (either an existing one or a new one), an edge node is created and the application install script is run on it.
   > [!IMPORTANT]
-  > The name of the application install script names must be unique for a particular cluster with the following format.
+  > The name of the application install script names must be unique for a particular cluster with the following format:
   > 
   > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
@@ -100,7 +101,7 @@ Follow the following steps to publish an HDInsight application:
 6. Enter a topology name, and then click the plus sign.
 7. Enter a new version, and then click the Plus sign.
 8. Upload the zip file prepared in [Package application](#package-application).  
-9. Click **Request Certification**. The Microsoft certification team will review the files and certify the topology.
+9. Click **Request Certification**. The Microsoft certification team reviews the files and certify the topology.
 
 ## Next steps
 * [Install HDInsight applications](hdinsight-apps-install-applications.md): Learn how to install an HDInsight application to your clusters.

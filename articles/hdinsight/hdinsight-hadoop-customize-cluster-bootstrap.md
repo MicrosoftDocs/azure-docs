@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/28/2017
 ms.author: jgao
 
 ---
@@ -54,26 +54,28 @@ For information on installing additional components on HDInsight cluster during 
 ## Use Azure PowerShell
 The following PowerShell code customizes a Hive configuration:
 
-    # hive-site.xml configuration
-    $hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
+```powershell
+# hive-site.xml configuration
+$hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
 
-    $config = New-AzureRmHDInsightClusterConfig `
-        | Set-AzureRmHDInsightDefaultStorage `
-            -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
-            -StorageAccountKey $defaultStorageAccountKey `
-        | Add-AzureRmHDInsightConfigValues `
-            -HiveSite $hiveConfigValues 
+$config = New-AzureRmHDInsightClusterConfig `
+    | Set-AzureRmHDInsightDefaultStorage `
+        -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+        -StorageAccountKey $defaultStorageAccountKey `
+    | Add-AzureRmHDInsightConfigValues `
+        -HiveSite $hiveConfigValues 
 
-    New-AzureRmHDInsightCluster `
-        -ResourceGroupName $existingResourceGroupName `
-        -ClusterName $clusterName `
-        -Location $location `
-        -ClusterSizeInNodes $clusterSizeInNodes `
-        -ClusterType Hadoop `
-        -OSType Linux `
-        -Version "3.5" `
-        -HttpCredential $httpCredential `
-        -Config $config 
+New-AzureRmHDInsightCluster `
+    -ResourceGroupName $existingResourceGroupName `
+    -ClusterName $clusterName `
+    -Location $location `
+    -ClusterSizeInNodes $clusterSizeInNodes `
+    -ClusterType Hadoop `
+    -OSType Linux `
+    -Version "3.5" `
+    -HttpCredential $httpCredential `
+    -Config $config 
+```
 
 A complete working PowerShell script can be found in [Appendix-A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample).
 
