@@ -1,62 +1,58 @@
-<!-------------------
-Definition of Tutorial: 
-- Prescriptive end-to-end how-to content which describes how to build and manage with a particular 
-service.  
-- Tutorials should be cross-service and represent the top 80% of use cases for the products. 
-- The different tutorials should build upon eachother.  
-- The first Tutorial should include Quickstart information to make sure customers 
-don't get lost. 
-- Rules for screenshots at the end of this template
-- Metadata for this article should have ms.topic: tutorial; ms.custom: mvc
--->
+---
+title: Provision device to an IoT hub using IoT DPS | Microsoft Docs
+description: Provision your device to a single IoT hub using IoT Hub Device Provisioning Service
+services: iot-dps
+keywords: 
+author: dsk-2015
+ms.author: dkshir
+ms.date: 08/29/2017
+ms.topic: tutorial
+ms.service: iot-dps
 
-*EXAMPLE*:
-# Create a serverless API using Azure Functions
-<---! # Page heading (H1) - Unique, complements the page title, and 100 characters or fewer including 
-spaces --->
+documentationcenter: ''
+manager: timlt
+ms.devlang: na
+ms.custom: mvc
+---
 
+# Provision the device to an IoT hub using the Azure IoT Hub Device Provisioning Service
 
-In this tutorial you will learn how Azure Functions allows you to build highly-scalable APIs. 
-Azure Functions comes with a collection of built-in HTTP triggers and bindings which make it easy 
-to author an endpoint in a variety of languages, including Node.JS, C#, and more. 
-In this tutorial, you will customize an HTTP trigger to handle specific actions in your API design. 
-You will also prepare for growing your API by integrating it with Azure Functions Proxies and 
-setting up mock APIs. All of this is accomplished on top of the Functions serverless 
-compute environment, so you don't have to worry about scaling resources - you can just focus on 
-your API logic.
-<---! Intro sentence describing the steps outlined in the article --->
+In the previous tutorial, you learnt how to set up a device to connect to your DPS service. In this tutorial, you will learn how to provision this device to a single IoT hub using the DPS service. The DPS service allows you provision devices to your hub using **_enrollment lists_**. This tutorial shows you how to:
+
+> [!div class="checklist"]
+> * Enroll the device
+> * Start the device
+> * Verify the device is registered
 
 ## Prerequisites
-<---! Link to the previous Quickstart and provide additional information required for completing the Tutorial
--->
 
-*EXAMPLE*:
-[!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
-
-The resulting function will be used for the rest of this tutorial.
+Before you proceed, make sure to configure your device and its *Hardware Security Module* as discussed in the tutorial [Set up device for IoT DPS](./tutorial-set-up-device.md).
 
 
-<----! Clean up or delete any Azure work that may incur costs --->
+## Enroll the device
 
-*REQUIRED*:
+
+## Start the device
+
+
+## Verify the device is registered
+
+
+
 ## Next steps
-<---! Summarize what you learned and use the required syntax for formatting consistency: [!div class="checklist"] and [!div class="nextstepaction"] 
-
-*EXAMPLE*:
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Map a subdomain by using a CNAME record
-> * Map a root domain by using an A record
-> * Map a wildcard domain by using a CNAME record
-> * Automate domain mapping with scripts
+> * Enroll the device
+> * Start the device
+> * Verify the device is registered
 
-Advance to the next tutorial to learn how to bind a custom SSL certificate to it.
-<!-- Replace this .md
+Advance to the next tutorial to learn how to provision multiple devices across load-balanced hubs. 
+
 > [!div class="nextstepaction"]
-> [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
--->
-<---! 
+> [Use DPS to provision devices across load balanced IoT hubs](./tutorial-provision-multiple-hubs.md)
+
+<!--- 
 Rules for screenshots:
 - Use default Public Portal colors
 - Browser included in the first shot (especially) but all shots if possible

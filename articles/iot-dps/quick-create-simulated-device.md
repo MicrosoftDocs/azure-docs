@@ -30,13 +30,13 @@ Make sure to complete the steps in the [Azure Quick Start - Set up DPS in Portal
 
 3. Open a command prompt and clone the github repo for device simulation code sample:
     
-    ```
+    ```cmd/sh
     git clone https://github.com/Azure/azure-iot-device-auth.git --recursive
     ```
 
 4. Create a folder in your local copy of this github repo for CMake build process. 
 
-    ```
+    ```cmd/sh
     cd azure-iot-device-auth
     mkdir cmake
     cd cmake
@@ -44,13 +44,13 @@ Make sure to complete the steps in the [Azure Quick Start - Set up DPS in Portal
 
 5. The code sample uses a Windows TPM simulator. Run the following command to enable the SAS token authentication. It also generates a Visual Studio solution for the simulated device.
 
-    ```
+    ```cmd/sh
     cmake -Ddps_auth_type=tpm_simulator ..
     ```
 
 6. In the command prompt, navigate to the github root folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322.
 
-    ```
+    ```cmd/sh
     .\azure-iot-device-auth\dps_client\deps\utpm\tools\tpm_simulator\Simulator.exe
     ```
 
@@ -67,6 +67,7 @@ Make sure to complete the steps in the [Azure Quick Start - Set up DPS in Portal
     ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
 
+<a id="firstbootsequence"></a>
 ## Simulate first boot sequence for the device
 
 1. In Azure portal, select the **Overview** blade for your DPS service and note down the **_Service endpoint_** and the **_Origin namespace_** values.
@@ -77,7 +78,7 @@ Make sure to complete the steps in the [Azure Quick Start - Set up DPS in Portal
 
 3. Assign the _Service endpoint_ value to the `dps_uri` variable. Assign the _Origin namespace_ value to the `dps_scope_id` variable. 
 
-    ```
+    ```c
     static const char* dps_uri = "[device provisioning uri]";
     static const char* dps_scope_id = "[dps scope id]";
     ```
