@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Provision the device to an IoT hub using the Azure IoT Hub Device Provisioning Service
 
-In the previous tutorial, you learnt how to set up a device to connect to your DPS service. In this tutorial, you will learn how to provision this device to a single IoT hub using the DPS service. The DPS service allows you provision devices to your hub using **_enrollment lists_**. This tutorial shows you how to:
+In the previous tutorial, you learned how to set up a device to connect to your DPS service. In this tutorial, you will learn how to provision this device to a single IoT hub using the DPS service. The DPS service allows you provision devices to your hub using **_enrollment lists_**. This tutorial shows you how to:
 
 > [!div class="checklist"]
 > * Enroll the device
@@ -36,7 +36,7 @@ This step involves adding the device's unique security artifacts to the DPS serv
 
 - For TPM-based devices:
     - The *Endorsement Key* that is unique to each TPM chip or simulation. Read the [Understand TPM Endorsement Key](https://technet.microsoft.com/library/cc770443.aspx) for more information.
-    - The *Registration ID* that will be used to uniquely identify a device in the namespace/scope. This may or may not be the same as the device ID. The ID is mandatory for every device. For TPM-based devices, the registration ID may be derived from the TPM itself, for example, an SHA-256 hash of the TPM Endorsement Key.
+    - The *Registration ID* that is used to uniquely identify a device in the namespace/scope. This may or may not be the same as the device ID. The ID is mandatory for every device. For TPM-based devices, the registration ID may be derived from the TPM itself, for example, an SHA-256 hash of the TPM Endorsement Key.
 
     ![Enrollment information for TPM in the portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)
 
@@ -49,7 +49,7 @@ This step involves adding the device's unique security artifacts to the DPS serv
 There are two ways to enroll the device to the DPS service:
 
 - **Enrollment Groups**
-    This represents a group of devices that share a specific attestation mechanism. We recommend using an enrollment group for a large number of devices which share a desired initial configuration, or for devices all going to the same tenant.
+    This represents a group of devices that share a specific attestation mechanism. We recommend using an enrollment group for a large number of devices, which share a desired initial configuration, or for devices all going to the same tenant.
 
     ![Enrollment Groups for X.509 in the portal](./media/tutorial-provision-device-to-hub/x509-enrollment-groups.png)
 
@@ -62,7 +62,7 @@ The following are the steps to enroll the device in the portal:
 
 1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your DPS service.
 
-1. On the DPS summary blade, select **Manage enrollments**. Select either **Invidual Enrollments** tab or the **Enrollment Groups** tab as per your device setup. Click the **Add** button at the top. Select **TPM** or **X.509** as the identity attestation *Mechanism*, and enter the appropriate security artifacats as discussed previously. You may enter a new **IoT Hub device ID**. Once complete, click the **Save** button. 
+1. On the DPS summary blade, select **Manage enrollments**. Select either **Individual Enrollments** tab or the **Enrollment Groups** tab as per your device setup. Click the **Add** button at the top. Select **TPM** or **X.509** as the identity attestation *Mechanism*, and enter the appropriate security artifacts as discussed previously. You may enter a new **IoT Hub device ID**. Once complete, click the **Save** button. 
 
 
 ## Start the device
@@ -70,7 +70,7 @@ The following are the steps to enroll the device in the portal:
 At this point, the following setup is ready for device registration:
 
 1. Your device or group of devices are enrolled to your DPS service, and 
-2. Your device is ready with the HSM chip configured and accesible through the application using the DPS client SDK.
+2. Your device is ready with the HSM chip configured and accessible through the application using the DPS client SDK.
 
 Start the device to allow your DPS client application to start the registration with your DPS service.  
 
