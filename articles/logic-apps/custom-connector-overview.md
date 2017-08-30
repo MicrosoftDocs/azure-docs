@@ -185,8 +185,17 @@ in the same way that you call operations for Microsoft-managed connectors.
 
 You can share your connector with users in your organization in the same way 
 that you share resources in Logic Apps, Flow, or PowerApps. 
+Registered but uncertified custom connectors work like 
+Microsoft-managed connectors, but are visible and available 
+*only* to the connector's author and users who have the same 
+Azure Active Directory tenant and Azure subscription 
+for logic apps in the region where those apps are deployed. 
 Although sharing is optional, you might have scenarios where 
-you want to share your connectors with other users. 
+you want to share your connectors with other users.
+
+To share your connector with external users outside these boundaries, 
+for example, with all Logic Apps, Flow, and PowerApps users, 
+[submit your connector for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
 
 > [!IMPORTANT]
 > If you share a connector, others might start to depend on that connector. 
@@ -195,16 +204,6 @@ you want to share your connectors with other users.
 * [Logic Apps: Share your connector](../logic-apps/logic-apps-custom-connector-register.md)
 * [Flow: Share your connector](https://ms.flow.microsoft.com/documentation/register-custom-api/#share-your-custom-connector)
 * [PowerApps: Share your connector](https://powerapps.microsoft.com/tutorials/register-custom-api/#share-your-custom-connector)
-
-> [!NOTE] 
-> Registered but uncertified custom connectors work like 
-> Microsoft-managed connectors, but are visible and available 
-> *only* to the connector's author and users who have the same 
-> Azure Active Directory tenant and Azure subscription 
-> for apps in the region where they are deployed. 
-> 
-> To share your connector with external users outside these boundaries, 
-> [submit your connector for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
 
 ## 7. Certify your connector
 
