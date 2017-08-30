@@ -87,4 +87,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to:
 
 > [!div class="nextstepaction"]
-> [Deploy apps to Azure and Azure Stack](azure-stack-solution-pipeline.md)
+> [Deploy apps to Azure and Azure Stack](user/azure-stack-solution-pipeline.md)
