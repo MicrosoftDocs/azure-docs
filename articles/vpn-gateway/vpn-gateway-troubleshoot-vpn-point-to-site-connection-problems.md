@@ -34,7 +34,7 @@ This problem occurs if the client certificate is missing from **Certificates - C
 
 ### Solution
 
-To resolve this problem, use one of the following methods:
+To resolve this problem, follow these steps:
 
 1. Make sure that the following certificates are in the correct location:
 
