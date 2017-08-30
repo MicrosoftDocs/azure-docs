@@ -30,7 +30,7 @@ Specifically, this HTTP connector supports:
 - Retrieving data using the following authentications: **Anonymous**, **Basic**, **Digest**, **Windows**, and **ClientCertificate**.
 - Copying the HTTP response as-is or parsing it with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
-The difference between this connector and the [Web table connector](copy-data-from-web-table.md) is that the the latter is used to extract table content from web HTML page.
+The difference between this connector and the [Web table connector](copy-data-from-web-table.md) is that the latter is used to extract table content from web HTML page.
 
 ## Getting started
 
@@ -53,7 +53,7 @@ The following properties are supported for HTTP linked service:
 
 ### Using Basic, Digest, or Windows authentication
 
-Set "authenticationType" property to **Basic**, **Digest**, or **Windows**, and specify the following properties besides the HTTP connector generic ones introduced above:
+Set "authenticationType" property to **Basic**, **Digest**, or **Windows**, and specify the following properties along with generic properties described in the previous section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -84,12 +84,12 @@ Set "authenticationType" property to **Basic**, **Digest**, or **Windows**, and 
 
 ### Using ClientCertificate authentication
 
-To use ClientCertificate authentication, set "authenticationType" property to **ClientCertificate**, and specify the following properties besides the HTTP connector generic ones introduced above:
+To use ClientCertificate authentication, set "authenticationType" property to **ClientCertificate**, and specify the following properties along with the generic properties described in the previous section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64 encoded certificate data. | Specify either the `embeddedCertData` or `certThumbprint`. |
-| certThumbprint | The thumbprint of the certificate that is installed on your self-hosted Integration Runtime machine's cert store. Applies only when self-hosted type of Integration Runtime is specified in "connectVia". | Specify either the `embeddedCertData` or `certThumbprint`. |
+| certThumbprint | The thumbprint of the certificate that is installed on your self-hosted Integration Runtime machine's cert store. Applies only when self-hosted type of Integration Runtime is specified in connectVia. | Specify either the `embeddedCertData` or `certThumbprint`. |
 | password | Password associated with the certificate. | No |
 
 If you use "certThumbprint" for authentication and the certificate is installed in the personal store of the local computer, you need to grant the read permission to the self-hosted Integration Runtime:

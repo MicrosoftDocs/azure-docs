@@ -30,7 +30,7 @@ Specifically, this ODBC connector supports copying data from/to **any ODBC-compa
 
 To use this ODBC connector, you need to:
 
-- Set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article to learn details.
+- Set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
 - Install the ODBC driver for the data store on the Integration Runtime machine.
 
 ## Getting started
@@ -48,11 +48,11 @@ The following properties are supported for ODBC linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Odbc** | Yes |
-| connectionString | The connection string excluding the credential portion. See examples in the following sections. | Yes |
+| connectionString | The connection string excluding the credential portion. See examples in the next section. | Yes |
 | authenticationType | Type of authentication used to connect to the ODBC data store.<br/>Allowed values are: **Basic** and **Anonymous**. | Yes |
 | username | Specify user name if you are using Basic authentication. | No |
 | password | Specify password for the user account you specified for the username. | No |
-| credential | The access credential portion of the connection string specified in driver-specific property-value format. Example: "RefreshToken=<secret refresh token>;". | No |
+| credential | The access credential portion of the connection string specified in driver-specific property-value format. Example: `"RefreshToken=<secret refresh token>;"`. | No |
 
 **Example 1: using Basic authentication**
 
@@ -153,7 +153,7 @@ To copy data from ODBC-compatible data store, set the source type in the copy ac
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **RelationalSource** | Yes |
-| query | Use the custom SQL query to read data. For example: "SELECT * FROM MyTable". | No (if "tableName" in dataset is specified) |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -199,7 +199,7 @@ To copy data to ODBC-compatible data store, set the sink type in the copy activi
 | preCopyScript |Specify a SQL query for Copy Activity to execute before writing data into data store in each run. You can use this property to clean up the pre-loaded data. |No |
 
 > [!NOTE]
-> For "writeBatchSize", if it's not set (auto-detected), copy activity first detects whether the driver supports batch operations, and set it to 10000 if it does, or set it to 1 if it doesn’t. If you explicitly set the value other than 0, copy activity honor the value and fail at runtime if the driver doesn’t support batch operations.
+> For "writeBatchSize", if it's not set (auto-detected), copy activity first detects whether the driver supports batch operations, and set it to 10000 if it does, or set it to 1 if it doesn’t. If you explicitly set the value other than 0, copy activity honors the value and fail at runtime if the driver doesn’t support batch operations.
 
 **Example:**
 

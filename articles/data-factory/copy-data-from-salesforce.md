@@ -34,8 +34,8 @@ Specifically, this Salesforce connector supports the following editions of Sales
 
 Salesforce has limits for both total API requests and concurrent API requests. Note the following points:
 
-- If the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures.
-- If the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours.
+- If the number of concurrent requests exceeds the limit, throttling occurs and you see random failures.
+- If the total number of requests exceeds the limit, the Salesforce account is blocked for 24 hours.
 
 You might also receive the “REQUEST_LIMIT_EXCEEDED“ error in both scenarios. See the "API Request Limits" section in the [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details.
 
@@ -54,7 +54,7 @@ The following properties are supported for Salesforce linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type |The type property must be set to: **Salesforce**. |Yes |
-| environmentUrl | Specify the URL of Salesforce instance. <br><br> - Default is "https://login.salesforce.com". <br> - To copy data from sandbox, specify "https://test.salesforce.com". <br> - To copy data from custom domain, specify, for example, "https://[domain].my.salesforce.com". |No |
+| environmentUrl | Specify the URL of Salesforce instance. <br><br> - Default is `"https://login.salesforce.com"`. <br> - To copy data from sandbox, specify `"https://test.salesforce.com"`. <br> - To copy data from custom domain, specify, for example, `"https://[domain].my.salesforce.com"`. |No |
 | username |Specify a user name for the user account. |Yes |
 | password |Specify a password for the user account. |Yes |
 | securityToken |Specify a security token for the user account. See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get a security token. To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Yes |
@@ -95,7 +95,7 @@ To copy data from Salesforce, set the type property of the dataset to **Relation
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![Data Factory - Salesforce connection - API name](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
 
 **Example:**
 
@@ -132,7 +132,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Rela
 > [!IMPORTANT]
 > The "__c" part of the API Name is needed for any custom object.
 
-![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![Data Factory - Salesforce connection - API name](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
 
 **Example:**
 
@@ -170,7 +170,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Rela
 
 ### Retrieving data from Salesforce Report
 
-You can retrieve data from Salesforce reports by specifying query as `{call "<report name>"}`,for example,. `"query": "{call \"TestReport\"}"`.
+You can retrieve data from Salesforce reports by specifying query as `{call "<report name>"}. Example: `"query": "{call \"TestReport\"}"`.
 
 ### Retrieving deleted records from Salesforce Recycle Bin
 

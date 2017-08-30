@@ -24,7 +24,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 You can copy data from Oracle database to any supported sink data store, or copy data from any supported source data store to Oracle database. For a list of data stores supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this Oracle connector supports below versions of Oracle database:
+Specifically, this Oracle connector supports the following versions of Oracle database:
 
     - Oracle 12c R1 (12.1)
     - Oracle 11g R1, R2 (11.1, 11.2)
@@ -34,7 +34,7 @@ Specifically, this Oracle connector supports below versions of Oracle database:
 
 ## Prerequisites
 
-To copy data from/to an Oracle database that is not publicly accessible, you need to set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article to learn details. The Integration Runtime provides a built-in Oracle driver, therefore you don't need to manually install any driver when copying data from/to Oracle.
+To copy data from/to an Oracle database that is not publicly accessible, you need to set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details about integration runtime. The Integration Runtime provides a built-in Oracle driver, therefore you don't need to manually install any driver when copying data from/to Oracle.
 
 ## Getting started
 
@@ -51,7 +51,7 @@ The following properties are supported for Oracle linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Oracle** | Yes |
-| connectionString | Specify information needed to connect to the Oracle Database instance. Refer to below sample on the keys, which use a Microsoft built-in Oracle driver. | Yes |
+| connectionString | Specify information needed to connect to the Oracle Database instance. The sample uses a Microsoft built-in Oracle driver. | Yes |
 
 **Example:**
 
@@ -115,7 +115,7 @@ To copy data from Oracle, set the source type in the copy activity to **OracleSo
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **OracleSource** | Yes |
-| oracleReaderQuery | Use the custom SQL query to read data. For example: "SELECT * FROM MyTable". | No |
+| oracleReaderQuery | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No |
 
 If you do not specify "oracleReaderQuery", the columns defined in the "structure" section of the dataset are used to construct a query (`select column1, column2 from mytable`) to run against the Oracle database. If the dataset definition does not have the "structure", all columns are selected from the table.
 

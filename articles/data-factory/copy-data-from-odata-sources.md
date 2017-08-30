@@ -156,7 +156,7 @@ To copy data from OData, set the source type in the copy activity to **Relationa
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **RelationalSource** | Yes |
-| query | OData query options to filter data. Example: "?$select=Name,Description&$top=5".<br/><br/>Note at last, OData connector will copy data from the combined URL: `[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Refer to [OData URL components](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
+| query | OData query options to filter data. Example: "?$select=Name,Description&$top=5".<br/><br/>Note at last, OData connector copies data from the combined URL: `[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Refer to [OData URL components](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
 
 **Example:**
 
@@ -213,5 +213,5 @@ When copying data from OData, the following mappings are used from OData data ty
 | Edm.DateTimeOffset | DateTimeOffset |
 
 > [!Note]
-> OData complex data types e.g. Object are not supported.
+> OData complex data types (such as Object) are not supported.
 

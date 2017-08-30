@@ -95,7 +95,7 @@ To use Service SAS authentication, the following properties are supported:
 }
 ```
 
-When creating an **SAS URI**, considering the following:
+When creating an **SAS URI**, considering the following points:
 
 - Set appropriate read/write **permissions** on objects based on how the linked service (read, write, read/write) is used in your data factory.
 - Set **Expiry time** appropriately. Make sure that the access to Azure Storage objects does not expire within the active period of the pipeline.

@@ -180,7 +180,7 @@ When copying data from MongoDB, the following mappings are used from MongoDB dat
 | Object |Renormalized into flatten columns with “_" as nested separator |
 
 > [!NOTE]
-> To learn about support for arrays using virtual tables, refer to [Support for complex types using virtual tables](#support-for-complex-types-using-virtual-tables) section below.
+> To learn about support for arrays using virtual tables, refer to [Support for complex types using virtual tables](#support-for-complex-types-using-virtual-tables) section.
 >
 > Currently, the following MongoDB data types are not supported: DBPointer, JavaScript, Max/Min key, Regular Expression, Symbol, Timestamp, Undefined.
 
@@ -191,18 +191,18 @@ Azure Data Factory uses a built-in ODBC driver to connect to and copy data from 
 * A **base table**, which contains the same data as the real table except for the complex type columns. The base table uses the same name as the real table that it represents.
 * A **virtual table** for each complex type column, which expands the nested data. The virtual tables are named using the name of the real table, a separator “_" and the name of the array or object.
 
-Virtual tables refer to the data in the real table, enabling the driver to access the denormalized data. See Example section below details. You can access the content of MongoDB arrays by querying and joining the virtual tables.
+Virtual tables refer to the data in the real table, enabling the driver to access the denormalized data. You can access the content of MongoDB arrays by querying and joining the virtual tables.
 
 ### Example
 
-For example, “ExampleTable" below is a MongoDB table that has one column with an array of Objects in each cell – Invoices, and one column with an array of Scalar types – Ratings.
+For example, ExampleTable here is a MongoDB table that has one column with an array of Objects in each cell – Invoices, and one column with an array of Scalar types – Ratings.
 
 | _id | Customer Name | Invoices | Service Level | Ratings |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", discount: "0.2"}] |Silver |[5,6] |
 | 2222 |XYZ |[{invoice_id:"135", item:"fridge", price: "12543", discount: "0.0"}] |Gold |[1,2] |
 
-The driver would generate multiple virtual tables to represent this single table. The first virtual table is the base table named “ExampleTable", shown below. The base table contains all the data of the original table, but the data from the arrays has been omitted and is expanded in the virtual tables.
+The driver would generate multiple virtual tables to represent this single table. The first virtual table is the base table named “ExampleTable", shown in the example. The base table contains all the data of the original table, but the data from the arrays has been omitted and is expanded in the virtual tables.
 
 | _id | Customer Name | Service Level |
 | --- | --- | --- |
