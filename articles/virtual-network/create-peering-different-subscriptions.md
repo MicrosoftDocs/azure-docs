@@ -238,7 +238,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
 
 ## <a name="template"></a>Create peering - Resource Manager template
 
-1. Complete the necessary steps in the Portal, PowerShell, or Azure CLI sections of this article to create a virtual network and assign the appropriate [permissions](#permissions) to the account in each subscription.
+1. Complete the steps in the [Portal](#portal), [Azure CLI](#cli), or [PowerShell](#powershell) sections of this article to create a virtual network and assign the appropriate [permissions](#permissions) to the account in each subscription.
 2. Save the text that follows to a file on your local computer. Replace `<subscription ID>` with UserA's subscription ID. You might save the file as vnetpeeringA.json, for example.
 
 	```json
@@ -270,9 +270,9 @@ This tutorial uses different accounts for each subscription. If you're using an 
 	```
 
 3. Log into Azure as UserA and deploy the template using the [portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-a-template-from-your-local-machine), or the [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Specify the file name you saved the example json text in step 2 to.
-4. Change the following lines of the example json in step 2 and save the contents to a different file on your computer than you did in step 2.
-	- `<subscription ID>` with UserB's subscription ID
-	- Change the value on the name line from myVnetA/myVnetAToMyVnetB to myVnetB/myVnetBToMyVnetA. 
+4. Change the following lines of the example json in step 2 and save the contents to a different file on your computer than you did in step 2:
+	- Replace `<subscription ID>` with UserB's subscription ID.
+	- Change the value on the name line from *myVnetA/myVnetAToMyVnetB* to *myVnetB/myVnetBToMyVnetA*. 
 	- On the "id" line, replace *myVnetB* with *myVnetA*.
 5. Complete step 3 again, logged into Azure as UserB.
 6. **Optional**: Though creating virtual machines is not covered in this tutorial, you can create a virtual machine in each virtual network and connect from one virtual machine to the other, to validate connectivity.
