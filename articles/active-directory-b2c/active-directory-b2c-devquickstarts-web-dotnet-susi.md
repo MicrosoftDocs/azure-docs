@@ -19,7 +19,12 @@ ms.author: parakhj
 ---
 # Create an ASP.NET web app with Azure Active Directory B2C sign-up, sign-in, profile edit, and password reset
 
-This tutorial shows you how to add the powerful Azure AD B2C identity features to your web app. When you finish, you’ll have an ASP.NET app that includes user sign-up/sign-in, profile edit, and password reset.
+This tutorial shows you how to:
+
+> [!div class="checklist"]
+> * Add Azure AD B2C identity features to your web app
+> * Register your web app in your Azure AD B2C directory
+> * Create a user sign-up/sign-in, profile edit, and password reset policy for your web app
 
 ## Prerequisites
 
@@ -46,13 +51,13 @@ Next, you need to create and register the app in your B2C directory. This provid
 
 When you are done, you will have both an API and a native application in your application settings.
 
-## Create your policies on your B2C tenant
+## Create policies on your B2C tenant
 
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: **sign-up & sign-in**, **profile edit**, and **password reset**.  You need to create one policy of each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md). For each policy, be sure to select the Display name attribute or claim, and to copy down the name of your policy for later use.
 
 ### Add your identity providers
 
-From your settings, select **Identity Providers** and choose User ID Sign up or Email signup.
+From your settings, select **Identity Providers** and choose Username signup or Email signup.
 
 ### Create a sign-up and sign-in policy
 
@@ -78,7 +83,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 After you download the sample code, open the Visual Studio .sln file to get started. The solution file contains two projects: `TaskWebApp` and `TaskService`. `TaskWebApp` is the MVC web application that the user interacts with. `TaskService` is the app's back-end web API that stores each user's to-do list. This article will only discuss the `TaskWebApp` application. To learn how to build `TaskService` using Azure AD B2C, see [our .NET web api tutorial](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## Update the sample code to work with your tenant and policies
+## Update code to use your tenant and policies
 
 Our sample is configured to use the policies and client ID of our demo tenant. To connect it to your own tenant, you need to open `web.config` in the `TaskWebApp` project and replace the following values:
 
@@ -95,7 +100,7 @@ https://login.microsoftonline.com/*YourTenantName*/oauth2/v2.0/authorize?p=*Your
 
 Sign up for the app by using your email address or user name. Sign out, then sign in again and edit the profile or reset the password. Sign out and sign in as a different user. 
 
-## Next Steps -  Add social IDPs
+## Add social IDPs
 
 Currently, the app supports only user sign-up and sign-in by using **local accounts**; accounts stored in your B2C directory that use a user name and password. By using Azure AD B2C, you can add support for other **identity providers** (IDPs) without changing any of your code.
 
@@ -384,22 +389,3 @@ public ActionResult Claims()
 ```
 
 You can access any claim that your application receives in the same way.  A list of all the claims the app receives is available for you on the **Claims** page.
-
-## Run the sample app
-
-Finally, build the TaskService and TaskWebApp projects, set TaskWebApp as the StartUp Project in Visual Studio so that the web page menu items will display correctly, and run your app. Sign up for the app by using an email address or user name. Sign out and sign back in as the same user. Edit the profile or reset the password. Sign out and sign up as a different user. Note that the information displayed on the **Claims** tab corresponds to the information that you configured on your policies.
-
-## Add social IDPs
-
-Currently, the app supports only user sign-up and sign-in by using **local accounts**. These are accounts stored in your B2C directory that use a user name and password. By using Azure AD B2C, you can add support for other **identity providers** (IDPs) without changing any of your code.
-
-To add social IDPs to your app, begin by following the detailed instructions in these articles. For each IDP you want to support, you need to register an application in that system and obtain a client ID.
-
-* [Set up Facebook as an IDP](active-directory-b2c-setup-fb-app.md)
-* [Set up Google as an IDP](active-directory-b2c-setup-goog-app.md)
-* [Set up Amazon as an IDP](active-directory-b2c-setup-amzn-app.md)
-* [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md)
-
-After you add the identity providers to your B2C directory, you need to edit each of your three policies to include the new IDPs, as described in the [policy reference article](active-directory-b2c-reference-policies.md). After you save your policies, run the app again.  You should see the new IDPs added as sign-in and sign-up options in each of your identity experiences.
-
-You can experiment with your policies and observe the effect on your sample app. Add or remove IDPs, manipulate application claims, or change sign-up attributes. Experiment until you can see how policies, authentication requests, and OWIN tie together.

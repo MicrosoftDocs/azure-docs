@@ -54,7 +54,10 @@ When you prepare to reprotect virtual machines, take or consider the following p
 
     The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
-* A configuration server is required on-premises when you fail back. During failback, the virtual machine must exist in the configuration server database. Otherwise, failback is unsuccessful. Make sure that you take regularly scheduled backups of your server. If there's a disaster, restore the server with the same IP address so that failback works.
+* A configuration server is required on-premises when you fail back. During failback, the virtual machine must exist in the configuration server database. Otherwise, failback is unsuccessful. 
+
+> [!IMPORTANT]
+> Make sure that you take regularly scheduled backups of your configuration server. If there's a disaster, restore the server with the same IP address so that failback works.
 
 * Set the `disk.EnableUUID=true` setting in the configuration parameters of the master target virtual machine in VMware. If this row does not exist, add it. This setting is required to provide a consistent UUID to the virtual machine disk (VMDK) so that it mounts correctly.
 
@@ -111,7 +114,7 @@ For information about installing a master target server, see:
 
 #### What datastore types are supported on the on-premises ESXi host during failback?
 
-Currently, Azure Site Recovery supports failing back only to a virtual machine file system (VMFS) datastore. A vSAN or NFS datastore is not supported. Due to this limitation, the datastore selection input on the reprotect screen is empty in the case of NFS datastores, or it shows the vSAN datastore but fails during the job. If you intend to fail back, you can create a VMFS datastore on-premises and fail back to it. This failback will cause a full download of the VMDK.
+Currently, Azure Site Recovery supports failing back only to a virtual machine file system (VMFS) or vSAN datastore. A NFS datastore is not supported. Due to this limitation, the datastore selection input on the reprotect screen is empty in the case of NFS datastores, or it shows the vSAN datastore but fails during the job. If you intend to fail back, you can create a VMFS datastore on-premises and fail back to it. This failback will cause a full download of the VMDK.
 
 ### Common things to check after completing installation of the master target server
 
