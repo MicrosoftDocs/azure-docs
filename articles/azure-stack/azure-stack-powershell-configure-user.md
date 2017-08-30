@@ -31,7 +31,7 @@ Run the following prerequisites either from the [development kit](azure-stack-co
 
 ## Configure the user environment and sign in to Azure Stack
 
-Based on the type of deployment (Azure AD or AD FS), run one of the following script to configure PowerShell for Azure Stack:
+Based on the type of deployment (Azure AD or AD FS), run one of the following script to configure PowerShell for Azure Stack (Make sure to replace the AAD tenantName, GraphAudience endpoint and ArmEndpoint values as per your environment configuration):
 
 ### Azure Active Directory (AAD) based deployments
        
@@ -40,15 +40,21 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
   Set-ExecutionPolicy RemoteSigned
   Import-Module .\Connect\AzureStack.Connect.psm1
 
+  # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+  # For Azure Stack development kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
+  $GraphAudience = "<GraphAuidence endpoint for your environment>"
+
   # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackUser" `
-    -ArmEndpoint "https://management.local.azurestack.external"
+    -ArmEndpoint $ArmEndpoint
 
   # Set the GraphEndpointResourceId value
   Set-AzureRmEnvironment `
     -Name "AzureStackUser" `
-    -GraphAudience "https://graph.windows.net/"
+    -GraphAudience $GraphAudience
 
   # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `
@@ -68,15 +74,21 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
   Set-ExecutionPolicy RemoteSigned
   Import-Module .\Connect\AzureStack.Connect.psm1
 
+  # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+  # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+  $GraphAudience = "<GraphAuidence endpoint for your environment>"
+
   # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackUser" `
-    -ArmEndpoint "https://management.local.azurestack.external"
+    -ArmEndpoint $ArmEndpoint
 
   # Set the GraphEndpointResourceId value
   Set-AzureRmEnvironment `
     -Name "AzureStackUser" `
-    -GraphAudience "https://graph.local.azurestack.external/" `
+    -GraphAudience $GraphAudience `
     -EnableAdfsAuthentication:$true
 
   # Get the Active Directory tenantId that is used to deploy Azure Stack     
