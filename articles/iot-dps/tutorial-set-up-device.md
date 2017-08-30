@@ -149,6 +149,8 @@ These APIs help your device to connect and register with the DPS service when it
     }
     ```
 
+You may choose to polish your DPS registration application using a simulated device at first, using a test DPS setup. Once your application is working in the test environment, you can build it for your specific device and copy the executable to your device image. Do not start the device yet, you will need to [enroll the device with the DPS service](./tutorial-provision-device-to-hub.md#enrolldevice) before starting the device. See the next steps below to learn this process. 
+
 ## Clean up resources
 
 At this point, you might have set up the DPS and IoT Hub services in the portal. If you wish to abandon the DPS device provisioning setup, and/or delay using any of these services, we recommend shutting them down to avoid incurring unnecessary costs.

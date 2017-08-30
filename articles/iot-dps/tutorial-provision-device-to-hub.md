@@ -29,10 +29,27 @@ In the previous tutorial, you learnt how to set up a device to connect to your D
 Before you proceed, make sure to configure your device and its *Hardware Security Module* as discussed in the tutorial [Set up device for IoT DPS](./tutorial-set-up-device.md).
 
 
+<a id="enrolldevice"></a>
 ## Enroll the device
+
+<!-- Copied from the device quick start for now. Elaborate and add more screenshots when the dogfood portal is up.
+-->
+1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
+
+2. Right click the **tpm_device_provision** project and select **Set as Startup Project**. Run the solution. The output window displays the **_Endorsement Key_** and the **_Registration Id_** needed for device enrollment. Note down these values. 
+
+3. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your DPS service.
+
+4. On the DPS summary blade, select **Manage enrollments**. Select **Invidual Enrollments** tab and click the **Add** button at the top. Select **TPM** as the identity attestation *Mechanism*, and enter the *Registration Id* and *Endorsement key* as required by the blade. Once complete, click the **Save** button. 
+
+<!--
+    ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+-->
 
 
 ## Start the device
+
+
 
 
 ## Verify the device is registered
