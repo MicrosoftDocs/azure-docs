@@ -25,7 +25,7 @@ Typically, before retraining, you will want to [relabel any utterances](#relabel
   * **Review utterances from users**: LUIS provides a [log of utterances](./luis-resources-faq.md#how-do-i-download-a-log-of-user-utterances) from users that have been passed to the LUIS app endpoint. This log includes the intents and entities you can review to see if they've been correctly identified.
   
 
-In addition to relabeling utterances, you may also try adding new utterances, editing the intent or entity types, and [adding features](./Add-Features.md) to your LUIS app to improve performance. <!-- (add this if we have content showing a performance increase) or adding composite or list entities. -->
+In addition to relabeling utterances, you may also try adding new utterances, editing the intent or entity types, and [adding features](./Add-Features.md) to your LUIS app to improve performance. 
 
 ## Train the current iteration of your app
 To start the iterative process of training, you first need to train your LUIS app at least once. 
@@ -94,27 +94,26 @@ When you perform interactive testing, you may find that LUIS doesn't detect the 
 
 4. Go back to the **Train & Test** page and click **Train application**.
 
-5. Type `buy a plane ticket to bangor me` in the text box and click enter. Now the intent should be correctly detected as `BookFlight`.
+5. Type `buy a plane ticket to bangor me` in the text box and click enter. Now the intent should be correctly detected as `BookFlight`. However, `bangor me` isn't detected as a location yet.
 
-### Relabel an utterance to retrain an entity
-1. Import the sample LUIS app [Choose a color - Sample 1](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/Examples-Colors/sample-choose-color-01.json). This LUIS app has a "RequestColorItem" intent that is supposed to recognize requests like "Find me a blue shirt" and  extract a color entity.
+    ![The intent is correctly identified but the location entity isn't detected](./media/luis-how-to-train-test/interactive-correct-intent-no-entity.png)
 
-2. On the **Test App** page, in the **Interactive Testing** tab, type in `find brown shoes` and press Enter. Notice that the test results didn't recognize `brown` as a color entity.
+6. Now you need to teach LUIS that `bangor me` in the utterance `buy a plane ticket to bangor me` should be mapped to the `Location` entity. Go to the **Intents** page, click the **BookFlight** intent, and find `buy a plane ticket to bangor me` in the list of utterances. 
 
-    ![Interactive testing fails to recognize an entity](./media/luis-how-to-train-test/interactive-no-entity.png)
+7. Click on the words `bangor me` and choose the **Location** entity from the drop-down list. Click on the arrow to expand the **Location** entity.
+    ![label the word `bangor me` as a Location entity](./media/luis-how-to-train-test/interactive-label-entity-existing-utterance.png)
 
+8. Select **Location::ToLocation** hierarchical entity from the drop down list.
+    ![label the word `bangor me` as a Location entity](./media/luis-how-to-train-test/interactive-label-entity-existing-utterance-hierarchical.png)
 
-3. Now you need to teach LUIS that `brown` in the utterance `find brown shoes` should be mapped to the `color` entity. Go to the **Intents** page, click the **RequestColorItem** intent, type "find brown shoes" into the text box, and press Enter. 
+9. Click **Save**. 
+![Save the change to the entity](./media/luis-how-to-train-test/interactive-label-entity-save.png)
 
-4. Click on the word `brown` and choose the **color** entity from the drop-down list. Click **Save**.
-    ![label the word brown as a color entity](./media/luis-how-to-train-test/interactive-label-entity.png)
+10. Go back to the **Train & Test** page and click **Train application**.
 
-5. Go back to the **Train & Test** page and click **Train application**.
+11. Type `buy a plane ticket to bangor me` in the text box and click enter. Now the location entity is correctly detected.
+    ![Testing identifies bangor me as a location entity](./media/luis-how-to-train-test/interactive-corrected-location-entity.png)
 
-6. Type `find brown shoes` in the text box and click enter. Now the color entity should be correctly detected.
-    ![Testing identifies the brown as a color entity](./media/luis-how-to-train-test/interactive-corrected-entity.png)
-
-<!-- TIP: The confidence score has also increased. -->
 
 ### Perform interactive testing on current and published models
 
