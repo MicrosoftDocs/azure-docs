@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/21/2017
+ms.date: 08/29/2017
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -34,17 +34,19 @@ You can explore sources for the Music Store sample app that we use in this tutor
 
 ## Create a resource group
 
-Create a [resource group](../../azure-resource-manager/resource-group-overview.md) using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. The following example creates a resource group named *myResourceGroup* in the *West US* location.
+Create a [resource group](../../azure-resource-manager/resource-group-overview.md) using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. The following example creates a resource group named *myResourceGroup* in the *East US* location.
 
 ```powershell
-$location = "westus"
+$location = "eastus"
 $resourceGroup = "myResourceGroup"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ## Azure SQL
 
-Define variables for creating the SQL server and database. Replace the values as with your own.
+We will be using Azure SQL in this tutorial for simplicity. Azure handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure.
+
+Define variables for creating the SQL server and a database. Replace the values with your own.
 
 ```powershell
 # The logical server name: Use a random value or replace with your own value (do not capitalize)
@@ -52,9 +54,6 @@ $sqlserver = "sqlserver"
 # Set an admin login and password 
 $user = "SQLAdmin"
 $password = "<password>"
-# The ip address range that you want to allow to access your server - change as appropriate
-$startip = "0.0.0.0"
-$endip = "0.0.0.0"
 
 ```
 
@@ -67,15 +66,6 @@ New-AzureRmSqlServer -ResourceGroupName $resourceGroup `
     -Location $location `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $user, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 ```
-
-Create a [server-level firewall rule](../../sql-database/sql-database-firewall-configure.md) using the [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) command. A server-level firewall rule allows an external application, like SQL Server Management Studio, to connect to a SQL database through firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to fit your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
-
-```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroup `
-    -ServerName $sqlserver `
-    -FirewallRuleName "AllowSome" -StartIpAddress $startip -EndIpAddress $endip
-```
-
 
 Create an empty database named **musicstore** for an application to store data.
 
@@ -94,7 +84,7 @@ The following script creates a fully configured VM named *myVM* that you can use
 # Create a variable for the VM name
 $vmName = "myVM"
 
-# Create user object
+# Create user object. You will get a pop-up prompting you to enter the credentials for the VM.
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
 # Create a subnet configuration
@@ -135,25 +125,35 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 # Create the VM
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
-When the VM has been created, you can get the IP address by typing: '$pip.IpAddress'.
+
 
 ## Install IIS and the .NET Core SDK
 
-Connect to the VM using the IP address. Open a PowerShell prompt inside the VM and run the following cmdlets to install IIS and the .NET Core SDK.
+Connect to the VM using the IP address by typing the following at PowerShell prompt on your local computer:
 
 ```powershell
-# Create a folder to hold downloaded files 
+mstsc /v:$pip.IpAddress
+```
+
+
+Open a PowerShell prompt inside the VM and run the following cmdlets to install IIS and the .NET Core SDK.
+
+```powershell
+# Create a folder to hold downloaded files.
 New-Item -ItemType Directory c:\temp
 
-# Install IIS and the IIS management tools on the VM
+# Install IIS and the IIS management tools on the VM.
 Install-WindowsFeature web-server -IncludeManagementTools
 
-# Install the .NET Core SDK on the VM
-Invoke-WebRequest https://go.microsoft.com/fwlink/?linkid=848827 -outfile c:\temp\dotnet-dev-win-x64.1.0.4.exe
-Start-Process c:\temp\dotnet-dev-win-x64.1.0.4.exe -ArgumentList '/quiet' -Wait
-Invoke-WebRequest https://go.microsoft.com/fwlink/?LinkId=817246 -outfile c:\temp\DotNetCore.WindowsHosting.exe
-Start-Process c:\temp\DotNetCore.WindowsHosting.exe -ArgumentList '/quiet' -Wait
+# Download and install the .NET Core SDK on the VM.
+Invoke-WebRequest https://download.microsoft.com/download/0/F/D/0FD852A4-7EA1-4E2A-983A-0484AC19B92C/dotnet-sdk-2.0.0-win-x64.exe -outfile c:\temp\dotnet-sdk-2.0.0-win-x64.exe 
+Start-Process c:\temp\dotnet-sdk-2.0.0-win-x64.exe -ArgumentList '/quiet' -Wait
+
+Invoke-WebRequest https://aka.ms/dotnetcore.2.0.0-windowshosting -outfile c:\temp\DotNetCore.2.0.0-WindowsHosting.exe
+Start-Process c:\temp\DotNetCore.2.0.0-WindowsHosting.exe -ArgumentList '/quiet' -Wait
 ```
+
+This process may take a while. 
 
 ## Optional: Install a sample .NET application
 
