@@ -78,17 +78,53 @@ You have now seen the initial setup in the Contoso sample. The following section
 
 ### Respond to a pressure alarm
 
-This scenario shows how an operator identifies the alarm that's triggered by a chiller. The chiller is located in Redmond in building 43, floor 2.
+This scenario shows how an operator identifies and responds to an alarm that's triggered by a chiller device. The chiller is located in Redmond, in building 43, floor 2.
 
-Clicks on device details and sees the telemetry for pressure.
+As an operator, you see in the dashboard that there's an alarm related to the pressure of a chiller.
 
-Goes to maintenance dashboard to see rule.
+1. On the dashboard, in the alarm grid you can see the chiller presssure alarm. The chiller is also highlighted on the map:
 
-Examines associated rule, actions, and devices.
+    <!-- Insert screenshot -->
 
-Acts on device and uses the release valve method.
+1. To view the device details and telemetry, click the highlighted chiller on the map. The telemetry shows a pressure spike:
 
-Device works properly. Go to the dashboard to see it.
+    <!-- Insert screenshot -->
+
+1. Close **Device details** and click **...** next to the alarm in the alarm grid. To navigate to the rule definition, select **Maintenance**.
+
+On the **Maintenance** tab, you can view the details of the rule that triggered the chiller pressure alarm.
+
+1. You can see the number of times the alarm has triggered, acknowledgments, and open and closed alarms:
+
+    <!-- Insert screenshot -->
+
+1. The first alarm in the list is the most recent one. Click this alarm to view the associated devices and telemetry. The telemetry shows a pressure spike for the chiller:
+
+    <!-- Insert screenshot -->
+
+You have now identified the issue that triggered the alarm and the associated device. As an operator, the next steps are to acknowledge the alarm and mitigate the issue.
+
+1. To indicate that you are now working on the alarm, change the **Alarm status** to **Acknowledge**. Then select the affected chiller:
+
+    <!-- Insert screenshot -->
+
+1. To act on the chiller, select **Schedule** in the upper-right panel. Select **Valve pressure release**, add a job name **Chiller pressure release**, and do not add a time range. These settings create a job that executes immediately:
+
+    <!-- Insert screenshot -->
+
+1. To view the job status, return to the **Maintenance** page and view the list of events. You can see the job has run to release the valve pressure on the chiller:
+
+    <!-- Insert screenshot -->
+
+Finally, you confirm that the telemetry values from the chiller are back to normal.
+
+1. Navigate to the dashbaoard to view the alarms grid.
+
+1. View the device telemetry for the original alarm and confirm that is back to normal.
+
+1. To close the incident, navigate to the **Maintenance** page, select the alarm and set the status to **Closed**:
+
+<!-- Insert screenshot -->
 
 ### Respond to a temperature alarm
 
