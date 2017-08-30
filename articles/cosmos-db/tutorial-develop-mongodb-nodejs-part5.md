@@ -1,6 +1,6 @@
 ---
-title: "MongoDB, AngularJS, and Node.js tutorial for Azure - Part 5 | Microsoft Docs"
-description: Part 5 of the tutorial series on creating a MongoDB app with AngularJS and Node.js on Azure Cosmos DB using the exact same APIs you use for MongoDB
+title: "MongoDB, Angular, and Node tutorial for Azure - Part 5 | Microsoft Docs"
+description: Part 5 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
