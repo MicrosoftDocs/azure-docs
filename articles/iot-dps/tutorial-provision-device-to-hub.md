@@ -64,6 +64,10 @@ The following are the steps to enroll the device in the portal:
 
 1. On the DPS summary blade, select **Manage enrollments**. Select either **Individual Enrollments** tab or the **Enrollment Groups** tab as per your device setup. Click the **Add** button at the top. Select **TPM** or **X.509** as the identity attestation *Mechanism*, and enter the appropriate security artifacts as discussed previously. You may enter a new **IoT Hub device ID**. Once complete, click the **Save** button. 
 
+1. When the device is successfully enrolled, you should see it displayed in the portal as following:
+
+    ![Successful TPM enrollment in the portal](./media/tutorial-provision-device-to-hub/tpm-enrollment-success.png)
+
 
 ## Start the device
 
@@ -77,10 +81,15 @@ Start the device to allow your DPS client application to start the registration 
 
 ## Verify the device is registered
 
-Note this section is pending portal bug fix. 
-<!-- 
-Could not be verified as the DPS client sample fails to get the DPS data
--->
+Once your device boots, the following actions should take place. See the TPM simulator sample application [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) for more details. 
+
+1. The device sends a registration request to your DPS service.
+2. For TPM devices, DPS sends back a registration challenge to which your device responds. 
+3. On successful registration, DPS sends the IoT hub URI, device id and the encrypted key back to the device. 
+4. The IoT Hub client application on the device then connects to your hub. 
+5. On successful connection to the hub, you should see the device appear in the IoT hub's **Device Explorer**. 
+
+    ![Successful connection to hub in the portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
 ## Next steps
 In this tutorial, you learned how to:
