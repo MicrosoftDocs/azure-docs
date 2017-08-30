@@ -345,7 +345,7 @@ Title: Troubleshooting and Monitoring of SAP HANA on Azure (Large Instances)
 
 Summary: This guide covers information that is useful in establishing monitoring of your SAP HANA on Azure environment as well as additional troubleshooting information. 
 
-Updated: December 2016
+Updated: August 2017
 
 [This document can be found here](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
