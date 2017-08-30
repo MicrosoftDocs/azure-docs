@@ -29,7 +29,7 @@ The following sections describe how to get these values.
 
 ## Export the Azure Stack CA root certificate
 
-The Azure Stack CA root certificate is available on the development kit machine and on a tenant virtual machine that is running within the development kit environment. Sign in to your development kit or the tenant virtual machine and run the following script to export the Azure Stack root certificate in PEM format:
+The Azure Stack CA root certificate is available on the development kit and on a tenant virtual machine that is running within the development kit environment. Sign in to your development kit or the tenant virtual machine and run the following script to export the Azure Stack root certificate in PEM format:
 
 ```powershell
    $label = "AzureStackSelfSignedRootCert"
