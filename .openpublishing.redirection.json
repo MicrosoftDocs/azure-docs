@@ -10025,11 +10025,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-service/kubernetes/container-service-kubernetes-service-principal.md",
-            "redirect_url": "/azure/container-service/kubernetes/container-service-kubernetes-walkthrough",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/active-directory/active-directory-conditional-access-automatic-device-registration-setup.md",
             "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
             "redirect_document_id": false
@@ -10127,6 +10122,36 @@
         {
             "source_path": "articles/cognitive-services/cognitive-services-text-analytics-api-migration.md",
             "redirect_url": "/azure/cognitive-services/text-analytics/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/data-lake-store/data-lake-store-troubleshooting-guidance.md",
+            "redirect_url": "/azure/data-lake-store/data-lake-store-disaster-recovery-guidance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-api-definition-getting-started.md",
+            "redirect_url": "/azure/azure-functions/functions-openapi-definition",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-azureadjoin-user-frx.md",
+            "redirect_url": "/azure/active-directory/device-management-azuread-joined-devices-frx",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-personal-device.md",
+            "redirect_url": "/azure/active-directory/device-management-azuread-joined-devices-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-user-upgrade.md",
+            "redirect_url": "/azure/active-directory/device-management-azuread-registered-devices-windows10-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-azureadjoin-devices-group-policy.md",
+            "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
             "redirect_document_id": false
         }
     ]
