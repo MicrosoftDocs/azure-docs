@@ -4730,6 +4730,11 @@
             "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-suite/iot-suite-overview.md",
+          "redirect_url": "/azure/iot-suite/iot-suite-options",
+          "redirect_document_id": false
+        },
+        {
           "source_path": "articles/iot-suite/iot-suite-raspberry-pi-kit-get-started.md",
           "redirect_url": "/azure/iot-suite",
           "redirect_document_id": false
