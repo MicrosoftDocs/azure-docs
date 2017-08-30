@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2017
+ms.date: 08/17/2017
 ms.author: jeedes
 
 ---
@@ -106,9 +106,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Merchlogix Domain and URLs single sign-on information](./media/active-directory-saas-merchlogix-tutorial/tutorial_merchlogix_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<domain>/login.php?saml=true`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<DOMAIN>/login.php?saml=true`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<domain>/simplesaml/module.php/saml/sp/metadata.php/login-windows-net`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<DOMAIN>/simplesaml/module.php/saml/sp/metadata.php/<SAML_NAME>`
+	
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Merchlogix support team](http://www.merchlogix.com/contact/) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -118,7 +121,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-merchlogix-tutorial/tutorial_general_400.png)
 
-6. On the **Merchlogix Configuration** section, click **Configure Merchlogix** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **Merchlogix Configuration** section, click **Configure Merchlogix** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID,** and **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Merchlogix Configuration](./media/active-directory-saas-merchlogix-tutorial/tutorial_merchlogix_configure.png) 
 

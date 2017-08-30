@@ -419,7 +419,7 @@ Microsoft has a security and compliance team that oversees and assesses all serv
 
 Operations Management Suite (also known as OMS) is a collection of management services that were designed in the cloud from the start. Rather than deploying and managing on premises resources, OMS components are entirely hosted in Azure. Configuration is minimal, and you can be up and running literally in a matter of minutes.
 
-![Operation Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
+![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
 Just because OMS services run in the cloud doesn't mean that they can't effectively manage your on-premises environment.
 
@@ -429,7 +429,7 @@ Runbooks in the cloud can't typically access your on-premises resources, but you
 
 The core functionality of OMS is provided by a set of services that run in Azure. Each service provides a specific management function, and you can combine services to achieve different management scenarios.
 
-![Operation Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
+![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
 Azure operation manager extends its functionalities by providing management solutions. [Management Solutions](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) are prepackaged sets of logic that implement a management scenario leveraging one or more OMS services.
 

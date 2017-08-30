@@ -53,14 +53,13 @@ Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
 > 
 > 
 
+## Consistency checking for task counts
 
-## Error checking for task counts
+The Batch service aggregates task counts by gathering data from multiple parts of an asynchronous distributed system. To ensure that task counts are correct, Batch provides additional validation for state counts by performing consistency checks against multiple components of the system. Batch performs these consistency checks as long as there are fewer than 200,000 tasks in the job. In the unlikely event that the consistency check finds errors, Batch corrects the result of the Get Tasks Counts operation based on the results of the consistency check. The consistency check is an extra measure to ensure that customers who rely on the Get Task Counts operation get the right information they need for their solution.
 
-The Batch service aggregates task counts using a fast but potentially unreliable pipeline. To correct for any errors in the pipeline, the Batch service checks state counts against the task states reported by the [List Tasks][rest_list_tasks] operation, so long as there are fewer than 200,000 tasks in the job. If the check encounters errors, Batch corrects the result of the Get Tasks Counts operation based on the value returned by the List Tasks operation.   
+The **validationStatus** property in the response indicates whether Batch has performed the consistency check. If Batch has not been able to check state counts against the actual states held in the system, then the **validationStatus** property is set to `unvalidated`. For performance reasons, Batch will not perform the consistency check if the job includes more than 200,000 tasks, so the **validationStatus** property may be set to `unvalidated` in this case. However, the task count is not necessarily wrong in this case, as even a very limited data loss is highly unlikely. 
 
-The **validationStatus** property indicates whether Batch has performed the error check. If the **validationStatus** property is set to `unvalidated`, then Batch has not been able to check state counts against the task states reported by the List Tasks operation. Batch cannot perform this error check if the job includes more than 200,000 tasks, so the **validationStatus** property may be `unvalidated` in this case.
-
-When a task changes state, the aggregation pipeline processes the change within five seconds. The Get Task Counts operation reflects the updated task counts within that 5-second period. However, if the aggregation pipeline misses a change in a task state, then that change is not registered until the next validation pass. During this time, task counts may be slightly inaccurate due to the missed event, but they are corrected on the next validation pass.
+When a task changes state, the aggregation pipeline processes the change within few seconds. The Get Task Counts operation reflects the updated task counts within that period. However, if the aggregation pipeline misses a change in a task state, then that change is not registered until the next validation pass. During this time, task counts may be slightly inaccurate due to the missed event, but they are corrected on the next validation pass.
 
 ## Best practices for counting a job's tasks
 

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 08/09/2017
 ms.author: ashwink
 
 ---
@@ -118,11 +118,6 @@ azure insights alerts rule list abhingrgtest123 --ruleName andy0323
 azure insights alerts actions email create --customEmails foo@microsoft.com
 azure insights alerts actions webhook create https://someuri.com
 azure insights alerts rule metric set andy0323 eastus abhingrgtest123 PT5M GreaterThan 2 /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Web-EastUS/providers/Microsoft.Web/serverfarms/Default1 BytesReceived Total
-```
-
-### Create a log alert rule
-```console
-azure insights alerts rule log set ruleName eastus resourceGroupName someOperationName
 ```
 
 ### Create webtest alert rule

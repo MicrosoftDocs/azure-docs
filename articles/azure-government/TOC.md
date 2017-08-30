@@ -30,10 +30,11 @@
 ## [Marketplace for partners](documentation-government-manage-marketplace-partners.md)
 
 ## Services
+### [AI + Cognitive Services](documentation-government-services-aiandcognitiveservices.md) 
 ### [Compute](documentation-government-compute.md)
 ### [Storage](documentation-government-services-storage.md)
 ### [Database](documentation-government-services-database.md)
-### [Intelligence + Analytics](documentation-government-services-intelligenceandanalytics.md)
+### [Data + Analytics](documentation-government-services-dataandanalytics.md)
 ### [Networking](documentation-government-networking.md)
 ### [Security + Identity](documentation-government-services-securityandidentity.md)
 ### [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)

@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/07/2016
+ms.date: 08/16/2017
 ms.author: owend
 
 ---
@@ -25,7 +25,7 @@ ms.author: owend
 
 Azure Analysis Services supports tabular models at the 1200 and 1400 compatibility levels.
 
-The latest compatibility level is 1400 (preview). This level coincides with SQL Server 2017 Analysis Services. Major features in the 1400 compatibility level include:
+The latest compatibility level is 1400. This level coincides with SQL Server 2017 Analysis Services. Major features in the 1400 compatibility level include:
 
 *  New infrastructure for data connectivity and import into tabular models with support for TOM APIs and TMSL scripting. This new feature enables support for additional data sources such as Azure Blob storage.
 *  Data transformation and data mashup capabilities by using Get Data and M expressions.
@@ -33,11 +33,6 @@ The latest compatibility level is 1400 (preview). This level coincides with SQL 
 *  Object-level security for table and column names, in addition to the data within them.
 *  Enhanced support for ragged hierarchies.
 *  Performance and monitoring improvements.
-
-
-
-> [!IMPORTANT]
-> The 1400 compatibility level is still in preview. Some features may not be fully functional. It's recommended you do not use tabular 1400 models in production environments. 
   
 ## Set compatibility level 
  When creating a new tabular model project in SSDT, you can specify the compatibility level on the **Tabular model designer** dialog. 
