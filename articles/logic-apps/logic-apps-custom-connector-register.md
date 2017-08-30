@@ -104,8 +104,8 @@ actions and triggers for your custom connector.
       | **Upload Icon** | *png-or-jpg-file-under-1-MB* | Provide the icon that represents your connector. | 
       | **Icon background color** | *hexadecimal-color-code* | Shows a color behind your icon. Provide the hexadecimal code for that color. For example, #007ee5 represents the color blue. | 
       | **Description** | *connector-description* | Provide a short description for your connector. | 
-      | **Host** | *connector-host* | Provide the host domain used by your connector. | 
-      | **Base URL** | *connector-base-URL* | Provide the base URL for your connector. | 
+      | **Host** | *connector-host* | Provide the host domain for your Web API. | 
+      | **Base URL** | *connector-base-URL* | Provide the base URL for your Web API. | 
       |||| 
 
 6. Now choose **Security**, then choose **Edit** so you can 
