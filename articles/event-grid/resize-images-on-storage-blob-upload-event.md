@@ -16,7 +16,7 @@ ms.custom: mvc
 ---
 # Automate the resizing of uploaded images using Event Grid
 
-[Azure Event Grid](overview.md) is an eventing service for the cloud. Event Grid lets you send events raised by Azure services or third-party resources to an endpoint that can respond to the event. In this article, you use Event Grid to have [Azure Functions](..\azure-functions\functions-overview.md) subscribe to [Azure Blob storage](..\storage\blobs\storage-blobs-introduction.md) events to support thumbnail generation for images uploaded from a sample app. You use the Azure CLI to create and configure the application topology. 
+[Azure Event Grid](overview.md) is an eventing service for the cloud. Event Grid enables you to create subscriptions to events raised by Azure services or third-party resources.  In this article, Event Grid enables [Azure Functions](..\azure-functions\functions-overview.md) to respond to [Azure Blob storage](..\storage\blobs\storage-blobs-introduction.md) events and generate thumbnails of uploaded images. An event subscription is created against the Blob storage create event, which in turn calls a function endpoint. Data passed to the function binding from Event Grid is used to access the blob and generate the thumbnail image. You use the Azure CLI to create and configure the application topology and test it by using a sample web app.   
 
 > [!WARNING]
 > This tutorial requires Event Grid functionality that is currently in a reduced-access preview. To be able to successfully complete this topic, you must first [request access to Blob storage events](#request-storage-access).  
@@ -71,7 +71,7 @@ You will receive an email from Microsoft notifying you that you have been grante
 ```azurecli-interactive
 az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid --query properties.state
 ```
-This command returns a `Registered` value after you have been granted access to the Blob storage events feature. 
+After you have been granted access to the Blob storage events feature, this command returns a `"Registered"` value. 
  
 After you are registered, you can continue with this tutorial.
 
@@ -93,7 +93,8 @@ Storage account names must be between 3 and 24 characters in length and may cont
 
 > [!IMPORTANT]
 > Event subscriptions for blob storage are currently only supported for Blob storage accounts. Because of this, you must create two accounts: a Blob storage account used by the sample app to store images and thumbnails, and a general storage account required by Azure Functions.  
->You are also restricted to Blob storage accounts in the West Central US and 
+>
+>You are currently also restricted to Blob storage accounts in the West Central US and West US regions. 
 
 In the following command, substitute your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder. 
 
@@ -111,7 +112,7 @@ az storage account create --name <general_storage_account> \
 ```
 ## Create blob storage containers
 
-The app uses two containers in the Blob storage account. The _images_ container is where  the app uploads full-resolution images. The function uploads resized image thumbnails to the _thumbs_ container. Get the storage account key by using the [storage account keys list](/cli/azure/storage/account/keys#list) command. You then use this key to create two containers using the [az storage container create](/cli/azure/storage/container#create) command. 
+The app uses two containers in the Blob storage account. The _images_ container is used to upload full-resolution images. The function uploads resized image thumbnails to the _thumbs_ container. Get the storage account key by using the [storage account keys list](/cli/azure/storage/account/keys#list) command. You then use this key to create two containers using the [az storage container create](/cli/azure/storage/container#create) command. 
 
 In this case, `<blob_storage_account>` is the name of the Blob storage account you created.
 
