@@ -10125,6 +10125,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/data-lake-store/data-lake-store-troubleshooting-guidance.md",
+            "redirect_url": "/azure/data-lake-store/data-lake-store-disaster-recovery-guidance",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-functions/functions-api-definition-getting-started.md",
             "redirect_url": "/azure/azure-functions/functions-openapi-definition",
             "redirect_document_id": false
