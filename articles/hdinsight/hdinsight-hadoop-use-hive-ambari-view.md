@@ -33,7 +33,7 @@ Learn how to run Hive queries by using Ambari Hive View. Ambari is a management 
 * A Linux-based HDInsight cluster. For information on creating clusters, see [Get started using Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 > [!IMPORTANT]
-> The steps in this document require an Azure HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or later. For more information, see [HDInsight Windows retirement](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> The steps in this document require an Azure HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Open the Hive View
 
