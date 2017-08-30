@@ -40,7 +40,7 @@ In this topic, you learn how to:
 ## Prerequisites
 
 + An active [PowerApps account](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) with the same sign in credentials as your Azure account. 
-+ Excel, because you will use Escel as a data source for your app.
++ Excel, because you will use Excel as a data source for your app.
 + Complete the tutorial [Create an OpenAPI definition for a function](functions-openapi-definition.md).
 
 
