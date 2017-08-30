@@ -81,7 +81,7 @@ The following screenshot shows how test results appear in the **Interactive Test
 When you perform interactive testing, you may find that LUIS doesn't detect the intent or entities that you expect in some utterances. The following steps walk you through relabeling an utterance and retraining.
 
 ### Relabel an utterance to retrain an intent
-1. Import the sample LUIS app [Travel Agent - Sample 1](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/Examples-BookFlight/travel-agent-sample-01.json). This LUIS app has only a few sample utterances and provides a starting point for training. It has the following intents:
+1. Import the sample LUIS app <a href="https://aka.ms/luis-travel-agent-01" target="_blank">Travel Agent - Sample 1</a>. This LUIS app has only a few sample utterances and provides a starting point for training. It has the following intents:
  * BookFlight
  * Weather.GetForecast
  * None 
