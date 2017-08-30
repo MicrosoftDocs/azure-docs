@@ -1,6 +1,6 @@
 ---
 title: Configure SSL offload - Azure Application Gateway - Azure CLI 2.0 | Microsoft Docs
-description: This page provides instructions to create an application gateway with SSL offload by Azure CLI 2.0
+description: This article provides instructions to create an application gateway with SSL offload by using Azure CLI 2.0
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -21,30 +21,32 @@ ms.author: gwallace
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-ssl-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
-> * [Azure Classic PowerShell](application-gateway-ssl.md)
+> * [Azure classic PowerShell](application-gateway-ssl.md)
 > * [Azure CLI 2.0](application-gateway-ssl-cli.md)
 
 Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies certificate management at the front-end server.
 
 ## Prerequisite: Install the Azure CLI 2.0
 
-To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+To perform the steps in this article, you need to [install the Azure command-line interface for Mac, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 ## Required components
 
-* **Back-end server pool:** The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or should be a public IP/VIP.
-* **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
-* **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
-* **Listener:** The listener has a front-end port, a protocol (Http or Https, these settings are case-sensitive), and the SSL certificate name (if configuring SSL offload).
-* **Rule:** The rule binds the listener and the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
+* **Back-end server pool**: The list of IP addresses of the back-end servers. The IP addresses listed should belong to the virtual network subnet or should be a public IP address or virtual IP address (VIP).
+* **Back-end server pool settings**: Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
+* **Front-end port**: This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
+* **Listener**: The listener has a front-end port, a protocol (Http or Https; these settings are case-sensitive), and the SSL certificate name (if configuring SSL offload).
+* **Rule**: The rule binds the listener and the back-end server pool and defines which back-end server pool to direct the traffic to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
 
 **Additional configuration notes**
 
-For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). The **SslCertificate** element is added to **HttpListener** with the variable value configured for the SSL certificate. The front-end port should be updated to 443.
+For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). Add the **SslCertificate** element to **HttpListener** with the variable value configured for the SSL certificate. The front-end port should be updated to **443**.
 
-**To enable cookie-based affinity**: An application gateway can be configured to ensure that a request from a client session is always directed to the same VM in the web farm. This scenario is done by injection of a session cookie that allows the gateway to direct traffic appropriately. To enable cookie-based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element.
+**To enable cookie-based affinity**: You can configure an application gateway to ensure that a request from a client session is always directed to the same VM in the web farm. To accomplish this, insert a session cookie that allows the gateway to direct traffic appropriately. To enable cookie-based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element.
 
 ## Configure SSL offload on an existing application gateway
+
+Enter the following commands to configure SSL offload to an existing application gateway:
 
 ```azurecli-interactive
 #!/bin/bash
@@ -65,9 +67,9 @@ az network application-gateway ssl-cert create \
   --resource-group "AdatumAppGatewayRG"
 
 # Create a new listener referencing the port and certificate created earlier
-az network application-gateway http-listener create \
+az network application-gateway http-listener create \
   --frontend-ip "appGatewayFrontendIP" \
-  --frontend-port sslport  \
+  --frontend-port sslport  \
   --name sslListener \
   --ssl-cert newcert \
   --gateway-name "AdatumAppGateway" \
@@ -84,7 +86,7 @@ az network application-gateway address-pool create \
 az network application-gateway http-settings create \
   --name "settings2" \
   --port 80 \
-  --cookie-based-affinity Enabled \
+  --cookie-based-affinity Enabled \
   --protocol "Http" \
   --gateway-name "AdatumAppGateway" \
   --resource-group "AdatumAppGatewayRG"
@@ -101,9 +103,9 @@ az network application-gateway rule create \
 
 ```
 
-## Create an application gateway with SSL Offload
+## Create an application gateway with SSL offload
 
-The following sample creates an application gateway with SSL offload.  The certificate and certificate password must be updated to a valid private key.
+The following sample creates an application gateway with SSL offload. The certificate and certificate password must be updated to a valid private key.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -132,9 +134,11 @@ az network application-gateway create \
   --public-ip-address-allocation "dynamic"
 ```
 
-## Get application gateway DNS name
+## Get an application gateway DNS name
 
-Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway, a CNAME record can be used to point to the public endpoint of the application gateway. [Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). To configure an alias, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
+After the gateway is created, the next step is to configure the front end for communication.  Application Gateway requires a dynamically assigned DNS name when using a public IP, which is not friendly. To ensure end users can hit the application gateway, you can use a CNAME record to point to the public endpoint of the application gateway. For more information, see [Configuring a custom domain name for in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+
+To configure an alias, retrieve details of the application gateway and its associated IP/DNS name using the **PublicIPAddress** element attached to the application gateway. Use the application gateway's DNS name to create a CNAME record, which points the two web applications to this DNS name. We don't recommend the use of A-records because the VIP can change on restart of the application gateway.
 
 
 ```azurecli-interactive
@@ -179,9 +183,9 @@ az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
 
 ## Next steps
 
-If you want to configure an application gateway to use with an internal load balancer (ILB), see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
+If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer](application-gateway-ilb.md).
 
-If you want more information about load balancing options in general, see:
+For more information about load balancing options in general, see:
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
