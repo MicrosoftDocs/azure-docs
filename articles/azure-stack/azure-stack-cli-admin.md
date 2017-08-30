@@ -32,20 +32,20 @@ The following sections describe how to get these values.
 The Azure Stack CA root certificate is available on the development kit and on a tenant virtual machine that is running within the development kit environment. Sign in to your development kit or the tenant virtual machine and run the following script to export the Azure Stack root certificate in PEM format:
 
 ```powershell
-   $label = "AzureStackSelfSignedRootCert"
-   Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
-   $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
-   if (-not $root)
-   {
-       Log-Error "Cerficate with subject CN=$label not found"
-       return
-   }
+$label = "AzureStackSelfSignedRootCert"
+Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
+$root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
+if (-not $root)
+{
+    Log-Error "Cerficate with subject CN=$label not found"
+    return
+}
 
-   Write-Host "Exporting certificate"
-   Export-Certificate -Type CERT -FilePath root.cer -Cert $root
+Write-Host "Exporting certificate"
+Export-Certificate -Type CERT -FilePath root.cer -Cert $root
 
-   Write-Host "Converting certificate to PEM format"
-   certutil -encode root.cer root.pem
+Write-Host "Converting certificate to PEM format"
+certutil -encode root.cer root.pem
 ```
 
 ## Set up the virtual machine aliases endpoint
