@@ -3,7 +3,7 @@ title: Getting Started with OpenAPI Metadata in Azure Functions | Microsoft Docs
 description: Getting Started with OpenAPI support in Azure Functions
 services: functions
 documentationcenter: ''
-author: alexkarcher-msft
+author: ggailey777
 manager: cfowler
 editor: ''
 
