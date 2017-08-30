@@ -221,12 +221,6 @@ before Microsoft can publish your connector. Learn
 Microsoft actively monitors this account for developer questions and problems, 
 and routes them to the appropriate team.
 
-* To ask or answer questions, or see what other Azure Logic Apps users are doing, 
-visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-* To help improve Logic Apps, vote on or submit ideas at the 
-[Logic Apps user feedback site](http://aka.ms/logicapps-wish). 
-
 ## Next steps
 
 * [Build a custom connector from a Web API](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
