@@ -9,7 +9,7 @@ manager: timlt
 ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
 ms.service: iot-suite
 ms.topic: get-started-article
-ms.date: 07/24/2017
+ms.date: 08/30/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 
@@ -34,8 +34,11 @@ The article [Azure and Internet of Things](iot-suite-overview.md) describes a ty
 To implement this architecture, Azure IoT offers three options:
 
 * **Microsoft IoT Central** is a SaaS solution that uses a model-based approach to enable you to build an enterprise-grade IoT solution.
-* **Azure IoT Suite** is a PaaS solution that deploys [preconfigured solutions](iot-suite-what-are-preconfigured-solutions.md) that implement common IoT patterns to your Azure subscription. These preconfigured solutions are customizable, enterprise-grade, and open-source.
+
+* **Azure IoT Suite** is an enterprise-grade PaaS solution that enables you to get started quickly through a set of extensible preconfigured solutions [preconfigured solutions](iot-suite-what-are-preconfigured-solutions.md). These solutions address common IoT scenarios, such as [remote monitoring][lnk-preconfigured-solutions], [predictive maintenance][lnk-predictive-maintenance], and [connected factory][lnk-connected-factory]. These solutions are implementations of the IoT solution architecture outlined in this article.
+
 * **Azure IoT Hub** is the core Azure IoT service that both IoT Central and IoT Suite use. It provides services such as high-volume telemetry ingestion, device management, and security to an IoT solution. You can build your own IoT solutions from scratch using the IoT Hub service.
+
 
 ## Compare IoT Suite, IoT Central, and IoT Hub
 

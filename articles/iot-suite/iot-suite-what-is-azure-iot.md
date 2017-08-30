@@ -20,24 +20,17 @@ ms.author: dobett
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
-## Azure IoT Suite
-The Microsoft Azure IoT Suite is an enterprise-grade solution that enables you to get started quickly through a set of extensible preconfigured solutions. These solutions address common IoT scenarios, such as [remote monitoring][lnk-preconfigured-solutions], [predictive maintenance][lnk-predictive-maintenance], and [connected factory][lnk-connected-factory]. These solutions are implementations of the IoT solution architecture outlined in this article.
+## Next
 
-The preconfigured solutions are complete, working, end-to-end solutions that include:
+Now that you have learned about the typical IoT Architecture, explore the different implementation options using Microsoft Azure IoT products in the next article. (Insert link to Microsoft Azurte IoT options)
 
-- Simulated devices to get you started.
-- Preconfigured Azure services such as [Azure IoT Hub][Azure IoT Hub], [Azure Event Hubs][Azure Event Hubs], [Azure Stream Analytics][Azure Stream Analytics], [Azure Machine Learning][Azure Machine Learning], and [Azure storage][Azure storage].
-- Solution-specific management consoles.
+* [Microsoft Azure IoT options][lnk-iotoptions]
 
-The preconfigured solutions contain proven, production-ready code that you can customize and extend to implement your own specific IoT scenarios.
+You can also check the additional documents:
 
-You may also be interested in the [Azure IoT Hub][Azure IoT Hub] service that many of the preconfigured solutions use. [Azure IoT Hub][Azure IoT Hub] provides the secure and reliable bi-directional communications between devices and the cloud used in the preconfigured solution architecture.
-
-## Next steps
-Explore these resources to continue learning about IoT Suite and the preconfigured solutions:
-
-* [What is Azure IoT Suite?][lnk-whatissuite]
-* [What are the Azure IoT Suite preconfigured solutions?][lnk-whatarepreconfigured]
+* [What is Azure IoT Suite?][lnk-whatarepreconfigured]
+* [What is Microsoft IoT Central?][lnk-whatarepreconfigured]
+* [What is Azure IoT Hub?][lnk-whatarepreconfigured]
 
 [lnk-whatissuite]: iot-suite-overview.md
 [lnk-whatarepreconfigured]: iot-suite-what-are-preconfigured-solutions.md
