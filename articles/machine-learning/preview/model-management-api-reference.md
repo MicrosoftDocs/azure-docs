@@ -1,3 +1,17 @@
+---
+title: Model Management API Reference document | Microsoft Docs
+description: This sample describes the article in 115 to 145 characters. Validate using Gauntlet toolbar check icon. Use SEO kind of action verbs here.
+services: machine-learning
+author: get2chhavi
+ms.author: chhavib
+manager: neerajkh
+ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.service: machine-learning
+ms.workload: data-services
+ms.custom: mvc
+ms.topic: article
+ms.date: 08/28/2017
+---
 # Hosting Account API reference
 
 For environment set up information, see [Hosting Account getting started]().
