@@ -25,7 +25,7 @@ In this article, we walk you through the steps required to deploy a Windows virt
 
 ## Prerequisites
  
-* Users must subscribe to an offer that includes the Key Vault service.  
+* You must must subscribe to an offer that includes the Key Vault service.  
 * [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
 * [Configure the Azure Stack user's PowerShell environment.](azure-stack-powershell-configure-user.md)
 

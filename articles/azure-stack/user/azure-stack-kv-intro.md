@@ -22,7 +22,7 @@ ms.author: sngun
 ## Before you start
 This article assumes the following:
 
-* Users must subscribe to an offer that includes the Key Vault service.  
+* You must must subscribe to an offer that includes the Key Vault service.  
 * [PowerShell is configured for use with Azure Stack](azure-stack-powershell-configure-user.md) 
  
 ## Key Vault basics

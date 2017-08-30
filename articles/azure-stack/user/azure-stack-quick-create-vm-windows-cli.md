@@ -26,10 +26,8 @@ Azure CLI is used to create and manage Azure Stack resources from the command li
 
 ## Prerequisites
 
-1. The Azure Stack marketplace doesn't contain the Windows Server 2016 image by default. So, before you can create a virtual machine, make sure that the Azure Stack operator [adds the Windows Server 2016 image to the Azure Stack marketplace](azure-stack-add-default-image.md).  
-
+1. The Azure Stack marketplace doesn't contain the Windows Server 2016 image by default. So, before you can create a virtual machine, make sure that the Azure Stack operator adds the Windows Server 2016 image to the Azure Stack marketplace. 
 2. Azure Stack requires the 2.0 version of Azure CLI to create and manage the resources. Use the steps described in [Install and configure CLI](azure-stack-connect-cli.md) topic to install the required version.  
-
 3. Make sure that your Azure Stack cloud administrator has [set up a public endpoint that contains the virtual machine image aliases](azure-stack-connect-cli.md#set-up-the-virtual-machine-aliases-endpoint).
 
 ## Create a resource group
