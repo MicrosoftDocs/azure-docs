@@ -246,17 +246,17 @@ choose **Save**.
 
    | Setting | Suggested value | Description | 
    | ------- | --------------- | ----------- | 
-   | **Client ID** | *client-ID-for-connector-Azure-AD-app* | The client ID for your connector's Azure AD app | 
+   | **Client ID** | *application-ID-for-connector-Azure-AD-app* | The application ID that you previously saved for your connector's Azure AD app | 
    | **Secret** | *client-key-for-connector-Azure-AD-app* | The client key for your connector's Azure AD app | 
    | **Login URL** | `https://login.windows.net` | | 
-   | **ResourceUri** |*client-ID-for-Web-API-Azure-AD-app* | The client ID for your Web API's Azure AD app | 
+   | **ResourceUri** | *application-ID-for-Web-API-Azure-AD-app* | The application ID that you previously saved for your Web API's Azure AD app | 
    |||| 
 
 ## 4. Set up your OpenAPI document to use Azure AD authentication
 
 In your OpenAPI document, add the `securityDefintions` object and 
-Azure AD authentication for your Web API app to the **host** property: 
-The **host** section should look like this example: 
+Azure AD authentication for your Web API app under the `host` property. 
+Here's an example that shows the `host` property and `securityDefinitions` object:
 
 ``` json
 // Your OpenAPI file header appears here...

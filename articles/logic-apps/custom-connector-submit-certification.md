@@ -75,7 +75,7 @@ To apply for certification, follow these steps:
     we stage the connector for deployment across all products and regions.
     
     By default, all connectors are published as "premium." 
-    If your app is built with Azure, you can apply to have 
-    your connector listed as a "standard" connector that's 
+    If you built your app with Azure, you can apply for 
+    listing your connector as a "standard" connector that's 
     available to all users with Office 365 Enterprise plans. 
     For more details, ask your nomination contact.

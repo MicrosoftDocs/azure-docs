@@ -160,12 +160,11 @@ After you export the collection, you can import the JSON file into Logic Apps,
 Flow, or PowerApps.
 
 > [!IMPORTANT]
-> 
-> When you create a custom API or connector from a Postman collection, 
-> remove the `Content-type` header from actions and triggers. 
+> If you create a custom connector from a Postman collection, 
+> make sure that you remove the `Content-type` header from actions and triggers. 
 > The target service, for example, Flow, automatically adds this header. 
-> Also, define authentication headers, such as `Ocp-Apim-Subscription-Key`, 
-> in the **Security** section, and remove those headers from actions and triggers.
+> Also, remove authentication headers that you defined in the `Security` section, 
+> from actions and triggers.
 
 ## Next steps
 

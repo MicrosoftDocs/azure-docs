@@ -72,7 +72,7 @@ Applies to: Operations, Parameters, Schemas
 
 * `important` operations and parameters are always shown to the user first.
 * `advanced` operations and parameters are hidden under an additional menu.
-* `internal` operations and parameters are completely hidden from the user.
+* `internal` operations and parameters are hidden from the user.
 
 > [!NOTE] 
 > For parameters that are `internal` and `required`, 
@@ -151,9 +151,8 @@ Here's an example that shows the properties in `x-ms-dynamic-values`:
 ## x-ms-dynamic-schema
 
 Indicates that the schema for the current parameter or response is dynamic. 
-This object can invoke an operation that's defined by the value of this field, 
-and dynamically discover the schema. Then, shows the appropriate UI 
-for receiving inputs from the user or show available fields. 
+This object can invoke an operation that's defined by the value of this field, dynamically discover the schema, and display the appropriate UI 
+for collecting user inputs or show available fields. 
 
 Applies to: Parameters, Response
 
@@ -167,11 +166,11 @@ based on the item that the user selects from the drop-down list:
 
 And this example shows how the outputs change, 
 based on the item that the user selects from the drop-down list. 
-In this version, the user selected "Cars":
+In this version, the user selects "Cars":
 
 !["x-ms-dynamic-schema-response" for selected item "Cars"](./media/custom-connector-openapi-extensions/x-ms-dynamic-schema-output1.png)
 
-In this version, the user selected "Food":
+In this version, the user selects "Food":
 
 !["x-ms-dynamic-schema-response" for selected item "Food"](./media/custom-connector-openapi-extensions/x-ms-dynamic-schema-output2.png)
 

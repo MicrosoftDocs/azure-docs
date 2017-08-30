@@ -108,53 +108,106 @@ actions and triggers for your custom connector.
       | **Base URL** | *connector-base-URL* | Provide the base URL for your Web API. | 
       |||| 
 
-6. Now choose **Security**, then choose **Edit** so you can 
-select the authentication type that your API uses.  
-Then provide additional details for that authentication type. 
-These settings make sure that user identities flow appropriately 
-between your service and any clients.
+6. Now choose **Security** so you can review or select the authentication 
+that your connector uses. Authentication makes sure that your users' 
+identities flow appropriately between your service and any clients.
 
-   ![Choose authentication type](./media/logic-apps-custom-connector-register/security.png)
+   ![Authentication type](./media/logic-apps-custom-connector-register/security.png)
 
-   In this example, the OpenAPI file uses an Azure AD app for authentication, 
-   so you must provide information about the Azure AD app to Logic Apps. 
+   * Your OpenAPI file automatically populates this section, 
+   based on the `securityDefinitions` object in that file. 
+   Here's an OAuth2.0 example:
 
-   1. Under **Authentication type**, select this type: **OAuth 2.0**
-   2. Under **OAuth 2.0**, select **Azure Active Directory**.
-   3. Under **Client id**, type the Azure AD *Application ID* that you previously saved. 
-   4. For **Client secret**, use the *client key* that you saved earlier.
-   5. For **Resource URL**, enter this URL: `https://management.core.windows.net/`
+     ``` json
+     "securityDefinitions": {
+       "AAD": {
+       "type": "oauth2",
+       "flow": "accessCode",
+       "authorizationUrl": "https://login.windows.net/common/oauth2/authorize",
+       "tokenUrl": "https://login.windows.net/common/oauth2/token",
+       "scopes": {}
+       }
+     },
+     ```
 
-      > [!IMPORTANT] 
-      > Make sure that you include the 
-      > **Resource URL** exactly as specified here, 
-      > including the trailing slash.
+   * A Postman collection automatically populates the authentication 
+   type *only* when you use the supported authentication types, 
+   such as OAuth 2.0 or Basic.
 
-   6. When you're ready, choose **Continue**.
+   * If your OpenAPI file didn't populate the authentication type and properties, 
+   choose **Edit** so you can add this information. In this example, 
+   the OpenAPI file uses an Azure AD app for connector authentication, 
+   and provides information about the connector's Azure AD app here, for example:
 
-7. Now choose **Definition** so you can define the actions or triggers 
-that users can add to their workflows.
+     | Property | Value | Description | 
+     | -------- | ----- | ----------- | 
+     | **Authentication type** | OAuth 2.0 | | 
+     | **Identity Provider** | Azure Active Directory | | 
+     | **Client id** | *application-ID-for-connector-Azure-AD-app* | The application ID that you previously saved for your connector's Azure AD app | 
+     | **Client secret** | *client-key-for-connector-Azure-AD-app* | The client key for your connector's Azure AD app | 
+     | **Resource URL** | `https://management.core.windows.net/` | Make sure that you add the URL exactly as specified, including trailing slash. | 
+     |||| 
 
-   You can edit your connector's schema and response for existing operations, 
-   or add new operations. You can also specify each operation's properties 
-   so that you can control your connector's end-user experience. 
+   * To set up Azure Active Directory (Azure AD) authenthication, 
+   see [Set up authentication for your connector with Azure AD](../logic-apps/custom-connector-azure-active-directory-authentication.md).
+
+7. To save your connector after entering the security information, 
+at the top of the page, choose **Update connector**, 
+then choose **Continue**. 
+
+8. Now choose **Definition** so you can review or define 
+the actions that users can add to their workflows.
+
+   Actions and triggers are based on the operations defined in your OpenAPI file 
+   or Postman collection, which automatically populate the **Definition** page 
+   and include the request and response values. So, if the required operations 
+   already appear here, you can go to the next step in the registration 
+   process without making changes on this page.
 
    ![Connector definition](./media/logic-apps-custom-connector-register/definition.png)
 
-   To learn more about the different operation types:
+   To edit existing actions or add new actions, 
+   continue with these steps:
 
-   * Triggers for [Logic Apps](**NEED TOPIC**)
-   * Actions for [Logic Apps](../logic-apps/logic-apps-custom-connector-register.md) 
+   1. To add an action that didn't exist in your OpenAPI file or Postman collection, 
+   select **New action**. 
 
-   For advanced connector functionality, 
-   see [Logic Apps: OpenAPI extensions for custom connectors](../logic-apps/custom-connector-openapi-extensions.md).
+   2. Under **General**, provide the name, description, ID, and visibility for your operation.
 
-   To request features that aren't available in the registration wizard, 
-   contact [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com).
+   3. In the **Request** section, choose **Import from sample**. 
 
-8. Now that the custom connector is registered, 
-you must create a connection to the custom connector 
-so that you can use the connector in your logic apps. 
+   4. On the **Import from sample** page, paste a sample request. 
+
+      Usually, sample requests are available in the API documentation 
+      where you can get information for the **Verb**, **URL**, 
+      **Headers**, and **Body** fields. 
+      For example, see the [Text Analytics API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6).
+
+      > [!IMPORTANT]
+      > If you create a connector from a Postman collection, 
+      > make sure you that you remove the `Content-type` header from actions and triggers. 
+      > Logic Apps automatically adds this header. 
+      > Also, remove authentication headers that you defined 
+      > in the `Security` section from actions and triggers.
+
+      For advanced OpenAPI functionality, 
+      see [OpenAPI extensions for custom connectors](../logic-apps/custom-connector-openapi-extensions.md).
+
+   5. To finish the request definition, choose **Import**. 
+   Define the response in the same way.
+
+9. After you define all your actions, 
+choose **Create** to finish registering your connector.
+
+10. Now you can use your connector in a logic app 
+for connecting to your service. 
+
+To request features that aren't available in the registration wizard, 
+contact [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com).
+
+## Optional: Share your connector
+
+
 
 ## FAQ
 
