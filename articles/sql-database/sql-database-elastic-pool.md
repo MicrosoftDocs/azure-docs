@@ -145,7 +145,7 @@ Pooled databases generally support the same [business continuity features](sql-d
 
 There are two ways you can create an elastic pool in the Azure portal. You can do it from scratch if you know the pool setup you want, or start with a recommendation from the service. SQL Database has built-in intelligence that recommends an elastic pool setup if it's more cost-efficient for you based on the past usage telemetry for your databases. 
 
-Creating an elastic pool from an existing **server** blade in the portal is the easiest way to move existing databases into an elastic pool. You can also create an elastic pool by searching **SQL elastic pool** in the **Marketplace** or clicking **+Add** in the **SQL elastic pools** browse blade. You are able to specify a new or existing server through this pool provisioning workflow.
+Creating an elastic pool from an existing server page in the portal is the easiest way to move existing databases into an elastic pool. You can also create an elastic pool by searching **SQL elastic pool** in the **Marketplace** or clicking **+Add** on the SQL elastic pools page. You are able to specify a new or existing server through this pool provisioning workflow.
 
 > [!NOTE]
 > You can create multiple pools on a server, but you can't add databases from different servers into the same pool.
@@ -178,7 +178,7 @@ The pool recommendation comprises:
 
 The service evaluates resource needs and cost effectiveness of moving the single databases in each service tier into pools of the same tier. For example, all Standard databases on a server are assessed for their fit into a Standard Elastic Pool. This means the service does not make cross-tier recommendations such as moving a Standard database into a Premium pool.
 
-After adding databases to the pool, recommendations are dynamically generated based on the historical usage of the databases you have selected. These recommendations are shown in the eDTU and GB usage chart and in a recommendation banner at the top of the **Configure pool** blade. These recommendations are intended to assist you in creating an elastic pool optimized for your specific databases.
+After adding databases to the pool, recommendations are dynamically generated based on the historical usage of the databases you have selected. These recommendations are shown in the eDTU and GB usage chart and in a recommendation banner at the top of the **Configure pool** page. These recommendations are intended to assist you in creating an elastic pool optimized for your specific databases.
 
 ![dynamic recommendations](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
@@ -199,11 +199,11 @@ You can go to a particular pool to see its resource utilization. By default, the
 
 ![Elastic pool monitoring](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
 
-![Metric blade](./media/sql-database-elastic-pool-manage-portal/metric.png)
+![Metric page](./media/sql-database-elastic-pool-manage-portal/metric.png)
 
 ### To customize the chart display
 
-You can edit the chart and the metric blade to display other metrics such as CPU percentage, data IO percentage, and log IO percentage used.
+You can edit the chart and the metric page to display other metrics such as CPU percentage, data IO percentage, and log IO percentage used.
 
 ![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-metric.png)
 
@@ -221,9 +221,9 @@ Individual databases can also be monitored for potential trouble. Under **Elasti
 
 ![Elastic pool monitoring](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
 
-Click the **eDTU usage for databases for the past hour** under **Elastic database monitoring**. This opens **Database Resource Utilization** and provides a detailed view of the database usage in the pool. Using the grid in the lower part of the blade, you can select any databases in the pool to display its usage in the chart (up to 5 databases). You can also customize the metrics and time window displayed in the chart by clicking **Edit chart**.
+Click the **eDTU usage for databases for the past hour** under **Elastic database monitoring**. This opens **Database Resource Utilization** and provides a detailed view of the database usage in the pool. Using the grid in the lower part of the page, you can select any databases in the pool to display its usage in the chart (up to 5 databases). You can also customize the metrics and time window displayed in the chart by clicking **Edit chart**.
 
-![Database resource utilization blade](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
+![Database resource utilization page](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
 ### To customize the view
 
@@ -239,7 +239,7 @@ You can also click the **Compare databases by** dropdown to select a different m
 
 ### To select databases to monitor
 
-In the database list in the **Database Resource Utilization** blade, you can find particular databases by looking through the pages in the list or by typing in the name of a database. Use the checkbox to select the database.
+In the database list on the **Database Resource Utilization** page, you can find particular databases by looking through the pages in the list or by typing in the name of a database. Use the checkbox to select the database.
 
 ![Search for databases to monitor](./media/sql-database-elastic-pool-manage-portal/select-dbs.png)
 
@@ -250,7 +250,7 @@ You can add rules to an elastic pool that send email to people or alert strings 
 
 **To add an alert to any resource:**
 
-1. Click the **Resource utilization** chart to open the **Metric** blade, click **Add alert**, and then fill out the information in the **Add an alert rule** blade (**Resource** is automatically set up to be the pool you're working with).
+1. Click the **Resource utilization** chart to open the **Metric** page, click **Add alert**, and then fill out the information in the **Add an alert rule** page (**Resource** is automatically set up to be the pool you're working with).
 2. Type a **Name** and **Description** that identifies the alert to you and the recipients.
 3. Choose a **Metric** that you want to alert from the list.
 
