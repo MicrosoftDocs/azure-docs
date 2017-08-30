@@ -61,7 +61,7 @@ This article describes:
 ## Sample scenarios: Use parallel copy
 
 ## Reference
-Here are performance monitoring and tuning references for some of the supported data stores:
+Here is performance monitoring and tuning references for some of the supported data stores:
 
 * Azure Storage (including Blob storage and Table storage): [Azure Storage scalability targets](../storage/common/storage-scalability-targets.md) and [Azure Storage performance and scalability checklist](../storage/common/storage-performance-checklist.md)
 * Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-single-database-monitor.md) and check the database transaction unit (DTU) percentage

@@ -30,13 +30,13 @@ Specifically, this Cassandra connector supports:
 
 ## Prerequisites
 
-To copy data from a Cassandra database that is not publicly accessible, you need to set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](link) article to learn details. The Integration Runtime provides a built-in Cassandra driver, therefore you don't need to manually install any driver when copying data from/to Cassandra.
+To copy data from a Cassandra database that is not publicly accessible, you need to set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article to learn details. The Integration Runtime provides a built-in Cassandra driver, therefore you don't need to manually install any driver when copying data from/to Cassandra.
 
 ## Getting started
 
 ***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
 
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](link) for step-by-step instructions to create a pipeline with a copy activity.
+You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial]((quickstart-create-data-factory-dot-net.md)) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Cassandra connector.
 
@@ -157,7 +157,7 @@ To copy data from Cassandra, set the source type in the copy activity to **Cassa
 
 ## Data type mapping for Cassandra
 
-When copying data from Cassandra, the following mappings are used from Cassandra data types to Azure Data Factory interim data types. See [Schema and data type mappings](link) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from Cassandra, the following mappings are used from Cassandra data types to Azure Data Factory interim data types. See [Schema and data type mappings](map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | Cassandra data type | Data factory interim data type |
 |:--- |:--- |
@@ -205,12 +205,14 @@ For example, the following "ExampleTable" is a Cassandra database table that con
 
 The driver would generate multiple virtual tables to represent this single table. The foreign key columns in the virtual tables reference the primary key columns in the real table, and indicate which real table row the virtual table row corresponds to.
 
-The first virtual table is the base table named "ExampleTable" is shown in the following table. The base table contains the same data as the original database table except for the collections, which are omitted from this table and expanded in other virtual tables.
+The first virtual table is the base table named "ExampleTable" is shown in the following table: 
 
 | pk_int | Value |
 | --- | --- |
 | 1 |"sample value 1" |
 | 3 |"sample value 3" |
+
+The base table contains the same data as the original database table except for the collections, which are omitted from this table and expanded in other virtual tables.
 
 The following tables show the virtual tables that renormalize the data from the List, Map, and StringSet columns. The columns with names that end with "_index" or "_key" indicate the position of the data within the original list or map. The columns with names that end with "_value" contain the expanded data from the collection.
 

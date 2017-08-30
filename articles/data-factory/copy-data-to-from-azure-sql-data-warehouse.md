@@ -33,7 +33,7 @@ Specifically, this Azure SQL Data Warehouse connector supports:
 
 ***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
 
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](link) for step-by-step instructions to create a pipeline with a copy activity.
+You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure SQL Data Warehouse connector.
 
@@ -317,7 +317,7 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
 
 ### Staged Copy using PolyBase
 
-When your source data doesn’t meet the criteria introduced in the previous section, you can enable copying data via an interim staging Azure Blob Storage (cannot be Premium Storage). In this case, Azure Data Factory automatically performs transformations on the data to meet data format requirements of PolyBase, then use PolyBase to load data into SQL Data Warehouse, and at last clean-up your temp data from the Blob storage. See [Staged Copy](copy-activity-performance.md#staged-copy) for details on how copying data via a staging Azure Blob works in general.
+When your source data doesn’t meet the criteria introduced in the previous section, you can enable copying data via an interim staging Azure Blob Storage (cannot be Premium Storage). In this case, Azure Data Factory automatically performs transformations on the data to meet data format requirements of PolyBase, then use PolyBase to load data into SQL Data Warehouse, and at last clean up your temp data from the Blob storage. See [Staged Copy](copy-activity-performance.md#staged-copy) for details on how copying data via a staging Azure Blob works in general.
 
 > [!NOTE]
 > When copying data from an on-prem data store into Azure SQL Data Warehouse using PolyBase and staging, if your Data Management Gateway version is below 2.4, JRE (Java Runtime Environment) is required on your gateway machine that is used to transform your source data into proper format. Suggest you upgrade your gateway to the latest to avoid such dependency.
@@ -375,7 +375,7 @@ If you have source data with rows of size greater than 1 MB, you may want to spl
 
 ### SQL Data Warehouse resource class
 
-To achieve best possible throughput, consider to assign larger resource class to the user being used to load data into SQL Data Warehouse via PolyBase. Learn how to do that by following [Change a user resource class example](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).
+To achieve best possible throughput, consider to assign larger resource class to the user being used to load data into SQL Data Warehouse via PolyBase. Learn how to do that by following [Change a user resource class example](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
 
 ### tableName in Azure SQL Data Warehouse
 
@@ -406,7 +406,7 @@ NULL value is a special form of default value. If the column is nullable, the in
 
 ## Data type mapping for Azure SQL Data Warehouse
 
-When copying data from/to Azure SQL Data Warehouse, the following mappings are used from Azure SQL Data Warehouse data types to Azure Data Factory interim data types. See [Schema and data type mappings](link) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from/to Azure SQL Data Warehouse, the following mappings are used from Azure SQL Data Warehouse data types to Azure Data Factory interim data types. See [Schema and data type mappings](map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | Azure SQL Data Warehouse data type | Data factory interim data type |
 |:--- |:--- |

@@ -30,7 +30,7 @@ Specifically, this Azure Table connector supports copying data using both **acco
 
 ***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
 
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](link) for step-by-step instructions to create a pipeline with a copy activity.
+You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Table Storage.
 
@@ -43,7 +43,7 @@ You can create an Azure Storage linked service by using the account key, which p
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureStorage** |Yes |
-| connectionString | Specify information needed to connect to Azure storage for the connectionString property. This field need to be marked as SecureString as below exmample. |Yes |
+| connectionString | Specify information needed to connect to Azure storage for the connectionString property. Mark this field as SecureString as shown in the following example. |Yes |
 
 **Example:**
 
@@ -63,7 +63,7 @@ You can create an Azure Storage linked service by using the account key, which p
 
 ### Using Service SAS authentication
 
-You can also reate an Azure Storage linked service by using a Shared Access Signature (SAS), which provides the data factory with restricted/time-bound access to all/specific resources in the storage.
+You can also create an Azure Storage linked service by using a Shared Access Signature (SAS), which provides the data factory with restricted/time-bound access to all/specific resources in the storage.
 
 A Shared Access Signature (SAS) provides delegated access to resources in your storage account. It allows you to grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method. For detailed information about SAS, see [Shared Access Signatures: Understanding the SAS Model](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
 
@@ -76,7 +76,7 @@ To use Service SAS authentication, the following properties are supported:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureStorage** |Yes |
-| sasUri | Specify Shared Access Signature URI to the Azure Storage resources such as blob, container, or table. This field need to be marked as SecureString as below exmample. |Yes |
+| sasUri | Specify Shared Access Signature URI to the Azure Storage resources such as blob, container, or table. Mark this field as SecureString as shown in the following example. |Yes |
 
 **Example:**
 
@@ -217,9 +217,9 @@ To copy data from Azure Table, set the source type in the copy activity to **Azu
 
 ### azureTablePartitionKeyName
 
-Map a source column to a destination column using the "translator" property before you can use the destination column as the "azureTablePartitionKeyName".
+Map a source column to a destination column using the "translator" property before you can use the destination column as the azureTablePartitionKeyName.
 
-In the following example, source column "DivisionID" is mapped to the destination column "DivisionID".
+In the following example, source column DivisionID is mapped to the destination column DivisionID.
 
 ```json
 "translator": {
@@ -239,7 +239,7 @@ The "DivisionID" is specified as the partition key.
 
 ## Data type mapping for Azure Table
 
-When copying data from/to Azure Table, the following mappings are used from Azure Table data types to Azure Data Factory interim data types. See [Schema and data type mappings](link) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from/to Azure Table, the following mappings are used from Azure Table data types to Azure Data Factory interim data types. See [Schema and data type mappings](map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 When moving data to & from Azure Table, the following [mappings defined by Azure Table service](https://msdn.microsoft.com/library/azure/dd179338.aspx) are used from Azure Table OData types to .NET type and vice versa.
 

@@ -35,19 +35,19 @@ Specifically, this DB2 connector supports the following IBM DB2 platforms and ve
 * IBM DB2 for LUW 10.1
 
 > [!TIP]
-> If you receive an error message that states "The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805", the reason is a needed package is not created for normal user on such OS. Follow below instructions according to your DB2 server type:
+> If you receive an error message that states "The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805", the reason is a needed package is not created for normal user on such OS. Follow these instructions according to your DB2 server type:
 > - DB2 for i (AS400): let power user create collection for the login user before using copy activity. Command: `create collection <username>`
-> - DB2 for z/OS or LUW: use a high privilege account - power user or admin with package authorities and BIND, BINDADD, GRANT EXECUTE TO PUBLIC permissions - to run the copy activity once, then the needed package will be auto created during copy. Afterwards, you can switch back to normal user for your subsequent copy runs.
+> - DB2 for z/OS or LUW: use a high privilege account - power user or admin with package authorities and BIND, BINDADD, GRANT EXECUTE TO PUBLIC permissions - to run the copy activity once, then the needed package is automatically created during copy. Afterwards, you can switch back to normal user for your subsequent copy runs.
 
 ## Prerequisites
 
-To use copy data from a DB2 database that is not publicly accessible, you need to set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](link) article to learn details. The Integration Runtime provides a built-in DB2 driver, therefore you don't need to manually install any driver when copying data from DB2.
+To use copy data from a DB2 database that is not publicly accessible, you need to set up a self-hosted Integration Runtime. To learn about self-hosted integration runtimes, see [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article. The Integration Runtime provides a built-in DB2 driver, therefore you don't need to manually install any driver when copying data from DB2.
 
 ## Getting started
 
 ***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
 
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](link) for step-by-step instructions to create a pipeline with a copy activity.
+You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to DB2 connector.
 
@@ -165,7 +165,7 @@ To copy data from DB2, set the source type in the copy activity to **RelationalS
 
 ## Data type mapping for DB2
 
-When copying data from DB2, the following mappings are used from DB2 data types to Azure Data Factory interim data types. See [Schema and data type mappings](link) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from DB2, the following mappings are used from DB2 data types to Azure Data Factory interim data types. See [Schema and data type mappings](map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | DB2 Database type | Data factory interim data type |
 |:--- |:--- |

@@ -28,7 +28,7 @@ You can copy data from any supported source data store into Azure Search index. 
 
 ***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
 
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](link) for step-by-step instructions to create a pipeline with a copy activity.
+You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Search connector.
 
@@ -43,7 +43,7 @@ The following properties are supported for Azure Search linked service:
 | key | Admin key for the Azure Search service. | Yes |
 
 > [!IMPORTANT]
-> When copying data from a cloud data store into Azure Search index, in Azure Search linked service, you need to refer an managed-elastic Integration Runtime with explict region in "connactVia". Set the region as the one your Azure Search resides. Learn more from [Managed-elastic Integration Runtime] (link).
+> When copying data from a cloud data store into Azure Search index, in Azure Search linked service, you need to refer a managed-elastic Integration Runtime with explicit region in connactVia. Set the region as the one your Azure Search resides. Learn more from [Managed-elastic Integration Runtime] (concepts-integration-runtime.md#managed-elastic-integration-runtime).
 
 **Example:**
 

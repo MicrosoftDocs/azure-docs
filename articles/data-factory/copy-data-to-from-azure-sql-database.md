@@ -33,7 +33,7 @@ Specifically, this Azure SQL Database connector supports:
 
 ***[place-holder] generic section across all connectors. To link to a tutorial/sample and more instructions***
 
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](link) for step-by-step instructions to create a pipeline with a copy activity.
+You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure SQL Database connector.
 
@@ -219,7 +219,7 @@ To copy data to Azure SQL Database, set the sink type in the copy activity to **
 | preCopyScript |Specify a SQL query for Copy Activity to execute before writing data into Azure SQL Database in each run. You can use this property to clean up the pre-loaded data. |No |
 
 > [!TIP]
-> When copying data to Azure SQL Database, the copy activity appends data to the sink table by default. To perform an UPSERT or additional business logic, use the stored procedure in "SqlSink". Learn more details from [Invoking stored procedure for SQL Sink](#invoking-stored-procedure-for-sql-sink).
+> When copying data to Azure SQL Database, the copy activity appends data to the sink table by default. To perform an UPSERT or additional business logic, use the stored procedure in SqlSink. Learn more details from [Invoking stored procedure for SQL Sink](#invoking-stored-procedure-for-sql-sink).
 
 **Example 1: appending data**
 
@@ -365,9 +365,9 @@ Notice that as your source and target table have different schema (target has an
 
 When copying data into Azure SQL Database, a user specified stored procedure could be configured and invoked with additional parameters.
 
-A stored procedure can be leveraged when built-in copy mechanisms do not serve the purpose. This is typically leveraged when upsert (insert + update) or extra processing (merging columns, looking up additional values, insertion into multiple tables, etc.) needs to be done before the final insertion of source data in the destination table.
+A stored procedure can be used when built-in copy mechanisms do not serve the purpose. It is typically used when upsert (insert + update) or extra processing (merging columns, looking up additional values, insertion into multiple tables, etc.) needs to be done before the final insertion of source data in the destination table.
 
-The following sample shows how to use a stored procedure to do an upsert into a table in the Azure SQL Database. Assuming input data and the sink "Marketing" table each has three columns: ProfileID, State, and Category. Perform upsert based on the “ProfileID” column and only apply for a specific "Category".
+The following sample shows how to use a stored procedure to do an upsert into a table in the Azure SQL Database. Assuming input data and the sink "Marketing" table each has three columns: ProfileID, State, and Category. Perform upsert based on the “ProfileID” column and only apply for a specific category.
 
 **Output dataset**
 
@@ -420,7 +420,7 @@ BEGIN
 END
 ```
 
-In your database, define the table type with the same name as "sqlWriterTableType". Notice that the schema of the table type should be same as the schema returned by your input data.
+In your database, define the table type with the same name as sqlWriterTableType. Notice that the schema of the table type should be same as the schema returned by your input data.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -434,7 +434,7 @@ The stored procedure feature takes advantage of [Table-Valued Parameters](https:
 
 ## Data type mapping for Azure SQL Database
 
-When copying data from/to Azure SQL Database, the following mappings are used from Azure SQL Database data types to Azure Data Factory interim data types. See [Schema and data type mappings](link) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from/to Azure SQL Database, the following mappings are used from Azure SQL Database data types to Azure Data Factory interim data types. See [Schema and data type mappings](map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | Azure SQL Database data type | Data factory interim data type |
 |:--- |:--- |
