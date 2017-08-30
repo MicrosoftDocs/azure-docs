@@ -52,18 +52,18 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 ```
 
 * For `<cosmosdb-name>` use your own unique Cosmos DB account name, the name needs to be unique across all Azure Cosmos DB accounts in Azure.
-
-The `--kind MongoDB` setting enables the Azure Cosmos DB account to have MongoDB client connections.
+* The `--kind MongoDB` setting enables the Azure Cosmos DB account to have MongoDB client connections.
 
 It may take a minute or two for the command to complete. When it's done, the terminal window displays information about the new account. 
 
-Once the terminal displays the confirmation information, you can now go see this new database in the Azure portal. Open a new browser window and go to [https://portal.azure.com](https://portal.azure.com), click the Azure Cosmos DB logo ![Azure Cosmos DB icon in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png) on the left bar, and it shows you all the Azure Cosmos DB accounts you have.
-
-Now click on the account and scroll down to view the map where the database is located. 
+Once the Cosmos DB has been created:
+1. Open a new browser window and go to [https://portal.azure.com](https://portal.azure.com)
+1. Click the Azure Cosmos DB logo ![Azure Cosmos DB icon in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png) on the left bar, and it shows you all the Cosmos DBs you have.
+1. Click on the Cosmos DB you just created, select the **Overview** tab and scroll down to view the map where the database is located. 
 
 ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png)
 
-Now scroll down on the left navigation and under **Settings**, click **Replicate data globally**. Now you can hover over the map and see what areas you can replicate into. For example, if you have numerous customers in Australia, you can click Australia Southeast or Australia East and replicate your data to Australia, or any of the other regions available. Replication is discussed in the last part of this tutorial, part 7, to be released soon. You can also learn more about global replication in [How to distribute data globally with Azure Cosmos DB](distribute-data-globally.md).
+Scroll down on the left navigation and click the **Replicate data globally** tab, this displays a map where you can see the different areas you can replicate into. For example, if you have numerous customers in Australia, you can click Australia Southeast or Australia East and replicate your data to Australia, or any of the other regions available. Replication is discussed in the last part of this tutorial, part 7, to be released soon. You can also learn more about global replication in [How to distribute data globally with Azure Cosmos DB](distribute-data-globally.md).
 
 ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png)
 
