@@ -19,7 +19,7 @@ ms.author: ryanwi
 ---
 
 # Create a secure cluster on Azure using a template
-This tutorial shows you how to create a Service Fabric cluster (Windows or Linux) running in Azure. When you're finished, you have a cluster running in the cloud that you can deploy applications to.
+This tutorial is part one of a series. You will learn how to create a Service Fabric cluster (Windows or Linux) running in Azure. When you're finished, you have a cluster running in the cloud that you can deploy applications to.
 
 In this tutorial, you learn how to:
 
@@ -30,6 +30,11 @@ In this tutorial, you learn how to:
 > * Secure the cluster with an X.509 certificate
 > * Connect to the cluster using PowerShell
 > * Remove a cluster
+
+In this tutorial series you learn how to:
+> [!div class="checklist"]
+> * Create a secure cluster on Azure using a template
+> * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## Prerequisites
 Before you begin this tutorial:

@@ -19,7 +19,7 @@ ms.author: ryanwi
 ---
 
 # Deploy API Management with Service Fabric
-This tutorial shows you how to set up Azure API Management with Service Fabric and configure an API operation to send traffic to back-end services in Service Fabric. To learn more about Azure API Management scenarios with Service Fabric, see the [overview](service-fabric-api-management-overview.md) article.
+This tutorial is part two of a series. This tutorial shows you how to set up Azure API Management with Service Fabric to route traffic to a back-end service in Service Fabric.  When you're finished, you will have deployed API Management to a VNET, configured an API operation to send traffic to back-end stateless services. To learn more about Azure API Management scenarios with Service Fabric, see the [overview](service-fabric-api-management-overview.md) article.
 
 In this tutorial, you learn how to:
 
@@ -30,14 +30,20 @@ In this tutorial, you learn how to:
 > * Configure a backend policy
 > * Add the API to a product
 
+In this tutorial series you learn how to:
+> [!div class="checklist"]
+> * [Create a secure cluster on Azure using a template](service-fabric-tutorial-create-vnet-and-cluster-arm.md)
+> * Deploy API Management with Service Fabric
+
 ## Prerequisites
 Before you begin this tutorial:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md)
 - Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+- [Create a VNET and Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-cluster.md)
 
 ## Sign-in to Azure and select your subscription
-This guide uses [Azure PowerShell][azure-powershell]. When you start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
+This tutorial uses [Azure PowerShell][azure-powershell]. When you start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
  
 Sign in to your Azure account select your subscription:
 
@@ -49,9 +55,11 @@ Set-AzureRmContext -SubscriptionId <guid>
 
 ## Deploy API Management
 
-Now, deploy API Management to the virtual network (VNET) in the subnet and NSG designated for API Management. You do not need to wait for the Service Fabric cluster deployment to finish before deploying API Management. 
+Now that you have a [VNET and Service Fabric cluster running on Azure](service-fabric-tutorial-create-vnet-and-cluster.md), deploy API Management to the virtual network (VNET) in the subnet and NSG designated for API Management. Cloud applications typically need a front-end gateway to provide a single point of ingress for users, devices, or other applications. In Service Fabric, a gateway can be any stateless service such as an ASP.NET Core application, or another service designed for traffic ingress, such as Event Hubs, IoT Hub, or Azure API Management.
 
-For this tutorial, the API Management Resource Manager template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in the previous step. 
+This article is an introduction to using Azure API Management as a gateway to your Service Fabric applications. API Management integrates directly with Service Fabric, allowing you to publish APIs with a rich set of routing rules to your back-end Service Fabric services. 
+
+For this tutorial, the API Management Resource Manager template is pre-configured to use the names of the VNET, subnet, and NSG that you [set up in the previous tutorial](service-fabric-tutorial-create-vnet-and-cluster.md). 
 
 Download the following Resource Manager template and parameters file:
  
