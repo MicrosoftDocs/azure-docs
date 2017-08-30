@@ -137,7 +137,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started creating a xamarin.Android app</h3>
+                        <h3>Get started creating a Xamarin.Android app</h3>
                     </div>
                 </div>
             </div>
@@ -155,7 +155,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started creating a xamarin.Forms app</h3>
+                        <h3>Get started creating a Xamarin.Forms app</h3>
                     </div>
                 </div>
             </div>
