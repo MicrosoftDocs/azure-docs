@@ -31,7 +31,8 @@ With a Remote Desktop connection, a single concurrent user can work with the por
 
 2. From the development kit computer, open Server Manager, click **Local Server**, turn off Internet Explorer Enhanced Security, and then close Server Manager.
 
-3. To open the user [portal](azure-stack-key-features.md#portal), navigate to (https://portal.local.azurestack.external/) and sign in using user credentials. To open the administrator [portal](azure-stack-key-features.md#portal), navigate to (https://adminportal.local.azurestack.external/) and sign in using the Azure Active Directory credentials specified during installation.
+3. To open the  portal, navigate to (https://portal.local.azurestack.external/) and sign in using user credentials.
+
 
 ## Connect to Azure Stack with VPN
 
@@ -99,9 +100,9 @@ Connect to the Azure Stack instance by using either of the following two methods
 
 ### Test the VPN connectivity
 
-To test the portal connection, open an Internet browser and navigate to either the user portal (https://portal.local.azurestack.external/) or the administrator portal (https://adminportal.local.azurestack.external/), sign in and create resources.  
+To test the portal connection, open an Internet browser and navigate to the user portal (https://portal.local.azurestack.external/), sign in and create resources.  
 
 ## Next steps
 
-[Make virtual machines available to your Azure Stack users](azure-stack-tutorial-tenant-vm.md)
+
 
