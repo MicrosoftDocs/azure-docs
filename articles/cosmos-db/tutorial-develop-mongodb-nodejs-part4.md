@@ -48,15 +48,14 @@ In this tutorial section, you can either use the Azure Cloud Shell (in your inte
 Create an Azure Cosmos DB account with the [`az cosmosdb create`](/cli/azure/cosmosdb#create) command.
 
 ```azurecli-interactive
-az cosmosdb create --name <cosmosdb-name> --resource-group <my-resource-group> --kind MongoDB
+az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
 ```
 
-* [az cosmosdb create](/cli/azure/cosmosdb#create) creates a new Azure Cosmos DB account.
-* For `--name <cosmosdb-name>`, substitute your own new unique Azure Cosmos DB account name where you see the `<my-cosmosdb-acct>` placeholder. This unique name is used as part of your Azure Cosmos DB endpoint (`https://<my-cosmosdb-acct>.documents.azure.com/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure.
-* For `--myResourceGroup <my-resource-group>`, substitute the name of the resource group you just created. 
-* For `--kind MongoDB`, this setting enables the Azure Cosmos DB account to have MongoDB client connections.
+* For `<cosmosdb-name>` use your own unique Cosmos DB account name, the name needs to be unique across all Azure Cosmos DB accounts in Azure.
 
-This tells Azure that in that resource group I created, go ahead and spin up an Azure Cosmos DB instance with a MongoDB database. It may take a minute or two for the command to complete. When it's done, the terminal window displays information about the new account. 
+The `--kind MongoDB` setting enables the Azure Cosmos DB account to have MongoDB client connections.
+
+It may take a minute or two for the command to complete. When it's done, the terminal window displays information about the new account. 
 
 Once the terminal displays the confirmation information, you can now go see this new database in the Azure portal. Open a new browser window and go to [https://portal.azure.com](https://portal.azure.com), click the Azure Cosmos DB logo ![Azure Cosmos DB icon in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png) on the left bar, and it shows you all the Azure Cosmos DB accounts you have.
 
