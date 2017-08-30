@@ -20,7 +20,7 @@ ms.author: LADocs; estfan
 # Register custom connectors in Azure Logic Apps
 
 After you build your REST API, set up authentication, 
-and get your API definition file, you're ready to register your connector.
+and get your OpenAPI definition file, you're ready to register your connector. 
 
 ## Prerequisites
 
@@ -95,7 +95,7 @@ actions and triggers for your custom connector.
    Typically, the **Description**, **Host**, and **Base URL** fields 
    are automatically populated from your OpenAPI file. 
    But if they're not, add this information as described in the table, 
-   and choose **Continue**: 
+   and choose **Continue**. 
 
       ![Connector details](./media/logic-apps-custom-connector-register/add-connector-details.png)
 
@@ -174,6 +174,9 @@ the actions that users can add to their workflows.
 
    2. Under **General**, provide the name, description, ID, and visibility for your operation.
 
+      > [!TIP]
+      > Make sure that your description ends with a period.
+
    3. In the **Request** section, choose **Import from sample**. 
 
    4. On the **Import from sample** page, paste a sample request. 
@@ -201,15 +204,36 @@ the actions that users can add to their workflows.
 9. After you define all your actions, 
 choose **Create** to finish registering your connector.
 
-10. Now you can use your connector in a logic app 
-for connecting to your service. 
+10. Now when you search in Logic Apps Designer, 
+you can find and add your connector to a logic app.
 
-To request features that aren't available in the registration wizard, 
+    ![Logic Apps Designer, find and choose your connector](./media/logic-apps-custom-connector-register/custom-connector-created.png)
+
+Congratulations on creating your own connector!
+
+> [!NOTE] 
+> Registered but uncertified custom connectors work like 
+> Microsoft-managed connectors, but are visible and available 
+> *only* to the connector's author and users who have the same 
+> Azure Active Directory tenant and Azure subscription 
+> for logic apps in the region where those apps are deployed. 
+> 
+> To share your connector with external users outside these boundaries, 
+> [submit your connector for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
+
+## Get support
+
+For support with development and onboarding, 
+or to request features that aren't available in the registration wizard, 
 contact [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com).
+Microsoft actively monitors this account for developer questions and problems, 
+and routes them to the appropriate team.
 
-## Optional: Share your connector
+* To ask or answer questions, or see what other Azure Logic Apps users are doing, 
+visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-
+* To help improve Logic Apps, vote on or submit ideas at the 
+[Logic Apps user feedback site](http://aka.ms/logicapps-wish). 
 
 ## FAQ
 
