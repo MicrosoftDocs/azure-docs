@@ -26,5 +26,5 @@ Visit this page daily for a new tip from September 5th - September 25th!
 
 What #cosmosdb can do today 🚀 - multi-model, low latency, elastic scaleout , precise consistency - all for your globally distributed app [https://aka.ms/ubw007](https://aka.ms/ubw007)
 
-    > [!VIDEO https://www.youtube.com/embed/vlZRP0mDabM]
+> [!VIDEO https://www.youtube.com/embed/vlZRP0mDabM]
 
