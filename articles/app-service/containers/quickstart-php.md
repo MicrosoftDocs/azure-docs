@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/21/2017
+ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
@@ -21,11 +21,11 @@ ms.custom: mvc
 
 [!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
 
-[Web App](app-service-linux-intro.md) on Linux provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a PHP app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy the PHP code to the web app.
+[Web App](app-service-linux-intro.md) on Linux provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a PHP app to Azure Web Apps for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy the PHP code to the web app.
 
 ![Sample app running in Azure]](media/quickstart-php/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
+You can follow the steps below using a Mac, Windows, or Linux machine. 
 
 ## Prerequisites
 
@@ -73,13 +73,11 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 Create a [web app](../../app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
 
-Notice that the runtime is set to `PHP|7.0`. 
+The runtime below is set to `PHP|7.1`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
 
 ```azurecli-interactive
-  az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "PHP|7.0" --deployment-local-git
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "PHP|7.1" --deployment-local-git
 ```
-> [!TIP]
-> Setting the runtime this way uses a default container provided by the platform. You can bring your own docker container using the [az webapp config container set](/cli/azure/webapp/config/container#set) command.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)] 
 
@@ -114,7 +112,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
    cc39b1e..25f1805  master -> master
 ```
 
-## Browse to the app locally
+## Browse to the app
 
 Browse to the deployed application using your web browser.
 

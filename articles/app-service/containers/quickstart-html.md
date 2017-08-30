@@ -3,8 +3,8 @@ title: Create a static HTML site in a Linux container in Azure | Microsoft Docs
 description: Learn how to run web apps in Azure App Service by deploying a static HTML sample app.
 services: app-service\web
 documentationcenter: ''
-author: rick-anderson
-manager: wpickett
+author: cephalin
+manager: syntaxc4
 editor: ''
 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
@@ -13,19 +13,18 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/26/2017
-ms.author: riande
-ms.custom: mvc
+ms.date: 08/30/2017
+ms.author: cephalin
 ---
 # Create a static HTML site in a Linux container in Azure
 
 [!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
 
-[Web App](app-service-linux-intro.md) on Linux provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a basic HTML+CSS site to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the HTML content to the web app.
+[Web App](app-service-linux-intro.md) on Linux provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a basic HTML+CSS site to Azure Web Apps for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the HTML content to the web app.
 
 ![Home page of sample app](media/quickstart-html/hello-world-in-browser-az.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
+You can follow the steps below using a Mac, Windows, or Linux machine. 
 
 ## Prerequisites
 
@@ -36,7 +35,7 @@ To complete this quickstart:
 
 ## Download the sample
 
-In a terminal window, run the following command to clone the sample app repository to your local machine.
+In a terminal window on your machine, run the following command to clone the sample app repository to your local machine.
 
 ```bash
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
@@ -58,7 +57,16 @@ Navigate to the directory that contains the sample HTML. Open the *index.html* f
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)] 
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app.md)] 
+## Create a web app
+
+Create a [web app](../../app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
+
+The runtime below is set to `PHP|7.1`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#list-runtimes).
+
+```azurecli-interactive
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "PHP|7.1" --deployment-local-git
+```
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)] 
 
 ![Empty web app page](media/quickstart-html/app-service-web-service-created.png)
 

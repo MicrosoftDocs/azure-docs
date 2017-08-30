@@ -1,6 +1,7 @@
-When the web app has been created, the Azure CLI shows information similar to the following example:
+When the web app has been created, the Azure CLI shows output similar to the following example:
 
 ```json
+Local git is configured with url of 'https://<username>@<app name>.scm.azurewebsites.net/<app name>.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -8,28 +9,15 @@ When the web app has been created, the Azure CLI shows information similar to th
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
+  "defaultHostName": "<app name>.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://<username>@<app name>.scm.azurewebsites.net/<app name>.git",
   "enabled": true,
-  "enabledHostNames": [
-    "<app_name>.azurewebsites.net",
-    "<app_name>.scm.azurewebsites.net"
-  ],
-  "gatewaySiteName": null,
-  "hostNameSslStates": [
-    {
-      "hostType": "Standard",
-      "name": "<app_name>.azurewebsites.net",
-      "sslState": "Disabled",
-      "thumbprint": null,
-      "toUpdate": null,
-      "virtualIp": null
-    }
-    < JSON data removed for brevity. >
+  < JSON data removed for brevity. >
 }
 ```
 
-Browse to the site to see your newly created web app.
+Browse to the site to see your newly created web app. Replace _&lt;app name>_ with a unique app name.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app name>.azurewebsites.net
 ```

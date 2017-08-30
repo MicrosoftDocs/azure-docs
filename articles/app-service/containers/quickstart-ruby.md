@@ -5,7 +5,7 @@ keywords: azure app service, linux, oss, ruby
 services: app-service
 documentationcenter: ''
 author: wesmc7777
-manager: erikre
+manager: syntaxc4
 editor: ''
 
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
@@ -13,40 +13,42 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/15/2017
-ms.author: wesmc;rachelap
+ms.topic: quickstart
+ms.date: 08/30/2017
+ms.author: wesmc;rachelap;cephalin
 ---
 # Create a Ruby web app in a Linux container in Azure
 
 [!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App on Linux. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Ruby code to the web app.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Ruby code to the web app.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
+You can follow the steps below using a Mac or Linux machine. 
+
 ## Prerequisites
 
-* [Ruby 2.4.1 or higher](https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller).
-* [Git](https://git-scm.com/downloads).
+* [Install Ruby 2.4.1 or higher](https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller).
+* [Install Git](https://git-scm.com/downloads).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 
-In a terminal window, run the following command to clone the sample app repository to your local machine:
+In a terminal window on your machine, run the following command to clone the sample app repository to your local machine:
 
 ```bash
 git clone https://github.com/Azure-Samples/ruby-docs-hello-world
+cd ruby-docs-hello-world
 ```
 
 ## Run the app locally
 
-Run the rails server in order for the application to work. Change to the *hello-world* directory, and the `rails server` command starts the server.
+Start the rails server.
 
 ```bash
-cd hello-world\bin
-rails server
+bin/rails server
 ```
 	
 Using your web browser, navigate to `http://localhost:3000` to test the app locally.	
@@ -67,14 +69,11 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 Create a [web app](../../app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
 
-Notice that the runtime is set to `ruby|2.3`. 
+The runtime below is set to `ruby|2.3`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
 
 ```azurecli-interactive
-  az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "ruby|2.3" --deployment-local-git
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "ruby|2.3" --deployment-local-git
 ```
-
-> [!TIP]
-> Setting the runtime this way uses a default container provided by the platform. You can bring your own docker container using the [az webapp config container set](/cli/azure/webapp/config/container#set) command.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)] 
 
@@ -114,7 +113,7 @@ The Ruby sample code is running in an Azure App Service web app.
 
 ## Update locally and redeploy the code
 
-Using a local text editor, open the `hello-world/app/controllers/application_controller.rb` file within the PHP app, and make a small change to the text within the string next to `echo`:
+Using a local text editor, open the `app/controllers/application_controller.rb` file within the PHP app, and make a small change to the text within the string next to `echo`:
 
 ```php
 echo "Hello Azure!";

@@ -3,8 +3,8 @@ title: Create a Node.js web app in a Linux container in Azure | Microsoft Docs
 description: Deploy your first Node.js Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
-author: syntaxc4
-manager: erikre
+author: cephalin
+manager: syntaxc4
 editor: ''
 
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
@@ -14,21 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/05/2017
-ms.author: cfowler
-ms.custom: mvc
+ms.author: cfowler;cephalin
 ---
 # Create a Node.js web app in a Linux container in Azure
 
 [!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
 
-[Web App](app-service-linux-intro.md) on Linux provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Node.js app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Node.js code to the web app.
+[Web App](app-service-linux-intro.md) on Linux provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Node.js app to Azure Web Apps for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Node.js code to the web app.
 
 ![Sample app running in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.   
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
-
+You can follow the steps below using a Mac, Windows, or Linux machine. 
 
 ## Prerequisites
 
@@ -41,7 +37,7 @@ To complete this quickstart:
 
 ## Download the sample
 
-In a terminal window, run the following command to clone the sample app repository to your local machine.
+In a terminal window on your machine, run the following command to clone the sample app repository to your local machine.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
@@ -83,17 +79,15 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 Create a [web app](../../app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. Don't forget to replace `<app name>` with a unique app name.
 
-Notice that the runtime is set to `NODE|6.10`. 
+The runtime below is set to `NODE|8.1`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
 
 ```azurecli-interactive
-  az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "NODE|6.10" --deployment-local-git
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "NODE|8.1" --deployment-local-git
 ```
-> [!TIP]
-> Setting the runtime this way uses a default container provided by the platform. You can bring your own docker container using the [az webapp config container set](/cli/azure/webapp/config/container#set) command.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)] 
 
-![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
+![Empty web app page](media/quickstart-nodejs/app-service-web-service-created.png)
 
 You’ve created an empty new web app in a Linux container, with git deployment enabled.
 

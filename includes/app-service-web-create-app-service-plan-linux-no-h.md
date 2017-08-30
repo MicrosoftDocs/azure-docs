@@ -2,10 +2,10 @@ Create an App Service plan with the [az appservice plan create](/cli/azure/appse
 
 [!INCLUDE [app-service-plan](app-service-plan.md)]
 
-The following example creates an App Service plan named `myAppServicePlan` in the **Standard** pricing tier:
+The following example creates an App Service plan named `myAppServicePlan` in the **Standard** pricing tier and in a Linux container:
 
 ```azurecli-interactive
-az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
 ```
 
 When the App Service plan has been created, the Azure CLI shows information similar to the following example:
