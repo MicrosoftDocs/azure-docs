@@ -85,7 +85,7 @@ To run a Hive query, use the following steps from the Hive view.
     > [!IMPORTANT]
     > Leave the __Database__ selection at __default__. The examples in this document use the default database included with HDInsight.
 
-2. To start the query, use the **Execute** button below the worksheet. It turns orange and the text changes to **Stop**.
+2. To start the query, use the **Execute** button below the worksheet. The button turns orange and the text changes to **Stop**.
 
 3. After the query has finished, the **Results** tab displays the results of the operation. The following text is the result of the query:
 
