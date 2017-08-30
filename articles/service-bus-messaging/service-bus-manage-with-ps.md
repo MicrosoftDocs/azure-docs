@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use PowerShell to manage Azure Service Bus resources | Microsoft Docs
 description: Use PowerShell module to create and manage Service Bus resources
 services: service-bus-messaging
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 08/28/2017
 ms.author: sethm
 
 ---
@@ -25,7 +25,7 @@ You can also manage Service Bus entities using Azure Resource Manager templates.
 
 ## Prerequisites
 
-Before you begin, you'll need the following:
+Before you begin, you'll need the following prerequisites:
 
 * An Azure subscription. For more
   information about obtaining a subscription, see [purchase options][purchase options], [member offers][member offers], or [free account][free account].
@@ -43,7 +43,7 @@ When working with Service Bus namespaces, you can use the [Get-AzureRmServiceBus
 This example creates a few local variables in the script; `$Namespace` and `$Location`.
 
 * `$Namespace` is the name of the Service Bus namespace with which we want to work.
-* `$Location` identifies the data center in which will we provision the namespace.
+* `$Location` identifies the data center in which we provision the namespace.
 * `$CurrentNamespace` stores the reference namespace that we retrieve (or create).
 
 In an actual script, `$Namespace` and `$Location` can be passed as parameters.
