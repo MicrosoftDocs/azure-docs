@@ -37,15 +37,15 @@ Before you begin this tutorial:
 - Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md)
 - Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 
-The following procedure creates a single-node (single virtual machine) preview Service Fabric cluster. The cluster is secured by a self-signed certificate that gets created along with the cluster and then placed in a key vault. Single-node clusters cannot be scaled beyond one virtual machine and preview clusters cannot be upgraded to newer versions.
+The following procedures create a five-node Service Fabric cluster. The cluster is secured by a self-signed certificate placed in a key vault. 
 
 To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 For more information on creating Service Fabric clusters, see [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## Sign-in to Azure and select your subscription
-This guide uses [Azure PowerShell][azure-powershell]. When you start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
+This guide uses Azure PowerShell. When you start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
  
-Sign in to your Azure account select your subscription:
+Run the following script to sign in to your Azure account select your subscription:
 
 ```powershell
 Login-AzureRmAccount
@@ -54,7 +54,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 ```
 
 ## Create a resource group
-Create a new resource group for your deployment. Give it a name and a location.
+Create a new resource group for your deployment and give it a name and a location.
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"
@@ -62,9 +62,9 @@ New-AzureRmResourceGroup -Name $ResourceGroupName -Location westus
 ```
 
 ## Deploy the network topology
-The first step is to set up the network topology to which API Management and the Service Fabric cluster will be deployed. The [network.json][network-arm] Resource Manager template is configured to create a Virtual Network (VNET) with two subnets and two Network Security Groups (NSG). 
+Next, set up the network topology to which API Management and the Service Fabric cluster will be deployed. The [network.json][network-arm] Resource Manager template is configured to create a virtual network (VNET) and also a subnet and network security group (NSG) for Service Fabric and a subnet and NSG for API Management. Learn more about VNETs, subnets, and NSGs [here](../virtual-network/virtual-networks-overview.md).
 
-The [network.parameters.json][network-parameters-arm] parameters file contains the names of the subnets and NSGs that API Management and Service Fabric will be deployed to. For this guide, the parameter values do not need to be changed. The API Management and Service Fabric Resource Manager templates use these values, so if they are modified here, you must modify them in the other Resource Manager templates accordingly. 
+The [network.parameters.json][network-parameters-arm] parameters file contains the names of the subnets and NSGs that Service Fabric and API Management deploy to.  API Management is deployed in the [following tutorial](service-fabric-tutorial-deploy-api-management.md). For this guide, the parameter values do not need to be changed. The Service Fabric Resource Manager templates use these values.  If the values are modified here, you must modify them in the other Resource Manager templates used in this tutorial and the [Deploy API Management tutorial](service-fabric-tutorial-deploy-api-management.md). 
 
 Download the following Resource Manager template and parameters file:
 - [network.json][network-arm]
@@ -254,7 +254,11 @@ In this tutorial, you learned how to:
 
 Next, advance to the following tutorial to learn how to deploy an existing application.
 > [!div class="nextstepaction"]
-> [Deploy an existing .NET application with Docker Compose](service-fabric-host-app-in-a-container.md)
+> [Deploy API Managment](service-fabric-tutorial-deploy-api-management.md)
 
 
-[azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json
+[network-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.parameters.json
+
+[cluster-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
+[cluster-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
