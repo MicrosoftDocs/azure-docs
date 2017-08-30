@@ -65,8 +65,6 @@
         href: azure-stack-powershell-configure-admin.md
       - name: Get up and running with PowerShell
         href: azure-stack-powershell-configure-quickstart.md
-      - name: Install and configure CLI
-        href: azure-stack-connect-cli.md
     - name: Manage updates
       href: azure-stack-updates.md
     - name: Monitor health and alerts
