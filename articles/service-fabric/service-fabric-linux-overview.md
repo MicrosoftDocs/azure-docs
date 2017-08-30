@@ -36,12 +36,13 @@ The limited preview supports the creation of one-box development clusters in add
 
 
 ## Supported tooling
-The preview supports interaction with the cluster through Azure CLI. For Java developers, integration with Eclipse and Yeoman is provided with Eclipse supported on Linux and on OSX. The OSX integration uses a Linux VM under the hood via vagrant. For C# developers, integration with Yeoman is provided to generate application templates.
+The preview supports interaction with the cluster through Service Fabric CLI. For Java developers, integration with Eclipse and Yeoman is provided with Eclipse supported on Linux and on OSX. The OSX integration uses a Linux VM under the hood via vagrant. For C# developers, integration with Yeoman is provided to generate application templates.
 
 ## Next steps
-1. Get familiar with the [Reliable Actors](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md) programming frameworks.
-2. [Prepare your development environment on Linux](service-fabric-get-started-linux.md)
-3. [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
-4. [Create your first Service Fabric Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)
-5. [Setup Service Fabric continuous integration and deployment with Jenkins and GitHub](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
-6. [Service Fabric Windows/Linux differences](service-fabric-linux-windows-differences.md)
+
+* Get familiar with the [Reliable Actors](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md) programming frameworks
+* [Prepare your development environment on Linux](service-fabric-get-started-linux.md)
+* [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
+* [Create your first Service Fabric Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)
+* [Setup Service Fabric continuous integration and deployment with Jenkins and GitHub](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+* [Service Fabric Windows/Linux differences](service-fabric-linux-windows-differences.md)
