@@ -26,7 +26,7 @@ Azure CLI is used to create and manage Azure Stack resources from the command li
 
 ## Prerequisites
 
-1. The Azure Stack marketplace doesn't contain a Linux image by default. So, before you can create a Linux virtual machine, make sure that the Azure Stack operator download the “Ubuntu Server 16.04 LTS” image by using the steps described in the [Download marketplace items](azure-stack-download-azure-marketplace-item.md) topic.   
+1. The Azure Stack marketplace doesn't contain a Linux image by default. So, before you can create a Linux virtual machine, make sure that the Azure Stack operator download the “Ubuntu Server 16.04 LTS” image.    
 
 2. Azure Stack requires the 2.0 version of Azure CLI to create and manage the resources. Use the steps described in [Install and configure CLI](azure-stack-connect-cli.md) topic to install the required version.  
 

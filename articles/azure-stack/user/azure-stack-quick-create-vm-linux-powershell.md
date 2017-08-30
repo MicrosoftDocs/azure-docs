@@ -26,13 +26,13 @@ You can run the steps described in this article either from the [Azure Stack Dev
 
 ## Prerequisites
 
-1. The Azure Stack marketplace doesn't contain a Linux image by default. So, before you can create a Linux virtual machine, make sure that the Azure Stack operator download the “Ubuntu Server 16.04 LTS” image by using the steps described in the [Download marketplace items](azure-stack-download-azure-marketplace-item.md) topic.  
+1. The Azure Stack marketplace doesn't contain a Linux image by default. So, before you can create a Linux virtual machine, make sure that the Azure Stack operator download the “Ubuntu Server 16.04 LTS” image.  
 
 2. Azure Stack requires specific version of Azure PowerShell module to create and manage the resources. Use the steps described in [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) topic to install the required version.  
 
 3. [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md) and sign in to it.  
 
-4. A public SSH key with the name id_rsa.pub needs to be created in the .ssh directory of your Windows user profile. For detailed information on creating SSH keys, see [Creating SSH keys on Linux/macOs](../virtual-machines/linux/mac-create-ssh-keys.md) or [Creating SSH keys on Windows](../virtual-machines/linux/ssh-from-windows.md).  
+4. A public SSH key with the name id_rsa.pub needs to be created in the .ssh directory of your Windows user profile. For detailed information on creating SSH keys, see [Creating SSH keys on Linux/macOs](../../virtual-machines/linux/mac-create-ssh-keys.md) or [Creating SSH keys on Windows](../../virtual-machines/linux/ssh-from-windows.md).  
 
 ## Create resource group
 
