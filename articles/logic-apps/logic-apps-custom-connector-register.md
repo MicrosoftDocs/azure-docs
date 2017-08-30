@@ -148,7 +148,7 @@ identities flow appropriately between your service and any clients.
      | **Resource URL** | `https://management.core.windows.net/` | Make sure that you add the URL exactly as specified, including trailing slash. | 
      |||| 
 
-   * To set up Azure Active Directory (Azure AD) authenthication, 
+   * To set up Azure Active Directory (Azure AD) authentication, 
    see [Set up authentication for your connector with Azure AD](../logic-apps/custom-connector-azure-active-directory-authentication.md).
 
 7. To save your connector after entering the security information, 
@@ -204,10 +204,10 @@ the actions that users can add to their workflows.
 9. After you define all your actions, 
 choose **Create** to finish registering your connector.
 
-10. Now when you search in Logic Apps Designer, 
-you can find and add your connector to a logic app.
+10. Now you can find your connector in Logic Apps Designer, 
+and add that connector to a logic app.
 
-    ![Logic Apps Designer, find and choose your connector](./media/logic-apps-custom-connector-register/custom-connector-created.png)
+    ![In Logic Apps Designer, find your connector](./media/logic-apps-custom-connector-register/custom-connector-created.png)
 
 Congratulations on creating your own connector!
 
