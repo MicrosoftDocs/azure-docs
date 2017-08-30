@@ -202,14 +202,13 @@ the actions that users can add to their workflows.
    Define the response in the same way.
 
 9. After you define all your actions, 
-choose **Create** to finish registering your connector.
+choose **Create** so you can deploy your connector.
 
-10. Now you can find your connector in Logic Apps Designer, 
-and add that connector to a logic app.
+Congratulations! Now when you create a logic app, 
+you can find your connector in Logic Apps Designer, 
+and add that connector to your logic app.
 
-    ![In Logic Apps Designer, find your connector](./media/logic-apps-custom-connector-register/custom-connector-created.png)
-
-Congratulations on creating your own connector!
+![In Logic Apps Designer, find your connector](./media/logic-apps-custom-connector-register/custom-connector-created.png)
 
 > [!NOTE] 
 > Registered but uncertified custom connectors work like 

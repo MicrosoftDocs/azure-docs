@@ -56,8 +56,8 @@ Otherwise, sign up for a [Pay-As-You-Go subscription](https://azure.microsoft.co
 
 * Any item here:
 
-  * An [OpenAPI 2.0 file in JSON format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md), 
-  previously known as Swagger
+  * An [OpenAPI 2.0 file](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md), 
+  previously known as Swagger, in JSON format
   * A URL to an OpenAPI definition
   * A [Postman collection](https://www.getpostman.com/docs/postman/collections/creating_collections) 
   for your API 
@@ -110,7 +110,7 @@ you need to describe your API's interface and operations so that
 Logic Apps, Flow, or PowerApps can communicate with your API.
 use one of these industry standard definitions:
 
-* An [OpenAPI 2.0 (previously Swagger) file](https://swagger.io/). 
+* An [OpenAPI 2.0 file](https://swagger.io/). 
 You can start by building with an existing OpenAPI file, 
 or you can import a [Postman collection](https://www.getpostman.com/docs/collections). 
 
@@ -126,24 +126,25 @@ When you don't already have an OpenAPI file
 and don't want to create one, you can still easily 
 create a custom connector by using a Postman collection.
 
-  If you're new to Postman, [install the Postman app](https://www.getpostman.com/apps) 
-  from their site.
-
-OpenAPI 2.0 and Postman collections use different formats, 
-but both are language-agnostic, machine-readable documents 
-that describe your API's operations and parameters. 
-You can generate these documents from various tools, 
-based on the language and platform used your API. 
+  If you're new to Postman, 
+  [install the Postman app](https://www.getpostman.com/apps) 
+  from their site. For more information, 
+  see [Describe custom connectors with Postman](../logic-apps/custom-connector-api-postman-collection.md).
 
 > [!IMPORTANT]
 > Your file size must be less than 1 MB.
 
 Behind the scenes, Logic Apps, Flow, and PowerApps ultimately use OpenAPI, 
 parses a Postman collection, and translates the collection to an OpenAPI definition file. 
-For more information, see [Describe custom connectors with Postman](../logic-apps/custom-connector-api-postman-collection.md).
+Although OpenAPI 2.0 and Postman collections use different formats, 
+both are language-agnostic, machine-readable documents that 
+describe your API's operations and parameters. 
+You can generate these documents from various tools, 
+based on the language and platform used your API. 
+You can also build an OpenAPI file when you register your connector.
 
-For example, you create an OpenAPI file or a Postman collection 
-from any REST API endpoint, including:
+For example, you can create an OpenAPI file or a 
+Postman collection from any REST API endpoint, including:
 
 * Publicly available connectors, for example, 
 [Spotify](https://developer.spotify.com/), 
@@ -155,8 +156,6 @@ such as Azure, Heroku, Google Cloud, and more
 
 * A custom line-of-business API that's deployed to your network 
 but only if that API is exposed on the public internet
-
-You can also build an OpenAPI file when you register your connector.
 
 ## 4. Register your connector
 
