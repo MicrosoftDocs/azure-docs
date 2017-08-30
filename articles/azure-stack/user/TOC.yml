@@ -1,4 +1,4 @@
-- name: Azure Stack documentation
+- name: Azure Stack user documentation
   href: index.yml
 - name: Overview
   items:
@@ -12,13 +12,13 @@
   - name: Create a Windows VM - PowerShell
     href: azure-stack-deploy-overview.md
   - name: Create a Windows VM - CLI
-    href: azure-stack-deploy-overview.md
+    href: azure-stack-quick-create-vm-windows-cli.md
   - name: Create a Linux VM - Portal
     href: azure-stack-deploy-overview.md
   - name: Create a Linux VM - PowerShell
-    href: azure-stack-deploy-overview.md
+    href: azure-stack-quick-create-vm-linux-powershell.md
   - name: Create a Linux VM - CLI
-    href: azure-stack-deploy-overview.md                   
+    href: azure-stack-quick-create-vm-linux-cli.md                   
 - name: Tutorials
   items:
   - name: Deploy apps to Azure & Azure Stack
