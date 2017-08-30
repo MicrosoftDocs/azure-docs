@@ -44,24 +44,38 @@ For this tutorial, you can use the
 
 1. In the Azure portal, on the main Azure menu, choose **New**. 
 In the search box, enter "logic apps connector" as your filter, 
-and press Enter. From the results list, choose **Logic Apps Connector** > **Create**.
+and press Enter.
 
-2. Provide details for registering your connector 
+   ![New, search for "logic apps connector"](./media/logic-apps-custom-connector-register/create-logic-apps-connector.png)
+
+2. From the results list, choose **Logic Apps Connector** > **Create**.
+
+   ![Create Logic Apps connector](./media/logic-apps-custom-connector-register/choose-logic-apps-connector.png)
+
+3. Provide details for registering your connector 
 as described in the table. When you're done, 
 choose **Pin to dashboard** > **Create**.
+
+   ![Logic App custom connector details](./media/logic-apps-custom-connector-register/logic-apps-connector-details.png)
 
    | Property | Suggested value | Description | 
    | -------- | --------------- | ----------- | 
    | **Name** | *custom-connector-name* | Provide a name for your connector. | 
-   | **Subscription** | *your-Azure-subscription* | Select your Azure subscription. | 
+   | **Subscription** | *Azure-subscription-name* | Select your Azure subscription. | 
    | **Resource group** | *Azure-resource-group-name* | Create or select an Azure group for organizing your Azure resources. | 
-   | **Location** | *your-selected-region* | Select a deployment region for your connector. | 
+   | **Location** | *deployment-region* | Select a deployment region for your connector. | 
    |||| 
 
-3. In your connector's menu, choose **Logic Apps Connector**. 
-In the toolbar, choose **Edit**.
+   After Azure deploys your connector, 
+   the custom connector menu opens automatically. 
+   If not, choose your custom connector from the Azure dashboard.
 
-4. Choose **General** so you can provide the details 
+4. In the connector menu, if not already selected, 
+choose **Logic Apps Connector**. In the toolbar, choose **Edit**.
+
+   ![Edit custom connector](./media/logic-apps-custom-connector-register/edit-custom-connector.png)
+
+5. Choose **General** so that you can provide the details 
 in these tables for creating, securing, and defining the 
 actions and triggers for your custom connector.
 
@@ -77,8 +91,11 @@ actions and triggers for your custom connector.
       | **Upload Postman collection V1** | *exported-Postman-collection-V1-file* | Browse to the location for an exported Postman collection in V1 format. | 
       |||| 
 
-   2. For **General information**, provide these items for identifying 
-   and describing your connector, such as an icon and a description: 
+   2. For **General information**, upload an icon for your connector. 
+   Typically, the **Description**, **Host**, and **Base URL** fields 
+   are automatically populated from your OpenAPI file. 
+   But if they're not, add this information as described in the table, 
+   and choose **Continue**: 
 
       ![Connector details](./media/logic-apps-custom-connector-register/add-connector-details.png)
 
@@ -91,9 +108,7 @@ actions and triggers for your custom connector.
       | **Base URL** | *connector-base-URL* | Provide the base URL for your connector. | 
       |||| 
 
-   3. When you're done, choose **Continue**.
-
-5. Now choose **Security**, then choose **Edit** so you can 
+6. Now choose **Security**, then choose **Edit** so you can 
 select the authentication type that your API uses.  
 Then provide additional details for that authentication type. 
 These settings make sure that user identities flow appropriately 
@@ -117,7 +132,7 @@ between your service and any clients.
 
    6. When you're ready, choose **Continue**.
 
-6. Now choose **Definition** so you can define the actions or triggers 
+7. Now choose **Definition** so you can define the actions or triggers 
 that users can add to their workflows.
 
    You can edit your connector's schema and response for existing operations, 
@@ -137,7 +152,7 @@ that users can add to their workflows.
    To request features that aren't available in the registration wizard, 
    contact [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com).
 
-7. Now that the custom connector is registered, 
+8. Now that the custom connector is registered, 
 you must create a connection to the custom connector 
 so that you can use the connector in your logic apps. 
 

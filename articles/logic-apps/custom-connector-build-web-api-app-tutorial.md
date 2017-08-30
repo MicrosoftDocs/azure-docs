@@ -78,7 +78,7 @@ make the changes you want, and choose **Create**.
    ![Create App Service](./media/custom-connector-build-web-api-app-tutorial/visual-studio-create-app-service.png)
 
    | Setting | Suggested value | Description | 
-   | :------ | :-------------- | :---------- | 
+   | ------- | --------------- | ----------- | 
    | Your Azure work or school account, or your personal Microsoft account | | Select your user account. | 
    | **Web App Name** | *custom-web-api-app-name* or the default name | Enter the name for your Web API app, which is used in your app's URL, for example: http://*web-api-app-name*. | 
    | **Subscription** | *Azure-subscription-name* | Select the Azure subscription that you want to use. | 
@@ -89,7 +89,7 @@ make the changes you want, and choose **Create**.
    If you create an App Service Plan, specify these settings:
 
    | Setting | Suggested value | Description | 
-   | :------ | :-------------- | :---------- | 
+   | ------- | --------------- | ----------- | 
    | **Location** | *deployment-region* | Select the region for deploying your app. | 
    | **Size** | *app-service-plan-size* | Select your plan size, which determines the cost and computing resource capacity for your service plan. | 
    |||| 
@@ -98,7 +98,7 @@ make the changes you want, and choose **Create**.
    choose **Explore additional Azure services**.
 
    | Setting | Suggested value | Description | 
-   | :------ | :-------------- | :---------- | 
+   | ------- | --------------- | ----------- | 
    | **Resource Type** | *Azure-resource-type*|Select and set up any additional resources required by your app. | 
    |||| 
 
