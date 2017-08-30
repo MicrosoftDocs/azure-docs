@@ -47,7 +47,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     npm i mongoose --save
     ```
 
-2. Now create a new file in your **server** folder called **mongo.js**. In this file, you add all of your connection info for the Cosmos DB database.
+2. Now create a new file in your **server** folder called **mongo.js**. In this file, you add all of your connection info for the Azure Cosmos DB database.
 
 3. Copy the following code into **mongo.js**. This code:
     * Requires Mongoose.
@@ -104,15 +104,15 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     const cosmosPort = 10255;
     ```
 
-2. In **environment.js**, change the value of `dbName` to the name of the Cosmos DB you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md). 
+2. In **environment.js**, change the value of `dbName` to the name of the Azure Cosmos DB account you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md). 
 
-3. Retrieve the primary key for the Cosmos DB by using the following CLI command in the terminal window: 
+3. Retrieve the primary key for the Azure Cosmos DB account by using the following CLI command in the terminal window: 
 
     ```azure-cli-interactive
     az cosmosdb list-keys --name <cosmosdb-name> -g myResourceGroup
     ```    
     
-    * `<cosmosdb-name>` is the name of the Cosmos DB you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md).
+    * `<cosmosdb-name>` is the name of the Azure Cosmos DB account you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md).
 
 4. Copy the primary key into the environment.js file as the `key` value.
 
