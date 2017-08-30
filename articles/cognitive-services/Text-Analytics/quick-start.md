@@ -135,6 +135,7 @@ namespace TextAnalyticsCSharpCore
             // Get the JSON response
             string result = await response.Content.ReadAsStringAsync();
 
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("\nResponse:\n");
             Console.WriteLine(JsonPrettyPrint(result));
         }
@@ -362,6 +363,7 @@ namespace TextAnalyticsCSharpCore
             // Get the JSON response
             string result = await response.Content.ReadAsStringAsync();
 
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("\nResponse:\n");
             Console.WriteLine(JsonPrettyPrint(result));
         }
@@ -523,6 +525,7 @@ namespace TextAnalyticsCSharpCore
 
             GetKeyPhrases(documents);
 
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("\nPlease wait a moment for the results to appear. Then, press Enter to exit...\n");
             Console.ReadLine();
         }
