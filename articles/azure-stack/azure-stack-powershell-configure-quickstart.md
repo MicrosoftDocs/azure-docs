@@ -180,7 +180,7 @@ When the resource group is created, the cmdlet output has the Provisioning state
 
 * [Install and configure CLI](azure-stack-connect-cli.md)
 
-* [Develop templates](azure-stack-develop-templates.md)
+* [Develop templates](user/azure-stack-develop-templates.md)
 
 
 

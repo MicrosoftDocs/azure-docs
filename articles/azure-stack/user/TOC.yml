@@ -42,7 +42,7 @@
       - name: VM considerations
         href: azure-stack-vm-considerations.md
       - name: Create VM-Windows-PowerShell
-        href: azure-stack-quick-create-vm-powershell.md
+        href: azure-stack-quick-create-vm-windows-powershell.md
       - name: Create VM-Windows-CLI
         href: azure-stack-quick-create-vm-windows-cli.md
       - name: Create VM-Linux-PowerShell
@@ -69,8 +69,6 @@
         href: azure-stack-understanding-dns.md
       - name: DNS in Azure Stack
         href: azure-stack-dns.md
-      - name: Understanding site-to-site VPN connections
-        href: azure-stack-create-vpn-connection-one-node.md
     - name: Key Vault
       items:
       - name: Overview
