@@ -130,7 +130,7 @@ To connect to a VNet using a Point-to-Site VPN, each client must install a clien
 
 You can use the same VPN client configuration package on each client computer, as long as the version matches the architecture for the client. For the list of client operating systems that are supported, see the [Point-to-Site connections FAQ](#faq) at the end of this article.
 
-### Step 1 - Generate and download the client configuration package
+### 1. Generate and download the client configuration package
 
 1. On the **Point-to-site configuration** page, click **Download VPN client** to open the **Download VPN client** page. It takes a minute or two for the package to generate.
 
@@ -139,7 +139,7 @@ You can use the same VPN client configuration package on each client computer, a
 
   ![VPN client download 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
-### Step 2 - Install the client configuration package
+### 2. Install the client configuration package
 
 1. Copy the configuration file locally to the computer that you want to connect to your virtual network. 
 2. Double-click the .exe file to install the package on the client computer. Because you created the configuration package, it is not signed and you may see a warning. If you get a Windows SmartScreen popup, click **More info** (on the left), then **Run anyway** to install the package.

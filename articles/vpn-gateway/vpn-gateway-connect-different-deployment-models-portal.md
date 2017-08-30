@@ -32,7 +32,7 @@ Connecting a classic VNet to a Resource Manager VNet is similar to connecting a 
 
 If your VNets are in the same region, you may want to instead consider connecting them using VNet Peering. VNet peering does not use a VPN gateway. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md). 
 
-### Prerequisites
+### Before you begin
 
 * These steps assume that both VNets have already been created. If you are using this article as an exercise and don't have VNets, there are links in the steps to help you create them.
 * Verify that the address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
@@ -93,7 +93,7 @@ If you already have a VNet with a VPN gateway, verify that the gateway is Dynami
 
 Screenshots are provided as examples. Be sure to replace the values with your own, or use the [Example](#values) values.
 
-### Part 1 - Configure the local site
+### 1. Configure the local site
 
 Open the [Azure portal](https://ms.portal.azure.com) and sign in with your Azure account.
 
@@ -108,7 +108,7 @@ Open the [Azure portal](https://ms.portal.azure.com) and sign in with your Azure
 7. For **Client Address Space**, use the values for the virtual network IP address spaces for the Resource Manager VNet. This setting is used to specify the address spaces to route to the Resource Manager virtual network.
 8. Click **OK** to save the values and return to the **New VPN Connection** blade.
 
-### Part 2 - Create the virtual network gateway
+### 2. Create the virtual network gateway
 
 1. On the **New VPN Connection** blade, select the **Create gateway immediately** checkbox and click **Optional gateway configuration** to open the **Gateway configuration** blade. 
 
@@ -119,7 +119,7 @@ Open the [Azure portal](https://ms.portal.azure.com) and sign in with your Azure
 5. Verify the **Routing Type** is **Dynamic**, then click **OK** to return to the **New VPN Connection** blade.
 6. On the **New VPN Connection** blade, click **OK** to begin creating your VPN gateway. Creating a VPN gateway can take up to 45 minutes to complete.
 
-### <a name="ip"></a>Part 3 - Copy the virtual network gateway Public IP address
+### <a name="ip"></a>3. Copy the virtual network gateway Public IP address
 
 After the virtual network gateway has been created, you can view the gateway IP address. 
 
@@ -134,7 +134,7 @@ In this section, you create the virtual network gateway and the local network ga
 
 Screenshots are provided as examples. Be sure to replace the values with your own, or use the [Example](#values) values.
 
-### Part 1 - Create a gateway subnet
+### 1. Create a gateway subnet
 
 Before creating a virtual network gateway, you first need to create the gateway subnet. Create a gateway subnet with CIDR count of /28 or larger. (/27, /26, etc.)
 
@@ -142,11 +142,11 @@ Before creating a virtual network gateway, you first need to create the gateway 
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-### Part 2 - Create a virtual network gateway
+### 2. Create a virtual network gateway
 
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-### <a name="createlng"></a>Part 3 - Create a local network gateway
+### <a name="createlng"></a>3. Create a local network gateway
 
 The local network gateway specifies the address range and the Public IP address associated with your classic VNet and its virtual network gateway.
 

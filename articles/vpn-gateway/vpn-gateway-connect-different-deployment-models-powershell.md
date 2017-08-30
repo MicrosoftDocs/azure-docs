@@ -34,7 +34,7 @@ Connecting a classic VNet to a Resource Manager VNet is similar to connecting a 
 
 If your VNets are in the same region, you may want to instead consider connecting them using VNet Peering. VNet peering does not use a VPN gateway. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md). 
 
-## Before beginning
+## Before you begin
 
 The following steps walk you through the settings necessary to configure a dynamic or route-based gateway for each VNet and create a VPN connection between the gateways. This configuration does not support static or policy-based gateways.
 
@@ -72,7 +72,7 @@ Virtual Network Gateway name = RMGateway <br>
 Gateway IP addressing configuration = gwipconfig
 
 ## <a name="createsmgw"></a>Section 1 - Configure the classic VNet
-### Part 1 - Download your network configuration file
+### 1. Download your network configuration file
 1. Log in to your Azure account in the PowerShell console with elevated rights. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so that they are available to Azure PowerShell. You use the SM PowerShell cmdlets to complete this part of the configuration.
 
   ```powershell
@@ -85,7 +85,7 @@ Gateway IP addressing configuration = gwipconfig
   ```
 3. Open the .xml file that you downloaded to edit it. For an example of the network configuration file, see the [Network Configuration Schema](https://msdn.microsoft.com/library/jj157100.aspx).
 
-### Part 2 -Verify the gateway subnet
+### 2. Verify the gateway subnet
 In the **VirtualNetworkSites** element, add a gateway subnet to your VNet if one has not already been created. When working with the network configuration file, the gateway subnet MUST be named "GatewaySubnet" or Azure cannot recognize and use it as a gateway subnet.
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
@@ -108,7 +108,7 @@ In the **VirtualNetworkSites** element, add a gateway subnet to your VNet if one
       </VirtualNetworkSite>
     </VirtualNetworkSites>
 
-### Part 3 - Add the local network site
+### 3. Add the local network site
 The local network site you add represents the RM VNet to which you want to connect. Add a **LocalNetworkSites** element to the file if one doesn't already exist. At this point in the configuration, the VPNGatewayAddress can be any valid public IP address because we haven't yet created the gateway for the Resource Manager VNet. Once we create the gateway, we replace this placeholder IP address with the correct public IP address that has been assigned to the RM gateway.
 
     <LocalNetworkSites>
@@ -120,7 +120,7 @@ The local network site you add represents the RM VNet to which you want to conne
       </LocalNetworkSite>
     </LocalNetworkSites>
 
-### Part 4 - Associate the VNet with the local network site
+### 4. Associate the VNet with the local network site
 In this section, we specify the local network site that you want to connect the VNet to. In this case, it is the Resource Manager VNet that you referenced earlier. Make sure the names match. This step does not create a gateway. It specifies the local network that the gateway will connect to.
 
         <Gateway>
@@ -131,7 +131,7 @@ In this section, we specify the local network site that you want to connect the 
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-### Part 5 - Save the file and upload
+### 5. Save the file and upload
 Save the file, then import it to Azure by running the following command. Make sure you change the file path as necessary for your environment.
 
 ```powershell
@@ -144,7 +144,7 @@ You will see a similar result showing that the import succeeded.
         --------------------        -----------                      ---------------                                                
         Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded 
 
-### Part 6 - Create the gateway
+### 6. Create the gateway
 
 Before running this example, refer to the network configuration file that you downloaded for the exact names that Azure expects to see. The network configuration file contains the values for your classic virtual networks. Sometimes the names for classic VNets are changed in the network configuration file when creating classic VNet settings in the Azure portal due to the differences in the deployment models. For example, if you used the Azure portal to create a classic VNet named 'Classic VNet' and created it in a resource group named 'ClassicRG', the name that is contained in the network configuration file is converted to 'Group ClassicRG Classic VNet'. When specifying the name of a VNet that contains spaces, use quotation marks around the value.
 
