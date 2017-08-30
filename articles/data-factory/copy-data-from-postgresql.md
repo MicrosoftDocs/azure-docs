@@ -22,7 +22,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 ## Supported scenarios
 
-You can copy data from PostgreSQL database to any supported sink data store. For a list of data stores supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from PostgreSQL database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this PostgreSQL connector supports PostgreSQL **version 7.4 and above**.
 

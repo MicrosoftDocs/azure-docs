@@ -22,7 +22,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 ## Supported scenarios
 
-You can copy data from/to SQL Server database to any supported sink data store, or copy data from any supported source data store to SQL Server database. For a list of data stores supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from/to SQL Server database to any supported sink data store, or copy data from any supported source data store to SQL Server database. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this SQL Server connector supports:
 
@@ -33,7 +33,7 @@ Specifically, this SQL Server connector supports:
 
 ## Prerequisites
 
-To use copy data from a SQL Server database that is not publicly accessible, you need to set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article to learn details. The Integration Runtime provides a built-in SQL Server database driver, therefore you don't need to manually install any driver when copying data from/to SQL Server database.
+To use copy data from a SQL Server database that is not publicly accessible, you need to set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details. The Integration Runtime provides a built-in SQL Server database driver, therefore you don't need to manually install any driver when copying data from/to SQL Server database.
 
 ## Getting started
 
@@ -251,7 +251,7 @@ To copy data to SQL Server, set the sink type in the copy activity to **SqlSink*
 | preCopyScript |Specify a SQL query for Copy Activity to execute before writing data into SQL Server in each run. You can use this property to clean up the pre-loaded data. |No |
 
 > [!TIP]
-> When copying data to SQL Server, the copy activity appends data to the sink table by default. To perform an UPSERT or additional business logic, use the stored procedure in "SqlSink". Learn more details from [Invoking stored procedure for SQL Sink](#invoking-stored-procedure-for-sql-sink).
+> When copying data to SQL Server, the copy activity appends data to the sink table by default. To perform an UPSERT or additional business logic, use the stored procedure in SqlSink. Learn more details from [Invoking stored procedure for SQL Sink](#invoking-stored-procedure-for-sql-sink).
 
 **Example 1: appending data**
 
@@ -397,9 +397,9 @@ Notice that as your source and target table have different schema (target has an
 
 When copying data into SQL Server database, a user specified stored procedure could be configured and invoked with additional parameters.
 
-A stored procedure can be leveraged when built-in copy mechanisms do not serve the purpose. This is typically leveraged when upsert (insert + update) or extra processing (merging columns, looking up additional values, insertion into multiple tables, etc.) needs to be done before the final insertion of source data in the destination table.
+A stored procedure can be used when built-in copy mechanisms do not serve the purpose. It is typically used when upsert (insert + update) or extra processing (merging columns, looking up additional values, insertion into multiple tables, etc.) needs to be done before the final insertion of source data in the destination table.
 
-The following sample shows how to use a stored procedure to do an upsert into a table in the SQL Server database. Assuming input data and the sink "Marketing" table each has three columns: ProfileID, State, and Category. Perform upsert based on the “ProfileID” column and only apply for a specific "Category".
+The following sample shows how to use a stored procedure to do an upsert into a table in the SQL Server database. Assuming input data and the sink "Marketing" table each has three columns: ProfileID, State, and Category. Perform upsert based on the “ProfileID” column and only apply for a specific category.
 
 **Output dataset**
 
@@ -420,7 +420,7 @@ The following sample shows how to use a stored procedure to do an upsert into a 
 }
 ```
 
-Define the "SqlSink" section in copy activity as follows.
+Define the SqlSink section in copy activity as follows.
 
 ```json
 "sink": {
@@ -435,7 +435,7 @@ Define the "SqlSink" section in copy activity as follows.
 }
 ```
 
-In your database, define the stored procedure with the same name as "SqlWriterStoredProcedureName". It handles input data from your specified source, and merge into the output table. Notice that the parameter name of the stored procedure should be the same as the "tableName" defined in dataset.
+In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName. It handles input data from your specified source, and merge into the output table. Notice that the parameter name of the stored procedure should be the same as the "tableName" defined in dataset.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -452,7 +452,7 @@ BEGIN
 END
 ```
 
-In your database, define the table type with the same name as "sqlWriterTableType". Notice that the schema of the table type should be same as the schema returned by your input data.
+In your database, define the table type with the same name as sqlWriterTableType. Notice that the schema of the table type should be same as the schema returned by your input data.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -520,5 +520,5 @@ When copying data from/to SQL Server, the following mappings are used from SQL S
 3. In the same window, double-click **TCP/IP** to launch **TCP/IP Properties** window.
 4. Switch to the **IP Addresses** tab. Scroll down to see **IPAll** section. Note down the **TCP Port **(default is **1433**).
 5. Create a **rule for the Windows Firewall** on the machine to allow incoming traffic through this port.  
-6. **Verify connection**: To connect to the SQL Server using fully qualified name, use SQL Server Management Studio from a different machine. For example: "<machine>.<domain>.corp.<company>.com,1433."
+6. **Verify connection**: To connect to the SQL Server using fully qualified name, use SQL Server Management Studio from a different machine. For example: `"<machine>.<domain>.corp.<company>.com,1433"`.
 

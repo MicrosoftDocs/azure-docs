@@ -22,7 +22,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 ## Supported scenarios
 
-You can copy data from Sybase database to any supported sink data store. For a list of data stores supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from Sybase database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Sybase connector supports:
 
@@ -33,7 +33,7 @@ Specifically, this Sybase connector supports:
 
 To use this Sybase connector, you need to:
 
-- Set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article to learn details.
+- Set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
 - Install the [data provider for Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 or above on the Integration Runtime machine.
 
 ## Getting started
@@ -122,7 +122,7 @@ To copy data from Sybase, set the source type in the copy activity to **Relation
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **RelationalSource** | Yes |
-| query | Use the custom SQL query to read data. For example: "SELECT * FROM MyTable". | No (if "tableName" in dataset is specified) |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -160,5 +160,5 @@ To copy data from Sybase, set the source type in the copy activity to **Relation
 
 When copying data from Sybase, the following mappings are used from Sybase data types to Azure Data Factory interim data types. See [Schema and data type mappings](map-columns.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-Sybase supports T-SQL types. For a mapping table from SQL types to Azure Data Factory interim data types, see [Azure SQL Database Connector - data type mapping](copy-data-to-from-azure-sql-database#data-type-mapping-for-azure-sql-database) section.
+Sybase supports T-SQL types. For a mapping table from SQL types to Azure Data Factory interim data types, see [Azure SQL Database Connector - data type mapping](copy-data-to-from-azure-sql-database.md#data-type-mapping-for-azure-sql-database) section.
 

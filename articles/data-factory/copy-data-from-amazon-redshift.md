@@ -18,7 +18,7 @@ ms.author: jingwang
 ---
 # Copy data from Amazon Redshift using Azure Data Factory
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a Amazon Redshift. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an Amazon Redshift. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported scenarios
 
@@ -119,7 +119,7 @@ To copy data from Amazon Redshift, set the source type in the copy activity to *
 | query |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |No (if "tableName" in dataset is specified) |
 | redshiftUnloadSettings | Property group when using Amazon Redshift UNLOAD. | No |
 | s3LinkedServiceName | Refers to an Amazon S3 to-be-used as an interim store by specifying an ADF linked service name of "AmazonS3" type. | Yes if using UNLOAD |
-| bucketName | Indicate the S3 bucket to store the interim data. If not provided, we will auto generate. | Yes if using UNLOAD |
+| bucketName | Indicate the S3 bucket to store the interim data. If not provided, Data Factory service generates it automatically.  | Yes if using UNLOAD |
 
 **Example: Amazon Redshift source in copy activity using UNLOAD**
 
@@ -141,11 +141,11 @@ Learn more on how to use UNLOAD to copy data from Amazon Redshift efficiently fr
 
 ## Use UNLOAD to copy data from Amazon Redshift
 
-[UNLOAD](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) is a way provided by Amazon Redshift which can unload the results of a query to one or more files on Amazon Simple Storage Service (Amazon S3). It is a way recommended by Amazon for copying large data set from Redshift.
+[UNLOAD](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) is a way provided by Amazon Redshift, which can unload the results of a query to one or more files on Amazon Simple Storage Service (Amazon S3). It is a way recommended by Amazon for copying large data set from Redshift.
 
 **Example: copy data from Amazon Redshift to Azure SQL Data Warehouse using UNLOAD, staged copy and PolyBase**
 
-![Redshift to SQL DW copy workflow](media\data-factory-amazon-redshift-connector\redshift-to-sql-dw-copy-workflow.png)
+![Redshift to SQL DW copy workflow](media\copy-data-from-amazon-redshift\redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 "activities":[

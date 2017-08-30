@@ -133,24 +133,24 @@ To copy data from Web table, set the source type in the copy activity to **WebSo
 1. Launch **Excel 2016** and switch to the **Data** tab.
 2. Click **New Query** on the toolbar, point to **From Other Sources** and click **From Web**.
 
-    ![Power Query menu](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
+    ![Power Query menu](./media/copy-data-from-web-table/PowerQuery-Menu.png)
 3. In the **From Web** dialog box, enter **URL** that you would use in linked service JSON (for example: https://en.wikipedia.org/wiki/) along with path you would specify for the dataset (for example: AFI%27s_100_Years...100_Movies), and click **OK**.
 
-    ![From Web dialog](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
+    ![From Web dialog](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 
     URL used in this example: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
 4. If you see **Access Web content** dialog box, select the right **URL**, **authentication**, and click **Connect**.
 
-   ![Access Web content dialog box](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
+   ![Access Web content dialog box](./media/copy-data-from-web-table/AccessWebContentDialog.png)
 5. Click a **table** item in the tree view to see content from the table and then click **Edit** button at the bottom.  
 
-   ![Navigator dialog](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
+   ![Navigator dialog](./media/copy-data-from-web-table/Navigator-DialogBox.png)
 6. In the **Query Editor** window, click **Advanced Editor** button on the toolbar.
 
-    ![Advanced Editor button](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)
+    ![Advanced Editor button](./media/copy-data-from-web-table/QueryEditor-AdvancedEditorButton.png)
 7. In the Advanced Editor dialog box, the number next to "Source" is the index.
 
-    ![Advanced Editor - Index](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)
+    ![Advanced Editor - Index](./media/copy-data-from-web-table/AdvancedEditor-Index.png)
 
 If you are using Excel 2013, use [Microsoft Power Query for Excel](https://www.microsoft.com/download/details.aspx?id=39379) to get the index. See [Connect to a web page](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) article for details. The steps are similar if you are using [Microsoft Power BI for Desktop](https://powerbi.microsoft.com/desktop/).
 

@@ -22,7 +22,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 ## Supported scenarios
 
-You can copy data from MySQL database to any supported sink data store. For a list of data stores supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from MySQL database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this MySQL connector supports MySQL **version 5.1 and above**.
 
@@ -30,7 +30,7 @@ Specifically, this MySQL connector supports MySQL **version 5.1 and above**.
 
 To use this MySQL connector, you need to:
 
-- Set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article to learn details.
+- Set up a self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
 - Install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) version 6.6.5 or above on the Integration Runtime machine.
 
 > [!TIP]
@@ -120,7 +120,7 @@ To copy data from MySQL, set the source type in the copy activity to **Relationa
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **RelationalSource** | Yes |
-| query | Use the custom SQL query to read data. For example: "SELECT * FROM MyTable". | No (if "tableName" in dataset is specified) |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -160,43 +160,43 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 
 | MySQL data type | Data factory interim data type |
 |:--- |:--- |
-| bigint |Int64 |
-| bigint unsigned |Decimal |
-| bit |Decimal |
-| blob |Byte[] |
-| bool |Boolean |
-| char |String |
-| date |Datetime |
-| datetime |Datetime |
-| decimal |Decimal |
-| double |Double |
-| double precision |Double |
-| enum |String |
-| float |Single |
-| int |Int32 |
-| int unsigned |Int64 |
-| integer |Int32 |
-| integer unsigned |Int64 |
-| long varbinary |Byte[] |
-| long varchar |String |
-| longblob |Byte[] |
-| longtext |String |
-| mediumblob |Byte[] |
-| mediumint |Int32 |
-| mediumint unsigned |Int64 |
-| mediumtext |String |
-| numeric |Decimal |
-| real |Double |
-| set |String |
-| smallint |Int16 |
-| smallint unsigned |Int32 |
-| text |String |
-| time |TimeSpan |
-| timestamp |Datetime |
-| tinyblob |Byte[] |
-| tinyint |Int16 |
-| tinyint unsigned |Int16 |
-| tinytext |String |
-| varchar |String |
-| year |Int |
+| `bigint` |`Int64` |
+| `bigint unsigned` |`Decimal` |
+| `bit` |`Decimal` |
+| `blob` |`Byte[]` |
+| `bool` |`Boolean` |
+| `char` |`String` |
+| `date` |`Datetime` |
+| `datetime` |`Datetime` |
+| `decimal` |`Decimal` |
+| `double` |`Double` |
+| `double precision` |`Double` |
+| `enum` |`String` |
+| `float` |`Single` |
+| `int` |`Int32` |
+| `int unsigned` |`Int64`|
+| `integer` |`Int32` |
+| `integer unsigned` |`Int64` |
+| `long varbinary` |`Byte[]` |
+| `long varchar` |`String` |
+| `longblob` |`Byte[]` |
+| `longtext` |`String` |
+| `mediumblob` |`Byte[]` |
+| `mediumint` |`Int32` |
+| `mediumint unsigned` |`Int64` |
+| `mediumtext` |`String` |
+| `numeric` |`Decimal` |
+| `real` |`Double` |
+| `set` |`String` |
+| `smallint` |`Int16` |
+| `smallint unsigned` |`Int32` |
+| `text` |`String` |
+| `time` |`TimeSpan` |
+| `timestamp` |`Datetime` |
+| `tinyblob` |`Byte[]` |
+| `tinyint` |`Int16` |
+| `tinyint unsigned` |`Int16` |
+| `tinytext` |`String` |
+| `varchar` |`String` |
+| `year` |`Int` |
 
