@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 08/23/2017
+ms.date: 08/30/2017
 ms.topic: tutorial
 ms.service: iot-dps
 
@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Set up a device to provision using Azure IoT DPS
 
-In the previous tutorial, you learned how to set up the Azure IoT DPS to automatically provision your devices to your IoT hub. This tutorial provides guidance for setting up your device during the manufacturing process, so that you can configure the IoT DPS for your device based on its [Hardware Security Module HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security), and the device can connect to the IoT DPS when it boots for the first time. This tutorial discusses the processes to:
+In the previous tutorial, you learned how to set up the Azure IoT DPS to automatically provision your devices to your IoT hub. This tutorial provides guidance for setting up your device during the manufacturing process, so that you can configure the IoT DPS for your device based on its [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security), and the device can connect to the IoT DPS when it boots for the first time. This tutorial discusses the processes to:
 
 > [!div class="checklist"]
 > * Select a Hardware Security Module
@@ -73,7 +73,7 @@ Once you build the SDK for your selected HSM, make sure the following functions 
 
 - For TPM-based chips: 
    
-    ```c
+    ```C
     SEC_DEVICE_HANDLE secure_dev_tpm_create();
     void secure_dev_tpm_destroy(SEC_DEVICE_HANDLE handle);
     char* secure_dev_tpm_get_endorsement_key(SEC_DEVICE_HANDLE handle); // Returns the endorsement key from the TPM.
@@ -86,7 +86,7 @@ Once you build the SDK for your selected HSM, make sure the following functions 
 
 - For X.509-based chips: 
 
-    ```c
+    ```C
     SEC_DEVICE_HANDLE secure_dev_riot_create();
     void secure_dev_riot_destroy(SEC_DEVICE_HANDLE handle);
     char* secure_dev_riot_get_certificate(SEC_DEVICE_HANDLE handle); // Returns the certificate produced by the X.509 system.
@@ -104,7 +104,7 @@ These APIs interact with your chip to extract the security artifacts from the de
 
 The last step in the device manufacturing process is to write an application that will use the DPS client SDK to register the device with the DPS service. The DPS client incorporates the following APIs for your applications to use:
 
-```c
+```C
 typedef void(*DPS_REGISTER_DEVICE_CALLBACK)(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* user_context); // Callback to notify user of device registration results.
 DPS_CLIENT_LL_HANDLE DPS_Client_LL_Create (const char* dps_uri, const char* scope_id, DPS_TRANSPORT_PROVIDER_FUNCTION protocol, DPS_CLIENT_ON_ERROR_CALLBACK on_error_callback, void* user_ctx); // Creates the IOTHUB_DPS_LL_HANDLE to be used in subsequent calls.
 void DPS_Client_LL_Destroy(DPS_CLIENT_LL_HANDLE handle); // Frees any resources created by the IoTHub DPS module.
@@ -117,7 +117,7 @@ Remember to initialize the variables `dps_uri` and `dps_scope_id` as mentioned i
 
 These APIs help your device to connect and register with the DPS service when it boots up, get the information about your IoT hub and then connect to your IoT hub. The file `dps_client/samples/dps_client_sample/dps_client_sample.c` shows how to use these APIs. In general, you will need to create the following framework for the client registration:
 
-```c
+```C
 static const char* dps_uri = "[device provisioning uri]";
 static const char* dps_scope_id = "[dps scope id]";
 ...
