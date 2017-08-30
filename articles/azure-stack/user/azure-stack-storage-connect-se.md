@@ -25,7 +25,7 @@ In this article, you learn how to connect to your Azure Stack storage accounts u
 
 If you haven't installed Storage Explorer yet, [download](http://www.storageexplorer.com/) and and install it.
 
-After you connect to your Azure Stack subscription, you can use the [Azure Storage Explorer articles](../vs-azure-tools-storage-manage-with-storage-explorer.md) to work with your Azure Stack data. 
+After you connect to your Azure Stack subscription, you can use the [Azure Storage Explorer articles](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to work with your Azure Stack data. 
 
 ## Prepare an Azure Stack subscription
 
@@ -94,11 +94,11 @@ Now you are ready to connect Storage Explorer to an Azure Stack subscription.
     ![List of storage accounts including Azure Stack subscription accounts][31]
 
 ## Next steps
-* [Get started with Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Get started with Storage Explorer (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Azure Stack Storage: differences and considerations](azure-stack-acs-differences.md)
 
 
-* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md)
+* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 
 [25]: ./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png
 [26]: ./media/azure-stack-storage-connect-se/export-root-cert-azure-stack.png

@@ -31,5 +31,5 @@ A user in Azure Stack can be a reader, owner, or contributor for each instance o
 4. In the **Roles** blade, click **Add** to add permissions for the user.
 
 ## Next steps
-[Add an Azure Stack tenant](azure-stack-add-new-user-aad.md)
+
 
