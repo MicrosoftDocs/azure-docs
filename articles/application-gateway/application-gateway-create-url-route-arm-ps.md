@@ -24,9 +24,9 @@ ms.author: gwallace
 > * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
 > * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
 
-Path-based routing associates routes based on the URL path of an HTTP request. It checks whether there is a route to a back-end pool configured for the URL presented in the application gateway. It then sends the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
+Path-based routing associates routes based on the URL path of an HTTP request. It checks whether there is a route to a back-end pool configured for the URL presented in the application gateway, and then sends the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
 
-Application Gateway has two rule types: basic routing and path-based routing. Basic provides round-robin service for the back-end pools. Path-based routing, in addition to round-robin distribution, also uses the path pattern of the request URL to choose the back-end pool.
+Azure Application Gateway has two rule types: basic routing and path-based routing. Basic provides round-robin service for the back-end pools. Path-based routing, in addition to round-robin distribution, also uses the path pattern of the request URL to choose the back-end pool.
 
 ## Scenario
 
@@ -34,7 +34,7 @@ In the following example, Application Gateway serves traffic for contoso.com wit
 
 Requests for http://contoso.com/image* are routed to the image server pool (pool1), and requests for http://contoso.com/video* are routed to the video server pool (pool2). If none of the path patterns match, a default server pool (pool1) is selected.
 
-![url route](./media/application-gateway-create-url-route-arm-ps/figure1.png)
+![Url route](./media/application-gateway-create-url-route-arm-ps/figure1.png)
 
 ## Before you begin
 
@@ -262,7 +262,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 After the gateway is created, the next step is to configure the front end for communication. When using a public IP, Application Gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway, a CNAME record can be used to point to the public endpoint of the application gateway. For more information, see [Configuring a custom domain name for an Azure cloud service](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-To configure the front-end IP CNAME record, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record. The use of A records is not recommended since the VIP may change on restart of Application Gateway.
+To configure the front-end IP CNAME record, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record. The use of A records is not recommended since the VIP might change on restart of Application Gateway.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
