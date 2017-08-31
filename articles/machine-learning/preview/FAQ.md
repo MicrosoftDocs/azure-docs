@@ -10,7 +10,7 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
 ---
-#Frequently Asked Questions
+# Frequently Asked Questions
 
 ## General Product Questions
 
