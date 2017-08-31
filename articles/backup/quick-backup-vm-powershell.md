@@ -119,25 +119,6 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 
 ## Next steps
 
-<!---1. A simple of list of articles that link to logical next steps.  This is probalby a tutorial that is a superset of this QuickStart. Include no more than 3 next steps.--->
-
-*EXAMPLE 1:*
 [Use PowerShell to restore virtual machines from backup](backup-azure-vms-automation.md#restore-an-azure-vm)
 
 [Use Azure portal to back up Azure VMs](backup-azure-arm-vms.md)
-
-<---!
-Rules for screenshots:
-- Use default Public Portal colors​
-- Remove personally identifiable information​
-- Browser included in the first shot of the article​
-- Resize the browser to minimize white space​
-- Include complete blades in the screenshots​
-- Linux: Safari – consider context in images​
-
-Guidelines for outlining areas within screenshots:
-- Red outline #ef4836
-- 3px thick outline
-- Text should be vertically centered within the outline.
-- Length of outline should be dependent on where it sits within the screenshot. Make the shape fit the layout of the screenshot.
--->
