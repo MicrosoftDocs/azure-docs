@@ -53,7 +53,7 @@ To ensure that your sites are running under a defined service account, perform t
 2. Go to **Security** and select **Configure service accounts**.
 3. Select **Web Application Pool - SharePoint - 80**. The options may be slightly different based on the name of your web pool, or if the web pool uses SSL by default.
 
-  ![Choices for configuring a service account](./media/application-proxy-remote-sharepoint/remote-sharepoint-service-web-application.png)
+  ![Choices for configuring a service account](./media/application-proxy-remote-sharepoint/service-web-application.png)
 
 4. If **Select an account for this component** field is set to **Local Service** or **Network Service**, you need to create an account. If not, you're finished and can move to the next section.
 5. Select **Register new managed account**. After your account is created, you must set **Web Application Pool** before you can use the account.
@@ -67,7 +67,7 @@ To configure your SharePoint site for Kerberos authentication:
 1. Open the **SharePoint 2013 Central Administration** site.
 2. Go to **Application Management**, select **Manage web applications**, and select your SharePoint site. In this example, it is **SharePoint - 80**.
 
-  ![Selecting the SharePoint site](./media/application-proxy-remote-sharepoint/remote-sharepoint-manage-web-applications.png)
+  ![Selecting the SharePoint site](./media/application-proxy-remote-sharepoint/manage-web-applications.png)
 
 3. Click **Authentication Providers** on the toolbar.
 4. In the **Authentication Providers** box, click **Default Zone** to view the settings.
@@ -160,9 +160,9 @@ To configure the KCD, repeat the following steps for each connector machine:
 Now that you’ve enabled SharePoint for Kerberos and configured KCD, you're ready to publish the SharePoint farm for remote access through Azure AD Application Proxy.
 
 1. Publish your SharePoint site with the following settings. For step-by-step instructions, see [Publishing applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md). 
-- **Internal URL**: the URL of the SharePoint site internally, such as **https://SharePoint/**. In this example, make sure to use **https**
-- **Preauthentication Method**: Azure Active Directory
-- **Translate URL in Headers**: NO
+   - **Internal URL**: the URL of the SharePoint site internally, such as **https://SharePoint/**. In this example, make sure to use **https**
+   - **Preauthentication Method**: Azure Active Directory
+   - **Translate URL in Headers**: NO
 
    >[!TIP]
    >SharePoint uses the _Host Header_ value to look up the site. It also generates links based on this value. The net effect is that any link that SharePoint generates is a published URL that is correctly set to use the external URL. Setting the value to **YES** also enables the connector to forward the request to the back-end application. However, setting the value to **NO** means that the connector will not send the internal host name. Instead, the connector sends the host header as the published URL to the back-end application.
@@ -197,7 +197,7 @@ Your last step is to ensure that SharePoint can find the site based on the exter
 
 7. Click **Save**.
 
- You can now access the SharePoint site externally via Azure AD Application Proxy.
+You can now access the SharePoint site externally via Azure AD Application Proxy.
 
 ## Next steps
 
