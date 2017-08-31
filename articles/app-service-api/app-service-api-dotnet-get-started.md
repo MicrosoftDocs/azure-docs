@@ -5,7 +5,7 @@ services: app-service\api
 documentationcenter: .net
 author: alexkarcher-msft
 manager: erikre
-editor: ''
+editor: '' 
 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
 ms.service: app-service-api
