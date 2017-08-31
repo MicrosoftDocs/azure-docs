@@ -1,6 +1,6 @@
 ---
-title: SQL Server Stored Procedure Activity
-description: Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database or Azure SQL Data Warehouse from a Data Factory pipeline.
+title: Transform data using Stored Procedure Activity in Azure Data Factory | Microsoft Docs
+description: Explains how to use SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database/Data Warehouse from a Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -16,8 +16,10 @@ ms.date: 08/10/2017
 ms.author: shlo
 
 ---
-# SQL Server Stored Procedure Activity
-You use data transformation activities in a Data Factory [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Stored Procedure Activity is one of the transformation activities that Data Factory supports. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities in Data Factory.
+
+
+# Transform data using SQL Server Stored Procedure Activity in Azure Data Factory
+You use data transformation activities in a Data Factory [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Stored Procedure Activity is one of the transformation activities that Data Factory supports. This article builds on the [transform data](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities in Data Factory.
 
 > [!NOTE] 
 > If you are new to Azure Data Factory, read through [Introduction to Azure Data Factory](introduction.md) and do the tutorial: [Tutorial: transform data](tutorial-transform-data-dot-net.md) before reading this article. 
@@ -33,7 +35,7 @@ You can use the Stored Procedure Activity to invoke a stored procedure in one of
 >
 > When copying data from Azure SQL Database or SQL Server or Azure SQL Data Warehouse, you can configure **SqlSource** in copy activity to invoke a stored procedure to read data from the source database by using the **sqlReaderStoredProcedureName** property. For more information, see the following connector articles: [Azure SQL Database](copy-data-to-from-azure-sql-database.md), [SQL Server](copy-data-to-from-sql-server.md), [Azure SQL Data Warehouse](copy-data-to-from-azure-sql-data-warehouse.md)          
 
-> 
+ 
 
 ## Syntax details
 Here is the JSON format for defining a Stored Procedure Activity:

@@ -1,6 +1,6 @@
 ---
-title: Invoke MapReduce Program from Azure Data Factory
-description: Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory.
+title: Transform data using MapReduce Activity in Azure Data Factory | Microsoft Docs
+description: Learn how to process data by running Hadoop MapReduce programs on an Azure HDInsight cluster from an Azure data factory.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -16,7 +16,7 @@ ms.date: 08/10/2017
 ms.author: shlo
 
 ---
-# Invoke MapReduce Programs from Data Factory
+# Transform data using MapReduce Activity in Azure Data Factory
 The HDInsight MapReduce activity in a Data Factory [pipeline](concepts-pipelines-activities.md) invokes MapReduce program on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
 > [!NOTE] 
@@ -64,8 +64,8 @@ See [Pig](transform-data-using-hadoop-pig.md) and [Hive](transform-data-using-ha
 | linkedServiceName | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes      |
 | className         | Name of the Class to be executed         | Yes      |
 | jarLinkedService  | Reference to an Azure Storage Linked Service used to store the Jar files. If you don't specify this Linked Service, the Azure Storage Linked Service defined in the HDInsight Linked Service is used. | No       |
-| jarFilePath       | Provide the path to the Jar files stored in the Azure Storage (jarLinkedService). The file name is case-sensitive. | Yes      |
-| jarlibs           | Provide the path to the Jar library files referenced by the job stored in the Azure Storage (jarLinkedService). The file name is case-sensitive. | No       |
+| jarFilePath       | Provide the path to the Jar files stored in the Azure Storage referred by jarLinkedService. The file name is case-sensitive. | Yes      |
+| jarlibs           | Provide the path to the Jar library files referenced by the job stored in the Azure Storage referred by jarLinkedService. The file name is case-sensitive. | No       |
 | getDebugInfo      | Specifies when the log files are copied to the Azure Storage used by HDInsight cluster (or) specified by jarLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No       |
 | arguments         | Specifies an array of arguments for a Hadoop job. The arguments are passed as command-line arguments to each task. | No       |
 | defines           | Specify parameters as key/value pairs for referencing within the Hive script. | No       |
