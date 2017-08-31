@@ -82,7 +82,7 @@ This scenario shows you how to identify and respond to an alarm that's triggered
 
 As an operator, you see in the dashboard that there's an alarm related to the pressure of a chiller.
 
-1. On the dashboard, in the alarm grid you can see the chiller presssure alarm. The chiller is also highlighted on the map:
+1. On the **Dashboard** page, in the **Alarm Status** grid, you can see the **Chiller presssure too high** alarm. The chiller is also highlighted on the map:
 
     <!-- Insert screenshot -->
 
@@ -92,7 +92,7 @@ As an operator, you see in the dashboard that there's an alarm related to the pr
 
 1. Close **Device details** and click **...** next to the alarm in the alarm grid. To navigate to the rule definition, select **Maintenance**.
 
-On the **Maintenance** tab, you can view the details of the rule that triggered the chiller pressure alarm.
+On the **Maintenance** page, you can view the details of the rule that triggered the chiller pressure alarm.
 
 1. You can see the number of times the alarm has triggered, acknowledgments, and open and closed alarms:
 
@@ -108,7 +108,7 @@ You have now identified the issue that triggered the alarm and the associated de
 
     <!-- Insert screenshot -->
 
-1. To act on the chiller, select **Schedule** in the upper-right panel. Select **Valve pressure release**, add a job name **Chiller pressure release**, and do not add a time range. These settings create a job that executes immediately:
+1. To act on the chiller, select **Schedule** in the upper-right panel. Select **Valve pressure release**, add a job name **Chiller pressure release**, do not add a time range. These settings create a job that executes immediately:
 
     <!-- Insert screenshot -->
 
@@ -118,7 +118,7 @@ You have now identified the issue that triggered the alarm and the associated de
 
 Finally, confirm that the telemetry values from the chiller are back to normal.
 
-1. Navigate to the dashbaoard to view the alarms grid.
+1. To view the alarms grid, navigate to the **Dashboard** page.
 
 1. View the device telemetry for the original alarm and confirm that is back to normal.
 
@@ -130,9 +130,9 @@ Finally, confirm that the telemetry values from the chiller are back to normal.
 
 Contoso is testing a new type of device in the field. As part of the testing cycle, you need to ensure that device firmware updates work correctly. The following steps show you how to use the remote monitoring solution to update the firmware on multiple devices.
 
-You can use the devices page to perform all the necessary device management tasks. Start by filtering for all prototyping devices:
+You can use the **Devices** page to perform all the necessary device management tasks. Start by filtering for all prototyping devices:
 
-1. Navigate to the devices page. Choose the **Prototyping** filter in the **Filters** drop-down:
+1. Navigate to the **Devices** page. Choose the **Prototyping** filter in the **Filters** drop-down:
 
     <!-- Insert screenshot -->
 
@@ -167,7 +167,7 @@ You can use the **Maintenance** page to track the job as it runs.
 
 You can create a filter to verify the firmware version update correctly.
 
-1. Navigate to the Devices page and select **Manage filters**:
+1. To create a filter, navigate to the **Devices** page and select **Manage**:
 
     <!-- Insert screenshot -->
 
