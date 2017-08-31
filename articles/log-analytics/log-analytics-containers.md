@@ -147,7 +147,7 @@ You can run the OMS Agent as a global service on Docker Swarm. Use the following
 
 ##### Secure secrets for Docker Swarm
 
-For Docker Swarm, once the secret for Workspace ID and Primary Key is created, you can run the create the Docker service for OMSagent. Use the following information to create your secret information.
+For Docker Swarm, once the secret for Workspace ID and Primary Key is created, use the following information to create your secret information.
 
 1. Run the following on the master node.
 
