@@ -34,6 +34,28 @@ When you register your own WebHook endpoint with Event Grid, it sends you a POST
 * The event body has the same schema as other Event Grid events.
 * The event data includes a “ValidationCode” property with a randomly generated string e.g. “ValidationCode: acb13…”.
 
+An example SubscriptionValidationEvent is shown below.
+```json
+[{
+  "Id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
+  "Topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "Subject": "",
+  "Data": {
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+  },
+  "EventType": "Microsoft.EventGrid/SubscriptionValidationEvent",
+  "EventTime": "2017-08-06T22:09:30.740323Z"
+}]
+```
+
+In order to prove endpoint ownership, echo back the validation code e.g “validation_response: acb13…”, a sample of which is shown below.
+
+```json
+{
+  "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+}
+```
+
 In order to prove endpoint ownership, echo back the validation code e.g “ValidationResponse: acb13…”.
 
 Finally, it is important to note that Azure Event Grid only supports HTTPS webhook endpoints.
@@ -175,7 +197,7 @@ The following are sample Event Grid role definitions which allow users to perfor
   ] 
 }
 ```
- 
+
 **EventGridContributorRole.json**: Allows all event grid actions.  
 ```json
 { 
