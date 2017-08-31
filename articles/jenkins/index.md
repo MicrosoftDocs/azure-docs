@@ -2,15 +2,15 @@
 title:  Jenkins and Azure
 description: Deploy and integrate Jenkins with Azure 
 services: multiple
-author: mlearned
-manager: douge
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.service: multiple
 ms.tgt_pltfrm: na
 ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/20/2017
-ms.author: mlearned
+ms.author: carolz
 ms.custom: Jenkins
 ---
 <div class="content">
