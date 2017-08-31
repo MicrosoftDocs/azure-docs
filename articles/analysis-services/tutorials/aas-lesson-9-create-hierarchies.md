@@ -3,7 +3,7 @@ title: "Azure Analysis Services tutorial lesson 9: Create hierarchies | Microsof
 description: 
 services: analysis-services
 documentationcenter: ''
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: ''
 tags: ''
