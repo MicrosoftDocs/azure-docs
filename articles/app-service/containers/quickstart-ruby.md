@@ -21,7 +21,7 @@ ms.author: wesmc;rachelap;cephalin
 
 [!INCLUDE [app-service-linux-preview](../../../includes/app-service-linux-preview.md)]
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to you deploy a basic Ruby on Rails app to Azure Web Apps for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Ruby code to the web app.
+[Web Apps for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows you how to you deploy a basic Ruby on Rails app to Azure Web Apps for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Ruby code to the web app.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -84,20 +84,32 @@ You’ve created an empty new web app in a Linux container, with git deployment 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
+...
+remote: Using actionpack 5.1.2
+remote: Using actioncable 5.1.2
+remote: Using actionmailer 5.1.2
+remote: Using railties 5.1.2
+remote: Using sprockets-rails 3.2.0
+remote: Using coffee-rails 4.2.2
+remote: Installing web-console 3.5.1
+remote: Using rails 5.1.2
 remote: Using sass-rails 5.0.6
-remote: Updating files in vendor/cache
-remote: Bundle gems are installed into ./vendor/bundle
-remote: Updating files in vendor/cache
-remote: ~site/repository
+remote: Bundle complete! 13 Gemfile dependencies, 66 gems now installed.
+remote: Bundled gems are installed into /tmp/bundle.
+remote: Zipping up bundle contents
+remote: ......
+remote: ~/site/repository
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
-  579ccb....2ca5f31  master -> master
-myuser@ubuntu1234:~workspace/<app name>$
+remote: App container will begin restart within 10 seconds.
+To https://<app name>.scm.azurewebsites.net/<app name>.git
+   2267282..bc29d1f  master -> master
 ```
 
 ## Browse to the app locally
+
+As shown in the console message when deployment finishes, wait 10 seconds for the app container to restart. 
 
 Browse to the deployed application using your web browser.
 

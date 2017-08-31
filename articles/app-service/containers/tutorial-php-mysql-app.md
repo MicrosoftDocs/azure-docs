@@ -19,7 +19,7 @@ ms.custom: mvc
 ---
 # Build a PHP and MySQL web app in Azure
 
-[Azure Web Apps](../../app-service-web/app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a PHP web app in Azure and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service Web Apps.
+[Web Apps for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a PHP web app and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Web Apps for Containers.
 
 ![PHP app running in Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
