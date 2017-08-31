@@ -32,7 +32,7 @@ Every Azure AD directory comes with an initial domain name in the form of *domai
    
    ![Select the Add command](./media/active-directory-domains-add-azure-portal/add-command.png)
 5. On **Domain name**, enter the name of your custom domain in the box, such as 'contoso.com', and then select **Add Domain**. Be sure to include the .com, .net, or other top-level extension.
-6. On ***domainname*** (that is, your new domain name is the title), gather the DNS entry information that you must use to verify the custom domain name in Azure AD.
+6. On ***domainname*** (that is, your new domain name is the title), gather the DNS entry information to use later to verify the custom domain name in Azure AD.
    
    ![get DNS entry information](./media/active-directory-domains-add-azure-portal/get-dns-info.png)
 
@@ -66,8 +66,12 @@ Now you can [assign user names that include your custom domain name](active-dire
 If you can't verify a custom domain name, try the following troubleshooting steps:
 
 1. **Wait an hour**. DNS records must propagate before Azure AD can verify the domain. This process can take an hour or more.
-2. **Ensure the DNS record was entered, and that it is correct**. Complete this step at the website for the domain name registrar for the domain. Azure AD cannot verify the domain name if the DNS entry is not present in the DNS zone file, or if it is not an exact match with the DNS entry that Azure AD provided you. If you do not have access to update DNS records for the domain at the domain name registrar, share the DNS entry with the person or team at your organization who has this access, and ask them to add the DNS entry.
-3. **Delete the domain name from another directory in Azure AD**. A domain name can be verified in only a single directory. If a domain name was previously verified in another directory, it must be deleted there before it can be verified in your new directory. To learn about deleting domain names, read [Manage custom domain names](active-directory-domains-manage-azure-portal.md).    
+2. **Ensure the DNS record was entered, and that it is correct**. Complete this step at the website for the domain name registrar for the domain. Azure AD can't verify the domain name if 
+  * The DNS entry is not present in the DNS zone file
+  * It is not an exact match with the DNS entry that Azure AD provided you. 
+  
+  If you do not have access to update DNS records for the domain at the domain name registrar, share the DNS entry with the person or team at your organization who has this access, and ask them to add the DNS entry.
+3. **Delete the domain name from another directory in Azure AD**. A domain name can be verified in only a single directory. If a domain name is currently verified in a different directory, it can't be verified in your new directory until it is deleted on the other one. To learn about deleting domain names, read [Manage custom domain names](active-directory-domains-manage-azure-portal.md).    
 
 ## Add more custom domain names
 If your organization uses multiple custom domain names, such as ‘contoso.com’ and ‘contosobank.com’, you can add them, up to a maximum of 900 domain names. The steps in this article can help you add each of your domain names.
