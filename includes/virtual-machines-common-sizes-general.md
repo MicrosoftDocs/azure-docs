@@ -1,5 +1,4 @@
 
-<!-- A-series, Av2-series, D-series, Dv2-series, DS-series*, DSv2-series* -->
 
 - The A-series and Av2-series VMs can be deployed on a variety of hardware types and processors. The size is throttled, based upon the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
 
