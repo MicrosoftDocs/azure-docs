@@ -42,15 +42,15 @@ Azure Functions is a great solution for processing data, integrating systems, wo
 
 Functions provides templates to get you started with key scenarios, including the following:
 
-* **HTTPTrigger** - Trigger the execution of your code by using an HTTP request. For an example, see [Create your first function in the Azure portal](functions-create-generic-webhook-triggered-function.md).
-* **TimerTrigger** - Execute cleanup or other batch tasks on a predefined schedule. For an example, see [Create an event processing function](functions-create-an-event-processing-function.md).
+* **HTTPTrigger** - Trigger the execution of your code by using an HTTP request. For an example, see [Create your first function](functions-create-first-azure-function.md).
+* **TimerTrigger** - Execute cleanup or other batch tasks on a predefined schedule. For an example, see [Create a function triggered by a timer](functions-create-scheduled-function.md).
 * **GitHub webhook** - Respond to events that occur in your GitHub repositories. For an example, see [Create a function triggered by a GitHub webhook](functions-create-a-web-hook-or-api-function.md).
 * **Generic webhook** - Process webhook HTTP requests from any service that supports webhooks. For an example, see [Create a function triggered by a generic webhook](functions-create-generic-webhook-triggered-function.md).
-* **BlobTrigger** - Process Azure Storage blobs when they are added to containers. You might use this function for image resizing. For more information, see [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md).
-* **QueueTrigger** - Respond to messages as they arrive in an Azure Storage queue. For an example, see [Create an Azure Function that binds to an Azure service](functions-create-an-azure-connected-function.md).
-* **EventHubTrigger** -  Respond to events delivered to an Azure Event Hub. Particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things (IoT) scenarios. For more information, see [Azure Functions Event Hubs bindings](functions-bindings-event-hubs.md).
-* **ServiceBusQueueTrigger** - Connect your code to other Azure services or on-premises services by listening to message queues. For more information, see [Azure Functions Service Bus bindings](functions-bindings-service-bus.md).
-* **ServiceBusTopicTrigger** - Connect your code to other Azure services or on-premises services by subscribing to topics. For more information, see [Azure Functions Service Bus bindings](functions-bindings-service-bus.md).
+* **BlobTrigger** - Process Azure Storage blobs when they are added to containers. You might use this function for image resizing. For more information, see [Blob storage bindings](functions-bindings-storage-blob.md).
+* **QueueTrigger** - Respond to messages as they arrive in an Azure Storage queue. For an example, see [Create a function that connects to other Azure services](functions-create-an-azure-connected-function.md).
+* **EventHubTrigger** -  Respond to events delivered to an Azure Event Hub. Particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things (IoT) scenarios. For more information, see [Event Hubs bindings](functions-bindings-event-hubs.md).
+* **ServiceBusQueueTrigger** - Connect your code to other Azure services or on-premises services by listening to message queues. For more information, see [Service Bus bindings](functions-bindings-service-bus.md).
+* **ServiceBusTopicTrigger** - Connect your code to other Azure services or on-premises services by subscribing to topics. For more information, see [Service Bus bindings](functions-bindings-service-bus.md).
 
 Azure Functions supports *triggers*, which are ways to start execution of your code, and *bindings*, which are ways to simplify coding for input and output data. For a detailed description of the triggers and bindings that Azure Functions provides, see [Azure Functions triggers and bindings developer reference](functions-triggers-bindings.md).
 
