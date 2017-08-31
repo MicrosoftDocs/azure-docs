@@ -10159,5 +10159,10 @@
             "redirect_url": "/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup",
             "redirect_document_id": false
         }
+        {
+            "source_path": "articles/active-directory/active-directory-sso-integrate-saas-apps.md",
+            "redirect_url": "/azure/active-directory/active-directory-enterprise-apps-manage-sso",
+            "redirect_document_id": false
+        },
     ]
 }

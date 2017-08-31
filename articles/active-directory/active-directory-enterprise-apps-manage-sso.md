@@ -3,7 +3,7 @@ title: Single sign-on management for enterprise apps in the Azure Active Directo
 description: Learn how to manage single sign on for enterprise apps using the Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: asmalser
+author: curtand
 manager: femila
 editor: ''
 
@@ -14,7 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/31/2017
-ms.author: asmalser
+ms.author: curtand
+ms.reviewer: asmalser
+
 
 ---
 # Managing single sign-on for enterprise apps
