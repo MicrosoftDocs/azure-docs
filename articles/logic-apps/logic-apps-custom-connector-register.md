@@ -230,10 +230,10 @@ for example, with all Logic Apps, Flow, and PowerApps users,
 
 ## Get support
 
-For support with development and onboarding, 
+* For support with development and onboarding, 
 or to request features that aren't available in the registration wizard, 
 contact [condevhelp@microsoft.com](mailto:condevhelp@microsoft.com).
-Microsoft actively monitors this account for developer questions and problems, 
+Microsoft monitors this account for developer questions and problems, 
 and routes them to the appropriate team.
 
 * To ask or answer questions, or see what other Azure Logic Apps users are doing, 
