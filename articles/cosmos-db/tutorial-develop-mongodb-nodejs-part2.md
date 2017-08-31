@@ -101,6 +101,7 @@ This tutorial also requires:
     * Crank up server with app.listen
     * Use a lamba to ensure the port is alive
     
+    
     ```node
     const express = require('express');
     const bodyParser = require('body-parser');
@@ -125,6 +126,7 @@ This tutorial also requires:
 5. In Visual Studio Code, in the **Explorer** pane, right-click the **server** folder, and then click **New file**. Name the new file *routes.js*. 
 
 6. Copy the following code into **routes.js**. This code:
+
     * Refers to the Express router
     * Gets the heroes
     * Send back the json for an defined hero
