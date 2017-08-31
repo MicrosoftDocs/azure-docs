@@ -6,6 +6,7 @@
 ## [Back up Azure VMs](backup-azure-vms-first-look-arm.md)
 ## [Back up Windows Server or Windows computers](backup-try-azure-backup-in-10-mins.md)
 ## [Back up VMware servers](backup-azure-backup-server-vmware.md)
+## [Back up VMs - PowerShell](quick-backup-vm-powershell.md)
 
 # How to
 
