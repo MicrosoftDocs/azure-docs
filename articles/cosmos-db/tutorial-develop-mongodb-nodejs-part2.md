@@ -90,16 +90,16 @@ This tutorial also requires:
 4. In Visual Studio Code, copy the following code into the index.js file. This code:
     * Creates Express
     * Pulls in the body-parser
-    * Use a built-in feature called path
+    * Uses a built-in feature called path
     * Sets root variables to make it easier to find where our code is located
     * Sets up a port
     * Cranks up Express
     * Tells the app how to use the middleware that were going to be using to serve up the server
-    * Use the body-parser for URL encoding
+    * Uses the body-parser for URL encoding
     * Serves everything that's in the dist folder so all that's going to be static content, so use express.static in the dist folder
     * Serves up the actual application, and does a get on anything that falls through to pass up and serve to index.html
-    * Crank up server with app.listen
-    * Use a lamba to ensure the port is alive
+    * Cranks up server with app.listen
+    * Uses a lamba to ensure the port is alive
     
         ```node
         const express = require('express');
@@ -128,7 +128,7 @@ This tutorial also requires:
 
     * Refers to the Express router
     * Gets the heroes
-    * Send back the json for an defined hero
+    * Sends back the json for a defined hero
 
      ```node
      const express = require('express');
