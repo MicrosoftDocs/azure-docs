@@ -200,9 +200,9 @@ Approved client apps for this setting are:
 
     - Only supports IOS and Android as selected [device platforms condition](#device-platforms-condition) 
 
-    - Does not support **Browser** as selected [client app condition](#client-apps-condition) 
+    - Does not support **Browser** as selected [client app condition](#supported-browsers) 
     
-    - Supersedes the **Mobile apps and desktop clients** [client app condition](#client-apps-condition) if it is selected  
+    - Supersedes the **Mobile apps and desktop clients** [client app condition](#supported-mobile-apps-and-desktop-clients) if it is selected  
 
 
 ## Next steps
