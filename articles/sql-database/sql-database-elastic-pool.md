@@ -80,7 +80,7 @@ The following rules of thumb related to database count and database utilization 
 
 ### Minimum number of databases
 
-If the sum of the DTUs of performance levels for single databases is more than 1.5x the eDTUs needed for the pool, then an elastic pool is more cost effective. For available sizes, see [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
+If the sum of the DTUs of performance levels for single databases is more than 1.5x the eDTUs needed for the pool, then an elastic pool is more cost effective. For available sizes, see [eDTU and storage limits for elastic pools and elastic databases](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
 ***Example***<br>
 At least two S3 databases or at least 15 S0 databases are needed for a 100 eDTU pool to be more cost-effective than using performance levels for single databases.
@@ -107,7 +107,7 @@ The best size for a pool depends on the aggregate eDTUs and storage resources ne
 * Maximum DTUs utilized by all databases in the pool.
 * Maximum storage bytes utilized by all databases in the pool.
 
-For available sizes, see [eDTU and storage limits for elastic pools and elastic databases](#what-are-the-resource-limits-for-elastic-pools).
+For available sizes, see [eDTU and storage limits for elastic pools and elastic databases](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
 SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. In addition to the recommendations, a built-in experience estimates the eDTU usage for a custom group of databases on the server. This enables you to do a "what-if" analysis by interactively adding databases to the pool and removing them to get resource usage analysis and sizing advice before committing your changes. For a how-to, see [Monitor, manage, and size an elastic pool](sql-database-elastic-pool-manage-portal.md).
 
@@ -117,7 +117,7 @@ In cases where you can't use tooling, the following step-by-step can help you es
 
    MAX(<*Total number of DBs* X *average DTU utilization per DB*>,<br>
    <*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*)
-2. Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool. Then determine the eDTU pool size that provides this amount of storage. For pool storage limits based on eDTU pool size, see [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
+2. Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool. Then determine the eDTU pool size that provides this amount of storage. For pool storage limits based on eDTU pool size, see [eDTU and storage limits for elastic pools and elastic databases](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 3. Take the larger of the eDTU estimates from Step 1 and Step 2.
 4. See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest eDTU pool size that is greater than the estimate from Step 3.
 5. Compare the pool price from Step 5 to the price of using the appropriate performance levels for single databases.
@@ -145,13 +145,13 @@ Pooled databases generally support the same [business continuity features](sql-d
 
 There are two ways you can create an elastic pool in the Azure portal. You can do it from scratch if you know the pool setup you want, or start with a recommendation from the service. SQL Database has built-in intelligence that recommends an elastic pool setup if it's more cost-efficient for you based on the past usage telemetry for your databases. 
 
-Creating an elastic pool from an existing **server** blade in the portal is the easiest way to move existing databases into an elastic pool. You can also create an elastic pool by searching **SQL elastic pool** in the **Marketplace** or clicking **+Add** in the **SQL elastic pools** browse blade. You are able to specify a new or existing server through this pool provisioning workflow.
+Creating an elastic pool from an existing server page in the portal is the easiest way to move existing databases into an elastic pool. You can also create an elastic pool by searching **SQL elastic pool** in the **Marketplace** or clicking **+Add** on the SQL elastic pools page. You are able to specify a new or existing server through this pool provisioning workflow.
 
 > [!NOTE]
 > You can create multiple pools on a server, but you can't add databases from different servers into the same pool.
 > 
 
-The pool's pricing tier determines the features available to the elastics in the pool, and the maximum number of eDTUs (eDTU MAX), and storage (GBs) available to each database. For details, see [Service Tiers](#edtu-and-storage-limits-for-elastic-pools).
+The pool's pricing tier determines the features available to the elastics in the pool, and the maximum number of eDTUs (eDTU MAX), and storage (GBs) available to each database. For details, see [Resource limits for elastic pools](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
 To change the pricing tier for the pool, click **Pricing tier**, click the pricing tier you want, and then click **Select**.
 
@@ -178,7 +178,7 @@ The pool recommendation comprises:
 
 The service evaluates resource needs and cost effectiveness of moving the single databases in each service tier into pools of the same tier. For example, all Standard databases on a server are assessed for their fit into a Standard Elastic Pool. This means the service does not make cross-tier recommendations such as moving a Standard database into a Premium pool.
 
-After adding databases to the pool, recommendations are dynamically generated based on the historical usage of the databases you have selected. These recommendations are shown in the eDTU and GB usage chart and in a recommendation banner at the top of the **Configure pool** blade. These recommendations are intended to assist you in creating an elastic pool optimized for your specific databases.
+After adding databases to the pool, recommendations are dynamically generated based on the historical usage of the databases you have selected. These recommendations are shown in the eDTU and GB usage chart and in a recommendation banner at the top of the **Configure pool** page. These recommendations are intended to assist you in creating an elastic pool optimized for your specific databases.
 
 ![dynamic recommendations](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
@@ -199,11 +199,11 @@ You can go to a particular pool to see its resource utilization. By default, the
 
 ![Elastic pool monitoring](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
 
-![Metric blade](./media/sql-database-elastic-pool-manage-portal/metric.png)
+![Metric page](./media/sql-database-elastic-pool-manage-portal/metric.png)
 
 ### To customize the chart display
 
-You can edit the chart and the metric blade to display other metrics such as CPU percentage, data IO percentage, and log IO percentage used.
+You can edit the chart and the metric page to display other metrics such as CPU percentage, data IO percentage, and log IO percentage used.
 
 ![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-metric.png)
 
@@ -221,9 +221,9 @@ Individual databases can also be monitored for potential trouble. Under **Elasti
 
 ![Elastic pool monitoring](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
 
-Click the **eDTU usage for databases for the past hour** under **Elastic database monitoring**. This opens **Database Resource Utilization** and provides a detailed view of the database usage in the pool. Using the grid in the lower part of the blade, you can select any databases in the pool to display its usage in the chart (up to 5 databases). You can also customize the metrics and time window displayed in the chart by clicking **Edit chart**.
+Click the **eDTU usage for databases for the past hour** under **Elastic database monitoring**. This opens **Database Resource Utilization** and provides a detailed view of the database usage in the pool. Using the grid in the lower part of the page, you can select any databases in the pool to display its usage in the chart (up to 5 databases). You can also customize the metrics and time window displayed in the chart by clicking **Edit chart**.
 
-![Database resource utilization blade](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
+![Database resource utilization page](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
 ### To customize the view
 
@@ -239,7 +239,7 @@ You can also click the **Compare databases by** dropdown to select a different m
 
 ### To select databases to monitor
 
-In the database list in the **Database Resource Utilization** blade, you can find particular databases by looking through the pages in the list or by typing in the name of a database. Use the checkbox to select the database.
+In the database list on the **Database Resource Utilization** page, you can find particular databases by looking through the pages in the list or by typing in the name of a database. Use the checkbox to select the database.
 
 ![Search for databases to monitor](./media/sql-database-elastic-pool-manage-portal/select-dbs.png)
 
@@ -250,7 +250,7 @@ You can add rules to an elastic pool that send email to people or alert strings 
 
 **To add an alert to any resource:**
 
-1. Click the **Resource utilization** chart to open the **Metric** blade, click **Add alert**, and then fill out the information in the **Add an alert rule** blade (**Resource** is automatically set up to be the pool you're working with).
+1. Click the **Resource utilization** chart to open the **Metric** page, click **Add alert**, and then fill out the information in the **Add an alert rule** page (**Resource** is automatically set up to be the pool you're working with).
 2. Type a **Name** and **Description** that identifies the alert to you and the recipients.
 3. Choose a **Metric** that you want to alert from the list.
 
