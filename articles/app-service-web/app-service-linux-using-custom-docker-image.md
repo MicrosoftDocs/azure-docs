@@ -155,7 +155,7 @@ Verify the web app and container are functioning correctly by browsing the web a
 
 ## Push Docker image  
 
-A registry is an application that hosts images and provides services image and container services. In order to share your image, you must push it to a registry. You can push the image to a `Public Docker Hub`, `Private Docker Hub`, or at a private registry using [Azure Container Registry](https://azure.microsoft.com/services/container-registry/). 
+A registry is an application that hosts images and provides services image and container services. In order to share your image, you must push it to a registry. Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry such as Azure Container Registry. Select the appropriate tab for your scenario below (your selection will switch multiple tabs on this page). 
 
 
 # [Docker Hub](#tab/docker-hub) 
