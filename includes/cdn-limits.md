@@ -1,6 +1,6 @@
 
 | Resource | Default limit | Maximum limit | 
-| --- | --- |
+| --- | --- | --- |
 | CDN profiles |8 |25 |
 | CDN endpoints per profile |10 |25 |
 | Custom domains per endpoint |10 |25 |
