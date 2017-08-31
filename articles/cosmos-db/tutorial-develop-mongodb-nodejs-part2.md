@@ -101,47 +101,46 @@ This tutorial also requires:
     * Cranks up server with app.listen
     * Uses a lamba to ensure the port is alive
     
-        ```node
-        const express = require('express');
-        const bodyParser = require('body-parser');
-        const path = require('path');
-        const routes = require('./routes');
+   ```node
+   const express = require('express');
+   const bodyParser = require('body-parser');
+   const path = require('path');
+   const routes = require('./routes');
 
-        const root = './';
-        const port = process.env.PORT || '3000';
-        const app = express();
+   const root = './';
+   const port = process.env.PORT || '3000';
+   const app = express();
 
-        app.use(bodyParser.json());
-        app.use(bodyParser.urlencoded({ extended: false }));
-        app.use(express.static(path.join(root, 'dist')));
-        app.use('/api', routes);
-        app.get('*', (req, res) => {
-          res.sendFile('dist/index.html', {root});
-        });
+   app.use(bodyParser.json());
+   app.use(bodyParser.urlencoded({ extended: false }));
+   app.use(express.static(path.join(root, 'dist')));
+   app.use('/api', routes);
+   app.get('*', (req, res) => {
+     res.sendFile('dist/index.html', {root});
+   });
 
-        app.listen(port, () => console.log(`API running on localhost:${port}`));
-        ```
+   app.listen(port, () => console.log(`API running on localhost:${port}`));
+   ```
 
 5. In Visual Studio Code, in the **Explorer** pane, right-click the **server** folder, and then click **New file**. Name the new file *routes.js*. 
 
 6. Copy the following code into **routes.js**. This code:
+   * Refers to the Express router
+   * Gets the heroes
+   * Sends back the json for a defined hero
 
-    * Refers to the Express router
-    * Gets the heroes
-    * Sends back the json for a defined hero
+   ```node
+   const express = require('express');
+   const router = express.Router();
 
-     ```node
-     const express = require('express');
-     const router = express.Router();
+   router.get('/heroes', (req, res) => {
+    res.send(200, [
+       {"id": 10, "name": "Starlord", "saying": "oh yeah"}
+    ])
+   });
 
-     router.get('/heroes', (req, res) => {
-      res.send(200, [
-         {"id": 10, "name": "Starlord", "saying": "oh yeah"}
-      ])
-     });
-
-     module.exports=router;
-     ```
+   module.exports=router;
+   ```
 
 7. Save all your modified files. 
 
