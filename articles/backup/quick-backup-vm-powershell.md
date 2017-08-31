@@ -39,6 +39,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) is a container that holds the recovery points for the items being backed up. A Recovery Services vault is an Azure resource that can be deployed and managed as part of an Azure resource group.
 
 ### Register the provider
+
 The first time you use Azure Backup, you must register the Azure Recovery Service provider with your subscription.
 
 ```powershell
@@ -46,6 +47,7 @@ PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryS
 ```
 
 ### Create a vault
+
 Use **New-AzureRmRecoveryServicesVault** to create a Recovery Services vault. Specify the same location for the vault as was used for the virtual machine's resource group.
 
 ```powershell
@@ -53,6 +55,7 @@ PS C:\> New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName myRe
 ```
 
 ### Specify storage redundancy
+
 Use the **-BackupStorageRedundancy** option to specify the type of storage redundancy: [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) or [Geo-Redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). The following example sets the storage redundancy option for myRSVault to GeoRedundant. Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it may be convenient to store the Backup Recovery Services vault object in a variable.
 
 ```powershell
@@ -61,9 +64,11 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStora
 ```
 
 ## Back up Azure virtual machines
-Before you can run the intial backup, you must set the vault context, which is the type of data protected in the vault, and verify the protection policy. The protection policy is the schedule when the backup jobs run, and how long each backup snapshot is retained.
+
+Before you can run the initial backup, you must set the vault context, which is the type of data protected in the vault, and verify the protection policy. The protection policy is the schedule when the backup jobs run, and how long each backup snapshot is retained.
 
 ### Set vault context
+
 Use **[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** to set the vault context. Once the vault context is set, it applies to all subsequent cmdlets. The following example sets the vault context for the vault, *myRSVault*.
 
 ```powershell
@@ -71,9 +76,11 @@ PS C:\> Get-AzureRmRecoveryServicesVault -Name myRSVault | Set-AzureRmRecoverySe
 ```
 
 ### Protection and retention policy
+
 When you create a Recovery Services vault, it comes with default protection and retention policies. The default protection policy triggers a backup job each day at a specified time. The default retention policy retains the daily recovery point for 30 days. You can use the default policy to quickly protect your virtual machine and edit the policy later with different details. For information on modifying these policies, see [Use AzureRM.RecoveryServices.Backup cmdlets to back up virtual machines](backup-azure-vms-automation.md#create-a-protection-policy).
 
 ### Trigger the backup job
+
 Use **[Backup-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)** to trigger a backup job. The backup job creates a recovery point. If it is the initial backup, then the recovery point is a full backup. Subsequent backups take an incremental copy. Be sure to use **[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** to set the vault context before triggering the backup job. The following example assumes vault context was set.
 
 ```powershell
@@ -83,6 +90,7 @@ PS C:\> $job = Backup-AzureRmRecoveryServicesBackupItem -Item $item
 ```
 
 ## Monitoring a backup job
+
 Depending on the size of the backup job, it can take a while to complete. You can monitor long-running backup jobs, without using the Azure portal. Use **[Get-AzureRmRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjob)** to view the status of an in-progress job. This cmdlet gets the backup jobs for the vault specified in the vault context. The following example gets the status of an in-progress job as an array, and stores the status in the $joblist variable.
 
 ```powershell
