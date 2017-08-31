@@ -56,7 +56,7 @@ Write-Host 'Please log into your Azure Stack user environment' -foregroundcolor 
 $tenantARM = "https://management.local.azurestack.external"
 $aadTenantName = "PLEASE FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
 
-# Configure the cloud administrator’s PowerShell environment.
+# Configure the Azure Stack operator’s PowerShell environment.
 Add-AzureRMEnvironment `
   -Name "AzureStackUser" `
   -ArmEndpoint $tenantARM
@@ -130,9 +130,9 @@ Make a note of the VaultUrl, AuthClientId, AuthClientSecret values returned by t
 
 ## Download and run the sample application
 
-Download the key vault sample from the Azure key vault client samples page. Extract the contents of the .zip file onto your development workstation. Navigate to the Microsoft.Azure.KeyVault.Samples > samples > HelloKeyVault folder and open the HelloKeyVault application in Visual Studio. 
+Download the key vault sample from the Azure [key vault client samples](https://www.microsoft.com/en-us/download/details.aspx?id=45343) page. Extract the contents of the .zip file onto your development workstation. There are two samples within the samples folder, we will use the HellpKeyVault sample in this topic. Navigate to the Microsoft.Azure.KeyVault.Samples > samples > HelloKeyVault folder and open the HelloKeyVault application in Visual Studio. 
 
-Open the HelloKeyVault\App.config file and replace the values of <appSettings> element with the VaultUrl, AuthClientId, AuthClientSecret values returned by the previous script. Note that by default the App.config contains place holder for AuthCertThumbprint but you will use AuthClientSecret instead. After you replace the settings, rebuild the solution and start the application.
+Open the HelloKeyVault\App.config file and replace the values of <appSettings> element with the VaultUrl, AuthClientId, AuthClientSecret values returned by the previous script. Note that by default the App.config contains place holder for **AuthCertThumbprint** but you will use **AuthClientSecret** instead. After you replace the settings, rebuild the solution and start the application.
 
 ![app settings](media/azure-stack-kv-sample-app/appconfig.png)
  
