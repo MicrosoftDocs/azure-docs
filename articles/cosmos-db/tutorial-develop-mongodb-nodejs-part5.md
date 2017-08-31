@@ -47,7 +47,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     npm i mongoose --save
     ```
 
-2. Now create a new file in your **server** folder called **mongo.js**. In the Explorer pane, right-click the **server** folder, click **New File**, and name the new file **mongo.js**. In this file, you add all of your connection info for the Azure Cosmos DB database.
+2. Now create a new file in your **server** folder called **mongo.js**. In the Explorer pane, right-click the **server** folder, click **New File**, and name the new file *mongo.js*. In this file, you add all of your connection info for the Azure Cosmos DB database.
 
 3. Copy the following code into mongo.js. This code:
     * Requires Mongoose.
@@ -81,7 +81,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     ```
 4. In the Explorer pane, right-click the **server** folder, click **New Folder**, and name the new folder **env**.
 
-5. In the Explorer pane, right-click the **env** folder, click **New File**, and name the new file **environment.js**.
+5. In the Explorer pane, right-click the **env** folder, click **New File**, and name the new file *environment.js*.
 
 6. From the mongo.js file, we know we need to include the dbName, the key, and the cosmosPort, so copy the following code into **environment.js**.
 
@@ -122,7 +122,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Create a Hero model
 
-1.  In the Explorer pane, right-click the **server** folder, click **New File**, and name the new file **hero.model.js**.
+1.  In the Explorer pane, right-click the **server** folder, click **New File**, and name the new file *hero.model.js*.
 
 2. Copy the following code into hero.model.js. This code:
     * Requires Mongoose.
@@ -154,7 +154,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Create a Hero service
 
-1.  In the Explorer pane, right-click the **server** folder, click **New File**, and name the new file **hero.service.js**.
+1.  In the Explorer pane, right-click the **server** folder, click **New File**, and name the new file *hero.service.js*.
 
 2. Copy the following code into hero.service.js. This code:
     * Gets the model you just created
