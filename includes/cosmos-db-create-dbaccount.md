@@ -1,5 +1,5 @@
 1. In a new window, sign in to the [Azure portal](https://portal.azure.com/).
-2. In the left pane, click **New**, click **Databases**, and then click **Azure Cosmos DB**.
+2. In the left pane, click **New**, click **Databases**, and then under **Azure Cosmos DB**, click **Create**.
    
    ![The Azure portal Databases pane](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
@@ -15,7 +15,7 @@
 
     Setting|Suggested value|Description
     ---|---|---
-    ID|*Unique value*|A unique name that identifies this Azure Cosmos DB account. TBecause *documents.azure.com* is appended to the ID that you provide to create your URI, use a unique but identifiable ID. The ID can contain only lowercase letters, numbers, and the hyphen (-) character, and it must contain 3 to 50 characters.
+    ID|*Unique value*|A unique name that identifies this Azure Cosmos DB account. Because *documents.azure.com* is appended to the ID that you provide to create your URI, use a unique but identifiable ID. The ID can contain only lowercase letters, numbers, and the hyphen (-) character, and it must contain 3 to 50 characters.
     API|SQL (DocumentDB)|We program against the [DocumentDB API](../articles/documentdb/documentdb-introduction.md) later in this article.|
     Subscription|*Your subscription*|The Azure subscription that you want to use for this Azure Cosmos DB account. 
     Resource Group|*The same value as ID*|The new resource-group name for your account. For simplicity, you can use the same name as your ID. 

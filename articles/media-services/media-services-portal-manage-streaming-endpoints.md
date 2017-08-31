@@ -6,7 +6,7 @@ services: media-services
 documentationcenter: ''
 author: Juliako
 writer: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: bb1aca25-d23a-4520-8c45-44ef3ecd5371
@@ -15,7 +15,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako
 
 ---

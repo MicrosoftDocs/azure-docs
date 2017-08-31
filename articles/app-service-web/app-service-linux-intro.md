@@ -35,6 +35,9 @@ Web App on Linux currently supports the following application stacks:
 	* 6.6
 	* 6.9
 	* 6.10
+	* 6.11
+	* 8.0
+	* 8.1
 * PHP
 	* 5.6
 	* 7.0
@@ -53,19 +56,19 @@ Customers can deploy their applications by using:
 
 For application scaling:
 
-* Customers can scale web apps up and down by changing the tier in their App Service plan
+* Customers can scale web apps up and down by changing the tier of their App Service plan
 * Customers can scale out applications and run multiple app instances within the confines of their SKU
 
 For Kudu, some of the basic functionality:
 
 * Environments
 * Deployments
-* Basic consoles
+* Basic console
 * SSH
 
 For devops:
 
-* Deployment Slots
+* Staging environments
 * ACR and DockerHub CI/CD
 
 ## Limitations
@@ -76,19 +79,36 @@ Some features, such as virtual network integration, Azure Active Directory/third
 This public preview is currently only available in the following regions:
 
 * West US
-* West Europe 
+* East US
+* West Europe
+* North Europe
+* South Central US
+* North Central US
 * Southeast Asia
+* East Asia
 * Australia East
 * Japan East
+* Brazil South
+* South India
 
 Web Apps on Linux is only supported in the Dedicated app service plans and does not have a Free or Shared tier. Also, App Service plans for regular and Linux web apps are mutually exclusive, so you cannot create a Linux web app in a non-Linux app service plan.
 
 Web Apps on Linux must be created in a resource group that does not contain non-Linux web apps in the same region.
 
+## Troubleshooting ##
+
+When your application fails to start or you want to check the logging from your app, check the Docker logs in the LogFiles directory. You can access this directory either through your SCM site or via FTP.
+To log the `stdout` and `stderr` from your container, you need to enable **Docker Container logging** under **Diagnostics Logs**.
+
+![Enabling Logging][2]
+
+![Using Kudu to view Docker logs][1]
+
+You can access the SCM site from **Advanced Tools** in the **Development Tools** menu.
+
 ## Next steps
 See the following links to get started with App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Creating Web Apps in Azure Web App on Linux](app-service-linux-how-to-create-web-app.md)
 * [How to use a custom Docker image for Azure Web App on Linux](app-service-linux-using-custom-docker-image.md)
 * [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure App Service Web App on Linux](app-service-linux-using-dotnetcore.md)
@@ -98,3 +118,6 @@ See the following links to get started with App Service on Linux. You can post q
 * [Set up staging environments in Azure App Service](./web-sites-staged-publishing.md)
 * [Docker Hub Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md)
 
+<!--Image references-->
+[1]: ./media/app-service-linux-intro/kudu-docker-logs.png
+[2]: ./media/app-service-linux-intro/logging.png

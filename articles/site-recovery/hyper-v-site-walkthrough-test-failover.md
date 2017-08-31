@@ -29,7 +29,7 @@ Before you run a test failover we recommend that you verify the VM properties, a
 
 ## Managed disk considerations
 
-[Managed disks](../storage/storage-managed-disks-overview.md) simplify disk management for Azure VMs, by managing the storage accounts associated with the VM disks. 
+[Managed disks](../virtual-machines/windows/managed-disks-overview.md) simplify disk management for Azure VMs, by managing the storage accounts associated with the VM disks. 
 
 - Managed disks are created and attached to the VM only when a failover to Azure occurs. When you enable protection, data from on-premises VMs replicates to storage accounts.
 - Managed disks can be created only for VMs that are deployed using the Resource manager deployment model.
@@ -61,9 +61,9 @@ We recommend that you verify the properties of the source machine before you run
     ![Enable replication](./media/hyper-v-site-walkthrough-test-failover/test-failover2.png)
 3. In **Compute and Network**, you can:
     - Modify the Azure VM name. The name must meet [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-    - Specify a post-failover [resource group](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md)
+    - Specify a post-failover [resource group].
     - Specify a target size for the Azure VM
-    - Select an [availability set](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+    - Select an [availability set](../virtual-machines/windows/tutorial-availability-sets.md).
     - Specify whether to use [managed disks](#managed-disk-considerations). Select **Yes**, if you want to attach managed disks to your machine on migration to Azure.
     - View or modify network settings, including the network/subnet in which the Azure VM will be located after failover, and the IP address that will be assigned to it.
 

@@ -1,56 +1,90 @@
+---
+title: Azure AD v2 JS SPA Guided Setup - Setup | Microsoft Docs
+description: How JavaScript SPA applications can call an API that require access tokens by Azure Active Directory v2 endpoint
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: ''
 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity 
+ms.date: 06/01/2017
+ms.author: andret
+
+---
 ## Setting up your web server or project
 
-> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/master.zip) and skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing.
+> Prefer to download this sample's project instead? 
+> - [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
+>
+> or
+> - [Download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) for a local web server, such as Python
+>
+> And then  skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing it.
 
 ## Prerequisites
-A local web server such as [http-server](https://www.npmjs.com/package/http-server/), [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), or IIS Express integration with [Visual Studio 2017](https://www.visualstudio.com/downloads/) is required to run this guided setup. 
+A local web server such as [Python http.server](https://www.python.org/downloads/), [http-server](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core), or IIS Express integration with [Visual Studio 2017](https://www.visualstudio.com/downloads/) is required to run this guided setup. 
 
-Instructions in this guide are based on Visual Studio 2017, but feel free to use any other development environment or HTML/JavaScript editor.
+Instructions in this guide are based on both Python and Visual Studio 2017, but feel free to use any other development environment or Web Server.
 
+## Create your project 
 
-## Create your project (Visual Studio only)
+> ### Option 1: Visual Studio 
+> If you are using Visual Studio and are creating a new project, follow the steps below to create a new Visual Studio solution:
+> 1.	In Visual Studio:  `File` > `New` > `Project`
+> 2.	Under `Visual C#\Web`, select `ASP.NET Web Application (.NET Framework)`
+> 3.	Name your application and click *OK*
+> 4.	Under `New ASP.NET Web Application`, select `Empty`
 
-If you are using Visual Studio and are creating a new project, follow the steps below to create a new Visual Studio solution:
-1.	In Visual Studio:  `File` > `New` > `Project`
-2.	Under `Visual C#\Web`, select `ASP.NET Web Application (.NET Framework)`
-3.	Name your application and click *OK*
-4.	Under `New ASP.NET Web Application`, select `Empty`
+<p/><!-- -->
+
+> ### Option 2: Python/ other web servers
+> Make sure you have installed [Python](https://www.python.org/downloads/), then follow the step below:
+> -	Create a folder to host your application.
 
 
 ## Create your single page application’s UI
-1.	Create an index.html file for your JavaScript SPA. If you are using Visual Studio, select the project (project root folder), right click and select: `Add` > `New Item` > `HTML page` and name it index.html
+1.	Create an *index.html* file for your JavaScript SPA. If you are using Visual Studio, select the project (project root folder), right click and select: `Add` > `New Item` > `HTML page` and name it index.html
 2.	Add the following code to your page:
 ```html
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-        <title>JavaScript SPA Guided Setup</title>
-    </head>
-    <body style="margin: 40px">
-        <button id="callGraphButton" type="button" class="btn btn-primary" onclick="callGraphAPI()">Call Microsoft Graph API</button>
-        <div id="errorMessage" class="text-danger"></div>
-        <div class="hidden">
-            <h3>Graph API Call Response</h3>
-            <pre class="well" id="graphResponse"></pre>
-        </div>
-        <div class="hidden">
-            <h3>Access Token</h3>
-            <pre class="well" id="accessToken"></pre>
-        </div>
-        <div class="hidden">
-            <h3>ID Token Claims</h3>
-            <pre class="well" id="userInfo"></pre>
-        </div>
-        <button id="signOutButton" type="button" class="btn btn-primary hidden" onclick="signOut()">Sign out</button>
+<head>
+    <!-- bootstrap reference used for styling the page -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <title>JavaScript SPA Guided Setup</title>
+</head>
+<body style="margin: 40px">
+    <button id="callGraphButton" type="button" class="btn btn-primary" onclick="callGraphApi()">Call Microsoft Graph API</button>
+    <div id="errorMessage" class="text-danger"></div>
+    <div class="hidden">
+        <h3>Graph API Call Response</h3>
+        <pre class="well" id="graphResponse"></pre>
+    </div>
+    <div class="hidden">
+        <h3>Access Token</h3>
+        <pre class="well" id="accessToken"></pre>
+    </div>
+    <div class="hidden">
+        <h3>ID Token Claims</h3>
+        <pre class="well" id="userInfo"></pre>
+    </div>
+    <button id="signOutButton" type="button" class="btn btn-primary hidden" onclick="signOut()">Sign out</button>
 
-        <script src="//secure.aadcdn.microsoftonline-p.com/lib/0.1.1/js/msal.min.js"></script>
-        <script type="text/javascript" src="msalconfig.js"></script>
-    
-        <!-- The 'bluebird' and 'fetch' references below are required if you need to run this application on Internet Explorer -->
-        <script src="//cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
-    </body>
+    <!-- This app uses cdn to reference msal.js (recommended). 
+         You can also download it from: https://github.com/AzureAD/microsoft-authentication-library-for-js -->
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.1.1/js/msal.min.js"></script>
+
+    <!-- The 'bluebird' and 'fetch' references below are required if you need to run this application on Internet Explorer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+
+    <script type="text/javascript" src="msalconfig.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
 </html>
 ````

@@ -36,7 +36,8 @@
 ### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 ### [Apps that use queues](service-bus-create-queues.md)
 ### [Apps that use topics/subscriptions](service-bus-create-topics-subscriptions.md)
-### [Authentication and authorization](service-bus-sas.md)
+### [Authentication and authorization](service-bus-authentication-and-authorization.md)
+#### [Authentication with Shared Access Signatures](service-bus-sas.md)
 ### [Partitioned queues and topics](service-bus-partitioning.md)
 ### [Dead-letter queues](service-bus-dead-letter-queues.md)
 ### [Transaction processing](service-bus-transactions.md)
@@ -76,7 +77,7 @@
 ## [ServiceBus360](https://www.servicebus360.com/)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Service updates](https://azure.microsoft.com/updates/?product=service-bus)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azureservicebus)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
