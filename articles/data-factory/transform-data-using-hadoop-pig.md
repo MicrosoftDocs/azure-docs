@@ -59,10 +59,11 @@ The HDInsight Pig activity in a Data Factory [pipeline](concepts-pipelines-activ
 | type                | For Hive Activity, the activity type is HDinsightPig | Yes      |
 | linkedServiceName   | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes      |
 | scriptLinkedService | Reference to an Azure Storage Linked Service used to store the Pig script to be executed. If you don't specify this Linked Service, the Azure Storage Linked Service defined in the HDInsight Linked Service is used. | No       |
-| scriptPath          | Provide the path to the script file stored in the Azure Storage (scriptLinkedService). The file name is case-sensitive. | No       |
+| scriptPath          | Provide the path to the script file stored in the Azure Storage referred by scriptLinkedService. The file name is case-sensitive. | No       |
 | getDebugInfo        | Specifies when the log files are copied to the Azure Storage used by HDInsight cluster (or) specified by scriptLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No       |
 | arguments           | Specifies an array of arguments for a Hadoop job. The arguments are passed as command-line arguments to each task. | No       |
 | defines             | Specify parameters as key/value pairs for referencing within the Pig script. | No       |
+
 
 ## See Also
 * [Hive Activity](transform-data-using-hadoop-hive.md)
